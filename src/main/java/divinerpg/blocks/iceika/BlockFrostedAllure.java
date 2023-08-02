@@ -59,11 +59,11 @@ public class BlockFrostedAllure extends BaseEntityBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(!level.isClientSide && hand == InteractionHand.MAIN_HAND && player.getItemInHand(hand).getItem() == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_stone"))){
+        if(hand == InteractionHand.MAIN_HAND && player.getItemInHand(hand).getItem() == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_stone"))){
             if(state.getValue(CATEGORY) == 0){
                 level.setBlock(pos, state.setValue(CATEGORY, 1), 0);
                 player.displayClientMessage(Component.translatable("tooltip.divinerpg.monster"), true);
-                if(!player.isCreative() && !player.isSpectator()) {
+                if(!player.isCreative()) {
                     player.getItemInHand(hand).shrink(1);
                 }
                 return InteractionResult.SUCCESS;
@@ -71,7 +71,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
             if(state.getValue(CATEGORY) == 1){
                 level.setBlock(pos, state.setValue(CATEGORY, 2), 0);
                 player.displayClientMessage(Component.translatable("tooltip.divinerpg.creature"), true);
-                if(!player.isCreative() && !player.isSpectator()) {
+                if(!player.isCreative()) {
                     player.getItemInHand(hand).shrink(1);
                 }
                 return InteractionResult.SUCCESS;
@@ -79,7 +79,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
             if(state.getValue(CATEGORY) == 2){
                 level.setBlock(pos, state.setValue(CATEGORY, 3), 0);
                 player.displayClientMessage(Component.translatable("tooltip.divinerpg.ambient"), true);
-                if(!player.isCreative() && !player.isSpectator()) {
+                if(!player.isCreative()) {
                     player.getItemInHand(hand).shrink(1);
                 }
                 return InteractionResult.SUCCESS;
@@ -87,7 +87,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
             if(state.getValue(CATEGORY) == 3){
                 level.setBlock(pos, state.setValue(CATEGORY, 4), 0);
                 player.displayClientMessage(Component.translatable("tooltip.divinerpg.water"), true);
-                if(!player.isCreative() && !player.isSpectator()) {
+                if(!player.isCreative()) {
                     player.getItemInHand(hand).shrink(1);
                 }
                 return InteractionResult.SUCCESS;
@@ -95,7 +95,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
             if(state.getValue(CATEGORY) == 4){
                 level.setBlock(pos, state.setValue(CATEGORY, 5), 0);
                 player.displayClientMessage(Component.translatable("tooltip.divinerpg.misc"), true);
-                if(!player.isCreative() && !player.isSpectator()) {
+                if(!player.isCreative()) {
                     player.getItemInHand(hand).shrink(1);
                 }
                 return InteractionResult.SUCCESS;
@@ -103,7 +103,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
             if(state.getValue(CATEGORY) == 5){
                 level.setBlock(pos, state.setValue(CATEGORY, 0), 0);
                 player.displayClientMessage(Component.translatable("tooltip.divinerpg.all"), true);
-                if(!player.isCreative() && !player.isSpectator()) {
+                if(!player.isCreative()) {
                     player.getItemInHand(hand).shrink(1);
                 }
                 return InteractionResult.SUCCESS;

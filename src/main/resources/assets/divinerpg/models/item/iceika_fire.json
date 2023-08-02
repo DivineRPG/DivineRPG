@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/blue_fire_0"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:block/blue_fire_1"
+  }
 }

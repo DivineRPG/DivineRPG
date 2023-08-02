@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/tomato_plant_stage_0"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:block/tomato_plant_0"
+  }
 }

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:wizards_book"
+    "divinerpg:wizards_book",
+    "divinerpg:maelstrom"
   ]
 }
