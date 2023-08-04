@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:cozybark_stairs",
+    "count": 4
+  },
+  "pattern": [
+    "s  ",
+    "ss ",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "divinerpg_wooden_stairs",
+  "key": {
+    "s": {
+      "item": "divinerpg:cozybark_planks"
+    }
+  }
+}

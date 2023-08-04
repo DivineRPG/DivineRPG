@@ -1,0 +1,6 @@
+{
+  "parent": "block/button",
+  "textures": {
+    "texture": "divinerpg:block/cozybark_planks"
+  }
+}

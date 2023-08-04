@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/cozybark_half_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/cozybark_planks"
+    },
+    "type=top": {
+      "model": "divinerpg:block/cozybark_upper_slab"
+    }
+  }
+}

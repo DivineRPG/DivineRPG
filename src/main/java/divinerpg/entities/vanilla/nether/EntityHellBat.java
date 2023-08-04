@@ -42,4 +42,16 @@ public class EntityHellBat extends Bat {
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return sizeIn.height / 2.0F;
     }
+    @Override
+    public boolean removeWhenFarAway(double d) {
+    	return true;
+    }
+    @Override
+    public int getMaxSpawnClusterSize() {
+    	return 1;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 1;
+    }
 }

@@ -122,7 +122,10 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.6875F;
     }
-
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 1;
+    }
     @Override
     public int getMaxSpawnClusterSize() {
         return 1;

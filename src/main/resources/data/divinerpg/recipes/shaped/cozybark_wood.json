@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "divinerpg_bark",
+  "key": {
+    "#": {
+      "item": "divinerpg:cozybark_log"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "item": "divinerpg:cozybark_wood"
+  }
+}

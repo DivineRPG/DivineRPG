@@ -52,4 +52,8 @@ public class EntityHellPig extends EntityDivineTameable {
     public void setAngry(boolean angry) {
         entityData.set(ANGRY, angry);
     }
+    @Override
+    public boolean removeWhenFarAway(double d) {
+    	return !isTame();
+    }
 }

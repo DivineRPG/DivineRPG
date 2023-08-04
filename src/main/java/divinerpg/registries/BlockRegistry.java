@@ -201,6 +201,23 @@ public class BlockRegistry {
             auroraoakTrapdoor = registerBlock("auroraoak_trapdoor", () -> new BlockModTrapdoor(ICE, BlockSetType.OAK)),
             auroraoakPressurePlate = registerBlock("auroraoak_pressure_plate", () -> new BlockModPressurePlate(ICE, BlockSetType.OAK)),
             auroraoakButton = registerBlock("auroraoak_button", () -> new BlockModButton(BlockSetType.OAK)),
+            
+    		//Cozybark
+            cozybarkSapling = registerBlock("cozybark_sapling", () -> new BlockModSapling(COLOR_PURPLE, () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_grass")), () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_dirt")), new CozybarkTreeGrower())),
+            cozybarkLeaves = registerBlock("cozybark_leaves", () -> new BlockModLeaves(COLOR_PURPLE, SoundType.CHERRY_LEAVES)),
+            cozybarkLog = registerBlock("cozybark_log", () -> new BlockModLog(ICE, SoundType.WOOD)),
+            cozybarkWood = registerBlock("cozybark_wood", () -> new BlockModLog(COLOR_BROWN, SoundType.WOOD)),
+            strippedcozybarkLog = registerBlock("stripped_cozybark_log", () -> new BlockModLog(ICE, SoundType.WOOD)),
+            strippedcozybarkWood = registerBlock("stripped_cozybark_wood", () -> new BlockModLog(ICE, SoundType.WOOD)),
+            cozybarkPlanks = registerBlock("cozybark_planks", () -> new BlockModPlanks(ICE, SoundType.WOOD)),
+            cozybarkStairs = registerBlock("cozybark_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cozybark_planks")), 20, 5)),
+            cozybarkSlab = registerBlock("cozybark_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cozybark_planks")), 20, 5)),
+            cozybarkFence = registerBlock("cozybark_fence", () -> new BlockModFence(ICE, SoundType.WOOD)),
+            cozybarkFenceGate = registerBlock("cozybark_fence_gate", () -> new BlockModGate(ICE, WoodType.OAK)),
+            cozybarkDoor = registerBlock("cozybark_door", () -> new BlockModDoor(ICE, BlockSetType.OAK)),
+            cozybarkTrapdoor = registerBlock("cozybark_trapdoor", () -> new BlockModTrapdoor(ICE, BlockSetType.OAK)),
+            cozybarkPressurePlate = registerBlock("cozybark_pressure_plate", () -> new BlockModPressurePlate(ICE, BlockSetType.OAK)),
+            cozybarkButton = registerBlock("cozybark_button", () -> new BlockModButton(BlockSetType.OAK)),
 
             //Eucalyptus
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),
@@ -774,6 +791,7 @@ public class BlockRegistry {
             brittleGrassPot = registerFlowerPot("brittle_grass_pot", brittleGrass),
             shiverspineSaplingPot = registerFlowerPot("shiverspine_sapling_pot", shiverspineSapling),
             auroraoakSaplingPot = registerFlowerPot("auroraoak_sapling_pot", auroraoakSapling),
+            cozybarkSaplingPot = registerFlowerPot("cozybark_sapling_pot", cozybarkSapling),
             divineSaplingPot = registerFlowerPot("divine_sapling_pot", divineSapling);
 
 
