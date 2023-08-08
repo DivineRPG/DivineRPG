@@ -4,7 +4,7 @@ import divinerpg.compat.ModCompat;
 import divinerpg.config.*;
 import divinerpg.events.*;
 import divinerpg.registries.*;
-import divinerpg.util.*;
+import divinerpg.util.Utils;
 import divinerpg.util.vanilla.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,8 +15,6 @@ import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.*;
 
-import static divinerpg.registries.BlockRegistry.BLOCK_ITEMS;
-
 @Mod(DivineRPG.MODID)
 public class DivineRPG {
     public static final Logger LOGGER = LogManager.getLogger();
@@ -26,7 +24,7 @@ public class DivineRPG {
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
-        BLOCK_ITEMS.register(bus);
+        BlockRegistry.BLOCK_ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
         FluidRegistry.FLUIDS.register(bus);
         FluidRegistry.FLUID_TYPES.register(bus);

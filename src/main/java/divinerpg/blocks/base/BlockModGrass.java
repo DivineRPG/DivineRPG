@@ -29,7 +29,11 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
     }
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
-        return plantable.getPlant(world, pos.above()).getBlock() instanceof BushBlock;
+        Block block = plantable.getPlant(world, pos.above()).getBlock();
+        if (block instanceof BushBlock && !(block instanceof WaterlilyBlock)) {
+            return true;
+        }
+        return false;
     }
     public BlockState grass() {
         if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_brush")).defaultBlockState();
