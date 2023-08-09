@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:block/soul_trap_side",
+    "south": "divinerpg:block/soul_trap_side",
+    "north": "divinerpg:block/soul_trap_side",
+    "west": "divinerpg:block/soul_trap_side",
+    "particle": "divinerpg:block/proximity_spawner",
+    "up": "divinerpg:block/soul_trap_top",
+    "down": "divinerpg:block/mortum_block"
+  }
+}

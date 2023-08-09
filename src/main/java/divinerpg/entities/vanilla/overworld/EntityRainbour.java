@@ -1,16 +1,20 @@
 package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.events.SpawnEvents;
 import divinerpg.registries.*;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.LookControl;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraftforge.api.distmarker.*;
 
 import javax.annotation.Nullable;
@@ -23,6 +27,9 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     public EntityRainbour(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
         this.lookControl = new EntityRainbour.RainbourLookController(this);
+    }
+    public static boolean rainbourSpawnRule(EntityType<? extends Mob> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+        return SpawnEvents.checkDarknessSpawnRules(typeIn, worldIn, reason, pos, randomIn) && !worldIn.canSeeSky(pos);
     }
 
     @Override

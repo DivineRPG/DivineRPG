@@ -11,28 +11,33 @@ import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.Shapes;
 
 import javax.annotation.Nullable;
 
 public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     protected @Nullable Vec3 pathfindPos;
-    protected final float preferredHeight, preferredDistance;
+    protected final float preferredHeight, preferredDistance, pathFindDistance;
     protected EntityDivineFlyingMob(EntityType<? extends EntityDivineMonster> type, Level worldIn) {
         super(type, worldIn);
         preferredHeight = 5F;
         preferredDistance = 8F;
+        pathFindDistance = 14F;
     }
-    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineMonster> type, Level worldIn, float preferredHeight) {
+    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineMonster> type, Level worldIn, float pathFindDistance) {
         super(type, worldIn);
-        this.preferredHeight = preferredHeight;
+        preferredHeight = 5F;
         preferredDistance = 8F;
+        this.pathFindDistance = pathFindDistance;
     }
-    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineMonster> type, Level worldIn, float preferredHeight, float preferredDistance) {
+    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineMonster> type, Level worldIn, float preferredHeight, float preferredDistance, float pathFindDistance) {
         super(type, worldIn);
         this.preferredHeight = preferredHeight;
         this.preferredDistance = preferredDistance;
+        this.pathFindDistance = pathFindDistance;
     }
     @Override
     protected void registerGoals() {
@@ -56,10 +61,21 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     protected void customServerAiStep() {
         super.customServerAiStep();
         setNoGravity(true);
-        boolean blockedPath = horizontalCollision || verticalCollision || !level().getBlockState(new BlockPos((int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).x, (int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).y, (int) position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z).z)).isAir();
+        if(isInWater()) {
+        	setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + .5, getDeltaMovement().z);
+        	pathfindPos = null;
+        	return;
+        }
+        boolean blockedPath = horizontalCollision || verticalCollision;
+        if(!blockedPath) {
+            Vec3 futurePos = position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z);
+            BlockPos pos = new BlockPos((int) futurePos.x, (int) futurePos.y, (int) futurePos.z);
+            BlockState state = level().getBlockState(pos);
+            blockedPath = state.is(Blocks.LAVA) || !state.getCollisionShape(level(), pos).equals(Shapes.empty());
+        }
         //decide where to go next
         if(pathfindPos == null || blockedPath) {
-            double findX = getX() + ((random.nextFloat() - .5F) * 14D), findY = getY() + ((random.nextFloat() - .6F) * 14D), findZ = getZ() + ((random.nextFloat() - .5F) * 14D);
+            double findX = getX() + ((random.nextFloat() - .5F) * pathFindDistance), findY = getY() + ((random.nextFloat() - .6F) * pathFindDistance), findZ = getZ() + ((random.nextFloat() - .5F) * pathFindDistance);
             LivingEntity target = getTarget();
             if(target != null && !blockedPath) {
                 if(this instanceof RangedAttackMob) {

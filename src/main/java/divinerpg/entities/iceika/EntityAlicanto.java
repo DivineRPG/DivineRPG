@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 public class EntityAlicanto extends EntityDivineFlyingMob {
     public EntityAlicanto(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, 18F);
         this.fallDistance = 0;
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }

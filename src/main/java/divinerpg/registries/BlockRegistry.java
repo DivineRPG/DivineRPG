@@ -722,6 +722,7 @@ public class BlockRegistry {
 
             //Other Utility Blocks
             frostedAllure = registerBlock("frosted_allure", () -> new BlockFrostedAllure()),
+            soulTrap = registerBlock("soul_trap", () -> new BlockMod(Block.Properties.of().mapColor(DyeColor.GRAY).strength(5F, 6F).sound(SoundType.METAL))),
             acceleron = registerBlock("acceleron", () -> new BlockAcceleron(), Rarity.UNCOMMON),
             elevantium = registerBlock("elevantium", () -> new BlockElevantium(), Rarity.UNCOMMON),
 

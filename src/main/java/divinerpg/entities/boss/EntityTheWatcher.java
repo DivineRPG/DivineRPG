@@ -30,7 +30,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
     private int explosionStrength = 1;
 
     public EntityTheWatcher(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, 6F, 10F, 25F);
         this.xpReward = 5000;
         this.moveControl = new EntityTheWatcher.MoveHelperController(this);
     }

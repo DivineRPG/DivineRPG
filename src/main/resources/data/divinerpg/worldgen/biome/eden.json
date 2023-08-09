@@ -34,8 +34,8 @@
       {
         "type": "divinerpg:weak_cori",
         "weight": 1,
-        "minCount": 4,
-        "maxCount": 4
+        "minCount": 1,
+        "maxCount": 1
       },
       {
         "type": "divinerpg:greenfeet",

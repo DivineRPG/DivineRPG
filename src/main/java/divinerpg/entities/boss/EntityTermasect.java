@@ -25,7 +25,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
             BossEvent.BossBarOverlay.PROGRESS));
 
     public EntityTermasect(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, 25F);
         this.xpReward = 1500;
     }
 

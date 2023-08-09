@@ -12,7 +12,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class EntityEnderTriplets extends EntityDivineFlyingMob implements RangedAttackMob {
     public EntityEnderTriplets(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, 18F);
         this.xpReward = 5;
     }
 

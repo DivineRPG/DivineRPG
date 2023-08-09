@@ -21,7 +21,7 @@
 				"type": "divinerpg:rollum",
 				"weight": 2,
 				"minCount": 1,
-				"maxCount": 4
+				"maxCount": 3
 			},
 			{
 				"type": "divinerpg:frosty",
@@ -33,13 +33,13 @@
 				"type": "divinerpg:frost_archer",
 				"weight": 2,
 				"minCount": 1,
-				"maxCount": 4
+				"maxCount": 3
 			},
 			{
 				"type": "divinerpg:hastreus",
 				"weight": 2,
 				"minCount": 1,
-				"maxCount": 4
+				"maxCount": 3
 			},
 			{
 				"type": "divinerpg:glacide",
@@ -57,7 +57,7 @@
 				"type": "divinerpg:alicanto",
 				"weight": 2,
 				"minCount": 1,
-				"maxCount": 4
+				"maxCount": 2
 			},
 			{
 				"type": "divinerpg:robbin",

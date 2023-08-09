@@ -15,7 +15,7 @@ import net.minecraft.world.level.*;
 public class EntityZoragon extends EntityDivineFlyingMob implements RangedAttackMob {
 
     public EntityZoragon(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, 20F);
     }
     
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {

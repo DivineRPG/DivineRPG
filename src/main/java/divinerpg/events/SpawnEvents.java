@@ -2,19 +2,25 @@ package divinerpg.events;
 
 import divinerpg.DivineRPG;
 import divinerpg.entities.ai.TurtleEatAequorea;
+import divinerpg.entities.eden.EntityWeakCori;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.entities.vethea.EntityTheHunger;
+import divinerpg.registries.PointOfInterestRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.SpawnPlacements.SpawnPredicate;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.village.poi.PoiManager.Occupancy;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.entity.*;
+import net.minecraftforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck;
+import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -27,6 +33,13 @@ import static net.minecraftforge.event.entity.SpawnPlacementRegisterEvent.Operat
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SpawnEvents {
+	public static void spawnPlacementCheck(SpawnPlacementCheck e) {
+		if(e.getLevel() instanceof ServerLevel level) {
+			MobSpawnType type = e.getSpawnType();
+			if((type == MobSpawnType.NATURAL || type == MobSpawnType.STRUCTURE || type == MobSpawnType.PATROL) && level.getPoiManager().findClosest((poiType) -> poiType.is(PointOfInterestRegistry.SOUL_TRAP.getKey()), e.getPos(), 64, Occupancy.ANY).isPresent())
+				e.setResult(Result.DENY);
+		}
+	}
 	@SubscribeEvent
 	public static void registerSpawnPlacements(SpawnPlacementRegisterEvent e) {
     	//Boss
@@ -56,7 +69,7 @@ public class SpawnEvents {
 		registerMobSpawn(e, LIVESTOCK_MERCHANT.get());
     	registerDarkSpawn(e, MINER.get());
     	registerSpawn(e, PUMPKIN_SPIDER.get(), EntityKobblin::kobblinSpawnRule);
-    	registerDarkAirSpawn(e, RAINBOUR.get());
+    	registerSpawn(e, RAINBOUR.get(), EntityRainbour::rainbourSpawnRule);
     	registerSpawn(e, ROTATICK.get(), EntityRotatick::rotatickSpawnRule);
     	registerSpawn(e, SAGUARO_WORM.get(), EntitySaguaroWorm::saguaroWormSpawnRule);
     	registerWaterSpawn(e, SHARK.get());
@@ -100,7 +113,7 @@ public class SpawnEvents {
     	registerDarkSpawn(e, GREENFEET.get());
     	registerDarkSpawn(e, MADIVEL.get());
     	registerMonsterSpawn(e, SUN_ARCHER.get());
-    	registerAirSpawn(e, WEAK_CORI.get());
+    	registerSpawn(e, WEAK_CORI.get(), EntityWeakCori::weakCoriSpawnRule);
     	//Wildwood
     	registerMonsterSpawn(e, BEHEMOTH.get());
     	registerMobSpawn(e, EPIPHITE.get());
