@@ -36,7 +36,7 @@ public class SpawnEvents {
 	public static void spawnPlacementCheck(SpawnPlacementCheck e) {
 		if(e.getLevel() instanceof ServerLevel level) {
 			MobSpawnType type = e.getSpawnType();
-			if((type == MobSpawnType.NATURAL || type == MobSpawnType.STRUCTURE || type == MobSpawnType.PATROL) && level.getPoiManager().findClosest((poiType) -> poiType.is(PointOfInterestRegistry.SOUL_TRAP.getKey()), e.getPos(), 64, Occupancy.ANY).isPresent())
+			if((type == MobSpawnType.NATURAL || type == MobSpawnType.STRUCTURE || type == MobSpawnType.PATROL) && level.getPoiManager().getInRange((poiType) -> poiType.is(PointOfInterestRegistry.SOUL_TRAP.getKey()), e.getPos(), 64, Occupancy.ANY).count() > 0L)
 				e.setResult(Result.DENY);
 		}
 	}

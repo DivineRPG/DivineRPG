@@ -43,10 +43,9 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     protected void registerGoals() {
         targetSelector.addGoal(2, new HurtByTargetGoal(this));
         goalSelector.addGoal(1, new EscapeWaterGoal(this));
-        goalSelector.addGoal(2, new FloatGoal(this));
+        if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));
         if(isAggressive()) {
             targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true, false));
-            if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));
         }
     }
     @Override
@@ -81,10 +80,7 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
                 if(this instanceof RangedAttackMob) {
                     boolean tooclose = distanceTo(target) < preferredDistance;
                     pathfindPos = new Vec3(findX + (tooclose ? -1 : 1) * (target.getX() - getX()) / 4, findY + (target.getY() - getY() + preferredHeight) / 1.1 + (level().getBlockState(blockPosition()).isAir() ? 0D : 2D), findZ + (tooclose ? -1 : 1) * (target.getZ() - getZ()) / 4);
-                } else {
-                    pathfindPos = target.position().add(target.getDeltaMovement().multiply(3D, 3D, 3D));
-                    if(!level().getBlockState(blockPosition()).isAir()) pathfindPos.add(0D, 2D, 0D);
-                }
+                } else pathfindPos = target.position().add(target.getDeltaMovement().multiply(3D, 2D, 3D));
             } else pathfindPos = new Vec3(findX, findY, findZ);
         }
         //movement
