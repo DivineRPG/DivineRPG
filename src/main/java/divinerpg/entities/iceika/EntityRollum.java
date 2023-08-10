@@ -25,7 +25,10 @@ public class EntityRollum extends EntityDivineMonster {
         entity.setDeltaMovement(this.stuckSpeedMultiplier.x * 3.0D, 0.3D, this.stuckSpeedMultiplier.z * 3.0D);
         return true;
     }
-
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 4;
+    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.ROLLUM.get();

@@ -35,6 +35,10 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
         return attack;
     }
     @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 5;
+    }
+    @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.FROSTY.get();
     }

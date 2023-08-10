@@ -25,8 +25,14 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.3F;
     }
-
-
+    @Override
+    public int getMaxSpawnClusterSize() {
+    	return 2;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 2;
+    }
     @Override
     public float getVoicePitch() {
         return super.getVoicePitch() * 0.95F;

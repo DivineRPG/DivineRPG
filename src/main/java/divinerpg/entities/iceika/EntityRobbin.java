@@ -36,7 +36,10 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, EntityKitra.class, 6.0F));
     }
-
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 6;
+    }
 
     @Override
     public void tick() {

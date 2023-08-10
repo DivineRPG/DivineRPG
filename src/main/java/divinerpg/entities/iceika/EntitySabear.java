@@ -28,8 +28,14 @@ public class EntitySabear extends EntityDivineMonster {
     public boolean isAggressive() {
         return true;
     }
-
-
+    @Override
+    public int getMaxSpawnClusterSize() {
+    	return 2;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 1;
+    }
     @Override
     public void tick() {
         super.tick();

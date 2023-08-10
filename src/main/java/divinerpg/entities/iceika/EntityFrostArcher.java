@@ -42,7 +42,14 @@ public class EntityFrostArcher extends EntityDivineMonster implements RangedAtta
             this.level().addFreshEntity(projectile);
         }
     }
-
+    @Override
+    public int getMaxSpawnClusterSize() {
+    	return 3;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 3;
+    }
     @Override
     public SoundEvent getAmbientSound() {
         return SoundEvents.ZOMBIE_AMBIENT;

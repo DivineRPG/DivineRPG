@@ -21,7 +21,7 @@ public class ItemVetheanDissipator extends ItemVetheanDisk {
 		super(type);
 	}
 	public ArrayList<BlockPos> getLocalDungeonAir(Level level, BlockPos pos) {
-		int area = (int) (diskType.getDamage() / 3);
+		int area = (int) (diskType.getDamage() / 3F);
 		ArrayList<BlockPos> list = new ArrayList<>();
 		for(int x = pos.getX() - area; x < pos.getX() + area; x++) for(int y = pos.getY() - area; y < pos.getY() + area; y++) for(int z = pos.getZ() - area; z < pos.getZ() + area; z++) {
 			BlockPos position = new BlockPos(x, y, z);

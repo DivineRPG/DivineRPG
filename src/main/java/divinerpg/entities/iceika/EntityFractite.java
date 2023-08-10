@@ -25,7 +25,6 @@ public class EntityFractite extends EntityDivineFlyingMob implements RangedAttac
         super.registerGoals();
         this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
     }
-
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
         if (isAlive() && getTarget() != null && !level().isClientSide) {
@@ -43,6 +42,10 @@ public class EntityFractite extends EntityDivineFlyingMob implements RangedAttac
     @Override
     public int getMaxSpawnClusterSize() {
         return 1;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 1;
     }
 
     @Override

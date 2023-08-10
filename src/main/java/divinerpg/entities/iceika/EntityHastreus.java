@@ -53,4 +53,12 @@ public class EntityHastreus extends EntityDivineMonster {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.HASTREUS_HURT.get();
     }
+    @Override
+    public int getMaxSpawnClusterSize() {
+    	return 3;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 3;
+    }
 }

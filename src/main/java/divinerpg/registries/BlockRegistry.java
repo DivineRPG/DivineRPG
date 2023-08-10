@@ -725,6 +725,8 @@ public class BlockRegistry {
             soulTrap = registerBlock("soul_trap", () -> new BlockMod(Block.Properties.of().mapColor(DyeColor.GRAY).strength(5F, 6F).sound(SoundType.METAL))),
             acceleron = registerBlock("acceleron", () -> new BlockAcceleron(), Rarity.UNCOMMON),
             elevantium = registerBlock("elevantium", () -> new BlockElevantium(), Rarity.UNCOMMON),
+            hellfireSponge = registerBlock("hellfire_sponge", () -> new BlockHellfireSponge()),
+            coldHellfireSponge = registerBlock("cold_hellfire_sponge", () -> new BlockColdHellfireSponge()),
 
             //Traps
             spikeBlock = registerBlock("spike_block", () -> new BlockSpike(false, COLOR_GRAY)),
