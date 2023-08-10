@@ -1,17 +1,19 @@
 package divinerpg.block_entities.chests;
 
 import divinerpg.DivineRPG;
-import divinerpg.registries.*;
+import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.*;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class EdenChestBlockEntity extends ModChestBlockEntity {
-    public EdenChestBlockEntity(BlockPos p_154992_, BlockState p_154993_) {
-        super(BlockEntityRegistry.EDEN_CHEST.get(), p_154992_, p_154993_);
+    public EdenChestBlockEntity(BlockPos pos, BlockState state) {
+        super(BlockEntityRegistry.EDEN_CHEST.get(), pos, state);
+        this.items = NonNullList.withSize(54, ItemStack.EMPTY);
     }
 
     @Override
