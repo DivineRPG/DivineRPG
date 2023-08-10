@@ -3,6 +3,7 @@ package divinerpg.events;
 import divinerpg.DivineRPG;
 import divinerpg.entities.ai.TurtleEatAequorea;
 import divinerpg.entities.eden.EntityWeakCori;
+import divinerpg.entities.vanilla.end.EntityEnderTriplets;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.entities.vethea.EntityTheHunger;
 import divinerpg.registries.PointOfInterestRegistry;
@@ -17,14 +18,11 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager.Occupancy;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.phys.AABB;
 import net.minecraftforge.event.entity.*;
 import net.minecraftforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.*;
 
 import static divinerpg.registries.EntityRegistry.*;
 import static net.minecraft.world.entity.SpawnPlacements.Type.*;
@@ -57,7 +55,7 @@ public class SpawnEvents {
     	registerSpawn(e, EHU.get());
     	registerSpawn(e, ENTHRALLED_DRAMCRYX.get(), EntityEnthralledDramcryx::enthralledDramcryxSpawnRule);
     	registerAirSpawn(e, FROST.get());
-    	registerMonsterSpawn(e, GLACON.get());
+    	registerSurfaceMonsterSpawn(e, GLACON.get());
     	registerSpawn(e, HUSK.get());
     	registerSpawn(e, JACK_O_MAN.get(), EntityJackOMan::rules);
     	registerAirSpawn(e, JUNGLE_BAT.get());
@@ -65,7 +63,7 @@ public class SpawnEvents {
     	registerAgileSpawn(e, JUNGLE_SPIDER.get());
     	registerMonsterSpawn(e, KING_CRAB.get());
     	registerSpawn(e, KOBBLIN.get(), EntityKobblin::kobblinSpawnRule);
-		registerWaterSpawn(e, LIOPLEURODON.get(), SpawnEvents::liopleurodon);
+		registerWaterSpawn(e, LIOPLEURODON.get(), EntityLiopleurodon::liopleurodonSpawnRule);
 		registerMobSpawn(e, LIVESTOCK_MERCHANT.get());
     	registerDarkSpawn(e, MINER.get());
     	registerSpawn(e, PUMPKIN_SPIDER.get(), EntityKobblin::kobblinSpawnRule);
@@ -88,7 +86,7 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, WILDFIRE.get());
     	//End
     	registerAgileSpawn(e, ENDER_SPIDER.get());
-    	registerAirSpawn(e, ENDER_TRIPLETS.get());
+    	registerAirSpawn(e, ENDER_TRIPLETS.get(), EntityEnderTriplets::enderTripletSpawnRule);
     	registerMonsterSpawn(e, ENDER_WATCHER.get());
     	//Iceika
     	registerAirSpawn(e, ALICANTO.get());
@@ -113,7 +111,7 @@ public class SpawnEvents {
     	registerDarkSpawn(e, GREENFEET.get());
     	registerDarkSpawn(e, MADIVEL.get());
     	registerMonsterSpawn(e, SUN_ARCHER.get());
-    	registerSpawn(e, WEAK_CORI.get(), EntityWeakCori::weakCoriSpawnRule);
+    	registerAirSpawn(e, WEAK_CORI.get(), EntityWeakCori::weakCoriSpawnRule);
     	//Wildwood
     	registerMonsterSpawn(e, BEHEMOTH.get());
     	registerMobSpawn(e, EPIPHITE.get());
@@ -225,6 +223,9 @@ public class SpawnEvents {
     public static void registerAirSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
     	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
     }
+    public static <T extends Mob> void registerAirSpawn(SpawnPlacementRegisterEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
+    	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, predicate, REPLACE);
+    }
     public static void registerDarkAirSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
     	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::checkDarknessSpawnRules, REPLACE);
     }
@@ -240,25 +241,23 @@ public class SpawnEvents {
     public static void registerDarkSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, REPLACE);
     }
+    public static void registerSurfaceSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::onSurface, REPLACE);
+    }
+    public static void registerSurfaceMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::monsterOnSurface, REPLACE);
+    }
 	public static boolean always(EntityType<? extends Entity> e, ServerLevelAccessor l, MobSpawnType t, BlockPos p, RandomSource r) {
 		return true;
 	}
 	public static boolean checkDarknessSpawnRules(EntityType<? extends Mob> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
 		return Monster.isDarkEnoughToSpawn(s, p, r);
 	}
-	public static boolean liopleurodon(EntityType<? extends Mob> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-		List<Entity> entities = worldIn.getEntities(null, new AABB(pos.offset(-48, -48, -48), pos.offset(48, 48, 48)));
-		List<EntityLiopleurodon> liopleurodon = new ArrayList<>();
-		for (int i = 0; i < entities.size(); i++) {
-			if (entities.get(i) instanceof EntityLiopleurodon) {
-				EntityLiopleurodon liopleurodonMob = (EntityLiopleurodon) entities.get(i);
-				liopleurodon.add(liopleurodonMob);
-			}
-		}
-		if (liopleurodon.size() < 2) {
-			return true;
-		}
-		return false;
+	public static boolean onSurface(EntityType<? extends Mob> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
+		return Mob.checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
+	}
+	public static boolean monsterOnSurface(EntityType<? extends Monster> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
+		return Monster.checkAnyLightMonsterSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
 	}
     @SubscribeEvent
     public void addVanillaMobGoals(EntityJoinLevelEvent event) {

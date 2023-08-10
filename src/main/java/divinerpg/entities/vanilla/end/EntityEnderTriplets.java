@@ -2,12 +2,15 @@ package divinerpg.entities.vanilla.end;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.entities.projectile.EntityEnderTripletsFireball;
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.*;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 
 public class EntityEnderTriplets extends EntityDivineFlyingMob implements RangedAttackMob {
@@ -15,7 +18,6 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
         super(type, worldIn, 18F);
         this.xpReward = 5;
     }
-
     @Override
     public boolean fireImmune() {
         return true;
@@ -36,7 +38,14 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
     protected SoundEvent getDeathSound() {
         return SoundEvents.GHAST_DEATH;
     }
-
+    @Override
+    public int getMaxSpawnClusterSize() {
+    	return 1;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 1;
+    }
     @Override
     public boolean isAggressive() {
         return true;
@@ -63,4 +72,7 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
             }
         }
     }
+    public static boolean enderTripletSpawnRule(EntityType<? extends Entity> e, ServerLevelAccessor l, MobSpawnType t, BlockPos p, RandomSource r) {
+		return p.getY() > 60;
+	}
 }
