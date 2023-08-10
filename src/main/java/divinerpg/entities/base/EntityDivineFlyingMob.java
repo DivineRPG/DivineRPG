@@ -59,7 +59,7 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
-        setNoGravity(true);
+        if(!isNoGravity()) setNoGravity(true);
         if(isInWater()) {
         	setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + .5, getDeltaMovement().z);
         	pathfindPos = null;
@@ -73,23 +73,23 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
             blockedPath = state.is(Blocks.LAVA) || !state.getCollisionShape(level(), pos).equals(Shapes.empty());
         }
         //decide where to go next
+    	LivingEntity target = getTarget();
         if(pathfindPos == null || blockedPath) {
             double findX = getX() + ((random.nextFloat() - .5F) * pathFindDistance), findY = getY() + ((random.nextFloat() - .6F) * pathFindDistance), findZ = getZ() + ((random.nextFloat() - .5F) * pathFindDistance);
-            LivingEntity target = getTarget();
             if(target != null && !blockedPath) {
                 if(this instanceof RangedAttackMob) {
                     boolean tooclose = distanceTo(target) < preferredDistance;
                     pathfindPos = new Vec3(findX + (tooclose ? -1 : 1) * (target.getX() - getX()) / 4, findY + (target.getY() - getY() + preferredHeight) / 1.1 + (level().getBlockState(blockPosition()).isAir() ? 0D : 2D), findZ + (tooclose ? -1 : 1) * (target.getZ() - getZ()) / 4);
-                } else pathfindPos = target.position().add(target.getDeltaMovement().multiply(3D, 2D, 3D));
+                } else pathfindPos = target.position().add(0D, .5, 0D);
             } else pathfindPos = new Vec3(findX, findY, findZ);
-        }
+        } else if(target != null && !(this instanceof RangedAttackMob) && Math.sqrt(target.distanceToSqr(pathfindPos)) > 2D) pathfindPos = target.position().add(0D, .5, 0D);
         //movement
         double speed = getAttributeValue(Attributes.FLYING_SPEED);
         setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64D * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64D * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64D * speed);
         double distanceX = pathfindPos.x - getX(), distanceY = pathfindPos.y- getY(), distanceZ = pathfindPos.z - getZ();
         yRot = rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
         xRot = rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
-        if(Math.sqrt(distanceToSqr(pathfindPos.x, pathfindPos.y, pathfindPos.z)) < 2D) pathfindPos = null;
+        if(Math.sqrt(distanceToSqr(pathfindPos)) < 2D) pathfindPos = null;
     }
     protected float rotlerp(float rot, float g, float bound) {
         float f = Mth.wrapDegrees(g - rot);
