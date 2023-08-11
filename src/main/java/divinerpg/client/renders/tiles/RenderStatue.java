@@ -56,8 +56,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "termasect_statue"))) return new ModelTermasect<>(context.bakeLayer(ModelTermasect.LAYER_LOCATION));
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sunstorm_statue"))) return new ModelSunstorm<>(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))) return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
-        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))) return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
-        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "kitra_statue"))) return new ModelWhale(context.bakeLayer(ModelWhale.LAYER_LOCATION));
+        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "kitra_statue"))) return new ModelKitra(context.bakeLayer(ModelKitra.LAYER_LOCATION));
         return new BookModel(context.bakeLayer(ModelLayers.BOOK));
     }
     public static final ResourceLocation

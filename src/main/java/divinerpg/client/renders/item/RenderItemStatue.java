@@ -88,7 +88,7 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
         } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue")).asItem()){
             return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
         } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "kitra_statue")).asItem()){
-            return new ModelWhale(context.bakeLayer(ModelWhale.LAYER_LOCATION));
+            return new ModelKitra(context.bakeLayer(ModelKitra.LAYER_LOCATION));
         }
 
         else {

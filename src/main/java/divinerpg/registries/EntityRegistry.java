@@ -117,7 +117,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityDramix>>		 DRAMIX 			= registerEntity(EntityDramix::new, 		"dramix", 			0.85F,2.5625F);
     public static final RegistryObject<EntityType<EntityEternalArcher>>  ETERNAL_ARCHER 	= registerEntity(EntityEternalArcher::new, 	"eternal_archer", 	3.0F, 5.0F);
     public static final RegistryObject<EntityType<EntityExperiencedCori>>EXPERIENCED_CORI 	= registerEntity(EntityExperiencedCori::new,"experienced_cori", 4.0F, 7.1875F);
-    public static final RegistryObject<EntityType<EntityKitra>>          KITRA              = registerEntity(EntityKitra::new,     "kitra",           3.0F, 1.5F, 0x90fcf9, 0xf5ffff, MobCategory.WATER_CREATURE);
+    public static final RegistryObject<EntityType<EntityKitra>>          KITRA              = registerEntity(EntityKitra::new,     "kitra",           3.0F, 2.0F, 0x90fcf9, 0xf5ffff, MobCategory.WATER_CREATURE);
     public static final RegistryObject<EntityType<EntityHiveQueen>>		 HIVE_QUEEN 		= registerEntity(EntityHiveQueen::new, 		"hive_queen", 		1.5F, 0.75F);
     public static final RegistryObject<EntityType<EntityKaros>>			 KAROS 				= registerEntity(EntityKaros::new, 			"karos", 			1.0F, 2.6875F);
     public static final RegistryObject<EntityType<EntityKarot>>			 KAROT 				= registerEntity(EntityKarot::new, 			"karot", 			3.0F,4.1875F);

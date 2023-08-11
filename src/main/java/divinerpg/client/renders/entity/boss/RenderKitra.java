@@ -18,6 +18,7 @@ public class RenderKitra extends MobRenderer<EntityKitra, ModelKitra> {
     public RenderKitra(Context context) {
         super(context, new ModelKitra(context), 0.8F);
     }
+
     @Override
     public ResourceLocation getTextureLocation(EntityKitra entity) {
         return TEXTURE;
