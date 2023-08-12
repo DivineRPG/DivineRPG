@@ -67,7 +67,7 @@ public class SpawnEvents {
 		registerMobSpawn(e, LIVESTOCK_MERCHANT.get());
     	registerDarkSpawn(e, MINER.get());
     	registerSpawn(e, PUMPKIN_SPIDER.get(), EntityKobblin::kobblinSpawnRule);
-    	registerSpawn(e, RAINBOUR.get(), EntityRainbour::rainbourSpawnRule);
+    	registerAirSpawn(e, RAINBOUR.get(), EntityRainbour::rainbourSpawnRule);
     	registerSpawn(e, ROTATICK.get(), EntityRotatick::rotatickSpawnRule);
     	registerSpawn(e, SAGUARO_WORM.get(), EntitySaguaroWorm::saguaroWormSpawnRule);
     	registerWaterSpawn(e, SHARK.get());
