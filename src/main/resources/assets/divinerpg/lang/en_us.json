@@ -2229,7 +2229,7 @@
   "tooltip.armor_info.wither_protection": "Wither Protection",
   "tooltip.armor_info.arcana_regen": "Arcana Regeneration",
   "tooltip.armor_info.poison_protection": "Poison Resistance",
-  "tooltip.armor_info.freeze": "Slows Hostile Mobs Within %s Blocks",
+  "tooltip.armor_info.freeze": "Slows all Mobs within %s Blocks",
   "tooltip.armor_info.haste": "Increased Mining Speed",
   "tooltip.armor_info.iceika": "Perks will only be applied inside Iceika",
   "tooltip.armor_info.massive_buff": "Massive Buff",

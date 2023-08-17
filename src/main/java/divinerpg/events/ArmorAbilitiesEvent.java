@@ -21,10 +21,9 @@ public class ArmorAbilitiesEvent {
 		EquipmentSlot slot = event.getSlot();
 		if(slot.isArmor()) {
 			ItemStack s = event.getFrom();//remove armor effects of the previous armor piece
-			if(s != null && s.getItem() instanceof ItemDivineArmor armor && armor.supportedEffects != null) for(MobEffect effect : armor.supportedEffects) entity.removeEffect(effect);
+			if(s != null && s.getItem() instanceof ItemDivineArmor armor && !s.is(event.getTo().getItem()) && armor.supportedEffects != null) for(MobEffect effect : armor.supportedEffects) entity.removeEffect(effect);
 			updateAbilities(entity);
-		}
-		else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.getEffect() instanceof UpdatableArmorEffect update) update.update(entity);
+		} else for(MobEffectInstance instance : entity.getActiveEffects()) if(instance.getEffect() instanceof UpdatableArmorEffect update) update.update(entity);
 	}
 	public static void updateAbilities(LivingEntity entity) {
 		ArrayList<MobEffect> supportedEffects = new ArrayList<>();
@@ -39,9 +38,8 @@ public class ArmorAbilitiesEvent {
 				amplifiers.add(armor.amplifier == null ? 0 : armor.amplifier[i]);
 			}
 		}
-		boolean fullArmor = false;
-		if(equipment.size() == 4) {
-			fullArmor = true;
+		boolean fullArmor = equipment.size() == 4;
+		if(fullArmor) {
 			ArmorMaterial mat = equipment.get(0).mat;
 			for(int i = 1; fullArmor && i < 4; i++) if(equipment.get(i).mat != mat) fullArmor = false;//check if all armor pieces are of the same type
 			if(fullArmor) for(int i = 0; i < supportedEffects.size(); i++) {//apply all not yet present supported effects with their respected amplifiers
@@ -49,7 +47,7 @@ public class ArmorAbilitiesEvent {
 				if(!entity.hasEffect(supportedEffect) || !entity.getEffect(supportedEffect).isInfiniteDuration()) entity.addEffect(new ArmorEffectInstance(supportedEffect, amplifiers.get(i)));
     			else if(supportedEffect instanceof UpdatableArmorEffect update) update.update(entity);
 			}
-		}
+		}//the following if case is intentionally not an else case
 		if(!fullArmor) for(MobEffect supportedEffect : supportedEffects) {//remove all theoretically supported effects if full armor set is not present
 			MobEffectInstance effect = entity.getEffect(supportedEffect);
 			if(effect != null && effect.isInfiniteDuration()) entity.removeEffect(supportedEffect);
