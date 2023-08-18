@@ -54,7 +54,7 @@ public class SpawnEvents {
 		registerMobSpawn(e, DIAMOND_DAVE.get());
     	registerSpawn(e, EHU.get());
     	registerSpawn(e, ENTHRALLED_DRAMCRYX.get(), EntityEnthralledDramcryx::enthralledDramcryxSpawnRule);
-    	registerAirSpawn(e, FROST.get());
+    	registerAgileSurfaceMonsterSpawn(e, FROST.get());
     	registerSurfaceMonsterSpawn(e, GLACON.get());
     	registerSpawn(e, HUSK.get());
     	registerSpawn(e, JACK_O_MAN.get(), EntityJackOMan::rules);
@@ -246,6 +246,9 @@ public class SpawnEvents {
     }
     public static void registerSurfaceMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::monsterOnSurface, REPLACE);
+    }
+    public static void registerAgileSurfaceMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    	e.register(type, ON_GROUND, MOTION_BLOCKING, SpawnEvents::monsterOnSurface, REPLACE);
     }
 	public static boolean always(EntityType<? extends Entity> e, ServerLevelAccessor l, MobSpawnType t, BlockPos p, RandomSource r) {
 		return true;

@@ -241,7 +241,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntitySkythernGolem>> SKYTHERN_GOLEM 	= registerEntity(EntitySkythernGolem::new, 	"skythern_golem", 	1.3F, 2.9F, 0x6b6b6b, 0x474747);
 
     // Mortum
-    public static final RegistryObject<EntityType<EntityAngryGlinthop>>	 ANGRY_GLINTHOP 	  = registerEntity(EntityAngryGlinthop::new, 	  "angry_glinthop", 	  1.1F, 1.5625F, 0x282c2a, 0x686d71);
+    public static final RegistryObject<EntityType<EntityAngryGlinthop>>	 ANGRY_GLINTHOP	  = registerEntity(EntityAngryGlinthop::new, 	  "angry_glinthop", 	  1.1F, 1.5625F, 0x282c2a, 0x686d71);
     public static final RegistryObject<EntityType<EntityBasilisk>>		 BASILISK 		  = registerEntity(EntityBasilisk::new, 	  "basilisk", 		  0.7F, 0.8F, 0x424242, 0x5f5f5f);
     public static final RegistryObject<EntityType<EntityDemonOfDarkness>>DEMON_OF_DARKNESS= registerEntity(EntityDemonOfDarkness::new,"demon_of_darkness",0.8F, 1.6F, 0x090909, 0x202020);
     public static final RegistryObject<EntityType<EntityMortumCadillion>>MORTUM_CADILLION = registerEntity(EntityMortumCadillion::new,"mortum_cadillion", 0.875F, 1.4F, 0x170b1b, 0xb61604);
@@ -998,7 +998,7 @@ public class EntityRegistry {
     private static final <T extends AbstractArrow> RegistryObject<EntityType<T>> registerArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerProjectile(factory, entityName, 0.5F, 0.5F);
     }
-    private static final <T extends LargeFireball> RegistryObject<EntityType<T>> registerFireballProjectile(EntityType.EntityFactory<T> factory, String entityName) {
+    private static final <T extends DivineFireball> RegistryObject<EntityType<T>> registerFireballProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerProjectile(factory, entityName, 0.25F, 0.25F);
     }
 }

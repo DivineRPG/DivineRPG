@@ -29,7 +29,10 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
     protected float getSoundVolume() {
         return 10.0F;
     }
-
+    @Override
+    protected SoundEvent getAmbientSound() {
+    	return SoundEvents.PARROT_IMITATE_GHAST;
+    }
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
         return SoundEvents.GHAST_SCREAM;
@@ -69,6 +72,7 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
                 shot.shoot(d0, d1 + d3 * (double) 0.2F, d2, 3.3F, 0.2F);
                 if (!this.level().isClientSide())
                     this.level().addFreshEntity(shot);
+                playSound(SoundEvents.FOX_TELEPORT);
             }
         }
     }

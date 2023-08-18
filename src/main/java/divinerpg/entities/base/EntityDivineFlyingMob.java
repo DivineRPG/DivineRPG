@@ -79,7 +79,7 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
             if(target != null && !blockedPath) {
                 if(this instanceof RangedAttackMob) {
                     boolean tooclose = distanceTo(target) < preferredDistance;
-                    pathfindPos = new Vec3(findX + (tooclose ? -1 : 1) * (target.getX() - getX()) / 4, findY + (target.getY() - getY() + preferredHeight) / 1.1 + (level().getBlockState(blockPosition()).isAir() ? 0D : 2D), findZ + (tooclose ? -1 : 1) * (target.getZ() - getZ()) / 4);
+                    pathfindPos = new Vec3(findX + (tooclose ? -1D : 1D) * (target.getX() - getX()) / 3D, findY + (target.getY() - getY() + preferredHeight), findZ + (tooclose ? -1D : 1D) * (target.getZ() - getZ()) / 3D);
                 } else pathfindPos = target.position().add(0D, .5, 0D);
             } else pathfindPos = new Vec3(findX, findY, findZ);
         } else if(target != null && !(this instanceof RangedAttackMob) && Math.sqrt(target.distanceToSqr(pathfindPos)) > 2D) pathfindPos = target.position().add(0D, .5, 0D);
