@@ -9,9 +9,8 @@ import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-
-public class ModelCori<T extends Entity> extends EntityModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = createLocation("cori");
+public class ModelAdvancedCori<T extends Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("advanced_cori");
 	private final ModelPart Head;
 	private final ModelPart Tentacle1;
 	private final ModelPart Tentacle2;
@@ -34,7 +33,7 @@ public class ModelCori<T extends Entity> extends EntityModel<T> {
 	private final ModelPart Tentacle19;
 	private final ModelPart Tentacle20;
 
-	public ModelCori(EntityRendererProvider.Context context) {
+	public ModelAdvancedCori(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.Head = root.getChild("Head");
 		this.Tentacle1 = root.getChild("Tentacle1");

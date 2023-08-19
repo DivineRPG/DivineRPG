@@ -1,6 +1,5 @@
 package divinerpg.client.models.twilight;
 
-
 import com.mojang.blaze3d.vertex.*;
 import divinerpg.entities.eden.EntityGlinthop;
 import net.minecraft.client.model.EntityModel;

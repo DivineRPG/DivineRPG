@@ -91,8 +91,8 @@ public class SpawnEvents {
     	//Iceika
     	registerAirSpawn(e, ALICANTO.get());
     	registerAirSpawn(e, FRACTITE.get());
-    	registerMonsterSpawn(e, FROST_ARCHER.get());
-    	registerMonsterSpawn(e, FROSTY.get());
+    	registerMonsterSpawn(e, PALE_ARCHER.get());
+    	registerMonsterSpawn(e, FROZEN_FLESH.get());
     	registerMonsterSpawn(e, GLACIDE.get());
     	registerMonsterSpawn(e, HASTREUS.get());
     	registerMonsterSpawn(e, ROLLUM.get());

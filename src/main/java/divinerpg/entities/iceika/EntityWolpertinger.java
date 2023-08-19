@@ -34,10 +34,12 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.setSpeedModifier(0.0D);
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.75F;
     }
 
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(1, new ClimbOnTopOfPowderSnowGoal(this, this.level()));
@@ -50,6 +52,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.goalSelector.addGoal(11, new LookAtPlayerGoal(this, Player.class, 10.0F));
     }
 
+    @Override
     protected float getJumpPower() {
         if (!this.horizontalCollision && (!this.moveControl.hasWanted() || !(this.moveControl.getWantedY() > this.getY() + 0.5D))) {
             Path path = this.navigation.getPath();
@@ -66,6 +69,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
         }
     }
 
+    @Override
     protected void jumpFromGround() {
         super.jumpFromGround();
         double d0 = this.moveControl.getSpeedModifier();
@@ -91,6 +95,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.moveControl.setWantedPosition(this.moveControl.getWantedX(), this.moveControl.getWantedY(), this.moveControl.getWantedZ(), p_29726_);
     }
 
+    @Override
     public void setJumping(boolean p_29732_) {
         super.setJumping(p_29732_);
         if (p_29732_) {
@@ -105,6 +110,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.jumpTicks = 0;
     }
 
+    @Override
     public void customServerAiStep() {
         if (this.jumpDelayTicks > 0) {
             --this.jumpDelayTicks;
@@ -136,6 +142,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.wasOnGround = this.onGround();
     }
 
+    @Override
     public boolean canSpawnSprintParticle() {
         return false;
     }
@@ -166,6 +173,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.disableJumpControl();
     }
 
+    @Override
     public void aiStep() {
         super.aiStep();
         if (this.jumpTicks != this.jumpDuration) {
@@ -178,10 +186,12 @@ public class EntityWolpertinger extends EntityDivineMonster {
 
     }
 
+    @Override
     public void addAdditionalSaveData(CompoundTag p_29697_) {
         super.addAdditionalSaveData(p_29697_);
     }
 
+    @Override
     public void readAdditionalSaveData(CompoundTag p_29684_) {
         super.readAdditionalSaveData(p_29684_);
     }
@@ -190,30 +200,33 @@ public class EntityWolpertinger extends EntityDivineMonster {
         return SoundEvents.RABBIT_JUMP;
     }
 
+    @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.RABBIT_AMBIENT;
     }
 
+    @Override
     protected SoundEvent getHurtSound(DamageSource p_29715_) {
         return SoundEvents.RABBIT_HURT;
     }
 
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.RABBIT_DEATH;
     }
 
+    @Override
     public boolean doHurtTarget(Entity p_29659_) {
             return p_29659_.hurt(p_29659_.level().damageSources().mobAttack(this), 3.0F);
     }
 
+    @Override
     public SoundSource getSoundSource() {
         return SoundSource.NEUTRAL;
     }
 
-
-
-
     @Nullable
+    @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
         EntityWolpertinger.Variant Wolpertinger$variant = getRandomWolpertingerVariant(level, this.blockPosition());
             data = new EntityWolpertinger.WolpertingerGroupData(Wolpertinger$variant);
@@ -226,7 +239,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
             return i < 50 ? EntityWolpertinger.Variant.BROWN : (i < 90 ? EntityWolpertinger.Variant.SALT : EntityWolpertinger.Variant.BLACK);
     }
 
-
+    @Override
     public void handleEntityEvent(byte p_29663_) {
         if (p_29663_ == 1) {
             this.spawnSprintParticle();
@@ -238,6 +251,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
 
     }
 
+    @Override
     public Vec3 getLeashOffset() {
         return new Vec3(0.0D, (double)(0.6F * this.getEyeHeight()), (double)(this.getBbWidth() * 0.4F));
     }
@@ -406,7 +420,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
         }
     }
 
-    public static enum Variant implements StringRepresentable {
+    public enum Variant implements StringRepresentable {
         BROWN(0, "brown"),
         WHITE(1, "white"),
         BLACK(2, "black"),

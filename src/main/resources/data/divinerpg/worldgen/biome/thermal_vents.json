@@ -23,13 +23,13 @@
 				"maxCount": 3
 			},
 			{
-				"type": "divinerpg:frosty",
+				"type": "divinerpg:frozen_flesh",
 				"weight": 2,
 				"minCount": 1,
 				"maxCount": 4
 			},
 			{
-				"type": "divinerpg:frost_archer",
+				"type": "divinerpg:pale_archer",
 				"weight": 2,
 				"minCount": 1,
 				"maxCount": 3

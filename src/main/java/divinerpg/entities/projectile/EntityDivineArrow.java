@@ -162,7 +162,7 @@ public class EntityDivineArrow extends AbstractArrow {
             } else {
                 ++this.ticksInGround;
 
-                if ((this.ticksInGround >= 200 && getArrowType() == ArrowType.FROST_ARCHER_ARROW)
+                if ((this.ticksInGround >= 200 && getArrowType() == ArrowType.PALE_ARCHER_ARROW)
                         || this.ticksInGround >= 1200) {
                     this.kill();
                 }

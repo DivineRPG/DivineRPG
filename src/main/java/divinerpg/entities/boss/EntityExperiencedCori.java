@@ -19,15 +19,17 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
-    private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
-            BossEvent.BossBarOverlay.PROGRESS));
+
+    private ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), BossBarColor.BLUE,
+            BossEvent.BossBarOverlay.PROGRESS);
 //    private int deathTicks;
 
     public EntityExperiencedCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
-        xpReward=2000;
+        this.xpReward=2000;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 4.0625F;
     }
@@ -47,7 +49,12 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
             }
         }
     }
-    @Override public boolean isAggressive() {return true;}
+
+    @Override
+    public boolean isAggressive() {
+        return true;
+    }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();
@@ -56,7 +63,8 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
     }
 
     @Override
-    public int getMaxSpawnClusterSize() {return 1;
+    public int getMaxSpawnClusterSize() {
+        return 1;
     }
 
     @Override

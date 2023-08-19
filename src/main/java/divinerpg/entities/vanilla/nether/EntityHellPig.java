@@ -10,31 +10,45 @@ import net.minecraft.world.level.*;
 public class EntityHellPig extends EntityDivineTameable {
     private static final EntityDataAccessor<Boolean> ANGRY = SynchedEntityData.defineId(EntityHellPig.class,
             EntityDataSerializers.BOOLEAN);
+
     public EntityHellPig(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 2F);
-        setTame(false);
+        this.setTame(false);
     }
-    @Override public boolean fireImmune() {return true;}
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return .99375F;}
+
+    @Override
+    public boolean fireImmune() {
+        return true;
+    }
+
+    @Override
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return .99375F;
+    }
+
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(ANGRY, Boolean.FALSE);
     }
+
     @Override
     public void setTarget(LivingEntity attackTarget) {
         super.setTarget(attackTarget);
         if(attackTarget == null) setAngry(false);
         else if(!isTame()) setAngry(true);
     }
+
     @Override
     public boolean isFood(ItemStack item) {
     	return isMeat(item);
     }
+
     @Override
     protected boolean isTamingFood(ItemStack item) {
     	return item.is(Items.BLAZE_POWDER) && !isAngry();
     }
+
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
@@ -46,12 +60,16 @@ public class EntityHellPig extends EntityDivineTameable {
         super.readAdditionalSaveData(tag);
         setAngry(tag.getBoolean("Angry"));
     }
+
+    @Override
     public boolean isAngry() {
         return entityData.get(ANGRY);
     }
+
     public void setAngry(boolean angry) {
         entityData.set(ANGRY, angry);
     }
+
     @Override
     public boolean removeWhenFarAway(double d) {
     	return !isTame();

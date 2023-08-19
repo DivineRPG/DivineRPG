@@ -1,8 +1,7 @@
 package divinerpg.entities.mortum;
 
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-
+import divinerpg.entities.base.EntityDivineMonster;
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -13,13 +12,22 @@ import net.minecraft.world.level.*;
 public class EntityAngryGlinthop extends EntityDivineMonster {
     public EntityAngryGlinthop(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        xpReward=40;
     }
+
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.345F;
     }
-    @Override public boolean fireImmune() {return true;}
-    @Override public boolean isAggressive() {return true;}
+
+    @Override
+    public boolean fireImmune() {
+        return true;
+    }
+
+    @Override public boolean isAggressive() {
+        return true;
+    }
+
     @Override
     public boolean doHurtTarget(Entity entity) {
         return entity.hurt(entity.level().damageSources().mobAttack(this), 12);
@@ -39,9 +47,9 @@ public class EntityAngryGlinthop extends EntityDivineMonster {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GROWL_HURT.get();
     }
+
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;
     }
-
 }

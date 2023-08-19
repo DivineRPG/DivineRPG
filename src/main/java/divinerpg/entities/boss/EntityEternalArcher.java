@@ -1,29 +1,30 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.*;
-import divinerpg.enums.*;
-import divinerpg.registries.*;
-import net.minecraft.util.*;
+import divinerpg.entities.base.EntityDivineBoss;
+import divinerpg.entities.projectile.EntityDivineArrow;
+import divinerpg.enums.ArrowType;
+import divinerpg.registries.EntityRegistry;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 
 public class EntityEternalArcher extends EntityDivineBoss {
-
     private int armSelected;
     private int abilityTick;
 
     public EntityEternalArcher(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        xpReward = 250;
+        this.xpReward = 250;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 4.5F;
     }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();
@@ -72,7 +73,6 @@ public class EntityEternalArcher extends EntityDivineBoss {
 
         }
     }
-
 
     public int getSelectedArm() {
         return this.armSelected;

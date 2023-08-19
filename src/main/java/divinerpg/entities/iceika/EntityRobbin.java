@@ -18,10 +18,6 @@ public class EntityRobbin extends EntityDivineFlyingMob {
     private int tiredTicks = 0;
     private int tiredThreshold = 0;
 
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.4375F;
-    }
-
     public EntityRobbin(EntityType<? extends EntityDivineFlyingMob> entityType, Level world) {
         super(entityType, world);
         this.moveControl = new MoveControl(this);
@@ -36,6 +32,12 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, EntityKitra.class, 6.0F));
     }
+
+    @Override
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 0.4375F;
+    }
+
     @Override
     public boolean isMaxGroupSizeReached(int i) {
     	return i > 6;
@@ -64,11 +66,10 @@ public class EntityRobbin extends EntityDivineFlyingMob {
             }
         }
     }
+
     public boolean isTired() {
         return tiredThreshold > 900;
     }
-
-
 
     class FollowWhaleGoal extends Goal {
         private static final double FOLLOW_DISTANCE = 32.0;

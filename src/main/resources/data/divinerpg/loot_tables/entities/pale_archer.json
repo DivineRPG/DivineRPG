@@ -1,27 +1,7 @@
 {
   "pools": [
     {
-      "name": "divinerpg:frosty",
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "item",
-          "name": "divinerpg:peppermints",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 0,
-                "max": 2
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "divinerpg:frosty",
+      "name": "divinerpg:pale_archer",
       "rolls": 1,
       "entries": [
         {
@@ -33,7 +13,14 @@
               "function": "set_count",
               "count": {
                 "min": 0,
-                "max": 3
+                "max": 2
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
               }
             }
           ]

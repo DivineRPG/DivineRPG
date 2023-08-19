@@ -11,14 +11,17 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 
-public class EntityFrosty extends EntityPeacefulUntilAttacked {
-    public EntityFrosty(EntityType<EntityFrosty> type, Level worldIn) {
+public class EntityFrozenFlesh extends EntityPeacefulUntilAttacked {
+
+    public EntityFrozenFlesh(EntityType<EntityFrozenFlesh> type, Level worldIn) {
         super(type, worldIn);
     }
+
     @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.85F;
+        return 1.5625F;
     }
+
     @Override
     public boolean doHurtTarget(Entity entity) {
         boolean attack = super.doHurtTarget(entity);
@@ -34,24 +37,27 @@ public class EntityFrosty extends EntityPeacefulUntilAttacked {
         }
         return attack;
     }
+
     @Override
     public boolean isMaxGroupSizeReached(int i) {
     	return i > 5;
     }
+
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundRegistry.FROSTY.get();
+        return SoundRegistry.FROZEN_FLESH.get();
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.FROSTY_HURT.get();
+        return SoundRegistry.FROZEN_FLESH_HURT.get();
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.FROSTY_HURT.get();
+        return SoundRegistry.FROZEN_FLESH_HURT.get();
     }
+
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;

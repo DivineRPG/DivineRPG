@@ -9,19 +9,18 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.phys.Vec3;
 
 public class EntityEnderTriplets extends EntityDivineFlyingMob implements RangedAttackMob {
     public EntityEnderTriplets(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn, 18F);
-        this.xpReward = 5;
     }
     @Override
     public boolean fireImmune() {
         return true;
     }
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.0F;
     }
@@ -54,6 +53,7 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
         return true;
     }
 
+    @Override
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 64.0F));

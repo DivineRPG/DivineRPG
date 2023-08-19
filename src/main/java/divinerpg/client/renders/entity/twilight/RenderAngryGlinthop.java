@@ -12,7 +12,7 @@ public class RenderAngryGlinthop extends MobRenderer<EntityAngryGlinthop, ModelA
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/glinthop_angry.png");
 
     public RenderAngryGlinthop(EntityRendererProvider.Context context) {
-        super(context, new ModelAngryGlinthop<>(context), 0.3F);
+        super(context, new ModelAngryGlinthop<>(context), 0.8F);
     }
 
     @Override

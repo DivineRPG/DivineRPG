@@ -7,7 +7,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:iceika/dungeon/spawners/frost_archer_center",
+        "location": "divinerpg:iceika/dungeon/spawners/pale_archer_center",
         "processors": "minecraft:empty"
       }
     },

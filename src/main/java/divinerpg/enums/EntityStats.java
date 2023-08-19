@@ -78,11 +78,11 @@ public enum EntityStats {
     //ICEIKA
     ALICANTO(75, 11),
     FRACTITE(50),
-    FROST_ARCHER(40, 2),
+    PALE_ARCHER(40, 2),
     GLACIDE(80, 12, 20, 0.48),
     HASTREUS(120, 16),
     ROLLUM(150, 12, 20, 0.30),
-    FROSTY(140, 16, 20, 0.35),
+    FROZEN_FLESH(140, 16, 20, 0.35),
     GROGLIN(40, 5, 20, 0.29),
     SABEAR(60, 12),
     GRUZZORLUG(60, 3, 20, 0.31),

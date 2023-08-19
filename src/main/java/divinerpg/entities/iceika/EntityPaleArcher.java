@@ -13,17 +13,26 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
-public class EntityFrostArcher extends EntityDivineMonster implements RangedAttackMob {
-    public EntityFrostArcher(EntityType<? extends Monster> type, Level worldIn) {
+public class EntityPaleArcher extends EntityDivineMonster implements RangedAttackMob {
+
+    public EntityPaleArcher(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }
+
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.74F;
+        return 1.59375F;
     }
-    @Override public boolean isAggressive() {return true;}
+
+    @Override
+    public boolean isAggressive() {
+        return true;
+    }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();
@@ -33,7 +42,7 @@ public class EntityFrostArcher extends EntityDivineMonster implements RangedAtta
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (isAlive() && getTarget() != null && !level().isClientSide) {
-            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.FROST_ARCHER_ARROW, this, target, 1.6F, 1.2F);
+            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.PALE_ARCHER_ARROW, this, target, 1.6F, 1.2F);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
@@ -42,27 +51,34 @@ public class EntityFrostArcher extends EntityDivineMonster implements RangedAtta
             this.level().addFreshEntity(projectile);
         }
     }
+
     @Override
     public int getMaxSpawnClusterSize() {
     	return 3;
     }
+
     @Override
     public boolean isMaxGroupSizeReached(int i) {
     	return i > 3;
     }
+
     @Override
     public SoundEvent getAmbientSound() {
-        return SoundEvents.ZOMBIE_AMBIENT;
+        return SoundEvents.STRAY_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.ZOMBIE_HURT;
+        return SoundEvents.STRAY_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ZOMBIE_DEATH;
+        return SoundEvents.STRAY_DEATH;
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
     }
 
     @Override

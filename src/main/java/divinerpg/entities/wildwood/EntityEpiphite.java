@@ -1,7 +1,7 @@
 package divinerpg.entities.wildwood;
 
 import divinerpg.entities.base.EntityPeacefulUntilAttacked;
-import divinerpg.registries.*;
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.monster.Monster;
@@ -11,11 +11,12 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.*;
 
 public class EntityEpiphite extends EntityPeacefulUntilAttacked {
+
     public EntityEpiphite(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        xpReward=40;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
     	return 0.875F;
     }
@@ -24,11 +25,13 @@ public class EntityEpiphite extends EntityPeacefulUntilAttacked {
     public boolean fireImmune() {
         return true;
     }
+
     @Override
     public boolean hurt(DamageSource source, float amount) {
         if(source.is(DamageTypes.LIGHTNING_BOLT)) return false;
         return super.hurt(source, amount);
     }
+
     @Override
     public boolean doHurtTarget(Entity entity) {
         if(random.nextInt(5) == 0) {

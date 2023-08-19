@@ -32,27 +32,37 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "item",
-          "name": "divinerpg:raw_empowered_meat",
-          "weight": 1,
+          "type": "minecraft:item",
           "functions": [
             {
-              "function": "set_count",
-              "count": 1
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
             },
             {
-              "function": "furnace_smelt",
               "conditions": [
                 {
-                  "condition": "entity_properties",
+                  "condition": "minecraft:entity_properties",
                   "entity": "this",
-                  "properties": {
-                    "on_fire": true
+                  "predicate": {
+                    "flags": {
+                      "is_on_fire": true
+                    }
                   }
                 }
-              ]
+              ],
+              "function": "minecraft:furnace_smelt"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:looting_enchant"
             }
-          ]
+          ],
+          "name": "divinerpg:raw_empowered_meat"
         }
       ]
     }

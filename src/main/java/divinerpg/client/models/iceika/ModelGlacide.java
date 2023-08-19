@@ -14,7 +14,6 @@ public class ModelGlacide<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("glacide");
 	private final ModelPart Glacide, FrontLeftLeg, BackLeftLeg, FrontRightLeg, BackRightLeg, Head;
 
-
 	public ModelGlacide(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.Glacide = root.getChild("Glacide");

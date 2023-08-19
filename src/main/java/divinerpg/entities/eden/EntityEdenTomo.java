@@ -1,8 +1,7 @@
 package divinerpg.entities.eden;
 
 import divinerpg.entities.base.EntityPeacefulUntilAttacked;
-import divinerpg.registries.*;
-
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -14,9 +13,9 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
 
     public EntityEdenTomo(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        xpReward = 40;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.34375F;
     }

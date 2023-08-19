@@ -36,8 +36,8 @@ public class ModelSeng<T extends Entity> extends EntityModel<T> {
 		.texOffs(0, 0).addBox(-4.0F, -7.0F, -10.0F, 8.0F, 8.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 1.0F));
 
 		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(50, 48).addBox(-3.0F, -1.0F, -6.5F, 6.0F, 3.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(32, 46).addBox(-4.0F, -7.0F, -3.0F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
-		.texOffs(47, 11).addBox(3.0F, -7.0F, -3.0F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
+		.texOffs(32, 46).addBox(-4.0F, -7.01F, -3.0F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
+		.texOffs(47, 11).addBox(3.0F, -7.01F, -3.0F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
 		.texOffs(32, 52).addBox(-4.5F, -6.0F, -7.0F, 9.0F, 6.0F, 6.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 26).addBox(-4.0F, -5.0F, -6.0F, 8.0F, 7.0F, 6.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 59).addBox(-4.0F, 2.0F, -6.0F, 8.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 16.0F, -9.0F));

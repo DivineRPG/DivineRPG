@@ -13,7 +13,7 @@ public class RenderEnchantedWarrior extends MobRenderer<EntityEnchantedWarrior, 
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png");
 
     public RenderEnchantedWarrior(EntityRendererProvider.Context context) {
-        super(context, new ModelEnchantedWarrior<>(context), 0.3F);
+        super(context, new ModelEnchantedWarrior<>(context), 0.5F);
         this.addLayer(new EnchantedWarriorLayer(this));
     }
 

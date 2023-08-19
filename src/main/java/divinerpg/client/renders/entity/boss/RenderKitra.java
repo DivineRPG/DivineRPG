@@ -16,7 +16,7 @@ import net.minecraftforge.api.distmarker.*;
 public class RenderKitra extends MobRenderer<EntityKitra, ModelKitra> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/kitra.png");
     public RenderKitra(Context context) {
-        super(context, new ModelKitra(context), 0.8F);
+        super(context, new ModelKitra(context), 1.5F);
     }
 
     @Override

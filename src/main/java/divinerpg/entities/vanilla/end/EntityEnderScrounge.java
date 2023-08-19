@@ -4,8 +4,7 @@ import divinerpg.entities.base.EntityDivineMonster;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -38,6 +37,8 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         super(type, worldIn);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }
+
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
@@ -54,31 +55,36 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         return 0.75F;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.1F;
     }
 
+    @Override
     public void startPersistentAngerTimer() {
         this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.random));
     }
 
+    @Override
     public void setRemainingPersistentAngerTime(int p_32515_) {
         this.remainingPersistentAngerTime = p_32515_;
     }
 
+    @Override
     public int getRemainingPersistentAngerTime() {
         return this.remainingPersistentAngerTime;
     }
 
+    @Override
     public void setPersistentAngerTarget(@Nullable UUID p_32509_) {
         this.persistentAngerTarget = p_32509_;
     }
 
     @Nullable
+    @Override
     public UUID getPersistentAngerTarget() {
         return this.persistentAngerTarget;
     }
-
 
     @Override
     public void tick() {
@@ -104,6 +110,7 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         }
     }
 
+    @Override
     public void aiStep() {
         if (this.level().isClientSide()) {
             for(int i = 0; i < 2; ++i) {
@@ -119,10 +126,12 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         super.aiStep();
     }
 
+    @Override
     public boolean isSensitiveToWater() {
         return true;
     }
 
+    @Override
     protected void customServerAiStep() {
         if (this.level().isDay() && this.tickCount >= this.targetChangeTime + 600) {
             float f = this.getLightLevelDependentMagicValue();
@@ -184,10 +193,23 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         }
     }
     
-    @Override protected SoundEvent getHurtSound(DamageSource s) {return SoundEvents.RABBIT_HURT;}
-    @Override protected SoundEvent getAmbientSound() {return SoundEvents.RABBIT_AMBIENT;}
-    @Override protected SoundEvent getDeathSound() {return SoundEvents.RABBIT_DEATH;}
-    @Override public boolean doHurtTarget(Entity e) {
+    @Override
+    protected SoundEvent getHurtSound(DamageSource s) {
+        return SoundEvents.RABBIT_HURT;
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.RABBIT_AMBIENT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.RABBIT_DEATH;
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity e) {
     	playSound(SoundEvents.RABBIT_ATTACK, 1F, (random.nextFloat() - random.nextFloat()) * .2F + 1F);
     	return super.doHurtTarget(e);
     }

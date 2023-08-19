@@ -18,7 +18,9 @@ public class EntityScorcher extends EntityDivineFireballMob {
         setPathfindingMalus(BlockPathTypes.LAVA, 8F);
         setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0F);
         setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0F);
+        this.xpReward = 10;
     }
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.3437F;
     }
@@ -31,6 +33,7 @@ public class EntityScorcher extends EntityDivineFireballMob {
     protected Fireball getProjectile() {
     	return new EntityScorcherShot(level(), this, 0, 0, 0);
     }
+    @Override
     public void aiStep() {
         super.aiStep();
         if(level().isClientSide()) {
@@ -38,6 +41,7 @@ public class EntityScorcher extends EntityDivineFireballMob {
             for(int i = 0; i < 2; ++i) level().addParticle(ParticleTypes.LARGE_SMOKE, getRandomX(.5), getRandomY(), getRandomZ(.5), 0D, 0D, 0D);
         }
     }
+    @Override
     public boolean isSensitiveToWater() {
         return true;
     }

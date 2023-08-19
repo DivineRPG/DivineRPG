@@ -3,7 +3,7 @@ package divinerpg.entities.boss;
 import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.entities.projectile.EntityLadyLunaSparkler;
-import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
 import java.util.*;
 
 public class EntityLadyLuna extends EntityDivineBoss {
@@ -35,10 +34,12 @@ public class EntityLadyLuna extends EntityDivineBoss {
         this.setRandomProtectionValues();
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.90625F;
     }
 
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(PROTECTION, 0);
@@ -57,6 +58,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
 
     private List<BlockPos> acidPositions = new ArrayList<BlockPos>();
 
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
@@ -176,16 +178,19 @@ public class EntityLadyLuna extends EntityDivineBoss {
         this.setProtectionTimer(tag.getInt("ImmunityCooldown"));
     }
 
-
-
     @Override
-    public int getMaxSpawnClusterSize() {return 3;
+    public int getMaxSpawnClusterSize() {
+        return 3;
     }
 
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return SoundRegistry.LADY_LUNA.get();
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundRegistry.LADY_LUNA_HURT.get();
     }
 
     private void setRandomProtectionValues() {
