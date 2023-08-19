@@ -5,7 +5,6 @@ import divinerpg.entities.ai.TurtleEatAequorea;
 import divinerpg.entities.eden.EntityWeakCori;
 import divinerpg.entities.vanilla.end.EntityEnderTriplets;
 import divinerpg.entities.vanilla.overworld.*;
-import divinerpg.entities.vethea.EntityTheHunger;
 import divinerpg.registries.PointOfInterestRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -194,7 +193,7 @@ public class SpawnEvents {
     	registerMobSpawn(e, MYSTERIOUS_MAN_LAYER3.get());
     	registerMonsterSpawn(e, SHADAHIER.get());
     	registerMobSpawn(e, TEMPLE_GUARDIAN.get());
-    	registerSpawn(e, THE_HUNGER.get(), EntityTheHunger::rules);
+    	registerMobSpawn(e, THE_HUNGER.get());
     	registerMonsterSpawn(e, TOCAXIN.get());
     	registerMonsterSpawn(e, TWINS.get());
     	registerMonsterSpawn(e, VERMENOUS.get());
