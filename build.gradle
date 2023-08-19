@@ -107,6 +107,7 @@ dependencies {
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-FORGE-SNAPSHOT") //Patchouli
 //    runtimeOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}:${bookshelf_version}") //Bookshelf
 //    runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:${enchantment_descriptions_id}") //Enchantment Descriptions
+    runtimeOnly fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}") //Enchantment Descriptions
     runtimeOnly fg.deobf("curse.maven:selene-499980:${selene_id}") //Moonlight Lib (For Target Dummy)
     runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:${mmm_id}") //MmmMmmMmmMmm (Target Dummy)
 //    runtimeOnly fg.deobf("curse.maven:jade-324717:${jade_id}") //Jade
