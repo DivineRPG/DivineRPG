@@ -71,6 +71,7 @@ public class EntityDivineArrow extends AbstractArrow {
     public EntityDivineArrow(EntityType<? extends AbstractArrow> type, Level world, ArrowType arrowType, LivingEntity shooter) {
         this(type, world, arrowType, shooter.xo, shooter.yo + (double) shooter.getEyeHeight() - 0.10000000149011612D, shooter.zo);
         this.shootingEntity = shooter;
+        setOwner(shooter);
     }
 
     public EntityDivineArrow(EntityType<? extends AbstractArrow> type, Level worldIn, ArrowType arrowType, LivingEntity shooter, LivingEntity target, float velocity, float inaccuracy) {
@@ -83,6 +84,7 @@ public class EntityDivineArrow extends AbstractArrow {
         this.shoot(d0, d1 + d3 * (double) 0.2F, d2, velocity, inaccuracy);
         this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
         this.shootingEntity = shooter;
+        setOwner(shooter);
     }
 
     @Override
@@ -193,11 +195,7 @@ public class EntityDivineArrow extends AbstractArrow {
 
                     DamageSource damagesource;
 
-                    if (this.shootingEntity == null) {
-                        damagesource = level().damageSources().arrow(this, this);
-                    } else {
-                        damagesource = level().damageSources().arrow(this, this.shootingEntity);
-                    }
+
 
                     if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.WITHER)
                         entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 2));
@@ -217,7 +215,7 @@ public class EntityDivineArrow extends AbstractArrow {
                         }
                     }
                     // Poison Damage
-                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POSION) {
+                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POSION && !(entity instanceof EnderMan)) {
                         entity.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 2));
                     }
 
@@ -225,7 +223,12 @@ public class EntityDivineArrow extends AbstractArrow {
                     if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) {
                         this.level().explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
                     }
-                    
+
+                    if (this.shootingEntity == null) {
+                        damagesource = level().damageSources().arrow(this, this);
+                    } else {
+                        damagesource = level().damageSources().arrow(this, this.shootingEntity);
+                    }
                     if (entity.hurt(damagesource, (float) i)) {
 
                         if (!this.level().isClientSide()) {
