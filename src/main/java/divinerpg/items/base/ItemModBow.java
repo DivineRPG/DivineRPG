@@ -2,7 +2,7 @@ package divinerpg.items.base;
 
 import divinerpg.entities.projectile.EntityDivineArrow;
 import divinerpg.enums.ArrowType;
-import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -181,7 +181,7 @@ public class ItemModBow extends BowItem {
                         if (k > 0) {
                             entityarrow.setKnockback(k);
                         }
-                        if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAMING_ARROWS, entityLiving) > 0) {
+                        if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAMING_ARROWS, entityLiving) > 0 || this == ItemRegistry.inferno_bow.get()) {
                             entityarrow.setSecondsOnFire(100);
                         }
                         if (!unbreakable)
