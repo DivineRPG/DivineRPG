@@ -3,6 +3,7 @@ package divinerpg.entities.projectile;
 
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
@@ -29,9 +30,11 @@ public class EntitySerenadeOfDeath extends DivineThrowable {
         if (tickCount != 1 || tickCount != 0) {
             if (var1.getEntity() != null) {
                 Entity entity = var1.getEntity();
-                entity.hurt(damageSources().thrown(this, this.getOwner()), 14.0F);
-                if (var1.getEntity() instanceof LivingEntity) {
-                    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.POISON, 45, 3));
+                if(!(entity instanceof EnderMan)) {
+                    entity.hurt(damageSources().thrown(this, this.getOwner()), 14.0F);
+                    if (var1.getEntity() instanceof LivingEntity) {
+                        ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.POISON, 45, 3));
+                    }
                 }
             }
 

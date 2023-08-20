@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -29,8 +30,11 @@ public class EntityVileStorm extends DivineThrowable {
     protected void onHitEntity(EntityHitResult result) {
         if (tickCount != 1 || tickCount != 0) {
             result.getEntity().hurt(damageSources().thrown(this, getOwner()), 7.0F);
-            if (result.getEntity() instanceof LivingEntity)
+            if (result.getEntity() instanceof LivingEntity entity) {
+                if(!(entity instanceof EnderMan)) {
                 ((LivingEntity) result.getEntity()).addEffect(new MobEffectInstance(MobEffects.POISON, 45, 3));
+            }
+            }
         }
     }
 
