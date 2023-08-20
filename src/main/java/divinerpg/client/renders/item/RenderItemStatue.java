@@ -6,6 +6,7 @@ import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockStatue;
 import divinerpg.client.models.boss.*;
 import divinerpg.client.models.vanilla.*;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.*;
@@ -40,6 +41,10 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
                     matrixStack.mulPose(Axis.YP.rotationDegrees(-90));
                     matrixStack.mulPose(Axis.XP.rotationDegrees(180));
                     matrixStack.scale(0.6F, 0.6F, 0.6F);
+                    if(stack.is(BlockRegistry.kitraStatue.get().asItem())){
+                        matrixStack.scale(0.25F, 0.25F, 0.25F);
+                        matrixStack.translate(0F, 3F, 0F);
+                    }
                     if(texture(stack) != null) {
                         VertexConsumer builder = renderType.getBuffer(RenderType.entityCutout(texture(stack)));
                         model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);

@@ -7,6 +7,7 @@ import divinerpg.blocks.base.BlockStatue;
 import divinerpg.client.models.boss.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.block_entities.bosses.StatueBlockEntity;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.*;
@@ -28,6 +29,10 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         matrixStack.translate(0.5D, 1.5D, 0.5D);
         matrixStack.mulPose(Axis.YP.rotationDegrees(-te.getBlockState().getValue(AbstractFurnaceBlock.FACING).toYRot()));
         matrixStack.mulPose(Axis.XP.rotationDegrees(180));
+        if(te.getBlockState().is(BlockRegistry.kitraStatue.get())){
+            matrixStack.scale(0.25F, 0.25F, 0.25F);
+            matrixStack.translate(0F, 5F, 0F);
+        }
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(texture(te)));
         model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         matrixStack.popPose();
