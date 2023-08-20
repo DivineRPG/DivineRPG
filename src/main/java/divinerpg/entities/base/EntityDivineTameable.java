@@ -9,6 +9,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
@@ -95,4 +96,8 @@ public class EntityDivineTameable extends TamableAnimal {
 	public AgeableMob getBreedOffspring(ServerLevel s, AgeableMob a) {
 		return null;
 	}
+    @Override
+    public boolean canMate(Animal animal) {
+        return false;
+    }
 }

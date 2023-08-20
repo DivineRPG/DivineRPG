@@ -12,11 +12,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockHellfireSponge extends BlockMod {
 	public BlockHellfireSponge() {
-		super(Block.Properties.copy(Blocks.SPONGE));
+		super(Block.Properties.copy(Blocks.SPONGE).mapColor(MapColor.FIRE));
 	}
 	@Override
 	public void onPlace(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {

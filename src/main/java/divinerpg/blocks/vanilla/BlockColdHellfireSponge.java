@@ -9,11 +9,12 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockColdHellfireSponge extends BlockMod {
 	public BlockColdHellfireSponge() {
-		super(Block.Properties.copy(Blocks.SPONGE));
+		super(Block.Properties.copy(Blocks.SPONGE).mapColor(MapColor.COLOR_RED));
 	}
 	@Override
 	public void onPlace(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {
