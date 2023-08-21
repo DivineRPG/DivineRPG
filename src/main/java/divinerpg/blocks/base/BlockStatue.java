@@ -87,13 +87,11 @@ public class BlockStatue extends BlockMod implements EntityBlock {
     }
 
     @Override
-    @Deprecated
     public BlockState mirror(BlockState state, Mirror mirror) {
         return state.setValue(FACING, mirror.mirror(state.getValue(FACING)));
     }
 
     @Override
-    @Deprecated
     public BlockState rotate(BlockState state, Rotation rot) {
         return state.setValue(FACING, rot.rotate(state.getValue(FACING)));
     }

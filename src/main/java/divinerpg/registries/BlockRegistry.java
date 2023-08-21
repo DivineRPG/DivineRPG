@@ -204,7 +204,8 @@ public class BlockRegistry {
             
     		//Cozybark
             cozybarkSapling = registerBlock("cozybark_sapling", () -> new BlockModSapling(CRIMSON_STEM, () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_grass")), () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_dirt")), new CozybarkTreeGrower())),
-            cozybarkLeaves = registerBlock("cozybark_leaves", () -> new BlockModLeaves(CRIMSON_STEM, SoundType.CHERRY_LEAVES)),
+            cozybarkLeaves = registerBlock("cozybark_leaves", () -> new BlockCozybarkLeaves()),
+            snowyCozybarkLeaves = registerBlock("snowy_cozybark_leaves", () -> new BlockSnowyCozybarkLeaves()),
             cozybarkLog = registerBlock("cozybark_log", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),
             cozybarkWood = registerBlock("cozybark_wood", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),
             strippedcozybarkLog = registerBlock("stripped_cozybark_log", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),

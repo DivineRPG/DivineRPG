@@ -16,7 +16,7 @@
                     {
                       "condition": "minecraft:match_tool",
                       "predicate": {
-                        "tag": "forge:shears"
+                        "tag": "forge:shovels"
                       }
                     },
                     {
@@ -35,7 +35,7 @@
                   ]
                 }
               ],
-              "name": "divinerpg:cozybark_leaves"
+              "name": "divinerpg:snowy_cozybark_leaves"
             },
             {
               "type": "minecraft:item",
@@ -72,7 +72,7 @@
               {
                 "condition": "minecraft:match_tool",
                 "predicate": {
-                  "tag": "forge:shears"
+                  "tag": "forge:shovels"
                 }
               },
               {

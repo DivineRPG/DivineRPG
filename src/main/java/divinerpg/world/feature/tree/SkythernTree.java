@@ -16,17 +16,23 @@ public class SkythernTree extends DivineTree {
 		return state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_dirt"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_grass")));
 	}
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int width, int offset) {
-    	setBlock(world, pos.offset(width + 1, 0, offset), state);
-		setBlock(world, pos.offset(-width, 0, 1 - offset), state);
-		setBlock(world, pos.offset(offset, 0, -width), state);
-		setBlock(world, pos.offset(1 - offset, 0, width + 1), state);
+		wideGrow(world, pos, state, width, offset);
+	}
+	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int width, int offset, boolean replace) {
+    	setBlock(world, pos.offset(width + 1, 0, offset), state, replace);
+		setBlock(world, pos.offset(-width, 0, 1 - offset), state, replace);
+		setBlock(world, pos.offset(offset, 0, -width), state, replace);
+		setBlock(world, pos.offset(1 - offset, 0, width + 1), state, replace);
     }
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int maxY, int width, int offset) {
+		wideGrow(world, pos, state, maxY, width, offset);
+	}
+	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int maxY, int width, int offset, boolean replace) {
     	for(int minY = 0; minY <= maxY; minY++) {
-    		setBlock(world, pos.offset(width + 1, minY, offset), state);
-    		setBlock(world, pos.offset(-width, minY, 1 - offset), state);
-    		setBlock(world, pos.offset(offset, minY, -width), state);
-    		setBlock(world, pos.offset(1 - offset, minY, width + 1), state);
+    		setBlock(world, pos.offset(width + 1, minY, offset), state, replace);
+    		setBlock(world, pos.offset(-width, minY, 1 - offset), state, replace);
+    		setBlock(world, pos.offset(offset, minY, -width), state, replace);
+    		setBlock(world, pos.offset(1 - offset, minY, width + 1), state, replace);
     	}
     }
 	@Override

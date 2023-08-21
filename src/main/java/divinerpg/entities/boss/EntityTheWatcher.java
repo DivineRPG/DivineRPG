@@ -3,6 +3,7 @@ package divinerpg.entities.boss;
 import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.entities.projectile.EntityWatcherShot;
 import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.*;
@@ -107,16 +108,12 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
         return SoundSource.HOSTILE;
     }
 
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.GHAST_AMBIENT;
-    }
-
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.GHAST_HURT;
+        return SoundRegistry.GROWL_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.GHAST_DEATH;
+    	return SoundRegistry.GROWL_HURT.get();
     }
 
     protected float getSoundVolume() {

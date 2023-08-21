@@ -12,6 +12,6 @@ public class CozybarkTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource p_222910_, boolean p_222911_) {
-        return ConfiguredFeatureKeys.AURORAOAK_TREE;
+        return ConfiguredFeatureKeys.COZYBARK_TREE;
     }
 }
