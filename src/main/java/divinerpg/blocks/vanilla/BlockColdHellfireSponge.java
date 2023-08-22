@@ -14,7 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockColdHellfireSponge extends BlockMod {
 	public BlockColdHellfireSponge() {
-		super(Block.Properties.copy(Blocks.SPONGE).mapColor(MapColor.COLOR_RED));
+		super(Block.Properties.copy(Blocks.WET_SPONGE).mapColor(MapColor.COLOR_RED));
 	}
 	@Override
 	public void onPlace(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {

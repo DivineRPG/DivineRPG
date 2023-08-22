@@ -1,13 +1,14 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import net.minecraft.network.chat.*;
+import divinerpg.DivineRPG;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemMod extends Item {
     private static final Item.Properties props = new Item.Properties();
@@ -33,7 +34,7 @@ public class ItemMod extends Item {
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (this.getDescriptionId().contains("torridite"))
-            tooltip.add(Component.translatable(DivineRPG.MODID + ".torridite"));
+            tooltip.add(Component.translatable(DivineRPG.MODID + ".torridite").withStyle(ChatFormatting.GRAY));
     }
 
     @Override
