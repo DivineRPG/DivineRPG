@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:taiga",
-    "divinerpg:tundra"
+    "divinerpg:iceika/taiga",
+    "divinerpg:iceika/tundra"
   ]
 }

@@ -1,6 +1,6 @@
 {
-	"temperature": -1,
-	"downfall": 0.2,
+	"temperature": -0.9,
+	"downfall": 0.6,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
@@ -19,7 +19,7 @@
 			"options": {
 				"type": "minecraft:snowflake"
 			},
-			"probability": 0.01
+			"probability": 0.002
 		}
 	},
 	"spawners": {
@@ -65,20 +65,38 @@
 				"weight": 2,
 				"minCount": 1,
 				"maxCount": 2
-			},
-			{
-				"type": "divinerpg:seng",
-				"weight": 3,
-				"minCount": 1,
-				"maxCount": 2
-			},
-			{
-				"type": "divinerpg:sabear",
-				"weight": 3,
-				"minCount": 1,
-				"maxCount": 2
 			}
-		]
+		],
+		"creature": [
+			{
+		        "type": "minecraft:fox",
+		        "maxCount": 4,
+		        "minCount": 1,
+		        "weight": 1
+			},
+			{
+				"type": "divinerpg:robbin",
+				"weight": 1,
+				"minCount": 2,
+				"maxCount": 4
+			}
+		],
+		"underground_water_creature": [
+	      {
+	        "type": "minecraft:glow_squid",
+	        "maxCount": 3,
+	        "minCount": 1,
+	        "weight": 1
+	      }
+    	],
+    	"water_creature": [
+    	  {
+	        "type": "divinerpg:aequorea",
+	        "maxCount": 3,
+	        "minCount": 1,
+	        "weight": 1
+	      }
+    	]
 	},
 	"spawn_costs": {},
 	"carvers": {
@@ -90,22 +108,26 @@
 	},
 	"features": [
 		[],
-		[
-			"minecraft:ice_patch",
-			"divinerpg:glacial_pond",
-			"divinerpg:powder_snow"
-		],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
 		[
 			"divinerpg:frozen_light",
-			"divinerpg:hanging_icicle",
-			"divinerpg:pointed_dripstone"
+			"divinerpg:brittle_pond",
+			"divinerpg:brittle_caves_vegetation",
+			"divinerpg:classic_vines_brittle_caves",
+			"minecraft:glow_lichen",
+		    "minecraft:seagrass_simple"
 		],
-		[],
-		[],
-		[],
-		[],
-		[],
-		[],
+		[
+			"divinerpg:shiverspine_tree_common",
+			"divinerpg:icicle",
+			"divinerpg:hanging_icicle"
+		],
 		[
 			"minecraft:freeze_top_layer"
 		]

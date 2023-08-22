@@ -1,25 +1,18 @@
 {
-	"temperature": -1,
-	"downfall": 0.2,
+	"temperature": -0.9,
+	"downfall": 0.5,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
-	"creature_spawn_probability": 0.07,
 	"effects": {
-		"sky_color": 8364543,
-		"fog_color": 15269119,
-		"water_color": 4159204,
-		"water_fog_color": 329011,
+		"sky_color": 8176894,
+		"fog_color": 15268095,
+		"water_color": 4047079,
+		"water_fog_color": 12580349,
 		"music": {
 			"sound": "divinerpg:iceika_music",
 			"min_delay": 6000,
 			"max_delay": 10000,
 			"replace_current_music": false
-		},
-		"particle": {
-			"options": {
-				"type": "divinerpg:frost"
-			},
-			"probability": 0.005
 		}
 	},
 	"spawners": {
@@ -67,18 +60,26 @@
 				"maxCount": 2
 			},
 			{
-				"type": "divinerpg:seng",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 2
-			},
-			{
-				"type": "divinerpg:sabear",
+				"type": "divinerpg:robbin",
 				"weight": 1,
-				"minCount": 1,
-				"maxCount": 1
+				"minCount": 2,
+				"maxCount": 4
 			}
-		]
+		],
+	    "water_creature": [
+	      {
+	        "type": "minecraft:squid",
+	        "maxCount": 4,
+	        "minCount": 1,
+	        "weight": 1
+	      },
+	      {
+	        "type": "divinerpg:aequorea",
+	        "maxCount": 4,
+	        "minCount": 1,
+	        "weight": 2
+	      }
+	    ]
 	},
 	"spawn_costs": {},
 	"carvers": {
@@ -91,22 +92,31 @@
 	"features": [
 		[],
 		[
+			"divinerpg:whale_skeleton"
+		],
+		[
 			"minecraft:iceberg_packed",
-			"minecraft:iceberg_blue",
-			"divinerpg:glacial_pond"
+			"minecraft:iceberg_blue"
+		],
+		[],
+		[
+			"minecraft:blue_ice"
 		],
 		[
 			"minecraft:ice_patch",
 			"divinerpg:frozen_light",
+			"divinerpg:icicle",
 			"divinerpg:hanging_icicle",
-			"divinerpg:pointed_dripstone"
+		    "minecraft:seagrass_deep_cold",
+		    "minecraft:seagrass_simple",
+		    "minecraft:kelp_cold"
 		],
 		[],
 		[],
 		[],
-		[],
-		[],
-		[],
+		[
+			"divinerpg:shiverspine_bush"
+		],
 		[
 			"minecraft:freeze_top_layer"
 		]

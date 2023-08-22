@@ -1,17 +1,24 @@
 {
-	"temperature": -1,
-	"downfall": 0.6,
+	"temperature": -0.9,
+	"downfall": 0.5,
 	"has_precipitation": true,
+	"temperature_modifier": "frozen",
 	"effects": {
-		"sky_color": 8103167,
+		"sky_color": 8364543,
 		"fog_color": 15268095,
-		"water_color": 2171256,
-		"water_fog_color": 197407,
+		"water_color": 3946697,
+		"water_fog_color": 460617,
 		"music": {
 			"sound": "divinerpg:iceika_music",
 			"min_delay": 6000,
 			"max_delay": 10000,
 			"replace_current_music": false
+		},
+		"particle": {
+			"options": {
+				"type": "minecraft:snowflake"
+			},
+			"probability": 0.001
 		}
 	},
 	"spawners": {
@@ -59,26 +66,12 @@
 				"maxCount": 2
 			}
 		],
-		"underground_water_creature": [
+		"water_ambient": [
 	      {
-	        "type": "minecraft:glow_squid",
-	        "maxCount": 3,
-	        "minCount": 2,
-	        "weight": 1
-	      }
-    	],
-    	"water_ambient": [
-	      {
-	        "type": "minecraft:pufferfish",
-	        "maxCount": 3,
+	        "type": "minecraft:salmon",
+	        "maxCount": 5,
 	        "minCount": 1,
 	        "weight": 1
-	      },
-	      {
-	        "type": "minecraft:tropical_fish",
-	        "maxCount": 8,
-	        "minCount": 8,
-	        "weight": 2
 	      }
 	    ],
 	    "water_creature": [
@@ -93,18 +86,6 @@
 	        "maxCount": 4,
 	        "minCount": 1,
 	        "weight": 2
-	      },
-	      {
-	        "type": "divinerpg:whale",
-	        "maxCount": 3,
-	        "minCount": 1,
-	        "weight": 1
-	      },
-	      {
-	        "type": "divinerpg:liopleurodon",
-	        "maxCount": 2,
-	        "minCount": 1,
-	        "weight": 1
 	      }
 	    ]
 	},
@@ -118,26 +99,27 @@
 	},
 	"features": [
 		[],
+		[],
 		[
-			"minecraft:lake_lava_underground",
-			"minecraft:lake_lava_surface"
+			"minecraft:iceberg_packed",
+			"minecraft:iceberg_blue"
+		],
+		[],
+		[
+			"minecraft:blue_ice"
 		],
 		[
-			"divinerpg:geothermal_pond"
-		],
-		[
-			"divinerpg:underwater_magma",
-			"divinerpg:thermal_vent",
-			"divinerpg:twilight_stone_patch",
+			"minecraft:blue_ice",
+			"minecraft:ice_patch",
 			"divinerpg:frozen_light",
-			"divinerpg:pointed_dripstone",
-		    "minecraft:warm_ocean_vegetation",
-		    "minecraft:seagrass_warm",
-		    "minecraft:sea_pickle"
+			"divinerpg:icicle",
+			"divinerpg:hanging_icicle",
+		    "minecraft:seagrass_cold",
+		    "minecraft:seagrass_simple",
+		    "minecraft:kelp_cold"
 		],
-		[
-			"minecraft:spring_lava_frozen"
-		],
+		[],
+		[],
 		[],
 		[
 			"divinerpg:shiverspine_bush"
