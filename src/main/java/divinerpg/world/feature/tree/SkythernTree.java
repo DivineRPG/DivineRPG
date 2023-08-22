@@ -16,7 +16,7 @@ public class SkythernTree extends DivineTree {
 		return state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_dirt"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_grass")));
 	}
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int width, int offset) {
-		wideGrow(world, pos, state, width, offset);
+		wideGrow(world, pos, state, width, offset, false);
 	}
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int width, int offset, boolean replace) {
     	setBlock(world, pos.offset(width + 1, 0, offset), state, replace);
@@ -25,7 +25,7 @@ public class SkythernTree extends DivineTree {
 		setBlock(world, pos.offset(1 - offset, 0, width + 1), state, replace);
     }
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int maxY, int width, int offset) {
-		wideGrow(world, pos, state, maxY, width, offset);
+		wideGrow(world, pos, state, maxY, width, offset, false);
 	}
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int maxY, int width, int offset, boolean replace) {
     	for(int minY = 0; minY <= maxY; minY++) {
