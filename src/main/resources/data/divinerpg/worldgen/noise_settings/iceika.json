@@ -65,15 +65,29 @@
 			"shift_z": "divinerpg:shift_z"
 		},
 		"continents": {
-			"type": "minecraft:flat_cache",
-			"argument": {
-				"type": "minecraft:shifted_noise",
-				"noise": "minecraft:continentalness",
-				"xz_scale": 0.25,
-				"y_scale": 0,
-				"shift_x": "divinerpg:shift_x",
-				"shift_y": 0,
-				"shift_z": "divinerpg:shift_z"
+			"type": "minecraft:mul",
+			"argument1": 1.1,
+			"argument2": {
+				"type": "minecraft:add",
+				"argument1": {
+					"type": "minecraft:y_clamped_gradient",
+					"from_y": -64,
+					"to_y": 320,
+					"from_value": 0,
+					"to_value": 0.51
+				},
+				"argument2": {
+					"type": "minecraft:flat_cache",
+					"argument": {
+						"type": "minecraft:shifted_noise",
+						"noise": "minecraft:continentalness",
+						"xz_scale": 0.25,
+						"y_scale": 0,
+						"shift_x": "divinerpg:shift_x",
+						"shift_y": 0,
+						"shift_z": "divinerpg:shift_z"
+					}
+				}
 			}
 		},
 		"erosion": {
@@ -93,8 +107,8 @@
 			"argument1": {
 				"type": "minecraft:y_clamped_gradient",
 				"from_y": -64,
-				"to_y": 320,
-				"from_value": 2,
+				"to_y": 258,
+				"from_value": 2.1,
 				"to_value": -2
 			},
 			"argument2": "minecraft:overworld/offset"
@@ -592,7 +606,7 @@
 				"then_run": {
 					"type": "minecraft:block",
 					"result_state": {
-						"Name": "minecraft:gravel"
+						"Name": "minecraft:stone"
 					}
 				}
 			},
