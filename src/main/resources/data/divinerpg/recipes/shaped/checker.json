@@ -1,12 +1,11 @@
 {
   "result": {
     "item": "divinerpg:checker",
-    "count": 3
+    "count": 4
   },
   "pattern": [
-    "xyx",
-    "yxy",
-    "xyx"
+    "yx",
+    "xy"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",

@@ -374,7 +374,7 @@ public class BlockRegistry {
             //Bricks
             milkStoneBricks = registerBlock("milk_stone_bricks", () -> new BlockMod(WOOL, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             darkstoneBricks = registerBlock("darkstone_bricks", () -> new BlockMod(COLOR_BLACK, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
-            torriditeBricks = registerFireResistantBlock("torridite_bricks", () -> new BlockMod(Properties.of().mapColor(NETHER).strength(2F, 6F).requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS).instrument(NoteBlockInstrument.BASEDRUM)), Rarity.COMMON),
+            torriditeBricks = registerFireResistantBlock("torridite_bricks", () -> new BlockMod(NETHER, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM), Rarity.COMMON),
             redstoneBricks = registerBlock("redstone_bricks", () -> new BlockMod(CRIMSON_NYLIUM, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             lavaBricks = registerBlock("lava_bricks", () -> new BlockMod(FIRE, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             realmiteBricks = registerBlock("realmite_bricks", () -> new BlockMod(TERRACOTTA_ORANGE, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
@@ -389,12 +389,12 @@ public class BlockRegistry {
             pinkBricks = registerBlock("pink_bricks", () -> new BlockMod(COLOR_PURPLE, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
 
             //Minibricks
-            minibricks = registerBlock("minibricks", () -> new BlockMod(DEEPSLATE, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
-            bedrockMinibricks = registerFireResistantBlock("bedrock_minibricks", () -> new BlockMod(Properties.of().mapColor(COLOR_BLACK).strength(2F, 6F).requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS).instrument(NoteBlockInstrument.BASEDRUM)), Rarity.COMMON),
-            torriditeMinibricks = registerFireResistantBlock("torridite_minibricks", () -> new BlockMod(Properties.of().mapColor(NETHER).strength(2F, 6F).requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS).instrument(NoteBlockInstrument.BASEDRUM)), Rarity.COMMON),
-            realmiteMinibricks = registerBlock("realmite_minibricks", () -> new BlockMod(TERRACOTTA_BROWN, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
-            arlemiteMinibricks = registerBlock("arlemite_minibricks", () -> new BlockMod(PLANT, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
-            rupeeMinibricks = registerBlock("rupee_minibricks", () -> new BlockMod(WATER, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
+            minibricks = registerBlock("minibricks", () -> new BlockMod(STONE, 2F, 6F)),
+            bedrockMinibricks = registerFireResistantBlock("bedrock_minibricks", () -> new BlockMod(COLOR_GRAY, 6F, 1200F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM), Rarity.COMMON),
+            torriditeMinibricks = registerFireResistantBlock("torridite_minibricks", () -> new BlockMod(CRIMSON_NYLIUM, 2F, 1200F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM), Rarity.COMMON),
+            realmiteMinibricks = registerBlock("realmite_minibricks", () -> new BlockMod(COLOR_ORANGE, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
+            arlemiteMinibricks = registerBlock("arlemite_minibricks", () -> new BlockMod(COLOR_LIGHT_GREEN, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
+            rupeeMinibricks = registerBlock("rupee_minibricks", () -> new BlockMod(COLOR_LIGHT_BLUE, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             bloodgemMinibricks = registerBlock("bloodgem_minibricks", () -> new BlockMod(CRIMSON_STEM, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
 
             //Iceika Bricks
@@ -568,7 +568,8 @@ public class BlockRegistry {
             winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.copy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
             winterberryVinesHead = registerBlock("winterberry_vines_head", () -> new BlockWinterberryVinesHead(Properties.copy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
             arcanaBrush = registerBlock("arcana_brush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), TERRACOTTA_LIGHT_BLUE)),
-            arcanaBush = registerBlock("arcana_bush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_BLUE)), gemOfTheDunes = registerBlock("gem_of_the_dunes", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_LIGHT_BLUE), Rarity.EPIC),
+            arcanaBush = registerBlock("arcana_bush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_BLUE)),
+            gemOfTheDunes = registerBlock("gem_of_the_dunes", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_LIGHT_BLUE), Rarity.EPIC),
             arcaniteVinesBody = BLOCKS.register("arcanite_vines_body", () -> new BlockArcaniteVinesBody(Properties.copy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
             arcaniteVinesHead = registerBlock("arcanite_vines_head", () -> new BlockArcaniteVinesHead(Properties.copy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
             weedwoodVine = registerBlock("weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),

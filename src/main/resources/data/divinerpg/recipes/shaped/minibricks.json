@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:minibricks"
+    "item": "divinerpg:minibricks",
+    "count": 9
   },
   "pattern": [
     "XXX",
@@ -11,7 +12,7 @@
   "category": "building",
   "key": {
     "X": {
-      "tag": "minecraft:stone_bricks"
+      "item": "minecraft:stone_bricks"
     }
   }
 }

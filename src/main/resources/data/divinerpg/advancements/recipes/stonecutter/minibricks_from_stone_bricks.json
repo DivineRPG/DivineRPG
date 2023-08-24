@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/minibricks"
+        "recipe": "divinerpg:stonecutter/minibricks_from_stone_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/minibricks"
+      "divinerpg:stonecutter/minibricks_from_stone_bricks"
     ]
   }
 }

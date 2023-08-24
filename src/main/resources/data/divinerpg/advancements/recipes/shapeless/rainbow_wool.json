@@ -1,83 +1,17 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_red_wool": {
+    "has_wool": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:red_wool"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_orange_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:orange_wool"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_yellow_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:yellow_wool"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_lime_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:lime_wool"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_light_blue_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:light_blue_wool"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_blue_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:blue_wool"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_purple_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
+              "minecraft:red_wool",
+              "minecraft:orange_wool",
+              "minecraft:yellow_wool",
+              "minecraft:lime_wool",
+              "minecraft:light_blue_wool",
+              "minecraft:blue_wool",
               "minecraft:purple_wool"
             ]
           }
@@ -94,13 +28,7 @@
   },
   "requirements": [
     [
-      "has_red_wool",
-      "has_orange_wool",
-      "has_yellow_wool",
-      "has_lime_wool",
-      "has_light_blue_wool",
-      "has_blue_wool",
-      "has_purple_wool",
+      "has_wool",
       "has_the_recipe"
     ]
   ],

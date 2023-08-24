@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bricks": {
+    "has_stone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stone_bricks"
+              "minecraft:stone"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/minibricks"
+        "recipe": "divinerpg:stonecutter/minibricks_from_stone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_bricks",
+      "has_stone",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/minibricks"
+      "divinerpg:stonecutter/minibricks_from_stone"
     ]
   }
 }
