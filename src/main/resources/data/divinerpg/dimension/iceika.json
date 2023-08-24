@@ -26,7 +26,7 @@
 						"continentalness":  [ 0.02, 1 ],
 						"erosion":			[ 0.1, 0.75 ],
 						"weirdness":		[ -0.4, 0.5 ],
-						"depth": -0.7,
+						"depth": -0.75,
 						"offset": 0.08
 					}
 				},
@@ -84,7 +84,7 @@
 						"temperature":		[ -0.375, -0.125 ],
 						"humidity":			[ -1, -0.75 ],
 						"continentalness":	[ 0.125, 0.365 ],
-						"erosion":			[ -1, -0.75 ],
+						"erosion":			[ -1, 0 ],
 						"weirdness": 1,
 						"depth": -0.5,
 						"offset": 0
@@ -93,12 +93,12 @@
 				{
 					"biome": "divinerpg:iceika/cozybark_meadow",
 					"parameters": {
-						"temperature": 0,
-						"humidity":			[ 0.875, 1 ],
-						"continentalness":	[ 0.8, 1 ],
-						"erosion":			[ 0.875, 1 ],
-						"weirdness":		[ 0.75, 1 ],
-						"depth": -0.5,
+						"temperature":		[ -0.36, 0 ],
+						"humidity":			[ 0.6, 1 ],
+						"continentalness":	[ 0.6, 1 ],
+						"erosion":			[ 0.5, 1 ],
+						"weirdness":		[ 0.4, 1 ],
+						"depth": -0.3,
 						"offset": 0
 					}
 				},
@@ -143,7 +143,7 @@
 					"parameters": {
 						"temperature":		[ -1.25, -0.75 ],
 						"humidity":			[ -0.8, -0.375 ],
-						"continentalness":	[ 0, 0.7 ],
+						"continentalness":	[ 0.2, 0.7 ],
 						"erosion":			[ -0.25, 0.32 ],
 						"weirdness":		[ -1, -0.5 ],
 						"depth":			[ -0.08, -0.01 ],
@@ -168,7 +168,7 @@
 						"temperature": -0.25,
 						"humidity":	-1,
 						"continentalness":	[ 0.125, 0.365 ],
-						"erosion":			[ -1, -0.875 ],
+						"erosion":			[ -1, -0.1 ],
 						"weirdness": 1,
 						"depth": 0,
 						"offset": 0
@@ -177,11 +177,11 @@
 				{
 					"biome": "divinerpg:iceika/cozybark_meadow",
 					"parameters": {
-						"temperature":		[ -0.125, 0 ],
-						"humidity":			[ 0.875, 1 ],
-						"continentalness":	[ 0.4, 1 ],
-						"erosion":			[ 0.75, 1 ],
-						"weirdness":		[ 0.625, 0.875 ],
+						"temperature":		[ -0.36, 0 ],
+						"humidity":			[ 0.6, 1 ],
+						"continentalness":	[ 0.3, 1 ],
+						"erosion":			[ 0.5, 1 ],
+						"weirdness":		[ 0.4, 1 ],
 						"depth": 0,
 						"offset": 0
 					}
@@ -190,10 +190,10 @@
 					"biome": "divinerpg:iceika/ice_sheet",
 					"parameters": {
 						"temperature":		[ -2, -1.75 ],
-						"humidity":			[ -1, -0.75 ],
+						"humidity":			[ -1, -0.6 ],
 						"continentalness":	[ -1, -0.5 ],
-						"erosion":			[ 0.5, 1 ],
-						"weirdness":		[ -0.125, 0.25 ],
+						"erosion":			[ 0.1, 1 ],
+						"weirdness":		[ -0.3, 1 ],
 						"depth": 0,
 						"offset": 0
 					}
@@ -202,24 +202,48 @@
 					"biome": "divinerpg:iceika/frozen_ocean",
 					"parameters": {
 						"temperature":		[ -1.7, -0.75 ],
-						"humidity":			[ -0.7, 1 ],
+						"humidity":			[ 0, 1 ],
 						"continentalness":	[ -0.8, -0.55 ],
 						"erosion":			[ -1, 1 ],
-						"weirdness":		[ -1, 1 ],
+						"weirdness":		[ -1, 0 ],
 						"depth": 0,
 						"offset": 0.2337
 					}
 				},
 				{
+					"biome": "divinerpg:iceika/frozen_ocean",
+					"parameters": {
+						"temperature":		[ -1.7, -0.75 ],
+						"humidity":			[ -0.7, 0 ],
+						"continentalness":	[ -0.8, -0.68 ],
+						"erosion":			[ -1, 1 ],
+						"weirdness":		[ 0, 1 ],
+						"depth": 0,
+						"offset": 0.35
+					}
+				},
+				{
 					"biome": "divinerpg:iceika/frozen_shore",
 					"parameters": {
-						"temperature":		[ -2, 0 ],
-						"humidity":			[ -1, 1 ],
-						"continentalness":	-0.335,
+						"temperature":		[ -2, -1 ],
+						"humidity":			[ 0, 1 ],
+						"continentalness":	-0.35,
 						"erosion":			[ -1, 1 ],
-						"weirdness":		[ -1, 1 ],
-						"depth": -0.08,
-						"offset": 0.475
+						"weirdness":		[ -1, 0 ],
+						"depth": -0.1,
+						"offset": 0.4
+					}
+				},
+				{
+					"biome": "divinerpg:iceika/frozen_shore",
+					"parameters": {
+						"temperature":		[ -1, 0 ],
+						"humidity":			[ -1, 0 ],
+						"continentalness":	-0.444,
+						"erosion":			[ -1, 1 ],
+						"weirdness":		[ 0, 1 ],
+						"depth": -0.1,
+						"offset": 0.57
 					}
 				},
 				{
@@ -227,11 +251,11 @@
 					"parameters": {
 						"temperature":		[ -1, -0.125 ],
 						"humidity":			[ -0.625, 0 ],
-						"continentalness":	[ -1, -0.7 ],
+						"continentalness":	[ -1, -0.73 ],
 						"erosion":			[ -0.875, 1 ],
 						"weirdness":		[ -1, 0.125 ],
 						"depth": 0,
-						"offset": 0
+						"offset": 0.01
 					}
 				},
 				{
@@ -278,8 +302,8 @@
 						"continentalness":	[ -1, 1 ],
 						"erosion":			[ -0.25, 0 ],
 						"weirdness":		[ -0.5, -0.125 ],
-						"depth": 0.5,
-						"offset": 0
+						"depth": 0.51,
+						"offset": 0.01
 					}
 				},
 				{
