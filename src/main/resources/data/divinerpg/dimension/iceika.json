@@ -14,31 +14,31 @@
 						"continentalness":  [ 0.05, 1 ],
 						"erosion":			[ -1, -0.5 ],
 						"weirdness":		[ -0.365, 0.125 ],
-						"depth": -0.57,
+						"depth": -0.7,
 						"offset": 0
 					}
 				},
 				{
 					"biome": "divinerpg:iceika/chill_passage",
 					"parameters": {
-						"temperature":		[ -1.5, -1.125 ],
-						"humidity":			[ -0.125, 0.25 ],
+						"temperature":		[ -1.5, -1.12 ],
+						"humidity":			[ -0.625, 0.25 ],
 						"continentalness":  [ 0.02, 1 ],
-						"erosion":			[ 0.125, 0.5 ],
-						"weirdness":		[ 0.125, 0.5 ],
-						"depth": -0.6,
-						"offset": 0
+						"erosion":			[ 0.1, 0.75 ],
+						"weirdness":		[ -0.4, 0.5 ],
+						"depth": -0.7,
+						"offset": 0.08
 					}
 				},
 				{
 					"biome": "divinerpg:iceika/borealis_steeps",
 					"parameters": {
 						"temperature":		[ -1.25, -0.5 ],
-						"humidity":			[ 0, 0.5 ],
+						"humidity":			[ 0.1, 0.6 ],
 						"continentalness":  [ 0.11, 1 ],
 						"erosion":			[ -0.6, -0.06 ],
-						"weirdness":		[ 0.655, 1 ],
-						"depth": -0.65,
+						"weirdness":		[ 0.7, 1 ],
+						"depth": -0.7,
 						"offset": 0.15
 					}
 				},
@@ -50,7 +50,7 @@
 						"continentalness":	[ 0.05, 1 ],
 						"erosion":			[ 0.625, 1 ],
 						"weirdness":		[ -1, -0.5 ],
-						"depth": -0.57,
+						"depth": -0.7,
 						"offset": 0
 					}
 				},
@@ -62,32 +62,20 @@
 						"continentalness":	[ 0.3, 0.9 ],
 						"erosion":			[ -0.625, -0.5 ],
 						"weirdness":		[ 0, 0.375 ],
-						"depth": -0.5,
-						"offset": 0
-					}
-				},
-				{
-					"biome": "divinerpg:iceika/chill_passage",
-					"parameters": {
-						"temperature":		[ -1.5, -1.375 ],
-						"humidity":			[ -0.625, -0.125 ],
-						"continentalness":  [ 0.02, 1 ],
-						"erosion":			[ 0.5, 0.75 ],
-						"weirdness":		[ -0.375, 0.125 ],
-						"depth": -0.5,
+						"depth": -0.4,
 						"offset": 0
 					}
 				},
 				{
 					"biome": "divinerpg:iceika/shiverspine_forest",
 					"parameters": {
-						"temperature":		[ -0.875, -0.5 ],
+						"temperature":		[ -0.8, -0.5 ],
 						"humidity":			[ 0, 0.5 ],
 						"continentalness":	[ 0.33, 1 ],
-						"erosion":			[ -0.1, 0.3 ],
-						"weirdness":		[ -1, -0.5 ],
-						"depth": -0.3,
-						"offset": 0.36
+						"erosion":			[ -0.625, 0.3 ],
+						"weirdness":		[ -0.5, 0.125 ],
+						"depth": -0.15,
+						"offset": 0.43
 					}
 				},
 				{
@@ -122,7 +110,7 @@
 						"continentalness":	[ 0.1, 0.9 ],
 						"erosion":			[ -0.75, -0.4 ],
 						"weirdness":		[ 0.5, 0.75 ],
-						"depth":			[ -0.2 , 0 ],
+						"depth":			[ -0.3 , -0.1 ],
 						"offset": 0
 					}
 				},
@@ -143,35 +131,23 @@
 					"parameters": {
 						"temperature":		[ -1.375, -1.15 ],
 						"humidity":			[ -0.125, 0.2 ],
-						"continentalness":	[ -0.125, 0.25 ],
+						"continentalness":	[ -0.125, 0.1 ],
 						"erosion":			[ 0.25, 0.625 ],
 						"weirdness":		[ 0.125, 0.4 ],
 						"depth": 0,
-						"offset": 0
+						"offset": 0.1
 					}
 				},
 				{
 					"biome": "divinerpg:iceika/tundra",
 					"parameters": {
-						"temperature":		[ -1.25, -0.77 ],
-						"humidity":			[ -0.875, -0.375 ],
+						"temperature":		[ -1.25, -0.75 ],
+						"humidity":			[ -0.8, -0.375 ],
 						"continentalness":	[ 0, 0.7 ],
-						"erosion":			[ -0.25, 0.375 ],
-						"weirdness":		[ -1, -0.25 ],
-						"depth":			[ -0.2, -0.01 ],
-						"offset": 0.05
-					}
-				},
-				{
-					"biome": "divinerpg:iceika/shiverspine_forest",
-					"parameters": {
-						"temperature":		[ -0.75, -0.625 ],
-						"humidity":			[ 0.375, 0.5 ],
-						"continentalness":	[ 0.31, 1 ],
-						"erosion":			[ -0.7, -0.2 ],
-						"weirdness":		[ -0.375, 0.125 ],
-						"depth": -0.02,
-						"offset": 0.32
+						"erosion":			[ -0.25, 0.32 ],
+						"weirdness":		[ -1, -0.5 ],
+						"depth":			[ -0.08, -0.01 ],
+						"offset": 0.1
 					}
 				},
 				{
@@ -179,7 +155,7 @@
 					"parameters": {
 						"temperature":		[ -0.5, -0.375 ],
 						"humidity":			[ 0.125, 0.25 ],
-						"continentalness":	[ -0.14, 0.14 ],
+						"continentalness":	[ -0.14, 0.1 ],
 						"erosion": 			[ 0.5, 0.875 ],
 						"weirdness":		[ -0.375, 0.5 ],
 						"depth": 0,
@@ -218,7 +194,7 @@
 						"continentalness":	[ -1, -0.5 ],
 						"erosion":			[ 0.5, 1 ],
 						"weirdness":		[ -0.125, 0.25 ],
-						"depth": 0.1,
+						"depth": 0,
 						"offset": 0
 					}
 				},
@@ -227,11 +203,11 @@
 					"parameters": {
 						"temperature":		[ -1.7, -0.75 ],
 						"humidity":			[ -0.7, 1 ],
-						"continentalness":	[ -0.8, -0.515 ],
+						"continentalness":	[ -0.8, -0.55 ],
 						"erosion":			[ -1, 1 ],
 						"weirdness":		[ -1, 1 ],
 						"depth": 0,
-						"offset": 0.2272
+						"offset": 0.2337
 					}
 				},
 				{
@@ -239,11 +215,11 @@
 					"parameters": {
 						"temperature":		[ -2, 0 ],
 						"humidity":			[ -1, 1 ],
-						"continentalness":	-0.277,
+						"continentalness":	-0.335,
 						"erosion":			[ -1, 1 ],
 						"weirdness":		[ -1, 1 ],
-						"depth": 0,
-						"offset": 0.474
+						"depth": -0.08,
+						"offset": 0.475
 					}
 				},
 				{
@@ -254,7 +230,7 @@
 						"continentalness":	[ -1, -0.7 ],
 						"erosion":			[ -0.875, 1 ],
 						"weirdness":		[ -1, 0.125 ],
-						"depth": 0.1,
+						"depth": 0,
 						"offset": 0
 					}
 				},
@@ -266,7 +242,7 @@
 						"continentalness":	[ -1, -0.7 ],
 						"erosion":			[ -0.375, 0.125 ],
 						"weirdness":		[ 0.4, 0.77 ],
-						"depth": 0.1,
+						"depth": 0,
 						"offset": 0
 					}
 				},
@@ -290,7 +266,7 @@
 						"continentalness":	[ -1, 1 ],
 						"erosion":			[ -0.625, -0.375 ],
 						"weirdness":		[ -1, -0.625 ],
-						"depth": 0.45,
+						"depth": 0.5,
 						"offset": 0
 					}
 				},
