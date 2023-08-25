@@ -5,7 +5,7 @@ import divinerpg.registries.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffers;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 
 public class EntityWorkshopMerchant extends EntityDivineMerchant {
     public EntityWorkshopMerchant(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
@@ -18,6 +18,9 @@ public class EntityWorkshopMerchant extends EntityDivineMerchant {
                 "message.merchant.in",
                 "message.merchant.out"
         };
+    }
+    @Override protected float getStandingEyeHeight(Pose p_35297_, EntityDimensions p_35298_) {
+        return 1.65125F;
     }
     @Override
     protected void updateTrades() {
