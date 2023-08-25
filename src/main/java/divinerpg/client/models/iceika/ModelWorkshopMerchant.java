@@ -1,12 +1,10 @@
 package divinerpg.client.models.iceika;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
-import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
@@ -19,7 +17,7 @@ public class ModelWorkshopMerchant<T extends Entity> extends EntityModel<T> {
 	private final ModelPart LeftLeg;
 	private final ModelPart RightLeg;
 
-	public ModelWorkshopMerchant(EntityRendererProvider.Context context) {
+	public ModelWorkshopMerchant(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.Head = root.getChild("Head");
 		this.Body = root.getChild("Body");
