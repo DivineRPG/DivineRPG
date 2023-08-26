@@ -4,16 +4,19 @@ import divinerpg.DivineRPG;
 import divinerpg.client.renders.layer.PlayerHatRender;
 import divinerpg.client.renders.tiles.*;
 import divinerpg.registries.BlockEntityRegistry;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.GrassColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = DivineRPG.MODID,bus = Mod.EventBusSubscriber.Bus.MOD)
 public class FancyRenders {
-
-
     @SubscribeEvent
     public static void onAddLayer(EntityRenderersEvent.AddLayers event) {
         PlayerRenderer render = (PlayerRenderer) event.getSkin("default");
@@ -22,7 +25,6 @@ public class FancyRenders {
         render.addLayer(new PlayerHatRender<>(render, event.getEntityModels()));
 
     }
-
     @SubscribeEvent
     public static void registerRenders(EntityRenderersEvent.RegisterRenderers event){
         event.registerBlockEntityRenderer(BlockEntityRegistry.ALTAR_OF_CORRUPTION.get(), RenderAltarOfCorruption::new);
@@ -39,4 +41,11 @@ public class FancyRenders {
         event.registerBlockEntityRenderer(BlockEntityRegistry.FROSTED_CHEST.get(), RenderFrostedChest::new);
 
     }
+    @SubscribeEvent
+    public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
+    	DivineRPG.LOGGER.info("registering block color handlers");
+    	event.register((state, getter, pos, index) -> {
+            return getter != null && pos != null ? BiomeColors.getAverageGrassColor(getter, pos) : GrassColor.getDefaultColor();
+        }, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")));
+	}
 }

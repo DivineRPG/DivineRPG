@@ -1,15 +1,28 @@
 {
 	"temperature": -0.9,
-	"downfall": 0.5,
+	"downfall": 0.6,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
+	"creature_spawn_probability": 0.07,
 	"effects": {
-		"sky_color": 8625919,
-		"fog_color": 12638463,
-		"water_color": 4020182,
-		"water_fog_color": 329011,
-		"grass_color": 10308902,
-		"foliage_color": 690752
+		"sky_color": 5617134,
+		"fog_color": 1283048,
+		"water_color": 745166,
+		"water_fog_color": 669393,
+		"grass_color": 5875193,
+		"foliage_color": 6919923,
+		"music": {
+			"sound": "divinerpg:iceika_music",
+			"min_delay": 6000,
+			"max_delay": 10000,
+			"replace_current_music": false
+		},
+		"particle": {
+			"options": {
+				"type": "minecraft:snowflake"
+			},
+			"probability": 0.002
+		}
 	},
 	"spawners": {},
 	"spawn_costs": {},
@@ -20,5 +33,19 @@
 			"minecraft:canyon"
 		]
 	},
-	"features": []
+	"features": [
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[
+			"divinerpg:snow_coverage"
+		]
+	]
 }

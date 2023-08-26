@@ -17,9 +17,9 @@
 		{
 			"type": "divinerpg:surface_placement",
 			"surface": "lowest_ground",
-			"mode": "full",
-			"min_height": 0,
-			"max_height": 127,
+			"mode": "slice",
+			"min_height": -63,
+			"max_height": 256,
 			"bury": 1
 		},
 		{

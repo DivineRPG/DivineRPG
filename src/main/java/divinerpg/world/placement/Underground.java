@@ -9,6 +9,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.placement.*;
 
@@ -24,7 +25,7 @@ public class Underground extends PlacementFilter {
 		MutableBlockPos mut = pos.mutable();
 		while(mut.getY() < level.getMaxBuildHeight() - 1) {
 			BlockState state = level.getBlockState(mut.move(Direction.UP));
-			if(state.isCollisionShapeFullBlock(level, mut) && !state.is(BlockTags.LEAVES)) return level.getBrightness(LightLayer.SKY, pos.above()) < 1;
+			if(state.isCollisionShapeFullBlock(level, mut) && !state.is(BlockTags.LEAVES) && !state.is(Blocks.SNOW_BLOCK)) return level.getBrightness(LightLayer.SKY, pos.above()) < 1;
 		}
 		return false;
 	}

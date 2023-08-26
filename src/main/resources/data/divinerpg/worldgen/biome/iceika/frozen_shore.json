@@ -1,13 +1,13 @@
 {
 	"temperature": -0.9,
-	"downfall": 0.5,
+	"downfall": 0.6,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"effects": {
-		"sky_color": 8625919,
-		"fog_color": 12638463,
-		"water_color": 4020182,
-		"water_fog_color": 329011,
+		"sky_color": 8364543,
+		"fog_color": 15268095,
+		"water_color": 3946697,
+		"water_fog_color": 460617,
 		"grass_color": 10308902,
 		"foliage_color": 690752
 	},
@@ -20,5 +20,35 @@
 			"minecraft:canyon"
 		]
 	},
-	"features": []
+	"features": [
+		[],
+		[],
+		[
+			"minecraft:iceberg_packed",
+			"minecraft:iceberg_blue"
+		],
+		[],
+		[
+			"minecraft:blue_ice"
+		],
+		[
+			"minecraft:blue_ice",
+			"minecraft:ice_patch",
+			"divinerpg:frozen_light",
+			"divinerpg:icicle",
+			"divinerpg:hanging_icicle",
+		    "minecraft:seagrass_cold",
+		    "minecraft:seagrass_simple",
+		    "minecraft:kelp_cold"
+		],
+		[],
+		[],
+		[],
+		[
+			"divinerpg:shiverspine_bush"
+		],
+		[
+			"divinerpg:snow_coverage"
+		]
+	]
 }

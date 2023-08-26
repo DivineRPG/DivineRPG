@@ -16,6 +16,8 @@
     "divinerpg:wildwood_vine",
     "divinerpg:weedwood_vine",
     "divinerpg:blossomed_weedwood_vine",
-    "divinerpg:snowy_cozybark_leaves"
+    "divinerpg:snowy_cozybark_leaves",
+    "minecraft:snow_block",
+    "minecraft:snow"
   ]
 }

@@ -1,6 +1,6 @@
 {
 	"temperature": -0.9,
-	"downfall": 0.6,
+	"downfall": 0.25,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
@@ -9,6 +9,8 @@
 		"fog_color": 15269119,
 		"water_color": 4159204,
 		"water_fog_color": 329011,
+		"grass_color": 7586030,
+		"foliage_color": 7837936,
 		"music": {
 			"sound": "divinerpg:iceika_music",
 			"min_delay": 6000,
@@ -117,19 +119,19 @@
 		[],
 		[
 			"divinerpg:frozen_light",
-			"divinerpg:brittle_pond",
 			"divinerpg:brittle_caves_vegetation",
 			"divinerpg:classic_vines_brittle_caves",
 			"minecraft:glow_lichen",
 		    "minecraft:seagrass_simple"
 		],
 		[
+			"divinerpg:snow_coverage",
 			"divinerpg:shiverspine_tree_common",
 			"divinerpg:icicle",
 			"divinerpg:hanging_icicle"
 		],
 		[
-			"minecraft:freeze_top_layer"
+			"divinerpg:snow_coverage"
 		]
 	]
 }

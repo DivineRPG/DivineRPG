@@ -1,6 +1,6 @@
 {
 	"temperature": -0.9,
-	"downfall": 0.5,
+	"downfall": 1.4,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
@@ -97,12 +97,13 @@
 		    "minecraft:seagrass_simple"
 		],
 		[
+			"divinerpg:snow_coverage",
 			"divinerpg:shiverspine_tree",
 			"divinerpg:shiverspine_bush",
 			"divinerpg:hanging_icicle"
 		],
 		[
-			"minecraft:freeze_top_layer"
+			"divinerpg:snow_coverage"
 		]
 	]
 }
