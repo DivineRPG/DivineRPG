@@ -118,20 +118,20 @@
 		[],
 		[],
 		[
-			"divinerpg:frozen_light",
-			"divinerpg:brittle_caves_vegetation",
-			"divinerpg:classic_vines_brittle_caves",
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/brittle_caves_vegetation",
+			"divinerpg:iceika/classic_vines_brittle_caves",
 			"minecraft:glow_lichen",
 		    "minecraft:seagrass_simple"
 		],
 		[
-			"divinerpg:snow_coverage",
-			"divinerpg:shiverspine_tree_common",
-			"divinerpg:icicle",
-			"divinerpg:hanging_icicle"
+			"divinerpg:iceika/shiverspine_tree_common",
+			"divinerpg:iceika/icicle",
+			"divinerpg:iceika/hanging_icicle",
+			"divinerpg:iceika/snow_coverage"
 		],
 		[
-			"divinerpg:snow_coverage"
+			"divinerpg:iceika/snow_spreader"
 		]
 	]
 }

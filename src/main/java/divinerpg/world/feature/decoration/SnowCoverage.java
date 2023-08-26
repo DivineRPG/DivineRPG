@@ -39,15 +39,16 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 					state = level.getBlockState(position);
 				}
 				SinglePointContext context = new SinglePointContext(position.getX(), position.getY(), position.getZ());
-				depth = level.getBiome(position).get().getModifiedClimateSettings().downfall() * (router.vegetation().compute(context) + 1.1) + router.temperature().compute(context) + 1D;
+				depth = ((level.getBiome(position).get().getModifiedClimateSettings().downfall() + level.getBiome(position.north()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.south()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.east()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.west()).get().getModifiedClimateSettings().downfall()) / 5D)
+						* (router.vegetation().compute(context) + 1.1) + router.temperature().compute(context) + 1D;
 				if(depth >= .125) {
 					state = level.getBlockState(position.below());
-					if(state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElseGet(() -> false)) level.setBlock(position.below(), Blocks.ICE.defaultBlockState(), 3);
-					else if(state.is(Blocks.SNOW) || state.is(Blocks.SNOW_BLOCK) || state.is(Blocks.POWDER_SNOW) || state.is(Blocks.ICE) || !state.isCollisionShapeFullBlock(level, pos)) continue;
+					if(state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElseGet(() -> false) || state.is(BlockTags.UNDERWATER_BONEMEALS) || state.is(Blocks.KELP)) level.setBlock(position.below(), Blocks.ICE.defaultBlockState(), 3);
+					else if(state.is(Blocks.SNOW) || state.is(Blocks.POWDER_SNOW) || state.is(Blocks.ICE) || !state.isCollisionShapeFullBlock(level, pos)) continue;
 					else {
 						if(state.is(BlockTags.LEAVES)) depth -= .2;
 						if(depth >= 1D) {
-							state = depth >= 2D && random.nextFloat() >= .05F ? Blocks.POWDER_SNOW.defaultBlockState() : Blocks.SNOW_BLOCK.defaultBlockState();
+							state = depth >= 2D && random.nextFloat() >= .07F ? Blocks.POWDER_SNOW.defaultBlockState() : Blocks.SNOW_BLOCK.defaultBlockState();
 							int i, k = (int) depth;
 							for(i = 0; i < k; i++) if(level.getBlockState(position).isAir()) {
 								level.setBlock(position, state, 3);
@@ -55,7 +56,7 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 							}
 							depth -= k;
 						}
-						if(depth >= .125 && level.getBlockState(position).isAir()) level.setBlock(position, Blocks.SNOW.defaultBlockState().setValue(BlockStateProperties.LAYERS, (int) (depth * 8D)), 3);
+						if(depth >= .125 && !state.is(Blocks.POWDER_SNOW) && level.getBlockState(position).isAir()) level.setBlock(position, Blocks.SNOW.defaultBlockState().setValue(BlockStateProperties.LAYERS, (int) (depth * 8D)), 3);
 					}
 					success = true;
 				}

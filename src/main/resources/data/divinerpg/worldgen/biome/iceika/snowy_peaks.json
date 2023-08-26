@@ -92,22 +92,24 @@
 		[],
 		[
 			"minecraft:ice_patch",
-			"divinerpg:glacial_pond",
-			"divinerpg:powder_snow"
+			"divinerpg:iceika/glacial_pond",
+			"divinerpg:iceika/powder_snow"
 		],
 		[
-			"divinerpg:frozen_light",
-			"divinerpg:hanging_icicle",
-			"divinerpg:pointed_dripstone"
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/hanging_icicle",
+			"divinerpg:iceika/pointed_dripstone"
 		],
 		[],
 		[],
 		[],
 		[],
 		[],
-		[],
 		[
-			"divinerpg:snow_coverage"
+			"divinerpg:iceika/snow_coverage"
+		],
+		[
+			"divinerpg:iceika/snow_spreader"
 		]
 	]
 }

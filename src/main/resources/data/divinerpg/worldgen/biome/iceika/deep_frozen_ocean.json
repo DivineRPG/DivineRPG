@@ -110,21 +110,21 @@
 		],
 		[
 			"minecraft:ice_patch",
-			"divinerpg:frozen_light",
-			"divinerpg:brittle_pond",
-			"divinerpg:icicle",
-			"divinerpg:hanging_icicle",
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/brittle_pond",
+			"divinerpg:iceika/icicle",
+			"divinerpg:iceika/hanging_icicle",
 		    "minecraft:seagrass_deep_cold",
 		    "minecraft:seagrass_simple",
 		    "minecraft:kelp_cold",
-			"divinerpg:brittle_caves_vegetation",
-			"divinerpg:classic_vines_brittle_caves"
+			"divinerpg:iceika/brittle_caves_vegetation",
+			"divinerpg:iceika/classic_vines_brittle_caves"
 		],
 		[],
 		[],
 		[],
 		[
-			"divinerpg:shiverspine_bush"
+			"divinerpg:iceika/shiverspine_bush"
 		],
 		[
 			"minecraft:freeze_top_layer"

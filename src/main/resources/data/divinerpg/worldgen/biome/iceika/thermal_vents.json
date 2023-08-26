@@ -123,14 +123,14 @@
 			"minecraft:lake_lava_surface"
 		],
 		[
-			"divinerpg:geothermal_pond"
+			"divinerpg:iceika/geothermal_pond"
 		],
 		[
-			"divinerpg:underwater_magma",
-			"divinerpg:thermal_vent",
-			"divinerpg:twilight_stone_patch",
-			"divinerpg:frozen_light",
-			"divinerpg:pointed_dripstone",
+			"divinerpg:iceika/underwater_magma",
+			"divinerpg:iceika/thermal_vent",
+			"divinerpg:iceika/twilight_stone_patch",
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/pointed_dripstone",
 		    "minecraft:warm_ocean_vegetation",
 		    "minecraft:seagrass_warm",
 		    "minecraft:sea_pickle"
@@ -140,7 +140,7 @@
 		],
 		[],
 		[
-			"divinerpg:shiverspine_bush"
+			"divinerpg:iceika/shiverspine_bush"
 		],
 		[
 			"minecraft:freeze_top_layer"

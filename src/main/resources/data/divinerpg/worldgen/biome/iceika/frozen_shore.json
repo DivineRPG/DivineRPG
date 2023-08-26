@@ -34,9 +34,9 @@
 		[
 			"minecraft:blue_ice",
 			"minecraft:ice_patch",
-			"divinerpg:frozen_light",
-			"divinerpg:icicle",
-			"divinerpg:hanging_icicle",
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/icicle",
+			"divinerpg:iceika/hanging_icicle",
 		    "minecraft:seagrass_cold",
 		    "minecraft:seagrass_simple",
 		    "minecraft:kelp_cold"
@@ -45,10 +45,11 @@
 		[],
 		[],
 		[
-			"divinerpg:shiverspine_bush"
+			"divinerpg:iceika/shiverspine_bush",
+			"divinerpg:iceika/snow_coverage"
 		],
 		[
-			"divinerpg:snow_coverage"
+			"divinerpg:iceika/snow_spreader"
 		]
 	]
 }

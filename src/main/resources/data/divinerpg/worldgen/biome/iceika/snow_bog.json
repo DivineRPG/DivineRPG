@@ -43,9 +43,11 @@
 		[],
 		[],
 		[],
-		[],
 		[
-			"divinerpg:snow_coverage"
+			"divinerpg:iceika/snow_coverage"
+		],
+		[
+			"divinerpg:iceika/snow_spreader"
 		]
 	]
 }

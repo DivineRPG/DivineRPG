@@ -27,7 +27,7 @@
 						"erosion":			[ 0.1, 0.75 ],
 						"weirdness":		[ -0.4, 0.5 ],
 						"depth": -0.75,
-						"offset": 0.08
+						"offset": 0.1
 					}
 				},
 				{
@@ -69,7 +69,7 @@
 				{
 					"biome": "divinerpg:iceika/shiverspine_forest",
 					"parameters": {
-						"temperature":		[ -0.9, -0.5 ],
+						"temperature":		[ -0.8, -0.5 ],
 						"humidity":			[ 0, 0.5 ],
 						"continentalness":	[ 0.35, 1 ],
 						"erosion":			[ -0.625, 0.3 ],
@@ -143,9 +143,9 @@
 					"parameters": {
 						"temperature":		[ -1.25, -0.75 ],
 						"humidity":			[ -0.8, -0.375 ],
-						"continentalness":	[ 0.35, 0.7 ],
+						"continentalness":	[ 0.35, 1 ],
 						"erosion":			[ -0.25, 0.32 ],
-						"weirdness":		[ -1, -0.5 ],
+						"weirdness":		[ -1, -0.25 ],
 						"depth":			[ -0.1, -0.02 ],
 						"offset": 0.222
 					}
@@ -279,7 +279,7 @@
 						"erosion":			[ -0.25, 0 ],
 						"weirdness":		[ -0.5, -0.125 ],
 						"depth": 0.52,
-						"offset": 0.01
+						"offset": 0.1
 					}
 				},
 				{

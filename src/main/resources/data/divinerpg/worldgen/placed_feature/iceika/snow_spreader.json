@@ -1,0 +1,9 @@
+{
+	"feature": "divinerpg:snow_spreader",
+	"placement": [
+		{
+			"type": "minecraft:count",
+			"count": 1
+		}
+	]
+}

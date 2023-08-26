@@ -92,7 +92,7 @@
 	"features": [
 		[],
 		[
-			"divinerpg:whale_skeleton"
+			"divinerpg:iceika/whale_skeleton"
 		],
 		[
 			"minecraft:iceberg_packed",
@@ -104,9 +104,9 @@
 		],
 		[
 			"minecraft:ice_patch",
-			"divinerpg:frozen_light",
-			"divinerpg:icicle",
-			"divinerpg:hanging_icicle",
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/icicle",
+			"divinerpg:iceika/hanging_icicle",
 		    "minecraft:seagrass_deep_cold",
 		    "minecraft:seagrass_simple",
 		    "minecraft:kelp_cold"
@@ -115,7 +115,7 @@
 		[],
 		[],
 		[
-			"divinerpg:shiverspine_bush"
+			"divinerpg:iceika/shiverspine_bush"
 		],
 		[
 			"minecraft:freeze_top_layer"

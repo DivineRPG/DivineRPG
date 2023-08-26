@@ -53,7 +53,8 @@ public final class ConfiguredFeatureKeys {
 			BRITTLE_PLANTS = registerKey("brittle_plants"),
 			BRITTLE_CAVES_VEGETATION = registerKey("brittle_caves_vegetation"),
 			WHALE_SKELETON = registerKey("whale_skeleton"),
-			SNOW_COVERAGE = registerKey("snow_coverage");
+			SNOW_COVERAGE = registerKey("snow_coverage"),
+			SNOW_SPREADER = registerKey("snow_spreader");
 
 	//Arcana
 	public static final ResourceKey<ConfiguredFeature<?, ?>> ARCANA_DUNGEON = registerKey("arcana_dungeon"),
@@ -103,6 +104,7 @@ public final class ConfiguredFeatureKeys {
 		register(context, BRITTLE_CAVES_VEGETATION, FeatureRegistry.BRITTLE_CAVES_VEGETATION.get(), NoneFeatureConfiguration.INSTANCE);
 		register(context, WHALE_SKELETON, FeatureRegistry.WHALE_SKELETON.get(), NoneFeatureConfiguration.INSTANCE);
 		register(context, SNOW_COVERAGE, FeatureRegistry.SNOW_COVERAGE.get(), NoneFeatureConfiguration.INSTANCE);
+		register(context, SNOW_SPREADER, FeatureRegistry.SNOW_SPREADER.get(), NoneFeatureConfiguration.INSTANCE);
 
 		//Arcana
 		register(context, ARCANA_DUNGEON, FeatureRegistry.ARCANA_DUNGEON.get(), NoneFeatureConfiguration.INSTANCE);
