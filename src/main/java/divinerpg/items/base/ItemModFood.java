@@ -1,12 +1,10 @@
 package divinerpg.items.base;
 
-import divinerpg.*;
-import divinerpg.util.*;
-import net.minecraft.*;
-import net.minecraft.network.chat.*;
-import net.minecraft.world.food.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
 
 import javax.annotation.*;
@@ -39,9 +37,6 @@ public class ItemModFood extends ItemMod {
 
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if (food.isMeat()) {
-            tooltip.add(Component.translatable(DivineRPG.MODID + ".tooltip.food.pet").withStyle(ChatFormatting.BLUE));
-        }
         if (fastFood) {
             tooltip.add(LocalizeUtils.instantConsumption());
         }

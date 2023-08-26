@@ -29,6 +29,7 @@ public class ItemWinterberry extends ItemNameBlockItem {
             	if(face == Direction.UP && level.getBlockState(above).isAir()) level.setBlockAndUpdate(above, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "winterberry_bush")).defaultBlockState());
             	else if(face == Direction.DOWN && level.getBlockState(below).isAir()) level.setBlockAndUpdate(below, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "winterberry_vines_head")).defaultBlockState());
             	else return use(level, context.getPlayer(), context.getHand()).getResult();
+            	if(!context.getPlayer().isCreative()) context.getItemInHand().shrink(1);
             }
             level.playSound(context.getPlayer(), pos, SoundEvents.SWEET_BERRY_BUSH_PLACE, SoundSource.PLAYERS);
             return InteractionResult.SUCCESS;

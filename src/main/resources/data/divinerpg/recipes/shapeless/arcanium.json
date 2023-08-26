@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:arcanium_block"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:arcanium",
+    "count": 9
+  }
+}

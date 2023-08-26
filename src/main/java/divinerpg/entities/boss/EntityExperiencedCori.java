@@ -19,15 +19,17 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
-    private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
-            BossEvent.BossBarOverlay.PROGRESS));
+
+    private ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), BossBarColor.BLUE,
+            BossEvent.BossBarOverlay.PROGRESS);
 //    private int deathTicks;
 
     public EntityExperiencedCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
-        xpReward=2000;
+        this.xpReward=2000;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 4.0625F;
     }
@@ -47,7 +49,12 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
             }
         }
     }
-    @Override public boolean isAggressive() {return true;}
+
+    @Override
+    public boolean isAggressive() {
+        return true;
+    }
+
     @Override
     protected void registerGoals() {
         super.registerGoals();
@@ -56,7 +63,8 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
     }
 
     @Override
-    public int getMaxSpawnClusterSize() {return 1;
+    public int getMaxSpawnClusterSize() {
+        return 1;
     }
 
     @Override
@@ -108,7 +116,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
         if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
         {
             this.playAmbientSound();
-            if(!this.level().isClientSide) {
+            if(!this.level().isClientSide()) {
                 BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
                 if (random.nextInt(10) == 1) {
                     EntityRegistry.WEAK_CORI.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);

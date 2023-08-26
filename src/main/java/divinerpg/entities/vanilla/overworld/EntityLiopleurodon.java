@@ -1,12 +1,19 @@
 package divinerpg.entities.vanilla.overworld;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import divinerpg.entities.base.EntityDivineWaterMob;
 import divinerpg.registries.SoundRegistry;
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.AABB;
 
 public class EntityLiopleurodon extends EntityDivineWaterMob {
 
@@ -41,4 +48,18 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
         return SoundRegistry.LIOPLEURODON_HURT.get();
     }
 
+	public static boolean liopleurodonSpawnRule(EntityType<? extends Mob> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+		List<Entity> entities = worldIn.getEntities(null, new AABB(pos.offset(-48, -48, -48), pos.offset(48, 48, 48)));
+		List<EntityLiopleurodon> liopleurodon = new ArrayList<>();
+		for (int i = 0; i < entities.size(); i++) {
+			if (entities.get(i) instanceof EntityLiopleurodon) {
+				EntityLiopleurodon liopleurodonMob = (EntityLiopleurodon) entities.get(i);
+				liopleurodon.add(liopleurodonMob);
+			}
+		}
+		if (liopleurodon.size() < 2) {
+			return true;
+		}
+		return false;
+	}
 }

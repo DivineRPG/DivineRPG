@@ -8,10 +8,9 @@
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "divinerpg_wooden_slab",
   "key": {
     "s": {
-      "item": "divinerpg:frozen_planks"
+      "item": "divinerpg:frozen_stone"
     }
   }
 }

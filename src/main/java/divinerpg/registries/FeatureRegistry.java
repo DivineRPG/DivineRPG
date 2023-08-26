@@ -38,7 +38,10 @@ public class FeatureRegistry {
     	MORTUM_TREE = FEATURES.register("mortum_tree", () -> new MortumTree());
     
     //Iceika
-    public static final RegistryObject<Feature<TreeConfig>> FROZEN_TREE = FEATURES.register("frozen_tree", () -> new FrozenTree());
+    public static final RegistryObject<Feature<TreeConfig>>
+    	SHIVERSPINE_TREE = FEATURES.register("shiverspine_tree", () -> new ShiverspineTree()),
+    	AURORAOAK_TREE = FEATURES.register("auroraoak_tree", () -> new AuroraoakTree()),
+    	COZYBARK_TREE = FEATURES.register("cozybark_tree", () -> new CozybarkTree());
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>
     	THERMAL_VENT = FEATURES.register("thermal_vent", () -> new ThermalVent()),
     	BRITTLE_PLANTS = FEATURES.register("brittle_plants", () -> new BrittlePlants()),
@@ -54,8 +57,7 @@ public class FeatureRegistry {
     //Arcana
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>
     	ARCANA_DUNGEON = FEATURES.register("arcana_dungeon", () -> new ArcanaDungeon()),
-    	ARCANITE_VINES = FEATURES.register("arcanite_vines", () -> new ArcaniteVines()),
-    	GEM_OF_THE_DUNES = FEATURES.register("gem_of_the_dunes", () -> new GemOfTheDunes());
+    	ARCANITE_VINES = FEATURES.register("arcanite_vines", () -> new ArcaniteVines());
     
     //Vethea
     public static final RegistryObject<Feature<TreeConfig>>

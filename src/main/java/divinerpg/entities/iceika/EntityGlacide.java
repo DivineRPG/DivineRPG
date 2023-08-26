@@ -33,7 +33,14 @@ public class EntityGlacide extends EntityDivineMonster {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GLACIDE_HURT.get();
     }
-
+    @Override
+    public int getMaxSpawnClusterSize() {
+    	return 3;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 4;
+    }
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;

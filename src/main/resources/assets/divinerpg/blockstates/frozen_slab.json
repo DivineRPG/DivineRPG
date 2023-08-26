@@ -4,7 +4,7 @@
       "model": "divinerpg:block/frozen_half_slab"
     },
     "type=double": {
-      "model": "divinerpg:block/frozen_planks"
+      "model": "divinerpg:block/frozen_stone"
     },
     "type=top": {
       "model": "divinerpg:block/frozen_upper_slab"

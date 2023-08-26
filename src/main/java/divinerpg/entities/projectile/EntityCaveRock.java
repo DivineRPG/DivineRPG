@@ -26,7 +26,7 @@ public class EntityCaveRock extends DivineThrowable {
             if (result.getEntity() != null) {
                 result.getEntity().hurt(result.getEntity().level().damageSources().thrown(this, this.getOwner()), 6.0F);
 
-                if (!this.level().isClientSide) {
+                if (!this.level().isClientSide()) {
                     this.kill();
                 }
             }

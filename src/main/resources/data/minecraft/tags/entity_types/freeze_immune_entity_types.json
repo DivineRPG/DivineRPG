@@ -2,16 +2,17 @@
   "replace": false,
   "values": [
     "divinerpg:alicanto",
-    "divinerpg:etherealcetus",
+    "divinerpg:kitra",
     "divinerpg:fractite",
     "divinerpg:frost",
-    "divinerpg:frosty",
-    "divinerpg:frost_archer",
+    "divinerpg:frozen_flesh",
+    "divinerpg:pale_archer",
     "divinerpg:glacide",
     "divinerpg:glacon",
     "divinerpg:hastreus",
     "divinerpg:rollum",
     "divinerpg:workshop_merchant",
-    "divinerpg:workshop_tinkerer"
+    "divinerpg:workshop_tinkerer",
+    "divinerpg:wolpertinger"
   ]
 }

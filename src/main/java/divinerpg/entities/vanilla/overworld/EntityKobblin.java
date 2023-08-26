@@ -61,7 +61,7 @@ public class EntityKobblin extends EntityDivineMonster {
     @Override
     public void tick() {
         super.tick();
-        if(!this.level().isClientSide) {
+        if(!this.level().isClientSide()) {
         	Player player = this.level().getNearestPlayer(this, 4.0D);
         	if(player == null) {
         		setProvoked(this.getTarget());

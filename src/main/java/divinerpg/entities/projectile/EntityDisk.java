@@ -71,7 +71,7 @@ public class EntityDisk extends DivineThrowable {
                     if (!((Player) this.getOwner()).isCreative()) {
                         ((Player) this.getOwner()).inventory.add(new ItemStack(this.item));
                     }
-                    if (!this.level().isClientSide) {
+                    if (!this.level().isClientSide()) {
                         this.kill();
                     }
                 }
@@ -79,7 +79,7 @@ public class EntityDisk extends DivineThrowable {
                     this.counter = 0;
                     this.bounces++;
                 }
-            } else if (!this.level().isClientSide) {
+            } else if (!this.level().isClientSide()) {
                 this.kill();
             }
         }

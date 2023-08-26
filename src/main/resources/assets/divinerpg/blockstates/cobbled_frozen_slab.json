@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/cobbled_frozen_half_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/cobbled_frozen_stone"
+    },
+    "type=top": {
+      "model": "divinerpg:block/cobbled_frozen_upper_slab"
+    }
+  }
+}

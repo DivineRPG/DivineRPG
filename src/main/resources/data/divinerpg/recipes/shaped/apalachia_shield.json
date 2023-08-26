@@ -20,7 +20,7 @@
       "item": "divinerpg:apalachia_soul"
     },
     "L": {
-      "item": "divinerpg:apalachia_log"
+      "tag": "forge:wood/apalachia"
     }
   }
 }

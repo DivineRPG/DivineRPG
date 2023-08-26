@@ -105,8 +105,8 @@ public class LootTableRegistry {
 
     public static final ResourceLocation ENTITIES_ALICANTO = registerTable("entities/alicanto");
     public static final ResourceLocation ENTITIES_FRACTITE = registerTable("entities/fractite");
-    public static final ResourceLocation ENTITIES_FROST_ARCHER = registerTable("entities/frost_archer");
-    public static final ResourceLocation ENTITIES_FROSTY = registerTable("entities/frosty");
+    public static final ResourceLocation ENTITIES_PALE_ARCHER = registerTable("entities/pale_archer");
+    public static final ResourceLocation ENTITIES_FROZEN_FLESH = registerTable("entities/frozen_flesh");
     public static final ResourceLocation ENTITIES_GLACIDE = registerTable("entities/glacide");
     public static final ResourceLocation ENTITIES_HASTREUS = registerTable("entities/hastreus");
     public static final ResourceLocation ENTITIES_ROLLUM = registerTable("entities/rollum");

@@ -31,7 +31,7 @@ public class LocalizeUtils {
             ArcanaRegen = "tooltip.arcana.regen",
             MeleeDamage = "tooltip.damage.melee",
             BowDamage = "tooltip.damage.ranged",
-            RangedAndMeleeDamage = "tooltip.damage.both",
+//            RangedAndMeleeDamage = "tooltip.damage.both",
             Efficency = "tooltip.efficiency",
             HarvestLevel = "tooltip.harvest_level",
             Poison = "tooltip.effect.poisons",

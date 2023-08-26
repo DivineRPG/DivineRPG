@@ -3,9 +3,23 @@
   "category": "equipment",
   "group": "colored_pouch",
   "ingredients": [
-    {
-      "tag": "divinerpg:armor_pouches"
-    },
+    [
+      {
+        "item": "divinerpg:armor_pouch"
+      },
+      {
+        "item": "divinerpg:red_armor_pouch"
+      },
+      {
+        "item": "divinerpg:yellow_armor_pouch"
+      },
+      {
+        "item": "divinerpg:green_armor_pouch"
+      },
+      {
+        "item": "divinerpg:blue_armor_pouch"
+      }
+    ],
     {
       "item": "divinerpg:gray_diamond_chunk"
     }

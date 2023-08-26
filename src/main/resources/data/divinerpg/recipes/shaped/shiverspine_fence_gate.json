@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:shiverspine_fence_gate"
+  },
+  "pattern": [
+    "sps",
+    "sps"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "divinerpg_wooden_fence_gate",
+  "key": {
+    "p": {
+      "item": "divinerpg:shiverspine_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

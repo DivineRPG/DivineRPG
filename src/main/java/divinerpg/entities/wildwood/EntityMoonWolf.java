@@ -14,10 +14,12 @@ public class EntityMoonWolf extends Wolf {
         super(type, worldIn);
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.96875F;
     }
 
+    @Override
     public void setTame(boolean bool) {
         super.setTame(bool);
         if (bool) {
@@ -30,18 +32,22 @@ public class EntityMoonWolf extends Wolf {
         this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(EntityStats.MOON_WOLF.getAttackDamage());
     }
 
+    @Override
     public Wolf getBreedOffspring(ServerLevel level, AgeableMob mob) {
         return null;
     }
 
+    @Override
     public boolean canMate(Animal animal) {
         return false;
     }
 
+    @Override
     public boolean removeWhenFarAway(double distance) {
         return !isTame();
     }
 
+    @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;
     }

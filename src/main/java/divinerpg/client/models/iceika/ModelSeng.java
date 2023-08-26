@@ -31,24 +31,24 @@ public class ModelSeng<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition Seng = partdefinition.addOrReplaceChild("seng", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 14.0F, 0.0F, 0.0F, 0.0F, 0.0F));
 
-		PartDefinition Torso = Seng.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(52, 20).addBox(-4.0F, 1.0F, -4.0F, 2.0F, 2.0F, 4.0F, new CubeDeformation(0.0F))
+		Seng.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(52, 20).addBox(-4.0F, 1.0F, -4.0F, 2.0F, 2.0F, 4.0F, new CubeDeformation(0.0F))
 		.texOffs(52, 20).addBox(2.0F, 1.0F, -4.0F, 2.0F, 2.0F, 4.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 0).addBox(-4.0F, -7.0F, -10.0F, 8.0F, 8.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 1.0F));
 
-		PartDefinition Head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(50, 48).addBox(-3.0F, -1.0F, -6.5F, 6.0F, 3.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(32, 46).addBox(-4.0F, -7.0F, -3.0F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
-		.texOffs(47, 11).addBox(3.0F, -7.0F, -3.0F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(50, 48).addBox(-3.0F, -1.0F, -6.5F, 6.0F, 3.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(32, 46).addBox(-4.0F, -7.01F, -3.0F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
+		.texOffs(47, 11).addBox(3.0F, -7.01F, -3.0F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
 		.texOffs(32, 52).addBox(-4.5F, -6.0F, -7.0F, 9.0F, 6.0F, 6.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 26).addBox(-4.0F, -5.0F, -6.0F, 8.0F, 7.0F, 6.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 59).addBox(-4.0F, 2.0F, -6.0F, 8.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 16.0F, -9.0F));
 
-		PartDefinition FrontRightLeg = partdefinition.addOrReplaceChild("frontRightLeg", CubeListBuilder.create().texOffs(0, 39).addBox(-2.0F, -3.0F, -2.0F, 4.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 11.0F, -5.0F));
+		partdefinition.addOrReplaceChild("frontRightLeg", CubeListBuilder.create().texOffs(0, 39).addBox(-2.0F, -3.0F, -2.0F, 4.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 11.0F, -5.0F));
 
-		PartDefinition FrontLeftLeg = partdefinition.addOrReplaceChild("frontLeftLeg", CubeListBuilder.create().texOffs(28, 26).addBox(-2.0F, -3.0F, -2.0F, 4.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 11.0F, -5.0F));
+		partdefinition.addOrReplaceChild("frontLeftLeg", CubeListBuilder.create().texOffs(28, 26).addBox(-2.0F, -3.0F, -2.0F, 4.0F, 16.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 11.0F, -5.0F));
 
-		PartDefinition BackRightLeg = partdefinition.addOrReplaceChild("backRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 12.0F, 8.0F));
+		partdefinition.addOrReplaceChild("backRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 12.0F, 8.0F));
 
-		PartDefinition BackLeftLeg = partdefinition.addOrReplaceChild("backLeftLeg", CubeListBuilder.create().texOffs(16, 42).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, 8.0F));
+		partdefinition.addOrReplaceChild("backLeftLeg", CubeListBuilder.create().texOffs(16, 42).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 12.0F, 8.0F));
 
 		PartDefinition Tail = partdefinition.addOrReplaceChild("tail", CubeListBuilder.create(), PartPose.offset(0.0F, 10.0F, 10.0F));
 
@@ -58,7 +58,7 @@ public class ModelSeng<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition TailSeg3 = TailSeg2.addOrReplaceChild("TailSeg3", CubeListBuilder.create().texOffs(46, 0).addBox(-1.0F, -1.0F, 0.0F, 2.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.5F, 4.0F));
 
-		PartDefinition TailClub = TailSeg3.addOrReplaceChild("TailClub", CubeListBuilder.create().texOffs(34, 0).addBox(0.0F, -3.0F, 1.3333F, 0.0F, 6.0F, 8.0F, new CubeDeformation(0.0F))
+		TailSeg3.addOrReplaceChild("TailClub", CubeListBuilder.create().texOffs(34, 0).addBox(0.0F, -3.0F, 1.3333F, 0.0F, 6.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(26, 0).addBox(-3.0F, 0.0F, 1.3333F, 6.0F, 0.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(38, 40).addBox(-1.0F, -1.0F, 1.3333F, 2.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 2.6667F));
 

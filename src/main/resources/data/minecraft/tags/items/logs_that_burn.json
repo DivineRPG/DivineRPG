@@ -12,6 +12,8 @@
     "#forge:wood/firewood",
     "#forge:wood/hyrewood",
     "#forge:wood/mintwood",
-    "#forge:wood/frozen"
+    "#forge:wood/shiverspine",
+    "#forge:wood/auroraoak",
+    "#forge:wood/cozybark"
   ]
 }

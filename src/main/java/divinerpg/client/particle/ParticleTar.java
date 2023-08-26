@@ -41,7 +41,6 @@ public class ParticleTar extends TextureSheetParticle {
 
     public int getLightColor(float p_189214_1_) {
         int i = super.getLightColor(p_189214_1_);
-        int j = 240;
         int k = i >> 16 & 255;
         return 240 | k << 16;
     }

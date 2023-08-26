@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import divinerpg.client.containers.AltarOfCorruptionContainer;
+import divinerpg.client.containers.AltarOfCorruptionMenu;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.*;
@@ -22,7 +22,7 @@ import net.minecraftforge.api.distmarker.*;
 import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
-public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorruptionContainer> {
+public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorruptionMenu> {
     private static final ResourceLocation ENCHANTING_TABLE_LOCATION = new ResourceLocation("textures/gui/container/enchanting_table.png");
     private static final ResourceLocation ENCHANTING_BOOK_LOCATION = new ResourceLocation("textures/entity/enchanting_table_book.png");
     private final RandomSource random = RandomSource.create();
@@ -36,7 +36,7 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
     public float oOpen;
     private ItemStack last = ItemStack.EMPTY;
 
-    public AltarOfCorruptionScreen(AltarOfCorruptionContainer p_98754_, Inventory p_98755_, Component p_98756_) {
+    public AltarOfCorruptionScreen(AltarOfCorruptionMenu p_98754_, Inventory p_98755_, Component p_98756_) {
         super(p_98754_, p_98755_, p_98756_);
     }
 
@@ -117,7 +117,6 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
         Lighting.setupForEntityInInventory();
         p_289697_.pose().pushPose();
         p_289697_.pose().translate((float)p_289667_ + 33.0F, (float)p_289669_ + 31.0F, 100.0F);
-        float f2 = 40.0F;
         p_289697_.pose().scale(-40.0F, 40.0F, 40.0F);
         p_289697_.pose().mulPose(Axis.XP.rotationDegrees(25.0F));
         p_289697_.pose().translate((1.0F - f) * 0.2F, (1.0F - f) * 0.1F, (1.0F - f) * 0.25F);
@@ -213,7 +212,6 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
 
         this.open = Mth.clamp(this.open, 0.0F, 1.0F);
         float f1 = (this.flipT - this.flip) * 0.4F;
-        float f = 0.2F;
         f1 = Mth.clamp(f1, -0.2F, 0.2F);
         this.flipA += (f1 - this.flipA) * 0.9F;
         this.flip += this.flipA;

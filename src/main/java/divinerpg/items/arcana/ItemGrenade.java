@@ -18,8 +18,6 @@ import java.util.List;
 
 public class ItemGrenade extends ItemMod {
 
-    private final int counter = 0;
-
     public ItemGrenade() {
         super();
 

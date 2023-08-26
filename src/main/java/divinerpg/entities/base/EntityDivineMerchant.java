@@ -59,7 +59,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.MERCHANT_HURT.get();}
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!getOffers().isEmpty()) {
-            if (!level().isClientSide) {
+            if (!level().isClientSide()) {
             	if(level().hasNearbyAlivePlayer(position().x, position().y, position().z, 16) && needsToRestock()) this.restock();
                 updateSpecialPrices(player);
                 setTradingPlayer(player);
@@ -68,7 +68,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
             }
         }
         else setUnhappy();
-        return InteractionResult.sidedSuccess(level().isClientSide);
+        return InteractionResult.sidedSuccess(level().isClientSide());
     }
     @Override public boolean canBreed() {return false;}
     @Override public boolean canRestock() {return true;}

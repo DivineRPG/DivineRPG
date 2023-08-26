@@ -94,7 +94,6 @@ public class EntityMiner extends EntityDivineMonster {
         super.tick();
     }
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor worldIn, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData spawnDataIn, @Nullable CompoundTag dataTag) {
-        spawnDataIn = super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
         populateDefaultEquipmentSlots(difficultyIn);
         populateDefaultEquipmentEnchantments(getRandom(), difficultyIn);
         return spawnDataIn;

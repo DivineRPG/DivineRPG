@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:shiverspine_pressure_plate"
+  },
+  "pattern": [
+    "ss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "divinerpg_wooden_pressure_plate",
+  "key": {
+    "s": {
+      "item": "divinerpg:shiverspine_planks"
+    }
+  }
+}

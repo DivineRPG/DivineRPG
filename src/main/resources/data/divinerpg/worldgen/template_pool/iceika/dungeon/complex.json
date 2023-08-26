@@ -106,6 +106,15 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
+        "location": "divinerpg:iceika/dungeon/greenhouse",
+        "processors": "minecraft:empty"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/wall",
         "processors": "minecraft:empty"
       }

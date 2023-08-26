@@ -11,7 +11,7 @@ public enum EntityStats {
     DRAMIX(1400, 30),
     ETERNAL_ARCHER(1550, 12),
     EXPERIENCED_CORI(1150, 26),
-    ETHEREALCETUS(750, 8),
+    KITRA(750, 8),
     HIVE_QUEEN(1500, 60),
     KAROS(4000, 20),
     KAROT(1250, 32),
@@ -64,7 +64,7 @@ public enum EntityStats {
 
     //NETHER
     HELL_BAT(30, 7, 40),
-    HELL_PIG(50),
+    HELL_PIG(50, 5),
     HELL_SPIDER(50, 8),
     SCORCHER(75),
     WILDFIRE(50, 8),
@@ -78,16 +78,16 @@ public enum EntityStats {
     //ICEIKA
     ALICANTO(75, 11),
     FRACTITE(50),
-    FROST_ARCHER(40, 2),
+    PALE_ARCHER(40, 2),
     GLACIDE(80, 12, 20, 0.48),
     HASTREUS(120, 16),
     ROLLUM(150, 12, 20, 0.30),
-    FROSTY(140, 16, 20, 0.35),
+    FROZEN_FLESH(140, 16, 20, 0.35),
     GROGLIN(40, 5, 20, 0.29),
     SABEAR(60, 12),
     GRUZZORLUG(60, 3, 20, 0.31),
     WOLPERTINGER(15, 2),
-    ROBIN(2, 0.5),
+    ROBBIN(2, 0.5),
     SENG(55, 4, 10, 0.33),
 
     //EDEN

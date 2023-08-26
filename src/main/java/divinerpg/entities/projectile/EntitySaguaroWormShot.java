@@ -26,7 +26,7 @@ public class EntitySaguaroWormShot extends DivineThrowable {
             if (result.getEntity() != null && !(result.getEntity() instanceof EntitySaguaroWorm)) {
                 result.getEntity().hurt(result.getEntity().level().damageSources().thrown(this, this.getOwner()), 4.0F);
             } else if (result.getEntity() == null) {
-                if (!this.level().isClientSide)
+                if (!this.level().isClientSide())
                     this.kill();
             }
         }
@@ -40,7 +40,7 @@ public class EntitySaguaroWormShot extends DivineThrowable {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide && this.tickCount > 30)
+        if (!this.level().isClientSide() && this.tickCount > 30)
             this.kill();
     }
 }

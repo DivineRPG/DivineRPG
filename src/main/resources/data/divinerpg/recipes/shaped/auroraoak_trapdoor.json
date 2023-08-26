@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "divinerpg_wooden_trapdoor",
+  "pattern": [
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "divinerpg:auroraoak_planks"
+    }
+  },
+  "result": {
+    "item": "divinerpg:auroraoak_trapdoor",
+    "count": 2
+  }
+}

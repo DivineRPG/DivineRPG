@@ -1,7 +1,6 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
-
+import divinerpg.entities.base.EntityDivineBoss;
 import net.minecraft.sounds.*;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.DamageSource;
@@ -14,10 +13,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 public class EntityAncientEntity extends EntityDivineBoss {
+
     public EntityAncientEntity(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        xpReward = 2000;
+        this.xpReward = 2000;
     }
+
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
@@ -33,6 +34,7 @@ public class EntityAncientEntity extends EntityDivineBoss {
         });
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
+
     @Override
     public boolean doHurtTarget(Entity entity) {
         super.doHurtTarget(entity);

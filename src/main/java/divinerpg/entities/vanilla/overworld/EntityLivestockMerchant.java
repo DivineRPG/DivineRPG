@@ -2,18 +2,13 @@ package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
-import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.phys.AABB;
-
-import java.util.List;
 
 public class EntityLivestockMerchant extends EntityDivineMerchant {
     public EntityLivestockMerchant(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
@@ -59,11 +54,5 @@ public class EntityLivestockMerchant extends EntityDivineMerchant {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.LIVESTOCK_MERCHANT_HURT.get();
-    }
-
-    public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        BlockPos blockpos = pos.below();
-        List<EntityLivestockMerchant> entityList = level.getEntitiesOfClass(EntityLivestockMerchant.class, new AABB(pos).inflate(32));
-        return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && entityList.isEmpty();
     }
 }

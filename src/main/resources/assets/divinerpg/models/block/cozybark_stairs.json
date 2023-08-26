@@ -1,0 +1,9 @@
+{
+  "parent": "block/stairs",
+  "render_type": "cutout_mipped",
+  "textures": {
+    "side": "divinerpg:block/cozybark_planks",
+    "top": "divinerpg:block/cozybark_planks",
+    "bottom": "divinerpg:block/cozybark_planks"
+  }
+}

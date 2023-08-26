@@ -13,10 +13,10 @@ import net.minecraft.core.particles.SimpleParticleType;
 public class ParticleSparkler extends TextureSheetParticle
 {
     SpriteSet animatedSprite;
-    private float sparkleParticleScale;
-    private double portalPosX;
-    private double portalPosY;
-    private double portalPosZ;
+//    private float sparkleParticleScale;
+//    private double portalPosX;
+//    private double portalPosY;
+//    private double portalPosZ;
     public ParticleSparkler(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
     {
         this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
@@ -33,11 +33,11 @@ public class ParticleSparkler extends TextureSheetParticle
         this.quadSize *= 0.9F;
         this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
         this.lifetime = (int)((float)this.lifetime * 0.5F);
-        this.portalPosX = this.x = xCoordIn;
-        this.portalPosY = this.y = yCoordIn;
-        this.portalPosZ = this.z = zCoordIn;
+//        this.portalPosX = this.x = xCoordIn;
+//        this.portalPosY = this.y = yCoordIn;
+//        this.portalPosZ = this.z = zCoordIn;
         this.random.nextFloat();
-        this.sparkleParticleScale = this.quadSize = this.random.nextFloat() * 0.2F + 0.5F;
+//        this.sparkleParticleScale = this.quadSize = this.random.nextFloat() * 0.2F + 0.5F;
         this.bCol = (float) this.random.nextGaussian();
         this.gCol = (float) this.random.nextGaussian();
         this.rCol = (float) this.random.nextGaussian();

@@ -14,7 +14,7 @@ public class RenderGroglin extends MobRenderer<EntityGroglin, ModelGroglin<Entit
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/groglin.png");
 
     public RenderGroglin(EntityRendererProvider.Context context) {
-        super(context, new ModelGroglin<>(context), 0.3F);
+        super(context, new ModelGroglin<>(context), 0.4F);
         this.addLayer(new GroglinLayer(this));
     }
 

@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:cozybark_planks",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "tag": "forge:wood/cozybark"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "divinerpg_planks"
+}

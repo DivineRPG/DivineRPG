@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "side": "divinerpg:block/cozybark_planks",
+    "top": "divinerpg:block/cozybark_planks",
+    "bottom": "divinerpg:block/cozybark_planks"
+  }
+}

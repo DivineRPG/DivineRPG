@@ -2,15 +2,10 @@ package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.ItemRegistry;
-import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.*;
-import net.minecraft.world.phys.AABB;
-
-import java.util.List;
 
 public class EntityWorkshopTinkerer extends EntityDivineMerchant {
     public EntityWorkshopTinkerer(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
@@ -45,11 +40,5 @@ public class EntityWorkshopTinkerer extends EntityDivineMerchant {
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.snowflake.get(), 40), new ItemStack(ItemRegistry.divine_sword.get(), 1), new ItemStack(ItemRegistry.icine_sword.get(), 1), random.nextInt(7), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.snowflake.get(), 15), new ItemStack(ItemRegistry.sandslash.get(), 1), new ItemStack(ItemRegistry.snowslash.get(), 1), random.nextInt(7), 5)};
         this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
-    }
-
-    public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-        BlockPos blockpos = pos.below();
-        List<EntityWorkshopTinkerer> entityList = level.getEntitiesOfClass(EntityWorkshopTinkerer.class, new AABB(pos).inflate(32));
-        return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && entityList.isEmpty();
     }
 }

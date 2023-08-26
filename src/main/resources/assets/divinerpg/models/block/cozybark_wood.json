@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/cozybark_log_side",
+    "side": "divinerpg:block/cozybark_log_side"
+  }
+}

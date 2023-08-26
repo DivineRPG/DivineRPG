@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:bedrock_minibricks"
+    "item": "divinerpg:bedrock_minibricks",
+    "count": 8
   },
   "pattern": [
     "XXX",

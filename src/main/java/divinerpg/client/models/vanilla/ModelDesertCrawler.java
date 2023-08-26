@@ -28,26 +28,28 @@ public class ModelDesertCrawler extends EntityModel<EntityDesertCrawler> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition spine = partdefinition.addOrReplaceChild("spine", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 8.0F, 6.0F, 17.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 14.0F, -0.5F));
+		partdefinition.addOrReplaceChild("spine", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -4.0F, 8.0F, 6.0F, 17.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 14.0F, -0.5F));
 
-		PartDefinition skull = partdefinition.addOrReplaceChild("skull", CubeListBuilder.create().texOffs(0, 23).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("skull", CubeListBuilder.create().texOffs(0, 23).addBox(-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(24, 18).addBox(-4.0F, -8.0F, -1.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(30, 18).addBox(-4.01F, -8.0F, -1.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
 		.texOffs(44, 46).addBox(4.0F, 1.0F, -6.0F, 1.0F, 3.0F, 6.0F, new CubeDeformation(0.0F))
 		.texOffs(42, 37).addBox(-5.0F, 1.0F, -6.0F, 1.0F, 3.0F, 6.0F, new CubeDeformation(0.0F))
-		.texOffs(24, 22).addBox(4.0F, -8.0F, -1.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)),
+		.texOffs(24, 22).addBox(4.0F, -8.0F, -1.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(30, 22).addBox(4.01F, -8.0F, -1.0F, 0.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)),
 				PartPose.offset(0.0F, 6.0F, -8.0F));
 
-		PartDefinition leftfullarm = partdefinition.addOrReplaceChild("leftfullarm", CubeListBuilder.create().texOffs(0, 39).addBox(0.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 16.0F, -5.5F));
+		partdefinition.addOrReplaceChild("leftfullarm", CubeListBuilder.create().texOffs(0, 39).addBox(0.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 16.0F, -5.5F));
 
-		PartDefinition rightfullarm = partdefinition.addOrReplaceChild("rightfullarm", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 16.0F, -5.5F));
+		partdefinition.addOrReplaceChild("rightfullarm", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 16.0F, -5.5F));
 
-		PartDefinition rightfullleg = partdefinition.addOrReplaceChild("rightfullleg", CubeListBuilder.create().texOffs(24, 31).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 4.0F, 8.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("rightfullleg", CubeListBuilder.create().texOffs(24, 31).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 4.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(16, 43).addBox(-5.0F, 2.0F, 3.0F, 4.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 15.0F, 3.0F));
 
-		PartDefinition leftfullleg = partdefinition.addOrReplaceChild("leftfullleg", CubeListBuilder.create().texOffs(33, 0).addBox(0.0F, -2.0F, -2.0F, 4.0F, 4.0F, 8.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("leftfullleg", CubeListBuilder.create().texOffs(33, 0).addBox(0.0F, -2.0F, -2.0F, 4.0F, 4.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(30, 43).addBox(1.0F, 2.0F, 3.0F, 4.0F, 7.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 15.0F, 3.0F));
 
-		PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(40, 23).addBox(-4.0F, -14.0F, -11.0F, 8.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 2.0F));
+		partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(40, 23).addBox(-4.0F, -14.0F, -11.0F, 8.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 2.0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}

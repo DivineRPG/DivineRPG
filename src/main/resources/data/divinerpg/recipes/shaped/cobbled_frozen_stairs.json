@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:cobbled_frozen_stairs",
+    "count": 4
+  },
+  "pattern": [
+    "s  ",
+    "ss ",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "s": {
+      "item": "divinerpg:cobbled_frozen_stone"
+    }
+  }
+}

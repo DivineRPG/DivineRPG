@@ -1,15 +1,15 @@
 package divinerpg.blocks.base;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.*;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 
 public class BlockModPlanks extends BlockMod {
-    public BlockModPlanks(MapColor color) {
-        super(Block.Properties.copy(Blocks.OAK_PLANKS).mapColor(color));
+
+    public BlockModPlanks(MapColor color, SoundType sound) {
+        super(Block.Properties.copy(Blocks.OAK_PLANKS).mapColor(color).sound(sound));
     }
 
     @Override

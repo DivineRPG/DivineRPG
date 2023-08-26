@@ -43,7 +43,7 @@ public class EntityDissimentShot extends DivineThrowable {
                 entity.hurt(entity.damageSources().thrown(this, this.getOwner()), var2);
             }
 
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.kill();
             }
         }

@@ -42,7 +42,9 @@ public class PlantPots {
             addPlant(skythernSapling, skythernSaplingPot);
             addPlant(mortumSapling, mortumSaplingPot);
             addPlant(brittleGrass, brittleGrassPot);
-            addPlant(frozenSapling, frozenSaplingPot);
+            addPlant(shiverspineSapling, shiverspineSaplingPot);
+            addPlant(auroraoakSapling, auroraoakSaplingPot);
+            addPlant(cozybarkSapling, cozybarkSaplingPot);
             addPlant(divineSapling, divineSaplingPot);
                 }
         );

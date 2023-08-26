@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "divinerpg:soul_trap"
+  },
+  "pattern": [
+    " S ",
+    "MCM",
+    " B "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "divinerpg:mortum_block"
+    },
+    "S": {
+      "item": "minecraft:sculk_shrieker"
+    },
+    "M": {
+      "item": "divinerpg:arcanium_metal_breakable"
+    },
+    "C": {
+      "item": "divinerpg:soul_sludge_breakable"
+    }
+  }
+}

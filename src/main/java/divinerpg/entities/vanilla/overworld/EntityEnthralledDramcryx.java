@@ -1,8 +1,7 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-
+import divinerpg.entities.base.EntityDivineMonster;
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
@@ -16,12 +15,15 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
 
 public class EntityEnthralledDramcryx extends EntityDivineMonster {
+
     public EntityEnthralledDramcryx(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
+
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.5F;
+        return 1.3125F;
     }
+
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
@@ -37,6 +39,7 @@ public class EntityEnthralledDramcryx extends EntityDivineMonster {
         });
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
+
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.DRAMCRYX.get();
@@ -51,9 +54,12 @@ public class EntityEnthralledDramcryx extends EntityDivineMonster {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.DRAMCRYX_HURT.get();
     }
-    public static boolean enthralledDramcryxSpawnRule(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return (pos.getY() < 0 && worldIn.getLightEmission(pos) < 8) || worldIn.getBiome(pos).is(Biomes.DRIPSTONE_CAVES);
+
+    public static boolean enthralledDramcryxSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+        return Monster.checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn) && (pos.getY() < 0 || worldIn.getBiome(pos).is(Biomes.DRIPSTONE_CAVES));
     }
 
-    @Override public boolean isSteppingCarefully() {return true;}
+    @Override public boolean isSteppingCarefully() {
+        return true;
+    }
 }

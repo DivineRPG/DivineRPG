@@ -19,8 +19,14 @@ public class EntitySeng extends EntityDivineMonster {
     }
 
     @Override public boolean isAggressive() {return true;}
-
-
+    @Override
+    public int getMaxSpawnClusterSize() {
+    	return 3;
+    }
+    @Override
+    public boolean isMaxGroupSizeReached(int i) {
+    	return i > 2;
+    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.SENG_AMBIENT.get();

@@ -1,10 +1,12 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineBoss;
-import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.*;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
@@ -20,6 +22,7 @@ public class EntityHiveQueen extends EntityDivineBoss {
         spawnTick=80;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.3125F;
     }
@@ -46,5 +49,15 @@ public class EntityHiveQueen extends EntityDivineBoss {
 
             this.spawnTick--;
         }
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundRegistry.HIVE_QUEEN.get();
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundRegistry.HIVE_QUEEN_HURT.get();
     }
 }

@@ -33,9 +33,9 @@ public class EntityLadyLunaSparkler extends EntityParticleBullet {
             double tx = ((LivingEntity) this.getOwner()).getLastHurtByMob().xo - this.getOwner().xo;
             double ty = ((LivingEntity) this.getOwner()).getLastHurtByMob().getBoundingBox().minY - this.getOwner().yo;
             double tz = ((LivingEntity) this.getOwner()).getLastHurtByMob().zo - this.getOwner().zo;
-            if (!this.level().isClientSide && this.tickCount > 30) this.shoot(tx, ty, tz, 0.5f, 0);
+            if (!this.level().isClientSide() && this.tickCount > 30) this.shoot(tx, ty, tz, 0.5f, 0);
         }
-        if (!this.level().isClientSide && this.tickCount > 80) this.kill();
+        if (!this.level().isClientSide() && this.tickCount > 80) this.kill();
     }
 
     @Override

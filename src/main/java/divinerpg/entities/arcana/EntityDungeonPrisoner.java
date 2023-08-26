@@ -23,7 +23,7 @@ public class EntityDungeonPrisoner extends EntityDivineMonster {
 
     @Override
     public boolean doHurtTarget(Entity entity) {
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             EntityRegistry.DUNGEON_DEMON.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             this.playSound(SoundRegistry.DUNGEON_PRISONER_CHANGE.get(), 1, 1);
             this.remove(Entity.RemovalReason.DISCARDED);

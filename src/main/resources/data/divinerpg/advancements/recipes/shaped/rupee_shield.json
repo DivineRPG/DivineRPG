@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_stone",
+      "has_ingot",
       "has_the_recipe"
     ]
   ],

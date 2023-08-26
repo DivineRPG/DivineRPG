@@ -1,6 +1,6 @@
 {
 	"type": "minecraft:jigsaw",
-	"biomes": "divinerpg:boneyard",
+	"biomes": "divinerpg:iceika/boneyard",
 	"step": "surface_structures",
 	"spawn_overrides": {},
 	"terrain_adaptation": "none",

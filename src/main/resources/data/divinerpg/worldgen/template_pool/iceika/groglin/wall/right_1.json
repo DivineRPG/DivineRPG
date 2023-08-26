@@ -1,0 +1,15 @@
+{
+  "name": "wall",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "terrain_matching",
+        "location": "divinerpg:iceika/groglin/wall/right_1",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

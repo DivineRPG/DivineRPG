@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "enabled=false": {
+      "model": "divinerpg:block/proximity_spawner"
+    },
+    "enabled=true": {
+      "model": "divinerpg:block/proximity_spawner_on"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/shiverspine_half_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/shiverspine_planks"
+    },
+    "type=top": {
+      "model": "divinerpg:block/shiverspine_upper_slab"
+    }
+  }
+}

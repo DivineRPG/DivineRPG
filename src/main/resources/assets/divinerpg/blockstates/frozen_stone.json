@@ -1,7 +1,20 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/frozen_stone"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/frozen_stone"
+      },
+      {
+        "model": "divinerpg:block/frozen_stone_mirrored"
+      },
+      {
+        "model": "divinerpg:block/frozen_stone",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/frozen_stone_mirrored",
+        "y": 180
+      }
+    ]
   }
 }

@@ -33,7 +33,7 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
     @Override
     public void tick() {
         super.tick();
-        if (this.level().isClientSide)
+        if (this.level().isClientSide())
             return;
         List<LivingEntity> mobs = this.level().getEntitiesOfClass(LivingEntity.class,
                 this.getBoundingBox().inflate(30, 30, 30));

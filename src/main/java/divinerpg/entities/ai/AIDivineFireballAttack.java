@@ -106,7 +106,7 @@ public class AIDivineFireballAttack extends Goal {
         if (parentEntity == null || parentEntity.level() == null || event == null)
             return;
 
-        RandomSource rand = parentEntity.level().random;
+        RandomSource rand = parentEntity.level().getRandom();
 
         parentEntity.level().playSound(null,
                 parentEntity.blockPosition(),

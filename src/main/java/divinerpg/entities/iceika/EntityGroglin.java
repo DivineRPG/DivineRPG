@@ -169,7 +169,7 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
     }
 
     private Item getTradedItem(Player player) {
-        if (player.level().isClientSide) {
+        if (player.level().isClientSide()) {
             return null;
         }
 
@@ -194,7 +194,7 @@ public class EntityGroglin extends EntityDivineMonster implements RangedAttackMo
     @Override
     public void performRangedAttack(LivingEntity target, float distance) {
         if (isAlive() && getTarget() != null && !level().isClientSide && entityData.get(ITEM) == 2) {
-            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.FROST_ARCHER_ARROW, this, target, 1.6F, 1.2F);
+            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.PALE_ARCHER_ARROW, this, target, 1.6F, 1.2F);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();

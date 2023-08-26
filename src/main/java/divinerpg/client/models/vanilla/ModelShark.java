@@ -30,20 +30,20 @@ public class ModelShark extends EntityModel<EntityShark> {
 		PartDefinition Head = Spine.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(34, 21).addBox(-5.0F, -0.5F, -8.8333F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 0).addBox(-5.0F, -6.5F, -15.8333F, 10.0F, 6.0F, 15.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 1.5F, -4.1667F));
 
-		PartDefinition Jaw = Head.addOrReplaceChild("Jaw", CubeListBuilder.create().texOffs(35, 0).addBox(-5.0F, -1.0F, -7.0F, 10.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.5F, -1.8333F));
+		Head.addOrReplaceChild("Jaw", CubeListBuilder.create().texOffs(35, 0).addBox(-5.0F, -1.0F, -7.0F, 10.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.5F, -1.8333F));
 
 		PartDefinition Torso = Spine.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(71, -9).addBox(0.0F, -10.0F, -2.0F, 0.0F, 5.0F, 9.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 21).addBox(-6.0F, -5.0F, -4.0F, 12.0F, 12.0F, 10.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, -1.0F));
 
-		PartDefinition RightFinBone = partdefinition.addOrReplaceChild("RightFinBone", CubeListBuilder.create().texOffs(47, 63).addBox(-6.5F, -1.0F, -2.5F, 7.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(-6.5F, 18.0F, 1.5F));
+		partdefinition.addOrReplaceChild("RightFinBone", CubeListBuilder.create().texOffs(47, 63).addBox(-6.5F, -1.0F, -2.5F, 7.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(-6.5F, 18.0F, 1.5F));
 
-		PartDefinition LeftFinBone = partdefinition.addOrReplaceChild("LeftFinBone", CubeListBuilder.create().texOffs(47, 56).addBox(0.5F, -1.0F, -2.5F, 7.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(5.5F, 18.0F, 1.5F));
+		partdefinition.addOrReplaceChild("LeftFinBone", CubeListBuilder.create().texOffs(47, 56).addBox(0.5F, -1.0F, -2.5F, 7.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(5.5F, 18.0F, 1.5F));
 
-		PartDefinition Pelvis = Torso.addOrReplaceChild("Pelvis", CubeListBuilder.create().texOffs(37, 36).addBox(-3.0F, -5.0F, -2.0F, 6.0F, 9.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 1.0F, 6.0F));
+		Torso.addOrReplaceChild("Pelvis", CubeListBuilder.create().texOffs(37, 36).addBox(-3.0F, -5.0F, -2.0F, 6.0F, 9.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 1.0F, 6.0F));
 
 		PartDefinition Tail = partdefinition.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(17, 52).addBox(-2.0F, -3.25F, 0.75F, 4.0F, 6.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 16.75F, 10.25F));
 
-		PartDefinition TailFin = Tail.addOrReplaceChild("TailFin", CubeListBuilder.create().texOffs(0, 69).addBox(0.0F, -9.5F, -2.0F, 0.0F, 17.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.5F, 8.75F));
+		Tail.addOrReplaceChild("TailFin", CubeListBuilder.create().texOffs(0, 69).addBox(0.0F, -9.5F, -2.0F, 0.0F, 17.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -0.5F, 8.75F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}

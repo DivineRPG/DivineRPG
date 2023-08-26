@@ -5,6 +5,10 @@
     "divinerpg:degraded_brick_stairs",
     "divinerpg:ancient_brick_stairs_breakable",
     "divinerpg:degraded_brick_stairs_breakable",
-    "divinerpg:coalstone_stairs"
+    "divinerpg:coalstone_stairs",
+    "divinerpg:frozen_stairs",
+    "divinerpg:cobbled_frozen_stairs",
+    "divinerpg:frozen_brick_stairs",
+    "divinerpg:coalstone_brick_stairs"
   ]
 }

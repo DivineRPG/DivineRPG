@@ -7,6 +7,10 @@
     "divinerpg:ancient_brick_slab",
     "divinerpg:degraded_brick_slab_breakable",
     "divinerpg:degraded_brick_slab",
-    "divinerpg:coalstone_slab"
+    "divinerpg:coalstone_slab",
+    "divinerpg:frozen_slab",
+    "divinerpg:cobbled_frozen_slab",
+    "divinerpg:frozen_brick_slab",
+    "divinerpg:coalstone_brick_slab"
   ]
 }

@@ -1,7 +1,6 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.core.*;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -12,7 +11,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.PlantType;
 
 import javax.annotation.Nullable;
@@ -108,11 +106,6 @@ public class BlockModDoublePlant extends DoublePlantBlock {
 
     public BlockBehaviour.OffsetType getOffsetType() {
         return BlockBehaviour.OffsetType.XZ;
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public long getSeed(BlockState p_209900_1_, BlockPos p_209900_2_) {
-        return Mth.getSeed(p_209900_2_.getX(), p_209900_2_.below(p_209900_1_.getValue(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(), p_209900_2_.getZ());
     }
 
     @Override

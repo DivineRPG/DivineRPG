@@ -1,8 +1,7 @@
 package divinerpg.entities.apalachia;
 
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-
+import divinerpg.entities.base.EntityPeacefulUntilAttacked;
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -12,11 +11,11 @@ import net.minecraft.world.level.*;
 
 public class EntityApalachiaTomo extends EntityPeacefulUntilAttacked {
 
-
     public EntityApalachiaTomo(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        xpReward=40;
     }
+
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.34375F;
     }
@@ -35,6 +34,7 @@ public class EntityApalachiaTomo extends EntityPeacefulUntilAttacked {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GROWL_HURT.get();
     }
+
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;

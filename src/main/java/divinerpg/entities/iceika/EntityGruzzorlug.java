@@ -135,7 +135,7 @@ public class EntityGruzzorlug extends EntityDivineMonster implements RangedAttac
     }
 
     private Item getTradedItem(Player player) {
-        if (player.level().isClientSide) {
+        if (player.level().isClientSide()) {
             return null;
         }
 

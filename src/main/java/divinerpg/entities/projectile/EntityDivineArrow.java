@@ -37,7 +37,7 @@ public class EntityDivineArrow extends AbstractArrow {
     private int yTile;
     private int zTile;
     private Block inTile;
-    private int inData;
+//    private int inData;
     protected boolean inGround;
     protected int timeInGround;
     public Pickup pickupStatus;
@@ -71,6 +71,7 @@ public class EntityDivineArrow extends AbstractArrow {
     public EntityDivineArrow(EntityType<? extends AbstractArrow> type, Level world, ArrowType arrowType, LivingEntity shooter) {
         this(type, world, arrowType, shooter.xo, shooter.yo + (double) shooter.getEyeHeight() - 0.10000000149011612D, shooter.zo);
         this.shootingEntity = shooter;
+        setOwner(shooter);
     }
 
     public EntityDivineArrow(EntityType<? extends AbstractArrow> type, Level worldIn, ArrowType arrowType, LivingEntity shooter, LivingEntity target, float velocity, float inaccuracy) {
@@ -83,6 +84,7 @@ public class EntityDivineArrow extends AbstractArrow {
         this.shoot(d0, d1 + d3 * (double) 0.2F, d2, velocity, inaccuracy);
         this.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.random.nextFloat() * 0.4F + 0.8F));
         this.shootingEntity = shooter;
+        setOwner(shooter);
     }
 
     @Override
@@ -162,7 +164,7 @@ public class EntityDivineArrow extends AbstractArrow {
             } else {
                 ++this.ticksInGround;
 
-                if ((this.ticksInGround >= 200 && getArrowType() == ArrowType.FROST_ARCHER_ARROW)
+                if ((this.ticksInGround >= 200 && getArrowType() == ArrowType.PALE_ARCHER_ARROW)
                         || this.ticksInGround >= 1200) {
                     this.kill();
                 }
@@ -193,11 +195,7 @@ public class EntityDivineArrow extends AbstractArrow {
 
                     DamageSource damagesource;
 
-                    if (this.shootingEntity == null) {
-                        damagesource = level().damageSources().arrow(this, this);
-                    } else {
-                        damagesource = level().damageSources().arrow(this, this.shootingEntity);
-                    }
+
 
                     if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.WITHER)
                         entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 2));
@@ -217,7 +215,7 @@ public class EntityDivineArrow extends AbstractArrow {
                         }
                     }
                     // Poison Damage
-                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POSION) {
+                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POSION && !(entity instanceof EnderMan)) {
                         entity.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 2));
                     }
 
@@ -225,10 +223,15 @@ public class EntityDivineArrow extends AbstractArrow {
                     if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) {
                         this.level().explode(this, this.xo, this.yo, this.zo, 3.0F, false, Level.ExplosionInteraction.TNT);
                     }
-                    
+
+                    if (this.shootingEntity == null) {
+                        damagesource = level().damageSources().arrow(this, this);
+                    } else {
+                        damagesource = level().damageSources().arrow(this, this.shootingEntity);
+                    }
                     if (entity.hurt(damagesource, (float) i)) {
 
-                        if (!this.level().isClientSide) {
+                        if (!this.level().isClientSide()) {
                             entity.setArrowCount(entity.getArrowCount() + 1);
                         }
                         if (this.knockbackStrength > 0) {
@@ -257,7 +260,7 @@ public class EntityDivineArrow extends AbstractArrow {
                         this.yRot += 180.0F;
                         this.yRotO += 180.0F;
 //                this.ticksInAir = 0;
-                        if (!this.level().isClientSide && this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y
+                        if (!this.level().isClientSide() && this.getDeltaMovement().x * this.getDeltaMovement().x + this.getDeltaMovement().y * this.getDeltaMovement().y
                                 + this.getDeltaMovement().z * this.getDeltaMovement().z < 0.0010000000474974513D) {
                             if (this.pickupStatus == Pickup.ALLOWED) {
                                 ItemEntity itemEnt = new ItemEntity(level(), xo, yo, zo, getArrowStack());
@@ -385,7 +388,7 @@ public class EntityDivineArrow extends AbstractArrow {
 
     @Override
     public void playerTouch(Player entityIn) {
-        if (!this.level().isClientSide && this.inGround && this.arrowShake <= 0) {
+        if (!this.level().isClientSide() && this.inGround && this.arrowShake <= 0) {
             boolean flag = this.pickupStatus == Pickup.ALLOWED
                     || this.pickupStatus == Pickup.CREATIVE_ONLY
                     && entityIn.isCreative();

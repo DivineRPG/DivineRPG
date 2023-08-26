@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "divinerpg_button",
+  "ingredients": [
+    {
+      "item": "divinerpg:coalstone_bricks"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:coalstone_brick_button",
+    "count": 1
+  }
+}

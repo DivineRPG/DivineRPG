@@ -1,8 +1,7 @@
 package divinerpg.entities.skythern;
 
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-
+import divinerpg.entities.base.EntityPeacefulUntilAttacked;
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -11,11 +10,12 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
 public class EntitySamek extends EntityPeacefulUntilAttacked {
+
     public EntitySamek(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        xpReward=40;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.74F;
     }
@@ -34,9 +34,9 @@ public class EntitySamek extends EntityPeacefulUntilAttacked {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.VEREK_HURT.get();
     }
+
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;
     }
-
 }

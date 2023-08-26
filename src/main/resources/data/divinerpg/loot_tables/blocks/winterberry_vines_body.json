@@ -13,38 +13,28 @@
 							"name": "divinerpg:winterberry_vines_head",
 							"conditions": [
 								{
-									"condition": "minecraft:alternative",
-									"terms": [
-										{
-											"condition": "minecraft:match_tool",
-											"predicate": {
-											  "tag": "forge:shears"
-											}
-										},
-										{
-											"condition": "minecraft:match_tool",
-											"predicate": {
-												"enchantments": [
-													{
-														"enchantment": "minecraft:silk_touch",
-														"levels": {
-															"min": 1
-														}
-													}
-												]
-											}
-										}
-									]
+									"condition": "minecraft:match_tool",
+									"predicate": {
+									"tag": "forge:shears"
+									}
 								}
 							]
-						},
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:alternatives",
+					"children": [
 						{
 							"type": "minecraft:item",
 							"name": "divinerpg:winterberry",
 							"conditions": [
-								{
-									"condition": "minecraft:survives_explosion"
-								},
 								{
 									"condition": "minecraft:block_state_property",
 									"block": "divinerpg:winterberry_vines_body",

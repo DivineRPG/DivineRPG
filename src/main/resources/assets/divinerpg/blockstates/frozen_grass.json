@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/frozen_grass"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/frozen_grass"
+      },
+      {
+        "model": "divinerpg:block/frozen_grass",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/frozen_grass",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/frozen_grass",
+        "y": 270
+      }
+    ]
   }
 }

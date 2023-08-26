@@ -1,14 +1,27 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:frozen_peaks",
-    "divinerpg:snowy_peaks",
-    "divinerpg:taiga",
-    "divinerpg:tundra",
-    "divinerpg:ice_spikes",
-    "divinerpg:frozen_ocean",
-    "divinerpg:deep_frozen_ocean",
-    "divinerpg:thermal_vents",
-    "divinerpg:boneyard"
+    "divinerpg:iceika/frozen_peaks",
+    "divinerpg:iceika/borealis_steeps",
+    "divinerpg:iceika/chill_passage",
+    "divinerpg:iceika/snowy_peaks",
+    "divinerpg:iceika/shiverspine_forest",
+    "divinerpg:iceika/cozybark_meadow",
+    "divinerpg:iceika/snow_bog",
+    "divinerpg:iceika/morgue_marsh",
+    "divinerpg:iceika/geyser_plateau",
+    "divinerpg:iceika/ice_sheet",
+    "divinerpg:iceika/frozen_menagerie",
+    "divinerpg:iceika/sheltered_garden",
+    "divinerpg:iceika/glowing_deep",
+    "divinerpg:iceika/chilly_cavern",
+    "divinerpg:iceika/tundra",
+    "divinerpg:iceika/fractal_forest",
+    "divinerpg:iceika/ice_spikes",
+    "divinerpg:iceika/frozen_ocean",
+    "divinerpg:iceika/frozen_shore",
+    "divinerpg:iceika/deep_frozen_ocean",
+    "divinerpg:iceika/thermal_vents",
+    "divinerpg:iceika/boneyard"
   ]
 }

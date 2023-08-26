@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:frozen_stone"
+  },
+  "result": "divinerpg:frozen_slab",
+  "count": 2
+}

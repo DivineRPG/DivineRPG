@@ -29,31 +29,31 @@ public class ModelMadivel extends EntityModel<EntityMadivel> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create().texOffs(0, 0).addBox(-9.0F, -20.0F, -8.0F, 18.0F, 19.0F, 18.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create().texOffs(0, 0).addBox(-9.0F, -20.0F, -8.0F, 18.0F, 19.0F, 18.0F, new CubeDeformation(0.0F))
 				.texOffs(54, 0).addBox(-5.5F, -1.0F, -5.0F, 11.0F, 5.0F, 12.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 37).addBox(-9.0F, -27.0F, -6.0F, 18.0F, 7.0F, 14.0F, new CubeDeformation(0.0F))
 				.texOffs(72, 17).addBox(-5.0F, -26.0F, -4.0F, 10.0F, 10.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 0.0F));
 
-		PartDefinition RightLeg = partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(137, 0).addBox(-5.0F, 1.0F, -3.0F, 4.0F, 21.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 2.0F, 0.0F));
+		partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(137, 0).addBox(-5.0F, 1.0F, -3.0F, 4.0F, 21.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 2.0F, 0.0F));
 
-		PartDefinition LeftLeg = partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(88, 36).addBox(1.0F, 1.0F, -3.0F, 4.0F, 21.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 2.0F, 0.0F));
+		partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(88, 36).addBox(1.0F, 1.0F, -3.0F, 4.0F, 21.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 2.0F, 0.0F));
 
-		PartDefinition LeftArm = partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(100, 97).addBox(0.0F, -2.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(100, 97).addBox(0.0F, -2.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
 				.texOffs(26, 88).addBox(1.0F, 6.0F, -3.0F, 6.0F, 20.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(9.0F, -14.0F, 2.0F));
 
-		PartDefinition RightArm = partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(100, 0).addBox(-8.0F, -2.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(100, 0).addBox(-8.0F, -2.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
 				.texOffs(84, 79).addBox(-7.0F, 6.0F, -3.0F, 6.0F, 20.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(-9.0F, -14.0F, 2.0F));
 
-		PartDefinition Sun1 = partdefinition.addOrReplaceChild("Sun1", CubeListBuilder.create().texOffs(0, 0).addBox(7.5F, -4.5F, 0.25F, 9.0F, 9.0F, 0.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("Sun1", CubeListBuilder.create().texOffs(0, 0).addBox(7.5F, -4.5F, 0.25F, 9.0F, 9.0F, 0.0F, new CubeDeformation(0.0F))
 				.texOffs(101, 16).addBox(9.5F, -2.5F, -2.75F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.5F, -32.5F, 1.75F));
 
-		PartDefinition Sun2 = partdefinition.addOrReplaceChild("Sun2", CubeListBuilder.create().texOffs(0, 9).addBox(-17.5F, -4.5F, 0.25F, 9.0F, 9.0F, 0.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("Sun2", CubeListBuilder.create().texOffs(0, 9).addBox(-17.5F, -4.5F, 0.25F, 9.0F, 9.0F, 0.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 93).addBox(-15.5F, -2.5F, -2.75F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.5F, -32.5F, 1.75F));
 
 		PartDefinition EdenSpirit = partdefinition.addOrReplaceChild("EdenSpirit", CubeListBuilder.create().texOffs(54, 0).addBox(-1.5F, -5.0F, -2.25F, 3.0F, 5.0F, 2.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 37).addBox(-1.5F, -8.0F, -0.25F, 3.0F, 5.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -28.0F, 2.25F));
 
-		PartDefinition EdenSpiritHead = EdenSpirit.addOrReplaceChild("EdenSpiritHead", CubeListBuilder.create().texOffs(0, 103).addBox(-2.5F, -5.25F, -4.0F, 5.0F, 5.0F, 4.0F, new CubeDeformation(0.0F))
+		EdenSpirit.addOrReplaceChild("EdenSpiritHead", CubeListBuilder.create().texOffs(0, 103).addBox(-2.5F, -5.25F, -4.0F, 5.0F, 5.0F, 4.0F, new CubeDeformation(0.0F))
 				.texOffs(24, 58).addBox(-4.0F, -7.25F, -2.0F, 8.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -7.75F, 0.75F));
 
 		return LayerDefinition.create(meshdefinition, 256, 256);

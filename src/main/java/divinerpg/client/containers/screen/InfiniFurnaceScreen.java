@@ -17,12 +17,24 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceContainer> exte
 	public final AbstractFurnaceRecipeBookComponent recipeBookComponent = new SmeltingRecipeBookComponent();
 	private boolean widthTooNarrow;
 	private final ResourceLocation texture;
-	public InfiniFurnaceScreen(T container, Inventory inv, Component c, ResourceLocation location) {
+	private final int titleColor;
+	private final int invColor;
+
+	public InfiniFurnaceScreen(T container, Inventory inv, Component c, ResourceLocation location, int titleColor, int invColor) {
 		super(container, inv, c);
 		this.texture = location;
+		this.titleColor = titleColor;
+		this.invColor = invColor;
 	}
-	@Override public RecipeBookComponent getRecipeBookComponent() {return recipeBookComponent;}
-	@Override public void recipesUpdated() {recipeBookComponent.recipesUpdated();}
+
+	@Override public RecipeBookComponent getRecipeBookComponent() {
+		return recipeBookComponent;
+	}
+
+	@Override public void recipesUpdated() {
+		recipeBookComponent.recipesUpdated();
+	}
+
 	@Override
 	public void removed() {
 		if (this.minecraft.player != null) {
@@ -30,6 +42,13 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceContainer> exte
 		}
 	      super.removed();
 	}
+
+	@Override
+	protected void renderLabels(GuiGraphics p_281635_, int p_282681_, int p_283686_) {
+		p_281635_.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, titleColor, false);
+		p_281635_.drawString(this.font, this.playerInventoryTitle, this.inventoryLabelX, this.inventoryLabelY, invColor, false);
+	}
+
 	@Override
 	protected void renderBg(GuiGraphics stack, float f, int ii, int jj) {
 	      RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -41,6 +60,7 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceContainer> exte
 	      int l = menu.getBurnProgress();
 		stack.blit(texture, i + 79, j + 34, 176, 14, l + 1, 16);
 	}
+
 	@Override
 	protected void init() {
 		super.init();
@@ -50,15 +70,17 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceContainer> exte
 	    addRenderableWidget(new ImageButton(leftPos + 20, height / 2 - 49, 20, 18, 0, 0, 19, RECIPE_BUTTON_LOCATION, (p_97863_) -> {
 	         recipeBookComponent.toggleVisibility();
 	         leftPos = recipeBookComponent.updateScreenPosition(width, imageWidth);
-	         ((ImageButton)p_97863_).setPosition(leftPos + 20, height / 2 - 49);
+	         p_97863_.setPosition(leftPos + 20, height / 2 - 49);
 	    }));
 	    titleLabelX = (imageWidth - font.width(title)) / 2;
 	}
+
 	@Override
 	protected void containerTick() {
 		super.containerTick();
 		recipeBookComponent.tick();
 	}
+
 	@Override
 	public void render(GuiGraphics stack, int i, int j, float f) {
 	      renderBackground(stack);
@@ -73,27 +95,32 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceContainer> exte
 	      renderTooltip(stack, i, j);
 	      recipeBookComponent.renderTooltip(stack, leftPos, topPos, i, j);
 	}
+
 	@Override
 	public boolean mouseClicked(double p_97834_, double p_97835_, int p_97836_) {
 		if (recipeBookComponent.mouseClicked(p_97834_, p_97835_, p_97836_)) return true;
-	    else return widthTooNarrow && recipeBookComponent.isVisible() ? true : super.mouseClicked(p_97834_, p_97835_, p_97836_);
+	    else return widthTooNarrow && recipeBookComponent.isVisible() || super.mouseClicked(p_97834_, p_97835_, p_97836_);
 	}
+
 	@Override
 	protected void slotClicked(Slot p_97848_, int p_97849_, int p_97850_, ClickType p_97851_) {
 	      super.slotClicked(p_97848_, p_97849_, p_97850_, p_97851_);
 	      recipeBookComponent.slotClicked(p_97848_);
 	}
+
 	@Override
 	public boolean keyPressed(int p_97844_, int p_97845_, int p_97846_) {
-	      return recipeBookComponent.keyPressed(p_97844_, p_97845_, p_97846_) ? false : super.keyPressed(p_97844_, p_97845_, p_97846_);
+	      return !recipeBookComponent.keyPressed(p_97844_, p_97845_, p_97846_) && super.keyPressed(p_97844_, p_97845_, p_97846_);
 	}
+
 	@Override
 	protected boolean hasClickedOutside(double p_97838_, double p_97839_, int p_97840_, int p_97841_, int p_97842_) {
 	      boolean flag = p_97838_ < (double)p_97840_ || p_97839_ < (double)p_97841_ || p_97838_ >= (double)(p_97840_ + imageWidth) || p_97839_ >= (double)(p_97841_ + this.imageHeight);
 	      return recipeBookComponent.hasClickedOutside(p_97838_, p_97839_, leftPos, topPos, imageWidth, imageHeight, p_97842_) && flag;
 	}
+
 	@Override
 	public boolean charTyped(char p_97831_, int p_97832_) {
-	      return recipeBookComponent.charTyped(p_97831_, p_97832_) ? true : super.charTyped(p_97831_, p_97832_);
+	      return recipeBookComponent.charTyped(p_97831_, p_97832_) || super.charTyped(p_97831_, p_97832_);
 	}
 }

@@ -7,7 +7,9 @@
     "divinerpg:skythern_button",
     "divinerpg:mortum_button",
     "divinerpg:divine_button",
-    "divinerpg:frozen_button",
-    "divinerpg:eucalyptus_button"
+    "divinerpg:shiverspine_button",
+    "divinerpg:eucalyptus_button",
+    "divinerpg:auroraoak_button",
+    "divinerpg:cozybark_button"
   ]
 }

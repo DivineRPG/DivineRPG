@@ -14,8 +14,8 @@
 		}
 	},
 	"noise": {
-		"min_y": 0,
-		"height": 256,
+		"min_y": -64,
+		"height": 384,
 		"size_horizontal": 1,
 		"size_vertical": 2
 	},
@@ -43,46 +43,97 @@
 			"argument": 0
 		},
 		"temperature": {
-			"type": "minecraft:shifted_noise",
-			"noise": "minecraft:temperature",
-			"xz_scale": 0.2,
-			"y_scale": 0,
-			"shift_x": "minecraft:shift_x",
-			"shift_y": 0,
-			"shift_z": "minecraft:shift_z"
+			"type": "minecraft:add",
+			"argument1": -1,
+			"argument2": {
+				"type": "minecraft:shifted_noise",
+				"noise": "minecraft:temperature",
+				"xz_scale": 0.25,
+				"y_scale": 0,
+				"shift_x": "divinerpg:shift_x",
+				"shift_y": 0,
+				"shift_z": "divinerpg:shift_z"
+			}
 		},
 		"vegetation": {
-			"type": "minecraft:y_clamped_gradient",
-			"from_y": 0,
-			"to_y": 255,
-			"from_value": 1,
-			"to_value": -1
+			"type": "minecraft:shifted_noise",
+			"noise": "minecraft:vegetation",
+			"xz_scale": 0.25,
+			"y_scale": 0,
+			"shift_x": "divinerpg:shift_x",
+			"shift_y": 0,
+			"shift_z": "divinerpg:shift_z"
 		},
-		"continents": "minecraft:overworld/continents",
+		"continents": {
+			"type": "minecraft:mul",
+			"argument1": 1.12,
+			"argument2": {
+				"type": "minecraft:add",
+				"argument1": {
+					"type": "minecraft:y_clamped_gradient",
+					"from_y": -64,
+					"to_y": 320,
+					"from_value": 0,
+					"to_value": 0.51
+				},
+				"argument2": {
+					"type": "minecraft:flat_cache",
+					"argument": {
+						"type": "minecraft:shifted_noise",
+						"noise": "minecraft:continentalness",
+						"xz_scale": 0.25,
+						"y_scale": 0,
+						"shift_x": "divinerpg:shift_x",
+						"shift_y": 0,
+						"shift_z": "divinerpg:shift_z"
+					}
+				}
+			}
+		},
 		"erosion": {
-			"type": "minecraft:y_clamped_gradient",
-			"from_y": 0,
-			"to_y": 255,
-			"from_value": 1,
-			"to_value": -1
+			"type": "minecraft:flat_cache",
+			"argument": {
+				"type": "minecraft:shifted_noise",
+				"noise": "minecraft:erosion",
+				"xz_scale": 0.25,
+				"y_scale": 0,
+				"shift_x": "divinerpg:shift_x",
+				"shift_y": 0,
+				"shift_z": "divinerpg:shift_z"
+			}
 		},
 		"depth": {
-			"type": "minecraft:y_clamped_gradient",
-			"from_y": 0,
-			"to_y": 255,
-			"from_value": 1,
-			"to_value": -1
+			"type": "minecraft:add",
+			"argument1": {
+				"type": "minecraft:y_clamped_gradient",
+				"from_y": -64,
+				"to_y": 258,
+				"from_value": 2.1,
+				"to_value": -2
+			},
+			"argument2": "minecraft:overworld/offset"
 		},
-		"ridges": "minecraft:overworld/ridges",
+		"ridges": {
+			"type": "minecraft:flat_cache",
+			"argument": {
+				"type": "minecraft:shifted_noise",
+				"noise": "minecraft:ridge",
+				"xz_scale": 0.25,
+				"y_scale": 0,
+				"shift_x": "divinerpg:shift_x",
+				"shift_y": 0,
+				"shift_z": "divinerpg:shift_z"
+			}
+		},
 		"initial_density_without_jaggedness": {
 			"type": "minecraft:add",
-			"argument1": 0.1171875,
+			"argument1": 0.118,
 			"argument2": {
 				"type": "minecraft:mul",
 				"argument1": {
 					"type": "minecraft:y_clamped_gradient",
-					"from_y": 0,
-					"to_y": 20,
+					"from_y": -64,
+					"to_y": -40,
 					"from_value": 0,
 					"to_value": 1
 				},
@@ -125,7 +176,7 @@
 											}
 										}
 									},
-									"min": 0,
+									"min": -64,
 									"max": 64
 								}
 							}
@@ -147,13 +198,13 @@
 							"type": "minecraft:blend_density",
 							"argument": {
 								"type": "minecraft:add",
-								"argument1": 0.1171875,
+								"argument1": 0.118,
 								"argument2": {
 									"type": "minecraft:mul",
 									"argument1": {
 										"type": "minecraft:y_clamped_gradient",
-										"from_y": 0,
-										"to_y": 20,
+										"from_y": -64,
+										"to_y": -40,
 										"from_value": 0,
 										"to_value": 1
 									},
@@ -273,31 +324,22 @@
 			},
 			"argument2": "minecraft:overworld/caves/noodle"
 		},
-		"vein_toggle": {
-			"type": "minecraft:constant",
-			"argument": 0
-		},
-		"vein_ridged": {
-			"type": "minecraft:constant",
-			"argument": 0
-		},
-		"vein_gap": {
-			"type": "minecraft:constant",
-			"argument": 0
-		}
+		"vein_toggle": 0,
+		"vein_ridged": 0,
+		"vein_gap": 0
 	},
 	"spawn_target": [
 		{
 			"temperature": [
-				-1,
-				1
+				-2,
+				0
 			],
 			"humidity": [
 				-1,
 				1
 			],
 			"continentalness": [
-				-1,
+				-0.1,
 				1
 			],
 			"erosion": [
@@ -306,12 +348,33 @@
 			],
 			"weirdness": [
 				-1,
-				1
+				-0.16
 			],
-			"depth": [
+			"depth": 0,
+			"offset": 0
+		},
+		{
+			"temperature": [
+				-2,
+				0
+			],
+			"humidity": [
 				-1,
 				1
 			],
+			"continentalness": [
+				-0.1,
+				1
+			],
+			"erosion": [
+				-1,
+				1
+			],
+			"weirdness": [
+				0.16,
+				1
+			],
+			"depth": 0,
 			"offset": 0
 		}
 	],
@@ -340,250 +403,15 @@
 			{
 				"type": "minecraft:condition",
 				"if_true": {
-					"type": "minecraft:y_above",
-					"anchor": {
-						"absolute": 62
-					},
-					"surface_depth_multiplier": 0,
-					"add_stone_depth": false
-				},
-				"then_run": {
-					"type": "minecraft:sequence",
-					"sequence": [
-						{
-							"type": "minecraft:condition",
-							"if_true": {
-								"type": "minecraft:stone_depth",
-								"offset": 0,
-								"surface_type": "floor",
-								"add_surface_depth": false,
-								"secondary_depth_range": 1
-							},
-							"then_run": {
-								"type": "minecraft:sequence",
-								"sequence": [
-									{
-										"type": "minecraft:condition",
-										"if_true": {
-											"type": "minecraft:biome",
-											"biome_is": [
-												"divinerpg:frozen_peaks",
-												"divinerpg:permafrost_plains"
-											]
-										},
-										"then_run": {
-											"type": "minecraft:sequence",
-											"sequence": [
-												{
-													"type": "minecraft:condition",
-													"if_true": {
-														"type": "minecraft:vertical_gradient",
-														"random_name": "random_snow",
-														"true_at_and_below": {
-															"absolute": -512
-														},
-														"false_at_and_above": {
-															"absolute": 256
-														}
-													},
-													"then_run": {
-														"type": "minecraft:block",
-														"result_state": {
-															"Name": "minecraft:snow_block"
-														}
-													}
-												},
-												{
-													"type": "minecraft:block",
-													"result_state": {
-														"Name": "minecraft:packed_ice"
-													}
-												}
-											]
-										}
-									},
-									{
-										"type": "minecraft:condition",
-										"if_true": {
-											"type": "minecraft:biome",
-											"biome_is": [
-												"divinerpg:snowy_peaks",
-												"divinerpg:ice_spikes"
-											]
-										},
-										"then_run": {
-											"type": "minecraft:sequence",
-											"sequence": [
-												{
-													"type": "minecraft:condition",
-													"if_true": {
-														"type": "minecraft:vertical_gradient",
-														"random_name": "random_ice",
-														"true_at_and_below": {
-															"absolute": -512
-														},
-														"false_at_and_above": {
-															"absolute": 256
-														}
-													},
-													"then_run": {
-														"type": "minecraft:block",
-														"result_state": {
-															"Name": "minecraft:packed_ice"
-														}
-													}
-												},
-												{
-													"type": "minecraft:block",
-													"result_state": {
-														"Name": "minecraft:snow_block"
-													}
-												}
-											]
-										}
-									},
-									{
-										"type": "minecraft:condition",
-										"if_true": {
-											"type": "minecraft:biome",
-											"biome_is": [
-												"divinerpg:taiga",
-												"divinerpg:thermal_vents"
-											]
-										},
-										"then_run": {
-											"type": "minecraft:block",
-											"result_state": {
-												"Name": "divinerpg:frozen_grass"
-											}
-										}
-									},
-									{
-										"type": "minecraft:block",
-										"result_state": {
-											"Name": "minecraft:snow_block"
-										}
-									}
-								]
-							}
-						},
-						{
-							"type": "minecraft:condition",
-							"if_true": {
-								"type": "minecraft:stone_depth",
-								"offset": 1,
-								"surface_type": "floor",
-								"add_surface_depth": false,
-								"secondary_depth_range": 0
-							},
-							"then_run": {
-								"type": "minecraft:condition",
-								"if_true": {
-									"type": "minecraft:biome",
-									"biome_is": [
-										"divinerpg:tundra"
-									]
-								},
-								"then_run": {
-									"type": "minecraft:block",
-									"result_state": {
-										"Name": "divinerpg:frozen_grass"
-									}
-								}
-							}
-						}
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/tundra"
 					]
-				}
-			},
-			{
-				"type": "minecraft:condition",
-				"if_true": {
-					"type": "minecraft:not",
-					"invert": {
-						"type": "minecraft:biome",
-						"biome_is": [
-							"divinerpg:frozen_peaks",
-							"divinerpg:snowy_peaks",
-							"divinerpg:thermal_vents"
-						]
-					}
 				},
 				"then_run": {
-					"type": "minecraft:condition",
-					"if_true": {
-						"type": "minecraft:stone_depth",
-						"offset": 1,
-						"surface_type": "floor",
-						"add_surface_depth": true,
-						"secondary_depth_range": 1
-					},
-					"then_run": {
-						"type": "minecraft:sequence",
-						"sequence": [
-							{
-								"type": "minecraft:condition",
-								"if_true": {
-									"type": "minecraft:biome",
-									"biome_is": [
-										"divinerpg:deep_frozen_ocean"
-									]
-								},
-								"then_run": {
-									"type": "minecraft:condition",
-									"if_true": {
-										"type": "minecraft:vertical_gradient",
-										"random_name": "random_stone",
-										"true_at_and_below": {
-											"absolute": -256
-										},
-										"false_at_and_above": {
-											"absolute": 256
-										}
-									},
-									"then_run": {
-										"type": "minecraft:block",
-										"result_state": {
-											"Name": "divinerpg:frozen_stone"
-										}
-									}
-								}
-							},
-							{
-								"type": "minecraft:condition",
-								"if_true": {
-									"type": "minecraft:y_above",
-									"anchor": {
-										"absolute": 62
-									},
-									"surface_depth_multiplier": -1,
-									"add_stone_depth": false
-								},
-								"then_run": {
-									"type": "minecraft:block",
-									"result_state": {
-										"Name": "divinerpg:frozen_dirt"
-									}
-								}
-							},
-							{
-								"type": "minecraft:condition",
-								"if_true": {
-									"type": "minecraft:not",
-									"invert": {
-										"type": "minecraft:water",
-										"offset": 0,
-										"surface_depth_multiplier": 0,
-										"add_stone_depth": false
-									}
-								},
-								"then_run": {
-									"type": "minecraft:block",
-									"result_state": {
-										"Name": "divinerpg:frozen_dirt"
-									}
-								}
-							}
-						]
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:glass"
 					}
 				}
 			},
@@ -592,120 +420,299 @@
 				"if_true": {
 					"type": "minecraft:biome",
 					"biome_is": [
-						"divinerpg:frozen_ocean",
-						"divinerpg:tundra"
+						"divinerpg:iceika/boneyard"
 					]
 				},
 				"then_run": {
-					"type": "minecraft:sequence",
-					"sequence": [
-						{
-							"type": "minecraft:condition",
-							"if_true": {
-								"type": "minecraft:not",
-								"invert": {
-									"type": "minecraft:vertical_gradient",
-									"random_name": "divinerpg:random_snow",
-									"true_at_and_below": {
-										"absolute": 0
-									},
-									"false_at_and_above": {
-										"absolute": 224
-									}
-								}
-							},
-							"then_run": {
-								"type": "minecraft:sequence",
-								"sequence": [
-									{
-										"type": "minecraft:condition",
-										"if_true": {
-											"type": "minecraft:stone_depth",
-											"offset": 0,
-											"surface_type": "floor",
-											"add_surface_depth": false,
-											"secondary_depth_range": 0
-										},
-										"then_run": {
-											"type": "minecraft:block",
-											"result_state": {
-												"Name": "minecraft:snow_block"
-											}
-										}
-									},
-									{
-										"type": "minecraft:condition",
-										"if_true": {
-											"type": "minecraft:stone_depth",
-											"offset": 0,
-											"surface_type": "ceiling",
-											"add_surface_depth": false,
-											"secondary_depth_range": 0
-										},
-										"then_run": {
-											"type": "minecraft:block",
-											"result_state": {
-												"Name": "minecraft:snow_block"
-											}
-										}
-									}
-								]
-							}
-						},
-						{
-							"type": "minecraft:condition",
-							"if_true": {
-								"type": "minecraft:not",
-								"invert": {
-									"type": "minecraft:vertical_gradient",
-									"random_name": "divinerpg:random_ice",
-									"true_at_and_below": {
-										"absolute": 0
-									},
-									"false_at_and_above": {
-										"absolute": 224
-									}
-								}
-							},
-							"then_run": {
-								"type": "minecraft:sequence",
-								"sequence": [
-									{
-										"type": "minecraft:condition",
-										"if_true": {
-											"type": "minecraft:stone_depth",
-											"offset": 0,
-											"surface_type": "floor",
-											"add_surface_depth": false,
-											"secondary_depth_range": 0
-										},
-										"then_run": {
-											"type": "minecraft:block",
-											"result_state": {
-												"Name": "minecraft:ice"
-											}
-										}
-									},
-									{
-										"type": "minecraft:condition",
-										"if_true": {
-											"type": "minecraft:stone_depth",
-											"offset": 0,
-											"surface_type": "ceiling",
-											"add_surface_depth": false,
-											"secondary_depth_range": 0
-										},
-										"then_run": {
-											"type": "minecraft:block",
-											"result_state": {
-												"Name": "minecraft:ice"
-											}
-										}
-									}
-								]
-							}
-						}
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:white_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/ice_spikes"
 					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:light_gray_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/frozen_menagerie"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:gray_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/glowing_deep"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:black_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/cozybark_meadow"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:brown_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/thermal_vents"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:red_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/geyser_plateau"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:orange_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/fractal_forest"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:yellow_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/sheltered_garden"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:lime_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/shiverspine_forest"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:green_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/snow_bog"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:cyan_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/frozen_ocean"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:light_blue_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/frozen_shore"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:stone"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/deep_frozen_ocean"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:blue_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/chilly_cavern"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:purple_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/chill_passage"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:magenta_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/ice_sheet"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:pink_stained_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/snowy_peaks"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "divinerpg:frosted_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/frozen_peaks"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "divinerpg:smooth_glass"
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/morgue_marsh"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:block",
+					"result_state": {
+						"Name": "minecraft:tinted_glass"
+					}
 				}
 			}
 		]

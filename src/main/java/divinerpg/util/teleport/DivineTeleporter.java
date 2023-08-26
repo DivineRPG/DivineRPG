@@ -28,11 +28,11 @@ public class DivineTeleporter implements ITeleporter {
     public static DivineTeleporter INSTANCE = null;
     protected static Block portal;
     protected static Block frame;
-    private static ResourceKey<?> point;
+    protected static ResourceKey<PoiType> point;
     protected final ServerLevel world;
     private final boolean hasFrame;
 
-    public DivineTeleporter(ServerLevel worldIn, Block portal, Block frame, boolean hasFrame, ResourceKey<?> point) {
+    public DivineTeleporter(ServerLevel worldIn, Block portal, Block frame, boolean hasFrame, ResourceKey<PoiType> point) {
         DivineTeleporter.portal = portal;
         DivineTeleporter.frame = frame;
         INSTANCE = this;
@@ -153,7 +153,7 @@ public class DivineTeleporter implements ITeleporter {
         for (int i = -1; i < 3; ++i) {
             for (int j = -1; j < 4; ++j) {
                 offsetPos.setWithOffset(originalPos, directionIn.getStepX() * i + direction.getStepX() * offsetScale, j, directionIn.getStepZ() * i + direction.getStepZ() * offsetScale);
-                if (j < 0 && !this.world.getBlockState(offsetPos).isSolid()) {
+                if (j < 0 && !this.world.getBlockState(offsetPos).isCollisionShapeFullBlock(world, offsetPos)) {
                     return false;
                 }
 

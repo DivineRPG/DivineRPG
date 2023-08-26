@@ -10,28 +10,10 @@
 					"name": "divinerpg:arcanite_vines_head",
 					"conditions": [
 						{
-							"condition": "minecraft:alternative",
-							"terms": [
-								{
-									"condition": "minecraft:match_tool",
-									"predicate": {
-									  "tag": "forge:shears"
-									}
-								},
-								{
-									"condition": "minecraft:match_tool",
-									"predicate": {
-										"enchantments": [
-											{
-												"enchantment": "minecraft:silk_touch",
-												"levels": {
-													"min": 1
-												}
-											}
-										]
-									}
-								}
-							]
+							"condition": "minecraft:match_tool",
+							"predicate": {
+								"tag": "forge:shears"
+							}
 						}
 					]
 				}

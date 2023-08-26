@@ -29,7 +29,7 @@ public enum ArrowType {
 
     ARID_WARRIOR_ARROW(1.5F, 1.5F, VanillaLoc()),
     WILDFIRE_ARROW(5, 5, ProjectileLoc("inferno_arrow"), ArrowSpecial.FLAME),
-    FROST_ARCHER_ARROW(2, 2, ProjectileLoc("snowstorm_arrow")),
+    PALE_ARCHER_ARROW(2, 2, ProjectileLoc("snowstorm_arrow")),
     SUN_ARCHER_ARROW(9, 9, ProjectileLoc("eden_arrow")),
     ENCHANTED_ARCHER_ARROW(12, 16, ProjectileLoc("wildwood_arrow")),
     SKYTHERN_ARCHER_ARROW(14, 18, ProjectileLoc("wildwood_arrow")),

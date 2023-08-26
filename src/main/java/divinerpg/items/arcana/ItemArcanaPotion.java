@@ -52,19 +52,15 @@ public class ItemArcanaPotion extends ItemMod {
     public int getUseDuration(ItemStack par1ItemStack) {
         return 10;
     }
-
+    private boolean result = false;
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         player.startUsingItem(hand);
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-
-            InteractionResult result = arcana.getArcana() < arcana.getMaxArcana() ? InteractionResult.SUCCESS :
-                    InteractionResult.FAIL;
-
+            result = arcana.getArcana() < arcana.getMaxArcana();
         });
-        return new InteractionResultHolder<>(InteractionResult.FAIL, player.getItemInHand(hand));
+        return new InteractionResultHolder<>(result ? InteractionResult.SUCCESS : InteractionResult.FAIL, player.getItemInHand(hand));
     }
-
     @Override
     public boolean isFoil(ItemStack stack) {
         return true;

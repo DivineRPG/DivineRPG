@@ -30,7 +30,7 @@ public class ItemDivineAccumulator extends ItemMod {
                     player.setDeltaMovement(player.getDeltaMovement().x, 2, player.getDeltaMovement().z);
                 }
             });
-        return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, player.getMainHandItem());
+        return new InteractionResultHolder<>(InteractionResult.SUCCESS, player.getItemInHand(hand));
     }
 
     @Override

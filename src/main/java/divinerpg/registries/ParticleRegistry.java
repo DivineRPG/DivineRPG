@@ -3,8 +3,6 @@ package divinerpg.registries;
 import divinerpg.DivineRPG;
 import divinerpg.client.particle.*;
 import divinerpg.client.particle.options.ParticleColouredType;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.ParticleEngine;
 import net.minecraft.core.particles.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -38,21 +36,20 @@ public class ParticleRegistry {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerFactories(RegisterParticleProvidersEvent event) {
-        ParticleEngine particles = Minecraft.getInstance().particleEngine;
-        particles.register(ParticleRegistry.APALACHIA_PORTAL.get(), ParticleApalachiaPortal.Provider::new);
-        particles.register(ParticleRegistry.EDEN_PORTAL.get(), ParticleEdenPortal.Provider::new);
-        particles.register(ParticleRegistry.MORTUM_PORTAL.get(), ParticleMortumPortal.Provider::new);
-        particles.register(ParticleRegistry.SKYTHERN_PORTAL.get(), ParticleSkythernPortal.Provider::new);
-        particles.register(ParticleRegistry.WILDWOOD_PORTAL.get(), ParticleWildwoodPortal.Provider::new);
-        particles.register(ParticleRegistry.GREEN_PORTAL.get(), ParticleGreenPortal.Provider::new);
-        particles.register(ParticleRegistry.BLACK_FLAME.get(), ParticleColoredFlame.BlackProvider::new);
-        particles.register(ParticleRegistry.BLUE_FLAME.get(), ParticleColoredFlame.AquaProvider::new);
-        particles.register(ParticleRegistry.GREEN_FLAME.get(), ParticleColoredFlame.GreenProvider::new);
-        particles.register(ParticleRegistry.PURPLE_FLAME.get(), ParticleColoredFlame.PurpleProvider::new);
-        particles.register(ParticleRegistry.FROST.get(), ParticleFrost.Provider::new);
-        particles.register(ParticleRegistry.SPARKLER.get(), ParticleSparkler.Provider::new);
-        particles.register(ParticleRegistry.ENDER_TRIPLET.get(), ParticleEnderTriplet.Provider::new);
-        particles.register(ParticleRegistry.TAR.get(), ParticleTar.Provider::new);
-        particles.register(ParticleRegistry.COLORED.get(), ParticleColored.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.APALACHIA_PORTAL.get(), ParticleApalachiaPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.EDEN_PORTAL.get(), ParticleEdenPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.MORTUM_PORTAL.get(), ParticleMortumPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.SKYTHERN_PORTAL.get(), ParticleSkythernPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.WILDWOOD_PORTAL.get(), ParticleWildwoodPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.GREEN_PORTAL.get(), ParticleGreenPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.BLACK_FLAME.get(), ParticleColoredFlame.BlackProvider::new);
+        event.registerSpriteSet(ParticleRegistry.BLUE_FLAME.get(), ParticleColoredFlame.AquaProvider::new);
+        event.registerSpriteSet(ParticleRegistry.GREEN_FLAME.get(), ParticleColoredFlame.GreenProvider::new);
+        event.registerSpriteSet(ParticleRegistry.PURPLE_FLAME.get(), ParticleColoredFlame.PurpleProvider::new);
+        event.registerSpriteSet(ParticleRegistry.FROST.get(), ParticleFrost.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.SPARKLER.get(), ParticleSparkler.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.ENDER_TRIPLET.get(), ParticleEnderTriplet.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.TAR.get(), ParticleTar.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.COLORED.get(), ParticleColored.Provider::new);
     }
 }

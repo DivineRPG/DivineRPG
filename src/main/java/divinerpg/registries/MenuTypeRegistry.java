@@ -18,7 +18,7 @@ public class MenuTypeRegistry
     public static final RegistryObject<MenuType<ArcaniumExtractorContainer>> ARCANIUM_EXTRACTOR = CONTAINERS.register("arcanium_extractor", () -> IForgeMenuType.create(ArcaniumExtractorContainer::new));
     public static final RegistryObject<MenuType<DreamLampContainer>> DREAM_LAMP = CONTAINERS.register("dream_lamp", () -> IForgeMenuType.create(DreamLampContainer::new));
     public static final RegistryObject<MenuType<InfusionTableContainer>> INFUSION_TABLE = CONTAINERS.register("infusion_table", () -> IForgeMenuType.create(InfusionTableContainer::new));
-    public static final RegistryObject<MenuType<AltarOfCorruptionContainer>> ALTAR_OF_CORRUPTION = CONTAINERS.register("altar_of_corruption", () -> IForgeMenuType.create(AltarOfCorruptionContainer::new));
+    public static final RegistryObject<MenuType<AltarOfCorruptionMenu>> ALTAR_OF_CORRUPTION = CONTAINERS.register("altar_of_corruption", () -> IForgeMenuType.create(AltarOfCorruptionMenu::new));
     public static final RegistryObject<MenuType<PresentBoxContainer>> PRESENT_BOX = CONTAINERS.register("present_box", () -> IForgeMenuType.create(PresentBoxContainer::new));
     public static final RegistryObject<MenuType<CoalstoneFurnaceContainer>> COALSTONE_FURNACE = CONTAINERS.register("coalstone_furnace", () -> IForgeMenuType.create(CoalstoneFurnaceContainer::new));
     public static final RegistryObject<MenuType<DemonFurnaceContainer>> DEMON_FURNACE = CONTAINERS.register("demon_furnace", () -> IForgeMenuType.create(DemonFurnaceContainer::new));

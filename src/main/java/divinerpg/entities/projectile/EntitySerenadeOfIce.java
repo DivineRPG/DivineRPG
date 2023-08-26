@@ -35,7 +35,7 @@ public class EntitySerenadeOfIce extends DivineThrowable {
     public void tick() {
         super.tick();
         age++;
-        if (!this.level().isClientSide && age > 35)
+        if (!this.level().isClientSide() && age > 35)
             this.kill();
     }
 
@@ -51,7 +51,7 @@ public class EntitySerenadeOfIce extends DivineThrowable {
                 }
             }
 
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.kill();
             }
         }

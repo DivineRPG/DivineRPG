@@ -12,10 +12,10 @@ import net.minecraft.core.particles.SimpleParticleType;
 public class ParticleEnderTriplet extends TextureSheetParticle {
 
         SpriteSet animatedSprite;
-    private double portalPosX;
-    private double portalPosY;
-    private double portalPosZ;
-    private float portalParticleScale;
+//    private double portalPosX;
+//    private double portalPosY;
+//    private double portalPosZ;
+//    private float portalParticleScale;
     public ParticleEnderTriplet(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
             {
             this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
@@ -29,12 +29,12 @@ public class ParticleEnderTriplet extends TextureSheetParticle {
                 this.zd = 0;
                 this.quadSize *= 0.75F;
                 this.quadSize *= 0.9F;
-                this.portalParticleScale = this.quadSize;
+//                this.portalParticleScale = this.quadSize;
                 this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
                 this.lifetime = (int)((float)this.lifetime * 0.5F);
-                this.portalPosX = this.x = xCoordIn;
-                this.portalPosY = this.y = yCoordIn;
-                this.portalPosZ = this.z = zCoordIn;
+//                this.portalPosX = this.x = xCoordIn;
+//                this.portalPosY = this.y = yCoordIn;
+//                this.portalPosZ = this.z = zCoordIn;
                 float f = (float)Math.random() * 0.4F + 0.6F;
                 this.animatedSprite = sprite;
                 this.rCol = this.gCol = this.bCol = 1.0F * f;

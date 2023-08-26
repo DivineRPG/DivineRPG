@@ -59,7 +59,7 @@ public class EntityJungleSpider extends EntityDivineMonster {
 
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.setClimbing(this.horizontalCollision);
         }
     }
@@ -114,30 +114,29 @@ public class EntityJungleSpider extends EntityDivineMonster {
     }
 
     @Nullable
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_213386_1_, DifficultyInstance p_213386_2_, MobSpawnType p_213386_3_, @Nullable SpawnGroupData p_213386_4_, @Nullable CompoundTag p_213386_5_) {
-        p_213386_4_ = super.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, p_213386_4_, p_213386_5_);
-        if (p_213386_1_.getRandom().nextInt(100) == 0) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+        if (level.getRandom().nextInt(100) == 0) {
             Skeleton skeletonentity = EntityType.SKELETON.create(this.level());
             skeletonentity.moveTo(this.getX(), this.getY(), this.getZ(), this.yRot, 0.0F);
-            skeletonentity.finalizeSpawn(p_213386_1_, p_213386_2_, p_213386_3_, (SpawnGroupData)null, (CompoundTag)null);
+            skeletonentity.finalizeSpawn(level, instance, type, (SpawnGroupData)null, (CompoundTag)null);
             skeletonentity.startRiding(this);
         }
 
-        if (p_213386_4_ == null) {
-            p_213386_4_ = new EntityJungleSpider.GroupData();
-            if (p_213386_1_.getDifficulty() == Difficulty.HARD && p_213386_1_.getRandom().nextFloat() < 0.1F * p_213386_2_.getSpecialMultiplier()) {
-                ((EntityJungleSpider.GroupData)p_213386_4_).setRandomEffect(p_213386_1_.getRandom());
+        if (data == null) {
+            data = new EntityJungleSpider.GroupData();
+            if (level.getDifficulty() == Difficulty.HARD && level.getRandom().nextFloat() < 0.1F * instance.getSpecialMultiplier()) {
+                ((EntityJungleSpider.GroupData)data).setRandomEffect(level.getRandom());
             }
         }
 
-        if (p_213386_4_ instanceof EntityJungleSpider.GroupData) {
-            MobEffect effect = ((EntityJungleSpider.GroupData)p_213386_4_).effect;
+        if (data instanceof EntityJungleSpider.GroupData) {
+            MobEffect effect = ((EntityJungleSpider.GroupData)data).effect;
             if (effect != null) {
                 this.addEffect(new MobEffectInstance(effect, Integer.MAX_VALUE));
             }
         }
 
-        return p_213386_4_;
+        return data;
     }
 
     protected float getStandingEyeHeight(Pose p_213348_1_, EntityDimensions p_213348_2_) {

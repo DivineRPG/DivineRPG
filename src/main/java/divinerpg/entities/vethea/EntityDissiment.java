@@ -13,7 +13,6 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.*;
 
 public class EntityDissiment extends EntityDivineFlyingMob implements RangedAttackMob {
-    private static final int spawnLayer = 4;
 
     public EntityDissiment(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
@@ -27,11 +26,6 @@ public class EntityDissiment extends EntityDivineFlyingMob implements RangedAtta
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
-    }
-
-    @Override
-    public boolean checkSpawnRules(LevelAccessor world, MobSpawnType spawnReason) {
-        return this.getY() < 48.0D * spawnLayer && this.getY() > 48.0D * (spawnLayer - 1) && super.checkSpawnRules(world, spawnReason);
     }
 
     @Override

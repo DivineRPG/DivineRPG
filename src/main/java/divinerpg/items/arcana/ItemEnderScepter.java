@@ -32,7 +32,7 @@ public class ItemEnderScepter extends ItemMod {
                 player.fallDistance = 0;
                 player.ejectPassengers();
                 player.moveTo(pos.getTo());
-                player.playSound(SoundEvents.PORTAL_TRAVEL, 1, 1);
+                player.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 1, 1);
                 arcana.consume(player, 75);
             }
         });

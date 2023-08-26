@@ -105,7 +105,7 @@ public class EntityKaros extends EntityDivineBoss {
     public void tick() {
         super.tick();
         if (!hasLoadedBlocks) {
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 List<Player> players = level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
                 for (Player p : players) {
                     this.level().playSound(p, p.blockPosition(), SoundRegistry.KAROS_INTRO.get(), SoundSource.HOSTILE, 1.0F, 1.0F);

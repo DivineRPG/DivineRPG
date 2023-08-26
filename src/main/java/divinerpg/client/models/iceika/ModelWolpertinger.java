@@ -35,23 +35,23 @@ public class ModelWolpertinger<T extends EntityWolpertinger> extends EntityModel
 		.texOffs(104, 35).addBox(-8.0F, -10.3333F, -8.8333F, 7.0F, 9.0F, 5.0F, new CubeDeformation(0.0F))
 		.texOffs(104, 19).addBox(1.0F, -10.3333F, -8.8333F, 7.0F, 9.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 14.0F, -4.0F));
 
-		PartDefinition LeftEar = Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(44, 47).addBox(-0.5F, -1.5F, -1.0F, 1.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, -1.5F, -3.0F));
+		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(44, 47).addBox(-0.5F, -1.5F, -1.0F, 1.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, -1.5F, -3.0F));
 
-		PartDefinition RightEar = Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(38, 47).addBox(-0.5F, -1.5F, -1.0F, 1.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, -1.5F, -3.0F));
+		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(38, 47).addBox(-0.5F, -1.5F, -1.0F, 1.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, -1.5F, -3.0F));
 
-		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(32, 34).addBox(1.0F, -1.6667F, -3.1667F, 3.0F, 5.0F, 8.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(32, 34).addBox(1.0F, -1.6667F, -3.1667F, 3.0F, 5.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(29, 0).addBox(-4.0F, -1.6667F, -3.1667F, 3.0F, 5.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 21).addBox(-3.0F, -4.6667F, -10.1667F, 6.0F, 6.0F, 14.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 0).addBox(-3.5F, -5.1667F, -10.6667F, 7.0F, 6.0F, 15.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 56).addBox(-2.0F, -4.0F, 3.0F, 4.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 18.6667F, 4.1667F, -0.2618F, 0.0F, 0.0F));
 
-		PartDefinition BackRightFoot = partdefinition.addOrReplaceChild("BackRightFoot", CubeListBuilder.create().texOffs(0, 41).addBox(-1.5F, -0.5F, -8.5F, 3.0F, 1.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, 23.5F, 7.5F));
+		partdefinition.addOrReplaceChild("BackRightFoot", CubeListBuilder.create().texOffs(0, 41).addBox(-1.5F, -0.5F, -8.5F, 3.0F, 1.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, 23.5F, 7.5F));
 
-		PartDefinition BackLeftFoot = partdefinition.addOrReplaceChild("BackLeftFoot", CubeListBuilder.create().texOffs(42, 4).addBox(-1.5F, -0.5F, -8.5F, 3.0F, 1.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(2.5F, 23.5F, 7.5F));
+		partdefinition.addOrReplaceChild("BackLeftFoot", CubeListBuilder.create().texOffs(42, 4).addBox(-1.5F, -0.5F, -8.5F, 3.0F, 1.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(2.5F, 23.5F, 7.5F));
 
-		PartDefinition LeftLeg = partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(1.0F, -7.0F, -6.0F, 3.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+		partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(1.0F, 0.0F, -1.0F, 3.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 17.0F, -5.0F));
 
-		PartDefinition RightLeg = partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(0, 21).addBox(-4.0F, -7.0F, -6.0F, 3.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+		partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(0, 21).addBox(-4.0F, 0.0F, -1.0F, 3.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 17.0F, -5.0F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
@@ -65,7 +65,6 @@ public class ModelWolpertinger<T extends EntityWolpertinger> extends EntityModel
 		this.BackRightFoot.xRot = this.jumpRotation * 50.0F * ((float)Math.PI / 180F);
 		this.LeftLeg.xRot = (this.jumpRotation * -40.0F - 11.0F) * ((float)Math.PI / 180F);
 		this.RightLeg.xRot = (this.jumpRotation * -40.0F - 11.0F) * ((float)Math.PI / 180F);
-
 	}
 
 	public void prepareMobModel(T entity, float p_103544_, float p_103545_, float age) {

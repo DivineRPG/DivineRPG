@@ -30,7 +30,7 @@ public class EntityMandragora extends EntityDivineMonster {
     public void tick() {
         super.tick();
         Player target = this.level().getNearestPlayer(this, 16);
-        if(!level().isClientSide && target != null && this.tickCount%20 == 0) attackEntity(target);
+        if(!level().isClientSide() && target != null && this.tickCount%20 == 0) attackEntity(target);
     }
 
     public void attackEntity(LivingEntity e) {

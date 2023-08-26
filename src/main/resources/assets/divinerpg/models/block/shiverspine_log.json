@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/shiverspine_log_top",
+    "side": "divinerpg:block/shiverspine_log_side"
+  }
+}

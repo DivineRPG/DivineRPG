@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_left_open",
-  "render_type": "translucent",
-  "textures": {
-    "bottom": "divinerpg:block/frozen_door_bottom",
-    "top": "divinerpg:block/frozen_door_top"
-  }
-}

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_planks": {
+    "has_stone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:frozen_planks"
+              "divinerpg:frozen_stone"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_planks",
+      "has_stone",
       "has_the_recipe"
     ]
   ],

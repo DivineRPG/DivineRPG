@@ -8,7 +8,7 @@ public class FoodList {
     public static final FoodProperties BACON = (new FoodProperties.Builder()).nutrition(2).saturationMod(2.0F).meat().build();
     public static final FoodProperties BOILED_EGG = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.5F).build();
     public static final FoodProperties CHEESE = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.2F).build();
-    public static final FoodProperties CHICKEN_DINNER = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.5F).meat().build();
+    public static final FoodProperties CHICKEN_DINNER = (new FoodProperties.Builder()).nutrition(20).saturationMod(0.5F).build();
     public static final FoodProperties CHOCOLATE_LOG = (new FoodProperties.Builder()).nutrition(4).saturationMod(1.0F).build();
     public static final FoodProperties DONUT = (new FoodProperties.Builder()).nutrition(16).saturationMod(0.3F).build();
     public static final FoodProperties DREAM_CAKE = (new FoodProperties.Builder()).nutrition(8).saturationMod(0.8F).build();
@@ -24,7 +24,7 @@ public class FoodList {
     public static final FoodProperties HONEYSUCKLE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).build();
     public static final FoodProperties HOT_PUMPKIN_PIE = (new FoodProperties.Builder()).nutrition(10).saturationMod(0.4F).build();
     public static final FoodProperties PEPPERMINTS = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.3F).build();
-    public static final FoodProperties PINFLY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 2), 1.0F).build();
+    public static final FoodProperties PINFLY = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 2), 1.0F).build();
     public static final FoodProperties RAW_EMPOWERED_MEAT = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.0F).meat().build();
     public static final FoodProperties SNOW_CONES = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).build();
     public static final FoodProperties TOMATO = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).build();
@@ -44,5 +44,5 @@ public class FoodList {
     public static final FoodProperties COOKED_SENG_STEAK = (new FoodProperties.Builder()).nutrition(8).saturationMod(2.5F).meat().build();
     public static final FoodProperties RAW_WOLPERTINGER_MEAT = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.85F).meat().build();
     public static final FoodProperties COOKED_WOLPERTINGER_STEAK = (new FoodProperties.Builder()).nutrition(10).saturationMod(3.0F).meat().build();
-    public static final FoodProperties FORBIDDEN_FRUIT = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.5F).effect(new MobEffectInstance(MobEffects.REGENERATION, 100, 3), 20).effect(new MobEffectInstance(MobEffects.WITHER, 120, 1), 40).effect(new MobEffectInstance(MobEffects.POISON, 300, 1), 10).build();
+    public static final FoodProperties FORBIDDEN_FRUIT = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.5F).effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100, 3), 20).effect(() -> new MobEffectInstance(MobEffects.WITHER, 120, 1), 40).effect(() -> new MobEffectInstance(MobEffects.POISON, 300, 1), 10).build();
 }

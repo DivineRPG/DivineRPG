@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:taiga",
-    "divinerpg:tundra",
-    "divinerpg:ice_spikes"
+    "divinerpg:iceika/shiverspine_forest",
+    "divinerpg:iceika/tundra",
+    "divinerpg:iceika/ice_spikes"
   ]
 }

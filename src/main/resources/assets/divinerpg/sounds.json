@@ -114,7 +114,7 @@
     ]
   },
   "cadillion": {
-    "category": "neutral",
+    "category": "hostile",
     "sounds": [
       "divinerpg:cadillion"
     ]
@@ -401,16 +401,16 @@
       "divinerpg:frost"
     ]
   },
-  "frosty": {
+  "frozen_flesh": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:frosty"
+      "divinerpg:frozen_flesh"
     ]
   },
-  "frosty_hurt": {
+  "frozen_flesh_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:frosty_hurt"
+      "divinerpg:frozen_flesh_hurt"
     ]
   },
   "galroid": {

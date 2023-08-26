@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/auroraoak_log_top",
+    "side": "divinerpg:block/auroraoak_log_side"
+  }
+}

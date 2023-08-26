@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/arcanite_dirt"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/arcanite_dirt"
+      },
+      {
+        "model": "divinerpg:block/arcanite_dirt",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/arcanite_dirt",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/arcanite_dirt",
+        "y": 270
+      }
+    ]
   }
 }

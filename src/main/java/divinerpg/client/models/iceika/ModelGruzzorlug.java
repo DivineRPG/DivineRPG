@@ -30,24 +30,24 @@ public class ModelGruzzorlug<T extends Entity> extends EntityModel<T> {
 
 		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(19, 19).addBox(-5.0F, -10.0F, -3.0F, 10.0F, 11.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 17.0F, -0.5F));
 
-		PartDefinition RightFoot = partdefinition.addOrReplaceChild("RightFoot", CubeListBuilder.create().texOffs(47, 47).addBox(-2.0F, 0.0F, -2.5F, 4.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 17.0F, -1.5F));
+		partdefinition.addOrReplaceChild("RightFoot", CubeListBuilder.create().texOffs(47, 47).addBox(-2.0F, 0.0F, -2.5F, 4.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 17.0F, -1.5F));
 
-		PartDefinition LeftFoot = partdefinition.addOrReplaceChild("LeftFoot", CubeListBuilder.create().texOffs(43, 8).addBox(-2.0F, 0.0F, -2.5F, 4.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 17.0F, -1.5F));
+		partdefinition.addOrReplaceChild("LeftFoot", CubeListBuilder.create().texOffs(43, 8).addBox(-2.0F, 0.0F, -2.5F, 4.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 17.0F, -1.5F));
 
-		PartDefinition RightArm = partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(36, 35).addBox(-3.5F, -1.0F, -2.5F, 3.0F, 12.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.5F, 7.0F, -0.5F));
+		partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(36, 35).addBox(-3.5F, -1.0F, -2.5F, 3.0F, 12.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.5F, 7.0F, -0.5F));
 
-		PartDefinition LeftArm = partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(8, 42).addBox(0.5F, -1.0F, -2.5F, 3.0F, 12.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(4.5F, 7.0F, -0.5F));
+		partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(8, 42).addBox(0.5F, -1.0F, -2.5F, 3.0F, 12.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(4.5F, 7.0F, -0.5F));
 
 		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(24, 0).addBox(-3.0F, -6.8125F, -3.1563F, 6.0F, 7.0F, 6.0F, new CubeDeformation(0.0F))
 		.texOffs(20, 0).addBox(-1.0F, -3.8125F, -4.1563F, 2.0F, 3.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 0).addBox(-4.0F, -1.8125F, -5.1563F, 8.0F, 8.0F, 2.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 0).addBox(0.0F, -12.8125F, -3.1563F, 0.0F, 12.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 8.1875F, -0.8438F));
 
-		PartDefinition Belly = Body.addOrReplaceChild("Belly", CubeListBuilder.create().texOffs(8, 35).addBox(-5.5F, 7.1875F, -4.1563F, 11.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -8.5125F, -1.7563F));
+		Body.addOrReplaceChild("Belly", CubeListBuilder.create().texOffs(8, 35).addBox(-5.5F, 7.1875F, -4.1563F, 11.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -8.5125F, -1.7563F));
 
-		PartDefinition Eyebrow = Head.addOrReplaceChild("Eyebrow", CubeListBuilder.create().texOffs(42, 0).addBox(-4.0F, -1.0F, -1.0F, 8.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -3.8125F, -4.1563F));
+		Head.addOrReplaceChild("Eyebrow", CubeListBuilder.create().texOffs(42, 0).addBox(-4.0F, -1.0F, -1.0F, 8.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -3.8125F, -4.1563F));
 
-		PartDefinition Moustache = Head.addOrReplaceChild("Moustache", CubeListBuilder.create().texOffs(78, 0).addBox(-5.0F, -2.5F, -1.25F, 10.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.1875F, -4.1563F));
+		Head.addOrReplaceChild("Moustache", CubeListBuilder.create().texOffs(78, 0).addBox(-5.0F, -2.5F, -1.25F, 10.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.1875F, -4.1563F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}

@@ -4,7 +4,7 @@
 	"step": "surface_structures",
 	"spawn_overrides": {},
 	"terrain_adaptation": "beard_thin",
-	"start_pool": "divinerpg:iceika/iceika_villages",
+	"start_pool": "divinerpg:iceika/villages",
 	"size": 7,
 	"start_height": {
 		"absolute": 0

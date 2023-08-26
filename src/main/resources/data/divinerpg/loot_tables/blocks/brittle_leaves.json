@@ -11,7 +11,7 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:alternative",
+                  "condition": "minecraft:any_of",
                   "terms": [
                     {
                       "condition": "minecraft:match_tool",
@@ -54,7 +54,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "divinerpg:frozen_sapling"
+              "name": "divinerpg:shiverspine_sapling"
             }
           ]
         }
@@ -67,7 +67,7 @@
         {
           "condition": "minecraft:inverted",
           "term": {
-            "condition": "minecraft:alternative",
+            "condition": "minecraft:any_of",
             "terms": [
               {
                 "condition": "minecraft:match_tool",

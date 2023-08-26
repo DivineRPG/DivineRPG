@@ -53,7 +53,7 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
 
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide && this.getHealth() > 0.0f) {
+        if (!this.level().isClientSide() && this.getHealth() > 0.0f) {
             Player player = this.level().getNearestPlayer(this, 10.0D);
             if (player != null && !player.isCreative() && !player.isSpectator() && this.hasLineOfSight(player)) {
                 this.setTarget(player);

@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:highest_ground",
+  "biomes": "#divinerpg:allows_iceika_village",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin",
+  "start_pool": "divinerpg:iceika/surface_workshop",
+  "size": 6,
+  "min_height": 64,
+  "max_height": 255,
+  "bury": 0,
+  "max_distance_from_center": 1
+}

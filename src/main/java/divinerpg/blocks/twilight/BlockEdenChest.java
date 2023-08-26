@@ -7,9 +7,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.material.MapColor;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class BlockEdenChest extends BlockModChest {
 
@@ -19,7 +19,7 @@ public class BlockEdenChest extends BlockModChest {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return new EdenChestBlockEntity(p_153215_, p_153216_);
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new EdenChestBlockEntity(pos, state);
     }
 }

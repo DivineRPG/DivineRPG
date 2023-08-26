@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
   "addition": {
     "item": "divinerpg:gray_diamond_chunk"
   },
@@ -8,5 +8,6 @@
   },
   "result": {
     "item": "divinerpg:gray_rupee_chestplate"
-  }
+  },
+  "template": []
 }

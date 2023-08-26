@@ -52,18 +52,19 @@ public class BlockArcanaPortal extends BlockMod {
 
     @Override
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
-        if (world instanceof ServerLevel && !entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && Shapes.joinIsNotEmpty(Shapes.create(entity.getBoundingBox().move((double) (-pos.getX()), (double) (-pos.getY()), (double) (-pos.getZ()))), state.getShape(world, pos), BooleanOp.AND)) {
-            ServerLevel serverworld = ((ServerLevel) world).getServer().getLevel(world.dimension() == LevelRegistry.ARCANA ? Level.OVERWORLD : LevelRegistry.ARCANA);
-            if (serverworld == null) {
-                return;
-            }
-            ResourceKey<Level> destination = LevelRegistry.ARCANA;
-            if (destination == world.dimension()) {
-                destination = Level.OVERWORLD;
-            }
-            if (entity.getPortalWaitTime() > 0) {
+        if (world instanceof ServerLevel server && !entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && Shapes.joinIsNotEmpty(Shapes.create(entity.getBoundingBox().move((double) (-pos.getX()), (double) (-pos.getY()), (double) (-pos.getZ()))), state.getShape(world, pos), BooleanOp.AND)) {
+        	if(entity.isOnPortalCooldown()) entity.setPortalCooldown();
+        	else {
+        		ServerLevel serverworld = server.getServer().getLevel(world.dimension() == LevelRegistry.ARCANA ? Level.OVERWORLD : LevelRegistry.ARCANA);
+                if (serverworld == null) {
+                    return;
+                }
+                ResourceKey<Level> destination = LevelRegistry.ARCANA;
+                if (destination == world.dimension()) {
+                    destination = Level.OVERWORLD;
+                }
                 transferEntity(entity, world.getServer().getLevel(destination));
-            }
+        	}
         }
     }
 

@@ -7,6 +7,7 @@ import divinerpg.blocks.base.BlockStatue;
 import divinerpg.client.models.boss.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.block_entities.bosses.StatueBlockEntity;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.*;
@@ -28,6 +29,10 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         matrixStack.translate(0.5D, 1.5D, 0.5D);
         matrixStack.mulPose(Axis.YP.rotationDegrees(-te.getBlockState().getValue(AbstractFurnaceBlock.FACING).toYRot()));
         matrixStack.mulPose(Axis.XP.rotationDegrees(180));
+        if(te.getBlockState().is(BlockRegistry.kitraStatue.get())){
+            matrixStack.scale(0.25F, 0.25F, 0.25F);
+            matrixStack.translate(0F, 5F, 0F);
+        }
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(texture(te)));
         model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
         matrixStack.popPose();
@@ -56,8 +61,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "termasect_statue"))) return new ModelTermasect<>(context.bakeLayer(ModelTermasect.LAYER_LOCATION));
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sunstorm_statue"))) return new ModelSunstorm<>(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))) return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
-        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))) return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
-        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "etherealcetus_statue"))) return new ModelWhale(context.bakeLayer(ModelWhale.LAYER_LOCATION));
+        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "kitra_statue"))) return new ModelKitra(context.bakeLayer(ModelKitra.LAYER_LOCATION));
         return new BookModel(context.bakeLayer(ModelLayers.BOOK));
     }
     public static final ResourceLocation
@@ -83,7 +87,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
     	termasect = new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png"),
     	sunstorm = new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png"),
         experienced_cori = new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png"),
-        etherealcetus = new ResourceLocation(DivineRPG.MODID, "textures/entity/etherealcetus.png");
+        kitra = new ResourceLocation(DivineRPG.MODID, "textures/entity/kitra.png");
     private ResourceLocation texture(StatueBlockEntity tile) {
         Block block = tile.getBlockState().getBlock();
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_entity_statue"))) return ancient_entity;
@@ -113,7 +117,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "termasect_statue"))) return termasect;
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sunstorm_statue"))) return sunstorm;
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue"))) return experienced_cori;
-        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "etherealcetus_statue"))) return etherealcetus;
+        if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "kitra_statue"))) return kitra;
         return new ResourceLocation("minecraft:textures/block/stone.png");
     }
 }

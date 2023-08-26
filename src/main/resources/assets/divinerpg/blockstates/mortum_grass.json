@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/mortum_grass"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/mortum_grass"
+      },
+      {
+        "model": "divinerpg:block/mortum_grass",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/mortum_grass",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/mortum_grass",
+        "y": 270
+      }
+    ]
   }
 }

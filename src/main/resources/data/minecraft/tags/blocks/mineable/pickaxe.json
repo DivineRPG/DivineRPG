@@ -5,6 +5,7 @@
     "divinerpg:arcanite_stone",
     "divinerpg:coalstone",
     "divinerpg:frozen_stone",
+    "divinerpg:cobbled_frozen_stone",
     "divinerpg:milk_stone",
     "divinerpg:divine_rock",
     "#forge:ores/arlemite",
@@ -178,6 +179,20 @@
     "divinerpg:hive_egg",
     "#forge:dirts/scorched",
     "divinerpg:icicle",
-    "divinerpg:thermal_vent"
+    "divinerpg:thermal_vent",
+    "divinerpg:frozen_stairs",
+    "divinerpg:cobbled_frozen_stairs",
+    "divinerpg:frozen_slab",
+    "divinerpg:cobbled_frozen_slab",
+    "divinerpg:frozen_pressure_plate",
+    "divinerpg:cobbled_frozen_pressure_plate",
+    "divinerpg:coalstone_pressure_plate",
+    "divinerpg:frozen_brick_stairs",
+    "divinerpg:frozen_brick_slab",
+    "divinerpg:frozen_brick_pressure_plate",
+    "divinerpg:coalstone_brick_stairs",
+    "divinerpg:coalstone_brick_slab",
+    "divinerpg:coalstone_brick_pressure_plate",
+    "divinerpg:soul_trap"
   ]
 }

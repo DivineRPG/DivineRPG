@@ -10,7 +10,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 
 public class EntityRotatick extends EntityDivineMonster {
 	public EntityRotatick(EntityType<? extends Monster> type, Level level) {super(type, level);}
@@ -23,7 +23,7 @@ public class EntityRotatick extends EntityDivineMonster {
     @Override
     protected SoundEvent getDeathSound() {return ROTATICK_HURT.get();}
     @Override public boolean isAggressive() {return true;}
-    public static boolean rotatickSpawnRule(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return worldIn.getLightEmission(pos) < 8 && pos.getY() < 0;
+    public static boolean rotatickSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+        return Monster.checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn) && pos.getY() < 0;
     }
 }

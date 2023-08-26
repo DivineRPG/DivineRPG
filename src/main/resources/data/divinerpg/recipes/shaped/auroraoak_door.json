@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "divinerpg:auroraoak_door",
+    "count": 3
+  },
+  "pattern": [
+    "WW",
+    "WW",
+    "WW"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "divinerpg_wooden_door",
+  "key": {
+    "W": {
+      "item": "divinerpg:auroraoak_planks"
+    }
+  }
+}

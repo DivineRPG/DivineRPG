@@ -77,7 +77,7 @@ public class EntityAyeraco extends EntityDivineBoss {
 		updateAbilities(angry = getHealth() < getMaxHealth() / 2F);
 	}
 	public void updateAbilities(boolean angry) {
-		if(!level().isClientSide) {
+		if(!level().isClientSide()) {
 			switch(entityData.get(VARIANT)) {
 			case 0: for(EntityAyeraco entity : group) if(entity != null) entity.empowered = angry; break;
 			case 1: for(EntityAyeraco entity : group) if(entity != null) entity.projectileProtected = angry; break;

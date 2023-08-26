@@ -1,6 +1,5 @@
 package divinerpg.client.models.twilight;
 
-
 import com.mojang.blaze3d.vertex.*;
 import divinerpg.entities.eden.EntityGlinthop;
 import net.minecraft.client.model.EntityModel;
@@ -34,30 +33,30 @@ public class ModelGlinthop extends EntityModel<EntityGlinthop> {
 		PartDefinition Body = Spine.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, -4.75F, -3.0F, 4.0F, 5.0F, 9.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 14).addBox(-3.5F, -5.75F, -4.0F, 7.0F, 8.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -1.25F, -2.0F));
 
-		PartDefinition FrontRightLeg = partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(31, 6).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 20.0F, -3.0F));
+		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(31, 6).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 20.0F, -3.0F));
 
-		PartDefinition BackRightLeg = partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(21, 9).addBox(-2.0F, -3.0F, -2.5F, 2.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(21, 9).addBox(-2.0F, -3.0F, -2.5F, 2.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
 		.texOffs(14, 31).addBox(-2.0F, 2.0F, 0.5F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.0F, 18.0F, 3.0F));
 
-		PartDefinition FrontLeftLeg = partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 20.0F, -3.0F));
+		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 20.0F, -3.0F));
 
-		PartDefinition BackLeftLeg = partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 27).addBox(0.0F, -3.0F, -2.5F, 2.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
+		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 27).addBox(0.0F, -3.0F, -2.5F, 2.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
 		.texOffs(33, 0).addBox(0.0F, 2.0F, 0.5F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 18.0F, 3.0F));
 
-		PartDefinition Tail = Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(17, 0).addBox(-2.0F, -3.0F, -1.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -3.75F, 7.0F));
+		Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(17, 0).addBox(-2.0F, -3.0F, -1.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -3.75F, 7.0F));
 
 		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 14).addBox(-0.5F, 1.0F, -4.5F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(20, 23).addBox(-2.5F, -2.0F, -4.0F, 5.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 13.0F, -4.0F));
 
-		PartDefinition LeftEar = Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(0, 7).addBox(-0.5F, -1.5F, 0.25F, 2.0F, 2.0F, 0.0F, new CubeDeformation(0.0F))
+		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(0, 7).addBox(-0.5F, -1.5F, 0.25F, 2.0F, 2.0F, 0.0F, new CubeDeformation(0.0F))
 		.texOffs(30, 19).addBox(-1.5F, -0.5F, -0.75F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(2.5F, -3.5F, -0.25F));
 
-		PartDefinition RightEar = Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(22, 33).addBox(-1.0F, -10.0F, -6.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F))
+		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(22, 33).addBox(-1.0F, -10.0F, -6.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F))
 		.texOffs(4, 7).addBox(-2.0F, -11.0F, -5.0F, 2.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 6.0F, 5.0F));
 
-		PartDefinition LeftWhisker = Head.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(9, 27).addBox(0.5F, -2.0F, 0.0F, 3.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(1.5F, 2.0F, -3.0F));
+		Head.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(9, 27).addBox(0.5F, -2.0F, 0.0F, 3.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(1.5F, 2.0F, -3.0F));
 
-		PartDefinition RightWhisker = Head.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(24, 19).addBox(-3.5F, -2.0F, 0.0F, 3.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, 2.0F, -3.0F));
+		Head.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(24, 19).addBox(-3.5F, -2.0F, 0.0F, 3.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, 2.0F, -3.0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}

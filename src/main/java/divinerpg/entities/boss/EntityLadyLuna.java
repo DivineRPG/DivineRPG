@@ -3,7 +3,7 @@ package divinerpg.entities.boss;
 import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.entities.projectile.EntityLadyLunaSparkler;
-import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -25,7 +25,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
 import java.util.*;
 
 public class EntityLadyLuna extends EntityDivineBoss {
@@ -35,18 +34,20 @@ public class EntityLadyLuna extends EntityDivineBoss {
         this.setRandomProtectionValues();
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.90625F;
     }
 
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(PROTECTION, 0);
     }
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance p_146747_, MobSpawnType p_146748_, @org.jetbrains.annotations.Nullable SpawnGroupData p_146749_, @org.jetbrains.annotations.Nullable CompoundTag p_146750_) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @org.jetbrains.annotations.Nullable SpawnGroupData data, @org.jetbrains.annotations.Nullable CompoundTag tag) {
         entityData.set(PROTECTION, random.nextInt(2));
-        return super.finalizeSpawn(level, p_146747_, p_146748_, p_146749_, p_146750_);
+        return data;
     }
 
     public int getProtection() {
@@ -57,6 +58,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
 
     private List<BlockPos> acidPositions = new ArrayList<BlockPos>();
 
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0D));
@@ -73,7 +75,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
     public void tick() {
         super.tick();
 
-        if (!this.level().isClientSide && this.tickCount % 5 == 0) {
+        if (!this.level().isClientSide() && this.tickCount % 5 == 0) {
             for (int x = (int) this.getX() - 2; x < (int) this.getX() + 2; x++) {
                 for (int y = (int) this.getBoundingBox().minY; y < (int) this.getBoundingBox().minY + 4; y++) {
                     for (int z = (int) this.getZ() - 2; z < (int) this.getZ() + 2; z++) {
@@ -95,7 +97,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
             }
         }
 
-        if (!this.level().isClientSide && getProtection() == 0 && this.tickCount % 30 == 0) {
+        if (!this.level().isClientSide() && getProtection() == 0 && this.tickCount % 30 == 0) {
             Iterator<BlockPos> iter = this.acidPositions.iterator();
             while (iter.hasNext()) {
                 BlockPos pos = iter.next();
@@ -176,16 +178,19 @@ public class EntityLadyLuna extends EntityDivineBoss {
         this.setProtectionTimer(tag.getInt("ImmunityCooldown"));
     }
 
-
-
     @Override
-    public int getMaxSpawnClusterSize() {return 3;
+    public int getMaxSpawnClusterSize() {
+        return 3;
     }
 
-    @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return super.getAmbientSound();
+        return SoundRegistry.LADY_LUNA.get();
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return SoundRegistry.LADY_LUNA_HURT.get();
     }
 
     private void setRandomProtectionValues() {

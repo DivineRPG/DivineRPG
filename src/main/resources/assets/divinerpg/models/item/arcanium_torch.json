@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/arcanium_torch"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "divinerpg:block/arcanium_torch"
+  }
 }

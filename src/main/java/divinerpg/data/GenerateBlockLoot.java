@@ -1,29 +1,20 @@
 package divinerpg.data;
 
-import com.google.gson.*;
 import net.minecraft.data.*;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.storage.loot.LootTable;
-
-import java.nio.file.Path;
-import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Function;
 
-@SuppressWarnings("NullableProblems")
 public class GenerateBlockLoot implements DataProvider {
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private final DataGenerator generator;
-    private final Map<Block, Function<Block, LootTable.Builder>> functionTable = new HashMap<>();
-
-    public GenerateBlockLoot(DataGenerator generator) {
-        this.generator = generator;
-    }
-
-    private static Path getPath(Path root, ResourceLocation id) {
-        return root.resolve("data/" + id.getNamespace() + "/loot_tables/blocks/" + id.getPath() + ".json");
-    }
+//    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+//    private final DataGenerator generator;
+//    private final Map<Block, Function<Block, LootTable.Builder>> functionTable = new HashMap<>();
+//
+//    public GenerateBlockLoot(DataGenerator generator) {
+//        this.generator = generator;
+//    }
+//
+//    private static Path getPath(Path root, ResourceLocation id) {
+//        return root.resolve("data/" + id.getNamespace() + "/loot_tables/blocks/" + id.getPath() + ".json");
+//    }
 
 //    private static LootTable.Builder genRegular(Block b) {
 //        LootPoolEntryContainer.Builder<?> entry = LootItem.lootTableItem(b);

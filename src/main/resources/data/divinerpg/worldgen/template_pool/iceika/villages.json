@@ -1,0 +1,15 @@
+{
+  "name": "iceika_village",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "projection": "rigid",
+        "location": "divinerpg:iceika/village/workshop_library",
+        "processors": "minecraft:empty"
+      }
+    }
+  ]
+}

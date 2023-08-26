@@ -8,8 +8,8 @@ import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleColoredFlame extends RisingParticle {
-    private final float flameScale;
-    private SpriteSet sprite;
+//    private final float flameScale;
+//    private SpriteSet sprite;
 
     protected ParticleColoredFlame(ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float r, float g, float b, SpriteSet sprite) {
         super(world, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
@@ -19,12 +19,12 @@ public class ParticleColoredFlame extends RisingParticle {
         this.x += (this.random.nextFloat() - this.random.nextFloat()) * 0.05F;
         this.y += (this.random.nextFloat() - this.random.nextFloat()) * 0.05F;
         this.z += (this.random.nextFloat() - this.random.nextFloat()) * 0.05F;
-        this.flameScale = this.quadSize;
+//        this.flameScale = this.quadSize;
         this.rCol = r;
         this.gCol = g;
         this.bCol = b;
         this.lifetime = (int) (8.0D / (Math.random() * 0.8D + 0.2D)) + 4;
-        this.sprite = sprite;
+//        this.sprite = sprite;
     }
 
     public ParticleRenderType getRenderType() {

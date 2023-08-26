@@ -4,8 +4,7 @@ import divinerpg.entities.base.EntityDivineMonster;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -38,6 +37,8 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         super(type, worldIn);
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
     }
+
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
@@ -54,36 +55,41 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         return 0.75F;
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.1F;
     }
 
+    @Override
     public void startPersistentAngerTimer() {
         this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.random));
     }
 
+    @Override
     public void setRemainingPersistentAngerTime(int p_32515_) {
         this.remainingPersistentAngerTime = p_32515_;
     }
 
+    @Override
     public int getRemainingPersistentAngerTime() {
         return this.remainingPersistentAngerTime;
     }
 
+    @Override
     public void setPersistentAngerTarget(@Nullable UUID p_32509_) {
         this.persistentAngerTarget = p_32509_;
     }
 
     @Nullable
+    @Override
     public UUID getPersistentAngerTarget() {
         return this.persistentAngerTarget;
     }
 
-
     @Override
     public void tick() {
         super.tick();
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             if (level().getNearestPlayer(this, 3D) != null) {
                 Player player = level().getNearestPlayer(this, 3D);
                 if (!player.isCreative() && !player.isSpectator()) {
@@ -104,25 +110,28 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         }
     }
 
+    @Override
     public void aiStep() {
-        if (this.level().isClientSide) {
+        if (this.level().isClientSide()) {
             for(int i = 0; i < 2; ++i) {
                 this.level().addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY() - 0.25D, this.getRandomZ(0.5D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
             }
         }
 
         this.jumping = false;
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.updatePersistentAnger((ServerLevel)this.level(), true);
         }
 
         super.aiStep();
     }
 
+    @Override
     public boolean isSensitiveToWater() {
         return true;
     }
 
+    @Override
     protected void customServerAiStep() {
         if (this.level().isDay() && this.tickCount >= this.targetChangeTime + 600) {
             float f = this.getLightLevelDependentMagicValue();
@@ -158,12 +167,12 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     private boolean teleport(double p_32544_, double p_32545_, double p_32546_) {
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(p_32544_, p_32545_, p_32546_);
 
-        while(blockpos$mutableblockpos.getY() > this.level().getMinBuildHeight() && !this.level().getBlockState(blockpos$mutableblockpos).blocksMotion()) {
+        while(blockpos$mutableblockpos.getY() > this.level().getMinBuildHeight() && !this.level().getBlockState(blockpos$mutableblockpos).isCollisionShapeFullBlock(level(), blockpos$mutableblockpos)) {
             blockpos$mutableblockpos.move(Direction.DOWN);
         }
 
         BlockState blockstate = this.level().getBlockState(blockpos$mutableblockpos);
-        boolean flag = blockstate.blocksMotion();
+        boolean flag = blockstate.isCollisionShapeFullBlock(level(), blockpos$mutableblockpos);
         boolean flag1 = blockstate.getFluidState().is(FluidTags.WATER);
         if (flag && !flag1) {
             net.minecraftforge.event.entity.EntityTeleportEvent.EnderEntity event = net.minecraftforge.event.ForgeEventFactory.onEnderTeleport(this, p_32544_, p_32545_, p_32546_);
@@ -184,10 +193,23 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         }
     }
     
-    @Override protected SoundEvent getHurtSound(DamageSource s) {return SoundEvents.RABBIT_HURT;}
-    @Override protected SoundEvent getAmbientSound() {return SoundEvents.RABBIT_AMBIENT;}
-    @Override protected SoundEvent getDeathSound() {return SoundEvents.RABBIT_DEATH;}
-    @Override public boolean doHurtTarget(Entity e) {
+    @Override
+    protected SoundEvent getHurtSound(DamageSource s) {
+        return SoundEvents.RABBIT_HURT;
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.RABBIT_AMBIENT;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.RABBIT_DEATH;
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity e) {
     	playSound(SoundEvents.RABBIT_ATTACK, 1F, (random.nextFloat() - random.nextFloat()) * .2F + 1F);
     	return super.doHurtTarget(e);
     }

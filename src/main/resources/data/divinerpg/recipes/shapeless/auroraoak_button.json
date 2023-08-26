@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "divinerpg_wooden_button",
+  "ingredients": [
+    {
+      "item": "divinerpg:auroraoak_planks"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:auroraoak_button",
+    "count": 1
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/frozen_planks"
-      }
-    }
-  ]
-}
