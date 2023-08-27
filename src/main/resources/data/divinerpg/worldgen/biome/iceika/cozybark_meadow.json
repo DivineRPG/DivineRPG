@@ -39,15 +39,24 @@
 		[],
 		[],
 		[],
-		[],
-		[],
-		[],
-		[],
 		[
-			"divinerpg:iceika/snow_coverage"
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/classic_vines_brittle_caves",
+			"minecraft:glow_lichen"
 		],
 		[
-			"divinerpg:iceika/snow_spreader"
+			"minecraft:seagrass_warm"
+		],
+		[],
+		[],
+		[
+			"divinerpg:iceika/icicle",
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/hanging_icicle"
+		],
+		[
+			"divinerpg:iceika/snow_spreader",
+			"divinerpg:iceika/powder_snow"
 		]
 	]
 }

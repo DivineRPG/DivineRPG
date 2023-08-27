@@ -1,6 +1,6 @@
 {
 	"temperature": -0.9,
-	"downfall": 1,
+	"downfall": 0.3,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
@@ -79,30 +79,38 @@
 	"features": [
 		[],
 		[],
-		[],
+		[
+			"minecraft:iceberg_packed",
+			"minecraft:iceberg_blue"
+		],
 		[
 			"divinerpg:iceika/glacial_pond"
 		],
 		[
+			"minecraft:blue_ice"
+		],
+		[
 			"minecraft:ice_spike",
 			"minecraft:ice_patch",
-			"divinerpg:iceika/powder_snow",
+			"minecraft:pile_ice",
+			"minecraft:pile_snow",
 			"divinerpg:iceika/frozen_light",
-			"divinerpg:iceika/hanging_icicle",
-			"divinerpg:iceika/pointed_dripstone",
-		    "minecraft:seagrass_simple"
+			"divinerpg:iceika/pointed_dripstone"
 		],
-		[],
-		[],
+		[
+			"minecraft:seagrass_simple"
+		],
 		[],
 		[],
 		[
 			"divinerpg:iceika/shiverspine_tree",
 			"divinerpg:iceika/shiverspine_bush",
-			"divinerpg:iceika/snow_coverage"
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/hanging_icicle"
 		],
 		[
-			"divinerpg:iceika/snow_spreader"
+			"divinerpg:iceika/snow_spreader",
+			"divinerpg:iceika/powder_snow"
 		]
 	]
 }

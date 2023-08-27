@@ -37,13 +37,25 @@
 		[],
 		[],
 		[],
+		[
+			"divinerpg:iceika/glacial_pond"
+		],
+		[
+			"minecraft:blue_ice"
+		],
+		[
+			"minecraft:ice_patch",
+			"divinerpg:iceika/frozen_light",
+			"minecraft:glow_lichen",
+			"divinerpg:iceika/pointed_dripstone"
+		],
 		[],
 		[],
 		[],
-		[],
-		[],
-		[],
-		[],
+		[
+			"divinerpg:iceika/icicle",
+			"divinerpg:iceika/hanging_icicle"
+		],
 		[]
 	]
 }

@@ -1,6 +1,6 @@
 {
 	"temperature": -0.9,
-	"downfall": 1,
+	"downfall": 0.9,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
@@ -36,18 +36,30 @@
 	"features": [
 		[],
 		[],
-		[],
-		[],
-		[],
-		[],
-		[],
-		[],
+		[
+			"minecraft:iceberg_packed",
+			"minecraft:iceberg_blue"
+		],
 		[],
 		[
-			"divinerpg:iceika/snow_coverage"
+			"minecraft:blue_ice"
 		],
 		[
-			"divinerpg:iceika/snow_spreader"
+			"minecraft:ice_patch",
+			"minecraft:pile_ice",
+			"minecraft:pile_snow",
+			"divinerpg:iceika/frozen_light"
+		],
+		[],
+		[],
+		[],
+		[
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/hanging_icicle"
+		],
+		[
+			"divinerpg:iceika/snow_spreader",
+			"divinerpg:iceika/powder_snow"
 		]
 	]
 }

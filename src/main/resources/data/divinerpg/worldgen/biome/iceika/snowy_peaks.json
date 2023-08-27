@@ -90,26 +90,30 @@
 	},
 	"features": [
 		[],
+		[],
+		[],
 		[
-			"minecraft:ice_patch",
-			"divinerpg:iceika/glacial_pond",
-			"divinerpg:iceika/powder_snow"
+			"divinerpg:iceika/glacial_pond"
 		],
 		[
+			"minecraft:blue_ice"
+		],
+		[
+			"minecraft:ice_patch",
+			"minecraft:pile_snow",
 			"divinerpg:iceika/frozen_light",
-			"divinerpg:iceika/hanging_icicle",
 			"divinerpg:iceika/pointed_dripstone"
 		],
 		[],
 		[],
 		[],
-		[],
-		[],
 		[
-			"divinerpg:iceika/snow_coverage"
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/hanging_icicle"
 		],
 		[
-			"divinerpg:iceika/snow_spreader"
+			"divinerpg:iceika/snow_spreader",
+			"divinerpg:iceika/powder_snow"
 		]
 	]
 }

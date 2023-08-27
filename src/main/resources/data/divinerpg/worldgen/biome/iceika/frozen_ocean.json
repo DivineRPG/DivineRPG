@@ -113,17 +113,16 @@
 			"minecraft:ice_patch",
 			"divinerpg:iceika/frozen_light",
 			"divinerpg:iceika/icicle",
-			"divinerpg:iceika/hanging_icicle",
-		    "minecraft:seagrass_cold",
+			"divinerpg:iceika/hanging_icicle"
+		],
+		[
+			"minecraft:seagrass_cold",
 		    "minecraft:seagrass_simple",
 		    "minecraft:kelp_cold"
 		],
 		[],
 		[],
 		[],
-		[
-			"divinerpg:iceika/shiverspine_bush"
-		],
 		[
 			"minecraft:freeze_top_layer"
 		]

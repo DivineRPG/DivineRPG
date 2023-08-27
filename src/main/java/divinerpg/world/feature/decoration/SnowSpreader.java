@@ -4,7 +4,6 @@ import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
-import net.minecraft.core.SectionPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -51,12 +50,12 @@ public class SnowSpreader extends Feature<NoneFeatureConfiguration> {
 		return true;
 	}
 	protected void trySnow(WorldGenLevel level, RandomSource random, BlockPos origin, MutableBlockPos pos, double depth) {
-		if(pos.getX() >> 4 == origin.getX() >> 4 && pos.getZ() >> 4 == origin.getZ() >> 4 && level.hasChunk(SectionPos.blockToSectionCoord(pos.getX()), SectionPos.blockToSectionCoord(pos.getZ()))) {
+		if(pos.getX() >> 4 == origin.getX() >> 4 && pos.getZ() >> 4 == origin.getZ() >> 4) {
 			BlockState state;
 			if((state = level.getBlockState(pos)).is(Blocks.AIR)) {
 				while((state = level.getBlockState(pos.move(0, -1, 0))).isAir());
 				if(state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElseGet(() -> false) || state.is(BlockTags.UNDERWATER_BONEMEALS) || state.is(Blocks.KELP)) level.setBlock(pos, Blocks.ICE.defaultBlockState(), 3);
-				else if(state.is(Blocks.ICE) || !state.isCollisionShapeFullBlock(level, pos) && !state.is(Blocks.SNOW)) return;
+				else if(state.is(BlockTags.ICE) || !state.isCollisionShapeFullBlock(level, pos) && !state.is(Blocks.SNOW)) return;
 				else {
 					if(state.is(BlockTags.LEAVES)) depth -= .2;
 					if(state.is(Blocks.SNOW)) {

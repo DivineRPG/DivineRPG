@@ -104,19 +104,19 @@
 		],
 		[
 			"minecraft:ice_patch",
+			"minecraft:pile_ice",
 			"divinerpg:iceika/frozen_light",
 			"divinerpg:iceika/icicle",
-			"divinerpg:iceika/hanging_icicle",
-		    "minecraft:seagrass_deep_cold",
+			"divinerpg:iceika/hanging_icicle"
+		],
+		[
+			"minecraft:seagrass_deep_cold",
 		    "minecraft:seagrass_simple",
 		    "minecraft:kelp_cold"
 		],
 		[],
 		[],
 		[],
-		[
-			"divinerpg:iceika/shiverspine_bush"
-		],
 		[
 			"minecraft:freeze_top_layer"
 		]

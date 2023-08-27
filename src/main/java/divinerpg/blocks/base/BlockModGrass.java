@@ -72,7 +72,7 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
     private static boolean canBeGrass(BlockState state, LevelReader level, BlockPos pos) {
         BlockPos blockpos = pos.above();
         BlockState blockstate = level.getBlockState(blockpos);
-        if(blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) return true;
+        if(blockstate.is(Blocks.SNOW) || blockstate.is(Blocks.SNOW_BLOCK) || blockstate.is(Blocks.POWDER_SNOW)) return true;
         else if(blockstate.getFluidState().getAmount() == 8) return false;
         else {
             int i = LightEngine.getLightBlockInto(level, state, pos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(level, blockpos));

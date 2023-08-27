@@ -36,15 +36,30 @@
 	"features": [
 		[],
 		[],
+		[
+			"minecraft:iceberg_packed",
+			"minecraft:iceberg_blue"
+		],
 		[],
-		[],
-		[],
-		[],
-		[],
+		[
+			"minecraft:blue_ice"
+		],
+		[
+			"minecraft:ice_patch",
+			"minecraft:pile_ice",
+			"divinerpg:iceika/frozen_light"
+		],
+		[
+			"minecraft:seagrass_deep_cold",
+			"minecraft:seagrass_simple",
+			"minecraft:kelp_cold"
+		],
 		[],
 		[],
 		[
-			"divinerpg:iceika/snow_coverage"
+			"divinerpg:iceika/icicle",
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/hanging_icicle"
 		],
 		[
 			"divinerpg:iceika/snow_spreader"

@@ -475,12 +475,10 @@
 											"if_true": {
 												"type": "minecraft:biome",
 												"biome_is": [
-													"divinerpg:ice_spikes",
-													"divinerpg:fractal_forest",
-													"divinerpg:chill_passage",
-													"divinerpg:snowy_peaks",
-													"divinerpg:borealis_steeps",
-													"divinerpg:frozen_peaks"
+													"divinerpg:iceika/ice_spikes",
+													"divinerpg:iceika/snowy_peaks",
+													"divinerpg:iceika/borealis_steeps",
+													"divinerpg:iceika/frozen_peaks"
 												]
 											},
 											"then_run": {
@@ -494,7 +492,7 @@
 															"absolute": 64
 														},
 														"false_at_and_above": {
-															"absolute": 255
+															"absolute": 245
 														}
 													}
 												},
@@ -506,7 +504,7 @@
 															"if_true": {
 																"type": "minecraft:biome",
 																"biome_is": [
-																	"divinerpg:borealis_steeps"
+																	"divinerpg:iceika/borealis_steeps"
 																]
 															},
 															"then_run": {
@@ -536,7 +534,7 @@
 																					"absolute": 128
 																				},
 																				"false_at_and_above": {
-																					"absolute": 255
+																					"absolute": 245
 																				}
 																			},
 																			"then_run": {
@@ -571,9 +569,10 @@
 											"if_true": {
 												"type": "minecraft:biome",
 												"biome_is": [
-													"divinerpg:ice_spikes",
-													"divinerpg:snowy_peaks",
-													"divinerpg:frozen_peaks"
+													"divinerpg:iceika/ice_spikes",
+													"divinerpg:iceika/snowy_peaks",
+													"divinerpg:iceika/frozen_peaks",
+													"divinerpg:iceika/chill_passage"
 												]
 											},
 											"then_run": {
@@ -615,9 +614,9 @@
 							"if_true": {
 								"type": "minecraft:biome",
 								"biome_is": [
-									"divinerpg:geyser_plateau",
-									"divinerpg:frozen_peaks",
-									"divinerpg:borealis_steeps"
+									"divinerpg:iceika/geyser_plateau",
+									"divinerpg:iceika/frozen_peaks",
+									"divinerpg:iceika/borealis_steeps"
 								]
 							},
 							"then_run": {
@@ -644,9 +643,9 @@
 								"invert": {
 									"type": "minecraft:biome",
 									"biome_is": [
-										"divinerpg:geyser_plateau",
-										"divinerpg:frozen_peaks",
-										"divinerpg:borealis_steps"
+										"divinerpg:iceika/geyser_plateau",
+										"divinerpg:iceika/frozen_peaks",
+										"divinerpg:iceika/borealis_steeps"
 									]
 								}
 							},
