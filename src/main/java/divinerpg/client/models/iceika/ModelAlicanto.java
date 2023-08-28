@@ -1,18 +1,19 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.iceika.EntityAlicanto;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelAlicanto<T extends Entity> extends EntityModel<T> {
+public class ModelAlicanto<T extends EntityAlicanto> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("alicanto");
 	private final ModelPart Head;
+	private final ModelPart Jaw;
 	private final ModelPart Body;
 	private final ModelPart RightWing;
 	private final ModelPart LeftWing;
@@ -22,6 +23,7 @@ public class ModelAlicanto<T extends Entity> extends EntityModel<T> {
 	public ModelAlicanto(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.Head = root.getChild("Head");
+		this.Jaw = this.Head.getChild("Jaw");
 		this.Body = root.getChild("Body");
 		this.RightWing = root.getChild("RightWing");
 		this.LeftWing = root.getChild("LeftWing");
@@ -91,6 +93,19 @@ public class ModelAlicanto<T extends Entity> extends EntityModel<T> {
 			this.RightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
 			this.LeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
 		}
+	}
+
+	@Override
+	public void prepareMobModel(T p_103621_, float p_103622_, float p_103623_, float p_103624_) {
+		super.prepareMobModel(p_103621_, p_103622_, p_103623_, p_103624_);
+		int l = p_103621_.getAttackTick();
+		if (l > 0) {
+			if (l > 5) {
+				this.Jaw.xRot = Mth.sin(((float) (-4 + l) - p_103624_) / 4.0F) * (float) Math.PI * 0.4F;
+			} else {
+				this.Jaw.xRot = 0.15707964F * Mth.sin((float) Math.PI * ((float) l - p_103624_) / 10.0F);
+			}
+		} else this.Jaw.xRot = 0F;
 	}
 
 	@Override

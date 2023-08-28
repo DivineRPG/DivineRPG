@@ -2,6 +2,7 @@ package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.registries.SoundRegistry;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -9,6 +10,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 
 public class EntityAlicanto extends EntityDivineFlyingMob {
+    private int attackTick;
 
     public EntityAlicanto(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn, 18F);
@@ -24,6 +26,48 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
     @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.05F;
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag p_33353_) {
+        super.addAdditionalSaveData(p_33353_);
+        p_33353_.putInt("AttackTick", this.attackTick);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag p_33344_) {
+        super.readAdditionalSaveData(p_33344_);
+        this.attackTick = p_33344_.getInt("AttackTick");
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (this.isAlive()) {
+            if (this.attackTick > 0) {
+                --this.attackTick;
+            }
+        }
+    }
+
+    @Override
+    public void handleEntityEvent(byte p_33335_) {
+        if (p_33335_ == 4) {
+            this.attackTick = 10;
+        }
+
+        super.handleEntityEvent(p_33335_);
+    }
+
+    public int getAttackTick() {
+        return this.attackTick;
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity p_33328_) {
+        this.attackTick = 10;
+        this.level().broadcastEntityEvent(this, (byte)4);
+        return super.doHurtTarget(p_33328_);
     }
 
     @Override

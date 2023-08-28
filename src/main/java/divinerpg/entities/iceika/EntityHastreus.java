@@ -2,19 +2,20 @@ package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.damagesource.*;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.*;
 
 import java.util.List;
 
 public class EntityHastreus extends EntityDivineMonster {
+    private int attackTick;
 
     public EntityHastreus(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
@@ -47,7 +48,49 @@ public class EntityHastreus extends EntityDivineMonster {
         double d0 = vec31.length();
         vec31 = vec31.normalize();
         double d1 = vec3.dot(vec31);
-        return d1 > 1D - .025D / d0 ? entity.hasLineOfSight(this) : false;
+        return d1 > 1D - .025D / d0 && entity.hasLineOfSight(this);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag p_33353_) {
+        super.addAdditionalSaveData(p_33353_);
+        p_33353_.putInt("AttackTick", this.attackTick);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag p_33344_) {
+        super.readAdditionalSaveData(p_33344_);
+        this.attackTick = p_33344_.getInt("AttackTick");
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (this.isAlive()) {
+            if (this.attackTick > 0) {
+                --this.attackTick;
+            }
+        }
+    }
+
+    @Override
+    public void handleEntityEvent(byte p_33335_) {
+        if (p_33335_ == 4) {
+            this.attackTick = 10;
+        }
+
+        super.handleEntityEvent(p_33335_);
+    }
+
+    public int getAttackTick() {
+        return this.attackTick;
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity p_33328_) {
+        this.attackTick = 10;
+        this.level().broadcastEntityEvent(this, (byte)4);
+        return super.doHurtTarget(p_33328_);
     }
 
     @Override

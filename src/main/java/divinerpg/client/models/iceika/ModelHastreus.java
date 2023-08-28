@@ -1,18 +1,19 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.iceika.EntityHastreus;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelHastreus<T extends Entity> extends EntityModel<T> {
+public class ModelHastreus<T extends EntityHastreus> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("hastreus");
 	private final ModelPart Head;
+	private final ModelPart Jaw;
 	private final ModelPart Body;
 	private final ModelPart Tail;
 	private final ModelPart FrontRightLeg;
@@ -23,6 +24,7 @@ public class ModelHastreus<T extends Entity> extends EntityModel<T> {
 	public ModelHastreus(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.Head = root.getChild("Head");
+		this.Jaw = this.Head.getChild("Jaw");
 		this.Body = root.getChild("Body");
 		this.Tail = root.getChild("Tail");
 		this.FrontRightLeg = root.getChild("FrontRightLeg");
@@ -93,6 +95,19 @@ public class ModelHastreus<T extends Entity> extends EntityModel<T> {
 		this.BackRightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
 		this.FrontLeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
 		this.BackLeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
+	}
+
+	@Override
+	public void prepareMobModel(T p_103621_, float p_103622_, float p_103623_, float p_103624_) {
+		super.prepareMobModel(p_103621_, p_103622_, p_103623_, p_103624_);
+		int l = p_103621_.getAttackTick();
+		if (l > 0) {
+			if (l > 5) {
+				this.Jaw.xRot = Mth.sin(((float) (-4 + l) - p_103624_) / 4.0F) * (float) Math.PI * 0.4F;
+			} else {
+				this.Jaw.xRot = 0.15707964F * Mth.sin((float) Math.PI * ((float) l - p_103624_) / 10.0F);
+			}
+		} else this.Jaw.xRot = 0F;
 	}
 
 	@Override
