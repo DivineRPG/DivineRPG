@@ -1,4 +1,4 @@
-package divinerpg.compat;
+package divinerpg.compat.projecte;
 
 //@EMCMapper
 public class ProjectECompat
