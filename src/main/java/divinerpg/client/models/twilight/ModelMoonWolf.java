@@ -10,7 +10,7 @@ import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelMoonWolf extends EntityModel<EntityMoonWolf> {
+public class ModelMoonWolf<T extends EntityMoonWolf> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("moon_wolf");
 	private final ModelPart Body;
 	private final ModelPart Head;
@@ -112,7 +112,7 @@ public class ModelMoonWolf extends EntityModel<EntityMoonWolf> {
 	}
 
 	@Override
-	public void setupAnim(EntityMoonWolf entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.Head.xRot = headPitch * ((float)Math.PI / 180F);
 		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 	}

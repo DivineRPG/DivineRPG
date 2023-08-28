@@ -252,7 +252,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityWeakCori>> 		     WEAK_CORI 		     = registerEntity(EntityWeakCori::new, 		    "weak_cori", 	            0.7F, 1.125F, 0x160f00, 0x4681ff);
 
     //Wildwood
-    public static final RegistryObject<EntityType<EntityMoonWolf>> 			 MOON_WOLF 			 = registerEntity(EntityMoonWolf::new, 			"moon_wolf", 		        0.6F,0.98F, 0x3b8c8d, 0x070706, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityMoonWolf>> 			 MOON_WOLF 			 = registerEntity(EntityMoonWolf::new, 			"moon_wolf", 		        0.6F,0.98F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWildwoodTomo>> 		 WILDWOOD_TOMO 		 = registerEntity(EntityWildwoodTomo::new, 		"wildwood_tomo", 	        1.0F, 0.625F, 0x06224c, 0x214985);
     public static final RegistryObject<EntityType<EntityWildwoodCadillion>>  WILDWOOD_CADILLION  = registerEntity(EntityWildwoodCadillion::new, "wildwood_cadillion",     0.875F, 1.4F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityEpiphite>> 			 EPIPHITE 			 = registerEntity(EntityEpiphite::new, 			"epiphite", 		        0.8F, 1.0625F, 0x2f74d9, 0x87ecfa);
