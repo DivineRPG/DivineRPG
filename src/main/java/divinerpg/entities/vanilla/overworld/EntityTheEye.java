@@ -1,7 +1,5 @@
 package divinerpg.entities.vanilla.overworld;
 
-import static divinerpg.registries.SoundRegistry.*;
-
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.TriggerRegistry;
 import net.minecraft.core.BlockPos;
@@ -12,8 +10,9 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.*;
+
+import static divinerpg.registries.SoundRegistry.*;
 
 public class EntityTheEye extends EntityDivineMonster {
 	public EntityTheEye(EntityType<? extends Monster> type, Level level) {super(type, level);}
@@ -27,10 +26,12 @@ public class EntityTheEye extends EntityDivineMonster {
     public void tick() {
         super.tick();
         LivingEntity entity = this.getTarget();
-    	if(entity instanceof ServerPlayer && hasLineOfSight(entity)) {
-    		entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 30, 0, false, true));
-            TriggerRegistry.DIVINERPG_EYE.trigger((ServerPlayer) entity);
-    	}
+        if(entity != null) {
+            if (entity instanceof ServerPlayer && entity.hasLineOfSight(this)) {
+                entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 30, 0, false, true));
+                TriggerRegistry.DIVINERPG_EYE.trigger((ServerPlayer) entity);
+            }
+        }
     }
     public static boolean theEyeSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
         return pos.getY() < 0 && checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn);
