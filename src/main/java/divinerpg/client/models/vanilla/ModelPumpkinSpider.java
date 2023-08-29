@@ -79,9 +79,7 @@ public class ModelPumpkinSpider<T extends EntityPumpkinSpider> extends EntityMod
 
 		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 32).addBox(-4.0F, -12.0F, -7.0F, 8.0F, 6.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		PartDefinition Thorax = partdefinition.addOrReplaceChild("Thorax", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
-
-		Thorax.addOrReplaceChild("thorax_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -11.0F, 2.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, -2.0F, 0.2618F, 0.0F, 0.0F));
+		PartDefinition Thorax = partdefinition.addOrReplaceChild("Thorax", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -11.0F, 2.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
@@ -96,14 +94,13 @@ public class ModelPumpkinSpider<T extends EntityPumpkinSpider> extends EntityMod
 	public void setupAnim(EntityPumpkinSpider entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 		this.Head.xRot = headPitch * ((float)Math.PI / 180F);
-		this.Thorax.xRot = Mth.cos(limbSwing * 0.6662F) * 0.25F * limbSwingAmount;
+		this.Thorax.xRot = Mth.cos(limbSwing * 0.6662F) * 0.25F * limbSwingAmount + ((float)Math.PI / 12F);
+		this.Thorax.y = 14F;
+		this.Thorax.z = -2F;
 		if (!entity.getProvoked()) {
-			this.Thorax.xRot = 5F * (float)Math.PI / 12F;
-			this.Thorax.y = 24F;
-			this.Thorax.z = 3.5F;
-		} else {
-			this.Thorax.y = 14F;
-			this.Thorax.z = 2F;
+			this.Thorax.xRot = ((float)Math.PI / 2F);
+			this.Thorax.y = 26F;
+			this.Thorax.z = 3F;
 		}
 		float f = ((float)Math.PI / 6F);
 		this.RightLeg4.zRot = -f;

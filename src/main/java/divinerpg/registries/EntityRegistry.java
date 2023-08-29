@@ -244,12 +244,12 @@ public class EntityRegistry {
     //Eden
     public static final RegistryObject<EntityType<EntityGemFin>> 	         GEM_FIN 		     = registerEntity(EntityGemFin::new, 		    "gem_fin", 	            0.7F, 0.375F, 0xffffff, 0xffffff, MobCategory.WATER_AMBIENT);
     public static final RegistryObject<EntityType<EntityGlinthop>>           GLINTHOP            = registerEntity(EntityGlinthop::new, 		    "glinthop",		        0.5F, 0.75F, 0xffffff, 0xffffff, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityEdenTomo>> 		     EDEN_TOMO 		     = registerEntity(EntityEdenTomo::new, 		    "eden_tomo", 	            1.0F, 0.625F, 0x4a5e0c, 0x738b16);
+    public static final RegistryObject<EntityType<EntityEdenTomo>> 		     EDEN_TOMO 		     = registerEntity(EntityEdenTomo::new, 		    "eden_tomo", 	            0.99F, 0.83F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityEdenCadillion>>      EDEN_CADILLION      = registerEntity(EntityEdenCadillion::new,     "eden_cadillion",         0.875F, 1.4F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityGreenfeet>> 	     GREENFEET 		     = registerEntity(EntityGreenfeet::new, 		"greenfeet", 	            1.0F, 2.0F, 0x084f1e, 0x4c5815);
     public static final RegistryObject<EntityType<EntityMadivel>> 		     MADIVEL 		     = registerEntity(EntityMadivel::new, 		    "madivel", 		        1.6F, 3.0F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntitySunArcher>> 	     SUN_ARCHER 		 = registerEntity(EntitySunArcher::new, 		"sun_archer", 	        0.8F, 2.2F, 0xeaab42, 0xfdf182);
-    public static final RegistryObject<EntityType<EntityWeakCori>> 		     WEAK_CORI 		     = registerEntity(EntityWeakCori::new, 		    "weak_cori", 	            0.7F, 1.125F, 0x160f00, 0x4681ff);
+    public static final RegistryObject<EntityType<EntityWeakCori>> 		     WEAK_CORI 		     = registerEntity(EntityWeakCori::new, 		    "weak_cori", 	            0.7F, 1.125F, 0xffffff, 0xffffff);
 
     //Wildwood
     public static final RegistryObject<EntityType<EntityMoonWolf>> 			 MOON_WOLF 			 = registerEntity(EntityMoonWolf::new, 			"moon_wolf", 		        0.6F,0.98F, 0xffffff, 0xffffff, MobCategory.CREATURE);
@@ -652,7 +652,7 @@ public class EntityRegistry {
         //Eden
         event.registerLayerDefinition(ModelGlinthop.LAYER_LOCATION, ModelGlinthop::createBodyLayer);
         event.registerLayerDefinition(ModelCadillion.LAYER_LOCATION, ModelCadillion::createBodyLayer);
-        event.registerLayerDefinition(ModelTomo.LAYER_LOCATION, ModelTomo::createBodyLayer);
+        event.registerLayerDefinition(ModelEdenTomo.LAYER_LOCATION, ModelEdenTomo::createBodyLayer);
         event.registerLayerDefinition(ModelGemFin.LAYER_LOCATION, ModelGemFin::createBodyLayer);
         event.registerLayerDefinition(ModelGreenfeet.LAYER_LOCATION, ModelGreenfeet::createBodyLayer);
         event.registerLayerDefinition(ModelMadivel.LAYER_LOCATION, ModelMadivel::createBodyLayer);
@@ -661,6 +661,7 @@ public class EntityRegistry {
 
         //Wildwood
         event.registerLayerDefinition(ModelBehemoth.LAYER_LOCATION, ModelBehemoth::createBodyLayer);
+        event.registerLayerDefinition(ModelTomo.LAYER_LOCATION, ModelTomo::createBodyLayer);
         event.registerLayerDefinition(ModelEpiphite.LAYER_LOCATION, ModelEpiphite::createBodyLayer);
         event.registerLayerDefinition(ModelMage.LAYER_LOCATION, ModelMage::createBodyLayer);
         event.registerLayerDefinition(ModelMoonWolf.LAYER_LOCATION, ModelMoonWolf::createBodyLayer);
@@ -901,7 +902,7 @@ public class EntityRegistry {
         //Eden
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);
         event.registerEntityRenderer(EDEN_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "eden_cadillion",  new ModelCadillion<>(context), 0.7F));
-        event.registerEntityRenderer(EDEN_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "eden_tomo",  new ModelTomo<>(context)));
+        event.registerEntityRenderer(EDEN_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "eden_tomo",  new ModelEdenTomo<>(context), 0.65F, 1.2F));
         event.registerEntityRenderer(GEM_FIN.get(),	        RenderGemFin::new);
         event.registerEntityRenderer(GREENFEET.get(),	  (Context context) -> new RenderDivineMob<>(context, "greenfeet",  new ModelGreenfeet<>(context)));
         event.registerEntityRenderer(MADIVEL.get(),		  (Context context) -> new RenderDivineMob<>(context, "madivel",  new ModelMadivel(context), 0.85F));

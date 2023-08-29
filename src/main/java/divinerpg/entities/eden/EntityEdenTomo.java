@@ -17,7 +17,7 @@ public class EntityEdenTomo extends EntityPeacefulUntilAttacked {
 
     @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.34375F;
+        return 0.525F;
     }
 
     @Override
