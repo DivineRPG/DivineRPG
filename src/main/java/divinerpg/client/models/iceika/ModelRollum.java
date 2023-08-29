@@ -1,16 +1,16 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.*;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelRollum<T extends Entity> extends EntityModel<T> {
+public class ModelRollum<T extends LivingEntity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("rollum");
 	private final ModelPart Head;
 	private final ModelPart Torso;
@@ -62,8 +62,43 @@ public class ModelRollum<T extends Entity> extends EntityModel<T> {
 		this.Head.xRot = headPitch / (180F / (float)Math.PI);
 		this.RightArm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
 		this.LeftArm.xRot = Mth.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+		this.RightArm.yRot = 0.0F;
+		this.LeftArm.yRot = 0.0F;
+		this.RightArm.zRot = 0.0F;
+		this.LeftArm.zRot = 0.0F;
+		AnimationUtils.bobModelPart(this.RightArm, ageInTicks, 1.0F);
+		AnimationUtils.bobModelPart(this.LeftArm, ageInTicks, -1.0F);
 		this.RightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 		this.LeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+		this.setupAttackAnimation(entity, ageInTicks);
+	}
+
+	protected ModelPart getArm(HumanoidArm humanoidarm) {
+		return this.RightArm;
+	}
+
+	private HumanoidArm getAttackArm(T p_102857_) {
+		return p_102857_.getMainArm();
+	}
+
+	protected void setupAttackAnimation(T p_102858_, float p_102859_) {
+		if (!(this.attackTime <= 0.0F)) {
+			HumanoidArm humanoidarm = this.getAttackArm(p_102858_);
+			ModelPart modelpart = this.getArm(humanoidarm);
+			float f = this.attackTime;
+			this.Torso.yRot = Mth.sin(Mth.sqrt(f) * ((float)Math.PI * 2F)) * 0.2F;
+
+			this.RightArm.yRot += this.Torso.yRot;
+			f = 1.0F - this.attackTime;
+			f *= f;
+			f *= f;
+			f = 1.0F - f;
+			float f1 = Mth.sin(f * (float)Math.PI);
+			float f2 = Mth.sin(this.attackTime * (float)Math.PI) * -(this.Head.xRot - 0.7F) * 0.75F;
+			modelpart.xRot -= f1 * 1.2F + f2;
+			modelpart.yRot += this.Torso.yRot * 2.0F;
+			modelpart.zRot += Mth.sin(this.attackTime * (float)Math.PI) * -0.4F;
+		}
 	}
 
 	@Override

@@ -36,7 +36,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block>
             //Dirt & Dream Stone
             frozenDirt = registerBlock("frozen_dirt", () -> new BlockModDirt(ICE)),
-            frozenGravel = registerBlock("frozen_gravel", () -> new GravelBlock(Properties.copy(Blocks.GRAVEL))),
             arcaniteDirt = registerBlock("arcanite_dirt", () -> new BlockModDirt(TERRACOTTA_BLUE)),
             edenDirt = registerBlock("eden_dirt", () -> new BlockModDirt(TERRACOTTA_YELLOW)),
             wildwoodDirt = registerBlock("wildwood_dirt", () -> new BlockModDirt(LAPIS)),
@@ -58,6 +57,9 @@ public class BlockRegistry {
             dreamGrass = registerBlock("dream_grass", () -> new BlockDreamGrass(WARPED_WART_BLOCK)),
             evergrass = registerBlock("evergrass", () -> new BlockDreamGrass(COLOR_MAGENTA)),
             scorchedGrass = registerBlock("scorched_grass", () -> new BlockModGrass(() -> dreamStone.get())),
+
+            //Gravel
+            frozenGravel = registerBlock("frozen_gravel", () -> new GravelBlock(Properties.copy(Blocks.GRAVEL).mapColor(MapColor.GLOW_LICHEN))),
 
             //Sand
             arcaniteSand = registerBlock("arcanite_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(ICE))),
