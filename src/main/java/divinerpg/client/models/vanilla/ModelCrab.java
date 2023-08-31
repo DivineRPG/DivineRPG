@@ -11,15 +11,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelCrab extends EntityModel<EntityCrab> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("crab");
-	private final ModelPart Body;
-	private final ModelPart BackLeftLeg;
-	private final ModelPart BackRightLeg;
-	private final ModelPart MiddleLeftLeg;
-	private final ModelPart MiddleRightLeg;
-	private final ModelPart FrontLeftLeg;
-	private final ModelPart FrontRightLeg;
-	private final ModelPart RightClaw;
-	private final ModelPart LeftClaw;
+	private final ModelPart Body, BackLeftLeg, BackRightLeg, MiddleLeftLeg, MiddleRightLeg, FrontLeftLeg, FrontRightLeg, RightClaw, LeftClaw;
 
 	public ModelCrab(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

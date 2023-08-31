@@ -24,9 +24,9 @@ public class AridWarriorBowLayer extends RenderLayer<EntityAridWarrior, ModelAri
     public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, EntityAridWarrior entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
             matrixStackIn.pushPose();
-            ModelPart modelrenderer = this.getParentModel().rightarm2;
+            ModelPart modelrenderer = this.getParentModel().rightArm;
             modelrenderer.translateAndRotate(matrixStackIn);
-            matrixStackIn.translate(-0.125F, 0.25F, -0.0F);
+            matrixStackIn.translate(-0.0625F, 0.58F, -0.0F);
             matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
             matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
             matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));

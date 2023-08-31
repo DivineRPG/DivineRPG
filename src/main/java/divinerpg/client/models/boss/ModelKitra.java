@@ -11,11 +11,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelKitra extends EntityModel<EntityKitra> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("kitra");
-	private final ModelPart Head;
-	private final ModelPart Torso;
-	private final ModelPart RightFin;
-	private final ModelPart LeftFin;
-	private final ModelPart TailBase;
+	private final ModelPart Head, Torso, RightFin, LeftFin, TailBase;
 
 	public ModelKitra(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

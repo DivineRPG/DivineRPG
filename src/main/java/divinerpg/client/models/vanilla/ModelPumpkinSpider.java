@@ -12,17 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelPumpkinSpider<T extends EntityPumpkinSpider> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("pumpkin_spider");
-	private final ModelPart Head;
-	private final ModelPart LeftLeg4;
-	private final ModelPart LeftLeg3;
-	private final ModelPart LeftLeg2;
-	private final ModelPart LeftLeg1;
-	private final ModelPart RightLeg4;
-	private final ModelPart RightLeg3;
-	private final ModelPart RightLeg2;
-	private final ModelPart RightLeg1;
-	private final ModelPart Body;
-	private final ModelPart Thorax;
+	private final ModelPart Head, LeftLeg4, LeftLeg3, LeftLeg2, LeftLeg1, RightLeg4, RightLeg3, RightLeg2, RightLeg1, Body, Thorax;
 
 	public ModelPumpkinSpider(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

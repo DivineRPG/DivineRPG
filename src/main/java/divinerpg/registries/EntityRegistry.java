@@ -151,7 +151,7 @@ public class EntityRegistry {
     //Desert
     public static final RegistryObject<EntityType<EntitySaguaroWorm>> 		 SAGUARO_WORM 		 = registerEntity(EntitySaguaroWorm::new, 		"saguaro_worm", 	    	1.0F, 3.0F, 0x42651e, 0xd5d67d);
     public static final RegistryObject<EntityType<EntityDesertCrawler>>		 DESERT_CRAWLER 	 = registerEntity(EntityDesertCrawler::new, 	"desert_crawler", 	    0.9F, 0.94F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityAridWarrior>>		 ARID_WARRIOR 		 = registerEntity(EntityAridWarrior::new, 		"arid_warrior",			1.4F, 2.5f, 0xa7810e, 0xf8eb53);
+    public static final RegistryObject<EntityType<EntityAridWarrior>>		 ARID_WARRIOR 		 = registerEntity(EntityAridWarrior::new, 		"arid_warrior",			0.7F, 2.125f, 0xffffff, 0xffffff);
 
     //Snow
     public static final RegistryObject<EntityType<EntityGlacon>>			 GLACON 			 = registerEntity(EntityGlacon::new, 			"glacon", 				0.8F, 1.3125F, 0xffffff, 0xffffff);
@@ -206,7 +206,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>   WORKSHOP_TINKERER   = registerEntity(EntityWorkshopTinkerer::new,  "workshop_tinkerer",      0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityGroglin>>		     GROGLIN 		  	 = registerEntity(EntityGroglin::new, 		    "groglin",		        0.5F, 1.375F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityGruzzorlug>>	     GRUZZORLUG 		 = registerEntity(EntityGruzzorlug::new,        "gruzzorlug",             0.5F, 1.125F, 0x9370DB, 0x8B4513);
-    public static final RegistryObject<EntityType<EntityPaleArcher>>	     PALE_ARCHER 	  	 = registerEntity(EntityPaleArcher::new, 	    "pale_archer",	        0.6F, 1.9375F, 0x4095da, 0x407eb9);
+    public static final RegistryObject<EntityType<EntityPaleArcher>>	     PALE_ARCHER 	  	 = registerEntity(EntityPaleArcher::new, 	    "pale_archer",	        0.6F, 1.9375F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityFrozenFlesh>>		 FROZEN_FLESH 		 = registerEntity(EntityFrozenFlesh::new, 	    "frozen_flesh",			0.65F, 1.75F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityRollum>>		     ROLLUM 			 = registerEntity(EntityRollum::new, 		    "rollum",			        1.2F, 2.0F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityAlicanto>>		     ALICANTO 		  	 = registerEntity(EntityAlicanto::new,          "alicanto",		        0.85F, 1.3F, 0xffffff, 0xffffff);

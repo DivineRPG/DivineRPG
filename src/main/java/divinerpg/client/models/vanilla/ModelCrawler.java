@@ -11,12 +11,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelCrawler extends EntityModel<EntityCrawler> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("crawler");
-	private final ModelPart
-		head,
-		leftLeg,
-		rightLeg,
-		body,
-		bb_main;
+	private final ModelPart head, leftLeg, rightLeg, body, bb_main;
 
 	public ModelCrawler(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

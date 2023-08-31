@@ -14,12 +14,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelEnthralledDramcryx<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("enthralled_dramcryx");
-	private final ModelPart Head;
-	private final ModelPart BackRightLeg;
-	private final ModelPart FrontLeftLeg;
-	private final ModelPart FrontRightLeg;
-	private final ModelPart BackLeftLeg;
-	private final ModelPart Body;
+	private final ModelPart Head, BackRightLeg, FrontLeftLeg, FrontRightLeg, BackLeftLeg, Body;
 
 	public ModelEnthralledDramcryx(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

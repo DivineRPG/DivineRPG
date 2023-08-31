@@ -12,13 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelMoonWolf<T extends EntityMoonWolf> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("moon_wolf");
-	private final ModelPart Body;
-	private final ModelPart Head;
-	private final ModelPart BackLeftLeg;
-	private final ModelPart FrontRightLeg;
-	private final ModelPart FrontLeftLeg;
-	private final ModelPart BackRightLeg;
-	private final ModelPart Tail;
+	private final ModelPart Body, Head, BackLeftLeg, FrontRightLeg, FrontLeftLeg, BackRightLeg, Tail;
 
 	public ModelMoonWolf(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

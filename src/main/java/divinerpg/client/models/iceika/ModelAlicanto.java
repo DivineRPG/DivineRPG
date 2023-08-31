@@ -12,13 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelAlicanto<T extends EntityAlicanto> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("alicanto");
-	private final ModelPart Head;
-	private final ModelPart Jaw;
-	private final ModelPart Body;
-	private final ModelPart RightWing;
-	private final ModelPart LeftWing;
-	private final ModelPart RightLeg;
-	private final ModelPart LeftLeg;
+	private final ModelPart Head, Jaw, Body, RightWing, LeftWing, RightLeg, LeftLeg;
 
 	public ModelAlicanto(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

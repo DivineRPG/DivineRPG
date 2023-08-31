@@ -12,9 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 public class ModelFrozenFlesh<T extends Entity> extends EntityModel<T> {
 
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("frozen_flesh");
-	private final ModelPart Head;
-	private final ModelPart Torso;
-	private final ModelPart Base;
+	private final ModelPart Head, Torso, Base;
 
 	public ModelFrozenFlesh(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

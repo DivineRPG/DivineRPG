@@ -12,13 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelEdenTomo<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("eden_tomo");
-	private final ModelPart Torso;
-	private final ModelPart RightArm;
-	private final ModelPart LeftArm;
-	private final ModelPart RightAntenna;
-	private final ModelPart LeftAntenna;
-	private final ModelPart LeftFoot;
-	private final ModelPart RightFoot;
+	private final ModelPart Torso, RightArm, LeftArm, RightAntenna, LeftAntenna, LeftFoot, RightFoot;
 
 	public ModelEdenTomo(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

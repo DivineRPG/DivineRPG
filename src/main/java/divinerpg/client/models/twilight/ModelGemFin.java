@@ -12,9 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelGemFin extends EntityModel<EntityGemFin> {
     public static final ModelLayerLocation LAYER_LOCATION = createLocation("gem_fin");
-    private final ModelPart Body;
-    private final ModelPart Head;
-    private final ModelPart TailFin;
+    private final ModelPart Body, Head, TailFin;
 
     public ModelGemFin(EntityRendererProvider.Context context) {
         ModelPart root = context.bakeLayer(LAYER_LOCATION);

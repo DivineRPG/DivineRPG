@@ -11,15 +11,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelRotatick extends EntityModel<EntityRotatick> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("rotatick");
-	private final ModelPart
-		Head,
-		Body,
-		BackLeftLeg,
-		BackRightLeg,
-		MiddleLeftLeg,
-		MiddleRightLeg,
-		FrontLeftLeg,
-		FrontRightLeg;
+	private final ModelPart Head, Body, BackLeftLeg, BackRightLeg, MiddleLeftLeg, MiddleRightLeg, FrontLeftLeg, FrontRightLeg;
 
 	public ModelRotatick(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

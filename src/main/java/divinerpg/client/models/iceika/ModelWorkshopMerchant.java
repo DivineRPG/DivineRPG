@@ -12,10 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelWorkshopMerchant<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("workshop_merchant");
-	private final ModelPart Head;
-	private final ModelPart Body;
-	private final ModelPart LeftLeg;
-	private final ModelPart RightLeg;
+	private final ModelPart Head, Body, LeftLeg, RightLeg;
 
 	public ModelWorkshopMerchant(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

@@ -12,16 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelWeakCori<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("weak_cori");
-	private final ModelPart Tendrils;
-	private final ModelPart FrontMiddleTendril;
-	private final ModelPart FrontLeftTendril;
-	private final ModelPart FrontRightTendril;
-	private final ModelPart BackMiddleTendril;
-	private final ModelPart BackRightTendril;
-	private final ModelPart BackLeftTendril;
-	private final ModelPart LeftTendril;
-	private final ModelPart RightTendril;
-	private final ModelPart Head;
+	private final ModelPart Tendrils, FrontMiddleTendril, FrontLeftTendril, FrontRightTendril, BackMiddleTendril, BackRightTendril, BackLeftTendril, LeftTendril, RightTendril, Head;
 
 	public ModelWeakCori(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

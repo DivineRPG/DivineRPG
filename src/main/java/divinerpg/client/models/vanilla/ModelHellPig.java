@@ -12,14 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelHellPig<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("hell_pig");
-	private final ModelPart Head;
-	private final ModelPart LeftEar;
-	private final ModelPart RightEar;
-	private final ModelPart BackRightLeg;
-	private final ModelPart FrontLeftLeg;
-	private final ModelPart FrontRightLeg;
-	private final ModelPart BackLeftLeg;
-	private final ModelPart Body;
+	private final ModelPart Head, LeftEar, RightEar, BackRightLeg, FrontLeftLeg, FrontRightLeg, BackLeftLeg, Body;
 
 	public ModelHellPig(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

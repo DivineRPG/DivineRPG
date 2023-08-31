@@ -26,7 +26,7 @@ public class PaleArcherBowLayer extends RenderLayer<EntityPaleArcher, ModelPaleA
         matrixStackIn.pushPose();
         ModelPart modelrenderer = this.getParentModel().RightArm;
         modelrenderer.translateAndRotate(matrixStackIn);
-        matrixStackIn.translate(0.0F, 0.50F, -0.0625F);
+        matrixStackIn.translate(0.0F, 0.58F, -0.0625F);
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(55));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-25));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));

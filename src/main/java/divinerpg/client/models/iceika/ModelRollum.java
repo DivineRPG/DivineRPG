@@ -12,12 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelRollum<T extends LivingEntity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("rollum");
-	private final ModelPart Head;
-	private final ModelPart Torso;
-	private final ModelPart RightArm;
-	private final ModelPart LeftArm;
-	private final ModelPart RightLeg;
-	private final ModelPart LeftLeg;
+	private final ModelPart Head, Torso, RightArm, LeftArm, RightLeg, LeftLeg;
 
 	public ModelRollum(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);

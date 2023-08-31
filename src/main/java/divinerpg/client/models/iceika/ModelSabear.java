@@ -12,12 +12,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelSabear<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("sabear");
-	private final ModelPart RearLeftLeg;
-	private final ModelPart FrontLeftLeg;
-	private final ModelPart RearRightLeg;
-	private final ModelPart FrontRightLeg;
-	private final ModelPart Head;
-	private final ModelPart body;
+	private final ModelPart RearLeftLeg, FrontLeftLeg, RearRightLeg, FrontRightLeg, Head, body;
 
 	public ModelSabear(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
