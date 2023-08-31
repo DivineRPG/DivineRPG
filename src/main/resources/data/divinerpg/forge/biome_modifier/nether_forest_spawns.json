@@ -1,8 +1,7 @@
 {
   "type": "forge:add_spawns",
   "biomes": [
-  	"crimson_forest",
-  	"warped_forest"
+  	"crimson_forest"
   ],
   "spawners": [
 	  {

@@ -23,11 +23,10 @@ public class EntityKarot extends EntityDivineBoss {
         spawnTick=240;
     }
 
-
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 3.4375F;
     }
-    @Override public boolean isAggressive() {return true;}
 
     @Override
     public int getArmorValue() {
@@ -46,12 +45,6 @@ public class EntityKarot extends EntityDivineBoss {
 
         this.spawnTick--;
         super.tick();
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return null;
     }
 
     @Nullable

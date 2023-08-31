@@ -16,6 +16,7 @@ public class EntityDramix extends EntityDivineBoss {
         super(type, worldIn);
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.25F;
     }
@@ -24,7 +25,7 @@ public class EntityDramix extends EntityDivineBoss {
     public boolean fireImmune() {
         return true;
     }
-    @Override public boolean isAggressive() {return true;}
+
     @Override
     public void tick() {
         if (this.tickCount % 600 < 300) {

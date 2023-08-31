@@ -31,7 +31,7 @@ public class EntityHiveQueen extends EntityDivineBoss {
     public BossBarColor getBarColor() {
         return BossBarColor.YELLOW;
     }
-    @Override public boolean isAggressive() {return true;}
+
     @Override
     public void tick() {
         super.tick();

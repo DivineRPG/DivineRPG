@@ -15,10 +15,11 @@ public class EntityDensos extends EntityDivineBoss {
         super(type, worldIn);
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2F;
     }
-    @Override public boolean isAggressive() {return true;}
+
     @Override
     public int getArmorValue() {
         return 10;

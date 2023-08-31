@@ -1,7 +1,6 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.*;
-
+import divinerpg.entities.base.EntityDivineBoss;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
@@ -12,10 +11,11 @@ public class EntityVamacheron extends EntityDivineBoss {
         super(type, worldIn);
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.1875F;
     }
-    @Override public boolean isAggressive() {return true;}
+
     @Override
     public BossBarColor getBarColor() {
         return BossBarColor.RED;

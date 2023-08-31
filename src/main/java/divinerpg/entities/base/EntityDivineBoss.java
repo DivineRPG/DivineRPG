@@ -1,20 +1,23 @@
 package divinerpg.entities.base;
 
-import net.minecraft.world.*;
-import net.minecraft.server.level.ServerBossEvent;
-
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.*;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public abstract class EntityDivineBoss extends EntityDivineMonster {
-    private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
-            BossEvent.BossBarOverlay.PROGRESS));
+    private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
+            BossEvent.BossBarOverlay.PROGRESS);
     //private int deathTicks;
 
     public EntityDivineBoss(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
+    }
+
+    @Override
+    public boolean isAggressive() {
+        return true;
     }
 
     @Override
