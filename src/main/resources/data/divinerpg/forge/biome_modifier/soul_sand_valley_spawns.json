@@ -1,6 +1,16 @@
 {
   "type": "forge:add_spawns",
   "biomes": "soul_sand_valley",
+  "spawn_costs": {
+    "divinerpg:wildfire": {
+      "charge": 0.7,
+      "energy_budget": 0.15
+    },
+    "divinerpg:scorcher": {
+      "charge": 0.7,
+      "energy_budget": 0.15
+    }
+  },
   "spawners": [
 	  {
 	    "type": "divinerpg:scorcher",

@@ -81,7 +81,7 @@ public class SpawnEvents {
     	registerAirSpawn(e, HELL_BAT.get());
     	registerMobSpawn(e, HELL_PIG.get());
     	registerAgileSpawn(e, HELL_SPIDER.get());
-    	registerAirSpawn(e, SCORCHER.get());
+		registerMonsterSpawn(e, SCORCHER.get());
     	registerMonsterSpawn(e, WILDFIRE.get());
     	//End
     	registerAgileSpawn(e, ENDER_SPIDER.get());
