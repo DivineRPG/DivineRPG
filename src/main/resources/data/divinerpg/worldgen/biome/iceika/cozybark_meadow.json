@@ -50,11 +50,11 @@
 		[],
 		[],
 		[
-			"divinerpg:iceika/icicle",
-			"divinerpg:iceika/snow_coverage",
-			"divinerpg:iceika/hanging_icicle"
+			"divinerpg:iceika/icicle"
 		],
 		[
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/hanging_icicle",
 			"divinerpg:iceika/snow_spreader",
 			"divinerpg:iceika/powder_snow"
 		]

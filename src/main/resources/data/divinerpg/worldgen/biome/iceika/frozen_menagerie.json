@@ -53,9 +53,10 @@
 		[],
 		[],
 		[
-			"divinerpg:iceika/icicle",
-			"divinerpg:iceika/hanging_icicle"
+			"divinerpg:iceika/icicle"
 		],
-		[]
+		[
+			"divinerpg:iceika/hanging_icicle"
+		]
 	]
 }

@@ -55,7 +55,7 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 				} else if(depth >= .125) {
 					state = level.getBlockState(position.below());
 					if(state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElseGet(() -> false) || state.is(BlockTags.UNDERWATER_BONEMEALS) || state.is(Blocks.KELP)) level.setBlock(position.below(), Blocks.ICE.defaultBlockState(), 3);
-					else if(state.is(Blocks.SNOW) || state.is(Blocks.POWDER_SNOW) || state.is(BlockTags.ICE) || !state.isCollisionShapeFullBlock(level, pos)) continue;
+					else if(state.is(Blocks.SNOW_BLOCK) || state.is(Blocks.SNOW) || state.is(Blocks.POWDER_SNOW) || state.is(BlockTags.ICE) || !state.isCollisionShapeFullBlock(level, pos)) continue;
 					else {
 						if(state.is(BlockTags.LEAVES)) depth -= .2;
 						if(depth >= 1D) {

@@ -118,7 +118,8 @@
 		[],
 		[],
 		[
-			"minecraft:freeze_top_layer"
+			"minecraft:freeze_top_layer",
+			"divinerpg:iceika/hanging_icicle"
 		]
 	]
 }

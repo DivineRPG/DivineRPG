@@ -32,7 +32,6 @@
 			"minecraft:blue_ice"
 		],
 		[
-			"minecraft:blue_ice",
 			"minecraft:ice_patch",
 			"minecraft:pile_ice",
 			"minecraft:pile_snow",
@@ -46,12 +45,12 @@
 		[],
 		[],
 		[
-			"divinerpg:iceika/shiverspine_bush",
 			"divinerpg:iceika/icicle",
-			"divinerpg:iceika/snow_coverage",
-			"divinerpg:iceika/hanging_icicle"
+			"divinerpg:iceika/shiverspine_bush"
 		],
 		[
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/hanging_icicle",
 			"divinerpg:iceika/snow_spreader",
 			"divinerpg:iceika/powder_snow"
 		]
