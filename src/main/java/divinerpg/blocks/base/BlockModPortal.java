@@ -1,13 +1,17 @@
 package divinerpg.blocks.base;
 
 import divinerpg.DivineRPG;
+import divinerpg.config.CommonConfig;
 import divinerpg.registries.*;
 import divinerpg.util.teleport.*;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.*;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -19,6 +23,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Cancelable;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.server.command.TextComponentHelper;
 
 import javax.annotation.Nullable;
 
@@ -102,8 +107,22 @@ public class BlockModPortal extends BlockMod {
                         }
                         } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal"))) {
                         ResourceKey<Level> key = world.dimension() == LevelRegistry.VETHEA ? Level.OVERWORLD : LevelRegistry.VETHEA;
-                        if (world.getServer().getLevel(key) != null) {
-                            entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
+                        if (CommonConfig.saferVetheanInventory.get()) {
+                            if (world.getServer().getLevel(key) != null) {
+                                if (entity instanceof Player player) {
+                                    if (player.inventory.isEmpty()) {
+                                        entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
+                                    } else {
+                                        MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.vethea_portal.inventory_full", player.getDisplayName());
+                                        message.withStyle(ChatFormatting.RED);
+                                        player.displayClientMessage(message, true);
+                                    }
+                                }
+                            }
+                        }else{
+                            if (world.getServer().getLevel(key) != null) {
+                                entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
+                            }
                         }
                     }
                     entity.level().getProfiler().pop();

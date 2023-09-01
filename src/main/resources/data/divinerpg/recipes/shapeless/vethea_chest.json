@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "divinerpg:vethea_logs"
+    },
+    {
+      "tag": "divinerpg:vethea_logs"
+    },
+    {
+      "tag": "divinerpg:vethea_logs"
+    },
+    {
+      "tag": "divinerpg:vethea_logs"
+    }
+  ],
+  "result": {
+    "item": "minecraft:chest",
+    "count": 1
+  }
+}

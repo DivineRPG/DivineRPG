@@ -2063,6 +2063,8 @@
   "message.ancient_entity": "The Ancient Entity can only be spawned in the Overworld",
   "message.nightmare_bed.restrict": "You can only use the Nightmare Bed in a dark place",
   "message.nightmare_bed.overworld_only": "You can only use the Nightmare Bed in the Overworld",
+  "message.nightmare_bed.inventory_full": "You can only use the Nightmare Bed if you have nothing in your inventory",
+  "message.vethea_portal.inventory_full": "You can only return to the Overworld if you have nothing in your inventory",
   "message.teleportation_crystal_no_respawn": "You don't have a respawn point",
   "message.teleportation_star_no_position": "Press «Sneak» + «Use Item» to set a teleportation position",
   "message.teleportation_star_change_position": "You can't change initial position",
