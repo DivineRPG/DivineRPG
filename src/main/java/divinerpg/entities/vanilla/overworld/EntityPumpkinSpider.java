@@ -1,17 +1,17 @@
 package divinerpg.entities.vanilla.overworld;
 
-import net.minecraft.core.*;
-import net.minecraft.nbt.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.world.damagesource.*;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.*;
-import net.minecraft.world.entity.monster.*;
-import net.minecraft.world.entity.player.*;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Spider;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
-
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class EntityPumpkinSpider extends Spider {
 	private static final EntityDataAccessor<Boolean> PROVOKED = SynchedEntityData.defineId(EntityPumpkinSpider.class, EntityDataSerializers.BOOLEAN);
@@ -50,11 +50,16 @@ public class EntityPumpkinSpider extends Spider {
 	public boolean hurt(DamageSource source, float amount) {
 		Entity entity = source.getDirectEntity();
 		if(!(entity instanceof LivingEntity)) entity = source.getEntity();
-		if(entity != null && entity instanceof LivingEntity) {
+		if(entity instanceof LivingEntity) {
 			setProvoked((LivingEntity) entity);
 			setDeltaMovement(0, .6, 0);
 		}
 		return super.hurt(source, amount);
+	}
+	@Nullable
+	@Override
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_33790_, DifficultyInstance p_33791_, MobSpawnType p_33792_, @Nullable SpawnGroupData p_33793_, @Nullable CompoundTag p_33794_) {
+		return p_33793_;
 	}
 	public boolean getProvoked() {
 		return entityData.get(PROVOKED);

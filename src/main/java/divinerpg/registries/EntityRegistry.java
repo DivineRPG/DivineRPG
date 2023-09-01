@@ -178,8 +178,8 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityTheGrue>>			 THE_GRUE 			 = registerEntity(EntityTheGrue::new, 			"the_grue", 			    0.8F, 1.8125F, 0x210e2a, 0x4f3764);
 
     //Livestock
-    public static final RegistryObject<EntityType<EntitySnapper>>			 SNAPPER 			 = registerEntity(EntitySnapper::new, 			"snapper", 				0.6F, 0.625F, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityEhu>>				 EHU 				 = registerEntity(EntityEhu::new, 				"ehu", 					0.6F, 1.0F, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntitySnapper>>			 SNAPPER 			 = registerEntity(EntitySnapper::new, 			"snapper", 				1.1F, 0.8125F, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityEhu>>				 EHU 				 = registerEntity(EntityEhu::new, 				"ehu", 					0.75F, 0.78125F, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityHusk>>				 HUSK 				 = registerEntity(EntityHusk::new, 				"husk", 				    0.8F, 1.5F, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityBrownGrizzle>>		 BROWN_GRIZZLE 		 = registerEntity(EntityBrownGrizzle::new, 		"brown_grizzle", 		    0.8F, 1.25F, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWhiteGrizzle>>		 WHITE_GRIZZLE 		 = registerEntity(EntityWhiteGrizzle::new, 		"white_grizzle", 		    0.8F, 1.25F, MobCategory.CREATURE);
@@ -842,7 +842,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(CYCLOPS.get(),			 RenderCyclops::new);
         event.registerEntityRenderer(DESERT_CRAWLER.get(),	 (Context context) -> new RenderDivineMob<>(context, "desert_crawler", new ModelDesertCrawler(context), 0.7F));
         event.registerEntityRenderer(DIAMOND_DAVE.get(),     (Context context) -> new RenderDivineMob<>(context, "diamond_dave", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.5F));
-        event.registerEntityRenderer(EHU.get(),				 (Context context) -> new RenderDivineMob<>(context, "ehu", new ModelEhu(context)));
+        event.registerEntityRenderer(EHU.get(),				 (Context context) -> new RenderPet(context, "ehu", new ModelEhu(context), 0.5F));
         event.registerEntityRenderer(ENTHRALLED_DRAMCRYX.get(),(Context context) -> new RenderDivineMob<>(context, "enthralled_dramcryx", new ModelEnthralledDramcryx<>(context), 0.9F, 1.2F));
         event.registerEntityRenderer(FROST.get(),			 (Context context) -> new RenderDivineMob<>(context, "frost", new ModelFrost(context), 0.6F));
         event.registerEntityRenderer(GLACON.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacon", new ModelGlacon(context), 0.8F));
@@ -862,7 +862,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(SAGUARO_WORM.get(),	 (Context context) -> new RenderDivineMob<>(context, "saguaro_worm", new ModelSaguaroWorm(context), 0.3F));
         event.registerEntityRenderer(SHARK.get(),			 (Context context) -> new RenderDivineMob<>(context, "shark", new ModelShark(context), 0.8F));
         event.registerEntityRenderer(SMELTER.get(),			 (Context context) -> new RenderDivineMob<>(context, "smelter", new ModelStoneGolem<>(context)));
-        event.registerEntityRenderer(SNAPPER.get(),			 (Context context) -> new RenderDivineMob<>(context, "snapper", new ModelSnapper(context)));
+        event.registerEntityRenderer(SNAPPER.get(),			 (Context context) -> new RenderPet(context, "snapper", new ModelSnapper(context), 0.7F));
         event.registerEntityRenderer(STONE_GOLEM.get(),		 (Context context) -> new RenderDivineMob<>(context, "stone_golem", new ModelStoneGolem<>(context)));
         event.registerEntityRenderer(THE_EYE.get(),			 (Context context) -> new RenderDivineMob<>(context, "the_eye", new ModelTheEye(context)));
         event.registerEntityRenderer(THE_GRUE.get(),		 (Context context) -> new RenderDivineMob<>(context, "the_grue", new ModelTheGrue(context)));
