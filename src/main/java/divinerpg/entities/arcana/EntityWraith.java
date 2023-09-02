@@ -1,6 +1,6 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.entities.base.*;
+import divinerpg.entities.base.EntityDivineTameable;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.*;
@@ -10,10 +10,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
-
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
@@ -32,13 +30,6 @@ public class EntityWraith extends EntityDivineTameable {
         goalSelector.addGoal(6, new EntityWraith.LookAroundGoal(this));
     }
     @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.15625F;}
-    @Override public boolean isFood(ItemStack stack) {
-    	return isMeat(stack);
-    }
-    @Override
-    protected boolean isTamingFood(ItemStack item) {
-    	return isMeat(item);
-    }
     @Override
     protected float getSoundVolume() {
         return .1F;
@@ -72,6 +63,7 @@ public class EntityWraith extends EntityDivineTameable {
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
+        @Override
         public boolean canUse() {
             return true;
         }
@@ -79,6 +71,7 @@ public class EntityWraith extends EntityDivineTameable {
         /**
          * Keep ticking a continuous task that has already been started
          */
+        @Override
         public void tick() {
             if (this.parentEntity.getTarget() == null) {
                 Vec3 vector3d = this.parentEntity.getDeltaMovement();
@@ -106,6 +99,7 @@ public class EntityWraith extends EntityDivineTameable {
             this.parentEntity = ent;
         }
 
+        @Override
         public void tick() {
             if (this.operation == MoveControl.Operation.MOVE_TO) {
 
@@ -197,6 +191,7 @@ public class EntityWraith extends EntityDivineTameable {
         /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
+        @Override
         public boolean canContinueToUse() {
             return false;
         }
@@ -204,6 +199,7 @@ public class EntityWraith extends EntityDivineTameable {
         /**
          * Execute a one shot task or start executing a continuous task
          */
+        @Override
         public void start() {
             RandomSource random = this.parentEntity.getRandom();
             double d0 = this.parentEntity.getX() + (double)((random.nextFloat() * 2.0F - 1.0F) * 16.0F);

@@ -41,7 +41,7 @@ public class ModelMoonWolf<T extends EntityMoonWolf> extends EntityModel<T> {
 
 		Head.addOrReplaceChild("Hair_r1", CubeListBuilder.create().texOffs(0, 31).addBox(-2.0F, -20.5F, -1.0F, 4.0F, 4.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 14.0F, 5.0F, 0.3491F, 0.0F, 0.0F));
 
-		Body.addOrReplaceChild("BodyBase", CubeListBuilder.create().texOffs(0, 44).addBox(-3.0F, -6.0F, -6.2F, 6.0F, 6.0F, 0.0F, new CubeDeformation(0.0F))
+		Body.addOrReplaceChild("BodyBase", CubeListBuilder.create().texOffs(0, 44).addBox(-3.0F, -6.0F, -6.01F, 6.0F, 6.0F, 0.0F, new CubeDeformation(0.0F))
 				.texOffs(0, 0).addBox(-3.0F, -6.0F, -6.0F, 6.0F, 6.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(20, 18).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 15.0F, 5.0F));

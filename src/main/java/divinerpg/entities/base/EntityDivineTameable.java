@@ -123,8 +123,12 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     public void setCollarColor(DyeColor p_30398_) {
         this.entityData.set(DATA_COLLAR_COLOR, p_30398_.getId());
     }
+    @Override
+    public boolean isFood(ItemStack item) {
+        return isMeat(item);
+    }
     protected boolean isTamingFood(ItemStack item) {
-    	return item.is(Items.CARROT) || item.is(Items.APPLE) || item.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "moonbulb")));
+        return isMeat(item);
     }
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {

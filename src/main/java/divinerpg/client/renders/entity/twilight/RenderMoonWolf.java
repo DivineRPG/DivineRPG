@@ -10,9 +10,10 @@ import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderMoonWolf extends MobRenderer<EntityMoonWolf, ModelMoonWolf<EntityMoonWolf>> {
-    private static final ResourceLocation WOLF_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf/moon_wolf_default.png");
-    private static final ResourceLocation WOLF_TAME_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf/moon_wolf_default.png");
-    private static final ResourceLocation WOLF_ANGRY_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf/moon_wolf_agro.png");
+    private static final ResourceLocation
+            WOLF_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf/moon_wolf_default.png"),
+            WOLF_TAME_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf/moon_wolf_default.png"),
+            WOLF_ANGRY_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf/moon_wolf_agro.png");
 
     public RenderMoonWolf(EntityRendererProvider.Context context) {
         super(context, new ModelMoonWolf<>(context), 0.5F);

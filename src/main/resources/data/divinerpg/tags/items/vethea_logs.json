@@ -1,8 +1,8 @@
 {
   "values": [
-    "divinerpg:hyrewood_log",
-    "divinerpg:firewood_log",
-    "divinerpg:mintwood_log",
-    "divinerpg:dreamwood_log"
+    "#forge:wood/hyrewood",
+    "#forge:wood/firewood",
+    "#forge:wood/mintwood",
+    "#forge:wood/dreamwood"
   ]
 }

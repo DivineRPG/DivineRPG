@@ -3,6 +3,7 @@ package divinerpg.client.renders.layer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineTameable;
+import divinerpg.entities.vanilla.nether.EntityHellPig;
 import divinerpg.entities.vanilla.overworld.*;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -14,8 +15,10 @@ import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class PetCollarLayer extends RenderLayer<EntityDivineTameable, EntityModel<EntityDivineTameable>> {
-    private static final ResourceLocation EHU_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu_collar.png");
-    private static final ResourceLocation SNAPPER_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/snapper_collar.png");
+    private static final ResourceLocation
+            EHU_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu_collar.png"),
+            HELL_PIG_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_collar.png"),
+            SNAPPER_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/snapper_collar.png");
 
     public PetCollarLayer(RenderLayerParent<EntityDivineTameable, EntityModel<EntityDivineTameable>> p_117707_) {
         super(p_117707_);
@@ -24,6 +27,8 @@ public class PetCollarLayer extends RenderLayer<EntityDivineTameable, EntityMode
     private ResourceLocation texture(Entity entity){
         if (entity instanceof EntityEhu) {
             return EHU_COLLAR;
+        } else if (entity instanceof EntityHellPig) {
+            return HELL_PIG_COLLAR;
         } else if (entity instanceof EntitySnapper) {
             return SNAPPER_COLLAR;
         } else {

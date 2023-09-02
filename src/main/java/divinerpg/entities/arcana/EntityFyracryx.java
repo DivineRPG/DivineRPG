@@ -8,19 +8,15 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public class EntityFyracryx extends EntityDivineTameable implements RangedAttackMob {
-    public EntityFyracryx(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
-        super(type, worldIn, 1F);
-        tame(player);
-    }
     public EntityFyracryx(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 1F);
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return .85F;}
+    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return .85F;
+    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.DEATHCRYX.get();
@@ -32,14 +28,6 @@ public class EntityFyracryx extends EntityDivineTameable implements RangedAttack
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.DEATHCRYX.get();
-    }
-    @Override
-    public boolean isFood(ItemStack item) {
-    	return isMeat(item);
-    }
-    @Override
-    protected boolean isTamingFood(ItemStack item) {
-    	return isMeat(item);
     }
     @Override
     public void tick() {

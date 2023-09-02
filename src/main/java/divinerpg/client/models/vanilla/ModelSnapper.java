@@ -32,7 +32,7 @@ public class ModelSnapper<T extends EntityDivineTameable> extends EntityModel<T>
 		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-11.0F, -1.0F, -3.0F, 22.0F, 0.0F, 21.0F, new CubeDeformation(0.0F))
 			.texOffs(0, 21).addBox(-9.0F, -5.0F, -1.0F, 18.0F, 5.0F, 17.0F, new CubeDeformation(0.0F))
 			.texOffs(0, 43).addBox(-7.0F, 0.0F, 0.0F, 14.0F, 5.0F, 15.0F, new CubeDeformation(0.0F))
-			.texOffs(0, 64).addBox(-5.0F, -1.0F, -0.15F, 10.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, -7.0F));
+			.texOffs(0, 64).addBox(-5.0F, -1.0F, -0.01F, 10.0F, 6.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, -7.0F));
 
 		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1.5F, 0.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(5.0F, 0.0F, -4.0F));
 

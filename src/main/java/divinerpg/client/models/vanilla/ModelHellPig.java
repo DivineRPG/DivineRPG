@@ -1,16 +1,16 @@
 package divinerpg.client.models.vanilla;
 
 import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.base.EntityDivineTameable;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelHellPig<T extends Entity> extends EntityModel<T> {
+public class ModelHellPig<T extends EntityDivineTameable> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("hell_pig");
 	private final ModelPart Head, LeftEar, RightEar, BackRightLeg, FrontLeftLeg, FrontRightLeg, BackLeftLeg, Body;
 
@@ -30,7 +30,8 @@ public class ModelHellPig<T extends Entity> extends EntityModel<T> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -3.0F, 2.0F, 10.0F, 9.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 9.0F, -9.0F));
+		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 50).addBox(-8.0F, -3.0F, 1.99F, 10.0F, 8.0F, 0.0F, new CubeDeformation(0.0F))
+			.texOffs(0, 0).addBox(-8.0F, -3.0F, 2.0F, 10.0F, 9.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 9.0F, -9.0F));
 
 		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(0, 37).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 15.0F, -5.0F));
 

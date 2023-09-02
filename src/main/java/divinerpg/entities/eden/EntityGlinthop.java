@@ -8,10 +8,10 @@ import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.*;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -41,11 +41,6 @@ public class EntityGlinthop extends EntityDivineTameable {
         super.defineSynchedData();
         this.entityData.define(TAMED_AND_ANGRY, false);
         this.entityData.define(SPECIAL, false);
-    }
-
-    @Override
-    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-            return !isTame();
     }
 
     @Override
@@ -81,11 +76,6 @@ public class EntityGlinthop extends EntityDivineTameable {
             EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
             remove(RemovalReason.KILLED);
         }
-    }
-
-    @Override
-    public boolean isFood(ItemStack item) {
-    	return isMeat(item);
     }
 
     @Override

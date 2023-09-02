@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "minecraft:chest"
+  },
+  "pattern": [
+    " b ",
+    "b b",
+    " b "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "b": {
+      "tag": "divinerpg:vethea_logs"
+    }
+  }
+}

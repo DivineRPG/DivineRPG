@@ -1,27 +1,29 @@
 package divinerpg.client.renders.entity.vanilla;
 
 import divinerpg.DivineRPG;
-import divinerpg.client.models.vanilla.*;
-import divinerpg.entities.vanilla.nether.EntityHellPig;
-import net.minecraft.client.renderer.entity.*;
+import divinerpg.client.models.vanilla.ModelHellPig;
+import divinerpg.client.renders.layer.PetCollarLayer;
+import divinerpg.entities.base.EntityDivineTameable;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderHellPig extends MobRenderer<EntityHellPig, ModelHellPig<EntityHellPig>> {
+public class RenderHellPig extends MobRenderer<EntityDivineTameable, EntityModel<EntityDivineTameable>> {
+    private static final ResourceLocation
+            hellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig.png"),
+            madHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_mad.png"),
+            tamedHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_tamed.png");
 
     public RenderHellPig(Context context) {
         super(context, new ModelHellPig<>(context), 0.7F);
+        this.addLayer(new PetCollarLayer(this));
     }
 
-    public static final ResourceLocation
-    	hellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig.png"),
-    	madHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/mad_hell_pig.png"),
-    	tamedHellPigLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/tamed_hell_pig.png");
-
     @Override
-    public ResourceLocation getTextureLocation(EntityHellPig entity) {
+    public ResourceLocation getTextureLocation(EntityDivineTameable entity) {
         return entity.isTame() ? tamedHellPigLoc : (entity.isAngry() ? madHellPigLoc : hellPigLoc);
     }
 }

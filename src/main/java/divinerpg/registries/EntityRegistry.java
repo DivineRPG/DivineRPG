@@ -842,7 +842,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(CYCLOPS.get(),			 RenderCyclops::new);
         event.registerEntityRenderer(DESERT_CRAWLER.get(),	 (Context context) -> new RenderDivineMob<>(context, "desert_crawler", new ModelDesertCrawler(context), 0.7F));
         event.registerEntityRenderer(DIAMOND_DAVE.get(),     (Context context) -> new RenderDivineMob<>(context, "diamond_dave", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.5F));
-        event.registerEntityRenderer(EHU.get(),				 (Context context) -> new RenderPet(context, "ehu", new ModelEhu(context), 0.5F));
+        event.registerEntityRenderer(EHU.get(),				 (Context context) -> new RenderPet(context, "ehu", new ModelEhu<>(context), 0.5F));
         event.registerEntityRenderer(ENTHRALLED_DRAMCRYX.get(),(Context context) -> new RenderDivineMob<>(context, "enthralled_dramcryx", new ModelEnthralledDramcryx<>(context), 0.9F, 1.2F));
         event.registerEntityRenderer(FROST.get(),			 (Context context) -> new RenderDivineMob<>(context, "frost", new ModelFrost(context), 0.6F));
         event.registerEntityRenderer(GLACON.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacon", new ModelGlacon(context), 0.8F));
@@ -856,13 +856,13 @@ public class EntityRegistry {
         event.registerEntityRenderer(LIOPLEURODON.get(),	 RenderLiopleurodon::new);
         event.registerEntityRenderer(LIVESTOCK_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "livestock_merchant", new ModelLivestockMerchant(context), 0.4F));
         event.registerEntityRenderer(MINER.get(),			 RenderMiner::new);
-        event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider(context), 0.0F));
+        event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider<>(context), 0.0F));
         event.registerEntityRenderer(RAINBOUR.get(),		 (Context context) -> new RenderDivineMob<>(context, "rainbour", new ModelRainbour(context), 0.4F));
         event.registerEntityRenderer(ROTATICK.get(),		 (Context context) -> new RenderDivineMob<>(context, "rotatick", new ModelRotatick(context), 0.6F));
         event.registerEntityRenderer(SAGUARO_WORM.get(),	 (Context context) -> new RenderDivineMob<>(context, "saguaro_worm", new ModelSaguaroWorm(context), 0.3F));
-        event.registerEntityRenderer(SHARK.get(),			 (Context context) -> new RenderDivineMob<>(context, "shark", new ModelShark(context), 0.8F));
+        event.registerEntityRenderer(SHARK.get(),			 (Context context) -> new RenderDivineMob<>(context, "shark", new ModelShark<>(context), 0.8F));
         event.registerEntityRenderer(SMELTER.get(),			 (Context context) -> new RenderDivineMob<>(context, "smelter", new ModelStoneGolem<>(context)));
-        event.registerEntityRenderer(SNAPPER.get(),			 (Context context) -> new RenderPet(context, "snapper", new ModelSnapper(context), 0.7F));
+        event.registerEntityRenderer(SNAPPER.get(),			 (Context context) -> new RenderPet(context, "snapper", new ModelSnapper<>(context), 0.7F));
         event.registerEntityRenderer(STONE_GOLEM.get(),		 (Context context) -> new RenderDivineMob<>(context, "stone_golem", new ModelStoneGolem<>(context)));
         event.registerEntityRenderer(THE_EYE.get(),			 (Context context) -> new RenderDivineMob<>(context, "the_eye", new ModelTheEye(context)));
         event.registerEntityRenderer(THE_GRUE.get(),		 (Context context) -> new RenderDivineMob<>(context, "the_grue", new ModelTheGrue(context)));

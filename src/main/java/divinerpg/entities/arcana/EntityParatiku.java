@@ -1,30 +1,22 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.entities.base.*;
-import net.minecraft.core.*;
-import net.minecraft.nbt.*;
+import divinerpg.entities.base.EntityDivineTameable;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.sounds.*;
-import net.minecraft.util.*;
-import net.minecraft.world.damagesource.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.targeting.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 public class EntityParatiku extends EntityDivineTameable {
     private static final EntityDataAccessor<Byte> HANGING = SynchedEntityData.defineId(EntityParatiku.class, EntityDataSerializers.BYTE);
     private static final TargetingConditions RESTING_TARGETING = TargetingConditions.forCombat().range(4.0D)/*.allowSameTeam()*/;
     //private BlockPos spawnPosition;
-    public EntityParatiku(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
-        super(type, worldIn, 1F);
-        tame(player);
-        setIsParatikuHanging(true);
-    }
-
     public EntityParatiku(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 1F);
         setIsParatikuHanging(true);
@@ -58,13 +50,6 @@ public class EntityParatiku extends EntityDivineTameable {
         }
     }
     @Override
-    public boolean isFood(ItemStack item) {
-    	return isMeat(item);
-    }
-    @Override
-    protected boolean isTamingFood(ItemStack item) {
-    	return isMeat(item);
-    }
     public void tick() {
         super.tick();
         if(getIsParatikuHanging()) {
@@ -72,6 +57,7 @@ public class EntityParatiku extends EntityDivineTameable {
             setPosRaw(getX(), (double) Mth.floor(getY()) + 1D - getBbHeight(), getZ());
         } else setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y * 0.6000000238418579D, getDeltaMovement().z);
     }
+    @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
         BlockPos blockpos = blockPosition();
@@ -82,15 +68,16 @@ public class EntityParatiku extends EntityDivineTameable {
                 if(random.nextInt(200) == 0) yHeadRot = (float) random.nextInt(360);
                 if(level().getNearestPlayer(RESTING_TARGETING, this) != null) {
                     setIsParatikuHanging(false);
-                    if(!flag) level().levelEvent((Player) null, 1025, blockpos, 0);
+                    if(!flag) level().levelEvent(null, 1025, blockpos, 0);
                 }
             } else {
                 setIsParatikuHanging(false);
-                if(!flag) level().levelEvent((Player) null, 1025, blockpos, 0);
+                if(!flag) level().levelEvent(null, 1025, blockpos, 0);
             }
         } else {
             if(getTarget() != null) {
-                if(getTarget().blockPosition() == null || random.nextInt(30) == 0 || getTarget().blockPosition().closerToCenterThan(position(), 2D))
+                getTarget().blockPosition();
+                if(random.nextInt(30) == 0 || getTarget().blockPosition().closerToCenterThan(position(), 2D))
                     moveTo(getX() + random.nextInt(7) - random.nextInt(7), getY() + random.nextInt(6) - 2D, getZ() + random.nextInt(7) - random.nextInt(7));
                 double d2 = getTarget().blockPosition().getX() + .5D - getX();
                 double d0 = getTarget().blockPosition().getY() + .1D - getY();

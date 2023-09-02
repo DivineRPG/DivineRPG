@@ -1,23 +1,18 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.entities.base.*;
-import divinerpg.registries.*;
-import net.minecraft.sounds.*;
+import divinerpg.entities.base.EntityDivineTameable;
+import divinerpg.registries.SoundRegistry;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public class EntityGolemOfRejuvenation extends EntityDivineTameable {
     private int healTimer;
-    public EntityGolemOfRejuvenation(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
-        super(type, worldIn, 1F);
-        tame(player);
-        healTimer = 0;
-    }
     public EntityGolemOfRejuvenation(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 1F);
+        healTimer = 0;
     }
     @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.375F;}
     @Override

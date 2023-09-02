@@ -1,8 +1,7 @@
 package divinerpg.entities.eden;
 
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.registries.*;
-
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -16,6 +15,7 @@ public class EntityMadivel extends EntityDivineMonster {
         super(type, worldIn);
     }
 
+    @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 2.6F;
     }

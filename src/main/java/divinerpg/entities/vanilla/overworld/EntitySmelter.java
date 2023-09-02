@@ -3,9 +3,7 @@ package divinerpg.entities.vanilla.overworld;
 import divinerpg.entities.IAttackTimer;
 import divinerpg.entities.base.EntityDivineTameable;
 import net.minecraft.world.entity.TamableAnimal;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-
 import net.minecraft.network.syncher.*;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
@@ -15,11 +13,6 @@ public class EntitySmelter extends EntityDivineTameable implements IAttackTimer 
     private static final EntityDataAccessor<Integer> ATTACK_TIMER = SynchedEntityData.defineId(EntitySmelter.class, EntityDataSerializers.INT);
     public EntitySmelter(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 1F);
-    }
-
-    protected EntitySmelter(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
-        super(type, worldIn, 1F);
-        tame(player);
     }
     @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
