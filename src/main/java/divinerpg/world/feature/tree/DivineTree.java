@@ -21,7 +21,7 @@ public class DivineTree extends Feature<TreeConfig> {
 		return hasSpace(state);
 	}
 	public boolean hasSpace(BlockState state) {
-		return state.isAir() || state.is(BlockTags.LEAVES) || state.is(BlockTags.FLOWERS) || state.is(BlockTags.REPLACEABLE_BY_TREES);
+		return state.isAir() || state.is(BlockTags.LEAVES) || state.is(BlockTags.FLOWERS) || state.is(BlockTags.REPLACEABLE_BY_TREES) && !state.is(Blocks.WATER);
 	}
 	public final boolean heightCheck(WorldGenLevel level, BlockPos pos, int maxHeight, int width) {
 		for(int y = 0; y < maxHeight; y++) {

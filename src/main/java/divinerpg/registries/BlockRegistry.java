@@ -85,6 +85,12 @@ public class BlockRegistry {
             cobbledFrozenWall = registerBlock("cobbled_frozen_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cobbled_frozen_stone")))),
             cobbledFrozenPressurePlate = registerBlock("cobbled_frozen_pressure_plate", () -> new BlockModPressurePlate(GLOW_LICHEN, BlockSetType.STONE)),
             cobbledFrozenButton = registerBlock("cobbled_frozen_button", () -> new BlockModButton(BlockSetType.STONE)),
+            cobaltite = registerBlock("cobaltite", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 1.5F, 6F)),
+            cobaltiteStaris = registerBlock("cobaltite_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cobaltite")), 0, 0)),
+            cobaltiteSlab = registerBlock("cobaltite_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cobaltite")), 0, 0)),
+            cobaltiteWall = registerBlock("cobaltite_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cobaltite")))),
+            cobaltitePressurePlate = registerBlock("cobaltite_pressure_plate", () -> new BlockModPressurePlate(GLOW_LICHEN, BlockSetType.STONE)),
+            cobaltiteButton = registerBlock("cobaltite_button", () -> new BlockModButton(BlockSetType.STONE)),
             icyStone = registerBlock("icy_stone", () -> new BlockMod(GLOW_LICHEN, 2F, 6F)),
             blueStone = registerBlock("blue_stone", () -> new BlockLightCrystal(COLOR_LIGHT_BLUE)),
             icicle = registerBlock("icicle", () -> new BlockIcicle()),
@@ -125,6 +131,8 @@ public class BlockRegistry {
             apalachiaOre = registerBlock("apalachia_ore", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 3F, 32F)),
             skythernOre = registerBlock("skythern_ore", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 3F, 32F)),
             mortumOre = registerBlock("mortum_ore", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 3F, 32F)),
+            anthraciteOre = registerBlock("anthracite_ore", () -> new BlockMod(TERRACOTTA_LIGHT_GRAY, 3F, 3F)),
+            oxdriteOre = registerBlock("oxdrite_ore", () -> new BlockMod(TERRACOTTA_BROWN, 3F, 3F)),
 
             //Compressed Ore Blocks
             rawArlemiteBlock= registerBlock("raw_arlemite_block",() -> new BlockMod(COLOR_LIGHT_GREEN, 5F, 6F)),
@@ -137,6 +145,8 @@ public class BlockRegistry {
             rawTorriditeBlock= registerBlock("raw_torridite_block",() -> new BlockMod(CRIMSON_NYLIUM, 5F, 1200F)),
             torriditeBlock  = registerFireResistantBlock("torridite_block",() -> new BlockMod(Properties.of().mapColor(CRIMSON_NYLIUM).strength(5F, 1200F).requiresCorrectToolForDrops().sound(SoundType.METAL)), Rarity.COMMON),
             arcaniumBlock = registerBlock("arcanium_block", () -> new BlockMod(COLOR_LIGHT_BLUE, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            rawOxdriteBlock = registerBlock("raw_oxdrite_block", () -> new BlockMod(TERRACOTTA_BROWN, 5F, 6F)),
+            oxdriteBlock = registerBlock("oxdrite_block", () -> new BlockMod(TERRACOTTA_BROWN, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
 
             //Twilight Compressed Ore Blocks
             edenBlock = registerBlock("eden_block", () -> new BlockMod(TERRACOTTA_ORANGE, 1.5F, 6F)),
@@ -211,17 +221,34 @@ public class BlockRegistry {
             snowyCozybarkLeaves = registerBlock("snowy_cozybark_leaves", () -> new BlockSnowyCozybarkLeaves()),
             cozybarkLog = registerBlock("cozybark_log", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),
             cozybarkWood = registerBlock("cozybark_wood", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),
-            strippedcozybarkLog = registerBlock("stripped_cozybark_log", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),
-            strippedcozybarkWood = registerBlock("stripped_cozybark_wood", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),
+            strippedCozybarkLog = registerBlock("stripped_cozybark_log", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),
+            strippedCozybarkWood = registerBlock("stripped_cozybark_wood", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.WOOD)),
             cozybarkPlanks = registerBlock("cozybark_planks", () -> new BlockModPlanks(TERRACOTTA_PURPLE, SoundType.WOOD)),
             cozybarkStairs = registerBlock("cozybark_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cozybark_planks")), 20, 5)),
             cozybarkSlab = registerBlock("cozybark_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cozybark_planks")), 20, 5)),
             cozybarkFence = registerBlock("cozybark_fence", () -> new BlockModFence(TERRACOTTA_PURPLE, SoundType.WOOD)),
-            cozybarkFenceGate = registerBlock("cozybark_fence_gate", () -> new BlockModGate(TERRACOTTA_PURPLE, WoodType.OAK)),
+            cozybarkFenceGate = registerBlock("cozybark_fence_gate", () -> new BlockModGate(TERRACOTTA_PURPLE, WoodType.DARK_OAK)),
             cozybarkDoor = registerBlock("cozybark_door", () -> new BlockModDoor(TERRACOTTA_PURPLE, BlockSetType.OAK)),
-            cozybarkTrapdoor = registerBlock("cozybark_trapdoor", () -> new BlockModTrapdoor(TERRACOTTA_PURPLE, BlockSetType.OAK)),
-            cozybarkPressurePlate = registerBlock("cozybark_pressure_plate", () -> new BlockModPressurePlate(TERRACOTTA_PURPLE, BlockSetType.OAK)),
-            cozybarkButton = registerBlock("cozybark_button", () -> new BlockModButton(BlockSetType.OAK)),
+            cozybarkTrapdoor = registerBlock("cozybark_trapdoor", () -> new BlockModTrapdoor(TERRACOTTA_PURPLE, BlockSetType.DARK_OAK)),
+            cozybarkPressurePlate = registerBlock("cozybark_pressure_plate", () -> new BlockModPressurePlate(TERRACOTTA_PURPLE, BlockSetType.DARK_OAK)),
+            cozybarkButton = registerBlock("cozybark_button", () -> new BlockModButton(BlockSetType.DARK_OAK)),
+            
+            //Streamleaf
+            streamleafSapling = registerBlock("streamleaf_sapling", () -> new BlockModSapling(COLOR_MAGENTA, () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_grass")), () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_dirt")), new StreamleafTreeGrower())),
+            streamleafLeaves = registerBlock("streamleaf_leaves", () -> new BlockModLeaves(SNOW, SoundType.AZALEA_LEAVES)),
+            streamleafLog = registerBlock("streamleaf_log", () -> new BlockModLog(COLOR_MAGENTA, SoundType.WOOD)),
+            streamleafWood = registerBlock("streamleaf_wood", () -> new BlockModLog(COLOR_MAGENTA, SoundType.WOOD)),
+            strippedStreamleafLog = registerBlock("stripped_streamleaf_log", () -> new BlockModLog(COLOR_MAGENTA, SoundType.WOOD)),
+            strippedStreamleafWood = registerBlock("stripped_stramleaf_wood", () -> new BlockModLog(COLOR_MAGENTA, SoundType.WOOD)),
+            streamleafPlanks = registerBlock("streamleaf_planks", () -> new BlockModPlanks(COLOR_MAGENTA, SoundType.WOOD)),
+            streamleafStairs = registerBlock("streamleaf_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "streamleaf_planks")), 20, 5)),
+            streamleafSlab = registerBlock("streamleaf_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "streamleaf_planks")), 20, 5)),
+            streamleafFence = registerBlock("streamleaf_fence", () -> new BlockModFence(COLOR_MAGENTA, SoundType.WOOD)),
+            streamleafFenceGate = registerBlock("streamleaf_fence_gate", () -> new BlockModGate(COLOR_MAGENTA, WoodType.WARPED)),
+            streamleafDoor = registerBlock("streamleaf_door", () -> new BlockModDoor(COLOR_MAGENTA, BlockSetType.WARPED)),
+            streamleafTrapdoor = registerBlock("streamleaf_trapdoor", () -> new BlockModTrapdoor(COLOR_MAGENTA, BlockSetType.WARPED)),
+            streamleafPressurePlate = registerBlock("streamleaf_pressure_plate", () -> new BlockModPressurePlate(COLOR_MAGENTA, BlockSetType.WARPED)),
+            streamleafButton = registerBlock("streamleaf_button", () -> new BlockModButton(BlockSetType.WARPED)),
 
             //Eucalyptus
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),
@@ -400,7 +427,7 @@ public class BlockRegistry {
             rupeeMinibricks = registerBlock("rupee_minibricks", () -> new BlockMod(COLOR_LIGHT_BLUE, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             bloodgemMinibricks = registerBlock("bloodgem_minibricks", () -> new BlockMod(CRIMSON_STEM, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
 
-            //Iceika Bricks
+            //Iceika Bricks & Other Blocks
             frozenBricks = registerBlock("frozen_bricks", () -> new BlockMod(GLOW_LICHEN, 1.5F, 6F)),
             frozenBrickStairs = registerBlock("frozen_brick_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_bricks")), 0, 0)),
             frozenBrickSlab = registerBlock("frozen_brick_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_bricks")), 0, 0)),
@@ -415,6 +442,25 @@ public class BlockRegistry {
             coalstoneBrickWall = registerBlock("coalstone_brick_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "coalstone_bricks")))),
             coalstoneBrickPressurePlate = registerBlock("coalstone_brick_pressure_plate", () -> new BlockModPressurePlate(COLOR_GRAY, BlockSetType.POLISHED_BLACKSTONE)),
             coalstoneBrickButton = registerBlock("coalstone_brick_button", () -> new BlockModButton(BlockSetType.POLISHED_BLACKSTONE)),
+            chiseledCoalstoneBricks = registerBlock("chiseled_coalstone_bricks", () -> new BlockMod(COLOR_GRAY, 1.5F, 6F)),
+            polishedCoalstone = registerBlock("polished_coalstone", () -> new BlockMod(COLOR_GRAY, 1.5F, 6F)),
+            polishedCoalstoneStairs = registerBlock("polished_coalstone_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "polished_coalstone")), 0, 0)),
+            polishedCoalstoneSlab = registerBlock("polished_coalstone_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "polished_coalstone")), 0, 0)),
+            polishedCoalstoneWall = registerBlock("polished_coalstone_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "polished_coalstone")))),
+            polishedCoalstonePressurePlate = registerBlock("polished_coalstone_pressure_plate", () -> new BlockModPressurePlate(COLOR_GRAY, BlockSetType.POLISHED_BLACKSTONE)),
+            polishedCoalstoneButton = registerBlock("polished_coalstone_button", () -> new BlockModButton(BlockSetType.POLISHED_BLACKSTONE)),
+            polishedCobaltite = registerBlock("polished_cobaltite", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 1.5F, 6F)),
+            polishedCobaltiteStairs = registerBlock("polished_cobaltite_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "polished_cobaltite")), 0, 0)),
+            polishedCobaltiteSlab = registerBlock("polished_cobaltite_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "polished_cobaltite")), 0, 0)),
+            polishedCobaltiteWall = registerBlock("polished_cobaltite_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "polished_cobaltite")))),
+            polishedCobaltitePressurePlate = registerBlock("polished_cobaltite_pressure_plate", () -> new BlockModPressurePlate(TERRACOTTA_LIGHT_BLUE, BlockSetType.STONE)),
+            polishedCobaltiteButton = registerBlock("polished_cobaltite_button", () -> new BlockModButton(BlockSetType.STONE)),
+            cutOxdrite = registerBlock("cut_oxdrite", () -> new BlockMod(TERRACOTTA_BROWN, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            cutOxdriteStairs = registerBlock("cut_oxdrite_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cut_oxdrite")), 0, 0)),
+            cutOxdriteSlab = registerBlock("cut_oxdrite_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cut_oxdrite")), 0, 0)),
+            cutOxdriteWall = registerBlock("cut_oxdrite_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cut_oxdrite")))),
+            cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate", () -> new BlockModPressurePlate(TERRACOTTA_BROWN, BlockSetType.IRON)),
+            cutOxdriteButton = registerBlock("cut_oxdrite_button", () -> new BlockModButton(BlockSetType.IRON)),
 
             //Arcana Bricks & Other Blocks
             ancientBricks = registerBlock("ancient_bricks", () -> new BlockModUnbreakable(WARPED_NYLIUM)),
@@ -800,7 +846,8 @@ public class BlockRegistry {
             shiverspineSaplingPot = registerFlowerPot("shiverspine_sapling_pot", shiverspineSapling),
             auroraoakSaplingPot = registerFlowerPot("auroraoak_sapling_pot", auroraoakSapling),
             cozybarkSaplingPot = registerFlowerPot("cozybark_sapling_pot", cozybarkSapling),
-            divineSaplingPot = registerFlowerPot("divine_sapling_pot", divineSapling);
+            divineSaplingPot = registerFlowerPot("divine_sapling_pot", divineSapling),
+            streamleafSaplingPot = registerFlowerPot("streamleaf_sapling_pot", streamleafSapling);
 
 
 

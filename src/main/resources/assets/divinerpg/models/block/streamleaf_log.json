@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/streamleaf_log_top",
+    "side": "divinerpg:block/streamleaf_log_side"
+  }
+}

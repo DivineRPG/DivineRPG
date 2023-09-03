@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/polished_cobaltite_half_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/polished_cobaltite"
+    },
+    "type=top": {
+      "model": "divinerpg:block/polished_cobaltite_upper_slab"
+    }
+  }
+}

@@ -49,7 +49,7 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 				context = new SinglePointContext(position.getX(), position.getY(), position.getZ());
 				depth = (((biome = level.getBiome(position)).get().getModifiedClimateSettings().downfall() + level.getBiome(position.north()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.south()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.east()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.west()).get().getModifiedClimateSettings().downfall()) / 5D)
 						* ((humidity = router.vegetation().compute(context)) + 1.1) + router.temperature().compute(context) + 1D;
-				if(biome.is(new ResourceLocation(DivineRPG.MODID, "iceika/chill_passage")) && humidity < -0.45D && (state = level.getBlockState(pos)).is(Blocks.SNOW) || state.is(Blocks.POWDER_SNOW) || state.is(Blocks.SNOW_BLOCK) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")))) {
+				if(biome.is(new ResourceLocation(DivineRPG.MODID, "iceika/chill_passage")) && humidity < -0.45D && (state = level.getBlockState(position.below())).is(Blocks.SNOW) || state.is(Blocks.POWDER_SNOW) || state.is(Blocks.SNOW_BLOCK) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")))) {
 					level.setBlock(position.below(), Blocks.PACKED_ICE.defaultBlockState(), 3);
 					success = true;
 				} else if(depth >= .125) {

@@ -1,17 +1,14 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.DivineRPG;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraftforge.registries.ForgeRegistries;
 
-public class CozybarkTree extends SkythernTree {
+public class CozybarkTree extends ShiverspineTree {
 	protected void flatCanopy(WorldGenLevel level, RandomSource random, BlockPos pos, BlockState leaves, int size) {
 		int posX = pos.getX(), posZ = pos.getZ(), y = pos.getY();
 		for(int x = posX - size; x <= posX + size; x++) for(int z = posZ - size; z <= posZ + size; z++) {
@@ -44,10 +41,6 @@ public class CozybarkTree extends SkythernTree {
 			pos.move(random.nextInt(2) - directionX, random.nextInt(2) - 1, random.nextInt(2) - directionZ);
 			distance++;
 		} while(distance < 6 && random.nextFloat() <= .8F);
-	}
-	@Override
-	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_dirt"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_stone")));
 	}
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {

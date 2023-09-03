@@ -9,13 +9,13 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "divinerpg:mortum_door",
+              "block": "divinerpg:skythern_door",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "divinerpg:mortum_door"
+          "name": "divinerpg:skythern_door"
         }
       ],
       "conditions": [

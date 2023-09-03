@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:cobaltite_stairs",
+    "count": 4
+  },
+  "pattern": [
+    "c  ",
+    "cc ",
+    "ccc"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "c": {
+      "item": "divinerpg:cobaltite"
+    }
+  }
+}

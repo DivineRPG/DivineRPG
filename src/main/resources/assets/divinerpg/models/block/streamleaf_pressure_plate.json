@@ -1,0 +1,6 @@
+{
+  "parent": "block/pressure_plate_up",
+  "textures": {
+    "texture": "divinerpg:block/streamleaf_planks"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/cut_oxdrite_half_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/cut_oxdrite_stone"
+    },
+    "type=top": {
+      "model": "divinerpg:block/cut_oxdrite_upper_slab"
+    }
+  }
+}

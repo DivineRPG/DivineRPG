@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/streamleaf_half_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/streamleaf_planks"
+    },
+    "type=top": {
+      "model": "divinerpg:block/streamleaf_upper_slab"
+    }
+  }
+}

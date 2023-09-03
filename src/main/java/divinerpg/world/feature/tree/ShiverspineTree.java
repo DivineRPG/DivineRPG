@@ -4,9 +4,9 @@ import divinerpg.DivineRPG;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -14,11 +14,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ShiverspineTree extends SkythernTree {
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(Blocks.SNOW_BLOCK) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_dirt")));
+		return state.is(BlockTags.SNOW) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_dirt")));
 	}
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
+			if(level.getBlockState(pos.below()).is(BlockTags.SNOW)) pos = pos.below();
 			int treeHeight, extraHeight, treeType = random.nextInt(11), width = 1;
     		switch(treeType) {
     		case 1: case 2:

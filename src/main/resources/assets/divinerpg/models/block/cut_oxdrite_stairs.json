@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "side": "divinerpg:block/cut_oxdrite",
+    "top": "divinerpg:block/cut_oxdrite",
+    "bottom": "divinerpg:block/cut_oxdrite"
+  }
+}

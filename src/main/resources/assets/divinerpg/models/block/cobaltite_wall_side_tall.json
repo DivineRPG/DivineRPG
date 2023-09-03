@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_wall_side_tall",
+  "render_type": "cutout_mipped",
+  "textures": {
+    "wall": "divinerpg:block/cobaltite"
+  }
+}

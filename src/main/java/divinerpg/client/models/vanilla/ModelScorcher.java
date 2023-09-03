@@ -1,16 +1,17 @@
 package divinerpg.client.models.vanilla;
 
 import com.mojang.blaze3d.vertex.*;
+
+import divinerpg.entities.vanilla.nether.EntityScorcher;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelScorcher<T extends Entity> extends EntityModel<T> {
+public class ModelScorcher extends EntityModel<EntityScorcher> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("scorcher");
 	private final ModelPart Body, Rods, BackRod, FrontRod, RightRod, LeftRod;
 
@@ -50,7 +51,7 @@ public class ModelScorcher<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityScorcher entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		float f = ageInTicks * (float)Math.PI * -0.1F;
 		for(int i = 0; i < 4; ++i) {
 			this.Body.y = -Mth.cos(((float) (i * 2) + ageInTicks) * 0.25F) + 21.0F;
