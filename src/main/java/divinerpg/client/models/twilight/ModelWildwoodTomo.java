@@ -9,10 +9,10 @@ import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelTomo<T extends Entity> extends EntityModel<T> {
+public class ModelWildwoodTomo<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("tomo");
 	private final ModelPart body;
-	public ModelTomo(Context context) {
+	public ModelWildwoodTomo(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.body = root.getChild("body");
 	}

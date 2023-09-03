@@ -5,7 +5,7 @@ import divinerpg.entities.iceika.EntityHastreus;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
@@ -14,7 +14,7 @@ public class ModelHastreus<T extends EntityHastreus> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("hastreus");
 	private final ModelPart Head, Jaw, Body, Tail, FrontRightLeg, BackRightLeg, FrontLeftLeg, BackLeftLeg;
 
-	public ModelHastreus(EntityRendererProvider.Context context) {
+	public ModelHastreus(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.Head = root.getChild("Head");
 		this.Jaw = this.Head.getChild("Jaw");

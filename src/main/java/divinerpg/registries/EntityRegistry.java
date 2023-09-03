@@ -191,7 +191,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityHellPig>>	         HELL_PIG 	         = registerEntity(EntityHellPig::new, 	        "hell_pig", 	            0.9F, 1.15625F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityHellSpider>>         HELL_SPIDER         = registerEntity(EntityHellSpider::new,        "hell_spider",            1.4F, 0.9F, 0xb01916, 0x720b07);
     public static final RegistryObject<EntityType<EntityWildfire>>	         WILDFIRE 	         = registerEntity(EntityWildfire::new, 	        "wildfire", 	            0.8F, 2.2F, 0xaa0b01, 0x9c6d11);
-    public static final RegistryObject<EntityType<EntityScorcher>>	         SCORCHER 	         = registerEntity(EntityScorcher::new, 	        "scorcher", 	            1.2F, 1.5F, 0x8c00f3, 0x1c007a);
+    public static final RegistryObject<EntityType<EntityScorcher>>	         SCORCHER 	         = registerEntity(EntityScorcher::new, 	        "scorcher", 	            1.2F, 1.875F, 0xffffff, 0xffffff);
 
     //End
     public static final RegistryObject<EntityType<EntityEnderScrounge>>      ENDER_SCROUNGE      = registerEntity(EntityEnderScrounge::new,     "ender_scrounge",         0.2F, 0.15F, 0x162916, 0xfc1b11, MobCategory.CREATURE);
@@ -263,7 +263,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityMage>> 				 MAGE 				 = registerEntity(EntityMage::new, 				"mage", 			        0.9F, 2.2F, 0x0f7adf, 0x2fc7fb);
 
     //Apalachia
-    public static final RegistryObject<EntityType<EntityApalachiaTomo>> 	 APALACHIA_TOMO 	 = registerEntity(EntityApalachiaTomo::new, 	"apalachia_tomo", 		1.0F, 0.625F, 0x650054, 0x96007e);
+    public static final RegistryObject<EntityType<EntityApalachiaTomo>> 	 APALACHIA_TOMO 	 = registerEntity(EntityApalachiaTomo::new, 	"apalachia_tomo", 		0.99F, 0.83F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityApalachiaCadillion>> APALACHIA_CADILLION = registerEntity(EntityApalachiaCadillion::new,"apalachia_cadillion",    0.875F, 1.4F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityEnchantedWarrior>> 	 ENCHANTED_WARRIOR 	 = registerEntity(EntityEnchantedWarrior::new, 	"enchanted_warrior", 	    0.6F, 2.25F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityApalachiaGolem>> 	 APALACHIA_GOLEM 	 = registerEntity(EntityApalachiaGolem::new, 	"apalachia_golem", 		1.3F, 2.9F, 0x7c4bca, 0x4417a2);
@@ -661,7 +661,7 @@ public class EntityRegistry {
 
         //Wildwood
         event.registerLayerDefinition(ModelBehemoth.LAYER_LOCATION, ModelBehemoth::createBodyLayer);
-        event.registerLayerDefinition(ModelTomo.LAYER_LOCATION, ModelTomo::createBodyLayer);
+        event.registerLayerDefinition(ModelWildwoodTomo.LAYER_LOCATION, ModelWildwoodTomo::createBodyLayer);
         event.registerLayerDefinition(ModelEpiphite.LAYER_LOCATION, ModelEpiphite::createBodyLayer);
         event.registerLayerDefinition(ModelMage.LAYER_LOCATION, ModelMage::createBodyLayer);
         event.registerLayerDefinition(ModelMoonWolf.LAYER_LOCATION, ModelMoonWolf::createBodyLayer);
@@ -670,6 +670,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelTwilightGolem.LAYER_LOCATION, ModelTwilightGolem::createBodyLayer);
 
         //Apalachia
+        event.registerLayerDefinition(ModelApalachiaTomo.LAYER_LOCATION, ModelApalachiaTomo::createBodyLayer);
         event.registerLayerDefinition(ModelEnchantedArcher.LAYER_LOCATION, ModelEnchantedArcher::createBodyLayer);
         event.registerLayerDefinition(ModelEnchantedWarrior.LAYER_LOCATION, ModelEnchantedWarrior::createBodyLayer);
         event.registerLayerDefinition(ModelMystic.LAYER_LOCATION, ModelMystic::createBodyLayer);
@@ -873,7 +874,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(HELL_BAT.get(),	(Context context) -> new RenderDivineBat<>(context, "hell_bat", 0.5F, 1F));
         event.registerEntityRenderer(HELL_PIG.get(),	RenderHellPig::new);
         event.registerEntityRenderer(HELL_SPIDER.get(), (Context context) -> new RenderDivineMob<>(context, "hell_spider", new ModelHellSpider(context), 0.2F));
-        event.registerEntityRenderer(SCORCHER.get(),	(Context context) -> new RenderDivineMob<>(context, "scorcher", new ModelScorcher(context), 0.5F, 1.5F));
+        event.registerEntityRenderer(SCORCHER.get(),	(Context context) -> new RenderDivineMob<>(context, "scorcher", new ModelScorcher(context), 0.72F, 1.5F));
         event.registerEntityRenderer(WILDFIRE.get(),	RenderWildfire::new);
 
         //End
@@ -918,12 +919,12 @@ public class EntityRegistry {
         event.registerEntityRenderer(VEREK.get(),	 (Context context) -> new RenderDivineMob<>(context, "verek",  new ModelSamek<>(context)));
         event.registerEntityRenderer(WILDWOOD_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "wildwood_cadillion",  new ModelCadillion<>(context), 0.7F));
         event.registerEntityRenderer(WILDWOOD_GOLEM.get(),	  (Context context) -> new RenderDivineMob<>(context, "wildwood_golem",  new ModelTwilightGolem<>(context)));
-        event.registerEntityRenderer(WILDWOOD_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "wildwood_tomo",  new ModelTomo<>(context)));
+        event.registerEntityRenderer(WILDWOOD_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "wildwood_tomo",  new ModelWildwoodTomo<>(context)));
 
         //Apalachia
         event.registerEntityRenderer(APALACHIA_CADILLION.get(), (Context context) -> new RenderDivineMob<>(context, "apalachia_cadillion",  new ModelCadillion<>(context), 0.7F));
         event.registerEntityRenderer(APALACHIA_GOLEM.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_golem",  new ModelTwilightGolem<>(context)));
-        event.registerEntityRenderer(APALACHIA_TOMO.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_tomo",  new ModelTomo<>(context)));
+        event.registerEntityRenderer(APALACHIA_TOMO.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_tomo",  new ModelApalachiaTomo<>(context), 0.65F, 1.2F));
         event.registerEntityRenderer(ENCHANTED_ARCHER.get(),	RenderEnchantedArcher::new);
         event.registerEntityRenderer(ENCHANTED_WARRIOR.get(),	RenderEnchantedWarrior::new);
         event.registerEntityRenderer(SPELLBINDER.get(),			(Context context) -> new RenderDivineMob<>(context, "spellbinder",  new ModelMystic<>(context)));

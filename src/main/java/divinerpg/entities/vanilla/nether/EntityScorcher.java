@@ -3,13 +3,15 @@ package divinerpg.entities.vanilla.nether;
 import divinerpg.entities.base.EntityDivineFireballMob;
 import divinerpg.entities.projectile.EntityScorcherShot;
 import divinerpg.registries.SoundRegistry;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.world.entity.projectile.*;
+import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
 public class EntityScorcher extends EntityDivineFireballMob {
@@ -22,7 +24,7 @@ public class EntityScorcher extends EntityDivineFireballMob {
     }
     @Override
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.3437F;
+        return 1.625F;
     }
     @Override
     protected void registerGoals() {
@@ -60,6 +62,9 @@ public class EntityScorcher extends EntityDivineFireballMob {
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.SCORCHER.get();
+    }
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
     }
     @Override
     protected SoundEvent getShootSound() {
