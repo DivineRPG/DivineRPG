@@ -4,7 +4,7 @@
       "model": "divinerpg:block/cut_oxdrite_half_slab"
     },
     "type=double": {
-      "model": "divinerpg:block/cut_oxdrite_stone"
+      "model": "divinerpg:block/cut_oxdrite"
     },
     "type=top": {
       "model": "divinerpg:block/cut_oxdrite_upper_slab"

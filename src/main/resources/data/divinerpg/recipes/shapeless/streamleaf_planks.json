@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "divinerpg:streamleaf_planks",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "tag": "forge:wood/streamleaf"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "divinerpg_planks"
+}

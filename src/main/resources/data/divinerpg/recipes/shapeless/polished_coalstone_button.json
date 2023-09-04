@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "divinerpg_button",
+  "ingredients": [
+    {
+      "item": "divinerpg:polished_coalstone"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:polished_coalstone_button"
+  }
+}

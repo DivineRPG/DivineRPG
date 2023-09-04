@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:polished_cobaltite"
+  },
+  "result": "divinerpg:polished_cobaltite_slab",
+  "count": 2
+}

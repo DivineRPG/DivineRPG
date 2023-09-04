@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:cobaltite"
+  },
+  "result": "divinerpg:cobaltite_stairs",
+  "count": 1
+}

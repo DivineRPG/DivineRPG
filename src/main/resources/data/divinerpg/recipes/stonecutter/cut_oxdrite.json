@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:oxdrite_block"
+  },
+  "result": "divinerpg:cut_oxdrite",
+  "count": 4
+}

@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:streamleaf_slab",
+    "count": 6
+  },
+  "pattern": [
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "divinerpg_wooden_slab",
+  "key": {
+    "s": {
+      "item": "divinerpg:streamleaf_planks"
+    }
+  }
+}

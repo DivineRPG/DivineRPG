@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "oxdrite_ingot",
+  "ingredients": [
+    {
+      "item": "divinerpg:oxdrite_block"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:oxdrite_ingot",
+    "count": 9
+  }
+}

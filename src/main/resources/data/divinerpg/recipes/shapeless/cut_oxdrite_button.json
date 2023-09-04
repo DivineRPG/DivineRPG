@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "divinerpg_button",
+  "ingredients": [
+    {
+      "item": "divinerpg:cut_oxdrite"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:cut_oxdrite_button"
+  }
+}

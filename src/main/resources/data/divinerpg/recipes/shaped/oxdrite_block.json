@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "divinerpg:oxdrite_block"
+  },
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "I": {
+      "item": "divinerpg:oxdrite_ingot"
+    }
+  }
+}

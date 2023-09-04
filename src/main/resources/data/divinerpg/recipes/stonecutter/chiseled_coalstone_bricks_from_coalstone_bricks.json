@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:coalstone_bricks"
+  },
+  "result": "divinerpg:chiseled_coalstone_bricks",
+  "count": 1
+}
+

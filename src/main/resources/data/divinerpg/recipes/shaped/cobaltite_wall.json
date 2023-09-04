@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:cobaltite_wall",
+    "count": 6
+  },
+  "pattern": [
+    "sss",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "divinerpg:cobaltite"
+    }
+  }
+}

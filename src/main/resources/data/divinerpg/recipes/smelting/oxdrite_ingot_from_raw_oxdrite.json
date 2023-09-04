@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:oxdrite_ingot"
+  },
+  "ingredient": {
+    "item": "divinerpg:raw_oxdrite"
+  },
+  "type": "minecraft:smelting",
+  "group": "oxdrite_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}
