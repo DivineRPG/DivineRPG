@@ -9,6 +9,10 @@
     "divinerpg:frozen_stairs",
     "divinerpg:cobbled_frozen_stairs",
     "divinerpg:frozen_brick_stairs",
-    "divinerpg:coalstone_brick_stairs"
+    "divinerpg:coalstone_brick_stairs",
+    "divinerpg:cobaltite_stairs",
+    "divinerpg:polished_coalstone_stairs",
+    "divinerpg:polished_cobaltite_stairs",
+    "divinerpg:cut_oxdrite_stairs"
   ]
 }

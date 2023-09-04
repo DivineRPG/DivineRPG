@@ -6,6 +6,7 @@
     "#forge:storage_blocks/rupee",
     "#forge:storage_blocks/realmite",
     "#forge:storage_blocks/arlemite",
+    "#forge:storage_blocks/oxdrite",
     "#forge:storage_blocks/eden",
     "#forge:storage_blocks/wildwood",
     "#forge:storage_blocks/apalachia",
@@ -16,6 +17,7 @@
     "#forge:storage_blocks/raw_arlemite",
     "#forge:storage_blocks/raw_realmite",
     "#forge:storage_blocks/raw_rupee",
-    "#forge:storage_blocks/raw_torridite"
+    "#forge:storage_blocks/raw_torridite",
+    "#forge:storage_blocks/raw_oxdrite"
   ]
 }

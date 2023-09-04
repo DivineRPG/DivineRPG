@@ -5,6 +5,10 @@
     "divinerpg:cobbled_frozen_pressure_plate",
     "divinerpg:coalstone_pressure_plate",
     "divinerpg:frozen_brick_pressure_plate",
-    "divinerpg:coalstone_brick_pressure_plate"
+    "divinerpg:coalstone_brick_pressure_plate",
+    "divinerpg:cobaltite_pressure_plate",
+    "divinerpg:polished_coalstone_pressure_plate",
+    "divinerpg:polished_cobaltite_pressure_plate",
+    "divinerpg:cut_oxdrite_pressure_plate"
   ]
 }

@@ -40,6 +40,9 @@
     "divinerpg:barred_door",
     "divinerpg:arcana_portal_frame",
     "divinerpg:raw_arcanium",
-    "divinerpg:arcanium_block"
+    "divinerpg:arcanium_block",
+    "divinerpg:oxdrite_ore",
+    "divinerpg:oxdrite_block",
+    "divinerpg:raw_oxdrite_block"
   ]
 }

@@ -10,4 +10,8 @@ public class BlockModPressurePlate extends PressurePlateBlock {
     public BlockModPressurePlate(MapColor color, BlockSetType type) {
         super(Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE).mapColor(color), type);
     }
+
+    public BlockModPressurePlate(BlockBehaviour copy, MapColor color, BlockSetType type) {
+        super(Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(copy).mapColor(color).requiresCorrectToolForDrops(), type);
+    }
 }

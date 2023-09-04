@@ -11,6 +11,10 @@
     "divinerpg:frozen_slab",
     "divinerpg:cobbled_frozen_slab",
     "divinerpg:frozen_brick_slab",
-    "divinerpg:coalstone_brick_slab"
+    "divinerpg:coalstone_brick_slab",
+    "divinerpg:cobaltite_slab",
+    "divinerpg:polished_coalstone_slab",
+    "divinerpg:polished_cobaltite_slab",
+    "divinerpg:cut_oxdrite_slab"
   ]
 }

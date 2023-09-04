@@ -8,10 +8,12 @@
     "divinerpg:arcanite_stone",
     "divinerpg:coalstone",
     "divinerpg:frozen_stone",
+    "divinerpg:cobbled_frozen_stone",
     "divinerpg:milk_stone",
     "divinerpg:divine_rock",
     "divinerpg:dream_stone",
     "divinerpg:soul_sludge_breakable",
-    "divinerpg:frozen_gravel"
+    "divinerpg:frozen_gravel",
+    "divinerpg:cobaltite"
   ]
 }

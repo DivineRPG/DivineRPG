@@ -5,6 +5,10 @@
     "divinerpg:cobbled_frozen_button",
     "divinerpg:coalstone_button",
     "divinerpg:frozen_brick_button",
-    "divinerpg:coalstone_brick_button"
+    "divinerpg:coalstone_brick_button",
+    "divinerpg:cobaltite_button",
+    "divinerpg:polished_coalstone_button",
+    "divinerpg:polished_cobaltite_button",
+    "divinerpg:cut_oxdrite_button"
   ]
 }

@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/slab_top",
+  "render_type": "cutout",
   "textures": {
     "side": "divinerpg:block/cut_oxdrite",
     "top": "divinerpg:block/cut_oxdrite",

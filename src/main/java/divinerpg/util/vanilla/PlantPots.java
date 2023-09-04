@@ -46,6 +46,7 @@ public class PlantPots {
             addPlant(auroraoakSapling, auroraoakSaplingPot);
             addPlant(cozybarkSapling, cozybarkSaplingPot);
             addPlant(divineSapling, divineSaplingPot);
+            addPlant(streamleafSapling, streamleafSaplingPot);
                 }
         );
     }

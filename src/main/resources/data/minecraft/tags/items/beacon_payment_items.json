@@ -24,6 +24,7 @@
     "#forge:ingots/shadow",
     "#forge:ingots/aquatic",
     "#forge:ingots/torridite",
-    "#forge:ingots/hellstone"
+    "#forge:ingots/hellstone",
+    "#forge:ingots/oxdrite"
   ]
 }

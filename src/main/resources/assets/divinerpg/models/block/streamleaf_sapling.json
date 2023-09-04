@@ -2,6 +2,6 @@
   "parent": "block/cross",
   "render_type": "cutout",
   "textures": {
-    "cross": "divinerpg:block/skythern_sapling"
+    "cross": "divinerpg:block/streamleaf_sapling"
   }
 }
