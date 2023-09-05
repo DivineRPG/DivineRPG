@@ -5,7 +5,7 @@ import divinerpg.entities.eden.EntityGlinthop;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
@@ -14,7 +14,7 @@ public class ModelGlinthop<T extends EntityGlinthop> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("glinthop");
 	public final ModelPart Spine, Body, Tail, FrontRightLeg, BackRightLeg, FrontLeftLeg, BackLeftLeg, Head;
 
-	public ModelGlinthop(EntityRendererProvider.Context context) {
+	public ModelGlinthop(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.Spine = root.getChild("Spine");
 		this.Body = this.Spine.getChild("Body");
