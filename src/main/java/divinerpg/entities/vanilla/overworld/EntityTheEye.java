@@ -11,15 +11,17 @@ import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.state.BlockState;
 
 import static divinerpg.registries.SoundRegistry.*;
 
 public class EntityTheEye extends EntityDivineMonster {
 	public EntityTheEye(EntityType<? extends Monster> type, Level level) {super(type, level);}
-	@Override protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 1.75F;}
+	@Override protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 2.25F;}
 	@Override protected SoundEvent getAmbientSound() {return THE_EYE.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return THE_EYE_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return THE_EYE_HURT.get();}
+    @Override protected void playStepSound(BlockPos pos, BlockState state) {}
     @Override public boolean isAggressive() {return true;}
     @Override public boolean isSteppingCarefully() {return true;}
     @Override
