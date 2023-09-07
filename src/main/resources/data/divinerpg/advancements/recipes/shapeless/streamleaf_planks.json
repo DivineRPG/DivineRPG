@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_coalstone": {
+    "has_log": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:polished_coalstone"
-            ]
+            "tag": "forge:wood/streamleaf"
           }
         ]
       },
@@ -15,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/coalstone_bricks"
+        "recipe": "divinerpg:shapeless/streamleaf_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_coalstone",
+      "has_log",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/coalstone_bricks"
+      "divinerpg:shapeless/streamleaf_planks"
     ]
   }
 }

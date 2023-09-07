@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_coalstone": {
+    "has_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:polished_coalstone"
+              "divinerpg:oxdrite_ore"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/coalstone_bricks"
+        "recipe": "divinerpg:smelting/oxdrite_ingot_from_oxdrite_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_coalstone",
+      "has_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/coalstone_bricks"
+      "divinerpg:smelting/oxdrite_ingot_from_oxdrite_ore"
     ]
   }
 }

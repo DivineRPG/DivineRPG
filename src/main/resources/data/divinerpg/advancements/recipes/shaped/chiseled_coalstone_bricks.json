@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "divinerpg:polished_coalstone"
+              "divinerpg:coalstone_brick_slab"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/coalstone_bricks"
+        "recipe": "divinerpg:shaped/chiseled_coalstone_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/coalstone_bricks"
+      "divinerpg:shaped/chiseled_coalstone_bricks"
     ]
   }
 }

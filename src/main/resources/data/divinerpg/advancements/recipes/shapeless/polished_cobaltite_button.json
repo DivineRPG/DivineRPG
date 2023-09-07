@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_coalstone": {
+    "has_polished_cobaltite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:polished_coalstone"
+              "divinerpg:polished_cobaltite"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/coalstone_bricks"
+        "recipe": "divinerpg:shapeless/polished_cobaltite_button"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_coalstone",
+      "has_polished_cobaltite",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/coalstone_bricks"
+      "divinerpg:shapeless/polished_cobaltite_button"
     ]
   }
 }

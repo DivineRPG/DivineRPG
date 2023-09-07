@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:stonecutter/coalstone_bricks"
+        "recipe": "divinerpg:stonecutter/coalstone_bricks_from_coalstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:stonecutter/coalstone_bricks"
+      "divinerpg:stonecutter/coalstone_bricks_from_coalstone"
     ]
   }
 }
