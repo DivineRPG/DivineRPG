@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:glaciline"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:frozen_stone"
+    },
+    {
+      "item": "minecraft:blue_ice"
+    },
+    {
+      "item": "minecraft:blue_ice"
+    },
+    {
+      "item": "minecraft:blue_ice"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

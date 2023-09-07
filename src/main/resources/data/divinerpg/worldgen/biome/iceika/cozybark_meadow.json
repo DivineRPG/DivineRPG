@@ -9,7 +9,7 @@
 		"fog_color": 15400444,
 		"water_color": 7400907,
 		"water_fog_color": 732459,
-		"grass_color": 7407156,
+		"grass_color": 11339602,
 		"foliage_color": 5049648,
 		"music": {
 			"sound": "divinerpg:iceika_music",
@@ -41,17 +41,17 @@
 		[],
 		[
 			"divinerpg:iceika/frozen_light",
-			"divinerpg:iceika/classic_vines_brittle_caves",
+			"divinerpg:iceika/classic_vines_brittle_caves"
+		],
+		[
+			"minecraft:seagrass_warm",
+			"divinerpg:iceika/icicle",
+			"divinerpg:iceika/cozybark_tree",
 			"minecraft:glow_lichen"
 		],
-		[
-			"minecraft:seagrass_warm"
-		],
 		[],
 		[],
-		[
-			"divinerpg:iceika/icicle"
-		],
+		[],
 		[
 			"divinerpg:iceika/snow_coverage",
 			"divinerpg:iceika/hanging_icicle",

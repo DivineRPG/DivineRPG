@@ -27,6 +27,10 @@ public class AuroraoakTree extends DivineTree {
 		return state.is(BlockTags.SNOW) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_dirt"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_stone"))) || state.is(Blocks.PACKED_ICE) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cobbled_frozen_stone")));
 	}
 	@Override
+	public boolean hasSpace(BlockState state) {
+		return state.is(BlockTags.SNOW) || super.hasSpace(state);
+	}
+	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
 			if(level.getBlockState(pos.below()).is(BlockTags.SNOW)) pos = pos.below();

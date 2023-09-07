@@ -165,7 +165,7 @@ public class ItemRegistry {
             sabear_fur = registerItem("sabear_fur", () -> new ItemMod()),
             sabear_tooth = registerItem("sabear_tooth", () -> new ItemMod()),
             snowflake = registerItem("snowflake", () -> new ItemMod()),
-            anthracite = registerItem("anthracite", () -> new ItemMod()),
+            anthracite = registerItem("anthracite", () -> new ItemModFuel(3200)),
             raw_oxdrite = registerItem("raw_oxdrite", () -> new ItemMod()),
             oxdrite_ingot = registerItem("oxdrite_ingot", () -> new ItemMod()),
 

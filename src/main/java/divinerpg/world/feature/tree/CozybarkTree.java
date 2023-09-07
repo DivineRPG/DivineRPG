@@ -1,14 +1,69 @@
 package divinerpg.world.feature.tree;
 
 import divinerpg.world.feature.config.tree.TreeConfig;
+import divinerpg.world.feature.decoration.SnowCoverage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.chunk.*;
+
+import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
 public class CozybarkTree extends ShiverspineTree {
+	@Override
+	protected void setBlock(WorldGenLevel level, BlockPos pos, BlockState state, boolean replace) {
+		MutableBlockPos position = pos.mutable();
+		BlockState s = level.getBlockState(pos);
+		boolean hasSnow = s.is(BlockTags.SNOW);
+		if(hasSnow) {
+			setBlock(level, pos, state.hasProperty(SNOWY) ? state.setValue(SNOWY, true) : state);
+			while(level.getBlockState(position.move(0, 1, 0)).is(BlockTags.SNOW)) setBlock(level, position, Blocks.AIR.defaultBlockState());
+		} else {
+			BlockState st = s;
+			while((s = level.getBlockState(position.move(0, -1, 0))).isAir());
+			if(hasSnow = s.is(BlockTags.SNOW)) {
+				do setBlock(level, position, Blocks.AIR.defaultBlockState());
+				while(level.getBlockState(position.move(0, -1, 0)).is(BlockTags.SNOW));
+			}
+			if(hasSpace(st) || (replace && !st.is(Blocks.BEDROCK))) setBlock(level, pos, hasSnow && state.hasProperty(SNOWY) ? state.setValue(SNOWY, true) : state);
+			else return;
+		}
+		if(hasSnow) {
+			position = pos.mutable();
+			while(!level.getBlockState(position.move(0, 1, 0)).isAir());
+			SnowCoverage.snow(level, level.getRandom(), position);
+		}
+	}
+	@Override
+	protected void setBlockSensitive(WorldGenLevel level, RandomSource random, BlockPos pos, BlockState state, float chance) {
+		if(random.nextFloat() <= chance) {
+			MutableBlockPos position = pos.mutable();
+			BlockState s = level.getBlockState(pos);
+			boolean hasSnow = s.is(BlockTags.SNOW);
+			if(hasSnow) {
+				setBlock(level, pos, state.hasProperty(SNOWY) ? state.setValue(SNOWY, true) : state);
+				while(level.getBlockState(position.move(0, 1, 0)).is(BlockTags.SNOW)) setBlock(level, position, Blocks.AIR.defaultBlockState());
+			} else {
+				BlockState st = s;
+				while((s = level.getBlockState(position.move(0, -1, 0))).isAir());
+				if(hasSnow = s.is(BlockTags.SNOW)) {
+					do setBlock(level, position, Blocks.AIR.defaultBlockState());
+					while(level.getBlockState(position.move(0, -1, 0)).is(BlockTags.SNOW));
+				}
+				if(st.isAir()) setBlock(level, pos, hasSnow && state.hasProperty(SNOWY) ? state.setValue(SNOWY, true) : state);
+				else return;
+			}
+			if(hasSnow) {
+				position = pos.mutable();
+				while(!level.getBlockState(position.move(0, 1, 0)).isAir());
+				SnowCoverage.snow(level, level.getRandom(), position);
+			}
+		}
+	}
 	protected void flatCanopy(WorldGenLevel level, RandomSource random, BlockPos pos, BlockState leaves, int size) {
 		int posX = pos.getX(), posZ = pos.getZ(), y = pos.getY();
 		for(int x = posX - size; x <= posX + size; x++) for(int z = posZ - size; z <= posZ + size; z++) {
@@ -45,7 +100,7 @@ public class CozybarkTree extends ShiverspineTree {
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
-			int treeType = random.nextInt(3) == 0 ? random.nextInt(3) : random.nextInt(2) + 1, treeHeight = switch(treeType) {
+			int treeType = random.nextInt(4) == 0 ? random.nextInt(3) : random.nextInt(2) + 1, treeHeight = switch(treeType) {
 			case 2 -> 13 + random.nextInt(4);
 			case 1 -> 9 + random.nextInt(6);
 			default -> 5 + random.nextInt(5);

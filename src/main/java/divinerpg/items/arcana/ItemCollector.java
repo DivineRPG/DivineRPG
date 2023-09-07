@@ -1,7 +1,7 @@
 package divinerpg.items.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ItemModFuel;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -11,18 +11,14 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.Nullable;
 
-public class ItemCollector extends ItemMod {
-
+public class ItemCollector extends ItemModFuel {
     public ItemCollector() {
-        super();
+        super(100);
     }
-
     @Override
     public InteractionResult useOn(UseOnContext ctx) {
         Level world = ctx.getLevel();
@@ -41,9 +37,5 @@ public class ItemCollector extends ItemMod {
             }
         }
         return InteractionResult.FAIL;
-    }
-    @Override
-    public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
-    	return 100;
     }
 }

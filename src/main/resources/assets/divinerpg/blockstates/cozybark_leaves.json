@@ -1,9 +1,10 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/cozybark_leaves"
-      }
+  "variants": {
+    "snowy=false": {
+      "model": "divinerpg:block/cozybark_leaves"
+    },
+    "snowy=true": {
+      "model": "divinerpg:block/snowy_cozybark_leaves"
     }
-  ]
+  }
 }

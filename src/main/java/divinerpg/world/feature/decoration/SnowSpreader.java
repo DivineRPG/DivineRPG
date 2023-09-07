@@ -58,6 +58,7 @@ public class SnowSpreader extends Feature<NoneFeatureConfiguration> {
 				else if(state.is(BlockTags.ICE) || !state.isCollisionShapeFullBlock(level, pos) && !state.is(Blocks.SNOW)) return;
 				else {
 					if(state.is(BlockTags.LEAVES)) depth -= .2;
+					if(state.hasProperty(BlockStateProperties.SNOWY)) SnowCoverage.snowLog(level, pos, state.setValue(BlockStateProperties.SNOWY, true), new boolean[]{level.getBlockState(pos.north()).isAir(), level.getBlockState(pos.south()).isAir(), level.getBlockState(pos.east()).isAir(), level.getBlockState(pos.west()).isAir()});
 					if(state.is(Blocks.SNOW)) {
 						depth += .125 * state.getValue(BlockStateProperties.LAYERS);
 						if(depth >= 1D) {
@@ -71,7 +72,7 @@ public class SnowSpreader extends Feature<NoneFeatureConfiguration> {
 					}
 					pos.move(0, 1, 0);
 					if(depth >= 1D) {
-						state = depth >= 2D && random.nextFloat() >= .07F ? Blocks.POWDER_SNOW.defaultBlockState() : Blocks.SNOW_BLOCK.defaultBlockState();
+						state = depth >= 2D && random.nextFloat() >= .05F ? Blocks.POWDER_SNOW.defaultBlockState() : Blocks.SNOW_BLOCK.defaultBlockState();
 						int i, k = (int) depth;
 						for(i = 0; i < k; i++) if(level.getBlockState(pos).isAir()) {
 							level.setBlock(pos, state, 3);
