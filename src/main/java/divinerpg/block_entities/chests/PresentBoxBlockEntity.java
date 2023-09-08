@@ -17,4 +17,9 @@ public class PresentBoxBlockEntity extends ModChestBlockEntity {
     public String getChestName() {
         return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "present_box")).getDescriptionId();
     }
+
+    @Override
+    public int getContainerSize() {
+        return 27;
+    }
 }
