@@ -67,6 +67,7 @@ public class BlockRegistry {
             arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_BLUE))),
             soulSludge = registerBlock("soul_sludge", () -> new BlockModUnbreakable(Properties.copy(Blocks.SOUL_SAND).strength(-1F, 3600000F).mapColor(MapColor.COLOR_GRAY))),
             soulSludgeBreakable = registerBlock("soul_sludge_breakable", () -> new BlockMod(Properties.copy(Blocks.SOUL_SAND).mapColor(MapColor.COLOR_GRAY))),
+            glaciline = registerBlock("glaciline", () -> new BlockMod(Block.Properties.copy(Blocks.PACKED_ICE))),
 
             //Moss
             brittleMoss = registerBlock("brittle_moss", () -> new BlockBrittleMoss()),
@@ -92,7 +93,6 @@ public class BlockRegistry {
             cobaltitePressurePlate = registerBlock("cobaltite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_LIGHT_BLUE, BlockSetType.STONE)),
             cobaltiteButton = registerBlock("cobaltite_button", () -> new BlockModButton(BlockSetType.STONE)),
             icyStone = registerBlock("icy_stone", () -> new BlockMod(GLOW_LICHEN, 50F, 1200F)),
-            glaciline = registerBlock("glaciline", () -> new BlockMod(Block.Properties.copy(Blocks.PACKED_ICE))),
             blueStone = registerBlock("blue_stone", () -> new BlockLightCrystal(COLOR_LIGHT_BLUE)),
             icicle = registerBlock("icicle", () -> new BlockIcicle()),
             coalstone = registerBlock("coalstone", () -> new BlockMod(COLOR_GRAY, 1.5F, 6F)),

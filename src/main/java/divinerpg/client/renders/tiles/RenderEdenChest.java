@@ -19,12 +19,11 @@ public class RenderEdenChest implements BlockEntityRenderer<EdenChestBlockEntity
     @Override
     public void render(EdenChestBlockEntity tile, float partialTick, PoseStack matrix, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         matrix.pushPose();
-        if (!tile.isRemoved()) {
-            matrix.translate(0.5D, 0.5D, 0.5D);
-            matrix.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(BlockModChest.FACING).toYRot()));
-            matrix.mulPose(Axis.XN.rotationDegrees(180));
-            matrix.translate(-0.5D, -0.5D, -0.5D);
-        }
+        matrix.translate(0.5D, 0.5D, 0.5D);
+        matrix.mulPose(Axis.YP.rotationDegrees(-tile.getBlockState().getValue(BlockModChest.FACING).toYRot()));
+        matrix.mulPose(Axis.XN.rotationDegrees(180));
+        matrix.translate(-0.5D, -0.5D, -0.5D);
+
         float lidAngle = tile.getOpenNess(partialTick);
         lidAngle = 1.0F - lidAngle;
         lidAngle = 1.0F - lidAngle * lidAngle * lidAngle;

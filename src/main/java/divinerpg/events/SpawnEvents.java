@@ -88,8 +88,8 @@ public class SpawnEvents {
     	registerAirSpawn(e, ENDER_TRIPLETS.get(), EntityEnderTriplets::enderTripletSpawnRule);
     	registerMonsterSpawn(e, ENDER_WATCHER.get());
     	//Iceika
-    	registerAirSpawn(e, ALICANTO.get());
-    	registerAirSpawn(e, FRACTITE.get());
+		registerMonsterSpawn(e, ALICANTO.get());
+		registerMonsterSpawn(e, FRACTITE.get());
     	registerMonsterSpawn(e, PALE_ARCHER.get());
     	registerMonsterSpawn(e, FROZEN_FLESH.get());
     	registerMonsterSpawn(e, GLACIDE.get());
@@ -101,8 +101,8 @@ public class SpawnEvents {
 		registerMonsterSpawn(e, GROGLIN.get());
 		registerMonsterSpawn(e, GRUZZORLUG.get());
 		registerMonsterSpawn(e, SABEAR.get());
-		registerAirSpawn(e, ROBBIN.get());
-		registerMonsterSpawn(e, WOLPERTINGER.get());
+		registerMobSpawn(e, ROBBIN.get());
+		registerMobSpawn(e, WOLPERTINGER.get());
 		//Eden
     	registerMobSpawn(e, GLINTHOP.get());
     	registerMonsterSpawn(e, EDEN_CADILLION.get());
