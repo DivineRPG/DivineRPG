@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 
 public class BlockModDoublePlant extends DoublePlantBlock {
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
-    private Supplier<Block> grassSupplier;
+    private final Supplier<Block> grassSupplier;
 
     public BlockModDoublePlant(Supplier<Block> grassSupplier, MapColor colour) {
         super(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).replaceable().mapColor(colour).noOcclusion().instabreak().sound(SoundType.ROOTS).offsetType(BlockBehaviour.OffsetType.XZ).noCollission().randomTicks());
@@ -32,6 +32,7 @@ public class BlockModDoublePlant extends DoublePlantBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
+    @Override
     public BlockState updateShape(BlockState p_196271_1_, Direction p_196271_2_, BlockState p_196271_3_, LevelAccessor p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_) {
         DoubleBlockHalf doubleblockhalf = p_196271_1_.getValue(HALF);
         if (p_196271_2_.getAxis() != Direction.Axis.Y || doubleblockhalf == DoubleBlockHalf.LOWER != (p_196271_2_ == Direction.UP) || p_196271_3_.is(this) && p_196271_3_.getValue(HALF) != doubleblockhalf) {
@@ -41,16 +42,19 @@ public class BlockModDoublePlant extends DoublePlantBlock {
         }
     }
 
+    @Override
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext p_196258_1_) {
         BlockPos blockpos = p_196258_1_.getClickedPos();
         return blockpos.getY() < 255 && p_196258_1_.getLevel().getBlockState(blockpos.above()).canBeReplaced(p_196258_1_) ? super.getStateForPlacement(p_196258_1_) : null;
     }
 
+    @Override
     public void setPlacedBy(Level p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, LivingEntity p_180633_4_, ItemStack p_180633_5_) {
         p_180633_1_.setBlock(p_180633_2_.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER), 3);
     }
 
+    @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
             return super.canSurvive(state, level, pos);
@@ -61,23 +65,18 @@ public class BlockModDoublePlant extends DoublePlantBlock {
         }
     }
 
-    public void placeAt(LevelAccessor p_196390_1_, BlockPos p_196390_2_, int p_196390_3_) {
-        p_196390_1_.setBlock(p_196390_2_, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.LOWER), p_196390_3_);
-        p_196390_1_.setBlock(p_196390_2_.above(), this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER), p_196390_3_);
-    }
-
+    @Override
     public void playerWillDestroy(Level p_176208_1_, BlockPos p_176208_2_, BlockState p_176208_3_, Player p_176208_4_) {
         if (!p_176208_1_.isClientSide) {
             if (p_176208_4_.isCreative()) {
                 preventCreativeDropFromBottomPart(p_176208_1_, p_176208_2_, p_176208_3_, p_176208_4_);
-            } else {
-                dropResources(p_176208_3_, p_176208_1_, p_176208_2_, (BlockEntity)null, p_176208_4_, p_176208_4_.getMainHandItem());
             }
         }
 
         super.playerWillDestroy(p_176208_1_, p_176208_2_, p_176208_3_, p_176208_4_);
     }
 
+    @Override
     public void playerDestroy(Level p_180657_1_, Player p_180657_2_, BlockPos p_180657_3_, BlockState p_180657_4_, @Nullable BlockEntity p_180657_5_, ItemStack p_180657_6_) {
         super.playerDestroy(p_180657_1_, p_180657_2_, p_180657_3_, Blocks.AIR.defaultBlockState(), p_180657_5_, p_180657_6_);
     }
@@ -94,6 +93,7 @@ public class BlockModDoublePlant extends DoublePlantBlock {
         }
 
     }
+
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         BlockState soil = worldIn.getBlockState(pos);
@@ -102,10 +102,6 @@ public class BlockModDoublePlant extends DoublePlantBlock {
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(HALF);
-    }
-
-    public BlockBehaviour.OffsetType getOffsetType() {
-        return BlockBehaviour.OffsetType.XZ;
     }
 
     @Override
