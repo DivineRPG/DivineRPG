@@ -285,7 +285,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntitySoulSpider>>	    SOUL_SPIDER 	     = registerEntity(EntitySoulSpider::new, 	    "soul_spider", 	        0.4F, 0.4375F, 0x060505, 0x452827);
     public static final RegistryObject<EntityType<EntityBasilisk>>		    BASILISK 		     = registerEntity(EntityBasilisk::new, 	        "basilisk", 		        0.7F, 0.8F, 0x424242, 0x5f5f5f);
     public static final RegistryObject<EntityType<EntityDemonOfDarkness>>   DEMON_OF_DARKNESS    = registerEntity(EntityDemonOfDarkness::new,   "demon_of_darkness",      0.8F, 1.6F, 0x090909, 0x202020);
-    public static final RegistryObject<EntityType<EntitySoulStealer>>	    SOUL_STEALER 	     = registerEntity(EntitySoulStealer::new, 	    "soul_stealer", 	        0.8F, 2.0F, 0x211111, 0x2f2d2d);
+    public static final RegistryObject<EntityType<EntitySoulStealer>>	    SOUL_STEALER 	     = registerEntity(EntitySoulStealer::new, 	    "soul_stealer", 	        1.3F, 2.125F, 0xffffff, 0xffffff);
     public static final RegistryObject<EntityType<EntityTwilightArcher>>    TWILIGHT_ARCHER      = registerEntity(EntityTwilightArcher::new,    "twilight_archer",        1.8F, 3.0F, 0x200306, 0x670710);
     public static final RegistryObject<EntityType<EntitySorcerer>>		    SORCERER 		     = registerEntity(EntitySorcerer::new, 	        "sorcerer", 		        0.9F, 2.2F, 0x4f1014, 0xa82732);
 
@@ -945,7 +945,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(MORTUM_CADILLION.get(), (Context context) -> new RenderDivineMob<>(context, "mortum_cadillion",  new ModelCadillion<>(context), 0.7F));
         event.registerEntityRenderer(SORCERER.get(),		 (Context context) -> new RenderDivineMob<>(context, "sorcerer",  new ModelSorcerer<>(context)));
         event.registerEntityRenderer(SOUL_SPIDER.get(),		 (Context context) -> new RenderDivineMob<>(context, "soul_spider", new ModelSoulSpider<>(context), 0.3F));
-        event.registerEntityRenderer(SOUL_STEALER.get(),	 (Context context) -> new RenderDivineMob<>(context, "soul_stealer", new ModelSoulStealer<>(context)));
+        event.registerEntityRenderer(SOUL_STEALER.get(),	 (Context context) -> new RenderDivineMob<>(context, "soul_stealer", new ModelSoulStealer(context)));
         event.registerEntityRenderer(TWILIGHT_ARCHER.get(),  RenderTwilightArcher::new);
 
         //Arcana

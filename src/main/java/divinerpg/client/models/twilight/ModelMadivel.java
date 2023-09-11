@@ -2,10 +2,11 @@ package divinerpg.client.models.twilight;
 
 import com.mojang.blaze3d.vertex.*;
 import divinerpg.entities.eden.EntityMadivel;
-import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
@@ -81,15 +82,20 @@ public class ModelMadivel extends EntityModel<EntityMadivel> {
 		this.Sun2.x = this.EdenSpirit.x + sun2OffsetX;
 		this.Sun2.z = this.EdenSpirit.z + sun2OffsetZ;
 
-		this.RightArm.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 2.0F * limbSwingAmount * 0.5F);
-		this.LeftArm.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F);
+		this.RightArm.yRot = 0.0F;
+		this.LeftArm.yRot = 0.0F;
+		this.RightArm.zRot = 0.0F;
+		this.LeftArm.zRot = 0.0F;
+		AnimationUtils.bobModelPart(this.RightArm, ageInTicks, 1.0F);
+		AnimationUtils.bobModelPart(this.LeftArm, ageInTicks, -1.0F);
 		this.RightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
 		this.LeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
 
 	}
 
 	@Override
-	public void prepareMobModel(EntityMadivel entity, float limbSwing, float limbSwingAmount, float partialTick) {
+	public void prepareMobModel(EntityMadivel entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
+		super.prepareMobModel(entity, limbSwing, limbSwingAmount, ageInTicks);
 		float healthFraction = entity.getHealth() / entity.getMaxHealth();
 		if (healthFraction < 1.0 / 3.0) {
 			this.Sun1.visible = false;
@@ -100,6 +106,14 @@ public class ModelMadivel extends EntityModel<EntityMadivel> {
 		} else {
 			this.Sun1.visible = true;
 			this.Sun2.visible = true;
+		}
+		int i = entity.getAttackAnimationTick();
+		if (i > 0) {
+			this.RightArm.xRot = -1.5F + 1.5F * Mth.triangleWave((float)i - ageInTicks, 10.0F);
+			this.LeftArm.xRot = -1.5F + 1.5F * Mth.triangleWave((float)i - ageInTicks, 10.0F);
+		} else {
+			this.RightArm.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 2.0F * limbSwingAmount * 0.5F);
+			this.LeftArm.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F);
 		}
 	}
 
