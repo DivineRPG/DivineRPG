@@ -67,7 +67,7 @@ public class BlockRegistry {
             arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_BLUE))),
             soulSludge = registerBlock("soul_sludge", () -> new BlockModUnbreakable(Properties.copy(Blocks.SOUL_SAND).strength(-1F, 3600000F).mapColor(MapColor.COLOR_GRAY))),
             soulSludgeBreakable = registerBlock("soul_sludge_breakable", () -> new BlockMod(Properties.copy(Blocks.SOUL_SAND).mapColor(MapColor.COLOR_GRAY))),
-            glaciline = registerBlock("glaciline", () -> new BlockMod(Block.Properties.copy(Blocks.PACKED_ICE))),
+            glaciline = registerBlock("glaciline", () -> new BlockMod(Properties.copy(Blocks.BLUE_ICE).mapColor(COLOR_LIGHT_BLUE).friction(0.992F))),
 
             //Moss
             brittleMoss = registerBlock("brittle_moss", () -> new BlockBrittleMoss()),
@@ -105,7 +105,7 @@ public class BlockRegistry {
             arcaniteStone = registerBlock("arcanite_stone", () -> new BlockMod(COLOR_LIGHT_BLUE, 1.5F, 6F)),
             twilightStone = registerBlock("twilight_stone", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 1.5F, 6F)),
             divineMossStone = registerBlock("divine_moss_stone", () -> new BlockMod(STONE, 2F, 6F)),
-            divineRock = registerBlock("divine_rock", () -> new BlockMod(GOLD, 1.5F, 6F)),
+            divineRock = registerBlock("divine_rock", () -> new BlockMod(TERRACOTTA_YELLOW, 1.5F, 6F)),
             everstone = registerBlock("everstone", () -> new BlockModUnbreakable(PLANT)),
             whiteEverstone = registerBlock("white_everstone", () -> new BlockModUnbreakable(WOOL)),
             darkEverstone = registerBlock("dark_everstone", () -> new BlockModUnbreakable(COLOR_BLACK)),
@@ -624,7 +624,7 @@ public class BlockRegistry {
             weedwoodVine = registerBlock("weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),
             blossomedWeedwoodVine = registerBlock("blossomed_weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),
             edenBrush = registerBlock("eden_brush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eden_grass")), COLOR_YELLOW)),
-            sunBlossom = registerBlock("sun_blossom", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eden_grass")), 0.9, 0.6, COLOR_YELLOW)),
+            sunBlossom = registerBlock("sun_blossom", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eden_grass")), 0.9, 0.6, PLANT)),
             sunbloom = registerBlock("sunbloom", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eden_grass")), TERRACOTTA_YELLOW)),
             moonlightFern = registerBlock("moonlight_fern", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "wildwood_grass")), COLOR_LIGHT_BLUE)),
             moonBud = registerBlock("moon_bud", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "wildwood_grass")), 0.8, 0.7, COLOR_LIGHT_BLUE)),

@@ -46,4 +46,9 @@ public class EntityMoonWolf extends Wolf {
     public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;
     }
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return !isTame();
+    }
 }

@@ -1,13 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_coal": {
+    "has_sunbloom": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:coal",
-              "minecraft:charcoal"
+              "divinerpg:sunbloom"
             ]
           }
         ]
@@ -16,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/skeleton_torch"
+        "recipe": "divinerpg:shapeless/orange_dye_from_sunbloom"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_coal",
+      "has_sunbloom",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/skeleton_torch"
+      "divinerpg:shapeless/orange_dye_from_sunbloom"
     ]
   }
 }

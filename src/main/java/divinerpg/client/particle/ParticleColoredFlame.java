@@ -66,7 +66,6 @@ public class ParticleColoredFlame extends RisingParticle {
         public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
             ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0, 1.0F, 1.0F, sprites);
             particle.pickSprite(this.sprites);
-            particle.setColor(0, 1, 1);
             return particle;
         }
     }
@@ -79,9 +78,8 @@ public class ParticleColoredFlame extends RisingParticle {
         }
 
         public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0, 0F, 0F, sprites);
+            ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0.4F, 0.4F, 0.4F, sprites);
             particle.pickSprite(this.sprites);
-            particle.setColor(0, 0, 0);
             return particle;
         }
     }
@@ -94,9 +92,8 @@ public class ParticleColoredFlame extends RisingParticle {
         }
 
         public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0.466F, 0.866F, 0.466F, sprites);
+            ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0.627F, 0.12549F, 0.941F, sprites);
             particle.pickSprite(this.sprites);
-            particle.setColor(0.627F, 0.12549F, 0.941F);
             return particle;
         }
     }
@@ -109,9 +106,8 @@ public class ParticleColoredFlame extends RisingParticle {
         }
 
         public Particle createParticle(SimpleParticleType type, ClientLevel world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed) {
-            ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0.627F, 0.12549F, 0.941F, sprites);
+            ParticleColoredFlame particle = new ParticleColoredFlame(world, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 0.466F, 0.866F, 0.466F, sprites);
             particle.pickSprite(this.sprites);
-            particle.setColor(0.466F, 0.866F, 0.466F);
             return particle;
         }
     }

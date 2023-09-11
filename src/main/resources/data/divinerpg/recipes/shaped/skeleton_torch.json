@@ -9,9 +9,14 @@
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
-    "x": {
-      "item": "minecraft:coal"
-    },
+    "x": [
+      {
+        "item": "minecraft:coal"
+      },
+      {
+        "item": "minecraft:charcoal"
+      }
+    ],
     "y": {
       "item": "minecraft:bone"
     }

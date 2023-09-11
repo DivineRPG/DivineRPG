@@ -2,5 +2,17 @@
   "parent": "item/handheld",
   "textures": {
     "layer0": "divinerpg:item/eden_blade"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -45, -90, 0 ],
+      "translation": [ 0, 6, 1 ],
+      "scale": [ 1.0, 1.0, 1.0 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -45, 90, 0 ],
+      "translation": [ 0, 6, 1 ],
+      "scale": [ 1.0, 1.0, 1.0 ]
+    }
   }
 }

@@ -228,4 +228,8 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     public boolean canMate(Animal animal) {
         return false;
     }
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return !isTame();
+    }
 }
