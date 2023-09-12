@@ -30,19 +30,35 @@ public class BlockCozybarkLeaves extends BlockModLeaves {
 	@Override
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		ItemStack stack = player.getItemInHand(hand);
-		if(state.getValue(BlockStateProperties.SNOWY) && stack.is(Items.BUCKET)) {
-			if(level.isClientSide()) player.playSound(SoundEvents.BUCKET_FILL_POWDER_SNOW);
-			else {
-				if(!player.isCreative()) stack.shrink(1);
-				player.addItem(new ItemStack(Items.POWDER_SNOW_BUCKET));
-				level.setBlock(pos, state.setValue(BlockStateProperties.SNOWY, false), UPDATE_ALL);
+		if(stack.is(Items.BUCKET) && (state.getValue(BlockStateProperties.SNOWY) || state.getValue(BlockStateProperties.WATERLOGGED))) {
+			if(level.isClientSide()) {
+				if(state.getValue(BlockStateProperties.SNOWY)) player.playSound(SoundEvents.BUCKET_FILL_POWDER_SNOW);
+				else player.playSound(SoundEvents.BUCKET_FILL);
+			} else {
+				if(!player.isCreative()) {
+					stack.shrink(1);
+					if(state.getValue(BlockStateProperties.SNOWY)) player.addItem(new ItemStack(Items.POWDER_SNOW_BUCKET));
+					else player.addItem(new ItemStack(Items.WATER_BUCKET));
+				}
+				level.setBlock(pos, state.setValue(BlockStateProperties.SNOWY, false).setValue(BlockStateProperties.WATERLOGGED, false), UPDATE_ALL);
 			} return InteractionResult.SUCCESS;
-		} else if(!state.getValue(BlockStateProperties.SNOWY) && stack.is(Items.POWDER_SNOW_BUCKET)) {
+		} else if(stack.is(Items.POWDER_SNOW_BUCKET) && !state.getValue(BlockStateProperties.SNOWY) && !state.getValue(BlockStateProperties.WATERLOGGED)) {
 			if(level.isClientSide()) player.playSound(SoundEvents.BUCKET_EMPTY_POWDER_SNOW);
 			else {
-				if(!player.isCreative()) stack.shrink(1);
-				player.addItem(new ItemStack(Items.BUCKET));
+				if(!player.isCreative()) {
+					stack.shrink(1);
+					player.addItem(new ItemStack(Items.BUCKET));
+				}
 				level.setBlock(pos, state.setValue(BlockStateProperties.SNOWY, true), UPDATE_ALL);
+			} return InteractionResult.SUCCESS;
+		} else if(stack.is(Items.WATER_BUCKET) && !state.getValue(BlockStateProperties.WATERLOGGED)) {
+			if(level.isClientSide()) player.playSound(SoundEvents.BUCKET_EMPTY);
+			else {
+				if(!player.isCreative()) {
+					stack.shrink(1);
+					player.addItem(new ItemStack(Items.BUCKET));
+				}
+				level.setBlock(pos, state.setValue(BlockStateProperties.WATERLOGGED, true), UPDATE_ALL);
 			} return InteractionResult.SUCCESS;
 		} return InteractionResult.PASS;
 	}
