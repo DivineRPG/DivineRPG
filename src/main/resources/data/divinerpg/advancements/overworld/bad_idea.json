@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:skeleton_skull"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.overworld.bad_idea"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.overworld.bad_idea.desc"
+    },
+    "announce_to_chat": false
+  },
+  "parent": "divinerpg:overworld/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "structure": "divinerpg:ancient_tomb"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
