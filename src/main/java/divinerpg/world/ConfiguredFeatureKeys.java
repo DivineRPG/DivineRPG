@@ -44,6 +44,7 @@ public final class ConfiguredFeatureKeys {
 			SHIVERSPINE_TREE = registerKey("shiverspine_tree"),
 			AURORAOAK_TREE = registerKey("auroraoak_tree"),
 			COZYBARK_TREE = registerKey("cozybark_tree"),
+			FRACTAL_TREE = registerKey("fractal_tree"),
 			SHIVERSPINE_BUSH = registerKey("shiverspine_bush"),
 			GEOTHERMAL_POND = registerKey("geothermal_pond"),
 			GLACIAL_POND = registerKey("glacial_pond"),
@@ -105,6 +106,7 @@ public final class ConfiguredFeatureKeys {
 		register(context, WHALE_SKELETON, FeatureRegistry.WHALE_SKELETON.get(), NoneFeatureConfiguration.INSTANCE);
 		register(context, SNOW_COVERAGE, FeatureRegistry.SNOW_COVERAGE.get(), NoneFeatureConfiguration.INSTANCE);
 		register(context, SNOW_SPREADER, FeatureRegistry.SNOW_SPREADER.get(), NoneFeatureConfiguration.INSTANCE);
+		register(context, FRACTAL_TREE, FeatureRegistry.FRACTAL_TREE.get(), new TreeConfig(Blocks.PACKED_ICE.defaultBlockState(), Blocks.ICE.defaultBlockState(), ImmutableList.of()));
 
 		//Arcana
 		register(context, ARCANA_DUNGEON, FeatureRegistry.ARCANA_DUNGEON.get(), NoneFeatureConfiguration.INSTANCE);

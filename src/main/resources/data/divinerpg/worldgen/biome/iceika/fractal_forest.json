@@ -40,17 +40,14 @@
 			"minecraft:iceberg_packed",
 			"minecraft:iceberg_blue"
 		],
-		[
-			"divinerpg:iceika/glacial_pond"
-		],
+		[],
 		[
 			"minecraft:blue_ice"
 		],
 		[
 			"minecraft:ice_patch",
 			"minecraft:pile_ice",
-			"minecraft:pile_snow",
-			"divinerpg:iceika/frozen_light"
+			"minecraft:pile_snow"
 		],
 		[
 			"minecraft:seagrass_simple"
@@ -59,10 +56,14 @@
 		[],
 		[
 			"divinerpg:iceika/icicle",
-			"divinerpg:iceika/snow_coverage"
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/fractal_tree",
+			"minecraft:ice_spike",
+			"divinerpg:iceika/glaciline_pile",
+			"divinerpg:iceika/shiverspine_bush",
+			"divinerpg:iceika/frozen_light"
 		],
 		[
-			"divinerpg:iceika/snow_coverage",
 			"divinerpg:iceika/hanging_icicle",
 			"divinerpg:iceika/snow_spreader"
 		]

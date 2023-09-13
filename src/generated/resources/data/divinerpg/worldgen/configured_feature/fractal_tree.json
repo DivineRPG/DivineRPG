@@ -1,0 +1,12 @@
+{
+  "type": "divinerpg:fractal_tree",
+  "config": {
+    "can_grow_on": [],
+    "leaves": {
+      "Name": "minecraft:ice"
+    },
+    "log": {
+      "Name": "minecraft:packed_ice"
+    }
+  }
+}

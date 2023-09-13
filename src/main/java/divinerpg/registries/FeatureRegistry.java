@@ -41,7 +41,8 @@ public class FeatureRegistry {
     public static final RegistryObject<Feature<TreeConfig>>
     	SHIVERSPINE_TREE = FEATURES.register("shiverspine_tree", () -> new ShiverspineTree()),
     	AURORAOAK_TREE = FEATURES.register("auroraoak_tree", () -> new AuroraoakTree()),
-    	COZYBARK_TREE = FEATURES.register("cozybark_tree", () -> new CozybarkTree());
+    	COZYBARK_TREE = FEATURES.register("cozybark_tree", () -> new CozybarkTree()),
+    	FRACTAL_TREE = FEATURES.register("fractal_tree", () -> new FractalTree());
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>
     	THERMAL_VENT = FEATURES.register("thermal_vent", () -> new ThermalVent()),
     	BRITTLE_PLANTS = FEATURES.register("brittle_plants", () -> new BrittlePlants()),

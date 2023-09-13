@@ -119,7 +119,7 @@
 					"parameters": {
 						"temperature":		[ -1.75, -1.5 ],
 						"humidity":			[ -0.75, -0.25 ],
-						"continentalness":	[ 0, 0.5 ],
+						"continentalness":	[ 0.2, 0.5 ],
 						"erosion":			[ -1, -0.75 ],
 						"weirdness":		[ -0.75, 0 ],
 						"depth": 0,

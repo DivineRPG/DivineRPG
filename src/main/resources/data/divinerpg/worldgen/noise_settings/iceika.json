@@ -572,7 +572,8 @@
 													"divinerpg:iceika/ice_spikes",
 													"divinerpg:iceika/snowy_peaks",
 													"divinerpg:iceika/frozen_peaks",
-													"divinerpg:iceika/chill_passage"
+													"divinerpg:iceika/chill_passage",
+													"divinerpg:iceika/fractal_forest"
 												]
 											},
 											"then_run": {
