@@ -88,19 +88,19 @@ public class GeothermalPond extends Feature<RuleTestConfig> {
 			}
 			else if(random.nextFloat() < 0.2F) setBlock(level, pos.below(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "coalstone")).defaultBlockState());
 			else if(random.nextFloat() < 0.05F) setBlock(level, pos.below(), Blocks.OBSIDIAN.defaultBlockState());
-			else setBlock(level, pos.below(), Blocks.STONE.defaultBlockState());
+			else setBlock(level, pos.below(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_gravel")).defaultBlockState());
 		}
 	}
 	protected void genShallow(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		pos = pos.below();
 		if(random.nextFloat() < 0.3F) setBlock(level, pos, Blocks.CLAY.defaultBlockState());
 		else if(random.nextFloat() < 0.4F) setBlock(level, pos, Blocks.GRAVEL.defaultBlockState());
-		else setBlock(level, pos, Blocks.STONE.defaultBlockState());
+		else setBlock(level, pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_gravel")).defaultBlockState());
 	}
 	protected void genEdge(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		if(random.nextFloat() < 0.4F) setBlock(level, pos, Blocks.CLAY.defaultBlockState());
 		else if(random.nextFloat() < 0.3F) setBlock(level, pos, Blocks.GRAVEL.defaultBlockState());
-		else if(random.nextFloat() < 0.1F) setBlock(level, pos, Blocks.STONE.defaultBlockState());
-		else setBlock(level, pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_stone")).defaultBlockState());
+		else if(random.nextFloat() < 0.1F) setBlock(level, pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_gravel")).defaultBlockState());
+		else setBlock(level, pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cobbled_frozen_stone")).defaultBlockState());
 	}
 }

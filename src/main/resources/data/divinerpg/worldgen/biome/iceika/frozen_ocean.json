@@ -110,6 +110,10 @@
 		],
 		[
 			"minecraft:ice_patch",
+			"divinerpg:iceika/ice_floor",
+			"divinerpg:iceika/frozen_boulder",
+			"minecraft:pile_ice",
+			"divinerpg:iceika/ice_pile",
 			"divinerpg:iceika/frozen_light",
 			"divinerpg:iceika/icicle"
 		],

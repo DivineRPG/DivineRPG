@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:twilight_stone",
+    "divinerpg:frozen_stone",
+    "divinerpg:cobbled_frozen_stone",
+    "divinerpg:frozen_gravel"
+  ]
+}

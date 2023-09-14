@@ -49,6 +49,7 @@
 		[
 			"minecraft:ice_patch",
 			"minecraft:pile_ice",
+			"divinerpg:iceika/ice_pile",
 			"divinerpg:iceika/frozen_light",
 			"divinerpg:iceika/pointed_dripstone"
 		],

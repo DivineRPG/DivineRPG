@@ -86,7 +86,7 @@
 						"continentalness":	[ 0.125, 0.365 ],
 						"erosion":			[ -1, 0 ],
 						"weirdness": 1,
-						"depth": -0.5,
+						"depth": -0.4,
 						"offset": 0
 					}
 				},
@@ -203,7 +203,7 @@
 					"parameters": {
 						"temperature":		[ -2, 0 ],
 						"humidity":			[ -1, 1 ],
-						"continentalness":	[ -0.8, -0.48 ],
+						"continentalness":	[ -0.8, -0.5 ],
 						"erosion":			[ -1, 1 ],
 						"weirdness":		[ -1, 1 ],
 						"depth": 0,
@@ -254,8 +254,8 @@
 						"continentalness":	[ -1, 1 ],
 						"erosion":			[ -0.625, -0.375 ],
 						"weirdness":		[ -1, -0.625 ],
-						"depth": 0.5,
-						"offset": 0
+						"depth": 0.52,
+						"offset": 0.1
 					}
 				},
 				{

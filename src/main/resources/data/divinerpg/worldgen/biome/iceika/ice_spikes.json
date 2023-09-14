@@ -92,7 +92,9 @@
 		[
 			"minecraft:ice_spike",
 			"minecraft:ice_patch",
+			"divinerpg:iceika/ice_floor",
 			"minecraft:pile_ice",
+			"divinerpg:iceika/ice_pile",
 			"minecraft:pile_snow",
 			"divinerpg:iceika/frozen_light",
 			"divinerpg:iceika/pointed_dripstone"

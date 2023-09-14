@@ -1,0 +1,54 @@
+{
+  "type": "divinerpg:blob",
+  "config": {
+    "block": {
+    	"type": "minecraft:weighted_state_provider",
+		"entries": [
+			{
+				"weight": 1,
+				"data": {
+					"Name": "divinerpg:cobbled_frozen_stone"
+				}
+			},
+			{
+				"weight": 2,
+				"data": {
+					"Name": "divinerpg:frozen_stone"
+				}
+			}
+		]
+    },
+    "max_size": 4,
+    "min_size": 2,
+    "replace": [
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "minecraft:air"
+    	},
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "minecraft:water"
+    	},
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "minecraft:ice"
+    	},
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "minecraft:packed_ice"
+    	},
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "divinerpg:frozen_grass"
+    	},
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "divinerpg:frozen_gravel"
+    	},
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "divinerpg:frozen_dirt"
+    	}
+    ]
+  }
+}

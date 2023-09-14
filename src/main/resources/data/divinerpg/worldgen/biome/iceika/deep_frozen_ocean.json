@@ -109,6 +109,9 @@
 			"minecraft:blue_ice"
 		],
 		[
+			"divinerpg:iceika/frozen_boulder",
+			"minecraft:pile_ice",
+			"divinerpg:iceika/ice_pile",
 			"divinerpg:iceika/frozen_light",
 			"divinerpg:iceika/icicle",
 			"divinerpg:iceika/classic_vines_brittle_caves",

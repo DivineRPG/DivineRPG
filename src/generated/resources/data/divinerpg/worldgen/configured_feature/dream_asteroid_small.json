@@ -2,7 +2,10 @@
   "type": "divinerpg:blob",
   "config": {
     "block": {
-      "Name": "divinerpg:dream_stone"
+    	"type": "minecraft:simple_state_provider",
+		"state": {
+			"Name": "divinerpg:dream_stone"
+		}
     },
     "max_size": 2,
     "min_size": 1,

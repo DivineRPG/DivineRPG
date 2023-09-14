@@ -22,8 +22,10 @@ public class Ellipsoid extends Feature<EllipsoidConfig> {
 		if(canBeHere(config.replace, random, level.getBlockState(pos))) {
 			int xSize = getSize(random, config.minSize, config.maxSize), ySize = getSize(random, config.minSize, config.maxSize), zSize = getSize(random, config.minSize, config.maxSize);
 			for(int x = -xSize; x < xSize; x++) for(int y = -ySize; y < ySize; y++) for(int z = -zSize; z < zSize; z++)
-				if((Math.pow(x, 2) / Math.pow(xSize, 2)) + (Math.pow(y, 2) / Math.pow(ySize, 2)) + (Math.pow(z, 2) / Math.pow(zSize, 2)) < 0.5 && canBeHere(config.replace, random, level.getBlockState(pos.offset(x, y, z))))
-						level.setBlock(pos.offset(x, y, z), config.block, 3);
+				if((Math.pow(x, 2) / Math.pow(xSize, 2)) + (Math.pow(y, 2) / Math.pow(ySize, 2)) + (Math.pow(z, 2) / Math.pow(zSize, 2)) < 0.5 && canBeHere(config.replace, random, level.getBlockState(pos.offset(x, y, z)))) {
+					BlockPos p = pos.offset(x, y, z);
+					level.setBlock(p, config.block.getState(random, p), 3);
+				}
 			return true;
 		}
 		return false;

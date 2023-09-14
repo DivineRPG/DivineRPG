@@ -1,0 +1,20 @@
+{
+  "feature": "divinerpg:iceika/ice_floor",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+	{
+		"type": "minecraft:random_offset",
+		"xz_spread": 0,
+		"y_spread": -1
+	}
+  ]
+}

@@ -47,6 +47,7 @@
 		[
 			"minecraft:ice_patch",
 			"minecraft:pile_ice",
+			"divinerpg:iceika/ice_pile",
 			"minecraft:pile_snow",
 			"divinerpg:iceika/frozen_light"
 		],
