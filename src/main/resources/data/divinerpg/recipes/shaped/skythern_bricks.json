@@ -1,18 +1,19 @@
 {
   "result": {
     "item": "divinerpg:skythern_bricks",
-    "count": 4
+    "count": 8
   },
   "pattern": [
-    "ss ",
-    "si "
+    "sss",
+    "sis",
+    "sss"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "group": "twilight_bricks",
   "key": {
     "s": {
-      "tag": "minecraft:stone_bricks"
+      "item": "minecraft:stone_bricks"
     },
     "i": {
       "item": "divinerpg:skythern_gem"

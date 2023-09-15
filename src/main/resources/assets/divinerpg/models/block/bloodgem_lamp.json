@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/redstone_ore_lamp"
+    "all": "divinerpg:block/bloodgem_lamp"
   }
 }

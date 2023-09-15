@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_redstone": {
+    "has_bloodgem": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:redstone"
+              "divinerpg:bloodgem"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/redstone_ore_lamp"
+        "recipe": "divinerpg:shaped/bloodgem_lamp"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_redstone",
+      "has_bloodgem",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/redstone_ore_lamp"
+      "divinerpg:shaped/bloodgem_lamp"
     ]
   }
 }

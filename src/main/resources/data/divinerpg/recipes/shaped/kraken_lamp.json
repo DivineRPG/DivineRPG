@@ -5,7 +5,7 @@
   "pattern": [
     "xxx",
     "xyx",
-    "xxx"
+    "xzx"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
@@ -15,6 +15,9 @@
     },
     "y": {
       "item": "divinerpg:kraken_skin"
+    },
+    "z": {
+      "item": "minecraft:glowstone"
     }
   }
 }

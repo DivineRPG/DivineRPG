@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_shards": {
+    "has_frozen_stone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:ice_shards"
+              "divinerpg:frozen_stone"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/shiverspine_ladder"
+        "recipe": "divinerpg:shapeless/glaciline"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_shards",
+      "has_frozen_stone",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/shiverspine_ladder"
+      "divinerpg:shapeless/glaciline"
     ]
   }
 }

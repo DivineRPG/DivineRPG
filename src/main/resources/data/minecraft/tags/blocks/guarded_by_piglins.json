@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "divinerpg:gold_bricks",
+    "divinerpg:gold_lamp",
+    "divinerpg:present_box",
+    "divinerpg:frosted_chest",
+    "divinerpg:bone_chest",
+    "divinerpg:eden_chest"
+  ]
+}

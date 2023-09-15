@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:redstone_ore_lamp"
+          "name": "divinerpg:bloodgem_lamp"
         }
       ],
       "conditions": [

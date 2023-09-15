@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "divinerpg:redstone_ore_lamp"
+    "item": "divinerpg:bloodgem_lamp"
   },
   "pattern": [
     "xxx",
@@ -14,7 +14,7 @@
       "item": "minecraft:iron_ingot"
     },
     "y": {
-      "item": "minecraft:redstone"
+      "item": "divinerpg:bloodgem"
     },
     "z": {
       "item": "minecraft:glowstone"

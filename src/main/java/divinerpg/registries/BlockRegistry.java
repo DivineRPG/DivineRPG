@@ -267,7 +267,7 @@ public class BlockRegistry {
 
             //Eden Tree
             edenSapling = registerBlock("eden_sapling", () -> new BlockModSapling(SAND, () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eden_grass")), () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eden_dirt")), new EdenTreeGrower())),
-            edenLeaves = registerBlock("eden_leaves", () -> new BlockModLeaves(SAND, SoundType.AZALEA_LEAVES)),
+            edenLeaves = registerBlock("eden_leaves", () -> new BlockModLeaves(GOLD, SoundType.AZALEA_LEAVES)),
             edenLog = registerBlock("eden_log", () -> new BlockModLog(SAND, SoundType.WOOD)),
             edenWood = registerBlock("eden_wood", () -> new BlockModLog(COLOR_BROWN, SoundType.WOOD)),
             strippedEdenLog = registerBlock("stripped_eden_log", () -> new BlockModLog(SAND, SoundType.WOOD)),
@@ -565,21 +565,21 @@ public class BlockRegistry {
 
             //Other Lamps
             milkyLamp = registerBlock("milky_lamp", () -> new BlockModLamp(QUARTZ)),
-            edenLamp = registerBlock("eden_lamp", () -> new BlockModLamp(COLOR_YELLOW)),
+            edenLamp = registerBlock("eden_lamp", () -> new BlockModLamp(COLOR_RED)),
             torriditeLamp = registerBlock("torridite_lamp", () -> new BlockModLamp(CRIMSON_NYLIUM)),
             lavaLamp = registerBlock("lava_lamp", () -> new BlockModLamp(TERRACOTTA_ORANGE)),
             drakenLamp = registerBlock("draken_lamp", () -> new BlockModLamp(COLOR_ORANGE)),
-            realmiteLamp = registerBlock("realmite_lamp", () -> new BlockModLamp(TERRACOTTA_YELLOW)),
+            realmiteLamp = registerBlock("realmite_lamp", () -> new BlockModLamp(COLOR_ORANGE)),
             blazeLamp = registerBlock("blaze_lamp", () -> new BlockModLamp(COLOR_YELLOW)),
             goldLamp = registerBlock("gold_lamp", () -> new BlockModLamp(GOLD)),
-            arlemiteLamp = registerBlock("arlemite_lamp", () -> new BlockModLamp(EMERALD)),
+            arlemiteLamp = registerBlock("arlemite_lamp", () -> new BlockModLamp(COLOR_LIGHT_GREEN)),
             krakenLamp = registerBlock("kraken_lamp", () -> new BlockModLamp(COLOR_LIGHT_GREEN)),
             diamondLamp = registerBlock("diamond_lamp", () -> new BlockModLamp(DIAMOND)),
             aquaLamp = registerBlock("aqua_lamp", () -> new BlockModLamp(COLOR_LIGHT_BLUE)),
-            lapisLazuliLamp = registerBlock("lapis_lazuli_lamp", () -> new BlockModLamp(WATER)),
-            rupeeLamp = registerBlock("rupee_lamp", () -> new BlockModLamp(COLOR_BLUE)),
+            rupeeLamp = registerBlock("rupee_lamp", () -> new BlockModLamp(COLOR_LIGHT_BLUE)),
+            lapisLazuliLamp = registerBlock("lapis_lazuli_lamp", () -> new BlockModLamp(LAPIS)),
             enderLamp = registerBlock("ender_lamp", () -> new BlockModLamp(COLOR_PURPLE)),
-            redstoneOreLamp = registerBlock("redstone_ore_lamp", () -> new BlockModLamp(CRIMSON_STEM)),
+            bloodgemLamp = registerBlock("bloodgem_lamp", () -> new BlockModLamp(COLOR_PINK)),
 
             //Extra Lamps
             slimeLight = registerBlock("slime_light", () -> new BlockModLight()),
