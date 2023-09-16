@@ -67,6 +67,9 @@ public class Surface extends PlacementModifier {
     		yield pos.getY() - bury;
     	};
 	}
+	public static boolean hasSpace(BlockState state) {
+		return state.isAir() || state.is(Blocks.WATER);
+	}
 	public static boolean hasSpace(WorldGenLevel level, BlockPos pos) {
 		BlockState state = level.getBlockState(pos);
 		return state.isAir() || state.is(Blocks.WATER);

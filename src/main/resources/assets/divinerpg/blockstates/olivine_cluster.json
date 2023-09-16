@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "divinerpg:block/olivine_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "divinerpg:block/olivine_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "divinerpg:block/olivine_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "divinerpg:block/olivine_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "divinerpg:block/olivine_cluster"
+    },
+    "facing=west": {
+      "model": "divinerpg:block/olivine_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

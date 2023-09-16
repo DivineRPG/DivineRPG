@@ -3,6 +3,7 @@ package divinerpg.registries;
 import divinerpg.*;
 import divinerpg.world.feature.*;
 import divinerpg.world.feature.config.*;
+import divinerpg.world.feature.config.decoration.*;
 import divinerpg.world.feature.config.ore.*;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import divinerpg.world.feature.decoration.*;
@@ -51,9 +52,11 @@ public class FeatureRegistry {
     	SNOW_COVERAGE = FEATURES.register("snow_coverage", () -> new SnowCoverage()),
     	SNOW_SPREADER = FEATURES.register("snow_spreader", () -> new SnowSpreader());
 	public static final RegistryObject<Feature<PointedDripstoneConfiguration>> ICICLE = FEATURES.register("icicle", () -> new Icicle());
+	public static final RegistryObject<Feature<GemClusterConfig>> GEM_CLUSTER = FEATURES.register("gem_cluster", () -> new GemCluster());
     public static final RegistryObject<Feature<RuleTestConfig>>
     	GEOTHERMAL_POND = FEATURES.register("geothermal_pond", () -> new GeothermalPond()),
     	GLACIAL_POND = FEATURES.register("glacial_pond", () -> new GlacialPond()),
+    	MINERAL_POND = FEATURES.register("mineral_pond", () -> new MineralPond()),
     	BRITTLE_POND = FEATURES.register("brittle_pond", () -> new BrittlePond()),
     	FROZEN_LIGHT = FEATURES.register("frozen_light", () -> new FrozenLight());
     

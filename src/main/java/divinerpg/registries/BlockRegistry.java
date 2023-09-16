@@ -461,6 +461,9 @@ public class BlockRegistry {
             cutOxdriteWall = registerBlock("cut_oxdrite_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cut_oxdrite")))),
             cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_BROWN, BlockSetType.IRON)),
             cutOxdriteButton = registerBlock("cut_oxdrite_button", () -> new BlockModButton(BlockSetType.IRON)),
+            olivineBlock = registerBlock("olivine_block", () -> new AmethystBlock(Properties.copy(Blocks.AMETHYST_BLOCK).mapColor(COLOR_GREEN).lightLevel((state) -> 1))),
+            olivineCluster = registerBlock("olivine_cluster", () -> new AmethystClusterBlock(7, 3, Properties.copy(Blocks.AMETHYST_CLUSTER).mapColor(COLOR_GREEN).lightLevel((state) -> 3))),
+            buddingOlivine = registerBlock("budding_olivine", () -> new BlockBuddingOlivine(Properties.copy(Blocks.BUDDING_AMETHYST).mapColor(COLOR_GREEN).lightLevel((state) -> 2))),
 
             //Arcana Bricks & Other Blocks
             ancientBricks = registerBlock("ancient_bricks", () -> new BlockModUnbreakable(WARPED_NYLIUM)),

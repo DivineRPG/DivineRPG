@@ -476,9 +476,7 @@
 												"type": "minecraft:biome",
 												"biome_is": [
 													"divinerpg:iceika/ice_spikes",
-													"divinerpg:iceika/snowy_peaks",
 													"divinerpg:iceika/borealis_steeps",
-													"divinerpg:iceika/frozen_peaks",
 													"divinerpg:iceika/frozen_ocean",
 													"divinerpg:iceika/deep_frozen_ocean"
 												]
@@ -573,7 +571,6 @@
 												"biome_is": [
 													"divinerpg:iceika/ice_spikes",
 													"divinerpg:iceika/snowy_peaks",
-													"divinerpg:iceika/frozen_peaks",
 													"divinerpg:iceika/chill_passage",
 													"divinerpg:iceika/fractal_forest"
 												]
@@ -582,6 +579,22 @@
 												"type": "minecraft:block",
 												"result_state": {
 													"Name": "minecraft:snow_block"
+												}
+											}
+										},
+										{
+											"type": "minecraft:condition",
+											"if_true": {
+												"type": "minecraft:biome",
+												"biome_is": [
+													"divinerpg:iceika/frozen_peaks",
+													"divinerpg:iceika/frozen_menagerie"
+												]
+											},
+											"then_run": {
+												"type": "minecraft:block",
+												"result_state": {
+													"Name": "minecraft:packed_ice"
 												}
 											}
 										},
@@ -689,23 +702,9 @@
 							}
 						},
 						{
-							"type": "minecraft:condition",
-							"if_true": {
-								"type": "minecraft:not",
-								"invert": {
-									"type": "minecraft:biome",
-									"biome_is": [
-										"divinerpg:iceika/geyser_plateau",
-										"divinerpg:iceika/frozen_peaks",
-										"divinerpg:iceika/borealis_steeps"
-									]
-								}
-							},
-							"then_run": {
-								"type": "minecraft:block",
-								"result_state": {
-									"Name": "divinerpg:frozen_dirt"
-								}
+							"type": "minecraft:block",
+							"result_state": {
+								"Name": "divinerpg:frozen_dirt"
 							}
 						}
 					]

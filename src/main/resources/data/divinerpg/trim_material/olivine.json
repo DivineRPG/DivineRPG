@@ -1,0 +1,10 @@
+{
+	"asset_name": "olivine",
+	"description": {
+		"translate": "trim_material.divinerpg.olivine",
+		"color": "#688B26",
+		"bold": true
+	},
+	"ingredient": "divinerpg:olivine",
+	"item_model_index": 0.71
+}

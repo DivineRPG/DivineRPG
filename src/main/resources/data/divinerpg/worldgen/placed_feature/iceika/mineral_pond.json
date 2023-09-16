@@ -1,0 +1,26 @@
+{
+	"feature": "divinerpg:mineral_pond",
+	"placement": [
+		{
+			"type": "minecraft:count",
+			"count": 4
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "divinerpg:surface_placement",
+			"surface": "lowest_ground",
+			"mode": "slice",
+			"min_height": -63,
+			"max_height": 128,
+			"bury": 1
+		},
+		{
+			"type": "minecraft:biome"
+		},
+		{
+			"type": "divinerpg:underground"
+		}
+	]
+}

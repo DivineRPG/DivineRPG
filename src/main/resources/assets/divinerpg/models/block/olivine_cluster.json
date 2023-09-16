@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "render_type": "cutout",
+  "textures": {
+    "cross": "divinerpg:block/olivine_cluster"
+  }
+}

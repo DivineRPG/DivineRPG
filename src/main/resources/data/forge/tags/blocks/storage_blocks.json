@@ -18,6 +18,7 @@
     "#forge:storage_blocks/raw_realmite",
     "#forge:storage_blocks/raw_rupee",
     "#forge:storage_blocks/raw_torridite",
-    "#forge:storage_blocks/raw_oxdrite"
+    "#forge:storage_blocks/raw_oxdrite",
+    "#forge:storage_blocks/olivine"
   ]
 }

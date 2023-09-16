@@ -1,0 +1,15 @@
+{
+	"type": "divinerpg:gem_cluster",
+	"config": {
+		"block": {
+			"Name": "divinerpg:olivine_block"
+		},
+		"budding_block": {
+			"Name": "divinerpg:budding_olivine"
+		},
+		"cluster": {
+			"Name": "divinerpg:olivine_cluster"
+		},
+		"rules": []
+	}
+}

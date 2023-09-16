@@ -28,7 +28,7 @@ public class GlacialPond extends GeothermalPond {
 	}
 	@Override
 	protected void genEdge(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
-		if(random.nextFloat() < 0.08F) {
+		if(random.nextFloat() < 0.07F) {
 			setBlock(level, pos, Blocks.WATER.defaultBlockState());
 			pos = pos.below();
 		}
@@ -36,6 +36,6 @@ public class GlacialPond extends GeothermalPond {
 	}
 	@Override
 	protected boolean canSustain(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
-		return level.getBlockState(pos.above()).isAir() && (!level.getBlockState(pos.below()).isAir()) && rule(rules, random, level.getBlockState(pos));
+		return rule(rules, random, level.getBlockState(pos)) && level.getBlockState(pos.above()).isAir() && !hasSpace(level.getBlockState(pos.below()));
 	}
 }

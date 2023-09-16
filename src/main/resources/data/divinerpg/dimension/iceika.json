@@ -27,7 +27,7 @@
 						"erosion":			[ 0.1, 0.75 ],
 						"weirdness":		[ -0.4, 0.5 ],
 						"depth": -0.75,
-						"offset": 0.15
+						"offset": 0.16
 					}
 				},
 				{
@@ -45,10 +45,10 @@
 				{
 					"biome": "divinerpg:iceika/snowy_peaks",
 					"parameters": {
-						"temperature":		[ -0.365, 0 ],
+						"temperature":		[ -0.5, 0 ],
 						"humidity":			[ -0.625, -0.25 ],
-						"continentalness":	[ 0.05, 1 ],
-						"erosion":			[ 0.625, 1 ],
+						"continentalness":	[ 0.1, 1 ],
+						"erosion":			[ 0.6, 1 ],
 						"weirdness":		[ -1, -0.5 ],
 						"depth": -0.7,
 						"offset": 0
@@ -203,7 +203,7 @@
 					"parameters": {
 						"temperature":		[ -2, 0 ],
 						"humidity":			[ -1, 1 ],
-						"continentalness":	[ -0.8, -0.5 ],
+						"continentalness":	[ -0.8, -0.52 ],
 						"erosion":			[ -1, 1 ],
 						"weirdness":		[ -1, 1 ],
 						"depth": 0,
@@ -226,12 +226,12 @@
 					"biome": "divinerpg:iceika/boneyard",
 					"parameters": {
 						"temperature":		[ -0.75, -0.5 ],
-						"humidity":			[ 0.125, 0.375 ],
+						"humidity":			[ 0.1, 0.375 ],
 						"continentalness":	[ -1, -0.7 ],
-						"erosion":			[ -0.3, 0.125 ],
+						"erosion":			[ -0.3, 0.1 ],
 						"weirdness":		[ 0.45, 0.8 ],
 						"depth": 0,
-						"offset": 0.2
+						"offset": 0.1
 					}
 				},
 				{
@@ -254,8 +254,8 @@
 						"continentalness":	[ -1, 1 ],
 						"erosion":			[ -0.625, -0.375 ],
 						"weirdness":		[ -1, -0.625 ],
-						"depth": 0.52,
-						"offset": 0.1
+						"depth": 0.53,
+						"offset": 0.15
 					}
 				},
 				{

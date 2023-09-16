@@ -1,0 +1,15 @@
+{
+	"type": "divinerpg:gem_cluster",
+	"config": {
+		"block": {
+			"Name": "minecraft:amethyst_block"
+		},
+		"budding_block": {
+			"Name": "minecraft:budding_amethyst"
+		},
+		"cluster": {
+			"Name": "minecraft:amethyst_cluster"
+		},
+		"rules": []
+	}
+}

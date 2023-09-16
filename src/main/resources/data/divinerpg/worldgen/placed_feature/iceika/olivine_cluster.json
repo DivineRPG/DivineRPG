@@ -1,0 +1,15 @@
+{
+	"feature": "divinerpg:iceika/olivine_cluster",
+	"placement": [
+		{
+			"type": "minecraft:count_on_every_layer",
+			"count": 25
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "minecraft:biome"
+		}
+	]
+}

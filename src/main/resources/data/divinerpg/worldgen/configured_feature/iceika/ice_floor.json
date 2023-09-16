@@ -7,11 +7,17 @@
 			{
 				"weight": 1,
 				"data": {
+					"Name": "divinerpg:blue_stone"
+				}
+			},
+			{
+				"weight": 2,
+				"data": {
 					"Name": "minecraft:blue_ice"
 				}
 			},
 			{
-				"weight": 5,
+				"weight": 10,
 				"data": {
 					"Name": "minecraft:packed_ice"
 				}
