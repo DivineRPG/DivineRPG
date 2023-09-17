@@ -865,7 +865,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(SMELTER.get(),			 (Context context) -> new RenderDivineMob<>(context, "smelter", new ModelStoneGolem<>(context)));
         event.registerEntityRenderer(SNAPPER.get(),			 (Context context) -> new RenderPet(context, "snapper", new ModelSnapper<>(context), 0.7F));
         event.registerEntityRenderer(STONE_GOLEM.get(),		 (Context context) -> new RenderDivineMob<>(context, "stone_golem", new ModelStoneGolem<>(context)));
-        event.registerEntityRenderer(THE_EYE.get(),			 (Context context) -> new RenderDivineMob<>(context, "the_eye", new ModelTheEye(context), 0.6F));
+        event.registerEntityRenderer(THE_EYE.get(),			 RenderTheEye::new);
         event.registerEntityRenderer(THE_GRUE.get(),		 (Context context) -> new RenderDivineMob<>(context, "the_grue", new ModelTheGrue(context), 0.8F));
         event.registerEntityRenderer(WHALE.get(),			 (Context context) -> new RenderDivineMob<>(context, "whale", new ModelWhale(context), 0.8F, 5F));
         event.registerEntityRenderer(WHITE_GRIZZLE.get(),	 (Context context) -> new RenderDivineMob<>(context, "white_grizzle", new ModelGrizzle<>(context)));
