@@ -59,7 +59,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(hand == InteractionHand.MAIN_HAND && player.getItemInHand(hand).getItem() == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "corrupted_stone"))){
+        if(hand == InteractionHand.MAIN_HAND && player.getItemInHand(hand).getItem() == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "ice_stone"))){
             if(state.getValue(CATEGORY) == 0){
                 level.setBlock(pos, state.setValue(CATEGORY, 1), 0);
                 player.displayClientMessage(Component.translatable("tooltip.divinerpg.monster"), true);

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cyclops_eye_shards": {
+    "has_olivine": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:cyclops_eye_shards"
+              "divinerpg:olivine"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/cyclops_pumpkin"
+        "recipe": "divinerpg:shaped/olivine_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cyclops_eye_shards",
+      "has_olivine",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/cyclops_pumpkin"
+      "divinerpg:shaped/olivine_block"
     ]
   }
 }
