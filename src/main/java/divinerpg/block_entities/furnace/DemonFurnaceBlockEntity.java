@@ -1,6 +1,6 @@
 package divinerpg.block_entities.furnace;
 
-import divinerpg.client.containers.DemonFurnaceContainer;
+import divinerpg.client.menu.DemonFurnaceMenu;
 import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.player.Inventory;
@@ -22,6 +22,6 @@ public class DemonFurnaceBlockEntity extends InfiniFurnaceBlockEntity {
     }
 	@Override
 	protected AbstractContainerMenu createMenu(int i, Inventory inv) {
-		return new DemonFurnaceContainer(i, inv, this, dataAccess);
+		return new DemonFurnaceMenu(i, inv, this, dataAccess);
 	}
 }

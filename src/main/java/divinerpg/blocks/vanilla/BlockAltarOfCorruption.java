@@ -1,7 +1,7 @@
 package divinerpg.blocks.vanilla;
 
 import divinerpg.block_entities.AltarOfCorruptionBlockEntity;
-import divinerpg.client.containers.AltarOfCorruptionMenu;
+import divinerpg.client.menu.AltarOfCorruptionMenu;
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;

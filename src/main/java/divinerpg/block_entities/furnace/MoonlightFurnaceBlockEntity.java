@@ -1,6 +1,6 @@
 package divinerpg.block_entities.furnace;
 
-import divinerpg.client.containers.*;
+import divinerpg.client.menu.*;
 import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.player.*;
@@ -13,6 +13,6 @@ public class MoonlightFurnaceBlockEntity extends ModFurnaceBlockEntity {
     }
     @Override
     protected AbstractContainerMenu createMenu(int i, Inventory playerInventory) {
-        return new MoonlightFurnaceContainer(i, playerInventory, this, this.dataAccess);
+        return new MoonlightFurnaceMenu(i, playerInventory, this, this.dataAccess);
     }
 }

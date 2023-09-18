@@ -2,7 +2,7 @@ package divinerpg.blocks.vethea;
 
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockMod;
-import divinerpg.client.containers.InfusionTableContainer;
+import divinerpg.client.menu.InfusionTableMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -34,7 +34,7 @@ public class BlockInfusionTable extends BlockMod {
     @Override
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         if (player instanceof ServerPlayer)
-            InfusionTableContainer.openContainer((ServerPlayer)player, pos);
+            InfusionTableMenu.openContainer((ServerPlayer)player, pos);
 
         return InteractionResult.SUCCESS;
     }
@@ -43,7 +43,7 @@ public class BlockInfusionTable extends BlockMod {
     @Override
     public MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         return new SimpleMenuProvider((i, inventory, player) -> {
-            return new InfusionTableContainer(i, inventory, ContainerLevelAccess.create(level, pos));
+            return new InfusionTableMenu(i, inventory, ContainerLevelAccess.create(level, pos));
         }, Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table")).getDescriptionId()));
     }
 

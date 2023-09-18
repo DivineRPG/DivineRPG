@@ -2,7 +2,7 @@ package divinerpg.block_entities.block;
 
 import divinerpg.DivineRPG;
 import divinerpg.blocks.vethea.*;
-import divinerpg.client.containers.*;
+import divinerpg.client.menu.*;
 import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
@@ -88,7 +88,7 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 	}
 	@Override
 	protected AbstractContainerMenu createMenu(int i, Inventory inv) {
-		return new DreamLampContainer(i, inv, this);
+		return new DreamLampMenu(i, inv, this);
 	}
 	@Override
 	public void load(CompoundTag tag) {

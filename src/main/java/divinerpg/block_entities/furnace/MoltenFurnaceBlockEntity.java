@@ -1,6 +1,6 @@
 package divinerpg.block_entities.furnace;
 
-import divinerpg.client.containers.*;
+import divinerpg.client.menu.*;
 import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.player.*;
@@ -13,6 +13,6 @@ public class MoltenFurnaceBlockEntity extends InfiniFurnaceBlockEntity {
     }
     @Override
     protected AbstractContainerMenu createMenu(int i, Inventory playerInventory) {
-        return new MoltenFurnaceContainer(i, playerInventory, this, this.dataAccess);
+        return new MoltenFurnaceMenu(i, playerInventory, this, this.dataAccess);
     }
 }

@@ -2,7 +2,7 @@ package divinerpg.block_entities.furnace;
 
 import com.google.common.collect.Maps;
 import divinerpg.DivineRPG;
-import divinerpg.client.containers.ArcaniumExtractorContainer;
+import divinerpg.client.menu.ArcaniumExtractorMenu;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -25,7 +25,7 @@ public class ArcaniumExtractorBlockEntity extends AbstractFurnaceBlockEntity {
 	}
 	@Override
 	protected AbstractContainerMenu createMenu(int i, Inventory playerInventory) {
-		return new ArcaniumExtractorContainer(i, playerInventory, this, this.dataAccess);
+		return new ArcaniumExtractorMenu(i, playerInventory, this, this.dataAccess);
 	}
     public static Map<Item, Integer> getFuel() {
         Map<Item, Integer> map = Maps.newLinkedHashMap();
