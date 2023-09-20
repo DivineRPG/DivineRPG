@@ -17,7 +17,7 @@
 	  {
 	    "type": "divinerpg:enthralled_dramcryx",
 	    "weight": 15,
-	    "minCount": 1,
+	    "minCount": 2,
 	    "maxCount": 4
   	  }
   ]

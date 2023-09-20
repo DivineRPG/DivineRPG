@@ -10,7 +10,7 @@
 	  },
 	  {
 	    "type": "divinerpg:desert_crawler",
-	    "weight": 15,
+	    "weight": 10,
 	    "minCount": 1,
 	    "maxCount": 4
   	  },

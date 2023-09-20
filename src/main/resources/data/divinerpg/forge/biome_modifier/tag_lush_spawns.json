@@ -26,11 +26,17 @@
 	    "minCount": 1,
 	    "maxCount": 4
   	  },
-  	  {
-	    "type": "divinerpg:aequorea",
-	    "weight": 4,
-	    "minCount": 1,
-	    "maxCount": 4
-  	  }
+	  {
+		  "type": "divinerpg:aequorea",
+		  "weight": 4,
+		  "minCount": 1,
+		  "maxCount": 4
+	  },
+	  {
+		  "type": "divinerpg:enthralled_dramcryx",
+		  "weight": 4,
+		  "minCount": 1,
+		  "maxCount": 2
+	  }
   ]
 }
