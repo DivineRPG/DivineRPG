@@ -6,6 +6,7 @@ import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.common.Tags;
 
 public abstract class EntityDivineMonster extends Monster {
@@ -25,6 +26,6 @@ public abstract class EntityDivineMonster extends Monster {
     }
     @Override
     public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
-    	return !level.getBiome(blockPosition()).is(Tags.Biomes.IS_MUSHROOM);
+        return !(level.getBiome(blockPosition()).is(Tags.Biomes.IS_MUSHROOM) || level.getBiome(blockPosition()).is(Biomes.DEEP_DARK));
     }
 }

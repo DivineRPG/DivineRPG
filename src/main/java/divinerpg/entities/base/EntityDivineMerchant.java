@@ -15,7 +15,9 @@ import net.minecraft.world.entity.npc.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraftforge.common.Tags;
 
 import javax.annotation.Nullable;
 
@@ -131,5 +133,8 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         public DivineTrades(ItemStack input1, ItemStack output, int stock, int xp) {this(input1, ItemStack.EMPTY, output, stock, xp);}
         @Override public MerchantOffer getOffer(Entity tradeEnt, RandomSource rand) {return new MerchantOffer(input1, input2, output, stock, xp, 0F);}
     }
-
+    @Override
+    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
+        return !(level.getBiome(blockPosition()).is(Tags.Biomes.IS_MUSHROOM) || level.getBiome(blockPosition()).is(Biomes.DEEP_DARK));
+    }
 }

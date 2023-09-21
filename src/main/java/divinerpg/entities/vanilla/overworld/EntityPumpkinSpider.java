@@ -11,6 +11,9 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraftforge.common.Tags;
+
 import javax.annotation.Nullable;
 
 public class EntityPumpkinSpider extends Spider {
@@ -94,5 +97,9 @@ public class EntityPumpkinSpider extends Spider {
 	@Override
 	public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
 		return 0F;
+	}
+	@Override
+	public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
+		return !(level.getBiome(blockPosition()).is(Tags.Biomes.IS_MUSHROOM) || level.getBiome(blockPosition()).is(Biomes.DEEP_DARK));
 	}
 }
