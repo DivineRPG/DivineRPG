@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:bright_red_steel"
+          "name": "divinerpg:magenta_steel"
         }
       ],
       "conditions": [

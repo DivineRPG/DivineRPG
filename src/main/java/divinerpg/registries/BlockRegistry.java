@@ -525,22 +525,22 @@ public class BlockRegistry {
 
             //Steel
             whiteSteel = registerBlock("white_steel", () -> new BlockMod(WOOL, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
-            blackSteel = registerBlock("black_steel", () -> new BlockMod(COLOR_GRAY, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
-            brightRedSteel = registerBlock("bright_red_steel", () -> new BlockMod(CRIMSON_NYLIUM, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            blackSteel = registerBlock("black_steel", () -> new BlockMod(COLOR_BLACK, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
             redSteel = registerBlock("red_steel", () -> new BlockMod(COLOR_RED, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
-            orangeSteel = registerBlock("orange_steel", () -> new BlockMod(TERRACOTTA_ORANGE, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
-            yellowSteel = registerBlock("yellow_steel", () -> new BlockMod(TERRACOTTA_YELLOW, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            orangeSteel = registerBlock("orange_steel", () -> new BlockMod(COLOR_ORANGE, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            yellowSteel = registerBlock("yellow_steel", () -> new BlockMod(COLOR_YELLOW, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
             greenSteel = registerBlock("green_steel", () -> new BlockMod(COLOR_GREEN, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
             tealSteel = registerBlock("teal_steel", () -> new BlockMod(WARPED_WART_BLOCK, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
             blueSteel = registerBlock("blue_steel", () -> new BlockMod(COLOR_LIGHT_BLUE, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
-            purpleSteel = registerBlock("purple_steel", () -> new BlockMod(TERRACOTTA_BLUE, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            purpleSteel = registerBlock("purple_steel", () -> new BlockMod(COLOR_PURPLE, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            magentaSteel = registerBlock("magenta_steel", () -> new BlockMod(COLOR_MAGENTA, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
 
             //Candy Canes
-            redCandyCane = registerBlock("red_candy_cane", () -> new BlockMod(FIRE, 0.75F, 0.75F)),
-            yellowCandyCane = registerBlock("yellow_candy_cane", () -> new BlockMod(COLOR_YELLOW, 0.75F, 0.75F)),
-            greenCandyCane = registerBlock("green_candy_cane", () -> new BlockMod(EMERALD, 0.75F, 0.75F)),
-            blueCandyCane = registerBlock("blue_candy_cane", () -> new BlockMod(COLOR_BLUE, 0.75F, 0.75F)),
-            pinkCandyCane = registerBlock("pink_candy_cane", () -> new BlockMod(COLOR_MAGENTA, 0.75F, 0.75F)),
+            redCandyCane = registerBlock("red_candy_cane", () -> new BlockCandyCane(COLOR_RED)),
+            yellowCandyCane = registerBlock("yellow_candy_cane", () -> new BlockCandyCane(COLOR_YELLOW)),
+            greenCandyCane = registerBlock("green_candy_cane", () -> new BlockCandyCane(EMERALD)),
+            blueCandyCane = registerBlock("blue_candy_cane", () -> new BlockCandyCane(COLOR_BLUE)),
+            pinkCandyCane = registerBlock("pink_candy_cane", () -> new BlockCandyCane(COLOR_MAGENTA)),
 
             //Lights
             redFairyLights = registerBlock("red_fairy_lights", () -> new BlockLights()),
@@ -550,10 +550,10 @@ public class BlockRegistry {
             purpleFairyLights = registerBlock("purple_fairy_lights", () -> new BlockLights()),
 
             //Torches
-            aquaTorch		 = BLOCKS.register("aqua_torch", () -> new BlockModTorch(FLAME)),
-            aquaWallTorch	 = BLOCKS.register("aqua_wall_torch", () -> new BlockModWallTorch(FLAME)),
-            skeletonWallTorch= BLOCKS.register("skeleton_wall_torch", () -> new BlockModWallTorch(FLAME)),
-            skeletonTorch	 = BLOCKS.register("skeleton_torch", () -> new BlockModTorch(FLAME)),
+            aquaTorch = BLOCKS.register("aqua_torch", () -> new BlockModTorch(FLAME)),
+            aquaWallTorch = BLOCKS.register("aqua_wall_torch", () -> new BlockModWallTorch(FLAME)),
+            skeletonWallTorch = BLOCKS.register("skeleton_wall_torch", () -> new BlockModWallTorch(FLAME)),
+            skeletonTorch = BLOCKS.register("skeleton_torch", () -> new BlockModTorch(FLAME)),
             arcaniumTorch = BLOCKS.register("arcanium_torch", () -> new BlockModTorch(FLAME)),
             arcaniumWallTorch = BLOCKS.register("arcanium_wall_torch", () -> new BlockModWallTorch(FLAME)),
             edenTorch = BLOCKS.register("eden_torch", () -> new BlockModTorch(FLAME)),
@@ -812,7 +812,7 @@ public class BlockRegistry {
             vetheaPortal = registerBlock("vethea_portal", () -> new BlockModPortal(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "mortum_block")))),
 
             //Air
-            dungeonAir = registerTablessBlock("dungeon_air", () -> new BlockModDungeonAir());
+            dungeonAir = registerBlock("dungeon_air", () -> new BlockModDungeonAir(), Rarity.EPIC);
 
     //Flower Pots
     public static final RegistryObject<FlowerPotBlock>
@@ -858,14 +858,6 @@ public class BlockRegistry {
 
     private static RegistryObject<FlowerPotBlock> registerFlowerPot(String name, Supplier<? extends Block> flower) {
         return BLOCKS.register(name, () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, flower, BlockBehaviour.Properties.copy(Blocks.FLOWER_POT)));
-    }
-    private static <T extends Block> RegistryObject<T> registerTablessBlock(String name, Supplier<T> block) {
-        return registerTablessBlock(name, block, Rarity.COMMON);
-    }
-    private static <T extends Block> RegistryObject<T> registerTablessBlock(String registryName, Supplier<T> block, Rarity rarity) {
-        RegistryObject<T> registeredBlock = BLOCKS.register(registryName, block);
-        BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties().rarity(rarity)));
-        return registeredBlock;
     }
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block, Rarity.COMMON);

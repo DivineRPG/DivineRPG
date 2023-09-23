@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "divinerpg:block/red_candy_cane",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "divinerpg:block/red_candy_cane",
+      "y": 180
+    },
+    "facing=south": {
       "model": "divinerpg:block/red_candy_cane"
+    },
+    "facing=west": {
+      "model": "divinerpg:block/red_candy_cane",
+      "y": 90
     }
   }
 }

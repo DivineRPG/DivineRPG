@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/bright_red_steel_steel"
+        "recipe": "divinerpg:shaped/magenta_steel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/bright_red_steel_steel"
+      "divinerpg:shaped/magenta_steel"
     ]
   }
 }
