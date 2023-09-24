@@ -84,7 +84,7 @@ public class SpawnEvents {
 		registerMonsterSpawn(e, SCORCHER.get());
     	registerMonsterSpawn(e, WILDFIRE.get());
     	//End
-    	registerAgileSpawn(e, ENDER_SPIDER.get());
+		registerDarkSpawn(e, ENDER_SPIDER.get());
     	registerAirSpawn(e, ENDER_TRIPLETS.get(), EntityEnderTriplets::enderTripletSpawnRule);
     	registerMonsterSpawn(e, ENDER_WATCHER.get());
     	//Iceika

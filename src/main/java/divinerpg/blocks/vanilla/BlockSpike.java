@@ -2,10 +2,12 @@ package divinerpg.blocks.vanilla;
 
 import divinerpg.blocks.base.BlockMod;
 import divinerpg.util.DamageSources;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 
 public class BlockSpike extends BlockMod {
     private final boolean isHot;
@@ -16,7 +18,7 @@ public class BlockSpike extends BlockMod {
     }
 
     @Override
-    public void updateEntityAfterFallOn(BlockGetter block, Entity entityIn){
+    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entityIn){
         if (isHot) {
             if (entityIn instanceof LivingEntity) {
                 entityIn.hurt(DamageSources.source(entityIn.level(), DamageSources.SPIKE), 8);
@@ -28,5 +30,4 @@ public class BlockSpike extends BlockMod {
             }
         }
     }
-
 }
