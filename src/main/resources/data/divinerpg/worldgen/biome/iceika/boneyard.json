@@ -98,7 +98,11 @@
 			"minecraft:iceberg_packed",
 			"minecraft:iceberg_blue"
 		],
-		[],
+		[
+			"divinerpg:iceika/anthracite_ore",
+			"divinerpg:iceika/anthracite_vein",
+			"divinerpg:iceika/cobaltite"
+		],
 		[
 			"minecraft:blue_ice"
 		],

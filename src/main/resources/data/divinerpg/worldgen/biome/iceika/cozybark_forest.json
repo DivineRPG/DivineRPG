@@ -1,0 +1,73 @@
+{
+	"temperature": -0.9,
+	"downfall": 1.5,
+	"has_precipitation": true,
+	"temperature_modifier": "frozen",
+	"creature_spawn_probability": 0.07,
+	"effects": {
+		"sky_color": 16488911,
+		"fog_color": 15400444,
+		"water_color": 7400907,
+		"water_fog_color": 732459,
+		"grass_color": 11339602,
+		"foliage_color": 5049648,
+		"music": {
+			"sound": "divinerpg:iceika_music",
+			"min_delay": 6000,
+			"max_delay": 10000,
+			"replace_current_music": false
+		},
+		"particle": {
+			"options": {
+				"type": "minecraft:snowflake"
+			},
+			"probability": 0.002
+		}
+	},
+	"spawners": {},
+	"spawn_costs": {},
+	"carvers": {
+		"air": [
+			"minecraft:cave",
+			"minecraft:cave_extra_underground",
+			"minecraft:canyon"
+		]
+	},
+	"features": [
+		[],
+		[],
+		[],
+		[
+			"divinerpg:iceika/anthracite_blob",
+			"divinerpg:iceika/anthracite_ore",
+			"divinerpg:iceika/anthracite_vein"
+		],
+		[],
+		[
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/classic_vines_brittle_caves",
+			"divinerpg:iceika/gelidite_patch"
+		],
+		[
+			"minecraft:seagrass_warm",
+			"divinerpg:iceika/icicle"
+		],
+		[
+			"divinerpg:iceika/cozybark_bush",
+			"divinerpg:iceika/cozybark_stump",
+			"divinerpg:iceika/cozybark_tree",
+			"minecraft:glow_lichen"
+		],
+		[],
+		[],
+		[
+			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/hanging_icicle",
+			"divinerpg:iceika/snow_spreader",
+			"divinerpg:iceika/roofbell",
+			"divinerpg:iceika/crimpetal",
+			"divinerpg:iceika/thermoliage",
+			"divinerpg:iceika/powder_snow"
+		]
+	]
+}

@@ -77,13 +77,13 @@
     [],
     [],
     [
-      "divinerpg:wildwood_ore",
+      "divinerpg:wildwood/ore",
       "divinerpg:twilight_tar_lake"
     ],
     [],
     [
-      "divinerpg:wildwood_plants",
-      "divinerpg:wildwood_tree"
+      "divinerpg:wildwood/plants",
+      "divinerpg:wildwood/tree"
     ],
     []
   ]

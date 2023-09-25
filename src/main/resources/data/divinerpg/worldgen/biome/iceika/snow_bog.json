@@ -37,7 +37,12 @@
 		[],
 		[],
 		[],
-		[],
+		[
+			"divinerpg:iceika/anthracite_blob",
+			"divinerpg:iceika/anthracite_ore",
+			"divinerpg:iceika/anthracite_vein",
+			"divinerpg:iceika/cobaltite"
+		],
 		[],
 		[
 			"minecraft:pile_snow",

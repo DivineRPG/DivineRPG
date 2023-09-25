@@ -71,14 +71,14 @@
     [],
     [],
     [
-      "divinerpg:skythern_ore",
+      "divinerpg:skythern/ore",
       "divinerpg:twilight_tar_lake"
     ],
     [],
     [
-      "divinerpg:skythern_plants",
-      "divinerpg:skythern_tree",
-      "divinerpg:skythern_bush"
+      "divinerpg:skythern/plants",
+      "divinerpg:skythern/tree",
+      "divinerpg:skythern/bush"
     ],
     []
   ]

@@ -1,27 +1,27 @@
 {
 	"structures": [
 		{
-			"structure": "divinerpg:evergarden",
+			"structure": "divinerpg:vethea/evergarden",
 			"weight": 1
 		},
 		{
-			"structure": "divinerpg:hive",
+			"structure": "divinerpg:vethea/hive",
 			"weight": 1
 		},
 		{
-			"structure": "divinerpg:karos_madhouse",
+			"structure": "divinerpg:vethea/karos_madhouse",
 			"weight": 1
 		},
 		{
-			"structure": "divinerpg:quadrotic_post",
+			"structure": "divinerpg:vethea/quadrotic_post",
 			"weight": 1
 		},
 		{
-			"structure": "divinerpg:raglok_chamber",
+			"structure": "divinerpg:vethea/raglok_chamber",
 			"weight": 1
 		},
 		{
-			"structure": "divinerpg:wreck_hall",
+			"structure": "divinerpg:vethea/wreck_hall",
 			"weight": 1
 		}
 	],

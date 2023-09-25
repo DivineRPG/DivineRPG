@@ -96,7 +96,10 @@
 			"divinerpg:iceika/glacial_pond"
 		],
 		[],
-		[],
+		[
+			"divinerpg:iceika/oxdrite_ore",
+			"divinerpg:iceika/oxdrite_vein"
+		],
 		[
 			"minecraft:blue_ice"
 		],

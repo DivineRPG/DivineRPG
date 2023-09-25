@@ -1,11 +1,11 @@
 {
   "structures": [
     {
-      "structure": "divinerpg:iceika_surface_workshop",
+      "structure": "divinerpg:iceika/surface_workshop",
       "weight": 1
     },
     {
-      "structure": "divinerpg:iceika_surface_gruzzorlug",
+      "structure": "divinerpg:iceika/surface_gruzzorlug",
       "weight": 1
     }
   ],

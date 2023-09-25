@@ -1,0 +1,91 @@
+{
+	"temperature": 1,
+	"downfall": 0,
+	"has_precipitation": false,
+	"effects": {
+		"sky_color": 7657436,
+		"fog_color": 12015594,
+		"water_color": 9636789,
+		"water_fog_color": 15686895,
+		"grass_color": 13320169,
+		"foliage_color": 11218134,
+		"ambient_sound": "minecraft:ambient.soul_sand_valley.loop",
+		"mood_sound": {
+			"sound": "minecraft:ambient.soul_sand_valley.mood",
+			"tick_delay": 6000,
+			"block_search_extent": 8,
+			"offset": 2
+		},
+		"additions_sound": {
+			"sound": "minecraft:ambient.soul_sand_valley.additions",
+			"tick_chance": 0.0111
+		}
+	},
+	"spawners": {
+		"monster": [
+			{
+				"type": "divinerpg:bohemite",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:galroid",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:kazrotic",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:lheiva",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:lorga_flight",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 5
+			},
+			{
+				"type": "divinerpg:mysterious_man_layer_3",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:tocaxin",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:vermenous",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		]
+	},
+	"spawn_costs": {},
+	"carvers": {},
+	"features": [
+		[],
+		[],
+		[],
+		[],
+		[],
+		[
+			"divinerpg:vethea/hyrewood_tree"
+		],
+		[
+			"divinerpg:vethea/hyrelands_plants"
+		]
+	]
+}

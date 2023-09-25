@@ -1,0 +1,39 @@
+{
+	"temperature": 1,
+	"downfall": 0,
+	"has_precipitation": false,
+	"effects": {
+		"sky_color": 10540502,
+		"fog_color": 7579884,
+		"water_color": 8019531,
+		"water_fog_color": 14319662,
+		"grass_color": 2044369,
+		"foliage_color": 2044369,
+		"ambient_sound": "minecraft:ambient.soul_sand_valley.loop",
+		"mood_sound": {
+			"sound": "minecraft:ambient.soul_sand_valley.mood",
+			"tick_delay": 6000,
+			"block_search_extent": 8,
+			"offset": 2
+		},
+		"additions_sound": {
+			"sound": "minecraft:ambient.soul_sand_valley.additions",
+			"tick_chance": 0.0111
+		}
+	},
+	"spawners": {},
+	"spawn_costs": {},
+	"carvers": {},
+	"features": [
+		[
+			"divinerpg:arcana/dungeon"
+		],
+		[
+			"divinerpg:arcana/tar_lake",
+			"divinerpg:arcana/vines",
+			"divinerpg:arcana/brush",
+			"divinerpg:arcana/bush",
+			"divinerpg:arcana/gem_of_the_dunes"
+		]
+	]
+}

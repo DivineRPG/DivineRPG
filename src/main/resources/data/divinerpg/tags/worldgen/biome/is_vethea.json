@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:ember_caverns",
-    "divinerpg:dream_grounds",
-    "divinerpg:hyrelands",
-    "divinerpg:scorched_tops"
+    "divinerpg:vethea/ember_caverns",
+    "divinerpg:vethea/dream_grounds",
+    "divinerpg:vethea/hyrelands",
+    "divinerpg:vethea/scorched_tops"
   ]
 }

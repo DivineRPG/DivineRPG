@@ -39,7 +39,7 @@
 						"erosion":			[ -0.6, -0.06 ],
 						"weirdness":		[ 0.7, 1 ],
 						"depth": -0.75,
-						"offset": 0.22
+						"offset": 0.23
 					}
 				},
 				{
@@ -91,9 +91,9 @@
 					}
 				},
 				{
-					"biome": "divinerpg:iceika/cozybark_meadow",
+					"biome": "divinerpg:iceika/cozybark_forest",
 					"parameters": {
-						"temperature":		[ -0.36, 0 ],
+						"temperature":		[ -0.4, 0 ],
 						"humidity":			[ 0.6, 1 ],
 						"continentalness":	[ 0.6, 1 ],
 						"erosion":			[ 0.5, 1 ],
@@ -175,7 +175,7 @@
 					}
 				},
 				{
-					"biome": "divinerpg:iceika/cozybark_meadow",
+					"biome": "divinerpg:iceika/cozybark_forest",
 					"parameters": {
 						"temperature":		[ -0.36, 0 ],
 						"humidity":			[ 0.6, 1 ],

@@ -1,7 +1,7 @@
 {
   "structures": [
     {
-      "structure": "divinerpg:iceika_dungeon",
+      "structure": "divinerpg:iceika/dungeon",
       "weight": 1
     }
   ],

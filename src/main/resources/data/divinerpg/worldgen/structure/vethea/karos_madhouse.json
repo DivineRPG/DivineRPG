@@ -1,0 +1,13 @@
+{
+	"type": "divinerpg:lowest_ground",
+	"biomes": "divinerpg:vethea/hyrelands",
+	"step": "surface_structures",
+	"spawn_overrides": {},
+	"terrain_adaptation": "none",
+	"start_pool": "divinerpg:vethea/karos_madhouse",
+	"size": 6,
+	"min_height": 160,
+	"max_height": 256,
+	"bury": 2,
+	"max_distance_from_center": 1
+}

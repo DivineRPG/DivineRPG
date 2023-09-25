@@ -1,0 +1,13 @@
+{
+	"type": "divinerpg:highest_ground",
+	"biomes": "divinerpg:vethea/scorched_tops",
+	"step": "surface_structures",
+	"spawn_overrides": {},
+	"terrain_adaptation": "none",
+	"start_pool": "divinerpg:vethea/raglok_chamber",
+	"size": 6,
+	"min_height": 256,
+	"max_height": 296,
+	"bury": 3,
+	"max_distance_from_center": 1
+}

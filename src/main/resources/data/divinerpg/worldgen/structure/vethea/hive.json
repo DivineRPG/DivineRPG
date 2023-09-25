@@ -1,0 +1,37 @@
+{
+	"type": "divinerpg:lowest_ground",
+	"biomes": "divinerpg:vethea/dream_grounds",
+	"step": "surface_structures",
+	"spawn_overrides": {
+		"monster": {
+			"bounding_box": "piece",
+			"spawns": [
+				{
+					"type": "divinerpg:hive_soldier",
+					"weight": 5,
+					"minCount": 1,
+					"maxCount": 2
+				},
+				{
+					"type": "divinerpg:biphron",
+					"weight": 5,
+					"minCount": 1,
+					"maxCount": 2
+				},
+				{
+					"type": "divinerpg:hover_stinger",
+					"weight": 5,
+					"minCount": 1,
+					"maxCount": 2
+				}
+			]
+		}
+	},
+	"terrain_adaptation": "none",
+	"start_pool": "divinerpg:vethea/hive",
+	"size": 6,
+	"min_height": 55,
+	"max_height": 160,
+	"bury": 4,
+	"max_distance_from_center": 1
+}

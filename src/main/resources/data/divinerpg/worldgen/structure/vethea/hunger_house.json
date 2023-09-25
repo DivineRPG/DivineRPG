@@ -1,0 +1,13 @@
+{
+	"type": "divinerpg:highest_ceiling",
+	"biomes": "divinerpg:vethea/ember_caverns",
+	"step": "surface_structures",
+	"spawn_overrides": {},
+	"terrain_adaptation": "none",
+	"start_pool": "divinerpg:vethea/hunger_house",
+	"size": 6,
+	"min_height": -60,
+	"max_height": 50,
+	"bury": -8,
+	"max_distance_from_center": 1
+}

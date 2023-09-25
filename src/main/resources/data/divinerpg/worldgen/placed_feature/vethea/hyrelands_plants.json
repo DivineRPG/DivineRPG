@@ -1,0 +1,23 @@
+{
+	"feature": "divinerpg:vethea/hyrelands_vegetation",
+	"placement": [
+		{
+			"type": "minecraft:count",
+			"count": 32
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "divinerpg:surface_placement",
+			"surface": "highest_ground",
+			"mode": "random_section",
+			"min_height": 160,
+			"max_height": 256,
+			"bury": 0
+		},
+		{
+			"type": "minecraft:biome"
+		}
+	]
+}

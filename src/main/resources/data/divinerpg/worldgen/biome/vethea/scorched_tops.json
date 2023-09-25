@@ -1,0 +1,81 @@
+{
+	"temperature": 2,
+	"downfall": 0,
+	"has_precipitation": false,
+	"effects": {
+		"sky_color": 2372958,
+		"fog_color": 677234,
+		"water_color": 12919228,
+		"water_fog_color": 12344049,
+		"grass_color": 5231325,
+		"foliage_color": 1827303,
+		"ambient_sound": "minecraft:ambient.basalt_deltas.loop",
+		"mood_sound": {
+			"sound": "minecraft:ambient.basalt_deltas.mood",
+			"tick_delay": 8000,
+			"block_search_extent": 8,
+			"offset": 2
+		},
+		"additions_sound": {
+			"sound": "minecraft:ambient.basalt_deltas.additions",
+			"tick_chance": 0.0111
+		},
+		"particle": {
+			"options": {
+				"type": "minecraft:glow"
+			},
+			"probability": 0.001
+		}
+	},
+	"spawners": {
+		"monster": [
+			{
+				"type": "divinerpg:dissiment",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:helio",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:vhraak",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:zone",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:zoragon",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		]
+	},
+	"spawn_costs": {},
+	"carvers": {},
+	"features": [
+		[],
+		[],
+		[],
+		[],
+		[],
+		[
+			"divinerpg:vethea/mintwood_tree"
+		],
+		[
+			"divinerpg:vethea/scorched_tops_plants"
+		],
+		[],
+		[]
+	]
+}

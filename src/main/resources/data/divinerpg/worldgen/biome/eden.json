@@ -72,16 +72,16 @@
     [],
     [],
     [
-      "divinerpg:eden_ore",
+      "divinerpg:eden/ore",
       "divinerpg:twilight_tar_lake"
     ],
     [
-      "divinerpg:divine_moss_stone"
+      "divinerpg:eden/divine_moss_stone"
     ],
     [
-      "divinerpg:eden_tree",
-      "divinerpg:eden_bush",
-      "divinerpg:eden_plants"
+      "divinerpg:eden/tree",
+      "divinerpg:eden/bush",
+      "divinerpg:eden/plants"
     ],
     []]
 }

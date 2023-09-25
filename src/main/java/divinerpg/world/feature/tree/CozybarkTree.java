@@ -89,9 +89,11 @@ public class CozybarkTree extends ShiverspineTree {
 		flatCanopy(level, random, pos.above(), leaves, 2);
 	}
 	protected void root(WorldGenLevel level, RandomSource random, MutableBlockPos pos, BlockState log, int directionX, int directionZ) {
-		if(random.nextFloat() <= .3F) setBlock(level, pos.above(), log);
+		BlockState state = level.getBlockState(pos.below());
+		if(random.nextFloat() <= .3F && !(state.isAir() || state.is(Blocks.WATER))) setBlock(level, pos.above(), log, false);
 		int distance = 0;
 		do {
+			if((state = level.getBlockState(pos)).isAir() || state.is(Blocks.WATER)) pos.move(0, -1, 0);
 			setBlock(level, pos, log, true);
 			pos.move(random.nextInt(2) - directionX, random.nextInt(2) - 1, random.nextInt(2) - directionZ);
 			distance++;
@@ -100,7 +102,7 @@ public class CozybarkTree extends ShiverspineTree {
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
-			int treeType = random.nextInt(4) == 0 ? random.nextInt(3) : random.nextInt(2) + 1, treeHeight = switch(treeType) {
+			int treeType = random.nextInt(5) == 0 ? random.nextInt(3) : random.nextInt(2) + 1, treeHeight = switch(treeType) {
 			case 2 -> 13 + random.nextInt(4);
 			case 1 -> 9 + random.nextInt(6);
 			default -> 5 + random.nextInt(5);
@@ -191,8 +193,7 @@ public class CozybarkTree extends ShiverspineTree {
 						MutableBlockPos m = new MutableBlockPos(pos.getX() + treeHeight, pos.getY(), pos.getZ() + extraHeight);
 						setBlock(level, m, log, true);
 						flatCanopy(level, random, m, leaves, 3);
-					}
-					break;
+					} break;
 				}
 				return true;
 			}

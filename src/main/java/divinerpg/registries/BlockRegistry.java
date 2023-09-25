@@ -1,5 +1,6 @@
 package divinerpg.registries;
 
+import divinerpg.DivineRPG;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
@@ -11,6 +12,7 @@ import divinerpg.world.feature.tree.grower.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -466,6 +468,7 @@ public class BlockRegistry {
             cutOxdriteWall = registerBlock("cut_oxdrite_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cut_oxdrite")))),
             cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_BROWN, BlockSetType.IRON)),
             cutOxdriteButton = registerBlock("cut_oxdrite_button", () -> new BlockModButton(BlockSetType.IRON)),
+            gelidite = registerBlock("gelidite", () -> new BlockMod(Properties.copy(Blocks.MUD))),
 
             //Arcana Bricks & Other Blocks
             ancientBricks = registerBlock("ancient_bricks", () -> new BlockModUnbreakable(WARPED_NYLIUM)),
@@ -617,6 +620,12 @@ public class BlockRegistry {
             smoothGlass = registerBlock("smooth_glass", () -> new BlockModGlass()),
 
             //Plants & Fungi
+            crimpetal = registerBlock("crimpetal", () -> new FlowerBlock(() -> MobEffects.FIRE_RESISTANCE, 20, Properties.copy(Blocks.POPPY))),
+            globebrush = registerBlock("globebrush", () -> new BlockModDoublePlant(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")), COLOR_BLUE)),
+            roofbell = registerBlock("roofbell", () -> new FlowerBlock(() -> MobEffects.POISON, 20, Properties.copy(Blocks.RED_MUSHROOM))),
+            thermoliage = registerBlock("thermoliage", () -> new BlockModDoublePlant(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")), COLOR_RED)),
+            winterbloom = registerBlock("winterbloom", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 20, Properties.copy(Blocks.LILY_OF_THE_VALLEY))),
+            wispLeaf = registerBlock("wisp_leaf", () -> new FlowerBlock(() -> MobEffects.DOLPHINS_GRACE, 20, Properties.copy(Blocks.ALLIUM))),
             brittleGrass = registerBlock("brittle_grass", () -> new BlockBrittleGrass()),
             winterberryBush = registerBlock("winterberry_bush", () -> new BlockWinterberryBush()),
             winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.copy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
@@ -816,6 +825,11 @@ public class BlockRegistry {
 
     //Flower Pots
     public static final RegistryObject<FlowerPotBlock>
+    		crimpetalPot = registerFlowerPot("crimpetal_pot", crimpetal),
+    		globebrushPot = registerFlowerPot("globebrush_pot", globebrush),
+    		roofbellPot = registerFlowerPot("roofbell_pot", roofbell),
+    		thermoliagePot = registerFlowerPot("thermoliage_pot", thermoliage),
+    		winterbloomPot = registerFlowerPot("winterbloom_pot", winterbloom),
             bulbatobePot = registerFlowerPot("bulbatobe_pot", bulbatobe),
             cracklespikePot = registerFlowerPot("cracklespike_pot", cracklespike),
             dreamglowPot = registerFlowerPot("dreamglow_pot", dreamglow),

@@ -1,0 +1,15 @@
+{
+  "type": "divinerpg:stump",
+  "config": {
+    "can_grow_on": [],
+    "leaves": {
+      "Name": "divinerpg:roofbell"
+    },
+    "log": {
+      "Name": "divinerpg:cozybark_log",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

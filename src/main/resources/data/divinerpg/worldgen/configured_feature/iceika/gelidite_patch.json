@@ -1,0 +1,23 @@
+{
+  "type": "divinerpg:blob",
+  "config": {
+    "block": {
+    	"type": "minecraft:simple_state_provider",
+	    "state": {
+	    	"Name": "divinerpg:gelidite"
+		}
+    },
+    "max_size": 3,
+    "min_size": 1,
+    "replace": [
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "divinerpg:frozen_grass"
+    	},
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "divinerpg:frozen_dirt"
+    	}
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+	"feature": "divinerpg:arcana/gem_of_the_dunes",
+	"placement": [
+		{
+			"type": "minecraft:rarity_filter",
+			"chance": 9
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "divinerpg:surface_placement",
+			"surface": "lowest_ground",
+			"min_height": 36,
+			"max_height": 78,
+			"bury": 0
+		},
+		{
+			"type": "divinerpg:underground"
+		}
+	]
+}

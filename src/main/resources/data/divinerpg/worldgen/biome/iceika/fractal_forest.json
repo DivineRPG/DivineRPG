@@ -40,7 +40,11 @@
 			"minecraft:iceberg_packed",
 			"minecraft:iceberg_blue"
 		],
-		[],
+		[
+			"divinerpg:iceika/oxdrite_vein",
+			"divinerpg:iceika/anthracite_ore",
+			"divinerpg:iceika/anthracite_vein"
+		],
 		[
 			"minecraft:blue_ice"
 		],

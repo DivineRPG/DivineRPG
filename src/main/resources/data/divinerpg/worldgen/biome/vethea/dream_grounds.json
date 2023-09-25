@@ -1,0 +1,68 @@
+{
+	"temperature": 1,
+	"downfall": 0,
+	"has_precipitation": false,
+	"effects": {
+		"sky_color": 2319699,
+		"fog_color": 2719305,
+		"water_color": 1956019,
+		"water_fog_color": 1952982,
+		"grass_color": 4319082,
+		"foliage_color": 1103943
+	},
+	"spawners": {
+		"monster": [
+			{
+				"type": "divinerpg:biphron",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:gorgosion",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:mandragora",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:mysterious_man_layer_2",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:twins",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		]
+	},
+	"spawn_costs": {},
+	"carvers": {
+		"air": "minecraft:cave"
+	},
+	"features": [
+		[],
+		[
+			"divinerpg:vethea/firelight"
+		],
+		[],
+		[],
+		[],
+		[
+			"divinerpg:vethea/dreamwood_tree"
+		],
+		[
+			"divinerpg:vethea/dream_grounds_plants"
+		],
+		[],
+		[]
+	]
+}

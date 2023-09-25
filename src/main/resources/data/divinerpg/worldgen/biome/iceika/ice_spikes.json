@@ -84,7 +84,10 @@
 			"minecraft:iceberg_blue"
 		],
 		[
-			"divinerpg:iceika/glacial_pond"
+			"divinerpg:iceika/oxdrite_ore",
+			"divinerpg:iceika/oxdrite_vein",
+			"divinerpg:iceika/glacial_pond",
+			"divinerpg:iceika/cobaltite"
 		],
 		[
 			"minecraft:blue_ice"

@@ -64,12 +64,12 @@
     [],
     [],
     [
-      "divinerpg:apalachia_ore",
+      "divinerpg:apalachia/ore",
       "divinerpg:twilight_tar_lake"
     ],
     [
-      "divinerpg:apalachia_tree",
-      "divinerpg:apalachia_plants"
+      "divinerpg:apalachia/tree",
+      "divinerpg:apalachia/plants"
     ],
     []
   ]

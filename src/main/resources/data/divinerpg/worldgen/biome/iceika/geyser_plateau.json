@@ -44,7 +44,10 @@
 			"divinerpg:iceika/thermal_vent"
 		],
 		[],
-		[],
+		[
+			"divinerpg:iceika/oxdrite_ore",
+			"divinerpg:iceika/oxdrite_vein"
+		],
 		[],
 		[
 			"minecraft:ice_patch",

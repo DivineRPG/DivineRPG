@@ -128,7 +128,12 @@
 			"divinerpg:iceika/twilight_stone_patch"
 		],
 		[],
-		[],
+		[
+			"divinerpg:iceika/anthracite_blob",
+			"divinerpg:iceika/anthracite_ore",
+			"divinerpg:iceika/anthracite_vein",
+			"divinerpg:iceika/cobaltite"
+		],
 		[],
 		[
 			"divinerpg:iceika/frozen_light",

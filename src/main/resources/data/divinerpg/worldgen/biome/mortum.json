@@ -71,14 +71,14 @@
     [],
     [],
     [
-      "divinerpg:mortum_ore",
-      "divinerpg:mortum_tar_lake"
+      "divinerpg:mortum/ore",
+      "divinerpg:mortum/tar_lake"
     ],
     [],
     [
-      "divinerpg:mortum_plants",
-      "divinerpg:mortum_tree",
-      "divinerpg:mortum_bush"
+      "divinerpg:mortum/plants",
+      "divinerpg:mortum/tree",
+      "divinerpg:mortum/bush"
     ],
     []
   ]

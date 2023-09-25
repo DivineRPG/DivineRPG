@@ -1,0 +1,38 @@
+{
+	"temperature": 2,
+	"downfall": 0,
+	"has_precipitation": false,
+	"effects": {
+		"sky_color": 11786203,
+		"fog_color": 11965169,
+		"water_color": 10451812,
+		"water_fog_color": 13472278,
+		"grass_color": 6056679,
+		"foliage_color": 6056679,
+		"ambient_sound": "minecraft:ambient.basalt_deltas.loop",
+		"mood_sound": {
+			"sound": "minecraft:ambient.basalt_deltas.mood",
+			"tick_delay": 8000,
+			"block_search_extent": 8,
+			"offset": 2
+		},
+		"additions_sound": {
+			"sound": "minecraft:ambient.basalt_deltas.additions",
+			"tick_chance": 0.0111
+		},
+		"particle": {
+			"options": {
+				"type": "minecraft:smoke"
+			},
+			"probability": 0.001
+		}
+	},
+	"spawners": {},
+	"spawn_costs": {},
+	"carvers": {
+		"air": "minecraft:cave"
+	},
+	"features": [
+		["divinerpg:arcana/blue_fire"]
+	]
+}

@@ -7,7 +7,7 @@
 			"type": "minecraft:multi_noise",
 			"biomes": [
 				{
-					"biome": "divinerpg:scorched_tops",
+					"biome": "divinerpg:vethea/scorched_tops",
 					"parameters": {
 						"temperature": 0,
 						"humidity": 0,
@@ -19,7 +19,7 @@
 					}
 				},
 				{
-					"biome": "divinerpg:hyrelands",
+					"biome": "divinerpg:vethea/hyrelands",
 					"parameters": {
 						"temperature": 0,
 						"humidity": 0,
@@ -31,7 +31,7 @@
 					}
 				},
 				{
-					"biome": "divinerpg:dream_grounds",
+					"biome": "divinerpg:vethea/dream_grounds",
 					"parameters": {
 						"temperature": 0,
 						"humidity": 0,
@@ -43,7 +43,7 @@
 					}
 				},
 				{
-					"biome": "divinerpg:ember_caverns",
+					"biome": "divinerpg:vethea/ember_caverns",
 					"parameters": {
 						"temperature": 0,
 						"humidity": 0,

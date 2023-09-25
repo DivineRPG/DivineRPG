@@ -1,0 +1,32 @@
+{
+	"type": "divinerpg:ore_vein",
+	"config": {
+		"cutoffChance": 0.15,
+		"straightness": 0.8,
+		"branchingChance": 0.22,
+		"states": [
+			{
+				"target": {
+					"predicate_type": "minecraft:tag_match",
+					"tag": "minecraft:stone_ore_replaceables"
+				},
+				"state": {
+					"Name": "divinerpg:anthracite_ore"
+				},
+				"chance": 0.5,
+				"discard_chance_on_air_exposure": 0
+			},
+			{
+				"target": {
+					"predicate_type": "minecraft:tag_match",
+					"tag": "minecraft:stone_ore_replaceables"
+				},
+				"state": {
+					"Name": "divinerpg:cobbled_frozen_stone"
+				},
+				"chance": 0.5,
+				"discard_chance_on_air_exposure": 0
+			}
+		]
+	}
+}

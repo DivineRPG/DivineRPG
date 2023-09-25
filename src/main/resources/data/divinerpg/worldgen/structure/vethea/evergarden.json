@@ -1,0 +1,13 @@
+{
+	"type": "divinerpg:highest_ground",
+	"biomes": "divinerpg:vethea/hyrelands",
+	"step": "surface_structures",
+	"spawn_overrides": {},
+	"terrain_adaptation": "beard_thin",
+	"start_pool": "divinerpg:vethea/evergarden",
+	"size": 6,
+	"min_height": 160,
+	"max_height": 256,
+	"bury": 0,
+	"max_distance_from_center": 1
+}

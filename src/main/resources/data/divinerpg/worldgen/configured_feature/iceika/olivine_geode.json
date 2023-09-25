@@ -1,0 +1,87 @@
+{
+  "type": "minecraft:geode",
+  "config": {
+    "blocks": {
+      "alternate_inner_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "divinerpg:budding_olivine"
+        }
+      },
+      "cannot_replace": "#minecraft:features_cannot_replace",
+      "filling_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:water"
+        }
+      },
+      "inner_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "divinerpg:olivine_block"
+        }
+      },
+      "inner_placements": [
+        {
+          "Name": "divinerpg:olivine_cluster",
+          "Properties": {
+            "facing": "up",
+            "waterlogged": "true"
+          }
+        }
+      ],
+      "invalid_blocks": "#minecraft:geode_invalid_blocks",
+      "middle_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "divinerpg:cobaltite"
+        }
+      },
+      "outer_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "minecraft:smooth_basalt"
+        }
+      }
+    },
+    "crack": {
+      "base_crack_size": 0.5,
+      "crack_point_offset": 1,
+      "generate_crack_chance": 0.25
+    },
+    "distribution_points": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 5,
+        "min_inclusive": 3
+      }
+    },
+    "invalid_blocks_threshold": 2,
+    "layers": {
+      "filling": 1.8,
+      "inner_layer": 2.5,
+      "middle_layer": 3.3,
+      "outer_layer": 4.2
+    },
+    "max_gen_offset": 16,
+    "min_gen_offset": -16,
+    "noise_multiplier": 0.06,
+    "outer_wall_distance": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 7,
+        "min_inclusive": 5
+      }
+    },
+    "placements_require_layer0_alternate": false,
+    "point_offset": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 2,
+        "min_inclusive": 1
+      }
+    },
+    "use_alternate_layer0_chance": 0.085,
+    "use_potential_placements_chance": 0.33
+  }
+}

@@ -7,7 +7,7 @@
 			"type": "minecraft:multi_noise",
 			"biomes": [
 				{
-					"biome": "divinerpg:barren_highlands",
+					"biome": "divinerpg:arcana/barren_highlands",
 					"parameters": {
 						"temperature": 1,
 						"humidity": 0,
@@ -19,7 +19,7 @@
 					}
 				},
 				{
-					"biome": "divinerpg:dune_valley",
+					"biome": "divinerpg:arcana/dune_valley",
 					"parameters": {
 						"temperature": 1,
 						"humidity": 0,

@@ -1,15 +1,15 @@
 {
   "structures": [
     {
-      "structure": "divinerpg:iceika_village",
+      "structure": "divinerpg:iceika/village",
       "weight": 1
     },
     {
-      "structure": "divinerpg:gruzzorlug_village",
+      "structure": "divinerpg:iceika/gruzzorlug_village",
       "weight": 1
     },
     {
-      "structure": "divinerpg:groglin_village",
+      "structure": "divinerpg:iceika/groglin_village",
       "weight": 1
     }
   ],

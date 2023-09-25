@@ -30,21 +30,20 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 		for(int x = pos.getX(); x < pos.getX() + 16; x++) for(int z = pos.getZ(); z < pos.getZ() + 16; z++) i += snow(level, random, new MutableBlockPos(x, Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight(), level.getMaxBuildHeight(), 0, level, random, x, z), z));
 		return i > 0;
 	}
+	public static boolean isWaterBlock(BlockState state) {
+		return state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElseGet(() -> false) || state.is(BlockTags.UNDERWATER_BONEMEALS) || state.is(Blocks.KELP) || state.is(Blocks.TALL_SEAGRASS);
+	}
 	public static byte snow(WorldGenLevel level, RandomSource random, MutableBlockPos position) {
 		if(level.getChunkSource() instanceof ServerChunkCache source) {
-			BlockState state = level.getBlockState(position);
-			while(state.is(Blocks.WATER)) {
-				position.move(0, 1, 0);
-				state = level.getBlockState(position);
-			}
+			while(isWaterBlock(level.getBlockState(position))) position.move(0, 1, 0);
 			SinglePointContext context = new SinglePointContext(position.getX(), position.getY(), position.getZ());
 			NoiseRouter router = source.randomState().router();
 			double depth = ((level.getBiome(position).get().getModifiedClimateSettings().downfall() + level.getBiome(position.north()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.south()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.east()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.west()).get().getModifiedClimateSettings().downfall()) / 5D)
 					* (router.vegetation().compute(context) + 1.1) + router.temperature().compute(context) + 1D;
 			if(depth >= .125) {
 				BlockPos below = position.below();
-				state = level.getBlockState(below);
-				if(state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElseGet(() -> false) || state.is(BlockTags.UNDERWATER_BONEMEALS) || state.is(Blocks.KELP)) level.setBlock(below, Blocks.ICE.defaultBlockState(), 3);
+				BlockState state = level.getBlockState(below);
+				if(isWaterBlock(state)) level.setBlock(below, Blocks.ICE.defaultBlockState(), 3);
 				else if(state.is(Blocks.SNOW_BLOCK) || state.is(Blocks.SNOW) || state.is(Blocks.POWDER_SNOW) || state.is(BlockTags.ICE) || !state.isCollisionShapeFullBlock(level, below)) return 0;
 				else {
 					if(state.is(BlockTags.LEAVES)) depth -= .2;

@@ -1,11 +1,11 @@
 {
 	"structures": [
 		{
-			"structure": "divinerpg:big_dream_tree",
+			"structure": "divinerpg:vethea/big_dream_tree",
 			"weight": 1
 		},
 		{
-			"structure": "divinerpg:big_hyretree",
+			"structure": "divinerpg:vethea/big_hyretree",
 			"weight": 1
 		}
 	],

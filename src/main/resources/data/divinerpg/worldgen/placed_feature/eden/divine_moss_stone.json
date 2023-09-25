@@ -1,0 +1,16 @@
+{
+	"feature": "divinerpg:eden/divine_moss_stone_pile",
+	"placement": [
+		{
+			"type": "minecraft:count_on_every_layer",
+			"count": 1
+		},
+		{
+			"type": "minecraft:rarity_filter",
+			"chance": 5
+		},
+		{
+			"type": "minecraft:in_square"
+		}
+	]
+}

@@ -1,7 +1,7 @@
 {
 	"structures": [
 		{
-			"structure": "divinerpg:infusion_outpost",
+			"structure": "divinerpg:vethea/infusion_outpost",
 			"weight": 1
 		}
 	],

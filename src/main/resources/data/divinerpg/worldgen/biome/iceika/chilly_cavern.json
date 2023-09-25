@@ -38,10 +38,15 @@
 		[],
 		[],
 		[
+			"divinerpg:iceika/oxdrite_deep",
+			"divinerpg:iceika/oxdrite_vein",
+			"divinerpg:iceika/olivine_geode",
+			"minecraft:amethyst_geode",
 			"divinerpg:iceika/frozen_light",
 			"divinerpg:iceika/olivine_cluster",
 			"divinerpg:iceika/amethyst_cluster",
-			"divinerpg:iceika/mineral_pond"
+			"divinerpg:iceika/mineral_pond",
+			"divinerpg:iceika/cobaltite"
 		],
 		[
 			"divinerpg:iceika/frozen_light",

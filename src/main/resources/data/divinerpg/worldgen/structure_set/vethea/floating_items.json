@@ -1,7 +1,7 @@
 {
 	"structures": [
 		{
-			"structure": "divinerpg:floating_items",
+			"structure": "divinerpg:vethea/floating_items",
 			"weight": 1
 		}
 	],
