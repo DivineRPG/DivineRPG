@@ -564,7 +564,7 @@ public class BlockRegistry {
             divineLamp = registerBlock("divine_lamp", () -> new BlockModLamp(COLOR_YELLOW, SoundType.GLASS)),
             jungleLamp = registerBlock("jungle_lamp", () -> new BlockModLamp(EMERALD, SoundType.GLASS)),
             terranLamp = registerBlock("terran_lamp", () -> new BlockModLamp(TERRACOTTA_GREEN, SoundType.GLASS)),
-            iceLamp = registerBlock("ice_lamp", () -> new BlockModLamp(DIAMOND, SoundType.GLASS)),
+            iceLamp = registerBlock("ice_lamp", () -> new BlockModLamp(COLOR_CYAN, SoundType.GLASS)),
             soulfireLamp = registerBlock("soulfire_lamp", () -> new BlockModLamp(WATER, SoundType.GLASS)),
             enderStoneLamp = registerBlock("ender_stone_lamp", () -> new BlockModLamp(COLOR_PURPLE, SoundType.GLASS)),
 
@@ -685,7 +685,7 @@ public class BlockRegistry {
             jungleSpiderPumpkin = registerBlock("jungle_spider_pumpkin", () -> new BlockMobPumpkin(() -> JUNGLE_SPIDER.get(), PLANT)),
             skeletonPumpkin		= registerBlock("skeleton_pumpkin", () -> new BlockMobPumpkin(() -> SKELETON_AMBIENT, WOOL)),
             spiderPumpkin		= registerBlock("spider_pumpkin", () -> new BlockMobPumpkin(() -> SPIDER_AMBIENT, COLOR_GRAY)),
-            zombiePumpkin		= registerBlock("zombie_pumpkin", () -> new BlockMobPumpkin(() -> ZOMBIE_AMBIENT, TERRACOTTA_GREEN)),
+            zombiePumpkin		= registerBlock("zombie_pumpkin", () -> new BlockMobPumpkin(() -> ZOMBIE_AMBIENT, COLOR_GREEN)),
 
             //Statues
             ancientEntityStatue = registerWithRender("ancient_entity_statue", () -> new BlockStatue(() -> IRON_GOLEM_DEATH), Rarity.RARE),
@@ -785,8 +785,8 @@ public class BlockRegistry {
             soulTrap = registerBlock("soul_trap", () -> new BlockMod(Block.Properties.of().mapColor(DyeColor.GRAY).strength(5F, 6F).sound(SoundType.METAL))),
 
         //Traps
-            spikeBlock = registerBlock("spike_block", () -> new BlockSpike(false, COLOR_GRAY)),
-            hotSpikeBlock = registerBlock("hot_spike_block", () -> new BlockSpike(true, COLOR_RED)),
+            spikeBlock = registerBlock("spike_block", () -> new BlockSpike(false, METAL)),
+            hotSpikeBlock = registerBlock("hot_spike_block", () -> new BlockSpike(true, CRIMSON_NYLIUM)),
             heatTrap = registerBlock("heat_trap", () -> new BlockHeatTrap()),
             karosHeatTileGreen = registerBlock("karos_heat_tile_green", () -> new BlockKarosHeatTile(EMERALD)),
             karosHeatTileRed = registerBlock("karos_heat_tile_red", () -> new BlockKarosHeatTile(FIRE)),

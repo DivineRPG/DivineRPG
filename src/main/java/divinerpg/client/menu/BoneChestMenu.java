@@ -7,8 +7,7 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 
-public class BoneChestMenu extends AbstractContainerMenu {
-    private static final int SLOTS_PER_ROW = 9;
+public class BoneChestMenu extends ChestMenu {
     private final Container container;
     private final int containerRows;
 
@@ -24,7 +23,7 @@ public class BoneChestMenu extends AbstractContainerMenu {
     }
 
     public BoneChestMenu(int p_39230_, Inventory p_39231_, Container p_39232_, int p_39233_) {
-        super(MenuTypeRegistry.BONE_CHEST.get(), p_39230_);
+        super(MenuTypeRegistry.BONE_CHEST.get(), p_39230_, p_39231_, p_39232_, p_39233_);
         checkContainerSize(p_39232_, p_39233_ * 9);
         this.container = p_39232_;
         this.containerRows = p_39233_;
@@ -49,14 +48,10 @@ public class BoneChestMenu extends AbstractContainerMenu {
 
     }
 
-    public boolean stillValid(Player p_39242_) {
-        return this.container.stillValid(p_39242_);
-    }
-
     public ItemStack quickMoveStack(Player p_39253_, int p_39254_) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(p_39254_);
-        if (slot != null && slot.hasItem()) {
+        if (slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
             if (p_39254_ < this.containerRows * 9) {
@@ -75,18 +70,5 @@ public class BoneChestMenu extends AbstractContainerMenu {
         }
 
         return itemstack;
-    }
-
-    public void removed(Player p_39251_) {
-        super.removed(p_39251_);
-        this.container.stopOpen(p_39251_);
-    }
-
-    public Container getContainer() {
-        return this.container;
-    }
-
-    public int getRowCount() {
-        return this.containerRows;
     }
 }
