@@ -2,7 +2,7 @@ package divinerpg.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import divinerpg.DivineRPG;
-import divinerpg.client.menu.*;
+import divinerpg.client.menu.BoneChestMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.*;
 import net.minecraft.network.chat.Component;
@@ -10,13 +10,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class BoneChestScreen extends AbstractContainerScreen<BoneChestMenu> implements MenuAccess<BoneChestMenu> {
-    private static final ResourceLocation LOCATION = new ResourceLocation(
-            DivineRPG.MODID + ":textures/gui/bone_chest_gui.png");
+    private static final ResourceLocation LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/gui/bone_chest_gui.png");
 
     public BoneChestScreen(BoneChestMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);
-
-        this.titleLabelY -= 2;
+        this.inventoryLabelY -= -2;
     }
 
     public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
@@ -25,15 +23,13 @@ public class BoneChestScreen extends AbstractContainerScreen<BoneChestMenu> impl
         this.renderTooltip(matrixStack, mouseX, mouseY);
     }
 
-
     @Override
     protected void renderBg(GuiGraphics matrixStack, float partialTicks, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, LOCATION);
 
-        int edgeSpacingX = (this.width - this.getXSize()) / 2;
-        int edgeSpacingY = (this.height - this.getYSize()) / 2;
-        matrixStack.blit(LOCATION, edgeSpacingX, edgeSpacingY, 0, 0, this.getXSize(), this.getYSize());
+        int i = leftPos, j = topPos;
+        matrixStack.blit(LOCATION, i, j, 0, 0, imageWidth, imageHeight + 1);
     }
 
     @Override

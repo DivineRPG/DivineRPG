@@ -5,17 +5,16 @@ import divinerpg.DivineRPG;
 import divinerpg.client.menu.PresentBoxMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.*;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class PresentBoxScreen extends AbstractContainerScreen<PresentBoxMenu> implements MenuAccess<PresentBoxMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(
-            DivineRPG.MODID + ":textures/gui/present_box_gui.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/present_box_gui.png");
+
     public PresentBoxScreen(PresentBoxMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);
-
+        this.inventoryLabelY -= -2;
     }
 
     public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
@@ -24,21 +23,19 @@ public class PresentBoxScreen extends AbstractContainerScreen<PresentBoxMenu> im
         this.renderTooltip(matrixStack, mouseX, mouseY);
     }
 
-
     @Override
     protected void renderBg(GuiGraphics matrixStack, float partialTicks, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        int i = this.leftPos;
-        int j = (this.height - this.imageHeight) / 2;
-        matrixStack.blit(TEXTURE, i, j, 0, 0, this.imageWidth, this.imageHeight);
+
+        int i = leftPos, j = topPos;
+        matrixStack.blit(TEXTURE, i, j, 0, 0, imageWidth, imageHeight + 1);
     }
 
     @Override
     protected void renderLabels(GuiGraphics matrixStack, int mouseX, int mouseY) {
-        matrixStack.drawString(font, this.title, (this.getXSize() / 2 - this.font.width(title) / 2) + 0, 6, 704255);
-        matrixStack.drawString(font, playerInventoryTitle, 8, this.getYSize() - 94, 704255);
+        matrixStack.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 704255, false);
+        matrixStack.drawString(this.font, this.playerInventoryTitle, this.inventoryLabelX, this.inventoryLabelY, 704255, false);
     }
 
 }
