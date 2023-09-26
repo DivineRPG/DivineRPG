@@ -13,7 +13,7 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "divinerpg:dusk_flower",
+              "block": "divinerpg:thermoliage",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"

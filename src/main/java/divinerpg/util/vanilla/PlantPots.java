@@ -10,6 +10,12 @@ public class PlantPots {
 
     public static void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
+            addPlant(crimpetal, crimpetalPot);
+            addPlant(globebrush, globebrushPot);
+            addPlant(roofbell, roofbellPot);
+            addPlant(thermoliage, thermoliagePot);
+            addPlant(winterbloom, winterbloomPot);
+            addPlant(wispLeaf, wispLeafPot);
             addPlant(bulbatobe, bulbatobePot);
             addPlant(cracklespike, cracklespikePot);
             addPlant(dreamglow, dreamglowPot);

@@ -17,6 +17,8 @@
     "divinerpg:weedwood_vine",
     "divinerpg:blossomed_weedwood_vine",
     "minecraft:snow_block",
-    "minecraft:snow"
+    "minecraft:snow",
+    "divinerpg:globebrush",
+    "divinerpg:thermoliage"
   ]
 }

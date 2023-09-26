@@ -1,3 +1,12 @@
 {
-  "parent": "divinerpg:block/frozen_grass"
+  "parent": "block/cube_all",
+  "textures": {
+    "east": "divinerpg:block/frozen_grass_side",
+    "south": "divinerpg:block/frozen_grass_side",
+    "north": "divinerpg:block/frozen_grass_side",
+    "west": "divinerpg:block/frozen_grass_side",
+    "particle": "divinerpg:block/frozen_dirt",
+    "up": "divinerpg:block/frozen_grass_top",
+    "down": "divinerpg:block/frozen_dirt"
+  }
 }

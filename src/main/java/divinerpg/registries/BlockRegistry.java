@@ -60,20 +60,23 @@ public class BlockRegistry {
             evergrass = registerBlock("evergrass", () -> new BlockDreamGrass(COLOR_MAGENTA)),
             scorchedGrass = registerBlock("scorched_grass", () -> new BlockModGrass(() -> dreamStone.get())),
 
+            //Mud
+            gelidite = registerBlock("gelidite", () -> new BlockMod(Properties.copy(Blocks.MUD))),
+
             //Gravel
-            frozenGravel = registerBlock("frozen_gravel", () -> new GravelBlock(Properties.copy(Blocks.GRAVEL).mapColor(MapColor.GLOW_LICHEN))),
+            frozenGravel = registerBlock("frozen_gravel", () -> new GravelBlock(Properties.copy(Blocks.GRAVEL).mapColor(GLOW_LICHEN))),
 
             //Sand
             arcaniteSand = registerBlock("arcanite_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(ICE))),
-            arcanicSand = registerBlock("arcanic_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_LIGHT_BLUE))),
-            arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(MapColor.COLOR_BLUE))),
-            soulSludge = registerBlock("soul_sludge", () -> new BlockModUnbreakable(Properties.copy(Blocks.SOUL_SAND).strength(-1F, 3600000F).mapColor(MapColor.COLOR_GRAY))),
-            soulSludgeBreakable = registerBlock("soul_sludge_breakable", () -> new BlockMod(Properties.copy(Blocks.SOUL_SAND).mapColor(MapColor.COLOR_GRAY))),
+            arcanicSand = registerBlock("arcanic_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(COLOR_LIGHT_BLUE))),
+            arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(COLOR_BLUE))),
+            soulSludge = registerBlock("soul_sludge", () -> new BlockModUnbreakable(Properties.copy(Blocks.SOUL_SAND).strength(-1F, 3600000F).mapColor(COLOR_GRAY))),
+            soulSludgeBreakable = registerBlock("soul_sludge_breakable", () -> new BlockMod(Properties.copy(Blocks.SOUL_SAND).mapColor(COLOR_GRAY))),
             glaciline = registerBlock("glaciline", () -> new BlockMod(Properties.copy(Blocks.BLUE_ICE).mapColor(COLOR_LIGHT_BLUE).friction(0.992F))),
 
             //Moss
             brittleMoss = registerBlock("brittle_moss", () -> new BlockBrittleMoss()),
-            arcaniteMoss = registerBlock("arcanite_moss", () -> new BlockModMoss(Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.COLOR_LIGHT_BLUE))),
+            arcaniteMoss = registerBlock("arcanite_moss", () -> new BlockModMoss(Properties.copy(Blocks.MOSS_BLOCK).mapColor(COLOR_LIGHT_BLUE))),
 
             //Stone & Stuff
             milkStone = registerBlock("milk_stone", () -> new BlockMod(WOOL, 1.5F, 6F)),
@@ -468,7 +471,6 @@ public class BlockRegistry {
             cutOxdriteWall = registerBlock("cut_oxdrite_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cut_oxdrite")))),
             cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_BROWN, BlockSetType.IRON)),
             cutOxdriteButton = registerBlock("cut_oxdrite_button", () -> new BlockModButton(BlockSetType.IRON)),
-            gelidite = registerBlock("gelidite", () -> new BlockMod(Properties.copy(Blocks.MUD))),
 
             //Arcana Bricks & Other Blocks
             ancientBricks = registerBlock("ancient_bricks", () -> new BlockModUnbreakable(WARPED_NYLIUM)),
@@ -620,16 +622,16 @@ public class BlockRegistry {
             smoothGlass = registerBlock("smooth_glass", () -> new BlockModGlass()),
 
             //Plants & Fungi
-            crimpetal = registerBlock("crimpetal", () -> new FlowerBlock(() -> MobEffects.FIRE_RESISTANCE, 20, Properties.copy(Blocks.POPPY))),
-            globebrush = registerBlock("globebrush", () -> new BlockModDoublePlant(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")), COLOR_BLUE)),
-            roofbell = registerBlock("roofbell", () -> new FlowerBlock(() -> MobEffects.POISON, 20, Properties.copy(Blocks.RED_MUSHROOM))),
-            thermoliage = registerBlock("thermoliage", () -> new BlockModDoublePlant(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")), COLOR_RED)),
-            winterbloom = registerBlock("winterbloom", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 20, Properties.copy(Blocks.LILY_OF_THE_VALLEY))),
-            wispLeaf = registerBlock("wisp_leaf", () -> new FlowerBlock(() -> MobEffects.DOLPHINS_GRACE, 20, Properties.copy(Blocks.ALLIUM))),
             brittleGrass = registerBlock("brittle_grass", () -> new BlockBrittleGrass()),
             winterberryBush = registerBlock("winterberry_bush", () -> new BlockWinterberryBush()),
             winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.copy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
             winterberryVinesHead = registerBlock("winterberry_vines_head", () -> new BlockWinterberryVinesHead(Properties.copy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
+            crimpetal = registerBlock("crimpetal", () -> new FlowerBlock(() -> MobEffects.FIRE_RESISTANCE, 7, Properties.copy(Blocks.POPPY).mapColor(COLOR_MAGENTA))),
+            roofbell = registerBlock("roofbell", () -> new FlowerBlock(() -> MobEffects.POISON, 14, Properties.copy(Blocks.RED_MUSHROOM).mapColor(COLOR_PINK))),
+            winterbloom = registerBlock("winterbloom", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 8, Properties.copy(Blocks.LILY_OF_THE_VALLEY).mapColor(SNOW))),
+            wispLeaf = registerBlock("wisp_leaf", () -> new FlowerBlock(() -> MobEffects.DOLPHINS_GRACE, 10, Properties.copy(Blocks.ALLIUM).mapColor(COLOR_LIGHT_GRAY))),
+            globebrush = registerBlock("globebrush", () -> new BlockModDoublePlant(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")), SNOW)),
+            thermoliage = registerBlock("thermoliage", () -> new BlockModDoublePlant(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")), COLOR_PINK)),
             arcanaBrush = registerBlock("arcana_brush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), TERRACOTTA_LIGHT_BLUE)),
             arcanaBush = registerBlock("arcana_bush", () -> new BlockTwilightGrass(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_BLUE)),
             gemOfTheDunes = registerBlock("gem_of_the_dunes", () -> new BlockTwilightFlower(() -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "arcanite_sand")), COLOR_LIGHT_BLUE), Rarity.EPIC),
@@ -827,9 +829,10 @@ public class BlockRegistry {
     public static final RegistryObject<FlowerPotBlock>
     		crimpetalPot = registerFlowerPot("crimpetal_pot", crimpetal),
     		globebrushPot = registerFlowerPot("globebrush_pot", globebrush),
-    		roofbellPot = registerFlowerPot("roofbell_pot", roofbell),
+            roofbellPot = registerFlowerPot("roofbell_pot", roofbell),
     		thermoliagePot = registerFlowerPot("thermoliage_pot", thermoliage),
     		winterbloomPot = registerFlowerPot("winterbloom_pot", winterbloom),
+            wispLeafPot = registerFlowerPot("wisp_leaf_pot", wispLeaf),
             bulbatobePot = registerFlowerPot("bulbatobe_pot", bulbatobe),
             cracklespikePot = registerFlowerPot("cracklespike_pot", cracklespike),
             dreamglowPot = registerFlowerPot("dreamglow_pot", dreamglow),

@@ -2,6 +2,6 @@
   "parent": "block/flower_pot_cross",
   "render_type": "cutout",
   "textures": {
-    "plant": "divinerpg:block/crimpetal_pot"
+    "plant": "divinerpg:block/crimpetal"
   }
 }
