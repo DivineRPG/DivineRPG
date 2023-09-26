@@ -46,6 +46,9 @@ public final class ConfiguredFeatureKeys {
 			COZYBARK_TREE = registerKey("cozybark_tree"),
 			COZYBARK_STUMP = registerKey("cozybark_stump"),
 			FRACTAL_TREE = registerKey("fractal_tree"),
+			GLOWSPROUT = registerKey("glowsprout"),
+			LOWSPROUT = registerKey("lowsprout"),
+			SLOWSPROUT = registerKey("slowsprout"),
 			SHIVERSPINE_BUSH = registerKey("shiverspine_bush"),
 			COZYBARK_BUSH = registerKey("cozybark_bush"),
 			GEOTHERMAL_POND = registerKey("geothermal_pond"),
@@ -98,13 +101,15 @@ public final class ConfiguredFeatureKeys {
 		register(context, AURORAOAK_TREE, FeatureRegistry.AURORAOAK_TREE.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "auroraoak_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "auroraoak_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, COZYBARK_TREE, FeatureRegistry.COZYBARK_TREE.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cozybark_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cozybark_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, COZYBARK_STUMP, FeatureRegistry.STUMP.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cozybark_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "roofbell")).defaultBlockState(), ImmutableList.of()));
+		register(context, GLOWSPROUT, FeatureRegistry.GLOWSPROUT.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "glowsprout_stem")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "glowsprout_bulb")).defaultBlockState(), ImmutableList.of()));
+		register(context, LOWSPROUT, FeatureRegistry.LOWSPROUT.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lowsprout_stem")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lowsprout_bulb")).defaultBlockState(), ImmutableList.of()));
+		register(context, SLOWSPROUT, FeatureRegistry.SLOWSPROUT.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "slowsprout_stem")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "slowsprout_bulb")).defaultBlockState(), ImmutableList.of()));
 		register(context, SHIVERSPINE_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "shiverspine_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, COZYBARK_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cozybark_log")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cozybark_leaves")).defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, GEOTHERMAL_POND, FeatureRegistry.GEOTHERMAL_POND.get(), new RuleTestConfig(ImmutableList.of()));
 		register(context, GLACIAL_POND, FeatureRegistry.GLACIAL_POND.get(), new RuleTestConfig(ImmutableList.of()));
 		register(context, BRITTLE_POND, FeatureRegistry.BRITTLE_POND.get(), new RuleTestConfig(ImmutableList.of()));
 		register(context, THERMAL_VENT, FeatureRegistry.THERMAL_VENT.get(), NoneFeatureConfiguration.INSTANCE);
-		register(context, FROZEN_LIGHT, FeatureRegistry.FROZEN_LIGHT.get(), new RuleTestConfig(ImmutableList.of()));
 		register(context, BRITTLE_PLANTS, FeatureRegistry.BRITTLE_PLANTS.get(), NoneFeatureConfiguration.INSTANCE);
 		register(context, BRITTLE_CAVES_VEGETATION, FeatureRegistry.BRITTLE_CAVES_VEGETATION.get(), NoneFeatureConfiguration.INSTANCE);
 		register(context, WHALE_SKELETON, FeatureRegistry.WHALE_SKELETON.get(), NoneFeatureConfiguration.INSTANCE);

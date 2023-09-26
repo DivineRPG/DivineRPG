@@ -1,0 +1,46 @@
+{
+	"type": "minecraft:simple_block",
+	"config": {
+		"to_place": {
+			"type": "minecraft:weighted_state_provider",
+			"entries": [
+				{
+					"weight": 2,
+					"data": {
+						"Name": "minecraft:brown_mushroom"
+					}
+				},
+				{
+					"weight": 2,
+					"data": {
+						"Name": "minecraft:red_mushroom"
+					}
+				},
+				{
+					"weight": 2,
+					"data": {
+						"Name": "divinerpg:roofbell"
+					}
+				},
+				{
+					"weight": 1,
+					"data": {
+						"Name": "divinerpg:glowsprout"
+					}
+				},
+				{
+					"weight": 1,
+					"data": {
+						"Name": "divinerpg:lowsprout"
+					}
+				},
+				{
+					"weight": 1,
+					"data": {
+						"Name": "divinerpg:slowsprout"
+					}
+				}
+			]
+		}
+	}
+}

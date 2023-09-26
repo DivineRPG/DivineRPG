@@ -4,6 +4,7 @@
     "divinerpg:twilight_stone",
     "divinerpg:frozen_stone",
     "divinerpg:cobbled_frozen_stone",
-    "divinerpg:frozen_gravel"
+    "divinerpg:frozen_gravel",
+    "minecraft:packed_ice"
   ]
 }

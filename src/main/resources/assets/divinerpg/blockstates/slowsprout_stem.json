@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=z": {
+      "x": 90,
+      "model": "divinerpg:block/slowsprout_stem"
+    },
+    "axis=x": {
+      "x": 90,
+      "y": 90,
+      "model": "divinerpg:block/slowsprout_stem"
+    },
+    "axis=y": {
+      "model": "divinerpg:block/slowsprout_stem"
+    }
+  }
+}

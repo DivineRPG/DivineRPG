@@ -1,0 +1,9 @@
+{
+	"type": "divinerpg:spud",
+	"config": {
+		"center": {
+			"Name": "minecraft:verdant_froglight"
+		},
+		"rules": []
+	}
+}

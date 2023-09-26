@@ -1,0 +1,15 @@
+{
+  "type": "divinerpg:slowsprout",
+  "config": {
+    "can_grow_on": [],
+    "leaves": {
+      "Name": "divinerpg:slowsprout_bulb"
+    },
+    "log": {
+      "Name": "divinerpg:slowsprout_stem",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

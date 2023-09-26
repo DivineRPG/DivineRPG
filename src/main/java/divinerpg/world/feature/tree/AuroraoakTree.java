@@ -65,7 +65,7 @@ public class AuroraoakTree extends DivineTree {
 		int r = random.nextInt(3), s = random.nextInt(3) - 1;
 		if(treeHeight > r) growBranch(level, random, pos.offset(direction ? 1 : -1, r, direction ? 1 : -1), log, leaves, height - r + s, treeHeight - r + s, false, direction);
 	}
-	private void growLeaves(WorldGenLevel level, RandomSource random, BlockPos pos, BlockState leaves) {
+	protected void growLeaves(WorldGenLevel level, RandomSource random, BlockPos pos, BlockState leaves) {
 		int type = random.nextInt(4);
 		if(type == 3) type = random.nextInt(4);
 		grow(level, pos, leaves, 1, 1);

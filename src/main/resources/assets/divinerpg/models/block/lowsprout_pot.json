@@ -1,0 +1,7 @@
+{
+  "parent": "block/flower_pot_cross",
+  "render_type": "cutout",
+  "textures": {
+    "plant": "divinerpg:block/lowsprout"
+  }
+}

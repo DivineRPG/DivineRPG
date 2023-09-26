@@ -35,9 +35,15 @@
 	},
 	"features": [
 		[
-			"divinerpg:iceika/geothermal_pond"
+			"divinerpg:iceika/frozen_stone",
+			"divinerpg:iceika/hanging_icicle"
 		],
 		[
+			"divinerpg:iceika/muddy_floor",
+			"divinerpg:iceika/underground_mushrooms",
+			"divinerpg:iceika/glowsprout",
+			"divinerpg:iceika/lowsprout",
+			"divinerpg:iceika/slowsprout",
 			"divinerpg:iceika/underwater_magma",
 			"divinerpg:iceika/thermal_vent"
 		],
@@ -53,17 +59,16 @@
 		[
 			"minecraft:pile_snow",
 			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/verdant_froglight",
+			"divinerpg:iceika/pearlescent_froglight",
+			"divinerpg:iceika/ochre_froglight",
 			"divinerpg:iceika/classic_vines_brittle_caves",
 			"minecraft:glow_lichen"
 		],
 		[],
 		[],
 		[],
-		[
-			"divinerpg:iceika/icicle"
-		],
-		[
-			"divinerpg:iceika/hanging_icicle"
-		]
+		[],
+		[]
 	]
 }

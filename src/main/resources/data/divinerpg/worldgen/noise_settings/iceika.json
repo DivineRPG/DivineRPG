@@ -403,6 +403,62 @@
 			{
 				"type": "minecraft:condition",
 				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/glowing_deep"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:condition",
+					"if_true": {
+						"type": "minecraft:vertical_gradient",
+						"random_name": "divinerpg:gelidite",
+						"true_at_and_below": {
+							"absolute": 0
+						},
+						"false_at_and_above": {
+							"absolute": 64
+						}
+					},
+					"then_run": {
+						"type": "minecraft:block",
+						"result_state": {
+							"Name": "divinerpg:gelidite"
+						}
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:iceika/frozen_menagerie"
+					]
+				},
+				"then_run": {
+					"type": "minecraft:condition",
+					"if_true": {
+						"type": "minecraft:vertical_gradient",
+						"random_name": "divinerpg:packed_ice",
+						"true_at_and_below": {
+							"absolute": 0
+						},
+						"false_at_and_above": {
+							"absolute": 64
+						}
+					},
+					"then_run": {
+						"type": "minecraft:block",
+						"result_state": {
+							"Name": "minecraft:packed_ice"
+						}
+					}
+				}
+			},
+			{
+				"type": "minecraft:condition",
+				"if_true": {
 					"type": "minecraft:stone_depth",
 					"offset": 1,
 					"surface_type": "floor",

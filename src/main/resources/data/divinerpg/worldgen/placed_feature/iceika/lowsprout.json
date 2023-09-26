@@ -1,0 +1,40 @@
+{
+	"feature": "divinerpg:lowsprout",
+	"placement": [
+		{
+			"type": "minecraft:count_on_every_layer",
+			"count": 4
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+	      "type": "minecraft:environment_scan",
+	      "direction_of_search": "down",
+	      "max_steps": 6,
+	      "target_condition": {
+	        "type": "minecraft:matching_blocks",
+			"offset": [
+				0,
+				-1,
+				0
+			],
+			"blocks": [
+				"divinerpg:gelidite",
+				"divinerpg:frozen_dirt",
+				"minecraft:mud",
+				"minecraft:mycelium"
+			]
+	      },
+	      "allowed_search_condition": {
+	        "type": "minecraft:matching_blocks",
+	        "blocks": [
+	          "minecraft:air"
+	        ]
+	      }
+	    },
+		{
+			"type": "minecraft:biome"
+		}
+	]
+}

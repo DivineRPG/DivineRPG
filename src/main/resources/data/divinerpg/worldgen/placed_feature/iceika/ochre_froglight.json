@@ -1,0 +1,15 @@
+{
+	"feature": "divinerpg:iceika/ochre_froglight",
+	"placement": [
+		{
+			"type": "minecraft:count_on_every_layer",
+			"count": 8
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "minecraft:biome"
+		}
+	]
+}

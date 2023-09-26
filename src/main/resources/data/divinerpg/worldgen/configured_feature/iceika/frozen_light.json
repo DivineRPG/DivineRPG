@@ -1,0 +1,12 @@
+{
+	"type": "divinerpg:spud",
+	"config": {
+		"center": {
+			"Name": "divinerpg:blue_stone"
+		},
+		"edge": {
+			"Name": "divinerpg:icy_stone"
+		},
+		"rules": []
+	}
+}

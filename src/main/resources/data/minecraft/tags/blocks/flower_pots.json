@@ -43,6 +43,9 @@
 	"divinerpg:roofbell_pot",
 	"divinerpg:thermoliage_pot",
 	"divinerpg:winterbloom_pot",
-	"divinerpg:wisp_leaf_pot"
+	"divinerpg:wisp_leaf_pot",
+	"divinerpg:glowsprout_pot",
+	"divinerpg:lowsprout_pot",
+	"divinerpg:slowsprout_pot"
   ]
 }

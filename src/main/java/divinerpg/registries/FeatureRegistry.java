@@ -44,7 +44,10 @@ public class FeatureRegistry {
     	AURORAOAK_TREE = FEATURES.register("auroraoak_tree", () -> new AuroraoakTree()),
     	COZYBARK_TREE = FEATURES.register("cozybark_tree", () -> new CozybarkTree()),
     	STUMP = FEATURES.register("stump", () -> new Stump()),
-    	FRACTAL_TREE = FEATURES.register("fractal_tree", () -> new FractalTree());
+    	FRACTAL_TREE = FEATURES.register("fractal_tree", () -> new FractalTree()),
+    	GLOWSPROUT = FEATURES.register("glowsprout", () -> new Glowsprout()),
+    	LOWSPROUT = FEATURES.register("lowsprout", () -> new Lowsprout()),
+    	SLOWSPROUT = FEATURES.register("slowsprout", () -> new Slowsprout());
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>
     	THERMAL_VENT = FEATURES.register("thermal_vent", () -> new ThermalVent()),
     	BRITTLE_PLANTS = FEATURES.register("brittle_plants", () -> new BrittlePlants()),
@@ -54,12 +57,12 @@ public class FeatureRegistry {
     	SNOW_SPREADER = FEATURES.register("snow_spreader", () -> new SnowSpreader());
 	public static final RegistryObject<Feature<PointedDripstoneConfiguration>> ICICLE = FEATURES.register("icicle", () -> new Icicle());
 	public static final RegistryObject<Feature<GemClusterConfig>> GEM_CLUSTER = FEATURES.register("gem_cluster", () -> new GemCluster());
+	public static final RegistryObject<Feature<SpudConfig>> SPUD = FEATURES.register("spud", () -> new Spud());
     public static final RegistryObject<Feature<RuleTestConfig>>
     	GEOTHERMAL_POND = FEATURES.register("geothermal_pond", () -> new GeothermalPond()),
     	GLACIAL_POND = FEATURES.register("glacial_pond", () -> new GlacialPond()),
     	MINERAL_POND = FEATURES.register("mineral_pond", () -> new MineralPond()),
-    	BRITTLE_POND = FEATURES.register("brittle_pond", () -> new BrittlePond()),
-    	FROZEN_LIGHT = FEATURES.register("frozen_light", () -> new FrozenLight());
+    	BRITTLE_POND = FEATURES.register("brittle_pond", () -> new BrittlePond());
     
     //Arcana
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>

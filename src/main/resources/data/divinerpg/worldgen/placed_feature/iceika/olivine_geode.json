@@ -22,6 +22,9 @@
     },
     {
       "type": "minecraft:biome"
+    },
+    {
+    	"type": "divinerpg:underground"
     }
   ]
 }

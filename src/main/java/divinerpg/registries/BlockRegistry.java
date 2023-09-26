@@ -8,6 +8,7 @@ import divinerpg.blocks.twilight.*;
 import divinerpg.blocks.vanilla.*;
 import divinerpg.blocks.vethea.*;
 import divinerpg.items.base.block.*;
+import divinerpg.world.ConfiguredFeatureKeys;
 import divinerpg.world.feature.tree.grower.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -259,6 +260,21 @@ public class BlockRegistry {
             streamleafTrapdoor = registerBlock("streamleaf_trapdoor", () -> new BlockModTrapdoor(ICE, BlockSetType.WARPED)),
             streamleafPressurePlate = registerBlock("streamleaf_pressure_plate", () -> new BlockModPressurePlate(ICE, BlockSetType.WARPED)),
             streamleafButton = registerBlock("streamleaf_button", () -> new BlockModButton(BlockSetType.WARPED)),
+            
+            //Glowsprout
+    		glowsprout = registerBlock("glowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS), ConfiguredFeatureKeys.GLOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
+			glowsproutBulb = registerBlock("glowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.OCHRE_FROGLIGHT).noOcclusion().lightLevel((state) -> {return 10;}).mapColor(COLOR_LIGHT_BLUE))),
+			glowsproutStem = registerBlock("glowsprout_stem", () -> new BlockModLog(COLOR_LIGHT_BLUE, SoundType.STEM)),
+			
+			//Lowsprout
+    		lowsprout = registerBlock("lowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS), ConfiguredFeatureKeys.LOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
+			lowsproutBulb = registerBlock("lowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.VERDANT_FROGLIGHT).noOcclusion().lightLevel((state) -> {return 10;}).mapColor(COLOR_GREEN))),
+			lowsproutStem = registerBlock("lowsprout_stem", () -> new BlockModLog(COLOR_GREEN, SoundType.STEM)),
+			
+			//Slowsprout
+    		slowsprout = registerBlock("slowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS), ConfiguredFeatureKeys.SLOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
+			slowsproutBulb = registerBlock("slowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.PEARLESCENT_FROGLIGHT).noOcclusion().lightLevel((state) -> {return 10;}).mapColor(COLOR_MAGENTA))),
+			slowsproutStem = registerBlock("slowsprout_stem", () -> new BlockModLog(COLOR_MAGENTA, SoundType.STEM)),
 
             //Eucalyptus
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),
@@ -827,6 +843,9 @@ public class BlockRegistry {
 
     //Flower Pots
     public static final RegistryObject<FlowerPotBlock>
+    		glowsproutPot = registerFlowerPot("glowsprout_pot", glowsprout),
+    		lowsproutPot = registerFlowerPot("lowsprout_pot", lowsprout),
+    		slowsproutPot = registerFlowerPot("slowsprout_pot", slowsprout),
     		crimpetalPot = registerFlowerPot("crimpetal_pot", crimpetal),
     		globebrushPot = registerFlowerPot("globebrush_pot", globebrush),
             roofbellPot = registerFlowerPot("roofbell_pot", roofbell),
