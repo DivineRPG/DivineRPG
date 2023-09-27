@@ -262,19 +262,19 @@ public class BlockRegistry {
             streamleafButton = registerBlock("streamleaf_button", () -> new BlockModButton(BlockSetType.WARPED)),
             
             //Glowsprout
-    		glowsprout = registerBlock("glowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS), ConfiguredFeatureKeys.GLOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
-			glowsproutBulb = registerBlock("glowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.OCHRE_FROGLIGHT).noOcclusion().lightLevel((state) -> {return 10;}).mapColor(COLOR_LIGHT_BLUE))),
-			glowsproutStem = registerBlock("glowsprout_stem", () -> new BlockModLog(COLOR_LIGHT_BLUE, SoundType.STEM)),
+    		glowsprout = registerBlock("glowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_CYAN), ConfiguredFeatureKeys.GLOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
+            glowsproutBulb = registerBlock("glowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.OCHRE_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(DIAMOND))),
+            glowsproutStem = registerBlock("glowsprout_stem", () -> new BlockModLog(COLOR_LIGHT_BLUE, SoundType.STEM)),
 			
 			//Lowsprout
-    		lowsprout = registerBlock("lowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS), ConfiguredFeatureKeys.LOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
-			lowsproutBulb = registerBlock("lowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.VERDANT_FROGLIGHT).noOcclusion().lightLevel((state) -> {return 10;}).mapColor(COLOR_GREEN))),
-			lowsproutStem = registerBlock("lowsprout_stem", () -> new BlockModLog(COLOR_GREEN, SoundType.STEM)),
+    		lowsprout = registerBlock("lowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_GREEN), ConfiguredFeatureKeys.LOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
+            lowsproutBulb = registerBlock("lowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.VERDANT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(WARPED_WART_BLOCK))),
+            lowsproutStem = registerBlock("lowsprout_stem", () -> new BlockModLog(GLOW_LICHEN, SoundType.STEM)),
 			
 			//Slowsprout
-    		slowsprout = registerBlock("slowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS), ConfiguredFeatureKeys.SLOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
-			slowsproutBulb = registerBlock("slowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.PEARLESCENT_FROGLIGHT).noOcclusion().lightLevel((state) -> {return 10;}).mapColor(COLOR_MAGENTA))),
-			slowsproutStem = registerBlock("slowsprout_stem", () -> new BlockModLog(COLOR_MAGENTA, SoundType.STEM)),
+    		slowsprout = registerBlock("slowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_MAGENTA), ConfiguredFeatureKeys.SLOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
+            slowsproutBulb = registerBlock("slowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.PEARLESCENT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(ICE))),
+            slowsproutStem = registerBlock("slowsprout_stem", () -> new BlockModLog(COLOR_PINK, SoundType.STEM)),
 
             //Eucalyptus
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),

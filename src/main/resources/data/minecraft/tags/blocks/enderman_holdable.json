@@ -5,6 +5,9 @@
     "#forge:sand/arcanite",
     "#forge:sand/arcanium_rich",
     "divinerpg:dreamglow",
-    "divinerpg:frozen_gravel"
+    "divinerpg:frozen_gravel",
+    "divinerpg:glowsprout",
+    "divinerpg:lowsprout",
+    "divinerpg:slowsprout"
   ]
 }

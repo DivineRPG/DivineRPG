@@ -53,6 +53,9 @@ public class PlantPots {
             addPlant(cozybarkSapling, cozybarkSaplingPot);
             addPlant(divineSapling, divineSaplingPot);
             addPlant(streamleafSapling, streamleafSaplingPot);
+            addPlant(glowsprout, glowsproutPot);
+            addPlant(lowsprout, lowsproutPot);
+            addPlant(slowsprout, slowsproutPot);
                 }
         );
     }

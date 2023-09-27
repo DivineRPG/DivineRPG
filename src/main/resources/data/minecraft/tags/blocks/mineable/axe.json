@@ -59,6 +59,9 @@
     "divinerpg:white_mushroom_plant",
     "divinerpg:glowsprout_stem",
     "divinerpg:lowsprout_stem",
-    "divinerpg:slowsprout_stem"
+    "divinerpg:slowsprout_stem",
+    "divinerpg:glowsprout",
+    "divinerpg:lowsprout",
+    "divinerpg:slowsprout"
   ]
 }

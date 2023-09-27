@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "divinerpg:frozen_dirt",
-    "divinerpg:frozen_grass",
-    "divinerpg:gelidite"
+    "divinerpg:frozen_grass"
   ]
 }
