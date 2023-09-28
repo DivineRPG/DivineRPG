@@ -98,7 +98,7 @@ public class BlockRegistry {
             cobaltiteWall = registerBlock("cobaltite_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cobaltite")))),
             cobaltitePressurePlate = registerBlock("cobaltite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_LIGHT_BLUE, BlockSetType.STONE)),
             cobaltiteButton = registerBlock("cobaltite_button", () -> new BlockModButton(BlockSetType.STONE)),
-            icyStone = registerBlock("icy_stone", () -> new BlockMod(GLOW_LICHEN, 50F, 1200F)),
+            icyStone = registerBlock("icy_stone", () -> new BlockMod(ICE, 50F, 1200F)),
             blueStone = registerBlock("blue_stone", () -> new BlockLightCrystal(COLOR_LIGHT_BLUE)),
             icicle = registerBlock("icicle", () -> new BlockIcicle()),
             coalstone = registerBlock("coalstone", () -> new BlockMod(COLOR_GRAY, 1.5F, 6F)),
@@ -263,18 +263,18 @@ public class BlockRegistry {
             
             //Glowsprout
     		glowsprout = registerBlock("glowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_CYAN), ConfiguredFeatureKeys.GLOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
-            glowsproutBulb = registerBlock("glowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.OCHRE_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(DIAMOND))),
-            glowsproutStem = registerBlock("glowsprout_stem", () -> new BlockModLog(COLOR_LIGHT_BLUE, SoundType.STEM)),
+            glowsproutBulb = registerBlock("glowsprout_bulb", () -> new HalfTransparentBlock(Properties.copy(Blocks.OCHRE_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(DIAMOND))),
+            glowsproutStem = registerBlock("glowsprout_stem", () -> new BlockModStem(COLOR_LIGHT_BLUE)),
 			
 			//Lowsprout
     		lowsprout = registerBlock("lowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_GREEN), ConfiguredFeatureKeys.LOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
-            lowsproutBulb = registerBlock("lowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.VERDANT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(WARPED_WART_BLOCK))),
-            lowsproutStem = registerBlock("lowsprout_stem", () -> new BlockModLog(GLOW_LICHEN, SoundType.STEM)),
+            lowsproutBulb = registerBlock("lowsprout_bulb", () -> new HalfTransparentBlock(Properties.copy(Blocks.VERDANT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(WARPED_WART_BLOCK))),
+            lowsproutStem = registerBlock("lowsprout_stem", () -> new BlockModStem(GLOW_LICHEN)),
 			
 			//Slowsprout
     		slowsprout = registerBlock("slowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_MAGENTA), ConfiguredFeatureKeys.SLOWSPROUT, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "gelidite")))),
-            slowsproutBulb = registerBlock("slowsprout_bulb", () -> new BlockMod(Properties.copy(Blocks.PEARLESCENT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(ICE))),
-            slowsproutStem = registerBlock("slowsprout_stem", () -> new BlockModLog(COLOR_PINK, SoundType.STEM)),
+            slowsproutBulb = registerBlock("slowsprout_bulb", () -> new HalfTransparentBlock(Properties.copy(Blocks.PEARLESCENT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(ICE))),
+            slowsproutStem = registerBlock("slowsprout_stem", () -> new BlockModStem(COLOR_PINK)),
 
             //Eucalyptus
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),
