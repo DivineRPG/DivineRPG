@@ -13,5 +13,6 @@
     "##"
   ],
   "type": "minecraft:crafting_shaped",
-  "category": "building"
+  "category": "building",
+  "group": "divinerpg_colored_bricks"
 }

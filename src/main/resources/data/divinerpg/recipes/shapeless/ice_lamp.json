@@ -11,5 +11,6 @@
     }
   ],
   "type": "minecraft:crafting_shapeless",
-  "category": "building"
+  "category": "building",
+  "group": "stone_lamps"
 }

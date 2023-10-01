@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:realmite_bricks"
+  },
+  "result": "divinerpg:realmite_minibricks",
+  "count": 1
+}

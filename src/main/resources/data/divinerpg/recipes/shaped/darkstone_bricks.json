@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:darkstone_bricks",
+    "count": 4
+  },
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "divinerpg_colored_bricks",
+  "key": {
+    "s": {
+      "item": "divinerpg:darkstone"
+    }
+  }
+}

@@ -1,7 +1,20 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/milk_stone"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/milk_stone"
+      },
+      {
+        "model": "divinerpg:block/milk_stone_mirrored"
+      },
+      {
+        "model": "divinerpg:block/milk_stone",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/milk_stone_mirrored",
+        "y": 180
+      }
+    ]
   }
 }

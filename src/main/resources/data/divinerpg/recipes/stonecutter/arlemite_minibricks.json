@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:arlemite_bricks"
+  },
+  "result": "divinerpg:arlemite_minibricks",
+  "count": 1
+}

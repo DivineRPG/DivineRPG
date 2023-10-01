@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:purple_vane"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:purple_dye"
+    },
+    {
+      "item": "minecraft:obsidian"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "vane"
+}

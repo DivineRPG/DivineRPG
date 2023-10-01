@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "divinerpg:iron_bricks",
+    "count": 8
+  },
+  "pattern": [
+    "sss",
+    "sis",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "divinerpg_colored_bricks",
+  "key": {
+    "s": {
+      "item": "minecraft:stone_bricks"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  }
+}

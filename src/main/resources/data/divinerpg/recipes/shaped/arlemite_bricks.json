@@ -1,20 +1,22 @@
 {
   "result": {
-    "item": "divinerpg:arlemite_bricks"
+    "item": "divinerpg:arlemite_bricks",
+    "count": 8
   },
   "pattern": [
-    "xyx",
-    "yxy",
-    "xyx"
+    "sss",
+    "sis",
+    "sss"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "divinerpg_colored_bricks",
   "key": {
-    "x": {
-      "item": "divinerpg:arlemite_ingot"
+    "s": {
+      "item": "minecraft:stone_bricks"
     },
-    "y": {
-      "tag": "minecraft:stone_bricks"
+    "i": {
+      "item": "divinerpg:arlemite_ingot"
     }
   }
 }

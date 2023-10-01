@@ -16,5 +16,6 @@
       "item": "minecraft:blue_ice"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "type": "minecraft:crafting_shapeless",
+  "category": "building"
 }

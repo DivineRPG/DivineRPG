@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import divinerpg.DivineRPG;
 import divinerpg.client.menu.AltarOfCorruptionMenu;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
@@ -23,8 +24,8 @@ import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorruptionMenu> {
-    private static final ResourceLocation ENCHANTING_TABLE_LOCATION = new ResourceLocation("textures/gui/container/enchanting_table.png");
-    private static final ResourceLocation ENCHANTING_BOOK_LOCATION = new ResourceLocation("textures/entity/enchanting_table_book.png");
+    private static final ResourceLocation ENCHANTING_TABLE_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/gui/altar_of_corruption.png");
+    private static final ResourceLocation ENCHANTING_BOOK_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/model/altar_book.png");
     private final RandomSource random = RandomSource.create();
     private BookModel bookModel;
     public int time;

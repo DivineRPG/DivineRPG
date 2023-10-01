@@ -16,6 +16,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.*;
@@ -30,7 +31,7 @@ public class BlockAltarOfCorruption extends BaseEntityBlock {
     }).map(BlockPos::immutable).toList();
 
     public BlockAltarOfCorruption() {
-        super(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE));
+        super(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).mapColor(MapColor.COLOR_PURPLE));
     }
 
     public static boolean isValidBookShelf(Level p_207910_, BlockPos p_207911_, BlockPos p_207912_) {

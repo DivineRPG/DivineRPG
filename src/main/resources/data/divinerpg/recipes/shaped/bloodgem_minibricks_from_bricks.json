@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "divinerpg:bloodgem_minibricks",
+    "count": 4
+  },
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "colored_minibricks",
+  "key": {
+    "s": {
+      "item": "divinerpg:bloodgem_bricks"
+    }
+  }
+}

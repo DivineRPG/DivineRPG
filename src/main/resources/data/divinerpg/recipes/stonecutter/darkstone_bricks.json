@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:darkstone"
+  },
+  "result": "divinerpg:darkstone_bricks",
+  "count": 1
+}
