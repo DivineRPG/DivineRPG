@@ -1,6 +1,6 @@
 {
 	"temperature": -0.9,
-	"downfall": 0.6,
+	"downfall": 1,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
@@ -19,9 +19,9 @@
 		},
 		"particle": {
 			"options": {
-				"type": "minecraft:snowflake"
+				"type": "divinerpg:frost"
 			},
-			"probability": 0.002
+			"probability": 0.001
 		}
 	},
 	"spawners": {},

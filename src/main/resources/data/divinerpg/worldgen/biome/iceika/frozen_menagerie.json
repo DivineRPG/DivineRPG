@@ -19,9 +19,9 @@
 		},
 		"particle": {
 			"options": {
-				"type": "minecraft:snowflake"
+				"type": "divinerpg:frost"
 			},
-			"probability": 0.002
+			"probability": 0.0001
 		}
 	},
 	"spawners": {},
@@ -39,9 +39,14 @@
 		[],
 		[
 			"divinerpg:iceika/oxdrite_deep",
+			"divinerpg:iceika/oxdrite_ore",
 			"divinerpg:iceika/anthracite_ore",
 			"divinerpg:iceika/glacial_pond",
-			"divinerpg:iceika/cobaltite"
+			"divinerpg:iceika/cobaltite",
+			"divinerpg:iceika/ice",
+			"divinerpg:iceika/blue_ice",
+			"divinerpg:iceika/glaciline_ore",
+			"divinerpg:iceika/skeleton"
 		],
 		[
 			"minecraft:blue_ice"
@@ -50,9 +55,13 @@
 			"minecraft:ice_patch",
 			"minecraft:pile_ice",
 			"minecraft:pile_snow",
+			"divinerpg:iceika/frozen_light",
+			"divinerpg:iceika/snowy_floor",
+			"divinerpg:iceika/snow_patch"
+		],
+		[
 			"divinerpg:iceika/frozen_light"
 		],
-		[],
 		[],
 		[],
 		[

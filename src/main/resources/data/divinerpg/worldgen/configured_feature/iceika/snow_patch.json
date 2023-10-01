@@ -1,0 +1,17 @@
+{
+	"type": "divinerpg:spud",
+	"config": {
+		"center": {
+			"Name": "minecraft:snow_block"
+		},
+		"edge": {
+			"Name": "minecraft:snow_block"
+		},
+		"rules": [
+			{
+	    		"predicate_type": "minecraft:block_match",
+				"block": "minecraft:packed_ice"
+	    	}
+		]
+	}
+}

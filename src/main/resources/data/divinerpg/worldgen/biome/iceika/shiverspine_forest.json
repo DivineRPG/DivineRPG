@@ -9,8 +9,8 @@
 		"fog_color": 15269119,
 		"water_color": 4159204,
 		"water_fog_color": 329011,
-		"grass_color": 7586030,
-		"foliage_color": 7837936,
+		"grass_color": 11991288,
+		"foliage_color": 11991288,
 		"music": {
 			"sound": "divinerpg:iceika_music",
 			"min_delay": 6000,
@@ -125,6 +125,7 @@
 			"minecraft:glow_lichen"
 		],
 		[
+			"minecraft:seagrass_cold",
 			"minecraft:seagrass_simple"
 		],
 		[],

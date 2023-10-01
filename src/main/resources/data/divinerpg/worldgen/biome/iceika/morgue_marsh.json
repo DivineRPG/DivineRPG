@@ -1,6 +1,6 @@
 {
 	"temperature": -0.9,
-	"downfall": 1.8,
+	"downfall": 0,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
@@ -49,19 +49,19 @@
 			"minecraft:glow_lichen"
 		],
 		[
+			"minecraft:seagrass_cold",
 			"minecraft:seagrass_simple"
 		],
 		[],
 		[],
 		[
 			"divinerpg:iceika/icicle",
-			"divinerpg:iceika/shiverspine_bush"
+			"divinerpg:iceika/streamleaf_tree",
+			"divinerpg:iceika/shiverspine_bush",
+			"divinerpg:iceika/globebrush"
 		],
 		[
-			"divinerpg:iceika/snow_coverage",
-			"divinerpg:iceika/hanging_icicle",
-			"divinerpg:iceika/snow_spreader",
-			"divinerpg:iceika/powder_snow"
+			"divinerpg:iceika/hanging_icicle"
 		]
 	]
 }

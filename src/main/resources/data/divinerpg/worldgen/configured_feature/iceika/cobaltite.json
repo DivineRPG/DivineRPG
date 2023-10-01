@@ -10,7 +10,7 @@
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
-          "tag": "minecraft:base_stone_overworld"
+          "tag": "minecraft:stone_ore_replaceables"
         }
       }
     ]

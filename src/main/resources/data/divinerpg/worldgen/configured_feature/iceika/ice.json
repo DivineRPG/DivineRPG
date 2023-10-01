@@ -1,0 +1,19 @@
+{
+  "type": "divinerpg:blob",
+  "config": {
+    "block": {
+    	"type": "minecraft:simple_state_provider",
+		"state": {
+			"Name": "minecraft:ice"
+		}
+    },
+    "max_size": 8,
+    "min_size": 4,
+    "replace": [
+    	{
+    		"predicate_type": "minecraft:block_match",
+			"block": "minecraft:packed_ice"
+    	}
+    ]
+  }
+}

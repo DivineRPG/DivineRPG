@@ -14,11 +14,6 @@
 	      "max_steps": 6,
 	      "target_condition": {
 	        "type": "minecraft:matching_blocks",
-			"offset": [
-				0,
-				-1,
-				0
-			],
 			"blocks": [
 				"divinerpg:gelidite",
 				"divinerpg:frozen_dirt",
@@ -33,6 +28,11 @@
 	        ]
 	      }
 	    },
+	    {
+			"type": "minecraft:random_offset",
+			"xz_spread": 0,
+			"y_spread": 1
+		},
 		{
 			"type": "minecraft:biome"
 		}

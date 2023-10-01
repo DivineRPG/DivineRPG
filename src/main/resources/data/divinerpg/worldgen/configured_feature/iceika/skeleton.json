@@ -1,0 +1,11 @@
+{
+	"type": "divinerpg:nbt_feature",
+	"config": {
+		"locations": [
+			"divinerpg:iceika/skeletons/skeleton_1",
+			"divinerpg:iceika/skeletons/skeleton_2",
+			"divinerpg:iceika/skeletons/skeleton_3",
+			"divinerpg:iceika/skeletons/skeleton_4"
+		]
+	}
+}

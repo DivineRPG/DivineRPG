@@ -19,7 +19,8 @@ public class NBTFeature extends Feature<NBTFeatureConfig> {
 	}
 	@Override
 	public boolean place(NBTFeatureConfig config, WorldGenLevel level, ChunkGenerator c, RandomSource random, BlockPos pos) {
-		placeStructure(level.getLevel().getServer().getStructureManager().getOrCreate(config.location), level, random, pos, Rotation.getRandom(random));
+		if(config.locations.isEmpty()) return false;
+		placeStructure(level.getLevel().getServer().getStructureManager().getOrCreate(config.locations.get(random.nextInt(config.locations.size()))), level, random, pos, Rotation.getRandom(random));
 		return true;
 	}
 }

@@ -1,9 +1,9 @@
 {
-	"feature": "divinerpg:lowsprout",
+	"feature": "divinerpg:iceika/snowy_floor",
 	"placement": [
 		{
 			"type": "minecraft:count_on_every_layer",
-			"count": 3
+			"count": 25
 		},
 		{
 			"type": "minecraft:in_square"
@@ -14,16 +14,8 @@
 	      "max_steps": 6,
 	      "target_condition": {
 	        "type": "minecraft:matching_blocks",
-			"offset": [
-				0,
-				-1,
-				0
-			],
 			"blocks": [
-				"divinerpg:gelidite",
-				"divinerpg:frozen_dirt",
-				"minecraft:mud",
-				"minecraft:mycelium"
+				"minecraft:packed_ice"
 			]
 	      },
 	      "allowed_search_condition": {

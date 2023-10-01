@@ -19,7 +19,7 @@
 		},
 		"particle": {
 			"options": {
-				"type": "minecraft:snowflake"
+				"type": "divinerpg:frost"
 			},
 			"probability": 0.002
 		}
@@ -56,6 +56,7 @@
 			"minecraft:pile_snow"
 		],
 		[
+			"minecraft:seagrass_cold",
 			"minecraft:seagrass_simple"
 		],
 		[],
@@ -70,6 +71,7 @@
 			"divinerpg:iceika/frozen_light"
 		],
 		[
+			"divinerpg:iceika/winterbloom",
 			"divinerpg:iceika/hanging_icicle",
 			"divinerpg:iceika/snow_spreader"
 		]

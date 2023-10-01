@@ -41,13 +41,15 @@ public class FeatureRegistry {
     //Iceika
     public static final RegistryObject<Feature<TreeConfig>>
     	SHIVERSPINE_TREE = FEATURES.register("shiverspine_tree", () -> new ShiverspineTree()),
+    	DEAD_SHIVERSPINE = FEATURES.register("dead_shiverspine", () -> new DeadShiverspine()),
     	AURORAOAK_TREE = FEATURES.register("auroraoak_tree", () -> new AuroraoakTree()),
     	COZYBARK_TREE = FEATURES.register("cozybark_tree", () -> new CozybarkTree()),
     	STUMP = FEATURES.register("stump", () -> new Stump()),
     	FRACTAL_TREE = FEATURES.register("fractal_tree", () -> new FractalTree()),
     	GLOWSPROUT = FEATURES.register("glowsprout", () -> new Glowsprout()),
     	LOWSPROUT = FEATURES.register("lowsprout", () -> new Lowsprout()),
-    	SLOWSPROUT = FEATURES.register("slowsprout", () -> new Slowsprout());
+    	SLOWSPROUT = FEATURES.register("slowsprout", () -> new Slowsprout()),
+    	STREAMLEAF_TREE = FEATURES.register("streamleaf_tree", () -> new StreamleafTree());
     public static final RegistryObject<Feature<NoneFeatureConfiguration>>
     	THERMAL_VENT = FEATURES.register("thermal_vent", () -> new ThermalVent()),
     	BRITTLE_PLANTS = FEATURES.register("brittle_plants", () -> new BrittlePlants()),

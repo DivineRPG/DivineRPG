@@ -12,6 +12,6 @@ public class StreamleafTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource p_222910_, boolean p_222911_) {
-        return ConfiguredFeatureKeys.SHIVERSPINE_BUSH;
+        return ConfiguredFeatureKeys.STREAMLEAF_TREE;
     }
 }

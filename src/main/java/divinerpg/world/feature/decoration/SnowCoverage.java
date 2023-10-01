@@ -54,7 +54,7 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 					if(depth >= 1D) {
 						if(depth >= 2D) {
 							depth = Math.floor(depth);
-							state = random.nextFloat() >= .05F ? Blocks.POWDER_SNOW.defaultBlockState() : Blocks.SNOW_BLOCK.defaultBlockState();
+							state = random.nextFloat() < .94F ? Blocks.POWDER_SNOW.defaultBlockState() : Blocks.SNOW_BLOCK.defaultBlockState();
 						} else state = Blocks.SNOW_BLOCK.defaultBlockState();
 						int i, k = (int) depth;
 						for(i = 0; i < k; i++) if(level.getBlockState(position).isAir()) {

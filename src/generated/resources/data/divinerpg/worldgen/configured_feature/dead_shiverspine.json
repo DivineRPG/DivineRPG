@@ -1,0 +1,18 @@
+{
+  "type": "divinerpg:dead_shiverspine",
+  "config": {
+    "can_grow_on": [],
+    "leaves": {
+      "Name": "divinerpg:shiverspine_log",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "log": {
+      "Name": "divinerpg:shiverspine_log",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

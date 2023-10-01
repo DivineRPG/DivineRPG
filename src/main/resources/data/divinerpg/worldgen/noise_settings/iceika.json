@@ -471,6 +471,33 @@
 						{
 							"type": "minecraft:condition",
 							"if_true": {
+								"type": "minecraft:biome",
+								"biome_is": [
+									"divinerpg:iceika/morgue_marsh"
+								]
+							},
+							"then_run": {
+								"type": "minecraft:condition",
+								"if_true": {
+									"type": "minecraft:noise_threshold",
+									"noise": "divinerpg:streams",
+									"min_threshold": 0,
+									"max_threshold": 0.1
+								},
+								"then_run": {
+									"type": "minecraft:block",
+									"result_state": {
+										"Name": "minecraft:water",
+										"Properties": {
+											"level": "0"
+										}
+									}
+								}
+							}
+						},
+						{
+							"type": "minecraft:condition",
+							"if_true": {
 								"type": "minecraft:vertical_gradient",
 								"random_name": "divinerpg:frozen_stone_bottom",
 								"true_at_and_below": {

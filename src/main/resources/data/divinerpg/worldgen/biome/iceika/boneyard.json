@@ -13,6 +13,12 @@
 			"min_delay": 6000,
 			"max_delay": 10000,
 			"replace_current_music": false
+		},
+		"particle": {
+			"options": {
+				"type": "minecraft:snowflake"
+			},
+			"probability": 0.001
 		}
 	},
 	"spawners": {

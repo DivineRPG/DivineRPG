@@ -21,7 +21,7 @@
 			"options": {
 				"type": "minecraft:snowflake"
 			},
-			"probability": 0.002
+			"probability": 0.003
 		}
 	},
 	"spawners": {},
@@ -49,6 +49,7 @@
 			"divinerpg:iceika/frozen_light"
 		],
 		[
+			"minecraft:seagrass_cold",
 			"minecraft:seagrass_simple"
 		],
 		[],
@@ -58,6 +59,7 @@
 		],
 		[
 			"divinerpg:iceika/snow_coverage",
+			"divinerpg:iceika/dead_shiverspine",
 			"divinerpg:iceika/hanging_icicle",
 			"divinerpg:iceika/snow_spreader",
 			"divinerpg:iceika/powder_snow"

@@ -1,6 +1,6 @@
 {
 	"temperature": -0.9,
-	"downfall": 0.2,
+	"downfall": 0,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
 	"creature_spawn_probability": 0.07,
@@ -40,8 +40,7 @@
 			"divinerpg:iceika/geothermal_pond"
 		],
 		[
-			"divinerpg:iceika/underwater_magma",
-			"divinerpg:iceika/thermal_vent"
+			"divinerpg:iceika/underwater_magma"
 		],
 		[],
 		[
@@ -62,13 +61,10 @@
 		],
 		[],
 		[
-			"divinerpg:iceika/icicle",
 			"divinerpg:iceika/shiverspine_bush"
 		],
 		[
-			"divinerpg:iceika/snow_coverage",
-			"divinerpg:iceika/hanging_icicle",
-			"divinerpg:iceika/snow_spreader"
+			"divinerpg:iceika/hanging_icicle"
 		]
 	]
 }
