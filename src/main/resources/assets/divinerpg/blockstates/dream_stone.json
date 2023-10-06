@@ -1,7 +1,20 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/dream_stone"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/dream_stone"
+      },
+      {
+        "model": "divinerpg:block/dream_stone_mirrored"
+      },
+      {
+        "model": "divinerpg:block/dream_stone",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/dream_stone_mirrored",
+        "y": 180
+      }
+    ]
   }
 }

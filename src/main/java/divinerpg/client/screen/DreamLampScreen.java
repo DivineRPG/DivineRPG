@@ -32,7 +32,7 @@ public class DreamLampScreen extends AbstractContainerScreen<DreamLampMenu> {
     }
     @Override
     protected void renderLabels(GuiGraphics matrixStack, int mouseX, int mouseY) {
-        matrixStack.drawString(font, this.title, 12, 8, 4210752);
-        matrixStack.drawString(font, playerInventoryTitle, 12, 70, 4210752);
+        matrixStack.drawString(font, this.title, 12, 7, 13563562);
+        matrixStack.drawString(font, playerInventoryTitle, 12, 71, 13563562);
     }
 }

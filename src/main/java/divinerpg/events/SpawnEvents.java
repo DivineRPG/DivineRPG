@@ -173,7 +173,7 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, BOHEMITE.get());
     	registerMobSpawn(e, CRYPT_KEEPER.get());
     	registerMonsterSpawn(e, CYMESOID.get());
-    	registerAirSpawn(e, DISSIMENT.get());
+		registerMonsterSpawn(e, DISSIMENT.get());
     	registerMonsterSpawn(e, DREAMWRECKER.get());
     	registerMonsterSpawn(e, DUO.get());
     	registerMonsterSpawn(e, ENT.get());
@@ -186,7 +186,7 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, KAZROTIC.get());
     	registerMonsterSpawn(e, LHEIVA.get());
     	registerMonsterSpawn(e, LORGA.get());
-    	registerAirSpawn(e, LORGA_FLIGHT.get());
+		registerMonsterSpawn(e, LORGA_FLIGHT.get());
     	registerMonsterSpawn(e, MANDRAGORA.get());
     	registerMobSpawn(e, MYSTERIOUS_MAN_LAYER1.get());
     	registerMobSpawn(e, MYSTERIOUS_MAN_LAYER2.get());
@@ -199,7 +199,7 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, VERMENOUS.get());
     	registerMonsterSpawn(e, VHRAAK.get());
     	registerMonsterSpawn(e, ZONE.get());
-    	registerAirSpawn(e, ZORAGON.get());
+		registerMonsterSpawn(e, ZORAGON.get());
 	}
 	public static void registerSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Entity> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::always, REPLACE);

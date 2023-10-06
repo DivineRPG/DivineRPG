@@ -24,13 +24,13 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
         dirtSupplier = dirt;
     }
     public BlockModGrass(Supplier<Block> dirt) {
-        super(Block.Properties.of().mapColor(MapColor.DIAMOND).randomTicks().strength(2F, 6F).instrument(NoteBlockInstrument.BASEDRUM));
+        super(Block.Properties.of().mapColor(MapColor.COLOR_CYAN).randomTicks().strength(2F, 6F).sound(SoundType.NYLIUM).instrument(NoteBlockInstrument.BASEDRUM));
         dirtSupplier = dirt;
     }
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
         Block block = plantable.getPlant(world, pos.above()).getBlock();
-        if (block instanceof BushBlock && !(block instanceof WaterlilyBlock)) {
+        if (block instanceof BushBlock && !(block instanceof WaterlilyBlock) && !(block instanceof CropBlock)) {
             return true;
         }
         return false;

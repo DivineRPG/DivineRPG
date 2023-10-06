@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/evergrass"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/evergrass"
+      },
+      {
+        "model": "divinerpg:block/evergrass",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/evergrass",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/evergrass",
+        "y": 270
+      }
+    ]
   }
 }

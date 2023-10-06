@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
@@ -20,7 +19,7 @@ import javax.annotation.Nullable;
 public class BlockDreamLamp extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public BlockDreamLamp() {
-        super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(0.3F).sound(SoundType.GLASS));
+        super(Block.Properties.of().strength(0.3F).sound(SoundType.GLASS));
         this.registerDefaultState(this.getStateDefinition().any().setValue(POWERED, false));
     }
     @Override

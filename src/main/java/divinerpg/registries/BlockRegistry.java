@@ -73,6 +73,8 @@ public class BlockRegistry {
             arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(COLOR_BLUE))),
             soulSludge = registerBlock("soul_sludge", () -> new BlockModUnbreakable(Properties.copy(Blocks.SOUL_SAND).strength(-1F, 3600000F).mapColor(COLOR_GRAY))),
             soulSludgeBreakable = registerBlock("soul_sludge_breakable", () -> new BlockMod(Properties.copy(Blocks.SOUL_SAND).mapColor(COLOR_GRAY))),
+
+            //Ice
             glaciline = registerBlock("glaciline", () -> new BlockMod(Properties.copy(Blocks.BLUE_ICE).mapColor(COLOR_LIGHT_BLUE).friction(0.992F))),
 
             //Moss
@@ -117,9 +119,8 @@ public class BlockRegistry {
             darkEverstone = registerBlock("dark_everstone", () -> new BlockModUnbreakable(COLOR_BLACK)),
             blackHungerstone = registerBlock("black_hungerstone", () -> new BlockModUnbreakable(COLOR_BLACK)),
             greenHungerstone = registerBlock("green_hungerstone", () -> new BlockModUnbreakable(PLANT)),
-            cryptFloor = registerBlock("crypt_floor", () -> new BlockModUnbreakable(TERRACOTTA_GREEN)),
-            lunaStone = registerBlock("luna_stone", () -> new BlockMod(COLOR_BLUE, 2F, 6F)),
-            hiveWall = registerBlock("hive_wall", () -> new BlockMod(Properties.of().mapColor(PLANT).strength(0.3F).sound(SoundType.GLASS).instrument(NoteBlockInstrument.HAT).lightLevel((state) -> 7))),
+            lunaStone = registerBlock("luna_stone", () -> new BlockMod(TERRACOTTA_BLUE, 2F, 6F)),
+            hiveWall = registerBlock("hive_wall", () -> new BlockMod(Properties.copy(Blocks.HONEYCOMB_BLOCK).mapColor(COLOR_GREEN).lightLevel((state) -> 7))),
             fireCrystal = registerBlock("fire_crystal", () -> new BlockLightCrystal(COLOR_RED)),
             firelight = registerBlock("firelight", () -> new BlockLightCrystal(COLOR_BLUE)),
 
@@ -378,10 +379,10 @@ public class BlockRegistry {
 
             //Firewood
             firewoodLeaves = registerBlock("firewood_leaves", () -> new BlockModLeaves(CRIMSON_NYLIUM, SoundType.GRASS)),
-            firewoodLog = registerBlock("firewood_log", () -> new BlockModLog(FIRE, SoundType.WOOD)),
-            firewoodWood = registerBlock("firewood_wood", () -> new BlockModLog(FIRE, SoundType.WOOD)),
-            strippedFirewoodLog = registerBlock("stripped_firewood_log", () -> new BlockModLog(FIRE, SoundType.WOOD)),
-            strippedFirewoodWood = registerBlock("stripped_firewood_wood", () -> new BlockModLog(FIRE, SoundType.WOOD)),
+            firewoodLog = registerBlock("firewood_log", () -> new BlockModLog(TERRACOTTA_ORANGE, SoundType.WOOD)),
+            firewoodWood = registerBlock("firewood_wood", () -> new BlockModLog(COLOR_RED, SoundType.WOOD)),
+            strippedFirewoodLog = registerBlock("stripped_firewood_log", () -> new BlockModLog(TERRACOTTA_ORANGE, SoundType.WOOD)),
+            strippedFirewoodWood = registerBlock("stripped_firewood_wood", () -> new BlockModLog(TERRACOTTA_ORANGE, SoundType.WOOD)),
 
             //Dreamwood
             dreamwoodLeaves = registerBlock("dreamwood_leaves", () -> new BlockModLeaves(COLOR_CYAN, SoundType.GRASS)),
@@ -530,16 +531,17 @@ public class BlockRegistry {
             mortumBricks = registerBlock("mortum_bricks", () -> new BlockMod(COLOR_GRAY, 1.5F, 6F)),
 
             //Vethea Bricks & Extra Blocks
-            hallWall = registerBlock("hall_wall", () -> new BlockModUnbreakable(CRIMSON_HYPHAE)),
-            redDreamBricks = registerBlock("red_dream_bricks", () -> new BlockMod(FIRE, 1.5F, 6F)),
+            hallWall = registerBlock("hall_wall", () -> new BlockModUnbreakable(NETHER)),
+            redDreamBricks = registerBlock("red_dream_bricks", () -> new BlockMod(CRIMSON_NYLIUM, 1.5F, 6F)),
             lightDreamBricks = registerBlock("light_dream_bricks", () -> new BlockMod(LAPIS, 1.5F, 6F)),
             darkDreamBricks = registerBlock("dark_dream_bricks", () -> new BlockMod(COLOR_BLUE, 1.5F, 6F)),
             blueKarosBricks = registerBlock("blue_karos_bricks", () -> new BlockModUnbreakable(COLOR_BLUE)),
-            blackKarosBricks = registerBlock("black_karos_bricks", () -> new BlockModUnbreakable(COLOR_GRAY)),
+            blackKarosBricks = registerBlock("black_karos_bricks", () -> new BlockModUnbreakable(COLOR_BLACK)),
             metalCaging = registerBlock("metal_caging", () -> new BlockMod(Properties.of().mapColor(TERRACOTTA_GREEN).requiresCorrectToolForDrops().strength(5F).sound(SoundType.METAL).noOcclusion())),
             helioticBeam = registerBlock("heliotic_beam", () -> new BlockHelioticBeam()),
             lunaBricks = registerBlock("luna_bricks", () -> new BlockMod(COLOR_BLUE, 2F, 6F)),
-            cryptWall = registerBlock("crypt_wall", () -> new BlockModUnbreakable(PODZOL)),
+            cryptFloor = registerBlock("crypt_floor", () -> new BlockModUnbreakable(TERRACOTTA_GREEN)),
+            cryptWall = registerBlock("crypt_wall", () -> new BlockModUnbreakable(COLOR_BROWN)),
             chamberWall = registerBlock("chamber_wall", () -> new BlockModUnbreakable(COLOR_BROWN)),
             shiftedChamberWall = registerBlock("shifted_chamber_wall", () -> new BlockModUnbreakable(COLOR_BROWN)),
             stackedChamberWall = registerBlock("stacked_chamber_wall", () -> new BlockModUnbreakable(COLOR_BROWN)),
@@ -582,7 +584,7 @@ public class BlockRegistry {
 
             //Stone Lamps
             moltenLamp = registerBlock("molten_lamp", () -> new BlockModLamp(CRIMSON_NYLIUM, SoundType.GLASS)),
-            divineLamp = registerBlock("divine_lamp", () -> new BlockModLamp(COLOR_YELLOW, SoundType.GLASS)),
+            divineLamp = registerBlock("divine_lamp", () -> new BlockModLamp(TERRACOTTA_YELLOW, SoundType.GLASS)),
             jungleLamp = registerBlock("jungle_lamp", () -> new BlockModLamp(EMERALD, SoundType.GLASS)),
             terranLamp = registerBlock("terran_lamp", () -> new BlockModLamp(TERRACOTTA_GREEN, SoundType.GLASS)),
             iceLamp = registerBlock("ice_lamp", () -> new BlockModLamp(COLOR_CYAN, SoundType.GLASS)),
@@ -811,7 +813,7 @@ public class BlockRegistry {
             elevantium = registerBlock("elevantium", () -> new BlockElevantium(), Rarity.UNCOMMON),
             soulTrap = registerBlock("soul_trap", () -> new BlockMod(Block.Properties.of().mapColor(DyeColor.GRAY).strength(5F, 6F).sound(SoundType.METAL))),
 
-        //Traps
+            //Traps
             spikeBlock = registerBlock("spike_block", () -> new BlockSpike(false, METAL)),
             hotSpikeBlock = registerBlock("hot_spike_block", () -> new BlockSpike(true, CRIMSON_NYLIUM)),
             heatTrap = registerBlock("heat_trap", () -> new BlockHeatTrap()),
