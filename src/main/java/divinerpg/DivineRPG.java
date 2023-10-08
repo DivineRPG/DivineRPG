@@ -4,9 +4,11 @@ import divinerpg.compat.ModCompat;
 import divinerpg.config.*;
 import divinerpg.events.*;
 import divinerpg.registries.*;
+import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.Utils;
 import divinerpg.util.vanilla.*;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -47,6 +49,7 @@ public class DivineRPG {
         bus.addListener(this::post);
         bus.addListener(this::client);
         MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, AttatchCapabilityEvent::onAttachCapabilitiesPlayer);
+        MinecraftForge.EVENT_BUS.addGenericListener(LevelChunk.class, AttatchCapabilityEvent::onAttachCapabilitiesLevelChunk);
         MinecraftForge.EVENT_BUS.addListener(AttatchCapabilityEvent::onRegisterCapabilities);
         MinecraftForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
@@ -60,6 +63,7 @@ public class DivineRPG {
         ModCompat.initCommon(event);
         TriggerRegistry.registerTriggers();
         PlacementModifierRegistry.init();
+        DivineRPGPacketHandler.init();
 
         event.enqueueWork(() -> {
             LogStripper.setup(event);

@@ -8,6 +8,8 @@
 		"fog_color": 15268095,
 		"water_color": 3946697,
 		"water_fog_color": 460617,
+		"grass_color": 11992313,
+		"foliage_color": 11992313,
 		"music": {
 			"sound": "divinerpg:iceika_music",
 			"min_delay": 6000,

@@ -15,6 +15,8 @@ import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -31,6 +33,9 @@ import static divinerpg.registries.MobEffectRegistry.*;
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
+    //Item tags
+    public static final TagKey<Item> WARM_ARMOR = ItemTags.create(new ResourceLocation(DivineRPG.MODID, "warm_armor"));
+    
     // Armor information
     // Vanilla dimensions
     private static ArmorInfo angelicInfo = new ArmorInfo(getArmorAbility("no_fall"), getArmorAbility("fly"));

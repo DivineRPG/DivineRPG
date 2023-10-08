@@ -16,5 +16,4 @@ public class PointOfInterestRegistry {
     public static final RegistryObject<PoiType> MORTUM_PORTAL = POI.register("mortum_portal", () -> new PoiType(ImmutableSet.copyOf(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal")).getStateDefinition().getPossibleStates()), 0, 1));
     public static final RegistryObject<PoiType> ICEIKA_PORTAL = POI.register("iceika_portal", () -> new PoiType(ImmutableSet.copyOf(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_portal")).getStateDefinition().getPossibleStates()), 0, 1));
     public static final RegistryObject<PoiType> ARCANA_PORTAL = POI.register("arcana_portal", () -> new PoiType(ImmutableSet.copyOf(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcana_portal")).getStateDefinition().getPossibleStates()), 0, 1));
-    public static final RegistryObject<PoiType> SOUL_TRAP = POI.register("soul_trap", () -> new PoiType(ImmutableSet.copyOf(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_trap")).getStateDefinition().getPossibleStates()), 0, 1));
 }

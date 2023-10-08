@@ -5,10 +5,12 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
+import divinerpg.util.Utils;
 import net.minecraft.client.*;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.*;
 import net.minecraft.world.level.biome.Biome;
@@ -26,10 +28,12 @@ public class IceikaSky extends DimensionSpecialEffects {
 		SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/white_dwarf.png"),
 		MOON_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/ice_moon_phases.png"),
 		SNOW_LOCATION = new ResourceLocation("minecraft", "textures/environment/snow.png"),
+		HAIL_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/environment/hail.png"),
 		BONEYARD_LOCATION = new ResourceLocation(DivineRPG.MODID, "boneyard");
 	@Nullable private VertexBuffer skyBuffer, starBuffer;
 	private final float[] rainSizeX = new float[1024], rainSizeZ = new float[1024];
 	private boolean isRaining = false, isBoneyard = false;
+	private int lastTick;
 	public IceikaSky() {
 		super(256F, true, SkyType.NORMAL, false, false);
 		
@@ -78,13 +82,11 @@ public class IceikaSky extends DimensionSpecialEffects {
           BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
           for(int j1 = k - l; j1 <= k + l; ++j1) for(int k1 = i - l; k1 <= i + l; ++k1) {
             int l1 = (j1 - k + 16) * 32 + k1 - i + 16;
-            double d0 = (double)this.rainSizeX[l1] * .5D, d1 = (double)this.rainSizeZ[l1] * .5D;
-            blockpos$mutableblockpos.set((double)k1, camY, (double)j1);
+            double d0 = this.rainSizeX[l1] * .5D, d1 = this.rainSizeZ[l1] * .5D;
+            blockpos$mutableblockpos.set(k1, camY, j1);
             Biome biome = level.getBiome(blockpos$mutableblockpos).value();
             if(biome.getPrecipitationAt(blockpos$mutableblockpos) != Biome.Precipitation.NONE) {
-               int i2 = level.getHeight(Heightmap.Types.MOTION_BLOCKING, k1, j1);
-               int j2 = j - l;
-               int k2 = j + l;
+               int i2 = level.getHeight(Heightmap.Types.MOTION_BLOCKING, k1, j1), j2 = j - l, k2 = j + l;
                if(j2 < i2) j2 = i2;
                if(k2 < i2) k2 = i2;
                int l2 = i2;
@@ -92,21 +94,45 @@ public class IceikaSky extends DimensionSpecialEffects {
                if(j2 != k2) {
                  RandomSource randomsource = RandomSource.create((long)(k1 * k1 * 3121 + k1 * 45238971 ^ j1 * j1 * 418711 + j1 * 13761));
                  blockpos$mutableblockpos.set(k1, j2, j1);
-                 if(i1 != 1) {
-                    if(i1 >= 0) tesselator.end();
-                    i1 = 1;
-                    RenderSystem.setShaderTexture(0, SNOW_LOCATION);
-                    bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.PARTICLE);
+                 int precipitationType = Utils.ICEIKA_WEATHER;
+                 if(precipitationType == 0) {
+                     if(i1 != 0) {
+                         if(i1 >= 0) tesselator.end();
+                         i1 = 0;
+                         RenderSystem.setShaderTexture(0, SNOW_LOCATION);
+                         bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.PARTICLE);
+                      }
+                      float f5 = -((ticks & 511) + partialTick) / 512F, f6 = (float)(randomsource.nextDouble() + f1 * .01 * randomsource.nextGaussian()), f7 = (float)(randomsource.nextDouble() + f1 * randomsource.nextGaussian() * .001D);
+                      double d3 = k1 + .5 - camX, d5 = j1 + .5D - camZ;
+                      float f8 = (float) (Math.sqrt(d3 * d3 + d5 * d5) / l), f9 = ((1F - f8 * f8) * .3F + .5F) * f;
+                      blockpos$mutableblockpos.set(k1, l2, j1);
+                      int k3 = LevelRenderer.getLightColor(level, blockpos$mutableblockpos), l3 = k3 >> 16 & '\uffff', i4 = k3 & '\uffff', j4 = (l3 * 3 + 240) / 4, k4 = (i4 * 3 + 240) / 4;
+                      bufferbuilder.vertex(k1 - camX - d0 + .5, k2 - camY, j1 - camZ - d1 + .5).uv(0F + f6, j2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
+                      bufferbuilder.vertex(k1 - camX + d0 + .5, k2 - camY, j1 - camZ + d1 + .5).uv(1F + f6, j2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
+                      bufferbuilder.vertex(k1 - camX + d0 + .5, j2 - camY, j1 - camZ + d1 + .5).uv(1F + f6, k2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
+                      bufferbuilder.vertex(k1 - camX - d0 + .5, j2 - camY, j1 - camZ - d1 + .5).uv(0F + f6, k2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
+                 } else if(precipitationType == 1) {
+                	 if(i1 != 1) {
+                         if(i1 >= 0) tesselator.end();
+                         i1 = 1;
+                         RenderSystem.setShaderTexture(0, HAIL_LOCATION);
+                         bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.PARTICLE);
+                      }
+                      int i3 = ticks + k1 * k1 * 3121 + k1 * 45238971 + j1 * j1 * 418711 + j1 * 13761 & 31;
+                      float f2 = -(i3 + partialTick) / 32F * (3F + randomsource.nextFloat());
+                      double d2 = k1 + .5 - camX, d4 = j1 + .5 - camZ;
+                      float f3 = (float)Math.sqrt(d2 * d2 + d4 * d4) / l;
+                      float f4 = ((1F - f3 * f3) * .5F + .5F) * f;
+                      blockpos$mutableblockpos.set(k1, l2, j1);
+                      int j3 = LevelRenderer.getLightColor(level, blockpos$mutableblockpos);
+                      bufferbuilder.vertex(k1 - camX - d0 + .5, k2 - camY, j1 - camZ - d1 + .5).uv(0F, j2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
+                      bufferbuilder.vertex(k1 - camX + d0 + .5, k2 - camY, j1 - camZ + d1 + .5).uv(1F, j2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
+                      bufferbuilder.vertex(k1 - camX + d0 + .5, j2 - camY, j1 - camZ + d1 + .5).uv(1F, k2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
+                      bufferbuilder.vertex(k1 - camX - d0 + .5, j2 - camY, j1 - camZ - d1 + .5).uv(0F, k2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
+                 } else if(precipitationType == 2 && lastTick != ticks && Minecraft.getInstance().options.particles().get() != ParticleStatus.MINIMAL && randomsource.nextBoolean()) {
+                	 double x = camX + Math.random() * 38D - 19D, y = camY + Math.random() * 16D - 8D, z = camZ + Math.random() * 32D - 16D;
+                	 if(level.canSeeSky(new BlockPos((int)x, (int)y, (int)z))) level.addParticle(ParticleTypes.SNOWFLAKE, true, x, y, z, .5, .1, 0);
                  }
-                 float f5 = -((ticks & 511) + partialTick) / 512F, f6 = (float)(randomsource.nextDouble() + f1 * .01 * randomsource.nextGaussian()), f7 = (float)(randomsource.nextDouble() + f1 * randomsource.nextGaussian() * .001D);
-                 double d3 = k1 + .5 - camX, d5 = j1 + .5D - camZ;
-                 float f8 = (float) (Math.sqrt(d3 * d3 + d5 * d5) / l), f9 = ((1F - f8 * f8) * .3F + .5F) * f;
-                 blockpos$mutableblockpos.set(k1, l2, j1);
-                 int k3 = LevelRenderer.getLightColor(level, blockpos$mutableblockpos), l3 = k3 >> 16 & '\uffff', i4 = k3 & '\uffff', j4 = (l3 * 3 + 240) / 4, k4 = (i4 * 3 + 240) / 4;
-                 bufferbuilder.vertex(k1 - camX - d0 + .5D, k2 - camY, j1 - camZ - d1 + .5D).uv(0F + f6, j2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
-                 bufferbuilder.vertex(k1 - camX + d0 + .5D, k2 - camY, j1 - camZ + d1 + .5D).uv(1F + f6, j2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
-                 bufferbuilder.vertex(k1 - camX + d0 + .5D, j2 - camY, j1 - camZ + d1 + .5D).uv(1F + f6, k2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
-                 bufferbuilder.vertex(k1 - camX - d0 + .5D, j2 - camY, j1 - camZ - d1 + .5D).uv(0F + f6, k2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
                }
             }
           }
@@ -115,6 +141,11 @@ public class IceikaSky extends DimensionSpecialEffects {
           RenderSystem.disableBlend();
           lightTexture.turnOffLightLayer();
 		}
+		lastTick = ticks;
+		return true;
+	}
+	@Override
+	public boolean tickRain(ClientLevel level, int ticks, Camera camera) {
 		return true;
 	}
 	public Vec3 getBrightnessDependentFogColor(Vec3 vec, float f) {

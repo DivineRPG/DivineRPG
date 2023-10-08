@@ -244,7 +244,7 @@
 					"invert": {
 						"type": "minecraft:biome",
 						"biome_is": [
-							"divinerpg:scorched_tops"
+							"divinerpg:vethea/scorched_tops"
 						]
 					}
 				},
@@ -256,7 +256,7 @@
 							"if_true": {
 								"type": "minecraft:biome",
 								"biome_is": [
-									"divinerpg:hyrelands"
+									"divinerpg:vethea/hyrelands"
 								]
 							},
 							"then_run": {
@@ -281,7 +281,7 @@
 							"if_true": {
 								"type": "minecraft:biome",
 								"biome_is": [
-									"divinerpg:dream_grounds"
+									"divinerpg:vethea/dream_grounds"
 								]
 							},
 							"then_run": {

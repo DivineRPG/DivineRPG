@@ -7,6 +7,6 @@
     "west": "divinerpg:block/soul_trap_side",
     "particle": "divinerpg:block/proximity_spawner",
     "up": "divinerpg:block/soul_trap_top",
-    "down": "divinerpg:block/mortum_block"
+    "down": "divinerpg:block/polished_coalstone"
   }
 }

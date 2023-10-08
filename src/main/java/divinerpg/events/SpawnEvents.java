@@ -1,11 +1,11 @@
 package divinerpg.events;
 
 import divinerpg.DivineRPG;
+import divinerpg.capability.*;
 import divinerpg.entities.ai.TurtleEatAequorea;
 import divinerpg.entities.eden.EntityWeakCori;
 import divinerpg.entities.vanilla.end.EntityEnderTriplets;
 import divinerpg.entities.vanilla.overworld.*;
-import divinerpg.registries.PointOfInterestRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -13,7 +13,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.SpawnPlacements.SpawnPredicate;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.ai.village.poi.PoiManager.Occupancy;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -33,8 +32,9 @@ public class SpawnEvents {
 	public static void spawnPlacementCheck(SpawnPlacementCheck e) {
 		if(e.getLevel() instanceof ServerLevel level) {
 			MobSpawnType type = e.getSpawnType();
-			if((type == MobSpawnType.NATURAL || type == MobSpawnType.STRUCTURE || type == MobSpawnType.PATROL) && level.getPoiManager().getInRange((poiType) -> poiType.is(PointOfInterestRegistry.SOUL_TRAP.getKey()), e.getPos(), 64, Occupancy.ANY).count() > 0L)
+			if((type == MobSpawnType.NATURAL || type == MobSpawnType.STRUCTURE || type == MobSpawnType.PATROL) && level.getChunkAt(e.getPos()).getCapability(SoulTrapCountProvider.SOUL_TRAP_COUNT).orElseGet(() -> new SoulTrapCount()).count > 0) {
 				e.setResult(Result.DENY);
+			}
 		}
 	}
 	@SubscribeEvent

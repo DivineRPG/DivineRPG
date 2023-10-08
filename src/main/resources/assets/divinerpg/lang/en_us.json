@@ -1649,6 +1649,7 @@
   "death.attack.divinerpg.spike": "%1$s walked on spikes",
   "death.attack.divinerpg.acid": "%1$s melted in acid",
   "death.attack.divinerpg.arcana": "%1$s was killed by magic",
+  "death.attack.divinerpg.hail": "%1$s was hit fatally by hail",
   "entity.divinerpg.sound_of_carols": "Sound of Carols",
   "entity.divinerpg.sound_of_music": "Sound of Music",
   "entity.divinerpg.sound_of_whales": "Sound of Whales",

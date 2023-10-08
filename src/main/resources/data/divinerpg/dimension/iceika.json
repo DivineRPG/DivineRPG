@@ -110,7 +110,7 @@
 						"continentalness":	[ 0.1, 0.9 ],
 						"erosion":			[ -0.75, -0.4 ],
 						"weirdness":		[ 0.5, 0.75 ],
-						"depth":			[ -0.3 , -0.1 ],
+						"depth":			[ -0.3 , 0 ],
 						"offset": 0
 					}
 				},
@@ -124,6 +124,18 @@
 						"weirdness":		[ -0.75, 0 ],
 						"depth": 0,
 						"offset": 0
+					}
+				},
+				{
+					"biome": "divinerpg:iceika/ice_spikes",
+					"parameters": {
+						"temperature":		-1.9,
+						"humidity":			-0.4,
+						"continentalness":	1,
+						"erosion":			-0.1,
+						"weirdness":		0.3,
+						"depth": 0,
+						"offset": 0.3
 					}
 				},
 				{
@@ -254,7 +266,7 @@
 						"continentalness":	[ -1, 1 ],
 						"erosion":			[ -0.625, -0.375 ],
 						"weirdness":		[ -1, -0.625 ],
-						"depth": 0.5,
+						"depth": 0.53,
 						"offset": 0.15
 					}
 				},
@@ -266,7 +278,7 @@
 						"continentalness":	[ -1, 1 ],
 						"erosion":			[ -0.25, 0 ],
 						"weirdness":		[ -0.5, -0.125 ],
-						"depth": 0.52,
+						"depth": 0.53,
 						"offset": 0.1
 					}
 				},

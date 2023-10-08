@@ -811,7 +811,7 @@ public class BlockRegistry {
             frostedAllure = registerBlock("frosted_allure", () -> new BlockFrostedAllure()),
             acceleron = registerBlock("acceleron", () -> new BlockAcceleron(), Rarity.UNCOMMON),
             elevantium = registerBlock("elevantium", () -> new BlockElevantium(), Rarity.UNCOMMON),
-            soulTrap = registerBlock("soul_trap", () -> new BlockMod(Block.Properties.of().mapColor(DyeColor.GRAY).strength(5F, 6F).sound(SoundType.METAL))),
+            soulTrap = registerBlock("soul_trap", () -> new BlockModSoulTrap()),
 
             //Traps
             spikeBlock = registerBlock("spike_block", () -> new BlockSpike(false, METAL)),

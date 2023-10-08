@@ -10,13 +10,13 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "B": {
-      "item": "divinerpg:mortum_block"
+      "item": "divinerpg:polished_coalstone"
     },
     "S": {
       "item": "minecraft:sculk_shrieker"
     },
     "M": {
-      "item": "divinerpg:arcanium_metal_breakable"
+      "item": "minecraft:iron_bars"
     },
     "C": {
       "item": "divinerpg:soul_sludge_breakable"
