@@ -3,6 +3,7 @@ package divinerpg.items.arcana;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
+import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
@@ -24,7 +25,7 @@ public class ItemDivineAccumulator extends ItemMod {
             int x = (int) player.xo, y = (int) player.yo, z = (int) player.zo;
             player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
                 if (arcana.getArcana() >= 80) {
-                        NetworkingRegistry.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
+                		DivineRPGPacketHandler.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
                         world.playSound(player, player.blockPosition(), SoundRegistry.DIVINE_ACCUMULATOR.get(), SoundSource.PLAYERS, 1, 1);
                         arcana.consume(player, 80);
                     player.setDeltaMovement(player.getDeltaMovement().x, 2, player.getDeltaMovement().z);

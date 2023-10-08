@@ -54,7 +54,6 @@ public class DivineRPG {
         MinecraftForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/divinerpg-common.toml");
-        NetworkingRegistry.register();
 
         MinecraftForge.EVENT_BUS.register(this);
     }

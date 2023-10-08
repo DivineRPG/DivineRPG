@@ -1,7 +1,7 @@
 package divinerpg.capability;
 
 import divinerpg.registries.MobEffectRegistry;
-import divinerpg.registries.NetworkingRegistry;
+import divinerpg.util.DivineRPGPacketHandler;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -81,7 +81,7 @@ public class Arcana implements IArcana {
 
     private void sendPacket(Player player) {
         if (!(player instanceof FakePlayer) && player instanceof ServerPlayer) {
-            NetworkingRegistry.INSTANCE.sendTo(new PacketArcanaBar(this), ((ServerPlayer) player).connection.connection, NetworkDirection.PLAY_TO_CLIENT);
+            DivineRPGPacketHandler.INSTANCE.sendTo(new PacketArcanaBar(this), ((ServerPlayer) player).connection.connection, NetworkDirection.PLAY_TO_CLIENT);
         }
     }
 
