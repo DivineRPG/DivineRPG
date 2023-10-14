@@ -286,8 +286,8 @@ public class ItemRegistry {
             dream_carrot = registerItem("dream_carrot", () -> new ItemModFood(FoodList.DREAM_CARROT)),
             dream_melon = registerItem("dream_melon", () -> new ItemModFood(FoodList.DREAM_MELON)),
             dream_pie = registerItem("dream_pie", () -> new ItemModFood(FoodList.DREAM_PIE)),
-            dream_sours = registerItem("dream_sours", () -> new ItemHealingFood(FoodList.DREAM_SOURS)),
             dream_sweets = registerItem("dream_sweets", () -> new ItemHealingFood(FoodList.DREAM_SWEETS)),
+            dream_sours = registerItem("dream_sours", () -> new ItemHealingFood(FoodList.DREAM_SOURS)),
             honeychunk = registerItem("honeychunk", () -> new ItemModFood(FoodList.HONEYCHUNK)),
             honeysuckle = registerItem("honeysuckle", () -> new ItemModFood(FoodList.HONEYSUCKLE)),
 

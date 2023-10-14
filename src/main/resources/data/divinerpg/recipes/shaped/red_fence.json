@@ -1,15 +1,15 @@
 {
   "result": {
-    "item": "divinerpg:red_fence"
+    "item": "divinerpg:red_fence",
+    "count": 3
   },
   "pattern": [
-    "   ",
     "III",
     "III"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
-  "group": "colored_fence",
+  "group": "redstone_fence",
   "key": {
     "I": {
       "item": "minecraft:redstone"

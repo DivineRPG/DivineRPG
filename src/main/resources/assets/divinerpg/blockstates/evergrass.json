@@ -5,7 +5,7 @@
         "model": "divinerpg:block/evergrass"
       },
       {
-        "model": "divinerpg:block/evergrass",
+        "model": "divinerpg:block/evergrass_rotated",
         "y": 90
       },
       {
@@ -13,7 +13,7 @@
         "y": 180
       },
       {
-        "model": "divinerpg:block/evergrass",
+        "model": "divinerpg:block/evergrass_rotated",
         "y": 270
       }
     ]

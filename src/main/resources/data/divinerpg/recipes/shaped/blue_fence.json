@@ -1,18 +1,22 @@
 {
   "result": {
-    "item": "divinerpg:blue_fence"
+    "item": "divinerpg:blue_fence",
+    "count": 8
   },
   "pattern": [
-    "   ",
-    "III",
-    "III"
+    "RRR",
+    "RIR",
+    "RRR"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
-  "group": "colored_fence",
+  "group": "redstone_fence",
   "key": {
     "I": {
-      "item": "minecraft:lapis_lazuli"
+      "item": "minecraft:blue_dye"
+    },
+    "R": {
+      "item": "divinerpg:red_fence"
     }
   }
 }

@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/wildwood_grass"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/wildwood_grass"
+      },
+      {
+        "model": "divinerpg:block/wildwood_grass_rotated",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/wildwood_grass",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/wildwood_grass_rotated",
+        "y": 270
+      }
+    ]
   }
 }

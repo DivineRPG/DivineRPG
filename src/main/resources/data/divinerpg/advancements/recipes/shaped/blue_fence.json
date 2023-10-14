@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lapis_lazuli": {
+    "has_red_fence": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:lapis_lazuli"
+              "divinerpg:red_fence"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_lapis_lazuli",
+      "has_red_fence",
       "has_the_recipe"
     ]
   ],

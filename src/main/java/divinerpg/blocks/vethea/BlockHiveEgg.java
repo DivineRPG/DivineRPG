@@ -19,7 +19,7 @@ public class BlockHiveEgg extends FallingBlock {
 
     public BlockHiveEgg()
     {
-        super(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.SNOW).strength(3F, 9F));
+        super(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.GRASS).strength(3F, 9F));
     }
 
     public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {

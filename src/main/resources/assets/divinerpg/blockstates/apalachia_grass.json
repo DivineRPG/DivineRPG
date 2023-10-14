@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/apalachia_grass"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/apalachia_grass"
+      },
+      {
+        "model": "divinerpg:block/apalachia_grass_rotated",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/apalachia_grass",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/apalachia_grass_rotated",
+        "y": 270
+      }
+    ]
   }
 }

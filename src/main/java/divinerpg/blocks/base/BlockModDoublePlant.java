@@ -4,7 +4,6 @@ import net.minecraft.core.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -40,13 +39,6 @@ public class BlockModDoublePlant extends DoublePlantBlock {
         } else {
             return Blocks.AIR.defaultBlockState();
         }
-    }
-
-    @Override
-    @Nullable
-    public BlockState getStateForPlacement(BlockPlaceContext p_196258_1_) {
-        BlockPos blockpos = p_196258_1_.getClickedPos();
-        return blockpos.getY() < 255 && p_196258_1_.getLevel().getBlockState(blockpos.above()).canBeReplaced(p_196258_1_) ? super.getStateForPlacement(p_196258_1_) : null;
     }
 
     @Override

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_green_dye": {
+    "has_red_fence": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:green_dye"
+              "divinerpg:red_fence"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_green_dye",
+      "has_red_fence",
       "has_the_recipe"
     ]
   ],
