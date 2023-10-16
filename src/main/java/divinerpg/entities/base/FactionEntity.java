@@ -8,7 +8,9 @@ import divinerpg.util.Utils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.AABB;
 
 public interface FactionEntity {
 	public Faction getFaction();
@@ -31,6 +33,20 @@ public interface FactionEntity {
 		}
 	}
 	public static class Faction {
+		public static LivingEntity getNearestEnemy(LivingEntity from, AABB searchArea, TargetingConditions conditions) {
+			if(from instanceof FactionEntity fac) {
+				List<Entity> enemies = from.level().getEntities(from, searchArea, (entity) -> entity instanceof LivingEntity ent && fac.getFaction().isAgressiveTowards(ent));
+				double closest = -1D;
+				LivingEntity nearestEnemy = null;
+				for(Entity enemy : enemies) if(conditions.test(from, (LivingEntity) enemy)) {
+					double distance = enemy.distanceToSqr(from);
+					if(closest == -1D || distance < closest) {
+						closest = distance;
+						nearestEnemy = (LivingEntity) enemy;
+					}
+				} return nearestEnemy;
+			} return null;
+		}
 		public static final Faction
 			GROGLIN = new Faction(true, 0, "groglin_reputation") {
 			public boolean isAgressiveTowards(LivingEntity entity) {

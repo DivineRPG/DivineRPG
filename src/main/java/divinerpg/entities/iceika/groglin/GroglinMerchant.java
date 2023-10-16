@@ -26,7 +26,7 @@ public class GroglinMerchant extends Groglin {
 	@Override
 	protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
-		goalSelector.addGoal(4, new AvoidFactionGoal<LivingEntity>(this, getFaction(), (float)getAttributeValue(Attributes.FOLLOW_RANGE), 1.1, 1.1));
+		goalSelector.addGoal(4, new AvoidFactionGoal(this, getFaction(), (float)getAttributeValue(Attributes.FOLLOW_RANGE), 1.1, 1.1));
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));

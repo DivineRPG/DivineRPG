@@ -21,7 +21,7 @@ public class EntityWorkshopTinkerer extends EntityDivineMerchant implements Fact
     @Override
     protected void registerGoals() {
     	super.registerGoals();
-		goalSelector.addGoal(4, new AvoidFactionGoal<LivingEntity>(this, getFaction(), (float)getAttributeValue(Attributes.FOLLOW_RANGE), 1.1, 1.1));
+		goalSelector.addGoal(4, new AvoidFactionGoal(this, getFaction(), (float)getAttributeValue(Attributes.FOLLOW_RANGE), 1.1, 1.1));
     }
     public String[] getChatMessages() {
         return new String[] {

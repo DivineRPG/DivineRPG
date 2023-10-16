@@ -36,7 +36,7 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 20, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+        goalSelector.addGoal(0, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 25, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
 	}
 	@Override
 	public void performRangedAttack(LivingEntity target, float f) {

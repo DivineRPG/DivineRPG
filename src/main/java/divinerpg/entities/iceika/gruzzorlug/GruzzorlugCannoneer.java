@@ -30,7 +30,7 @@ public class GruzzorlugCannoneer extends Gruzzorlug implements RangedAttackMob {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 15, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+        goalSelector.addGoal(0, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 20, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
 		goalSelector.addGoal(4, new FollowLeaderGoal(this, GruzzorlugCommander.class, 1D, 4F, (float)getAttributeValue(Attributes.FOLLOW_RANGE)));
 	}
 	@Override

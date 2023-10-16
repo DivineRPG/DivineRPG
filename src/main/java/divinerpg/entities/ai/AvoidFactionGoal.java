@@ -1,7 +1,5 @@
 package divinerpg.entities.ai;
 
-import java.util.List;
-
 import javax.annotation.Nullable;
 
 import divinerpg.entities.base.FactionEntity.Faction;
@@ -13,13 +11,13 @@ import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.*;
 
-public class AvoidFactionGoal<T extends LivingEntity> extends Goal {
+public class AvoidFactionGoal extends Goal {
 	protected final PathfinderMob mob;
 	protected final Faction myFaction;
 	protected final float maxDist;
 	protected final double walkSpeedModifier, sprintSpeedModifier;
 	protected final TargetingConditions avoidingConditions;
-	@Nullable protected T toAvoid;
+	@Nullable protected LivingEntity toAvoid;
 	@Nullable protected Path path;
 	protected final PathNavigation pathNav;
 	public AvoidFactionGoal(PathfinderMob mob, Faction myFaction, float maxDist, double walkSpeedModifier, double sprintSpeedModifier) {
@@ -31,9 +29,8 @@ public class AvoidFactionGoal<T extends LivingEntity> extends Goal {
 		pathNav = mob.getNavigation();
 		avoidingConditions = TargetingConditions.forCombat().range(maxDist);
 	}
-	@SuppressWarnings("unchecked")
 	public boolean canUse() {
-		toAvoid = mob.level().getNearestEntity((List<? extends T>) mob.level().getEntities(mob, getTargetSearchArea(maxDist), (entity) -> entity instanceof LivingEntity ent && myFaction.isAgressiveTowards(ent)), avoidingConditions, mob, mob.getX(), mob.getY(), mob.getZ());
+		toAvoid = Faction.getNearestEnemy(mob, getTargetSearchArea(maxDist), avoidingConditions);
 		if(toAvoid == null) return false;
 		Vec3 vec3 = DefaultRandomPos.getPosAway(mob, 16, 7, toAvoid.position());
 		if(vec3 == null || toAvoid.distanceToSqr(vec3) < toAvoid.distanceToSqr(mob)) return false;

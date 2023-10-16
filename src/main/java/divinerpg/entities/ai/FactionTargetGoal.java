@@ -34,9 +34,8 @@ public class FactionTargetGoal<T extends LivingEntity> extends TargetGoal {
 		findTarget();
 		return target != null;
 	}
-	@SuppressWarnings("unchecked")
 	protected void findTarget() {
-		target = mob.level().getNearestEntity((List<? extends T>) mob.level().getEntities(mob, getTargetSearchArea(getFollowDistance()), (entity) -> entity instanceof LivingEntity ent && myFaction.isAgressiveTowards(ent)), targetConditions, mob, mob.getX(), mob.getEyeY(), mob.getZ());
+		target = Faction.getNearestEnemy(mob, getTargetSearchArea(getFollowDistance()), targetConditions);
 	}
 	protected AABB getTargetSearchArea(double distance) {
 		return mob.getBoundingBox().inflate(distance, distance / 2D, distance);
