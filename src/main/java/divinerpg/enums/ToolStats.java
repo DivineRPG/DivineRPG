@@ -107,6 +107,7 @@ public enum ToolStats implements Tier {
     EDEN_PICKAXE(6, 6000, 20F, 5F, 22, "eden_gem"),
     MORTUM_PICKAXE(10, 6000, 55F, 9F, 22, "mortum_gem"),
     REALMITE_PICKAXE(3, 4000, 12F, 4F, 10, "realmite_ingot"),
+    OXDRITE_PICKAXE(3, 3000, 12F, 4F, 10, "oxdrite_ingot"),
     RUPEE_PICKAXE(4, 2500, 16F, 5F, 10, "rupee_ingot"),
     SKYTHERN_PICKAXE(9, 6000, 48F, 8F, 22, "skythern_gem"),
     TERRAN_PICKAXE(5, 6000, 18F, 6F, 12, "terran_stone"),

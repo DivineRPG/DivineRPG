@@ -11,6 +11,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.npc.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -22,7 +23,10 @@ import net.minecraftforge.common.Tags;
 import javax.annotation.Nullable;
 
 public abstract class EntityDivineMerchant extends AbstractVillager {
-	public EntityDivineMerchant(EntityType<? extends EntityDivineMerchant> type, Level level) {super(type, level);}
+	public EntityDivineMerchant(EntityType<? extends EntityDivineMerchant> type, Level level) {
+		super(type, level);
+        ((GroundPathNavigation) getNavigation()).setCanOpenDoors(true);
+	}
 	public abstract String[] getChatMessages();
 	@Override protected void rewardTradeXp(MerchantOffer offer) {
 	      int i = 3 + this.random.nextInt(4);

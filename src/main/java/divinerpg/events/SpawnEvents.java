@@ -98,8 +98,8 @@ public class SpawnEvents {
     	registerMobSpawn(e, WORKSHOP_MERCHANT.get());
 		registerMobSpawn(e, WORKSHOP_TINKERER.get());
 		registerMonsterSpawn(e, SENG.get());
-		registerMonsterSpawn(e, GROGLIN.get());
-		registerMonsterSpawn(e, GRUZZORLUG.get());
+		registerMonsterSpawn(e, GROGLIN_HUNTER.get());
+		registerMonsterSpawn(e, GRUZZORLUG_MINER.get());
 		registerMonsterSpawn(e, SABEAR.get());
 		registerMobSpawn(e, ROBBIN.get());
 		registerMobSpawn(e, WOLPERTINGER.get());

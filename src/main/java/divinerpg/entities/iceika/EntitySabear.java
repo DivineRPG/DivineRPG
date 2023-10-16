@@ -2,8 +2,10 @@ package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineMonster;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Pose;
@@ -78,5 +80,16 @@ public class EntitySabear extends EntityDivineMonster {
             }
         }
     }
-
+    @Override
+    protected SoundEvent getAmbientSound() {
+    	return SoundEvents.POLAR_BEAR_AMBIENT;
+    }
+    @Override
+    protected SoundEvent getDeathSound() {
+    	return SoundEvents.POLAR_BEAR_DEATH;
+    }
+    @Override
+    protected SoundEvent getHurtSound(DamageSource s) {
+    	return SoundEvents.POLAR_BEAR_HURT;
+    }
 }

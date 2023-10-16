@@ -609,6 +609,8 @@ public class ItemRegistry {
             mortum_shickaxe = registerItem("mortum_shickaxe", () -> new ItemShickaxe(RarityList.MORTUM, ToolStats.MORTUM_SHICKAXE)),
 
     halite_shickaxe = registerItem("halite_shickaxe", () -> new ItemShickaxe(RarityList.HALITE, ToolStats.HALITE_SHICKAXE)),
+    
+    oxdrite_pickaxe = registerItem("oxdrite_pickaxe", () -> new ItemModPickaxe(ToolStats.OXDRITE_PICKAXE)),
 
     dream_shovel = registerItem("dream_shovel", () -> new ItemModShovel(ToolStats.DREAM_SHOVEL)),
             dream_pickaxe = registerItem("dream_pickaxe", () -> new ItemModPickaxe(ToolStats.DREAM_PICKAXE)),

@@ -4,13 +4,13 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.iceika.ModelGruzzorlug;
 import divinerpg.client.renders.layer.GruzzorlugLayer;
-import divinerpg.entities.iceika.EntityGruzzorlug;
+import divinerpg.entities.iceika.gruzzorlug.Gruzzorlug;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderGruzzorlug extends MobRenderer<EntityGruzzorlug, ModelGruzzorlug<EntityGruzzorlug>> {
+public class RenderGruzzorlug extends MobRenderer<Gruzzorlug, ModelGruzzorlug<Gruzzorlug>> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/gruzzorlug.png");
 
     public RenderGruzzorlug(EntityRendererProvider.Context context) {
@@ -19,12 +19,12 @@ public class RenderGruzzorlug extends MobRenderer<EntityGruzzorlug, ModelGruzzor
     }
 
     @Override
-    public ResourceLocation getTextureLocation(EntityGruzzorlug entity) {
+    public ResourceLocation getTextureLocation(Gruzzorlug entity) {
         return TEXTURE;
     }
 
     @Override
-    protected void scale(EntityGruzzorlug type, PoseStack stack, float s) {
+    protected void scale(Gruzzorlug type, PoseStack stack, float s) {
         stack.scale(0.8F, 0.8F, 0.8F);
     }
 }

@@ -1,10 +1,8 @@
 package divinerpg.entities.base;
 
-import divinerpg.DivineRPG;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -23,7 +21,6 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
@@ -70,7 +67,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
             return false;
         } else {
             Entity entity = source.getEntity();
-            if (!this.level().isClientSide) {
+            if (!this.level().isClientSide()) {
                 this.setOrderedToSit(false);
             }
 
@@ -112,7 +109,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             this.updatePersistentAnger((ServerLevel)this.level(), true);
         }
 

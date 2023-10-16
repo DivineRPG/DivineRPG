@@ -4,10 +4,13 @@ import com.google.gson.*;
 import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.DivineRPG;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
@@ -178,5 +181,18 @@ public class Utils {
     }
     public static BlockState getBlockState(String registryName) {
     	return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, registryName)).defaultBlockState();
+    }
+    public static CompoundTag getPlayerData(Player player) {
+        CompoundTag persistentData = player.getPersistentData();
+        CompoundTag entityData;
+        if(persistentData.contains(Player.PERSISTED_NBT_TAG)) entityData = persistentData.getCompound(Player.PERSISTED_NBT_TAG);
+        else {
+            entityData = new CompoundTag();
+            persistentData.put(Player.PERSISTED_NBT_TAG, entityData);
+        }
+        return entityData;
+    }
+    public static Tag setPlayerData(Player player, CompoundTag data) {
+    	return player.getPersistentData().put(Player.PERSISTED_NBT_TAG, data);
     }
 }

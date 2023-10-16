@@ -83,12 +83,22 @@ public enum EntityStats {
     HASTREUS(120, 16),
     ROLLUM(150, 12, 20, 0.30),
     FROZEN_FLESH(140, 16, 20, 0.35),
-    GROGLIN(40, 5, 20, 0.29),
     SABEAR(60, 12),
-    GRUZZORLUG(60, 3, 20, 0.31),
     WOLPERTINGER(15, 2),
     ROBBIN(2, 0.5),
     SENG(55, 4, 10, 0.33),
+    //Groglin
+    GROGLIN(40, 3, 20, .31),
+    GROGLIN_CHIEFTAIN(50, 8, 20, .31),
+    GROGLIN_RANGER(40, 3.5, 20, .31),
+    GROGLIN_SHARLATAN(50, 3, 20, .31),
+    GROGLIN_WARRIOR(40, 6, 20, .31),
+    //Gruzzorlug
+    GRUZZORLUG(60, 3, 20, 0.29),
+    GRUZZORLUG_COMMANDER(70, 3, 20, 0.29),
+    GRUZZORLUG_GENERAL(70, 7, 20, 0.29),
+    GRUZZORLUG_KNIGHT(50, 7.5, 20, 0.29),
+    GRUZZORLUG_SWORDSMAN(60, 4, 20, 0.29),
 
     //EDEN
     GLINTHOP(10, 12),

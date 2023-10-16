@@ -1,0 +1,31 @@
+{
+	"type": "minecraft:barter",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"weight": 4,
+					"name": "divinerpg:roofbell",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 2
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 3,
+					"name": "divinerpg:tea"
+				},
+				{
+					"type": "minecraft:item",
+					"weight": 1,
+					"name": "divinerpg:potion_of_warmth"
+				}
+			]
+		}
+	]
+}
