@@ -11,7 +11,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.*;
@@ -194,5 +195,8 @@ public class Utils {
     }
     public static Tag setPlayerData(Player player, CompoundTag data) {
     	return player.getPersistentData().put(Player.PERSISTED_NBT_TAG, data);
+    }
+    public static boolean isPotion(ItemStack stack, Potion potion) {
+    	return (stack.is(Items.POTION) || stack.is(Items.SPLASH_POTION) || stack.is(Items.LINGERING_POTION)) && PotionUtils.getPotion(stack) == potion;
     }
 }

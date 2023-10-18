@@ -21,7 +21,13 @@
 				{
 					"type": "minecraft:item",
 					"weight": 1,
-					"name": "divinerpg:grog"
+					"name": "minecraft:potion",
+					"functions": [
+						{
+							"function": "minecraft:set_potion",
+							"id": "divinerpg:grog"
+						}
+					]
 				}
 			]
 		}

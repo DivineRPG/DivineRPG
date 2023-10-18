@@ -78,13 +78,13 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 						stack.shrink(1);
 						player.setItemInHand(hand, stack);
 					}
-					player.getInventory().add(trade);
+					level().addFreshEntity(new ItemEntity(level(), getX(), getY(), getZ(), trade));
 					getFaction().modifyReputation(player, 1);
-					return InteractionResult.SUCCESS;
+					return InteractionResult.CONSUME;
 				}
 			}
 		} playSound(SoundEvents.VILLAGER_NO);
-		return super.mobInteract(player, hand);
+		return InteractionResult.FAIL;
 	}
 	private ItemStack getTradedItem(Player player) {
 		if(player.level().isClientSide()) return null;

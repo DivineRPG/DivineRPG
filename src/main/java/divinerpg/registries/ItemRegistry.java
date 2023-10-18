@@ -174,6 +174,7 @@ public class ItemRegistry {
             olivine = registerItem("olivine"),
             raw_oxdrite = registerItem("raw_oxdrite"),
             oxdrite_ingot = registerItem("oxdrite_ingot"),
+            heat_pack = registerItem("heat_pack", () -> new ItemHeatPack()),
 
             //End
             watching_eye = registerItem("watching_eye"),
@@ -887,7 +888,7 @@ public class ItemRegistry {
             angelic_leggings = registerItem("angelic_leggings", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.LEGGINGS, angelicInfo)),
             angelic_boots = registerItem("angelic_boots", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.BOOTS, angelicInfo)),
 
-    seng_fur_helmet = registerItem("seng_fur_helmet", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.HELMET, sengFurInfo, SENG_FUR.get())),
+    seng_fur_helmet = registerItem("seng_fur_helmet", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.HELMET, sengFurInfo, SENG_FUR.get(), WARMTH.get())),
             seng_fur_chestplate = registerItem("seng_fur_chestplate", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.CHESTPLATE, sengFurInfo)),
             seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
             seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),

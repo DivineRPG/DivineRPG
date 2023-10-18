@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:heat_pack"
+  },
+  "pattern": [
+    "PPP",
+    "PBP",
+    "PPP"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "B": {
+      "item": "minecraft:blaze_rod"
+    }
+  }
+}

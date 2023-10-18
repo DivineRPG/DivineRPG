@@ -7,7 +7,13 @@
 				{
 					"type": "minecraft:item",
 					"weight": 1,
-					"name": "divinerpg:tea"
+					"name": "minecraft:potion",
+					"functions": [
+						{
+							"function": "minecraft:set_potion",
+							"id": "divinerpg:tea"
+						}
+					]
 				},
 				{
 					"type": "minecraft:item",

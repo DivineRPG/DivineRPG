@@ -16,7 +16,9 @@ public class MobEffectRegistry {
 	public static final RegistryObject<MobEffect>
 		HEAVY_AIR = EFFECTS.register("heavy_air", () -> new HeavyAirEffect()),
 		GRUZZORLUG_TARGET = EFFECTS.register("gruzzorlug_target", () -> new GruzzorlugTargetEffect()),
-		GROGLIN_BOUNTY = EFFECTS.register("groglin_bounty", () -> new GroglinBountyEffect());
+		GROGLIN_BOUNTY = EFFECTS.register("groglin_bounty", () -> new GroglinBountyEffect()),
+		FREEZE_REDUCTION = EFFECTS.register("freeze_reduction", () -> new FreezeReductionEffect()),
+		WARMTH = EFFECTS.register("warmth", () -> new WarmthEffect());
 	
 	//Armor
 	public static final RegistryObject<MobEffect>

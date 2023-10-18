@@ -26,26 +26,24 @@ public interface FactionEntity {
 	public default void modifyReputationOnDeath(DamageSource source) {
 		if(source.getDirectEntity() != null && source.getDirectEntity() instanceof Player player) {
 			getFaction().modifyReputation(player, -10);
-			if(getFaction().enemies != null) for(Faction opposer : getFaction().enemies) opposer.modifyReputation(player, 2);
+			for(Faction opposer : getFaction().enemies) opposer.modifyReputation(player, 2);
 		} else if(source.getEntity() != null && source.getEntity() instanceof Player player) {
 			getFaction().modifyReputation(player, -10);
-			if(getFaction().enemies != null) for(Faction opposer : getFaction().enemies) opposer.modifyReputation(player, 2);
+			for(Faction opposer : getFaction().enemies) opposer.modifyReputation(player, 2);
 		}
 	}
 	public static class Faction {
 		public static LivingEntity getNearestEnemy(LivingEntity from, AABB searchArea, TargetingConditions conditions) {
-			if(from instanceof FactionEntity fac) {
-				List<Entity> enemies = from.level().getEntities(from, searchArea, (entity) -> entity instanceof LivingEntity ent && fac.getFaction().isAgressiveTowards(ent));
-				double closest = -1D;
-				LivingEntity nearestEnemy = null;
-				for(Entity enemy : enemies) if(conditions.test(from, (LivingEntity) enemy)) {
-					double distance = enemy.distanceToSqr(from);
-					if(closest == -1D || distance < closest) {
-						closest = distance;
-						nearestEnemy = (LivingEntity) enemy;
-					}
-				} return nearestEnemy;
-			} return null;
+			List<Entity> enemies = from.level().getEntities(from, searchArea, (entity) -> (entity instanceof LivingEntity ent && from instanceof FactionEntity fac && fac.getFaction().isAgressiveTowards(ent)) || (entity instanceof FactionEntity fact && fact.getFaction().isAgressiveTowards(from)));
+			double closest = -1D;
+			LivingEntity nearestEnemy = null;
+			for(Entity enemy : enemies) if(conditions.test(from, (LivingEntity) enemy)) {
+				double distance = enemy.distanceToSqr(from);
+				if(closest == -1D || distance < closest) {
+					closest = distance;
+					nearestEnemy = (LivingEntity) enemy;
+				}
+			} return nearestEnemy;
 		}
 		public static final Faction
 			GROGLIN = new Faction(true, 0, "groglin_reputation") {
@@ -96,7 +94,7 @@ public interface FactionEntity {
 			nonFactionEnemies = isAutoAgressive ? null : new ArrayList<>();
 		}
 		public Faction addEnemy(Faction faction) {
-			if(!isAutoAggressive) enemies.add(faction);
+			enemies.add(faction);
 			allies.remove(faction);
 			return this;
 		}
@@ -107,7 +105,7 @@ public interface FactionEntity {
 		}
 		public Faction addAlly(Faction faction) {
 			allies.add(faction);
-			if(!isAutoAggressive) enemies.remove(faction);
+			enemies.remove(faction);
 			return this;
 		}
 		public Faction addAlly(LivingEntity entity) {

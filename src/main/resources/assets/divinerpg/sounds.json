@@ -1351,6 +1351,12 @@
       "divinerpg:vethea_teleport"
     ]
   },
+  "snap": {
+  	"category": "player",
+  	"sounds": [
+  		"divinerpg:snap"
+  	]
+  },
   "seng_ambient": {
     "category": "hostile",
     "sounds": [

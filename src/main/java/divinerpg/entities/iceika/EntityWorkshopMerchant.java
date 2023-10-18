@@ -4,8 +4,12 @@ import divinerpg.entities.ai.AvoidFactionGoal;
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.entities.base.FactionEntity;
 import divinerpg.registries.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
@@ -17,6 +21,13 @@ public class EntityWorkshopMerchant extends EntityDivineMerchant implements Fact
     @Override
     public Faction getFaction() {
     	return Faction.ICEIKA_MERCHANT;
+    }
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+    	if(getFaction().getReputation(player) > 5) {
+        	return super.mobInteract(player, hand);
+    	} playSound(SoundEvents.VILLAGER_NO);
+    	return InteractionResult.FAIL;
     }
     @Override
     protected void registerGoals() {

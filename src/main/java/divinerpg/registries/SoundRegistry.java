@@ -232,15 +232,16 @@ public class SoundRegistry {
         ZONE_HURT = registerSound("zone_hurt"),
         ZORAGON = registerSound("zoragon"),
         ZORAGON_HURT = registerSound("zoragon_hurt"),
+        SENG_AMBIENT = registerSound("seng_ambient"),
+        SENG_GROWL = registerSound("seng_growl"),
+        SENG_HURT = registerSound("seng_hurt"),
+        SNAP = registerSound("snap"),
 
         ICEIKA_MUSIC = registerSound("iceika_music"),
         PATCHOULI_FLIP = registerSound("patchouli_flip"),
         PATCHOULI_OPEN = registerSound("patchouli_open"),
         MORTUM_AMBIENCE = registerSound("mortum_ambience"),
-        MORTUM_MOOD = registerSound("mortum_mood"),
-        SENG_AMBIENT = registerSound("seng_ambient"),
-        SENG_GROWL = registerSound("seng_growl"),
-        SENG_HURT = registerSound("seng_hurt");
+        MORTUM_MOOD = registerSound("mortum_mood");
 
 
     private static RegistryObject<SoundEvent> registerSound(String registryName) {
