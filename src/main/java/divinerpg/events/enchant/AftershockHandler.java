@@ -8,7 +8,7 @@ import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.*;
 
 @Mod.EventBusSubscriber
-public class AftershockEnchant {
+public class AftershockHandler {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onHurt(LivingHurtEvent e) {
         if (e.isCanceled())
