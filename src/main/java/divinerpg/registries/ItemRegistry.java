@@ -174,7 +174,6 @@ public class ItemRegistry {
             olivine = registerItem("olivine"),
             raw_oxdrite = registerItem("raw_oxdrite"),
             oxdrite_ingot = registerItem("oxdrite_ingot"),
-            heat_pack = registerItem("heat_pack", () -> new ItemHeatPack()),
 
             //End
             watching_eye = registerItem("watching_eye"),
@@ -187,6 +186,7 @@ public class ItemRegistry {
             horde_horn = registerItem("horde_horn", () -> new ItemHordeHorn()),
             snow_globe = registerItem("snow_globe", () -> new ItemSnowGlobe()),
             twilight_clock = registerItem("twilight_clock", () -> new ItemTwilightClock()),
+            heat_pack = registerItem("heat_pack", () -> new ItemHeatPack()),
             teleportation_crystal = registerItem("teleportation_crystal", () -> new ItemTeleportationCrystal()),
             teleportation_star = registerItem("teleportation_star", () -> new ItemTeleportationStar()),
 
@@ -539,6 +539,8 @@ public class ItemRegistry {
             halite_slicer = registerItem("halite_slicer", () -> new ItemModThrowable(RarityList.HALITE, BulletType.HALITE_SLICER_SHOT)),
 
     //Tool Sets
+    oxdrite_pickaxe = registerItem("oxdrite_pickaxe", () -> new ItemModPickaxe(ToolStats.OXDRITE_PICKAXE)),
+
     realmite_shovel = registerItem("realmite_shovel", () -> new ItemModShovel(ToolStats.REALMITE_SHOVEL)),
             realmite_pickaxe = registerItem("realmite_pickaxe", () -> new ItemModPickaxe(ToolStats.REALMITE_PICKAXE)),
             realmite_axe = registerItem("realmite_axe", () -> new ItemModAxe(ToolStats.REALMITE_AXE)),
@@ -610,8 +612,6 @@ public class ItemRegistry {
             mortum_shickaxe = registerItem("mortum_shickaxe", () -> new ItemShickaxe(RarityList.MORTUM, ToolStats.MORTUM_SHICKAXE)),
 
     halite_shickaxe = registerItem("halite_shickaxe", () -> new ItemShickaxe(RarityList.HALITE, ToolStats.HALITE_SHICKAXE)),
-    
-    oxdrite_pickaxe = registerItem("oxdrite_pickaxe", () -> new ItemModPickaxe(ToolStats.OXDRITE_PICKAXE)),
 
     dream_shovel = registerItem("dream_shovel", () -> new ItemModShovel(ToolStats.DREAM_SHOVEL)),
             dream_pickaxe = registerItem("dream_pickaxe", () -> new ItemModPickaxe(ToolStats.DREAM_PICKAXE)),

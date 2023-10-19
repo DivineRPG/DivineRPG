@@ -6,7 +6,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 public class BlockBrambles extends BlockModDoublePlant {
 
     public BlockBrambles(Supplier<Block> grassSupplier, MapColor color) {
-        super(grassSupplier, color);
+        super(grassSupplier, color, SoundType.ROOTS);
     }
 
     @Override
@@ -28,8 +28,7 @@ public class BlockBrambles extends BlockModDoublePlant {
     }
 
     @Override
-    public void playerDestroy(Level worldIn, Player player, BlockPos pos, BlockState state,
-                             @Nullable BlockEntity te, ItemStack stack) {
+    public void playerDestroy(Level worldIn, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity te, ItemStack stack) {
         super.playerDestroy(worldIn, player, pos, state, te, stack);
         player.hurt(worldIn.damageSources().cactus(), 1);
     }

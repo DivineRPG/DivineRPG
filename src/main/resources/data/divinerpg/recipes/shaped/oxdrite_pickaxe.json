@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:oxdrite_pickaxe"
+  },
+  "pattern": [
+    "III",
+    " S ",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "divinerpg:oxdrite_ingot"
+    }
+  }
+}
