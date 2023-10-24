@@ -945,9 +945,9 @@ public class ItemRegistry {
             degraded_leggings = registerItem("degraded_leggings", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.LEGGINGS)),
             degraded_boots = registerItem("degraded_boots", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.BOOTS)),
 
-    finished_helmet = registerItem("finished_helmet", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, FINISHED_HELMET.get())),
-            finished_hood = registerItem("finished_hood", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, FINISHED_HOOD.get())),
-            finished_mask = registerItem("finished_mask", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, FINISHED_MASK.get())),
+    finished_helmet = registerItem("finished_helmet", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, basicHelmInfo, FINISHED_HELMET.get())),
+            finished_hood = registerItem("finished_hood", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, basicHoodInfo, FINISHED_HOOD.get())),
+            finished_mask = registerItem("finished_mask", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, basicMaskInfo, FINISHED_MASK.get())),
             finished_chestplate = registerItem("finished_chestplate", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.CHESTPLATE)),
             finished_leggings = registerItem("finished_leggings", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.LEGGINGS)),
             finished_boots = registerItem("finished_boots", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.BOOTS)),
