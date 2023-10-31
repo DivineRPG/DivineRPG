@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:piece_of_raw_arcanium",
+    "count": 9
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:raw_arcanium"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

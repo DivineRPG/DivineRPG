@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_soul_sludge_breakable": {
+    "has_raw_arcanium": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:soul_sludge_breakable"
+              "divinerpg:raw_arcanium"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/soul_trap"
+        "recipe": "divinerpg:shapeless/piece_of_raw_arcanium"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_soul_sludge_breakable",
+      "has_raw_arcanium",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/soul_trap"
+      "divinerpg:shapeless/piece_of_raw_arcanium"
     ]
   }
 }
