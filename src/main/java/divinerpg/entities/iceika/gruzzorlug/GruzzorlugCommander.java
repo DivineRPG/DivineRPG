@@ -16,6 +16,7 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 	public GruzzorlugCommander(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		entityData.set(ITEM, 8);
+		isImportant = true;
 	}
 	@Override
 	protected TagKey<Item> getAcceptedItems() {
@@ -39,9 +40,5 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
             level().addFreshEntity(projectile);
             playSound(SoundRegistry.FRACTITE_CANNON.get());
         }
-	}
-	@Override
-	protected boolean isImportant() {
-		return true;
 	}
 }

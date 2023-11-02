@@ -10,6 +10,7 @@ public class GruzzorlugGeneral extends Gruzzorlug {
 	public GruzzorlugGeneral(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		entityData.set(ITEM, 6);
+		isImportant = true;
 	}
 	@Override
 	protected TagKey<Item> getAcceptedItems() {
@@ -18,9 +19,5 @@ public class GruzzorlugGeneral extends Gruzzorlug {
 	@Override
 	protected String getTradesLocation() {
 		return "trades/gruzzorlug_general";
-	}
-	@Override
-	protected boolean isImportant() {
-		return true;
 	}
 }

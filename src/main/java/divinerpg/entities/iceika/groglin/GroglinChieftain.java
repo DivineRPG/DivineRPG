@@ -10,6 +10,7 @@ public class GroglinChieftain extends Groglin {
 	public GroglinChieftain(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		entityData.set(ITEM, 9);
+		isImportant = true;
 	}
 	@Override
 	protected TagKey<Item> getAcceptedItems() {
@@ -18,9 +19,5 @@ public class GroglinChieftain extends Groglin {
 	@Override
 	protected String getTradesLocation() {
 		return "trades/groglin_chieftain";
-	}
-	@Override
-	protected boolean isImportant() {
-		return true;
 	}
 }

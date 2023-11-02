@@ -5,7 +5,7 @@ import java.util.List;
 import divinerpg.DivineRPG;
 import divinerpg.entities.ai.FactionTargetGoal;
 import divinerpg.entities.base.*;
-import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -13,10 +13,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.effect.*;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
@@ -49,13 +47,13 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 		};
 	}
     protected static final EntityDataAccessor<Integer> ITEM = SynchedEntityData.defineId(EntityIceikaNPC.class, EntityDataSerializers.INT);
+    public boolean isImportant = false;
 	public EntityIceikaNPC(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         ((GroundPathNavigation) getNavigation()).setCanOpenDoors(true);
     }
 	protected abstract TagKey<Item> getAcceptedItems();
 	protected abstract String getTradesLocation();
-	protected boolean isImportant() {return false;}
 	protected abstract TagKey<Structure> getRaidTargets();
 	protected abstract MobEffect getTargetEffect();
 	@Override
@@ -118,14 +116,11 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	}
 	@Override
 	public void modifyReputationOnDeath(DamageSource source) {
-		if(isImportant() && level() instanceof ServerLevel level) {
-			BlockPos pos = level.findNearestMapStructure(getRaidTargets(), blockPosition(), 4, false);
-			if(pos == null || distanceToSqr(pos.getX(), pos.getY(), pos.getZ()) > 128D) {
-				if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity)
-					entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
-				if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity)
-					entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
-			}
+		if(isImportant && level() instanceof ServerLevel level) {
+			if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity)
+				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
+			if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity)
+				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
 		} FactionEntity.super.modifyReputationOnDeath(source);
 	}
 	@Override
@@ -140,5 +135,15 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	@Override
 	public boolean removeWhenFarAway(double d) {
 		return false;
+	}
+	@Override
+	public void readAdditionalSaveData(CompoundTag tag) {
+		super.readAdditionalSaveData(tag);
+		if(tag.contains("Important")) isImportant = tag.getBoolean("Important");
+	}
+	@Override
+	public void addAdditionalSaveData(CompoundTag tag) {
+		super.addAdditionalSaveData(tag);
+		tag.putBoolean("Important", isImportant);
 	}
 }
