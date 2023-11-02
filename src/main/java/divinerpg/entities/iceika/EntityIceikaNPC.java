@@ -5,6 +5,7 @@ import java.util.List;
 import divinerpg.DivineRPG;
 import divinerpg.entities.ai.FactionTargetGoal;
 import divinerpg.entities.base.*;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -117,11 +118,14 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	}
 	@Override
 	public void modifyReputationOnDeath(DamageSource source) {
-		if(isImportant() && level() instanceof ServerLevel level && level.findNearestMapStructure(getRaidTargets(), blockPosition(), 32, false) == null) {
-			if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity)
-				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
-			if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity)
-				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
+		if(isImportant() && level() instanceof ServerLevel level) {
+			BlockPos pos = level.findNearestMapStructure(getRaidTargets(), blockPosition(), 4, false);
+			if(pos == null || distanceToSqr(pos.getX(), pos.getY(), pos.getZ()) > 128D) {
+				if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity)
+					entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
+				if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity)
+					entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
+			}
 		} FactionEntity.super.modifyReputationOnDeath(source);
 	}
 	@Override

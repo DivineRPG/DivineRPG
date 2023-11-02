@@ -15,21 +15,21 @@ import static divinerpg.util.Utils.*;
 public class GroglinBountyEffect extends MobEffect {
 	public GroglinBountyEffect() {super(MobEffectCategory.HARMFUL, 10991286);}
 	@Override public boolean isDurationEffectTick(int i, int j) {return true;}
+	@Override public void applyInstantenousEffect(Entity entity, Entity e, LivingEntity living, int i, double d) {}
 	@Override public void applyEffectTick(LivingEntity entity, int i) {
-		if(entity.level() instanceof ServerLevel level && level.getGameTime() % 20 == 0 && level.getDifficulty() != Difficulty.PEACEFUL && !level.getGameRules().getBoolean(GameRules.RULE_DISABLE_RAIDS) && level.canSeeSky(entity.blockPosition()) && level.findNearestMapStructure(Groglin.RAID_TARGETS, entity.blockPosition(), 32, false) != null && Faction.hasNearbyTarget(entity, entity.getBoundingBox().inflate(16D), Faction.GROGLIN)) {
+		if(entity.level() instanceof ServerLevel level && level.getGameTime() % 20 == 0 && level.getDifficulty() != Difficulty.PEACEFUL && !level.getGameRules().getBoolean(GameRules.RULE_DISABLE_RAIDS) && level.canSeeSky(entity.blockPosition()) && level.findNearestMapStructure(Groglin.RAID_TARGETS, entity.blockPosition(), 4, false) != null && Faction.hasNearbyTarget(entity, entity.getBoundingBox().inflate(16D), Faction.GROGLIN)) {
 			BlockPos pos = getNearbySpawnPos(level, entity.random, entity.blockPosition());
-			EntityRegistry.GROGLIN_SHARLATAN.get().create(level, null, null, pos, MobSpawnType.REINFORCEMENT, false, false);
+			EntityRegistry.GROGLIN_SHARLATAN.get().spawn(level, pos, MobSpawnType.REINFORCEMENT);
 			EntityType<?> ent = EntityRegistry.GROGLIN_HUNTER.get();
-			ent.create(level, null, null, adjustHeight(level, pos.offset(3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT, false, false);
-			ent.create(level, null, null, adjustHeight(level, pos.offset(0, 0, 3).mutable()), MobSpawnType.REINFORCEMENT, false, false);
-			ent.create(level, null, null, adjustHeight(level, pos.offset(0, 0, -3).mutable()), MobSpawnType.REINFORCEMENT, false, false);
-			EntityRegistry.GROGLIN_CHIEFTAIN.get().create(level, null, null, adjustHeight(level, pos.offset(-3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT, false, false);
-			EntityRegistry.GROGLIN_WARRIOR.get().create(level, null, null, adjustHeight(level, pos.offset(-6, 0, 0).mutable()), MobSpawnType.REINFORCEMENT, false, false);
+			ent.spawn(level, adjustHeight(level, pos.offset(3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
+			ent.spawn(level, adjustHeight(level, pos.offset(0, 0, 3).mutable()), MobSpawnType.REINFORCEMENT);
+			ent.spawn(level, adjustHeight(level, pos.offset(0, 0, -3).mutable()), MobSpawnType.REINFORCEMENT);
+			EntityRegistry.GROGLIN_CHIEFTAIN.get().spawn(level, adjustHeight(level, pos.offset(-3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
+			EntityRegistry.GROGLIN_WARRIOR.get().spawn(level, adjustHeight(level, pos.offset(-6, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
 			ent = EntityRegistry.GROGLIN_RANGER.get();
-			ent.create(level, null, null, adjustHeight(level, pos.offset(-3, 0, 3).mutable()), MobSpawnType.REINFORCEMENT, false, false);
-			ent.create(level, null, null, adjustHeight(level, pos.offset(-3, 0, -3).mutable()), MobSpawnType.REINFORCEMENT, false, false);
+			ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, 3).mutable()), MobSpawnType.REINFORCEMENT);
+			ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, -3).mutable()), MobSpawnType.REINFORCEMENT);
 			entity.removeEffect(this);
 		}
 	}
-	@Override public void applyInstantenousEffect(Entity entity, Entity e, LivingEntity living, int i, double d) {}
 }
