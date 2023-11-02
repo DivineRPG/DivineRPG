@@ -11,6 +11,6 @@ public class FreezeReductionEffect extends MobEffect {
 	@Override public void applyEffectTick(LivingEntity entity, int i) {}
 	@Override public boolean isInstantenous() {return true;}
 	@Override public void applyInstantenousEffect(Entity enitty, Entity e, LivingEntity living, int i,double d) {
-		if(living.getTicksFrozen() > 0) living.setTicksFrozen(living.getTicksFrozen() / 3);
+		if(living.getTicksFrozen() > 0) living.setTicksFrozen(living.getTicksFrozen() / 4);
 	}
 }
