@@ -5,8 +5,6 @@ import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
@@ -28,12 +26,6 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 		return "trades/gruzzorlug_cannoneer";
 	}
 	@Override
-	public void modifyReputationOnDeath(DamageSource source) {
-		if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity) entity.addEffect(new MobEffectInstance(MobEffectRegistry.GRUZZORLUG_TARGET.get(), -1, 0, false, false, true));
-		if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity) entity.addEffect(new MobEffectInstance(MobEffectRegistry.GRUZZORLUG_TARGET.get(), -1, 0, false, false, true));
-		super.modifyReputationOnDeath(source);
-	}
-	@Override
 	protected void registerGoals() {
 		super.registerGoals();
         goalSelector.addGoal(0, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 25, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
@@ -47,5 +39,9 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
             level().addFreshEntity(projectile);
             playSound(SoundRegistry.FRACTITE_CANNON.get());
         }
+	}
+	@Override
+	protected boolean isImportant() {
+		return true;
 	}
 }

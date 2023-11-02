@@ -35,7 +35,7 @@ public class Ticker {
         Player player = event.player;
         Level level = player.level();
         if(level.dimension().equals(LevelRegistry.ICEIKA) && !player.isCreative() && !player.isSpectator()) {
-        	if(!level.isClientSide() && !player.hasEffect(MobEffectRegistry.WARMTH.get()) && level.getLightEngine().getLayerListener(LightLayer.BLOCK).getLightValue(player.blockPosition()) < 8) {
+        	if(!level.isClientSide() && !player.hasEffect(MobEffectRegistry.WARMTH.get()) && !player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments().containsKey(EnchantmentRegistry.INSULATION.get()) && level.getLightEngine().getLayerListener(LightLayer.BLOCK).getLightValue(player.blockPosition()) < 8) {
     			player.setSharedFlagOnFire(false);
     			if(player.isFullyFrozen()) {
     				player.setTicksFrozen(player.getTicksRequiredToFreeze() + 2);

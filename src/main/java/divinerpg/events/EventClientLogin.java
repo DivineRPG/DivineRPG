@@ -1,19 +1,23 @@
 package divinerpg.events;
 
 import divinerpg.config.*;
+import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.Utils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.network.PacketDistributor;
 
 public class EventClientLogin {
-
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent evt){
         Player player = evt.getEntity();
-        if (!player.level().isClientSide()) {
+        if(!player.level().isClientSide()) {
+        	//weather update
+        	if(player instanceof ServerPlayer pl) DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> pl), Utils.ICEIKA_WEATHER);
             //Send welcome messages
             if(ClientConfig.welcomeMessage.get()) {
                 if (Utils.isDeveloperName(player.getUUID())) {
@@ -36,5 +40,4 @@ public class EventClientLogin {
             }
         }
     }
-
 }

@@ -2,8 +2,9 @@ package divinerpg.entities.base;
 
 import java.util.*;
 
-import divinerpg.registries.EntityRegistry;
-import divinerpg.registries.MobEffectRegistry;
+import javax.annotation.Nullable;
+
+import divinerpg.registries.*;
 import divinerpg.util.Utils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
@@ -44,6 +45,9 @@ public interface FactionEntity {
 					nearestEnemy = (LivingEntity) enemy;
 				}
 			} return nearestEnemy;
+		}
+		public static boolean hasNearbyTarget(@Nullable Entity from, AABB searchArea, Faction faction) {
+			return !from.level().getEntities(from, searchArea, (entity) -> (entity instanceof LivingEntity ent && faction.isAgressiveTowards(ent) && !(entity instanceof Player player && player.isSpectator()))).isEmpty();
 		}
 		public static final Faction
 			GROGLIN = new Faction(true, 0, "groglin_reputation") {

@@ -3,11 +3,17 @@ package divinerpg.util;
 import com.google.gson.*;
 import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.DivineRPG;
+import divinerpg.world.placement.Surface;
+import divinerpg.world.placement.Surface.Mode;
+import divinerpg.world.placement.Surface.Surface_Type;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos.MutableBlockPos;
+import net.minecraft.nbt.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -124,7 +130,6 @@ public class Utils {
             return result;
         });
     }
-
     public static boolean bordersTar(BlockGetter world, int x, int y, int z) {
         for (int i = x - 4; i <= x + 4; ++i) {
             for (int j = y; j <= y + 1; ++j) {
@@ -199,4 +204,18 @@ public class Utils {
     public static boolean isPotion(ItemStack stack, Potion potion) {
     	return (stack.is(Items.POTION) || stack.is(Items.SPLASH_POTION) || stack.is(Items.LINGERING_POTION)) && PotionUtils.getPotion(stack) == potion;
     }
+    public static BlockPos getNearbySpawnPos(ServerLevel level, RandomSource random, BlockPos position) {
+		int x = position.getX() + random.nextInt(16) - 8, z = position.getZ() + random.nextInt(16) - 8, y = Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, 64, 250, 1, level, random, x, z);
+		MutableBlockPos pos = new MutableBlockPos(x, y, z);
+		BlockState state;
+		while((state = level.getBlockState(pos)).is(BlockTags.LEAVES) || state.is(BlockTags.SNOW)) pos.move(Direction.DOWN);
+		pos.move(Direction.UP);
+		while(level.getBlockState(pos).is(BlockTags.SNOW)) pos.move(Direction.UP);
+		return pos;
+	}
+	public static BlockPos adjustHeight(ServerLevel level, MutableBlockPos pos) {
+		while(!level.getBlockState(pos).isAir()) pos.move(Direction.UP);
+		while(level.getBlockState(pos).isAir()) pos.move(Direction.DOWN);
+		return pos.move(Direction.UP);
+	}
 }

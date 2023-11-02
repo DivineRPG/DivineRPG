@@ -2297,6 +2297,8 @@
   "enchantment.divinerpg.aftershock.desc": "Aftershock has a chance to double the damage done by melee weapons.",
   "enchantment.divinerpg.brain_freeze": "Brain Freeze",
   "enchantment.divinerpg.brain_freeze.desc": "Brain Freeze has a chance to temporarily freeze mobs where they stand.",
+  "enchantment.divinerpg.insulation": "Insulation",
+  "enchantment.divinerpg.insulation.desc": "Insulation prevents freezing in Iceika when applied to the chestplate",
   "summon.single_use_spawner.delay": "Will summon in %s seconds",
   "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.",
   "category.divinerpg.arcanium_extractor": "Arcanium Extractor",

@@ -1,9 +1,7 @@
 package divinerpg.entities.iceika.groglin;
 
-import divinerpg.registries.MobEffectRegistry;
 import divinerpg.util.DamageSources;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -42,9 +40,7 @@ public class GroglinSharlatan extends Groglin implements RangedAttackMob {
 		return "trades/groglin_sharlatan";
 	}
 	@Override
-	public void modifyReputationOnDeath(DamageSource source) {
-		if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity) entity.addEffect(new MobEffectInstance(MobEffectRegistry.GROGLIN_BOUNTY.get(), -1, 0, false, false, true));
-		if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity) entity.addEffect(new MobEffectInstance(MobEffectRegistry.GROGLIN_BOUNTY.get(), -1, 0, false, false, true));
-		super.modifyReputationOnDeath(source);
+	protected boolean isImportant() {
+		return true;
 	}
 }

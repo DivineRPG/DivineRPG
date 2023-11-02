@@ -12,7 +12,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
@@ -21,6 +24,7 @@ import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.storage.loot.*;
 import net.minecraft.world.level.storage.loot.parameters.*;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -50,6 +54,9 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
     }
 	protected abstract TagKey<Item> getAcceptedItems();
 	protected abstract String getTradesLocation();
+	protected boolean isImportant() {return false;}
+	protected abstract TagKey<Structure> getRaidTargets();
+	protected abstract MobEffect getTargetEffect();
 	@Override
 	protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
@@ -107,6 +114,15 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 			}
 		} modifyReputationOnDeath(source);
 		super.die(source);
+	}
+	@Override
+	public void modifyReputationOnDeath(DamageSource source) {
+		if(isImportant() && level() instanceof ServerLevel level && level.findNearestMapStructure(getRaidTargets(), blockPosition(), 32, false) == null) {
+			if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity)
+				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
+			if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity)
+				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
+		} FactionEntity.super.modifyReputationOnDeath(source);
 	}
 	@Override
 	public boolean hurt(DamageSource source, float f) {
