@@ -423,6 +423,9 @@ public class ItemRegistry {
             skythern_blade = registerItem("skythern_blade", () -> new ItemModSword(RarityList.SKYTHERN, ToolStats.SKYTHERN_BLADE)),
             mortum_blade = registerItem("mortum_blade", () -> new ItemModSword(RarityList.MORTUM, ToolStats.MORTUM_BLADE)),
             halite_blade = registerItem("halite_blade", () -> new ItemModSword(RarityList.HALITE, ToolStats.HALITE_BLADE)),
+            glacial_blade = registerItem("glacial_blade", () -> new ItemGlacialBlade()),
+            icicle_dagger = registerItem("icicle_dagger", () -> new ItemModSword(ToolStats.ICICLE_DAGGER)),
+            glacial_wall_totem = registerItem("glacial_wall_totem", () -> new ItemMod(new Item.Properties().stacksTo(1))),
 
             //Healing
             palavence = registerItem("palavence", () -> new ItemHealingSword(ToolStats.PALAVENCE, 0.5F)),

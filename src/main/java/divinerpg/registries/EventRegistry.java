@@ -11,5 +11,6 @@ public class EventRegistry {
         MinecraftForge.EVENT_BUS.register(new ArmorAbilitiesEvent());
         MinecraftForge.EVENT_BUS.register(new RiveHandler());
         MinecraftForge.EVENT_BUS.register(new VetheaInventorySwapEvent());
+        MinecraftForge.EVENT_BUS.register(new GlacialWallTotemEvent());
     }
 }
