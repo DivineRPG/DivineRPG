@@ -1,7 +1,6 @@
 package divinerpg.entities.eden;
 
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.registries.LevelRegistry;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;

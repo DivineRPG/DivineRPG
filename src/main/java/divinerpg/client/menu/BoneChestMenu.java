@@ -8,7 +8,6 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 
 public class BoneChestMenu extends ChestMenu {
-    private final Container container;
     private final int containerRows;
 
     private BoneChestMenu(int p_39225_, Inventory p_39226_, int p_39227_) {
@@ -25,7 +24,6 @@ public class BoneChestMenu extends ChestMenu {
     public BoneChestMenu(int p_39230_, Inventory p_39231_, Container p_39232_, int p_39233_) {
         super(MenuTypeRegistry.BONE_CHEST.get(), p_39230_, p_39231_, p_39232_, p_39233_);
         checkContainerSize(p_39232_, p_39233_ * 9);
-        this.container = p_39232_;
         this.containerRows = p_39233_;
         p_39232_.startOpen(p_39231_.player);
         int i = (this.containerRows - 4) * 18;

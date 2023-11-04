@@ -47,7 +47,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 		};
 	}
     protected static final EntityDataAccessor<Integer> ITEM = SynchedEntityData.defineId(EntityIceikaNPC.class, EntityDataSerializers.INT);
-    public boolean isImportant = false;
+	protected static final EntityDataAccessor<Boolean> IMPORTANT = SynchedEntityData.defineId(EntityBlubbertusk.class, EntityDataSerializers.BOOLEAN);
 	public EntityIceikaNPC(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         ((GroundPathNavigation) getNavigation()).setCanOpenDoors(true);
@@ -69,10 +69,14 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(ITEM, 0);
+        entityData.define(IMPORTANT, false);
     }
 	public int heldItem() {
         return entityData.get(ITEM);
     }
+	public void setUnimportant() {
+		entityData.set(IMPORTANT, false);
+	}
 	@Override
 	protected InteractionResult mobInteract(Player player, InteractionHand hand) {
 		if(getFaction().getReputation(player) > 5) {
@@ -103,7 +107,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	}
 	@Override
 	public void die(DamageSource source) {
-		if(random.nextInt(4) == 0) {
+		if(random.nextInt(10) == 0) {
 			int item = entityData.get(ITEM);
 			String drop = getItemName(item);
 			if(drop != null) {
@@ -116,7 +120,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	}
 	@Override
 	public void modifyReputationOnDeath(DamageSource source) {
-		if(isImportant && level() instanceof ServerLevel level) {
+		if(entityData.get(IMPORTANT) && level() instanceof ServerLevel level) {
 			if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity)
 				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
 			if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity)
@@ -139,11 +143,11 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	@Override
 	public void readAdditionalSaveData(CompoundTag tag) {
 		super.readAdditionalSaveData(tag);
-		if(tag.contains("Important")) isImportant = tag.getBoolean("Important");
+		if(tag.contains("Important")) entityData.set(IMPORTANT, tag.getBoolean("Important"));
 	}
 	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
-		tag.putBoolean("Important", isImportant);
+		tag.putBoolean("Important", entityData.get(IMPORTANT));
 	}
 }

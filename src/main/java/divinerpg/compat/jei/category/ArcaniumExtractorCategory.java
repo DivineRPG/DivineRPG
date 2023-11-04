@@ -50,7 +50,8 @@ public class ArcaniumExtractorCategory
         return icon;
     }
 
-    @Override
+    @SuppressWarnings("resource")
+	@Override
     public void setRecipe(IRecipeLayoutBuilder builder, ArcaniumExtractorRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 51, 12).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.CATALYST, 51, 48).addItemStack(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "collector"))));

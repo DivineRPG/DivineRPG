@@ -41,7 +41,8 @@ public class ItemScythe extends ItemModRanged {
                 null);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @SuppressWarnings("resource")
+	@OnlyIn(Dist.CLIENT)
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (Minecraft.getInstance().player != null)

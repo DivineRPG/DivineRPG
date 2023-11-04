@@ -1,16 +1,17 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+
+import divinerpg.entities.iceika.EntitySabear;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelSabear<T extends Entity> extends EntityModel<T> {
+public class ModelSabear extends EntityModel<EntitySabear> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("sabear");
 	private final ModelPart RearLeftLeg, FrontLeftLeg, RearRightLeg, FrontRightLeg, Head, body;
 
@@ -50,7 +51,7 @@ public class ModelSabear<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntitySabear entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 		this.Head.xRot = headPitch * ((float)Math.PI / 180F);
 		this.FrontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;

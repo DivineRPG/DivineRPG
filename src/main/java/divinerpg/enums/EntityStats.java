@@ -76,6 +76,7 @@ public enum EntityStats {
     ENDER_WATCHER(50, 11),
 
     //ICEIKA
+    BLUBBERTUSK(60, 4),
     ALICANTO(75, 11),
     FRACTITE(50),
     PALE_ARCHER(40, 2),

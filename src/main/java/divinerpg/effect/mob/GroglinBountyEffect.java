@@ -24,12 +24,12 @@ public class GroglinBountyEffect extends MobEffect {
 				BlockPos pos = getNearbySpawnPos(level, entity.random, entity.blockPosition());
 				CompoundTag unimportant = new CompoundTag();
 				unimportant.putBoolean("Important", false);
-				EntityRegistry.GROGLIN_SHARLATAN.get().spawn(level, unimportant, null, pos, MobSpawnType.REINFORCEMENT, false, false).isImportant = false;
+				EntityRegistry.GROGLIN_SHARLATAN.get().spawn(level, unimportant, null, pos, MobSpawnType.REINFORCEMENT, false, false).setUnimportant();
 				EntityType<?> ent = EntityRegistry.GROGLIN_HUNTER.get();
 				ent.spawn(level, adjustHeight(level, pos.offset(3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
 				ent.spawn(level, adjustHeight(level, pos.offset(0, 0, 3).mutable()), MobSpawnType.REINFORCEMENT);
 				ent.spawn(level, adjustHeight(level, pos.offset(0, 0, -3).mutable()), MobSpawnType.REINFORCEMENT);
-				EntityRegistry.GROGLIN_CHIEFTAIN.get().spawn(level, unimportant, null, adjustHeight(level, pos.offset(-3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT, false, false).isImportant = false;
+				EntityRegistry.GROGLIN_CHIEFTAIN.get().spawn(level, unimportant, null, adjustHeight(level, pos.offset(-3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT, false, false).setUnimportant();
 				EntityRegistry.GROGLIN_WARRIOR.get().spawn(level, adjustHeight(level, pos.offset(-6, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
 				ent = EntityRegistry.GROGLIN_RANGER.get();
 				ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, 3).mutable()), MobSpawnType.REINFORCEMENT);

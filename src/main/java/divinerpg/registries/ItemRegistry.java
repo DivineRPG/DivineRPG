@@ -174,6 +174,7 @@ public class ItemRegistry {
             olivine = registerItem("olivine"),
             raw_oxdrite = registerItem("raw_oxdrite"),
             oxdrite_ingot = registerItem("oxdrite_ingot"),
+            cauldron_flesh = registerItem("cauldron_flesh"),
 
             //End
             watching_eye = registerItem("watching_eye"),

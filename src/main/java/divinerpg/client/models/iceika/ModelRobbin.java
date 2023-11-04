@@ -1,16 +1,17 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+
+import divinerpg.entities.iceika.EntityRobbin;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelRobbin<T extends Entity> extends EntityModel<T> {
+public class ModelRobbin extends EntityModel<EntityRobbin> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("robbin");
 	private final ModelPart body, leftwing, rightwing, leftleg, rightleg;
 
@@ -48,7 +49,7 @@ public class ModelRobbin<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityRobbin entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 
 		if (!entity.onGround()) {
 			this.rightwing.yRot = Mth.cos(ageInTicks * 74.48451F * ((float)Math.PI / 180F)) * (float)Math.PI * 0.25F;

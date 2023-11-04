@@ -51,7 +51,8 @@ public final class JEICompat
         List<ArcaniumExtractorRecipe> arcaniumExtractorRecipes = new ArrayList<>();
         List<InfusionTableRecipe> infusionTableRecipes = new ArrayList<>();
 
-        RecipeManager manager = Minecraft.getInstance().level.getRecipeManager();
+        @SuppressWarnings("resource")
+		RecipeManager manager = Minecraft.getInstance().level.getRecipeManager();
 
         for (Recipe<?> i : manager.getRecipes()) {
             if (i instanceof ArcaniumExtractorRecipe arcaniumExtractorRecipe) {

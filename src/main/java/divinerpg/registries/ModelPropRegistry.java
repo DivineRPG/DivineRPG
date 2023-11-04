@@ -87,7 +87,7 @@ public class ModelPropRegistry {
         }
     }
 
-    private static void registerShield(ResourceLocation override, ItemPropertyFunction propertyGetter,
+    private static void registerShield(ResourceLocation override, @SuppressWarnings("deprecation") ItemPropertyFunction propertyGetter,
                                        Item... shields) {
         for (Item shield : shields) {
             ItemProperties.register(shield.asItem(), override, propertyGetter);

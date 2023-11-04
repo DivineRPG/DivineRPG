@@ -10,7 +10,7 @@ import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelAlicanto<T extends EntityAlicanto> extends EntityModel<T> {
+public class ModelAlicanto extends EntityModel<EntityAlicanto> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("alicanto");
 	private final ModelPart Head, Jaw, Body, RightWing, LeftWing, RightLeg, LeftLeg;
 
@@ -60,7 +60,7 @@ public class ModelAlicanto<T extends EntityAlicanto> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityAlicanto entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.Head.xRot = headPitch * ((float)Math.PI / 180F);
 		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 
@@ -90,7 +90,7 @@ public class ModelAlicanto<T extends EntityAlicanto> extends EntityModel<T> {
 	}
 
 	@Override
-	public void prepareMobModel(T p_103621_, float p_103622_, float p_103623_, float p_103624_) {
+	public void prepareMobModel(EntityAlicanto p_103621_, float p_103622_, float p_103623_, float p_103624_) {
 		super.prepareMobModel(p_103621_, p_103622_, p_103623_, p_103624_);
 		int l = p_103621_.getAttackTick();
 		if (l > 0) {

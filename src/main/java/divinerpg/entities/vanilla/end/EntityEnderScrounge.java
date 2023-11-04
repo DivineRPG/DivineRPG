@@ -134,7 +134,8 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     @Override
     protected void customServerAiStep() {
         if (this.level().isDay() && this.tickCount >= this.targetChangeTime + 600) {
-            float f = this.getLightLevelDependentMagicValue();
+            @SuppressWarnings("deprecation")
+			float f = this.getLightLevelDependentMagicValue();
             if (f > 0.5F && this.level().canSeeSky(this.blockPosition()) && this.random.nextFloat() * 30.0F < (f - 0.4F) * 2.0F) {
                 this.setTarget((LivingEntity)null);
                 this.teleport();

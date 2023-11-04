@@ -82,7 +82,8 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
         this(i, inventory, ContainerLevelAccess.NULL);
     }
 
-    public void slotsChanged(Container p_39461_) {
+    @SuppressWarnings("deprecation")
+	public void slotsChanged(Container p_39461_) {
         if (p_39461_ == this.enchantSlots) {
             ItemStack itemstack = p_39461_.getItem(0);
             if (!itemstack.isEmpty() && itemstack.isEnchantable()) {

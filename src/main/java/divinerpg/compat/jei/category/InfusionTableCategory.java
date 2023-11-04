@@ -50,7 +50,8 @@ public class InfusionTableCategory
         return icon;
     }
 
-    @Override
+    @SuppressWarnings("resource")
+	@Override
     public void setRecipe(IRecipeLayoutBuilder builder, InfusionTableRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 12, 34).addIngredients(Ingredient.of(recipe.input));
         builder.addSlot(RecipeIngredientRole.CATALYST, 12, 54).addIngredients(Ingredient.of(recipe.template));

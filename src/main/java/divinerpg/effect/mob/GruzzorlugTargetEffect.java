@@ -24,12 +24,12 @@ public class GruzzorlugTargetEffect extends MobEffect {
 				BlockPos pos = getNearbySpawnPos(level, entity.random, entity.blockPosition());
 				CompoundTag unimportant = new CompoundTag();
 				unimportant.putBoolean("Important", false);
-				EntityRegistry.GRUZZORLUG_COMMANDER.get().spawn(level, unimportant, null, pos, MobSpawnType.REINFORCEMENT, false, false).isImportant = false;
+				EntityRegistry.GRUZZORLUG_COMMANDER.get().spawn(level, unimportant, null, pos, MobSpawnType.REINFORCEMENT, false, false).setUnimportant();
 				EntityType<?> ent = EntityRegistry.GRUZZORLUG_CANNONEER.get();
 				ent.spawn(level, adjustHeight(level, pos.offset(3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
 				ent.spawn(level, adjustHeight(level, pos.offset(0, 0, 3).mutable()), MobSpawnType.REINFORCEMENT);
 				ent.spawn(level, adjustHeight(level, pos.offset(0, 0, -3).mutable()), MobSpawnType.REINFORCEMENT);
-				EntityRegistry.GRUZZORLUG_GENERAL.get().spawn(level, unimportant, null, adjustHeight(level, pos.offset(-3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT, false, false).isImportant = false;
+				EntityRegistry.GRUZZORLUG_GENERAL.get().spawn(level, unimportant, null, adjustHeight(level, pos.offset(-3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT, false, false).setUnimportant();
 				EntityRegistry.GRUZZORLUG_KNIGHT.get().spawn(level, adjustHeight(level, pos.offset(-6, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
 				ent = EntityRegistry.GRUZZORLUG_SWORDSMAN.get();
 				ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, 3).mutable()), MobSpawnType.REINFORCEMENT);

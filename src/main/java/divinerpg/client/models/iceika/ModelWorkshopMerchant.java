@@ -1,16 +1,17 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+
+import divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelWorkshopMerchant<T extends Entity> extends EntityModel<T> {
+public class ModelWorkshopMerchant extends EntityModel<EntityWorkshopMerchant> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("workshop_merchant");
 	private final ModelPart Head, Body, LeftLeg, RightLeg;
 
@@ -45,7 +46,7 @@ public class ModelWorkshopMerchant<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityWorkshopMerchant entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 		this.Head.xRot = headPitch * ((float)Math.PI / 180F);
 
