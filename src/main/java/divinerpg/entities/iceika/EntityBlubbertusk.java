@@ -2,16 +2,18 @@ package divinerpg.entities.iceika;
 
 import divinerpg.registries.EntityRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.*;
+import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.control.*;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.navigation.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +31,7 @@ public class EntityBlubbertusk extends Animal {
 		setPathfindingMalus(BlockPathTypes.DOOR_IRON_CLOSED, -1F);
 		setPathfindingMalus(BlockPathTypes.DOOR_WOOD_CLOSED, -1F);
 		setPathfindingMalus(BlockPathTypes.DOOR_OPEN, -1F);
-		moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 250F, .5F, true);
+		moveControl = new SmoothSwimmingMoveControl(this, 85, 10, .18F, .5F, true);
 		lookControl = new SmoothSwimmingLookControl(this, 20);
 		setMaxUpStep(1F);
 	}
@@ -46,6 +48,11 @@ public class EntityBlubbertusk extends Animal {
 		goalSelector.addGoal(3, new TemptGoal(this, 1.2, FOOD_ITEMS, false));
 		goalSelector.addGoal(4, new FollowParentGoal(this, 1.1));
 		goalSelector.addGoal(5, new BlubbertuskStrollGoal(this, 1D, 8));
+		goalSelector.addGoal(5, new BlubbertuskJumpGoal(this, 10));
+	}
+	@Override
+	protected PathNavigation createNavigation(Level level) {
+		return new AmphibiousPathNavigation(this, level);
 	}
 	@Override
 	protected void customServerAiStep() {
@@ -53,11 +60,23 @@ public class EntityBlubbertusk extends Animal {
 		previousEnergy = energy;
 		if(isInWater()) {
 			energy--;
+			if(energy < 0) energy = 0;
 			if(previousEnergy > 499 && energy < 500) setPathfindingMalus(BlockPathTypes.WATER, -2F);
+			if(getAirSupply() < 200 && level().getBlockState(blockPosition().above()).isAir()) setDeltaMovement(getDeltaMovement().add(0D, .5D, 0D));
 		} else {
 			energy += 5;
+			if(energy > 6000) energy = 6000;
 			if(previousEnergy < 5001 && energy > 5000) setPathfindingMalus(BlockPathTypes.WATER, 2F);
 		}
+	}
+	@Override
+	public void travel(Vec3 vec) {
+		if(isEffectiveAi() && isInWater()) {
+			moveRelative(getSpeed(), vec);
+			move(MoverType.SELF, getDeltaMovement());
+			setDeltaMovement(getDeltaMovement().scale(.9));
+			if(getTarget() == null) setDeltaMovement(getDeltaMovement().add(0D, -.005, 0D));
+		} else super.travel(vec);
 	}
 	@Override
 	public boolean isPushedByFluid() {
@@ -145,8 +164,63 @@ public class EntityBlubbertusk extends Animal {
 			super(entity, speedModifier, interval);
 		}
 		@Override
+		public boolean canUse() {
+			return (mob.isInWater() || ((EntityBlubbertusk)mob).energy > 1000) && super.canUse();
+		}
+		@Override
 		protected Vec3 getPosition() {
 			return (mob.isInWater() && mob.getAirSupply() > 140 && ((EntityBlubbertusk)mob).energy > 500) ? BehaviorUtils.getRandomSwimmablePos(mob, 10, 7) : super.getPosition();
+		}
+	}
+	static class BlubbertuskJumpGoal extends JumpGoal {
+		static final int[] STEPS_TO_CHECK = new int[]{0, 1, 4, 5, 6, 7};
+		final EntityBlubbertusk mob;
+		final int interval;
+		boolean breached;
+		BlubbertuskJumpGoal(EntityBlubbertusk entity, int delay) {
+			mob = entity;
+			interval = reducedTickDelay(delay);
+		}
+		@Override
+		public boolean canUse() {
+			if(mob.getRandom().nextInt(interval) != 0) return false;
+			else {
+				Direction direction = mob.getMotionDirection();
+				int stepX = direction.getStepX(), stepZ= direction.getStepZ();
+				BlockPos blockpos = mob.blockPosition();
+				for(int step : STEPS_TO_CHECK) if(!waterIsClear(blockpos, stepX, stepZ, step) || !surfaceIsClear(blockpos, stepX, stepZ, step)) return false;
+				return true;
+			}
+		}
+		@SuppressWarnings("deprecation")
+		boolean waterIsClear(BlockPos pos, int stepX, int stepZ, int step) {
+			BlockPos blockpos = pos.offset(stepX * step, 0, stepZ * step);
+			return mob.level().getFluidState(blockpos).is(FluidTags.WATER) && !mob.level().getBlockState(blockpos).blocksMotion();
+		}
+		boolean surfaceIsClear(BlockPos pos, int stepX, int stepZ, int step) {
+			return mob.level().getBlockState(pos.offset(stepX* step, 1, stepZ* step)).isAir() && mob.level().getBlockState(pos.offset(stepX* step, 2, stepZ* step)).isAir();
+		}
+		@Override
+		public boolean canContinueToUse() {
+			double ymov = mob.getDeltaMovement().y;
+			return (!(ymov * ymov < .03) || mob.getXRot() == 0F || !(Math.abs(mob.getXRot()) < 10F) || !mob.isInWater()) && !mob.onGround();
+		}
+		@Override
+		public boolean isInterruptable() {
+			return false;
+		}
+		@Override
+		public void start() {
+			Direction direction = mob.getMotionDirection();
+			mob.setDeltaMovement(mob.getDeltaMovement().add(direction.getStepX() * .6, .5, direction.getStepZ() * .6));
+			mob.getNavigation().stop();
+		}
+		public void tick() {
+			boolean prevBreach = breached;
+			if(!prevBreach) breached = mob.level().getFluidState(mob.blockPosition()).is(FluidTags.WATER);
+			Vec3 mov = mob.getDeltaMovement();
+			if(mov.y * mov.y < .03 && mob.getXRot() != 0F) mob.setXRot(Mth.rotLerp(.2F, mob.getXRot(), 0F));
+			else if(mov.length() > .00005) mob.setXRot((float) (Math.atan2(-mov.y, mov.horizontalDistance()) * (180D / Math.PI)));
 		}
 	}
 }

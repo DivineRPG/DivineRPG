@@ -18,6 +18,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
@@ -50,7 +51,6 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	protected static final EntityDataAccessor<Boolean> IMPORTANT = SynchedEntityData.defineId(EntityBlubbertusk.class, EntityDataSerializers.BOOLEAN);
 	public EntityIceikaNPC(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        ((GroundPathNavigation) getNavigation()).setCanOpenDoors(true);
     }
 	protected abstract TagKey<Item> getAcceptedItems();
 	protected abstract String getTradesLocation();
@@ -65,6 +65,13 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new FactionTargetGoal<>(this, getFaction(), true, !(this instanceof RangedAttackMob)));
         targetSelector.addGoal(2, new HurtByTargetGoal(this));
+	}
+	@Override
+	protected PathNavigation createNavigation(Level level) {
+		GroundPathNavigation nav = new GroundPathNavigation(this, level);
+		nav.setCanOpenDoors(true);
+		nav.setCanPassDoors(true);
+		return nav;
 	}
 	protected void defineSynchedData() {
         super.defineSynchedData();
