@@ -191,14 +191,14 @@ public class EntityBlubbertusk extends Animal {
 				Direction direction = mob.getMotionDirection();
 				int stepX = direction.getStepX(), stepZ= direction.getStepZ();
 				BlockPos blockpos = mob.blockPosition();
-				for(int step : STEPS_TO_CHECK) if(!waterIsClear(blockpos, stepX, stepZ, step) || !surfaceIsClear(blockpos, stepX, stepZ, step)) return false;
+				for(int step : STEPS_TO_CHECK) if(!landingIsClear(blockpos, stepX, stepZ, step) || !surfaceIsClear(blockpos, stepX, stepZ, step)) return false;
 				return true;
 			}
 		}
 		@SuppressWarnings("deprecation")
-		boolean waterIsClear(BlockPos pos, int stepX, int stepZ, int step) {
+		boolean landingIsClear(BlockPos pos, int stepX, int stepZ, int step) {
 			BlockPos blockpos = pos.offset(stepX * step, 0, stepZ * step);
-			return mob.level().getFluidState(blockpos).is(FluidTags.WATER) && !mob.level().getBlockState(blockpos).blocksMotion();
+			return mob.level().getBlockState(blockpos).blocksMotion();
 		}
 		boolean surfaceIsClear(BlockPos pos, int stepX, int stepZ, int step) {
 			return mob.level().getBlockState(pos.offset(stepX* step, 1, stepZ* step)).isAir() && mob.level().getBlockState(pos.offset(stepX* step, 2, stepZ* step)).isAir();
