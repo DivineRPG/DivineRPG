@@ -37,21 +37,13 @@ public class EntityDivineWaterMob extends WaterAnimal {
     if(isAggressive()) {
         addAttackingAI();
     }
-    if(!isAmphibious()){
-        goalSelector.addGoal(1, new TryFindWaterGoal(this));
-
-    }
     }
 
     public boolean isAggressive() {
         return false;
     }
-
-    public boolean isAmphibious() {
-        return false;
-    }
-
     protected void addBasicAI() {
+        this.goalSelector.addGoal(1, new TryFindWaterGoal(this));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 1.0D, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 32.0F));
