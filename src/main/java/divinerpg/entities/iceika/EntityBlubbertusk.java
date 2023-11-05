@@ -13,6 +13,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.control.*;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
@@ -43,12 +44,14 @@ public class EntityBlubbertusk extends Animal {
 	@Override
 	protected void registerGoals() {
 		goalSelector.addGoal(0, new BreathAirGoal(this));
+		goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));
 		goalSelector.addGoal(1, new BlubbertuskPanicGoal(this, 1.5));
 		goalSelector.addGoal(2, new BreedGoal(this, 1D));
 		goalSelector.addGoal(3, new TemptGoal(this, 1.2, FOOD_ITEMS, false));
 		goalSelector.addGoal(4, new FollowParentGoal(this, 1.1));
 		goalSelector.addGoal(5, new BlubbertuskStrollGoal(this, 1D, 8));
 		goalSelector.addGoal(5, new BlubbertuskJumpGoal(this, 10));
+		targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, EntityCauldronFish.class, true));
 	}
 	@Override
 	protected PathNavigation createNavigation(Level level) {

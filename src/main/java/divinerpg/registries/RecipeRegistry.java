@@ -26,6 +26,7 @@ public class RecipeRegistry {
     		addRecipe(new PotionOfWarmthRecipe());
     		addRecipe(new PotionOfLongWarmthRecipe());
     		addRecipe(new TeaRecipe());
+    		addRecipe(new GrogRecipe());
     	}
     }
 }

@@ -174,7 +174,8 @@ public class ItemRegistry {
             olivine = registerItem("olivine"),
             raw_oxdrite = registerItem("raw_oxdrite"),
             oxdrite_ingot = registerItem("oxdrite_ingot"),
-            cauldron_flesh = registerItem("cauldron_flesh"),
+            cauldron_flesh = registerItem("cauldron_flesh", () -> new ItemModFood(FoodList.CAULDRON_FLESH)),
+            cauldron_fish_bucket = registerItem("cauldron_fish_bucket", () -> new MobBucketItem(() -> EntityRegistry.CAULDRON_FISH.get(), () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1))),
 
             //End
             watching_eye = registerItem("watching_eye"),

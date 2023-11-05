@@ -40,6 +40,7 @@ public class FoodList {
     public static final FoodProperties SKY_FLOWER = (new FoodProperties.Builder()).nutrition(1).saturationMod(1).build();
 
     public static final FoodProperties EGG_NOG = (new FoodProperties.Builder()).nutrition(4).saturationMod(1.5F).build();
+    public static final FoodProperties CAULDRON_FLESH = new FoodProperties.Builder().nutrition(2).saturationMod(1.2F).meat().effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 30, 0), 2F).build();
     public static final FoodProperties RAW_SENG_MEAT = (new FoodProperties.Builder()).nutrition(4).saturationMod(1.75F).meat().build();
     public static final FoodProperties COOKED_SENG_STEAK = (new FoodProperties.Builder()).nutrition(8).saturationMod(2.5F).meat().build();
     public static final FoodProperties RAW_WOLPERTINGER_MEAT = (new FoodProperties.Builder()).nutrition(5).saturationMod(1.85F).meat().build();

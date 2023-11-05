@@ -25,6 +25,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.level.storage.loot.*;
 import net.minecraft.world.level.storage.loot.parameters.*;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -51,6 +52,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	protected static final EntityDataAccessor<Boolean> IMPORTANT = SynchedEntityData.defineId(EntityBlubbertusk.class, EntityDataSerializers.BOOLEAN);
 	public EntityIceikaNPC(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
+        setPathfindingMalus(BlockPathTypes.POWDER_SNOW, -1F);
     }
 	protected abstract TagKey<Item> getAcceptedItems();
 	protected abstract String getTradesLocation();
