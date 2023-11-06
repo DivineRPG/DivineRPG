@@ -35,12 +35,12 @@ public class ItemShickaxe extends DiggerItem {
     protected final Tier tier;
 
     public ItemShickaxe(Rarity rarity, Tier tier) {
-        super(1.0F, -2.8F, tier, BlockTags.create(new ResourceLocation(DivineRPG.MODID, "shickaxe_effective")), new Item.Properties().durability(tier.getUses()).rarity(rarity));
+        super(1.0F, -2.4F, tier, BlockTags.create(new ResourceLocation(DivineRPG.MODID, "shickaxe_effective")), new Item.Properties().durability(tier.getUses()).rarity(rarity));
         this.tier = tier;
     }
 
     public ItemShickaxe(Tier tier) {
-        super(1.0F, -2.8F, tier, BlockTags.create(new ResourceLocation(DivineRPG.MODID, "shickaxe_effective")), new Item.Properties().durability(tier.getUses()));
+        super(1.0F, -2.4F, tier, BlockTags.create(new ResourceLocation(DivineRPG.MODID, "shickaxe_effective")), new Item.Properties().durability(tier.getUses()));
         this.tier = tier;
     }
 
@@ -52,8 +52,6 @@ public class ItemShickaxe extends DiggerItem {
 
         if(getMaxDamage(stack) == -1) {
             tooltip.add(LocalizeUtils.infiniteUses());
-        } else {
-            tooltip.add(LocalizeUtils.usesRemaining(getTier().getUses() - getDamage(stack)));
         }
     }
 

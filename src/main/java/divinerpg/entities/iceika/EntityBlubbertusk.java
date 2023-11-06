@@ -130,6 +130,10 @@ public class EntityBlubbertusk extends Animal {
 		return true;
 	}
 	@Override
+	protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+		return .78F;
+	}
+	@Override
 	public float getWalkTargetValue(BlockPos pos, LevelReader level) {
 		return level.getFluidState(pos).is(FluidTags.WATER) ? 10F : level.getPathfindingCostFromLightLevels(pos);
 	}

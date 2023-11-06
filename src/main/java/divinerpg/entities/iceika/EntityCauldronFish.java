@@ -21,7 +21,7 @@ import net.minecraft.world.phys.AABB;
 public class EntityCauldronFish extends Squid implements Bucketable {
 	boolean fromBucket;
 	public EntityCauldronFish(EntityType<EntityCauldronFish> type, Level level) {super(type, level);setPathfindingMalus(BlockPathTypes.RAIL, 1F);}
-	@Override protected float getStandingEyeHeight(Pose pose, EntityDimensions dim) {return .25F;}
+	@Override protected float getStandingEyeHeight(Pose pose, EntityDimensions dim) {return .6875F;}
 	@Override protected SoundEvent getAmbientSound() {return SoundEvents.TROPICAL_FISH_AMBIENT;}
 	@Override protected SoundEvent getHurtSound(DamageSource source) {return SoundEvents.TROPICAL_FISH_HURT;}
 	@Override protected SoundEvent getSquirtSound() {return SoundEvents.TROPICAL_FISH_HURT;}
