@@ -10,7 +10,7 @@ public class GruzzorlugGeneral extends Gruzzorlug {
 	public GruzzorlugGeneral(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		entityData.set(ITEM, 6);
-		entityData.set(IMPORTANT, true);
+		important = true;
 	}
 	@Override
 	protected TagKey<Item> getAcceptedItems() {

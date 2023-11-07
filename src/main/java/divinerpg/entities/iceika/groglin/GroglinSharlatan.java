@@ -16,7 +16,7 @@ public class GroglinSharlatan extends Groglin implements RangedAttackMob {
 	public GroglinSharlatan(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		entityData.set(ITEM, 10);
-		entityData.set(IMPORTANT, true);
+		important = true;
 	}
 	@Override
 	protected void registerGoals() {

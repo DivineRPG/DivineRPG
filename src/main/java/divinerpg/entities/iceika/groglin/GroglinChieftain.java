@@ -10,7 +10,7 @@ public class GroglinChieftain extends Groglin {
 	public GroglinChieftain(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		entityData.set(ITEM, 9);
-		entityData.set(IMPORTANT, true);
+		important = true;
 	}
 	@Override
 	protected TagKey<Item> getAcceptedItems() {

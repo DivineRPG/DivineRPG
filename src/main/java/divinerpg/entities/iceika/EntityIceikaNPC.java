@@ -49,7 +49,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 		};
 	}
     protected static final EntityDataAccessor<Integer> ITEM = SynchedEntityData.defineId(EntityIceikaNPC.class, EntityDataSerializers.INT);
-	protected static final EntityDataAccessor<Boolean> IMPORTANT = SynchedEntityData.defineId(EntityBlubbertusk.class, EntityDataSerializers.BOOLEAN);
+    protected boolean important = false;
 	public EntityIceikaNPC(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         setPathfindingMalus(BlockPathTypes.POWDER_SNOW, -1F);
@@ -78,13 +78,12 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(ITEM, 0);
-        entityData.define(IMPORTANT, false);
     }
 	public int heldItem() {
         return entityData.get(ITEM);
     }
 	public void setUnimportant() {
-		entityData.set(IMPORTANT, false);
+		important = false;
 	}
 	@Override
 	protected InteractionResult mobInteract(Player player, InteractionHand hand) {
@@ -129,7 +128,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	}
 	@Override
 	public void modifyReputationOnDeath(DamageSource source) {
-		if(entityData.get(IMPORTANT) && level() instanceof ServerLevel level) {
+		if(important && level() instanceof ServerLevel level) {
 			if(source.getDirectEntity() != null && source.getDirectEntity() instanceof LivingEntity entity)
 				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
 			if(source.getEntity() != null && source.getEntity() instanceof LivingEntity entity)
@@ -152,11 +151,11 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	@Override
 	public void readAdditionalSaveData(CompoundTag tag) {
 		super.readAdditionalSaveData(tag);
-		if(tag.contains("Important")) entityData.set(IMPORTANT, tag.getBoolean("Important"));
+		if(tag.contains("Important")) important = tag.getBoolean("Important");
 	}
 	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
-		tag.putBoolean("Important", entityData.get(IMPORTANT));
+		tag.putBoolean("Important", important);
 	}
 }

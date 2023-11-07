@@ -16,7 +16,7 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 	public GruzzorlugCommander(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
 		entityData.set(ITEM, 8);
-		entityData.set(IMPORTANT, true);
+		important = true;
 	}
 	@Override
 	protected TagKey<Item> getAcceptedItems() {
