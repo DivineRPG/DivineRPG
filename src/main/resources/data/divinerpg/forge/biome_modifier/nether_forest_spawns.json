@@ -10,12 +10,6 @@
 	    "minCount": 2,
 	    "maxCount": 4
 	  },
-	  {
-	    "type": "divinerpg:hell_bat",
-	    "weight": 1,
-	    "minCount": 1,
-	    "maxCount": 1
-  	  },
   	  {
 	    "type": "divinerpg:hell_spider",
 	    "weight": 6,

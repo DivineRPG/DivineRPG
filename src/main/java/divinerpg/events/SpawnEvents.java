@@ -78,7 +78,6 @@ public class SpawnEvents {
     	registerWaterSpawn(e, WHALE.get());
     	registerSpawn(e, WHITE_GRIZZLE.get());
     	//Nether
-    	registerAirSpawn(e, HELL_BAT.get());
     	registerMobSpawn(e, HELL_PIG.get());
     	registerAgileSpawn(e, HELL_SPIDER.get());
 		registerMonsterSpawn(e, SCORCHER.get());

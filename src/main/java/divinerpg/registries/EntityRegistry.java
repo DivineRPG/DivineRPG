@@ -189,7 +189,6 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntitySmelter>>			 SMELTER 			 = registerEntity(EntitySmelter::new, 			"smelter", 				1.5F, 3.5F, MobCategory.CREATURE);
 
     //Nether
-    public static final RegistryObject<EntityType<EntityHellBat>>	         HELL_BAT 	         = registerEntity(EntityHellBat::new, 	        "hell_bat", 	            0.7F, 1.0F, 0x430c0c, 0x854343, MobCategory.AMBIENT);
     public static final RegistryObject<EntityType<EntityHellPig>>	         HELL_PIG 	         = registerEntity(EntityHellPig::new, 	        "hell_pig", 	            0.9F, 1.15625F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityHellSpider>>         HELL_SPIDER         = registerEntity(EntityHellSpider::new,        "hell_spider",            1.4F, 0.9F, 0xb01916, 0x720b07);
     public static final RegistryObject<EntityType<EntityWildfire>>	         WILDFIRE 	         = registerEntity(EntityWildfire::new, 	        "wildfire", 	            0.8F, 2.2F, 0xaa0b01, 0x9c6d11);
@@ -429,7 +428,6 @@ public class EntityRegistry {
         registerMobAttributes(event, SMELTER, EntityStats.SMELTER);
 
         //Nether
-        registerMobAttributes(event, HELL_BAT, EntityStats.HELL_BAT);
         registerMobAttributes(event, HELL_PIG, EntityStats.HELL_PIG);
         registerMobAttributes(event, HELL_SPIDER, EntityStats.HELL_SPIDER);
         registerMobAttributes(event, WILDFIRE, EntityStats.WILDFIRE);
@@ -905,7 +903,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(WHITE_GRIZZLE.get(),	 (Context context) -> new RenderDivineMob<>(context, "white_grizzle", new ModelGrizzle<>(context)));
 
         //Nether
-        event.registerEntityRenderer(HELL_BAT.get(),	(Context context) -> new RenderDivineBat<>(context, "hell_bat", 0.5F, 1F));
         event.registerEntityRenderer(HELL_PIG.get(),	RenderHellPig::new);
         event.registerEntityRenderer(HELL_SPIDER.get(), (Context context) -> new RenderDivineMob<>(context, "hell_spider", new ModelHellSpider(context), 0.2F));
         event.registerEntityRenderer(SCORCHER.get(),	(Context context) -> new RenderDivineMob<>(context, "scorcher", new ModelScorcher(context), 0.72F, 1.5F));

@@ -51,7 +51,6 @@ public class LootTableRegistry {
     public static final ResourceLocation ENTITIES_THE_GRUE = registerTable("entities/the_grue");
     public static final ResourceLocation ENTITIES_WHALE = registerTable("entities/whale");
 
-    public static final ResourceLocation ENTITIES_HELL_BAT = registerTable("entities/hell_bat");
     public static final ResourceLocation ENTITIES_HELL_PIG = registerTable("entities/hell_pig");
     public static final ResourceLocation ENTITIES_HELL_SPIDER = registerTable("entities/hell_spider");
     public static final ResourceLocation ENTITIES_SCORCHER = registerTable("entities/scorcher");

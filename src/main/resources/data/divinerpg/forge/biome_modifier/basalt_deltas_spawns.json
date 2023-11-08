@@ -2,12 +2,6 @@
   "type": "forge:add_spawns",
   "biomes": "basalt_deltas",
   "spawners": [
-	  {
-	    "type": "divinerpg:hell_bat",
-	    "weight": 1,
-	    "minCount": 1,
-	    "maxCount": 1
-  	  },
   	  {
 	    "type": "divinerpg:scorcher",
 	    "weight": 6,

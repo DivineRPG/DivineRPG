@@ -63,7 +63,6 @@ public enum EntityStats {
     MINER(40),
 
     //NETHER
-    HELL_BAT(30, 7, 40),
     HELL_PIG(50, 5),
     HELL_SPIDER(50, 8),
     SCORCHER(75),
