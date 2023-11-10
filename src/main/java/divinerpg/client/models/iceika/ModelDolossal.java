@@ -18,6 +18,7 @@ public class ModelDolossal extends AgeableListModel<EntityDolossal> {
 	final ModelPart[] saddleParts, ridingParts;
 	public ModelDolossal(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
+		body = root.getChild("Body");
 		neck = root.getChild("Neck");
 		head = neck.getChild("Head");
 		rightLeg = body.getChild("RightLeg");
