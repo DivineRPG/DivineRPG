@@ -77,6 +77,7 @@ public enum EntityStats {
     //ICEIKA
     BLUBBERTUSK(60, 4),
     CAULDRON_FISH(10, 3, 4, 0.135),
+    DOLOSSAL(40, 1, 20, .33),
     ALICANTO(75, 11),
     FRACTITE(50),
     PALE_ARCHER(40, 2),

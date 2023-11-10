@@ -203,6 +203,7 @@ public class EntityRegistry {
     //Iceika
     public static final RegistryObject<EntityType<EntityCauldronFish>>		CAULDRON_FISH		= registerEntity(EntityCauldronFish::new,		"cauldron_fish",		.5625F, .8125F, 0xffffff, 0xffffff, MobCategory.WATER_AMBIENT);
     public static final RegistryObject<EntityType<EntityBlubbertusk>>		BLUBBERTUSK			= registerEntity(EntityBlubbertusk::new,		"blubbertusk",			.85F, .875F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
+    public static final RegistryObject<EntityType<EntityDolossal>>			DOLOSSAL			= registerEntity(EntityDolossal::new,			"dolossal",				1.3F, 2F, 0x462630, 0x422742, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityRobbin>>            ROBBIN              = registerEntity(EntityRobbin::new,            "robbin",                0.3F, 0.5625F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWolpertinger>>      WOLPERTINGER        = registerEntity(EntityWolpertinger::new,      "wolpertinger",          0.6F, 0.875F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWorkshopMerchant>>  WORKSHOP_MERCHANT   = registerEntity(EntityWorkshopMerchant::new,  "workshop_merchant",     0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
@@ -442,6 +443,7 @@ public class EntityRegistry {
         //Iceika
         registerMobAttributes(event, BLUBBERTUSK, EntityStats.BLUBBERTUSK);
         registerMobAttributes(event, CAULDRON_FISH, EntityStats.CAULDRON_FISH);
+        EntityDolossal.registerDolossalAttributes(event, DOLOSSAL);
         registerMobAttributes(event, ROBBIN, EntityStats.ROBBIN);
         registerMobAttributes(event, WOLPERTINGER, EntityStats.WOLPERTINGER);
         registerDefaultMobAttributes(event, WORKSHOP_MERCHANT);
@@ -665,6 +667,7 @@ public class EntityRegistry {
         //Iceika
         event.registerLayerDefinition(ModelBlubbertusk.LAYER_LOCATION, ModelBlubbertusk::createBodyLayer);
         event.registerLayerDefinition(ModelCauldronFish.LAYER_LOCATION, ModelCauldronFish::createBodyLayer);
+        event.registerLayerDefinition(ModelDolossal.LAYER_LOCATION, ModelDolossal::createBodyLayer);
         event.registerLayerDefinition(ModelAlicanto.LAYER_LOCATION, ModelAlicanto::createBodyLayer);
         event.registerLayerDefinition(ModelFractite.LAYER_LOCATION, ModelFractite::createBodyLayer);
         event.registerLayerDefinition(ModelPaleArcher.LAYER_LOCATION, ModelPaleArcher::createBodyLayer);
@@ -917,6 +920,7 @@ public class EntityRegistry {
         //Iceika
         event.registerEntityRenderer(BLUBBERTUSK.get(),		(Context context) -> new RenderDivineMob<>(context, "blubbertusk", new ModelBlubbertusk(context), .7F));
         event.registerEntityRenderer(CAULDRON_FISH.get(),	(Context context) -> new RenderDivineMob<>(context, "cauldron_fish", new ModelCauldronFish(context), .3F));
+        event.registerEntityRenderer(DOLOSSAL.get(),		(Context context) -> new RenderDivineMob<>(context, "dolossal", new ModelDolossal(context), .9F));
         event.registerEntityRenderer(ALICANTO.get(),		 (Context context) -> new RenderDivineMob<>(context, "alicanto",  new ModelAlicanto(context), .7F));
         event.registerEntityRenderer(FRACTITE.get(),		 (Context context) -> new RenderDivineMob<>(context, "fractite",  new ModelFractite(context), .5F, 2F));
         event.registerEntityRenderer(PALE_ARCHER.get(),	     RenderPaleArcher::new);
