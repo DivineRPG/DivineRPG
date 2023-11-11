@@ -27,7 +27,7 @@ public class EnchantedWarriorLayer extends RenderLayer<EntityEnchantedWarrior, M
         matrixStackIn.pushPose();
         ModelPart modelrenderer = this.getParentModel().rightArm;
         modelrenderer.translateAndRotate(matrixStackIn);
-        matrixStackIn.translate(-0.125F, 0.55F, -0.4F);
+        matrixStackIn.translate(-0.125F, 0.55F, -0.57F);
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(70));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-20));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
