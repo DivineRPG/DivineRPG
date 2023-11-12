@@ -49,7 +49,7 @@ public class EntityBlubbertusk extends Animal {
 		goalSelector.addGoal(2, new BreedGoal(this, 1D));
 		goalSelector.addGoal(3, new TemptGoal(this, 1.2, FOOD_ITEMS, false));
 		goalSelector.addGoal(4, new FollowParentGoal(this, 1.1));
-		goalSelector.addGoal(5, new BlubbertuskStrollGoal(this, 1D, 8));
+		goalSelector.addGoal(5, new BlubbertuskStrollGoal(this, 1D, 10));
 		goalSelector.addGoal(5, new BlubbertuskJumpGoal(this, 10));
 		targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, EntityCauldronFish.class, true));
 	}

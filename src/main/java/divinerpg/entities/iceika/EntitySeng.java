@@ -18,6 +18,7 @@ public class EntitySeng extends EntityDivineMonster {
     protected void registerGoals() {
     	super.registerGoals();
     	targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, EntityDolossal.class, true));
+    	targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EntityMamoth.class, 10, true, true, (entity) -> entity.isBaby()));
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 0.59375F;

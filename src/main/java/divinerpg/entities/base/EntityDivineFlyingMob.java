@@ -1,6 +1,7 @@
 package divinerpg.entities.base;
 
 import divinerpg.entities.ai.EscapeWaterGoal;
+import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
@@ -87,17 +88,8 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
         double speed = getAttributeValue(Attributes.FLYING_SPEED);
         setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64D * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64D * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64D * speed);
         double distanceX = pathfindPos.x - getX(), distanceY = pathfindPos.y- getY(), distanceZ = pathfindPos.z - getZ();
-        yRot = rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
-        xRot = rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
+        yRot = Utils.rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
+        xRot = Utils.rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
         if(Math.sqrt(distanceToSqr(pathfindPos)) < 2D) pathfindPos = null;
-    }
-    protected float rotlerp(float rot, float g, float bound) {
-        float f = Mth.wrapDegrees(g - rot);
-        if(f > bound) f = bound;
-        if(f < -bound) f = -bound;
-        float f1 = rot + f;
-        if(f1 < 0F) f1 += 360F;
-        else if(f1 > 360F) f1 -= 360F;
-        return f1;
     }
 }

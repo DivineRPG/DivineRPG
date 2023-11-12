@@ -9,6 +9,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
@@ -59,6 +61,15 @@ public class EntityDolossal extends AbstractHorse {
 	}
 	@Override public boolean isFood(ItemStack stack) {
 		return FOOD.test(stack);
+	}
+	@Override
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+		ItemStack stack = player.getItemInHand(hand);
+		if(FOOD.test(stack)) {
+			if(!player.isCreative()) stack.shrink(1);
+			handleEating(player, stack);
+			return InteractionResult.CONSUME;
+		} return super.mobInteract(player, hand);
 	}
 	@Override protected boolean handleEating(Player player, ItemStack item) {
 		boolean flag = false;

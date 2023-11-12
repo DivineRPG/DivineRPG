@@ -13,6 +13,7 @@ import net.minecraft.nbt.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -218,4 +219,13 @@ public class Utils {
 		while(level.getBlockState(pos).isAir()) pos.move(Direction.DOWN);
 		return pos.move(Direction.UP);
 	}
+	public static float rotlerp(float rot, float g, float bound) {
+        float f = Mth.wrapDegrees(g - rot);
+        if(f > bound) f = bound;
+        if(f < -bound) f = -bound;
+        float f1 = rot + f;
+        if(f1 < 0F) f1 += 360F;
+        else if(f1 > 360F) f1 -= 360F;
+        return f1;
+    }
 }
