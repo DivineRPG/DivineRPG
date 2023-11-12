@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "divinerpg:arlemite_ingot"
+              "divinerpg:torridite_ingot"
             ]
           }
         ]
@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/green_diamond_chunk"
+        "recipe": "divinerpg:shapeless/red_diamond_chunk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/green_diamond_chunk"
+      "divinerpg:shapeless/red_diamond_chunk"
     ]
   }
 }

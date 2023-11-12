@@ -48,4 +48,8 @@ public class EntitySoulSpider extends EntityDivineMonster {
         return 0.0F;
     }
 
+    @Override
+    public MobType getMobType() {
+        return MobType.ARTHROPOD;
+    }
 }

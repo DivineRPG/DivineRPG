@@ -235,4 +235,9 @@ public class EntityKitra extends EntityWhale {
             return false;
         }
     }
+
+    @Override
+    public MobType getMobType() {
+        return MobType.UNDEAD;
+    }
 }

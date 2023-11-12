@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "divinerpg:realmite_ingot"
+              "divinerpg:rupee_ingot"
             ]
           }
         ]
@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/yellow_diamond_chunk"
+        "recipe": "divinerpg:shapeless/blue_diamond_chunk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/yellow_diamond_chunk"
+      "divinerpg:shapeless/blue_diamond_chunk"
     ]
   }
 }

@@ -209,4 +209,8 @@ public class EntityWraith extends EntityDivineTameable {
         }
     }
 
+    @Override
+    public MobType getMobType() {
+        return MobType.UNDEAD;
+    }
 }

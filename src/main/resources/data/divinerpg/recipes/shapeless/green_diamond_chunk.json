@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:green_diamond_chunk"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:arlemite_ingot"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "colored_diamond_chunk"
+}

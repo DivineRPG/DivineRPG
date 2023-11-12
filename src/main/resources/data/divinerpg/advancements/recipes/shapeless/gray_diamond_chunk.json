@@ -27,7 +27,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/gray_diamond_chunk"
+        "recipe": "divinerpg:shapeless/gray_diamond_chunk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -41,7 +41,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/gray_diamond_chunk"
+      "divinerpg:shapeless/gray_diamond_chunk"
     ]
   }
 }

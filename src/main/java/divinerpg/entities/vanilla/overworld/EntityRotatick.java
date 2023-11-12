@@ -26,4 +26,6 @@ public class EntityRotatick extends EntityDivineMonster {
     public static boolean rotatickSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
         return Monster.checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn) && pos.getY() < 0;
     }
+    @Override
+    public MobType getMobType() {return MobType.ARTHROPOD;}
 }

@@ -98,4 +98,9 @@ public class EntityMiner extends EntityDivineMonster {
         populateDefaultEquipmentEnchantments(getRandom(), difficultyIn);
         return spawnDataIn;
     }
+
+    @Override
+    public MobType getMobType() {
+        return MobType.UNDEAD;
+    }
 }
