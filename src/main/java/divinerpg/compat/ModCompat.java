@@ -12,7 +12,7 @@ public class ModCompat {
             JERCompat.init();
         }
         if(ModList.get().isLoaded("projecte")){
-//            ProjectECompat.init();
+            ProjectECompat.init();
         }
         if(ModList.get().isLoaded("aztech")){
             DivineRPG.LOGGER.info("Together we thrive!");
