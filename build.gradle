@@ -101,8 +101,8 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") //Just Enough Items
     compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
     runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
-//    compileOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
-//    runtimeOnly fg.deobf("curse.maven:projecte-226410:3941395") //ProjectE
+    compileOnly fg.deobf("curse.maven:projecte-226410:${projecte_id}") //ProjectE
+    runtimeOnly fg.deobf("curse.maven:projecte-226410:${projecte_id}") //ProjectE
 //    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-FORGE-SNAPSHOT:api") //Patchouli
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-FORGE-SNAPSHOT") //Patchouli
 //    runtimeOnly fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}:${bookshelf_version}") //Bookshelf
