@@ -75,11 +75,12 @@ public class ArmorAbilitiesEvent {
             }
         }
         if(target instanceof Player) {
-            if((target.hasEffect(MobEffectRegistry.PROJECTILE_PROTECTION.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.THROWN) || source.is(DamageTypes.TRIDENT)))
-            		|| (target.hasEffect(MobEffectRegistry.MELEE_PROTECTION.get()) && (source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.GENERIC)) && !source.is(DamageTypes.MOB_PROJECTILE))) {
-                event.setAmount(event.getAmount() * .34F);
+            if((target.hasEffect(MobEffectRegistry.PROJECTILE_PROTECTION.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.THROWN) || source.is(DamageTypes.TRIDENT)))) {
+				event.setAmount(event.getAmount() * .34F);
+			} else if(target.hasEffect(MobEffectRegistry.MELEE_PROTECTION.get()) && (source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.GENERIC)) && !source.is(DamageTypes.MOB_PROJECTILE)) {
+                event.setAmount(event.getAmount() * .67F);
             } else if(target.hasEffect(MobEffectRegistry.SENG_FUR.get())) {
-            	event.setAmount(event.getAmount() * .2F);
+            	event.setAmount(event.getAmount() * .7F);
             } else if((target.hasEffect(MobEffectRegistry.DEGRADED_HOOD.get()) && source.is(DamageTypes.MAGIC))
             		|| (target.hasEffect(MobEffectRegistry.DEGRADED_HELMET.get()) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
             		|| (target.hasEffect(MobEffectRegistry.DEGRADED_MASK.get()) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {

@@ -54,7 +54,7 @@ public class ItemRegistry {
     private static ArmorInfo jungleInfo = new ArmorInfo(getArmorAbility("poison_protection"));
     private static ArmorInfo krakenInfo = new ArmorInfo(getArmorAbility("conduit_power"));
     private static ArmorInfo torriditeInfo = new ArmorInfo(getArmorAbility("fire_protection"));
-    private static ArmorInfo rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 66));
+    private static ArmorInfo rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 33));
     private static ArmorInfo shadowInfo = new ArmorInfo(getArmorAbility("speed", 4), getArmorAbility("step_assist"));
     private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
     private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
@@ -744,6 +744,16 @@ public class ItemRegistry {
 
     //Armour
     public static final RegistryObject<Item>
+    realmite_helmet = registerItem("realmite_helmet", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.HELMET)),
+            realmite_chestplate = registerItem("realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.CHESTPLATE)),
+            realmite_leggings = registerItem("realmite_leggings", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.LEGGINGS)),
+            realmite_boots = registerItem("realmite_boots", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.BOOTS)),
+
+    seng_fur_helmet = registerItem("seng_fur_helmet", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.HELMET, sengFurInfo, SENG_FUR.get(), WARMTH.get())),
+            seng_fur_chestplate = registerItem("seng_fur_chestplate", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.CHESTPLATE, sengFurInfo)),
+            seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
+            seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),
+
     aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo, MobEffects.DOLPHINS_GRACE, MobEffects.WATER_BREATHING)),
             aquastrive_chestplate = registerItem("aquastrive_chestplate", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.CHESTPLATE, aquastriveInfo)),
             aquastrive_leggings = registerItem("aquastrive_leggings", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.LEGGINGS, aquastriveInfo)),
@@ -754,20 +764,60 @@ public class ItemRegistry {
             kraken_leggings = registerItem("kraken_leggings", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.LEGGINGS, krakenInfo)),
             kraken_boots = registerItem("kraken_boots", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.BOOTS, krakenInfo)),
 
-    realmite_helmet = registerItem("realmite_helmet", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.HELMET)),
-            realmite_chestplate = registerItem("realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.CHESTPLATE)),
-            realmite_leggings = registerItem("realmite_leggings", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.LEGGINGS)),
-            realmite_boots = registerItem("realmite_boots", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.BOOTS)),
+    jack_o_man_helmet = registerItem("jack_o_man_helmet", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.HELMET, jackomanInfo)),
+            jack_o_man_chestplate = registerItem("jack_o_man_chestplate", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.CHESTPLATE, jackomanInfo)),
+            jack_o_man_leggings = registerItem("jack_o_man_leggings", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.LEGGINGS, jackomanInfo)),
+            jack_o_man_boots = registerItem("jack_o_man_boots", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.BOOTS, jackomanInfo)),
 
-    elite_realmite_helmet = registerItem("elite_realmite_helmet", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.HELMET, eliteRealmiteInfo, PREVENT_FALL_DAMAGE.get())),
-            elite_realmite_chestplate = registerItem("elite_realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.CHESTPLATE, eliteRealmiteInfo)),
-            elite_realmite_leggings = registerItem("elite_realmite_leggings", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.LEGGINGS, eliteRealmiteInfo)),
-            elite_realmite_boots = registerItem("elite_realmite_boots", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.BOOTS, eliteRealmiteInfo)),
+    skeleman_helmet = registerItem("skeleman_helmet", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.HELMET, skelemanInfo, SKELEMAN_FEED.get())),
+            skeleman_chestplate = registerItem("skeleman_chestplate", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.CHESTPLATE, skelemanInfo)),
+            skeleman_leggings = registerItem("skeleman_leggings", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.LEGGINGS, skelemanInfo)),
+            skeleman_boots = registerItem("skeleman_boots", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.BOOTS, skelemanInfo)),
+
+    wither_reaper_helmet = registerItem("wither_reaper_helmet", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.HELMET, witherReaperInfo, WITHER_PROTECTION.get())),
+            wither_reaper_chestplate = registerItem("wither_reaper_chestplate", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.CHESTPLATE, witherReaperInfo)),
+            wither_reaper_leggings = registerItem("wither_reaper_leggings", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.LEGGINGS, witherReaperInfo)),
+            wither_reaper_boots = registerItem("wither_reaper_boots", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.BOOTS, witherReaperInfo)),
 
     arlemite_helmet = registerItem("arlemite_helmet", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.HELMET, arlemiteInfo, PROJECTILE_PROTECTION.get())),
             arlemite_chestplate = registerItem("arlemite_chestplate", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.CHESTPLATE, arlemiteInfo)),
             arlemite_leggings = registerItem("arlemite_leggings", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.LEGGINGS, arlemiteInfo)),
             arlemite_boots = registerItem("arlemite_boots", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.BOOTS, arlemiteInfo)),
+
+    frozen_helmet = registerItem("frozen_helmet", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.HELMET, frozenInfo, FROZEN_SLOWNESS.get())),
+            frozen_chestplate = registerItem("frozen_chestplate", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.CHESTPLATE, frozenInfo)),
+            frozen_leggings = registerItem("frozen_leggings", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.LEGGINGS, frozenInfo)),
+            frozen_boots = registerItem("frozen_boots", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.BOOTS, frozenInfo)),
+
+    jungle_helmet = registerItem("jungle_helmet", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.HELMET, jungleInfo, POISON_PROTECTION.get())),
+            jungle_chestplate = registerItem("jungle_chestplate", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.CHESTPLATE, jungleInfo)),
+            jungle_leggings = registerItem("jungle_leggings", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.LEGGINGS, jungleInfo)),
+            jungle_boots = registerItem("jungle_boots", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.BOOTS, jungleInfo)),
+
+    inferno_helmet = registerItem("inferno_helmet", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.HELMET, infernoInfo, new Item.Properties().fireResistant(), MobEffects.FIRE_RESISTANCE)),
+            inferno_chestplate = registerItem("inferno_chestplate", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.CHESTPLATE, infernoInfo, new Item.Properties().fireResistant())),
+            inferno_leggings = registerItem("inferno_leggings", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.LEGGINGS, infernoInfo, new Item.Properties().fireResistant())),
+            inferno_boots = registerItem("inferno_boots", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.BOOTS, infernoInfo, new Item.Properties().fireResistant())),
+
+    torridite_helmet = registerItem("torridite_helmet", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.HELMET, torriditeInfo, new Item.Properties().fireResistant(), MobEffects.FIRE_RESISTANCE)),
+            torridite_chestplate = registerItem("torridite_chestplate", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.CHESTPLATE, torriditeInfo, new Item.Properties().fireResistant())),
+            torridite_leggings = registerItem("torridite_leggings", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.LEGGINGS, torriditeInfo, new Item.Properties().fireResistant())),
+            torridite_boots = registerItem("torridite_boots", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.BOOTS, torriditeInfo, new Item.Properties().fireResistant())),
+
+    terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.HELMET, terranInfo, new int[]{2}, MobEffects.DIG_SPEED)),
+            terran_chestplate = registerItem("terran_chestplate", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.CHESTPLATE, terranInfo)),
+            terran_leggings = registerItem("terran_leggings", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.LEGGINGS, terranInfo)),
+            terran_boots = registerItem("terran_boots", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.BOOTS, terranInfo)),
+
+    angelic_helmet = registerItem("angelic_helmet", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.HELMET, angelicInfo, PREVENT_FALL_DAMAGE.get(), ANGELIC_FLIGHT.get())),
+            angelic_chestplate = registerItem("angelic_chestplate", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.CHESTPLATE, angelicInfo)),
+            angelic_leggings = registerItem("angelic_leggings", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.LEGGINGS, angelicInfo)),
+            angelic_boots = registerItem("angelic_boots", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.BOOTS, angelicInfo)),
+
+    shadow_helmet = registerItem("shadow_helmet", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.HELMET, shadowInfo, STEP_ASSIST.get())),
+            shadow_chestplate = registerItem("shadow_chestplate", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.CHESTPLATE, shadowInfo, new int[]{3}, MobEffects.MOVEMENT_SPEED)),
+            shadow_leggings = registerItem("shadow_leggings", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.LEGGINGS, shadowInfo)),
+            shadow_boots = registerItem("shadow_boots", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.BOOTS, shadowInfo)),
 
     rupee_helmet = registerItem("rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.HELMET, rupeeInfo, MELEE_PROTECTION.get())),
             rupee_chestplate = registerItem("rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.CHESTPLATE, rupeeInfo)),
@@ -799,50 +849,30 @@ public class ItemRegistry {
             gray_rupee_leggings = registerItem("gray_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.GRAY_RUPEE, ArmorItem.Type.LEGGINGS, rupeeInfo)),
             gray_rupee_boots = registerItem("gray_rupee_boots", () -> new ItemDivineArmor(ArmorStats.GRAY_RUPEE, ArmorItem.Type.BOOTS, rupeeInfo)),
 
-    shadow_helmet = registerItem("shadow_helmet", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.HELMET, shadowInfo, STEP_ASSIST.get())),
-            shadow_chestplate = registerItem("shadow_chestplate", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.CHESTPLATE, shadowInfo, new int[]{3}, MobEffects.MOVEMENT_SPEED)),
-            shadow_leggings = registerItem("shadow_leggings", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.LEGGINGS, shadowInfo)),
-            shadow_boots = registerItem("shadow_boots", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.BOOTS, shadowInfo)),
+    elite_realmite_helmet = registerItem("elite_realmite_helmet", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.HELMET, eliteRealmiteInfo, PREVENT_FALL_DAMAGE.get())),
+            elite_realmite_chestplate = registerItem("elite_realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.CHESTPLATE, eliteRealmiteInfo)),
+            elite_realmite_leggings = registerItem("elite_realmite_leggings", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.LEGGINGS, eliteRealmiteInfo)),
+            elite_realmite_boots = registerItem("elite_realmite_boots", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.BOOTS, eliteRealmiteInfo)),
+
+    corrupted_helmet = registerItem("corrupted_helmet", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.HELMET, corruptedInfo, CORRUPTED_STRENGTH.get())),
+            corrupted_chestplate = registerItem("corrupted_chestplate", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.CHESTPLATE, corruptedInfo)),
+            corrupted_leggings = registerItem("corrupted_leggings", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.LEGGINGS, corruptedInfo)),
+            corrupted_boots = registerItem("corrupted_boots", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.BOOTS, corruptedInfo)),
 
     bedrock_helmet = registerItem("bedrock_helmet", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.HELMET, bedrockInfo, new Item.Properties().fireResistant(), MobEffects.FIRE_RESISTANCE, EXPLOSION_PROTECTION.get())),
             bedrock_chestplate = registerItem("bedrock_chestplate", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.CHESTPLATE, bedrockInfo, new Item.Properties().fireResistant())),
             bedrock_leggings = registerItem("bedrock_leggings", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.LEGGINGS, bedrockInfo, new Item.Properties().fireResistant())),
             bedrock_boots = registerItem("bedrock_boots", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.BOOTS, bedrockInfo, new Item.Properties().fireResistant())),
 
-    jack_o_man_helmet = registerItem("jack_o_man_helmet", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.HELMET, jackomanInfo)),
-            jack_o_man_chestplate = registerItem("jack_o_man_chestplate", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.CHESTPLATE, jackomanInfo)),
-            jack_o_man_leggings = registerItem("jack_o_man_leggings", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.LEGGINGS, jackomanInfo)),
-            jack_o_man_boots = registerItem("jack_o_man_boots", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.BOOTS, jackomanInfo)),
+    korma_helmet = registerItem("korma_helmet", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.HELMET, kormInfo, KORMA_ARCANA.get())),
+            korma_chestplate = registerItem("korma_chestplate", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.CHESTPLATE, kormInfo)),
+            korma_leggings = registerItem("korma_leggings", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.LEGGINGS, kormInfo)),
+            korma_boots = registerItem("korma_boots", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.BOOTS, kormInfo)),
 
-    skeleman_helmet = registerItem("skeleman_helmet", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.HELMET, skelemanInfo, SKELEMAN_FEED.get())),
-            skeleman_chestplate = registerItem("skeleman_chestplate", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.CHESTPLATE, skelemanInfo)),
-            skeleman_leggings = registerItem("skeleman_leggings", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.LEGGINGS, skelemanInfo)),
-            skeleman_boots = registerItem("skeleman_boots", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.BOOTS, skelemanInfo)),
-
-    wither_reaper_helmet = registerItem("wither_reaper_helmet", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.HELMET, witherReaperInfo, WITHER_PROTECTION.get())),
-            wither_reaper_chestplate = registerItem("wither_reaper_chestplate", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.CHESTPLATE, witherReaperInfo)),
-            wither_reaper_leggings = registerItem("wither_reaper_leggings", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.LEGGINGS, witherReaperInfo)),
-            wither_reaper_boots = registerItem("wither_reaper_boots", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.BOOTS, witherReaperInfo)),
-
-    frozen_helmet = registerItem("frozen_helmet", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.HELMET, frozenInfo, FROZEN_SLOWNESS.get())),
-            frozen_chestplate = registerItem("frozen_chestplate", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.CHESTPLATE, frozenInfo)),
-            frozen_leggings = registerItem("frozen_leggings", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.LEGGINGS, frozenInfo)),
-            frozen_boots = registerItem("frozen_boots", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.BOOTS, frozenInfo)),
-
-    terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.HELMET, terranInfo, new int[]{2}, MobEffects.DIG_SPEED)),
-            terran_chestplate = registerItem("terran_chestplate", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.CHESTPLATE, terranInfo)),
-            terran_leggings = registerItem("terran_leggings", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.LEGGINGS, terranInfo)),
-            terran_boots = registerItem("terran_boots", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.BOOTS, terranInfo)),
-
-    jungle_helmet = registerItem("jungle_helmet", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.HELMET, jungleInfo, POISON_PROTECTION.get())),
-            jungle_chestplate = registerItem("jungle_chestplate", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.CHESTPLATE, jungleInfo)),
-            jungle_leggings = registerItem("jungle_leggings", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.LEGGINGS, jungleInfo)),
-            jungle_boots = registerItem("jungle_boots", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.BOOTS, jungleInfo)),
-
-    inferno_helmet = registerItem("inferno_helmet", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.HELMET, infernoInfo, new Item.Properties().fireResistant(), MobEffects.FIRE_RESISTANCE)),
-            inferno_chestplate = registerItem("inferno_chestplate", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.CHESTPLATE, infernoInfo, new Item.Properties().fireResistant())),
-            inferno_leggings = registerItem("inferno_leggings", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.LEGGINGS, infernoInfo, new Item.Properties().fireResistant())),
-            inferno_boots = registerItem("inferno_boots", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.BOOTS, infernoInfo, new Item.Properties().fireResistant())),
+    vemos_helmet = registerItem("vemos_helmet", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.HELMET, vemInfo, VEMOS_HEAL.get())),
+            vemos_chestplate = registerItem("vemos_chestplate", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.CHESTPLATE, vemInfo)),
+            vemos_leggings = registerItem("vemos_leggings", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.LEGGINGS, vemInfo)),
+            vemos_boots = registerItem("vemos_boots", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.BOOTS, vemInfo)),
 
     ender_helmet = registerItem("ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.HELMET, enderInfo, EXPLOSION_PROTECTION.get())),
             ender_chestplate = registerItem("ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.CHESTPLATE, enderInfo)),
@@ -874,40 +904,10 @@ public class ItemRegistry {
             gray_ender_leggings = registerItem("gray_ender_leggings", () -> new ItemDivineArmor(ArmorStats.GRAY_ENDER, ArmorItem.Type.LEGGINGS, enderInfo)),
             gray_ender_boots = registerItem("gray_ender_boots", () -> new ItemDivineArmor(ArmorStats.GRAY_ENDER, ArmorItem.Type.BOOTS, enderInfo)),
 
-    corrupted_helmet = registerItem("corrupted_helmet", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.HELMET, corruptedInfo, CORRUPTED_STRENGTH.get())),
-            corrupted_chestplate = registerItem("corrupted_chestplate", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.CHESTPLATE, corruptedInfo)),
-            corrupted_leggings = registerItem("corrupted_leggings", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.LEGGINGS, corruptedInfo)),
-            corrupted_boots = registerItem("corrupted_boots", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.BOOTS, corruptedInfo)),
-
     divine_helmet = registerItem("divine_helmet", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.HELMET, divineInfo, PREVENT_FALL_DAMAGE.get(), DIVINE_STRENGTH.get())),
             divine_chestplate = registerItem("divine_chestplate", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.CHESTPLATE, divineInfo, new int[]{1}, MobEffects.JUMP)),
             divine_leggings = registerItem("divine_leggings", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.LEGGINGS, divineInfo)),
             divine_boots = registerItem("divine_boots", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.BOOTS, divineInfo)),
-
-    torridite_helmet = registerItem("torridite_helmet", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.HELMET, torriditeInfo, new Item.Properties().fireResistant(), MobEffects.FIRE_RESISTANCE)),
-            torridite_chestplate = registerItem("torridite_chestplate", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.CHESTPLATE, torriditeInfo, new Item.Properties().fireResistant())),
-            torridite_leggings = registerItem("torridite_leggings", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.LEGGINGS, torriditeInfo, new Item.Properties().fireResistant())),
-            torridite_boots = registerItem("torridite_boots", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.BOOTS, torriditeInfo, new Item.Properties().fireResistant())),
-
-    angelic_helmet = registerItem("angelic_helmet", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.HELMET, angelicInfo, PREVENT_FALL_DAMAGE.get(), ANGELIC_FLIGHT.get())),
-            angelic_chestplate = registerItem("angelic_chestplate", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.CHESTPLATE, angelicInfo)),
-            angelic_leggings = registerItem("angelic_leggings", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.LEGGINGS, angelicInfo)),
-            angelic_boots = registerItem("angelic_boots", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.BOOTS, angelicInfo)),
-
-    seng_fur_helmet = registerItem("seng_fur_helmet", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.HELMET, sengFurInfo, SENG_FUR.get(), WARMTH.get())),
-            seng_fur_chestplate = registerItem("seng_fur_chestplate", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.CHESTPLATE, sengFurInfo)),
-            seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
-            seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),
-
-    korma_helmet = registerItem("korma_helmet", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.HELMET, kormInfo, KORMA_ARCANA.get())),
-            korma_chestplate = registerItem("korma_chestplate", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.CHESTPLATE, kormInfo)),
-            korma_leggings = registerItem("korma_leggings", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.LEGGINGS, kormInfo)),
-            korma_boots = registerItem("korma_boots", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.BOOTS, kormInfo)),
-
-    vemos_helmet = registerItem("vemos_helmet", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.HELMET, vemInfo, VEMOS_HEAL.get())),
-            vemos_chestplate = registerItem("vemos_chestplate", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.CHESTPLATE, vemInfo)),
-            vemos_leggings = registerItem("vemos_leggings", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.LEGGINGS, vemInfo)),
-            vemos_boots = registerItem("vemos_boots", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.BOOTS, vemInfo)),
 
     eden_helmet = registerItem("eden_helmet", () -> new ItemDivineArmor(ArmorStats.EDEN, ArmorItem.Type.HELMET, edenInfo)),
             eden_chestplate = registerItem("eden_chestplate", () -> new ItemDivineArmor(ArmorStats.EDEN, ArmorItem.Type.CHESTPLATE, edenInfo)),

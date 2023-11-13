@@ -203,10 +203,10 @@ public class EntityRegistry {
     //Iceika
     public static final RegistryObject<EntityType<EntityCauldronFish>>		CAULDRON_FISH		= registerEntity(EntityCauldronFish::new,		"cauldron_fish",		.5625F, .8125F, 0xffffff, 0xffffff, MobCategory.WATER_AMBIENT);
     public static final RegistryObject<EntityType<EntityBlubbertusk>>		BLUBBERTUSK			= registerEntity(EntityBlubbertusk::new,		"blubbertusk",			.85F, .875F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
-    public static final RegistryObject<EntityType<EntityDolossal>>			DOLOSSAL			= registerEntity(EntityDolossal::new,			"dolossal",				1.3F, 2F, 0x462630, 0x422742, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityMamoth>>			MAMOTH				= registerEntity(EntityMamoth::new,				"mamoth",				1.4F, 2F, 0x49302f, 0x87ffd3, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityRobbin>>            ROBBIN              = registerEntity(EntityRobbin::new,            "robbin",                0.3F, 0.5625F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWolpertinger>>      WOLPERTINGER        = registerEntity(EntityWolpertinger::new,      "wolpertinger",          0.6F, 0.875F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityDolossal>>			DOLOSSAL			= registerEntity(EntityDolossal::new,			"dolossal",				1.3F, 2F, 0x462630, 0x422742, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityMamoth>>			MAMOTH				= registerEntity(EntityMamoth::new,				"mamoth",				1.4F, 2F, 0x49302f, 0x87ffd3, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWorkshopMerchant>>  WORKSHOP_MERCHANT   = registerEntity(EntityWorkshopMerchant::new,  "workshop_merchant",     0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>  WORKSHOP_TINKERER   = registerEntity(EntityWorkshopTinkerer::new,  "workshop_tinkerer",     0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityPaleArcher>>	    PALE_ARCHER 	  	= registerEntity(EntityPaleArcher::new, 	   "pale_archer",	        0.6F, 1.9375F, 0xffffff, 0xffffff);
