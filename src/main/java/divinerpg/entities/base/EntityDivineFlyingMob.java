@@ -71,7 +71,7 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
             Vec3 futurePos = position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z);
             BlockPos pos = new BlockPos((int) futurePos.x, (int) futurePos.y, (int) futurePos.z);
             BlockState state = level().getBlockState(pos);
-            blockedPath = state.is(Blocks.LAVA) || !state.getCollisionShape(level(), pos).equals(Shapes.empty());
+            blockedPath = state.is(Blocks.POWDER_SNOW) || state.is(Blocks.LAVA) || !state.getCollisionShape(level(), pos).equals(Shapes.empty());
         }
         //decide where to go next
     	LivingEntity target = getTarget();

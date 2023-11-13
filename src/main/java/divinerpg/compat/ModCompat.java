@@ -2,7 +2,7 @@ package divinerpg.compat;
 
 import divinerpg.*;
 import divinerpg.compat.jei.JERCompat;
-import divinerpg.compat.projecte.ProjectECompat;
+//import divinerpg.compat.projecte.ProjectECompat;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.event.lifecycle.*;
 
@@ -12,7 +12,7 @@ public class ModCompat {
             JERCompat.init();
         }
         if(ModList.get().isLoaded("projecte")){
-            ProjectECompat.init();
+//            ProjectECompat.init();
         }
         if(ModList.get().isLoaded("aztech")){
             DivineRPG.LOGGER.info("Together we thrive!");

@@ -79,6 +79,7 @@ public enum EntityStats {
     CAULDRON_FISH(10, 3, 4, 0.135),
     DOLOSSAL(40, 1, 20, .33),
     MAMOTH(70, 8, 20, .2),
+    SNOW_SKIPPER(10),
     ALICANTO(75, 11),
     FRACTITE(50),
     PALE_ARCHER(40, 2),
