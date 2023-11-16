@@ -66,10 +66,10 @@ public enum ArmorStats implements ArmorMaterial {
     final Ingredient repairIngredient;
     final int headArmor, chestArmor, legsArmor, feetArmor, durability, enchantability;
     final float toughness, knockbackResistance;
-    ArmorStats(int headArmor, int chestArmor, int legsArmor, int feetArmor, float toughness, float resistance, int durability, int enchantability, @Nullable SoundEvent equipSound) {
+    ArmorStats(int headArmor, int chestArmor, int legsArmor, int feetArmor, float toughness, float resistance, int durability, int enchantability, SoundEvent equipSound) {
         this(null, null, headArmor, chestArmor, legsArmor, feetArmor, toughness, resistance, durability, enchantability, equipSound, null);
     }
-    ArmorStats(int headArmor, int chestArmor, int legsArmor, int feetArmor, float toughness, float resistance, int durability, int enchantability, @Nullable SoundEvent equipSound, @Nullable Ingredient repairIngredient) {
+    ArmorStats(int headArmor, int chestArmor, int legsArmor, int feetArmor, float toughness, float resistance, int durability, int enchantability, SoundEvent equipSound, @Nullable Ingredient repairIngredient) {
         this(null, null, headArmor, chestArmor, legsArmor, feetArmor, toughness, resistance, durability, enchantability, equipSound, repairIngredient);
     }
     ArmorStats(@Nullable String customTextureLocation, @Nullable String name, int headArmor, int chestArmor, int legsArmor, int feetArmor, float toughness, float resistance, int durability, int enchantability, @Nullable SoundEvent equipSound, @Nullable Ingredient repairIngredient) {

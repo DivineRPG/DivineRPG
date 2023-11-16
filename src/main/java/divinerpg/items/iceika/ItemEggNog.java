@@ -25,7 +25,7 @@ public class ItemEggNog extends ItemModFood {
         if (entityLiving instanceof ServerPlayer serverplayer) {
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, stack);
             serverplayer.awardStat(Stats.ITEM_USED.get(this));
-            serverplayer.getFoodData().eat(4, 1.5F);
+            serverplayer.getFoodData().eat(4, 0.8F);
         }
 
         if (entityLiving instanceof Player && !((Player) entityLiving).isCreative()) {

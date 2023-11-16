@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bedrock_chunk": {
+    "has_leggings": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:bedrock_chunk"
+              "divinerpg:aquastrive_leggings"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/bedrock_boots"
+        "recipe": "divinerpg:smithing/kraken_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_bedrock_chunk",
+      "has_leggings",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/bedrock_boots"
+      "divinerpg:smithing/kraken_leggings"
     ]
   }
 }

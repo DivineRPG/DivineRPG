@@ -161,11 +161,11 @@ public class BlockRegistry {
             arcaniumBlock = registerBlock("arcanium_block", () -> new BlockMod(COLOR_LIGHT_BLUE, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
 
             //Twilight Compressed Ore Blocks
-            edenBlock = registerBlock("eden_block", () -> new BlockMod(TERRACOTTA_ORANGE, 1.5F, 6F)),
-            wildwoodBlock = registerBlock("wildwood_block", () -> new BlockMod(LAPIS, 1.5F, 6F)),
-            apalachiaBlock = registerBlock("apalachia_block", () -> new BlockMod(COLOR_MAGENTA, 1.5F, 6F)),
-            skythernBlock = registerBlock("skythern_block", () -> new BlockMod(WOOL, 1.5F, 6F)),
-            mortumBlock = registerBlock("mortum_block", () -> new BlockMod(COLOR_GRAY, 1.5F, 6F)),
+            edenBlock = registerBlock("eden_block", () -> new BlockMod(COLOR_ORANGE, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            wildwoodBlock = registerBlock("wildwood_block", () -> new BlockMod(LAPIS, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            apalachiaBlock = registerBlock("apalachia_block", () -> new BlockMod(COLOR_MAGENTA, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            skythernBlock = registerBlock("skythern_block", () -> new BlockMod(WOOL, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
+            mortumBlock = registerBlock("mortum_block", () -> new BlockMod(COLOR_GRAY, 5F, 6F, SoundType.METAL, NoteBlockInstrument.HARP)),
 
             //Arcana Portal Frames
             arcanaHardPortalFrame = registerBlock("arcana_hard_portal_frame", () -> new BlockArcanaPortalFrame(-1, 3600000F)),

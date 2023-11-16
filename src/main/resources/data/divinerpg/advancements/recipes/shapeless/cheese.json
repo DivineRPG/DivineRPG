@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skin": {
+    "has_milk_bucket": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:kraken_skin"
+              "minecraft:milk_bucket"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/kraken_boots"
+        "recipe": "divinerpg:shapeless/cheese"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skin",
+      "has_milk_bucket",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/kraken_boots"
+      "divinerpg:shapeless/cheese"
     ]
   }
 }

@@ -1,12 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_milk_bucket": {
+    "has_chestplate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:milk_bucket"
+              "divinerpg:inferno_chestplate",
+              "divinerpg:torridite_chestplate"
             ]
           }
         ]
@@ -15,20 +16,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/cheese"
+        "recipe": "divinerpg:smithing/bedrock_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_milk_bucket",
+      "has_chestplate",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/cheese"
+      "divinerpg:smithing/bedrock_chestplate"
     ]
   }
 }

@@ -285,14 +285,14 @@ public class ItemRegistry {
             pink_glowbone = registerItem("pink_glowbone", () -> new ItemModFood(FoodList.PINK_GLOWBONE, true)),
             purple_glowbone = registerItem("purple_glowbone", () -> new ItemModFood(FoodList.PURPLE_GLOWBONE, true)),
             sky_flower = registerItem("sky_flower", () -> new ItemSkyFlower()),
-            dream_cake = registerItem("dream_cake", () -> new ItemModFood(FoodList.DREAM_CAKE)),
+            honeysuckle = registerItem("honeysuckle", () -> new ItemModFood(FoodList.HONEYSUCKLE)),
+            honeychunk = registerItem("honeychunk", () -> new ItemModFood(FoodList.HONEYCHUNK)),
             dream_carrot = registerItem("dream_carrot", () -> new ItemModFood(FoodList.DREAM_CARROT)),
             dream_melon = registerItem("dream_melon", () -> new ItemModFood(FoodList.DREAM_MELON)),
             dream_pie = registerItem("dream_pie", () -> new ItemModFood(FoodList.DREAM_PIE)),
+            dream_cake = registerItem("dream_cake", () -> new ItemModFood(FoodList.DREAM_CAKE)),
             dream_sweets = registerItem("dream_sweets", () -> new ItemHealingFood(FoodList.DREAM_SWEETS)),
             dream_sours = registerItem("dream_sours", () -> new ItemHealingFood(FoodList.DREAM_SOURS)),
-            honeychunk = registerItem("honeychunk", () -> new ItemModFood(FoodList.HONEYCHUNK)),
-            honeysuckle = registerItem("honeysuckle", () -> new ItemModFood(FoodList.HONEYSUCKLE)),
 
             //Seeds
             tomato_seeds = registerItem("tomato_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "tomato_plant")), new Item.Properties())),
@@ -434,14 +434,14 @@ public class ItemRegistry {
             frossivence = registerItem("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1F)),
 
             //Shields
-            realmite_shield = registerItem("realmite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "realmite_ingot"), 1200, "realmite_shield")),
-            arlemite_shield = registerItem("arlemite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "arlemite_ingot"), 1200, "arlemite_shield")),
-            rupee_shield = registerItem("rupee_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "rupee_ingot"), 1200, "rupee_shield")),
-            eden_shield = registerItem("eden_shield", () -> new DivineShield(RarityList.EDEN, new ResourceLocation(DivineRPG.MODID, "eden_chunk"), 1200, "eden_shield")),
-            wildwood_shield = registerItem("wildwood_shield", () -> new DivineShield(RarityList.WILDWOOD, new ResourceLocation(DivineRPG.MODID, "wildwood_chunk"), 2400, "wildwood_shield")),
-            apalachia_shield = registerItem("apalachia_shield", () -> new DivineShield(RarityList.APALACHIA, new ResourceLocation(DivineRPG.MODID, "apalachia_chunk"), 4800, "apalachia_shield")),
-            skythern_shield = registerItem("skythern_shield", () -> new DivineShield(RarityList.SKYTHERN, new ResourceLocation(DivineRPG.MODID, "skythern_chunk"), 9600, "skythern_shield")),
-            mortum_shield = registerItem("mortum_shield", () -> new DivineShield(RarityList.MORTUM, new ResourceLocation(DivineRPG.MODID, "mortum_chunk"), 19200, "mortum_shield")),
+            realmite_shield = registerItem("realmite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "realmite_ingot"), 426, "realmite_shield")),
+            arlemite_shield = registerItem("arlemite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "arlemite_ingot"), 734, "arlemite_shield")),
+            rupee_shield = registerItem("rupee_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "rupee_ingot"), 823, "rupee_shield")),
+            eden_shield = registerItem("eden_shield", () -> new DivineShield(RarityList.EDEN, new ResourceLocation(DivineRPG.MODID, "eden_gem"), 978, "eden_shield")),
+            wildwood_shield = registerItem("wildwood_shield", () -> new DivineShield(RarityList.WILDWOOD, new ResourceLocation(DivineRPG.MODID, "wildwood_gem"), 1125, "wildwood_shield")),
+            apalachia_shield = registerItem("apalachia_shield", () -> new DivineShield(RarityList.APALACHIA, new ResourceLocation(DivineRPG.MODID, "apalachia_gem"), 1256, "apalachia_shield")),
+            skythern_shield = registerItem("skythern_shield", () -> new DivineShield(RarityList.SKYTHERN, new ResourceLocation(DivineRPG.MODID, "skythern_gem"), 1485, "skythern_shield")),
+            mortum_shield = registerItem("mortum_shield", () -> new DivineShield(RarityList.MORTUM, new ResourceLocation(DivineRPG.MODID, "mortum_gem"), 1627, "mortum_shield")),
             halite_shield = registerItem("halite_shield", () -> new DivineShield(RarityList.HALITE, new ResourceLocation("air") , 0, "halite_shield")),
 
             //Serenades
@@ -754,12 +754,12 @@ public class ItemRegistry {
             seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
             seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),
 
-    aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo, MobEffects.DOLPHINS_GRACE, MobEffects.WATER_BREATHING)),
+    aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo, MobEffects.WATER_BREATHING)),
             aquastrive_chestplate = registerItem("aquastrive_chestplate", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.CHESTPLATE, aquastriveInfo)),
             aquastrive_leggings = registerItem("aquastrive_leggings", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.LEGGINGS, aquastriveInfo)),
             aquastrive_boots = registerItem("aquastrive_boots", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.BOOTS, aquastriveInfo)),
 
-    kraken_helmet = registerItem("kraken_helmet", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.HELMET, krakenInfo, MobEffects.CONDUIT_POWER)),
+    kraken_helmet = registerItem("kraken_helmet", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.HELMET, krakenInfo, MobEffects.DOLPHINS_GRACE, MobEffects.CONDUIT_POWER)),
             kraken_chestplate = registerItem("kraken_chestplate", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.CHESTPLATE, krakenInfo)),
             kraken_leggings = registerItem("kraken_leggings", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.LEGGINGS, krakenInfo)),
             kraken_boots = registerItem("kraken_boots", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.BOOTS, krakenInfo)),

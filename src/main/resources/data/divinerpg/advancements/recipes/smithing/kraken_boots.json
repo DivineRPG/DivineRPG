@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skin": {
+    "has_boots": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:kraken_skin"
+              "divinerpg:aquastrive_boots"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/kraken_helmet"
+        "recipe": "divinerpg:smithing/kraken_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skin",
+      "has_boots",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/kraken_helmet"
+      "divinerpg:smithing/kraken_boots"
     ]
   }
 }

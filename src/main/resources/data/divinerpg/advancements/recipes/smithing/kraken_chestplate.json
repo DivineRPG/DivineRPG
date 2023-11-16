@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skin": {
+    "has_chestplate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:kraken_skin"
+              "divinerpg:aquastrive_chestplate"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/kraken_chestplate"
+        "recipe": "divinerpg:smithing/kraken_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skin",
+      "has_chestplate",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/kraken_chestplate"
+      "divinerpg:smithing/kraken_chestplate"
     ]
   }
 }

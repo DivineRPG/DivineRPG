@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "divinerpg:kraken_skin"
+  },
+  "base": {
+    "item": "divinerpg:aquastrive_boots"
+  },
+  "result": {
+    "item": "divinerpg:kraken_boots"
+  },
+  "template": []
+}

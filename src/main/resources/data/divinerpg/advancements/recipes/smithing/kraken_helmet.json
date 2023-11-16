@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bedrock_chunk": {
+    "has_helmet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:bedrock_chunk"
+              "divinerpg:aquastrive_helmet"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/bedrock_chestplate"
+        "recipe": "divinerpg:smithing/kraken_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_bedrock_chunk",
+      "has_helmet",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/bedrock_chestplate"
+      "divinerpg:smithing/kraken_helmet"
     ]
   }
 }

@@ -1,12 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bedrock_chunk": {
+    "has_helmet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:bedrock_chunk"
+              "divinerpg:inferno_helmet",
+              "divinerpg:torridite_helmet"
             ]
           }
         ]
@@ -15,20 +16,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/bedrock_helmet"
+        "recipe": "divinerpg:smithing/bedrock_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_bedrock_chunk",
+      "has_helmet",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/bedrock_helmet"
+      "divinerpg:smithing/bedrock_helmet"
     ]
   }
 }
