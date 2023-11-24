@@ -1,19 +1,18 @@
 package divinerpg.client.particle;
 
-
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.*;
-import net.minecraft.client.multiplayer.*;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Camera;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
-import net.minecraft.core.particles.*;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleWildwoodPortal extends TextureSheetParticle {
 
 	SpriteSet spriteSet;
-	private float portalParticleScale;
-	private double portalPosX, portalPosY, portalPosZ;
+	private final float portalParticleScale;
+	private final double portalPosX, portalPosY, portalPosZ;
 
 	public ParticleWildwoodPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
 	{
@@ -26,7 +25,7 @@ public class ParticleWildwoodPortal extends TextureSheetParticle {
 		this.xd = 0;
 		this.yd = 0;
 		this.zd = 0;
-		this.quadSize *= 0.75F;
+		this.quadSize *= 0.8F;
 		this.quadSize *= 0.9F;
 		this.portalParticleScale = this.quadSize;
 		this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
@@ -35,7 +34,7 @@ public class ParticleWildwoodPortal extends TextureSheetParticle {
 		this.portalPosY = this.y = yCoordIn;
 		this.portalPosZ = this.z = zCoordIn;
 		this.bCol = 1.0F;
-		this.gCol = 0.0F;
+		this.gCol = (float)Math.random() * 0.6F + 0.4F;;
 		this.rCol = 0.0F;
 		this.spriteSet = sprite;
 	}
@@ -59,7 +58,7 @@ public class ParticleWildwoodPortal extends TextureSheetParticle {
 
 	@Override
 	public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
-		float var8 = (this.age + partialTicks) / this.lifetime * 3;
+		float var8 = (this.age + partialTicks) / this.lifetime * 2.0F;
 		var8 = 1.0F - var8;
 		var8 *= var8;
 		var8 = 1.0F - var8;

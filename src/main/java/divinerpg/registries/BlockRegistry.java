@@ -283,9 +283,9 @@ public class BlockRegistry {
 
             //Eucalyptus
             eucalyptusLog = registerBlock("eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),
-            eucalyptusWood = registerBlock("eucalyptus_wood", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),
+            eucalyptusWood = registerBlock("eucalyptus_wood", () -> new BlockModLog(COLOR_LIGHT_GRAY, SoundType.WOOD)),
             strippedEucalyptusLog = registerBlock("stripped_eucalyptus_log", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),
-            strippedEucalyptusWood = registerBlock("stripped_eucalyptus_wood", () -> new BlockModLog(TERRACOTTA_WHITE, SoundType.WOOD)),
+            strippedEucalyptusWood = registerBlock("stripped_eucalyptus_wood", () -> new BlockModLog(WOOD, SoundType.WOOD)),
             eucalyptusPlanks = registerBlock("eucalyptus_planks", () -> new BlockModPlanks(TERRACOTTA_WHITE, SoundType.WOOD)),
             eucalyptusStairs = registerBlock("eucalyptus_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks")), 20, 5)),
             eucalyptusSlab = registerBlock("eucalyptus_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "eucalyptus_planks")), 20, 5)),
@@ -583,10 +583,10 @@ public class BlockRegistry {
             edenWallTorch = BLOCKS.register("eden_wall_torch", () -> new BlockModWallTorch(FLAME)),
 
             //Stone Lamps
-            moltenLamp = registerBlock("molten_lamp", () -> new BlockModLamp(CRIMSON_NYLIUM, SoundType.GLASS)),
+            moltenLamp = registerBlock("molten_lamp", () -> new BlockModLamp(COLOR_ORANGE, SoundType.GLASS)),
             divineLamp = registerBlock("divine_lamp", () -> new BlockModLamp(TERRACOTTA_YELLOW, SoundType.GLASS)),
-            jungleLamp = registerBlock("jungle_lamp", () -> new BlockModLamp(EMERALD, SoundType.GLASS)),
-            terranLamp = registerBlock("terran_lamp", () -> new BlockModLamp(TERRACOTTA_GREEN, SoundType.GLASS)),
+            jungleLamp = registerBlock("jungle_lamp", () -> new BlockModLamp(COLOR_LIGHT_GREEN, SoundType.GLASS)),
+            terranLamp = registerBlock("terran_lamp", () -> new BlockModLamp(EMERALD, SoundType.GLASS)),
             iceLamp = registerBlock("ice_lamp", () -> new BlockModLamp(COLOR_CYAN, SoundType.GLASS)),
             soulfireLamp = registerBlock("soulfire_lamp", () -> new BlockModLamp(WATER, SoundType.GLASS)),
             enderStoneLamp = registerBlock("ender_stone_lamp", () -> new BlockModLamp(COLOR_PURPLE, SoundType.GLASS)),

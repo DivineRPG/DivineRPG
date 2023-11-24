@@ -1,7 +1,6 @@
 package divinerpg.entities.wildwood;
 
-import divinerpg.entities.base.*;
-
+import divinerpg.entities.base.EntityDivineMonster;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -11,18 +10,13 @@ import net.minecraft.world.level.*;
 
 public class EntityTermid extends EntityDivineMonster {
 
-
     public EntityTermid(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.5625F;
     }
     @Override public boolean isAggressive() {return true;}
-    @Override
-    public MobType getMobType() {
-        return MobType.UNDEFINED;
-    }
 
     @Override
     protected SoundEvent getAmbientSound() {

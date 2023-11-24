@@ -76,7 +76,6 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         else setUnhappy();
         return InteractionResult.sidedSuccess(level().isClientSide());
     }
-    @Override public boolean canBreed() {return false;}
     @Override public boolean canRestock() {return true;}
     @Override public boolean showProgressBar() {return false;}
     @Override public boolean removeWhenFarAway(double distance) {return getVillagerXp() > 0;}

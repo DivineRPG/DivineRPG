@@ -1,6 +1,5 @@
 package divinerpg.client.particle;
 
-
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -12,8 +11,8 @@ import net.minecraftforge.api.distmarker.*;
 public class ParticleApalachiaPortal extends TextureSheetParticle
 {
 	SpriteSet animatedSprite;
-	private float portalParticleScale;
-	private double portalPosX, portalPosY, portalPosZ;
+	private final float portalParticleScale;
+	private final double portalPosX, portalPosY, portalPosZ;
 
 	public ParticleApalachiaPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
 	{
@@ -23,18 +22,21 @@ public class ParticleApalachiaPortal extends TextureSheetParticle
 	public ParticleApalachiaPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, SpriteSet sprite)
 	{
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
-		this.xo = xSpeed;
-		this.yo = ySpeed;
-		this.zo = zSpeed;
+		this.xd = 0;
+		this.yd = 0;
+		this.zd = 0;
+		this.quadSize *= 0.8F;
+		this.quadSize *= 0.9F;
+		this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
+		this.lifetime = (int)((float)this.lifetime * 0.5F);
+		this.portalParticleScale = this.quadSize;
 		this.portalPosX = this.x = xCoordIn;
 		this.portalPosY = this.y = yCoordIn;
 		this.portalPosZ = this.z = zCoordIn;
-		float var14 = worldIn.random.nextFloat() * 0.6F + 0.4F;
-		this.portalParticleScale = this.quadSize;
+		float f = worldIn.random.nextFloat() * 0.6F + 0.4F;
 		this.bCol = 0.87F;
 		this.gCol = 0.0F;
-		this.rCol = 1.0F * var14;
-		this.lifetime = (int) (Math.random() * 10.0D) + 40;
+		this.rCol = f;
 		this.animatedSprite = sprite;
 	}
 
@@ -58,7 +60,7 @@ public class ParticleApalachiaPortal extends TextureSheetParticle
 
 	@Override
 	public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
-			float var8 = (this.age + partialTicks) / this.lifetime * 3;
+			float var8 = (this.age + partialTicks) / this.lifetime * 2.0F;
 			var8 = 1.0F - var8;
 			var8 *= var8;
 			var8 = 1.0F - var8;

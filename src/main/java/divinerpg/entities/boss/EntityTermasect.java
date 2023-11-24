@@ -51,13 +51,6 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
         }
     }
 
-    @Override
-    public MobType getMobType() {
-        return MobType.UNDEFINED;
-    }
-
-
-
     public BossEvent.BossBarColor getBarColor() {
         return BossEvent.BossBarColor.BLUE;
     }
@@ -100,7 +93,6 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
     protected SoundEvent getDeathSound() {
         return SoundEvents.WOOD_BREAK;
     }
-
 
     @Override
     public void customServerAiStep() {
