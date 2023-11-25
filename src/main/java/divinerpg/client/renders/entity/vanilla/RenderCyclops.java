@@ -15,7 +15,7 @@ import static divinerpg.util.ClientUtils.layerHumanoid;
 public class RenderCyclops extends RenderDivineMob<EntityCyclops> {
     private final ResourceLocation angryCyclopsLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_cyclops.png");
     public RenderCyclops(Context context) {
-        super(context, "cyclops", new HumanoidModel<EntityCyclops>(context.bakeLayer(layerHumanoid)), 0.8F, 2F);
+        super(context, "cyclops", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.8F, 2F);
     }
     @Override
     public ResourceLocation getTextureLocation(EntityCyclops entity) {

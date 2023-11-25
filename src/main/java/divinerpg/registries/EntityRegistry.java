@@ -143,7 +143,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityCyclops>>			 CYCLOPS 			 = registerEntity(EntityCyclops::new, 			"cyclops", 				1.2F, 4.0F, 0x352a1f, 0x877e47);
     public static final RegistryObject<EntityType<EntityKobblin>>			 KOBBLIN 			 = registerEntity(EntityKobblin::new, 			"kobblin", 				0.75F,1.0F, 0x79553a, 0x73b349);
     public static final RegistryObject<EntityType<EntityPumpkinSpider>>		 PUMPKIN_SPIDER 	 = registerEntity(EntityPumpkinSpider::new, 	"pumpkin_spider", 		1.4F,1.0F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityRainbour>>			 RAINBOUR 			 = registerEntity(EntityRainbour::new, 			"rainbour", 			    1.0F, 1.0F, 0x6c6e71, 0xf6f6f6, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityRainbour>>			 RAINBOUR 			 = registerEntity(EntityRainbour::new, 			"rainbour", 			    1.0F, 1.0F, 0xffffff, 0xffffff, MobCategory.CREATURE);
 
     //Jungle
     public static final RegistryObject<EntityType<EntityJungleBat>>			 JUNGLE_BAT 		 = registerEntity(EntityJungleBat::new, 		"jungle_bat", 			0.7F, 1.0F, 0x1f360b, 0x6d9856, MobCategory.AMBIENT);
@@ -899,7 +899,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(LIVESTOCK_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "livestock_merchant", new ModelLivestockMerchant(context), 0.4F));
         event.registerEntityRenderer(MINER.get(),			 RenderMiner::new);
         event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider<>(context), 0.0F));
-        event.registerEntityRenderer(RAINBOUR.get(),		 (Context context) -> new RenderDivineMob<>(context, "rainbour", new ModelRainbour(context), 0.4F));
+        event.registerEntityRenderer(RAINBOUR.get(),		 RenderRainbour::new);
         event.registerEntityRenderer(ROTATICK.get(),		 (Context context) -> new RenderDivineMob<>(context, "rotatick", new ModelRotatick(context), 0.6F));
         event.registerEntityRenderer(SAGUARO_WORM.get(),	 (Context context) -> new RenderDivineMob<>(context, "saguaro_worm", new ModelSaguaroWorm(context), 0.3F));
         event.registerEntityRenderer(SHARK.get(),			 (Context context) -> new RenderDivineMob<>(context, "shark", new ModelShark<>(context), 0.8F));

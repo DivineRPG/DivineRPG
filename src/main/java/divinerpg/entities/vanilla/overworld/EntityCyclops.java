@@ -9,8 +9,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
-import java.util.Random;
-
 public class EntityCyclops extends EntityPeacefulUntilAttacked {
 
     public EntityCyclops(EntityType<? extends Monster> type, Level worldIn) {
@@ -35,10 +33,6 @@ public class EntityCyclops extends EntityPeacefulUntilAttacked {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.CYCLOPS_HURT.get();
-    }
-
-    public static boolean canSpawnOn(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random randomIn) {
-        return true;
     }
 
     @Override
