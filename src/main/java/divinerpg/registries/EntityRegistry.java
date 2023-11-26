@@ -898,7 +898,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(LIOPLEURODON.get(),	 RenderLiopleurodon::new);
         event.registerEntityRenderer(LIVESTOCK_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "livestock_merchant", new ModelLivestockMerchant(context), 0.4F));
         event.registerEntityRenderer(MINER.get(),			 RenderMiner::new);
-        event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider<>(context), 0.0F));
+        event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider<>(context), 0.5F));
         event.registerEntityRenderer(RAINBOUR.get(),		 RenderRainbour::new);
         event.registerEntityRenderer(ROTATICK.get(),		 (Context context) -> new RenderDivineMob<>(context, "rotatick", new ModelRotatick(context), 0.6F));
         event.registerEntityRenderer(SAGUARO_WORM.get(),	 (Context context) -> new RenderDivineMob<>(context, "saguaro_worm", new ModelSaguaroWorm(context), 0.3F));

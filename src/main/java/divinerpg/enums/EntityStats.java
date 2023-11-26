@@ -47,7 +47,7 @@ public enum EntityStats {
     KOBBLIN(35, 7),
     LIOPLEURODON(150, 13),
     MINER(40),
-    PUMPKIN_SPIDER(50, 7),
+    PUMPKIN_SPIDER(50, 7, 25),
     RAINBOUR(100, 18),
     ROTATICK(30, 6),
     SAGUARO_WORM(80, 4, 20, 0),
