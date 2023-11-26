@@ -467,6 +467,7 @@ public class BlockRegistry {
             frozenBrickButton = registerBlock("frozen_brick_button", () -> new BlockModButton(BlockSetType.STONE)),
             snowBricks = registerBlock("snow_bricks", () -> new BlockMod(SNOW, 1.5F, 6F)),
             icyBricks = registerBlock("icy_bricks", () -> new BlockMod(ICE, 50F, 1200F)),
+            chiseledIcyBricks = registerBlock("chiseled_icy_bricks", () -> new BlockMod(ICE, 50F, 1200F)),
             coalstoneBricks = registerBlock("coalstone_bricks", () -> new BlockMod(COLOR_GRAY, 1.5F, 6F)),
             coalstoneBrickStairs = registerBlock("coalstone_brick_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "coalstone_bricks")), 0, 0)),
             coalstoneBrickSlab = registerBlock("coalstone_brick_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "coalstone_bricks")), 0, 0)),

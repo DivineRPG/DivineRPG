@@ -24,7 +24,64 @@
 			"probability": 0.003
 		}
 	},
-	"spawners": {},
+	"spawners": {
+		"monster": [
+			{
+				"type": "divinerpg:pale_archer",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:alicanto",
+				"weight": 1,
+				"minCount": 0,
+				"maxCount": 1
+			},
+			{
+				"type": "divinerpg:glacide",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:frozen_flesh",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		],
+		"creature": [
+			{
+				"type": "divinerpg:snow_skipper",
+				"weight": 10,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"underground_water_creature": [
+			{
+				"type": "minecraft:salmon",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"water_ambient": [
+			{
+				"type": "minecraft:salmon",
+				"weight": 8,
+				"minCount": 1,
+				"maxCount": 5
+			},
+			{
+				"type": "divinerpg:ghost_glider",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 4
+			}
+		]
+	},
 	"spawn_costs": {},
 	"carvers": {
 		"air": [

@@ -19,6 +19,7 @@ import divinerpg.client.renders.entity.vethea.RenderGalroid;
 import divinerpg.client.renders.tiles.RenderNightmareBed;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.arcana.*;
+import divinerpg.entities.base.*;
 import divinerpg.entities.boss.*;
 import divinerpg.entities.eden.*;
 import divinerpg.entities.iceika.*;
@@ -207,7 +208,8 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityWolpertinger>>      WOLPERTINGER        = registerEntity(EntityWolpertinger::new,      "wolpertinger",          0.6F, 0.875F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityDolossal>>			DOLOSSAL			= registerEntity(EntityDolossal::new,			"dolossal",				1.3F, 2F, 0x462630, 0x422742, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityMamoth>>			MAMOTH				= registerEntity(EntityMamoth::new,				"mamoth",				1.4F, 2F, 0x49302f, 0x87ffd3, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntitySnowSkipper>>		SNOW_SKIPPER		= registerEntity(EntitySnowSkipper::new,		"snow_skipper",			.5F, .8F, 0x3f3431, 0xcbf8f5, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntitySnowSkipper>>		SNOW_SKIPPER		= registerEntity(EntitySnowSkipper::new,		"snow_skipper",			.5F, .5F, 0x3f3431, 0xcbf8f5, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityDivineWaterMob>>	PINK_GHOST_GLIDER	= registerEntity(EntityDivineWaterMob::new,		"pink_ghost_glider",	.5F, .5F, 0xbb94cf, 0xfafafa, MobCategory.WATER_AMBIENT);
     public static final RegistryObject<EntityType<EntityWorkshopMerchant>>  WORKSHOP_MERCHANT   = registerEntity(EntityWorkshopMerchant::new,  "workshop_merchant",     0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>  WORKSHOP_TINKERER   = registerEntity(EntityWorkshopTinkerer::new,  "workshop_tinkerer",     0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityPaleArcher>>	    PALE_ARCHER 	  	= registerEntity(EntityPaleArcher::new, 	   "pale_archer",	        0.6F, 1.9375F, 0xffffff, 0xffffff);
@@ -448,6 +450,7 @@ public class EntityRegistry {
         EntityDolossal.registerDolossalAttributes(event, DOLOSSAL);
         registerMobAttributes(event, MAMOTH, EntityStats.MAMOTH);
         registerMobAttributes(event, SNOW_SKIPPER, EntityStats.SNOW_SKIPPER);
+        registerMobAttributes(event, PINK_GHOST_GLIDER, EntityStats.GHOST_GLIDER);
         registerMobAttributes(event, ROBBIN, EntityStats.ROBBIN);
         registerMobAttributes(event, WOLPERTINGER, EntityStats.WOLPERTINGER);
         registerDefaultMobAttributes(event, WORKSHOP_MERCHANT);
@@ -674,6 +677,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelDolossal.LAYER_LOCATION, ModelDolossal::createBodyLayer);
         event.registerLayerDefinition(ModelMamoth.LAYER_LOCATION, ModelMamoth::createBodyLayer);
         event.registerLayerDefinition(ModelSnowSkipper.LAYER_LOCATION, ModelSnowSkipper::createBodyLayer);
+        event.registerLayerDefinition(ModelGhostGlider.LAYER_LOCATION, ModelGhostGlider::createBodyLayer);
         event.registerLayerDefinition(ModelAlicanto.LAYER_LOCATION, ModelAlicanto::createBodyLayer);
         event.registerLayerDefinition(ModelFractite.LAYER_LOCATION, ModelFractite::createBodyLayer);
         event.registerLayerDefinition(ModelPaleArcher.LAYER_LOCATION, ModelPaleArcher::createBodyLayer);
@@ -929,6 +933,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(DOLOSSAL.get(),		(Context context) -> new RenderDivineMob<>(context, "dolossal", new ModelDolossal(context), .9F));
         event.registerEntityRenderer(MAMOTH.get(),			(Context context) -> new RenderDivineMob<>(context, "mamoth", new ModelMamoth(context), .9F));
         event.registerEntityRenderer(SNOW_SKIPPER.get(),	(Context context) -> new RenderDivineMob<>(context, "snow_skipper", new ModelSnowSkipper(context), .4F));
+        event.registerEntityRenderer(PINK_GHOST_GLIDER.get(),(Context context) -> new RenderDivineMob<>(context, "pink_ghost_glider", new ModelGhostGlider(context), .5F));
         event.registerEntityRenderer(ALICANTO.get(),		 (Context context) -> new RenderDivineMob<>(context, "alicanto",  new ModelAlicanto(context), .7F));
         event.registerEntityRenderer(FRACTITE.get(),		 (Context context) -> new RenderDivineMob<>(context, "fractite",  new ModelFractite(context), .5F, 2F));
         event.registerEntityRenderer(PALE_ARCHER.get(),	     RenderPaleArcher::new);

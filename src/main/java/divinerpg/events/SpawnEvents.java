@@ -58,8 +58,8 @@ public class SpawnEvents {
     	registerSpawn(e, HUSK.get());
     	registerSpawn(e, JACK_O_MAN.get(), EntityJackOMan::rules);
     	registerAirSpawn(e, JUNGLE_BAT.get());
-    	registerAgileSpawn(e, JUNGLE_DRAMCRYX.get());
-    	registerAgileSpawn(e, JUNGLE_SPIDER.get());
+    	registerAgileMonsterSpawn(e, JUNGLE_DRAMCRYX.get());
+    	registerAgileMonsterSpawn(e, JUNGLE_SPIDER.get());
     	registerMonsterSpawn(e, KING_CRAB.get());
     	registerSpawn(e, KOBBLIN.get(), EntityKobblin::kobblinSpawnRule);
 		registerWaterSpawn(e, LIOPLEURODON.get(), EntityLiopleurodon::liopleurodonSpawnRule);
@@ -79,7 +79,7 @@ public class SpawnEvents {
     	registerSpawn(e, WHITE_GRIZZLE.get());
     	//Nether
     	registerMobSpawn(e, HELL_PIG.get());
-    	registerAgileSpawn(e, HELL_SPIDER.get());
+    	registerAgileMonsterSpawn(e, HELL_SPIDER.get());
 		registerMonsterSpawn(e, SCORCHER.get());
     	registerMonsterSpawn(e, WILDFIRE.get());
     	//End
@@ -87,8 +87,18 @@ public class SpawnEvents {
     	registerAirSpawn(e, ENDER_TRIPLETS.get(), EntityEnderTriplets::enderTripletSpawnRule);
     	registerMonsterSpawn(e, ENDER_WATCHER.get());
     	//Iceika
-		registerMonsterSpawn(e, ALICANTO.get());
-		registerMonsterSpawn(e, FRACTITE.get());
+    	registerWaterSpawn(e, CAULDRON_FISH.get());
+    	registerSurfaceSpawn(e, BLUBBERTUSK.get());
+    	registerAgileMobSpawn(e, ROBBIN.get());
+    	registerMobSpawn(e, WOLPERTINGER.get());
+    	registerMobSpawn(e, DOLOSSAL.get());
+    	registerMobSpawn(e, MAMOTH.get());
+    	registerAgileMobSpawn(e, SNOW_SKIPPER.get());
+    	registerWaterSpawn(e, PINK_GHOST_GLIDER.get());
+    	registerMobSpawn(e, SENG.get());
+    	registerMobSpawn(e, SABEAR.get());
+		registerAgileMonsterSpawn(e, ALICANTO.get());
+		registerAgileMonsterSpawn(e, FRACTITE.get());
     	registerMonsterSpawn(e, PALE_ARCHER.get());
     	registerMonsterSpawn(e, FROZEN_FLESH.get());
     	registerMonsterSpawn(e, GLACIDE.get());
@@ -96,10 +106,8 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, ROLLUM.get());
     	registerMobSpawn(e, WORKSHOP_MERCHANT.get());
 		registerMobSpawn(e, WORKSHOP_TINKERER.get());
-		registerMonsterSpawn(e, SENG.get());
 		registerMonsterSpawn(e, GROGLIN_HUNTER.get());
 		registerMonsterSpawn(e, GRUZZORLUG_MINER.get());
-		registerMonsterSpawn(e, SABEAR.get());
 		registerMobSpawn(e, ROBBIN.get());
 		registerMobSpawn(e, WOLPERTINGER.get());
 		//Eden
@@ -206,8 +214,11 @@ public class SpawnEvents {
     public static <T extends Entity> void registerSpawn(SpawnPlacementRegisterEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, predicate, REPLACE);
     }
-    public static void registerAgileSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    public static void registerAgileMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING, Monster::checkAnyLightMonsterSpawnRules, REPLACE);
+    }
+    public static void registerAgileMobSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    	e.register(type, ON_GROUND, MOTION_BLOCKING, Mob::checkMobSpawnRules, REPLACE);
     }
 	public static void registerWaterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Entity> type) {
 		e.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::always, REPLACE);

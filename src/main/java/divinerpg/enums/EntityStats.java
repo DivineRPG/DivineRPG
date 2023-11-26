@@ -92,6 +92,7 @@ public enum EntityStats {
     SABEAR(60, 12),
     SENG(55, 4, 10, 0.33),
     SNOW_SKIPPER(10),
+    GHOST_GLIDER(10, 2, 4, .125),
     WOLPERTINGER(15, 2),
 
     //Groglins
