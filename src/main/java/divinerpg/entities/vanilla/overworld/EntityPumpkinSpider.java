@@ -24,6 +24,7 @@ public class EntityPumpkinSpider extends Spider {
 	protected void defineSynchedData() {
 		super.defineSynchedData();
 		this.entityData.define(PROVOKED, false);
+		setRot(0, 0);
 		setYBodyRot(0);
 	}
 	@Override
@@ -75,6 +76,7 @@ public class EntityPumpkinSpider extends Spider {
 	}
 	public void calmDown() {
 		getNavigation().setSpeedModifier(0);
+		setRot(0, 0);
 		setYBodyRot(0);
 		setTarget(null);
 		entityData.set(PROVOKED, false);
