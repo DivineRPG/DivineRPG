@@ -25,7 +25,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
             BossEvent.BossBarOverlay.PROGRESS));
 
     public EntityTermasect(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, 25F);
         this.xpReward = 1500;
     }
 
@@ -50,13 +50,6 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
             this.level.addFreshEntity(shot);
         }
     }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.UNDEFINED;
-    }
-
-
 
     public BossEvent.BossBarColor getBarColor() {
         return BossEvent.BossBarColor.BLUE;
@@ -101,14 +94,13 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
         return SoundEvents.WOOD_BREAK;
     }
 
-
     @Override
     public void customServerAiStep() {
         super.customServerAiStep();
         if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
         {
             this.playAmbientSound();
-            if(!this.level.isClientSide) {
+            if(!this.level.isClientSide()) {
                 if (random.nextInt(10) == 1) {
                     BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(blockPosition().getX() + random.nextInt(8), blockPosition().getY(), blockPosition().getZ() + random.nextInt(8));
                     EntityRegistry.TERMID.get().spawn((ServerLevel) level, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);

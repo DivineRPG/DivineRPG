@@ -3,7 +3,7 @@ package divinerpg.util;
 
 public final class EntityStats {
 	private EntityStats(){}
-	public static final double normalHealth = 20D, normalDamage = 5D, normalSpeed = .27000000417232513, normalFollowRange = 20D;
+	public static final double normalHealth = 20D, normalDamage = 5D, normalSpeed = .27000000417232513, normalFollowRange = 20D, bossFollowRange = 64D;
 
 	public static final double //Boss
 			ancientEntityHealth 	= 800D, ancientEntityDamage = 12D,

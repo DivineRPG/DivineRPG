@@ -307,28 +307,28 @@ public class EntityRegistry {
         DivineRPG.LOGGER.info("[DivineRPG] Attached entity attributes");
         
         //Boss
-        registerMonsterAttributes(event, ANCIENT_ENTITY, ancientEntityHealth, ancientEntityDamage);
-        registerMonsterAttributes(event, AYERACO, ayeracoHealth);
-        registerMonsterAttributes(event, DENSOS, densosHealth, densosDamage);
-        registerMonsterAttributes(event, DRAMIX, dramixHealth, dramixDamage);
-        registerMonsterAttributes(event, ETERNAL_ARCHER, eternalArcherHealth, eternalArcherDamage);
-        registerFlyingMobAttributes(event, EXPERIENCED_CORI, experiencedCoriHealth, experiencedCoriDamage);
-        registerMonsterAttributes(event, HIVE_QUEEN, hiveQueenHealth, hiveQueenDamage);
-        registerMonsterAttributes(event, KAROS, karosHealth, karosDamage);
-        registerMonsterAttributes(event, KAROT, karotHealth, karotDamage);
-        registerMonsterAttributes(event, KING_OF_SCORCHERS, kingOfScorchersHealth, kingOfScorchersDamage);
-        registerMonsterAttributes(event, LADY_LUNA, ladyLunaHealth, ladyLunaDamage);
-        registerMonsterAttributes(event, PARASECTA, parasectaHealth, parasectaDamage);
-        registerMonsterAttributes(event, QUADRO, quadroHealth, quadroDamage, quadroSpeedSlow);
-        registerMonsterAttributes(event, RAGLOK, raglokHealth, raglokDamage);
-        registerMonsterAttributes(event, REYVOR, reyvorHealth, reyvorDamage);
-        registerMonsterAttributes(event, SOUL_FIEND, soulFiendHealth, soulFiendDamage);
-        registerMonsterAttributes(event, SUNSTORM, sunstormHealth, sunstormDamage);
-        registerFlyingMobAttributes(event, TERMASECT, 1050D, advancedCoriDamage, normalSpeed, 64D);
-        registerFlyingMobAttributes(event, THE_WATCHER, theWatcherHealth, theWatcherDamage);
-        registerMonsterAttributes(event, TWILIGHT_DEMON, twilightDemonHealth, twilightDemonDamage);
-        registerMonsterAttributes(event, VAMACHERON, vamacheronHealth, vamacheronDamage, vamacheronSpeed);
-        registerMonsterAttributes(event, WRECK, wreckHealth, wreckDamage);
+        registerMonsterAttributes(event, ANCIENT_ENTITY, ancientEntityHealth, ancientEntityDamage, normalSpeed * 1.2, bossFollowRange);
+        registerMonsterAttributes(event, AYERACO, ayeracoHealth, 1, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, DENSOS, densosHealth, densosDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, DRAMIX, dramixHealth, dramixDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, ETERNAL_ARCHER, eternalArcherHealth, eternalArcherDamage, normalSpeed, bossFollowRange);
+        registerFlyingMobAttributes(event, EXPERIENCED_CORI, experiencedCoriHealth, experiencedCoriDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, HIVE_QUEEN, hiveQueenHealth, hiveQueenDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, KAROS, karosHealth, karosDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, KAROT, karotHealth, karotDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, KING_OF_SCORCHERS, kingOfScorchersHealth, kingOfScorchersDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, LADY_LUNA, ladyLunaHealth, ladyLunaDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, PARASECTA, parasectaHealth, parasectaDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, QUADRO, quadroHealth, quadroDamage, quadroSpeedSlow, bossFollowRange);
+        registerMonsterAttributes(event, RAGLOK, raglokHealth, raglokDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, REYVOR, reyvorHealth, reyvorDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, SOUL_FIEND, soulFiendHealth, soulFiendDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, SUNSTORM, sunstormHealth, sunstormDamage, normalSpeed, bossFollowRange);
+        registerFlyingMobAttributes(event, TERMASECT, 1050D, advancedCoriDamage, normalSpeed, bossFollowRange);
+        registerFlyingMobAttributes(event, THE_WATCHER, theWatcherHealth, theWatcherDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, TWILIGHT_DEMON, twilightDemonHealth, twilightDemonDamage, normalSpeed, bossFollowRange);
+        registerMonsterAttributes(event, VAMACHERON, vamacheronHealth, vamacheronDamage, vamacheronSpeed, bossFollowRange);
+        registerMonsterAttributes(event, WRECK, wreckHealth, wreckDamage, normalSpeed, bossFollowRange);
         
         // Vanilla
         registerDamageMobAttributes(event, AEQUOREA, aequoreaHealth, aequoreaDamage, aequoreaSpeed, aequoreaFollowRange);

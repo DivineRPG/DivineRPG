@@ -34,9 +34,9 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAtt
         }));
     }
 
-        protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-            return 1F;
-        }
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 1F;
+    }
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
@@ -48,7 +48,7 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAtt
                 double d2 = getTarget().getZ() - (this.getZ() + vector3d.z * 4.0D);
                 double d3 = (double) Math.sqrt(d0 * d0 + d2 * d2);
                 Projectile projectile = new EntityKingOfScorchersShot(EntityRegistry.KING_OF_SCORCHERS_SHOT.get(), this, level);
-                if (level.random.nextInt(10) == 0) {
+                if (level.getRandom().nextInt(10) == 0) {
                     projectile = new EntityKingOfScorchersMeteor(EntityRegistry.KING_OF_SCORCHERS_METEOR.get(), this, level);
                     for (int i = 0; i < 4; i++) {
                         projectile.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, (float) (14 - this.level.getDifficulty().getId() * 4));
@@ -88,5 +88,5 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAtt
     public BossBarColor getBarColor() {
         return BossBarColor.RED;
     }
-    
+
 }

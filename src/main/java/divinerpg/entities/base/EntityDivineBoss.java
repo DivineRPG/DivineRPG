@@ -18,6 +18,10 @@ public abstract class EntityDivineBoss extends EntityDivineMonster {
     }
 
     @Override
+    public boolean isAggressive() {
+        return true;
+    }
+    @Override
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;
     }
@@ -43,5 +47,14 @@ public abstract class EntityDivineBoss extends EntityDivineMonster {
     public void tick() {
         super.tick();
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
+    }
+
+    @Override
+    public boolean hurt(net.minecraft.world.damagesource.DamageSource source, float amount) {
+        if (super.hurt(source, amount)) {
+            this.setDeltaMovement(0, 0, 0);
+            return true;
+        }
+        return false;
     }
 }

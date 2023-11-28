@@ -2,11 +2,13 @@ package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.entities.projectile.EntityWatcherShot;
-import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
+import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.MoveControl;
@@ -22,11 +24,13 @@ import net.minecraftforge.api.distmarker.*;
 import java.util.EnumSet;
 
 public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAttackMob {
+    private ServerBossEvent bossInfo = (ServerBossEvent) (new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
+            BossEvent.BossBarOverlay.PROGRESS));
     private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(EntityTheWatcher.class, EntityDataSerializers.BOOLEAN);
     private int explosionStrength = 1;
 
     public EntityTheWatcher(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, 6F, 10F, 25F);
         this.xpReward = 5000;
         this.moveControl = new EntityTheWatcher.MoveHelperController(this);
     }
@@ -36,7 +40,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
         return true;
     }
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.6F;
+        return 3.0F;
     }
     public boolean canSpawn(LevelAccessor worldIn, MobSpawnType spawnReasonIn) {
         return level.dimension() == Level.OVERWORLD;
@@ -107,10 +111,6 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
         return SoundEvents.GHAST_AMBIENT;
     }
 
-    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.GHAST_HURT;
-    }
-
     protected SoundEvent getDeathSound() {
         return SoundEvents.GHAST_DEATH;
     }
@@ -132,6 +132,27 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
 
     }
 
+
+    public BossEvent.BossBarColor getBarColor() {
+        return BossEvent.BossBarColor.YELLOW;
+    }
+    @Override
+    public void startSeenByPlayer(ServerPlayer player) {
+        super.startSeenByPlayer(player);
+        bossInfo.setColor(getBarColor());
+        this.bossInfo.addPlayer(player);
+    }
+
+    @Override
+    public void stopSeenByPlayer(ServerPlayer player) {
+        super.stopSeenByPlayer(player);
+        this.bossInfo.removePlayer(player);
+    }
+    @Override
+    public void tick() {
+        super.tick();
+        this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
+    }
     static class FireballAttackGoal extends Goal {
         private final EntityTheWatcher mob;
         public int chargeTime;

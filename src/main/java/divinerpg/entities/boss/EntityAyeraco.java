@@ -13,7 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.BossEvent.BossBarColor;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.*;
@@ -77,7 +77,7 @@ public class EntityAyeraco extends EntityDivineBoss {
         updateAbilities(angry = getHealth() < getMaxHealth() / 2F);
     }
     public void updateAbilities(boolean angry) {
-        if(!level.isClientSide) {
+        if(!level.isClientSide()) {
             switch(entityData.get(VARIANT)) {
                 case 0: for(EntityAyeraco entity : group) if(entity != null) entity.empowered = angry; break;
                 case 1: for(EntityAyeraco entity : group) if(entity != null) entity.projectileProtected = angry; break;
@@ -170,7 +170,7 @@ public class EntityAyeraco extends EntityDivineBoss {
     protected SoundEvent getDeathSound() {return AYERACO_HURT.get();}
     @Override
     protected float getStandingEyeHeight(Pose pose, EntityDimensions dim) {
-        return 0.8F;
+        return 0.65625F;
     }
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
@@ -224,7 +224,7 @@ public class EntityAyeraco extends EntityDivineBoss {
             move(MoverType.SELF, getDeltaMovement());
             setDeltaMovement(getDeltaMovement().scale(0.8D));
         } else {
-            BlockPos ground = new BlockPos(getX(), getY() - 1.0D, getZ());
+            BlockPos ground = new BlockPos(blockPosition().below());
             float f = 0.91F;
             if(onGround) f = level.getBlockState(ground).getFriction(level, ground, this) * 0.91F;
             float f1 = 0.16277137F / (f * f * f);

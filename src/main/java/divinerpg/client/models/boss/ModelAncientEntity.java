@@ -82,15 +82,18 @@ public class ModelAncientEntity extends EntityModel<EntityAncientEntity> {
 
 		return LayerDefinition.create(meshdefinition, 64, 32);
 	}
-
 	@Override
 	public void setupAnim(EntityAncientEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.head.yRot = netHeadYaw / (180F / (float) Math.PI);
-        this.head.xRot = headPitch / (180F / (float) Math.PI);
-        
-		this.legr.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+		this.head.xRot = headPitch / (180F / (float) Math.PI);
 
-        this.legl.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
+		this.legr.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+		this.legl.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
+
+		this.legL2.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+		this.legR2.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
+
+
 	}
 
 	@Override
