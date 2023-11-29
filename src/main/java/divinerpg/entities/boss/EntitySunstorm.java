@@ -22,6 +22,10 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
         this.xpReward = 1000;
     }
 
+    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+        return 2.875F;
+    }
+
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (isAlive() && getTarget() != null && !level.isClientSide) {
@@ -51,15 +55,9 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
     }
 
     @Override
-    public MobType getMobType() {
-        return MobType.UNDEFINED;
-    }
-
-    @Override
     public BossBarColor getBarColor() {
         return BossBarColor.YELLOW;
     }
-
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -73,6 +71,6 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.FIRE_EXTINGUISH;
+        return SoundEvents.ZOMBIE_VILLAGER_CURE;
     }
 }

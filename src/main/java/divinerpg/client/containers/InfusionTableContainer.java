@@ -117,18 +117,27 @@ public class InfusionTableContainer extends AbstractContainerMenu {
     }
 
     protected void slotChangedCraftingGrid(Level world, Player player, InfusionInventory inv, ResultContainer craftResult) {
-        Optional<InfusionTableRecipe> recipes = world.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, inv, world);
-        if(recipes.isPresent()) {
-            InfusionTableRecipe recipe = recipes.get();
-            if (recipe.matches(inv, world) && craftResult.getItem(2).isEmpty()) {
-                craftResult.setItem(1, recipe.template.copy());
-                craftResult.setItem(2, recipe.output.copy());
-                ((ServerPlayer)player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 1, recipe.template.copy()));
-                ((ServerPlayer)player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 2, recipe.output.copy()));
-                inv.removeItem(0, recipe.getCount());
+        Optional<InfusionTableRecipe> recipeOptional = world.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, inv, world);
+
+        if (recipeOptional.isPresent()) {
+            InfusionTableRecipe recipe = recipeOptional.get();
+
+            if (recipe.matches(inv, world)) {
+                ItemStack output = recipe.output.copy();
+                ItemStack template = recipe.template.copy();
+
+                if (craftResult.getItem(2).isEmpty()) {
+                    craftResult.setItem(1, template);
+                    craftResult.setItem(2, output);
+                    ((ServerPlayer) player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 1, template));
+                    ((ServerPlayer) player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 2, output));
+                } else if (craftResult.getItem(2).getItem() == output.getItem() && ItemStack.isSameItemSameTags(craftResult.getItem(2), output)) {
+                    inv.removeItem(0, recipe.getCount());
+                    craftResult.getItem(2).grow(output.getCount());
+                    ((ServerPlayer) player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 0, recipe.input));
+                }
             }
         }
-
     }
 
     public static void openContainer(ServerPlayer player, BlockPos pos) {
@@ -199,6 +208,16 @@ public class InfusionTableContainer extends AbstractContainerMenu {
         }
 
         @Override
+        public void setChanged() {
+
+        }
+
+        @Override
+        public boolean stillValid(Player p_18946_) {
+            return false;
+        }
+
+        @Override
         public void clearContent() {
             stackList.clear();
         }
@@ -209,6 +228,17 @@ public class InfusionTableContainer extends AbstractContainerMenu {
                 recipeItemHelper.accountStack(stack);
             }
         }
+
+        @Override
+        public int getWidth() {
+            return 3;
+        }
+
+        @Override
+        public int getHeight() {
+            return 1;
+        }
+
     }
 
 }
