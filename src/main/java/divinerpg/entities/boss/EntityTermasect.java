@@ -91,6 +91,13 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
     }
 
     @Override
+    public void playerTouch(Player player) {
+        super.playerTouch(player);
+        player.hurt(DamageSource.FLY_INTO_WALL, 4);
+        player.knockback(2.1, 2.1, 2.1);
+    }
+
+    @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.WOOD_BREAK;
     }
