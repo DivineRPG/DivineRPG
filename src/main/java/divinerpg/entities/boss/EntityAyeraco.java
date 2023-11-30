@@ -214,6 +214,12 @@ public class EntityAyeraco extends EntityDivineBoss {
             broadcast = false;
         }
         super.tick();
+
+
+        if (getVariant() == 4) {
+            angry = true;
+            updateAbilities(true);
+        }
     }
 
     //Phantom mimicking part
