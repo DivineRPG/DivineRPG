@@ -77,6 +77,7 @@ repositories {
     maven { url = "https://modmaven.dev"}
     maven { url = "https://www.cursemaven.com"}
     maven { url 'https://maven.blamejared.com'}
+    maven { url 'https://maven.theillusivec4.top/'}
 }
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
@@ -100,7 +101,8 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:jade-324717:4010505") //Jade
 //    runtimeOnly fg.deobf("curse.maven:sophisticated-backpacks-422301:4006090") //Sophisticated Backpacks
 //    runtimeOnly fg.deobf("curse.maven:sophisticated-core-618298:4048382") //Sophisticated Core (needed for sophisticated backpacks)
-//    runtimeOnly fg.deobf("curse.maven:curios-309927:3924518") //Curios (needed for bauble slots)
+    compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.3:api"))
+    runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.3"))
 
 //    compileOnly "mekanism:Mekanism:${mekanism_version}:api" // Mekanism API
 //    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// core

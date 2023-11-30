@@ -1796,6 +1796,7 @@
   "fluid.divinerpg.tar": "Smoldering Tar",
   "fluid_type.divinerpg.smoldering_tar_fluid_type": "Smoldering Tar",
   "teleport.failed.inventory_not_empty": "Your inventory must be empty to travel to and from Vethea!",
+  "teleport.failed.curios_slots": "Your inventory must be empty to travel to and from Vethea! Check everywhere!",
   "message.jackoman.boo": "BOO!",
   "message.jackoman.lost": "I seem to have lost my head.",
   "message.jackoman.hurah": "HURAH!",

@@ -1,5 +1,6 @@
 package divinerpg.events;
 
+import divinerpg.compat.CuriosCompat;
 import divinerpg.registries.LevelRegistry;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
@@ -8,6 +9,7 @@ import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.*;
+import net.minecraftforge.fml.ModList;
 
 public class VetheaInventorySwapEvent {
     public static final String OVERWORLD_INVENTORY = "OvWorldInv", VETHEA_INVENTORY = "DreamInv", MODID_SEPERATOR = "divinerpg:";
@@ -38,10 +40,16 @@ public class VetheaInventorySwapEvent {
             boolean to = event.getDimension().equals(LevelRegistry.VETHEA);
 
             if ((from && !player.inventory.isEmpty()) || (to && !player.inventory.isEmpty())) {
-                event.setCanceled(true);
-
-                player.displayClientMessage(Component.translatable("teleport.failed.inventory_not_empty"), true);
-                return;
+                    event.setCanceled(true);
+                    player.displayClientMessage(Component.translatable("teleport.failed.inventory_not_empty"), true);
+                    return;
+            }
+            if (ModList.get().isLoaded("curios")) {
+                if (CuriosCompat.checkCuriosSlots(player)) {
+                    event.setCanceled(true);
+                    player.displayClientMessage(Component.translatable("teleport.failed.curios_slots"), true);
+                    return;
+                }
             }
 
 
