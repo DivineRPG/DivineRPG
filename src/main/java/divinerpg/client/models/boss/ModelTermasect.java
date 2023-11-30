@@ -118,9 +118,10 @@ public class ModelTermasect<T extends Entity> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		base1.yRot = limbSwing % 1F;
-		base2.yRot = limbSwing % 2F;
-		base3.yRot = limbSwing % 3F;
+		float rotationAngle = ageInTicks * 0.3f;
+		base1.yRot = rotationAngle;
+		base2.yRot = rotationAngle;
+		base3.yRot = rotationAngle;
 		headL.yRot = netHeadYaw / (180F / (float) Math.PI);
 		headL.xRot = headPitch / (180F / (float) Math.PI);
 		headMid.yRot = netHeadYaw / (180F / (float) Math.PI);
