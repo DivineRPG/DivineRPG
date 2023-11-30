@@ -58,7 +58,7 @@ public class EntityEternalArcher extends EntityDivineBoss {
             this.abilityTick = 400;
         }
 
-        if (this.abilityTick % 30 == 0 && this.getTarget() != null && !this.level.isClientSide && getTarget() != null) {
+        if (this.abilityTick % 20 == 0 && this.getTarget() != null && !this.level.isClientSide && getTarget() != null) {
 
             if (isAlive() && getTarget() != null) {
                 EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level, ArrowType.getArrowFromId(ArrowType.ETERNAL_ARCHER_FLAME_ARROW.ordinal() + armSelected), this, getTarget(), 1.6F, 3.0F);
