@@ -1795,6 +1795,7 @@
   "advancement.divinerpg.vethea.unlimited_power.desc": "Kill Wreck",
   "fluid.divinerpg.tar": "Smoldering Tar",
   "fluid_type.divinerpg.smoldering_tar_fluid_type": "Smoldering Tar",
+  "teleport.failed.inventory_not_empty": "Your inventory must be empty to travel to and from Vethea!",
   "message.jackoman.boo": "BOO!",
   "message.jackoman.lost": "I seem to have lost my head.",
   "message.jackoman.hurah": "HURAH!",
