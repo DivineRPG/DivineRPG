@@ -43,7 +43,7 @@
 		"underground_water_creature": [
 			{
 				"type": "minecraft:salmon",
-				"weight": 5,
+				"weight": 3,
 				"minCount": 1,
 				"maxCount": 3
 			}
@@ -92,6 +92,10 @@
 	"spawn_costs": {
 		"divinerpg:liopleurodon": {
 			"energy_budget": 0.1,
+			"charge": 1
+		},
+		"minecraft:salmon": {
+			"energy_budget": 0.4,
 			"charge": 1
 		}
 	},
