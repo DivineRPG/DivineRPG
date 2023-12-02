@@ -92,18 +92,18 @@ public enum BulletType {
         this.damage = damage;
         this.texture = texture;
         this.particle = null;
-        this.r = 0;
-        this.g = 0;
-        this.b = 0;
+        this.r = r;
+        this.g = g;
+        this.b = b;
     }
 
     BulletType(float damage, ResourceLocation texture, int r, int g, int b, SimpleParticleType particle) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
-        this.r = 0;
-        this.g = 0;
-        this.b = 0;
+        this.r = r;
+        this.g = g;
+        this.b = b;
     }
 
     BulletType(float damage, ResourceLocation texture) {

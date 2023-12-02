@@ -47,4 +47,10 @@ public abstract class EntityDivineBoss extends EntityDivineMonster {
         super.tick();
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
     }
+
+    @Override
+    public void knockback(double p_147241_, double p_147242_, double p_147243_) {
+
+    }
+
 }

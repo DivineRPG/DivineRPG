@@ -2,7 +2,7 @@ package divinerpg.compat;
 
 import divinerpg.*;
 import divinerpg.compat.jei.JERCompat;
-//import divinerpg.compat.projecte.ProjectECompat;
+import divinerpg.compat.projecte.ProjectECompat;
 import net.minecraftforge.fml.*;
 import net.minecraftforge.fml.event.lifecycle.*;
 
