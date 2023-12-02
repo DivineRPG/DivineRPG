@@ -238,6 +238,8 @@ public class SoundRegistry {
         SNAP = registerSound("snap"),
 
         ICEIKA_MUSIC = registerSound("iceika_music"),
+        SNOWFLAKES_AFTER_BLIZZARD = registerSound("snowflakes_after_blizzard"),
+        SNOWFLAKES_AFTER_BLIZZARD_SYNTH = registerSound("snowflakes_after_blizzard_synth"),
         PATCHOULI_FLIP = registerSound("patchouli_flip"),
         PATCHOULI_OPEN = registerSound("patchouli_open"),
         MORTUM_AMBIENCE = registerSound("mortum_ambience"),
