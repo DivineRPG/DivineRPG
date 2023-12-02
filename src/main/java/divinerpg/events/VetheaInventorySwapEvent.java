@@ -9,6 +9,8 @@ import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.*;
+import net.minecraftforge.fml.ModList;
+import top.theillusivec4.curios.api.CuriosApi;
 
 public class VetheaInventorySwapEvent {
 	public static final String OVERWORLD_INVENTORY = "OvWorldInv", VETHEA_INVENTORY = "DreamInv", MODID_SEPERATOR = "divinerpg:";
@@ -60,15 +62,22 @@ public class VetheaInventorySwapEvent {
 	public void saveToInv(Player player, String inv) {
 		CompoundTag persisted = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
 		persisted.put(MODID_SEPERATOR + player.getStringUUID() + "_" + inv, player.inventory.save(new ListTag()));
+		if(ModList.get().isLoaded("curios"))
+			CuriosApi.getCuriosInventory(player).ifPresent((curinv) -> 
+				persisted.put(MODID_SEPERATOR + player.getStringUUID() + "_Curio" + inv, player.inventory.save(curinv.saveInventory(false))));
 		player.getPersistentData().put(Player.PERSISTED_NBT_TAG, persisted);
 	}
 	public void loadInv(Player player, String inv) {
 		ListTag newInventory = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getList(MODID_SEPERATOR + player.getStringUUID() + "_" + inv, 10);
+		if(ModList.get().isLoaded("curios"))
+			CuriosApi.getCuriosInventory(player).ifPresent((curinv) -> 
+				curinv.loadInventory(player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG).getList(MODID_SEPERATOR + player.getStringUUID() + "_Curio" + inv, 10)));
 		if(newInventory != null) player.inventory.load(newInventory);
 	}
 	public void clearInv(Player player, String inv) {
 		CompoundTag persisted = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
 		persisted.put(MODID_SEPERATOR + player.getStringUUID() + "_" + inv, new ListTag());
+		persisted.put(MODID_SEPERATOR + player.getStringUUID() + "_Curio" + inv, new ListTag());
 		player.getPersistentData().put(Player.PERSISTED_NBT_TAG, persisted);
 	}
 }
