@@ -1,6 +1,5 @@
 package divinerpg.events;
 
-import divinerpg.DivineRPG;
 import divinerpg.compat.CuriosCompat;
 import divinerpg.registries.LevelRegistry;
 import net.minecraft.network.chat.Component;
@@ -24,20 +23,12 @@ public class VetheaInventorySwapEvent {
                 if (!player.inventory.isEmpty()) {
                     event.setCanceled(true);
                     player.displayClientMessage(Component.translatable("teleport.failed.inventory_not_empty"), true);
-
-                    DivineRPG.LOGGER.warn("Dimension change canceled for player '{}' from '{}' to '{}' due to non-empty inventory.", player.getDisplayName(), player.level.dimension().location(), event.getDimension().location());
-
-
                     return;
                 }
                 if (ModList.get().isLoaded("curios")) {
                     if (CuriosCompat.checkCuriosSlots(player)) {
                         event.setCanceled(true);
                         player.displayClientMessage(Component.translatable("teleport.failed.curios_slots"), true);
-
-                        DivineRPG.LOGGER.warn("Dimension change canceled for player '{}' from '{}' to '{}' due to insufficient Curios slots.", player.getDisplayName(), player.level.dimension().location(), event.getDimension().location());
-
-
                         return;
                     }
                 }
