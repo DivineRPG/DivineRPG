@@ -4,9 +4,11 @@
     "divinerpg:twilight_stone",
     "divinerpg:arcanite_stone",
     "divinerpg:coalstone",
+    "divinerpg:polished_coalstone",
     "divinerpg:frozen_stone",
     "divinerpg:milk_stone",
     "divinerpg:divine_rock",
-    "divinerpg:cobaltite"
+    "divinerpg:cobaltite",
+    "divinerpg:polished_cobaltite"
 	]
 }

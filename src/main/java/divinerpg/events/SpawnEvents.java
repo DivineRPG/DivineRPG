@@ -136,7 +136,7 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, ENCHANTED_WARRIOR.get());
     	registerMonsterSpawn(e, SPELLBINDER.get());
     	//Skythern
-    	registerAirSpawn(e, ADVANCED_CORI.get());
+    	registerMonsterSpawn(e, ADVANCED_CORI.get());
     	registerMonsterSpawn(e, MEGALITH.get());
     	registerMonsterSpawn(e, MYSTIC.get());
     	registerMonsterSpawn(e, SAMEK.get());

@@ -26,7 +26,7 @@ public enum EntityStats {
     TERMASECT(1050, 20, 64),
     THE_WATCHER(950, 12, 64),
     TWILIGHT_DEMON(1600, 30, 64),
-    VAMACHERON(1350, 34, 64, 0.4050000062584877),
+    VAMACHERON(1350, 34, 64, 0.405),
     WRECK(5000, 30, 64),
 
     //Overworld
@@ -210,7 +210,7 @@ public enum EntityStats {
     ZORAGON(110, 0, 35, 0.09);
 
     final double health, attackDamage, followRange, movementSpeed;
-    public static final double normalHealth = 20D, normalDamage = 1D, normalSpeed = .27000000417232513, normalFollowRange = 20D;
+    public static final double normalHealth = 20D, normalDamage = 1D, normalSpeed = .27, normalFollowRange = 20D;
 
     EntityStats() {
         this.health = normalHealth;
