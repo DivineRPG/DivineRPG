@@ -37,8 +37,9 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
     }
 	public static void serverTick(Level level, BlockPos pos, BlockState state, DreamLampBlockEntity block) {
 		if(block.burntime < 0) {
-			if(block.items.get(0).getCount() > 0) {
-				block.items.get(0).shrink(1);
+			ItemStack fuel = block.items.get(0);
+			if(fuel.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")))) {
+				fuel.shrink(1);
 				block.burntime += 600;
 				state = state.setValue(BlockDreamLamp.POWERED, true);
 		        level.setBlock(pos, state, 3);
@@ -46,7 +47,7 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 			}
 		} else {
 			block.burntime--;
-			if(block.burntime < 0 && block.items.get(0).getCount() < 1) {
+			if(block.burntime < 0 && !block.items.get(0).is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")))) {
 				state = state.setValue(BlockDreamLamp.POWERED, false);
 		        level.setBlock(pos, state, 3);
 		        setChanged(level, pos, state);

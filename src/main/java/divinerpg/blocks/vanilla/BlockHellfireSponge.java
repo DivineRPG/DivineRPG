@@ -31,7 +31,11 @@ public class BlockHellfireSponge extends BlockMod {
 			distance--;
 			boolean b = false;
 			BlockState state = level.getBlockState(pos);
-			if(state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN)) {
+			if(state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.is(Blocks.SEAGRASS) || state.is(Blocks.TALL_SEAGRASS)) {
+				level.setBlock(pos, Blocks.AIR.defaultBlockState(), UPDATE_ALL);
+				b = true;
+			} else if(state.is(Blocks.KELP) || state.is(Blocks.KELP_PLANT)) {
+				state.onDestroyedByPlayer(level, pos, null, true, level.getFluidState(pos));
 				level.setBlock(pos, Blocks.AIR.defaultBlockState(), UPDATE_ALL);
 				b = true;
 			} else {
