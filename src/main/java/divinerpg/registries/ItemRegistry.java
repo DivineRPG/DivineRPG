@@ -141,8 +141,8 @@ public class ItemRegistry {
             terran_shards = registerItem("terran_shards"),
             jungle_shards = registerItem("jungle_shards"),
             molten_shards = registerItem("molten_shards", () -> new ItemMod(new Item.Properties().fireResistant())),
-            ender_shards = registerItem("ender_shards"),
             corrupted_shards = registerItem("corrupted_shards"),
+            ender_shards = registerItem("ender_shards"),
             divine_shards = registerItem("divine_shards"),
 
             //Stones
@@ -150,8 +150,8 @@ public class ItemRegistry {
             terran_stone = registerItem("terran_stone"),
             jungle_stone = registerItem("jungle_stone"),
             molten_stone = registerItem("molten_stone", () -> new ItemMod(new Item.Properties().fireResistant())),
-            ender_stone = registerItem("ender_stone"),
             corrupted_stone = registerItem("corrupted_stone"),
+            ender_stone = registerItem("ender_stone"),
             divine_stone = registerItem("divine_stone"),
 
             //Nether

@@ -904,7 +904,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(MINER.get(),			 RenderMiner::new);
         event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider<>(context), 0.5F));
         event.registerEntityRenderer(RAINBOUR.get(),		 RenderRainbour::new);
-        event.registerEntityRenderer(ROTATICK.get(),		 (Context context) -> new RenderDivineMob<>(context, "rotatick", new ModelRotatick(context), 0.6F));
+        event.registerEntityRenderer(ROTATICK.get(),		 RenderRotatick::new);
         event.registerEntityRenderer(SAGUARO_WORM.get(),	 (Context context) -> new RenderDivineMob<>(context, "saguaro_worm", new ModelSaguaroWorm(context), 0.3F));
         event.registerEntityRenderer(SHARK.get(),			 (Context context) -> new RenderDivineMob<>(context, "shark", new ModelShark<>(context), 0.8F));
         event.registerEntityRenderer(SMELTER.get(),			 (Context context) -> new RenderDivineMob<>(context, "smelter", new ModelStoneGolem<>(context)));

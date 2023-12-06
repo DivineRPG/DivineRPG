@@ -42,10 +42,10 @@ public class EntityCaptainMerik extends EntityDivineMerchant {
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.dungeon_tokens.get(), 30), new ItemStack(ItemRegistry.livicia_sword.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 6), new ItemStack(ItemRegistry.la_vekor.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 1), new ItemStack(ItemRegistry.grenade.get(), 10), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 8), new ItemStack(ItemRegistry.korma_helmet.get(), 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 8), new ItemStack(ItemRegistry.korma_chestplate.get(), 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 8), new ItemStack(ItemRegistry.korma_leggings.get(), 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 8), new ItemStack(ItemRegistry.korma_boots.get(), 1), random.nextInt(7), 5)
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 6), new ItemStack(ItemRegistry.korma_helmet.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 10), new ItemStack(ItemRegistry.korma_chestplate.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 10), new ItemStack(ItemRegistry.korma_leggings.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 6), new ItemStack(ItemRegistry.korma_boots.get(), 1), random.nextInt(7), 5)
 		};
 		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
 	}

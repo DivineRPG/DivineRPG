@@ -36,10 +36,10 @@ public class EntityWarGeneral extends EntityDivineMerchant {
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 18), new ItemStack(ItemRegistry.arcanite_blaster.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 30), new ItemStack(ItemRegistry.arcanite_blade.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 18), new ItemStack(ItemRegistry.generals_staff.get(), 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 10), new ItemStack(ItemRegistry.vemos_helmet.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 6), new ItemStack(ItemRegistry.vemos_helmet.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 10), new ItemStack(ItemRegistry.vemos_chestplate.get(), 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 5), new ItemStack(ItemRegistry.vemos_leggings.get(), 1), random.nextInt(7), 5),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 5), new ItemStack(ItemRegistry.vemos_boots.get(), 1), random.nextInt(7), 5)
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 10), new ItemStack(ItemRegistry.vemos_leggings.get(), 1), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 6), new ItemStack(ItemRegistry.vemos_boots.get(), 1), random.nextInt(7), 5)
 		};
 		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
 	}
