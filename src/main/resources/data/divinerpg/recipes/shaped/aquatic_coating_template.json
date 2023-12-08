@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "divinerpg:aquatic_coating_template",
+    "count": 2
+  },
+  "pattern": [
+    "DDD",
+    "DTD",
+    "DAD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "divinerpg:aquatic_coating_template"
+    },
+    "A": {
+      "item": "divinerpg:aqua_ball"
+    }
+  }
+}

@@ -160,6 +160,10 @@
 				{
 					"type": "minecraft:item",
 					"name": "divinerpg:cyclopsian_staff"
+				},
+				{
+					"type": "minecraft:item",
+					"name": "divinerpg:color_template"
 				}
 			]
 		},

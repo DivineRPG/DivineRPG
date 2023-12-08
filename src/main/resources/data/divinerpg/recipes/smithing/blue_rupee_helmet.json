@@ -9,5 +9,7 @@
   "result": {
     "item": "divinerpg:blue_rupee_helmet"
   },
-  "template": []
+  "template": {
+	"item": "divinerpg:color_template"
+  }
 }

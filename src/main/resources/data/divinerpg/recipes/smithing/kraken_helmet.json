@@ -9,5 +9,7 @@
   "result": {
     "item": "divinerpg:kraken_helmet"
   },
-  "template": []
+  "template": {
+	"item": "divinerpg:aquatic_coating_template"
+  }
 }

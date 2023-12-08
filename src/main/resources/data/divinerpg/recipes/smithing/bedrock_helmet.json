@@ -14,5 +14,7 @@
   "result": {
     "item": "divinerpg:bedrock_helmet"
   },
-  "template": []
+  "template": {
+	"item": "divinerpg:bedrock_upgrade_template"
+  }
 }
