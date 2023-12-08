@@ -24,7 +24,7 @@ public class UnderwaterRuinBigModifier extends LootModifier {
     }
 	@Override @NotNull
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if(context.getRandom().nextFloat() <= .25) generatedLoot.add(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "aquatic_coating_template")), 1));
+        if(context.getRandom().nextFloat() <= .4) generatedLoot.add(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "aquatic_coating_template")), 1));
         return generatedLoot;
     }
 	@Override
