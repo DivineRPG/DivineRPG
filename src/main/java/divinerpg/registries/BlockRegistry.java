@@ -842,7 +842,10 @@ public class BlockRegistry {
             vetheaPortal = registerBlock("vethea_portal", () -> new BlockModPortal(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "mortum_block")))),
 
             //Air
-            dungeonAir = registerBlock("dungeon_air", () -> new BlockModDungeonAir(), Rarity.EPIC);
+            dungeonAir = registerBlock("dungeon_air", () -> new BlockModDungeonAir(), Rarity.EPIC),
+            
+            //Creative Mode Blocks
+            randomItemDropper = registerBlock("random_item_dropper", () -> new BlockRandomItemDropper());
 
     //Flower Pots
     public static final RegistryObject<FlowerPotBlock>
