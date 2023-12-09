@@ -2,9 +2,10 @@ package divinerpg.events.enchant;
 
 import divinerpg.registries.EnchantmentRegistry;
 import net.minecraft.core.*;
+import net.minecraft.server.level.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -71,9 +72,10 @@ public class RiveHandler {
         
 
         Block block = blockState.getBlock();
-        if(block.canHarvestBlock(blockState, world, pos, player)) {
+        if(block.canHarvestBlock(blockState, world, pos, player) && world instanceof ServerLevel) {
             block.playerDestroy(world, player, pos, blockState, null, tool);
-            world.destroyBlock(pos, false);
+            world.destroyBlock(pos, false, player);
+            block.popExperience((ServerLevel) world, pos, block.getExpDrop(blockState, world, world.random, pos, EnchantmentHelper.getEnchantmentLevel(Enchantments.BLOCK_FORTUNE, player), EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player)));
             tool.hurtAndBreak(1, player, (context) -> {
                 context.broadcastBreakEvent(player.getUsedItemHand());
             });
