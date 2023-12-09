@@ -36,70 +36,70 @@ public class ItemRegistry {
 
     //Item tags
     public static final TagKey<Item> WARM_ARMOR = ItemTags.create(new ResourceLocation(DivineRPG.MODID, "warm_armor"));
-    
-    // Armor information
-    // Vanilla dimensions
-    private static ArmorInfo angelicInfo = new ArmorInfo(getArmorAbility("no_fall"), getArmorAbility("fly"));
-    private static ArmorInfo aquastriveInfo = new ArmorInfo(getArmorAbility("underwater"), getArmorAbility("swim"));
-    private static ArmorInfo arlemiteInfo = new ArmorInfo(getArmorAbility("ranged_protection", 66));
-    private static ArmorInfo bedrockInfo = new ArmorInfo(getArmorAbility("fire_protection"), getArmorAbility("explosion_protection"));
-    private static ArmorInfo corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 50));
-    private static ArmorInfo divineInfo = new ArmorInfo(getArmorAbility("melee_damage", 6),
-            getArmorAbility("jump_height", 2),
-            getArmorAbility("no_fall"));
-    private static ArmorInfo eliteRealmiteInfo = new ArmorInfo(getArmorAbility("no_fall"));
-    private static ArmorInfo enderInfo = new ArmorInfo(getArmorAbility("explosion_protection"));
-    private static ArmorInfo frozenInfo = new ArmorInfo(getArmorAbility("freeze", 6));
-    private static ArmorInfo infernoInfo = new ArmorInfo(getArmorAbility("fire_protection"));
-    private static ArmorInfo jackomanInfo = new ArmorInfo(getArmorAbility("scythe_damage", 3));
-    private static ArmorInfo jungleInfo = new ArmorInfo(getArmorAbility("poison_protection"));
-    private static ArmorInfo krakenInfo = new ArmorInfo(getArmorAbility("conduit_power"));
-    private static ArmorInfo torriditeInfo = new ArmorInfo(getArmorAbility("fire_protection"));
-    private static ArmorInfo rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 33));
-    private static ArmorInfo shadowInfo = new ArmorInfo(getArmorAbility("speed", 4), getArmorAbility("step_assist"));
-    private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
-    private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
-    private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
-//    private static ArmorInfo kingInfo = new ArmorInfo(Component.translatable("Absorbs super-power from other sets"));
 
-    // Iceika
-    private static ArmorInfo sengFurInfo = new ArmorInfo(Component.translatable("tooltip.armor_info.massive_buff"),
+    private static final ArmorInfo
+    //Armor information
+    //Vanilla dimensions
+            angelicInfo = new ArmorInfo(getArmorAbility("no_fall"), getArmorAbility("fly")),
+            aquastriveInfo = new ArmorInfo(getArmorAbility("underwater")),
+            arlemiteInfo = new ArmorInfo(getArmorAbility("ranged_protection", 66)),
+            bedrockInfo = new ArmorInfo(getArmorAbility("fire_protection"), getArmorAbility("explosion_protection")),
+            corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 50)),
+            divineInfo = new ArmorInfo(getArmorAbility("melee_damage", 6),
+                                       getArmorAbility("jump_height", 2),
+                                       getArmorAbility("no_fall")),
+            eliteRealmiteInfo = new ArmorInfo(getArmorAbility("no_fall")),
+            enderInfo = new ArmorInfo(getArmorAbility("explosion_protection")),
+            frozenInfo = new ArmorInfo(getArmorAbility("freeze", 6)),
+            infernoInfo = new ArmorInfo(getArmorAbility("fire_protection")),
+            jackomanInfo = new ArmorInfo(getArmorAbility("scythe_damage", 3)),
+            jungleInfo = new ArmorInfo(getArmorAbility("poison_protection")),
+            krakenInfo = new ArmorInfo(getArmorAbility("conduit_power"), getArmorAbility("swim")),
+            torriditeInfo = new ArmorInfo(getArmorAbility("fire_protection")),
+            rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 33)),
+            shadowInfo = new ArmorInfo(getArmorAbility("speed", 4), getArmorAbility("step_assist")),
+            skelemanInfo = new ArmorInfo(getArmorAbility("hunger")),
+            terranInfo = new ArmorInfo(getArmorAbility("haste")),
+            witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection")),
+            //kingInfo = new ArmorInfo(Component.translatable("Absorbs super-power from other sets")),
+
+    //Iceika
+            sengFurInfo = new ArmorInfo(Component.translatable("tooltip.armor_info.massive_buff"),
             getArmorAbility("speed", 2),
             getArmorAbility("melee_damage", 2),
             getArmorAbility("hunger"),
             getArmorAbility("melee_protection", 30))
-            .withDimension(Component.translatable("tooltip.armor_info.iceika"), x -> Objects.equals(x, LevelRegistry.ICEIKA));
+            .withDimension(Component.translatable("tooltip.armor_info.iceika"), x -> Objects.equals(x, LevelRegistry.ICEIKA)),
 
-    // Twilight
-    private static ArmorInfo edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3));
-    private static ArmorInfo wildInfo = new ArmorInfo(getArmorAbility("water_health_regen"));
-    private static ArmorInfo apInfo = new ArmorInfo(getArmorAbility("block_protection"));
-    private static ArmorInfo skyInfo = new ArmorInfo(getArmorAbility("jump_height", 5), getArmorAbility("no_fall"));
-    private static ArmorInfo mortInfo = new ArmorInfo(getArmorAbility("night_vision"));
-    private static ArmorInfo halInfo = new ArmorInfo(getArmorAbility("melee_damage", 16));
-    private static ArmorInfo awakened_halInfo = new ArmorInfo(getArmorAbility("melee_damage", 20),
-            getArmorAbility("ranged_damage", 50));
+    //Twilight
+            edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3)),
+            wildInfo = new ArmorInfo(getArmorAbility("water_health_regen")),
+            apInfo = new ArmorInfo(getArmorAbility("block_protection")),
+            skyInfo = new ArmorInfo(getArmorAbility("jump_height", 5), getArmorAbility("no_fall")),
+            mortInfo = new ArmorInfo(getArmorAbility("night_vision")),
+            halInfo = new ArmorInfo(getArmorAbility("melee_damage", 16)),
+            awakened_halInfo = new ArmorInfo(getArmorAbility("melee_damage", 20), getArmorAbility("ranged_damage", 50)),
 
-    // Arcana
-    private static ArmorInfo kormInfo = new ArmorInfo(getArmorAbility("arcana_regen"));
-    private static ArmorInfo vemInfo = new ArmorInfo(getArmorAbility("health_regen"));
+    //Arcana
+            kormInfo = new ArmorInfo(getArmorAbility("arcana_regen")),
+            vemInfo = new ArmorInfo(getArmorAbility("health_regen")),
 
-    // Vethea
-    private static ArmorInfo basicHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15));
-    private static ArmorInfo basicMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15));
-    private static ArmorInfo basicHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15));
+    //Vethea
+            basicHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15)),
+            basicMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15)),
+            basicHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15)),
 
-    private static ArmorInfo glisteningHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 3));
-    private static ArmorInfo glisteningMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1));
-    private static ArmorInfo glisteningHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 2), getArmorAbility("no_fall"));
+            glisteningHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 3)),
+            glisteningMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1)),
+            glisteningHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 2), getArmorAbility("no_fall")),
     
-    private static ArmorInfo demonizedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 6));
-    private static ArmorInfo demonizedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 2));
-    private static ArmorInfo demonizedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 3), getArmorAbility("no_fall"));
+            demonizedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 6)),
+            demonizedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 2)),
+            demonizedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 3), getArmorAbility("no_fall")),
     
-    private static ArmorInfo tormentedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 9));
-    private static ArmorInfo tormentedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 3));
-    private static ArmorInfo tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
+            tormentedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 9)),
+            tormentedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 3)),
+            tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
     
     public static final RegistryObject<Item>
     //Misc
@@ -154,11 +154,6 @@ public class ItemRegistry {
             corrupted_stone = registerItem("corrupted_stone"),
             ender_stone = registerItem("ender_stone"),
             divine_stone = registerItem("divine_stone"),
-            
-            //Smithing Templates
-            bedrock_upgrade_template = registerItem("bedrock_upgrade_template", () -> ItemSmithingTemplate.createBedrockUpgrade()),
-            aquatic_coatin_template = registerItem("aquatic_coating_template", () -> ItemSmithingTemplate.createAquaticCoating()),
-            color_template = registerItem("color_template", () -> ItemSmithingTemplate.createColorTemplate()),
 
             //Nether
             bloodgem = registerItem("bloodgem"),
@@ -184,6 +179,11 @@ public class ItemRegistry {
             //End
             watching_eye = registerItem("watching_eye"),
             legendary_ender_eye = registerItem("legendary_ender_eye"),
+
+            //Smithing Templates
+            bedrock_upgrade_template = registerItem("bedrock_upgrade_template", () -> ItemSmithingTemplate.createBedrockUpgrade()),
+            aquatic_coating_template = registerItem("aquatic_coating_template", () -> ItemSmithingTemplate.createAquaticCoating()),
+            color_template = registerItem("color_template", () -> ItemSmithingTemplate.createColorTemplate()),
 
             //Some Extra Stuff
             mysterious_clock = registerItem("mysterious_clock", () -> new ItemBossSpawner("message.ancient_entity", Level.OVERWORLD, () -> EntityRegistry.ANCIENT_ENTITY.get())),

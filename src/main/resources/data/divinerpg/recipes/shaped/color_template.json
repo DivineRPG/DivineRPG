@@ -4,8 +4,8 @@
     "count": 2
   },
   "pattern": [
-    "DDD",
     "DTD",
+    "DSD",
     "DDD"
   ],
   "type": "minecraft:crafting_shaped",
@@ -16,6 +16,9 @@
     },
     "T": {
       "item": "divinerpg:color_template"
+    },
+    "S": {
+      "item": "divinerpg:shadow_bar"
     }
   }
 }

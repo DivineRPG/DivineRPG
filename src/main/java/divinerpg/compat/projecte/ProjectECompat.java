@@ -55,6 +55,8 @@ public class ProjectECompat
         register(NSSItem.createItem(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "sabear_fur")), 1)), 128L);
         register(NSSItem.createItem(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "sabear_tooth")), 1)), 128L);
         register(NSSItem.createItem(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "watching_eye")), 1)), 4096L);
+        register(NSSItem.createItem(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "color_template")), 1)), 20121L);
+        register(NSSItem.createItem(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "aquatic_coating_template")), 1)), 12192L);
         register(NSSItem.createItem(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "aquamarine")), 1)), 128L);
         register(NSSItem.createItem(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "firestock")), 1)), 64L);
         register(NSSItem.createItem(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "lamona")), 1)), 64L);

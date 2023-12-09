@@ -4,9 +4,9 @@
     "count": 2
   },
   "pattern": [
-    "DDD",
     "DTD",
-    "DAD"
+    "DAD",
+    "DDD"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
