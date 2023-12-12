@@ -4,8 +4,10 @@ import divinerpg.items.base.ItemMod;
 import divinerpg.util.LocalizeUtils;
 import divinerpg.util.teleport.SecondaryTeleporter;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.*;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -37,15 +39,27 @@ public class ItemTeleportationCrystal extends ItemMod {
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         if (!world.isClientSide) {
             if (player instanceof ServerPlayer) {
-                if (((ServerPlayer) player).getRespawnPosition() != null) {
-                    player.changeDimension(world.getServer().getLevel(Level.OVERWORLD), new SecondaryTeleporter(world.getServer().getLevel(Level.OVERWORLD)));
-                    if (!player.isCreative()) {
-                        ItemStack stack = player.getItemInHand(hand);
-                        stack.hurtAndBreak(1, player, (p_220009_1_) -> {
-                            p_220009_1_.broadcastBreakEvent(player.getUsedItemHand());
-                        });
+                BlockPos respawnPos = ((ServerPlayer) player).getRespawnPosition();
+                if (respawnPos != null) {
+                    ResourceKey<Level> respawnDimension = ((ServerPlayer) player).getRespawnDimension();
+                    ServerLevel respawnWorld = world.getServer().getLevel(respawnDimension);
+
+                    if (respawnWorld != null) {
+                        player.changeDimension(respawnWorld, new SecondaryTeleporter(respawnWorld, respawnPos));
+
+                        if (!player.isCreative()) {
+                            ItemStack stack = player.getItemInHand(hand);
+                            stack.hurtAndBreak(1, player, (player1) -> {
+                                player1.broadcastBreakEvent(player.getUsedItemHand());
+                            });
+                        }
+
+                        return InteractionResultHolder.success(player.getItemInHand(hand));
+                    } else {
+                        MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_crystal_no_respawn_dimension");
+                        message.withStyle(ChatFormatting.RED);
+                        player.displayClientMessage(message, true);
                     }
-                    return InteractionResultHolder.success(player.getItemInHand(hand));
                 } else {
                     MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_crystal_no_respawn");
                     message.withStyle(ChatFormatting.RED);
