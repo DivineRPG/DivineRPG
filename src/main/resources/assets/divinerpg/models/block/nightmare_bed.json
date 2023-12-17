@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:item/template_bed",
+  "parent": "block/cube_all",
   "render_type": "cutout_mipped",
   "textures": {
-    "particle": "divinerpg:block/nightmare"
+    "all": "divinerpg:block/mortum_planks"
   }
 }

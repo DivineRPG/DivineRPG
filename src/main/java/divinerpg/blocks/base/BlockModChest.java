@@ -30,9 +30,7 @@ public abstract class BlockModChest extends ChestBlock {
     @Nullable @Override
     public MenuProvider getMenuProvider(BlockState state, Level world, BlockPos pos) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if(!isChestBlockedAt(world, pos)) {
-            return blockEntity instanceof MenuProvider ? (MenuProvider) blockEntity : null;
-        }
+        if(blockEntity instanceof MenuProvider && !isChestBlockedAt(world, pos)) return (MenuProvider) blockEntity;
         return null;
     }
 }

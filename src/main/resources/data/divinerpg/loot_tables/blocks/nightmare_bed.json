@@ -13,7 +13,7 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "divinerpg:nightmare_bed_block",
+              "block": "divinerpg:nightmare_bed",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "part": "head"

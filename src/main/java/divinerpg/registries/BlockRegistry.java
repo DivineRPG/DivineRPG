@@ -804,7 +804,7 @@ public class BlockRegistry {
             edenChest = registerWithRender("eden_chest", () -> new BlockEdenChest(), Rarity.COMMON),
 
             //Nightmare Bed
-            nightmareBed = BLOCKS.register("nightmare_bed_block", () -> new BlockNightmareBed()),
+            nightmareBed = BLOCKS.register("nightmare_bed", () -> new BlockNightmareBed()),
 
             //Other Utility Blocks
             hellfireSponge = registerBlock("hellfire_sponge", () -> new BlockHellfireSponge()),
