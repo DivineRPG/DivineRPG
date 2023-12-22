@@ -20,7 +20,8 @@ public class ItemModPickaxe extends PickaxeItem {
         super(tier, 0, -2.8F, properties);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @SuppressWarnings("deprecation")
+	@OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency(speed));
         tooltip.add(LocalizeUtils.harvestLevel(getTier().getLevel()));

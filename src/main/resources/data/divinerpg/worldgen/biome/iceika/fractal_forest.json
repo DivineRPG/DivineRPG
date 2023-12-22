@@ -130,6 +130,10 @@
 		"divinerpg:alicanto": {
 			"energy_budget": 0.1,
 			"charge": 1
+		},
+		"minecraft:cod": {
+			"energy_budget": 0.4,
+			"charge": 1
 		}
 	},
 	"carvers": {

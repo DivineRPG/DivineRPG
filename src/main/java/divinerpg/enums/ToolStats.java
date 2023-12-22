@@ -29,7 +29,7 @@ public enum ToolStats implements Tier {
     DIVINE_SWORD(4, -1, -2.4F, 13F, 0),
     DUAL_CLAW(2, 822, -2.3F, 5.2F, 10, "crab_claw"),
     EDEN_BLADE(4, 2124, -2.4F, 17F, 22, "eden_gem"),
-    ENDER_SWORD(4, -1, -2.4F, 12F, 0),
+    ENDER_SWORD(4, 2556, -2.4F, 12F, 10),
     ENDERICE(4, -1, -2.4F, 13F, 0),
     FLAMING_FURY(4, 3025, -2.3F, 10F, 16, "molten_stone"),
     FROSSIVENCE(0, 270, -2.4F, -1F, 0, "snowflake"),

@@ -62,7 +62,7 @@
 		"water_ambient": [
 			{
 				"type": "minecraft:cod",
-				"weight": 6,
+				"weight": 3,
 				"minCount": 1,
 				"maxCount": 4
 			}

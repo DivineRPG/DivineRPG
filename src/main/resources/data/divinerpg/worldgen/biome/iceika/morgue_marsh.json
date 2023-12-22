@@ -98,7 +98,7 @@
 		"ambient": [
 			{
 				"type": "divinerpg:robbin",
-				"weight": 5,
+				"weight": 2,
 				"minCount": 1,
 				"maxCount": 3
 			}
@@ -114,7 +114,7 @@
 		"water_creature": [
 			{
 				"type": "divinerpg:cauldron_fish",
-				"weight": 6,
+				"weight": 4,
 				"minCount": 1,
 				"maxCount": 2
 			}
@@ -128,7 +128,12 @@
 			}
 		]
 	},
-	"spawn_costs": {},
+	"spawn_costs": {
+		"minecraft:cod": {
+			"energy_budget": 0.4,
+			"charge": 1
+		}
+	},
 	"carvers": {
 		"air": [
 			"minecraft:cave",

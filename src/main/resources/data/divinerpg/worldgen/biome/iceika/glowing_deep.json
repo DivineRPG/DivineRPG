@@ -70,7 +70,7 @@
 			},
 			{
 				"type": "divinerpg:cauldron_fish",
-				"weight": 7,
+				"weight": 3,
 				"minCount": 1,
 				"maxCount": 2
 			}
