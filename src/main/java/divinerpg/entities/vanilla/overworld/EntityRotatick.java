@@ -20,7 +20,7 @@ public class EntityRotatick extends EntityDivineMonster {
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance p_146747_, MobSpawnType p_146748_, @org.jetbrains.annotations.Nullable SpawnGroupData p_146749_, @org.jetbrains.annotations.Nullable CompoundTag p_146750_) {
         if(random.nextInt(10) == 1) entityData.set(SPECIAL, true);
-        return ForgeEventFactory.onFinalizeSpawn(this, level, p_146747_, p_146748_, p_146749_, p_146750_);
+        return p_146749_;
     }
     @Override
 	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 0.5F;}
