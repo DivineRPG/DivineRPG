@@ -2,10 +2,12 @@ package divinerpg.blocks.base;
 
 import divinerpg.DivineRPG;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.MapColor;
@@ -47,5 +49,9 @@ public class BlockModFire extends FireBlock {
     public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource rand) {
     super.tick(state, worldIn, pos, rand);
         lightPortal(worldIn, pos);
+    }
+    @Override
+    public BlockState updateShape(BlockState p_53458_, Direction p_53459_, BlockState p_53460_, LevelAccessor p_53461_, BlockPos p_53462_, BlockPos p_53463_) {
+    	return canSurvive(p_53458_, p_53461_, p_53462_) ? getStateForPlacement(p_53461_, p_53462_).setValue(AGE, p_53458_.getValue(AGE)) : Blocks.AIR.defaultBlockState();
     }
 }

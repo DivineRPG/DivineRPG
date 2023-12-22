@@ -41,13 +41,13 @@
 			{
 				"type": "divinerpg:fractite",
 				"weight": 1,
-				"minCount": 0,
+				"minCount": 1,
 				"maxCount": 1
 			},
 			{
 				"type": "divinerpg:alicanto",
 				"weight": 1,
-				"minCount": 0,
+				"minCount": 1,
 				"maxCount": 1
 			},
 			{

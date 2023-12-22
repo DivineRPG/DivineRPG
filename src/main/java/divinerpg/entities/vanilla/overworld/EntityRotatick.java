@@ -12,7 +12,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
-import net.minecraftforge.event.ForgeEventFactory;
 
 public class EntityRotatick extends EntityDivineMonster {
     private static final EntityDataAccessor<Boolean> SPECIAL = SynchedEntityData.defineId(EntityRotatick.class, EntityDataSerializers.BOOLEAN);

@@ -55,7 +55,7 @@
 			{
 				"type": "divinerpg:sabear",
 				"weight": 1,
-				"minCount": 0,
+				"minCount": 1,
 				"maxCount": 1
 			}
 		],
@@ -71,7 +71,7 @@
 			{
 				"type": "divinerpg:frozen_flesh",
 				"weight": 5,
-				"minCount": 0,
+				"minCount": 1,
 				"maxCount": 3
 			}
 		]

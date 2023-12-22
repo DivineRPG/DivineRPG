@@ -828,7 +828,7 @@ public class BlockRegistry {
             lunicAcid = registerBlock("lunic_acid", () -> new BlockAcid(true)),
 
             //Fire
-            iceikaFire = registerBlock("iceika_fire", () -> new BlockModFire()),
+            iceikaFire = registerBlock("iceika_fire", () -> new BlockIceikaFire()),
             blueFire = registerBlock("blue_fire", () -> new BlockModFire()),
 
             //Portals
