@@ -98,7 +98,5 @@ public class ItemTeleportationStar extends ItemMod {
             BlockPos pos = BlockPos.of(compound.getLong(posKey));
             tooltip.add(LocalizeUtils.i18n("tooltip.block_position", pos.getX(), pos.getY(), pos.getZ()));
         }
-
-        tooltip.add(Component.translatable(""));
     }
 }

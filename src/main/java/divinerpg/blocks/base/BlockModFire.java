@@ -1,22 +1,19 @@
 package divinerpg.blocks.base;
 
 import divinerpg.DivineRPG;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockModFire extends FireBlock {
     public BlockModFire() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.WATER).replaceable().pushReaction(PushReaction.DESTROY).randomTicks().noCollission().instabreak().lightLevel((state) -> 15).sound(SoundType.WOOL));
+        super(BlockBehaviour.Properties.copy(Blocks.FIRE).mapColor(MapColor.WATER));
     }
     public void lightPortal(Level world, BlockPos pos) {
         BlockModPortal portalBlock;

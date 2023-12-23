@@ -3,10 +3,86 @@
     {
       "apply": [
         {
-          "model": "divinerpg:block/blue_fire_0"
+          "model": "divinerpg:block/iceika_fire_floor0"
         },
         {
-          "model": "divinerpg:block/blue_fire_1"
+          "model": "divinerpg:block/iceika_fire_floor1"
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "divinerpg:block/iceika_fire_side0"
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side1"
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side_alt0"
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side_alt1"
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "divinerpg:block/iceika_fire_side0",
+          "y": 90
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side1",
+          "y": 90
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side_alt0",
+          "y": 90
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side_alt1",
+          "y": 90
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "divinerpg:block/iceika_fire_side0",
+          "y": 180
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side1",
+          "y": 180
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side_alt0",
+          "y": 180
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side_alt1",
+          "y": 180
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "divinerpg:block/iceika_fire_side0",
+          "y": 270
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side1",
+          "y": 270
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side_alt0",
+          "y": 270
+        },
+        {
+          "model": "divinerpg:block/iceika_fire_side_alt1",
+          "y": 270
         }
       ]
     }
