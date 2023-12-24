@@ -829,7 +829,7 @@ public class BlockRegistry {
 
             //Fire
             iceikaFire = registerBlock("iceika_fire", () -> new BlockIceikaFire()),
-            blueFire = registerBlock("blue_fire", () -> new BlockModFire()),
+            blueFire = registerBlock("blue_fire", () -> new BlockBlueFire()),
 
             //Portals
             arcanaPortal = registerBlock("arcana_portal", () -> new BlockArcanaPortal()),

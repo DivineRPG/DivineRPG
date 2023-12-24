@@ -56,7 +56,16 @@
 			}
 		]
 	},
-	"spawn_costs": {},
+	"spawn_costs": {
+		"minecraft:glow_squid": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"divinerpg:aequorea": {
+			"energy_budget": 0.4,
+			"charge": 1
+		}
+	},
 	"carvers": {
 		"air": [
 			"minecraft:cave",

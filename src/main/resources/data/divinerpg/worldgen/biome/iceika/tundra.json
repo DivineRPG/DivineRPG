@@ -92,6 +92,10 @@
 		"minecraft:cod": {
 			"energy_budget": 0.4,
 			"charge": 1
+		},
+		"minecraft:squid": {
+			"energy_budget": 0.4,
+			"charge": 1
 		}
 	},
 	"carvers": {

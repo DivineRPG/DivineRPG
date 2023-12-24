@@ -112,6 +112,14 @@
 		"minecraft:salmon": {
 			"energy_budget": 0.4,
 			"charge": 1
+		},
+		"minecraft:cod": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"divinerpg:robbin": {
+			"energy_budget": 0.4,
+			"charge": 1
 		}
 	},
 	"carvers": {

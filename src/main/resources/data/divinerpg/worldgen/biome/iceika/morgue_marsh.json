@@ -132,6 +132,14 @@
 		"minecraft:cod": {
 			"energy_budget": 0.4,
 			"charge": 1
+		},
+		"divinerpg:robbin": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"divinerpg:aequorea": {
+			"energy_budget": 0.4,
+			"charge": 1
 		}
 	},
 	"carvers": {

@@ -94,6 +94,10 @@
 		"divinerpg:seng": {
 			"energy_budget": 0.1,
 			"charge": 1
+		},
+		"minecraft:glow_squid": {
+			"energy_budget": 0.4,
+			"charge": 1
 		}
 	},
 	"carvers": {
