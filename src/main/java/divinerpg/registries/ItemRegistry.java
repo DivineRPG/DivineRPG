@@ -70,7 +70,7 @@ public class ItemRegistry {
             getArmorAbility("hunger"),
             getArmorAbility("melee_protection", 30))
             .withDimension(Component.translatable("tooltip.armor_info.iceika"), x -> Objects.equals(x, LevelRegistry.ICEIKA)),
-
+    
     //Twilight
             edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3)),
             wildInfo = new ArmorInfo(getArmorAbility("water_health_regen")),
@@ -760,6 +760,11 @@ public class ItemRegistry {
             seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
             seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),
 
+	santa_helmet = registerItem("santa_helmet", () -> new ItemDivineArmor(ArmorStats.SANTA, ArmorItem.Type.HELMET, sengFurInfo, SENG_FUR.get(), WARMTH.get())),
+		    santa_chestplate = registerItem("santa_chestplate", () -> new ItemDivineArmor(ArmorStats.SANTA, ArmorItem.Type.CHESTPLATE, sengFurInfo)),
+		    santa_leggings = registerItem("santa_leggings", () -> new ItemDivineArmor(ArmorStats.SANTA, ArmorItem.Type.LEGGINGS, sengFurInfo)),
+		    santa_boots = registerItem("santa_boots", () -> new ItemDivineArmor(ArmorStats.SANTA, ArmorItem.Type.BOOTS, sengFurInfo)),
+            
     aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo, MobEffects.WATER_BREATHING)),
             aquastrive_chestplate = registerItem("aquastrive_chestplate", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.CHESTPLATE, aquastriveInfo)),
             aquastrive_leggings = registerItem("aquastrive_leggings", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.LEGGINGS, aquastriveInfo)),

@@ -41,6 +41,7 @@ public enum ArmorStats implements ArmorMaterial {
     FROZEN(3, 8, 6, 3, 2F, 0F, 33, 10, ARMOR_EQUIP_DIAMOND, Ingredient.of(ItemTags.create(new ResourceLocation("forge:gems/ice")))),
     TORRIDITE(3, 8, 6, 3, 2F, 0F, 34, 10, ARMOR_EQUIP_NETHERITE, Ingredient.of(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "torridite_chunk")))),
     SENG_FUR(2, 7, 6, 2, 0F, 0F, 17, 15, ARMOR_EQUIP_LEATHER, Ingredient.of(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur")))),
+    SANTA(2, 7, 6, 2, 0F, 0F, 17, 15, ARMOR_EQUIP_LEATHER, Ingredient.of(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "seng_fur")))),
     SHADOW(3, 8, 6, 3, 2F, 0F, 35, 10, ARMOR_EQUIP_DIAMOND, Ingredient.of(ItemTags.create(new ResourceLocation("forge:gems/shadow")))),
     VEMOS(4, 9, 7, 3, 3F, .12F, 43, 15, ARMOR_EQUIP_NETHERITE, Ingredient.of(ItemTags.create(new ResourceLocation("forge:gems/arcanium")))),
     ELITE_REALMITE( 3, 9, 7, 3, 3F, .1F, 39, 16, ARMOR_EQUIP_NETHERITE, Ingredient.of(ItemTags.create(new ResourceLocation("forge:storage_blocks/realmite")))),

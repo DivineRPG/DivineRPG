@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "divinerpg:fancy_wool"
+  },
+  "base": {
+    "item": "divinerpg:seng_fur_helmet"
+  },
+  "result": {
+    "item": "divinerpg:santa_helmet"
+  },
+  "template": {
+	"item": "divinerpg:color_template"
+  }
+}
