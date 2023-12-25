@@ -47,7 +47,7 @@ public class SpawnEvents {
     	registerSpawn(e, BROWN_GRIZZLE.get());
     	registerDarkSpawn(e, CAVE_CRAWLER.get());
     	registerSpawn(e, CAVECLOPS.get(), EntityCaveclops::caveClopsSpawnRule);
-    	registerSurfaceSpawn(e, CRAB.get());
+    	registerSpawn(e, CRAB.get(), EntityCrab::crabSpawnRule);
     	registerSpawn(e, CYCLOPS.get(), EntityKobblin::kobblinSpawnRule);
 		registerMonsterSpawn(e, DESERT_CRAWLER.get());
 		registerMobSpawn(e, DIAMOND_DAVE.get());
