@@ -9,6 +9,7 @@ import divinerpg.entities.vanilla.overworld.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.SpawnPlacements.SpawnPredicate;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -21,6 +22,8 @@ import net.minecraftforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.*;
 
 import static divinerpg.registries.EntityRegistry.*;
 import static net.minecraft.world.entity.SpawnPlacements.Type.*;
@@ -260,16 +263,45 @@ public class SpawnEvents {
     	e.register(type, ON_GROUND, MOTION_BLOCKING, SpawnEvents::monsterOnSurface, REPLACE);
     }
 	public static boolean always(EntityType<? extends Entity> e, ServerLevelAccessor l, MobSpawnType t, BlockPos p, RandomSource r) {
-		return true;
+		Difficulty difficulty = l.getDifficulty();
+		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+				Difficulty.EASY, 6,
+				Difficulty.NORMAL, 4,
+				Difficulty.HARD, 2
+		));
+		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+
+		return r.nextInt(10) >= cancelChance;
 	}
 	public static boolean checkDarknessSpawnRules(EntityType<? extends Mob> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		return Monster.isDarkEnoughToSpawn(s, p, r);
+		Difficulty difficulty = s.getDifficulty();
+		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+				Difficulty.EASY, 6,
+				Difficulty.NORMAL, 4,
+				Difficulty.HARD, 2
+		));
+		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+		return r.nextInt(10) >= cancelChance && Monster.isDarkEnoughToSpawn(s, p, r);
 	}
 	public static boolean onSurface(EntityType<? extends Mob> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		return Mob.checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
+		Difficulty difficulty = s.getDifficulty();
+		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+				Difficulty.EASY, 6,
+				Difficulty.NORMAL, 4,
+				Difficulty.HARD, 2
+		));
+		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+		return r.nextInt(10) >= cancelChance && Mob.checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
 	}
 	public static boolean monsterOnSurface(EntityType<? extends Monster> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		return Monster.checkAnyLightMonsterSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
+		Difficulty difficulty = s.getDifficulty();
+		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+				Difficulty.EASY, 6,
+				Difficulty.NORMAL, 4,
+				Difficulty.HARD, 2
+		));
+		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+		return r.nextInt(10) >= cancelChance && Monster.checkAnyLightMonsterSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
 	}
     @SubscribeEvent
     public void addVanillaMobGoals(EntityJoinLevelEvent event) {
