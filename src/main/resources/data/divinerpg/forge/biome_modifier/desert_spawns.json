@@ -4,19 +4,19 @@
   "spawners": [
 	  {
 	    "type": "divinerpg:arid_warrior",
-	    "weight": 10,
+	    "weight": 40,
 	    "minCount": 1,
 	    "maxCount": 4
 	  },
 	  {
 	    "type": "divinerpg:desert_crawler",
-	    "weight": 10,
+	    "weight": 40,
 	    "minCount": 1,
 	    "maxCount": 4
   	  },
 	  {
 	    "type": "divinerpg:saguaro_worm",
-	    "weight": 8,
+	    "weight": 32,
 	    "minCount": 1,
 	    "maxCount": 4
   	  }

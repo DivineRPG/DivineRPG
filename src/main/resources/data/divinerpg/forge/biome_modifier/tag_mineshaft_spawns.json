@@ -4,7 +4,7 @@
   "spawners":
   {
     "type": "divinerpg:miner",
-    "weight": 15,
+    "weight": 60,
     "minCount": 1,
     "maxCount": 2
   }

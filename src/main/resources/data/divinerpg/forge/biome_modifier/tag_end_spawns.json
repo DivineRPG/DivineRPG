@@ -4,25 +4,25 @@
   "spawners": [
 	  {
 	    "type": "divinerpg:ender_spider",
-	    "weight": 6,
+	    "weight": 24,
 	    "minCount": 1,
 	    "maxCount": 4
 	  },
 	  {
 	    "type": "divinerpg:ender_triplets",
-	    "weight": 6,
+	    "weight": 24,
 	    "minCount": 1,
 	    "maxCount": 4
   	  },
 	  {
 		  "type": "divinerpg:ender_watcher",
-		  "weight": 12,
+		  "weight": 48,
 		  "minCount": 1,
 		  "maxCount": 4
 	  },
 	  {
 		  "type": "divinerpg:ender_scrounge",
-		  "weight": 10,
+		  "weight": 40,
 		  "minCount": 1,
 		  "maxCount": 3
 	  }

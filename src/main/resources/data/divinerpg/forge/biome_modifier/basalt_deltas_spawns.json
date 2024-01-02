@@ -4,7 +4,7 @@
   "spawners": [
   	  {
 	    "type": "divinerpg:scorcher",
-	    "weight": 6,
+	    "weight": 24,
 	    "minCount": 1,
 	    "maxCount": 4
   	  }

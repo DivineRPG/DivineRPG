@@ -4,13 +4,13 @@
   "spawners": [
 	  {
 	    "type": "divinerpg:jack_o_man",
-	    "weight": 3,
+	    "weight": 12,
 	    "minCount": 1,
 	    "maxCount": 1
 	  },
 	  {
 	    "type": "divinerpg:pumpkin_spider",
-	    "weight": 6,
+	    "weight": 24,
 	    "minCount": 1,
 	    "maxCount": 2
   	  }
