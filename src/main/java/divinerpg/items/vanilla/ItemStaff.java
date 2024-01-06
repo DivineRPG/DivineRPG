@@ -42,7 +42,8 @@ public class ItemStaff extends ItemModRanged {
 
     @Override
     protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
-        DivineThrowable projectile = new EntityBouncingProjectile((EntityType<? extends EntityBouncingProjectile>) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, "bouncing_projectile")), player, world, this.damage);
+        @SuppressWarnings("unchecked")
+		DivineThrowable projectile = new EntityBouncingProjectile((EntityType<? extends EntityBouncingProjectile>) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, "bouncing_projectile")), player, world, this.damage);
         projectile.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 0.4F);
         world.addFreshEntity(projectile);
     }

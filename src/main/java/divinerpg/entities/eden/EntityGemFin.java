@@ -15,23 +15,25 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public class EntityGemFin extends AbstractSchoolingFish {
-    private int variant;
+    private byte variant;
     private boolean hasBeenFed;
 
     public EntityGemFin(EntityType<? extends EntityGemFin> type, Level level) {
         super(type, level);
-        variant = getRandom().nextInt(3);
+        variant = (byte) getRandom().nextInt(3);
         hasBeenFed = false;
     }
 
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putBoolean("HasBeenFed", this.isFed());
+        compound.putByte("Variant", variant);
     }
 
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
-        this.setFed(compound.getBoolean("HasBeenFed"));
+        if(compound.contains("HasBeenFed")) setFed(compound.getBoolean("HasBeenFed"));
+        if(compound.contains("Variant")) variant = compound.getByte("Variant");
     }
 
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
@@ -92,7 +94,7 @@ public class EntityGemFin extends AbstractSchoolingFish {
         return this.hasBeenFed;
     }
 
-    public int getVariant() {
+    public byte getVariant() {
         return variant;
     }
 }

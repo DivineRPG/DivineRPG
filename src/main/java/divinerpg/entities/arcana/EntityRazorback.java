@@ -1,7 +1,7 @@
 package divinerpg.entities.arcana;
 
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.registries.*;
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -33,4 +33,8 @@ public class EntityRazorback extends EntityDivineMonster {
         return SoundRegistry.RAZORBACK_HURT.get();
     }
 
+    @Override
+    public MobType getMobType() {
+        return MobType.ARTHROPOD;
+    }
 }

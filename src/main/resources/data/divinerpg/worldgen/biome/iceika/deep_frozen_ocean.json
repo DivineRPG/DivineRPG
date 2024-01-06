@@ -20,78 +20,93 @@
 	"spawners": {
 		"monster": [
 			{
-				"type": "divinerpg:rollum",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 3
-			},
-			{
-				"type": "divinerpg:frozen_flesh",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 4
-			},
-			{
-				"type": "divinerpg:pale_archer",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 3
-			},
-			{
-				"type": "divinerpg:hastreus",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 3
-			},
-			{
 				"type": "divinerpg:glacide",
-				"weight": 2,
+				"weight": 4,
 				"minCount": 1,
-				"maxCount": 4
+				"maxCount": 2
 			},
 			{
-				"type": "divinerpg:fractite",
-				"weight": 1,
-				"minCount": 1,
-				"maxCount": 1
-			},
-			{
-				"type": "divinerpg:alicanto",
+				"type": "minecraft:stray",
 				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"creature": [
+			{
+				"type": "minecraft:polar_bear",
+				"weight": 7,
 				"minCount": 1,
 				"maxCount": 2
 			}
 		],
+		"underground_water_creature": [
+			{
+				"type": "minecraft:salmon",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"water_creature": [
+			{
+				"type": "divinerpg:blubbertusk",
+				"weight": 8,
+				"minCount": 2,
+				"maxCount": 4
+			},
+			{
+				"type": "minecraft:squid",
+				"weight": 6,
+				"minCount": 1,
+				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:whale",
+				"weight": 6,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:liopleurodon",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
+			}
+		],
 		"water_ambient": [
-	      {
-	        "type": "minecraft:salmon",
-	        "maxCount": 5,
-	        "minCount": 1,
-	        "weight": 1
-	      }
-	    ],
-	    "water_creature": [
-	      {
-	        "type": "minecraft:squid",
-	        "maxCount": 4,
-	        "minCount": 1,
-	        "weight": 1
-	      },
-	      {
-	        "type": "divinerpg:aequorea",
-	        "maxCount": 4,
-	        "minCount": 1,
-	        "weight": 2
-	      },
-	      {
-	        "type": "divinerpg:whale",
-	        "maxCount": 3,
-	        "minCount": 1,
-	        "weight": 1
-	      }
-	    ]
+			{
+				"type": "minecraft:salmon",
+				"weight": 8,
+				"minCount": 1,
+				"maxCount": 5
+			},
+			{
+				"type": "divinerpg:aequorea",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 4
+			}
+		]
 	},
-	"spawn_costs": {},
+	"spawn_costs": {
+		"divinerpg:liopleurodon": {
+			"energy_budget": 0.1,
+			"charge": 1
+		},
+		"minecraft:salmon": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"minecraft:squid": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"divinerpg:aequorea": {
+			"energy_budget": 0.4,
+			"charge": 1
+		}
+	},
 	"carvers": {
 		"air": [
 			"minecraft:cave",

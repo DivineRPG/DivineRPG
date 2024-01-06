@@ -1,16 +1,17 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+
+import divinerpg.entities.iceika.EntityFractite;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelFractite<T extends Entity> extends EntityModel<T> {
+public class ModelFractite extends EntityModel<EntityFractite> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("fractite");
 	private final ModelPart frostBody;
 	private final ModelPart shard1;
@@ -61,7 +62,7 @@ public class ModelFractite<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityFractite entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.shard1.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
 		this.shard2.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;
 		this.shard3.xRot = Mth.cos(ageInTicks * 0.1F) * (float)Math.PI;

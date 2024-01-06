@@ -51,13 +51,6 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
         }
     }
 
-    @Override
-    public MobType getMobType() {
-        return MobType.UNDEFINED;
-    }
-
-
-
     public BossEvent.BossBarColor getBarColor() {
         return BossEvent.BossBarColor.BLUE;
     }
@@ -101,26 +94,35 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
         return SoundEvents.WOOD_BREAK;
     }
 
-
     @Override
     public void customServerAiStep() {
         super.customServerAiStep();
-        if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
-        {
-            this.playAmbientSound();
-            if(!this.level().isClientSide()) {
-                if (random.nextInt(10) == 1) {
-                    BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(blockPosition().getX() + random.nextInt(8), blockPosition().getY(), blockPosition().getZ() + random.nextInt(8));
-                    EntityRegistry.TERMID.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
-                }
-            }
+        if (getTarget() != null && this.isAlive() && this.ambientSoundTime % (20 * (10 + random.nextInt(10))) == 0) {
+            double tx = getTarget().getX() - this.getX();
+            double ty = getTarget().getEyeY() - this.getEyeY();
+            double tz = getTarget().getZ() - this.getZ();
+            EntityWildwoodLog e = new EntityWildwoodLog(EntityRegistry.WILDWOOD_LOG.get(), this, level());
+            double horizontalDistance = Math.sqrt(tx * tx + tz * tz);
+            e.shoot(tx, ty, tz, 2.6f, 0);
+            e.setDeltaMovement(tx / horizontalDistance * 1.6f, ty / horizontalDistance * 1.6f, tz / horizontalDistance * 1.6f);
+            this.level().addFreshEntity(e);
         }
+        if (this.isAlive() && this.ambientSoundTime % (20 * (15 + random.nextInt(5))) == 0) {
+            BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
+            EntityRegistry.TERMID.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
+        }
+
         if (this.level().isRaining() && this.level().canSeeSky(blockPosition()) && level().random.nextInt(50) == 3) {
             this.heal(5.0f);
         }
     }
 
-
+    @Override
+    public void playerTouch(Player player) {
+        super.playerTouch(player);
+        player.hurt(damageSources().flyIntoWall(), 4);
+        player.knockback(2.1, 2.1, 2.1);
+    }
     static class FlyToPlayer extends Goal {
         private final EntityDivineFlyingMob parentEntity;
         private final double followDistanceSq;

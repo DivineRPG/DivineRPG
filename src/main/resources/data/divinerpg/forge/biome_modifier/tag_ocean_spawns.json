@@ -4,13 +4,13 @@
   "spawners": [
 	  {
 	    "type": "divinerpg:whale",
-	    "weight": 3,
+	    "weight": 12,
 	    "minCount": 1,
 	    "maxCount": 3
 	  },
 	  {
 	    "type": "divinerpg:aequorea",
-	    "weight": 7,
+	    "weight": 28,
 	    "minCount": 1,
 	    "maxCount": 8
   	  }

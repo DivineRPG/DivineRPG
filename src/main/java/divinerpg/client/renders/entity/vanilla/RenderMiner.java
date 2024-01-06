@@ -16,7 +16,7 @@ public class RenderMiner extends MobRenderer<EntityMiner, HumanoidModel<EntityMi
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/miner.png");
 
     public RenderMiner(Context context) {
-        super(context, new HumanoidModel<EntityMiner>(context.bakeLayer(layerHumanoid)), 0.8F);
+        super(context, new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.8F);
         this.addLayer(new MinerPickLayer(this));
     }
     public ResourceLocation getTextureLocation(EntityMiner entity) {

@@ -2,11 +2,14 @@ package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineMonster;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -23,7 +26,11 @@ public class EntitySabear extends EntityDivineMonster {
     protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
         return 1.09375F;
     }
-
+    @Override
+    protected void registerGoals() {
+    	super.registerGoals();
+    	targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EntityMamoth.class, 10, true, true, (entity) -> entity.isBaby()));
+    }
     @Override
     public boolean isAggressive() {
         return true;
@@ -78,5 +85,20 @@ public class EntitySabear extends EntityDivineMonster {
             }
         }
     }
-
+    @Override
+    protected SoundEvent getAmbientSound() {
+    	return SoundEvents.POLAR_BEAR_AMBIENT;
+    }
+    @Override
+    protected SoundEvent getDeathSound() {
+    	return SoundEvents.POLAR_BEAR_DEATH;
+    }
+    @Override
+    protected SoundEvent getHurtSound(DamageSource s) {
+    	return SoundEvents.POLAR_BEAR_HURT;
+    }
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
+    	playSound(SoundEvents.POLAR_BEAR_STEP, .15F, 1F);
+	}
 }

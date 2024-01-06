@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.ai.navigation.*;
@@ -25,10 +24,6 @@ public class EntityDivineWaterMob extends WaterAnimal {
 
     public boolean checkSpawnObstruction(LevelReader worldIn) {
         return worldIn.containsAnyLiquid(this.getBoundingBox()) && worldIn.noCollision(this);
-    }
-
-    public static AttributeSupplier.Builder attributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0D).add(Attributes.MOVEMENT_SPEED, (double)1.2F).add(Attributes.ATTACK_DAMAGE, 3.0D);
     }
 
     @Override

@@ -1297,6 +1297,20 @@
       "divinerpg:iceika_music"
     ]
   },
+  "snowflakes_after_blizzard": {
+    "category": "music",
+    "stream": true,
+    "sounds": [
+      "divinerpg:snowflakes_after_blizzard"
+    ]
+  },
+  "snowflakes_after_blizzard_synth": {
+    "category": "music",
+    "stream": true,
+    "sounds": [
+      "divinerpg:snowflakes_after_blizzard_synth"
+    ]
+  },
   "patchouli_open": {
     "category": "player",
     "sounds": [
@@ -1350,6 +1364,12 @@
     "sounds": [
       "divinerpg:vethea_teleport"
     ]
+  },
+  "snap": {
+  	"category": "player",
+  	"sounds": [
+  		"divinerpg:snap"
+  	]
   },
   "seng_ambient": {
     "category": "hostile",

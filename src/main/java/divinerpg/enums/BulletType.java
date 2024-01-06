@@ -11,7 +11,7 @@ public enum BulletType {
     CYCLOPSIAN_STAFF_SHOT(6, ItemLoc("cyclops_eye_shards")),
     MAELSTROM_SHOT(12, ProjectileLoc("maelstrom")),
     CRAB_ANCHOR_SHOT(3, ProjectileLoc("crab_anchor")),
-    SHARK_ANCHOR_SHOT(4, ProjectileLoc("bowhead_anchor")),
+    SHARK_ANCHOR_SHOT(4, ProjectileLoc("shark_anchor")),
     BOWHEAD_ANCHOR_SHOT(5, ProjectileLoc("bowhead_anchor")),
     LIOPLEURODON_ANCHOR_SHOT(6, ProjectileLoc("liopleurodon_anchor")),
     GOLDEN_FURY_SHOT(30, VanillaItemLoc("gold_nugget")),
@@ -92,18 +92,18 @@ public enum BulletType {
         this.damage = damage;
         this.texture = texture;
         this.particle = null;
-        this.r = 0;
-        this.g = 0;
-        this.b = 0;
+        this.r = r;
+        this.g = g;
+        this.b = b;
     }
 
     BulletType(float damage, ResourceLocation texture, int r, int g, int b, SimpleParticleType particle) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
-        this.r = 0;
-        this.g = 0;
-        this.b = 0;
+        this.r = r;
+        this.g = g;
+        this.b = b;
     }
 
     BulletType(float damage, ResourceLocation texture) {

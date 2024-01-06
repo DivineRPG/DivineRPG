@@ -1,6 +1,6 @@
 package divinerpg.enchant;
 
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.*;
 
 public class RiveEnchant extends Enchantment {

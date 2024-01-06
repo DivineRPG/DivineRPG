@@ -147,8 +147,9 @@ public abstract class DivineFurnaceMenu extends RecipeBookMenu<Container> {
         return itemstack;
     }
 
-    protected boolean canSmelt(ItemStack p_38978_) {
-        return this.level.getRecipeManager().getRecipeFor((RecipeType<AbstractCookingRecipe>)this.recipeType, new SimpleContainer(p_38978_), this.level).isPresent();
+    @SuppressWarnings("unchecked")
+	protected boolean canSmelt(ItemStack p_38978_) {
+        return this.level.getRecipeManager().getRecipeFor((RecipeType<AbstractCookingRecipe>)recipeType, new SimpleContainer(p_38978_), this.level).isPresent();
     }
 
     public boolean isFuel(ItemStack p_38989_) {

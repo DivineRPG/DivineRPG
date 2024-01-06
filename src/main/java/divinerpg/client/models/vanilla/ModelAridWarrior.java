@@ -37,7 +37,7 @@ public class ModelAridWarrior<T extends Mob & RangedAttackMob> extends EntityMod
 
 		Head.addOrReplaceChild("leftear_r1", CubeListBuilder.create().texOffs(41, 46).addBox(0.0872F, -5.0F, -0.0019F, 0.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, -7.0F, -1.0F, 0.0F, 0.2182F, 0.0F));
 
-		PartDefinition Cape = Torso.addOrReplaceChild("Cape", CubeListBuilder.create().texOffs(31, 31).addBox(-5.0F, 0.0F, 0.0F, 10.0F, 20.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -10.0F, 3.0F));
+		Torso.addOrReplaceChild("Cape", CubeListBuilder.create().texOffs(31, 31).addBox(-5.0F, 0.0F, 0.0F, 10.0F, 20.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -10.0F, 3.0F));
 
 		partdefinition.addOrReplaceChild("rightArm", CubeListBuilder.create().texOffs(17, 46).addBox(-3.0F, -1.0F, -1.5F, 3.0F, 14.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.0F, -1.0F, 0.5F));
 

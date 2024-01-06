@@ -12,14 +12,98 @@
 		"grass_color": 6201997,
 		"foliage_color": 4692090,
 		"music": {
-			"sound": "divinerpg:iceika_music",
+			"sound": "divinerpg:snowflakes_after_blizzard_synth",
 			"min_delay": 6000,
 			"max_delay": 10000,
 			"replace_current_music": false
 		}
 	},
-	"spawners": {},
-	"spawn_costs": {},
+	"spawners": {
+		"monster": [
+			{
+				"type": "divinerpg:rollum",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:hastreus",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:glacon",
+				"weight": 6,
+				"minCount": 1,
+				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:alicanto",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		],
+		"creature": [
+			{
+				"type": "divinerpg:mamoth",
+				"weight": 1,
+				"minCount": 2,
+				"maxCount": 5
+			}
+		],
+		"ambient": [
+			{
+				"type": "minecraft:bat",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"underground_water_creature": [
+			{
+				"type": "minecraft:glow_squid",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:cauldron_fish",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		],
+		"water_ambient": [
+			{
+				"type": "minecraft:tropical_fish",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 5
+			},
+			{
+				"type": "divinerpg:aequorea",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 4
+			}
+		]
+	},
+	"spawn_costs": {
+		"minecraft:glow_squid": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"minecraft:tropical_fish": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"divinerpg:aequorea": {
+			"energy_budget": 0.4,
+			"charge": 1
+		}
+	},
 	"carvers": {
 		"air": [
 			"minecraft:cave",

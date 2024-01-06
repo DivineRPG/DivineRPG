@@ -4,7 +4,9 @@ import divinerpg.items.base.ItemMod;
 import divinerpg.util.LocalizeUtils;
 import divinerpg.util.teleport.SecondaryTeleporter;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.*;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -21,30 +23,19 @@ public class ItemTeleportationCrystal extends ItemMod {
         super(new Item.Properties().durability(10));
     }
 
-    public ItemTeleportationCrystal(int durability) {
-        super(new Item.Properties().durability(durability));
-    }
-
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.teleport_bed_spawn"));
-        tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()));
-    }
-
-
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         if (!world.isClientSide) {
             if (player instanceof ServerPlayer) {
-                if (((ServerPlayer) player).getRespawnPosition() != null) {
-                    player.changeDimension(world.getServer().getLevel(Level.OVERWORLD), new SecondaryTeleporter(world.getServer().getLevel(Level.OVERWORLD)));
+                BlockPos respawnPos = ((ServerPlayer) player).getRespawnPosition();
+                if (respawnPos != null) {
+                    ResourceKey<Level> respawnDimension = ((ServerPlayer) player).getRespawnDimension();
+                    player.changeDimension(world.getServer().getLevel(respawnDimension), new SecondaryTeleporter(world.getServer().getLevel(respawnDimension)));
+                    ItemStack stack = player.getItemInHand(hand);
                     if (!player.isCreative()) {
-                        ItemStack stack = player.getItemInHand(hand);
-                        stack.hurtAndBreak(1, player, (p_220009_1_) -> {
-                            p_220009_1_.broadcastBreakEvent(player.getUsedItemHand());
-                        });
+                        stack.hurtAndBreak(1, player, (p_220009_1_) -> p_220009_1_.broadcastBreakEvent(player.getUsedItemHand()));
                     }
+                    player.getCooldowns().addCooldown(stack.getItem(), 160);
                     return InteractionResultHolder.success(player.getItemInHand(hand));
                 } else {
                     MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_crystal_no_respawn");
@@ -54,5 +45,11 @@ public class ItemTeleportationCrystal extends ItemMod {
             }
         }
         return InteractionResultHolder.fail(player.getItemInHand(hand));
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(LocalizeUtils.i18n("tooltip.teleport_respawn_point"));
+        tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()));
     }
 }

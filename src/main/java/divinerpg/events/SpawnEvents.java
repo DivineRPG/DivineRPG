@@ -9,6 +9,7 @@ import divinerpg.entities.vanilla.overworld.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.SpawnPlacements.SpawnPredicate;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -21,6 +22,8 @@ import net.minecraftforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.*;
 
 import static divinerpg.registries.EntityRegistry.*;
 import static net.minecraft.world.entity.SpawnPlacements.Type.*;
@@ -47,7 +50,7 @@ public class SpawnEvents {
     	registerSpawn(e, BROWN_GRIZZLE.get());
     	registerDarkSpawn(e, CAVE_CRAWLER.get());
     	registerSpawn(e, CAVECLOPS.get(), EntityCaveclops::caveClopsSpawnRule);
-    	registerMobSpawn(e, CRAB.get());
+    	registerSpawn(e, CRAB.get(), EntityCrab::crabSpawnRule);
     	registerSpawn(e, CYCLOPS.get(), EntityKobblin::kobblinSpawnRule);
 		registerMonsterSpawn(e, DESERT_CRAWLER.get());
 		registerMobSpawn(e, DIAMOND_DAVE.get());
@@ -58,8 +61,8 @@ public class SpawnEvents {
     	registerSpawn(e, HUSK.get());
     	registerSpawn(e, JACK_O_MAN.get(), EntityJackOMan::rules);
     	registerAirSpawn(e, JUNGLE_BAT.get());
-    	registerAgileSpawn(e, JUNGLE_DRAMCRYX.get());
-    	registerAgileSpawn(e, JUNGLE_SPIDER.get());
+    	registerAgileMonsterSpawn(e, JUNGLE_DRAMCRYX.get());
+    	registerAgileMonsterSpawn(e, JUNGLE_SPIDER.get());
     	registerMonsterSpawn(e, KING_CRAB.get());
     	registerSpawn(e, KOBBLIN.get(), EntityKobblin::kobblinSpawnRule);
 		registerWaterSpawn(e, LIOPLEURODON.get(), EntityLiopleurodon::liopleurodonSpawnRule);
@@ -78,9 +81,8 @@ public class SpawnEvents {
     	registerWaterSpawn(e, WHALE.get());
     	registerSpawn(e, WHITE_GRIZZLE.get());
     	//Nether
-    	registerAirSpawn(e, HELL_BAT.get());
     	registerMobSpawn(e, HELL_PIG.get());
-    	registerAgileSpawn(e, HELL_SPIDER.get());
+    	registerAgileMonsterSpawn(e, HELL_SPIDER.get());
 		registerMonsterSpawn(e, SCORCHER.get());
     	registerMonsterSpawn(e, WILDFIRE.get());
     	//End
@@ -88,8 +90,18 @@ public class SpawnEvents {
     	registerAirSpawn(e, ENDER_TRIPLETS.get(), EntityEnderTriplets::enderTripletSpawnRule);
     	registerMonsterSpawn(e, ENDER_WATCHER.get());
     	//Iceika
-		registerMonsterSpawn(e, ALICANTO.get());
-		registerMonsterSpawn(e, FRACTITE.get());
+    	registerWaterSpawn(e, CAULDRON_FISH.get());
+    	registerSurfaceSpawn(e, BLUBBERTUSK.get());
+    	registerAgileMobSpawn(e, ROBBIN.get());
+    	registerMobSpawn(e, WOLPERTINGER.get());
+    	registerMobSpawn(e, DOLOSSAL.get());
+    	registerMobSpawn(e, MAMOTH.get());
+    	registerAgileMobSpawn(e, SNOW_SKIPPER.get());
+    	registerWaterSpawn(e, PINK_GHOST_GLIDER.get());
+    	registerMobSpawn(e, SENG.get());
+    	registerMobSpawn(e, SABEAR.get());
+		registerAgileMonsterSpawn(e, ALICANTO.get());
+		registerAgileMonsterSpawn(e, FRACTITE.get());
     	registerMonsterSpawn(e, PALE_ARCHER.get());
     	registerMonsterSpawn(e, FROZEN_FLESH.get());
     	registerMonsterSpawn(e, GLACIDE.get());
@@ -97,10 +109,8 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, ROLLUM.get());
     	registerMobSpawn(e, WORKSHOP_MERCHANT.get());
 		registerMobSpawn(e, WORKSHOP_TINKERER.get());
-		registerMonsterSpawn(e, SENG.get());
-		registerMonsterSpawn(e, GROGLIN.get());
-		registerMonsterSpawn(e, GRUZZORLUG.get());
-		registerMonsterSpawn(e, SABEAR.get());
+		registerMonsterSpawn(e, GROGLIN_HUNTER.get());
+		registerMonsterSpawn(e, GRUZZORLUG_MINER.get());
 		registerMobSpawn(e, ROBBIN.get());
 		registerMobSpawn(e, WOLPERTINGER.get());
 		//Eden
@@ -129,7 +139,7 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, ENCHANTED_WARRIOR.get());
     	registerMonsterSpawn(e, SPELLBINDER.get());
     	//Skythern
-    	registerAirSpawn(e, ADVANCED_CORI.get());
+    	registerMonsterSpawn(e, ADVANCED_CORI.get());
     	registerMonsterSpawn(e, MEGALITH.get());
     	registerMonsterSpawn(e, MYSTIC.get());
     	registerMonsterSpawn(e, SAMEK.get());
@@ -207,8 +217,11 @@ public class SpawnEvents {
     public static <T extends Entity> void registerSpawn(SpawnPlacementRegisterEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, predicate, REPLACE);
     }
-    public static void registerAgileSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    public static void registerAgileMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING, Monster::checkAnyLightMonsterSpawnRules, REPLACE);
+    }
+    public static void registerAgileMobSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    	e.register(type, ON_GROUND, MOTION_BLOCKING, Mob::checkMobSpawnRules, REPLACE);
     }
 	public static void registerWaterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Entity> type) {
 		e.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
@@ -250,16 +263,45 @@ public class SpawnEvents {
     	e.register(type, ON_GROUND, MOTION_BLOCKING, SpawnEvents::monsterOnSurface, REPLACE);
     }
 	public static boolean always(EntityType<? extends Entity> e, ServerLevelAccessor l, MobSpawnType t, BlockPos p, RandomSource r) {
-		return true;
+		Difficulty difficulty = l.getDifficulty();
+		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+				Difficulty.EASY, 6,
+				Difficulty.NORMAL, 4,
+				Difficulty.HARD, 2
+		));
+		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+
+		return r.nextInt(10) >= cancelChance;
 	}
 	public static boolean checkDarknessSpawnRules(EntityType<? extends Mob> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		return Monster.isDarkEnoughToSpawn(s, p, r);
+		Difficulty difficulty = s.getDifficulty();
+		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+				Difficulty.EASY, 6,
+				Difficulty.NORMAL, 4,
+				Difficulty.HARD, 2
+		));
+		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+		return r.nextInt(10) >= cancelChance && Monster.isDarkEnoughToSpawn(s, p, r);
 	}
 	public static boolean onSurface(EntityType<? extends Mob> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		return Mob.checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
+		Difficulty difficulty = s.getDifficulty();
+		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+				Difficulty.EASY, 6,
+				Difficulty.NORMAL, 4,
+				Difficulty.HARD, 2
+		));
+		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+		return r.nextInt(10) >= cancelChance && Mob.checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
 	}
 	public static boolean monsterOnSurface(EntityType<? extends Monster> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		return Monster.checkAnyLightMonsterSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
+		Difficulty difficulty = s.getDifficulty();
+		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+				Difficulty.EASY, 6,
+				Difficulty.NORMAL, 4,
+				Difficulty.HARD, 2
+		));
+		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+		return r.nextInt(10) >= cancelChance && Monster.checkAnyLightMonsterSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
 	}
     @SubscribeEvent
     public void addVanillaMobGoals(EntityJoinLevelEvent event) {

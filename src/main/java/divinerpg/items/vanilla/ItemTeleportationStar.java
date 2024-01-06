@@ -1,29 +1,30 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.util.*;
-import divinerpg.util.teleport.*;
-import net.minecraft.*;
-import net.minecraft.core.*;
+import divinerpg.items.base.ItemMod;
+import divinerpg.util.LocalizeUtils;
+import divinerpg.util.teleport.SecondaryTeleporter;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.player.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
-import net.minecraftforge.server.command.*;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.server.command.TextComponentHelper;
 
-import javax.annotation.*;
-import java.util.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
-public class ItemTeleportationStar extends ItemTeleportationCrystal {
+public class ItemTeleportationStar extends ItemMod {
     private final static String posKey = "BlockPos";
     private final static String dimKey = "Dim";
 
     public ItemTeleportationStar() {
-        super(64);
+        super(new Item.Properties().durability(64));
     }
 
     /**
@@ -44,13 +45,12 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
         return true;
     }
 
-
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         CompoundTag compound = getFromStack(player.getItemInHand(hand));
         boolean hasInfo = compound.contains(dimKey) && compound.contains(posKey);
         if (!world.isClientSide) {
-            if (player.isCrouching()) {
+            if (player.isShiftKeyDown()) {
                 if (!trySetCords(compound, player, hasInfo)) {
                     MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_change_position");
                     message.withStyle(ChatFormatting.RED);
@@ -67,12 +67,11 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
             ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(compound.getString(dimKey)))).getLevel();
             if (player instanceof ServerPlayer) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
+                ItemStack stack = player.getItemInHand(hand);
                 if (!player.isCreative()) {
-                    ItemStack stack = player.getItemInHand(hand);
-                    stack.hurtAndBreak(1, player, (p_220009_1_) -> {
-                        p_220009_1_.broadcastBreakEvent(player.getUsedItemHand());
-                    });
+                    stack.hurtAndBreak(1, player, (p_220009_1_) -> p_220009_1_.broadcastBreakEvent(player.getUsedItemHand()));
                 }
+                player.getCooldowns().addCooldown(stack.getItem(), 160);
                 return InteractionResultHolder.success(player.getItemInHand(hand));
             }
         }
@@ -99,8 +98,5 @@ public class ItemTeleportationStar extends ItemTeleportationCrystal {
             BlockPos pos = BlockPos.of(compound.getLong(posKey));
             tooltip.add(LocalizeUtils.i18n("tooltip.block_position", pos.getX(), pos.getY(), pos.getZ()));
         }
-
-        tooltip.add(Component.translatable(""));
-        tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()));
     }
 }

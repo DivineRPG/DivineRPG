@@ -12,6 +12,7 @@ import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
@@ -53,33 +54,43 @@ public class ItemArmorPouch extends ItemMod {
 		if(!itemstack.is(this)) return new InteractionResultHolder<>(InteractionResult.PASS, itemstack);
 		CompoundTag itemTag = itemstack.getOrCreateTag();
 		ItemStack helmet = ItemStack.of(itemTag.getCompound(TAG_HELMET)), chestplate = ItemStack.of(itemTag.getCompound(TAG_CHESTPLATE)), leggings = ItemStack.of(itemTag.getCompound(TAG_LEGGINGS)), boots = ItemStack.of(itemTag.getCompound(TAG_BOOTS));
-	    itemTag.put(TAG_HELMET, player.getItemBySlot(EquipmentSlot.HEAD).save(new CompoundTag()));
-	    itemTag.put(TAG_CHESTPLATE, player.getItemBySlot(EquipmentSlot.CHEST).save(new CompoundTag()));
-	    itemTag.put(TAG_LEGGINGS, player.getItemBySlot(EquipmentSlot.LEGS).save(new CompoundTag()));
-	    itemTag.put(TAG_BOOTS, player.getItemBySlot(EquipmentSlot.FEET).save(new CompoundTag()));
-	    player.setItemSlot(EquipmentSlot.HEAD, helmet);
-	    player.setItemSlot(EquipmentSlot.CHEST, chestplate);
-	    player.setItemSlot(EquipmentSlot.LEGS, leggings);
-	    player.setItemSlot(EquipmentSlot.FEET, boots);
-		itemstack.setTag(itemTag);
+	    ItemStack stack;
+		if((stack = player.getItemBySlot(EquipmentSlot.HEAD)).getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
+	    	itemTag.put(TAG_HELMET, stack.save(new CompoundTag()));
+		    player.setItemSlot(EquipmentSlot.HEAD, helmet);
+	    } if((stack = player.getItemBySlot(EquipmentSlot.CHEST)).getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
+		    itemTag.put(TAG_CHESTPLATE, stack.save(new CompoundTag()));
+		    player.setItemSlot(EquipmentSlot.CHEST, chestplate);
+		} if((stack = player.getItemBySlot(EquipmentSlot.LEGS)).getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
+		    itemTag.put(TAG_LEGGINGS, stack.save(new CompoundTag()));
+		    player.setItemSlot(EquipmentSlot.LEGS, leggings);
+		} if((stack = player.getItemBySlot(EquipmentSlot.FEET)).getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
+		    itemTag.put(TAG_BOOTS, stack.save(new CompoundTag()));
+		    player.setItemSlot(EquipmentSlot.FEET, boots);
+		} itemstack.setTag(itemTag);
 		player.setItemInHand(hand, itemstack);
 		player.playSound(SoundEvents.ARMOR_EQUIP_LEATHER);
 		return new InteractionResultHolder<>(InteractionResult.SUCCESS, itemstack);
 	}
 	@Override
 	public boolean onLeftClickEntity(ItemStack itemstack, Player player, Entity entity) {
-		if(itemstack.is(this) && entity instanceof ArmorStand) {
+		if(itemstack.is(this) && entity instanceof ArmorStand stand) {
 			CompoundTag itemTag = itemstack.getOrCreateTag();
 			ItemStack helmet = ItemStack.of(itemTag.getCompound(TAG_HELMET)), chestplate = ItemStack.of(itemTag.getCompound(TAG_CHESTPLATE)), leggings = ItemStack.of(itemTag.getCompound(TAG_LEGGINGS)), boots = ItemStack.of(itemTag.getCompound(TAG_BOOTS));
-			itemTag.put(TAG_HELMET, ((ArmorStand) entity).getItemBySlot(EquipmentSlot.HEAD).save(new CompoundTag()));
-		    itemTag.put(TAG_CHESTPLATE, ((ArmorStand) entity).getItemBySlot(EquipmentSlot.CHEST).save(new CompoundTag()));
-		    itemTag.put(TAG_LEGGINGS, ((ArmorStand) entity).getItemBySlot(EquipmentSlot.LEGS).save(new CompoundTag()));
-		    itemTag.put(TAG_BOOTS, ((ArmorStand) entity).getItemBySlot(EquipmentSlot.FEET).save(new CompoundTag()));
-		    ((ArmorStand) entity).setItemSlot(EquipmentSlot.HEAD, helmet);
-		    ((ArmorStand) entity).setItemSlot(EquipmentSlot.CHEST, chestplate);
-		    ((ArmorStand) entity).setItemSlot(EquipmentSlot.LEGS, leggings);
-		    ((ArmorStand) entity).setItemSlot(EquipmentSlot.FEET, boots);
-		    itemstack.setTag(itemTag);
+			ItemStack stack;
+			if((stack = stand.getItemBySlot(EquipmentSlot.HEAD)).getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
+				itemTag.put(TAG_HELMET, stack.save(new CompoundTag()));
+			    stand.setItemSlot(EquipmentSlot.HEAD, helmet);
+			} if((stack = stand.getItemBySlot(EquipmentSlot.CHEST)).getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
+				itemTag.put(TAG_CHESTPLATE, stack.save(new CompoundTag()));
+			    stand.setItemSlot(EquipmentSlot.CHEST, chestplate);
+			} if((stack = stand.getItemBySlot(EquipmentSlot.LEGS)).getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
+				itemTag.put(TAG_LEGGINGS, stack.save(new CompoundTag()));
+			    stand.setItemSlot(EquipmentSlot.LEGS, leggings);
+			} if((stack = stand.getItemBySlot(EquipmentSlot.FEET)).getEnchantmentLevel(Enchantments.BINDING_CURSE) == 0) {
+				itemTag.put(TAG_BOOTS, stack.save(new CompoundTag()));
+			    stand.setItemSlot(EquipmentSlot.FEET, boots);
+			} itemstack.setTag(itemTag);
 		    player.setItemInHand(InteractionHand.MAIN_HAND, itemstack);
 			player.playSound(SoundEvents.ARMOR_EQUIP_LEATHER);
 			return true;

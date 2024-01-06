@@ -4,19 +4,19 @@
   "spawners": [
 	  {
 	    "type": "divinerpg:rainbour",
-	    "weight": 6,
+	    "weight": 24,
 	    "minCount": 1,
 	    "maxCount": 2
 	  },
 	  {
 		  "type": "divinerpg:jack_o_man",
-		  "weight": 6,
+		  "weight": 24,
 		  "minCount": 1,
 		  "maxCount": 1
 	  },
 	  {
 	    "type": "divinerpg:enthralled_dramcryx",
-	    "weight": 15,
+	    "weight": 60,
 	    "minCount": 2,
 	    "maxCount": 4
   	  }

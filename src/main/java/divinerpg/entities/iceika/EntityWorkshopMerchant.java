@@ -1,15 +1,38 @@
 package divinerpg.entities.iceika;
 
+import divinerpg.entities.ai.AvoidFactionGoal;
 import divinerpg.entities.base.EntityDivineMerchant;
+import divinerpg.entities.base.FactionEntity;
 import divinerpg.registries.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 
-public class EntityWorkshopMerchant extends EntityDivineMerchant {
+public class EntityWorkshopMerchant extends EntityDivineMerchant implements FactionEntity {
     public EntityWorkshopMerchant(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
         super(type, worldIn);
+    }
+    @Override
+    public Faction getFaction() {
+    	return Faction.ICEIKA_MERCHANT;
+    }
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+    	if(getFaction().getReputation(player) > 5) {
+        	return super.mobInteract(player, hand);
+    	} playSound(SoundEvents.VILLAGER_NO);
+    	return InteractionResult.FAIL;
+    }
+    @Override
+    protected void registerGoals() {
+    	super.registerGoals();
+		goalSelector.addGoal(4, new AvoidFactionGoal(this, getFaction(), (float)getAttributeValue(Attributes.FOLLOW_RANGE), 1.1, 1.1));
     }
     public String[] getChatMessages() {
         return new String[] {

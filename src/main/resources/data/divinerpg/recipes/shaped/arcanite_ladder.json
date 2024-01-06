@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:arcanite_ladder",
+    "count": 6
+  },
+  "pattern": [
+    "i i",
+    "ixi",
+    "i i"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "i": {
+      "item": "divinerpg:arcanium"
+    },
+    "x": {
+      "item": "minecraft:stick"
+    }
+  }
+}

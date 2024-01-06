@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "divinerpg:gray_diamond_chunk"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:shadow_bar"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "group": "colored_diamond_chunk"
+}

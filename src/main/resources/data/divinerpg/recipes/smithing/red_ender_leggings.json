@@ -9,5 +9,7 @@
   "result": {
     "item": "divinerpg:red_ender_leggings"
   },
-  "template": []
+  "template": {
+	"item": "divinerpg:color_template"
+  }
 }

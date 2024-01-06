@@ -1,21 +1,19 @@
 package divinerpg.client.particle;
 
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.particle.*;
-import net.minecraftforge.api.distmarker.*;
-
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleMortumPortal extends TextureSheetParticle
 {
     SpriteSet animatedSprite;
-    private float portalParticleScale;
-    private double portalPosX;
-    private double portalPosY;
-    private double portalPosZ;
+    private final float portalParticleScale;
+    private final double portalPosX, portalPosY, portalPosZ;
+
     public ParticleMortumPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
     {
         this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
@@ -27,7 +25,7 @@ public class ParticleMortumPortal extends TextureSheetParticle
         this.xd = 0;
         this.yd = 0;
         this.zd = 0;
-        this.quadSize *= 0.75F;
+        this.quadSize *= 0.8F;
         this.quadSize *= 0.9F;
         this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
         this.lifetime = (int)((float)this.lifetime * 0.5F);
@@ -35,9 +33,10 @@ public class ParticleMortumPortal extends TextureSheetParticle
         this.portalPosX = this.x = xCoordIn;
         this.portalPosY = this.y = yCoordIn;
         this.portalPosZ = this.z = zCoordIn;
-        this.bCol = 0.0F;
-        this.gCol = 0.0F;
-        this.rCol = 0.0F;
+        float f = worldIn.random.nextFloat() * 0.4F + 0.1F;
+        this.bCol = f;
+        this.gCol = f;
+        this.rCol = f;
         this.animatedSprite = sprite;
     }
 
@@ -61,7 +60,7 @@ public class ParticleMortumPortal extends TextureSheetParticle
 
     @Override
     public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
-        float var8 = (this.age + partialTicks) / this.lifetime * 3;
+        float var8 = (this.age + partialTicks) / this.lifetime * 2.0F;
         var8 = 1.0F - var8;
         var8 *= var8;
         var8 = 1.0F - var8;
@@ -82,6 +81,7 @@ public class ParticleMortumPortal extends TextureSheetParticle
         this.x = this.portalPosX + this.xd * var1;
         this.y = this.portalPosY + this.yd * var1 + (1.0F - var2);
         this.z = this.portalPosZ + this.zd * var1;
+
         if (this.age++ >= this.lifetime) {
             this.remove();
         }

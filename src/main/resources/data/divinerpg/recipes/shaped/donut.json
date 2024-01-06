@@ -1,11 +1,12 @@
 {
   "result": {
-    "item": "divinerpg:donut"
+    "item": "divinerpg:donut",
+    "count": 2
   },
   "pattern": [
-    "WWW",
+    " W ",
     "E S",
-    "WWW"
+    " W "
   ],
 
   "type": "minecraft:crafting_shaped",

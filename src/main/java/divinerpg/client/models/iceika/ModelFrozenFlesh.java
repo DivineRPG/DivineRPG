@@ -1,15 +1,16 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+
+import divinerpg.entities.iceika.EntityFrozenFlesh;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelFrozenFlesh<T extends Entity> extends EntityModel<T> {
+public class ModelFrozenFlesh extends EntityModel<EntityFrozenFlesh> {
 
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("frozen_flesh");
 	private final ModelPart Head, Torso, Base;
@@ -47,7 +48,7 @@ public class ModelFrozenFlesh<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityFrozenFlesh entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.Head.yRot = netHeadYaw / (180F / (float) Math.PI);
 		this.Head.xRot = headPitch / (180F / (float) Math.PI);
 	}

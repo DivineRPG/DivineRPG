@@ -24,8 +24,82 @@
 			"probability": 0.002
 		}
 	},
-	"spawners": {},
-	"spawn_costs": {},
+	"spawners": {
+		"monster": [
+			{
+				"type": "divinerpg:hastreus",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:fractite",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
+			},
+			{
+				"type": "minecraft:stray",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:alicanto",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
+			}
+		],
+		"creature": [
+			{
+				"type": "divinerpg:dolossal",
+				"weight": 3,
+				"minCount": 2,
+				"maxCount": 5
+			},
+			{
+				"type": "divinerpg:seng",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
+			}
+		],
+		"underground_water_creature": [
+			{
+				"type": "minecraft:glow_squid",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"water_creature": [
+			{
+				"type": "divinerpg:cauldron_fish",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		]
+	},
+	"spawn_costs": {
+		"divinerpg:fractite": {
+			"energy_budget": 0.12,
+			"charge": 1
+		},
+		"divinerpg:dolossal": {
+			"energy_budget": 0.2,
+			"charge": 1
+		},
+		"divinerpg:seng": {
+			"energy_budget": 0.1,
+			"charge": 1
+		},
+		"minecraft:glow_squid": {
+			"energy_budget": 0.4,
+			"charge": 1
+		}
+	},
 	"carvers": {
 		"air": [
 			"minecraft:cave",

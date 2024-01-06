@@ -1,14 +1,10 @@
 package divinerpg.capability;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.*;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.CapabilityManager;
-import net.minecraftforge.common.capabilities.CapabilityToken;
-import net.minecraftforge.common.capabilities.ICapabilitySerializable;
+import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.common.util.LazyOptional;
 
 public class SoulTrapCountProvider implements ICapabilitySerializable<CompoundTag> {
@@ -17,7 +13,7 @@ public class SoulTrapCountProvider implements ICapabilitySerializable<CompoundTa
     private final LazyOptional<SoulTrapCount> opt = LazyOptional.of(this::createCounter);
 	@Override
 	public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-		return opt.cast();
+		return SOUL_TRAP_COUNT.orEmpty(cap, opt);
 	}
 	private SoulTrapCount createCounter() {
 		if(counter == null) counter = new SoulTrapCount();

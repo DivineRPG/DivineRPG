@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "divinerpg:bedrock_chunk"
+  },
+  "base": [
+    {
+      "item": "divinerpg:inferno_boots"
+    },
+    {
+      "item": "divinerpg:torridite_boots"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:bedrock_boots"
+  },
+  "template": {
+	"item": "divinerpg:bedrock_upgrade_template"
+  }
+}

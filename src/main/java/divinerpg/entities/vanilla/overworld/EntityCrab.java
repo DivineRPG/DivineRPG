@@ -4,13 +4,18 @@ import divinerpg.entities.base.EntityPeacefulUntilAttacked;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.biome.Biomes;
 
 public class EntityCrab extends EntityPeacefulUntilAttacked {
 
+    public static boolean crabSpawnRule(EntityType<? extends Mob> type, LevelAccessor world, MobSpawnType reason, BlockPos pos, RandomSource random) {
+    	return Mob.checkMobSpawnRules(type, world, reason, pos, random) && (world.canSeeSky(pos) || world.getBiome(pos).is(Biomes.LUSH_CAVES));
+    }
     public EntityCrab(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
@@ -38,5 +43,10 @@ public class EntityCrab extends EntityPeacefulUntilAttacked {
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
+    }
+
+    @Override
+    public MobType getMobType() {
+        return MobType.ARTHROPOD;
     }
 }

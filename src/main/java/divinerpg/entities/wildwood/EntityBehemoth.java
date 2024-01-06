@@ -41,4 +41,9 @@ public class EntityBehemoth extends EntityDivineMonster {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.ENDIKU_HURT.get();
     }
+
+    @Override
+    public MobType getMobType() {
+        return MobType.ARTHROPOD;
+    }
 }

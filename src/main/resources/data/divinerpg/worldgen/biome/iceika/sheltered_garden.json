@@ -24,8 +24,70 @@
 			"probability": 0.001
 		}
 	},
-	"spawners": {},
-	"spawn_costs": {},
+	"spawners": {
+		"monster": [
+			{
+				"type": "divinerpg:rollum",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:hastreus",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "minecraft:stray",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:glacon",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"creature": [
+			{
+				"type": "divinerpg:wolpertinger",
+				"weight": 6,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "minecraft:fox",
+				"weight": 7,
+				"minCount": 2,
+				"maxCount": 3
+			}
+		],
+		"ambient": [
+			{
+				"type": "minecraft:bat",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		],
+		"underground_water_creature": [
+			{
+				"type": "minecraft:glow_squid",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		]
+	},
+	"spawn_costs": {
+		"minecraft:glow_squid": {
+			"energy_budget": 0.4,
+			"charge": 1
+		}
+	},
 	"carvers": {
 		"air": [
 			"minecraft:cave",

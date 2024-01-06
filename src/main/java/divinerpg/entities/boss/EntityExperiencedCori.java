@@ -1,8 +1,9 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.EntityCoriShot;
 import divinerpg.registries.*;
+import divinerpg.util.WeightedRandom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundEvent;
@@ -18,8 +19,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
+import java.util.Random;
 
+public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
+    private WeightedRandom<EntityType<? extends EntityDivineMonster>> coriTypePool = new WeightedRandom<>();
     private ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), BossBarColor.BLUE,
             BossEvent.BossBarOverlay.PROGRESS);
 //    private int deathTicks;
@@ -27,6 +30,8 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
     public EntityExperiencedCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
         this.xpReward=2000;
+        coriTypePool.addItem(EntityRegistry.WEAK_CORI.get(), 4);
+        coriTypePool.addItem(EntityRegistry.ADVANCED_CORI.get(), 1);
     }
 
     @Override
@@ -109,21 +114,15 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
         super.tick();
         this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
     }
-    
+
     @Override
     public void customServerAiStep() {
         super.customServerAiStep();
-        if (this.isAlive() && this.random.nextInt(1000) < this.ambientSoundTime++)
-        {
-            this.playAmbientSound();
-            if(!this.level().isClientSide()) {
-                BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
-                if (random.nextInt(10) == 1) {
-                    EntityRegistry.WEAK_CORI.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
-                }
-                if (random.nextInt(20) == 1) {
-                    EntityRegistry.ADVANCED_CORI.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
-                }
+        if (this.isAlive() && this.ambientSoundTime % (20 * (10 + random.nextInt(10))) == 0) {
+            BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
+            EntityType<? extends EntityDivineMonster> selectedCoriType = coriTypePool.selectRandomItem(new Random());
+            if (selectedCoriType != null) {
+                selectedCoriType.spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
             }
         }
     }

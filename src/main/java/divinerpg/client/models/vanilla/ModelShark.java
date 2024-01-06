@@ -29,7 +29,7 @@ public class ModelShark<T extends EntityShark> extends EntityModel<T> {
 
 		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create(), PartPose.offset(0.0F, 17.0F, 4.0F));
 
-		PartDefinition Head = Spine.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(34, 21).addBox(-5.0F, -0.5F, -8.8333F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F))
+		Spine.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(34, 21).addBox(-5.0F, -0.5F, -8.8333F, 10.0F, 2.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(0, 0).addBox(-5.0F, -6.5F, -15.8333F, 10.0F, 6.0F, 15.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 1.5F, -4.1667F));
 
 		partdefinition.addOrReplaceChild("Jaw", CubeListBuilder.create().texOffs(35, 0).addBox(-5.0F, -1.0F, -7.0F, 10.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 21F, -2F));

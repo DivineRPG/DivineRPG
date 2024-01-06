@@ -19,9 +19,12 @@ import divinerpg.client.renders.entity.vethea.RenderGalroid;
 import divinerpg.client.renders.tiles.RenderNightmareBed;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.arcana.*;
+import divinerpg.entities.base.*;
 import divinerpg.entities.boss.*;
 import divinerpg.entities.eden.*;
 import divinerpg.entities.iceika.*;
+import divinerpg.entities.iceika.groglin.*;
+import divinerpg.entities.iceika.gruzzorlug.*;
 import divinerpg.entities.mortum.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.entities.skythern.*;
@@ -141,7 +144,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityCyclops>>			 CYCLOPS 			 = registerEntity(EntityCyclops::new, 			"cyclops", 				1.2F, 4.0F, 0x352a1f, 0x877e47);
     public static final RegistryObject<EntityType<EntityKobblin>>			 KOBBLIN 			 = registerEntity(EntityKobblin::new, 			"kobblin", 				0.75F,1.0F, 0x79553a, 0x73b349);
     public static final RegistryObject<EntityType<EntityPumpkinSpider>>		 PUMPKIN_SPIDER 	 = registerEntity(EntityPumpkinSpider::new, 	"pumpkin_spider", 		1.4F,1.0F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityRainbour>>			 RAINBOUR 			 = registerEntity(EntityRainbour::new, 			"rainbour", 			    1.0F, 1.0F, 0x6c6e71, 0xf6f6f6, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityRainbour>>			 RAINBOUR 			 = registerEntity(EntityRainbour::new, 			"rainbour", 			    1.0F, 1.0F, 0xffffff, 0xffffff, MobCategory.CREATURE);
 
     //Jungle
     public static final RegistryObject<EntityType<EntityJungleBat>>			 JUNGLE_BAT 		 = registerEntity(EntityJungleBat::new, 		"jungle_bat", 			0.7F, 1.0F, 0x1f360b, 0x6d9856, MobCategory.AMBIENT);
@@ -165,7 +168,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityAequorea>>			 AEQUOREA 			 = registerEntity(EntityAequorea::new, 			"aequorea", 			    0.3F, 0.3125F, 0x79ab82, 0x7ae174, MobCategory.WATER_CREATURE);
     public static final RegistryObject<EntityType<EntityShark>>				 SHARK 				 = registerEntity(EntityShark::new, 			"shark", 				    1.0F, 0.75F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
     public static final RegistryObject<EntityType<EntityWhale>>				 WHALE 				 = registerEntity(EntityWhale::new, 			"whale", 				    3.0F, 1.875F, 0x638bb3, 0x273649, MobCategory.WATER_CREATURE);
-    public static final RegistryObject<EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		 = registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		    4.0F, 1.0f, 0x253a73, 0x6273a5, MobCategory.WATER_CREATURE);
+    public static final RegistryObject<EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		 = registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		    3.0F, 1.0f, 0x253a73, 0x6273a5, MobCategory.WATER_CREATURE);
 
     //Cave
     public static final RegistryObject<EntityType<EntityDiamondDave>>        DIAMOND_DAVE        = registerEntity(EntityDiamondDave::new, 	    "diamond_dave", 		    0.8F, 2F, 0xffffff, 0xffffff, MobCategory.CREATURE);
@@ -187,7 +190,6 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntitySmelter>>			 SMELTER 			 = registerEntity(EntitySmelter::new, 			"smelter", 				1.5F, 3.5F, MobCategory.CREATURE);
 
     //Nether
-    public static final RegistryObject<EntityType<EntityHellBat>>	         HELL_BAT 	         = registerEntity(EntityHellBat::new, 	        "hell_bat", 	            0.7F, 1.0F, 0x430c0c, 0x854343, MobCategory.AMBIENT);
     public static final RegistryObject<EntityType<EntityHellPig>>	         HELL_PIG 	         = registerEntity(EntityHellPig::new, 	        "hell_pig", 	            0.9F, 1.15625F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityHellSpider>>         HELL_SPIDER         = registerEntity(EntityHellSpider::new,        "hell_spider",            1.4F, 0.9F, 0xb01916, 0x720b07);
     public static final RegistryObject<EntityType<EntityWildfire>>	         WILDFIRE 	         = registerEntity(EntityWildfire::new, 	        "wildfire", 	            0.8F, 2.2F, 0xaa0b01, 0x9c6d11);
@@ -200,21 +202,41 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityEnderTriplets>>      ENDER_TRIPLETS      = registerEntity(EntityEnderTriplets::new,     "ender_triplets",         2.0F, 2.0F, 0x161616, 0xfc1b28);
 
     //Iceika
-    public static final RegistryObject<EntityType<EntityRobbin>>             ROBBIN              = registerEntity(EntityRobbin::new,            "robbin",                 0.3F, 0.5625F, 0xffffff, 0xffffff, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityWolpertinger>>       WOLPERTINGER        = registerEntity(EntityWolpertinger::new,      "wolpertinger",           0.6F, 0.875F, 0xffffff, 0xffffff, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityWorkshopMerchant>>   WORKSHOP_MERCHANT   = registerEntity(EntityWorkshopMerchant::new,  "workshop_merchant",      0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>   WORKSHOP_TINKERER   = registerEntity(EntityWorkshopTinkerer::new,  "workshop_tinkerer",      0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntityGroglin>>		     GROGLIN 		  	 = registerEntity(EntityGroglin::new, 		    "groglin",		        0.5F, 1.375F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityGruzzorlug>>	     GRUZZORLUG 		 = registerEntity(EntityGruzzorlug::new,        "gruzzorlug",             0.5F, 1.125F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityPaleArcher>>	     PALE_ARCHER 	  	 = registerEntity(EntityPaleArcher::new, 	    "pale_archer",	        0.6F, 1.9375F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityFrozenFlesh>>		 FROZEN_FLESH 		 = registerEntity(EntityFrozenFlesh::new, 	    "frozen_flesh",			0.65F, 1.75F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityRollum>>		     ROLLUM 			 = registerEntity(EntityRollum::new, 		    "rollum",			        1.2F, 2.0F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityAlicanto>>		     ALICANTO 		  	 = registerEntity(EntityAlicanto::new,          "alicanto",		        0.85F, 1.3F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntitySeng>>               SENG                = registerEntity(EntitySeng::new,              "seng",                   0.9F, 1.0F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntitySabear>>             SABEAR              = registerEntity(EntitySabear::new,            "sabear",                 1.3F, 1.4375F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityHastreus>>		     HASTREUS 		  	 = registerEntity(EntityHastreus::new, 		    "hastreus",		        1.4F, 1.625F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityGlacide>>		     GLACIDE 		  	 = registerEntity(EntityGlacide::new, 		    "glacide",			    1.4F, 2.0F, 0xffffff, 0xffffff);
-    public static final RegistryObject<EntityType<EntityFractite>>		     FRACTITE 		  	 = registerEntity(EntityFractite::new, 		    "fractite",		        1.7F, 3.0F, 0xeeffff, 0xe2ffff);
+    public static final RegistryObject<EntityType<EntityCauldronFish>>		CAULDRON_FISH		= registerEntity(EntityCauldronFish::new,		"cauldron_fish",		.5625F, .8125F, 0xffffff, 0xffffff, MobCategory.WATER_AMBIENT);
+    public static final RegistryObject<EntityType<EntityBlubbertusk>>		BLUBBERTUSK			= registerEntity(EntityBlubbertusk::new,		"blubbertusk",			.85F, .875F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
+    public static final RegistryObject<EntityType<EntityRobbin>>            ROBBIN              = registerEntity(EntityRobbin::new,            "robbin",                0.3F, 0.5625F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityWolpertinger>>      WOLPERTINGER        = registerEntity(EntityWolpertinger::new,      "wolpertinger",          0.6F, 0.875F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityDolossal>>			DOLOSSAL			= registerEntity(EntityDolossal::new,			"dolossal",				1.3F, 2F, 0x462630, 0x422742, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityMamoth>>			MAMOTH				= registerEntity(EntityMamoth::new,				"mamoth",				1.4F, 2F, 0x49302f, 0x87ffd3, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntitySnowSkipper>>		SNOW_SKIPPER		= registerEntity(EntitySnowSkipper::new,		"snow_skipper",			.5F, .5F, 0x3f3431, 0xcbf8f5, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityDivineWaterMob>>	PINK_GHOST_GLIDER	= registerEntity(EntityDivineWaterMob::new,		"pink_ghost_glider",	.5F, .5F, 0xbb94cf, 0xfafafa, MobCategory.WATER_AMBIENT);
+    public static final RegistryObject<EntityType<EntityWorkshopMerchant>>  WORKSHOP_MERCHANT   = registerEntity(EntityWorkshopMerchant::new,  "workshop_merchant",     0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityWorkshopTinkerer>>  WORKSHOP_TINKERER   = registerEntity(EntityWorkshopTinkerer::new,  "workshop_tinkerer",     0.9F, 1.8125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntityPaleArcher>>	    PALE_ARCHER 	  	= registerEntity(EntityPaleArcher::new, 	   "pale_archer",	        0.6F, 1.9375F, 0xffffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntityFrozenFlesh>>		FROZEN_FLESH 		= registerEntity(EntityFrozenFlesh::new, 	   "frozen_flesh",			0.65F, 1.75F, 0xffffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntityRollum>>		    ROLLUM 				= registerEntity(EntityRollum::new, 		   "rollum",				1.2F, 2.0F, 0xffffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntityAlicanto>>		    ALICANTO 		  	= registerEntity(EntityAlicanto::new,          "alicanto",		        0.85F, 1.3F, 0xffffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntitySeng>>              SENG                = registerEntity(EntitySeng::new,              "seng",                  0.9F, 1.0F, 0xffffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntitySabear>>            SABEAR              = registerEntity(EntitySabear::new,            "sabear",                1.3F, 1.4375F, 0xffffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntityHastreus>>		    HASTREUS 		  	= registerEntity(EntityHastreus::new, 		   "hastreus",		        1.4F, 1.625F, 0xffffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntityGlacide>>		    GLACIDE 		  	= registerEntity(EntityGlacide::new, 		   "glacide",			    1.4F, 2.0F, 0xffffff, 0xffffff);
+    public static final RegistryObject<EntityType<EntityFractite>>		    FRACTITE 		  	= registerEntity(EntityFractite::new, 		   "fractite",		        1.7F, 3.0F, 0xeeffff, 0xe2ffff);
+
+    //Groglin
+    public static final RegistryObject<EntityType<GroglinChieftain>>		GROGLIN_CHIEFTAIN	= registerEntity(GroglinChieftain::new,			"groglin_chieftain",	.5F, 1.375F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GroglinHunter>>		    GROGLIN_HUNTER	  	= registerEntity(GroglinHunter::new, 		    "groglin_hunter",		.5F, 1.375F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GroglinMerchant>>		    GROGLIN_MERCHANT	= registerEntity(GroglinMerchant::new, 		    "groglin_merchant",		.5F, 1.375F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GroglinRanger>>		    GROGLIN_RANGER	  	= registerEntity(GroglinRanger::new, 		    "groglin_ranger",		.5F, 1.375F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GroglinSharlatan>>		GROGLIN_SHARLATAN	= registerEntity(GroglinSharlatan::new, 		"groglin_sharlatan",	.5F, 1.375F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GroglinWarrior>>		    GROGLIN_WARRIOR	  	= registerEntity(GroglinWarrior::new, 		    "groglin_warrior",		.5F, 1.375F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+
+    //Gruzzorlug
+    public static final RegistryObject<EntityType<GruzzorlugCannoneer>>    	GRUZZORLUG_CANNONEER= registerEntity(GruzzorlugCannoneer::new,     	"gruzzorlug_cannoneer", .5F, 1.125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GruzzorlugCommander>>    	GRUZZORLUG_COMMANDER= registerEntity(GruzzorlugCommander::new,     	"gruzzorlug_commander", .5F, 1.125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GruzzorlugGeneral>>    	GRUZZORLUG_GENERAL	= registerEntity(GruzzorlugGeneral::new,     	"gruzzorlug_general",   .5F, 1.125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GruzzorlugKnight>>    	GRUZZORLUG_KNIGHT	= registerEntity(GruzzorlugKnight::new,     	"gruzzorlug_knight",   	.5F, 1.125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GruzzorlugMiner>>	     	GRUZZORLUG_MINER 	= registerEntity(GruzzorlugMiner::new,        	"gruzzorlug_miner",     .5F, 1.125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<GruzzorlugSwordsman>>    	GRUZZORLUG_SWORDSMAN= registerEntity(GruzzorlugSwordsman::new,     	"gruzzorlug_swordsman", .5F, 1.125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
 
     //Arcana
     public static final RegistryObject<EntityType<EntityCaptainMerik>>		 CAPTAIN_MERIK 		  = registerEntity(EntityCaptainMerik::new, 	  "captain_merik", 		  0.8F, 2.0F, 0xd8473f, 0x403331, MobCategory.CREATURE);
@@ -411,7 +433,6 @@ public class EntityRegistry {
         registerMobAttributes(event, SMELTER, EntityStats.SMELTER);
 
         //Nether
-        registerMobAttributes(event, HELL_BAT, EntityStats.HELL_BAT);
         registerMobAttributes(event, HELL_PIG, EntityStats.HELL_PIG);
         registerMobAttributes(event, HELL_SPIDER, EntityStats.HELL_SPIDER);
         registerMobAttributes(event, WILDFIRE, EntityStats.WILDFIRE);
@@ -424,12 +445,16 @@ public class EntityRegistry {
         registerMobAttributes(event, ENDER_TRIPLETS, EntityStats.ENDER_TRIPLETS);
 
         //Iceika
+        registerMobAttributes(event, BLUBBERTUSK, EntityStats.BLUBBERTUSK);
+        registerMobAttributes(event, CAULDRON_FISH, EntityStats.CAULDRON_FISH);
+        EntityDolossal.registerDolossalAttributes(event, DOLOSSAL);
+        registerMobAttributes(event, MAMOTH, EntityStats.MAMOTH);
+        registerMobAttributes(event, SNOW_SKIPPER, EntityStats.SNOW_SKIPPER);
+        registerMobAttributes(event, PINK_GHOST_GLIDER, EntityStats.GHOST_GLIDER);
         registerMobAttributes(event, ROBBIN, EntityStats.ROBBIN);
         registerMobAttributes(event, WOLPERTINGER, EntityStats.WOLPERTINGER);
         registerDefaultMobAttributes(event, WORKSHOP_MERCHANT);
         registerDefaultMobAttributes(event, WORKSHOP_TINKERER);
-        registerMobAttributes(event, GROGLIN, EntityStats.GROGLIN);
-        registerMobAttributes(event, GRUZZORLUG, EntityStats.GRUZZORLUG);
         registerMobAttributes(event, PALE_ARCHER, EntityStats.PALE_ARCHER);
         registerMobAttributes(event, FROZEN_FLESH, EntityStats.FROZEN_FLESH);
         registerMobAttributes(event, ROLLUM, EntityStats.ROLLUM);
@@ -439,6 +464,20 @@ public class EntityRegistry {
         registerMobAttributes(event, HASTREUS, EntityStats.HASTREUS);
         registerMobAttributes(event, GLACIDE, EntityStats.GLACIDE);
         registerMobAttributes(event, FRACTITE, EntityStats.FRACTITE);
+        //Groglin
+        registerMobAttributes(event, GROGLIN_CHIEFTAIN, EntityStats.GROGLIN_CHIEFTAIN);
+        registerMobAttributes(event, GROGLIN_HUNTER, EntityStats.GROGLIN);
+        registerMobAttributes(event, GROGLIN_MERCHANT, EntityStats.GROGLIN);
+        registerMobAttributes(event, GROGLIN_RANGER, EntityStats.GROGLIN_RANGER);
+        registerMobAttributes(event, GROGLIN_SHARLATAN, EntityStats.GROGLIN_SHARLATAN);
+        registerMobAttributes(event, GROGLIN_WARRIOR, EntityStats.GROGLIN_WARRIOR);
+        //Gruzzorlug
+        registerMobAttributes(event, GRUZZORLUG_CANNONEER, EntityStats.GRUZZORLUG);
+        registerMobAttributes(event, GRUZZORLUG_COMMANDER, EntityStats.GRUZZORLUG_COMMANDER);
+        registerMobAttributes(event, GRUZZORLUG_GENERAL, EntityStats.GRUZZORLUG_GENERAL);
+        registerMobAttributes(event, GRUZZORLUG_KNIGHT, EntityStats.GRUZZORLUG_KNIGHT);
+        registerMobAttributes(event, GRUZZORLUG_MINER, EntityStats.GRUZZORLUG);
+        registerMobAttributes(event, GRUZZORLUG_SWORDSMAN, EntityStats.GRUZZORLUG_SWORDSMAN);
 
         //Arcana
         registerDefaultMobAttributes(event, CAPTAIN_MERIK);
@@ -570,7 +609,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelDramix.LAYER_LOCATION, 			ModelDramix::createBodyLayer);
         event.registerLayerDefinition(ModelEternalArcher.LAYER_LOCATION, 	ModelEternalArcher::createBodyLayer);
         event.registerLayerDefinition(ModelExperiencedCori.LAYER_LOCATION,  ModelExperiencedCori::createBodyLayer);
-        event.registerLayerDefinition(ModelKitra.LAYER_LOCATION, 	ModelKitra::createBodyLayer);
+        event.registerLayerDefinition(ModelKitra.LAYER_LOCATION,			ModelKitra::createBodyLayer);
         event.registerLayerDefinition(ModelHiveQueen.LAYER_LOCATION, 		ModelHiveQueen::createBodyLayer);
         event.registerLayerDefinition(ModelKaros.LAYER_LOCATION, 			ModelKaros::createBodyLayer);
         event.registerLayerDefinition(ModelKarot.LAYER_LOCATION, 			ModelKarot::createBodyLayer);
@@ -633,6 +672,12 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelEnderScrounge.LAYER_LOCATION, ModelEnderScrounge::createBodyLayer);
 
         //Iceika
+        event.registerLayerDefinition(ModelBlubbertusk.LAYER_LOCATION, ModelBlubbertusk::createBodyLayer);
+        event.registerLayerDefinition(ModelCauldronFish.LAYER_LOCATION, ModelCauldronFish::createBodyLayer);
+        event.registerLayerDefinition(ModelDolossal.LAYER_LOCATION, ModelDolossal::createBodyLayer);
+        event.registerLayerDefinition(ModelMamoth.LAYER_LOCATION, ModelMamoth::createBodyLayer);
+        event.registerLayerDefinition(ModelSnowSkipper.LAYER_LOCATION, ModelSnowSkipper::createBodyLayer);
+        event.registerLayerDefinition(ModelGhostGlider.LAYER_LOCATION, ModelGhostGlider::createBodyLayer);
         event.registerLayerDefinition(ModelAlicanto.LAYER_LOCATION, ModelAlicanto::createBodyLayer);
         event.registerLayerDefinition(ModelFractite.LAYER_LOCATION, ModelFractite::createBodyLayer);
         event.registerLayerDefinition(ModelPaleArcher.LAYER_LOCATION, ModelPaleArcher::createBodyLayer);
@@ -857,9 +902,9 @@ public class EntityRegistry {
         event.registerEntityRenderer(LIOPLEURODON.get(),	 RenderLiopleurodon::new);
         event.registerEntityRenderer(LIVESTOCK_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "livestock_merchant", new ModelLivestockMerchant(context), 0.4F));
         event.registerEntityRenderer(MINER.get(),			 RenderMiner::new);
-        event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider<>(context), 0.0F));
-        event.registerEntityRenderer(RAINBOUR.get(),		 (Context context) -> new RenderDivineMob<>(context, "rainbour", new ModelRainbour(context), 0.4F));
-        event.registerEntityRenderer(ROTATICK.get(),		 (Context context) -> new RenderDivineMob<>(context, "rotatick", new ModelRotatick(context), 0.6F));
+        event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider<>(context), 0.5F));
+        event.registerEntityRenderer(RAINBOUR.get(),		 RenderRainbour::new);
+        event.registerEntityRenderer(ROTATICK.get(),		 RenderRotatick::new);
         event.registerEntityRenderer(SAGUARO_WORM.get(),	 (Context context) -> new RenderDivineMob<>(context, "saguaro_worm", new ModelSaguaroWorm(context), 0.3F));
         event.registerEntityRenderer(SHARK.get(),			 (Context context) -> new RenderDivineMob<>(context, "shark", new ModelShark<>(context), 0.8F));
         event.registerEntityRenderer(SMELTER.get(),			 (Context context) -> new RenderDivineMob<>(context, "smelter", new ModelStoneGolem<>(context)));
@@ -871,7 +916,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(WHITE_GRIZZLE.get(),	 (Context context) -> new RenderDivineMob<>(context, "white_grizzle", new ModelGrizzle<>(context)));
 
         //Nether
-        event.registerEntityRenderer(HELL_BAT.get(),	(Context context) -> new RenderDivineBat<>(context, "hell_bat", 0.5F, 1F));
         event.registerEntityRenderer(HELL_PIG.get(),	RenderHellPig::new);
         event.registerEntityRenderer(HELL_SPIDER.get(), (Context context) -> new RenderDivineMob<>(context, "hell_spider", new ModelHellSpider(context), 0.2F));
         event.registerEntityRenderer(SCORCHER.get(),	(Context context) -> new RenderDivineMob<>(context, "scorcher", new ModelScorcher(context), 0.72F, 1.5F));
@@ -884,21 +928,39 @@ public class EntityRegistry {
         event.registerEntityRenderer(ENDER_WATCHER.get(), (Context context) -> new RenderDivineMob<>(context, "ender_watcher", new ModelWatcher(context), 0.4F));
 
         //Iceika
-        event.registerEntityRenderer(ALICANTO.get(),		 (Context context) -> new RenderDivineMob<>(context, "alicanto",  new ModelAlicanto<>(context), 0.7F));
-        event.registerEntityRenderer(FRACTITE.get(),		 (Context context) -> new RenderDivineMob<>(context, "fractite",  new ModelFractite<>(context), 0.5F, 2F));
+        event.registerEntityRenderer(BLUBBERTUSK.get(),		(Context context) -> new RenderDivineMob<>(context, "blubbertusk", new ModelBlubbertusk(context), .7F));
+        event.registerEntityRenderer(CAULDRON_FISH.get(),	(Context context) -> new RenderDivineMob<>(context, "cauldron_fish", new ModelCauldronFish(context), .3F));
+        event.registerEntityRenderer(DOLOSSAL.get(),		(Context context) -> new RenderDivineMob<>(context, "dolossal", new ModelDolossal(context), .9F));
+        event.registerEntityRenderer(MAMOTH.get(),			(Context context) -> new RenderDivineMob<>(context, "mamoth", new ModelMamoth(context), .9F));
+        event.registerEntityRenderer(SNOW_SKIPPER.get(),	(Context context) -> new RenderDivineMob<>(context, "snow_skipper", new ModelSnowSkipper(context), .4F));
+        event.registerEntityRenderer(PINK_GHOST_GLIDER.get(),(Context context) -> new RenderDivineMob<>(context, "pink_ghost_glider", new ModelGhostGlider(context), .5F));
+        event.registerEntityRenderer(ALICANTO.get(),		 (Context context) -> new RenderDivineMob<>(context, "alicanto",  new ModelAlicanto(context), .7F));
+        event.registerEntityRenderer(FRACTITE.get(),		 (Context context) -> new RenderDivineMob<>(context, "fractite",  new ModelFractite(context), .5F, 2F));
         event.registerEntityRenderer(PALE_ARCHER.get(),	     RenderPaleArcher::new);
-        event.registerEntityRenderer(FROZEN_FLESH.get(),	 (Context context) -> new RenderDivineMob<>(context, "frozen_flesh",  new ModelFrozenFlesh<>(context), 0.5F));
-        event.registerEntityRenderer(GROGLIN.get(),			 RenderGroglin::new);
-        event.registerEntityRenderer(GRUZZORLUG.get(),		 RenderGruzzorlug::new);
-        event.registerEntityRenderer(GLACIDE.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacide",  new ModelGlacide<>(context)));
-        event.registerEntityRenderer(HASTREUS.get(),		 (Context context) -> new RenderDivineMob<>(context, "hastreus",  new ModelHastreus<>(context)));
-        event.registerEntityRenderer(ROLLUM.get(),			 (Context context) -> new RenderDivineMob<>(context, "rollum",  new ModelRollum<>(context), 0.8F));
-        event.registerEntityRenderer(WORKSHOP_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_merchant",  new ModelWorkshopMerchant<>(context), 0.6F));
-        event.registerEntityRenderer(WORKSHOP_TINKERER.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_tinkerer",  new ModelWorkshopTinkerer<>(context), 0.6F));
-        event.registerEntityRenderer(SENG.get(),             (Context context) -> new RenderDivineMob<>(context, "seng",  new ModelSeng<>(context), 0.65F));
-        event.registerEntityRenderer(SABEAR.get(),           (Context context) -> new RenderDivineMob<>(context, "sabear",  new ModelSabear<>(context), 0.8F));
-        event.registerEntityRenderer(WOLPERTINGER.get(),     (Context context) -> new RenderDivineMob<>(context, "wolpertinger",  new ModelWolpertinger<>(context), 0.6F));
-        event.registerEntityRenderer(ROBBIN.get(),           (Context context) -> new RenderDivineMob<>(context, "robbin",  new ModelRobbin<>(context), 0.2F));
+        event.registerEntityRenderer(FROZEN_FLESH.get(),	 (Context context) -> new RenderDivineMob<>(context, "frozen_flesh",  new ModelFrozenFlesh(context), .5F));
+        event.registerEntityRenderer(GLACIDE.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacide",  new ModelGlacide(context)));
+        event.registerEntityRenderer(HASTREUS.get(),		 (Context context) -> new RenderDivineMob<>(context, "hastreus",  new ModelHastreus(context)));
+        event.registerEntityRenderer(ROLLUM.get(),			 (Context context) -> new RenderDivineMob<>(context, "rollum",  new ModelRollum(context), .8F));
+        event.registerEntityRenderer(WORKSHOP_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_merchant",  new ModelWorkshopMerchant(context), .6F));
+        event.registerEntityRenderer(WORKSHOP_TINKERER.get(),(Context context) -> new RenderDivineMob<>(context, "workshop_tinkerer",  new ModelWorkshopTinkerer(context), .6F));
+        event.registerEntityRenderer(SENG.get(),             (Context context) -> new RenderDivineMob<>(context, "seng",  new ModelSeng(context), .65F));
+        event.registerEntityRenderer(SABEAR.get(),           (Context context) -> new RenderDivineMob<>(context, "sabear",  new ModelSabear(context), .8F));
+        event.registerEntityRenderer(WOLPERTINGER.get(),     (Context context) -> new RenderDivineMob<>(context, "wolpertinger",  new ModelWolpertinger(context), .6F));
+        event.registerEntityRenderer(ROBBIN.get(),           (Context context) -> new RenderDivineMob<>(context, "robbin",  new ModelRobbin(context), .2F));
+        //Groglin
+        event.registerEntityRenderer(GROGLIN_CHIEFTAIN.get(),RenderGroglin::new);
+        event.registerEntityRenderer(GROGLIN_HUNTER.get(),	RenderGroglin::new);
+        event.registerEntityRenderer(GROGLIN_MERCHANT.get(),RenderGroglin::new);
+        event.registerEntityRenderer(GROGLIN_RANGER.get(),	RenderGroglin::new);
+        event.registerEntityRenderer(GROGLIN_SHARLATAN.get(),RenderGroglin::new);
+        event.registerEntityRenderer(GROGLIN_WARRIOR.get(),	RenderGroglin::new);
+        //Gruzzorlug
+        event.registerEntityRenderer(GRUZZORLUG_CANNONEER.get(),RenderGruzzorlug::new);
+        event.registerEntityRenderer(GRUZZORLUG_COMMANDER.get(),RenderGruzzorlug::new);
+        event.registerEntityRenderer(GRUZZORLUG_GENERAL.get(),	RenderGruzzorlug::new);
+        event.registerEntityRenderer(GRUZZORLUG_KNIGHT.get(),	RenderGruzzorlug::new);
+        event.registerEntityRenderer(GRUZZORLUG_MINER.get(),	RenderGruzzorlug::new);
+        event.registerEntityRenderer(GRUZZORLUG_SWORDSMAN.get(),RenderGruzzorlug::new);
 
         //Eden
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);

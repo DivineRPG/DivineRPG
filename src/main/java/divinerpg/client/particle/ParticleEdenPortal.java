@@ -1,22 +1,19 @@
 package divinerpg.client.particle;
 
-
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.particle.*;
-import net.minecraftforge.api.distmarker.*;
-
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleEdenPortal extends TextureSheetParticle
 {
     SpriteSet animatedSprite;
-    private double portalPosX;
-    private double portalPosY;
-    private double portalPosZ;
-    private float portalParticleScale;
+    private final float portalParticleScale;
+    private final double portalPosX, portalPosY, portalPosZ;
+
     public ParticleEdenPortal(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
     {
         this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
@@ -28,7 +25,7 @@ public class ParticleEdenPortal extends TextureSheetParticle
         this.xd = 0;
         this.yd = 0;
         this.zd = 0;
-        this.quadSize *= 0.75F;
+        this.quadSize *= 0.8F;
         this.quadSize *= 0.9F;
         this.portalParticleScale = this.quadSize;
         this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
@@ -36,8 +33,7 @@ public class ParticleEdenPortal extends TextureSheetParticle
         this.portalPosX = this.x = xCoordIn;
         this.portalPosY = this.y = yCoordIn;
         this.portalPosZ = this.z = zCoordIn;
-        float f = (float)Math.random() * 0.4F + 0.6F;
-        this.gCol = 1.0F * f;
+        this.gCol = (float)Math.random() * 0.4F + 0.6F;
         this.rCol = 0.95F;
         this.bCol = 0.24F;
         this.animatedSprite = sprite;
@@ -63,7 +59,7 @@ public class ParticleEdenPortal extends TextureSheetParticle
 
     @Override
     public void render(VertexConsumer buffer, Camera renderInfo, float partialTicks) {
-        float var8 = (this.age + partialTicks) / this.lifetime * 3;
+        float var8 = (this.age + partialTicks) / this.lifetime * 2.0F;
         var8 = 1.0F - var8;
         var8 *= var8;
         var8 = 1.0F - var8;

@@ -37,6 +37,7 @@ public class DivineRPG {
         SoundRegistry.SOUNDS.register(bus);
         EnchantmentRegistry.ENCHANTS.register(bus);
         MobEffectRegistry.EFFECTS.register(bus);
+        PotionRegistry.POTIONS.register(bus);
         RecipeRegistry.Types.RECIPE_TYPES.register(bus);
         FeatureRegistry.FEATURES.register(bus);
         StructureRegistry.STRUCTURE_TYPE.register(bus);
@@ -65,6 +66,7 @@ public class DivineRPG {
         DivineRPGPacketHandler.init();
 
         event.enqueueWork(() -> {
+            RecipeRegistry.BrewingRecipes.init();
             LogStripper.setup(event);
             PlantPots.setup(event);
             Compostables.setup(event);

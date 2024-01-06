@@ -24,8 +24,124 @@
 			"probability": 0.002
 		}
 	},
-	"spawners": {},
-	"spawn_costs": {},
+	"spawners": {
+		"monster": [
+			{
+				"type": "divinerpg:pale_archer",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:rollum",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:hastreus",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:glacide",
+				"weight": 6,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "minecraft:stray",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:alicanto",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:frozen_flesh",
+				"weight": 10,
+				"minCount": 3,
+				"maxCount": 6
+			}
+		],
+		"creature": [
+			{
+				"type": "divinerpg:wolpertinger",
+				"weight": 7,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
+			},
+			{
+				"type": "minecraft:fox",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:blubbertusk",
+				"weight": 2,
+				"minCount": 2,
+				"maxCount": 4
+			}
+		],
+		"ambient": [
+			{
+				"type": "divinerpg:robbin",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"underground_water_creature": [
+			{
+				"type": "divinerpg:aequorea",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 3
+			}
+		],
+		"water_creature": [
+			{
+				"type": "divinerpg:cauldron_fish",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		],
+		"water_ambient": [
+			{
+				"type": "minecraft:cod",
+				"weight": 8,
+				"minCount": 1,
+				"maxCount": 5
+			}
+		]
+	},
+	"spawn_costs": {
+		"minecraft:cod": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"divinerpg:robbin": {
+			"energy_budget": 0.4,
+			"charge": 1
+		},
+		"divinerpg:aequorea": {
+			"energy_budget": 0.4,
+			"charge": 1
+		}
+	},
 	"carvers": {
 		"air": [
 			"minecraft:cave",

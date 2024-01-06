@@ -25,7 +25,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"weight": 25,
+					"weight": 50,
 					"name": "divinerpg:ice_shards",
 					"functions": [
 						{
@@ -39,7 +39,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 10,
+					"weight": 20,
 					"name": "divinerpg:peppermints",
 					"functions": [
 						{
@@ -50,7 +50,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 7,
+					"weight": 14,
 					"name": "divinerpg:snowflake",
 					"functions": [
 						{
@@ -61,7 +61,7 @@
 				},
 				{
 					"type": "minecraft:item",
-					"weight": 4,
+					"weight": 8,
 					"name": "divinerpg:ice_stone",
 					"functions": [
 						{
@@ -70,6 +70,50 @@
 								"min": 1,
 								"max": 3
 							}
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:enchanted_book",
+					"weight": 2,
+					"functions": [
+						{
+							"function": "minecraft:enchant_with_levels",
+							"levels": 25,
+							"treasure": true
+						},
+						{
+							"function": "minecraft:set_enchantments",
+							"enchantments": {
+								"divinerpg:brain_freeze": {
+									"min": 1,
+									"max": 3
+								}
+							},
+							"add": true
+						}
+					]
+				},
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:enchanted_book",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "minecraft:enchant_with_levels",
+							"levels": 25,
+							"treasure": true
+						},
+						{
+							"function": "minecraft:set_enchantments",
+							"enchantments": {
+								"divinerpg:insulation": {
+									"min": 1,
+									"max": 1
+								}
+							},
+							"add": true
 						}
 					]
 				}

@@ -3,12 +3,23 @@ package divinerpg.util;
 import com.google.gson.*;
 import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.DivineRPG;
+import divinerpg.world.placement.Surface;
+import divinerpg.world.placement.Surface.Mode;
+import divinerpg.world.placement.Surface.Surface_Type;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos.MutableBlockPos;
+import net.minecraft.nbt.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.*;
@@ -120,7 +131,6 @@ public class Utils {
             return result;
         });
     }
-
     public static boolean bordersTar(BlockGetter world, int x, int y, int z) {
         for (int i = x - 4; i <= x + 4; ++i) {
             for (int j = y; j <= y + 1; ++j) {
@@ -178,5 +188,44 @@ public class Utils {
     }
     public static BlockState getBlockState(String registryName) {
     	return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, registryName)).defaultBlockState();
+    }
+    public static CompoundTag getPlayerData(Player player) {
+        CompoundTag persistentData = player.getPersistentData();
+        CompoundTag entityData;
+        if(persistentData.contains(Player.PERSISTED_NBT_TAG)) entityData = persistentData.getCompound(Player.PERSISTED_NBT_TAG);
+        else {
+            entityData = new CompoundTag();
+            persistentData.put(Player.PERSISTED_NBT_TAG, entityData);
+        }
+        return entityData;
+    }
+    public static Tag setPlayerData(Player player, CompoundTag data) {
+    	return player.getPersistentData().put(Player.PERSISTED_NBT_TAG, data);
+    }
+    public static boolean isPotion(ItemStack stack, Potion potion) {
+    	return (stack.is(Items.POTION) || stack.is(Items.SPLASH_POTION) || stack.is(Items.LINGERING_POTION)) && PotionUtils.getPotion(stack) == potion;
+    }
+    public static BlockPos getNearbySpawnPos(ServerLevel level, RandomSource random, BlockPos position) {
+		int x = position.getX() + random.nextInt(16) - 8, z = position.getZ() + random.nextInt(16) - 8, y = Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, 64, 250, 1, level, random, x, z);
+		MutableBlockPos pos = new MutableBlockPos(x, y, z);
+		BlockState state;
+		while((state = level.getBlockState(pos)).is(BlockTags.LEAVES) || state.is(BlockTags.SNOW)) pos.move(Direction.DOWN);
+		pos.move(Direction.UP);
+		while(level.getBlockState(pos).is(BlockTags.SNOW)) pos.move(Direction.UP);
+		return pos;
+	}
+	public static BlockPos adjustHeight(ServerLevel level, MutableBlockPos pos) {
+		while(!level.getBlockState(pos).isAir()) pos.move(Direction.UP);
+		while(level.getBlockState(pos).isAir()) pos.move(Direction.DOWN);
+		return pos.move(Direction.UP);
+	}
+	public static float rotlerp(float rot, float g, float bound) {
+        float f = Mth.wrapDegrees(g - rot);
+        if(f > bound) f = bound;
+        if(f < -bound) f = -bound;
+        float f1 = rot + f;
+        if(f1 < 0F) f1 += 360F;
+        else if(f1 > 360F) f1 -= 360F;
+        return f1;
     }
 }

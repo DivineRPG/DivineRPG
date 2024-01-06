@@ -5,6 +5,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
+import divinerpg.registries.SoundRegistry;
 import divinerpg.util.Utils;
 import net.minecraft.client.*;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -12,6 +13,7 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.*;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -32,7 +34,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 		BONEYARD_LOCATION = new ResourceLocation(DivineRPG.MODID, "boneyard");
 	@Nullable private VertexBuffer skyBuffer, starBuffer;
 	private final float[] rainSizeX = new float[1024], rainSizeZ = new float[1024];
-	private boolean isRaining = false, isBoneyard = false;
+	private boolean isRaining = false, isBoneyard = false, isBlizzard = false;
 	private int lastTick;
 	public IceikaSky() {
 		super(256F, true, SkyType.NORMAL, false, false);
@@ -131,7 +133,10 @@ public class IceikaSky extends DimensionSpecialEffects {
                       bufferbuilder.vertex(k1 - camX - d0 + .5, j2 - camY, j1 - camZ - d1 + .5).uv(0F, k2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
                  } else if(precipitationType == 2 && lastTick != ticks && Minecraft.getInstance().options.particles().get() != ParticleStatus.MINIMAL && randomsource.nextBoolean()) {
                 	 double x = camX + Math.random() * 38D - 19D, y = camY + Math.random() * 16D - 8D, z = camZ + Math.random() * 32D - 16D;
-                	 if(level.canSeeSky(new BlockPos((int)x, (int)y, (int)z))) level.addParticle(ParticleTypes.SNOWFLAKE, true, x, y, z, .5, .1, 0);
+                	 if(level.canSeeSky(new BlockPos((int)x, (int)y, (int)z))) {
+                		 isBlizzard = true;
+                		 level.addParticle(ParticleTypes.SNOWFLAKE, true, x, y, z, .5, .1, 0);
+                	 }
                  }
                }
             }
@@ -161,6 +166,10 @@ public class IceikaSky extends DimensionSpecialEffects {
 
 	@Override
 	public boolean renderSky(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
+        if(isBlizzard && Utils.ICEIKA_WEATHER != 2 && level.canSeeSky(camera.getBlockPosition())) {
+       	 isBlizzard = false;
+       	 level.playLocalSound(camera.getBlockPosition(), SoundRegistry.SNOWFLAKES_AFTER_BLIZZARD.get(), SoundSource.MUSIC, .2F, 1F, false);
+        }
 		isRaining = level.isRaining();
 		isBoneyard = level.getBiome(camera.getBlockPosition()).is(BONEYARD_LOCATION);
 		setupFog.run();

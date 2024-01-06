@@ -42,6 +42,10 @@
 * TikenTVC - Portuguese translations
 * Zeedif - Spanish translations
 
+### Music
+* "Snowflakes after Blizzard" - Velocityraptor
+* "Iceika Music" - Wufflez
+
 ### Special Thanks to
 * BlueEyes9 - A few models/textures
 * BossLetsPlays - Sound artist, maintenance developer, and former server owner

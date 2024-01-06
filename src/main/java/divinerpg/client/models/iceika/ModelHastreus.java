@@ -10,7 +10,7 @@ import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelHastreus<T extends EntityHastreus> extends EntityModel<T> {
+public class ModelHastreus extends EntityModel<EntityHastreus> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("hastreus");
 	private final ModelPart Head, Jaw, Body, Tail, FrontRightLeg, BackRightLeg, FrontLeftLeg, BackLeftLeg;
 
@@ -79,7 +79,7 @@ public class ModelHastreus<T extends EntityHastreus> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityHastreus entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.Head.yRot = netHeadYaw / (180F / (float)Math.PI);
 		this.Head.xRot = headPitch / (180F / (float)Math.PI);
 
@@ -91,7 +91,7 @@ public class ModelHastreus<T extends EntityHastreus> extends EntityModel<T> {
 	}
 
 	@Override
-	public void prepareMobModel(T p_103621_, float p_103622_, float p_103623_, float p_103624_) {
+	public void prepareMobModel(EntityHastreus p_103621_, float p_103622_, float p_103623_, float p_103624_) {
 		super.prepareMobModel(p_103621_, p_103622_, p_103623_, p_103624_);
 		int l = p_103621_.getAttackTick();
 		if (l > 0) {

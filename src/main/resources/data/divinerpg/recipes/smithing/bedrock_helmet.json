@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "divinerpg:bedrock_chunk"
+  },
+  "base": [
+    {
+      "item": "divinerpg:inferno_helmet"
+    },
+    {
+      "item": "divinerpg:torridite_helmet"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:bedrock_helmet"
+  },
+  "template": {
+	"item": "divinerpg:bedrock_upgrade_template"
+  }
+}

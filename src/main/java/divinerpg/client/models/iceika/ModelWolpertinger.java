@@ -10,7 +10,7 @@ import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelWolpertinger<T extends EntityWolpertinger> extends EntityModel<T> {
+public class ModelWolpertinger extends EntityModel<EntityWolpertinger> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("wolpertinger");
 	private final ModelPart Head, Body, BackRightFoot, BackLeftFoot, LeftLeg, RightLeg;
 	private float jumpRotation;
@@ -57,7 +57,7 @@ public class ModelWolpertinger<T extends EntityWolpertinger> extends EntityModel
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityWolpertinger entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		float f = ageInTicks - (float)entity.tickCount;
 		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 		this.jumpRotation = Mth.sin(entity.getJumpCompletion(f) * (float)Math.PI);
@@ -67,7 +67,7 @@ public class ModelWolpertinger<T extends EntityWolpertinger> extends EntityModel
 		this.RightLeg.xRot = (this.jumpRotation * -40.0F - 11.0F) * ((float)Math.PI / 180F);
 	}
 
-	public void prepareMobModel(T entity, float p_103544_, float p_103545_, float age) {
+	public void prepareMobModel(EntityWolpertinger entity, float p_103544_, float p_103545_, float age) {
 		super.prepareMobModel(entity, p_103544_, p_103545_, age);
 		this.jumpRotation = Mth.sin(entity.getJumpCompletion(age) * (float)Math.PI);
 	}

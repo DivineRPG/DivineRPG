@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "divinerpg:bedrock_upgrade_template"
+  },
+  "pattern": [
+    "GGG",
+    "GTG",
+    "GHG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "divinerpg:bloodgem"
+    },
+    "T": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    },
+    "H": {
+      "item": "divinerpg:hellstone_ingot"
+    }
+  }
+}

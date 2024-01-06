@@ -13,7 +13,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.Locale;
 
 public class ParticleColouredType extends ParticleType<ParticleColouredType.ParticleColour> {
-    public static final Codec<ParticleColour> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+    @SuppressWarnings("unchecked")
+	public static final Codec<ParticleColour> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.STRING.fieldOf("particle_type").forGetter(data -> ForgeRegistries.PARTICLE_TYPES.getKey(data.particleType).toString()),
             Codec.INT.fieldOf("red0").forGetter(data -> data.red),
             Codec.INT.fieldOf("green0").forGetter(data -> data.green),
@@ -31,7 +32,8 @@ public class ParticleColouredType extends ParticleType<ParticleColouredType.Part
 
     public static class ParticleColour implements ParticleOptions {
 
-        public static final Deserializer<ParticleColour> DESERIALIZER = new Deserializer<ParticleColour>() {
+        @SuppressWarnings("deprecation")
+		public static final Deserializer<ParticleColour> DESERIALIZER = new Deserializer<ParticleColour>() {
             public ParticleColour fromCommand(ParticleType<ParticleColour> particleType, StringReader reader) throws CommandSyntaxException {
                 reader.expect(' ');
                 int red = reader.readInt();

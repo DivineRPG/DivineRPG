@@ -11,11 +11,6 @@
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:halite_blitz",
-          "weight": 1
-        },
-        {
-          "type": "item",
           "name": "divinerpg:halite_bow",
           "weight": 1
         }

@@ -1,6 +1,8 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+
+import divinerpg.entities.iceika.EntityRollum;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
@@ -10,7 +12,7 @@ import net.minecraft.world.entity.*;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelRollum<T extends LivingEntity> extends EntityModel<T> {
+public class ModelRollum extends EntityModel<EntityRollum> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("rollum");
 	private final ModelPart Head, Torso, RightArm, LeftArm, RightLeg, LeftLeg;
 
@@ -52,7 +54,7 @@ public class ModelRollum<T extends LivingEntity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityRollum entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.Head.yRot = netHeadYaw / (180F / (float)Math.PI);
 		this.Head.xRot = headPitch / (180F / (float)Math.PI);
 		this.RightArm.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
@@ -72,11 +74,11 @@ public class ModelRollum<T extends LivingEntity> extends EntityModel<T> {
 		return this.RightArm;
 	}
 
-	private HumanoidArm getAttackArm(T p_102857_) {
+	private HumanoidArm getAttackArm(EntityRollum p_102857_) {
 		return p_102857_.getMainArm();
 	}
 
-	protected void setupAttackAnimation(T p_102858_, float p_102859_) {
+	protected void setupAttackAnimation(EntityRollum p_102858_, float p_102859_) {
 		if (!(this.attackTime <= 0.0F)) {
 			HumanoidArm humanoidarm = this.getAttackArm(p_102858_);
 			ModelPart modelpart = this.getArm(humanoidarm);

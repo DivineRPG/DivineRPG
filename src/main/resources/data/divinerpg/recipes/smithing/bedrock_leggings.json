@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "divinerpg:bedrock_chunk"
+  },
+  "base": [
+    {
+      "item": "divinerpg:inferno_leggings"
+    },
+    {
+      "item": "divinerpg:torridite_leggings"
+    }
+  ],
+  "result": {
+    "item": "divinerpg:bedrock_leggings"
+  },
+  "template": {
+	"item": "divinerpg:bedrock_upgrade_template"
+  }
+}

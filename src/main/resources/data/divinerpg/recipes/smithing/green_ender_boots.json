@@ -9,5 +9,7 @@
   "result": {
     "item": "divinerpg:green_ender_boots"
   },
-  "template": []
+  "template": {
+	"item": "divinerpg:color_template"
+  }
 }

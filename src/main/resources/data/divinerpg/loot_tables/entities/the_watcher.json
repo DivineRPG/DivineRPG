@@ -2,12 +2,12 @@
   "pools": [
     {
       "name": "divinerpg:the_watcher",
+      "rolls": 1,
       "conditions": [
         {
           "condition": "killed_by_player"
         }
       ],
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
@@ -16,7 +16,7 @@
           "functions": [
             {
               "function": "set_count",
-              "count": 100
+              "count": 64
             }
           ]
         }
@@ -24,12 +24,37 @@
     },
     {
       "name": "divinerpg:the_watcher",
+      "rolls": 1,
       "conditions": [
         {
           "condition": "killed_by_player"
         }
       ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:torridite_ingot",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 36
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "divinerpg:the_watcher",
       "rolls": 1,
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
       "entries": [
         {
           "type": "item",
@@ -40,12 +65,12 @@
     },
     {
       "name": "divinerpg:the_watcher",
+      "rolls": 1,
       "conditions": [
         {
           "condition": "killed_by_player"
         }
       ],
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
@@ -65,12 +90,12 @@
     },
     {
       "name": "divinerpg:the_watcher_statue_drop",
+      "rolls": 1,
       "conditions": [
         {
           "condition": "killed_by_player"
         }
       ],
-      "rolls": 1,
       "entries": [
         {
           "type": "item",

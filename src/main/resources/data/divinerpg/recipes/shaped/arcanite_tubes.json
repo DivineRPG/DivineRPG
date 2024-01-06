@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:arcanite_tubes"
+    "item": "divinerpg:arcanite_tubes",
+    "count": 6
   },
   "pattern": [
     "i i",

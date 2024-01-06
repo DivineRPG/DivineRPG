@@ -1,22 +1,17 @@
 package divinerpg.client.particle;
 
-
-import net.minecraft.client.particle.*;
-import net.minecraftforge.api.distmarker.*;
-
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.client.particle.*;
+import net.minecraft.core.*;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleSparkler extends TextureSheetParticle
 {
     SpriteSet animatedSprite;
-//    private float sparkleParticleScale;
-//    private double portalPosX;
-//    private double portalPosY;
-//    private double portalPosZ;
+//    private final double portalPosX, portalPosY, portalPosZ;
+
     public ParticleSparkler(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, SpriteSet sprite)
     {
         this(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed, 1.0F, sprite);
@@ -25,19 +20,16 @@ public class ParticleSparkler extends TextureSheetParticle
     public ParticleSparkler(ClientLevel worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeed, double ySpeed, double zSpeed, float scale, SpriteSet sprite)
     {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeed, ySpeed, zSpeed);
-
         this.xd = xSpeed;
         this.yd = ySpeed;
         this.zd = zSpeed;
-        this.quadSize *= 0.75F;
+        this.quadSize *= 0.8F;
         this.quadSize *= 0.9F;
         this.lifetime = (int)(32.0D / (Math.random() * 0.8D + 0.2D));
         this.lifetime = (int)((float)this.lifetime * 0.5F);
 //        this.portalPosX = this.x = xCoordIn;
 //        this.portalPosY = this.y = yCoordIn;
 //        this.portalPosZ = this.z = zCoordIn;
-        this.random.nextFloat();
-//        this.sparkleParticleScale = this.quadSize = this.random.nextFloat() * 0.2F + 0.5F;
         this.bCol = (float) this.random.nextGaussian();
         this.gCol = (float) this.random.nextGaussian();
         this.rCol = (float) this.random.nextGaussian();
@@ -48,7 +40,7 @@ public class ParticleSparkler extends TextureSheetParticle
     @Override
     protected int getLightColor(float partialTick) {
         int var2 = super.getLightColor(partialTick);
-        float var3 = (float) this.age / (float) this.age;
+        float var3 = 1.0f;
         var3 *= var3;
         var3 *= var3;
         int var4 = var2 & 255;
@@ -62,6 +54,7 @@ public class ParticleSparkler extends TextureSheetParticle
         return var4 | var5 << 16;
     }
 
+    @Override
     public void tick() {
         this.xo = this.x;
         this.yo = this.y;
@@ -69,18 +62,18 @@ public class ParticleSparkler extends TextureSheetParticle
         if (this.lifetime-- <= 0) {
             this.remove();
         } else {
-            this.yd -= (double) this.gravity;
+            this.yd -= this.gravity;
             this.move(this.xd, this.yd, this.zd);
-            this.xd *= (double) 0.98F;
-            this.yd *= (double) 0.98F;
-            this.zd *= (double) 0.98F;
+            this.xd *= 0.8F;
+            this.yd *= 0.8F;
+            this.zd *= 0.8F;
             if (this.onGround) {
                 if (Math.random() < 0.5D) {
                     this.remove();
                 }
 
-                this.xd *= (double) 0.7F;
-                this.zd *= (double) 0.7F;
+                this.xd *= 0.7F;
+                this.zd *= 0.7F;
             }
 
             BlockPos blockpos = new BlockPos((int) this.x, (int) this.y, (int) this.z);

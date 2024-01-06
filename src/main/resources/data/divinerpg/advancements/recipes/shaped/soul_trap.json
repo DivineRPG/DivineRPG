@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_mortum_block": {
+    "has_soul_sludge_breakable": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:mortum_block"
+              "divinerpg:soul_sludge_breakable"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_mortum_block",
+      "has_soul_sludge_breakable",
       "has_the_recipe"
     ]
   ],

@@ -1,0 +1,24 @@
+{
+  "result": {
+    "item": "divinerpg:color_template",
+    "count": 2
+  },
+  "pattern": [
+    "DTD",
+    "DSD",
+    "DDD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "divinerpg:color_template"
+    },
+    "S": {
+      "item": "divinerpg:shadow_bar"
+    }
+  }
+}

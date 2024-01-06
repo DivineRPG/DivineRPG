@@ -1,13 +1,11 @@
 package divinerpg.entities.vanilla.overworld;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
@@ -26,12 +24,14 @@ public class EntityPumpkinSpider extends Spider {
 	protected void defineSynchedData() {
 		super.defineSynchedData();
 		this.entityData.define(PROVOKED, false);
+		setRot(0, 0);
+		setYBodyRot(0);
 	}
 	@Override
 	protected void registerGoals() {
-		super.registerGoals();
-		goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, true));
-		targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true));
+		goalSelector.addGoal(1, new FloatGoal(this));
+		goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
+		goalSelector.addGoal(4, new MeleeAttackGoal(this, 1, getProvoked()));
 	}
 	@Override
 	public double getMeleeAttackRangeSqr(LivingEntity entity) {
@@ -44,19 +44,13 @@ public class EntityPumpkinSpider extends Spider {
 			Player player = level().getNearestPlayer(this, 4D);
 			if(player != null && hasLineOfSight(player)) setProvoked(player);
 			else setProvoked(getTarget());
-			if(!getProvoked()) setDeltaMovement(0, -0.3, 0);
-			setNoAi(!entityData.get(PROVOKED));
 		}
-		if(!getProvoked()) xRotO = 0;
 	}
 	@Override
 	public boolean hurt(DamageSource source, float amount) {
 		Entity entity = source.getDirectEntity();
 		if(!(entity instanceof LivingEntity)) entity = source.getEntity();
-		if(entity instanceof LivingEntity) {
-			setProvoked((LivingEntity) entity);
-			setDeltaMovement(0, .6, 0);
-		}
+		if(entity instanceof LivingEntity && entity.distanceTo(this) <= 25D) setProvoked((LivingEntity) entity);
 		return super.hurt(source, amount);
 	}
 	@Nullable
@@ -67,12 +61,10 @@ public class EntityPumpkinSpider extends Spider {
 	public boolean getProvoked() {
 		return entityData.get(PROVOKED);
 	}
-	@Nullable
 	public void setProvoked(LivingEntity entity) {
-		if(entity == null || (!hasLineOfSight(entity) && entity.distanceTo(this) > 32F)) calmDown();
+		if(entity == null || (!hasLineOfSight(entity) && entity.distanceTo(this) > 25D || !entity.isAlive())) calmDown();
 		else {
-			if(entity instanceof Player) {
-				Player player = (Player) entity;
+			if(entity instanceof Player player) {
 				if(player.isCreative() || player.isSpectator()) {
 					calmDown();
 					return;
@@ -83,20 +75,21 @@ public class EntityPumpkinSpider extends Spider {
 		}
 	}
 	public void calmDown() {
-		entityData.set(PROVOKED, false);
+		getNavigation().setSpeedModifier(0);
+		setRot(0, 0);
+		setYBodyRot(0);
 		setTarget(null);
+		entityData.set(PROVOKED, false);
 	}
+	@Override
 	public void readAdditionalSaveData(CompoundTag tag) {
 		super.readAdditionalSaveData(tag);
 		entityData.set(PROVOKED, tag.getBoolean("Provoked"));
 	}
+	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
 		tag.putBoolean("Provoked", getProvoked());
-	}
-	@Override
-	public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
-		return 0F;
 	}
 	@Override
 	public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {

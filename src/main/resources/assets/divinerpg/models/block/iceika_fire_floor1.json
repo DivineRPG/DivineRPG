@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_fire_floor",
+  "render_type": "cutout",
+  "textures": {
+    "fire": "divinerpg:block/iceika_fire_1"
+  }
+}

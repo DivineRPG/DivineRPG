@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_shadow_stone": {
+    "has_shadow_bar": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:shadow_stone"
+              "divinerpg:shadow_bar"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_shadow_stone",
+      "has_shadow_bar",
       "has_the_recipe"
     ]
   ],

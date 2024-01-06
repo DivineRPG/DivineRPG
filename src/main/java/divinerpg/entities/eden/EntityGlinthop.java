@@ -55,10 +55,6 @@ public class EntityGlinthop extends EntityDivineTameable {
     	if(isTame()) entityData.set(TAMED_AND_ANGRY, e != null);
     }
 
-    public boolean isTamedAndAngry() {
-        return this.entityData.get(TAMED_AND_ANGRY);
-    }
-
     public boolean isSpecialAlt() {
         return this.entityData.get(SPECIAL);
     }
@@ -96,5 +92,16 @@ public class EntityGlinthop extends EntityDivineTameable {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.GLINTHOP_HURT.get();
+    }
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+    	super.addAdditionalSaveData(tag);
+    	boolean special = entityData.get(SPECIAL);
+    	if(special) tag.putBoolean("Special", true);
+    }
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+    	super.readAdditionalSaveData(tag);
+    	if(tag.contains("Special")) entityData.set(SPECIAL, tag.getBoolean("Special"));
     }
 }

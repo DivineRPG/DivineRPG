@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "divinerpg:alicanto",
+    "divinerpg:blubbertusk",
     "divinerpg:kitra",
     "divinerpg:fractite",
     "divinerpg:frost",
@@ -15,6 +16,7 @@
     "divinerpg:seng",
     "divinerpg:workshop_merchant",
     "divinerpg:workshop_tinkerer",
-    "divinerpg:wolpertinger"
+    "divinerpg:wolpertinger",
+    "divinerpg:dolossal"
   ]
 }

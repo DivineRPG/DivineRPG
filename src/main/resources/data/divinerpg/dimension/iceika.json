@@ -291,7 +291,7 @@
 						"erosion":			[ 0.625, 1 ],
 						"weirdness":		[ 0.375, 0.625 ],
 						"depth": 0.9,
-						"offset": 0
+						"offset": 0.2
 					}
 				},
 				{

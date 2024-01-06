@@ -53,7 +53,7 @@ public class VetheaTeleporter implements ITeleporter {
 	                searchPos.set(baseX + x, y, baseZ + z);
 	                BlockState searchState = destWorld.getBlockState(searchPos).getBlock().defaultBlockState();
 	                if(searchState == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal")).defaultBlockState()
-	                		|| searchState == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "nightmare_bed_block")).defaultBlockState()) {
+	                		|| searchState == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "nightmare_bed")).defaultBlockState()) {
 	                	return new PortalInfo(new Vec3(searchPos.getX() + (entity.getX() % 1), searchPos.getY() - (isBlockPortal(destWorld, searchPos.getX(), searchPos.getY() - 1, searchPos.getZ()) ? 1 : 0), searchPos.getZ() + (entity.getZ() % 1)), Vec3.ZERO, entity.getYRot(), entity.getXRot());
 	                }
 	            }

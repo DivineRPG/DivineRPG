@@ -30,7 +30,8 @@ public class RenderDivineMob<Type extends Mob> extends MobRenderer<Type, EntityM
 
     @Override
     protected void scale(Type type, PoseStack stack, float s) {
-        stack.scale(this.scale, this.scale, this.scale);
+    	if(type.isBaby()) stack.scale(this.scale / 3F, this.scale / 3F, this.scale / 3F);
+    	else stack.scale(this.scale, this.scale, this.scale);
     }
 
     @Override

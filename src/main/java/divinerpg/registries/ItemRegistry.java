@@ -19,6 +19,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -35,70 +36,70 @@ public class ItemRegistry {
 
     //Item tags
     public static final TagKey<Item> WARM_ARMOR = ItemTags.create(new ResourceLocation(DivineRPG.MODID, "warm_armor"));
-    
-    // Armor information
-    // Vanilla dimensions
-    private static ArmorInfo angelicInfo = new ArmorInfo(getArmorAbility("no_fall"), getArmorAbility("fly"));
-    private static ArmorInfo aquastriveInfo = new ArmorInfo(getArmorAbility("underwater"), getArmorAbility("swim"));
-    private static ArmorInfo arlemiteInfo = new ArmorInfo(getArmorAbility("ranged_protection", 66));
-    private static ArmorInfo bedrockInfo = new ArmorInfo(getArmorAbility("fire_protection"), getArmorAbility("explosion_protection"));
-    private static ArmorInfo corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 50));
-    private static ArmorInfo divineInfo = new ArmorInfo(getArmorAbility("melee_damage", 6),
-            getArmorAbility("jump_height", 2),
-            getArmorAbility("no_fall"));
-    private static ArmorInfo eliteRealmiteInfo = new ArmorInfo(getArmorAbility("no_fall"));
-    private static ArmorInfo enderInfo = new ArmorInfo(getArmorAbility("explosion_protection"));
-    private static ArmorInfo frozenInfo = new ArmorInfo(getArmorAbility("freeze", 6));
-    private static ArmorInfo infernoInfo = new ArmorInfo(getArmorAbility("fire_protection"));
-    private static ArmorInfo jackomanInfo = new ArmorInfo(getArmorAbility("scythe_damage", 3));
-    private static ArmorInfo jungleInfo = new ArmorInfo(getArmorAbility("poison_protection"));
-    private static ArmorInfo krakenInfo = new ArmorInfo(getArmorAbility("conduit_power"));
-    private static ArmorInfo torriditeInfo = new ArmorInfo(getArmorAbility("fire_protection"));
-    private static ArmorInfo rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 66));
-    private static ArmorInfo shadowInfo = new ArmorInfo(getArmorAbility("speed", 4), getArmorAbility("step_assist"));
-    private static ArmorInfo skelemanInfo = new ArmorInfo(getArmorAbility("hunger"));
-    private static ArmorInfo terranInfo = new ArmorInfo(getArmorAbility("haste"));
-    private static ArmorInfo witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection"));
-//    private static ArmorInfo kingInfo = new ArmorInfo(Component.translatable("Absorbs super-power from other sets"));
 
-    // Iceika
-    private static ArmorInfo sengFurInfo = new ArmorInfo(Component.translatable("tooltip.armor_info.massive_buff"),
+    private static final ArmorInfo
+    //Armor information
+    //Vanilla dimensions
+            angelicInfo = new ArmorInfo(getArmorAbility("no_fall"), getArmorAbility("fly")),
+            aquastriveInfo = new ArmorInfo(getArmorAbility("underwater")),
+            arlemiteInfo = new ArmorInfo(getArmorAbility("ranged_protection", 66)),
+            bedrockInfo = new ArmorInfo(getArmorAbility("fire_protection"), getArmorAbility("explosion_protection")),
+            corruptedInfo = new ArmorInfo(getArmorAbility("ranged_damage", 50)),
+            divineInfo = new ArmorInfo(getArmorAbility("melee_damage", 6),
+                                       getArmorAbility("jump_height", 2),
+                                       getArmorAbility("no_fall")),
+            eliteRealmiteInfo = new ArmorInfo(getArmorAbility("no_fall")),
+            enderInfo = new ArmorInfo(getArmorAbility("explosion_protection")),
+            frozenInfo = new ArmorInfo(getArmorAbility("freeze", 6)),
+            infernoInfo = new ArmorInfo(getArmorAbility("fire_protection")),
+            jackomanInfo = new ArmorInfo(getArmorAbility("scythe_damage", 3)),
+            jungleInfo = new ArmorInfo(getArmorAbility("poison_protection")),
+            krakenInfo = new ArmorInfo(getArmorAbility("conduit_power"), getArmorAbility("swim")),
+            torriditeInfo = new ArmorInfo(getArmorAbility("fire_protection")),
+            rupeeInfo = new ArmorInfo(getArmorAbility("melee_protection", 33)),
+            shadowInfo = new ArmorInfo(getArmorAbility("speed", 4), getArmorAbility("step_assist")),
+            skelemanInfo = new ArmorInfo(getArmorAbility("hunger")),
+            terranInfo = new ArmorInfo(getArmorAbility("haste")),
+            witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection")),
+            //kingInfo = new ArmorInfo(Component.translatable("Absorbs super-power from other sets")),
+
+    //Iceika
+            sengFurInfo = new ArmorInfo(Component.translatable("tooltip.armor_info.massive_buff"),
             getArmorAbility("speed", 2),
             getArmorAbility("melee_damage", 2),
             getArmorAbility("hunger"),
             getArmorAbility("melee_protection", 30))
-            .withDimension(Component.translatable("tooltip.armor_info.iceika"), x -> Objects.equals(x, LevelRegistry.ICEIKA));
-
-    // Twilight
-    private static ArmorInfo edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3));
-    private static ArmorInfo wildInfo = new ArmorInfo(getArmorAbility("water_health_regen"));
-    private static ArmorInfo apInfo = new ArmorInfo(getArmorAbility("block_protection"));
-    private static ArmorInfo skyInfo = new ArmorInfo(getArmorAbility("jump_height", 5), getArmorAbility("no_fall"));
-    private static ArmorInfo mortInfo = new ArmorInfo(getArmorAbility("night_vision"));
-    private static ArmorInfo halInfo = new ArmorInfo(getArmorAbility("melee_damage", 16));
-    private static ArmorInfo awakened_halInfo = new ArmorInfo(getArmorAbility("melee_damage", 20),
-            getArmorAbility("ranged_damage", 50));
-
-    // Arcana
-    private static ArmorInfo kormInfo = new ArmorInfo(getArmorAbility("arcana_regen"));
-    private static ArmorInfo vemInfo = new ArmorInfo(getArmorAbility("health_regen"));
-
-    // Vethea
-    private static ArmorInfo basicHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15));
-    private static ArmorInfo basicMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15));
-    private static ArmorInfo basicHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15));
-
-    private static ArmorInfo glisteningHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 3));
-    private static ArmorInfo glisteningMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1));
-    private static ArmorInfo glisteningHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 2), getArmorAbility("no_fall"));
+            .withDimension(Component.translatable("tooltip.armor_info.iceika"), x -> Objects.equals(x, LevelRegistry.ICEIKA)),
     
-    private static ArmorInfo demonizedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 6));
-    private static ArmorInfo demonizedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 2));
-    private static ArmorInfo demonizedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 3), getArmorAbility("no_fall"));
+    //Twilight
+            edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3)),
+            wildInfo = new ArmorInfo(getArmorAbility("water_health_regen")),
+            apInfo = new ArmorInfo(getArmorAbility("block_protection")),
+            skyInfo = new ArmorInfo(getArmorAbility("jump_height", 5), getArmorAbility("no_fall")),
+            mortInfo = new ArmorInfo(getArmorAbility("night_vision")),
+            halInfo = new ArmorInfo(getArmorAbility("melee_damage", 16)),
+            awakened_halInfo = new ArmorInfo(getArmorAbility("melee_damage", 20), getArmorAbility("ranged_damage", 50)),
+
+    //Arcana
+            kormInfo = new ArmorInfo(getArmorAbility("arcana_regen")),
+            vemInfo = new ArmorInfo(getArmorAbility("health_regen")),
+
+    //Vethea
+            basicHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15)),
+            basicMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15)),
+            basicHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15)),
+
+            glisteningHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 3)),
+            glisteningMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 1)),
+            glisteningHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 2), getArmorAbility("no_fall")),
     
-    private static ArmorInfo tormentedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 9));
-    private static ArmorInfo tormentedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 3));
-    private static ArmorInfo tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
+            demonizedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 6)),
+            demonizedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 2)),
+            demonizedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 3), getArmorAbility("no_fall")),
+    
+            tormentedHelmInfo = new ArmorInfo(getArmorAbility("melee_protection", 15), getArmorAbility("melee_damage", 9)),
+            tormentedMaskInfo = new ArmorInfo(getArmorAbility("ranged_protection", 15), getArmorAbility("speed", 3)),
+            tormentedHoodInfo = new ArmorInfo(getArmorAbility("arcana_protection", 15), getArmorAbility("jump_height", 4), getArmorAbility("no_fall"));
     
     public static final RegistryObject<Item>
     //Misc
@@ -134,32 +135,32 @@ public class ItemRegistry {
             shadow_bar = registerItem("shadow_bar"),
             shadow_stone = registerItem("shadow_stone"),
             shadow_coins = registerItem("shadow_coins"),
-            bedrock_chunk = registerItem("bedrock_chunk", () -> new ItemMod(new Item.Properties().fireResistant())),
+            bedrock_chunk = registerItem("bedrock_chunk", () -> new ItemMod(new Properties().fireResistant())),
 
             //Shards
             ice_shards = registerItem("ice_shards"),
             terran_shards = registerItem("terran_shards"),
             jungle_shards = registerItem("jungle_shards"),
-            molten_shards = registerItem("molten_shards", () -> new ItemMod(new Item.Properties().fireResistant())),
-            ender_shards = registerItem("ender_shards"),
+            molten_shards = registerItem("molten_shards", () -> new ItemMod(new Properties().fireResistant())),
             corrupted_shards = registerItem("corrupted_shards"),
+            ender_shards = registerItem("ender_shards"),
             divine_shards = registerItem("divine_shards"),
 
             //Stones
             ice_stone = registerItem("ice_stone"),
             terran_stone = registerItem("terran_stone"),
             jungle_stone = registerItem("jungle_stone"),
-            molten_stone = registerItem("molten_stone", () -> new ItemMod(new Item.Properties().fireResistant())),
-            ender_stone = registerItem("ender_stone"),
+            molten_stone = registerItem("molten_stone", () -> new ItemMod(new Properties().fireResistant())),
             corrupted_stone = registerItem("corrupted_stone"),
+            ender_stone = registerItem("ender_stone"),
             divine_stone = registerItem("divine_stone"),
 
             //Nether
             bloodgem = registerItem("bloodgem"),
             raw_torridite = registerItem("raw_torridite"),
-            torridite_nugget = registerItem("torridite_nugget", () -> new ItemMod(new Item.Properties().fireResistant())),
-            torridite_ingot = registerItem("torridite_ingot", () -> new ItemMod(new Item.Properties().fireResistant())),
-            torridite_chunk = registerItem("torridite_chunk", () -> new ItemMod(new Item.Properties().fireResistant())),
+            torridite_nugget = registerItem("torridite_nugget", () -> new ItemMod(new Properties().fireResistant())),
+            torridite_ingot = registerItem("torridite_ingot", () -> new ItemMod(new Properties().fireResistant())),
+            torridite_chunk = registerItem("torridite_chunk", () -> new ItemMod(new Properties().fireResistant())),
             hellstone_ingot = registerItem("hellstone_ingot"),
             purple_blaze = registerItem("purple_blaze"),
             fury_fire = registerItem("fury_fire"),
@@ -179,6 +180,11 @@ public class ItemRegistry {
             watching_eye = registerItem("watching_eye"),
             legendary_ender_eye = registerItem("legendary_ender_eye"),
 
+            //Smithing Templates
+            bedrock_upgrade_template = registerItem("bedrock_upgrade_template", () -> ItemSmithingTemplate.createBedrockUpgrade()),
+            aquatic_coating_template = registerItem("aquatic_coating_template", () -> ItemSmithingTemplate.createAquaticCoating()),
+            color_template = registerItem("color_template", () -> ItemSmithingTemplate.createColorTemplate()),
+
             //Some Extra Stuff
             mysterious_clock = registerItem("mysterious_clock", () -> new ItemBossSpawner("message.ancient_entity", Level.OVERWORLD, () -> EntityRegistry.ANCIENT_ENTITY.get())),
             call_of_the_watcher = registerItem("call_of_the_watcher", () -> new ItemBossSpawner("message.watcher", Level.NETHER, () -> EntityRegistry.THE_WATCHER.get())),
@@ -186,6 +192,8 @@ public class ItemRegistry {
             horde_horn = registerItem("horde_horn", () -> new ItemHordeHorn()),
             snow_globe = registerItem("snow_globe", () -> new ItemSnowGlobe()),
             twilight_clock = registerItem("twilight_clock", () -> new ItemTwilightClock()),
+            heat_pack = registerItem("heat_pack", () -> new ItemHeatPack()),
+            glacial_wall_totem = registerItem("glacial_wall_totem", () -> new ItemMod(new Properties().stacksTo(1))),
             teleportation_crystal = registerItem("teleportation_crystal", () -> new ItemTeleportationCrystal()),
             teleportation_star = registerItem("teleportation_star", () -> new ItemTeleportationStar()),
 
@@ -259,8 +267,9 @@ public class ItemRegistry {
             hot_pumpkin_pie = registerItem("hot_pumpkin_pie", () -> new ItemModFood(FoodList.HOT_PUMPKIN_PIE)),
             tomato = registerItem("tomato", () -> new ItemTomato()),
             white_mushroom = registerItem("white_mushroom", () -> new ItemModFood(FoodList.WHITE_MUSHROOM)),
-            advanced_mushroom_stew = registerItem("advanced_mushroom_stew", () -> new BowlFoodItem(new Item.Properties().food(FoodList.ADVANCED_MUSHROOM_STEW).stacksTo(1))),
-            chicken_dinner = registerItem("chicken_dinner", () -> new BowlFoodItem(new Item.Properties().food(FoodList.CHICKEN_DINNER).stacksTo(1))),
+            advanced_mushroom_stew = registerItem("advanced_mushroom_stew", () -> new BowlFoodItem(new Properties().food(FoodList.ADVANCED_MUSHROOM_STEW).stacksTo(1))),
+            chicken_dinner = registerItem("chicken_dinner", () -> new BowlFoodItem(new Properties().food(FoodList.CHICKEN_DINNER).stacksTo(1))),
+            cauldron_flesh = registerItem("cauldron_flesh", () -> new ItemModFood(FoodList.CAULDRON_FLESH)),
             raw_seng_meat = registerItem("raw_seng_meat", () -> new ItemModFood(FoodList.RAW_SENG_MEAT)),
             seng_steak = registerItem("seng_steak", () -> new ItemModFood(FoodList.COOKED_SENG_STEAK)),
             raw_wolpertinger_meat = registerItem("raw_wolpertinger_meat", () -> new ItemModFood(FoodList.RAW_WOLPERTINGER_MEAT)),
@@ -282,30 +291,30 @@ public class ItemRegistry {
             pink_glowbone = registerItem("pink_glowbone", () -> new ItemModFood(FoodList.PINK_GLOWBONE, true)),
             purple_glowbone = registerItem("purple_glowbone", () -> new ItemModFood(FoodList.PURPLE_GLOWBONE, true)),
             sky_flower = registerItem("sky_flower", () -> new ItemSkyFlower()),
-            dream_cake = registerItem("dream_cake", () -> new ItemModFood(FoodList.DREAM_CAKE)),
+            honeysuckle = registerItem("honeysuckle", () -> new ItemModFood(FoodList.HONEYSUCKLE)),
+            honeychunk = registerItem("honeychunk", () -> new ItemModFood(FoodList.HONEYCHUNK)),
             dream_carrot = registerItem("dream_carrot", () -> new ItemModFood(FoodList.DREAM_CARROT)),
             dream_melon = registerItem("dream_melon", () -> new ItemModFood(FoodList.DREAM_MELON)),
             dream_pie = registerItem("dream_pie", () -> new ItemModFood(FoodList.DREAM_PIE)),
+            dream_cake = registerItem("dream_cake", () -> new ItemModFood(FoodList.DREAM_CAKE)),
             dream_sweets = registerItem("dream_sweets", () -> new ItemHealingFood(FoodList.DREAM_SWEETS)),
             dream_sours = registerItem("dream_sours", () -> new ItemHealingFood(FoodList.DREAM_SOURS)),
-            honeychunk = registerItem("honeychunk", () -> new ItemModFood(FoodList.HONEYCHUNK)),
-            honeysuckle = registerItem("honeysuckle", () -> new ItemModFood(FoodList.HONEYSUCKLE)),
 
             //Seeds
-            tomato_seeds = registerItem("tomato_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "tomato_plant")), new Item.Properties())),
-            white_mushroom_seeds = registerItem("white_mushroom_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "white_mushroom_plant")), new Item.Properties())),
-            aquamarine_seeds = registerItem("aquamarine_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "aquamarine_plant")), new Item.Properties())),
-            eucalyptus_root_seeds = registerItem("eucalyptus_root_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eucalyptus_plant")), new Item.Properties())),
-            firestock_seeds = registerItem("firestock_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "firestock_plant")), new Item.Properties())),
-            hitchak_seeds = registerItem("hitchak_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "hitchak_plant")), new Item.Properties())),
-            lamona_seeds = registerItem("lamona_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lamona_plant")), new Item.Properties())),
-            marsine_seeds = registerItem("marsine_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "marsine_plant")), new Item.Properties())),
-            pinfly_seeds = registerItem("pinfly_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "pinfly_plant")), new Item.Properties())),
-            veilo_seeds = registerItem("veilo_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "veilo_plant")), new Item.Properties())),
-            moonbulb_seeds = registerItem("moonbulb_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "moonbulb_plant")), new Item.Properties())),
-            pink_glowbone_seeds = registerItem("pink_glowbone_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "pink_glowbone_plant")), new Item.Properties())),
-            purple_glowbone_seeds = registerItem("purple_glowbone_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "purple_glowbone_plant")), new Item.Properties())),
-            sky_plant_seeds = registerItem("sky_plant_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sky_plant")), new Item.Properties())),
+            tomato_seeds = registerItem("tomato_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "tomato_plant")), new Properties())),
+            white_mushroom_seeds = registerItem("white_mushroom_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "white_mushroom_plant")), new Properties())),
+            aquamarine_seeds = registerItem("aquamarine_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "aquamarine_plant")), new Properties())),
+            eucalyptus_root_seeds = registerItem("eucalyptus_root_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eucalyptus_plant")), new Properties())),
+            firestock_seeds = registerItem("firestock_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "firestock_plant")), new Properties())),
+            hitchak_seeds = registerItem("hitchak_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "hitchak_plant")), new Properties())),
+            lamona_seeds = registerItem("lamona_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lamona_plant")), new Properties())),
+            marsine_seeds = registerItem("marsine_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "marsine_plant")), new Properties())),
+            pinfly_seeds = registerItem("pinfly_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "pinfly_plant")), new Properties())),
+            veilo_seeds = registerItem("veilo_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "veilo_plant")), new Properties())),
+            moonbulb_seeds = registerItem("moonbulb_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "moonbulb_plant")), new Properties())),
+            pink_glowbone_seeds = registerItem("pink_glowbone_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "pink_glowbone_plant")), new Properties())),
+            purple_glowbone_seeds = registerItem("purple_glowbone_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "purple_glowbone_plant")), new Properties())),
+            sky_plant_seeds = registerItem("sky_plant_seeds", () -> new ItemNameBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sky_plant")), new Properties())),
 
             //Vethea
             acid = registerItemVethean("acid"),
@@ -342,17 +351,17 @@ public class ItemRegistry {
             band_of_heiva_hunting = registerItemVethean("band_of_heiva_hunting"),
 
             //Pets
-            snapper_egg = registerItem("snapper_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.SNAPPER.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            ehu_egg = registerItem("ehu_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.EHU.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            husk_egg = registerItem("husk_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.HUSK.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            brown_grizzle_egg = registerItem("brown_grizzle_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.BROWN_GRIZZLE.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            white_grizzle_egg = registerItem("white_grizzle_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.WHITE_GRIZZLE.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            stone_golem_egg = registerItem("stone_golem_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.STONE_GOLEM.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            smelter_egg = registerItem("smelter_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.SMELTER.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            fyracryx_egg = registerItem("fyracryx_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.FYRACRYX.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            golem_of_rejuvenation_egg = registerItem("golem_of_rejuvenation_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.GOLEM_OF_REJUVENATION.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            paratiku_egg = registerItem("paratiku_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.PARATIKU.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
-            seimer_egg = registerItem("seimer_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.SEIMER.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties())),
+            snapper_egg = registerItem("snapper_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.SNAPPER.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            ehu_egg = registerItem("ehu_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.EHU.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            husk_egg = registerItem("husk_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.HUSK.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            brown_grizzle_egg = registerItem("brown_grizzle_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.BROWN_GRIZZLE.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            white_grizzle_egg = registerItem("white_grizzle_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.WHITE_GRIZZLE.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            stone_golem_egg = registerItem("stone_golem_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.STONE_GOLEM.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            smelter_egg = registerItem("smelter_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.SMELTER.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            fyracryx_egg = registerItem("fyracryx_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.FYRACRYX.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            golem_of_rejuvenation_egg = registerItem("golem_of_rejuvenation_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.GOLEM_OF_REJUVENATION.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            paratiku_egg = registerItem("paratiku_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.PARATIKU.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
+            seimer_egg = registerItem("seimer_spawn_egg", () -> new ForgeSpawnEggItem(() -> EntityRegistry.SEIMER.get(), 0xFFFFFF, 0xFFFFFF, new Properties())),
 
 
     //Tools, Weapons & Armor
@@ -373,13 +382,12 @@ public class ItemRegistry {
             realmite_sword = registerItem("realmite_sword", () -> new ItemModSword(ToolStats.REALMITE_SWORD)),
             arlemite_stabber = registerItem("arlemite_stabber", () -> new ItemModSword(ToolStats.ARLEMITE_STABBER)),
             rupee_rapier = registerItem("rupee_rapier", () -> new ItemModSword(ToolStats.RUPEE_RAPIER)),
-            bedrock_sword = registerItem("bedrock_sword", () -> new ItemModSword(ToolStats.BEDROCK_SWORD, new Item.Properties().fireResistant())),
-            bedrock_maul = registerItem("bedrock_maul", () -> new ItemModSword(ToolStats.BEDROCK_MAUL, new Item.Properties().fireResistant())),
+            bedrock_sword = registerItem("bedrock_sword", () -> new ItemModSword(ToolStats.BEDROCK_SWORD, new Properties().fireResistant())),
+            bedrock_maul = registerItem("bedrock_maul", () -> new ItemModSword(ToolStats.BEDROCK_MAUL, new Properties().fireResistant())),
             frozen_maul = registerItem("frozen_maul", () -> new ItemSlowingSword(ToolStats.FROZEN_MAUL)),
             fury_maul = registerItem("fury_maul", () -> new ItemModSword(ToolStats.FURY_MAUL)),
-            frost_sword = registerItem("frost_sword", () -> new ItemSlowingSword(ToolStats.FROST_SWORD)),
-            frostking_sword = registerItem("frostking_sword", () -> new ItemSlowingSword(ToolStats.FROSTKING_SWORD)),
-            icicle_bane = registerItem("icicle_bane", () -> new ItemSlowingSword(ToolStats.ICICLE_BANE)),
+            death_bringer = registerItem("death_bringer", () -> new ItemModSword(ToolStats.DEATH_BRINGER)),
+            corrupted_maul = registerItem("corrupted_maul", () -> new ItemModSword(ToolStats.CORRUPTED_MAUL)),
             terran_dagger = registerItem("terran_dagger", () -> new ItemModSword(ToolStats.TERRAN_DAGGER)),
             terran_knife = registerItem("terran_knife", () -> new ItemModSword(ToolStats.TERRAN_KNIFE)),
             terran_maul = registerItem("terran_maul", () -> new ItemModSword(ToolStats.TERRAN_MAUL)),
@@ -393,6 +401,11 @@ public class ItemRegistry {
             inferno_sword = registerItem("inferno_sword", () -> new ItemBurningSword(ToolStats.INFERNO_SWORD, 12)),
             flaming_fury = registerItem("flaming_fury", () -> new ItemBurningSword(ToolStats.FLAMING_FURY, 15)),
             sabear_sabre = registerItem("sabear_sabre", () -> new ItemModSword(ToolStats.SABEAR_SABRE)),
+            frost_sword = registerItem("frost_sword", () -> new ItemSlowingSword(ToolStats.FROST_SWORD)),
+            frostking_sword = registerItem("frostking_sword", () -> new ItemModSword(ToolStats.FROSTKING_SWORD)),
+            icicle_bane = registerItem("icicle_bane", () -> new ItemSlowingSword(ToolStats.ICICLE_BANE)),
+            glacial_blade = registerItem("glacial_blade", () -> new ItemGlacialBlade()),
+            icicle_dagger = registerItem("icicle_dagger", () -> new ItemModSword(ToolStats.ICICLE_DAGGER)),
             ender_sword = registerItem("ender_sword", () -> new ItemModSword(RarityList.ENDER, ToolStats.ENDER_SWORD)),
             red_ender_sword = registerItem("red_ender_sword", () -> new ItemModSword(RarityList.RED, ToolStats.ENDER_SWORD)),
             yellow_ender_sword = registerItem("yellow_ender_sword", () -> new ItemModSword(RarityList.YELLOW, ToolStats.ENDER_SWORD)),
@@ -400,8 +413,6 @@ public class ItemRegistry {
             blue_ender_sword = registerItem("blue_ender_sword", () -> new ItemModSword(RarityList.BLUE, ToolStats.ENDER_SWORD)),
             black_ender_sword = registerItem("black_ender_sword", () -> new ItemModSword(RarityList.DARK, ToolStats.ENDER_SWORD)),
             enderice = registerItem("enderice", () -> new ItemSlowingSword(ToolStats.ENDERICE)),
-            death_bringer = registerItem("death_bringer", () -> new ItemModSword(ToolStats.DEATH_BRINGER)),
-            corrupted_maul = registerItem("corrupted_maul", () -> new ItemModSword(ToolStats.CORRUPTED_MAUL)),
             divine_sword = registerItem("divine_sword", () -> new ItemModSword(RarityList.DIVINE, ToolStats.DIVINE_SWORD)),
             red_divine_sword = registerItem("red_divine_sword", () -> new ItemModSword(RarityList.RED, ToolStats.DIVINE_SWORD)),
             yellow_divine_sword = registerItem("yellow_divine_sword", () -> new ItemModSword(RarityList.YELLOW, ToolStats.DIVINE_SWORD)),
@@ -412,10 +423,10 @@ public class ItemRegistry {
             sandslash = registerItem("sandslash", () -> new ItemModSword(ToolStats.SANDSLASH)),
             snowslash = registerItem("snowslash", () -> new ItemSlowingSword(ToolStats.SNOWSLASH)),
             storm_sword = registerItem("storm_sword", () -> new ItemStormSword(ToolStats.STORM_SWORD)),
-            arcanium_saber = registerItem("arcanium_saber", () -> new ItemArcanaPoweredSword(ToolStats.ARCANIUM_SABER, 25, 5.0F)),
             shadow_saber = registerItem("shadow_saber", () -> new ItemShadowSaber(ToolStats.SHADOW_SABER)),
-            livicia_sword = registerItem("livicia_sword", () -> new ItemModSword(ToolStats.LIVICIA_SWORD)),
+            arcanium_saber = registerItem("arcanium_saber", () -> new ItemArcanaPoweredSword(ToolStats.ARCANIUM_SABER, 25, 5.0F)),
             arcanite_blade = registerItem("arcanite_blade", () -> new ItemArcanaPoweredSword(ToolStats.ARCANITE_BLADE, 30, 6.0F)),
+            livicia_sword = registerItem("livicia_sword", () -> new ItemModSword(ToolStats.LIVICIA_SWORD)),
             eden_blade = registerItem("eden_blade", () -> new ItemModSword(RarityList.EDEN, ToolStats.EDEN_BLADE)),
             wildwood_blade = registerItem("wildwood_blade", () -> new ItemModSword(RarityList.WILDWOOD, ToolStats.WILDWOOD_BLADE)),
             apalachia_blade = registerItem("apalachia_blade", () -> new ItemModSword(RarityList.APALACHIA, ToolStats.APALACHIA_BLADE)),
@@ -429,14 +440,14 @@ public class ItemRegistry {
             frossivence = registerItem("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1F)),
 
             //Shields
-            realmite_shield = registerItem("realmite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "realmite_ingot"), 1200, "realmite_shield")),
-            arlemite_shield = registerItem("arlemite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "arlemite_ingot"), 1200, "arlemite_shield")),
-            rupee_shield = registerItem("rupee_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "rupee_ingot"), 1200, "rupee_shield")),
-            eden_shield = registerItem("eden_shield", () -> new DivineShield(RarityList.EDEN, new ResourceLocation(DivineRPG.MODID, "eden_chunk"), 1200, "eden_shield")),
-            wildwood_shield = registerItem("wildwood_shield", () -> new DivineShield(RarityList.WILDWOOD, new ResourceLocation(DivineRPG.MODID, "wildwood_chunk"), 2400, "wildwood_shield")),
-            apalachia_shield = registerItem("apalachia_shield", () -> new DivineShield(RarityList.APALACHIA, new ResourceLocation(DivineRPG.MODID, "apalachia_chunk"), 4800, "apalachia_shield")),
-            skythern_shield = registerItem("skythern_shield", () -> new DivineShield(RarityList.SKYTHERN, new ResourceLocation(DivineRPG.MODID, "skythern_chunk"), 9600, "skythern_shield")),
-            mortum_shield = registerItem("mortum_shield", () -> new DivineShield(RarityList.MORTUM, new ResourceLocation(DivineRPG.MODID, "mortum_chunk"), 19200, "mortum_shield")),
+            realmite_shield = registerItem("realmite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "realmite_ingot"), 426, "realmite_shield")),
+            arlemite_shield = registerItem("arlemite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "arlemite_ingot"), 734, "arlemite_shield")),
+            rupee_shield = registerItem("rupee_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "rupee_ingot"), 823, "rupee_shield")),
+            eden_shield = registerItem("eden_shield", () -> new DivineShield(RarityList.EDEN, new ResourceLocation(DivineRPG.MODID, "eden_gem"), 978, "eden_shield")),
+            wildwood_shield = registerItem("wildwood_shield", () -> new DivineShield(RarityList.WILDWOOD, new ResourceLocation(DivineRPG.MODID, "wildwood_gem"), 1125, "wildwood_shield")),
+            apalachia_shield = registerItem("apalachia_shield", () -> new DivineShield(RarityList.APALACHIA, new ResourceLocation(DivineRPG.MODID, "apalachia_gem"), 1256, "apalachia_shield")),
+            skythern_shield = registerItem("skythern_shield", () -> new DivineShield(RarityList.SKYTHERN, new ResourceLocation(DivineRPG.MODID, "skythern_gem"), 1485, "skythern_shield")),
+            mortum_shield = registerItem("mortum_shield", () -> new DivineShield(RarityList.MORTUM, new ResourceLocation(DivineRPG.MODID, "mortum_gem"), 1627, "mortum_shield")),
             halite_shield = registerItem("halite_shield", () -> new DivineShield(RarityList.HALITE, new ResourceLocation("air") , 0, "halite_shield")),
 
             //Serenades
@@ -450,7 +461,7 @@ public class ItemRegistry {
             hunter_bow = registerItem("hunter_bow", () -> new ItemModBow(ArrowType.HUNTER_ARROW, 2500, new ResourceLocation("arrow"))),
             shadow_bow = registerItem("shadow_bow", () -> new ItemModBow(ArrowType.SHADOW_ARROW, 10000, 36000, new ResourceLocation("arrow"))),
             icicle_bow = registerItem("icicle_bow", () -> new ItemModBow(ArrowType.ICICLE_ARROW, 10000, 24000, new ResourceLocation("arrow"))),
-            inferno_bow = registerItem("inferno_bow", () -> new ItemModBow(ArrowType.INFERNO_ARROW, 10000, ItemModBow.DEFAULT_MAX_USE_DURATION, null, new Item.Properties().durability(10000).fireResistant())),
+            inferno_bow = registerItem("inferno_bow", () -> new ItemModBow(ArrowType.INFERNO_ARROW, 10000, ItemModBow.DEFAULT_MAX_USE_DURATION, null, new Properties().durability(10000).fireResistant())),
             soulfire_bow = registerItem("soulfire_bow", () -> new ItemModBow(ArrowType.SOULFIRE_ARROW, -1)),
             snowstorm_bow = registerItem("snowstorm_bow", () -> new ItemModBow(ArrowType.SNOWSTORM_ARROW, -1)),
             ender_bow = registerItem("ender_bow", () -> new ItemModBow(RarityList.ENDER, ArrowType.ENDER_ARROW, -1)),
@@ -540,84 +551,88 @@ public class ItemRegistry {
     //Tool Sets
     realmite_shovel = registerItem("realmite_shovel", () -> new ItemModShovel(ToolStats.REALMITE_SHOVEL)),
             realmite_pickaxe = registerItem("realmite_pickaxe", () -> new ItemModPickaxe(ToolStats.REALMITE_PICKAXE)),
-            realmite_axe = registerItem("realmite_axe", () -> new ItemModAxe(ToolStats.REALMITE_AXE)),
-            realmite_hoe = registerItem("realmite_hoe", () -> new ItemModHoe(ToolStats.REALMITE_PICKAXE)),
+            realmite_axe = registerItem("realmite_axe", () -> new ItemModAxe(ToolStats.REALMITE_AXE, -3.1F)),
+            realmite_hoe = registerItem("realmite_hoe", () -> new ItemModHoe(ToolStats.REALMITE_HOE, -1.0F)),
+
+    oxdrite_pickaxe = registerItem("oxdrite_pickaxe", () -> new ItemModPickaxe(ToolStats.OXDRITE_PICKAXE)),
 
     arlemite_shovel = registerItem("arlemite_shovel", () -> new ItemModShovel(ToolStats.ARLEMITE_SHOVEL)),
             arlemite_pickaxe = registerItem("arlemite_pickaxe", () -> new ItemModPickaxe(ToolStats.ARLEMITE_PICKAXE)),
-            arlemite_axe = registerItem("arlemite_axe", () -> new ItemModAxe(ToolStats.ARLEMITE_AXE)),
-            arlemite_hoe = registerItem("arlemite_hoe", () -> new ItemModHoe(ToolStats.ARLEMITE_PICKAXE)),
+            arlemite_axe = registerItem("arlemite_axe", () -> new ItemModAxe(ToolStats.ARLEMITE_AXE, -3.0F)),
+            arlemite_hoe = registerItem("arlemite_hoe", () -> new ItemModHoe(ToolStats.ARLEMITE_HOE, -0.0F)),
             arlemite_shickaxe = registerItem("arlemite_shickaxe", () -> new ItemShickaxe(ToolStats.ARLEMITE_SHICKAXE)),
-
-    rupee_shovel = registerItem("rupee_shovel", () -> new ItemModShovel(ToolStats.RUPEE_SHOVEL)),
-            rupee_pickaxe = registerItem("rupee_pickaxe", () -> new ItemModPickaxe(ToolStats.RUPEE_PICKAXE)),
-            rupee_axe = registerItem("rupee_axe", () -> new ItemModAxe(ToolStats.RUPEE_AXE)),
-            rupee_hoe = registerItem("rupee_hoe", () -> new ItemModHoe(ToolStats.RUPEE_PICKAXE)),
-            rupee_shickaxe = registerItem("rupee_shickaxe", () -> new ItemShickaxe(ToolStats.RUPEE_SHICKAXE)),
-
-    bedrock_shovel = registerItem("bedrock_shovel", () -> new ItemModShovel(ToolStats.BEDROCK_SHOVEL, new Item.Properties().fireResistant())),
-            bedrock_pickaxe = registerItem("bedrock_pickaxe", () -> new ItemModPickaxe(ToolStats.BEDROCK_PICKAXE, new Item.Properties().fireResistant())),
-            bedrock_axe = registerItem("bedrock_axe", () -> new ItemModAxe(ToolStats.BEDROCK_AXE, new Item.Properties().fireResistant())),
-            bedrock_hoe = registerItem("bedrock_hoe", () -> new ItemModHoe(ToolStats.BEDROCK_PICKAXE, new Item.Properties().fireResistant())),
 
     terran_shovel = registerItem("terran_shovel", () -> new ItemModShovel(ToolStats.TERRAN_SHOVEL)),
             terran_pickaxe = registerItem("terran_pickaxe", () -> new ItemModPickaxe(ToolStats.TERRAN_PICKAXE)),
-            terran_axe = registerItem("terran_axe", () -> new ItemModAxe(ToolStats.TERRAN_AXE)),
-            terran_hoe = registerItem("terran_hoe", () -> new ItemModHoe(ToolStats.TERRAN_PICKAXE)),
+            terran_axe = registerItem("terran_axe", () -> new ItemModAxe(ToolStats.TERRAN_AXE, -3.0F)),
+            terran_hoe = registerItem("terran_hoe", () -> new ItemModHoe(ToolStats.TERRAN_HOE, -0.0F)),
             terran_shickaxe = registerItem("terran_shickaxe", () -> new ItemShickaxe(ToolStats.TERRAN_SHICKAXE)),
+
+    rupee_shovel = registerItem("rupee_shovel", () -> new ItemModShovel(ToolStats.RUPEE_SHOVEL)),
+            rupee_pickaxe = registerItem("rupee_pickaxe", () -> new ItemModPickaxe(ToolStats.RUPEE_PICKAXE)),
+            rupee_axe = registerItem("rupee_axe", () -> new ItemModAxe(ToolStats.RUPEE_AXE, -3.0F)),
+            rupee_hoe = registerItem("rupee_hoe", () -> new ItemModHoe(ToolStats.RUPEE_HOE, -0.0F)),
+            rupee_shickaxe = registerItem("rupee_shickaxe", () -> new ItemShickaxe(ToolStats.RUPEE_SHICKAXE)),
 
     corrupted_shovel = registerItem("corrupted_shovel", () -> new ItemModShovel(ToolStats.CORRUPTED_SHOVEL)),
             corrupted_pickaxe = registerItem("corrupted_pickaxe", () -> new ItemModPickaxe(ToolStats.CORRUPTED_PICKAXE)),
-            corrupted_axe = registerItem("corrupted_axe", () -> new ItemModAxe(ToolStats.CORRUPTED_AXE)),
-            corrupted_hoe = registerItem("corrupted_hoe", () -> new ItemModHoe(ToolStats.CORRUPTED_PICKAXE)),
+            corrupted_axe = registerItem("corrupted_axe", () -> new ItemModAxe(ToolStats.CORRUPTED_AXE, -2.9F)),
+            corrupted_hoe = registerItem("corrupted_hoe", () -> new ItemModHoe(ToolStats.CORRUPTED_HOE, -0.0F)),
             corrupted_shickaxe = registerItem("corrupted_shickaxe", () -> new ItemShickaxe(ToolStats.CORRUPTED_SHICKAXE)),
+
+    bedrock_shovel = registerItem("bedrock_shovel", () -> new ItemModShovel(ToolStats.BEDROCK_SHOVEL, new Properties().fireResistant())),
+            bedrock_pickaxe = registerItem("bedrock_pickaxe", () -> new ItemModPickaxe(ToolStats.BEDROCK_PICKAXE, new Properties().fireResistant())),
+            bedrock_axe = registerItem("bedrock_axe", () -> new ItemModAxe(ToolStats.BEDROCK_AXE, new Properties().fireResistant())),
+            bedrock_hoe = registerItem("bedrock_hoe", () -> new ItemModHoe(ToolStats.BEDROCK_PICKAXE, new Properties().fireResistant())),
 
     divine_shovel = registerItem("divine_shovel", () -> new ItemModShovel(ToolStats.DIVINE_SHOVEL, RarityList.DIVINE)),
             divine_pickaxe = registerItem("divine_pickaxe", () -> new ItemModPickaxe(ToolStats.DIVINE_PICKAXE, RarityList.DIVINE)),
-            divine_axe = registerItem("divine_axe", () -> new ItemModAxe(ToolStats.DIVINE_AXE, RarityList.DIVINE)),
-            divine_hoe = registerItem("divine_hoe", () -> new ItemModHoe(ToolStats.DIVINE_PICKAXE)),
+            divine_axe = registerItem("divine_axe", () -> new ItemModAxe(ToolStats.DIVINE_AXE, -2.9F, RarityList.DIVINE)),
+            divine_hoe = registerItem("divine_hoe", () -> new ItemModHoe(ToolStats.DIVINE_HOE, RarityList.DIVINE)),
             divine_shickaxe = registerItem("divine_shickaxe", () -> new ItemShickaxe(RarityList.DIVINE, ToolStats.DIVINE_SHICKAXE)),
 
     eden_shovel = registerItem("eden_shovel", () -> new ItemModShovel(ToolStats.EDEN_SHOVEL, RarityList.EDEN)),
             eden_pickaxe = registerItem("eden_pickaxe", () -> new ItemModPickaxe(ToolStats.EDEN_PICKAXE, RarityList.EDEN)),
-            eden_axe = registerItem("eden_axe", () -> new ItemModAxe(ToolStats.EDEN_AXE, RarityList.EDEN)),
-            eden_hoe = registerItem("eden_hoe", () -> new ItemModHoe(ToolStats.EDEN_PICKAXE)),
+            eden_axe = registerItem("eden_axe", () -> new ItemModAxe(ToolStats.EDEN_AXE, -2.8F, RarityList.EDEN)),
+            eden_hoe = registerItem("eden_hoe", () -> new ItemModHoe(ToolStats.EDEN_HOE, RarityList.EDEN)),
             eden_shickaxe = registerItem("eden_shickaxe", () -> new ItemShickaxe(RarityList.EDEN, ToolStats.EDEN_SHICKAXE)),
 
     wildwood_shovel = registerItem("wildwood_shovel", () -> new ItemModShovel(ToolStats.WILDWOOD_SHOVEL, RarityList.WILDWOOD)),
             wildwood_pickaxe = registerItem("wildwood_pickaxe", () -> new ItemModPickaxe(ToolStats.WILDWOOD_PICKAXE, RarityList.WILDWOOD)),
-            wildwood_axe = registerItem("wildwood_axe", () -> new ItemModAxe(ToolStats.WILDWOOD_AXE, RarityList.WILDWOOD)),
-            wildwood_hoe = registerItem("wildwood_hoe", () -> new ItemModHoe(ToolStats.WILDWOOD_PICKAXE)),
+            wildwood_axe = registerItem("wildwood_axe", () -> new ItemModAxe(ToolStats.WILDWOOD_AXE, -2.8F, RarityList.WILDWOOD)),
+            wildwood_hoe = registerItem("wildwood_hoe", () -> new ItemModHoe(ToolStats.WILDWOOD_HOE, RarityList.WILDWOOD)),
             wildwood_shickaxe = registerItem("wildwood_shickaxe", () -> new ItemShickaxe(RarityList.WILDWOOD, ToolStats.WILDWOOD_SHICKAXE)),
 
     apalachia_shovel = registerItem("apalachia_shovel", () -> new ItemModShovel(ToolStats.APALACHIA_SHOVEL, RarityList.APALACHIA)),
             apalachia_pickaxe = registerItem("apalachia_pickaxe", () -> new ItemModPickaxe(ToolStats.APALACHIA_PICKAXE, RarityList.APALACHIA)),
-            apalachia_axe = registerItem("apalachia_axe", () -> new ItemModAxe(ToolStats.APALACHIA_AXE, RarityList.APALACHIA)),
-            apalachia_hoe = registerItem("apalachia_hoe", () -> new ItemModHoe(ToolStats.APALACHIA_PICKAXE)),
+            apalachia_axe = registerItem("apalachia_axe", () -> new ItemModAxe(ToolStats.APALACHIA_AXE, -2.8F, RarityList.APALACHIA)),
+            apalachia_hoe = registerItem("apalachia_hoe", () -> new ItemModHoe(ToolStats.APALACHIA_HOE, RarityList.APALACHIA)),
             apalachia_shickaxe = registerItem("apalachia_shickaxe", () -> new ItemShickaxe(RarityList.APALACHIA, ToolStats.APALACHIA_SHICKAXE)),
 
     skythern_shovel = registerItem("skythern_shovel", () -> new ItemModShovel(ToolStats.SKYTHERN_SHOVEL, RarityList.SKYTHERN)),
             skythern_pickaxe = registerItem("skythern_pickaxe", () -> new ItemModPickaxe(ToolStats.SKYTHERN_PICKAXE, RarityList.SKYTHERN)),
-            skythern_axe = registerItem("skythern_axe", () -> new ItemModAxe(ToolStats.SKYTHERN_AXE, RarityList.SKYTHERN)),
-            skythern_hoe = registerItem("skythern_hoe", () -> new ItemModHoe(ToolStats.SKYTHERN_PICKAXE)),
+            skythern_axe = registerItem("skythern_axe", () -> new ItemModAxe(ToolStats.SKYTHERN_AXE, -2.8F, RarityList.SKYTHERN)),
+            skythern_hoe = registerItem("skythern_hoe", () -> new ItemModHoe(ToolStats.SKYTHERN_HOE, RarityList.SKYTHERN)),
             skythern_shickaxe = registerItem("skythern_shickaxe", () -> new ItemShickaxe(RarityList.SKYTHERN, ToolStats.SKYTHERN_SHICKAXE)),
 
     mortum_shovel = registerItem("mortum_shovel", () -> new ItemModShovel(ToolStats.MORTUM_SHOVEL, RarityList.MORTUM)),
             mortum_pickaxe = registerItem("mortum_pickaxe", () -> new ItemModPickaxe(ToolStats.MORTUM_PICKAXE, RarityList.MORTUM)),
-            mortum_axe = registerItem("mortum_axe", () -> new ItemModAxe(ToolStats.MORTUM_AXE, RarityList.MORTUM)),
-            mortum_hoe = registerItem("mortum_hoe", () -> new ItemModHoe(ToolStats.MORTUM_PICKAXE)),
+            mortum_axe = registerItem("mortum_axe", () -> new ItemModAxe(ToolStats.MORTUM_AXE, -2.8F, RarityList.MORTUM)),
+            mortum_hoe = registerItem("mortum_hoe", () -> new ItemModHoe(ToolStats.MORTUM_HOE, RarityList.MORTUM)),
             mortum_shickaxe = registerItem("mortum_shickaxe", () -> new ItemShickaxe(RarityList.MORTUM, ToolStats.MORTUM_SHICKAXE)),
 
     halite_shickaxe = registerItem("halite_shickaxe", () -> new ItemShickaxe(RarityList.HALITE, ToolStats.HALITE_SHICKAXE)),
 
     dream_shovel = registerItem("dream_shovel", () -> new ItemModShovel(ToolStats.DREAM_SHOVEL)),
             dream_pickaxe = registerItem("dream_pickaxe", () -> new ItemModPickaxe(ToolStats.DREAM_PICKAXE)),
-            dream_axe = registerItem("dream_axe", () -> new ItemModAxe(ToolStats.DREAM_AXE)),
+            dream_axe = registerItem("dream_axe", () -> new ItemModAxe(ToolStats.DREAM_AXE, -3.1F)),
 
             //Buckets
-            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(()-> ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(MODID, "gem_fin")), ()-> Fluids.WATER, ()-> SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1))),
+            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(()-> ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(MODID, "gem_fin")), ()-> Fluids.WATER, ()-> SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
+            cauldron_fish_bucket = registerItem("cauldron_fish_bucket", () -> new MobBucketItem(() -> EntityRegistry.CAULDRON_FISH.get(), () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
 
-            //Vethean Swords
+
+    //Vethean Swords
             teaker_backsword = registerItem("teaker_backsword", () -> new ItemVetheanSword(ToolStats.TEAKER_BACKSWORD)),
             amthirmis_backsword = registerItem("amthirmis_backsword", () -> new ItemVetheanSword(ToolStats.AMTHIRMIS_BACKSWORD)),
             darven_backsword = registerItem("darven_backsword", () -> new ItemVetheanSword(ToolStats.DARVEN_BACKSWORD)),
@@ -728,37 +743,92 @@ public class ItemRegistry {
 
             //Blocks
             nightmare_bed = registerItem("nightmare_bed", () -> new ItemNightmareBed()),
-            aqua_torch = registerItem("aqua_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "aqua_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "aqua_wall_torch")), new Item.Properties(), Direction.EAST)),
-            skeleton_torch = registerItem("skeleton_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skeleton_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skeleton_wall_torch")), new Item.Properties(), Direction.EAST)),
-            arcanium_torch = registerItem("arcanium_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_wall_torch")), new Item.Properties(), Direction.EAST)),
-            eden_torch = registerItem("eden_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_wall_torch")), new Item.Properties(), Direction.EAST));
+            aqua_torch = registerItem("aqua_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "aqua_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "aqua_wall_torch")), new Properties(), Direction.EAST)),
+            skeleton_torch = registerItem("skeleton_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skeleton_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skeleton_wall_torch")), new Properties(), Direction.EAST)),
+            arcanium_torch = registerItem("arcanium_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_wall_torch")), new Properties(), Direction.EAST)),
+            eden_torch = registerItem("eden_torch", () -> new StandingAndWallBlockItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_torch")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_wall_torch")), new Properties(), Direction.EAST));
 
     //Armour
     public static final RegistryObject<Item>
-    aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo, MobEffects.DOLPHINS_GRACE, MobEffects.WATER_BREATHING)),
-            aquastrive_chestplate = registerItem("aquastrive_chestplate", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.CHESTPLATE, aquastriveInfo)),
-            aquastrive_leggings = registerItem("aquastrive_leggings", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.LEGGINGS, aquastriveInfo)),
-            aquastrive_boots = registerItem("aquastrive_boots", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.BOOTS, aquastriveInfo)),
-
-    kraken_helmet = registerItem("kraken_helmet", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.HELMET, krakenInfo, MobEffects.CONDUIT_POWER)),
-            kraken_chestplate = registerItem("kraken_chestplate", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.CHESTPLATE, krakenInfo)),
-            kraken_leggings = registerItem("kraken_leggings", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.LEGGINGS, krakenInfo)),
-            kraken_boots = registerItem("kraken_boots", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.BOOTS, krakenInfo)),
-
     realmite_helmet = registerItem("realmite_helmet", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.HELMET)),
             realmite_chestplate = registerItem("realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.CHESTPLATE)),
             realmite_leggings = registerItem("realmite_leggings", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.LEGGINGS)),
             realmite_boots = registerItem("realmite_boots", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.BOOTS)),
 
-    elite_realmite_helmet = registerItem("elite_realmite_helmet", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.HELMET, eliteRealmiteInfo, PREVENT_FALL_DAMAGE.get())),
-            elite_realmite_chestplate = registerItem("elite_realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.CHESTPLATE, eliteRealmiteInfo)),
-            elite_realmite_leggings = registerItem("elite_realmite_leggings", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.LEGGINGS, eliteRealmiteInfo)),
-            elite_realmite_boots = registerItem("elite_realmite_boots", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.BOOTS, eliteRealmiteInfo)),
+    seng_fur_helmet = registerItem("seng_fur_helmet", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.HELMET, sengFurInfo, SENG_FUR.get(), WARMTH.get())),
+            seng_fur_chestplate = registerItem("seng_fur_chestplate", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.CHESTPLATE, sengFurInfo)),
+            seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
+            seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),
+
+	santa_helmet = registerItem("santa_helmet", () -> new ItemDivineArmor(ArmorStats.SANTA, ArmorItem.Type.HELMET, sengFurInfo, SENG_FUR.get(), WARMTH.get())),
+		    santa_chestplate = registerItem("santa_chestplate", () -> new ItemDivineArmor(ArmorStats.SANTA, ArmorItem.Type.CHESTPLATE, sengFurInfo)),
+		    santa_leggings = registerItem("santa_leggings", () -> new ItemDivineArmor(ArmorStats.SANTA, ArmorItem.Type.LEGGINGS, sengFurInfo)),
+		    santa_boots = registerItem("santa_boots", () -> new ItemDivineArmor(ArmorStats.SANTA, ArmorItem.Type.BOOTS, sengFurInfo)),
+            
+    aquastrive_helmet = registerItem("aquastrive_helmet", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.HELMET, aquastriveInfo, MobEffects.WATER_BREATHING)),
+            aquastrive_chestplate = registerItem("aquastrive_chestplate", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.CHESTPLATE, aquastriveInfo)),
+            aquastrive_leggings = registerItem("aquastrive_leggings", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.LEGGINGS, aquastriveInfo)),
+            aquastrive_boots = registerItem("aquastrive_boots", () -> new ItemDivineArmor(ArmorStats.AQUASTRIVE, ArmorItem.Type.BOOTS, aquastriveInfo)),
+
+    kraken_helmet = registerItem("kraken_helmet", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.HELMET, krakenInfo, MobEffects.DOLPHINS_GRACE, MobEffects.CONDUIT_POWER)),
+            kraken_chestplate = registerItem("kraken_chestplate", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.CHESTPLATE, krakenInfo)),
+            kraken_leggings = registerItem("kraken_leggings", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.LEGGINGS, krakenInfo)),
+            kraken_boots = registerItem("kraken_boots", () -> new ItemDivineArmor(ArmorStats.KRAKEN, ArmorItem.Type.BOOTS, krakenInfo)),
+
+    jack_o_man_helmet = registerItem("jack_o_man_helmet", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.HELMET, jackomanInfo)),
+            jack_o_man_chestplate = registerItem("jack_o_man_chestplate", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.CHESTPLATE, jackomanInfo)),
+            jack_o_man_leggings = registerItem("jack_o_man_leggings", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.LEGGINGS, jackomanInfo)),
+            jack_o_man_boots = registerItem("jack_o_man_boots", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.BOOTS, jackomanInfo)),
+
+    skeleman_helmet = registerItem("skeleman_helmet", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.HELMET, skelemanInfo, SKELEMAN_FEED.get())),
+            skeleman_chestplate = registerItem("skeleman_chestplate", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.CHESTPLATE, skelemanInfo)),
+            skeleman_leggings = registerItem("skeleman_leggings", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.LEGGINGS, skelemanInfo)),
+            skeleman_boots = registerItem("skeleman_boots", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.BOOTS, skelemanInfo)),
+
+    wither_reaper_helmet = registerItem("wither_reaper_helmet", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.HELMET, witherReaperInfo, WITHER_PROTECTION.get())),
+            wither_reaper_chestplate = registerItem("wither_reaper_chestplate", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.CHESTPLATE, witherReaperInfo)),
+            wither_reaper_leggings = registerItem("wither_reaper_leggings", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.LEGGINGS, witherReaperInfo)),
+            wither_reaper_boots = registerItem("wither_reaper_boots", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.BOOTS, witherReaperInfo)),
 
     arlemite_helmet = registerItem("arlemite_helmet", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.HELMET, arlemiteInfo, PROJECTILE_PROTECTION.get())),
             arlemite_chestplate = registerItem("arlemite_chestplate", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.CHESTPLATE, arlemiteInfo)),
             arlemite_leggings = registerItem("arlemite_leggings", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.LEGGINGS, arlemiteInfo)),
             arlemite_boots = registerItem("arlemite_boots", () -> new ItemDivineArmor(ArmorStats.ARLEMITE, ArmorItem.Type.BOOTS, arlemiteInfo)),
+
+    frozen_helmet = registerItem("frozen_helmet", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.HELMET, frozenInfo, FROZEN_SLOWNESS.get())),
+            frozen_chestplate = registerItem("frozen_chestplate", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.CHESTPLATE, frozenInfo)),
+            frozen_leggings = registerItem("frozen_leggings", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.LEGGINGS, frozenInfo)),
+            frozen_boots = registerItem("frozen_boots", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.BOOTS, frozenInfo)),
+
+    jungle_helmet = registerItem("jungle_helmet", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.HELMET, jungleInfo, POISON_PROTECTION.get())),
+            jungle_chestplate = registerItem("jungle_chestplate", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.CHESTPLATE, jungleInfo)),
+            jungle_leggings = registerItem("jungle_leggings", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.LEGGINGS, jungleInfo)),
+            jungle_boots = registerItem("jungle_boots", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.BOOTS, jungleInfo)),
+
+    inferno_helmet = registerItem("inferno_helmet", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.HELMET, infernoInfo, new Properties().fireResistant(), MobEffects.FIRE_RESISTANCE)),
+            inferno_chestplate = registerItem("inferno_chestplate", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.CHESTPLATE, infernoInfo, new Properties().fireResistant())),
+            inferno_leggings = registerItem("inferno_leggings", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.LEGGINGS, infernoInfo, new Properties().fireResistant())),
+            inferno_boots = registerItem("inferno_boots", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.BOOTS, infernoInfo, new Properties().fireResistant())),
+
+    torridite_helmet = registerItem("torridite_helmet", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.HELMET, torriditeInfo, new Properties().fireResistant(), MobEffects.FIRE_RESISTANCE)),
+            torridite_chestplate = registerItem("torridite_chestplate", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.CHESTPLATE, torriditeInfo, new Properties().fireResistant())),
+            torridite_leggings = registerItem("torridite_leggings", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.LEGGINGS, torriditeInfo, new Properties().fireResistant())),
+            torridite_boots = registerItem("torridite_boots", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.BOOTS, torriditeInfo, new Properties().fireResistant())),
+
+    terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.HELMET, terranInfo, new int[]{2}, MobEffects.DIG_SPEED)),
+            terran_chestplate = registerItem("terran_chestplate", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.CHESTPLATE, terranInfo)),
+            terran_leggings = registerItem("terran_leggings", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.LEGGINGS, terranInfo)),
+            terran_boots = registerItem("terran_boots", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.BOOTS, terranInfo)),
+
+    angelic_helmet = registerItem("angelic_helmet", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.HELMET, angelicInfo, PREVENT_FALL_DAMAGE.get(), ANGELIC_FLIGHT.get())),
+            angelic_chestplate = registerItem("angelic_chestplate", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.CHESTPLATE, angelicInfo)),
+            angelic_leggings = registerItem("angelic_leggings", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.LEGGINGS, angelicInfo)),
+            angelic_boots = registerItem("angelic_boots", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.BOOTS, angelicInfo)),
+
+    shadow_helmet = registerItem("shadow_helmet", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.HELMET, shadowInfo, STEP_ASSIST.get())),
+            shadow_chestplate = registerItem("shadow_chestplate", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.CHESTPLATE, shadowInfo, new int[]{3}, MobEffects.MOVEMENT_SPEED)),
+            shadow_leggings = registerItem("shadow_leggings", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.LEGGINGS, shadowInfo)),
+            shadow_boots = registerItem("shadow_boots", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.BOOTS, shadowInfo)),
 
     rupee_helmet = registerItem("rupee_helmet", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.HELMET, rupeeInfo, MELEE_PROTECTION.get())),
             rupee_chestplate = registerItem("rupee_chestplate", () -> new ItemDivineArmor(ArmorStats.RUPEE, ArmorItem.Type.CHESTPLATE, rupeeInfo)),
@@ -790,50 +860,30 @@ public class ItemRegistry {
             gray_rupee_leggings = registerItem("gray_rupee_leggings", () -> new ItemDivineArmor(ArmorStats.GRAY_RUPEE, ArmorItem.Type.LEGGINGS, rupeeInfo)),
             gray_rupee_boots = registerItem("gray_rupee_boots", () -> new ItemDivineArmor(ArmorStats.GRAY_RUPEE, ArmorItem.Type.BOOTS, rupeeInfo)),
 
-    shadow_helmet = registerItem("shadow_helmet", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.HELMET, shadowInfo, STEP_ASSIST.get())),
-            shadow_chestplate = registerItem("shadow_chestplate", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.CHESTPLATE, shadowInfo, new int[]{3}, MobEffects.MOVEMENT_SPEED)),
-            shadow_leggings = registerItem("shadow_leggings", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.LEGGINGS, shadowInfo)),
-            shadow_boots = registerItem("shadow_boots", () -> new ItemDivineArmor(ArmorStats.SHADOW, ArmorItem.Type.BOOTS, shadowInfo)),
+    elite_realmite_helmet = registerItem("elite_realmite_helmet", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.HELMET, eliteRealmiteInfo, PREVENT_FALL_DAMAGE.get())),
+            elite_realmite_chestplate = registerItem("elite_realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.CHESTPLATE, eliteRealmiteInfo)),
+            elite_realmite_leggings = registerItem("elite_realmite_leggings", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.LEGGINGS, eliteRealmiteInfo)),
+            elite_realmite_boots = registerItem("elite_realmite_boots", () -> new ItemDivineArmor(ArmorStats.ELITE_REALMITE, ArmorItem.Type.BOOTS, eliteRealmiteInfo)),
 
-    bedrock_helmet = registerItem("bedrock_helmet", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.HELMET, bedrockInfo, new Item.Properties().fireResistant(), MobEffects.FIRE_RESISTANCE, EXPLOSION_PROTECTION.get())),
-            bedrock_chestplate = registerItem("bedrock_chestplate", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.CHESTPLATE, bedrockInfo, new Item.Properties().fireResistant())),
-            bedrock_leggings = registerItem("bedrock_leggings", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.LEGGINGS, bedrockInfo, new Item.Properties().fireResistant())),
-            bedrock_boots = registerItem("bedrock_boots", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.BOOTS, bedrockInfo, new Item.Properties().fireResistant())),
+    corrupted_helmet = registerItem("corrupted_helmet", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.HELMET, corruptedInfo, CORRUPTED_STRENGTH.get())),
+            corrupted_chestplate = registerItem("corrupted_chestplate", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.CHESTPLATE, corruptedInfo)),
+            corrupted_leggings = registerItem("corrupted_leggings", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.LEGGINGS, corruptedInfo)),
+            corrupted_boots = registerItem("corrupted_boots", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.BOOTS, corruptedInfo)),
 
-    jack_o_man_helmet = registerItem("jack_o_man_helmet", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.HELMET, jackomanInfo)),
-            jack_o_man_chestplate = registerItem("jack_o_man_chestplate", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.CHESTPLATE, jackomanInfo)),
-            jack_o_man_leggings = registerItem("jack_o_man_leggings", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.LEGGINGS, jackomanInfo)),
-            jack_o_man_boots = registerItem("jack_o_man_boots", () -> new ItemDivineArmor(ArmorStats.JACK_O_MAN, ArmorItem.Type.BOOTS, jackomanInfo)),
+    bedrock_helmet = registerItem("bedrock_helmet", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.HELMET, bedrockInfo, new Properties().fireResistant(), MobEffects.FIRE_RESISTANCE, EXPLOSION_PROTECTION.get())),
+            bedrock_chestplate = registerItem("bedrock_chestplate", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.CHESTPLATE, bedrockInfo, new Properties().fireResistant())),
+            bedrock_leggings = registerItem("bedrock_leggings", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.LEGGINGS, bedrockInfo, new Properties().fireResistant())),
+            bedrock_boots = registerItem("bedrock_boots", () -> new ItemDivineArmor(ArmorStats.BEDROCK, ArmorItem.Type.BOOTS, bedrockInfo, new Properties().fireResistant())),
 
-    skeleman_helmet = registerItem("skeleman_helmet", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.HELMET, skelemanInfo, SKELEMAN_FEED.get())),
-            skeleman_chestplate = registerItem("skeleman_chestplate", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.CHESTPLATE, skelemanInfo)),
-            skeleman_leggings = registerItem("skeleman_leggings", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.LEGGINGS, skelemanInfo)),
-            skeleman_boots = registerItem("skeleman_boots", () -> new ItemDivineArmor(ArmorStats.SKELEMAN, ArmorItem.Type.BOOTS, skelemanInfo)),
+    korma_helmet = registerItem("korma_helmet", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.HELMET, kormInfo, KORMA_ARCANA.get())),
+            korma_chestplate = registerItem("korma_chestplate", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.CHESTPLATE, kormInfo)),
+            korma_leggings = registerItem("korma_leggings", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.LEGGINGS, kormInfo)),
+            korma_boots = registerItem("korma_boots", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.BOOTS, kormInfo)),
 
-    wither_reaper_helmet = registerItem("wither_reaper_helmet", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.HELMET, witherReaperInfo, WITHER_PROTECTION.get())),
-            wither_reaper_chestplate = registerItem("wither_reaper_chestplate", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.CHESTPLATE, witherReaperInfo)),
-            wither_reaper_leggings = registerItem("wither_reaper_leggings", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.LEGGINGS, witherReaperInfo)),
-            wither_reaper_boots = registerItem("wither_reaper_boots", () -> new ItemDivineArmor(ArmorStats.WITHER_REAPER, ArmorItem.Type.BOOTS, witherReaperInfo)),
-
-    frozen_helmet = registerItem("frozen_helmet", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.HELMET, frozenInfo, FROZEN_SLOWNESS.get())),
-            frozen_chestplate = registerItem("frozen_chestplate", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.CHESTPLATE, frozenInfo)),
-            frozen_leggings = registerItem("frozen_leggings", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.LEGGINGS, frozenInfo)),
-            frozen_boots = registerItem("frozen_boots", () -> new ItemDivineArmor(ArmorStats.FROZEN, ArmorItem.Type.BOOTS, frozenInfo)),
-
-    terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.HELMET, terranInfo, new int[]{2}, MobEffects.DIG_SPEED)),
-            terran_chestplate = registerItem("terran_chestplate", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.CHESTPLATE, terranInfo)),
-            terran_leggings = registerItem("terran_leggings", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.LEGGINGS, terranInfo)),
-            terran_boots = registerItem("terran_boots", () -> new ItemDivineArmor(ArmorStats.TERRAN, ArmorItem.Type.BOOTS, terranInfo)),
-
-    jungle_helmet = registerItem("jungle_helmet", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.HELMET, jungleInfo, POISON_PROTECTION.get())),
-            jungle_chestplate = registerItem("jungle_chestplate", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.CHESTPLATE, jungleInfo)),
-            jungle_leggings = registerItem("jungle_leggings", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.LEGGINGS, jungleInfo)),
-            jungle_boots = registerItem("jungle_boots", () -> new ItemDivineArmor(ArmorStats.JUNGLE, ArmorItem.Type.BOOTS, jungleInfo)),
-
-    inferno_helmet = registerItem("inferno_helmet", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.HELMET, infernoInfo, new Item.Properties().fireResistant(), MobEffects.FIRE_RESISTANCE)),
-            inferno_chestplate = registerItem("inferno_chestplate", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.CHESTPLATE, infernoInfo, new Item.Properties().fireResistant())),
-            inferno_leggings = registerItem("inferno_leggings", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.LEGGINGS, infernoInfo, new Item.Properties().fireResistant())),
-            inferno_boots = registerItem("inferno_boots", () -> new ItemDivineArmor(ArmorStats.INFERNO, ArmorItem.Type.BOOTS, infernoInfo, new Item.Properties().fireResistant())),
+    vemos_helmet = registerItem("vemos_helmet", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.HELMET, vemInfo, VEMOS_HEAL.get())),
+            vemos_chestplate = registerItem("vemos_chestplate", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.CHESTPLATE, vemInfo)),
+            vemos_leggings = registerItem("vemos_leggings", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.LEGGINGS, vemInfo)),
+            vemos_boots = registerItem("vemos_boots", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.BOOTS, vemInfo)),
 
     ender_helmet = registerItem("ender_helmet", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.HELMET, enderInfo, EXPLOSION_PROTECTION.get())),
             ender_chestplate = registerItem("ender_chestplate", () -> new ItemDivineArmor(ArmorStats.ENDER, ArmorItem.Type.CHESTPLATE, enderInfo)),
@@ -865,40 +915,10 @@ public class ItemRegistry {
             gray_ender_leggings = registerItem("gray_ender_leggings", () -> new ItemDivineArmor(ArmorStats.GRAY_ENDER, ArmorItem.Type.LEGGINGS, enderInfo)),
             gray_ender_boots = registerItem("gray_ender_boots", () -> new ItemDivineArmor(ArmorStats.GRAY_ENDER, ArmorItem.Type.BOOTS, enderInfo)),
 
-    corrupted_helmet = registerItem("corrupted_helmet", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.HELMET, corruptedInfo, CORRUPTED_STRENGTH.get())),
-            corrupted_chestplate = registerItem("corrupted_chestplate", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.CHESTPLATE, corruptedInfo)),
-            corrupted_leggings = registerItem("corrupted_leggings", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.LEGGINGS, corruptedInfo)),
-            corrupted_boots = registerItem("corrupted_boots", () -> new ItemDivineArmor(ArmorStats.CORRUPTED, ArmorItem.Type.BOOTS, corruptedInfo)),
-
     divine_helmet = registerItem("divine_helmet", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.HELMET, divineInfo, PREVENT_FALL_DAMAGE.get(), DIVINE_STRENGTH.get())),
             divine_chestplate = registerItem("divine_chestplate", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.CHESTPLATE, divineInfo, new int[]{1}, MobEffects.JUMP)),
             divine_leggings = registerItem("divine_leggings", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.LEGGINGS, divineInfo)),
             divine_boots = registerItem("divine_boots", () -> new ItemDivineArmor(ArmorStats.DIVINE, ArmorItem.Type.BOOTS, divineInfo)),
-
-    torridite_helmet = registerItem("torridite_helmet", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.HELMET, torriditeInfo, new Item.Properties().fireResistant(), MobEffects.FIRE_RESISTANCE)),
-            torridite_chestplate = registerItem("torridite_chestplate", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.CHESTPLATE, torriditeInfo, new Item.Properties().fireResistant())),
-            torridite_leggings = registerItem("torridite_leggings", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.LEGGINGS, torriditeInfo, new Item.Properties().fireResistant())),
-            torridite_boots = registerItem("torridite_boots", () -> new ItemDivineArmor(ArmorStats.TORRIDITE, ArmorItem.Type.BOOTS, torriditeInfo, new Item.Properties().fireResistant())),
-
-    angelic_helmet = registerItem("angelic_helmet", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.HELMET, angelicInfo, PREVENT_FALL_DAMAGE.get(), ANGELIC_FLIGHT.get())),
-            angelic_chestplate = registerItem("angelic_chestplate", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.CHESTPLATE, angelicInfo)),
-            angelic_leggings = registerItem("angelic_leggings", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.LEGGINGS, angelicInfo)),
-            angelic_boots = registerItem("angelic_boots", () -> new ItemDivineArmor(ArmorStats.ANGELIC, ArmorItem.Type.BOOTS, angelicInfo)),
-
-    seng_fur_helmet = registerItem("seng_fur_helmet", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.HELMET, sengFurInfo, SENG_FUR.get())),
-            seng_fur_chestplate = registerItem("seng_fur_chestplate", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.CHESTPLATE, sengFurInfo)),
-            seng_fur_leggings = registerItem("seng_fur_leggings", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.LEGGINGS, sengFurInfo)),
-            seng_fur_boots = registerItem("seng_fur_boots", () -> new ItemDivineArmor(ArmorStats.SENG_FUR, ArmorItem.Type.BOOTS, sengFurInfo)),
-
-    korma_helmet = registerItem("korma_helmet", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.HELMET, kormInfo, KORMA_ARCANA.get())),
-            korma_chestplate = registerItem("korma_chestplate", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.CHESTPLATE, kormInfo)),
-            korma_leggings = registerItem("korma_leggings", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.LEGGINGS, kormInfo)),
-            korma_boots = registerItem("korma_boots", () -> new ItemDivineArmor(ArmorStats.KORMA, ArmorItem.Type.BOOTS, kormInfo)),
-
-    vemos_helmet = registerItem("vemos_helmet", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.HELMET, vemInfo, VEMOS_HEAL.get())),
-            vemos_chestplate = registerItem("vemos_chestplate", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.CHESTPLATE, vemInfo)),
-            vemos_leggings = registerItem("vemos_leggings", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.LEGGINGS, vemInfo)),
-            vemos_boots = registerItem("vemos_boots", () -> new ItemDivineArmor(ArmorStats.VEMOS, ArmorItem.Type.BOOTS, vemInfo)),
 
     eden_helmet = registerItem("eden_helmet", () -> new ItemDivineArmor(ArmorStats.EDEN, ArmorItem.Type.HELMET, edenInfo)),
             eden_chestplate = registerItem("eden_chestplate", () -> new ItemDivineArmor(ArmorStats.EDEN, ArmorItem.Type.CHESTPLATE, edenInfo)),
@@ -942,9 +962,9 @@ public class ItemRegistry {
             degraded_leggings = registerItem("degraded_leggings", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.LEGGINGS)),
             degraded_boots = registerItem("degraded_boots", () -> new ItemDivineArmor(ArmorStats.DEGRADED, ArmorItem.Type.BOOTS)),
 
-    finished_helmet = registerItem("finished_helmet", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, FINISHED_HELMET.get())),
-            finished_hood = registerItem("finished_hood", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, FINISHED_HOOD.get())),
-            finished_mask = registerItem("finished_mask", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, FINISHED_MASK.get())),
+    finished_helmet = registerItem("finished_helmet", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, basicHelmInfo, FINISHED_HELMET.get())),
+            finished_hood = registerItem("finished_hood", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, basicHoodInfo, FINISHED_HOOD.get())),
+            finished_mask = registerItem("finished_mask", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.HELMET, basicMaskInfo, FINISHED_MASK.get())),
             finished_chestplate = registerItem("finished_chestplate", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.CHESTPLATE)),
             finished_leggings = registerItem("finished_leggings", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.LEGGINGS)),
             finished_boots = registerItem("finished_boots", () -> new ItemDivineArmor(ArmorStats.FINISHED, ArmorItem.Type.BOOTS)),

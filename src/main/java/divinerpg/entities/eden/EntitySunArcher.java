@@ -34,11 +34,6 @@ public class EntitySunArcher extends EntityDivineMonster implements RangedAttack
     }
 
     @Override
-    public MobType getMobType() {
-        return MobType.UNDEFINED;
-    }
-
-    @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (isAlive() && getTarget() != null && !level().isClientSide) {
             EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.SUN_ARCHER_ARROW, this, target, 1.6F, 0.8F);
