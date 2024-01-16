@@ -22,8 +22,6 @@ public class DivineRPG {
     public static final String MODID = "divinerpg";
 
     public DivineRPG(IEventBus bus) {
-        MenuTypeRegistry.CONTAINERS.register(bus);
-        LootModifierRegistry.GLOBAL_LOOT_MODIFIERS.register(bus);
         EventRegistry.init();
         bus.addListener(this::setup);
         bus.addListener(this::post);

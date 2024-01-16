@@ -4,29 +4,30 @@ import divinerpg.DivineRPG;
 import divinerpg.client.menu.*;
 import divinerpg.client.screen.*;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraftforge.common.extensions.IForgeMenuType;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
+import net.neoforged.neoforge.registries.*;
 
 import static divinerpg.DivineRPG.MODID;
 
 public class MenuTypeRegistry
 {
-    public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
-    public static final RegistryObject<MenuType<ArcaniumExtractorMenu>> ARCANIUM_EXTRACTOR = CONTAINERS.register("arcanium_extractor", () -> IForgeMenuType.create(ArcaniumExtractorMenu::new));
-    public static final RegistryObject<MenuType<DreamLampMenu>> DREAM_LAMP = CONTAINERS.register("dream_lamp", () -> IForgeMenuType.create(DreamLampMenu::new));
-    public static final RegistryObject<MenuType<InfusionTableMenu>> INFUSION_TABLE = CONTAINERS.register("infusion_table", () -> IForgeMenuType.create(InfusionTableMenu::new));
-    public static final RegistryObject<MenuType<AltarOfCorruptionMenu>> ALTAR_OF_CORRUPTION = CONTAINERS.register("altar_of_corruption", () -> IForgeMenuType.create(AltarOfCorruptionMenu::new));
-    public static final RegistryObject<MenuType<PresentBoxMenu>> PRESENT_BOX = CONTAINERS.register("present_box", () -> IForgeMenuType.create(PresentBoxMenu::new));
-    public static final RegistryObject<MenuType<CoalstoneFurnaceMenu>> COALSTONE_FURNACE = CONTAINERS.register("coalstone_furnace", () -> IForgeMenuType.create(CoalstoneFurnaceMenu::new));
-    public static final RegistryObject<MenuType<DemonFurnaceMenu>> DEMON_FURNACE = CONTAINERS.register("demon_furnace", () -> IForgeMenuType.create(DemonFurnaceMenu::new));
-    public static final RegistryObject<MenuType<GreenlightFurnaceMenu>> GREENLIGHT_FURNACE = CONTAINERS.register("greenlight_furnace", () -> IForgeMenuType.create(GreenlightFurnaceMenu::new));
-    public static final RegistryObject<MenuType<MoltenFurnaceMenu>> MOLTEN_FURNACE = CONTAINERS.register("molten_furnace", () -> IForgeMenuType.create(MoltenFurnaceMenu::new));
-    public static final RegistryObject<MenuType<MoonlightFurnaceMenu>> MOONLIGHT_FURNACE = CONTAINERS.register("moonlight_furnace", () -> IForgeMenuType.create(MoonlightFurnaceMenu::new));
-    public static final RegistryObject<MenuType<OceanfireFurnaceMenu>> OCEANFIRE_FURNACE = CONTAINERS.register("oceanfire_furnace", () -> IForgeMenuType.create(OceanfireFurnaceMenu::new));
-    public static final RegistryObject<MenuType<WhitefireFurnaceMenu>> WHITEFIRE_FURNACE = CONTAINERS.register("whitefire_furnace", () -> IForgeMenuType.create(WhitefireFurnaceMenu::new));
-    public static final RegistryObject<MenuType<BoneChestMenu>> BONE_CHEST = CONTAINERS.register("bone_chest", () -> IForgeMenuType.create(BoneChestMenu::new));
-    public static final RegistryObject<MenuType<FrostedChestMenu>> FROSTED_CHEST = CONTAINERS.register("frosted_chest", () -> IForgeMenuType.create(FrostedChestMenu::new));
+    public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(BuiltInRegistries.MENU, MODID);
+    public static final DeferredHolder<MenuType<?>, MenuType<ArcaniumExtractorMenu>> ARCANIUM_EXTRACTOR = CONTAINERS.register("arcanium_extractor", () -> IMenuTypeExtension.create(ArcaniumExtractorMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<DreamLampMenu>> DREAM_LAMP = CONTAINERS.register("dream_lamp", () -> IMenuTypeExtension.create(DreamLampMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<InfusionTableMenu>> INFUSION_TABLE = CONTAINERS.register("infusion_table", () -> IMenuTypeExtension.create(InfusionTableMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<AltarOfCorruptionMenu>> ALTAR_OF_CORRUPTION = CONTAINERS.register("altar_of_corruption", () -> IMenuTypeExtension.create(AltarOfCorruptionMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<PresentBoxMenu>> PRESENT_BOX = CONTAINERS.register("present_box", () -> IMenuTypeExtension.create(PresentBoxMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<CoalstoneFurnaceMenu>> COALSTONE_FURNACE = CONTAINERS.register("coalstone_furnace", () -> IMenuTypeExtension.create(CoalstoneFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<DemonFurnaceMenu>> DEMON_FURNACE = CONTAINERS.register("demon_furnace", () -> IMenuTypeExtension.create(DemonFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<GreenlightFurnaceMenu>> GREENLIGHT_FURNACE = CONTAINERS.register("greenlight_furnace", () -> IMenuTypeExtension.create(GreenlightFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<MoltenFurnaceMenu>> MOLTEN_FURNACE = CONTAINERS.register("molten_furnace", () -> IMenuTypeExtension.create(MoltenFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<MoonlightFurnaceMenu>> MOONLIGHT_FURNACE = CONTAINERS.register("moonlight_furnace", () -> IMenuTypeExtension.create(MoonlightFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<OceanfireFurnaceMenu>> OCEANFIRE_FURNACE = CONTAINERS.register("oceanfire_furnace", () -> IMenuTypeExtension.create(OceanfireFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<WhitefireFurnaceMenu>> WHITEFIRE_FURNACE = CONTAINERS.register("whitefire_furnace", () -> IMenuTypeExtension.create(WhitefireFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<BoneChestMenu>> BONE_CHEST = CONTAINERS.register("bone_chest", () -> IMenuTypeExtension.create(BoneChestMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<FrostedChestMenu>> FROSTED_CHEST = CONTAINERS.register("frosted_chest", () -> IMenuTypeExtension.create(FrostedChestMenu::new));
 
     public static void registerScreenFactories() {
         DivineRPG.LOGGER.info("[DivineRPG] Registered screens");
