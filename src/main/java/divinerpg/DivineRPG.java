@@ -4,17 +4,15 @@ import divinerpg.compat.ModCompat;
 import divinerpg.config.*;
 import divinerpg.events.*;
 import divinerpg.registries.*;
-import divinerpg.util.DivineRPGPacketHandler;
-import divinerpg.util.Utils;
+import divinerpg.util.*;
 import divinerpg.util.vanilla.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.chunk.LevelChunk;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.*;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.*;
+import net.neoforged.neoforge.common.NeoForge;
 import org.apache.logging.log4j.*;
 
 @Mod(DivineRPG.MODID)
@@ -23,7 +21,7 @@ public class DivineRPG {
     public static final String MODID = "divinerpg";
 
     public DivineRPG() {
-        var bus = FMLJavaModLoadingContext.get().getModEventBus();
+        var bus = ModLoadingContext.get().extension();
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockRegistry.BLOCK_ITEMS.register(bus);
@@ -49,10 +47,10 @@ public class DivineRPG {
         bus.addListener(this::setup);
         bus.addListener(this::post);
         bus.addListener(this::client);
-        MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, AttatchCapabilityEvent::onAttachCapabilitiesPlayer);
-        MinecraftForge.EVENT_BUS.addGenericListener(LevelChunk.class, AttatchCapabilityEvent::onAttachCapabilitiesLevelChunk);
-        MinecraftForge.EVENT_BUS.addListener(AttatchCapabilityEvent::onRegisterCapabilities);
-        MinecraftForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
+        NeoForge.EVENT_BUS.addGenericListener(Entity.class, AttatchCapabilityEvent::onAttachCapabilitiesPlayer);
+        NeoForge.EVENT_BUS.addGenericListener(LevelChunk.class, AttatchCapabilityEvent::onAttachCapabilitiesLevelChunk);
+        NeoForge.EVENT_BUS.addListener(AttatchCapabilityEvent::onRegisterCapabilities);
+        NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/divinerpg-common.toml");
 
