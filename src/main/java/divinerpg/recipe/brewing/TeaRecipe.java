@@ -3,14 +3,14 @@ package divinerpg.recipe.brewing;
 import divinerpg.DivineRPG;
 import divinerpg.registries.PotionRegistry;
 import divinerpg.util.Utils;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
-import net.minecraftforge.common.brewing.IBrewingRecipe;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
 
 public class TeaRecipe implements IBrewingRecipe {
-	private static final Item winterberry = ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "winterberry"));
+	private static final Item winterberry = BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "winterberry"));
 	@Override public boolean isInput(ItemStack input) {
 		return Utils.isPotion(input, Potions.WATER);
 	}

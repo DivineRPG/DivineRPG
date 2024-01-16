@@ -1,20 +1,20 @@
 package divinerpg.recipe;
 
 import divinerpg.DivineRPG;
-import divinerpg.registries.*;
-
+import divinerpg.registries.RecipeRegistry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class ArcaniumExtractorRecipe extends AbstractCookingRecipe {
-    public ArcaniumExtractorRecipe(ResourceLocation p_249157_, String p_250200_, CookingBookCategory p_251114_, Ingredient p_250340_, ItemStack p_250306_, float p_249577_, int p_250030_) {
-        super(RecipeRegistry.Types.ARCANIUM_EXTRACTOR_RECIPE_TYPE.get(), p_249157_, p_250200_, p_251114_, p_250340_, p_250306_, p_249577_, p_250030_);
+    public ArcaniumExtractorRecipe(String p_249518_, CookingBookCategory p_250891_, Ingredient p_251354_, ItemStack p_252185_, float p_252165_, int p_250256_) {
+        super(RecipeRegistry.Types.ARCANIUM_EXTRACTOR_RECIPE_TYPE.get(), p_249518_, p_250891_, p_251354_, p_252185_, p_252165_, p_250256_);
     }
+
     @Override
     public ItemStack getToastSymbol() {
-        return new ItemStack(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_extractor")));
+        return new ItemStack(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "arcanium_extractor")));
     }
     @Override
     public RecipeSerializer<?> getSerializer() {

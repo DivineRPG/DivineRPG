@@ -5,12 +5,12 @@ import divinerpg.enums.EntityStats;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
@@ -23,11 +23,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class EntityDolossal extends AbstractHorse {
-	private static final Ingredient FOOD = Ingredient.of(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "winterberry")));
+	private static final Ingredient FOOD = Ingredient.of(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "winterberry")));
 	public EntityDolossal(EntityType<? extends EntityDolossal> type, Level level) {
 		super(type, level);
 		getNavigation().setCanFloat(true);
@@ -55,7 +55,7 @@ public class EntityDolossal extends AbstractHorse {
 		return animal != this && animal instanceof EntityDolossal dol && canParent() && dol.canParent();
 	}
 	@Override public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mob) {
-		EntityDolossal dol = (EntityDolossal)ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, "dolossal")).create(level);
+		EntityDolossal dol = (EntityDolossal) BuiltInRegistries.ENTITY_TYPE.get(new ResourceLocation(DivineRPG.MODID, "dolossal")).create(level);
 		if(dol != null) setOffspringAttributes(mob, dol);
 		return dol;
 	}
@@ -105,7 +105,9 @@ public class EntityDolossal extends AbstractHorse {
 	@Override protected void playJumpSound() {
 		playSound(SoundEvents.RABBIT_JUMP);
 	}
-	public static final <T extends Mob> void registerDolossalAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity) {
+
+
+	public static final <T extends Mob> void registerDolossalAttributes(EntityAttributeCreationEvent event, DeferredHolder<EntityType<?>, EntityType<T>> entity) {
 		EntityStats stats = EntityStats.DOLOSSAL;
 		event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).add(Attributes.JUMP_STRENGTH, 1D).build());
 	}

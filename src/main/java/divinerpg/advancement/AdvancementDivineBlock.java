@@ -2,16 +2,15 @@ package divinerpg.advancement;
 
 import com.google.common.collect.*;
 import com.google.gson.*;
-import net.minecraft.advancements.*;
-import net.minecraft.advancements.critereon.*;
-import net.minecraft.resources.*;
-import net.minecraft.server.*;
-import net.minecraft.server.level.*;
-import net.minecraft.world.level.block.*;
-import net.minecraftforge.common.util.*;
-import net.minecraftforge.registries.*;
+import net.minecraft.advancements.CriterionTrigger;
+import net.minecraft.advancements.critereon.ContextAwarePredicate;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.PlayerAdvancements;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.util.JsonUtils;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
 
 public class AdvancementDivineBlock implements CriterionTrigger<AdvancementDivineBlock.Instance> {

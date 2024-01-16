@@ -8,6 +8,7 @@ import divinerpg.util.*;
 import divinerpg.util.vanilla.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.chunk.LevelChunk;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
@@ -20,29 +21,9 @@ public class DivineRPG {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "divinerpg";
 
-    public DivineRPG() {
-        var bus = ModLoadingContext.get().extension();
-        BlockRegistry.BLOCKS.register(bus);
-        ItemRegistry.ITEMS.register(bus);
-        BlockRegistry.BLOCK_ITEMS.register(bus);
-        BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
-        FluidRegistry.FLUIDS.register(bus);
-        FluidRegistry.FLUID_TYPES.register(bus);
+    public DivineRPG(IEventBus bus) {
         MenuTypeRegistry.CONTAINERS.register(bus);
-        EntityRegistry.ENTITIES.register(bus);
-        ParticleRegistry.PARTICLES.register(bus);
-        RecipeRegistry.Serailizers.SERIALIZER.register(bus);
-        SoundRegistry.SOUNDS.register(bus);
-        EnchantmentRegistry.ENCHANTS.register(bus);
-        MobEffectRegistry.EFFECTS.register(bus);
-        PotionRegistry.POTIONS.register(bus);
-        RecipeRegistry.Types.RECIPE_TYPES.register(bus);
-        FeatureRegistry.FEATURES.register(bus);
-        StructureRegistry.STRUCTURE_TYPE.register(bus);
-        PaintingRegistry.PAINTING_VARIANTS.register(bus);
-        PointOfInterestRegistry.POI.register(bus);
         LootModifierRegistry.GLOBAL_LOOT_MODIFIERS.register(bus);
-        CreativeTabRegistry.TAB.register(bus);
         EventRegistry.init();
         bus.addListener(this::setup);
         bus.addListener(this::post);
@@ -54,7 +35,7 @@ public class DivineRPG {
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/divinerpg-common.toml");
 
-        MinecraftForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -74,8 +55,8 @@ public class DivineRPG {
         ModelPropRegistry.init();
         MenuTypeRegistry.registerScreenFactories();
         BlockEntityRegistry.renderTiles();
-        MinecraftForge.EVENT_BUS.register(new ArcanaRenderer());
-        MinecraftForge.EVENT_BUS.register(new EventClientLogin());
+        NeoForge.EVENT_BUS.register(new ArcanaRenderer());
+        NeoForge.EVENT_BUS.register(new EventClientLogin());
         Utils.loadHatInformation();
     }
     private void post(final FMLLoadCompleteEvent event){

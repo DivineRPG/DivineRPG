@@ -1,16 +1,16 @@
 package divinerpg.config;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.List;
 
 public class CommonConfig {
-    public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    public static final ForgeConfigSpec SPEC;
-    public static ForgeConfigSpec.ConfigValue<Integer> maxArcana, allureMaxMobs, kitraKills;
-    public static ForgeConfigSpec.ConfigValue<List<String>> kitraProtected;
-    public static ForgeConfigSpec.ConfigValue<Boolean> saferVetheanInventory;
+    public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec SPEC;
+    public static ModConfigSpec.ConfigValue<Integer> maxArcana, allureMaxMobs, kitraKills;
+    public static ModConfigSpec.ConfigValue<List<String>> kitraProtected;
+    public static ModConfigSpec.ConfigValue<Boolean> saferVetheanInventory;
 
     static {
         BUILDER.push("Common configs for DivineRPG");

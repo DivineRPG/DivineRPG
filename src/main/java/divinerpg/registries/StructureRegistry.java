@@ -10,13 +10,13 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.registries.*;
 
 public class StructureRegistry {
 	public static final StructurePlaceSettings defaultSettings = new StructurePlaceSettings().setIgnoreEntities(false).setFinalizeEntities(true).setKeepLiquids(true);
     public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPE = DeferredRegister.create(Registries.STRUCTURE_TYPE, DivineRPG.MODID);
 
-    public static final RegistryObject<StructureType<?>>
+    public static final DeferredHolder<StructureType<?>, StructureType<?>>
     	HIGHEST_GROUND = STRUCTURE_TYPE.register("highest_ground", () -> codecConv(HighestGroundType.CODEC)),
     	LOWEST_GROUND = STRUCTURE_TYPE.register("lowest_ground", () -> codecConv(LowestGroundType.CODEC)),
     	HIGHEST_CEILING = STRUCTURE_TYPE.register("highest_ceiling", () -> codecConv(HighestCeilingType.CODEC)),

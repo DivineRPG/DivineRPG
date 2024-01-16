@@ -3,7 +3,7 @@ package divinerpg.util.vanilla;
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import static divinerpg.registries.BlockRegistry.*;
 

@@ -1,12 +1,12 @@
 package divinerpg.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class ClientConfig {
-    public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    public static final ForgeConfigSpec SPEC;
-    public static ForgeConfigSpec.ConfigValue<Boolean> welcomeMessage, hideArcanaBar;
-    public static ForgeConfigSpec.ConfigValue<Integer> arcanaX, arcanaY;
+    public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec SPEC;
+    public static ModConfigSpec.ConfigValue<Boolean> welcomeMessage, hideArcanaBar;
+    public static ModConfigSpec.ConfigValue<Integer> arcanaX, arcanaY;
 
     static {
         BUILDER.push("Client configs for DivineRPG");
