@@ -1,24 +1,24 @@
 package divinerpg.block_entities.block;
 
 import divinerpg.DivineRPG;
-import divinerpg.blocks.vethea.*;
-import divinerpg.client.menu.*;
-import divinerpg.registries.*;
+import divinerpg.blocks.vethea.BlockDreamLamp;
+import divinerpg.client.menu.DreamLampMenu;
+import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.*;
-import net.minecraft.network.protocol.game.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.entity.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 
 public class DreamLampBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
     public static final int[] SLOTS = {0};
@@ -38,7 +38,7 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 	public static void serverTick(Level level, BlockPos pos, BlockState state, DreamLampBlockEntity block) {
 		if(block.burntime < 0) {
 			ItemStack fuel = block.items.get(0);
-			if(fuel.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")))) {
+			if(fuel.is(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "acid")))) {
 				fuel.shrink(1);
 				block.burntime += 600;
 				state = state.setValue(BlockDreamLamp.POWERED, true);
@@ -47,7 +47,7 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 			}
 		} else {
 			block.burntime--;
-			if(block.burntime < 0 && !block.items.get(0).is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")))) {
+			if(block.burntime < 0 && !block.items.get(0).is(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "acid")))) {
 				state = state.setValue(BlockDreamLamp.POWERED, false);
 		        level.setBlock(pos, state, 3);
 		        setChanged(level, pos, state);
@@ -81,11 +81,11 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 	@Override public boolean canPlaceItemThroughFace(int i, ItemStack stack, Direction dir) {return canPlaceItem(i, stack);}
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
-		return slot > 0 || stack.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")));
+		return slot > 0 || stack.is(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "acid")));
 	}
 	@Override
 	protected Component getDefaultName() {
-        return Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dream_lamp")).getDescriptionId());
+        return Component.translatable(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "dream_lamp")).getDescriptionId());
 	}
 	@Override
 	protected AbstractContainerMenu createMenu(int i, Inventory inv) {

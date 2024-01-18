@@ -2,23 +2,23 @@ package divinerpg.client.menu;
 
 import divinerpg.DivineRPG;
 import divinerpg.client.slot.InfusionTableResultSlot;
-import divinerpg.recipe.*;
-import divinerpg.registries.*;
+import divinerpg.recipe.InfusionTableRecipe;
+import divinerpg.registries.MenuTypeRegistry;
 import net.minecraft.core.*;
-import net.minecraft.network.*;
-import net.minecraft.network.chat.*;
-import net.minecraft.network.protocol.game.*;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.*;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.*;
-import net.minecraftforge.network.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.Level;
 
-import javax.annotation.*;
+import javax.annotation.Nullable;
 import java.util.*;
 
 public class InfusionTableMenu extends AbstractContainerMenu {
@@ -60,7 +60,7 @@ public class InfusionTableMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return stillValid(access, player, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table")));
+        return stillValid(access, player, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "infusion_table")));
     }
 
     @Override
@@ -117,14 +117,14 @@ public class InfusionTableMenu extends AbstractContainerMenu {
     }
 
     protected void slotChangedCraftingGrid(Level world, Player player, InfusionInventory inv, ResultContainer craftResult) {
-        Optional<InfusionTableRecipe> recipeOptional = world.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, inv, world);
+        Optional<RecipeHolder<InfusionTableRecipe>> recipeOptional = world.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, inv, world);
 
         if (recipeOptional.isPresent()) {
-            InfusionTableRecipe recipe = recipeOptional.get();
+            RecipeHolder<InfusionTableRecipe> recipe = recipeOptional.get();
 
-            if (recipe.matches(inv, world)) {
-                ItemStack output = recipe.output.copy();
-                ItemStack template = recipe.template.copy();
+            if (recipe.value().matches(inv, world)) {
+                ItemStack output = recipe.value().output.copy();
+                ItemStack template = recipe.value().template.copy();
 
                 if (craftResult.getItem(2).isEmpty()) {
                     craftResult.setItem(1, template);
@@ -132,7 +132,7 @@ public class InfusionTableMenu extends AbstractContainerMenu {
                     ((ServerPlayer) player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 1, template));
                     ((ServerPlayer) player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, incrementStateId(), 2, output));
                 } else if (craftResult.getItem(2).getItem() == output.getItem() && ItemStack.isSameItemSameTags(craftResult.getItem(2), output)) {
-                    inv.removeItem(0, recipe.getCount());
+                    inv.removeItem(0, recipe.value().getCount());
                     craftResult.getItem(2).grow(output.getCount());
                 }
             }
@@ -140,10 +140,10 @@ public class InfusionTableMenu extends AbstractContainerMenu {
     }
 
     public static void openContainer(ServerPlayer player, BlockPos pos) {
-        NetworkHooks.openScreen(player, new MenuProvider() {
+        player.openMenu(new MenuProvider() {
             @Override
             public Component getDisplayName() {
-                return Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table")).getDescriptionId());
+                return Component.translatable(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "infusion_table")).getDescriptionId());
             }
 
             @Nullable

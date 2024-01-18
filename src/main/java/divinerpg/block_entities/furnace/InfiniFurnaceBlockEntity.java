@@ -19,15 +19,11 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.capabilities.*;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.SidedInvWrapper;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
+public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible {
 	private static final int[] SLOTS_FOR_UP = new int[]{0};
 	private static final int[] SLOTS_FOR_DOWN = new int[]{1};
 	public final RecipeManager.CachedCheck<Container, ? extends AbstractCookingRecipe> quickCheck = RecipeManager.createCheck(RecipeType.SMELTING);;
@@ -56,12 +52,12 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	@Override public int getContainerSize() {return items.size();}
 	@Override public ItemStack getItem(int slot) {return items.get(slot);}
 	@Override public void clearContent() {this.items.clear();}
-	@Nullable @Override public Recipe<?> getRecipeUsed() {return null;}
-	@Override public void setRecipeUsed(@Nullable Recipe<?> recipe) {if (recipe != null) recipesUsed.addTo(recipe.getId(), 1);}
+	@Nullable @Override public RecipeHolder<?> getRecipeUsed() {return null;}
+	@Override public void setRecipeUsed(@Nullable RecipeHolder<?> recipeHolder) {if (recipeHolder != null) {ResourceLocation resourcelocation = recipeHolder.id();this.recipesUsed.addTo(resourcelocation, 1);}}
 	@Override public boolean canPlaceItemThroughFace(int i, ItemStack stack, Direction direction) {return canPlaceItem(i, stack);}
 	@Override public boolean canTakeItemThroughFace(int i, ItemStack stack, Direction direction) {return true;}
 	@Override public boolean canPlaceItem(int slot, ItemStack stack) {return slot != 1;}
-	@Override public void awardUsedRecipes(Player p_281647_, List<ItemStack> p_282578_) { RecipeHolder.super.awardUsedRecipes(p_281647_, p_282578_); }
+	@Override public void awardUsedRecipes(Player p_281647_, List<ItemStack> p_282578_) { RecipeCraftingHolder.super.awardUsedRecipes(p_281647_, p_282578_); }
 
 	@Override
 	public boolean isEmpty() {
@@ -89,7 +85,7 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	    }
 	}
 	public static int getTotalCookTime(Level level, InfiniFurnaceBlockEntity tile) {
-		return (int) (tile.quickCheck.getRecipeFor(tile, level).map(AbstractCookingRecipe::getCookingTime).orElse(200) / tile.speed);
+		return (int) (tile.quickCheck.getRecipeFor(tile, level).map(holder -> holder.value().getCookingTime()).orElse(200) / tile.speed);
 	}
 	@Override
 	public boolean stillValid(Player player) {
@@ -109,26 +105,27 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 		return Component.translatable(containerName);
 	}
 
-	public void awardUsedRecipesAndPopExperience(ServerPlayer player) {
-		List<Recipe<?>> recipesToAward = this.getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
-		player.awardRecipes(recipesToAward);
 
-		for (Recipe<?> recipe : recipesToAward) {
-			if (recipe != null) {
-				player.triggerRecipeCrafted(recipe, this.items);
+	public void awardUsedRecipesAndPopExperience(ServerPlayer p_155004_) {
+		List<RecipeHolder<?>> list = this.getRecipesToAwardAndPopExperience(p_155004_.serverLevel(), p_155004_.position());
+		p_155004_.awardRecipes(list);
+
+		for(RecipeHolder<?> recipeholder : list) {
+			if (recipeholder != null) {
+				p_155004_.triggerRecipeCrafted(recipeholder, this.items);
 			}
 		}
 
 		this.recipesUsed.clear();
 	}
 
-	public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel level, Vec3 position) {
-		List<Recipe<?>> list = Lists.newArrayList();
+	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel p_154996_, Vec3 p_154997_) {
+		List<RecipeHolder<?>> list = Lists.newArrayList();
 
-		for (Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
-			level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
-				list.add(recipe);
-				createExperience(level, position, entry.getIntValue(), ((AbstractCookingRecipe) recipe).getExperience());
+		for(Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
+			p_154996_.getRecipeManager().byKey(entry.getKey()).ifPresent(p_300839_ -> {
+				list.add(p_300839_);
+				createExperience(p_154996_, p_154997_, entry.getIntValue(), ((AbstractCookingRecipe)p_300839_.value()).getExperience());
 			});
 		}
 
@@ -146,17 +143,17 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	}
 
 	@Override
-	public boolean setRecipeUsed(Level level, ServerPlayer player, Recipe<?> recipe) {
-		List<Recipe<?>> recipesToAward = getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
+	public boolean setRecipeUsed(Level level, ServerPlayer player, RecipeHolder<?> recipe) {
+		List<RecipeHolder<?>> recipesToAward = getRecipesToAwardAndPopExperience(player.serverLevel(), player.position());
 		player.awardRecipes(recipesToAward);
 		recipesUsed.clear();
-		return RecipeHolder.super.setRecipeUsed(level, player, recipe);
+		return RecipeCraftingHolder.super.setRecipeUsed(level, player, recipe);
 	}
 
 
 	public static void serverTick(Level level, BlockPos pos, BlockState state, InfiniFurnaceBlockEntity block) {
 		boolean changes = false;
-		Recipe<?> recipe = block.quickCheck.getRecipeFor(block, level).orElse(null);
+		RecipeHolder<?> recipe = block.quickCheck.getRecipeFor(block, level).orElse(null);
         int maxStackSize = block.getMaxStackSize();
 		if(block.isLit) {
 	        if (block.canBurn(recipe, maxStackSize)) {
@@ -184,13 +181,13 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	         setChanged(level, pos, state);
 		}
 	}
-	public boolean canLight(@Nullable Recipe<?> recipe, int maxStackSize) {
+	public boolean canLight(@Nullable RecipeHolder<?> recipe, int maxStackSize) {
 		return !items.get(0).isEmpty() && canBurn(recipe, maxStackSize);
 	}
-	private boolean canBurn(@Nullable Recipe<?> recipe, int i) {
+	private boolean canBurn(@Nullable RecipeHolder<?> recipe, int i) {
 		if (recipe != null) {
 			@SuppressWarnings("unchecked")
-			ItemStack itemstack = ((Recipe<WorldlyContainer>) recipe).assemble(this, level.registryAccess());
+			ItemStack itemstack = ((RecipeHolder<Recipe<WorldlyContainer>>) recipe).value().assemble(this, level.registryAccess());
 	        if (itemstack.isEmpty()) return false;
 	        else {
 	            ItemStack itemstack1 = items.get(1);
@@ -201,10 +198,10 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	        }
 		} else return false;
 	}
-	private boolean burn(@Nullable Recipe<?> recipe, int maxStackSize) {
+	private boolean burn(@Nullable RecipeHolder<?> recipe, int maxStackSize) {
 	      if (canBurn(recipe, maxStackSize)) {
 	         @SuppressWarnings("unchecked")
-			ItemStack itemstack = items.get(0), itemstack1 = ((Recipe<WorldlyContainer>) recipe).assemble(this, level.registryAccess()), itemstack2 = items.get(1);
+			ItemStack itemstack = items.get(0), itemstack1 = ((RecipeHolder<Recipe<WorldlyContainer>>) recipe).value().assemble(this, level.registryAccess()), itemstack2 = items.get(1);
 	         if (itemstack2.isEmpty()) items.set(1, itemstack1.copy());
 	         else if (itemstack2.is(itemstack1.getItem())) itemstack2.grow(itemstack1.getCount());
 	         itemstack.shrink(1);
@@ -235,27 +232,29 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	      });
 	      tag.put("RecipesUsed", compoundtag);
 	}
-	LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
-	@Override
-	public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
-		if (!this.remove && facing != null && capability == ForgeCapabilities.ITEM_HANDLER) {
-	         if (facing == Direction.UP)
-	            return handlers[0].cast();
-	         else if (facing == Direction.DOWN)
-	            return handlers[1].cast();
-	         else
-	            return handlers[2].cast();
-	      }
-	      return super.getCapability(capability, facing);
-	}
-	@Override
-	public void invalidateCaps() {
-		super.invalidateCaps();
-		for (int x = 0; x < handlers.length; x++) handlers[x].invalidate();
-	}
-	@Override
-	public void reviveCaps() {
-		super.reviveCaps();
-		handlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
-	}
+
+	//TODO - cap handlers
+//	LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
+//	@Override
+//	public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
+//		if (!this.remove && facing != null && capability == ForgeCapabilities.ITEM_HANDLER) {
+//	         if (facing == Direction.UP)
+//	            return handlers[0].cast();
+//	         else if (facing == Direction.DOWN)
+//	            return handlers[1].cast();
+//	         else
+//	            return handlers[2].cast();
+//	      }
+//	      return super.getCapability(capability, facing);
+//	}
+//	@Override
+//	public void invalidateCaps() {
+//		super.invalidateCaps();
+//		for (int x = 0; x < handlers.length; x++) handlers[x].invalidate();
+//	}
+//	@Override
+//	public void reviveCaps() {
+//		super.reviveCaps();
+//		handlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
+//	}
 }

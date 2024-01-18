@@ -9,6 +9,7 @@ import net.minecraft.BlockUtil;
 import net.minecraft.BlockUtil.FoundRectangle;
 import net.minecraft.core.*;
 import net.minecraft.core.Direction.Axis;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.*;
 import net.minecraft.tags.*;
@@ -21,7 +22,6 @@ import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.minecraft.world.level.portal.PortalInfo;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 import java.util.function.Function;
@@ -32,7 +32,7 @@ public class ArcanaTeleporter extends DivineTeleporter {
 	public final StructureTemplate repairedPortal;
 
 	public ArcanaTeleporter(ServerLevel level, StructureTemplate repairedPortal) {
-		super(level, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcana_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcana_portal_frame")), true, PointOfInterestRegistry.ARCANA_PORTAL.getKey());
+		super(level, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "arcana_portal")), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "arcana_portal_frame")), true, PointOfInterestRegistry.ARCANA_PORTAL.getKey());
 		this.repairedPortal = repairedPortal;
 	}
 
@@ -81,9 +81,9 @@ public class ArcanaTeleporter extends DivineTeleporter {
 		for(int x = position.getX() - 11; x < position.getX() + 11; x++) for(int y = surface - 7; y < surface + 7; y++) for(int z = position.getZ() - 11; z < position.getZ() + 11; z++) if(level.getBlockState(new BlockPos(x, y, z)).is(portal))
 			return new PortalInfo(new Vec3(x, y, z), Vec3.ZERO, entity.xRot, entity.yRot);
 		BlockPos pos = null;
-		Block tile = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_tile"));
+		Block tile = BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ancient_tile"));
 		loop: for(int x = position.getX() - 11; x < position.getX() + 11; x++) for(int y = surface - 7; y < surface + 7; y++) for(int z = position.getZ() - 11; z < position.getZ() + 11; z++) if(level.getBlockState(pos = new BlockPos(x, y, z)).is(tile)) {
-			Block brick = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "light_degraded_brick"));
+			Block brick = BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "light_degraded_brick"));
 			pos = level.getBlockState(pos.offset(-1, 0, -1)).is(brick) ? pos.offset(-5, 0, -5)
 					: level.getBlockState(pos.offset(1, 0, -1)).is(brick) ? pos.offset(-1, 0, -5)
 							: level.getBlockState(pos.offset(-1, 0, 1)).is(brick) ? pos.offset(-5, 0, -1)
@@ -118,9 +118,9 @@ public class ArcanaTeleporter extends DivineTeleporter {
 	protected int getHeight(ServerLevel level, int posX, int posZ) {
 		for (int y = level.getHeight(); y > 32; y--) {
 			BlockState block = level.getBlockState(new BlockPos(posX, y, posZ));
-			if (block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_sand"))))
+			if (block.is(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "arcanite_sand"))))
 				return y;
-			if (block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_stone"))))
+			if (block.is(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "arcanite_stone"))))
 				return ++y;
 		}
 		return level.getHeight(Types.MOTION_BLOCKING, posX, posZ);

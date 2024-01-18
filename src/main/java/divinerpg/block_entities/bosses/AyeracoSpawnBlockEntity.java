@@ -1,21 +1,21 @@
 package divinerpg.block_entities.bosses;
 
 import divinerpg.DivineRPG;
+import divinerpg.block_entities.ModUpdatableBlockEntity;
 import divinerpg.entities.boss.EntityAyeraco;
 import divinerpg.registries.*;
-import divinerpg.block_entities.*;
-import divinerpg.util.*;
-import net.minecraft.*;
-import net.minecraft.core.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.chat.*;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
     /**
@@ -42,27 +42,27 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
             	block.purpleBeam = getBeamLocation(level, pos, -15, 0);
             	block.redBeam = getBeamLocation(level, pos, -8, -12);
             	block.yellowBeam = getBeamLocation(level, pos, 8, -12);
-                level.setBlock(block.blueBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_blue")).defaultBlockState(), 3);
+                level.setBlock(block.blueBeam, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_blue")).defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.BLUE);
                 break;
             case 500:
-            	level.setBlock(block.greenBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_green")).defaultBlockState(), 3);
+            	level.setBlock(block.greenBeam, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_green")).defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.GREEN);
                 break;
             case 400:
-            	level.setBlock(block.pinkBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_pink")).defaultBlockState(), 3);
+            	level.setBlock(block.pinkBeam, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_pink")).defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.LIGHT_PURPLE);
                 break;
             case 300:
-            	level.setBlock(block.purpleBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_purple")).defaultBlockState(), 3);
+            	level.setBlock(block.purpleBeam, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_purple")).defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.DARK_PURPLE);
                 break;
             case 200:
-            	level.setBlock(block.redBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_red")).defaultBlockState(), 3);
+            	level.setBlock(block.redBeam, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_red")).defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.RED);
                 break;
             case 100:
-            	level.setBlock(block.yellowBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_yellow")).defaultBlockState(), 3);
+            	level.setBlock(block.yellowBeam, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_yellow")).defaultBlockState(), 3);
             	logAyeracoSpawn(level, ChatFormatting.YELLOW, "yellow");
             	break;
             case 0:

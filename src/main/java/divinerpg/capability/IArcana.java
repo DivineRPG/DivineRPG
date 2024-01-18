@@ -1,8 +1,8 @@
 package divinerpg.capability;
 
-import net.minecraft.nbt.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraftforge.common.util.*;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.player.Player;
+import net.neoforged.neoforge.common.util.INBTSerializable;
 
 public interface IArcana extends INBTSerializable<CompoundTag> {
     /**

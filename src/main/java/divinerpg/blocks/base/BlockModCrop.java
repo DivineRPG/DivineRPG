@@ -1,6 +1,7 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
@@ -9,7 +10,6 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
@@ -68,11 +68,12 @@ public class BlockModCrop extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return ForgeRegistries.ITEMS.getValue(seed);
+        return BuiltInRegistries.ITEM.get(seed);
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter getter, BlockPos pos, BlockState state) {
-        return new ItemStack(ForgeRegistries.ITEMS.getValue(seed));
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
+        return new ItemStack(BuiltInRegistries.ITEM.get(seed));
     }
+
 }

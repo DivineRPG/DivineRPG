@@ -5,8 +5,8 @@ import divinerpg.util.DivineRPGPacketHandler;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.network.NetworkDirection;
+import net.neoforged.neoforge.common.util.FakePlayer;
 
 public class Arcana implements IArcana {
     private int tickDelay = 4;

@@ -3,6 +3,7 @@ package divinerpg.blocks.arcana;
 import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModUnbreakable;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -13,7 +14,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockHeatTrap extends BlockModUnbreakable {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
@@ -31,7 +31,7 @@ public class BlockHeatTrap extends BlockModUnbreakable {
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
     	if(state.is(this) && !(entity instanceof LivingEntity && EnchantmentHelper.hasFrostWalker((LivingEntity) entity))) {
-            if(!state.getValue(ACTIVE)) level.setBlock(pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "heat_trap")).defaultBlockState().setValue(ACTIVE, true), 2);
+            if(!state.getValue(ACTIVE)) level.setBlock(pos, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "heat_trap")).defaultBlockState().setValue(ACTIVE, true), 2);
             entity.lavaHurt();
     	}
     }

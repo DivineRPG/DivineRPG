@@ -1,6 +1,7 @@
 package divinerpg.blocks.arcana;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -10,14 +11,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcanaDoor extends DoorBlock {
     private final ResourceLocation keyItem;
     public BlockArcanaDoor(MapColor color, ResourceLocation key) {
-        super(BlockBehaviour.Properties.of().mapColor(color).strength(-1.0F, 3600000.0F).noOcclusion().instrument(NoteBlockInstrument.BASEDRUM), BlockSetType.IRON);
+        super(BlockSetType.IRON, BlockBehaviour.Properties.of().mapColor(color).strength(-1.0F, 3600000.0F).noOcclusion().instrument(NoteBlockInstrument.BASEDRUM));
         this.keyItem = key;
     }
     private void updateAdjacentDoors(Level world, BlockPos pos, Player player, BlockState state) {
@@ -39,7 +39,7 @@ public class BlockArcanaDoor extends DoorBlock {
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
         ItemStack itemstack = player.getItemInHand(hand);
         BlockState iblockstate = pos.equals(pos.below()) ? state : world.getBlockState(pos.below());
-        Item key = ForgeRegistries.ITEMS.getValue(keyItem);
+        Item key = BuiltInRegistries.ITEM.get(keyItem);
         if(!iblockstate.is(this)) return InteractionResult.FAIL;
         else {
             if(!player.isCreative()) {

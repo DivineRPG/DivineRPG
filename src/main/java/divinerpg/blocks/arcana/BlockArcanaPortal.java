@@ -1,28 +1,25 @@
 package divinerpg.blocks.arcana;
 
 import divinerpg.DivineRPG;
-import divinerpg.blocks.base.*;
-import divinerpg.registries.*;
-import divinerpg.util.teleport.*;
+import divinerpg.blocks.base.BlockMod;
+import divinerpg.registries.LevelRegistry;
+import divinerpg.util.teleport.ArcanaTeleporter;
 import net.minecraft.core.*;
-import net.minecraft.core.particles.*;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.*;
-import net.minecraft.server.level.*;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.player.*;
-import net.minecraft.world.item.*;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.pattern.*;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.pattern.BlockPattern;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
-import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
-import java.util.*;
+import java.util.Random;
 
 import static divinerpg.blocks.arcana.BlockArcanaPortalFrame.getOrCreatePortalShape;
 
@@ -46,7 +43,7 @@ public class BlockArcanaPortal extends BlockMod {
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
+    public ItemStack getCloneItemStack(LevelReader reader, BlockPos pos, BlockState state) {
         return new ItemStack(this);
     }
 

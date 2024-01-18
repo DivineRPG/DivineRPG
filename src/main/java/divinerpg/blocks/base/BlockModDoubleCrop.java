@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.common.*;
+import net.neoforged.neoforge.common.*;
 
 public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlantable {
     public static final IntegerProperty AGE = BlockStateProperties.AGE_2;
@@ -32,7 +32,7 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter getter, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
         return new ItemStack(getBaseSeedId());
     }
 
@@ -53,8 +53,8 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
         return p_185527_1_.getValue(this.getAgeProperty());
     }
 
-    public BlockState getStateForAge(int p_185528_1_) {
-        return this.defaultBlockState().setValue(this.getAgeProperty(), Integer.valueOf(p_185528_1_));
+    public BlockState getStateForAge(int age) {
+        return this.defaultBlockState().setValue(this.getAgeProperty(), Integer.valueOf(age));
     }
 
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource randomSource) {
@@ -62,26 +62,26 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
             int i = this.getAge(state);
             if (i < this.getMaxAge()) {
                 float f = getGrowthSpeed(this, level, pos);
-                if (ForgeHooks.onCropsGrowPre(level, pos, state, randomSource.nextInt((int)(25.0F / f) + 1) == 0)) {
+                if (CommonHooks.onCropsGrowPre(level, pos, state, randomSource.nextInt((int)(25.0F / f) + 1) == 0)) {
                     level.setBlock(pos, this.getStateForAge(i + 1), 2);
-                    ForgeHooks.onCropsGrowPost(level, pos, state);
+                    CommonHooks.onCropsGrowPost(level, pos, state);
                 }
             }
         }
 
     }
 
-    protected static float getGrowthSpeed(Block p_180672_0_, BlockGetter p_180672_1_, BlockPos p_180672_2_) {
+    protected static float getGrowthSpeed(Block block, BlockGetter blockGetter, BlockPos pos) {
         float f = 1.0F;
-        BlockPos blockpos = p_180672_2_.below();
+        BlockPos blockpos = pos.below();
 
         for(int i = -1; i <= 1; ++i) {
             for(int j = -1; j <= 1; ++j) {
                 float f1 = 0.0F;
-                BlockState blockstate = p_180672_1_.getBlockState(blockpos.offset(i, 0, j));
-                if (blockstate.canSustainPlant(p_180672_1_, blockpos.offset(i, 0, j), net.minecraft.core.Direction.UP, (net.minecraftforge.common.IPlantable) p_180672_0_)) {
+                BlockState blockstate = blockGetter.getBlockState(blockpos.offset(i, 0, j));
+                if (blockstate.canSustainPlant(blockGetter, blockpos.offset(i, 0, j), net.minecraft.core.Direction.UP, (IPlantable) block)) {
                     f1 = 1.0F;
-                    if (blockstate.isFertile(p_180672_1_, p_180672_2_.offset(i, 0, j))) {
+                    if (blockstate.isFertile(blockGetter, pos.offset(i, 0, j))) {
                         f1 = 3.0F;
                     }
                 }
@@ -94,16 +94,16 @@ public abstract class BlockModDoubleCrop extends BlockModCrop implements IPlanta
             }
         }
 
-        BlockPos blockpos1 = p_180672_2_.north();
-        BlockPos blockpos2 = p_180672_2_.south();
-        BlockPos blockpos3 = p_180672_2_.west();
-        BlockPos blockpos4 = p_180672_2_.east();
-        boolean flag = p_180672_0_ == p_180672_1_.getBlockState(blockpos3).getBlock() || p_180672_0_ == p_180672_1_.getBlockState(blockpos4).getBlock();
-        boolean flag1 = p_180672_0_ == p_180672_1_.getBlockState(blockpos1).getBlock() || p_180672_0_ == p_180672_1_.getBlockState(blockpos2).getBlock();
+        BlockPos blockpos1 = pos.north();
+        BlockPos blockpos2 = pos.south();
+        BlockPos blockpos3 = pos.west();
+        BlockPos blockpos4 = pos.east();
+        boolean flag = block == blockGetter.getBlockState(blockpos3).getBlock() || block == blockGetter.getBlockState(blockpos4).getBlock();
+        boolean flag1 = block == blockGetter.getBlockState(blockpos1).getBlock() || block == blockGetter.getBlockState(blockpos2).getBlock();
         if (flag && flag1) {
             f /= 2.0F;
         } else {
-            boolean flag2 = p_180672_0_ == p_180672_1_.getBlockState(blockpos3.north()).getBlock() || p_180672_0_ == p_180672_1_.getBlockState(blockpos4.north()).getBlock() || p_180672_0_ == p_180672_1_.getBlockState(blockpos4.south()).getBlock() || p_180672_0_ == p_180672_1_.getBlockState(blockpos3.south()).getBlock();
+            boolean flag2 = block == blockGetter.getBlockState(blockpos3.north()).getBlock() || block == blockGetter.getBlockState(blockpos4.north()).getBlock() || block == blockGetter.getBlockState(blockpos4.south()).getBlock() || block == blockGetter.getBlockState(blockpos3.south()).getBlock();
             if (flag2) {
                 f /= 2.0F;
             }

@@ -2,12 +2,12 @@ package divinerpg.blocks.arcana;
 
 import divinerpg.DivineRPG;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcaniteVinesHead extends WeepingVinesBlock {
 	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 16.0, 15.0);
@@ -18,7 +18,7 @@ public class BlockArcaniteVinesHead extends WeepingVinesBlock {
 
     @Override
     protected Block getBodyBlock() {
-        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_vines_body"));
+        return BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "arcanite_vines_body"));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class BlockArcaniteVinesHead extends WeepingVinesBlock {
 	}
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean bool) {
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
         return false;
     }
 

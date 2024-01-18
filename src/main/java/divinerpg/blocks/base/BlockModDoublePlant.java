@@ -9,8 +9,8 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.*;
-import net.minecraftforge.common.PlantType;
+import net.minecraft.world.level.material.MapColor;
+import net.neoforged.neoforge.common.PlantType;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
@@ -20,13 +20,13 @@ public class BlockModDoublePlant extends DoublePlantBlock {
     private final Supplier<Block> grassSupplier;
 
     public BlockModDoublePlant(Supplier<Block> grassSupplier, MapColor color, SoundType sound) {
-        super(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS).mapColor(color).sound(sound));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS).mapColor(color).sound(sound));
         this.grassSupplier = grassSupplier;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
     public BlockModDoublePlant(Supplier<Block> grassSupplier, MapColor color) {
-        super(BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH).mapColor(color));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH).mapColor(color));
         this.grassSupplier = grassSupplier;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }
@@ -52,20 +52,20 @@ public class BlockModDoublePlant extends DoublePlantBlock {
             return super.canSurvive(state, level, pos);
         } else {
             BlockState blockstate = level.getBlockState(pos.below());
-            if (state.getBlock() != this) return super.canSurvive(state, level, pos); //Forge: This function is called during world gen and placement, before this block is set, so if we are not 'here' then assume it's the pre-check.
+            if (state.getBlock() != this) return super.canSurvive(state, level, pos);
             return blockstate.is(this) && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
         }
     }
 
     @Override
-    public void playerWillDestroy(Level p_176208_1_, BlockPos p_176208_2_, BlockState p_176208_3_, Player p_176208_4_) {
-        if (!p_176208_1_.isClientSide) {
-            if (p_176208_4_.isCreative()) {
-                preventCreativeDropFromBottomPart(p_176208_1_, p_176208_2_, p_176208_3_, p_176208_4_);
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if (!level.isClientSide) {
+            if (player.isCreative()) {
+                preventCreativeDropFromBottomPart(level, pos, state, player);
             }
         }
 
-        super.playerWillDestroy(p_176208_1_, p_176208_2_, p_176208_3_, p_176208_4_);
+        return super.playerWillDestroy(level, pos, state, player);
     }
 
     @Override
