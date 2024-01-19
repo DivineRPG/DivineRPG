@@ -7,10 +7,10 @@ import mezz.jei.api.*;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.registration.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 import java.util.*;
@@ -29,16 +29,16 @@ public final class JEICompat
 
     @Override
     public void registerRecipeCatalysts(@Nonnull IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "coalstone_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "demon_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "greenlight_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "molten_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "moonlight_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "oceanfire_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "whitefire_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "coalstone_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "demon_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "greenlight_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "molten_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "moonlight_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "oceanfire_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "whitefire_furnace"))), RecipeTypes.SMELTING, RecipeTypes.FUELING);
 
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_extractor"))), ArcaniumExtractorCategory.ARCANIUM_EXTRACTOR_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table"))), InfusionTableCategory.INFUSION_TABLE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "arcanium_extractor"))), ArcaniumExtractorCategory.ARCANIUM_EXTRACTOR_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "infusion_table"))), InfusionTableCategory.INFUSION_TABLE_TYPE);
     }
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
@@ -52,16 +52,16 @@ public final class JEICompat
         List<InfusionTableRecipe> infusionTableRecipes = new ArrayList<>();
 
         @SuppressWarnings("resource")
-		RecipeManager manager = Minecraft.getInstance().level.getRecipeManager();
+        RecipeManager manager = Minecraft.getInstance().level.getRecipeManager();
 
-        for (Recipe<?> i : manager.getRecipes()) {
-            if (i instanceof ArcaniumExtractorRecipe arcaniumExtractorRecipe) {
+        for (RecipeHolder<?> i : manager.getRecipes()) {
+            if (i.value() instanceof ArcaniumExtractorRecipe arcaniumExtractorRecipe) {
                 arcaniumExtractorRecipes.add(arcaniumExtractorRecipe);
             }
         }
 
-        for (Recipe<?> i : manager.getRecipes()) {
-            if (i instanceof InfusionTableRecipe infusionTableRecipe) {
+        for (RecipeHolder<?> i : manager.getRecipes()) {
+            if (i.value() instanceof InfusionTableRecipe infusionTableRecipe) {
                 infusionTableRecipes.add(infusionTableRecipe);
             }
         }

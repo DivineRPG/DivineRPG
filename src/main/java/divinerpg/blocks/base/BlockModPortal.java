@@ -7,6 +7,7 @@ import divinerpg.util.teleport.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.*;
 import net.minecraft.util.RandomSource;
@@ -18,12 +19,10 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.Cancelable;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.server.command.TextComponentHelper;
+import net.neoforged.api.distmarker.*;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.server.command.TextComponentHelper;
 
 import javax.annotation.Nullable;
 
@@ -73,60 +72,60 @@ public class BlockModPortal extends BlockMod {
             if(entity.isOnPortalCooldown()) {
                 entity.setPortalCooldown();
             }
-                if(!entity.isOnPortalCooldown() && entity instanceof LivingEntity) {
-                    entity.level().getProfiler().push(world.dimension().location().getPath());
-                    if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal"))) {
-                        ResourceKey<Level> key = world.dimension() == LevelRegistry.EDEN ? Level.OVERWORLD : LevelRegistry.EDEN;
-                        if(world.getServer().getLevel(key) != null) {
-                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "divine_rock")), true, PointOfInterestRegistry.EDEN_PORTAL.getKey()));
-                        }
-                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_portal"))) {
-                        ResourceKey<Level> key = world.dimension() == LevelRegistry.WILDWOOD ? Level.OVERWORLD : LevelRegistry.WILDWOOD;
-                        if(world.getServer().getLevel(key) != null) {
-                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_block")), true, PointOfInterestRegistry.WILDWOOD_PORTAL.getKey()));
-                        }
-                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_portal"))) {
-                        ResourceKey<Level> key = world.dimension() == LevelRegistry.APALACHIA ? Level.OVERWORLD : LevelRegistry.APALACHIA;
-                        if(world.getServer().getLevel(key) != null) {
-                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_block")), true, PointOfInterestRegistry.APALACHIA_PORTAL.getKey()));
-                        }
-                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_portal"))) {
-                        ResourceKey<Level> key = world.dimension() == LevelRegistry.SKYTHERN ? Level.OVERWORLD : LevelRegistry.SKYTHERN;
-                        if(world.getServer().getLevel(key) != null) {
-                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_block")), true, PointOfInterestRegistry.SKYTHERN_PORTAL.getKey()));
-                        }
-                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal"))) {
-                        ResourceKey<Level> key = world.dimension() == LevelRegistry.MORTUM ? Level.OVERWORLD : LevelRegistry.MORTUM;
-                        if(world.getServer().getLevel(key) != null) {
-                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal")), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_block")), true, PointOfInterestRegistry.MORTUM_PORTAL.getKey()));
-                        }
-                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_portal"))) {
-                        ResourceKey<Level> key = world.dimension() == LevelRegistry.ICEIKA ? Level.OVERWORLD : LevelRegistry.ICEIKA;
-                        if(world.getServer().getLevel(key) != null) {
-                            entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_portal")), Blocks.SNOW_BLOCK, true, PointOfInterestRegistry.ICEIKA_PORTAL.getKey()));
-                        }
-                        } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal"))) {
-                        ResourceKey<Level> key = world.dimension() == LevelRegistry.VETHEA ? Level.OVERWORLD : LevelRegistry.VETHEA;
-                        if (CommonConfig.saferVetheanInventory.get()) {
-                            if (world.getServer().getLevel(key) != null) {
-                                if (entity instanceof Player player) {
-                                    if (player.inventory.isEmpty()) {
-                                        entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
-                                    } else {
-                                        MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.vethea_portal.inventory_full", player.getDisplayName());
-                                        message.withStyle(ChatFormatting.RED);
-                                        player.displayClientMessage(message, true);
-                                    }
+            if(!entity.isOnPortalCooldown() && entity instanceof LivingEntity) {
+                entity.level().getProfiler().push(world.dimension().location().getPath());
+                if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "eden_portal"))) {
+                    ResourceKey<Level> key = world.dimension() == LevelRegistry.EDEN ? Level.OVERWORLD : LevelRegistry.EDEN;
+                    if(world.getServer().getLevel(key) != null) {
+                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "eden_portal")), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "divine_rock")), true, PointOfInterestRegistry.EDEN_PORTAL.getKey()));
+                    }
+                } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "wildwood_portal"))) {
+                    ResourceKey<Level> key = world.dimension() == LevelRegistry.WILDWOOD ? Level.OVERWORLD : LevelRegistry.WILDWOOD;
+                    if(world.getServer().getLevel(key) != null) {
+                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "wildwood_portal")), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "eden_block")), true, PointOfInterestRegistry.WILDWOOD_PORTAL.getKey()));
+                    }
+                } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "apalachia_portal"))) {
+                    ResourceKey<Level> key = world.dimension() == LevelRegistry.APALACHIA ? Level.OVERWORLD : LevelRegistry.APALACHIA;
+                    if(world.getServer().getLevel(key) != null) {
+                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "apalachia_portal")), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "wildwood_block")), true, PointOfInterestRegistry.APALACHIA_PORTAL.getKey()));
+                    }
+                } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "skythern_portal"))) {
+                    ResourceKey<Level> key = world.dimension() == LevelRegistry.SKYTHERN ? Level.OVERWORLD : LevelRegistry.SKYTHERN;
+                    if(world.getServer().getLevel(key) != null) {
+                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "skythern_portal")), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "apalachia_block")), true, PointOfInterestRegistry.SKYTHERN_PORTAL.getKey()));
+                    }
+                } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "mortum_portal"))) {
+                    ResourceKey<Level> key = world.dimension() == LevelRegistry.MORTUM ? Level.OVERWORLD : LevelRegistry.MORTUM;
+                    if(world.getServer().getLevel(key) != null) {
+                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "mortum_portal")), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "skythern_block")), true, PointOfInterestRegistry.MORTUM_PORTAL.getKey()));
+                    }
+                } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "iceika_portal"))) {
+                    ResourceKey<Level> key = world.dimension() == LevelRegistry.ICEIKA ? Level.OVERWORLD : LevelRegistry.ICEIKA;
+                    if(world.getServer().getLevel(key) != null) {
+                        entity.changeDimension(world.getServer().getLevel(key), new DivineTeleporter(world.getServer().getLevel(key), BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "iceika_portal")), Blocks.SNOW_BLOCK, true, PointOfInterestRegistry.ICEIKA_PORTAL.getKey()));
+                    }
+                } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "vethea_portal"))) {
+                    ResourceKey<Level> key = world.dimension() == LevelRegistry.VETHEA ? Level.OVERWORLD : LevelRegistry.VETHEA;
+                    if (CommonConfig.saferVetheanInventory.get()) {
+                        if (world.getServer().getLevel(key) != null) {
+                            if (entity instanceof Player player) {
+                                if (player.inventory.isEmpty()) {
+                                    entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
+                                } else {
+                                    MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.vethea_portal.inventory_full", player.getDisplayName());
+                                    message.withStyle(ChatFormatting.RED);
+                                    player.displayClientMessage(message, true);
                                 }
                             }
-                        }else{
-                            if (world.getServer().getLevel(key) != null) {
-                                entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
-                            }
+                        }
+                    }else{
+                        if (world.getServer().getLevel(key) != null) {
+                            entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
                         }
                     }
-                    entity.level().getProfiler().pop();
                 }
+                entity.level().getProfiler().pop();
+            }
         }
 
     }
@@ -151,19 +150,19 @@ public class BlockModPortal extends BlockMod {
                 zSpeed = rand.nextFloat() * 2.0F * (float) j;
             }
 
-            if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_portal"))) {
+            if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "eden_portal"))) {
                 worldIn.addParticle(ParticleRegistry.EDEN_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
-            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_portal"))) {
+            } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "wildwood_portal"))) {
                 worldIn.addParticle(ParticleRegistry.WILDWOOD_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
-            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_portal"))) {
+            } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "apalachia_portal"))) {
                 worldIn.addParticle(ParticleRegistry.APALACHIA_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
-            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_portal"))) {
+            } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "skythern_portal"))) {
                 worldIn.addParticle(ParticleRegistry.SKYTHERN_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
-            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_portal"))) {
+            } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "mortum_portal"))) {
                 worldIn.addParticle(ParticleRegistry.MORTUM_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
-            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "iceika_portal"))) {
+            } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "iceika_portal"))) {
                 worldIn.addParticle(ParticleRegistry.FROST.get(), x, y, z, xSpeed, ySpeed, zSpeed);
-            } else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vethea_portal"))) {
+            } else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "vethea_portal"))) {
                 worldIn.addParticle(ParticleRegistry.MORTUM_PORTAL.get(), x, y, z, xSpeed, ySpeed, zSpeed);
             } else {
                 worldIn.addParticle(ParticleTypes.PORTAL, x, y, z, xSpeed, ySpeed, zSpeed);
@@ -173,7 +172,7 @@ public class BlockModPortal extends BlockMod {
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader worldIn, BlockPos pos, BlockState state) {
         return ItemStack.EMPTY;
     }
 
@@ -213,11 +212,10 @@ public class BlockModPortal extends BlockMod {
         }
     }
 
-    public static boolean onTrySpawnPortal(LevelAccessor world, BlockPos pos, BlockModPortal.Size size) {
-        return MinecraftForge.EVENT_BUS.post(new PortalSpawnEvent(world, pos, world.getBlockState(pos), size));
+    public static boolean onTrySpawnPortal(LevelAccessor world, BlockPos pos, Size size) {
+        return NeoForge.EVENT_BUS.post(new PortalSpawnEvent(world, pos, world.getBlockState(pos), size));
     }
 
-    @Cancelable
     public static class PortalSpawnEvent extends BlockEvent {
         private final BlockModPortal.Size size;
 

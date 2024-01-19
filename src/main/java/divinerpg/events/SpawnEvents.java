@@ -17,26 +17,25 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraftforge.event.entity.*;
-import net.minecraftforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck;
-import net.minecraftforge.eventbus.api.Event.Result;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.*;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.*;
+import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
 
 import java.util.*;
 
 import static divinerpg.registries.EntityRegistry.*;
 import static net.minecraft.world.entity.SpawnPlacements.Type.*;
 import static net.minecraft.world.level.levelgen.Heightmap.Types.*;
-import static net.minecraftforge.event.entity.SpawnPlacementRegisterEvent.Operation.REPLACE;
+import static net.neoforged.neoforge.event.entity.SpawnPlacementRegisterEvent.Operation.REPLACE;
 
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SpawnEvents {
-	public static void spawnPlacementCheck(SpawnPlacementCheck e) {
+	public static void spawnPlacementCheck(MobSpawnEvent.SpawnPlacementCheck e) {
 		if(e.getLevel() instanceof ServerLevel level) {
 			MobSpawnType type = e.getSpawnType();
 			if((type == MobSpawnType.NATURAL || type == MobSpawnType.STRUCTURE || type == MobSpawnType.PATROL) && level.getChunkAt(e.getPos()).getCapability(SoulTrapCountProvider.SOUL_TRAP_COUNT).orElseGet(() -> new SoulTrapCount()).count > 0) {
-				e.setResult(Result.DENY);
+				e.setResult(Event.Result.DENY);
 			}
 		}
 	}
