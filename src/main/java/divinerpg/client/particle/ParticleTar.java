@@ -1,10 +1,9 @@
 package divinerpg.client.particle;
 
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.*;
-import net.minecraftforge.api.distmarker.*;
-
-import net.minecraft.client.multiplayer.ClientLevel;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleTar extends TextureSheetParticle {

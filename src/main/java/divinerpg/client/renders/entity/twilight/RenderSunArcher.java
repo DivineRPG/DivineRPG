@@ -2,11 +2,11 @@ package divinerpg.client.renders.entity.twilight;
 
 import divinerpg.DivineRPG;
 import divinerpg.client.models.twilight.ModelSunArcher;
-import divinerpg.client.renders.layer.*;
+import divinerpg.client.renders.layer.SunArcherBowLayer;
 import divinerpg.entities.eden.EntitySunArcher;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderSunArcher extends MobRenderer<EntitySunArcher, ModelSunArcher<EntitySunArcher>> {

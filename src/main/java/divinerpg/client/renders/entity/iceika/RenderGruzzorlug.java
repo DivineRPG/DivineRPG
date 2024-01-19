@@ -7,7 +7,7 @@ import divinerpg.client.renders.layer.GruzzorlugLayer;
 import divinerpg.entities.iceika.gruzzorlug.Gruzzorlug;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderGruzzorlug extends MobRenderer<Gruzzorlug, ModelGruzzorlug<Gruzzorlug>> {

@@ -5,21 +5,21 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.particles.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.*;
 
 import java.util.Locale;
 
 public class ParticleColouredType extends ParticleType<ParticleColouredType.ParticleColour> {
     @SuppressWarnings("unchecked")
 	public static final Codec<ParticleColour> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codec.STRING.fieldOf("particle_type").forGetter(data -> ForgeRegistries.PARTICLE_TYPES.getKey(data.particleType).toString()),
+            Codec.STRING.fieldOf("particle_type").forGetter(data -> BuiltInRegistries.PARTICLE_TYPE.getKey(data.particleType).toString()),
             Codec.INT.fieldOf("red0").forGetter(data -> data.red),
             Codec.INT.fieldOf("green0").forGetter(data -> data.green),
             Codec.INT.fieldOf("blue0").forGetter(data -> data.blue)
-    ).apply(instance, (type, red, green, blue) -> new ParticleColour((ParticleType<ParticleColour>) ForgeRegistries.PARTICLE_TYPES.getValue(new ResourceLocation(type)), red, green, blue)));
+    ).apply(instance, (type, red, green, blue) -> new ParticleColour((ParticleType<ParticleColour>) BuiltInRegistries.PARTICLE_TYPE.get(new ResourceLocation(type)), red, green, blue)));
 
     public ParticleColouredType(boolean alwaysShow) {
         super(alwaysShow, ParticleColour.DESERIALIZER);
@@ -66,7 +66,7 @@ public class ParticleColouredType extends ParticleType<ParticleColouredType.Part
 
         @Override
         public String writeToString() {
-            return String.format(Locale.ROOT, "%s Colour: %d %d %d", ForgeRegistries.PARTICLE_TYPES.getKey(getType()), red, green, blue);
+            return String.format(Locale.ROOT, "%s Colour: %d %d %d", BuiltInRegistries.PARTICLE_TYPE.getKey(getType()), red, green, blue);
         }
 
         @Override

@@ -4,18 +4,18 @@ import divinerpg.DivineRPG;
 import divinerpg.registries.ParticleRegistry;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
-import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.api.distmarker.*;
 
 public class BlockModWallTorch extends WallTorchBlock {
 
-    public BlockModWallTorch(ParticleOptions particleData) {
-        super(Properties.copy(Blocks.WALL_TORCH), particleData);
+    public BlockModWallTorch(SimpleParticleType particleData) {
+        super(particleData, Properties.ofFullCopy(Blocks.WALL_TORCH));
     }
 
     @Override
@@ -28,16 +28,16 @@ public class BlockModWallTorch extends WallTorchBlock {
         double d0 = 0.22D;
         double d1 = 0.27D;
         Direction opposite = direction.getOpposite();
-        if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "aqua_wall_torch"))) {
+        if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "aqua_wall_torch"))) {
             world.addParticle(ParticleRegistry.BLUE_FLAME.get(), dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
         }
-        else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skeleton_wall_torch"))) {
+        else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "skeleton_wall_torch"))) {
             world.addParticle(ParticleRegistry.BLACK_FLAME.get(), dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
         }
-        else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_wall_torch"))) {
+        else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "arcanium_wall_torch"))) {
             world.addParticle(ParticleRegistry.GREEN_FLAME.get(), dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
         }
-        else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_wall_torch"))) {
+        else if (this == BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "eden_wall_torch"))) {
             world.addParticle(ParticleRegistry.PURPLE_FLAME.get(), dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);
         } else {
             world.addParticle(flameParticle, dx + d1 * (double)opposite.getStepX(), dy + d0, dz + d1 * (double)opposite.getStepZ(), 0.0D, 0.0D, 0.0D);

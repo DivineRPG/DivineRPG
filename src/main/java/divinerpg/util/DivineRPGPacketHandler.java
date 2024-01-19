@@ -1,22 +1,24 @@
 package divinerpg.util;
 
-import java.util.function.Supplier;
-
 import divinerpg.DivineRPG;
 import divinerpg.capability.PacketArcanaBar;
 import divinerpg.items.arcana.PacketDivineAccumulator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.network.*;
-import net.minecraftforge.network.simple.SimpleChannel;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlerEvent;
+import net.neoforged.neoforge.network.registration.*;
+
+import java.util.function.Supplier;
 
 public class DivineRPGPacketHandler {
-	private static final String PROTOCOL_VERSION = "1";
-	public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
-		new ResourceLocation(DivineRPG.MODID, "main"),
-		() -> PROTOCOL_VERSION,
-		PROTOCOL_VERSION::equals,
-		PROTOCOL_VERSION::equals
-	);
+
+
+	@SubscribeEvent
+	public static void register(final RegisterPayloadHandlerEvent event) {
+		final IPayloadRegistrar registrar = event.registrar(DivineRPG.MODID).versioned("2.0.0").optional();
+	}
+
 	public static void init() {
 		int index = 0;
 		INSTANCE.registerMessage(index++, Byte.class, (l, buf) -> buf.writeByte(l), (buf) -> buf.readByte(), DivineRPGPacketHandler::handle);

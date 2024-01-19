@@ -1,13 +1,12 @@
 package divinerpg.client.renders.entity.boss;
 
-import divinerpg.*;
-import divinerpg.client.models.boss.*;
+import divinerpg.DivineRPG;
+import divinerpg.client.models.boss.ModelLadyLuna;
 import divinerpg.client.renders.base.RenderDivineMob;
-import divinerpg.entities.boss.*;
+import divinerpg.entities.boss.EntityLadyLuna;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
-import net.minecraftforge.api.distmarker.*;
-
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderLadyLuna extends RenderDivineMob<EntityLadyLuna> {

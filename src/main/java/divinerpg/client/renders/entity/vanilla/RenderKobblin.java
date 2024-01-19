@@ -1,14 +1,14 @@
 package divinerpg.client.renders.entity.vanilla;
 
 
-import com.mojang.blaze3d.vertex.*;
-import divinerpg.*;
-import divinerpg.client.models.vanilla.*;
-import divinerpg.entities.vanilla.overworld.*;
-import net.minecraft.client.renderer.entity.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import divinerpg.DivineRPG;
+import divinerpg.client.models.vanilla.ModelKobblin;
+import divinerpg.entities.vanilla.overworld.EntityKobblin;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
-import net.minecraft.resources.*;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderKobblin extends MobRenderer<EntityKobblin, ModelKobblin> {

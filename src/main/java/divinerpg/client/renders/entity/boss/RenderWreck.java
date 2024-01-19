@@ -1,16 +1,16 @@
 package divinerpg.client.renders.entity.boss;
 
 
-import com.mojang.blaze3d.vertex.*;
-import divinerpg.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import divinerpg.DivineRPG;
 import divinerpg.client.models.boss.*;
 import divinerpg.client.renders.base.RenderDivineMob;
-import divinerpg.entities.boss.*;
-import net.minecraft.client.model.*;
-import net.minecraft.client.renderer.*;
+import divinerpg.entities.boss.EntityWreck;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
-import net.minecraft.resources.*;
-import net.minecraftforge.api.distmarker.*;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderWreck extends RenderDivineMob<EntityWreck> {

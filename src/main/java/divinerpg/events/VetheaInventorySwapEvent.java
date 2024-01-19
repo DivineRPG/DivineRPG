@@ -2,15 +2,15 @@ package divinerpg.events;
 
 import divinerpg.compat.CuriosCompat;
 import divinerpg.config.CommonConfig;
-import divinerpg.registries.*;
+import divinerpg.registries.LevelRegistry;
 import net.minecraft.nbt.*;
-import net.minecraft.world.entity.player.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameRules;
-import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.player.*;
-import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.bus.api.*;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.event.entity.EntityTravelToDimensionEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 public class VetheaInventorySwapEvent {
 	public static final String OVERWORLD_INVENTORY = "OvWorldInv", VETHEA_INVENTORY = "DreamInv", MODID_SEPERATOR = "divinerpg:";
@@ -28,14 +28,15 @@ public class VetheaInventorySwapEvent {
 	}
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
-		if(!event.isCanceled()) {
+		//TODO - check event cancelled
+//		if(!event.isCanceled()) {
 			Player player = event.getEntity();
 			if(CommonConfig.saferVetheanInventory.get() == false) {
 				if (player.level().dimension().equals(LevelRegistry.VETHEA)) loadInv(player, VETHEA_INVENTORY);
 				else loadInv(player, OVERWORLD_INVENTORY);
 				player.inventoryMenu.broadcastChanges();
 			} ArmorAbilitiesEvent.updateAbilities(player);
-		}
+//		}
 	}
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onDimensionChange(EntityTravelToDimensionEvent event) {

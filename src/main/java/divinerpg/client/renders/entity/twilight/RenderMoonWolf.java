@@ -6,7 +6,7 @@ import divinerpg.client.renders.layer.MoonWolfCollarLayer;
 import divinerpg.entities.wildwood.EntityMoonWolf;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderMoonWolf extends MobRenderer<EntityMoonWolf, ModelMoonWolf<EntityMoonWolf>> {

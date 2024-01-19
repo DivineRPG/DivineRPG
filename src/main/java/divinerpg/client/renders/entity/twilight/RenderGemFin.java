@@ -8,7 +8,7 @@ import divinerpg.entities.eden.EntityGemFin;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderGemFin extends MobRenderer<EntityGemFin, ModelGemFin> {

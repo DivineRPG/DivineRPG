@@ -45,9 +45,10 @@ public class InfiniFurnaceMenu extends RecipeBookMenu<Container> {
 		getSlot(0).set(ItemStack.EMPTY);
 		getSlot(1).set(ItemStack.EMPTY);
 	}
+
 	@Override
-	public boolean recipeMatches(Recipe<? super Container> recipe) {
-	      return recipe.matches(container, level);
+	public boolean recipeMatches(RecipeHolder<? extends Recipe<Container>> recipe) {
+	      return recipe.value().matches(container, level);
 	}
 	@Override public boolean stillValid(Player player) {return container.stillValid(player);}
 	@Override public int getResultSlotIndex() {return 1;}

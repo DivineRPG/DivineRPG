@@ -1,13 +1,12 @@
 package divinerpg.client.renders.entity.twilight;
 
-import divinerpg.*;
-import divinerpg.client.models.twilight.*;
-import divinerpg.client.renders.layer.*;
-import divinerpg.entities.apalachia.*;
+import divinerpg.DivineRPG;
+import divinerpg.client.models.twilight.ModelEnchantedArcher;
+import divinerpg.client.renders.layer.EnchantedArcherLayer;
+import divinerpg.entities.apalachia.EntityEnchantedArcher;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraftforge.api.distmarker.*;
-
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderEnchantedArcher extends MobRenderer<EntityEnchantedArcher, ModelEnchantedArcher<EntityEnchantedArcher>> {

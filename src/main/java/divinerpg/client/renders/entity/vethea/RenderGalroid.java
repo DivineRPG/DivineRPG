@@ -1,13 +1,13 @@
 package divinerpg.client.renders.entity.vethea;
 
-import divinerpg.*;
+import divinerpg.DivineRPG;
 import divinerpg.client.renders.base.RenderDivineMob;
 import divinerpg.entities.vethea.EntityGalroid;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraftforge.api.distmarker.*;
-
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.*;
+
 @OnlyIn(Dist.CLIENT)
 public class RenderGalroid extends RenderDivineMob<EntityGalroid> {
     ResourceLocation regular = new ResourceLocation(DivineRPG.MODID, "textures/entity/galroid.png");

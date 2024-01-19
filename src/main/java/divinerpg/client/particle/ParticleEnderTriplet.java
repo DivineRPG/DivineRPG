@@ -1,12 +1,11 @@
 package divinerpg.client.particle;
 
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.particle.*;
-import net.minecraftforge.api.distmarker.*;
-
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleEnderTriplet extends TextureSheetParticle {

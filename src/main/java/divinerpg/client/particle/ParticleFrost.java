@@ -1,13 +1,12 @@
 package divinerpg.client.particle;
 
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.particle.*;
-import net.minecraftforge.api.distmarker.*;
-
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.Mth;
+import net.neoforged.api.distmarker.*;
 
 /**
  * Created by LiteWolf101 on Feb

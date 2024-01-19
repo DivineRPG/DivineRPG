@@ -17,6 +17,8 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.EventHooks;
 
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
         });
         this.addSlot(new Slot(this.enchantSlots, 1, 35, 47) {
             public boolean mayPlace(ItemStack p_39517_) {
-                return p_39517_.is(net.minecraftforge.common.Tags.Items.ENCHANTING_FUELS);
+                return p_39517_.is(Tags.Items.ENCHANTING_FUELS);
             }
         });
 
@@ -83,16 +85,16 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
     }
 
     @SuppressWarnings("deprecation")
-	public void slotsChanged(Container p_39461_) {
-        if (p_39461_ == this.enchantSlots) {
-            ItemStack itemstack = p_39461_.getItem(0);
+	public void slotsChanged(Container container) {
+        if (container == this.enchantSlots) {
+            ItemStack itemstack = container.getItem(0);
             if (!itemstack.isEmpty() && itemstack.isEnchantable()) {
-                this.access.execute((p_39485_, p_39486_) -> {
+                this.access.execute((level, pos) -> {
                     float j = 30;
 
                     for(BlockPos blockpos : BlockAltarOfCorruption.BOOKSHELF_OFFSETS) {
-                        if (BlockAltarOfCorruption.isValidBookShelf(p_39485_, p_39486_, blockpos)) {
-                            j += p_39485_.getBlockState(p_39486_.offset(blockpos)).getEnchantPowerBonus(p_39485_, p_39486_.offset(blockpos));
+                        if (BlockAltarOfCorruption.isValidBookShelf(level, pos, blockpos)) {
+                            j += level.getBlockState(pos.offset(blockpos)).getEnchantPowerBonus(level, pos.offset(blockpos));
                         }
                     }
 
@@ -105,7 +107,7 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
                         if (this.costs[k] < k + 1) {
                             this.costs[k] = 0;
                         }
-                        this.costs[k] = net.minecraftforge.event.ForgeEventFactory.onEnchantmentLevelSet(p_39485_, p_39486_, k, (int)j, itemstack, costs[k]);
+                        this.costs[k] = EventHooks.onEnchantmentLevelSet(level, pos, k, (int)j, itemstack, costs[k]);
                     }
 
                     for(int l = 0; l < 3; ++l) {
@@ -133,21 +135,21 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
     }
 
 
-    public boolean clickMenuButton(Player p_39465_, int p_39466_) {
-        if (p_39466_ >= 0 && p_39466_ < this.costs.length) {
+    public boolean clickMenuButton(Player player, int cost) {
+        if (cost >= 0 && cost < this.costs.length) {
             ItemStack itemstack = this.enchantSlots.getItem(0);
             ItemStack itemstack1 = this.enchantSlots.getItem(1);
-            int i = p_39466_ + 1;
-            if ((itemstack1.isEmpty() || itemstack1.getCount() < i) && !p_39465_.getAbilities().instabuild) {
+            int i = cost + 1;
+            if ((itemstack1.isEmpty() || itemstack1.getCount() < i) && !player.getAbilities().instabuild) {
                 return false;
-            } else if (this.costs[p_39466_] <= 0 || itemstack.isEmpty() || (p_39465_.experienceLevel < i || p_39465_.experienceLevel < this.costs[p_39466_]) && !p_39465_.getAbilities().instabuild) {
+            } else if (this.costs[cost] <= 0 || itemstack.isEmpty() || (player.experienceLevel < i || player.experienceLevel < this.costs[cost]) && !player.getAbilities().instabuild) {
                 return false;
             } else {
                 this.access.execute((p_39481_, p_39482_) -> {
                     ItemStack itemstack2 = itemstack;
-                    List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, p_39466_, this.costs[p_39466_]);
+                    List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, cost, this.costs[cost]);
                     if (!list.isEmpty()) {
-                        p_39465_.onEnchantmentPerformed(itemstack, i);
+                        player.onEnchantmentPerformed(itemstack, i);
                         boolean flag = itemstack.is(Items.BOOK);
                         if (flag) {
                             itemstack2 = new ItemStack(Items.ENCHANTED_BOOK);
@@ -168,20 +170,20 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
                             }
                         }
 
-                        if (!p_39465_.getAbilities().instabuild) {
+                        if (!player.getAbilities().instabuild) {
                             itemstack1.shrink(i);
                             if (itemstack1.isEmpty()) {
                                 this.enchantSlots.setItem(1, ItemStack.EMPTY);
                             }
                         }
 
-                        p_39465_.awardStat(Stats.ENCHANT_ITEM);
-                        if (p_39465_ instanceof ServerPlayer) {
-                            CriteriaTriggers.ENCHANTED_ITEM.trigger((ServerPlayer)p_39465_, itemstack2, i);
+                        player.awardStat(Stats.ENCHANT_ITEM);
+                        if (player instanceof ServerPlayer) {
+                            CriteriaTriggers.ENCHANTED_ITEM.trigger((ServerPlayer)player, itemstack2, i);
                         }
 
                         this.enchantSlots.setChanged();
-                        this.enchantmentSeed.set(p_39465_.getEnchantmentSeed());
+                        this.enchantmentSeed.set(player.getEnchantmentSeed());
                         this.slotsChanged(this.enchantSlots);
                         p_39481_.playSound((Player)null, p_39482_, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, p_39481_.random.nextFloat() * 0.1F + 0.9F);
                     }
@@ -190,7 +192,7 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
                 return true;
             }
         } else {
-            Util.logAndPauseIfInIde(p_39465_.getName() + " pressed invalid button id: " + p_39466_);
+            Util.logAndPauseIfInIde(player.getName() + " pressed invalid button id: " + cost);
             return false;
         }
     }
@@ -239,7 +241,7 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
                 if (!this.moveItemStackTo(itemstack1, 2, 38, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (itemstack1.is(net.minecraftforge.common.Tags.Items.ENCHANTING_FUELS)) {
+            } else if (itemstack1.is(Tags.Items.ENCHANTING_FUELS)) {
                 if (!this.moveItemStackTo(itemstack1, 1, 2, true)) {
                     return ItemStack.EMPTY;
                 }

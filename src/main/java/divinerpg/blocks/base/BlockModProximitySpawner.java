@@ -1,5 +1,6 @@
 package divinerpg.blocks.base;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.block_entities.block.ProximitySpawnerBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -15,11 +16,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.common.ForgeSpawnEggItem;
+import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 
 public class BlockModProximitySpawner extends BaseEntityBlock {
 	public BlockModProximitySpawner() {
-		super(Block.Properties.copy(Blocks.SPAWNER));
+		super(Block.Properties.ofFullCopy(Blocks.SPAWNER));
 		registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.ENABLED, false));
 	}
 	@Override
@@ -39,7 +40,7 @@ public class BlockModProximitySpawner extends BaseEntityBlock {
 		if(player.isCreative() && level.getBlockEntity(pos) instanceof ProximitySpawnerBlockEntity entity) {
 			ItemStack item = player.getItemInHand(hand);
 			if(item == null || item.isEmpty()) entity.entityName = null;
-			else if(item.getItem() instanceof ForgeSpawnEggItem spawnegg) entity.entityName = spawnegg.getType(null).toShortString();
+			else if(item.getItem() instanceof DeferredSpawnEggItem spawnegg) entity.entityName = spawnegg.getType(null).toShortString();
 			else return InteractionResult.FAIL;
 			boolean enabled = entity.entityName != null;
 			if(state.getValue(BlockStateProperties.ENABLED) != enabled) level.setBlock(pos, state.setValue(BlockStateProperties.ENABLED, enabled), UPDATE_ALL);
@@ -47,6 +48,12 @@ public class BlockModProximitySpawner extends BaseEntityBlock {
 		}
 		return InteractionResult.PASS;
 	}
+
+	@Override
+	protected MapCodec<? extends BaseEntityBlock> codec() {
+		return null;
+	}
+
 	@Override
 	public RenderShape getRenderShape(BlockState state) {
 		return RenderShape.MODEL;

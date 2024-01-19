@@ -1,10 +1,12 @@
 package divinerpg.blocks.iceika;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.DivineRPG;
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.block_entities.block.FrostedAllureBlockEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.*;
@@ -17,7 +19,6 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -43,6 +44,11 @@ public class BlockFrostedAllure extends BaseEntityBlock {
     }
 
     @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
+    }
+
+    @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
@@ -59,7 +65,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(hand == InteractionHand.MAIN_HAND && player.getItemInHand(hand).getItem() == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "ice_stone"))){
+        if(hand == InteractionHand.MAIN_HAND && player.getItemInHand(hand).getItem() == BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "ice_stone"))){
             if(state.getValue(CATEGORY) == 0){
                 level.setBlock(pos, state.setValue(CATEGORY, 1), 0);
                 player.displayClientMessage(Component.translatable("tooltip.divinerpg.monster"), true);

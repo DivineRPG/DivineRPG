@@ -9,6 +9,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.CommonHooks;
 
 public abstract class DivineFurnaceMenu extends RecipeBookMenu<Container> {
     public static final int INGREDIENT_SLOT = 0;
@@ -152,8 +153,8 @@ public abstract class DivineFurnaceMenu extends RecipeBookMenu<Container> {
         return this.level.getRecipeManager().getRecipeFor((RecipeType<AbstractCookingRecipe>)recipeType, new SimpleContainer(p_38978_), this.level).isPresent();
     }
 
-    public boolean isFuel(ItemStack p_38989_) {
-        return net.minecraftforge.common.ForgeHooks.getBurnTime(p_38989_, this.recipeType) > 0;
+    public boolean isFuel(ItemStack stack) {
+        return CommonHooks.getBurnTime(stack, this.recipeType) > 0;
     }
 
     public int getBurnProgress() {

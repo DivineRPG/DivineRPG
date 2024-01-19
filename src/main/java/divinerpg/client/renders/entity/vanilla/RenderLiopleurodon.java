@@ -9,7 +9,7 @@ import divinerpg.entities.vanilla.overworld.EntityLiopleurodon;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderLiopleurodon extends MobRenderer<EntityLiopleurodon, ModelLiopleurodon> {

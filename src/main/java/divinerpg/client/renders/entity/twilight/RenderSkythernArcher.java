@@ -1,13 +1,12 @@
 package divinerpg.client.renders.entity.twilight;
 
-import divinerpg.*;
-import divinerpg.client.models.twilight.*;
-import divinerpg.client.renders.layer.*;
-import divinerpg.entities.skythern.*;
+import divinerpg.DivineRPG;
+import divinerpg.client.models.twilight.ModelTwilightArcher;
+import divinerpg.client.renders.layer.SkythernArcherLayer;
+import divinerpg.entities.skythern.EntitySkythernArcher;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraftforge.api.distmarker.*;
-
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderSkythernArcher extends MobRenderer<EntitySkythernArcher, ModelTwilightArcher<EntitySkythernArcher>> {

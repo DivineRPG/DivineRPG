@@ -3,7 +3,7 @@ package divinerpg.blocks.base;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.AbstractTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 
@@ -13,7 +13,7 @@ public class BlockModSapling extends SaplingBlock {
     private final Supplier<Block> grassSupplier;
     private final Supplier<Block> dirtSupplier;
 
-    public BlockModSapling(MapColor color, Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, AbstractTreeGrower tree) {
+    public BlockModSapling(MapColor color, Supplier<Block> grassSupplier, Supplier<Block> dirtSupplier, TreeGrower tree) {
         super(tree, BlockBehaviour.Properties.of().mapColor(color).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
         this.grassSupplier = grassSupplier;
         this.dirtSupplier = dirtSupplier;

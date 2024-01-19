@@ -7,7 +7,7 @@ import divinerpg.entities.vanilla.overworld.EntityCyclops;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 import static divinerpg.util.ClientUtils.layerHumanoid;
 

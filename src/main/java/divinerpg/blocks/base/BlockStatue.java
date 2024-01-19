@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.block_entities.bosses.StatueBlockEntity;
 import divinerpg.enums.BlockColor;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
@@ -60,7 +60,7 @@ public class BlockStatue extends BlockMod implements EntityBlock {
 
     @Override
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
-        if (state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")))) {
+        if (state.is(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")))) {
             ItemStack item = player.getItemInHand(hand);
             colorTest:
             if (item != null) {
@@ -75,7 +75,7 @@ public class BlockStatue extends BlockMod implements EntityBlock {
                 else break colorTest;
                 if (!player.isCreative()) item.shrink(1);
                 player.setItemInHand(hand, item);
-                world.setBlock(pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")).defaultBlockState().setValue(COLOR, color).setValue(FACING, state.getValue(FACING)), 3);
+                world.setBlock(pos, BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")).defaultBlockState().setValue(COLOR, color).setValue(FACING, state.getValue(FACING)), 3);
                 return InteractionResult.CONSUME;
             }
         }
@@ -107,12 +107,12 @@ public class BlockStatue extends BlockMod implements EntityBlock {
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter source, BlockPos pos, CollisionContext context) {
         Block block = state.getBlock();
-        if(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")).equals(block)) return AYERACO_AABB;
-        if(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "the_watcher_statue")).equals(block)) return WATCHER_AABB;
-        if(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_demon_statue")).equals(block)) return TWILIGHT_DEMON_AABB;
-        if(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vamacheron_statue")).equals(block)) return VAMACHERON_AABB;
-        if(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "parasecta_statue")).equals(block)) return PARASECTA_AABB;
-        if(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_fiend_statue")).equals(block)) return SOUL_FIEND_AABB;
+        if(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")).equals(block)) return AYERACO_AABB;
+        if(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "the_watcher_statue")).equals(block)) return WATCHER_AABB;
+        if(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "twilight_demon_statue")).equals(block)) return TWILIGHT_DEMON_AABB;
+        if(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "vamacheron_statue")).equals(block)) return VAMACHERON_AABB;
+        if(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "parasecta_statue")).equals(block)) return PARASECTA_AABB;
+        if(BuiltInRegistries.BLOCK.get(new ResourceLocation(DivineRPG.MODID, "soul_fiend_statue")).equals(block)) return SOUL_FIEND_AABB;
         return Shapes.block();
     }
 }

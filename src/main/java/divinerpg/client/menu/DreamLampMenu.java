@@ -2,6 +2,7 @@ package divinerpg.client.menu;
 
 import divinerpg.DivineRPG;
 import divinerpg.registries.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.*;
@@ -9,7 +10,6 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class DreamLampMenu extends AbstractContainerMenu {
 	private final Container container;
@@ -39,7 +39,7 @@ public class DreamLampMenu extends AbstractContainerMenu {
 	         itemstack = itemstack1.copy();
 	         if (i == 0) {
 	            if (!moveItemStackTo(itemstack1, 1, 37, true)) return ItemStack.EMPTY;
-	         } else if (itemstack.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")))) {
+	         } else if (itemstack.is(BuiltInRegistries.ITEM.get(new ResourceLocation(DivineRPG.MODID, "acid")))) {
 	        	 if (!moveItemStackTo(itemstack1, 0, 0, false)) return ItemStack.EMPTY;
 	         } else if (i >= 1 && i < 28) {
 	        	 if (!moveItemStackTo(itemstack1, 28, 37, false)) return ItemStack.EMPTY;
