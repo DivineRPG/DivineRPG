@@ -21,7 +21,7 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID)
 public class KitraEvent {
 
-    private static final ResourceLocation BONEYARD_BIOME = new ResourceLocation(DivineRPG.MODID, "boneyard");
+    private static final ResourceLocation BONEYARD_BIOME = new ResourceLocation(DivineRPG.MODID, "iceika/boneyard");
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent event) {
