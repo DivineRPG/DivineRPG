@@ -20,8 +20,6 @@ public class EntityRobbin extends EntityDivineFlyingMob {
 
     public EntityRobbin(EntityType<? extends EntityDivineFlyingMob> entityType, Level world) {
         super(entityType, world);
-        this.moveControl = new MoveControl(this);
-        setNoGravity(true);
     }
 
     @Override
@@ -50,7 +48,6 @@ public class EntityRobbin extends EntityDivineFlyingMob {
             // Animate wing flapping on client-side
             if (wingFlapTicks > 0) {
                 wingFlapTicks--;
-            } else {
             }
         }
         // Increment tiredTicks every tick
@@ -61,6 +58,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
             EntityKitra nearbyWhale = this.level().getNearestEntity(EntityKitra.class,
                     TargetingConditions.DEFAULT, this, this.getX(), this.getY(), this.getZ(), this.getBoundingBox().inflate(32.0));
             if (nearbyWhale == null) {
+            	
                 tiredThreshold = this.level().getRandom().nextInt(TICKS_PER_MINUTE * 2); // Set a new random threshold between 0 and 2 minutes
                 tiredTicks = 0;
             }

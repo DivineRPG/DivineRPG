@@ -43,6 +43,7 @@ public class BlockEntityRegistry {
     public static final RegistryObject<BlockEntityType<InfusionTableBlockEntity>> INFUSION_TABLE = register("infusion_table", () -> BlockEntityType.Builder.of(InfusionTableBlockEntity::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table"))).build(null));
     public static final RegistryObject<BlockEntityType<FrostedAllureBlockEntity>> FROSTED_ALLURE = register("frosted_allure", () -> BlockEntityType.Builder.of(FrostedAllureBlockEntity::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frosted_allure"))).build(null));
     public static final RegistryObject<BlockEntityType<ProximitySpawnerBlockEntity>> PROXIMITY_SPAWNER = register("proximity_spawner", () -> BlockEntityType.Builder.of(ProximitySpawnerBlockEntity::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "proximity_spawner"))).build(null));
+    public static final RegistryObject<BlockEntityType<RobbinNestBlockEntity>> ROBBIN_NEST = register("robbin_nest", () -> BlockEntityType.Builder.of(RobbinNestBlockEntity::new, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "robbin_nest"))).build(null));
 
     private static <T extends BlockEntity> RegistryObject<BlockEntityType<T>> register(String registryName, Supplier<BlockEntityType<T>> tile) {
         return BLOCK_ENTITIES.register(registryName, tile);
@@ -62,6 +63,6 @@ public class BlockEntityRegistry {
         BlockEntityRenderers.register(AYERACO_BEAM.get(), RenderAyeracoBeam::new);
         BlockEntityRenderers.register(PRESENT_BOX.get(), RenderPresentBox::new);
         BlockEntityRenderers.register(FROSTED_CHEST.get(), RenderFrostedChest::new);
+        BlockEntityRenderers.register(ROBBIN_NEST.get(), RenderRobbinNest::new);
     }
-
 }

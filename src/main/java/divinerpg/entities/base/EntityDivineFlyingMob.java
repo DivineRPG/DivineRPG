@@ -9,6 +9,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -39,6 +41,10 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
         this.preferredHeight = preferredHeight;
         this.preferredDistance = preferredDistance;
         this.pathFindDistance = pathFindDistance;
+    }
+    @Override
+    protected PathNavigation createNavigation(Level level) {
+    	return new FlyingPathNavigation(this, level);
     }
     @Override
     protected void registerGoals() {
@@ -77,7 +83,8 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     	LivingEntity target = getTarget();
         if(pathfindPos == null || blockedPath) {
             double findX = getX() + ((random.nextFloat() - .5F) * pathFindDistance), findY = getY() + ((random.nextFloat() - .6F) * pathFindDistance), findZ = getZ() + ((random.nextFloat() - .5F) * pathFindDistance);
-            if(target != null && !blockedPath) {
+            if(getNavigation().getPath() != null && !blockedPath) pathfindPos = getNavigation().getPath().getEndNode().asVec3();
+            else if(target != null && !blockedPath) {
                 if(this instanceof RangedAttackMob) {
                     boolean tooclose = distanceTo(target) < preferredDistance;
                     pathfindPos = new Vec3(findX + (tooclose ? -1D : 1D) * (target.getX() - getX()) / 3D, findY + (target.getY() - getY() + preferredHeight), findZ + (tooclose ? -1D : 1D) * (target.getZ() - getZ()) / 3D);

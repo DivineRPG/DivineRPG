@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "divinerpg:boiled_egg"
+  },
+  "ingredient": {
+    "item": "divinerpg:robbin_egg"
+  },
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "experience": 0.35,
+  "cookingtime": 600
+}
