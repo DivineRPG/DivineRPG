@@ -14,10 +14,11 @@ public class RenderRobbinNest implements BlockEntityRenderer<RobbinNestBlockEnti
 	public RenderRobbinNest(BlockEntityRendererProvider.Context context) {}
 	@Override
 	public void render(RobbinNestBlockEntity blockEntity, float partialTicks, PoseStack matrixStackIn, MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn) {
-		matrixStackIn.pushPose();
-		matrixStackIn.translate(.5F, .25F, .5F);
-		if(partialTicks % 20F == 0F) blockEntity = (RobbinNestBlockEntity) Minecraft.getInstance().level.getBlockEntity(blockEntity.getBlockPos());
-		Minecraft.getInstance().getItemRenderer().renderStatic(blockEntity.getItem(), ItemDisplayContext.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn, blockEntity.getLevel(), 0);
-		matrixStackIn.popPose();
+		if(!blockEntity.getItem().isEmpty()) {
+			matrixStackIn.pushPose();
+			matrixStackIn.translate(.5F, .25F, .5F);
+			Minecraft.getInstance().getItemRenderer().renderStatic(blockEntity.getItem(), ItemDisplayContext.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn, blockEntity.getLevel(), 0);
+			matrixStackIn.popPose();
+		}
 	}
 }
