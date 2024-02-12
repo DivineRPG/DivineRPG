@@ -65,7 +65,6 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     public boolean onClimbable() {return false;}
     @Override
     protected void customServerAiStep() {
-        super.customServerAiStep();
         if(!isNoGravity()) setNoGravity(true);
         if(isInWater()) {
         	setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + .5, getDeltaMovement().z);
@@ -99,9 +98,9 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
         double distanceX = pathfindPos.x - getX(), distanceY = pathfindPos.y- getY(), distanceZ = pathfindPos.z - getZ();
         yRot = Utils.rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
         xRot = Utils.rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
-        if(Math.sqrt(distanceToSqr(pathfindPos)) < 2D) {
+        if(Math.sqrt(distanceToSqr(pathfindPos)) < 1D) {
         	pathfindPos = null;
-        	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 2F) getNavigation().stop();
+        	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 1F) getNavigation().stop();
         }
     }
 }
