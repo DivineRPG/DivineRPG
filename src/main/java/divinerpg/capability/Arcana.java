@@ -2,6 +2,7 @@ package divinerpg.capability;
 
 import divinerpg.registries.MobEffectRegistry;
 import divinerpg.util.DivineRPGPacketHandler;
+import divinerpg.util.packets.PacketArcanaBar;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;

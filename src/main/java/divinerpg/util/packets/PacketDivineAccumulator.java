@@ -1,4 +1,4 @@
-package divinerpg.items.arcana;
+package divinerpg.util.packets;
 
 import io.netty.buffer.*;
 import net.minecraftforge.network.*;

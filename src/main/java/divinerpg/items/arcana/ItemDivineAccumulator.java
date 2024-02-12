@@ -5,6 +5,7 @@ import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
 import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.LocalizeUtils;
+import divinerpg.util.packets.PacketDivineAccumulator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.*;

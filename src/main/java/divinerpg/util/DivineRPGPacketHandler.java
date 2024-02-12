@@ -3,8 +3,7 @@ package divinerpg.util;
 import java.util.function.Supplier;
 
 import divinerpg.DivineRPG;
-import divinerpg.capability.PacketArcanaBar;
-import divinerpg.items.arcana.PacketDivineAccumulator;
+import divinerpg.util.packets.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.*;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -22,6 +21,7 @@ public class DivineRPGPacketHandler {
 		INSTANCE.registerMessage(index++, Byte.class, (l, buf) -> buf.writeByte(l), (buf) -> buf.readByte(), DivineRPGPacketHandler::handle);
 		INSTANCE.registerMessage(index++, PacketArcanaBar.class, PacketArcanaBar::toBytes, PacketArcanaBar::new, PacketArcanaBar::handle);
 		INSTANCE.registerMessage(index++, PacketDivineAccumulator.class, PacketDivineAccumulator::toBytes, PacketDivineAccumulator::new, PacketDivineAccumulator::handle);
+		INSTANCE.registerMessage(index++, PacketItemContentChanged.class, PacketItemContentChanged::toBytes, PacketItemContentChanged::new, PacketItemContentChanged::handle);
 	}
 	public static void handle(Byte i, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {

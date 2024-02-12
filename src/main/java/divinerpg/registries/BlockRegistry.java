@@ -494,6 +494,7 @@ public class BlockRegistry {
             cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_BROWN, BlockSetType.IRON)),
             cutOxdriteButton = registerBlock("cut_oxdrite_button", () -> new BlockModButton(BlockSetType.IRON)),
             robbinNest = registerBlock("robbin_nest", () -> new BlockRobbinNest()),
+            robbinHut = registerBlock("robbin_hut", () -> new BlockMod(Properties.copy(Blocks.SPRUCE_FENCE))),
 
             //Arcana Bricks & Other Blocks
             ancientBricks = registerBlock("ancient_bricks", () -> new BlockModUnbreakable(WARPED_NYLIUM)),

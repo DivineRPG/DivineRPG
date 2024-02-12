@@ -28,8 +28,6 @@ public class BlockRobbinNest extends BaseEntityBlock {
 		if(state.is(this) && random.nextBoolean() && level.getExistingBlockEntity(pos) instanceof RobbinNestBlockEntity block && block.getItem().is(ItemRegistry.robbin_egg.get())) {
 			block.removeItem(1);
 			EntityRegistry.ROBBIN.get().spawn(level, pos, MobSpawnType.BREEDING);
-			level.sendBlockUpdated(pos, state, state, 2);
-			block.requestModelDataUpdate();
 		}
 	}
 	@Override
@@ -39,15 +37,15 @@ public class BlockRobbinNest extends BaseEntityBlock {
 			if(handItem == null || handItem.isEmpty()) {
 				if(!block.getItem().isEmpty()) {
 					player.setItemInHand(hand, block.getItem());
-					block.setItem(ItemStack.EMPTY);
+					block.setItemSilent(ItemStack.EMPTY);
 					return InteractionResult.SUCCESS;
 				} return InteractionResult.FAIL;
 			} if(block.getItem().isEmpty()) {
-				block.setItem(handItem.copy());
+				block.setItemSilent(handItem.copy());
 				if(!player.isCreative()) player.setItemInHand(hand, ItemStack.EMPTY);
 				return InteractionResult.SUCCESS;
 			} level.addFreshEntity(new ItemEntity(level, pos.getX() + .5, pos.getY() + .1, pos.getZ() + .5, block.getItem()));
-			block.setItem(ItemStack.EMPTY);
+			block.setItemSilent(ItemStack.EMPTY);
 			return InteractionResult.SUCCESS;
 		} return InteractionResult.PASS;
 	}

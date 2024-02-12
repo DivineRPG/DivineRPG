@@ -2,13 +2,15 @@ package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.entities.boss.EntityKitra;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Pose;
-import net.minecraft.world.entity.ai.control.MoveControl;
+import divinerpg.registries.BlockRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.BlockPos.MutableBlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.pathfinder.Path;
 
 import java.util.EnumSet;
 
@@ -17,6 +19,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
     private static final int TICKS_PER_MINUTE = 1200; // 20 ticks per second * 60 seconds per minute
     private int tiredTicks = 0;
     private int tiredThreshold = 0;
+    private boolean isflying = false;
 
     public EntityRobbin(EntityType<? extends EntityDivineFlyingMob> entityType, Level world) {
         super(entityType, world);
@@ -44,24 +47,38 @@ public class EntityRobbin extends EntityDivineFlyingMob {
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide()) {
-            // Animate wing flapping on client-side
-            if (wingFlapTicks > 0) {
-                wingFlapTicks--;
+        if(isflying) {
+        	if(onGround()) {
+        		isflying = false;
+        		return;
+        	} if(level().isClientSide() && wingFlapTicks > 0) wingFlapTicks--;
+            tiredTicks++;
+            // If tiredTicks reaches the threshold and there is no resting place nearby, set the robbin to be tired and reset tiredTicks and tiredThreshold
+            if(tiredTicks >= tiredThreshold) {
+            	Path path = getNavigation().getPath();
+            	if(path == null) {
+                    EntityKitra nearbyWhale = this.level().getNearestEntity(EntityKitra.class,
+                            TargetingConditions.DEFAULT, this, this.getX(), this.getY(), this.getZ(), this.getBoundingBox().inflate(32.0));
+                    if(nearbyWhale == null) {
+                    	//search for nearby hut
+                    	BlockPos pos;
+                    	if(tiredTicks % 20 == 0) {
+                    		for(int x = blockPosition().getX() - 5; x < blockPosition().getX() + 5; x++) for(int y = blockPosition().getY() - 5; y < blockPosition().getY() + 5; y++) for(int z = blockPosition().getZ() - 5; z < blockPosition().getZ() + 5; z++) if(!level().isOutsideBuildHeight(pos = new BlockPos(x, y, z)) && level().getBlockState(pos).is(BlockRegistry.robbinHut.get())) {
+                        		getNavigation().moveTo(x, y, z, 1D);
+                        		return;
+                    		} for(int x = blockPosition().getX() - 5; x < blockPosition().getX() + 5; x++) for(int y = blockPosition().getY() - 5; y < blockPosition().getY() + 5; y++) for(int z = blockPosition().getZ() - 5; z < blockPosition().getZ() + 5; z++) if(!level().isOutsideBuildHeight(pos = new BlockPos(x, y, z)) && level().getBlockState(pos).isFaceSturdy(level(), pos, Direction.UP)) {
+                        		MutableBlockPos mut = pos.mutable();
+                        		while(level().isOutsideBuildHeight(mut.move(Direction.UP)) || (level().getBlockState(mut).isFaceSturdy(level(), pos, Direction.UP) && ++y < blockPosition().getY() + 7));
+                    			getNavigation().moveTo(x, y, z, 1D);
+                        		return;
+                    		}
+                    	} tiredThreshold = this.level().getRandom().nextInt(TICKS_PER_MINUTE * 2); // Set a new random threshold between 0 and 2 minutes
+                        tiredTicks = 0;
+                    } else getNavigation().moveTo(nearbyWhale, 1D);
+                } else if(getNavigation().getPath().getDistToTarget() < 2F && level().getBlockState(getNavigation().getPath().getTarget()).is(BlockRegistry.robbinHut.get()));//TODO: enter the hut
             }
-        }
-        // Increment tiredTicks every tick
-        tiredTicks++;
-
-        // If tiredTicks reaches the threshold and there is no whale nearby, set the robbin to be tired and reset tiredTicks and tiredThreshold
-        if (tiredTicks >= tiredThreshold) {
-            EntityKitra nearbyWhale = this.level().getNearestEntity(EntityKitra.class,
-                    TargetingConditions.DEFAULT, this, this.getX(), this.getY(), this.getZ(), this.getBoundingBox().inflate(32.0));
-            if (nearbyWhale == null) {
-            	
-                tiredThreshold = this.level().getRandom().nextInt(TICKS_PER_MINUTE * 2); // Set a new random threshold between 0 and 2 minutes
-                tiredTicks = 0;
-            }
+        } else {
+        	
         }
     }
 
@@ -132,13 +149,15 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         @Override
         public boolean canUse() {
             // Only ride the whale when tired
-            return robbin.isTired() && robbin.getControllingPassenger() == null;
+        	if(isTired()) {
+        		whale = robbin.level().getNearestEntity(EntityKitra.class, TargetingConditions.DEFAULT, robbin, robbin.getX(), robbin.getY(), robbin.getZ(), robbin.getBoundingBox().inflate(16.0));
+        		return whale != null && robbin.distanceTo(whale) < 3F && whale.getPassengers().size() == 0;
+        	} return false;
         }
 
         @Override
         public void start() {
-            // Find the nearest whale
-            whale = robbin.level().getNearestEntity(EntityKitra.class, TargetingConditions.DEFAULT, robbin, robbin.getX(), robbin.getY(), robbin.getZ(), robbin.getBoundingBox().inflate(16.0));
+        	robbin.startRiding(whale);
             rideTime = 0;
         }
 
@@ -158,11 +177,6 @@ public class EntityRobbin extends EntityDivineFlyingMob {
 
         @Override
         public void tick() {
-            if(whale != null) {
-                robbin.getNavigation().moveTo(whale, 1.0);
-                robbin.getLookControl().setLookAt(whale, 30.0F, 30.0F);
-
-            }
             // Increment ride time
             rideTime++;
 

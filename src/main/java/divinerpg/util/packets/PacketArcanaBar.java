@@ -1,9 +1,12 @@
-package divinerpg.capability;
+package divinerpg.util.packets;
 
 import io.netty.buffer.*;
 import net.minecraftforge.network.*;
 
 import java.util.function.*;
+
+import divinerpg.capability.ArcanaProvider;
+import divinerpg.capability.IArcana;
 
 public class PacketArcanaBar {
     private int delay;

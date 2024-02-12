@@ -3,13 +3,19 @@ package divinerpg.block_entities.block;
 import java.util.function.Predicate;
 
 import divinerpg.registries.BlockEntityRegistry;
+import divinerpg.util.DivineRPGPacketHandler;
+import divinerpg.util.packets.PacketItemContentChanged;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraftforge.network.PacketDistributor;
 
 public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	private static final String ITEM_TAG = "item";
@@ -27,12 +33,19 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 		super.load(tag);
 		if(tag.contains(ITEM_TAG)) item = ItemStack.of(tag.getCompound(ITEM_TAG));
 	}
-	public void setItem(ItemStack item) {
+	public void setItemNoUpdate(ItemStack item) {
+		this.item = item;
+	}
+	public void setItemSilent(ItemStack item) {
 		this.item = item;
 		setChanged();
-		if(level != null) {
-			level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 2);
-		}
+	}
+	public void setItem(ItemStack item) {
+		if(!level.isClientSide() && (this.item == null ? item != null && !item.isEmpty() : (item == null ? !this.item.isEmpty() : this.item.isEmpty() ^ item.isEmpty())))
+			for(Player p : level.getNearbyPlayers(TargetingConditions.forNonCombat(), null, new AABB(worldPosition.offset(-128, -128, -128), worldPosition.offset(128, 128, 128))))
+				DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) p), new PacketItemContentChanged(worldPosition, item.getItem()));
+		this.item = item;
+		setChanged();
 	}
 	@Override
 	public void setRemoved() {

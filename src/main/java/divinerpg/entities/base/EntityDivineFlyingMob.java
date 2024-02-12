@@ -83,8 +83,10 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     	LivingEntity target = getTarget();
         if(pathfindPos == null || blockedPath) {
             double findX = getX() + ((random.nextFloat() - .5F) * pathFindDistance), findY = getY() + ((random.nextFloat() - .6F) * pathFindDistance), findZ = getZ() + ((random.nextFloat() - .5F) * pathFindDistance);
-            if(getNavigation().getPath() != null && !blockedPath) pathfindPos = getNavigation().getPath().getEndNode().asVec3();
-            else if(target != null && !blockedPath) {
+            if(getNavigation().getPath() != null && !blockedPath) {
+            	BlockPos destination = getNavigation().getPath().getTarget();
+            	pathfindPos = new Vec3(destination.getX(), destination.getY(), destination.getZ());
+            } else if(target != null && !blockedPath) {
                 if(this instanceof RangedAttackMob) {
                     boolean tooclose = distanceTo(target) < preferredDistance;
                     pathfindPos = new Vec3(findX + (tooclose ? -1D : 1D) * (target.getX() - getX()) / 3D, findY + (target.getY() - getY() + preferredHeight), findZ + (tooclose ? -1D : 1D) * (target.getZ() - getZ()) / 3D);
@@ -97,6 +99,9 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
         double distanceX = pathfindPos.x - getX(), distanceY = pathfindPos.y- getY(), distanceZ = pathfindPos.z - getZ();
         yRot = Utils.rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
         xRot = Utils.rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
-        if(Math.sqrt(distanceToSqr(pathfindPos)) < 2D) pathfindPos = null;
+        if(Math.sqrt(distanceToSqr(pathfindPos)) < 2D) {
+        	pathfindPos = null;
+        	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 2F) getNavigation().stop();
+        }
     }
 }
