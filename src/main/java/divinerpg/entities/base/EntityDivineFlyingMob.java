@@ -55,30 +55,25 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
             targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true, false));
         }
     }
-    @Override
-    protected boolean shouldDespawnInPeaceful() {return true;}
-    @Override
-    public boolean causeFallDamage(float f, float g, DamageSource d) {return false;}
-    @Override
-    protected void checkFallDamage(double d, boolean b, BlockState s, BlockPos p) {}
-    @Override
-    public boolean onClimbable() {return false;}
-    @Override
-    protected void customServerAiStep() {
+    @Override protected boolean shouldDespawnInPeaceful() {return true;}
+    @Override public boolean causeFallDamage(float f, float g, DamageSource d) {return false;}
+    @Override protected void checkFallDamage(double d, boolean b, BlockState s, BlockPos p) {}
+    @Override public boolean onClimbable() {return false;}
+    public void reachTarget() {};
+    @Override protected void customServerAiStep() {
         if(!isNoGravity()) setNoGravity(true);
         if(isInWater()) {
         	setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + .5, getDeltaMovement().z);
         	pathfindPos = null;
+        	getNavigation().stop();
         	return;
-        }
-        boolean blockedPath = horizontalCollision || verticalCollision;
+        } boolean blockedPath = horizontalCollision || verticalCollision;
         if(!blockedPath) {
             Vec3 futurePos = position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z);
             BlockPos pos = new BlockPos((int) futurePos.x, (int) futurePos.y, (int) futurePos.z);
             BlockState state = level().getBlockState(pos);
             blockedPath = state.is(Blocks.POWDER_SNOW) || state.is(Blocks.LAVA) || !state.getCollisionShape(level(), pos).equals(Shapes.empty());
-        }
-        //decide where to go next
+        } //decide where to go next
     	LivingEntity target = getTarget();
         if(pathfindPos == null || blockedPath) {
             double findX = getX() + ((random.nextFloat() - .5F) * pathFindDistance), findY = getY() + ((random.nextFloat() - .6F) * pathFindDistance), findZ = getZ() + ((random.nextFloat() - .5F) * pathFindDistance);
@@ -100,7 +95,10 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
         xRot = Utils.rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
         if(Math.sqrt(distanceToSqr(pathfindPos)) < 1D) {
         	pathfindPos = null;
-        	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 1F) getNavigation().stop();
+        	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 1.5F) {
+        		reachTarget();
+        		getNavigation().stop();
+        	}
         }
     }
 }

@@ -22,6 +22,7 @@ public class DivineRPGPacketHandler {
 		INSTANCE.registerMessage(index++, PacketArcanaBar.class, PacketArcanaBar::toBytes, PacketArcanaBar::new, PacketArcanaBar::handle);
 		INSTANCE.registerMessage(index++, PacketDivineAccumulator.class, PacketDivineAccumulator::toBytes, PacketDivineAccumulator::new, PacketDivineAccumulator::handle);
 		INSTANCE.registerMessage(index++, PacketItemContentChanged.class, PacketItemContentChanged::toBytes, PacketItemContentChanged::new, PacketItemContentChanged::handle);
+		INSTANCE.registerMessage(index++, PacketRequestItemContent.class, PacketRequestItemContent::toBytes, PacketRequestItemContent::new, PacketRequestItemContent::handle);
 	}
 	public static void handle(Byte i, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {

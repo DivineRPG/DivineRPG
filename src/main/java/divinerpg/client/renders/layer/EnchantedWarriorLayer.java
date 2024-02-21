@@ -16,24 +16,19 @@ import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
 @OnlyIn(Dist.CLIENT)
-public class EnchantedWarriorLayer extends RenderLayer<EntityEnchantedWarrior, ModelEnchantedWarrior<EntityEnchantedWarrior>> {
-
-    public EnchantedWarriorLayer(RenderLayerParent<EntityEnchantedWarrior, ModelEnchantedWarrior<EntityEnchantedWarrior>> parent) {
+public class EnchantedWarriorLayer extends RenderLayer<EntityEnchantedWarrior, ModelEnchantedWarrior> {
+    public EnchantedWarriorLayer(RenderLayerParent<EntityEnchantedWarrior, ModelEnchantedWarrior> parent) {
         super(parent);
     }
-
     public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, EntityEnchantedWarrior entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
-
         matrixStackIn.pushPose();
-        ModelPart modelrenderer = this.getParentModel().rightArm;
+        ModelPart modelrenderer = getParentModel().rightArm;
         modelrenderer.translateAndRotate(matrixStackIn);
-        matrixStackIn.translate(-0.125F, 0.55F, -0.57F);
+        matrixStackIn.translate(-.125F, .55F, -.57F);
         matrixStackIn.mulPose(Axis.YP.rotationDegrees(70));
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-20));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
-
         Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_blade")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
-
         matrixStackIn.popPose();
     }
 }

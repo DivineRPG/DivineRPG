@@ -9,17 +9,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderEnchantedWarrior extends MobRenderer<EntityEnchantedWarrior, ModelEnchantedWarrior<EntityEnchantedWarrior>> {
+public class RenderEnchantedWarrior extends MobRenderer<EntityEnchantedWarrior, ModelEnchantedWarrior> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/enchanted_warrior.png");
-
     public RenderEnchantedWarrior(EntityRendererProvider.Context context) {
-        super(context, new ModelEnchantedWarrior<>(context), 0.5F);
-        this.addLayer(new EnchantedWarriorLayer(this));
+        super(context, new ModelEnchantedWarrior(context), .5F);
+        addLayer(new EnchantedWarriorLayer(this));
     }
-
-    @Override
-    public ResourceLocation getTextureLocation(EntityEnchantedWarrior entity) {
-        return TEXTURE;
-    }
-
+    @Override public ResourceLocation getTextureLocation(EntityEnchantedWarrior entity) {return TEXTURE;}
 }

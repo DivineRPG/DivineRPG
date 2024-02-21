@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:block/robbin_hut"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:block/robbin_hut"
+    },
+    "facing=north": {
+      "model": "divinerpg:block/robbin_hut"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:block/robbin_hut"
+    }
+  }
+}

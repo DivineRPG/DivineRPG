@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.packets.PacketItemContentChanged;
+import divinerpg.util.packets.PacketRequestItemContent;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
@@ -32,6 +34,13 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	public void load(CompoundTag tag) {
 		super.load(tag);
 		if(tag.contains(ITEM_TAG)) item = ItemStack.of(tag.getCompound(ITEM_TAG));
+	}
+	@SuppressWarnings("resource") @Override public void onLoad() {
+		super.onLoad();
+		if(level == null) level = Minecraft.getInstance().level;
+		if(level.isClientSide()) {
+			DivineRPGPacketHandler.INSTANCE.sendToServer(new PacketRequestItemContent(worldPosition));
+		}
 	}
 	public void setItemNoUpdate(ItemStack item) {
 		this.item = item;
