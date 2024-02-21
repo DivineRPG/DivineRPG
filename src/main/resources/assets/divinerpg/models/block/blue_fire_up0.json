@@ -1,7 +1,0 @@
-{
-  "parent": "block/template_fire_up",
-  "render_type": "cutout",
-  "textures": {
-    "fire": "divinerpg:block/blue_fire_0"
-  }
-}

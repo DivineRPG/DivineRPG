@@ -39,8 +39,8 @@ public class ModelRainbour extends EntityModel<EntityRainbour> {
 		PartDefinition tail1 = partdefinition.addOrReplaceChild("tail1", CubeListBuilder.create().texOffs(48, 50).mirror().addBox(-3.0F, -2.5F, 0.0F, 6.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false)
 						.texOffs(49, 40).mirror().addBox(-2.0F, -2.0F, 5.0F, 4.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 13.0F, 5.5F));
 
-		tail1.addOrReplaceChild("tail2", CubeListBuilder.create().texOffs(68, 41).mirror().addBox(-1.5F, -2.5F, 0.0F, 3.0F, 3.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false)
-				.texOffs(73, 52).mirror().addBox(-5.5F, -1.0F, 4.0F, 11.0F, 1.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 1.0F, 9.5F));
+		tail1.addOrReplaceChild("tail2", CubeListBuilder.create().texOffs(68, 41).mirror().addBox(-1.5F, -1.5F, 0.0F, 3.0F, 3.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false)
+				.texOffs(73, 52).mirror().addBox(-5.5F, -1.0F, 4.0F, 11.0F, 1.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 0.0F, 9.5F));
 
 		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(34, 41).mirror().addBox(-2.0F, -1.2F, -7.0F, 4.0F, 4.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false)
 		.texOffs(0, 27).mirror().addBox(-3.0F, -2.0F, -5.0F, 6.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 12.5F, -5.0F));

@@ -1,5 +1,7 @@
 {
+  	"parent": "minecraft:block/carpet",
 	"texture_size": [32, 32],
+	"render_type": "cutout_mipped",
 	"textures": {
 		"0": "divinerpg:block/robbin_nest",
 		"particle": "divinerpg:block/robbin_nest"
