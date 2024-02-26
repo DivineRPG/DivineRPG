@@ -1,82 +1,71 @@
 package divinerpg.client.models.twilight;
 
 import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.mortum.EntityAngryGlinthop;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelAngryGlinthop<T extends Entity> extends EntityModel<T> {
+public class ModelAngryGlinthop extends EntityModel<EntityAngryGlinthop> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("angry_glinthop");
-	private final ModelPart Spine, FrontRightLeg, BackRightLeg, FrontLeftLeg, BackLeftLeg, Skull;
-
+	public final ModelPart Spine, Body, Skull, RightEar, LeftEar, Tail, BackRightLeg, BackLeftLeg, FrontRightLeg, FrontLeftLeg;
 	public ModelAngryGlinthop(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.Spine = root.getChild("Spine");
-		this.FrontRightLeg = root.getChild("FrontRightLeg");
-		this.BackRightLeg = root.getChild("BackRightLeg");
-		this.FrontLeftLeg = root.getChild("FrontLeftLeg");
-		this.BackLeftLeg = root.getChild("BackLeftLeg");
-		this.Skull = root.getChild("Skull");
+		Spine = root.getChild("Spine");
+		Body = Spine.getChild("Body");
+		Skull = Body.getChild("Skull");
+		RightEar = Skull.getChild("RightEar");
+		LeftEar = Skull.getChild("LeftEar");
+		Tail = Body.getChild("Tail");
+		BackRightLeg = root.getChild("BackRightLeg");
+		BackLeftLeg = root.getChild("BackLeftLeg");
+		FrontRightLeg = root.getChild("FrontRightLeg");
+		FrontLeftLeg = root.getChild("FrontLeftLeg");
 	}
-
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-
-		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
-
-		PartDefinition Body = Spine.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(46, 28).addBox(-10.8889F, -16.9444F, -4.6667F, 22.0F, 21.0F, 0.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 0).addBox(-4.8889F, -10.9444F, -7.6667F, 10.0F, 11.0F, 17.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 28).addBox(-6.8889F, -12.9444F, -11.6667F, 14.0F, 15.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-0.1111F, -12.0556F, -0.3333F));
-
-		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(37, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.8889F, 14.0F, -8.6667F));
-
-		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 74).addBox(-1.0F, 5.0F, 0.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(15, 60).addBox(-1.0F, -4.0F, -5.0F, 4.0F, 9.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(3.1111F, 10.0F, 6.3333F));
-
-		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.8889F, 14.0F, -8.6667F));
-
-		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(41, 69).addBox(-3.0F, 5.0F, 0.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(54, 0).addBox(-3.0F, -4.0F, -5.0F, 4.0F, 9.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.1111F, 10.0F, 6.3333F));
-
-		Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(68, 63).addBox(-3.0F, -9.75F, 0.5F, 6.0F, 10.0F, 6.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 40).addBox(0.0F, -12.75F, -1.5F, 0.0F, 15.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offset(0.1111F, -7.1944F, 8.8333F));
-
-		PartDefinition Skull = partdefinition.addOrReplaceChild("Skull", CubeListBuilder.create().texOffs(0, 33).addBox(-1.0F, -2.0F, -9.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
-		.texOffs(38, 49).addBox(-5.0F, -8.0F, -8.0F, 10.0F, 12.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 6.0F, -12.0F));
-
-		Skull.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(71, 0).addBox(-0.5F, -4.5F, 0.0F, 9.0F, 9.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(5.5F, -0.5F, -7.0F));
-
-		Skull.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(54, 18).addBox(-8.5F, -4.5F, 0.0F, 9.0F, 9.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-5.5F, -0.5F, -7.0F));
-
-		Skull.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(37, 28).addBox(-0.5F, -7.5F, 1.5F, 4.0F, 5.0F, 0.0F, new CubeDeformation(0.0F))
-		.texOffs(66, 49).addBox(-1.5F, -5.5F, -0.5F, 4.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(2.5F, -7.5F, -1.5F));
-
-		Skull.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(24, 52).addBox(-2.5F, -5.5F, -0.5F, 4.0F, 5.0F, 2.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 28).addBox(-3.5F, -7.5F, 1.5F, 4.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, -7.5F, -1.5F));
-
+		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create(), PartPose.offset(0, 24, 0));
+		PartDefinition Body = Spine.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(46, 28).addBox(-11, -29, -5, 22, 21, 0, new CubeDeformation(0))
+		.texOffs(0, 0).addBox(-5, -23, -8, 10, 11, 17, new CubeDeformation(0))
+		.texOffs(0, 28).addBox(-7, -25, -12, 14, 15, 9, new CubeDeformation(0)), PartPose.ZERO);
+		PartDefinition Skull = Body.addOrReplaceChild("Skull", CubeListBuilder.create().texOffs(0, 33).addBox(-1, -2, -9, 2, 2, 2, new CubeDeformation(0))
+		.texOffs(38, 49).addBox(-5, -8, -8, 10, 12, 8, new CubeDeformation(0)), PartPose.offset(0, -18, -11.99F));
+		Skull.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(54, 18).addBox(-8.5F, -4.5F, 0, 9, 9, 0, new CubeDeformation(0)), PartPose.offset(-5.5F, -.5F, -7));
+		Skull.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(71, 0).addBox(-.5F, -4.5F, 0, 9, 9, 0, new CubeDeformation(0)), PartPose.offset(5.5F, -.5F, -7));
+		Skull.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(24, 52).addBox(-2.5F, -5.5F, -.5F, 4, 5, 2, new CubeDeformation(0))
+		.texOffs(0, 28).addBox(-3.5F, -7.5F, 1.5F, 4, 5, 0, new CubeDeformation(0)), PartPose.offset(-2.5F, -7.5F, -1.51F));
+		Skull.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(37, 28).addBox(-.5F, -7.5F, 1.5F, 4, 5, 0, new CubeDeformation(0))
+		.texOffs(66, 49).addBox(-1.5F, -5.5F, -.5F, 4, 5, 2, new CubeDeformation(0)), PartPose.offset(2.5F, -7.5F, -1.51F));
+		Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(68, 63).addBox(-3, -9.75F, .5F, 6, 10, 6, new CubeDeformation(0))
+		.texOffs(0, 40).addBox(0, -12.75F, -1.5F, 0, 15, 12, new CubeDeformation(0)), PartPose.offset(0, -19.25F, 8.49F));
+		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(41, 69).addBox(-3, 5, 0, 4, 9, 4, new CubeDeformation(0))
+		.texOffs(54, 0).addBox(-3, -4, -5, 4, 9, 9, new CubeDeformation(0)), PartPose.offset(-3, 10, 6));
+		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 74).addBox(-1, 5, 0, 4, 9, 4, new CubeDeformation(0))
+		.texOffs(15, 60).addBox(-1, -4, -5, 4, 9, 9, new CubeDeformation(0)), PartPose.offset(3, 10, 6));
+		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-2, 0, -2, 4, 10, 4, new CubeDeformation(0)), PartPose.offset(-4.9F, 13.99F, -8.7F));
+		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(37, 0).addBox(-2, 0, -2, 4, 10, 4, new CubeDeformation(0)), PartPose.offset(4.9F, 13.99F, -8.7F));
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
-
-	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.FrontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.BackLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-		this.FrontRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-		this.BackRightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.Skull.yRot = netHeadYaw / (180F / (float) Math.PI);
-		this.Skull.xRot = headPitch / (180F / (float) Math.PI);
+	@Override public void setupAnim(EntityAngryGlinthop entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		Skull.yRot = netHeadYaw * Mth.DEG_TO_RAD;
+		Skull.xRot = headPitch * Mth.DEG_TO_RAD;
+		float f = Mth.TWO_PI + Mth.cos(ageInTicks * .05F + limbSwing * .1F) * .05F + limbSwingAmount * .3F;
+		RightEar.zRot = -f;
+		LeftEar.zRot = f;
+		float f1 = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
+		float f2 = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
+		Body.zRot = f1 * .05F;
+		BackRightLeg.xRot = FrontLeftLeg.xRot = f1;
+		BackLeftLeg.xRot = FrontRightLeg.xRot = f2;
+		Tail.yRot = f1 * .2F;
 	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Skull.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);

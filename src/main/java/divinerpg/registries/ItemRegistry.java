@@ -175,7 +175,6 @@ public class ItemRegistry {
             olivine = registerItem("olivine"),
             raw_oxdrite = registerItem("raw_oxdrite"),
             oxdrite_ingot = registerItem("oxdrite_ingot"),
-            robbin_egg = registerItem("robbin_egg"),
 
             //End
             watching_eye = registerItem("watching_eye"),
@@ -270,6 +269,7 @@ public class ItemRegistry {
             white_mushroom = registerItem("white_mushroom", () -> new ItemModFood(FoodList.WHITE_MUSHROOM)),
             advanced_mushroom_stew = registerItem("advanced_mushroom_stew", () -> new BowlFoodItem(new Properties().food(FoodList.ADVANCED_MUSHROOM_STEW).stacksTo(1))),
             chicken_dinner = registerItem("chicken_dinner", () -> new BowlFoodItem(new Properties().food(FoodList.CHICKEN_DINNER).stacksTo(1))),
+            robbin_egg = registerItem("robbin_egg"),
             cauldron_flesh = registerItem("cauldron_flesh", () -> new ItemModFood(FoodList.CAULDRON_FLESH)),
             raw_seng_meat = registerItem("raw_seng_meat", () -> new ItemModFood(FoodList.RAW_SENG_MEAT)),
             seng_steak = registerItem("seng_steak", () -> new ItemModFood(FoodList.COOKED_SENG_STEAK)),

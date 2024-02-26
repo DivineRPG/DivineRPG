@@ -5,11 +5,11 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.material.MapColor;
 
 public class BlockBlueFire extends BaseFireBlock {
 	public BlockBlueFire() {
-		super(BlockBehaviour.Properties.of().mapColor(MapColor.WATER).replaceable().pushReaction(PushReaction.DESTROY).randomTicks().noCollission().instabreak().lightLevel((state) -> 15).sound(SoundType.WOOL), 1F);
+		super(BlockBehaviour.Properties.copy(Blocks.FIRE).mapColor(MapColor.WATER), 1F);
 	}
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {

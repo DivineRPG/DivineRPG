@@ -902,7 +902,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(LIOPLEURODON.get(),	 RenderLiopleurodon::new);
         event.registerEntityRenderer(LIVESTOCK_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "livestock_merchant", new ModelLivestockMerchant(context), 0.4F));
         event.registerEntityRenderer(MINER.get(),			 RenderMiner::new);
-        event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider<>(context), 0.5F));
+        event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider(context), 0.5F));
         event.registerEntityRenderer(RAINBOUR.get(),		 RenderRainbour::new);
         event.registerEntityRenderer(ROTATICK.get(),		 RenderRotatick::new);
         event.registerEntityRenderer(SAGUARO_WORM.get(),	 (Context context) -> new RenderDivineMob<>(context, "saguaro_worm", new ModelSaguaroWorm(context), 0.3F));
@@ -964,8 +964,8 @@ public class EntityRegistry {
 
         //Eden
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);
-        event.registerEntityRenderer(EDEN_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "eden_cadillion",  new ModelCadillion<>(context), 0.7F));
-        event.registerEntityRenderer(EDEN_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "eden_tomo",  new ModelEdenTomo<>(context), 0.65F, 1.2F));
+        event.registerEntityRenderer(EDEN_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "eden_cadillion",  new ModelCadillion(context), 0.7F));
+        event.registerEntityRenderer(EDEN_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "eden_tomo",  new ModelEdenTomo(context), 0.65F, 1.2F));
         event.registerEntityRenderer(GEM_FIN.get(),	        RenderGemFin::new);
         event.registerEntityRenderer(GREENFEET.get(),	  (Context context) -> new RenderDivineMob<>(context, "greenfeet",  new ModelGreenfeet(context), 0.6F));
         event.registerEntityRenderer(MADIVEL.get(),		  (Context context) -> new RenderDivineMob<>(context, "madivel",  new ModelMadivel(context), 0.85F));
@@ -979,14 +979,14 @@ public class EntityRegistry {
         event.registerEntityRenderer(MOON_WOLF.get(), RenderMoonWolf::new);
         event.registerEntityRenderer(TERMID.get(),	 (Context context) -> new RenderDivineMob<>(context, "termid",  new ModelTermid<>(context), 0.6F));
         event.registerEntityRenderer(VEREK.get(),	 (Context context) -> new RenderDivineMob<>(context, "verek",  new ModelSamek<>(context)));
-        event.registerEntityRenderer(WILDWOOD_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "wildwood_cadillion",  new ModelCadillion<>(context), 0.7F));
+        event.registerEntityRenderer(WILDWOOD_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "wildwood_cadillion",  new ModelCadillion(context), 0.7F));
         event.registerEntityRenderer(WILDWOOD_GOLEM.get(),	  (Context context) -> new RenderDivineMob<>(context, "wildwood_golem",  new ModelTwilightGolem<>(context)));
         event.registerEntityRenderer(WILDWOOD_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "wildwood_tomo",  new ModelWildwoodTomo<>(context)));
 
         //Apalachia
-        event.registerEntityRenderer(APALACHIA_CADILLION.get(), (Context context) -> new RenderDivineMob<>(context, "apalachia_cadillion",  new ModelCadillion<>(context), 0.7F));
+        event.registerEntityRenderer(APALACHIA_CADILLION.get(), (Context context) -> new RenderDivineMob<>(context, "apalachia_cadillion",  new ModelCadillion(context), 0.7F));
         event.registerEntityRenderer(APALACHIA_GOLEM.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_golem",  new ModelTwilightGolem<>(context)));
-        event.registerEntityRenderer(APALACHIA_TOMO.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_tomo",  new ModelApalachiaTomo<>(context), 0.65F, 1.2F));
+        event.registerEntityRenderer(APALACHIA_TOMO.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_tomo",  new ModelApalachiaTomo(context), 0.65F, 1.2F));
         event.registerEntityRenderer(ENCHANTED_ARCHER.get(),	RenderEnchantedArcher::new);
         event.registerEntityRenderer(ENCHANTED_WARRIOR.get(),	RenderEnchantedWarrior::new);
         event.registerEntityRenderer(SPELLBINDER.get(),			(Context context) -> new RenderDivineMob<>(context, "spellbinder",  new ModelMystic<>(context)));
@@ -1001,10 +1001,10 @@ public class EntityRegistry {
         event.registerEntityRenderer(SKYTHERN_GOLEM.get(), (Context context) -> new RenderDivineMob<>(context, "skythern_golem",  new ModelTwilightGolem<>(context)));
 
         //Mortum
-        event.registerEntityRenderer(ANGRY_GLINTHOP.get(),	 RenderAngryGlinthop::new);
+        event.registerEntityRenderer(ANGRY_GLINTHOP.get(),	 (Context context) -> new RenderDivineMob<>(context, "glinthop_angry",  new ModelAngryGlinthop(context), 0.8F));
         event.registerEntityRenderer(BASILISK.get(),		 (Context context) -> new RenderDivineMob<>(context, "basilisk",  new ModelBasilisk(context), 0.8F));
         event.registerEntityRenderer(DEMON_OF_DARKNESS.get(),RenderDemonOfDarkness::new);
-        event.registerEntityRenderer(MORTUM_CADILLION.get(), (Context context) -> new RenderDivineMob<>(context, "mortum_cadillion",  new ModelCadillion<>(context), 0.7F));
+        event.registerEntityRenderer(MORTUM_CADILLION.get(), (Context context) -> new RenderDivineMob<>(context, "mortum_cadillion",  new ModelCadillion(context), 0.7F));
         event.registerEntityRenderer(SORCERER.get(),		 (Context context) -> new RenderDivineMob<>(context, "sorcerer",  new ModelSorcerer<>(context)));
         event.registerEntityRenderer(SOUL_SPIDER.get(),		 (Context context) -> new RenderDivineMob<>(context, "soul_spider", new ModelSoulSpider<>(context), 0.3F));
         event.registerEntityRenderer(SOUL_STEALER.get(),	 (Context context) -> new RenderDivineMob<>(context, "soul_stealer", new ModelSoulStealer(context)));

@@ -12,120 +12,88 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelMadivel extends EntityModel<EntityMadivel> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("madivel");
-	private final ModelPart Spine, Sun1, Sun2, EdenSpirit, RightLeg, LeftLeg, RightArm, LeftArm;
-
+	public final ModelPart Spine, EdenSpirit, Sun1, Sun2, RightLeg, LeftLeg, RightArm, LeftArm;
 	public ModelMadivel(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.Spine = root.getChild("Spine");
-		this.Sun1 = root.getChild("Sun1");
-		this.Sun2 = root.getChild("Sun2");
-		this.RightLeg = root.getChild("RightLeg");
-		this.LeftLeg = root.getChild("LeftLeg");
-		this.RightArm = root.getChild("RightArm");
-		this.LeftArm = root.getChild("LeftArm");
-		this.EdenSpirit = root.getChild("EdenSpirit");
+		Spine = root.getChild("Spine");
+		EdenSpirit = Spine.getChild("EdenSpirit");
+		Sun1 = EdenSpirit.getChild("Sun1");
+		Sun2 = EdenSpirit.getChild("Sun2");
+		RightLeg = Spine.getChild("RightLeg");
+		LeftLeg = Spine.getChild("LeftLeg");
+		RightArm = Spine.getChild("RightArm");
+		LeftArm = Spine.getChild("LeftArm");
 	}
-
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-
-		partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create().texOffs(0, 0).addBox(-9.0F, -20.0F, -8.0F, 18.0F, 19.0F, 18.0F, new CubeDeformation(0.0F))
-				.texOffs(54, 0).addBox(-5.5F, -1.0F, -5.0F, 11.0F, 5.0F, 12.0F, new CubeDeformation(0.0F))
-				.texOffs(0, 37).addBox(-9.0F, -27.0F, -6.0F, 18.0F, 7.0F, 14.0F, new CubeDeformation(0.0F))
-				.texOffs(72, 17).addBox(-5.0F, -26.0F, -4.0F, 10.0F, 10.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 0.0F));
-
-		partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(137, 0).addBox(-5.0F, 1.0F, -3.0F, 4.0F, 21.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 2.0F, 0.0F));
-
-		partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(88, 36).addBox(1.0F, 1.0F, -3.0F, 4.0F, 21.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 2.0F, 0.0F));
-
-		partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(100, 97).addBox(0.0F, -2.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-				.texOffs(26, 88).addBox(1.0F, 6.0F, -3.0F, 6.0F, 20.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(9.0F, -14.0F, 2.0F));
-
-		partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(100, 0).addBox(-8.0F, -2.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
-				.texOffs(84, 79).addBox(-7.0F, 6.0F, -3.0F, 6.0F, 20.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(-9.0F, -14.0F, 2.0F));
-
-		partdefinition.addOrReplaceChild("Sun1", CubeListBuilder.create().texOffs(0, 0).addBox(7.5F, -4.5F, 0.25F, 9.0F, 9.0F, 0.0F, new CubeDeformation(0.0F))
-				.texOffs(101, 16).addBox(9.5F, -2.5F, -2.75F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.5F, -32.5F, 1.75F));
-
-		partdefinition.addOrReplaceChild("Sun2", CubeListBuilder.create().texOffs(0, 9).addBox(-17.5F, -4.5F, 0.25F, 9.0F, 9.0F, 0.0F, new CubeDeformation(0.0F))
-				.texOffs(0, 93).addBox(-15.5F, -2.5F, -2.75F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.5F, -32.5F, 1.75F));
-
-		PartDefinition EdenSpirit = partdefinition.addOrReplaceChild("EdenSpirit", CubeListBuilder.create().texOffs(54, 0).addBox(-1.5F, -5.0F, -2.25F, 3.0F, 5.0F, 2.0F, new CubeDeformation(0.0F))
-				.texOffs(0, 37).addBox(-1.5F, -8.0F, -0.25F, 3.0F, 5.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -28.0F, 2.25F));
-
-		EdenSpirit.addOrReplaceChild("EdenSpiritHead", CubeListBuilder.create().texOffs(0, 103).addBox(-2.5F, -5.25F, -4.0F, 5.0F, 5.0F, 4.0F, new CubeDeformation(0.0F))
-				.texOffs(24, 58).addBox(-4.0F, -7.25F, -2.0F, 8.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -7.75F, 0.75F));
-
+		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create().texOffs(0, 0).addBox(-9, -20, -8, 18, 19, 18, new CubeDeformation(0))
+		.texOffs(54, 0).addBox(-5.5F, -1, -5, 11, 5, 12, new CubeDeformation(0))
+		.texOffs(0, 37).addBox(-9, -27, -6, 18, 7, 14, new CubeDeformation(0))
+		.texOffs(72, 17).addBox(-5, -26, -4, 10, 10, 9, new CubeDeformation(0)), PartPose.offset(0, 2, 0));
+		Spine.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(137, 0).addBox(-5, 1, -3, 4, 21, 7, new CubeDeformation(0)), PartPose.offset(-4, 0, 0));
+		Spine.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(88, 36).addBox(1, 1, -3, 4, 21, 7, new CubeDeformation(0)), PartPose.offset(4, 0, 0));
+		Spine.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(100, 97).addBox(0, -2, -4, 8, 8, 8, new CubeDeformation(0))
+		.texOffs(26, 88).addBox(1, 6, -3, 6, 20, 6, new CubeDeformation(0)), PartPose.offset(9, -16, 2));
+		Spine.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(100, 0).addBox(-8, -2, -4, 8, 8, 8, new CubeDeformation(0))
+		.texOffs(84, 79).addBox(-7, 6, -3, 6, 20, 6, new CubeDeformation(0)), PartPose.offset(-9, -16, 2));
+		PartDefinition EdenSpirit = Spine.addOrReplaceChild("EdenSpirit", CubeListBuilder.create().texOffs(54, 0).addBox(-1.5F, -5, -2.25F, 3, 5, 2, new CubeDeformation(0))
+		.texOffs(0, 37).addBox(-1.5F, -8, -.25F, 3, 5, 3, new CubeDeformation(0)), PartPose.offset(0, -30, 2.25F));
+		EdenSpirit.addOrReplaceChild("EdenSpiritHead", CubeListBuilder.create().texOffs(0, 103).addBox(-2.5F, -5.25F, -4, 5, 5, 4, new CubeDeformation(0))
+		.texOffs(24, 58).addBox(-4, -7.25F, -2, 8, 8, 0, new CubeDeformation(0)), PartPose.offset(0, -7.75F, .75F));
+		EdenSpirit.addOrReplaceChild("Sun1", CubeListBuilder.create().texOffs(0, 0).addBox(7.5F, -4.5F, .25F, 9, 9, 0, new CubeDeformation(0))
+		.texOffs(101, 16).addBox(9.5F, -2.5F, -2.75F, 5, 5, 5, new CubeDeformation(0)), PartPose.offset(0, -4.5F, 0));
+		EdenSpirit.addOrReplaceChild("Sun2", CubeListBuilder.create().texOffs(0, 9).addBox(-17.5F, -4.5F, .25F, 9, 9, 0, new CubeDeformation(0))
+		.texOffs(0, 93).addBox(-15.5F, -2.5F, -2.75F, 5, 5, 5, new CubeDeformation(0)), PartPose.offset(0, -4.5F, 0));
 		return LayerDefinition.create(meshdefinition, 256, 256);
 	}
-
-	@Override
-	public void setupAnim(EntityMadivel entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.EdenSpirit.yRot = netHeadYaw / (180F / (float)Math.PI);
-		this.EdenSpirit.xRot = headPitch / (180F / (float)Math.PI);
-
-		float orbitRadius = 2.0F; // Adjust the orbit radius as needed
-		float orbitSpeed = 0.1F; // Adjust the orbit speed as needed
-
-		// Orbit calculation for Sun1
+	@Override public void setupAnim(EntityMadivel entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		EdenSpirit.yRot = netHeadYaw * Mth.DEG_TO_RAD;
+		EdenSpirit.xRot = headPitch * Mth.DEG_TO_RAD;
+		float orbitRadius = 2; //Adjust the orbit radius as needed
+		float orbitSpeed = .1F; //Adjust the orbit speed as needed
+		//Orbit calculation for Sun1
 		float sun1OrbitAngle = ageInTicks * orbitSpeed;
-		float sun1OffsetX = (float) (Math.cos(sun1OrbitAngle) * orbitRadius);
-		float sun1OffsetZ = (float) (Math.sin(sun1OrbitAngle) * orbitRadius);
-		this.Sun1.x = this.EdenSpirit.x + sun1OffsetX;
-		this.Sun1.z = this.EdenSpirit.z + sun1OffsetZ;
-
+		float sun1OffsetX = Mth.cos(sun1OrbitAngle) * orbitRadius;
+		float sun1OffsetZ = Mth.sin(sun1OrbitAngle) * orbitRadius;
+		Sun1.x = EdenSpirit.x + sun1OffsetX + .5F;
+		Sun1.z = EdenSpirit.z + sun1OffsetZ - 4;
 		// Orbit calculation for Sun2
-		float sun2OrbitAngle = ageInTicks * orbitSpeed * 0.8F; // Adjust the orbit angle and speed as desired
-		float sun2OffsetX = (float) (Math.cos(sun2OrbitAngle) * orbitRadius);
-		float sun2OffsetZ = (float) (Math.sin(sun2OrbitAngle) * orbitRadius);
-		this.Sun2.x = this.EdenSpirit.x + sun2OffsetX;
-		this.Sun2.z = this.EdenSpirit.z + sun2OffsetZ;
-
-		this.RightArm.yRot = 0.0F;
-		this.LeftArm.yRot = 0.0F;
-		this.RightArm.zRot = 0.0F;
-		this.LeftArm.zRot = 0.0F;
-		AnimationUtils.bobModelPart(this.RightArm, ageInTicks, 1.0F);
-		AnimationUtils.bobModelPart(this.LeftArm, ageInTicks, -1.0F);
-		this.RightLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
-		this.LeftLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
-
+		float sun2OrbitAngle = ageInTicks * orbitSpeed * .8F; //Adjust the orbit angle and speed as desired
+		float sun2OffsetX = Mth.cos(sun2OrbitAngle) * orbitRadius;
+		float sun2OffsetZ = Mth.sin(sun2OrbitAngle) * orbitRadius;
+		Sun2.x = EdenSpirit.x + sun2OffsetX + .5F;
+		Sun2.z = EdenSpirit.z + sun2OffsetZ - 4;
+		RightArm.yRot = LeftArm.yRot = RightArm.zRot = LeftArm.zRot = 0;
+		AnimationUtils.bobModelPart(RightArm, ageInTicks, 1);
+		AnimationUtils.bobModelPart(LeftArm, ageInTicks, -1);
+		float f = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
+		float f1 = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
+		Spine.zRot = f * .05F;
+		RightLeg.xRot = f;
+		LeftLeg.xRot = f1;
 	}
-
-	@Override
-	public void prepareMobModel(EntityMadivel entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
+	@Override public void prepareMobModel(EntityMadivel entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
 		super.prepareMobModel(entity, limbSwing, limbSwingAmount, ageInTicks);
 		float healthFraction = entity.getHealth() / entity.getMaxHealth();
-		if (healthFraction < 1.0 / 3.0) {
-			this.Sun1.visible = false;
-			this.Sun2.visible = false;
-		} else if (healthFraction < 2.0 / 3.0) {
-			this.Sun1.visible = false;
-			this.Sun2.visible = true;
+		if(healthFraction < 1F / 3F) {
+			Sun1.visible = false;
+			Sun2.visible = false;
+		} else if(healthFraction < 2F / 3F) {
+			Sun1.visible = false;
+			Sun2.visible = true;
 		} else {
-			this.Sun1.visible = true;
-			this.Sun2.visible = true;
+			Sun1.visible = true;
+			Sun2.visible = true;
 		}
 		int i = entity.getAttackAnimationTick();
-		if (i > 0) {
-			this.RightArm.xRot = -1.5F + 1.5F * Mth.triangleWave((float)i - ageInTicks, 10.0F);
-			this.LeftArm.xRot = -1.5F + 1.5F * Mth.triangleWave((float)i - ageInTicks, 10.0F);
-		} else {
-			this.RightArm.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 2.0F * limbSwingAmount * 0.5F);
-			this.LeftArm.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F);
+		if(i > 0) RightArm.xRot = LeftArm.xRot = -1.5F + 1.5F * Mth.triangleWave(i - ageInTicks, 10);
+		else {
+			RightArm.xRot = Mth.cos(limbSwing * .6662F + Mth.PI) * limbSwingAmount;
+			LeftArm.xRot = Mth.cos(limbSwing * .6662F) * limbSwingAmount;
 		}
 	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Sun1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Sun2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		EdenSpirit.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

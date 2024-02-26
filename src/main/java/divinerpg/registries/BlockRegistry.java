@@ -493,8 +493,6 @@ public class BlockRegistry {
             cutOxdriteWall = registerBlock("cut_oxdrite_wall", () -> new BlockModWall(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "cut_oxdrite")))),
             cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_BROWN, BlockSetType.IRON)),
             cutOxdriteButton = registerBlock("cut_oxdrite_button", () -> new BlockModButton(BlockSetType.IRON)),
-            robbinNest = registerBlock("robbin_nest", () -> new BlockRobbinNest()),
-            robbinHut = registerBlock("robbin_hut", () -> new BlockMod(Properties.copy(Blocks.SPRUCE_FENCE))),
 
             //Arcana Bricks & Other Blocks
             ancientBricks = registerBlock("ancient_bricks", () -> new BlockModUnbreakable(WARPED_NYLIUM)),
@@ -812,6 +810,8 @@ public class BlockRegistry {
             hellfireSponge = registerBlock("hellfire_sponge", () -> new BlockHellfireSponge()),
             coldHellfireSponge = registerBlock("cold_hellfire_sponge", () -> new BlockColdHellfireSponge()),
             frostedAllure = registerBlock("frosted_allure", () -> new BlockFrostedAllure()),
+            robbinNest = registerBlock("robbin_nest", () -> new BlockRobbinNest()),
+            robbinHut = registerBlock("robbin_hut", () -> new BlockMod(Properties.copy(Blocks.SPRUCE_FENCE))),
             acceleron = registerBlock("acceleron", () -> new BlockAcceleron(), Rarity.UNCOMMON),
             elevantium = registerBlock("elevantium", () -> new BlockElevantium(), Rarity.UNCOMMON),
             soulTrap = registerBlock("soul_trap", () -> new BlockModSoulTrap()),

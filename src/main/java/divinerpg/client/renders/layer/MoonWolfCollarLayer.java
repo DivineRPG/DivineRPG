@@ -11,18 +11,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class MoonWolfCollarLayer extends RenderLayer<EntityMoonWolf, ModelMoonWolf<EntityMoonWolf>> {
+public class MoonWolfCollarLayer extends RenderLayer<EntityMoonWolf, ModelMoonWolf> {
     private static final ResourceLocation WOLF_COLLAR_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/entity/moon_wolf/moon_wolf_collar.png");
-
-    public MoonWolfCollarLayer(RenderLayerParent<EntityMoonWolf, ModelMoonWolf<EntityMoonWolf>> p_117707_) {
-        super(p_117707_);
-    }
-
-    @Override
-    public void render(PoseStack p_117720_, MultiBufferSource p_117721_, int p_117722_, EntityMoonWolf p_117723_, float p_117724_, float p_117725_, float p_117726_, float p_117727_, float p_117728_, float p_117729_) {
-        if (p_117723_.isTame() && !p_117723_.isInvisible()) {
-            float[] afloat = p_117723_.getCollarColor().getTextureDiffuseColors();
-            renderColoredCutoutModel(this.getParentModel(), WOLF_COLLAR_LOCATION, p_117720_, p_117721_, p_117722_, p_117723_, afloat[0], afloat[1], afloat[2]);
+    public MoonWolfCollarLayer(RenderLayerParent<EntityMoonWolf, ModelMoonWolf> layer) {super(layer);}
+    @Override public void render(PoseStack stack, MultiBufferSource source, int p_117722_, EntityMoonWolf entity, float p_117724_, float p_117725_, float p_117726_, float p_117727_, float p_117728_, float p_117729_) {
+        if(entity.isTame() && !entity.isInvisible()) {
+            float[] afloat = entity.getCollarColor().getTextureDiffuseColors();
+            renderColoredCutoutModel(getParentModel(), WOLF_COLLAR_LOCATION, stack, source, p_117722_, entity, afloat[0], afloat[1], afloat[2]);
         }
     }
 }

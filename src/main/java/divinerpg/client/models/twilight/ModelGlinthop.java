@@ -5,80 +5,90 @@ import divinerpg.entities.eden.EntityGlinthop;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelGlinthop<T extends EntityGlinthop> extends EntityModel<T> {
+public class ModelGlinthop extends EntityModel<EntityGlinthop> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("glinthop");
-	public final ModelPart Spine, Body, Tail, FrontRightLeg, BackRightLeg, FrontLeftLeg, BackLeftLeg, Head;
-
-	public ModelGlinthop(Context context) {
+	public final ModelPart Spine, Body, Head, RightEar, LeftEar, BackRightLeg, BackLeftLeg, FrontRightLeg, FrontLeftLeg, Tail;
+	public ModelGlinthop(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.Spine = root.getChild("Spine");
-		this.Body = this.Spine.getChild("Body");
-		this.Tail = this.Body.getChild("Tail");
-		this.FrontRightLeg = root.getChild("FrontRightLeg");
-		this.BackRightLeg = root.getChild("BackRightLeg");
-		this.FrontLeftLeg = root.getChild("FrontLeftLeg");
-		this.BackLeftLeg = root.getChild("BackLeftLeg");
-		this.Head = root.getChild("Head");
+		Spine = root.getChild("Spine");
+		Body = Spine.getChild("Body");
+		Head = Body.getChild("Head");
+		RightEar = Head.getChild("RightEar");
+		LeftEar = Head.getChild("LeftEar");
+		BackRightLeg = root.getChild("BackRightLeg");
+		BackLeftLeg = root.getChild("BackLeftLeg");
+		FrontRightLeg = root.getChild("FrontRightLeg");
+		FrontLeftLeg = root.getChild("FrontLeftLeg");
+		Tail = Body.getChild("Tail");
 	}
-
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-
-		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create(), PartPose.offset(-2.0F, 19.0F, 1.0F));
-
-		PartDefinition Body = Spine.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 44).addBox(-3.5F, -5.75F, -4.01F, 7.0F, 8.0F, 0.0F, new CubeDeformation(0.0F))
-			.texOffs(0, 0).addBox(-2.0F, -4.75F, -3.0F, 4.0F, 5.0F, 9.0F, new CubeDeformation(0.0F))
-			.texOffs(0, 14).addBox(-3.5F, -5.75F, -4.0F, 7.0F, 8.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, -1.25F, -2.0F));
-
-		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(31, 6).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 20.0F, -3.0F));
-
-		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(21, 9).addBox(-2.0F, -3.0F, -2.5F, 2.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
-		.texOffs(14, 31).addBox(-2.0F, 2.0F, 0.5F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.0F, 18.0F, 3.0F));
-
-		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -1.0F, -1.0F, 2.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 20.0F, -3.0F));
-
-		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 27).addBox(0.0F, -3.0F, -2.5F, 2.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
-		.texOffs(33, 0).addBox(0.0F, 2.0F, 0.5F, 2.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 18.0F, 3.0F));
-
-		Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(17, 0).addBox(-2.0F, -3.0F, -1.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -3.75F, 7.0F));
-
-		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 14).addBox(-0.5F, 1.0F, -4.5F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(20, 23).addBox(-2.5F, -2.0F, -4.0F, 5.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 13.0F, -4.0F));
-
-		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(0, 7).addBox(-0.5F, -1.5F, 0.25F, 2.0F, 2.0F, 0.0F, new CubeDeformation(0.0F))
-		.texOffs(30, 19).addBox(-1.5F, -0.5F, -0.75F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(2.5F, -3.5F, -0.25F));
-
-		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(22, 33).addBox(-1.0F, -10.0F, -6.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(4, 7).addBox(-2.0F, -11.0F, -5.0F, 2.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 6.0F, 5.0F));
-
-		Head.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(9, 27).addBox(0.5F, -2.0F, 0.0F, 3.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(1.5F, 2.0F, -3.0F));
-
-		Head.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(24, 19).addBox(-3.5F, -2.0F, 0.0F, 3.0F, 4.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, 2.0F, -3.0F));
-
+		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create(), PartPose.offset(-2, 19, 1));
+		PartDefinition Body = Spine.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 44).addBox(-3.5F, -5.75F, -4.01F, 7, 8, 0, new CubeDeformation(0))
+		.texOffs(0, 0).addBox(-2, -4.75F, -3, 4, 5, 9, new CubeDeformation(0))
+		.texOffs(0, 14).addBox(-3.5F, -5.75F, -4, 7, 8, 5, new CubeDeformation(0)), PartPose.ZERO);
+		PartDefinition Head = Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 14).addBox(-.5F, 1, -4.5F, 1, 1, 1, new CubeDeformation(0))
+		.texOffs(20, 23).addBox(-2.5F, -2, -4, 5, 6, 4, new CubeDeformation(0)), PartPose.ZERO);
+		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(22, 33).addBox(-1, -2.5F, -.75F, 2, 2, 1, new CubeDeformation(0))
+		.texOffs(4, 7).addBox(-2, -3.5F, .25F, 2, 2, 0, new CubeDeformation(0)), PartPose.offset(-2, -1.5F, -.25F));
+		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(30, 19).addBox(-1, -2.5F, -.75F, 2, 2, 1, new CubeDeformation(0))
+		.texOffs(0, 7).addBox(0, -3.5F, .25F, 2, 2, 0, new CubeDeformation(0)), PartPose.offset(2, -1.5F, -.25F));
+		Head.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(24, 19).addBox(-3.5F, -2, 0, 3, 4, 0, new CubeDeformation(0)), PartPose.offset(-1.5F, 2, -3));
+		Head.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(9, 27).addBox(.5F, -2, 0, 3, 4, 0, new CubeDeformation(0)), PartPose.offset(1.5F, 2, -3));
+		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(21, 9).addBox(-2, -3, -2.5F, 2, 5, 5, new CubeDeformation(0))
+		.texOffs(14, 31).addBox(-2, 2, .5F, 2, 4, 2, new CubeDeformation(0)), PartPose.ZERO);
+		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 27).addBox(0, -3, -2.5F, 2, 5, 5, new CubeDeformation(0))
+		.texOffs(33, 0).addBox(0, 2, .5F, 2, 4, 2, new CubeDeformation(0)), PartPose.ZERO);
+		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(31, 6).addBox(-1, -1, -1, 2, 5, 2, new CubeDeformation(0)), PartPose.ZERO);
+		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1, -1, -1, 2, 5, 2, new CubeDeformation(0)), PartPose.ZERO);
+		Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(17, 0).addBox(-2, -3, -1, 4, 4, 4, new CubeDeformation(0)), PartPose.ZERO);
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
-
-	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.Head.yRot = netHeadYaw / (180F / (float) Math.PI);
-		this.Head.xRot = headPitch / (180F / (float) Math.PI);
-
-		this.FrontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.BackLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-		this.FrontRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-		this.BackRightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+	@Override public void setupAnim(EntityGlinthop entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		float f = Mth.TWO_PI + Mth.cos(ageInTicks * .05F + limbSwing * .1F) * .05F + limbSwingAmount * .3F;
+		RightEar.zRot = -f;
+		LeftEar.zRot = f;
+		Head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
+		float f1 = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
+		float f2 = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
+		if(entity.isAngry()) Tail.yRot = 0;
+		else Tail.yRot = f1 * .25F;
+		if(entity.isInSittingPose()) {
+			Head.setPos(0, -3.5F, -3.5F);
+			Body.setPos(2, -1.25F, -2);
+			Head.xRot = headPitch * Mth.DEG_TO_RAD + Mth.PI / 6;
+			Body.xRot = -Mth.PI / 4;
+			Body.zRot = 0;
+			Tail.setPos(0, -3.75F, 7);
+			BackRightLeg.setPos(-1.01F, 21.5F, 3);
+			BackLeftLeg.setPos(1.01F, 21.5F, 3);
+			BackRightLeg.xRot = BackLeftLeg.xRot = Mth.PI * 1.5F;
+			FrontRightLeg.setPos(-2, 20, -3);
+			FrontLeftLeg.setPos(2, 20, -3);
+			FrontRightLeg.xRot = FrontLeftLeg.xRot = Mth.PI * 1.85F;
+		} else {
+			Head.setPos(0, -4.5F, -3);
+			Body.setPos(2, -1.25F, -2);
+			Head.xRot = headPitch * Mth.DEG_TO_RAD;
+			Body.xRot = 0;
+			Body.zRot = f1 * .05F;
+			Tail.setPos(0, -3.75F, 7);
+			BackRightLeg.setPos(-1, 18, 3);
+			BackLeftLeg.setPos(1, 18, 3);
+			FrontRightLeg.setPos(-2, 20, -3);
+			FrontLeftLeg.setPos(2, 20, -3);
+			BackRightLeg.xRot = FrontLeftLeg.xRot = f1;
+			BackLeftLeg.xRot = FrontRightLeg.xRot = f2;
+		}
 	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
