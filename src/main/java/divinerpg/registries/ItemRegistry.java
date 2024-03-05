@@ -33,10 +33,6 @@ import static divinerpg.registries.MobEffectRegistry.*;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-
-    //Item tags
-    public static final TagKey<Item> WARM_ARMOR = ItemTags.create(new ResourceLocation(DivineRPG.MODID, "warm_armor"));
-
     private static final ArmorInfo
     //Armor information
     //Vanilla dimensions

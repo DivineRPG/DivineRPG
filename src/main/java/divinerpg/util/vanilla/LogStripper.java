@@ -8,7 +8,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import static divinerpg.registries.BlockRegistry.*;
 
 public class LogStripper {
-
     public static void setup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             AxeItem.STRIPPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPPABLES)
@@ -22,6 +21,8 @@ public class LogStripper {
                 .put(cozybarkWood.get(), strippedCozybarkWood.get())
                 .put(streamleafLog.get(), strippedStreamleafLog.get())
                 .put(streamleafWood.get(), strippedStreamleafWood.get())
+                .put(eucalyptusLog.get(), strippedEucalyptusLog.get())
+                .put(eucalyptusWood.get(), strippedEucalyptusWood.get())
                 .put(edenLog.get(), strippedEdenLog.get())
                 .put(edenWood.get(), strippedEdenWood.get())
                 .put(wildwoodLog.get(), strippedWildwoodLog.get())
@@ -32,8 +33,6 @@ public class LogStripper {
                 .put(skythernWood.get(), strippedSkythernWood.get())
                 .put(mortumLog.get(), strippedMortumLog.get())
                 .put(mortumWood.get(), strippedMortumWood.get())
-                .put(eucalyptusLog.get(), strippedEucalyptusLog.get())
-                .put(eucalyptusWood.get(), strippedEucalyptusWood.get())
                 .put(firewoodLog.get(), strippedFirewoodLog.get())
                 .put(firewoodWood.get(), strippedFirewoodWood.get())
                 .put(dreamwoodLog.get(), strippedDreamwoodLog.get())

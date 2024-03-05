@@ -12,12 +12,14 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelAngryGlinthop extends EntityModel<EntityAngryGlinthop> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("angry_glinthop");
-	public final ModelPart Spine, Body, Skull, RightEar, LeftEar, Tail, BackRightLeg, BackLeftLeg, FrontRightLeg, FrontLeftLeg;
+	public final ModelPart Spine, Body, Skull, RightWhisker, LeftWhisker, RightEar, LeftEar, Tail, BackRightLeg, BackLeftLeg, FrontRightLeg, FrontLeftLeg;
 	public ModelAngryGlinthop(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		Spine = root.getChild("Spine");
 		Body = Spine.getChild("Body");
 		Skull = Body.getChild("Skull");
+		RightWhisker = Skull.getChild("RightWhisker");
+		LeftWhisker = Skull.getChild("LeftWhisker");
 		RightEar = Skull.getChild("RightEar");
 		LeftEar = Skull.getChild("LeftEar");
 		Tail = Body.getChild("Tail");
@@ -55,8 +57,8 @@ public class ModelAngryGlinthop extends EntityModel<EntityAngryGlinthop> {
 		Skull.yRot = netHeadYaw * Mth.DEG_TO_RAD;
 		Skull.xRot = headPitch * Mth.DEG_TO_RAD;
 		float f = Mth.TWO_PI + Mth.cos(ageInTicks * .05F + limbSwing * .1F) * .05F + limbSwingAmount * .3F;
-		RightEar.zRot = -f;
-		LeftEar.zRot = f;
+		LeftWhisker.yRot = RightEar.zRot = -f;
+		RightWhisker.yRot = LeftEar.zRot = f;
 		float f1 = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
 		float f2 = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
 		Body.zRot = f1 * .05F;

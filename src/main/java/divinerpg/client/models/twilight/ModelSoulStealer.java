@@ -29,10 +29,10 @@ public class ModelSoulStealer extends EntityModel<EntitySoulStealer> {
 		PartDefinition partdefinition = meshdefinition.getRoot();
 		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-11, -18, -4, 22, 18, 11, new CubeDeformation(0)), PartPose.offset(0, 14, 0));
 		PartDefinition Head = Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 29).addBox(-7, -6, -4, 14, 6, 8, new CubeDeformation(0)), PartPose.offset(0, -18, 0));
-		PartDefinition LeftEar = Head.addOrReplaceChild("LeftEar", CubeListBuilder.create(), PartPose.offset(6, -4, 1));
-		LeftEar.addOrReplaceChild("leftear_r1", CubeListBuilder.create().texOffs(60, 29).addBox(0, -10, 0, 10, 12, 0, new CubeDeformation(0)), PartPose.rotation(-.1309F, -.5672F, 0));
 		PartDefinition RightEar = Head.addOrReplaceChild("RightEar", CubeListBuilder.create(), PartPose.offset(-6, -4, 1));
 		RightEar.addOrReplaceChild("rightear_r1", CubeListBuilder.create().texOffs(68, 41).addBox(-10, -10, 0, 10, 12, 0, new CubeDeformation(0)), PartPose.rotation(-.1309F, .5672F, 0));
+		PartDefinition LeftEar = Head.addOrReplaceChild("LeftEar", CubeListBuilder.create(), PartPose.offset(6, -4, 1));
+		LeftEar.addOrReplaceChild("leftear_r1", CubeListBuilder.create().texOffs(60, 29).addBox(0, -10, 0, 10, 12, 0, new CubeDeformation(0)), PartPose.rotation(-.1309F, -.5672F, 0));
 		Body.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(66, 0).addBox(-5, -1, -3, 5, 16, 6, new CubeDeformation(0)), PartPose.offset(-11, -17, 0));
 		Body.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(0, 61).addBox(0, -1, -3, 5, 16, 6, new CubeDeformation(0)), PartPose.offset(11, -17, 0));
 		partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(0, 43).addBox(-4, 0, -4, 8, 10, 8, new CubeDeformation(0)), PartPose.offset(-7, 14, 0));
@@ -44,8 +44,8 @@ public class ModelSoulStealer extends EntityModel<EntitySoulStealer> {
 	@Override public void setupAnim(EntitySoulStealer entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		Head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
 		Head.xRot = headPitch * Mth.DEG_TO_RAD;
-		LeftEar.yRot = Mth.PI / 16 + Mth.cos(ageInTicks * .1F + limbSwing * .5F) * .08F + limbSwingAmount * .2F;
 		RightEar.yRot = -Mth.PI / 16 - Mth.cos(ageInTicks * .1F + limbSwing * .6F) * .08F + limbSwingAmount * .2F;
+		LeftEar.yRot = Mth.PI / 16 + Mth.cos(ageInTicks * .1F + limbSwing * .5F) * .08F + limbSwingAmount * .2F;
 		RightArm.yRot = LeftArm.yRot = RightArm.zRot = LeftArm.zRot = 0;
 		AnimationUtils.bobModelPart(RightArm, ageInTicks, 1);
 		AnimationUtils.bobModelPart(LeftArm, ageInTicks, -1);
