@@ -4,38 +4,29 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import divinerpg.DivineRPG;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Mob;
+import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderDivineMob<Type extends Mob> extends MobRenderer<Type, EntityModel<Type>> {
+public class RenderDivineMob<T extends Mob> extends MobRenderer<T, EntityModel<T>> {
     protected final ResourceLocation TEXTURE;
     protected final float scale;
-    public RenderDivineMob(Context context, String name, EntityModel<Type> model) {
-    	this(context, name, model, 1F);
-    }
-    public RenderDivineMob(Context context, String name, EntityModel<Type> model, float shadowSize) {
+    public RenderDivineMob(Context context, String name, EntityModel<T> model) {this(context, name, model, 1);}
+    public RenderDivineMob(Context context, String name, EntityModel<T> model, float shadowSize) {
         super(context, model, shadowSize);
-        this.scale = 1;
-        this.TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/" + name + ".png");
+        scale = 1;
+        TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/" + name + ".png");
     }
-
-    public RenderDivineMob(Context context, String name, EntityModel<Type> model, float shadowSize, float scale) {
+    public RenderDivineMob(Context context, String name, EntityModel<T> model, float shadowSize, float scale) {
         super(context, model, shadowSize);
         this.scale = scale;
-        this.TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/" + name + ".png");
+        TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/" + name + ".png");
     }
-
-    @Override
-    protected void scale(Type type, PoseStack stack, float s) {
-    	if(type.isBaby()) stack.scale(this.scale / 3F, this.scale / 3F, this.scale / 3F);
-    	else stack.scale(this.scale, this.scale, this.scale);
+    @Override protected void scale(T type, PoseStack stack, float s) {
+    	if(type.isBaby()) stack.scale(scale / 2, scale / 2, this.scale / 2);
+    	else stack.scale(scale, scale, scale);
     }
-
-    @Override
-    public ResourceLocation getTextureLocation(Type type) {
-        return TEXTURE;
-    }
+    @Override public ResourceLocation getTextureLocation(T type) {return TEXTURE;}
 }

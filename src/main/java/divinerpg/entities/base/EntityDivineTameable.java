@@ -28,141 +28,101 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     private static final EntityDataAccessor<Integer> DATA_COLLAR_COLOR = SynchedEntityData.defineId(EntityDivineTameable.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> DATA_REMAINING_ANGER_TIME = SynchedEntityData.defineId(EntityDivineTameable.class, EntityDataSerializers.INT);
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-    @Nullable
-    private UUID persistentAngerTarget;
+    @Nullable private UUID persistentAngerTarget;
 	protected final float healthIncrease;
     protected EntityDivineTameable(EntityType<? extends TamableAnimal> type, Level worldIn, float healthIncrease) {
         super(type, worldIn);
         this.healthIncrease = healthIncrease;
         setTame(false);
     }
-    public boolean isMeat(ItemStack item) {
-    	return item.getFoodProperties(this) != null && item.getFoodProperties(this).isMeat();
-    }
-    @Override
-    protected void registerGoals() {
+    public boolean isMeat(ItemStack item) {return item.getFoodProperties(this) != null && item.getFoodProperties(this).isMeat();}
+    @Override protected void registerGoals() {
         super.registerGoals();
         goalSelector.addGoal(1, new FloatGoal(this));
         goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
-        goalSelector.addGoal(4, new LeapAtTargetGoal(this, 0.4F));
-        goalSelector.addGoal(5, new MeleeAttackGoal(this, 1.0D, true));
-        goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
-        goalSelector.addGoal(7, new BreedGoal(this, 1.0D));
-        goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        goalSelector.addGoal(10, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        goalSelector.addGoal(4, new LeapAtTargetGoal(this, .4F));
+        goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, true));
+        goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, 10, 2, false));
+//      goalSelector.addGoal(7, new BreedGoal(this, 1));
+        goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1));
+        goalSelector.addGoal(10, new LookAtPlayerGoal(this, Player.class, 8));
         goalSelector.addGoal(10, new RandomLookAroundGoal(this));
         targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
-        targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
+        targetSelector.addGoal(3, new HurtByTargetGoal(this).setAlertOthers());
         targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isAngryAt));
         targetSelector.addGoal(5, new ResetUniversalAngerTargetGoal<>(this, true));
     }
-    @Override
-    public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
-        return 0.0F;
-    }
-    @Override
-    public boolean hurt(DamageSource source, float amount) {
-        if (this.isInvulnerableTo(source)) {
-            return false;
-        } else {
+    @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
+    @Override public boolean hurt(DamageSource source, float amount) {
+        if(isInvulnerableTo(source)) return false;
+        else {
             Entity entity = source.getEntity();
-            if (!this.level().isClientSide()) {
-                this.setOrderedToSit(false);
-            }
-
-            if (entity != null && !(entity instanceof Player) && !(entity instanceof AbstractArrow)) {
-                amount = (amount + 1.0F) / 2.0F;
-            }
-
+            if(!level().isClientSide()) setOrderedToSit(false);
+            if(entity != null && !(entity instanceof Player) && !(entity instanceof AbstractArrow)) amount = (amount + 1) / 2;
             return super.hurt(source, amount);
         }
     }
-    @Override
-    public void setTame(boolean tamed) {
+    @Override public void setTame(boolean tamed) {
         super.setTame(tamed);
         if(isTame()) {
             AttributeInstance attribute = getAttribute(Attributes.MAX_HEALTH);
             attribute.setBaseValue(attribute.getValue() * healthIncrease);
         }
     }
-    @Override
-    protected void defineSynchedData() {
+    @Override protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(DATA_COLLAR_COLOR, DyeColor.RED.getId());
-        this.entityData.define(DATA_REMAINING_ANGER_TIME, 0);
+        entityData.define(DATA_COLLAR_COLOR, DyeColor.RED.getId());
+        entityData.define(DATA_REMAINING_ANGER_TIME, 0);
     }
-    @Override
-    public void addAdditionalSaveData(CompoundTag p_30418_) {
-        super.addAdditionalSaveData(p_30418_);
-        p_30418_.putByte("CollarColor", (byte)this.getCollarColor().getId());
-        this.addPersistentAngerSaveData(p_30418_);
+    @Override public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putByte("CollarColor", (byte)getCollarColor().getId());
+        addPersistentAngerSaveData(tag);
     }
-    @Override
-    public void readAdditionalSaveData(CompoundTag p_30402_) {
-        super.readAdditionalSaveData(p_30402_);
-        if (p_30402_.contains("CollarColor", 99)) {
-            this.setCollarColor(DyeColor.byId(p_30402_.getInt("CollarColor")));
-        }
-        this.readPersistentAngerSaveData(this.level(), p_30402_);
+    @Override public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        if(tag.contains("CollarColor", 99)) setCollarColor(DyeColor.byId(tag.getInt("CollarColor")));
+        readPersistentAngerSaveData(level(), tag);
     }
-    @Override
-    public void aiStep() {
+    @Override public void aiStep() {
         super.aiStep();
-        if (!this.level().isClientSide()) {
-            this.updatePersistentAnger((ServerLevel)this.level(), true);
-        }
-
+        if(!level().isClientSide()) updatePersistentAnger((ServerLevel)level(), true);
     }
-    public DyeColor getCollarColor() {
-        return DyeColor.byId(this.entityData.get(DATA_COLLAR_COLOR));
-    }
-    public void setCollarColor(DyeColor p_30398_) {
-        this.entityData.set(DATA_COLLAR_COLOR, p_30398_.getId());
-    }
-    @Override
-    public boolean isFood(ItemStack item) {
-        return isMeat(item);
-    }
-    protected boolean isTamingFood(ItemStack item) {
-        return isMeat(item);
-    }
-    @Override
-    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+    public DyeColor getCollarColor() {return DyeColor.byId(entityData.get(DATA_COLLAR_COLOR));}
+    public void setCollarColor(DyeColor color) {entityData.set(DATA_COLLAR_COLOR, color.getId());}
+    @Override public boolean isFood(ItemStack item) {return isMeat(item);}
+    protected boolean isTamingFood(ItemStack item) {return isMeat(item);}
+    @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
         if(level().isClientSide()) return isOwnedBy(player) ? InteractionResult.CONSUME : InteractionResult.PASS;
         if(isTame()) {
-            if (isFood(itemstack) && getHealth() < getMaxHealth()) {
-                if (!player.isCreative()) itemstack.shrink(1);
+            if(isFood(itemstack) && getHealth() < getMaxHealth()) {
+                if(!player.isCreative()) itemstack.shrink(1);
                 heal((float) item.getFoodProperties(itemstack, this).getNutrition());
                 gameEvent(GameEvent.EAT, this);
                 return InteractionResult.SUCCESS;
             }
-            if (item instanceof DyeItem dyeitem) {
-                if (this.isOwnedBy(player)) {
+            if(item instanceof DyeItem dyeitem) {
+                if(isOwnedBy(player)) {
                     DyeColor dyecolor = dyeitem.getDyeColor();
-                    if (dyecolor != this.getCollarColor()) {
-                        this.setCollarColor(dyecolor);
-                        if (!player.getAbilities().instabuild) {
-                            itemstack.shrink(1);
-                        }
-
+                    if(dyecolor != getCollarColor()) {
+                        setCollarColor(dyecolor);
+                        if(!player.getAbilities().instabuild) itemstack.shrink(1);
                         return InteractionResult.SUCCESS;
-                    }
-
-                    return super.mobInteract(player, hand);
+                    } return super.mobInteract(player, hand);
                 }
             }
             InteractionResult actionresulttype = super.mobInteract(player, hand);
-            if ((!actionresulttype.consumesAction() || isBaby()) && isOwnedBy(player)) {
+            if((!actionresulttype.consumesAction() || isBaby()) && isOwnedBy(player)) {
                 setOrderedToSit(!isOrderedToSit());
                 jumping = false;
                 navigation.stop();
                 setTarget(null);
                 return InteractionResult.SUCCESS;
             }
-        } else if (isTamingFood(itemstack) && !this.isAngry() && !player.isCreative()) {
+        } else if(isTamingFood(itemstack) && !isAngry() && !player.isCreative()) {
             itemstack.shrink(1);
             if(random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
                 tame(player);
@@ -175,58 +135,23 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
         } else if(player.isCreative()) tame(player);
         return super.mobInteract(player, hand);
     }
-    @Override
-    public boolean wantsToAttack(LivingEntity p_30389_, LivingEntity p_30390_) {
-        if (!(p_30389_ instanceof Creeper) && !(p_30389_ instanceof Ghast)) {
-            if (p_30389_ instanceof EntityDivineTameable) {
-                EntityDivineTameable pet = (EntityDivineTameable)p_30389_;
-                return !pet.isTame() || pet.getOwner() != p_30390_;
-            } else if (p_30389_ instanceof Player && p_30390_ instanceof Player && !((Player)p_30390_).canHarmPlayer((Player)p_30389_)) {
-                return false;
-            } else if (p_30389_ instanceof AbstractHorse && ((AbstractHorse)p_30389_).isTamed()) {
-                return false;
-            } else {
-                return !(p_30389_ instanceof TamableAnimal) || !((TamableAnimal)p_30389_).isTame();
-            }
-        } else {
-            return false;
-        }
+    @Override public boolean wantsToAttack(LivingEntity entity, LivingEntity entity1) {
+        if(!(entity instanceof Creeper) && !(entity instanceof Ghast)) {
+            if(entity instanceof EntityDivineTameable) {
+                EntityDivineTameable pet = (EntityDivineTameable)entity;
+                return !pet.isTame() || pet.getOwner() != entity1;
+            } else if(entity instanceof Player && entity1 instanceof Player && !((Player)entity1).canHarmPlayer((Player)entity)) return false;
+            else if(entity instanceof AbstractHorse && ((AbstractHorse)entity).isTamed()) return false;
+            else return !(entity instanceof TamableAnimal) || !((TamableAnimal)entity).isTame();
+        } else return false;
     }
-    @Override
-    public boolean canBeLeashed(Player p_30396_) {
-        return !this.isAngry() && super.canBeLeashed(p_30396_);
-    }
-    @Override
-    public int getRemainingPersistentAngerTime() {
-        return this.entityData.get(DATA_REMAINING_ANGER_TIME);
-    }
-    @Override
-    public void setRemainingPersistentAngerTime(int p_30404_) {
-        this.entityData.set(DATA_REMAINING_ANGER_TIME, p_30404_);
-    }
-    @Override
-    public void startPersistentAngerTimer() {
-        this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.random));
-    }
-    @Override
-    @Nullable
-    public UUID getPersistentAngerTarget() {
-        return this.persistentAngerTarget;
-    }
-    @Override
-    public void setPersistentAngerTarget(@Nullable UUID p_30400_) {
-        this.persistentAngerTarget = p_30400_;
-    }
-	@Override
-	public AgeableMob getBreedOffspring(ServerLevel s, AgeableMob a) {
-		return null;
-	}
-    @Override
-    public boolean canMate(Animal animal) {
-        return false;
-    }
-    @Override
-    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-        return !isTame();
-    }
+    @Override public boolean canBeLeashed(Player player) {return !isAngry() && super.canBeLeashed(player);}
+    @Override public int getRemainingPersistentAngerTime() {return entityData.get(DATA_REMAINING_ANGER_TIME);}
+    @Override public void setRemainingPersistentAngerTime(int p_30404_) {entityData.set(DATA_REMAINING_ANGER_TIME, p_30404_);}
+    @Override public void startPersistentAngerTimer() {setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(random));}
+    @Override @Nullable public UUID getPersistentAngerTarget() {return persistentAngerTarget;}
+    @Override public void setPersistentAngerTarget(@Nullable UUID p_30400_) {persistentAngerTarget = p_30400_;}
+	@Override public AgeableMob getBreedOffspring(ServerLevel s, AgeableMob a) {return null;}
+    @Override public boolean canMate(Animal animal) {return false;}
+    @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return !isTame();}
 }

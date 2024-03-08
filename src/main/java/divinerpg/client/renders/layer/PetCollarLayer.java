@@ -19,28 +19,17 @@ public class PetCollarLayer extends RenderLayer<EntityDivineTameable, EntityMode
             EHU_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu_collar.png"),
             HELL_PIG_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_collar.png"),
             SNAPPER_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/snapper_collar.png");
-
-    public PetCollarLayer(RenderLayerParent<EntityDivineTameable, EntityModel<EntityDivineTameable>> p_117707_) {
-        super(p_117707_);
-    }
-
+    public PetCollarLayer(RenderLayerParent<EntityDivineTameable, EntityModel<EntityDivineTameable>> p_117707_) {super(p_117707_);}
     private ResourceLocation texture(Entity entity){
-        if (entity instanceof EntityEhu) {
-            return EHU_COLLAR;
-        } else if (entity instanceof EntityHellPig) {
-            return HELL_PIG_COLLAR;
-        } else if (entity instanceof EntitySnapper) {
-            return SNAPPER_COLLAR;
-        } else {
-            return null;
-        }
+        if(entity instanceof EntityEhu) return EHU_COLLAR;
+        else if(entity instanceof EntityHellPig) return HELL_PIG_COLLAR;
+        else if(entity instanceof EntitySnapper) return SNAPPER_COLLAR;
+        else return null;
     }
-
-    @Override
-    public void render(PoseStack p_117720_, MultiBufferSource p_117721_, int p_117722_, EntityDivineTameable p_117723_, float p_117724_, float p_117725_, float p_117726_, float p_117727_, float p_117728_, float p_117729_) {
-        if (p_117723_.isTame() && !p_117723_.isInvisible()) {
-            float[] afloat = p_117723_.getCollarColor().getTextureDiffuseColors();
-            renderColoredCutoutModel(this.getParentModel(), texture(p_117723_), p_117720_, p_117721_, p_117722_, p_117723_, afloat[0], afloat[1], afloat[2]);
+    @Override public void render(PoseStack stack, MultiBufferSource source, int p_117722_, EntityDivineTameable entity, float p_117724_, float p_117725_, float p_117726_, float p_117727_, float p_117728_, float p_117729_) {
+        if(entity.isTame() && !entity.isInvisible()) {
+            float[] afloat = entity.getCollarColor().getTextureDiffuseColors();
+            renderColoredCutoutModel(this.getParentModel(), texture(entity), stack, source, p_117722_, entity, afloat[0], afloat[1], afloat[2]);
         }
     }
 }

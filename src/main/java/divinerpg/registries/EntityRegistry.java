@@ -888,7 +888,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(CYCLOPS.get(),			 RenderCyclops::new);
         event.registerEntityRenderer(DESERT_CRAWLER.get(),	 (Context context) -> new RenderDivineMob<>(context, "desert_crawler", new ModelDesertCrawler(context), 0.7F));
         event.registerEntityRenderer(DIAMOND_DAVE.get(),     (Context context) -> new RenderDivineMob<>(context, "diamond_dave", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.5F));
-        event.registerEntityRenderer(EHU.get(),				 (Context context) -> new RenderPet(context, "ehu", new ModelEhu<>(context), 0.5F));
+        event.registerEntityRenderer(EHU.get(),				 (Context context) -> new RenderPet(context, "ehu", new ModelEhu(context), 0.5F));
         event.registerEntityRenderer(ENTHRALLED_DRAMCRYX.get(),(Context context) -> new RenderDivineMob<>(context, "enthralled_dramcryx", new ModelEnthralledDramcryx<>(context), 0.9F, 1.2F));
         event.registerEntityRenderer(FROST.get(),			 (Context context) -> new RenderDivineMob<>(context, "frost", new ModelFrost(context), 0.6F));
         event.registerEntityRenderer(GLACON.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacon", new ModelGlacon(context), 0.8F));
@@ -970,7 +970,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(GREENFEET.get(),	  (Context context) -> new RenderDivineMob<>(context, "greenfeet",  new ModelGreenfeet(context), 0.6F));
         event.registerEntityRenderer(MADIVEL.get(),		  (Context context) -> new RenderDivineMob<>(context, "madivel",  new ModelMadivel(context), 0.85F));
         event.registerEntityRenderer(SUN_ARCHER.get(),	  RenderSunArcher::new);
-        event.registerEntityRenderer(WEAK_CORI.get(),	  (Context context) -> new RenderDivineMob<>(context, "weak_cori",  new ModelWeakCori<>(context), 0.7F));
+        event.registerEntityRenderer(WEAK_CORI.get(),	  (Context context) -> new RenderDivineMob<>(context, "weak_cori",  new ModelWeakCori(context), 0.7F));
 
         //Wildwood
         event.registerEntityRenderer(BEHEMOTH.get(), (Context context) -> new RenderDivineMob<>(context, "behemoth",  new ModelBehemoth(context)));
