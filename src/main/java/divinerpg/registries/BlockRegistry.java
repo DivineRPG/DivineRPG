@@ -811,7 +811,7 @@ public class BlockRegistry {
             coldHellfireSponge = registerBlock("cold_hellfire_sponge", () -> new BlockColdHellfireSponge()),
             frostedAllure = registerBlock("frosted_allure", () -> new BlockFrostedAllure()),
             robbinNest = registerBlock("robbin_nest", () -> new BlockRobbinNest()),
-            robbinHut = registerBlock("robbin_hut", () -> new BlockMod(Properties.copy(Blocks.SPRUCE_FENCE))),
+            robbinHut = registerBlock("robbin_hut", () -> new BlockRobbinHut()),
             acceleron = registerBlock("acceleron", () -> new BlockAcceleron(), Rarity.UNCOMMON),
             elevantium = registerBlock("elevantium", () -> new BlockElevantium(), Rarity.UNCOMMON),
             soulTrap = registerBlock("soul_trap", () -> new BlockModSoulTrap()),

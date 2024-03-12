@@ -19,8 +19,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.*;
 
 public class BlockRobbinNest extends BaseEntityBlock {
-	protected static final VoxelShape BASE_SHAPE = Block.box(2D, 0D, 2D, 14D, 4D, 14D);
-	public BlockRobbinNest() {super(Block.Properties.copy(Blocks.HAY_BLOCK).randomTicks().noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, getter, pos) -> false));}
+	protected static final VoxelShape BASE_SHAPE = Block.box(2, 0, 2, 14, 4, 14);
+	public BlockRobbinNest() {super(Block.Properties.copy(Blocks.HAY_BLOCK).randomTicks().noOcclusion().mapColor(MapColor.COLOR_BROWN).isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, getter, pos) -> false));}
 	@Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return BASE_SHAPE;}
 	@Override public RenderShape getRenderShape(BlockState state) {return RenderShape.MODEL;}
 	@Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {return BlockEntityRegistry.ROBBIN_NEST.get().create(pos, state);}
@@ -30,8 +30,7 @@ public class BlockRobbinNest extends BaseEntityBlock {
 			EntityRegistry.ROBBIN.get().spawn(level, pos, MobSpawnType.BREEDING);
 		}
 	}
-	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+	@Override public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block) {
 			ItemStack handItem = player.getItemInHand(hand);
 			if(handItem == null || handItem.isEmpty()) {
@@ -49,15 +48,13 @@ public class BlockRobbinNest extends BaseEntityBlock {
 			return InteractionResult.SUCCESS;
 		} return InteractionResult.PASS;
 	}
-	@Override
-	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {
+	@Override public void onRemove(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {
 		if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block && !block.getItem().isEmpty()) {
 			level.addFreshEntity(new ItemEntity(level, pos.getX() + .5, pos.getY() + .1, pos.getZ() + .5, block.getItem()));
 			level.removeBlockEntity(pos);
 		}
 	}
-	@Override
-	public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+	@Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
 		if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block && !block.getItem().isEmpty()) {
 			level.addFreshEntity(new ItemEntity(level, pos.getX() + .5, pos.getY() + .1, pos.getZ() + .5, block.getItem()));
 			level.removeBlockEntity(pos);
