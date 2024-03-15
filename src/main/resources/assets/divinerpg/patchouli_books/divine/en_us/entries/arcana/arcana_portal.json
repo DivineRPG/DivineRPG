@@ -5,28 +5,29 @@
   "sortnum": 1,
   "pages": [
     {
-      "type": "text",
+      "type": "crafting",
+      "recipe": "divinerpg:shaped/arcana_portal_frame",
+      "title": "block.divinerpg.arcana_portal",
       "text": "book.divinerpg.entry.arcana.arcana_portal.1"
     },
     {
-      "type": "image",
-      "images": [
-        "divinerpg:textures/gui/patchouli/arcana_portal.png"
-      ],
-      "title": "Arcana Portal",
-      "border": true,
+      "type": "multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_EEE_", "SPPPN", "SP0PN", "SPPPN", "_WWW_" ]
+        ],
+        "mapping": {
+          "N": "divinerpg:arcana_portal_frame[facing=north]",
+          "S": "divinerpg:arcana_portal_frame[facing=south]",
+          "W": "divinerpg:arcana_portal_frame[facing=west]",
+          "E": "divinerpg:arcana_portal_frame[facing=east]",
+          "P": "divinerpg:arcana_portal",
+          "0": "divinerpg:arcana_portal"
+        },
+        "symmetrical": true
+      },
+      "name": "Arcana Portal",
       "text": "book.divinerpg.entry.arcana.arcana_portal.2"
-    },
-    {
-      "type": "link",
-      "url": "https://youtu.be/kVfjN6HdyqM",
-      "link_text": "Portal Video",
-      "text": "book.divinerpg.entry.arcana.arcana_portal.3"
-    },
-    {
-      "type": "crafting",
-      "recipe": "divinerpg:shaped/arcana_portal_frame",
-      "title": "Arcana Portal"
     }
   ]
 }

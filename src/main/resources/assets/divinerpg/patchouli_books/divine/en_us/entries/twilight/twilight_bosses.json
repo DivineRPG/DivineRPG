@@ -9,7 +9,8 @@
       "entity": "divinerpg:sunstorm",
       "scale": 1,
       "name": "Sunstorm",
-      "offset": 0.4
+      "offset": 0.4,
+      "anchor": "sunstorm"
     },
     {
       "type": "image",
@@ -17,14 +18,16 @@
       "text": "book.divinerpg.entry.twilight.sunstorm",
       "images": [
         "divinerpg:textures/gui/patchouli/eden_dungeon.png"
-      ]
+      ],
+      "border": true
     },
     {
       "type": "entity",
       "entity": "divinerpg:termasect",
       "scale": 0.6,
       "name": "Termasect",
-      "offset": 2
+      "offset": 2,
+      "anchor": "termasect"
     },
     {
       "type": "image",
@@ -32,14 +35,16 @@
       "text": "book.divinerpg.entry.twilight.termasect",
       "images": [
         "divinerpg:textures/gui/patchouli/wildwood_dungeon.png"
-      ]
+      ],
+      "border": true
     },
     {
       "type": "entity",
       "entity": "divinerpg:eternal_archer",
       "scale": 0.8,
       "name": "Eternal Archer",
-      "offset": 1.4
+      "offset": 1.4,
+      "anchor": "archer"
     },
     {
       "type": "image",
@@ -47,14 +52,16 @@
       "text": "book.divinerpg.entry.twilight.eternal_archer",
       "images": [
         "divinerpg:textures/gui/patchouli/apalachia_dungeon.png"
-      ]
+      ],
+      "border": true
     },
     {
       "type": "entity",
       "entity": "divinerpg:experienced_cori",
       "scale": 1,
       "name": "Experienced Cori",
-      "offset": 1.4
+      "offset": 1.4,
+      "anchor": "cori"
     },
     {
       "type": "image",
@@ -62,7 +69,8 @@
       "text": "book.divinerpg.entry.twilight.experienced_cori",
       "images": [
         "divinerpg:textures/gui/patchouli/skythern_dungeon.png"
-      ]
+      ],
+      "border": true
     },
     {
       "type": "entity",
@@ -73,7 +81,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shapeless/densos_crystal_shapeless",
+      "recipe": "divinerpg:shapeless/densos_crystal",
       "title": "Densos",
       "text": "book.divinerpg.entry.twilight.densos"
     },
@@ -86,7 +94,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shapeless/karot_crystal_shapeless",
+      "recipe": "divinerpg:shapeless/karot_crystal",
       "title": "Karot",
       "text": "book.divinerpg.entry.twilight.karot"
     },
@@ -99,7 +107,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shapeless/reyvor_crystal_shapeless",
+      "recipe": "divinerpg:shapeless/reyvor_crystal",
       "title": "Reyvor",
       "text": "book.divinerpg.entry.twilight.reyvor"
     },
@@ -112,7 +120,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shapeless/soul_fiend_crystal_shapeless",
+      "recipe": "divinerpg:shapeless/soul_fiend_crystal",
       "title": "Soul Fiend",
       "text": "book.divinerpg.entry.twilight.soul_fiend"
     },
@@ -125,7 +133,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shapeless/twilight_demon_crystal_shapeless",
+      "recipe": "divinerpg:shapeless/twilight_demon_crystal",
       "title": "Twilight Demon",
       "text": "book.divinerpg.entry.twilight.twilight_demon"
     },
@@ -138,7 +146,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shapeless/vamacheron_crystal_shapeless",
+      "recipe": "divinerpg:shapeless/vamacheron_crystal",
       "title": "Vamacheron",
       "text": "book.divinerpg.entry.twilight.vamacheron"
     }

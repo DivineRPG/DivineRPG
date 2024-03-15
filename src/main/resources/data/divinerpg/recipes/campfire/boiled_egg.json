@@ -3,7 +3,7 @@
     "item": "divinerpg:boiled_egg"
   },
   "ingredient": {
-    "item": "minecraft:egg"
+    "tag": "forge:eggs"
   },
   "type": "minecraft:campfire_cooking",
   "category": "food",

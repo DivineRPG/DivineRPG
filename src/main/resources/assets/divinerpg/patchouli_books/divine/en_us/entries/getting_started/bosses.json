@@ -9,7 +9,8 @@
       "entity": "divinerpg:the_watcher",
       "scale": 0.6,
       "name": "The Watcher",
-      "offset": 1.4
+      "offset": 1.4,
+      "anchor": "watcher"
     },
     {
       "type": "text",
@@ -21,7 +22,8 @@
       "entity": "divinerpg:ancient_entity",
       "scale": 0.4,
       "name": "Ancient Entity",
-      "offset": 3
+      "offset": 3,
+      "anchor": "entity"
     },
     {
       "type": "text",
@@ -43,7 +45,8 @@
       "type": "spotlight",
       "item": "divinerpg:horde_horn",
       "title": "book.divinerpg.entry.getting_started.ayeraco.title",
-      "text": "book.divinerpg.entry.getting_started.ayeraco.1"
+      "text": "book.divinerpg.entry.getting_started.ayeraco.1",
+      "anchor": "ayeraco"
     },
     {
       "type": "text",

@@ -6,53 +6,122 @@
   "pages": [
     {
       "type": "text",
+      "text": "book.divinerpg.entry.twilight.portals.1"
+    },
+    {
+      "type": "crafting",
+      "recipe": "divinerpg:shaped/twilight_clock",
+      "text": "book.divinerpg.entry.twilight.portals.2"
+    },
+    {
+      "type": "crafting",
+      "recipe": "divinerpg:shapeless/divine_rock",
       "text": "book.divinerpg.entry.twilight.eden_portal.1"
     },
     {
-      "type": "image",
-      "images": ["divinerpg:textures/gui/patchouli/eden_portal.png"],
-      "title": "Eden Portal",
-      "border": true
+      "type": "multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_PP_" ],
+          [ "P  P" ],
+          [ "P  P" ],
+          [ "P0 P" ],
+          [ "_PP_" ]
+        ],
+        "mapping": {
+          "P": "divinerpg:divine_rock"
+        }
+      },
+      "name": "Eden Portal",
+      "text": "book.divinerpg.entry.twilight.portals.3"
     },
     {
-      "type": "text",
+      "type": "crafting",
+      "recipe": "divinerpg:shaped/eden_block",
       "text": "book.divinerpg.entry.twilight.wildwood_portal.1"
     },
     {
-      "type": "image",
-      "images": ["divinerpg:textures/gui/patchouli/wildwood_portal.png"],
-      "title": "Wildwood Portal",
-      "border": true
+      "type": "multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_PP_" ],
+          [ "P  P" ],
+          [ "P  P" ],
+          [ "P0 P" ],
+          [ "_PP_" ]
+        ],
+        "mapping": {
+          "P": "divinerpg:eden_block"
+        }
+      },
+      "name": "Wildwood Portal",
+      "text": "book.divinerpg.entry.twilight.portals.3"
     },
     {
-      "type": "text",
+      "type": "crafting",
+      "recipe": "divinerpg:shaped/wildwood_block",
       "text": "book.divinerpg.entry.twilight.apalachia_portal.1"
     },
     {
-      "type": "image",
-      "images": ["divinerpg:textures/gui/patchouli/apalachia_portal.png"],
-      "title": "Apalachia Portal",
-      "border": true
+      "type": "multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_PP_" ],
+          [ "P  P" ],
+          [ "P  P" ],
+          [ "P0 P" ],
+          [ "_PP_" ]
+        ],
+        "mapping": {
+          "P": "divinerpg:wildwood_block"
+        }
+      },
+      "name": "Apalachia Portal",
+      "text": "book.divinerpg.entry.twilight.portals.3"
     },
     {
-      "type": "text",
+      "type": "crafting",
+      "recipe": "divinerpg:shaped/apalachia_block",
       "text": "book.divinerpg.entry.twilight.skythern_portal.1"
     },
     {
-      "type": "image",
-      "images": ["divinerpg:textures/gui/patchouli/skythern_portal.png"],
-      "title": "Skythern Portal",
-      "border": true
+      "type": "multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_PP_" ],
+          [ "P  P" ],
+          [ "P  P" ],
+          [ "P0 P" ],
+          [ "_PP_" ]
+        ],
+        "mapping": {
+          "P": "divinerpg:apalachia_block"
+        }
+      },
+      "name": "Skythern Portal",
+      "text": "book.divinerpg.entry.twilight.portals.3"
     },
     {
-      "type": "text",
+      "type": "crafting",
+      "recipe": "divinerpg:shaped/skythern_block",
       "text": "book.divinerpg.entry.twilight.mortum_portal.1"
     },
     {
-      "type": "image",
-      "images": ["divinerpg:textures/gui/patchouli/mortum_portal.png"],
-      "title": "Mortum Portal",
-      "border": true
+      "type": "multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_PP_" ],
+          [ "P  P" ],
+          [ "P  P" ],
+          [ "P0 P" ],
+          [ "_PP_" ]
+        ],
+        "mapping": {
+          "P": "divinerpg:skythern_block"
+        }
+      },
+      "name": "Mortum Portal",
+      "text": "book.divinerpg.entry.twilight.portals.3"
     }
     ]
 }

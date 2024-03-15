@@ -5,14 +5,27 @@
   "sortnum": 1,
   "pages": [
     {
-      "type": "text",
+      "type": "crafting",
+      "recipe": "divinerpg:shaped/snow_globe",
+      "title": "block.divinerpg.iceika_portal",
       "text": "book.divinerpg.entry.iceika.iceika_portal.1"
     },
     {
-      "type": "image",
-      "images": ["divinerpg:textures/gui/patchouli/iceika_portal.png"],
-      "title": "Iceika Portal",
-      "border": true
+      "type": "multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "_PP_" ],
+          [ "P  P" ],
+          [ "P  P" ],
+          [ "P 0P" ],
+          [ "_PP_" ]
+        ],
+        "mapping": {
+          "P": "minecraft:snow_block"
+        }
+      },
+      "name": "Iceika Portal",
+      "text": "book.divinerpg.entry.iceika.iceika_portal.2"
     }
   ]
 }

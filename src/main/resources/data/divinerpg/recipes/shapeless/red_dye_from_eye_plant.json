@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "red_dye",
+  "ingredients": [
+    {
+      "item": "divinerpg:eye_plant"
+    }
+  ],
+  "result": {
+    "item": "minecraft:red_dye"
+  }
+}

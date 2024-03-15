@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "pink_dye",
+  "ingredients": [
+    {
+      "item": "divinerpg:roofbell"
+    }
+  ],
+  "result": {
+    "item": "minecraft:pink_dye"
+  }
+}

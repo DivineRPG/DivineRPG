@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cyan_dye",
+  "ingredients": [
+    {
+      "item": "divinerpg:wisp_leaf"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cyan_dye"
+  }
+}
