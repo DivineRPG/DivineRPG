@@ -3,11 +3,11 @@
 * Tslat (Scimiguy) - coding assistant
 
 ### Main Team
+* Velocityraptor - Lead Developer
 * Locomen_ - Developer
-* NicosaurusRex99 - Developer
-* Velocityraptor - Developer
 * Lemon_Juice - Developer
 * PegasDoggeAM - Developer
+* Nicusha - Developer
 
 ### Ex-Developers
 * Aginsun
