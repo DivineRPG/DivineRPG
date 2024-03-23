@@ -25,17 +25,19 @@ public class ModelScorcher extends EntityModel<EntityScorcher> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-5, -10, -5, 10, 10, 10, new CubeDeformation(0)), PartPose.rotation(0, 3.1416F, 0));
-		Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 20).addBox(-4, -8, -4, 8, 8, 8, new CubeDeformation(0))
-		.texOffs(30, 0).addBox(-8, -7, -1, 4, 2, 2, new CubeDeformation(0))
-		.texOffs(0, 20).addBox(-8, -13, -1, 2, 6, 2, new CubeDeformation(0))
-		.texOffs(30, 4).addBox(4, -7, -1, 4, 2, 2, new CubeDeformation(0))
-		.texOffs(0, 0).addBox(6, -13, -1, 2, 6, 2, new CubeDeformation(0)), PartPose.offset(0, -10, 0));
-		PartDefinition Rods = partdefinition.addOrReplaceChild("Rods", CubeListBuilder.create(), PartPose.ZERO);
-		Rods.addOrReplaceChild("BackRod", CubeListBuilder.create().texOffs(8, 36).addBox(-1, -6, -1, 2, 12, 2, new CubeDeformation(0)), PartPose.ZERO);
-		Rods.addOrReplaceChild("FrontRod", CubeListBuilder.create().texOffs(32, 20).addBox(-1, -6, -1, 2, 12, 2, new CubeDeformation(0)), PartPose.ZERO);
-		Rods.addOrReplaceChild("RightRod", CubeListBuilder.create().texOffs(0, 36).addBox(-1, -6, -1, 2, 12, 2, new CubeDeformation(0)), PartPose.ZERO);
-		Rods.addOrReplaceChild("LeftRod", CubeListBuilder.create().texOffs(30, 34).addBox(-1, -6, -1, 2, 12, 2, new CubeDeformation(0)), PartPose.ZERO);
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartPose zPose = PartPose.ZERO;
+		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-5, -10, -5, 10, 10, 10, cubeDef), PartPose.rotation(0, 3.1416F, 0));
+		Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 20).addBox(-4, -8, -4, 8, 8, 8, cubeDef)
+		.texOffs(30, 0).addBox(-8, -7, -1, 4, 2, 2, cubeDef)
+		.texOffs(0, 20).addBox(-8, -13, -1, 2, 6, 2, cubeDef)
+		.texOffs(30, 4).addBox(4, -7, -1, 4, 2, 2, cubeDef)
+		.texOffs(0, 0).addBox(6, -13, -1, 2, 6, 2, cubeDef), PartPose.offset(0, -10, 0));
+		PartDefinition Rods = partdefinition.addOrReplaceChild("Rods", CubeListBuilder.create(), zPose);
+		Rods.addOrReplaceChild("BackRod", CubeListBuilder.create().texOffs(8, 36).addBox(-1, -6, -1, 2, 12, 2, cubeDef), zPose);
+		Rods.addOrReplaceChild("FrontRod", CubeListBuilder.create().texOffs(32, 20).addBox(-1, -6, -1, 2, 12, 2, cubeDef), zPose);
+		Rods.addOrReplaceChild("RightRod", CubeListBuilder.create().texOffs(0, 36).addBox(-1, -6, -1, 2, 12, 2, cubeDef), zPose);
+		Rods.addOrReplaceChild("LeftRod", CubeListBuilder.create().texOffs(30, 34).addBox(-1, -6, -1, 2, 12, 2, cubeDef), zPose);
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void setupAnim(EntityScorcher entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

@@ -10,8 +10,9 @@ import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderGlinthop extends MobRenderer<EntityGlinthop, ModelGlinthop> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/glinthop.png");
-    private static final ResourceLocation TEXTURE_ALT = new ResourceLocation(DivineRPG.MODID, "textures/entity/glinthop_alt.png");
+    private static final ResourceLocation
+        TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/glinthop.png"),
+        TEXTURE_ALT = new ResourceLocation(DivineRPG.MODID, "textures/entity/glinthop_alt.png");
     public RenderGlinthop(EntityRendererProvider.Context context) {
         super(context, new ModelGlinthop(context), .3F);
         addLayer(new GlinthopCollarLayer(this));

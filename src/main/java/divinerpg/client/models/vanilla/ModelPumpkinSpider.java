@@ -30,25 +30,26 @@ public class ModelPumpkinSpider extends EntityModel<EntityPumpkinSpider> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(38, 32).addBox(-5, -4, -8, 10, 9, 8, new CubeDeformation(0)), PartPose.offset(0, 15, -7));
-		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 32).addBox(-4, -12, -7, 8, 6, 11, new CubeDeformation(0)), PartPose.offset(0, 24, 0));
-		partdefinition.addOrReplaceChild("Thorax", CubeListBuilder.create().texOffs(0, 0).addBox(-8, -11, 2, 16, 16, 16, new CubeDeformation(0)), PartPose.ZERO);
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(38, 32).addBox(-5, -4, -8, 10, 9, 8, cubeDef), PartPose.offset(0, 15, -7));
+		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 32).addBox(-4, -12, -7, 8, 6, 11, cubeDef), PartPose.offset(0, 24, 0));
+		partdefinition.addOrReplaceChild("Thorax", CubeListBuilder.create().texOffs(0, 0).addBox(-8, -11, 2, 16, 16, 16, cubeDef), PartPose.ZERO);
 		PartDefinition RightLeg4 = partdefinition.addOrReplaceChild("RightLeg4", CubeListBuilder.create(), PartPose.offset(-4, 17, 2));
-		RightLeg4.addOrReplaceChild("rightleg4_r1", CubeListBuilder.create().texOffs(48, 12).addBox(-15, -1, -1, 14, 2, 2, new CubeDeformation(0)), PartPose.offset(1, -1, -1));
+		RightLeg4.addOrReplaceChild("rightleg4_r1", CubeListBuilder.create().texOffs(48, 12).addBox(-15, -1, -1, 14, 2, 2, cubeDef), PartPose.offset(1, -1, -1));
 		PartDefinition RightLeg3 = partdefinition.addOrReplaceChild("RightLeg3", CubeListBuilder.create(), PartPose.offset(-4, 17, -1));
-		RightLeg3.addOrReplaceChild("rightleg3_r1", CubeListBuilder.create().texOffs(48, 8).addBox(-15, -1, -1, 14, 2, 2, new CubeDeformation(0)), PartPose.offset(1, -1, 0));
+		RightLeg3.addOrReplaceChild("rightleg3_r1", CubeListBuilder.create().texOffs(48, 8).addBox(-15, -1, -1, 14, 2, 2, cubeDef), PartPose.offset(1, -1, 0));
 		PartDefinition RightLeg2 = partdefinition.addOrReplaceChild("RightLeg2", CubeListBuilder.create(), PartPose.offset(-4, 17, -3));
-		RightLeg2.addOrReplaceChild("rightleg2_r1", CubeListBuilder.create().texOffs(48, 4).addBox(-15, -1, -1, 14, 2, 2, new CubeDeformation(0)), PartPose.offset(1, -1, 0));
+		RightLeg2.addOrReplaceChild("rightleg2_r1", CubeListBuilder.create().texOffs(48, 4).addBox(-15, -1, -1, 14, 2, 2, cubeDef), PartPose.offset(1, -1, 0));
 		PartDefinition RightLeg1 = partdefinition.addOrReplaceChild("RightLeg1", CubeListBuilder.create(), PartPose.offset(-4, 17, -5));
-		RightLeg1.addOrReplaceChild("rightleg1_r1", CubeListBuilder.create().texOffs(48, 0).addBox(-15, -1, -1, 14, 2, 2, new CubeDeformation(0)), PartPose.offset(1, -1, 0));
+		RightLeg1.addOrReplaceChild("rightleg1_r1", CubeListBuilder.create().texOffs(48, 0).addBox(-15, -1, -1, 14, 2, 2, cubeDef), PartPose.offset(1, -1, 0));
 		PartDefinition LeftLeg4 = partdefinition.addOrReplaceChild("LeftLeg4", CubeListBuilder.create(), PartPose.offset(4, 17, 2));
-		LeftLeg4.addOrReplaceChild("leftleg4_r1", CubeListBuilder.create().texOffs(0, 49).addBox(1, -1, -1, 14, 2, 2, new CubeDeformation(0)), PartPose.offset(-1, -1, -1));
+		LeftLeg4.addOrReplaceChild("leftleg4_r1", CubeListBuilder.create().texOffs(0, 49).addBox(1, -1, -1, 14, 2, 2, cubeDef), PartPose.offset(-1, -1, -1));
 		PartDefinition LeftLeg3 = partdefinition.addOrReplaceChild("LeftLeg3", CubeListBuilder.create(), PartPose.offset(4, 17, -1));
-		LeftLeg3.addOrReplaceChild("leftleg3_r1", CubeListBuilder.create().texOffs(32, 49).addBox(1, -1, -1, 14, 2, 2, new CubeDeformation(0)), PartPose.offset(-1, -1, 0));
+		LeftLeg3.addOrReplaceChild("leftleg3_r1", CubeListBuilder.create().texOffs(32, 49).addBox(1, -1, -1, 14, 2, 2, cubeDef), PartPose.offset(-1, -1, 0));
 		PartDefinition LeftLeg2 = partdefinition.addOrReplaceChild("LeftLeg2", CubeListBuilder.create(), PartPose.offset(4, 17, -3));
-		LeftLeg2.addOrReplaceChild("leftleg2_r1", CubeListBuilder.create().texOffs(0, 53).addBox(1, -1, -1, 14, 2, 2, new CubeDeformation(0)), PartPose.offset(-1, -1, 0));
+		LeftLeg2.addOrReplaceChild("leftleg2_r1", CubeListBuilder.create().texOffs(0, 53).addBox(1, -1, -1, 14, 2, 2, cubeDef), PartPose.offset(-1, -1, 0));
 		PartDefinition LeftLeg1 = partdefinition.addOrReplaceChild("LeftLeg1", CubeListBuilder.create(), PartPose.offset(4, 17, -5));
-		LeftLeg1.addOrReplaceChild("leftleg1_r1", CubeListBuilder.create().texOffs(32, 53).addBox(1, -1, -1, 14, 2, 2, new CubeDeformation(0)), PartPose.offset(-1, -1, 0));
+		LeftLeg1.addOrReplaceChild("leftleg1_r1", CubeListBuilder.create().texOffs(32, 53).addBox(1, -1, -1, 14, 2, 2, cubeDef), PartPose.offset(-1, -1, 0));
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 	public void prepareMobModel(EntityPumpkinSpider entityIn, float p_102615_, float p_102616_, float p_102617_) {

@@ -405,9 +405,9 @@ public class BlockRegistry {
             //Mintwood
             mintwoodLeaves = registerBlock("mintwood_leaves", () -> new BlockModLeaves(WARPED_WART_BLOCK, SoundType.GRASS)),
             mintwoodLog = registerBlock("mintwood_log", () -> new BlockModLog(DIAMOND, SoundType.WOOD)),
-            mintwoodWood = registerBlock("mintwood_wood", () -> new BlockModLog(DIAMOND, SoundType.WOOD)),
+            mintwoodWood = registerBlock("mintwood_wood", () -> new BlockModLog(WARPED_WART_BLOCK, SoundType.WOOD)),
             strippedMintwoodLog = registerBlock("stripped_mintwood_log", () -> new BlockModLog(DIAMOND, SoundType.WOOD)),
-            strippedMintwoodWood = registerBlock("stripped_mintwood_wood", () -> new BlockModLog(DIAMOND, SoundType.WOOD)),
+            strippedMintwoodWood = registerBlock("stripped_mintwood_wood", () -> new BlockModLog(COLOR_CYAN, SoundType.WOOD)),
 
             //Wool
             checker = registerBlock("checker", () -> new BlockMod(WOOL,0.8F, 0.8F, 60, 30, SoundType.WOOL, NoteBlockInstrument.GUITAR)),

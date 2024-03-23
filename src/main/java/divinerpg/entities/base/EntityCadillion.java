@@ -12,97 +12,59 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 
 public class EntityCadillion extends EntityDivineMonster {
-    private int chargeTime;
+    private int chargeTime, ramCooldown;
     private boolean isCharging;
-    private int ramCooldown;
-
     public EntityCadillion(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        this.chargeTime = 0;
-        this.isCharging = false;
-        this.ramCooldown = 0;
+        chargeTime = 0;
+        isCharging = false;
+        ramCooldown = 0;
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.3625F;
-    }
-
-    @Override
-    public boolean isAggressive() {
-        return true;
-    }
-
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundRegistry.CADILLION.get();
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.GROWL_HURT.get();
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.GROWL_HURT.get();
-    }
-
-    @Override
-    public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
-        return 0.0F;
-    }
-
-    @Override
-    public void aiStep() {
+    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.3625F;}
+    @Override public boolean isAggressive() {return true;}
+    @Override protected SoundEvent getAmbientSound() {return SoundRegistry.CADILLION.get();}
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}
+    @Override protected SoundEvent getDeathSound() {return SoundRegistry.GROWL_HURT.get();}
+    @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
+    @Override public void aiStep() {
         super.aiStep();
-        if (this.level().isClientSide()) {
-            return;
-        }
-        if (this.ramCooldown > 0) {
-            this.ramCooldown--;
-        }
-        if (this.getTarget() != null) {
-            if (this.isCharging) {
-                this.chargeTime++;
-
-                if (this.chargeTime >= 20) {
-                    Entity target = this.getTarget();
+        if(level().isClientSide()) return;
+        if(ramCooldown > 0) ramCooldown--;
+        if(getTarget() != null) {
+            if(isCharging) {
+                chargeTime++;
+                if(chargeTime >= 20) {
+                    Entity target = getTarget();
                     double targetX = target.getX();
                     double targetZ = target.getZ();
-                    double dx = targetX - this.getX();
-                    double dz = targetZ - this.getZ();
+                    double dx = targetX - getX();
+                    double dz = targetZ - getZ();
                     double distance = Math.sqrt(dx * dx + dz * dz);
-                    if (distance > 0) {
+                    if(distance > 0) {
                         double speed = 2.5;
                         double motionX = (dx / distance) * speed;
                         double motionZ = (dz / distance) * speed;
-
-                        this.setDeltaMovement(motionX, 0, motionZ);
+                        setDeltaMovement(motionX, 0, motionZ);
                     }
-                    this.chargeTime = 0;
-                    this.isCharging = false;
-                    this.ramCooldown = 1200;
+                    chargeTime = 0;
+                    isCharging = false;
+                    ramCooldown = 1200;
                 }
-            } else if (this.ramCooldown == 0) {
-                this.getNavigation().stop();
-                this.chargeTime++;
-                if (this.chargeTime >= 40) {
-                    this.isCharging = true;
-                    this.chargeTime = 0;
+            } else if(ramCooldown == 0) {
+                getNavigation().stop();
+                chargeTime++;
+                if(chargeTime >= 40) {
+                    isCharging = true;
+                    chargeTime = 0;
                 }
             }
         } else {
-            Player nearestPlayer = this.level().getNearestPlayer(this, getAttributeValue(Attributes.FOLLOW_RANGE));
-            if (nearestPlayer != null && !nearestPlayer.isCreative()) {
-                this.getNavigation().moveTo(nearestPlayer, 1.0D);
-            }
+            Player nearestPlayer = level().getNearestPlayer(this, getAttributeValue(Attributes.FOLLOW_RANGE));
+            if(nearestPlayer != null && !nearestPlayer.isCreative()) getNavigation().moveTo(nearestPlayer, 1);
         }
     }
-
-    @Override
-    protected void registerGoals() {
+    @Override protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));
+        goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
     }
 }

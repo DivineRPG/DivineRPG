@@ -26,18 +26,19 @@ public class ModelGreenfeet extends EntityModel<EntityGreenfeet> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
+		CubeDeformation cubeDef = CubeDeformation.NONE;
 		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create(), PartPose.offset(0, 12, .5F));
-		Body.addOrReplaceChild("Chest_r1", CubeListBuilder.create().texOffs(0, 30).addBox(-4.5F, -12, -1.5F, 9, 14, 5, new CubeDeformation(0)), PartPose.offsetAndRotation(0, -1, 0, .3927F, 0, 0));
+		Body.addOrReplaceChild("Chest_r1", CubeListBuilder.create().texOffs(0, 30).addBox(-4.5F, -12, -1.5F, 9, 14, 5, cubeDef), PartPose.offsetAndRotation(0, -1, 0, .3927F, 0, 0));
 		PartDefinition Head = Body.addOrReplaceChild("Head", CubeListBuilder.create(), PartPose.offset(0, -12, -3.5F));
-		Head.addOrReplaceChild("skull_r1", CubeListBuilder.create().texOffs(28, 30).addBox(-2.5F, -10, -3, 5, 12, 4, new CubeDeformation(0)), PartPose.offsetAndRotation(0, 3, -3, -.3927F, 0, 0));
-		PartDefinition RightArm = Body.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(28, 0).addBox(-2, -1, -2, 2, 8, 3, new CubeDeformation(0)), PartPose.offset(-4.5F, -11, -2.5F));
-		RightArm.addOrReplaceChild("RightBlade", CubeListBuilder.create().texOffs(0, 0).addBox(-1.5F, -1, -7, 2, 2, 10, new CubeDeformation(0))
-		.texOffs(0, 0).addBox(-1, 0, -13, 0, 6, 18, new CubeDeformation(0)), PartPose.offset(-.5F, 8, -1));
-		PartDefinition LeftArm = Body.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(25, 46).addBox(0, -1, -2, 2, 8, 3, new CubeDeformation(0)), PartPose.offset(4.5F, -11, -2.5F));
-		LeftArm.addOrReplaceChild("LeftBlade", CubeListBuilder.create().texOffs(14, 2).addBox(-1.5F, 0, -7, 2, 2, 10, new CubeDeformation(0))
-		.texOffs(0, 6).addBox(0, 1, -13, 0, 6, 18, new CubeDeformation(0)), PartPose.offset(1.5F, 7, -1));
-		partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(42, 42).addBox(-2, 0, -2, 4, 12, 4, new CubeDeformation(0)), PartPose.offset(-3, 12, 1));
-		partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(36, 10).addBox(-2, 0, -2, 4, 12, 4, new CubeDeformation(0)), PartPose.offset(3, 12, 1));
+		Head.addOrReplaceChild("skull_r1", CubeListBuilder.create().texOffs(28, 30).addBox(-2.5F, -10, -3, 5, 12, 4, cubeDef), PartPose.offsetAndRotation(0, 3, -3, -.3927F, 0, 0));
+		PartDefinition RightArm = Body.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(28, 0).addBox(-2, -1, -2, 2, 8, 3, cubeDef), PartPose.offset(-4.5F, -11, -2.5F));
+		RightArm.addOrReplaceChild("RightBlade", CubeListBuilder.create().texOffs(0, 0).addBox(-1.5F, -1, -7, 2, 2, 10, cubeDef)
+		.texOffs(0, 0).addBox(-1, 0, -13, 0, 6, 18, cubeDef), PartPose.offset(-.5F, 8, -1));
+		PartDefinition LeftArm = Body.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(25, 46).addBox(0, -1, -2, 2, 8, 3, cubeDef), PartPose.offset(4.5F, -11, -2.5F));
+		LeftArm.addOrReplaceChild("LeftBlade", CubeListBuilder.create().texOffs(14, 2).addBox(-1.5F, 0, -7, 2, 2, 10, cubeDef)
+		.texOffs(0, 6).addBox(0, 1, -13, 0, 6, 18, cubeDef), PartPose.offset(1.5F, 7, -1));
+		partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(42, 42).addBox(-2, 0, -2, 4, 12, 4, cubeDef), PartPose.offset(-3, 12, 1));
+		partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(36, 10).addBox(-2, 0, -2, 4, 12, 4, cubeDef), PartPose.offset(3, 12, 1));
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void setupAnim(EntityGreenfeet entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

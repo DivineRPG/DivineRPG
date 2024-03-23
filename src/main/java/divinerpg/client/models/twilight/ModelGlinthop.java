@@ -29,25 +29,27 @@ public class ModelGlinthop extends EntityModel<EntityGlinthop> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartPose zPose = PartPose.ZERO;
 		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create(), PartPose.offset(-2, 19, 1));
-		PartDefinition Body = Spine.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 44).addBox(-3.5F, -5.75F, -4.01F, 7, 8, 0, new CubeDeformation(0))
-		.texOffs(0, 0).addBox(-2, -4.75F, -3, 4, 5, 9, new CubeDeformation(0))
-		.texOffs(0, 14).addBox(-3.5F, -5.75F, -4, 7, 8, 5, new CubeDeformation(0)), PartPose.ZERO);
-		PartDefinition Head = Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 14).addBox(-.5F, 1, -4.5F, 1, 1, 1, new CubeDeformation(0))
-		.texOffs(20, 23).addBox(-2.5F, -2, -4, 5, 6, 4, new CubeDeformation(0)), PartPose.ZERO);
-		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(22, 33).addBox(-1, -2.5F, -.75F, 2, 2, 1, new CubeDeformation(0))
-		.texOffs(4, 7).addBox(-2, -3.5F, .25F, 2, 2, 0, new CubeDeformation(0)), PartPose.offset(-2, -1.5F, -.25F));
-		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(30, 19).addBox(-1, -2.5F, -.75F, 2, 2, 1, new CubeDeformation(0))
-		.texOffs(0, 7).addBox(0, -3.5F, .25F, 2, 2, 0, new CubeDeformation(0)), PartPose.offset(2, -1.5F, -.25F));
-		Head.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(24, 19).addBox(-3.5F, -2, 0, 3, 4, 0, new CubeDeformation(0)), PartPose.offset(-1.5F, 2, -3));
-		Head.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(9, 27).addBox(.5F, -2, 0, 3, 4, 0, new CubeDeformation(0)), PartPose.offset(1.5F, 2, -3));
-		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(21, 9).addBox(-2, -3, -2.5F, 2, 5, 5, new CubeDeformation(0))
-		.texOffs(14, 31).addBox(-2, 2, .5F, 2, 4, 2, new CubeDeformation(0)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 27).addBox(0, -3, -2.5F, 2, 5, 5, new CubeDeformation(0))
-		.texOffs(33, 0).addBox(0, 2, .5F, 2, 4, 2, new CubeDeformation(0)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(31, 6).addBox(-1, -1, -1, 2, 5, 2, new CubeDeformation(0)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1, -1, -1, 2, 5, 2, new CubeDeformation(0)), PartPose.ZERO);
-		Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(17, 0).addBox(-2, -3, -1, 4, 4, 4, new CubeDeformation(0)), PartPose.ZERO);
+		PartDefinition Body = Spine.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 44).addBox(-3.5F, -5.75F, -4.01F, 7, 8, 0, cubeDef)
+		.texOffs(0, 0).addBox(-2, -4.75F, -3, 4, 5, 9, cubeDef)
+		.texOffs(0, 14).addBox(-3.5F, -5.75F, -4, 7, 8, 5, cubeDef), zPose);
+		PartDefinition Head = Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 14).addBox(-.5F, 1, -4.5F, 1, 1, 1, cubeDef)
+		.texOffs(20, 23).addBox(-2.5F, -2, -4, 5, 6, 4, cubeDef), zPose);
+		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(22, 33).addBox(-1, -2.5F, -.75F, 2, 2, 1, cubeDef)
+		.texOffs(4, 7).addBox(-2, -3.5F, .25F, 2, 2, 0, cubeDef), PartPose.offset(-2, -1.5F, -.25F));
+		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(30, 19).addBox(-1, -2.5F, -.75F, 2, 2, 1, cubeDef)
+		.texOffs(0, 7).addBox(0, -3.5F, .25F, 2, 2, 0, cubeDef), PartPose.offset(2, -1.5F, -.25F));
+		Head.addOrReplaceChild("RightWhisker", CubeListBuilder.create().texOffs(24, 19).addBox(-3.5F, -2, 0, 3, 4, 0, cubeDef), PartPose.offset(-1.5F, 2, -3));
+		Head.addOrReplaceChild("LeftWhisker", CubeListBuilder.create().texOffs(9, 27).addBox(.5F, -2, 0, 3, 4, 0, cubeDef), PartPose.offset(1.5F, 2, -3));
+		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(21, 9).addBox(-2, -3, -2.5F, 2, 5, 5, cubeDef)
+		.texOffs(14, 31).addBox(-2, 2, .5F, 2, 4, 2, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 27).addBox(0, -3, -2.5F, 2, 5, 5, cubeDef)
+		.texOffs(33, 0).addBox(0, 2, .5F, 2, 4, 2, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(31, 6).addBox(-1, -1, -1, 2, 5, 2, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1, -1, -1, 2, 5, 2, cubeDef), zPose);
+		Body.addOrReplaceChild("Tail", CubeListBuilder.create().texOffs(17, 0).addBox(-2, -3, -1, 4, 4, 4, cubeDef), zPose);
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void setupAnim(EntityGlinthop entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

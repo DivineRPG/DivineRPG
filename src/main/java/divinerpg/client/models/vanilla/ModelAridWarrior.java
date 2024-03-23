@@ -5,7 +5,7 @@ import divinerpg.entities.vanilla.overworld.EntityAridWarrior;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
@@ -13,7 +13,7 @@ import static divinerpg.util.ClientUtils.createLocation;
 public class ModelAridWarrior extends EntityModel<EntityAridWarrior> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("arid_warrior");
 	public final ModelPart Torso, Cape, Head, RightEar, LeftEar, rightLeg, leftLeg, rightArm, leftArm;
-	public ModelAridWarrior(Context context) {
+	public ModelAridWarrior(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		Torso = root.getChild("Torso");
 		Cape = Torso.getChild("Cape");
@@ -28,18 +28,19 @@ public class ModelAridWarrior extends EntityModel<EntityAridWarrior> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(0, 16).addBox(-5, -10, -3, 10, 10, 6, new CubeDeformation(0)), PartPose.offset(0, 8, 0));
-		Torso.addOrReplaceChild("Cape", CubeListBuilder.create().texOffs(31, 31).addBox(-5, 0, 0, 10, 20, 1, new CubeDeformation(0)), PartPose.offset(0, -10, 3));
-		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, new CubeDeformation(0)), PartPose.offset(0, -1.99F, 0));
-		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(29, 46).addBox(0, -5, 0, 0, 6, 6, new CubeDeformation(0)), PartPose.offset(-4, -7, -1));
-		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(41, 46).addBox(0, -5, 0, 0, 6, 6, new CubeDeformation(0)), PartPose.offset(4, -7, -1));
-		partdefinition.addOrReplaceChild("rightArm", CubeListBuilder.create().texOffs(17, 46).addBox(-3, -1, -1.5F, 3, 14, 3, new CubeDeformation(0)), PartPose.offset(-5, -1, .5F));
-		partdefinition.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(8, 32).addBox(0, -1, -1.5F, 3, 14, 3, new CubeDeformation(0)), PartPose.offset(5, -1, .5F));
-		Torso.addOrReplaceChild("Hip", CubeListBuilder.create().texOffs(27, 11).addBox(-5, 0, -2, 10, 4, 5, new CubeDeformation(0)), PartPose.ZERO);
-		PartDefinition rightLeg = partdefinition.addOrReplaceChild("rightLeg", CubeListBuilder.create().texOffs(48, 0).addBox(-2.5F, 0, -2, 4, 5, 4, new CubeDeformation(0)), PartPose.offset(-2, 12, 0));
-		rightLeg.addOrReplaceChild("RightFoot", CubeListBuilder.create().texOffs(32, 20).addBox(-2, 0, -2, 4, 7, 4, new CubeDeformation(0)), PartPose.offset(-1, 4.99F, 1));
-		PartDefinition leftLeg = partdefinition.addOrReplaceChild("leftLeg", CubeListBuilder.create().texOffs(48, 20).addBox(-1.5F, 0, -2, 4, 5, 4, new CubeDeformation(0)), PartPose.offset(2, 12, 0));
-		leftLeg.addOrReplaceChild("LeftFoot", CubeListBuilder.create().texOffs(32, 0).addBox(-2, 0, -2, 4, 7, 4, new CubeDeformation(0)), PartPose.offset(1, 4.99F, 1));
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(0, 16).addBox(-5, -10, -3, 10, 10, 6, cubeDef), PartPose.offset(0, 8, 0));
+		Torso.addOrReplaceChild("Cape", CubeListBuilder.create().texOffs(31, 31).addBox(-5, 0, 0, 10, 20, 1, cubeDef), PartPose.offset(0, -10, 3));
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, cubeDef), PartPose.offset(0, -1.99F, 0));
+		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(29, 46).addBox(0, -5, 0, 0, 6, 6, cubeDef), PartPose.offset(-4, -7, -1));
+		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(41, 46).addBox(0, -5, 0, 0, 6, 6, cubeDef), PartPose.offset(4, -7, -1));
+		partdefinition.addOrReplaceChild("rightArm", CubeListBuilder.create().texOffs(17, 46).addBox(-3, -1, -1.5F, 3, 14, 3, cubeDef), PartPose.offset(-5, -1, .5F));
+		partdefinition.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(8, 32).addBox(0, -1, -1.5F, 3, 14, 3, cubeDef), PartPose.offset(5, -1, .5F));
+		Torso.addOrReplaceChild("Hip", CubeListBuilder.create().texOffs(27, 11).addBox(-5, 0, -2, 10, 4, 5, cubeDef), PartPose.ZERO);
+		PartDefinition rightLeg = partdefinition.addOrReplaceChild("rightLeg", CubeListBuilder.create().texOffs(48, 0).addBox(-2.5F, 0, -2, 4, 5, 4, cubeDef), PartPose.offset(-2, 12, 0));
+		rightLeg.addOrReplaceChild("RightFoot", CubeListBuilder.create().texOffs(32, 20).addBox(-2, 0, -2, 4, 7, 4, cubeDef), PartPose.offset(-1, 4.99F, 1));
+		PartDefinition leftLeg = partdefinition.addOrReplaceChild("leftLeg", CubeListBuilder.create().texOffs(48, 20).addBox(-1.5F, 0, -2, 4, 5, 4, cubeDef), PartPose.offset(2, 12, 0));
+		leftLeg.addOrReplaceChild("LeftFoot", CubeListBuilder.create().texOffs(32, 0).addBox(-2, 0, -2, 4, 7, 4, cubeDef), PartPose.offset(1, 4.99F, 1));
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 	@Override public void setupAnim(EntityAridWarrior entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
@@ -57,7 +58,7 @@ public class ModelAridWarrior extends EntityModel<EntityAridWarrior> {
 		rightArm.yRot = leftArm.yRot = rightArm.zRot = leftArm.zRot = 0;
 		AnimationUtils.bobModelPart(rightArm, ageInTicks, 1);
 		AnimationUtils.bobModelPart(leftArm, ageInTicks, -1);
-		float capeMov = Mth.sqrt((float) Math.atan(200 * limbSwing)) * limbSwingAmount;
+		float capeMov = Mth.sqrt((float)Math.atan(200 * limbSwing)) * limbSwingAmount;
 		Cape.xRot = capeMov + Mth.PI / 18;
 	}
 	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {

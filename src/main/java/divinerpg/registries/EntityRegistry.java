@@ -632,7 +632,6 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelAequorea.LAYER_LOCATION,			 ModelAequorea::createBodyLayer);
         event.registerLayerDefinition(ModelAridWarrior.LAYER_LOCATION,		 ModelAridWarrior::createBodyLayer);
         event.registerLayerDefinition(ModelCaveCrawler.LAYER_LOCATION,	     ModelCaveCrawler::createBodyLayer);
-        event.registerLayerDefinition(ModelCrawler.LAYER_LOCATION,			 ModelCrawler::createBodyLayer);
         event.registerLayerDefinition(ModelGrizzle.LAYER_LOCATION,			 ModelGrizzle::createBodyLayer);
         event.registerLayerDefinition(ModelCrab.LAYER_LOCATION,				 ModelCrab::createBodyLayer);
         event.registerLayerDefinition(ModelDesertCrawler.LAYER_LOCATION,	 ModelDesertCrawler::createBodyLayer);
@@ -889,7 +888,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(DESERT_CRAWLER.get(),	 (Context context) -> new RenderDivineMob<>(context, "desert_crawler", new ModelDesertCrawler(context), 0.7F));
         event.registerEntityRenderer(DIAMOND_DAVE.get(),     (Context context) -> new RenderDivineMob<>(context, "diamond_dave", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.5F));
         event.registerEntityRenderer(EHU.get(),				 (Context context) -> new RenderPet(context, "ehu", new ModelEhu(context), 0.5F));
-        event.registerEntityRenderer(ENTHRALLED_DRAMCRYX.get(),(Context context) -> new RenderDivineMob<>(context, "enthralled_dramcryx", new ModelEnthralledDramcryx<>(context), 0.9F, 1.2F));
+        event.registerEntityRenderer(ENTHRALLED_DRAMCRYX.get(),(Context context) -> new RenderDivineMob<>(context, "enthralled_dramcryx", new ModelEnthralledDramcryx(context), 0.9F, 1.2F));
         event.registerEntityRenderer(FROST.get(),			 (Context context) -> new RenderDivineMob<>(context, "frost", new ModelFrost(context), 0.6F));
         event.registerEntityRenderer(GLACON.get(),			 (Context context) -> new RenderDivineMob<>(context, "glacon", new ModelGlacon(context), 0.8F));
         event.registerEntityRenderer(HUSK.get(),			 (Context context) -> new RenderDivineMob<>(context, "husk", new ModelHusk(context), 0.4F));

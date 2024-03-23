@@ -27,24 +27,25 @@ public class ModelMadivel extends EntityModel<EntityMadivel> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create().texOffs(0, 0).addBox(-9, -20, -8, 18, 19, 18, new CubeDeformation(0))
-		.texOffs(54, 0).addBox(-5.5F, -1, -5, 11, 5, 12, new CubeDeformation(0))
-		.texOffs(0, 37).addBox(-9, -27, -6, 18, 7, 14, new CubeDeformation(0))
-		.texOffs(72, 17).addBox(-5, -26, -4, 10, 10, 9, new CubeDeformation(0)), PartPose.offset(0, 2, 0));
-		Spine.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(137, 0).addBox(-5, 1, -3, 4, 21, 7, new CubeDeformation(0)), PartPose.offset(-4, 0, 0));
-		Spine.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(88, 36).addBox(1, 1, -3, 4, 21, 7, new CubeDeformation(0)), PartPose.offset(4, 0, 0));
-		Spine.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(100, 97).addBox(0, -2, -4, 8, 8, 8, new CubeDeformation(0))
-		.texOffs(26, 88).addBox(1, 6, -3, 6, 20, 6, new CubeDeformation(0)), PartPose.offset(9, -16, 2));
-		Spine.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(100, 0).addBox(-8, -2, -4, 8, 8, 8, new CubeDeformation(0))
-		.texOffs(84, 79).addBox(-7, 6, -3, 6, 20, 6, new CubeDeformation(0)), PartPose.offset(-9, -16, 2));
-		PartDefinition EdenSpirit = Spine.addOrReplaceChild("EdenSpirit", CubeListBuilder.create().texOffs(54, 0).addBox(-1.5F, -5, -2.25F, 3, 5, 2, new CubeDeformation(0))
-		.texOffs(0, 37).addBox(-1.5F, -8, -.25F, 3, 5, 3, new CubeDeformation(0)), PartPose.offset(0, -30, 2.25F));
-		EdenSpirit.addOrReplaceChild("EdenSpiritHead", CubeListBuilder.create().texOffs(0, 103).addBox(-2.5F, -5.25F, -4, 5, 5, 4, new CubeDeformation(0))
-		.texOffs(24, 58).addBox(-4, -7.25F, -2, 8, 8, 0, new CubeDeformation(0)), PartPose.offset(0, -7.75F, .75F));
-		EdenSpirit.addOrReplaceChild("Sun1", CubeListBuilder.create().texOffs(0, 0).addBox(7.5F, -4.5F, .25F, 9, 9, 0, new CubeDeformation(0))
-		.texOffs(101, 16).addBox(9.5F, -2.5F, -2.75F, 5, 5, 5, new CubeDeformation(0)), PartPose.offset(0, -4.5F, 0));
-		EdenSpirit.addOrReplaceChild("Sun2", CubeListBuilder.create().texOffs(0, 9).addBox(-17.5F, -4.5F, .25F, 9, 9, 0, new CubeDeformation(0))
-		.texOffs(0, 93).addBox(-15.5F, -2.5F, -2.75F, 5, 5, 5, new CubeDeformation(0)), PartPose.offset(0, -4.5F, 0));
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartDefinition Spine = partdefinition.addOrReplaceChild("Spine", CubeListBuilder.create().texOffs(0, 0).addBox(-9, -20, -8, 18, 19, 18, cubeDef)
+		.texOffs(54, 0).addBox(-5.5F, -1, -5, 11, 5, 12, cubeDef)
+		.texOffs(0, 37).addBox(-9, -27, -6, 18, 7, 14, cubeDef)
+		.texOffs(72, 17).addBox(-5, -26, -4, 10, 10, 9, cubeDef), PartPose.offset(0, 2, 0));
+		Spine.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(137, 0).addBox(-5, 1, -3, 4, 21, 7, cubeDef), PartPose.offset(-4, 0, 0));
+		Spine.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(88, 36).addBox(1, 1, -3, 4, 21, 7, cubeDef), PartPose.offset(4, 0, 0));
+		Spine.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(100, 97).addBox(0, -2, -4, 8, 8, 8, cubeDef)
+		.texOffs(26, 88).addBox(1, 6, -3, 6, 20, 6, cubeDef), PartPose.offset(9, -16, 2));
+		Spine.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(100, 0).addBox(-8, -2, -4, 8, 8, 8, cubeDef)
+		.texOffs(84, 79).addBox(-7, 6, -3, 6, 20, 6, cubeDef), PartPose.offset(-9, -16, 2));
+		PartDefinition EdenSpirit = Spine.addOrReplaceChild("EdenSpirit", CubeListBuilder.create().texOffs(54, 0).addBox(-1.5F, -5, -2.25F, 3, 5, 2, cubeDef)
+		.texOffs(0, 37).addBox(-1.5F, -8, -.25F, 3, 5, 3, cubeDef), PartPose.offset(0, -30, 2.25F));
+		EdenSpirit.addOrReplaceChild("EdenSpiritHead", CubeListBuilder.create().texOffs(0, 103).addBox(-2.5F, -5.25F, -4, 5, 5, 4, cubeDef)
+		.texOffs(24, 58).addBox(-4, -7.25F, -2, 8, 8, 0, cubeDef), PartPose.offset(0, -7.75F, .75F));
+		EdenSpirit.addOrReplaceChild("Sun1", CubeListBuilder.create().texOffs(0, 0).addBox(7.5F, -4.5F, .25F, 9, 9, 0, cubeDef)
+		.texOffs(101, 16).addBox(9.5F, -2.5F, -2.75F, 5, 5, 5, cubeDef), PartPose.offset(0, -4.5F, 0));
+		EdenSpirit.addOrReplaceChild("Sun2", CubeListBuilder.create().texOffs(0, 9).addBox(-17.5F, -4.5F, .25F, 9, 9, 0, cubeDef)
+		.texOffs(0, 93).addBox(-15.5F, -2.5F, -2.75F, 5, 5, 5, cubeDef), PartPose.offset(0, -4.5F, 0));
 		return LayerDefinition.create(meshdefinition, 256, 256);
 	}
 	@Override public void setupAnim(EntityMadivel entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
@@ -93,7 +94,5 @@ public class ModelMadivel extends EntityModel<EntityMadivel> {
 			LeftArm.xRot = Mth.cos(limbSwing * .6662F) * limbSwingAmount;
 		}
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-	}
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);}
 }

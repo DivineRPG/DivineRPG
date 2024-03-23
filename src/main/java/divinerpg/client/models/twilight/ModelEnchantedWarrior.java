@@ -26,14 +26,15 @@ public class ModelEnchantedWarrior extends EntityModel<EntityEnchantedWarrior> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 16).addBox(-4, -7, -2, 8, 14, 4, new CubeDeformation(0)), PartPose.offset(0, 3, 0));
-		partdefinition.addOrReplaceChild("skull", CubeListBuilder.create().texOffs(24, 16).addBox(-7, -13, 2, 14, 12, 0, new CubeDeformation(0))
-		.texOffs(24, 0).addBox(-7, -7, -1, 14, 2, 2, new CubeDeformation(0))
-		.texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, new CubeDeformation(0)), PartPose.offset(0, -4, 0));
-		partdefinition.addOrReplaceChild("rightLeg", CubeListBuilder.create().texOffs(16, 46).addBox(-2, 0, -2, 4, 14, 4, new CubeDeformation(0)), PartPose.offset(-2, 10, 0));
-		partdefinition.addOrReplaceChild("leftLeg", CubeListBuilder.create().texOffs(40, 28).addBox(-2, 0, -2, 4, 14, 4, new CubeDeformation(0)), PartPose.offset(2, 10, 0));
-		partdefinition.addOrReplaceChild("rightArm", CubeListBuilder.create().texOffs(24, 28).addBox(-4, -2, -2, 4, 14, 4, new CubeDeformation(0)), PartPose.offset(-4, -2, 0));
-		partdefinition.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(0, 34).addBox(0, -2, -2, 4, 14, 4, new CubeDeformation(0)), PartPose.offset(4, -2, 0));
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 16).addBox(-4, -7, -2, 8, 14, 4, cubeDef), PartPose.offset(0, 3, 0));
+		partdefinition.addOrReplaceChild("skull", CubeListBuilder.create().texOffs(24, 16).addBox(-7, -13, 2, 14, 12, 0, cubeDef)
+		.texOffs(24, 0).addBox(-7, -7, -1, 14, 2, 2, cubeDef)
+		.texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, cubeDef), PartPose.offset(0, -4, 0));
+		partdefinition.addOrReplaceChild("rightLeg", CubeListBuilder.create().texOffs(16, 46).addBox(-2, 0, -2, 4, 14, 4, cubeDef), PartPose.offset(-2, 10, 0));
+		partdefinition.addOrReplaceChild("leftLeg", CubeListBuilder.create().texOffs(40, 28).addBox(-2, 0, -2, 4, 14, 4, cubeDef), PartPose.offset(2, 10, 0));
+		partdefinition.addOrReplaceChild("rightArm", CubeListBuilder.create().texOffs(24, 28).addBox(-4, -2, -2, 4, 14, 4, cubeDef), PartPose.offset(-4, -2, 0));
+		partdefinition.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(0, 34).addBox(0, -2, -2, 4, 14, 4, cubeDef), PartPose.offset(4, -2, 0));
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void setupAnim(EntityEnchantedWarrior entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

@@ -26,23 +26,25 @@ public class ModelMoonWolf extends EntityModel<EntityMoonWolf> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create(), PartPose.ZERO);
-		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create(), PartPose.ZERO);
-		Head.addOrReplaceChild("RightEar_r1", CubeListBuilder.create().texOffs(0, 18).addBox(-2, -5, -1.5F, 2, 4, 1, new CubeDeformation(0)), PartPose.offsetAndRotation(-1, -3, -1.5F, .1745F, .5236F, 0));
-		Head.addOrReplaceChild("LeftEar_r1", CubeListBuilder.create().texOffs(13, 18).addBox(0, -5, -1.5F, 2, 4, 1, new CubeDeformation(0)), PartPose.offsetAndRotation(1, -3, -1.5F, .1745F, -.5236F, 0));
-		Head.addOrReplaceChild("HeadBase_r1", CubeListBuilder.create().texOffs(0, 18).addBox(-1.5F, -3, -3.5F, 3, 6, 7, new CubeDeformation(0)), PartPose.offsetAndRotation(0, -1, -4.5F, .3491F, 0, 0));
-		Head.addOrReplaceChild("Hair_r1", CubeListBuilder.create().texOffs(0, 31).addBox(-2, -20.5F, -1, 4, 4, 6, new CubeDeformation(0)), PartPose.offsetAndRotation(0, 14, 5, .3491F, 0, 0));
-		Body.addOrReplaceChild("BodyBase", CubeListBuilder.create().texOffs(0, 44).addBox(-3, -6, -6.01F, 6, 6, 0, new CubeDeformation(0))
-		.texOffs(0, 0).addBox(-3, -6, -6, 6, 6, 12, new CubeDeformation(0)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1, 0, -1, 2, 9, 2, new CubeDeformation(0)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(20, 18).addBox(-1, 0, -1, 2, 9, 2, new CubeDeformation(0)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(24, 0).addBox(-1, 0, -1, 2, 9, 2, new CubeDeformation(0)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(26, 27).addBox(-1, 0, -1, 2, 9, 2, new CubeDeformation(0)), PartPose.ZERO);
-		PartDefinition Tail = partdefinition.addOrReplaceChild("Tail", CubeListBuilder.create(), PartPose.ZERO);
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartPose zPose = PartPose.ZERO;
+		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create(), zPose);
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create(), zPose);
+		Head.addOrReplaceChild("RightEar_r1", CubeListBuilder.create().texOffs(0, 18).addBox(-2, -5, -1.5F, 2, 4, 1, cubeDef), PartPose.offsetAndRotation(-1, -3, -1.5F, .1745F, .5236F, 0));
+		Head.addOrReplaceChild("LeftEar_r1", CubeListBuilder.create().texOffs(13, 18).addBox(0, -5, -1.5F, 2, 4, 1, cubeDef), PartPose.offsetAndRotation(1, -3, -1.5F, .1745F, -.5236F, 0));
+		Head.addOrReplaceChild("HeadBase_r1", CubeListBuilder.create().texOffs(0, 18).addBox(-1.5F, -3, -3.5F, 3, 6, 7, cubeDef), PartPose.offsetAndRotation(0, -1, -4.5F, .3491F, 0, 0));
+		Head.addOrReplaceChild("Hair_r1", CubeListBuilder.create().texOffs(0, 31).addBox(-2, -20.5F, -1, 4, 4, 6, cubeDef), PartPose.offsetAndRotation(0, 14, 5, .3491F, 0, 0));
+		Body.addOrReplaceChild("BodyBase", CubeListBuilder.create().texOffs(0, 44).addBox(-3, -6, -6.01F, 6, 6, 0, cubeDef)
+		.texOffs(0, 0).addBox(-3, -6, -6, 6, 6, 12, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(20, 18).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(24, 0).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(26, 27).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
+		PartDefinition Tail = partdefinition.addOrReplaceChild("Tail", CubeListBuilder.create(), zPose);
 		PartDefinition LeftTail = Tail.addOrReplaceChild("LeftTail", CubeListBuilder.create(), PartPose.offset(0, 1, 2));
-		LeftTail.addOrReplaceChild("LeftTail_r1", CubeListBuilder.create().texOffs(48, -8).addBox(1, -7, -1, 0, 8, 8, new CubeDeformation(0)), PartPose.rotation(.384F, .2007F, .1658F));
+		LeftTail.addOrReplaceChild("LeftTail_r1", CubeListBuilder.create().texOffs(48, -8).addBox(1, -7, -1, 0, 8, 8, cubeDef), PartPose.rotation(.384F, .2007F, .1658F));
 		PartDefinition RightTail = Tail.addOrReplaceChild("RightTail", CubeListBuilder.create(), PartPose.offset(0, 1, 2));
-		RightTail.addOrReplaceChild("RightTail_r1", CubeListBuilder.create().texOffs(48, 2).addBox(-1, -7, -1, 0, 8, 8, new CubeDeformation(0)), PartPose.rotation(.384F, -.2007F, -.1658F));
+		RightTail.addOrReplaceChild("RightTail_r1", CubeListBuilder.create().texOffs(48, 2).addBox(-1, -7, -1, 0, 8, 8, cubeDef), PartPose.rotation(.384F, -.2007F, -.1658F));
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void prepareMobModel(EntityMoonWolf entity, float limbSwing, float limbSwingAmount, float p_102617_) {

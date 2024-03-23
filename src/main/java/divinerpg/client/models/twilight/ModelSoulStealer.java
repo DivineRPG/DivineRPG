@@ -27,18 +27,19 @@ public class ModelSoulStealer extends EntityModel<EntitySoulStealer> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-11, -18, -4, 22, 18, 11, new CubeDeformation(0)), PartPose.offset(0, 14, 0));
-		PartDefinition Head = Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 29).addBox(-7, -6, -4, 14, 6, 8, new CubeDeformation(0)), PartPose.offset(0, -18, 0));
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 0).addBox(-11, -18, -4, 22, 18, 11, cubeDef), PartPose.offset(0, 14, 0));
+		PartDefinition Head = Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 29).addBox(-7, -6, -4, 14, 6, 8, cubeDef), PartPose.offset(0, -18, 0));
 		PartDefinition RightEar = Head.addOrReplaceChild("RightEar", CubeListBuilder.create(), PartPose.offset(-6, -4, 1));
-		RightEar.addOrReplaceChild("rightear_r1", CubeListBuilder.create().texOffs(68, 41).addBox(-10, -10, 0, 10, 12, 0, new CubeDeformation(0)), PartPose.rotation(-.1309F, .5672F, 0));
+		RightEar.addOrReplaceChild("rightear_r1", CubeListBuilder.create().texOffs(68, 41).addBox(-10, -10, 0, 10, 12, 0, cubeDef), PartPose.rotation(-.1309F, .5672F, 0));
 		PartDefinition LeftEar = Head.addOrReplaceChild("LeftEar", CubeListBuilder.create(), PartPose.offset(6, -4, 1));
-		LeftEar.addOrReplaceChild("leftear_r1", CubeListBuilder.create().texOffs(60, 29).addBox(0, -10, 0, 10, 12, 0, new CubeDeformation(0)), PartPose.rotation(-.1309F, -.5672F, 0));
-		Body.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(66, 0).addBox(-5, -1, -3, 5, 16, 6, new CubeDeformation(0)), PartPose.offset(-11, -17, 0));
-		Body.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(0, 61).addBox(0, -1, -3, 5, 16, 6, new CubeDeformation(0)), PartPose.offset(11, -17, 0));
-		partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(0, 43).addBox(-4, 0, -4, 8, 10, 8, new CubeDeformation(0)), PartPose.offset(-7, 14, 0));
-		partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(36, 35).addBox(-4, 0, -4, 8, 10, 8, new CubeDeformation(0)), PartPose.offset(7, 14, 0));
-		Body.addOrReplaceChild("RightRibs", CubeListBuilder.create().texOffs(60, 53).addBox(0, -9, -3, 11, 18, 3, new CubeDeformation(0)), PartPose.offset(-11, -9, -4));
-		Body.addOrReplaceChild("LeftRibs", CubeListBuilder.create().texOffs(32, 53).addBox(-11, -9, -3, 11, 18, 3, new CubeDeformation(0)), PartPose.offset(11, -9, -4));
+		LeftEar.addOrReplaceChild("leftear_r1", CubeListBuilder.create().texOffs(60, 29).addBox(0, -10, 0, 10, 12, 0, cubeDef), PartPose.rotation(-.1309F, -.5672F, 0));
+		Body.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(66, 0).addBox(-5, -1, -3, 5, 16, 6, cubeDef), PartPose.offset(-11, -17, 0));
+		Body.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(0, 61).addBox(0, -1, -3, 5, 16, 6, cubeDef), PartPose.offset(11, -17, 0));
+		partdefinition.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(0, 43).addBox(-4, 0, -4, 8, 10, 8, cubeDef), PartPose.offset(-7, 14, 0));
+		partdefinition.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(36, 35).addBox(-4, 0, -4, 8, 10, 8, cubeDef), PartPose.offset(7, 14, 0));
+		Body.addOrReplaceChild("RightRibs", CubeListBuilder.create().texOffs(60, 53).addBox(0, -9, -3, 11, 18, 3, cubeDef), PartPose.offset(-11, -9, -4));
+		Body.addOrReplaceChild("LeftRibs", CubeListBuilder.create().texOffs(32, 53).addBox(-11, -9, -3, 11, 18, 3, cubeDef), PartPose.offset(11, -9, -4));
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 	@Override public void setupAnim(EntitySoulStealer entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

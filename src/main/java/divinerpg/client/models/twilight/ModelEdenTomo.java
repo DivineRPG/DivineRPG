@@ -26,18 +26,19 @@ public class ModelEdenTomo extends EntityModel<EntityEdenTomo> {
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(0, 0).addBox(-6, -7, -4, 12, 8, 9, new CubeDeformation(0))
-		.texOffs(0, 17).addBox(-6, -7, -5, 12, 8, 1, new CubeDeformation(0)), PartPose.offset(0, 20, 0));
-		Torso.addOrReplaceChild("RightAntenna", CubeListBuilder.create().texOffs(37, 19).addBox(-1.5F, -6.5F, -3, 3, 3, 3, new CubeDeformation(0))
-		.texOffs(28, 32).addBox(-1.5F, -5, -1.5F, 3, 5, 3, new CubeDeformation(0)), PartPose.offsetAndRotation(-2.5F, -6, 0, .0873F, .1745F, 0));
-		Torso.addOrReplaceChild("LeftAntenna", CubeListBuilder.create().texOffs(0, 36).addBox(-1.5F, -6.5F, -3, 3, 3, 3, new CubeDeformation(0))
-		.texOffs(16, 32).addBox(-1.5F, -5, -1.5F, 3, 5, 3, new CubeDeformation(0)), PartPose.offsetAndRotation(2.5F, -6, 0, .0873F, -.1745F, 0));
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(0, 0).addBox(-6, -7, -4, 12, 8, 9, cubeDef)
+		.texOffs(0, 17).addBox(-6, -7, -5, 12, 8, 1, cubeDef), PartPose.offset(0, 20, 0));
+		Torso.addOrReplaceChild("RightAntenna", CubeListBuilder.create().texOffs(37, 19).addBox(-1.5F, -6.5F, -3, 3, 3, 3, cubeDef)
+		.texOffs(28, 32).addBox(-1.5F, -5, -1.5F, 3, 5, 3, cubeDef), PartPose.offsetAndRotation(-2.5F, -6, 0, .0873F, .1745F, 0));
+		Torso.addOrReplaceChild("LeftAntenna", CubeListBuilder.create().texOffs(0, 36).addBox(-1.5F, -6.5F, -3, 3, 3, 3, cubeDef)
+		.texOffs(16, 32).addBox(-1.5F, -5, -1.5F, 3, 5, 3, cubeDef), PartPose.offsetAndRotation(2.5F, -6, 0, .0873F, -.1745F, 0));
 		PartDefinition RightArm = Torso.addOrReplaceChild("RightArm", CubeListBuilder.create(), PartPose.offset(-6, -5, -.5F));
-		RightArm.addOrReplaceChild("RightArm_r1", CubeListBuilder.create().texOffs(33, 0).addBox(-4, -1, -1.5F, 4, 2, 3, new CubeDeformation(0)), PartPose.ZERO);
+		RightArm.addOrReplaceChild("RightArm_r1", CubeListBuilder.create().texOffs(33, 0).addBox(-4, -1, -1.5F, 4, 2, 3, cubeDef), PartPose.ZERO);
 		PartDefinition LeftArm = Torso.addOrReplaceChild("LeftArm", CubeListBuilder.create(), PartPose.offset(6, -5, -.5F));
-		LeftArm.addOrReplaceChild("LeftArm_r1", CubeListBuilder.create().texOffs(26, 17).addBox(0, -1, -1.5F, 4, 2, 3, new CubeDeformation(0)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("RightFoot", CubeListBuilder.create().texOffs(22, 22).addBox(-2, 0, -1, 4, 6, 4, new CubeDeformation(0)), PartPose.offset(-3, 18, -1));
-		partdefinition.addOrReplaceChild("LeftFoot", CubeListBuilder.create().texOffs(0, 26).addBox(-2, 0, -1, 4, 6, 4, new CubeDeformation(0)), PartPose.offset(3, 18, -1));
+		LeftArm.addOrReplaceChild("LeftArm_r1", CubeListBuilder.create().texOffs(26, 17).addBox(0, -1, -1.5F, 4, 2, 3, cubeDef), PartPose.ZERO);
+		partdefinition.addOrReplaceChild("RightFoot", CubeListBuilder.create().texOffs(22, 22).addBox(-2, 0, -1, 4, 6, 4, cubeDef), PartPose.offset(-3, 18, -1));
+		partdefinition.addOrReplaceChild("LeftFoot", CubeListBuilder.create().texOffs(0, 26).addBox(-2, 0, -1, 4, 6, 4, cubeDef), PartPose.offset(3, 18, -1));
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void setupAnim(EntityEdenTomo entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
