@@ -735,7 +735,6 @@
 								"type": "minecraft:biome",
 								"biome_is": [
 									"divinerpg:iceika/geyser_plateau",
-									"divinerpg:iceika/frozen_peaks",
 									"divinerpg:iceika/borealis_steeps",
 									"divinerpg:iceika/frozen_ocean",
 									"divinerpg:iceika/deep_frozen_ocean"
@@ -753,6 +752,30 @@
 									"type": "minecraft:block",
 									"result_state": {
 										"Name": "divinerpg:cobbled_frozen_stone"
+									}
+								}
+							}
+						},
+						{
+							"type": "minecraft:condition",
+							"if_true": {
+								"type": "minecraft:biome",
+								"biome_is": [
+									"divinerpg:iceika/frozen_peaks"
+								]
+							},
+							"then_run": {
+								"type": "minecraft:condition",
+								"if_true": {
+									"type": "minecraft:water",
+									"offset": 0,
+									"surface_depth_multiplier": 0,
+									"add_stone_depth": false
+								},
+								"then_run": {
+									"type": "minecraft:block",
+									"result_state": {
+										"Name": "minecraft:packed_ice"
 									}
 								}
 							}
