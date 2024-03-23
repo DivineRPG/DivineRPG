@@ -93,7 +93,7 @@ public class ModelDolossal extends AgeableListModel<EntityDolossal> {
 		for(ModelPart modelpart1 : ridingParts)  modelpart1.visible = saddled && vehicle;
 		rightLeg.xRot = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
 		leftLeg.xRot = Mth.cos(limbSwing * .6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-		neck.xRot = Mth.sin(limbSwing * .6662F) * .25F * limbSwingAmount;
+		neck.xRot = Mth.sin(limbSwing * .6662F) * .2F * limbSwingAmount;
 		head.xRot = -neck.xRot;
 		rightWing.zRot = Mth.abs(!entity.onGround() ? (float)Math.PI / 2 + Mth.sin(ageInTicks * .2F) * .5F : Mth.cos(limbSwing * .5F) * .3F * limbSwingAmount);
 		leftWing.zRot = -rightWing.zRot;
