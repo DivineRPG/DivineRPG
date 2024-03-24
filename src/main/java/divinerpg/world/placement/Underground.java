@@ -18,6 +18,7 @@ public class Underground extends PlacementFilter {
 	public static final Codec<Underground> CODEC = Codec.unit(() -> INSTANCE);
 	private Underground() {}
 	public static Underground underground() {return INSTANCE;}
+	@Override
 	protected boolean shouldPlace(PlacementContext context, RandomSource source, BlockPos pos) {
 		return isUnderground(context.getLevel(), pos);
 	}
@@ -25,10 +26,10 @@ public class Underground extends PlacementFilter {
 		MutableBlockPos mut = pos.mutable();
 		while(mut.getY() < level.getMaxBuildHeight() - 1) {
 			BlockState state = level.getBlockState(mut.move(Direction.UP));
-			if(state.isCollisionShapeFullBlock(level, mut) && !state.is(BlockTags.LEAVES) && !state.is(Blocks.SNOW_BLOCK)) return level.getBrightness(LightLayer.SKY, pos.above()) < 1;
-		}
-		return false;
+			if(state.canOcclude() && !state.is(BlockTags.LEAVES) && !state.is(Blocks.SNOW_BLOCK)) return level.getBrightness(LightLayer.SKY, pos.above()) < 7;
+		} return false;
 	}
+	@Override
 	public PlacementModifierType<?> type() {
 		return PlacementModifierRegistry.UNDERGROUND;
 	}

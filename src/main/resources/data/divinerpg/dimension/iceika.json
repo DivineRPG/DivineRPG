@@ -290,8 +290,8 @@
 						"continentalness":	[ -1, 1 ],
 						"erosion":			[ 0.625, 1 ],
 						"weirdness":		[ 0.375, 0.625 ],
-						"depth": 0.9,
-						"offset": 0.2
+						"depth": 1,
+						"offset": 0.25
 					}
 				},
 				{
