@@ -1,12 +1,23 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "east": "divinerpg:block/apalachia_grass_side",
-    "south": "divinerpg:block/apalachia_grass_side",
-    "north": "divinerpg:block/apalachia_grass_side",
-    "west": "divinerpg:block/apalachia_grass_side",
     "particle": "divinerpg:block/apalachia_dirt",
+    "side": "divinerpg:block/apalachia_grass_side",
     "up": "divinerpg:block/apalachia_grass_top",
-    "down": "divinerpg:block/apalachia_dirt_rotated"
-  }
+    "down": "divinerpg:block/apalachia_dirt"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#down", "rotation": 270 },
+        "up":    { "texture": "#up" },
+        "north": { "texture": "#side" },
+        "south": { "texture": "#side" },
+        "west":  { "texture": "#side" },
+        "east":  { "texture": "#side" }
+      }
+    }
+  ]
 }

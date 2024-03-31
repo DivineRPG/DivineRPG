@@ -5,7 +5,7 @@
     "south": "divinerpg:block/scorched_grass_side",
     "north": "divinerpg:block/scorched_grass_side",
     "west": "divinerpg:block/scorched_grass_side",
-    "particle": "divinerpg:block/dream_stone",
+    "particle": "divinerpg:block/scorched_grass_side",
     "up": "divinerpg:block/scorched_grass_top",
     "down": "divinerpg:block/dream_stone"
   }

@@ -1,12 +1,22 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "east": "divinerpg:block/acceleron",
-    "south": "divinerpg:block/acceleron",
-    "north": "divinerpg:block/acceleron",
-    "west": "divinerpg:block/acceleron",
     "particle": "divinerpg:block/acceleron",
-    "up": "divinerpg:block/acceleron_top",
-    "down": "divinerpg:block/acceleron_bottom"
-  }
+    "top": "divinerpg:block/acceleron_top",
+    "side": "divinerpg:block/acceleron"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#top", "rotation": 180 },
+        "up":    { "texture": "#top" },
+        "north": { "texture": "#side" },
+        "south": { "texture": "#side" },
+        "west":  { "texture": "#side" },
+        "east":  { "texture": "#side" }
+      }
+    }
+  ]
 }
