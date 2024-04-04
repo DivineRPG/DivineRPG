@@ -424,13 +424,13 @@ public class BlockRegistry {
             asphaltStairs = registerBlock("asphalt_stairs", () -> new BlockModStairs(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "asphalt")), 0, 0)),
             asphaltSlab = registerBlock("asphalt_slab", () -> new BlockModSlab(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "asphalt")), 0, 0)),
 
-            //Darkstone & Vanes
+            //Darkstone & Crying Obsidian variants
             darkstone = registerBlock("darkstone", () -> new BlockMod(TERRACOTTA_GREEN, 4)),
-            redVane = registerBlock("red_vane", () -> new BlockMod(NETHER, 0)),
-            yellowVane = registerBlock("yellow_vane", () -> new BlockMod(TERRACOTTA_YELLOW, 0)),
-            cyanVane = registerBlock("cyan_vane", () -> new BlockMod(COLOR_CYAN, 0)),
-            blueVane = registerBlock("blue_vane", () -> new BlockMod(COLOR_BLUE, 0)),
-            purpleVane = registerBlock("purple_vane", () -> new BlockMod(COLOR_PURPLE, 0)),
+            bleedingObsidian = registerBlock("bleeding_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
+            shiningObsidian = registerBlock("shining_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
+            glitteringObsidian = registerBlock("glittering_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
+            seepingObsidian = registerBlock("seeping_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
+            vwoopingObsidian = registerBlock("vwooping_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
 
             //Bricks
             milkStoneBricks = registerBlock("milk_stone_bricks", () -> new BlockMod(WOOL, 2F, 6F, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
@@ -825,9 +825,9 @@ public class BlockRegistry {
             karosDispenser = registerBlock("karos_dispenser", () -> new BlockKarosDispenser()),
 
             //Acid
-            acidBlock = registerBlock("acid_block", () -> new BlockAcid(true)),
-            bacterialAcid = registerBlock("bacterial_acid", () -> new BlockAcid(false)),
-            lunicAcid = registerBlock("lunic_acid", () -> new BlockAcid(true)),
+            acidBlock = registerBlock("acid_block", () -> new BlockAcid()),
+            bacterialAcid = registerBlock("bacterial_acid", () -> new BlockAcid()),
+            lunicAcid = registerBlock("lunic_acid", () -> new BlockAcid()),
 
             //Fire
             iceikaFire = registerBlock("iceika_fire", () -> new BlockIceikaFire()),

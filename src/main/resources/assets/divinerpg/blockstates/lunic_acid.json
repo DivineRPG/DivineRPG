@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/lunic_acid"
-    }
+    "": [
+      {
+        "model": "divinerpg:block/lunic_acid"
+      },
+      {
+        "model": "divinerpg:block/lunic_acid",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/lunic_acid",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/lunic_acid",
+        "y": 270
+      }
+    ]
   }
 }

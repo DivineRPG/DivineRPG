@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "divinerpg:glittering_obsidian",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "minecraft:obsidian"
+    },
+    {
+      "item": "divinerpg:kraken_skin"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "crying_obsidian"
+}

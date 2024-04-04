@@ -14,11 +14,9 @@ public class DamageSources {
     	ACID = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "acid")),
     	ARCANA = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "arcana")),
     	TURTLE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "turtle"));
-
     public static DamageSource source(Level level, ResourceKey<DamageType> id) {
         final Registry<DamageType> registry = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE);
         final Holder.Reference<DamageType> damage = registry.getHolderOrThrow(id);
         return new DamageSource(damage);
     }
-
 }

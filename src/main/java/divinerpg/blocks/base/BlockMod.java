@@ -10,44 +10,31 @@ import net.minecraft.world.level.material.*;
 public class BlockMod extends Block {
     private final int flammability;
     private final int fireSpread;
-
-    public BlockMod(Block.Properties properties) {
+    public BlockMod(Properties properties) {
         super(properties);
-        this.flammability = 0;
-        this.fireSpread = 0;
+        flammability = 0;
+        fireSpread = 0;
     }
-
     public BlockMod(MapColor color, float hardness, float resistance) {
         super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(hardness, resistance).instrument((NoteBlockInstrument.BASEDRUM)));
-        this.flammability = 0;
-        this.fireSpread = 0;
+        flammability = 0;
+        fireSpread = 0;
     }
-
     public BlockMod(MapColor color, float hardness, float resistance, SoundType sound, NoteBlockInstrument instrument) {
         super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(hardness, resistance).sound(sound).instrument(instrument));
-        this.flammability = 0;
-        this.fireSpread = 0;
+        flammability = 0;
+        fireSpread = 0;
     }
-
     public BlockMod(MapColor color, float hardness, float resistance, int flammability, int fireSpread, SoundType sound, NoteBlockInstrument instrument) {
         super(Block.Properties.of().mapColor(color).strength(hardness, resistance).sound(sound).instrument(instrument));
         this.flammability = flammability;
         this.fireSpread = fireSpread;
     }
-
     public BlockMod(MapColor color, int luminance) {
-        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(50F, 1200F).pushReaction(PushReaction.BLOCK).instrument(NoteBlockInstrument.BASEDRUM).lightLevel((state) -> luminance));
-        this.flammability = 0;
-        this.fireSpread = 0;
+        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(50, 1200).pushReaction(PushReaction.BLOCK).instrument(NoteBlockInstrument.BASEDRUM).lightLevel((state) -> luminance));
+        flammability = 0;
+        fireSpread = 0;
     }
-
-    @Override
-    public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-            return flammability;
-    }
-
-    @Override
-    public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
-            return fireSpread;
-    }
+    @Override public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {return flammability;}
+    @Override public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {return fireSpread;}
 }
