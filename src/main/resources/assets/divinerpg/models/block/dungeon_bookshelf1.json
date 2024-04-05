@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/degraded_bricks",
+    "side": "divinerpg:block/dungeon_bookshelf1"
+  }
+}

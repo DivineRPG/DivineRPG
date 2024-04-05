@@ -1,7 +1,14 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/dungeon_bookshelf"
-    }
+    "": [
+      {"model": "divinerpg:block/dungeon_bookshelf"},
+      {"model": "divinerpg:block/dungeon_bookshelf0"},
+      {"model": "divinerpg:block/dungeon_bookshelf1"},
+      {"model": "divinerpg:block/dungeon_bookshelf2"},
+      {"model": "divinerpg:block/dungeon_bookshelf3"},
+      {"model": "divinerpg:block/dungeon_bookshelf4"},
+      {"model": "divinerpg:block/dungeon_bookshelf5"},
+      {"model": "divinerpg:block/dungeon_bookshelf6"}
+    ]
   }
 }

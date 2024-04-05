@@ -3,9 +3,9 @@
     "item": "divinerpg:blaze_lamp"
   },
   "pattern": [
-    "xxx",
-    "xyx",
-    "xxx"
+    "xzx",
+    "zyz",
+    "xzx"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
@@ -16,6 +16,9 @@
     },
     "y": {
       "item": "minecraft:blaze_rod"
+    },
+    "z": {
+      "item": "minecraft:glowstone_dust"
     }
   }
 }

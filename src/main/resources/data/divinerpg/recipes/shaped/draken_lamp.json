@@ -3,22 +3,22 @@
     "item": "divinerpg:draken_lamp"
   },
   "pattern": [
-    "xxx",
+    "xzx",
     "zyz",
-    "xxx"
+    "xzx"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "group": "colored_lamps",
   "key": {
     "x": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:gold_ingot"
     },
     "y": {
       "item": "minecraft:lava_bucket"
     },
     "z": {
-      "item": "minecraft:gold_block"
+      "item": "minecraft:glowstone_dust"
     }
   }
 }

@@ -3,9 +3,9 @@
     "item": "divinerpg:lava_lamp"
   },
   "pattern": [
-    "xxx",
-    "xyx",
-    "xxx"
+    "xzx",
+    "zyz",
+    "xzx"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
@@ -16,6 +16,9 @@
     },
     "y": {
       "item": "minecraft:lava_bucket"
+    },
+    "z": {
+      "item": "minecraft:glowstone_dust"
     }
   }
 }

@@ -6,7 +6,20 @@
         "items": [
           {
             "items": [
-              "minecraft:ink_sac"
+              "minecraft:ink_sac",
+              "minecraft:glow_ink_sac"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_shards": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:prismarine_shard"
             ]
           }
         ]
@@ -15,7 +28,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/kraken_scale"
+        "recipe": "divinerpg:shapeless/kraken_scale"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +36,13 @@
   "requirements": [
     [
       "has_ink_sac",
+      "has_shards",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/kraken_scale"
+      "divinerpg:shapeless/kraken_scale"
     ]
   }
 }

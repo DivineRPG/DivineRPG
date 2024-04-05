@@ -3,8 +3,8 @@
     "item": "divinerpg:bloodgem_lamp"
   },
   "pattern": [
-    "xxx",
-    "xyx",
+    "xzx",
+    "zyz",
     "xzx"
   ],
   "type": "minecraft:crafting_shaped",
@@ -18,7 +18,7 @@
       "item": "divinerpg:bloodgem"
     },
     "z": {
-      "item": "minecraft:glowstone"
+      "item": "minecraft:glowstone_dust"
     }
   }
 }
