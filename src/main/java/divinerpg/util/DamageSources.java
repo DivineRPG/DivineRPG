@@ -9,10 +9,11 @@ import net.minecraft.world.level.Level;
 
 public class DamageSources {
     public static final ResourceKey<DamageType>
-    	TRAP = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "trap")),
-    	SPIKE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "spike")),
-    	ACID = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "acid")),
-    	ARCANA = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "arcana")),
+        ACID = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "acid")),
+        ARCANA = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "arcana")),
+        SPIKE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "spike")),
+        TAR = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "tar")),
+        TRAP = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "trap")),
     	TURTLE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "turtle"));
     public static DamageSource source(Level level, ResourceKey<DamageType> id) {
         final Registry<DamageType> registry = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE);

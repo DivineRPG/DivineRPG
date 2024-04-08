@@ -1,15 +1,4 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "textures": {
-      "all": "divinerpg:block/blocks/smoldering_tar"
-    },
-    "model": "forge:fluid",
-    "custom": {
-      "fluid": "smoldering_tar"
-    },
-    "uvlock": false
-  },
   "variants": {
     "": {
       "model": "divinerpg:block/smoldering_tar"

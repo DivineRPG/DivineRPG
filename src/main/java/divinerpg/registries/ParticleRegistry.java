@@ -30,12 +30,8 @@ public class ParticleRegistry {
     public static final RegistryObject<SimpleParticleType> ENDER_TRIPLET = PARTICLES.register("ender_triplets", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> TAR = PARTICLES.register("tar", () -> new SimpleParticleType(false));
     public static final RegistryObject<ParticleType<ParticleColouredType.ParticleColour>> COLORED = PARTICLES.register("colored", () -> new ParticleColouredType(false));
-
-
-
     @OnlyIn(Dist.CLIENT)
-    @SubscribeEvent
-    public static void registerFactories(RegisterParticleProvidersEvent event) {
+    @SubscribeEvent public static void registerFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(ParticleRegistry.APALACHIA_PORTAL.get(), ParticleApalachiaPortal.Provider::new);
         event.registerSpriteSet(ParticleRegistry.EDEN_PORTAL.get(), ParticleEdenPortal.Provider::new);
         event.registerSpriteSet(ParticleRegistry.MORTUM_PORTAL.get(), ParticleMortumPortal.Provider::new);
