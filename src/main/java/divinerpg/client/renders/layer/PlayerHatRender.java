@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.*;
 import net.minecraftforge.api.distmarker.*;
 
 import java.util.UUID;
@@ -31,7 +31,7 @@ public class PlayerHatRender<T extends Player, M extends PlayerModel<T>> extends
     }
     @Override public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         UUID id = entity.getUUID();
-        if(entity.inventory.getArmor(3).isEmpty() && !entity.isInvisible()) {
+        if(entity.inventory.getArmor(3).isEmpty() && !entity.isInvisible() && entity.isModelPartShown(PlayerModelPart.HAT)) {
             if(Utils.isDeveloperName(id) || Utils.isTesterName(id) || Utils.isFriend(id) || Utils.isSpecial(id) || Utils.isArtist(id)) {
                 modelHat.hat.copyFrom(getParentModel().head);
                 VertexConsumer ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(getTextureLocation(entity)));

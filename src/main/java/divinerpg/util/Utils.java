@@ -36,7 +36,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class Utils {
-	public static byte ICEIKA_WEATHER = 2;//0 = snow, 1 = hail, 2 = blizzard, 3 = fog
+	public static byte ICEIKA_WEATHER = (byte) (Math.random() * 4);//0 = snow, 1 = hail, 2 = blizzard, 3 = fog
     private static final Set<UUID> DEV_LIST = ConcurrentHashMap.newKeySet();
     private static final Set<UUID> TESTER_LIST = ConcurrentHashMap.newKeySet();
     private static final Set<UUID> SPECIAL_LIST = ConcurrentHashMap.newKeySet();
