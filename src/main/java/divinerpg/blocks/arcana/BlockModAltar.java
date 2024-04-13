@@ -9,27 +9,14 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.registries.ForgeRegistries;
-
 import javax.annotation.Nullable;
 
 public class BlockModAltar extends BaseEntityBlock {
-
-    public BlockModAltar(MapColor color) {
-        super(BlockBehaviour.Properties.of().mapColor(color).strength(-1F, 3600000F).instrument(NoteBlockInstrument.BASEDRUM).noOcclusion());
-    }
-
-    @Override
-    public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
-        return Shapes.create(new AABB(0.0D, 0.0D, 0.0D, 1.0D, 0.9D, 1.0D));
-    }
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
-        return this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_altar")) ? new DramixAltarBlockEntity(p_153215_, p_153216_) : new ParasectaAltarBlockEntity(p_153215_, p_153216_);
-    }
+    public BlockModAltar(MapColor color) {super(BlockBehaviour.Properties.of().mapColor(color).strength(-1F, 3600000F).noLootTable().instrument(NoteBlockInstrument.BASEDRUM).noOcclusion());}
+    @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return Shapes.create(new AABB(0, 0, 0, 1, .9, 1));}
+    @Nullable @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {return this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_altar")) ? new DramixAltarBlockEntity(pos, state) : new ParasectaAltarBlockEntity(pos, state);}
 }

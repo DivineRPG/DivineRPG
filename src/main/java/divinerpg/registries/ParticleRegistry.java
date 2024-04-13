@@ -15,11 +15,11 @@ import static divinerpg.DivineRPG.MODID;
 @Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ParticleRegistry {
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MODID);
-    public static final RegistryObject<SimpleParticleType> APALACHIA_PORTAL = PARTICLES.register("apalachia_portal", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> EDEN_PORTAL = PARTICLES.register("eden_portal", () -> new SimpleParticleType(true));
-    public static final RegistryObject<SimpleParticleType> MORTUM_PORTAL = PARTICLES.register("mortum_portal", () -> new SimpleParticleType(false));
-    public static final RegistryObject<SimpleParticleType> SKYTHERN_PORTAL = PARTICLES.register("skythern_portal", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> WILDWOOD_PORTAL = PARTICLES.register("wildwood_portal", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> APALACHIA_PORTAL = PARTICLES.register("apalachia_portal", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> SKYTHERN_PORTAL = PARTICLES.register("skythern_portal", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> MORTUM_PORTAL = PARTICLES.register("mortum_portal", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> GREEN_PORTAL = PARTICLES.register("green_portal", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> BLACK_FLAME = PARTICLES.register("black_flame", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> BLUE_FLAME = PARTICLES.register("blue_flame", () -> new SimpleParticleType(false));
@@ -32,11 +32,11 @@ public class ParticleRegistry {
     public static final RegistryObject<ParticleType<ParticleColouredType.ParticleColour>> COLORED = PARTICLES.register("colored", () -> new ParticleColouredType(false));
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent public static void registerFactories(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(ParticleRegistry.APALACHIA_PORTAL.get(), ParticleApalachiaPortal.Provider::new);
         event.registerSpriteSet(ParticleRegistry.EDEN_PORTAL.get(), ParticleEdenPortal.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.MORTUM_PORTAL.get(), ParticleMortumPortal.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.SKYTHERN_PORTAL.get(), ParticleSkythernPortal.Provider::new);
         event.registerSpriteSet(ParticleRegistry.WILDWOOD_PORTAL.get(), ParticleWildwoodPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.APALACHIA_PORTAL.get(), ParticleApalachiaPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.SKYTHERN_PORTAL.get(), ParticleSkythernPortal.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.MORTUM_PORTAL.get(), ParticleMortumPortal.Provider::new);
         event.registerSpriteSet(ParticleRegistry.GREEN_PORTAL.get(), ParticleGreenPortal.Provider::new);
         event.registerSpriteSet(ParticleRegistry.BLACK_FLAME.get(), ParticleColoredFlame.BlackProvider::new);
         event.registerSpriteSet(ParticleRegistry.BLUE_FLAME.get(), ParticleColoredFlame.AquaProvider::new);
