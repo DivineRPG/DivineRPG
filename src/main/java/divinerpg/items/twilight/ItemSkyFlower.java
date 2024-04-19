@@ -13,23 +13,16 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemSkyFlower extends ItemModFood {
-    public ItemSkyFlower() {
-        super(FoodList.SKY_FLOWER, true);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+    public ItemSkyFlower() {super(FoodList.SKY_FLOWER, true);}
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.sky_flower.breath"));
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
-
-    @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entity) {
-        if (entity instanceof Player) {
+    @Override public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entity) {
+        if(entity instanceof Player) {
             Player player = (Player) entity;
             player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600, 0, true, false));
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0, true, false));
-        }
-        return super.finishUsingItem(stack, world, entity);
+        } return super.finishUsingItem(stack, world, entity);
     }
 }

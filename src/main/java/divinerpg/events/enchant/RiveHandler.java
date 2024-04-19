@@ -16,69 +16,38 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
 public class RiveHandler {
-
     @SubscribeEvent
     public void handleWorldBreak(BlockEvent.BreakEvent event) {
         Level world = (Level) event.getLevel();
-        if(world.isClientSide) {
-            return;
-        }
-
         Player player = event.getPlayer();
-        if(player.isShiftKeyDown()) {
-            return;
-        }
-
         ItemStack itemStack = player.getMainHandItem();
-        if(!(itemStack.getItem() instanceof DiggerItem)) {
-            return;
-        }
-
         BlockState blockState = world.getBlockState(event.getPos());
-        if(!itemStack.getItem().isCorrectToolForDrops(itemStack, blockState)) {
-            return;
-        }
-
         int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE.get(), player);
-        if(level < 1) {
-            return;
-        }
-
         float pitch = player.getXRot();
         Direction facing = (pitch > 45) ? Direction.DOWN : (pitch < -45) ? Direction.UP : player.getDirection();
-
+        if(world.isClientSide) return;
+        if(player.isShiftKeyDown()) return;
+        if(!(itemStack.getItem() instanceof DiggerItem)) return;
+        if(!itemStack.getItem().isCorrectToolForDrops(itemStack, blockState)) return;
+        if(level < 1) return;
         int[] dimensions = getSizeByDirection(facing, level);
         int totalBlocksBroken = 0;
         for(int x = dimensions[0]; x <= dimensions[3]; x++) {
             for(int y = dimensions[1]; y <= dimensions[4]; y++) {
                 for(int z = dimensions[2]; z <= dimensions[5]; z++) {
                     BlockPos pos = event.getPos().offset(x, y, z);
-                    if (tryToBreakBlock(world, player, pos, world.getBlockState(pos), itemStack)) {
-                        totalBlocksBroken++;
-                    }
+                    if(tryToBreakBlock(world, player, pos, world.getBlockState(pos), itemStack)) totalBlocksBroken++;
                 }
             }
         }
-        if (blockState.getDestroySpeed(world, event.getPos()) != 0.0F && totalBlocksBroken > 0) {
-            itemStack.hurtAndBreak(totalBlocksBroken - 1, player, (context) -> context.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-        }
+        if(blockState.getDestroySpeed(world, event.getPos()) != 0.0F && totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, (context) -> context.broadcastBreakEvent(EquipmentSlot.MAINHAND));
     }
-
     private boolean tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool) {
-        if(!tool.getItem().isCorrectToolForDrops(tool, blockState)) {
-            return false;
-        }
-        if(blockState.getBlock() instanceof DoorBlock) {
-            return false;
-        }
-        if(blockState.hasBlockEntity()) {
-            return false;
-        }
-        if(blockState.getBlock().defaultDestroyTime() < 0.0F) {
-            return false;
-        }
-
         Block block = blockState.getBlock();
+        if(!tool.getItem().isCorrectToolForDrops(tool, blockState)) return false;
+        if(block instanceof DoorBlock) return false;
+        if(blockState.hasBlockEntity()) return false;
+        if(block.defaultDestroyTime() < 0) return false;
         if(block.canHarvestBlock(blockState, world, pos, player) && world instanceof ServerLevel) {
             if(!player.isCreative()) {
                 block.playerDestroy(world, player, pos, blockState, null, tool);
@@ -86,13 +55,10 @@ public class RiveHandler {
             }
             world.destroyBlock(pos, false);
             return true;
-        }
-        return false;
+        } return false;
     }
-
     private int[] getSizeByDirection(Direction facing, int level) {
         int depth = level - 1;
-
         //Format: fromX, fromY, fromZ, toX, toY, toZ
         //arr[x] must be greater than or equal to arr[x - 3]
         return switch (facing) {

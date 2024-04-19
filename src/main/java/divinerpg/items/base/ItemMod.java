@@ -26,7 +26,6 @@ public class ItemMod extends Item {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         if(getDescriptionId().contains("torridite")) tooltip.add(Component.translatable(DivineRPG.MODID + ".torridite").withStyle(ChatFormatting.GRAY));
         if(arcanaConsumed > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumed));
-        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
     }
     @Override public boolean isEnchantable(ItemStack stack) {return hasGlint || super.isEnchantable(stack);}
 }
