@@ -28,6 +28,7 @@ public class ItemModFood extends ItemMod {
     @Override public int getUseDuration(ItemStack stack) {return fastFood ? 1 : super.getUseDuration(stack);}
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
-        if(fastFood) {tooltip.add(LocalizeUtils.instantConsumption());}
+        if(fastFood) tooltip.add(LocalizeUtils.instantConsumption());
+        super.appendHoverText(stack, level, tooltip, flagIn);
     }
 }

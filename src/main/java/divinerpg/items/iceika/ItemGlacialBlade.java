@@ -1,32 +1,19 @@
 package divinerpg.items.iceika;
 
 import divinerpg.enums.ToolStats;
-import divinerpg.items.base.ItemModSword;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
+import divinerpg.items.vanilla.ItemSlowingSword;
 import net.minecraft.world.effect.*;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
-import java.util.List;
-
-public class ItemGlacialBlade extends ItemModSword {
+public class ItemGlacialBlade extends ItemSlowingSword {
     public ItemGlacialBlade() {
         super(ToolStats.GLACIAL_BLADE);
+        slowSeconds = 2;
     }
-
-    @Override
-    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (attacker instanceof Player) {
-            target.setDeltaMovement(0, 0, 0);
-            target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 32, 4));
-        }
-        return super.hurtEnemy(stack, target, attacker);
-    }
-
-    @Override
-    protected void addAdditionalInformation(List<Component> list) {
-        list.add(LocalizeUtils.slow(1.6));
+    @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
+        if(entity instanceof LivingEntity) ((LivingEntity)entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, slowSeconds * 20, 4));
+        return super.onLeftClickEntity(stack, player, entity);
     }
 }

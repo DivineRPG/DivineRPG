@@ -242,7 +242,7 @@ public class LocalizeUtils {
      * @param seconds - effect duration
      * @return
      */
-    public static Component poison(float seconds) {
+    public static Component poison(int seconds) {
         return i18n(Poison, seconds);
     }
 
@@ -262,7 +262,7 @@ public class LocalizeUtils {
      * @param seconds effect duration
      * @return
      */
-    public static Component slow(double seconds) {
+    public static Component slow(int seconds) {
         return i18n(SlowMobs, seconds);
     }
 

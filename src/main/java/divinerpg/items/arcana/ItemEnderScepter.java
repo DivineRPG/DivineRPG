@@ -5,45 +5,42 @@ import divinerpg.items.base.ItemMod;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
-import net.minecraft.world.phys.Vec3;
-
+import net.minecraft.world.phys.*;
 import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemEnderScepter extends ItemMod {
-
     public ItemEnderScepter() {
         super(new Properties().stacksTo(1));
+        arcanaConsumed = 75;
     }
-
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            if (arcana.getArcana() >= 75) {
-                Vec3 start = player.getEyePosition(1);
-                Vec3 vec31 = player.getViewVector(1);
-                Vec3 end = start.add(vec31.x * 32, vec31.y * 32, vec31.z * 32);
-                ClipContext pos = new ClipContext(start, end, ClipContext.Block.OUTLINE, ClipContext.Fluid.ANY, player);
-
-                player.fallDistance = 0;
-                player.ejectPassengers();
-                player.moveTo(pos.getTo());
+    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        int blockReachDistance = 40;
+        Vec3 vec3d = player.getEyePosition(1);
+        Vec3 vec3d1 = player.getViewVector(1);
+        Vec3 vec3d2 = vec3d.add(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
+        BlockHitResult pos = player.level().clip(new ClipContext(vec3d, vec3d2, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
+        return player.getCapability(ArcanaProvider.ARCANA).map(arcana -> {
+            if(arcana.getArcana() >= arcanaConsumed) {
+                arcana.consume(player, arcanaConsumed);
+                player.awardStat(Stats.ITEM_USED.get(this));
+                player.resetFallDistance();
+                if(player.isPassenger()) player.stopRiding();
+                player.moveTo(pos.getLocation());
+                //To add: teleport particles (just like those when eating a chorus fruit)
                 player.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 1, 1);
-                arcana.consume(player, 75);
-            }
-        });
-
-        return super.use(world, player, hand);
+                player.getCooldowns().addCooldown(this, 10);
+                return InteractionResultHolder.success(player.getItemInHand(hand));
+            } return super.use(level, player, hand);
+        }).orElse(null);
     }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.arcanaConsumed(75));
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.ender_scepter"));
-        tooltip.add(LocalizeUtils.infiniteUses());
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

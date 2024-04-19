@@ -3,51 +3,26 @@ package divinerpg.capability;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.Direction;
 import net.minecraftforge.common.capabilities.*;
-import net.minecraftforge.common.util.INBTSerializable;
-import net.minecraftforge.common.util.LazyOptional;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import net.minecraftforge.common.util.*;
+import javax.annotation.*;
 
 public class ArcanaProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-
     public static Capability<Arcana> ARCANA = CapabilityManager.get(new CapabilityToken<>(){});
-
     private Arcana arcana = null;
     private final LazyOptional<Arcana> opt = LazyOptional.of(this::createArcana);
-
-    @Nonnull
-    private Arcana createArcana() {
-        if (arcana == null) {
-            arcana = new Arcana();
-        }
+    @Nonnull private Arcana createArcana() {
+        if(arcana == null) arcana = new Arcana();
         return arcana;
     }
-
-    @Nonnull
-    @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap) {
-        if (cap == ARCANA) {
-            return opt.cast();
-        }
+    @Nonnull @Override public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap) {
+        if(cap == ARCANA) return opt.cast();
         return LazyOptional.empty();
     }
-
-    @Nonnull
-    @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-        return getCapability(cap);
-    }
-
-    @Override
-    public CompoundTag serializeNBT() {
+    @Nonnull @Override public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {return getCapability(cap);}
+    @Override public CompoundTag serializeNBT() {
         CompoundTag nbt = new CompoundTag();
         createArcana().saveNBTData(nbt);
         return nbt;
     }
-
-    @Override
-    public void deserializeNBT(CompoundTag nbt) {
-        createArcana().loadNBTData(nbt);
-    }
+    @Override public void deserializeNBT(CompoundTag nbt) {createArcana().loadNBTData(nbt);}
 }

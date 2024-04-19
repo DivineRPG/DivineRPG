@@ -15,8 +15,6 @@ import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
@@ -24,7 +22,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
-
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -388,8 +385,8 @@ public class ItemRegistry {
             terran_dagger = registerItem("terran_dagger", () -> new ItemModSword(ToolStats.TERRAN_DAGGER)),
             terran_knife = registerItem("terran_knife", () -> new ItemModSword(ToolStats.TERRAN_KNIFE)),
             terran_maul = registerItem("terran_maul", () -> new ItemModSword(ToolStats.TERRAN_MAUL)),
-            jungle_knife = registerItem("jungle_knife", () -> new ItemPoisonousSword(ToolStats.JUNGLE_KNIFE, 2.5f)),
-            jungle_rapier = registerItem("jungle_rapier", () -> new ItemPoisonousSword(ToolStats.JUNGLE_RAPIER, 4f)),
+            jungle_knife = registerItem("jungle_knife", () -> new ItemPoisonousSword(ToolStats.JUNGLE_KNIFE, 3)),
+            jungle_rapier = registerItem("jungle_rapier", () -> new ItemPoisonousSword(ToolStats.JUNGLE_RAPIER, 4)),
             poison_saber = registerItem("poison_saber", () -> new ItemPoisonousSword(ToolStats.POISON_SABER, 5)),
             bloodgem_sword = registerItem("bloodgem_sword", () -> new ItemModSword(ToolStats.BLOODGEM_SWORD)),
             molten_sword = registerItem("molten_sword", () -> new ItemBurningSword(ToolStats.MOLTEN_SWORD, 5)),
@@ -401,7 +398,7 @@ public class ItemRegistry {
             frost_sword = registerItem("frost_sword", () -> new ItemSlowingSword(ToolStats.FROST_SWORD)),
             frostking_sword = registerItem("frostking_sword", () -> new ItemModSword(ToolStats.FROSTKING_SWORD)),
             icicle_bane = registerItem("icicle_bane", () -> new ItemSlowingSword(ToolStats.ICICLE_BANE)),
-            glacial_blade = registerItem("glacial_blade", () -> new ItemGlacialBlade()),
+            glacial_blade = registerItem("glacial_blade", ItemGlacialBlade::new),
             icicle_dagger = registerItem("icicle_dagger", () -> new ItemModSword(ToolStats.ICICLE_DAGGER)),
             ender_sword = registerItem("ender_sword", () -> new ItemModSword(RarityList.ENDER, ToolStats.ENDER_SWORD)),
             red_ender_sword = registerItem("red_ender_sword", () -> new ItemModSword(RarityList.RED, ToolStats.ENDER_SWORD)),
@@ -420,9 +417,9 @@ public class ItemRegistry {
             sandslash = registerItem("sandslash", () -> new ItemModSword(ToolStats.SANDSLASH)),
             snowslash = registerItem("snowslash", () -> new ItemSlowingSword(ToolStats.SNOWSLASH)),
             storm_sword = registerItem("storm_sword", () -> new ItemStormSword(ToolStats.STORM_SWORD)),
-            shadow_saber = registerItem("shadow_saber", () -> new ItemShadowSaber(ToolStats.SHADOW_SABER)),
-            arcanium_saber = registerItem("arcanium_saber", () -> new ItemArcanaPoweredSword(ToolStats.ARCANIUM_SABER, 25, 5.0F)),
-            arcanite_blade = registerItem("arcanite_blade", () -> new ItemArcanaPoweredSword(ToolStats.ARCANITE_BLADE, 30, 6.0F)),
+            shadow_saber = registerItem("shadow_saber", () -> new ItemShadowSaber()),
+            arcanium_saber = registerItem("arcanium_saber", () -> new ItemArcanaPoweredSword(ToolStats.ARCANIUM_SABER, 25, 5)),
+            arcanite_blade = registerItem("arcanite_blade", () -> new ItemArcanaPoweredSword(ToolStats.ARCANITE_BLADE, 30, 6)),
             livicia_sword = registerItem("livicia_sword", () -> new ItemModSword(ToolStats.LIVICIA_SWORD)),
             eden_blade = registerItem("eden_blade", () -> new ItemModSword(RarityList.EDEN, ToolStats.EDEN_BLADE)),
             wildwood_blade = registerItem("wildwood_blade", () -> new ItemModSword(RarityList.WILDWOOD, ToolStats.WILDWOOD_BLADE)),
@@ -432,9 +429,9 @@ public class ItemRegistry {
             halite_blade = registerItem("halite_blade", () -> new ItemModSword(RarityList.HALITE, ToolStats.HALITE_BLADE)),
 
             //Healing
-            palavence = registerItem("palavence", () -> new ItemHealingSword(ToolStats.PALAVENCE, 0.5F)),
-            massivence = registerItem("massivence", () -> new ItemHealingSword(ToolStats.PALAVENCE, 1F)),
-            frossivence = registerItem("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1F)),
+            palavence = registerItem("palavence", () -> new ItemHealingSword(ToolStats.PALAVENCE, .5F)),
+            massivence = registerItem("massivence", () -> new ItemHealingSword(ToolStats.PALAVENCE, 1)),
+            frossivence = registerItem("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1)),
 
             //Shields
             realmite_shield = registerItem("realmite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "realmite_ingot"), 426, "realmite_shield")),

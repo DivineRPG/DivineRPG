@@ -66,9 +66,10 @@ public class ModelGlacide extends EntityModel<EntityGlacide> {
 		LeftSail.yRot = f2;
 		FrontRightLeg.xRot = BackLeftLeg.xRot = f1;
 		BackRightLeg.xRot = FrontLeftLeg.xRot = f;
-		float lowLegMov = Mth.sqrt((float)Math.atan(200 * limbSwing)) / 1.5F * limbSwingAmount;
-		FrontRightLowerLeg.xRot = FrontLeftLowerLeg.xRot = lowLegMov;
-		BackRightLowerLeg.xRot = BackLeftLowerLeg.xRot = -lowLegMov;
+		float lowLegMov = Mth.abs(Mth.cos(limbSwing * .5F)) * .7F * limbSwingAmount;
+		float lowLegMov1 = Mth.abs(Mth.cos(limbSwing * .5F + Mth.PI)) * .7F * limbSwingAmount;
+		FrontRightLowerLeg.xRot = BackLeftLowerLeg.xRot = lowLegMov;
+		BackRightLowerLeg.xRot = FrontLeftLowerLeg.xRot = lowLegMov1;
 	}
 	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
