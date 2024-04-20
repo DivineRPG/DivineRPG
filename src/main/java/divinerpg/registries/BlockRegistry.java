@@ -49,8 +49,8 @@ public class BlockRegistry {
             dreamStone = registerBlock("dream_stone", () -> new BlockMod(COLOR_CYAN, 1.5F, 6F)),
 
             //Grass Blocks
-            frozenGrass = registerBlock("frozen_grass", () -> new BlockModGrass( () -> ForgeRegistries.BLOCKS.getValue(new ResourceLocation(MODID, "frozen_dirt")), DIAMOND)),
-            arcaniteGrass = registerBlock("arcanite_grass", () -> new BlockArcaniteGrass()),
+            frozenGrass = registerBlock("frozen_grass", () -> new BlockModGrass(frozenDirt, DIAMOND)),
+            arcaniteGrass = registerBlock("arcanite_grass", () -> new BlockModGrass(arcaniteDirt, TERRACOTTA_LIGHT_BLUE)),
             edenGrass = registerBlock("eden_grass", () -> new BlockModGrass(edenDirt, COLOR_YELLOW)),
             wildwoodGrass = registerBlock("wildwood_grass", () -> new BlockModGrass(wildwoodDirt, WATER)),
             apalachiaGrass = registerBlock("apalachia_grass", () -> new BlockModGrass(apalachiaDirt, COLOR_PURPLE)),

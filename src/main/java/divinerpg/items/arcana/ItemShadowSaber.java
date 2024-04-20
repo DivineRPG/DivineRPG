@@ -17,12 +17,11 @@ import java.util.List;
 public class ItemShadowSaber extends ItemModSword {
     public ItemShadowSaber() {
         super(ToolStats.SHADOW_SABER);
-        arcanaConsumed = 12;
+        arcanaConsumedAttack = 12;
     }
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-        if(arcana.getArcana() >= arcanaConsumed) {
-            arcana.consume(player, arcanaConsumed);
+        if(arcana.getArcana() >= arcanaConsumedAttack) {
             player.playSound(SoundRegistry.SHADOW_SABER.get(), 1, 1);
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 1));
             }

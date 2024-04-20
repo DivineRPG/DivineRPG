@@ -53,8 +53,8 @@ public class FluidRegistry {
                             return new Vector3f((color >> 16 & 0xFF) / 255F, (color >> 8 & 0xFF) / 255F, (color & 0xFF) / 255F);
                         }
                         @Override public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape) {
-                            //To fix: the red fog issue that comes with the lava fluid tag
-                            //To add: configure different fog distances based on if you have fire res. or spectator mode
+                            //TODO: fix the red fog issue that comes with the lava fluid tag
+                            //TODO: configure different fog distances based on if you have fire res. or spectator mode
                             nearDistance = -8;
                             farDistance = 4;
                             if(farDistance > renderDistance) {
@@ -115,12 +115,12 @@ public class FluidRegistry {
             new LiquidBlock(SMOLDERING_TAR_FLUID, BlockBehaviour.Properties.of().sound(SoundType.EMPTY).replaceable().pushReaction(PushReaction.DESTROY).randomTicks().mapColor(MapColor.COLOR_BLACK).noCollission().strength(100).noLootTable()) {
                 @Override public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
                     if(entity.isInFluidType()) {
-                        //To fix: slows differently if you stay on top of a none solid block (e.g. a slab)
-                        //To fix: xp orbs jumps on top of tar
+                        //TODO: fix slowing down differently if you stay on top of a none solid block (e.g. a slab)
+                        //TODO: fix xp orbs jumping on top of tar
                         entity.makeStuckInBlock(state, new Vec3(.4, .4, .4));
-                        //To fix: the fire gets extinguished during rains unlike when entity.lavaHurt() is used
+                        //TODO: the fire gets extinguished during rains unlike when entity.lavaHurt() is used
                         entity.setSecondsOnFire(12);
-                        //That doesn't look right buh
+                        //That doesn't look right buh: me trying to copy the way entity.lavaHurt() works
                         if(((entity instanceof LivingEntity && !entity.fireImmune() && !((LivingEntity) entity).hasEffect(MobEffects.FIRE_RESISTANCE)) || (!(entity instanceof LivingEntity) && !entity.fireImmune())) && entity.hurt(DamageSources.source(level, DamageSources.TAR), 4)) entity.playSound(SoundEvents.GENERIC_BURN, .4F, 2 + entity.random.nextFloat() * .4F);
                     }
                 }

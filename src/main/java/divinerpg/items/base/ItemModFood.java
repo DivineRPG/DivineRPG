@@ -12,10 +12,7 @@ import java.util.List;
 public class ItemModFood extends ItemMod {
     FoodProperties food;
     boolean fastFood;
-    public ItemModFood(Properties properties, FoodProperties food) {
-        super(properties);
-        this.food = food;
-    }
+    public ItemModFood(Properties properties) {super(properties);}
     public ItemModFood(FoodProperties food) {
         super(new Properties().food(food));
         this.food = food;

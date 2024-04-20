@@ -1,10 +1,15 @@
 package divinerpg.items.base;
 
 import com.google.common.collect.*;
+import divinerpg.capability.ArcanaProvider;
 import divinerpg.util.LocalizeUtils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
@@ -12,14 +17,32 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 public class ItemModSword extends SwordItem {
-    public int arcanaConsumed;
+    public int arcanaConsumedUse;
+    public int arcanaConsumedAttack;
+    public int cooldown;
     public ItemModSword(Rarity rarity, Tier tier) {super(tier, 1, 1, new Item.Properties().rarity(rarity));}
     public ItemModSword(Tier tier) {super(tier, 1, 1, new Item.Properties());}
     public ItemModSword(Tier tier, Item.Properties properties) {super(tier, 1, 1, properties);}
+    @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
+        player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
+            if(arcana.getArcana() >= arcanaConsumedAttack) arcana.consume(player, arcanaConsumedAttack);
+        }); return super.onLeftClickEntity(stack, player, entity);
+    }
+    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        return player.getCapability(ArcanaProvider.ARCANA).map(arcana -> {
+            if(arcana.getArcana() >= arcanaConsumedUse && arcanaConsumedUse != 0) {
+                arcana.consume(player, arcanaConsumedUse);
+                player.getCooldowns().addCooldown(this, cooldown);
+                player.awardStat(Stats.ITEM_USED.get(this));
+                return InteractionResultHolder.success(player.getItemInHand(hand));
+            } return super.use(level, player, hand);
+        }).orElse(InteractionResultHolder.pass(player.getItemInHand(hand)));
+    }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        if(arcanaConsumed > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumed));
+        if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
+        if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
         if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
     }
     @Override public Multimap<Attribute, AttributeModifier> getAttributeModifiers(final EquipmentSlot slot, final ItemStack stack) {

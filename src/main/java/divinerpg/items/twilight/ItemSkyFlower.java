@@ -20,7 +20,7 @@ public class ItemSkyFlower extends ItemModFood {
     }
     @Override public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entity) {
         if(entity instanceof Player) {
-            Player player = (Player) entity;
+            Player player = (Player)entity;
             player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600, 0, true, false));
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0, true, false));
         } return super.finishUsingItem(stack, world, entity);
