@@ -4,10 +4,10 @@
 
 ### Main Team
 * Velocityraptor - Lead Developer
-* Locomen_ - Developer
 * Lemon_Juice - Developer
 * PegasDoggeAM - Developer
 * Nicusha - Developer
+* Declan - Asset Developer
 
 ### Ex-Developers
 * Aginsun
@@ -25,6 +25,7 @@
 * Vazkii
 * Wufflez (LiteWolf101) - Developer
 * Zachtoplasm - Texture artist
+* Locomen_ - Developer
 
 ### Translations
 * Adaptivity - Russian translations
@@ -43,13 +44,12 @@
 * Zeedif - Spanish translations
 
 ### Music
-* "Snowflakes after Blizzard" - Velocityraptor
-* "Iceika Music" - Wufflez
+* "Snowflakes after Blizzard" by Velocityraptor
+* "Iceika Music" by Wufflez
 
 ### Special Thanks to
 * BlueEyes9 - A few models/textures
 * BossLetsPlays - Sound artist, maintenance developer, and former server owner
-* Declan (UKDeccy) - A few models/textures
 * Dizzlepop12 - A few models/textures
 * Insanity414all - Former wiki admin
 * Laorwick - Some recipes
