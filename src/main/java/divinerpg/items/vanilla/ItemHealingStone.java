@@ -29,12 +29,12 @@ public class ItemHealingStone extends ItemMod {
             player.heal(healAmount);
             player.playSound(SoundRegistry.HEAL.get(), 1, 1);
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, 3);
+            player.getCooldowns().addCooldown(this, 20);
             return InteractionResultHolder.success(stack);
         } return super.use(level, player, hand);
     }
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
-        if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth()) {
+        if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
             if(!player.isCreative()) stack.shrink(1);
             entity.heal(healAmount);
             entity.playSound(SoundRegistry.HEAL.get(), 1, 1);
@@ -45,9 +45,9 @@ public class ItemHealingStone extends ItemMod {
                 entity.level().addParticle(ParticleTypes.HEART, entity.getRandomX(1), entity.getRandomY() + .5, entity.getRandomZ(1), d0, d1, d2);
             }
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, 3);
+            player.getCooldowns().addCooldown(this, 20);
             return InteractionResult.SUCCESS;
-        } return InteractionResult.PASS;
+        } return super.interactLivingEntity(stack, player, entity, hand);
     }
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.healthRegen(healAmount / 2));
