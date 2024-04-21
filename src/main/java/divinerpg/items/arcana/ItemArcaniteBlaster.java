@@ -28,7 +28,7 @@ public class ItemArcaniteBlaster extends ItemModShotgun {
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.bowDam("30x23"));
+        tooltip.add(LocalizeUtils.rangedDamString("30x23"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

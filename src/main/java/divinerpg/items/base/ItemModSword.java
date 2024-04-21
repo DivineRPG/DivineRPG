@@ -3,7 +3,6 @@ package divinerpg.items.base;
 import com.google.common.collect.*;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.util.LocalizeUtils;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
@@ -23,6 +22,7 @@ public class ItemModSword extends SwordItem {
     public ItemModSword(Rarity rarity, Tier tier) {super(tier, 1, 1, new Item.Properties().rarity(rarity));}
     public ItemModSword(Tier tier) {super(tier, 1, 1, new Item.Properties());}
     public ItemModSword(Tier tier, Item.Properties properties) {super(tier, 1, 1, properties);}
+    //TODO: to use a different method, so that you can't spam click entities, then proceed using the new method in other places
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
             if(arcana.getArcana() >= arcanaConsumedAttack) arcana.consume(player, arcanaConsumedAttack);
@@ -53,10 +53,10 @@ public class ItemModSword extends SwordItem {
     /**
      * Replace a modifier in the {@link Multimap} with a copy that's had {@code multiplier} applied to its value.
      *
-     * @param modifierMultimap The Multimap
-     * @param attribute        The attribute being modified
-     * @param id               The ID of the modifier
-     * @param multiplier       The multiplier to apply
+     * @param modifierMultimap - the Multimap
+     * @param attribute - the attribute being modified
+     * @param id - the ID of the modifier
+     * @param multiplier - the multiplier to apply
      */
     private void replaceModifier(final Multimap<Attribute, AttributeModifier> modifierMultimap, final Attribute attribute, final UUID id, final double multiplier) {
         final Collection<AttributeModifier> modifiers = modifierMultimap.get(attribute);

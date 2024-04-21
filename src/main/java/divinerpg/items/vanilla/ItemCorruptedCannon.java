@@ -13,13 +13,11 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-
 import javax.annotation.Nullable;
 import java.util.List;
-
 public class ItemCorruptedCannon extends ItemModShotgun {
     public ItemCorruptedCannon() {
-    	super("corrupted_bullet", null, () -> SoundRegistry.GHAST_CANNON.get(), SoundSource.MASTER, -1, 4, new ResourceLocation(DivineRPG.MODID, "corrupted_bullet"), 0, 4);
+    	super("corrupted_bullet", null, SoundRegistry.GHAST_CANNON::get, SoundSource.MASTER, -1, 4, new ResourceLocation(DivineRPG.MODID, "corrupted_bullet"), 0, 4);
     }
     @SuppressWarnings("unchecked") @Override
     protected ThrowableProjectile createProjectile(Level world, LivingEntity player) {
@@ -27,7 +25,7 @@ public class ItemCorruptedCannon extends ItemModShotgun {
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.bowDam("4x10"));
+        tooltip.add(LocalizeUtils.rangedDamString("4x10"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

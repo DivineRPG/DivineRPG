@@ -1,346 +1,181 @@
 package divinerpg.util;
 
-import net.minecraft.*;
-import net.minecraft.commands.*;
+import net.minecraft.ChatFormatting;
+import net.minecraft.commands.CommandSource;
 import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
-import net.minecraft.world.item.*;
-import net.minecraftforge.server.command.*;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.server.command.TextComponentHelper;
 
 public class LocalizeUtils {
-    /**
-     * Here is stored rows with no String.format
-     */
-    private static final MutableComponent
-            InfiniteUses = MutableComponent.create(new TranslatableContents("tooltip.uses.infinite", null, null)),
-            NoProtection = MutableComponent.create(new TranslatableContents("tooltip.noprotection", null, null)),
-            HomingShoots = MutableComponent.create(new TranslatableContents("tooltip.shots.homing", null, null)),
-            SingleUse = MutableComponent.create(new TranslatableContents("tooltip.uses.single", null, null)),
-            InstantConsumption = MutableComponent.create(new TranslatableContents("tooltip.instant_consumption", null, null)),
-            WeakenedWithoutArcana = MutableComponent.create(new TranslatableContents("tooltip.weakened_without_arcana", null, null));
-
-
-    /**
-     * Keys for string.format call
-     */
-    private static final String RemainingUses = "tooltip.uses",
-            DamageReductionStringFormat = "tooltip.damage.reduction",
+    private static final String
             Ammo = "tooltip.ammo",
             ArcanaConsuming = "tooltip.arcana",
             ArcanaDamageSource = "tooltip.damage.arcana",
             ArcanaRegen = "tooltip.arcana.regen",
-            MeleeDamage = "tooltip.damage.melee",
-            BowDamage = "tooltip.damage.ranged",
-//            RangedAndMeleeDamage = "tooltip.damage.both",
+            BurnMobs = "tooltip.effect.burns",
             Efficency = "tooltip.efficiency",
             HarvestLevel = "tooltip.harvest_level",
+            HealthRegen = "tooltip.heals",
+            InfiniteAmmo = "tooltip.ammo.infinite",
+            InfiniteUses = "tooltip.uses.infinite",
+            InstantConsumption = "tooltip.instant_consumption",
             Poison = "tooltip.effect.poisons",
-            BurnMobs = "tooltip.effect.burns",
-            SlowMobs = "tooltip.effect.slows";
-
+            RangedDamage = "tooltip.damage.ranged",
+            RemainingUses = "tooltip.uses",
+            ShotsExplosive = "tooltip.shots.explosive",
+            ShotsHoming = "tooltip.shots.homing",
+            SlowMobs = "tooltip.effect.slows",
+            WeakenedWithoutArcana = "tooltip.weakened_without_arcana";
     /**
-     * Armor ability
+     * Indicates which ammo is required.
      *
-     * @param keyPart - part of localized key 'tooltip.armor_info.' + KEY_PART
-     * @return
-     */
-    public static TranslatableContents getArmorAbility(String keyPart, Object... params) {
-        String id = String.format("tooltip.armor_info.%s", keyPart);
-
-        return params == null || params.length < 1
-                ? new TranslatableContents(id, null, null)
-                : new TranslatableContents(id, null, params);
-    }
-
-    /**
-     * Shows how many uses remainig on item
-     *
-     * @param uses - remaining uses
-     * @return
-     */
-    public static Component usesRemaining(int uses) {
-        return i18n(RemainingUses, uses);
-    }
-
-    /**
-     * Shows infinite ammo tooltip
-     *
-     * @return
-     */
-    public static Component infiniteAmmo() {
-        return LocalizeUtils.i18n("tooltip.ammo.infinite");
-
-    }
-
-    /**
-     * Shows what ammo is using
-     *
-     * @param ammo
-     * @return
+     * @param ammo - ammunition
      */
     public static Component ammo(Item ammo) {
         return ammo(ammo, ChatFormatting.GRAY);
     }
-
     /**
      * Shows what ammo is using. indicates if ammo is present
      *
-     * @param ammo      - ammo for cannon
+     * @param ammo - ammo for cannon
      * @param isPresent - if present print green else - red
      * @return
      */
     public static Component ammo(Item ammo, boolean isPresent) {
         return ammo(ammo, isPresent ? ChatFormatting.GREEN : ChatFormatting.RED);
     }
-
     /**
      * Shows what ammo is using. indicates if ammo is present
      *
-     * @param ammo       - ammo for cannon
+     * @param ammo - ammo for cannon
      * @param formatting - color of ammo name
      * @return
      */
     public static Component ammo(Item ammo, ChatFormatting formatting) {
         Component ammoName = MutableComponent.create(new TranslatableContents(ammo.getDescriptionId(), null, null));
         ammoName.getStyle().applyFormat(formatting);
-
         return i18n(Ammo, ammoName);
     }
-
     /**
-     * Returns tooltip of arcana sonsuming
+     * Indicates how much arcana is being consumed.
      *
-     * @param ar - amount. Possible any value, for example range value 10-20
-     * @return
+     * @param arcana - arcana amount
      */
-    public static Component arcanaConsumed(Object ar) {
-        return i18n(ArcanaConsuming, ar);
-    }
-
+    public static Component arcanaConsumed(Object arcana) {return i18n(ChatFormatting.AQUA, ArcanaConsuming, arcana);}
     /**
-     * Returns tooltip of special arcana damage source amount per shoot
+     * Indicates how much damage the arcana does.
      *
-     * @param dam - arcana damage
-     * @return
+     * @param damage - arcana damage
      */
-    public static Component arcanaDam(double dam) {
-        return i18n(ArcanaDamageSource, dam);
-    }
-
+    public static Component arcanaDam(double damage) {return i18n(ArcanaDamageSource, damage);}
     /**
-     * How much arcana regens on use
+     * Indicates how much arcana is restored when used.
      *
-     * @param ar - arcana amount
-     * @return
+     * @param arcana - arcana amount
      */
-    public static Component arcanaRegen(int ar) {
-        return i18n(ArcanaRegen, ar);
-    }
-
+    public static Component arcanaRegen(int arcana) {return i18n(ChatFormatting.AQUA, ArcanaRegen, arcana);}
     /**
-     * Bow damage on shoot
+     * Indicates how long the entity will burn.
      *
-     * @param dam - string range of damage
-     * @return
+     * @param seconds - burning duration
      */
-    public static Component bowDam(String dam) {
-        return i18n(BowDamage, dam);
-    }
-
-    public static Component burn(int seconds) {
-        return i18n(BurnMobs, seconds);
-    }
-
+    public static Component burn(int seconds) {return i18n(ChatFormatting.DARK_RED, BurnMobs, seconds);}
     /**
-     * Shows infinite uses info
-     *
-     * @return
-     */
-    public static Component infiniteUses() {
-        return InfiniteUses.withStyle(ChatFormatting.BLUE);
-    }
-
-    public static Component instantConsumption() {
-        return InstantConsumption.withStyle(ChatFormatting.AQUA);
-    }
-
-    public static Component weakenedWithoutArcana() {
-        return WeakenedWithoutArcana.withStyle(ChatFormatting.RED);
-    }
-
-    /**
-     * Returns armor piece damage reduction info
-     *
-     * @param reduct     - aurrent peace reduction
-     * @param fullReduct - full set reduction
-     * @return
-     */
-    public static Component damageReduction(double reduct, double fullReduct) {
-        return i18n(DamageReductionStringFormat, reduct, fullReduct);
-    }
-
-    /**
-     * Shows too efficiency
+     * Indicates the efficiency of the tools.
      *
      * @param eff - efficiency
-     * @return
      */
-    public static Component efficiency(double eff) {
-        return i18n(Efficency, eff);
-    }
-
+    public static Component efficiency(double eff) {return i18n(Efficency, eff);}
     /**
-     * Shows tool harvest level
-     *
-     * @param lvl - harvest level
-     * @return
+     * Indicates that the projectiles are explosive.
      */
-    public static Component harvestLevel(int lvl) {
-        return i18n(HarvestLevel, lvl);
-    }
-
+    public static Component explosiveShots() {return LocalizeUtils.i18n(ShotsExplosive);}
     /**
-     * Exposive arrow Shoots
-     *
-     * @return
-     */
-    public static Component explosiveShots() {
-        return LocalizeUtils.i18n("tooltip.shots.explosive");
-    }
-
-    /**
-     * Homing arrow shoots
-     *
-     * @return
-     */
-    public static Component homingShots() {
-        return HomingShoots;
-    }
-
-    /**
-     * Items single use
-     *
-     * @return
-     */
-    public static Component singleUse() {
-        return SingleUse;
-    }
-
-    /**
-     * Melee damage info
-     *
-     * @param dam - melee gamage amount
-     * @return
-     */
-    public static Component meleeDam(double dam) {
-        return i18n(MeleeDamage, dam);
-    }
-
-    /**
-     * Poison mobs info
-     *
-     * @param seconds - effect duration
-     * @return
-     */
-    public static Component poison(int seconds) {
-        return i18n(Poison, seconds);
-    }
-
-    /**
-     * Adding range damage info
-     *
-     * @param dam - damage amount
-     * @return
-     */
-    public static Component rangedDam(double dam) {
-        return i18n(BowDamage, dam);
-    }
-
-    /**
-     * For how long mobs will be slowed down
-     *
-     * @param seconds effect duration
-     * @return
-     */
-    public static Component slow(int seconds) {
-        return i18n(SlowMobs, seconds);
-    }
-
-    /**
-     * No protection info
-     *
-     * @return
-     */
-    public static Component noProtection() {
-        return NoProtection;
-    }
-
-//    public static String rangedAndMelee(double dam) {
-//        return TooltipHelper.localize(RangedAndMeleeDamage).replace("#", String.valueOf(dam));
-//    }
-
-    /**
-     * Prints white text message from lang key
-     *
-     * @param message - lang key
-     * @return
-     */
-    public static ComponentContents normal(String message) {
-        return normal(message, ChatFormatting.WHITE);
-    }
-
-    /**
-     * Prints text message with custom color
-     *
-     * @param message - lang key
-     * @param format  - text color
-     * @return
-     */
-    public static ComponentContents normal(String message, ChatFormatting format) {
-        MutableComponent text = MutableComponent.create(new TranslatableContents(message, null, null));
-        text.withStyle(format);
-
-        return text.getContents();
-    }
-
-    /**
-     * Prints version info
-     *
-     * @param vers
-     * @return
-     */
-    public static ComponentContents version(String vers) {
-        MutableComponent text = MutableComponent.create(new TranslatableContents("message.version", vers, null));
-        text.withStyle(ChatFormatting.RED);
-
-        return text.getContents();
-    }
-
-    /**
-     * Creates message fro mserver to translate on client
+     * Creates message from server to translate on client.
      *
      * @param sender - player (mostly) to send message
-     * @param str    - lang key
-     * @return
+     * @param string - lang key
      */
-    public static Component getClientSideTranslation(CommandSource sender, String str, final Object... args) {
-        return TextComponentHelper.createComponentTranslation(sender, str, args);
-    }
-
+    public static Component getClientSideTranslation(CommandSource sender, String string, final Object... argument) {return TextComponentHelper.createComponentTranslation(sender, string, argument);}
     /**
-     * Returns translated text
+     * Indicates the harvest level of the tools.
      *
-     * @param text - lang key
-     * @param args - string format args
-     * @return
+     * @param lvl - harvest level
      */
-    public static Component i18n(String text, Object... args) {
-        MutableComponent result = MutableComponent.create(new TranslatableContents(text, null, args));
-        return result.withStyle(ChatFormatting.GRAY);
+    public static Component harvestLevel(int lvl) {return i18n(HarvestLevel, lvl);}
+    /**
+     * Indicates how much health is restored when used.
+     */
+    public static Component healthRegen(float health) {return i18n(ChatFormatting.LIGHT_PURPLE, HealthRegen, health);}
+    /**
+     * Indicates that the projectiles are homing.
+     */
+    public static Component homingShots() {return LocalizeUtils.i18n(ShotsHoming);}
+    /**
+     * Indicates that no ammo is required.
+     */
+    public static Component infiniteAmmo() {return i18n(ChatFormatting.DARK_PURPLE, InfiniteAmmo);}
+    /**
+     * Indicates that the item has infinite uses.
+     */
+    public static Component infiniteUses() {return i18n(ChatFormatting.BLUE, InfiniteUses);}
+    /**
+     * Indicates that the item is consumed instantly.
+     */
+    public static Component instantConsumption() {return i18n(ChatFormatting.AQUA, InstantConsumption);}
+    /**
+     * Indicates how long the poison effect will last.
+     *
+     * @param seconds - effect duration
+     */
+    public static Component poison(int seconds) {return i18n(ChatFormatting.DARK_GREEN, Poison, seconds);}
+    /**
+     * Indicates how much damage the non-arrow projectiles do.
+     *
+     * @param damage - damage amount
+     */
+    public static Component rangedDam(int damage) {return i18n(RangedDamage, damage);}
+    /**
+     * Specifies the damage range of projectiles.
+     *
+     * @param damage - damage range
+     */
+    public static Component rangedDamString(String damage) {return i18n(RangedDamage, damage);}
+    /**
+     * Indicates how long the slowness effect will last.
+     *
+     * @param seconds - effect duration
+     */
+    public static Component slow(int seconds) {return i18n(ChatFormatting.DARK_AQUA, SlowMobs, seconds);}
+    //TODO: ro remove usesRemaining, it's a bit redundant, basically f3+h
+    public static Component usesRemaining(int uses) {return i18n(RemainingUses, uses);}
+    /**
+     * Indicates that the item is weakened without the arcana.
+     */
+    public static Component weakenedWithoutArcana() {return i18n(ChatFormatting.RED, WeakenedWithoutArcana);}
+    /**
+     * Prints version info.
+     *
+     * @param version
+     */
+    public static ComponentContents version(String version) {
+        MutableComponent text = MutableComponent.create(new TranslatableContents("message.version", version, null));
+        text.withStyle(ChatFormatting.RED);
+        return text.getContents();
     }
-
+    /**
+     * Returns translated text.
+     * @param color - text color
+     * @param text - lang key
+     * @param args - string format arguments
+     */
     public static Component i18n(ChatFormatting color, String text, Object... args) {
         MutableComponent result = MutableComponent.create(new TranslatableContents(text, null, args));
         return result.withStyle(color);
+    }
+    public static Component i18n(String text, Object... args) {
+        MutableComponent result = MutableComponent.create(new TranslatableContents(text, null, args));
+        return result.withStyle(ChatFormatting.GRAY);
     }
 }

@@ -26,7 +26,7 @@ public class ItemVetheanDisk extends ItemMod {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.rangedDam(diskType.getDamage()));
+        tooltip.add(LocalizeUtils.rangedDam((int)diskType.getDamage()));
         tooltip.add(LocalizeUtils.i18n("tooltip.vethean_return"));
     }
 

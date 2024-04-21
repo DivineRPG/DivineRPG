@@ -114,7 +114,7 @@ public class ItemModRanged extends ItemMod {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (bulletType != null) {
-            tooltip.add(LocalizeUtils.rangedDam(bulletType.getDamage()));
+            tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
         }
 
         if (!needsAmmo()) {

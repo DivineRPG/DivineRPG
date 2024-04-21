@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemHealingFood extends ItemModFood {
-    private final int healthGain;
+    private final float healthGain;
     public ItemHealingFood(FoodProperties food) {
         super(food);
         healthGain = food.getNutrition();
@@ -21,7 +21,7 @@ public class ItemHealingFood extends ItemModFood {
     }
     @Override public int getUseDuration(ItemStack stack) {return 16;}
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.food.heal", healthGain));
+        tooltip.add(LocalizeUtils.healthRegen(healthGain / 2));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }
