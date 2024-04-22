@@ -16,6 +16,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -108,29 +109,7 @@ public class ItemModBow extends BowItem {
         }
     }
 
-    @Override
-    public AbstractArrow customArrow(AbstractArrow arrow) {
-        return new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), arrow.level(), arrowType, arrow.xo, arrow.yo, arrow.zo);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.rangedDamString(arrowType.getMinDamage() + "-" + arrowType.getMaxDamage()));
-        double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getUseDuration(stack);
-        if (speed > 1)
-            tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.faster", String.format("%s", speed)));
-        if (speed < 1)
-            tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.slower", String.format("%s", 1 / speed)));
-        tooltip.add(!unbreakable ? LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()) :
-                LocalizeUtils.infiniteUses());
-        if (arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.POSION)
-            tooltip.add(LocalizeUtils.poison(2));
-        if (arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME)
-            tooltip.add(LocalizeUtils.burn(12));
-        if (arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE)
-            tooltip.add(LocalizeUtils.explosiveShots());
-        tooltip.add(this.needsArrow(stack) ? LocalizeUtils.ammo(getArrowItem()) : LocalizeUtils.infiniteAmmo());
-    }
+    @Override public AbstractArrow customArrow(AbstractArrow arrow) {return new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), arrow.level(), arrowType, arrow.xo, arrow.yo, arrow.zo);}
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
@@ -254,5 +233,17 @@ public class ItemModBow extends BowItem {
     public ItemModBow setSound(net.minecraft.sounds.SoundEvent shootSound) {
         this.shootSound = shootSound;
         return this;
+    }
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(LocalizeUtils.rangedDamString((int)arrowType.getMinDamage() + "-" + (int)arrowType.getMaxDamage()));
+        double speed = (double)DEFAULT_MAX_USE_DURATION / (double)getUseDuration(stack);
+        if(speed > 1) tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.faster", String.format("%s", speed)));
+        if(speed < 1) tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.slower", String.format("%s", 1 / speed)));
+        if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.POISON) tooltip.add(LocalizeUtils.poison(2));
+        if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) tooltip.add(LocalizeUtils.burn(12));
+        if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
+        tooltip.add(this.needsArrow(stack) ? LocalizeUtils.ammo(getArrowItem()) : LocalizeUtils.infiniteAmmo());
+        if(unbreakable) tooltip.add(LocalizeUtils.infiniteUses());
     }
 }

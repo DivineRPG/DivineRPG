@@ -113,7 +113,7 @@ public class ItemRegistry {
             raw_realmite = registerItem("raw_realmite"),
             raw_arlemite = registerItem("raw_arlemite"),
             raw_rupee = registerItem("raw_rupee"),
-            healing_stone = registerItem("healing_stone", () -> new ItemHealingStone(20)),
+            healing_stone = registerItem("healing_stone", ItemHealingStone::new),
             red_diamond_chunk = registerItem("red_diamond_chunk"),
             yellow_diamond_chunk = registerItem("yellow_diamond_chunk"),
             green_diamond_chunk = registerItem("green_diamond_chunk"),
@@ -416,8 +416,8 @@ public class ItemRegistry {
             icine_sword = registerItem("icine_sword", () -> new ItemSlowingSword(ToolStats.ICINE_SWORD)),
             sandslash = registerItem("sandslash", () -> new ItemModSword(ToolStats.SANDSLASH)),
             snowslash = registerItem("snowslash", () -> new ItemSlowingSword(ToolStats.SNOWSLASH)),
-            storm_sword = registerItem("storm_sword", () -> new ItemStormSword(ToolStats.STORM_SWORD)),
-            shadow_saber = registerItem("shadow_saber", () -> new ItemShadowSaber()),
+            storm_sword = registerItem("storm_sword", ItemStormSword::new),
+            shadow_saber = registerItem("shadow_saber", ItemShadowSaber::new),
             arcanium_saber = registerItem("arcanium_saber", () -> new ItemArcanaPoweredSword(ToolStats.ARCANIUM_SABER, 25, 5)),
             arcanite_blade = registerItem("arcanite_blade", () -> new ItemArcanaPoweredSword(ToolStats.ARCANITE_BLADE, 30, 6)),
             livicia_sword = registerItem("livicia_sword", () -> new ItemModSword(ToolStats.LIVICIA_SWORD)),
@@ -445,11 +445,11 @@ public class ItemRegistry {
             halite_shield = registerItem("halite_shield", () -> new DivineShield(RarityList.HALITE, new ResourceLocation("air") , 0, "halite_shield")),
 
             //Serenades
-            serenade_striker = registerItem("serenade_striker", () -> new ItemSerenadeStriker()),
-            serenade_of_ice = registerItem("serenade_of_ice", () -> new ItemSerenadeOfIce()),
-            serenade_of_death = registerItem("serenade_of_death", () -> new ItemSerenadeOfDeath()),
-            serenade_of_health = registerItem("serenade_of_health", () -> new ItemSerenadeOfHealth()),
-            serenade_of_infusion = registerItem("serenade_of_infusion", () -> new ItemSerenadeOfInfusion()),
+            serenade_striker = registerItem("serenade_striker", ItemSerenadeStriker::new),
+            serenade_of_ice = registerItem("serenade_of_ice", ItemSerenadeOfIce::new),
+            serenade_of_death = registerItem("serenade_of_death", ItemSerenadeOfDeath::new),
+            serenade_of_health = registerItem("serenade_of_health", ItemSerenadeOfHealth::new),
+            serenade_of_infusion = registerItem("serenade_of_infusion", ItemSerenadeOfInfusion::new),
 
             //Bows
             hunter_bow = registerItem("hunter_bow", () -> new ItemModBow(ArrowType.HUNTER_ARROW, 2500, new ResourceLocation("arrow"))),

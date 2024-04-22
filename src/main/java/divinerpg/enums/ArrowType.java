@@ -5,7 +5,7 @@ import net.minecraft.resources.*;
 
 public enum ArrowType {
     NONE(0, 0, VanillaLoc()),
-    HUNTER_ARROW(2, 11, ProjectileLoc("hunter_arrow"), ArrowSpecial.POSION),
+    HUNTER_ARROW(2, 11, ProjectileLoc("hunter_arrow"), ArrowSpecial.POISON),
     SHADOW_ARROW(2, 11, ProjectileLoc("shadow_arrow")),
     ENDER_ARROW(4, 16, ProjectileLoc("ender_arrow")),
     SOULFIRE_ARROW(2, 11, ProjectileLoc("soulfire_arrow"), ArrowSpecial.EXPLODE),
@@ -94,6 +94,6 @@ public enum ArrowType {
     }
 
     public enum ArrowSpecial {
-        NONE, FLAME, WITHER, EXPLODE, SLOW, NAUSEA, BLIND, POSION
+        NONE, FLAME, WITHER, EXPLODE, SLOW, NAUSEA, BLIND, POISON
     }
 }

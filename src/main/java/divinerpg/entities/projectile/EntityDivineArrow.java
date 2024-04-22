@@ -215,7 +215,7 @@ public class EntityDivineArrow extends AbstractArrow {
                         }
                     }
                     // Poison Damage
-                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POSION && !(entity instanceof EnderMan)) {
+                    if (this.getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POISON && !(entity instanceof EnderMan)) {
                         entity.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 2));
                     }
 

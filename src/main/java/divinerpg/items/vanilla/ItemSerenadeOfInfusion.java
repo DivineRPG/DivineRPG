@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemSerenadeOfInfusion extends ItemMod {
-    public ItemSerenadeOfInfusion() {super(new Properties().durability(15));}
+    public ItemSerenadeOfInfusion() {
+        super(new Properties().durability(15));
+        cooldown = 20;
+    }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {
             ItemStack stack = player.getItemInHand(hand);
@@ -26,7 +29,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 80, 2, true, false));
             player.playSound(SoundRegistry.HEAL.get(), 1, 1);
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, 20);
+            player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResultHolder.success(stack);
         } return super.use(level, player, hand);
     }
@@ -42,7 +45,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
                 entity.level().addParticle(ParticleTypes.HEART, entity.getRandomX(1), entity.getRandomY() + .5, entity.getRandomZ(1), d0, d1, d2);
             }
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, 20);
+            player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResult.SUCCESS;
         } return super.interactLivingEntity(stack, player, entity, hand);
     }

@@ -18,9 +18,9 @@ import java.util.List;
 
 public class ItemHealingStone extends ItemMod {
     private final float healAmount;
-    public ItemHealingStone(float healAmount) {
-        super();
-        this.healAmount = healAmount;
+    public ItemHealingStone() {
+        healAmount = 20;
+        cooldown = 20;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {
@@ -29,7 +29,7 @@ public class ItemHealingStone extends ItemMod {
             player.heal(healAmount);
             player.playSound(SoundRegistry.HEAL.get(), 1, 1);
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, 20);
+            player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResultHolder.success(stack);
         } return super.use(level, player, hand);
     }
@@ -45,7 +45,7 @@ public class ItemHealingStone extends ItemMod {
                 entity.level().addParticle(ParticleTypes.HEART, entity.getRandomX(1), entity.getRandomY() + .5, entity.getRandomZ(1), d0, d1, d2);
             }
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, 20);
+            player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResult.SUCCESS;
         } return super.interactLivingEntity(stack, player, entity, hand);
     }

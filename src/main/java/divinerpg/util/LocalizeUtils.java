@@ -14,48 +14,27 @@ public class LocalizeUtils {
             ArcanaDamageSource = "tooltip.damage.arcana",
             ArcanaRegen = "tooltip.arcana.regen",
             BurnMobs = "tooltip.effect.burns",
-            Efficency = "tooltip.efficiency",
+            Efficiency = "tooltip.efficiency",
             HarvestLevel = "tooltip.harvest_level",
             HealthRegen = "tooltip.heals",
             InfiniteAmmo = "tooltip.ammo.infinite",
             InfiniteUses = "tooltip.uses.infinite",
             InstantConsumption = "tooltip.instant_consumption",
+            LightningShot = "tooltip.lightning_shot",
             Poison = "tooltip.effect.poisons",
             RangedDamage = "tooltip.damage.ranged",
-            RemainingUses = "tooltip.uses",
             ShotsExplosive = "tooltip.shots.explosive",
             ShotsHoming = "tooltip.shots.homing",
             SlowMobs = "tooltip.effect.slows",
             WeakenedWithoutArcana = "tooltip.weakened_without_arcana";
     /**
-     * Indicates which ammo is required.
+     * Indicates what ammunition is required.
      *
      * @param ammo - ammunition
      */
     public static Component ammo(Item ammo) {
-        return ammo(ammo, ChatFormatting.GRAY);
-    }
-    /**
-     * Shows what ammo is using. indicates if ammo is present
-     *
-     * @param ammo - ammo for cannon
-     * @param isPresent - if present print green else - red
-     * @return
-     */
-    public static Component ammo(Item ammo, boolean isPresent) {
-        return ammo(ammo, isPresent ? ChatFormatting.GREEN : ChatFormatting.RED);
-    }
-    /**
-     * Shows what ammo is using. indicates if ammo is present
-     *
-     * @param ammo - ammo for cannon
-     * @param formatting - color of ammo name
-     * @return
-     */
-    public static Component ammo(Item ammo, ChatFormatting formatting) {
         Component ammoName = MutableComponent.create(new TranslatableContents(ammo.getDescriptionId(), null, null));
-        ammoName.getStyle().applyFormat(formatting);
-        return i18n(Ammo, ammoName);
+        return i18n(ChatFormatting.DARK_GREEN, Ammo, ammoName);
     }
     /**
      * Indicates how much arcana is being consumed.
@@ -86,11 +65,11 @@ public class LocalizeUtils {
      *
      * @param eff - efficiency
      */
-    public static Component efficiency(double eff) {return i18n(Efficency, eff);}
+    public static Component efficiency(double eff) {return i18n(Efficiency, eff);}
     /**
      * Indicates that the projectiles are explosive.
      */
-    public static Component explosiveShots() {return LocalizeUtils.i18n(ShotsExplosive);}
+    public static Component explosiveShots() {return LocalizeUtils.i18n(ChatFormatting.GOLD, ShotsExplosive);}
     /**
      * Creates message from server to translate on client.
      *
@@ -125,6 +104,10 @@ public class LocalizeUtils {
      */
     public static Component instantConsumption() {return i18n(ChatFormatting.AQUA, InstantConsumption);}
     /**
+     * Indicates that the weapon shoots lightning bolts when used.
+     */
+    public static Component lightningShots() {return i18n(ChatFormatting.YELLOW, LightningShot);}
+    /**
      * Indicates how long the poison effect will last.
      *
      * @param seconds - effect duration
@@ -135,7 +118,7 @@ public class LocalizeUtils {
      *
      * @param damage - damage amount
      */
-    public static Component rangedDam(float damage) {return i18n(RangedDamage, damage);}
+    public static Component rangedDam(int damage) {return i18n(RangedDamage, damage);}
     /**
      * Specifies the damage range of projectiles.
      *
@@ -148,8 +131,6 @@ public class LocalizeUtils {
      * @param seconds - effect duration
      */
     public static Component slow(int seconds) {return i18n(ChatFormatting.DARK_AQUA, SlowMobs, seconds);}
-    //TODO: ro remove usesRemaining, it's a bit redundant, basically f3+h
-    public static Component usesRemaining(int uses) {return i18n(RemainingUses, uses);}
     /**
      * Indicates that the item is weakened without the arcana.
      */
@@ -157,7 +138,7 @@ public class LocalizeUtils {
     /**
      * Prints version info.
      *
-     * @param version
+     * @param version - version
      */
     public static ComponentContents version(String version) {
         MutableComponent text = MutableComponent.create(new TranslatableContents("message.version", version, null));

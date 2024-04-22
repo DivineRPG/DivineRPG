@@ -1,19 +1,25 @@
 package divinerpg.items.arcana;
 
 import divinerpg.capability.ArcanaProvider;
+import divinerpg.enums.ToolStats;
 import divinerpg.items.base.ItemModSword;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
+import net.minecraftforge.api.distmarker.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemStormSword extends ItemModSword {
-    public ItemStormSword(Tier tier) {
-        super(tier);
-        arcanaConsumedUse = 40;
-        cooldown = 10;
+    public ItemStormSword() {
+        super(ToolStats.STORM_SWORD);
+        arcanaConsumedUse = 60;
+        cooldown = 20;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         int blockReachDistance = 32;
@@ -34,5 +40,10 @@ public class ItemStormSword extends ItemModSword {
                 }
             }
         }); return super.use(level, player, hand);
+    }
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(LocalizeUtils.lightningShots());
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

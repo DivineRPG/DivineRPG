@@ -23,7 +23,7 @@ public class ItemMod extends Item {
     private boolean hasGlint;
     public ItemMod() {super(props);}
     public ItemMod(Properties properties) {super(properties);}
-    public ItemMod(Rarity rarity) {super(new Item.Properties().rarity(rarity));}
+    public ItemMod(Rarity rarity) {super(props.rarity(rarity));}
     public ItemMod(boolean hasGlint) {
         super(props);
         this.hasGlint = hasGlint;

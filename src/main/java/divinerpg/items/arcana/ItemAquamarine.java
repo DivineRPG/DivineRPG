@@ -14,11 +14,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
 public class ItemAquamarine extends BucketItem {
-    public ItemAquamarine() {
-        super(() -> Fluids.WATER, new Item.Properties().durability(10));
-    }
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    public ItemAquamarine() {super(() -> Fluids.WATER, new Item.Properties().durability(10));}
+    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
     	ItemStack itemstack = player.getItemInHand(hand);
     	BlockHitResult blockhitresult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.NONE);
 	    if(blockhitresult.getType() == HitResult.Type.MISS || blockhitresult.getType() != HitResult.Type.BLOCK) return InteractionResultHolder.pass(itemstack);

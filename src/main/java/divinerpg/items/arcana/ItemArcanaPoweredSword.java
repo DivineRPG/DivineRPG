@@ -9,6 +9,7 @@ import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.*;
 import javax.annotation.Nullable;
 import java.util.*;
 
@@ -43,6 +44,7 @@ public class ItemArcanaPoweredSword extends ItemModSword {
         return super.onLeftClickEntity(stack, player, entity);
     }
     @Override public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot equipmentSlot, ItemStack stack) {return equipmentSlot == EquipmentSlot.OFFHAND ? attributeModifiers : super.getAttributeModifiers(equipmentSlot, stack);}
+    @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.weakenedWithoutArcana());
         super.appendHoverText(stack, worldIn, tooltip, flagIn);

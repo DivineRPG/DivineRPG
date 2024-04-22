@@ -21,9 +21,10 @@ import java.util.List;
 
 public class ItemHealingSword extends ItemModSword {
     private final float healAmount;
-    public ItemHealingSword(Tier material, float healAmount) {
+    public ItemHealingSword(Tier material, float heals) {
         super(material);
-        this.healAmount = healAmount;
+        healAmount = heals;
+        cooldown = 3;
     }
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         if(player.getHealth() < player.getMaxHealth() && entity instanceof LivingEntity) {
@@ -39,7 +40,7 @@ public class ItemHealingSword extends ItemModSword {
             if(player.isOnFire() && this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "frossivence"))) player.clearFire();
             player.playSound(SoundRegistry.HEAL.get(), 1, 1);
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, 3);
+            player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResultHolder.success(stack);
         } return super.use(level, player, hand);
     }
@@ -56,7 +57,7 @@ public class ItemHealingSword extends ItemModSword {
                 entity.level().addParticle(ParticleTypes.HEART, entity.getRandomX(1), entity.getRandomY() + .5, entity.getRandomZ(1), d0, d1, d2);
             }
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.getCooldowns().addCooldown(this, 3);
+            player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResult.SUCCESS;
         } return super.interactLivingEntity(stack, player, entity, hand);
     }
