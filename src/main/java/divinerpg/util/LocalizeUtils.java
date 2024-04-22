@@ -135,7 +135,7 @@ public class LocalizeUtils {
      *
      * @param damage - damage amount
      */
-    public static Component rangedDam(int damage) {return i18n(RangedDamage, damage);}
+    public static Component rangedDam(float damage) {return i18n(RangedDamage, damage);}
     /**
      * Specifies the damage range of projectiles.
      *
