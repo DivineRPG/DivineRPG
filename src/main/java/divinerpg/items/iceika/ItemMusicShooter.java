@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 
 public class ItemMusicShooter extends ItemModRanged {
 
-    public ItemMusicShooter(Supplier<SoundEvent> event, String name) {
+    public ItemMusicShooter(SoundEvent event, String name) {
         super(name, null, event, SoundSource.MASTER, 4000, 1,
                 null,
                 0);

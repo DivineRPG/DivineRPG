@@ -14,20 +14,18 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-
 import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemArcaniteBlaster extends ItemModShotgun {
     public ItemArcaniteBlaster() {
-        super("shooter_bullet", BulletType.ARCANITE_BLASTER, () -> SoundRegistry.GHAST_CANNON.get(), SoundSource.PLAYERS, 6500, 7, null, 20, 30);
+        super("shooter_bullet", BulletType.ARCANITE_BLASTER, SoundRegistry.GHAST_CANNON.get(), SoundSource.PLAYERS, 6500, 7, null, 20, 30);
     }
     @SuppressWarnings("unchecked") @Override
     protected ThrowableProjectile createProjectile(Level world, LivingEntity player) {
     	return new EntityShooterBullet((EntityType<? extends ThrowableProjectile>) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, this.entityType)), player, world, this.bulletType);
     }
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.rangedDamString("30x23"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }

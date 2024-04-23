@@ -1,49 +1,30 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.entities.projectile.EntitySerenadeOfDeath;
-import divinerpg.items.base.ItemMod;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
+import divinerpg.items.base.ItemModRanged;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-
+import net.minecraftforge.api.distmarker.*;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemSerenadeOfDeath extends ItemMod {
-
-    public ItemSerenadeOfDeath() {
-        super(new Properties().durability(500));
+public class ItemSerenadeOfDeath extends ItemModRanged {
+    public ItemSerenadeOfDeath() {super("serenade_of_death", BulletType.SERENADE_OF_DEATH_SHOT, SoundRegistry.SERENADE.get(), SoundSource.PLAYERS, 500, 0, null, 0);}
+    @Override protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
+        EntityShooterBullet bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, this.bulletType);
+        bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 1.5F, 1);
+        world.addFreshEntity(bullet);
     }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.serenade_of_death"));
-        tooltip.add(LocalizeUtils.usesRemaining(stack.getMaxDamage() - stack.getDamageValue()));
-        tooltip.add(LocalizeUtils.rangedDam(14));
-    }
-
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-
-        if (!world.isClientSide) {
-            world.playSound(null, player.blockPosition(), SoundRegistry.SERENADE.get(), SoundSource.MASTER, 1, 1);
-            ThrowableProjectile bullet = new EntitySerenadeOfDeath(EntityRegistry.SERENADE_OF_DEATH.get(), player, world);
-            bullet.moveTo(player.getX(), player.getEyeY(), player.getZ());
-            bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
-            world.addFreshEntity(bullet);
-            if (!player.isCreative()) {
-                stack.hurtAndBreak(1, player, (p_220009_1_) -> {
-                    p_220009_1_.broadcastBreakEvent(player.getUsedItemHand());
-                });
-            }
-        }
-        return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, stack);
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
+        tooltip.add(LocalizeUtils.poison(2));
+        tooltip.add(LocalizeUtils.infiniteAmmo());
     }
 }

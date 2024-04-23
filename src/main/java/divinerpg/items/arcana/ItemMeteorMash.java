@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ItemMeteorMash extends ItemModRanged {
     public ItemMeteorMash() {
-        super("meteor", null, () -> SoundRegistry.STARLIGHT.get(), SoundSource.MASTER, -1, 0, null, 35);
+        super("meteor", null, SoundRegistry.STARLIGHT.get(), SoundSource.MASTER, -1, 0, null, 35);
     }
 
     @Override

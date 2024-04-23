@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemAttractor extends ItemModRanged {
-    public ItemAttractor() {super("attractor", null, SoundRegistry.REFLECTOR, SoundSource.PLAYERS, 0, 0, null, 20);}
+    public ItemAttractor() {super("attractor", null, SoundRegistry.REFLECTOR.get(), SoundSource.PLAYERS, 0, 0, null, 20);}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.arcanium_attractor"));

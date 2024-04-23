@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 public class ItemCorruptedCannon extends ItemModShotgun {
     public ItemCorruptedCannon() {
-    	super("corrupted_bullet", null, SoundRegistry.GHAST_CANNON::get, SoundSource.MASTER, -1, 4, new ResourceLocation(DivineRPG.MODID, "corrupted_bullet"), 0, 4);
+    	super("corrupted_bullet", null, SoundRegistry.GHAST_CANNON.get(), SoundSource.MASTER, -1, 4, new ResourceLocation(DivineRPG.MODID, "corrupted_bullet"), 0, 4);
     }
     @SuppressWarnings("unchecked") @Override
     protected ThrowableProjectile createProjectile(Level world, LivingEntity player) {

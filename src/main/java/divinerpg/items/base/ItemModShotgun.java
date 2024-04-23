@@ -1,7 +1,5 @@
 package divinerpg.items.base;
 
-import java.util.function.Supplier;
-
 import divinerpg.enums.BulletType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
@@ -14,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 public abstract class ItemModShotgun extends ItemModRanged {
 	protected final int projectileAmount;
-	public ItemModShotgun(String entityType, BulletType bulletType, Supplier<SoundEvent> sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammoSupplier, int arcanaConsuming, int projectileAmount) {
+	public ItemModShotgun(String entityType, BulletType bulletType, SoundEvent sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammoSupplier, int arcanaConsuming, int projectileAmount) {
 		super(entityType, bulletType, sound, soundCategory, maxDamage, delay, ammoSupplier, arcanaConsuming);
 		this.projectileAmount = projectileAmount;
 	}

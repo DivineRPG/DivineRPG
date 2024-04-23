@@ -15,7 +15,7 @@ public class ItemAnchor extends ItemModRanged {
     private final Multimap<Attribute, AttributeModifier> attributeModifiers;
 
     public ItemAnchor(BulletType projectileType) {
-        super(projectileType, () -> SoundRegistry.BLITZ.get(), null, -1, 0);
+        super(projectileType, SoundRegistry.BLITZ.get(), null, 0, 0);
 
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_MODIFIER, "Weapon attack", 7.0D, AttributeModifier.Operation.ADDITION));

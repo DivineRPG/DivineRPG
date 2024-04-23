@@ -16,7 +16,7 @@ public class ItemTwilightBlitz extends ItemModRanged {
     private final Multimap<Attribute, AttributeModifier> attributeModifiers;
 
     public ItemTwilightBlitz(Rarity rarity, BulletType projectileType, ResourceLocation ammoSupplier) {
-        super(rarity, projectileType, SoundRegistry.BLITZ::get, ammoSupplier, -1, 0);
+        super(rarity, projectileType, SoundRegistry.BLITZ.get(), ammoSupplier, -1, 0);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_MODIFIER, "Weapon attack", bulletType.getDamage() - 1, AttributeModifier.Operation.ADDITION));
         this.attributeModifiers = builder.build();

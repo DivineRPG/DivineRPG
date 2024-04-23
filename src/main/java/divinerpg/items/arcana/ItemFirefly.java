@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ItemFirefly extends ItemModRanged {
     public ItemFirefly() {
-        super("firefly", null, () -> SoundRegistry.FIREFLY.get(), SoundSource.PLAYERS, -1, 0, null, 5);
+        super("firefly", null, SoundRegistry.FIREFLY.get(), SoundSource.PLAYERS, -1, 0, null, 5);
     }
 
     @Override

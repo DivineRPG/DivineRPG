@@ -24,9 +24,9 @@ public class ItemStaff extends ItemModRanged {
 
     public ItemStaff(int dam,
                      int arcana) {
-        super("bouncing_projectile", null, () -> SoundRegistry.STAFF.get(),
+        super("bouncing_projectile", null, SoundRegistry.STAFF.get(),
                 SoundSource.PLAYERS,
-                -1,
+                0,
                 0,
                 null,
                 arcana);

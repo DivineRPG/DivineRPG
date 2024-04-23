@@ -20,12 +20,11 @@ import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ItemModRanged extends ItemMod {
 
     protected final String entityType;
-    private final Supplier<SoundEvent> sound;
+    private final SoundEvent sound;
     private final SoundSource soundCategory;
     private final ResourceLocation ammoSupplier;
     protected BulletType bulletType;
@@ -41,7 +40,7 @@ public class ItemModRanged extends ItemMod {
      * @param ammo - ammo for weapon. If it returns null, no ammo required
      * @param arcanaConsuming - arcana consuming per shot. Pass 0 to not consume at all
      */
-    public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType, Supplier<SoundEvent> sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammo, int arcanaConsuming) {
+    public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType, SoundEvent sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammo, int arcanaConsuming) {
         super(new Properties().durability(maxDamage).rarity(rarity));
         this.entityType = entityType;
         this.sound = sound;
@@ -51,7 +50,7 @@ public class ItemModRanged extends ItemMod {
         arcanaConsumedUse = arcanaConsuming;
         this.bulletType = bulletType;
     }
-    public ItemModRanged(String entityType, BulletType bulletType, Supplier<SoundEvent> sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammo, int arcanaConsuming) {
+    public ItemModRanged(String entityType, BulletType bulletType, SoundEvent sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammo, int arcanaConsuming) {
         super(new Properties().durability(maxDamage));
         this.entityType = entityType;
         this.sound = sound;
@@ -61,10 +60,10 @@ public class ItemModRanged extends ItemMod {
         arcanaConsumedUse = arcanaConsuming;
         this.bulletType = bulletType;
     }
-    public ItemModRanged(BulletType bulletType, Supplier<SoundEvent> sound, ResourceLocation ammoSupplier, int maxDamage, int counter) {this(null, bulletType, sound, SoundSource.PLAYERS, maxDamage, counter, ammoSupplier, 0);}
-    public ItemModRanged(BulletType bulletType, Supplier<SoundEvent> sound, int uses, int counter) {this(bulletType, sound, null, uses, counter);}
-    public ItemModRanged(Rarity rarity, BulletType bulletType, Supplier<SoundEvent> sound, ResourceLocation ammoSupplier, int maxDamange, int counter) {this(rarity, null, bulletType, sound, SoundSource.PLAYERS, maxDamange, counter, ammoSupplier, 0);}
-    public ItemModRanged(Rarity rarity, BulletType bulletType, Supplier<SoundEvent> sound, int uses, int counter) {this(rarity, bulletType, sound, null, uses, counter);}
+    public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int maxDamage, int counter) {this(null, bulletType, sound, SoundSource.PLAYERS, maxDamage, counter, ammoSupplier, 0);}
+    public ItemModRanged(BulletType bulletType, SoundEvent sound, int uses, int counter) {this(bulletType, sound, null, uses, counter);}
+    public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int maxDamage, int counter) {this(rarity, null, bulletType, sound, SoundSource.PLAYERS, maxDamage, counter, ammoSupplier, 0);}
+    public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, int uses, int counter) {this(rarity, bulletType, sound, null, uses, counter);}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if(canUseRangedWeapon(player, stack)) {
@@ -73,7 +72,7 @@ public class ItemModRanged extends ItemMod {
             if(ammo.getResult() == InteractionResult.SUCCESS && checkArcana.getResult() == InteractionResult.SUCCESS) {
                 doPreUsageEffects(world, player);
                 if(!world.isClientSide) {
-                    world.playSound(null, player.blockPosition(), this.sound.get() != null ? this.sound.get() : SoundEvents.ARROW_SHOOT, this.soundCategory != null ? this.soundCategory : SoundSource.PLAYERS, 1, 1);
+                    world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, 1, 1);
                     spawnEntity(world, player, stack, bulletType, entityType);
                 }
                 Arcana arcana = checkArcana.getObject();
@@ -89,7 +88,7 @@ public class ItemModRanged extends ItemMod {
             }
         } return InteractionResultHolder.pass(stack);
     }
-    private Item getAmmo() {
+    public Item getAmmo() {
         if(ForgeRegistries.ITEMS.getValue(ammoSupplier) != Items.AIR) return ForgeRegistries.ITEMS.getValue(ammoSupplier);
         else return null;
     }

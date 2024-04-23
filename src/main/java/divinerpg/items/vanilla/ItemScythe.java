@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemScythe extends ItemModRanged {
-    public ItemScythe() {super(Rarity.COMMON, "shooter_bullet", BulletType.SCYTHE_SHOT, SoundRegistry.DEEP_LAUGH, SoundSource.PLAYERS, -1, 0, null, 0);}
+    public ItemScythe() {super(Rarity.COMMON, "shooter_bullet", BulletType.SCYTHE_SHOT, SoundRegistry.DEEP_LAUGH.get(), SoundSource.PLAYERS, 0, 0, null, 0);}
     @Override protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {super.spawnEntity(world, player, stack, isJackoman(player) ? BulletType.MEGA_SCYTHE_SHOT : BulletType.SCYTHE_SHOT, null);}
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {if(Minecraft.getInstance().player != null) tooltip.add(LocalizeUtils.rangedDam(isJackoman(Minecraft.getInstance().player) ? (int)BulletType.MEGA_SCYTHE_SHOT.getDamage() : (int)BulletType.SCYTHE_SHOT.getDamage()));}
     private boolean isJackoman(Player player) {

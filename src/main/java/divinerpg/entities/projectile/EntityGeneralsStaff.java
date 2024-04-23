@@ -24,7 +24,7 @@ public class EntityGeneralsStaff extends EntityColoredBullet {
     }
 
     @Override
-    protected void onHit(HitResult result) {
+    public void onHit(HitResult result) {
         if(tickCount != 1 || tickCount != 0) {
             super.onHit(result);
             if (!this.level().isClientSide()) {

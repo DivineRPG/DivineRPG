@@ -76,12 +76,10 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityFrostShot>>				 FROST_SHOT = registerFireballProjectile(EntityFrostShot::new,                      "frost_shot");
     public static final RegistryObject<EntityType<EntityFyracryxFireball>>		 FYRACRYX_FIREBALL = registerFireballProjectile(EntityFyracryxFireball::new,        "fyracryx_fireball");
     public static final RegistryObject<EntityType<EntityGeneralsStaff>>			 GENERALS_STAFF = registerProjectile(EntityGeneralsStaff::new,                      "generals_staff");
-    public static final RegistryObject<EntityType<EntityGrenade>>				 GRENADE = registerProjectile(EntityGrenade::new,                                   "grenade");
     public static final RegistryObject<EntityType<EntityKazroticShot>>			 KAZROTIC_SHOT = registerProjectile(EntityKazroticShot::new,                        "kazrotic_shot");
     public static final RegistryObject<EntityType<EntityKingOfScorchersMeteor>>  KING_OF_SCORCHERS_METEOR = registerProjectile(EntityKingOfScorchersMeteor::new,    "king_of_scorchers_meteor");
     public static final RegistryObject<EntityType<EntityKingOfScorchersShot>>	 KING_OF_SCORCHERS_SHOT = registerProjectile(EntityKingOfScorchersShot::new,        "king_of_scorchers_shot");
     public static final RegistryObject<EntityType<EntityLadyLunaSparkler>>		 LADY_LUNA_SPARKLER = registerProjectile(EntityLadyLunaSparkler::new,               "lady_luna_sparkler");
-    public static final RegistryObject<EntityType<EntityTwilightMageShot>>		 MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new,                        "mage_shot");
     public static final RegistryObject<EntityType<EntityMandragoraProjectile>>	 MANDRAGORA_PROJECTILE = registerProjectile(EntityMandragoraProjectile::new,        "mandragora_projectile");
     public static final RegistryObject<EntityType<EntityMerikMissile>>			 MERIKS_MISSILE = registerProjectile(EntityMerikMissile::new,                       "meriks_missile");
     public static final RegistryObject<EntityType<EntityMeteor>>				 METEOR = registerProjectile(EntityMeteor::new,                                     "meteor");
@@ -90,22 +88,30 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityReflector>>				 REFLECTOR = registerProjectile(EntityReflector::new,                               "reflector");
     public static final RegistryObject<EntityType<EntitySaguaroWormShot>>		 SAGUARO_WORM_SHOT = registerProjectile(EntitySaguaroWormShot::new,                 "saguaro_worm_shot");
     public static final RegistryObject<EntityType<EntityScorcherShot>>			 SCORCHER_SHOT = registerFireballProjectile(EntityScorcherShot::new,                "scorcher_shot");
-    public static final RegistryObject<EntityType<EntitySerenadeOfDeath>>		 SERENADE_OF_DEATH = registerProjectile(EntitySerenadeOfDeath::new,                 "serenade_of_death");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>		     SERENADE_OF_DEATH = registerProjectile(EntityShooterBullet::new,                   "serenade_of_death");
     public static final RegistryObject<EntityType<EntitySerenadeOfIce>>			 SERENADE_OF_ICE = registerProjectile(EntitySerenadeOfIce::new,                     "serenade_of_ice");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>			 GRENADE = registerProjectile(EntityShooterBullet::new,                             "grenade");
     public static final RegistryObject<EntityType<EntityShooterBullet>>			 SHOOTER_BULLET = registerProjectile(EntityShooterBullet::new,                      "shooter_bullet");
-    public static final RegistryObject<EntityType<EntityShuriken>>				 SHURIKEN = registerProjectile(EntityShuriken::new,                                 "shuriken");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>			 SHURIKEN = registerProjectile(EntityShooterBullet::new,                            "shuriken");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>			 TOMATO = registerProjectile(EntityShooterBullet::new,                              "tomato");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>			 VILE_STORM = registerProjectile(EntityShooterBullet::new,                          "vile_storm");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>		     APALACHIA_SLICER = registerProjectile(EntityShooterBullet::new,                    "apalachia_slicer");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>		     EDEN_SLICER = registerProjectile(EntityShooterBullet::new,                         "eden_slicer");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>		     HALITE_SLICER = registerProjectile(EntityShooterBullet::new,                       "halite_slicer");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>		     MORTUM_SLICER = registerProjectile(EntityShooterBullet::new,                       "mortum_slicer");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>		     SKYTHERN_SLICER = registerProjectile(EntityShooterBullet::new,                     "skythern_slicer");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>		     SNOWFLAKE_SHURIKEN = registerProjectile(EntityShooterBullet::new,                  "snowflake_shuriken");
+    public static final RegistryObject<EntityType<EntityShooterBullet>>		     WILDWOOD_SLICER = registerProjectile(EntityShooterBullet::new,                     "wildwood_slicer");
     public static final RegistryObject<EntityType<EntitySkyreBullet>>			 SKYRE_BULLET = registerProjectile(EntitySkyreBullet::new,                          "skyre_bullet");
-    public static final RegistryObject<EntityType<EntitySnowflakeShuriken>>		 SNOWFLAKE_SHURIKEN = registerProjectile(EntitySnowflakeShuriken::new,              "snowflake_shuriken");
     public static final RegistryObject<EntityType<EntitySoulFiendShot>>			 SOUL_FIEND_SHOT = registerProjectile(EntitySoulFiendShot::new,                     "soul_fiend_shot");
     public static final RegistryObject<EntityType<EntitySoundOfCarols>>			 SOUND_OF_CAROLS = registerProjectile(EntitySoundOfCarols::new,                     "sound_of_carols");
     public static final RegistryObject<EntityType<EntitySoundOfMusic>>			 SOUND_OF_MUSIC = registerProjectile(EntitySoundOfMusic::new,                       "sound_of_music");
     public static final RegistryObject<EntityType<EntitySoundOfWhales>>			 SOUND_OF_WHALES = registerProjectile(EntitySoundOfWhales::new,                     "sound_of_whales");
     public static final RegistryObject<EntityType<EntitySparkler>>				 SPARKLER = registerProjectile(EntitySparkler::new,                                 "sparkler");
     public static final RegistryObject<EntityType<EntityStar>>					 STARLIGHT = registerProjectile(EntityStar::new,                                    "star");
-    public static final RegistryObject<EntityType<EntityTomato>>			     TOMATO = registerProjectile(EntityTomato::new,                                     "tomato");
     public static final RegistryObject<EntityType<EntityTwilightDemonShot>>		 TWILIGHT_DEMON_SHOT = registerProjectile(EntityTwilightDemonShot::new,             "twilight_demon_shot");
+    public static final RegistryObject<EntityType<EntityTwilightMageShot>>		 MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new,                        "mage_shot");
     public static final RegistryObject<EntityType<EntityTwilightMageShot>>		 TWILIGHT_MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new,               "twilight_mage_shot");
-    public static final RegistryObject<EntityType<EntityVileStorm>>				 VILE_STORM = registerProjectile(EntityVileStorm::new,                              "vile_storm");
     public static final RegistryObject<EntityType<EntityWatcherShot>>			 WATCHER_SHOT = registerProjectile(EntityWatcherShot::new,                          "watcher_shot");
     public static final RegistryObject<EntityType<EntityWildwoodLog>>			 WILDWOOD_LOG = registerProjectile(EntityWildwoodLog::new,                          "wildwood_log");
     public static final RegistryObject<EntityType<EntityWreckBouncingProjectile>>WRECK_BOUNCING_PROJECTILE = registerProjectile(EntityWreckBouncingProjectile::new, "wreck_bouncing_projectile");
@@ -798,59 +804,65 @@ public class EntityRegistry {
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         DivineRPG.LOGGER.info("[DivineRPG] Registered entity renders");
-        //Projectile
-        event.registerEntityRenderer(ATTRACTOR.get(), 				(Context context) -> new RenderDivineProjectile<>(context));
+        //Projectiles
+        event.registerEntityRenderer(APALACHIA_SLICER.get(), 		(Context context) -> new RenderItemProjectile<>(context, "apalachia_slicer"));
+        event.registerEntityRenderer(ARROW_SHOT.get(),              RenderDivineArrow::new);
+        event.registerEntityRenderer(ATTRACTOR.get(),               RenderDivineProjectile::new);
         event.registerEntityRenderer(BOUNCING_PROJECTILE.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "bouncing_projectile"));
         event.registerEntityRenderer(CAVE_ROCK.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "cave_rock"));
+        event.registerEntityRenderer(COLORED_BULLET.get(),          RenderShooterBullet::new);
         event.registerEntityRenderer(CORI_SHOT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "cori_shot"));
         event.registerEntityRenderer(CORRUPTED_BULLET.get(), 		(Context context) -> new RenderItemProjectile<>(context, "corrupted_bullet"));
-        event.registerEntityRenderer(COLORED_BULLET.get(), 			(Context context) -> new RenderShooterBullet<>(context));
-        event.registerEntityRenderer(DISK.get(), 					(Context context) -> new RenderDisk<>(context));
+        event.registerEntityRenderer(DISK.get(),                    RenderDisk::new);
         event.registerEntityRenderer(DISSIMENT_SHOT.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "dissiment_shot"));
-        event.registerEntityRenderer(ARROW_SHOT.get(), 				(Context context) -> new RenderDivineArrow<>(context));
+        event.registerEntityRenderer(EDEN_SLICER.get(), 		    (Context context) -> new RenderItemProjectile<>(context, "eden_slicer"));
         event.registerEntityRenderer(ENDER_TRIPLETS_FIREBALL.get(), (Context context) -> new RenderDivineFireball<>(context, "ender_triplets_fireball"));
         event.registerEntityRenderer(FIREFLY.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "firefly"));
         event.registerEntityRenderer(FRACTITE_SHOT.get(), 			(Context context) -> new RenderDivineFireball<>(context, "fractite_shot"));
+        event.registerEntityRenderer(FROST_CLOUD.get(),             RenderFrostCloud::new);
         event.registerEntityRenderer(FROST_SHOT.get(), 				(Context context) -> new RenderDivineFireball<>(context, "frost_shot"));
         event.registerEntityRenderer(FYRACRYX_FIREBALL.get(), 		(Context context) -> new RenderDivineFireball<>(context, new ResourceLocation("minecraft:textures/items/fireball.png")));
         event.registerEntityRenderer(GENERALS_STAFF.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "generals_staff"));
         event.registerEntityRenderer(GRENADE.get(), 				(Context context) -> new RenderItemProjectile<>(context, "grenade"));
+        event.registerEntityRenderer(HALITE_SLICER.get(), 		    (Context context) -> new RenderItemProjectile<>(context, "halite_slicer"));
         event.registerEntityRenderer(KAZROTIC_SHOT.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "kazrotic_shot"));
         event.registerEntityRenderer(KING_OF_SCORCHERS_METEOR.get(),(Context context) -> new RenderDivineProjectile<>(context, "king_of_scorchers_meteor"));
         event.registerEntityRenderer(KING_OF_SCORCHERS_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "king_of_scorchers_shot"));
-        event.registerEntityRenderer(LADY_LUNA_SPARKLER.get(), 		(Context context) -> new RenderShooterBullet<>(context));
-        event.registerEntityRenderer(MAGE_SHOT.get(), 				(Context context) -> new RenderDivineProjectile<>(context));
+        event.registerEntityRenderer(LADY_LUNA_SPARKLER.get(),      RenderShooterBullet::new);
+        event.registerEntityRenderer(MAGE_SHOT.get(),               RenderDivineProjectile::new);
         event.registerEntityRenderer(MANDRAGORA_PROJECTILE.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "mandragora_projectile"));
         event.registerEntityRenderer(MERIKS_MISSILE.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "meriks_missile"));
         event.registerEntityRenderer(METEOR.get(), 					(Context context) -> new RenderDivineProjectile<>(context, "meteor"));
-        event.registerEntityRenderer(PARTICLE_BULLET.get(), 		(Context context) -> new RenderShooterBullet<>(context));
+        event.registerEntityRenderer(MORTUM_SLICER.get(), 		    (Context context) -> new RenderItemProjectile<>(context, "mortum_slicer"));
+        event.registerEntityRenderer(PARTICLE_BULLET.get(),         RenderShooterBullet::new);
         event.registerEntityRenderer(RAGLOK_BOMB.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "raglok_bomb"));
-        event.registerEntityRenderer(REFLECTOR.get(), 				(Context context) -> new RenderDivineProjectile<>(context));
-        event.registerEntityRenderer(SAGUARO_WORM_SHOT.get(), 		(Context context) -> new RenderSaguaroWormShot(context));
+        event.registerEntityRenderer(REFLECTOR.get(),               RenderDivineProjectile::new);
+        event.registerEntityRenderer(SAGUARO_WORM_SHOT.get(),       RenderSaguaroWormShot::new);
         event.registerEntityRenderer(SCORCHER_SHOT.get(), 			(Context context) -> new RenderDivineFireball<>(context, "scorcher_shot"));
         event.registerEntityRenderer(SERENADE_OF_DEATH.get(), 		(Context context) -> new RenderDivineProjectile<>(context, "serenade_of_death"));
-        event.registerEntityRenderer(SERENADE_OF_ICE.get(), 		(Context context) -> new RenderDivineProjectile<>(context));
-        event.registerEntityRenderer(SHOOTER_BULLET.get(), 			(Context context) -> new RenderShooterBullet<>(context));
+        event.registerEntityRenderer(SERENADE_OF_ICE.get(),         RenderDivineProjectile::new);
+        event.registerEntityRenderer(SHOOTER_BULLET.get(),          RenderShooterBullet::new);
         event.registerEntityRenderer(SHURIKEN.get(), 				(Context context) -> new RenderItemProjectile<>(context, "shuriken"));
         event.registerEntityRenderer(SKYRE_BULLET.get(), 		    (Context context) -> new RenderDivineProjectile<>(context, "skyre_bullet"));
+        event.registerEntityRenderer(SKYTHERN_SLICER.get(), 		(Context context) -> new RenderItemProjectile<>(context, "skythern_slicer"));
         event.registerEntityRenderer(SNOWFLAKE_SHURIKEN.get(), 		(Context context) -> new RenderItemProjectile<>(context, "snowflake_shuriken"));
-        event.registerEntityRenderer(SOUL_FIEND_SHOT.get(), 		(Context context) -> new RenderDivineProjectile<>(context));
+        event.registerEntityRenderer(SOUL_FIEND_SHOT.get(),         RenderDivineProjectile::new);
         event.registerEntityRenderer(SOUND_OF_CAROLS.get(), 		(Context context) -> new RenderDivineProjectile<>(context, "music"));
         event.registerEntityRenderer(SOUND_OF_MUSIC.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "music"));
         event.registerEntityRenderer(SOUND_OF_WHALES.get(), 		(Context context) -> new RenderDivineProjectile<>(context, "music"));
         event.registerEntityRenderer(SPARKLER.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "sparkler"));
         event.registerEntityRenderer(STARLIGHT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "starlight"));
+        event.registerEntityRenderer(TOMATO.get(), 			        (Context context) -> new RenderDivineProjectile<>(context, new ResourceLocation(MODID, "textures/item/tomato.png")));
         event.registerEntityRenderer(TWILIGHT_DEMON_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "twilight_demon_shot"));
-        event.registerEntityRenderer(TWILIGHT_MAGE_SHOT.get(), 		(Context context) -> new RenderDivineProjectile<>(context));
+        event.registerEntityRenderer(TWILIGHT_MAGE_SHOT.get(),      RenderDivineProjectile::new);
         event.registerEntityRenderer(VILE_STORM.get(), 				(Context context) -> new RenderItemProjectile<>(context, "vile_storm"));
         event.registerEntityRenderer(WATCHER_SHOT.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "watcher_shot"));
+        event.registerEntityRenderer(WILDWOOD_LOG.get(),            RenderWildwoodLog::new);
+        event.registerEntityRenderer(WILDWOOD_SLICER.get(), 		(Context context) -> new RenderItemProjectile<>(context, "wildwood_slicer"));
         event.registerEntityRenderer(WRECK_BOUNCING_PROJECTILE.get(),(Context context) -> new RenderDivineProjectile<>(context, "wreck_bouncing_projectile"));
         event.registerEntityRenderer(WRECK_EXPLOSIVE_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "wreck_explosive_shot"));
         event.registerEntityRenderer(WRECK_SHOT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "wreck_shot"));
         event.registerEntityRenderer(ZORAGON_BOMB.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "zoragon_bomb"));
-        event.registerEntityRenderer(TOMATO.get(), 			        (Context context) -> new RenderDivineProjectile<>(context, new ResourceLocation(MODID, "textures/item/tomato.png")));
-        event.registerEntityRenderer(WILDWOOD_LOG.get(), 			(Context context) -> new RenderWildwoodLog(context));
-        event.registerEntityRenderer(FROST_CLOUD.get(), 			(Context context) -> new RenderFrostCloud(context));
 
         //Boss
         event.registerEntityRenderer(ANCIENT_ENTITY.get(), 	(Context context) -> new RenderDivineMob<>(context, "ancient_entity", 	new ModelAncientEntity(context), 6F, 6F));
@@ -1066,48 +1078,45 @@ public class EntityRegistry {
         event.registerEntityRenderer(ZONE.get(), (Context context) -> new RenderDivineMob<>(context, "zone", new ModelZone<>(context)));
         event.registerEntityRenderer(ZORAGON.get(), (Context context) -> new RenderDivineMob<>(context, "zoragon", new ModelZoragon<>(context), 0.5F, 3F));
     }
-
-    private static final <T extends Entity> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height) {
+    private static <T extends Entity> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height) {
         return ENTITIES.register(name, () -> EntityType.Builder.of(factory, MobCategory.MONSTER).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
     }
-    private static final <T extends Entity> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, MobCategory category) {
+    private static <T extends Entity> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, MobCategory category) {
         return ENTITIES.register(name, () -> EntityType.Builder.of(factory, category).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
     }
-    private static final <T extends Mob> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, int backgroundColor, int highlightColor) {
+    private static <T extends Mob> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, int backgroundColor, int highlightColor) {
         return registerEntity(factory, name, width, height, backgroundColor, highlightColor, MobCategory.MONSTER);
     }
-    private static final <T extends Mob> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, int backgroundColor, int highlightColor, MobCategory category) {
+    private static <T extends Mob> RegistryObject<EntityType<T>> registerEntity(EntityFactory<T> factory, String name, float width, float height, int backgroundColor, int highlightColor, MobCategory category) {
         RegistryObject<EntityType<T>> entity = ENTITIES.register(name, () -> EntityType.Builder.of(factory, category).sized(width, height).build(new ResourceLocation(DivineRPG.MODID, name).toString()));
         ItemRegistry.ITEMS.register(name + "_spawn_egg", () -> new ForgeSpawnEggItem(entity, backgroundColor, highlightColor, new Item.Properties()));
         return entity;
     }
-
-    private static final <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats) {
+    private static <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats) {
         event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).build());
     }
-    private static final <T extends Mob> void registerMobAttributesKnockback(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats, double knockback) {
+    private static <T extends Mob> void registerMobAttributesKnockback(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats, double knockback) {
         event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).add(Attributes.KNOCKBACK_RESISTANCE, knockback).build());
     }
-    private static final <T extends Mob> void registerMobAttributesArmour(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats, double armour) {
+    private static <T extends Mob> void registerMobAttributesArmour(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity, EntityStats stats, double armour) {
         event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).add(Attributes.ARMOR, armour).build());
     }
-
-    private static final <T extends Mob> void registerDefaultMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity) {
+    private static <T extends Mob> void registerDefaultMobAttributes(EntityAttributeCreationEvent event, RegistryObject<EntityType<T>> entity) {
         event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.DEFAULT.getHealth()).add(Attributes.ATTACK_DAMAGE, EntityStats.DEFAULT.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, EntityStats.DEFAULT.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, EntityStats.DEFAULT.getFollowRange()).add(Attributes.FLYING_SPEED, EntityStats.DEFAULT.getMovementSpeed()).build());
     }
     private static RegistryObject<EntityType<EntityFrostCloud>> registerFrostCloud(EntityType.EntityFactory<EntityFrostCloud> factory, String entityName){
         return ENTITIES.register(entityName, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(0.5F, 0.5F).setTrackingRange(120).setUpdateInterval(20).build(new ResourceLocation(DivineRPG.MODID, entityName).getPath()));
     }
-    private static final <T extends Projectile> RegistryObject<EntityType<T>> registerProjectile(EntityType.EntityFactory<T> factory, String entityName, float width, float length) {
+    private static <T extends Projectile> RegistryObject<EntityType<T>> registerProjectile(EntityType.EntityFactory<T> factory, String entityName, float width, float length) {
         return ENTITIES.register(entityName, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(width, length).setTrackingRange(120).setUpdateInterval(20).build(new ResourceLocation(DivineRPG.MODID, entityName).getPath()));
     }
-    private static final <T extends Projectile> RegistryObject<EntityType<T>> registerProjectile(EntityType.EntityFactory<T> factory, String entityName) {
+    private static <T extends Projectile> RegistryObject<EntityType<T>> registerProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerProjectile(factory, entityName, 0.25F, 0.25F);
     }
-    private static final <T extends AbstractArrow> RegistryObject<EntityType<T>> registerArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
+    private static <T extends AbstractArrow> RegistryObject<EntityType<T>> registerArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerProjectile(factory, entityName, 0.5F, 0.5F);
     }
-    private static final <T extends DivineFireball> RegistryObject<EntityType<T>> registerFireballProjectile(EntityType.EntityFactory<T> factory, String entityName) {
+    private static <T extends DivineFireball> RegistryObject<EntityType<T>> registerFireballProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerProjectile(factory, entityName, 0.25F, 0.25F);
     }
 }
