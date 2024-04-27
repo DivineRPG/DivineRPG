@@ -20,13 +20,15 @@ import java.util.List;
 
 public class ItemModThrowable extends ItemMod {
     protected BulletType bulletType;
-    protected Rarity rarity;
     public SoundEvent sound;
+    public ItemModThrowable(BulletType bulletType) {
+        this.bulletType = bulletType;
+        sound = SoundEvents.ARROW_SHOOT;
+    }
     public ItemModThrowable(Rarity rarity, BulletType bulletType) {
         super(rarity);
-        this.rarity = rarity;
         this.bulletType = bulletType;
-        this.sound = SoundEvents.ARROW_SHOOT;
+        sound = SoundEvents.ARROW_SHOOT;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);

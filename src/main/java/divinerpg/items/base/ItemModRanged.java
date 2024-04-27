@@ -34,36 +34,38 @@ public class ItemModRanged extends ItemMod {
      * @param entityType - entity type
      * @param bulletType - type of bullets. Has lower priority than entityType param
      * @param sound - what sound will be on bullet spawn
-     * @param soundCategory - sound category, mostly PLAYERS
-     * @param maxDamage - max usage of item
+     * @param uses - max usage of item
      * @param delay - weapon's cooldown
      * @param ammo - ammo for weapon. If it returns null, no ammo required
      * @param arcanaConsuming - arcana consuming per shot. Pass 0 to not consume at all
      */
-    public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType, SoundEvent sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammo, int arcanaConsuming) {
-        super(new Properties().durability(maxDamage).rarity(rarity));
+    public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, ResourceLocation ammo, int arcanaConsuming) {
+        super(new Properties().durability(uses).rarity(rarity));
         this.entityType = entityType;
         this.sound = sound;
-        this.soundCategory = soundCategory;
+        this.soundCategory = SoundSource.PLAYERS;
         cooldown = delay;
         ammoSupplier = ammo;
         arcanaConsumedUse = arcanaConsuming;
         this.bulletType = bulletType;
     }
-    public ItemModRanged(String entityType, BulletType bulletType, SoundEvent sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammo, int arcanaConsuming) {
-        super(new Properties().durability(maxDamage));
+    public ItemModRanged(String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, ResourceLocation ammo, int arcanaConsuming) {
+        super(new Properties().durability(uses));
         this.entityType = entityType;
         this.sound = sound;
-        this.soundCategory = soundCategory;
+        this.soundCategory = SoundSource.PLAYERS;
         cooldown = delay;
         ammoSupplier = ammo;
         arcanaConsumedUse = arcanaConsuming;
         this.bulletType = bulletType;
     }
-    public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int maxDamage, int counter) {this(null, bulletType, sound, SoundSource.PLAYERS, maxDamage, counter, ammoSupplier, 0);}
-    public ItemModRanged(BulletType bulletType, SoundEvent sound, int uses, int counter) {this(bulletType, sound, null, uses, counter);}
-    public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int maxDamage, int counter) {this(rarity, null, bulletType, sound, SoundSource.PLAYERS, maxDamage, counter, ammoSupplier, 0);}
-    public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, int uses, int counter) {this(rarity, bulletType, sound, null, uses, counter);}
+    public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay, int arcanaConsuming) {this(null, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);}
+    public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay) {this(null, bulletType, sound, uses, delay, ammoSupplier, 0);}
+    public ItemModRanged(BulletType bulletType, SoundEvent sound, int uses, int delay) {this(bulletType, sound, null, uses, delay);}
+    //Has rarity, specified ammo
+    public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay) {this(rarity, null, bulletType, sound, uses, delay, ammoSupplier, 0);}
+    //Has rarity, no ammo
+    public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, int uses, int delay) {this(rarity, bulletType, sound, null, uses, delay);}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if(canUseRangedWeapon(player, stack)) {
@@ -80,8 +82,7 @@ public class ItemModRanged extends ItemMod {
                 ItemStack ammoStack = ammo.getObject();
                 if(ammoStack != null) ammoStack.shrink(1);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, (p_220009_1_) -> p_220009_1_.broadcastBreakEvent(player.getUsedItemHand()));
-                //TODO: to simply add actual cooldowns for ranged weapons without unnecessary calculation shenanigans
-                player.getCooldowns().addCooldown(stack.getItem(), cooldown * 4 + 1);
+                player.getCooldowns().addCooldown(stack.getItem(), cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 doPostUsageEffects(world, player);
                 return InteractionResultHolder.consume(stack);
@@ -132,7 +133,7 @@ public class ItemModRanged extends ItemMod {
         ThrowableProjectile bullet;
         //Class has the most priority
         if(entityType != null) {
-            try {bullet = (ThrowableProjectile) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, entityType)).create(world);}
+            try{bullet = (ThrowableProjectile) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, entityType)).create(world);}
             catch(Exception e) {
                 e.printStackTrace();
                 //Weapon will not work, so it would be better to crush
@@ -140,8 +141,8 @@ public class ItemModRanged extends ItemMod {
             }
         }
         //In other cases we look to a BulletType field
-        else if (bulletType.getParticle() != ParticleTypes.BUBBLE) bullet = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), world, player, bulletType);
-        else if (bulletType.getRed() != 0 && bulletType.getGreen() != 0 && bulletType.getBlue() != 0) bullet = new EntityColoredBullet(EntityRegistry.COLORED_BULLET.get(), player, world, bulletType);
+        else if(bulletType.getParticle() != ParticleTypes.BUBBLE) bullet = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), world, player, bulletType);
+        else if(bulletType.getRed() != 0 && bulletType.getGreen() != 0 && bulletType.getBlue() != 0) bullet = new EntityColoredBullet(EntityRegistry.COLORED_BULLET.get(), player, world, bulletType);
         else bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, bulletType);
         bullet.moveTo(player.xo, player.getEyeY(), player.zo);
         bullet.setOwner(player);

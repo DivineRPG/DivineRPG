@@ -6,7 +6,6 @@ import divinerpg.items.base.ItemModRanged;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
@@ -18,7 +17,7 @@ import java.util.List;
 
 public class ItemMeteorMash extends ItemModRanged {
     public ItemMeteorMash() {
-        super("meteor", null, SoundRegistry.STARLIGHT.get(), SoundSource.MASTER, -1, 0, null, 35);
+        super("meteor", null, SoundRegistry.STARLIGHT.get(), 0, 0, null, 35);
     }
 
     @Override

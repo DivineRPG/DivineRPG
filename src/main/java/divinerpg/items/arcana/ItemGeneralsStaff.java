@@ -18,8 +18,7 @@ import java.util.List;
 public class ItemGeneralsStaff extends ItemModRanged {
 
     public ItemGeneralsStaff() {
-        super("generals_staff", null, SoundRegistry.STARLIGHT.get(), SoundSource.MASTER, -1, 12,
-                null, 20);
+        super("generals_staff", null, SoundRegistry.STARLIGHT.get(), 0, 50, null, 20);
     }
 
     @Override

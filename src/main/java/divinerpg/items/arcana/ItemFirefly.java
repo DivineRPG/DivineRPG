@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ItemFirefly extends ItemModRanged {
     public ItemFirefly() {
-        super("firefly", null, SoundRegistry.FIREFLY.get(), SoundSource.PLAYERS, -1, 0, null, 5);
+        super("firefly", null, SoundRegistry.FIREFLY.get(), 0, 0, null, 5);
     }
 
     @Override
@@ -28,9 +28,7 @@ public class ItemFirefly extends ItemModRanged {
     }
 
     @Override
-    protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType,
-                               String entityType) {
-
+    protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
         ThrowableProjectile bullet = new EntityFirefly(EntityRegistry.FIREFLY.get(), player, world);
         bullet.moveTo(player.xo, player.getEyeY(), player.zo);
         bullet.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);

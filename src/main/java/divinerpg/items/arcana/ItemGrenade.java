@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ItemGrenade extends ItemModThrowable {
     public ItemGrenade() {
-        super(Rarity.COMMON, BulletType.GRENADE);
+        super(BulletType.GRENADE);
         cooldown = 20;
         sound = SoundEvents.TRIDENT_THROW;
     }

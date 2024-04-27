@@ -12,12 +12,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ItemMusicShooter extends ItemModRanged {
 
     public ItemMusicShooter(SoundEvent event, String name) {
-        super(name, null, event, SoundSource.MASTER, 4000, 1,
+        super(name, null, event, 4000, 5,
                 null,
                 0);
     }

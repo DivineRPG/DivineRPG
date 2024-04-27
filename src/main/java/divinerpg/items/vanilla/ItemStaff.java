@@ -22,19 +22,11 @@ public class ItemStaff extends ItemModRanged {
 
     protected int damage;
 
-    public ItemStaff(int dam,
-                     int arcana) {
-        super("bouncing_projectile", null, SoundRegistry.STAFF.get(),
-                SoundSource.PLAYERS,
-                0,
-                0,
-                null,
-                arcana);
+    public ItemStaff(int dam, int arcana) {
+        super("bouncing_projectile", null, SoundRegistry.STAFF.get(), 0, 0, null, arcana);
         this.damage = dam;
     }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.arcanaDam(damage));
         tooltip.add(LocalizeUtils.i18n("tooltip.staff.bounce"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);

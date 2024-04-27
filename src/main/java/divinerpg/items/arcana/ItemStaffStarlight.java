@@ -29,7 +29,7 @@ public class ItemStaffStarlight extends ItemModRanged {
      * @param count  - count of spawning entities
      */
     public ItemStaffStarlight(int arcana, int count) {
-        super("star", null, SoundRegistry.STARLIGHT.get(), SoundSource.PLAYERS, 0, 0, null, arcana);
+        super("star", null, SoundRegistry.STARLIGHT.get(), 0, 0, null, arcana);
         this.count = count;
 
         starsInfo = LocalizeUtils.i18n(count > 1 ? "tooltip.staff_of_starlight" : "tooltip.starlight");

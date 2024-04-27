@@ -22,13 +22,13 @@ public class ItemBossSpawner extends ItemMod {
     private final String langKey;
     private ResourceKey<Level> dimensionID;
     public ItemBossSpawner(String key, ResourceKey<Level> dimension, Supplier<EntityType<?>> entity) {
-        super(new Item.Properties().stacksTo(1).rarity(RarityList.BOSS));
+        super(new Item.Properties().stacksTo(1).rarity(RarityList.RED));
         dimensionID = dimension;
         ent = entity;
         langKey = key;
     }
     public ItemBossSpawner(String key, ResourceKey<Level> dimension) {
-    	super(new Item.Properties().stacksTo(1).rarity(RarityList.BOSS));
+    	super(new Item.Properties().stacksTo(1).rarity(RarityList.RED));
     	dimensionID = dimension;
     	langKey = key;
     	ent = null;

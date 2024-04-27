@@ -2,7 +2,7 @@ package divinerpg.items.base;
 
 import divinerpg.enums.BulletType;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.*;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -12,16 +12,15 @@ import net.minecraft.world.level.Level;
 
 public abstract class ItemModShotgun extends ItemModRanged {
 	protected final int projectileAmount;
-	public ItemModShotgun(String entityType, BulletType bulletType, SoundEvent sound, SoundSource soundCategory, int maxDamage, int delay, ResourceLocation ammoSupplier, int arcanaConsuming, int projectileAmount) {
-		super(entityType, bulletType, sound, soundCategory, maxDamage, delay, ammoSupplier, arcanaConsuming);
+	public ItemModShotgun(String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, ResourceLocation ammoSupplier, int arcanaConsuming, int projectileAmount) {
+		super(entityType, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);
 		this.projectileAmount = projectileAmount;
 	}
-	@Override
-    protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
+	@Override protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
         RandomSource rand = world.random;
         for(int i = 0; i < projectileAmount; i++) {
             ThrowableProjectile entity = createProjectile(world, player);
-            entity.shootFromRotation(player, player.xRot + ((rand.nextFloat() - .5F) * 3.5F), player.yRot + ((rand.nextFloat() - .5F) * 3.5F), 0.0F, 1.5F, 1.0F);
+            entity.shootFromRotation(player, player.xRot + ((rand.nextFloat() - .5F) * 3.5F), player.yRot + ((rand.nextFloat() - .5F) * 3.5F), 0, 1.5F, 1.0F);
             entity.moveTo(entity.getX() + (rand.nextDouble() - .5), entity.getY() + (rand.nextDouble() - .5), entity.getZ() + (rand.nextDouble() - .5));
             world.addFreshEntity(entity);
         }
