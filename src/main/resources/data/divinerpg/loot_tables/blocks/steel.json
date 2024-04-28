@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:white_steel"
+          "name": "divinerpg:steel"
         }
       ],
       "conditions": [

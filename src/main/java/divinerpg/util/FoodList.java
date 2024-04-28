@@ -46,7 +46,7 @@ public class FoodList {
     public static final FoodProperties PURPLE_GLOWBONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(.5F).build();
 
     //Skythern
-    public static final FoodProperties SKY_FLOWER = (new FoodProperties.Builder()).nutrition(3).saturationMod(.2F).build();
+    public static final FoodProperties SKY_FLOWER = (new FoodProperties.Builder()).nutrition(3).saturationMod(.2F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0), 1).effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 600, 0), 1).build();
 
     //Vethea
     public static final FoodProperties DREAM_CAKE = (new FoodProperties.Builder()).nutrition(8).saturationMod(.8F).build();

@@ -1,6 +1,7 @@
 {
   "result": {
-    "item": "divinerpg:white_steel"
+    "item": "divinerpg:cyan_steel",
+    "count": 8
   },
   "pattern": [
     "xxx",
@@ -12,10 +13,10 @@
   "group": "steel_block",
   "key": {
     "x": {
-      "item": "minecraft:iron_ingot"
+      "item": "divinerpg:steel"
     },
     "y": {
-      "item": "minecraft:white_dye"
+      "item": "minecraft:cyan_dye"
     }
   }
 }

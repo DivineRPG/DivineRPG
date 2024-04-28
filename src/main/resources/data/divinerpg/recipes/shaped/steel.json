@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "divinerpg:teal_steel"
+    "item": "divinerpg:steel"
   },
   "pattern": [
     "xxx",
@@ -15,7 +15,7 @@
       "item": "minecraft:iron_ingot"
     },
     "y": {
-      "item": "minecraft:cyan_dye"
+      "item": "divinerpg:anthracite"
     }
   }
 }

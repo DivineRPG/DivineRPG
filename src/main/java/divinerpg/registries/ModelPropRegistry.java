@@ -7,53 +7,50 @@ import net.minecraft.client.renderer.item.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 @OnlyIn(Dist.CLIENT)
 public class ModelPropRegistry {
 
     public static void init() {
         DivineRPG.LOGGER.info("[DivineRPG] Attached model properties");
-        registerBow((ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "soulfire_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "ender_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "hunter_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "inferno_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "shadow_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "snowstorm_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "amthirmis_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "arksiane_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "cermile_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "darven_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "everfright")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "heliosis_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "pardimal_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "quadrotic_bow")),
-        (ItemModBow) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "teaker_bow"))
-        );
-        registerMerik((ItemMeriksMissile) ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "meriks_missile")));
+        registerBow((ItemModBow) ItemRegistry.apalachia_bow.get(),
+        (ItemModBow) ItemRegistry.soulfire_bow.get(),
+        (ItemModBow) ItemRegistry.eden_bow.get(),
+        (ItemModBow) ItemRegistry.ender_bow.get(),
+        (ItemModBow) ItemRegistry.halite_bow.get(),
+        (ItemModBow) ItemRegistry.hunter_bow.get(),
+        (ItemModBow) ItemRegistry.icicle_bow.get(),
+        (ItemModBow) ItemRegistry.inferno_bow.get(),
+        (ItemModBow) ItemRegistry.mortum_bow.get(),
+        (ItemModBow) ItemRegistry.shadow_bow.get(),
+        (ItemModBow) ItemRegistry.skythern_bow.get(),
+        (ItemModBow) ItemRegistry.snowstorm_bow.get(),
+        (ItemModBow) ItemRegistry.twilight_bow.get(),
+        (ItemModBow) ItemRegistry.wildwood_bow.get(),
+        (ItemModBow) ItemRegistry.amthirmis_bow.get(),
+        (ItemModBow) ItemRegistry.arksiane_bow.get(),
+        (ItemModBow) ItemRegistry.cermile_bow.get(),
+        (ItemModBow) ItemRegistry.darven_bow.get(),
+        (ItemModBow) ItemRegistry.everfright.get(),
+        (ItemModBow) ItemRegistry.heliosis_bow.get(),
+        (ItemModBow) ItemRegistry.karos_bow.get(),
+        (ItemModBow) ItemRegistry.pardimal_bow.get(),
+        (ItemModBow) ItemRegistry.quadrotic_bow.get(),
+        (ItemModBow) ItemRegistry.teaker_bow.get());
+        registerMerik((ItemMeriksMissile) ItemRegistry.meriks_missile.get());
 
         registerShield(new ResourceLocation(DivineRPG.MODID, "blocking"),
             (stack, world, entity, i) -> entity != null && entity.isUsingItem()
             && entity.getUseItem() == stack ? 1.0F : 0.0F,
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "realmite_shield")),
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "arlemite_shield")),
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "rupee_shield")),
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_shield")),
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_shield")),
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_shield")),
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_shield")),
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_shield")),
-        ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "halite_shield"))
-        );
+        ItemRegistry.realmite_shield.get(),
+        ItemRegistry.arlemite_shield.get(),
+        ItemRegistry.rupee_shield.get(),
+        ItemRegistry.eden_shield.get(),
+        ItemRegistry.wildwood_shield.get(),
+        ItemRegistry.apalachia_shield.get(),
+        ItemRegistry.skythern_shield.get(),
+        ItemRegistry.mortum_shield.get(),
+        ItemRegistry.halite_shield.get());
     }
 
     public static void registerBow(ItemModBow... item){

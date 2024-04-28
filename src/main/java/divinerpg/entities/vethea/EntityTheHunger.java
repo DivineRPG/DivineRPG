@@ -67,7 +67,7 @@ public class EntityTheHunger extends EntityDivineMerchant {
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.polished_pearls.get(), 5), new ItemStack(ItemRegistry.glistening_template.get(), 1), random.nextInt(7), 0),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.polished_pearls.get(), 5), new ItemStack(ItemRegistry.demonized_template.get(), 1), random.nextInt(7), 0),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 40), new ItemStack(ItemRegistry.moon_clock.get(), 1), random.nextInt(7), 0),
-				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 25), new ItemStack(ItemRegistry.band_of_heiva_hunting.get(), 1), random.nextInt(7), 0),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 25), new ItemStack(ItemRegistry.band_of_lheiva_hunting.get(), 1), random.nextInt(7), 0),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 1), new ItemStack(ItemRegistry.dream_sours.get(), 4), random.nextInt(7), 0),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 4), new ItemStack(ItemRegistry.ever_arrow.get(), 32), random.nextInt(7), 0),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 5), new ItemStack(ItemRegistry.tormented_template.get(), 1), random.nextInt(7), 0),

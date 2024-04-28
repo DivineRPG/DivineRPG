@@ -1,24 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dye": {
+    "has_anthracite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cyan_dye"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:iron_ingot"
+              "divinerpg:anthracite"
             ]
           }
         ]
@@ -27,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shaped/teal_steel"
+        "recipe": "divinerpg:shaped/steel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_dye",
-      "has_ingot",
+      "has_anthracite",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/teal_steel"
+      "divinerpg:shaped/steel"
     ]
   }
 }

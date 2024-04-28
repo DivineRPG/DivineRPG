@@ -58,7 +58,5 @@ public class PlantPots {
             }
         );
     }
-    private static void addPlant(RegistryObject<Block> plant, RegistryObject<FlowerPotBlock> pot) {
-        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(plant.getId(), pot);
-    }
+    private static void addPlant(RegistryObject<Block> plant, RegistryObject<FlowerPotBlock> pot) {((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(plant.getId(), pot);}
 }
