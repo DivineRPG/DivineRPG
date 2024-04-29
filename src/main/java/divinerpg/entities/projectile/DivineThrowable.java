@@ -3,7 +3,7 @@ package divinerpg.entities.projectile;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.HitResult;
 
 public class DivineThrowable extends ThrowableProjectile {
     public DivineThrowable(EntityType<? extends ThrowableProjectile> type, Level world) {super(type, world);}
@@ -15,9 +15,7 @@ public class DivineThrowable extends ThrowableProjectile {
     }
     @Override protected void onHit(HitResult result) {
         super.onHit(result);
-        discard();
+        if(!(this instanceof EntityBouncingProjectile)) discard();
     }
-    @Override protected void onHitEntity(EntityHitResult result) {super.onHitEntity(result);}
-    @Override protected void onHitBlock(BlockHitResult result) {super.onHitBlock(result);}
     @Override protected void defineSynchedData() {}
 }

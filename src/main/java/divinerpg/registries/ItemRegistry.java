@@ -679,16 +679,16 @@ public class ItemRegistry {
             ever_arrow = registerItemVethean("ever_arrow"),
 
             //Vethean Staffs
-            teaker_staff = registerItem("teaker_staff", () -> new ItemStaff(3, 10)),
-            amthirmis_staff = registerItem("amthirmis_staff", () -> new ItemStaff(5, 10)),
-            darven_staff = registerItem("darven_staff", () -> new ItemStaff(8, 10)),
-            cermile_staff = registerItem("cermile_staff", () -> new ItemStaff(12, 10)),
-            pardimal_staff = registerItem("pardimal_staff", () -> new ItemStaff(15, 10)),
-            quadrotic_staff = registerItem("quadrotic_staff", () -> new ItemStaff(19, 10)),
-            karos_staff = registerItem("karos_staff", () -> new ItemStaff(21, 10)),
-            heliosis_staff = registerItem("heliosis_staff", () -> new ItemStaff(28, 10)),
-            arksiane_staff = registerItem("arksiane_staff", () -> new ItemStaff(36, 10)),
-            evernight = registerItem("evernight", () -> new ItemEvernight(115, 80)),
+            teaker_staff = registerItem("teaker_staff", () -> new ItemStaff(BulletType.TEAKER_STAFF_SHOT)),
+            amthirmis_staff = registerItem("amthirmis_staff", () -> new ItemStaff(BulletType.AMTHIRMIS_STAFF_SHOT)),
+            darven_staff = registerItem("darven_staff", () -> new ItemStaff(BulletType.DARVEN_STAFF_SHOT)),
+            cermile_staff = registerItem("cermile_staff", () -> new ItemStaff(BulletType.CERMILE_STAFF_SHOT)),
+            pardimal_staff = registerItem("pardimal_staff", () -> new ItemStaff(BulletType.PARDIMAL_STAFF_SHOT)),
+            quadrotic_staff = registerItem("quadrotic_staff", () -> new ItemStaff(BulletType.QUADROTIC_STAFF_SHOT)),
+            karos_staff = registerItem("karos_staff", () -> new ItemStaff(BulletType.KAROS_STAFF_SHOT)),
+            heliosis_staff = registerItem("heliosis_staff", () -> new ItemStaff(BulletType.HELIOSIS_STAFF_SHOT)),
+            arksiane_staff = registerItem("arksiane_staff", () -> new ItemStaff(BulletType.ARKSIANE_STAFF_SHOT)),
+            evernight = registerItem("evernight", ItemEvernight::new),
 
             //Vethean Cannons
             teaker_cannon = registerItem("teaker_cannon", () -> new ItemVetheanCannon(BulletType.TEAKER_CANNON_SHOT)),

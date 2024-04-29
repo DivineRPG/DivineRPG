@@ -4,6 +4,8 @@ import divinerpg.DivineRPG;
 import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
+import divinerpg.items.arcana.ItemLaVekor;
+import divinerpg.items.vanilla.*;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.particles.ParticleTypes;
@@ -59,8 +61,11 @@ public class ItemModRanged extends ItemMod {
         arcanaConsumedUse = arcanaConsuming;
         this.bulletType = bulletType;
     }
+    //No rarity, specified arcana usage
     public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay, int arcanaConsuming) {this(null, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);}
+    //No rarity, specified ammo
     public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay) {this(null, bulletType, sound, uses, delay, ammoSupplier, 0);}
+    //No rarity, no ammo
     public ItemModRanged(BulletType bulletType, SoundEvent sound, int uses, int delay) {this(bulletType, sound, null, uses, delay);}
     //Has rarity, specified ammo
     public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay) {this(rarity, null, bulletType, sound, uses, delay, ammoSupplier, 0);}
@@ -81,7 +86,7 @@ public class ItemModRanged extends ItemMod {
                 if(arcana != null) arcana.consume(player, arcanaConsumedUse);
                 ItemStack ammoStack = ammo.getObject();
                 if(ammoStack != null) ammoStack.shrink(1);
-                if(!player.isCreative()) stack.hurtAndBreak(1, player, (p_220009_1_) -> p_220009_1_.broadcastBreakEvent(player.getUsedItemHand()));
+                if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(player.getUsedItemHand()));
                 player.getCooldowns().addCooldown(stack.getItem(), cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 doPostUsageEffects(world, player);
@@ -133,7 +138,7 @@ public class ItemModRanged extends ItemMod {
         ThrowableProjectile bullet;
         //Class has the most priority
         if(entityType != null) {
-            try{bullet = (ThrowableProjectile) ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, entityType)).create(world);}
+            try{bullet = (ThrowableProjectile)ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, entityType)).create(world);}
             catch(Exception e) {
                 e.printStackTrace();
                 //Weapon will not work, so it would be better to crush
@@ -144,8 +149,6 @@ public class ItemModRanged extends ItemMod {
         else if(bulletType.getParticle() != ParticleTypes.BUBBLE) bullet = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), world, player, bulletType);
         else if(bulletType.getRed() != 0 && bulletType.getGreen() != 0 && bulletType.getBlue() != 0) bullet = new EntityColoredBullet(EntityRegistry.COLORED_BULLET.get(), player, world, bulletType);
         else bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, bulletType);
-        bullet.moveTo(player.xo, player.getEyeY(), player.zo);
-        bullet.setOwner(player);
         bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 1.5F, .5F);
         world.addFreshEntity(bullet);
     }
@@ -153,7 +156,7 @@ public class ItemModRanged extends ItemMod {
     protected void doPostUsageEffects(Level world, Player player) {}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(bulletType != null) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
+        if(bulletType != null && !(this instanceof ItemStaff) && !(this instanceof ItemLaVekor) && !(this instanceof ItemScythe)) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         tooltip.add(needsAmmo() ? LocalizeUtils.ammo(getAmmo()) : LocalizeUtils.infiniteAmmo());
         if(!canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());

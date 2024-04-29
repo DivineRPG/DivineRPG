@@ -13,7 +13,7 @@ public class ItemAnchor extends ItemModRanged {
     protected static final UUID ATTACK_MODIFIER = UUID.fromString("de0e83e8-d7ff-11eb-b8bc-0242ac130003");
     private final Multimap<Attribute, AttributeModifier> attributeModifiers;
     public ItemAnchor(BulletType projectileType) {
-        super(projectileType, SoundRegistry.BLITZ.get(), null, 0, 0);
+        super(projectileType, SoundRegistry.BLITZ.get(), 0, 0);
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_MODIFIER, "Weapon attack", bulletType.getDamage() - 1, AttributeModifier.Operation.ADDITION));
         attributeModifiers = builder.build();

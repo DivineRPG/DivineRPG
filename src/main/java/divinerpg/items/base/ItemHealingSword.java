@@ -1,11 +1,9 @@
 package divinerpg.items.base;
 
-import divinerpg.DivineRPG;
-import divinerpg.registries.SoundRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
@@ -15,7 +13,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -35,9 +32,9 @@ public class ItemHealingSword extends ItemModSword {
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {
             ItemStack stack = player.getItemInHand(hand);
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (p_220044_0_) -> p_220044_0_.broadcastBreakEvent(hand));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(hand));
             player.heal(healAmount);
-            if(player.isOnFire() && this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "frossivence"))) player.clearFire();
+            if(player.isOnFire() && this == ItemRegistry.frossivence.get()) player.clearFire();
             player.playSound(SoundRegistry.HEAL.get(), 1, 1);
             player.awardStat(Stats.ITEM_USED.get(this));
             player.getCooldowns().addCooldown(this, cooldown);
@@ -46,17 +43,16 @@ public class ItemHealingSword extends ItemModSword {
     }
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (p_220044_0_) -> p_220044_0_.broadcastBreakEvent(hand));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(hand));
             entity.heal(healAmount);
-            if(entity.isOnFire() && this == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "frossivence"))) entity.extinguishFire();
+            if(entity.isOnFire() && this == ItemRegistry.frossivence.get()) entity.extinguishFire();
             entity.playSound(SoundRegistry.HEAL.get(), 1, 1);
             for(int i = 0; i < 7; ++i) {
                 double d0 = entity.random.nextGaussian() * .02;
                 double d1 = entity.random.nextGaussian() * .02;
                 double d2 = entity.random.nextGaussian() * .02;
                 entity.level().addParticle(ParticleTypes.HEART, entity.getRandomX(1), entity.getRandomY() + .5, entity.getRandomZ(1), d0, d1, d2);
-            }
-            player.awardStat(Stats.ITEM_USED.get(this));
+            } player.awardStat(Stats.ITEM_USED.get(this));
             player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResult.SUCCESS;
         } return super.interactLivingEntity(stack, player, entity, hand);

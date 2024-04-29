@@ -79,7 +79,19 @@ public enum BulletType {
     KAROS_CANNON_SHOT(21, ProjectileLoc("cannon")),
     HELIOSIS_CANNON_SHOT(28, ProjectileLoc("cannon")),
     ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon")),
-    EVERSIGHT_SHOT(42, ProjectileLoc("cannon"));
+    EVERSIGHT_SHOT(42, ProjectileLoc("cannon")),
+
+    //Vethea bouncing projectiles
+    TEAKER_STAFF_SHOT(3, ProjectileLoc("bouncing_projectile")),
+    AMTHIRMIS_STAFF_SHOT(5, ProjectileLoc("bouncing_projectile")),
+    DARVEN_STAFF_SHOT(8, ProjectileLoc("bouncing_projectile")),
+    CERMILE_STAFF_SHOT(12, ProjectileLoc("bouncing_projectile")),
+    PARDIMAL_STAFF_SHOT(15, ProjectileLoc("bouncing_projectile")),
+    QUADROTIC_STAFF_SHOT(19, ProjectileLoc("bouncing_projectile")),
+    KAROS_STAFF_SHOT(21, ProjectileLoc("bouncing_projectile")),
+    HELIOSIS_STAFF_SHOT(28, ProjectileLoc("bouncing_projectile")),
+    ARKSIANE_STAFF_SHOT(36, ProjectileLoc("bouncing_projectile")),
+    EVERNIGHT_SHOT(115, ProjectileLoc("bouncing_projectile"));
     private final float damage;
     private final ResourceLocation texture;
     private final SimpleParticleType particle;

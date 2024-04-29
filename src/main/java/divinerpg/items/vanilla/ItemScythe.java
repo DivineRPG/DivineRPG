@@ -1,23 +1,20 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.DivineRPG;
 import divinerpg.enums.BulletType;
 import divinerpg.items.base.ItemModRanged;
-import divinerpg.registries.SoundRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemScythe extends ItemModRanged {
-    public ItemScythe() {super(BulletType.SCYTHE_SHOT, SoundRegistry.DEEP_LAUGH.get(), null, 0, 10);}
+    public ItemScythe() {super(BulletType.SCYTHE_SHOT, SoundRegistry.DEEP_LAUGH.get(), 0, 10);}
     @Override protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {super.spawnEntity(world, player, stack, isJackoman(player) ? BulletType.MEGA_SCYTHE_SHOT : BulletType.SCYTHE_SHOT, null);}
     private boolean isJackoman(Player player) {
         ItemStack stackBoots = player.inventory.armor.get(0);
@@ -28,12 +25,11 @@ public class ItemScythe extends ItemModRanged {
         Item body = stackBody.getItem();
         Item legs = stackLegs.getItem();
         Item helmet = stackHelmet.getItem();
-        return boots == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "jack_o_man_boots")) && body == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "jack_o_man_chestplate")) && legs == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "jack_o_man_leggings")) && helmet == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "jack_o_man_helmet"));
+        return boots == ItemRegistry.jack_o_man_boots.get() && body == ItemRegistry.jack_o_man_chestplate.get() && legs == ItemRegistry.jack_o_man_leggings.get() && helmet == ItemRegistry.jack_o_man_helmet.get();
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(Minecraft.getInstance().player != null) tooltip.add(LocalizeUtils.rangedDam(isJackoman(Minecraft.getInstance().player) ? (int)BulletType.MEGA_SCYTHE_SHOT.getDamage() : (int)BulletType.SCYTHE_SHOT.getDamage()));
-        tooltip.add(LocalizeUtils.infiniteAmmo());
-        tooltip.add(LocalizeUtils.infiniteUses());
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

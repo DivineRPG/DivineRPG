@@ -14,6 +14,7 @@ public class LocalizeUtils {
             ArcanaDamageSource = "tooltip.damage.arcana",
             ArcanaRegen = "tooltip.arcana.regen",
             BurnMobs = "tooltip.effect.burns",
+            ShotsBouncing = "tooltip.staff.bounce",
             Efficiency = "tooltip.efficiency",
             HarvestLevel = "tooltip.harvest_level",
             HealthRegen = "tooltip.heals",
@@ -47,13 +48,17 @@ public class LocalizeUtils {
      *
      * @param damage - arcana damage
      */
-    public static Component arcanaDam(double damage) {return i18n(ArcanaDamageSource, damage);}
+    public static Component arcanaDam(int damage) {return i18n(ArcanaDamageSource, damage);}
     /**
      * Indicates how much arcana is restored when used.
      *
      * @param arcana - arcana amount
      */
     public static Component arcanaRegen(int arcana) {return i18n(ChatFormatting.AQUA, ArcanaRegen, arcana);}
+    /**
+     * Indicates that the projectiles are bouncing.
+     */
+    public static Component bouncingShots() {return LocalizeUtils.i18n(ShotsBouncing);}
     /**
      * Indicates how long the entity will burn.
      *
