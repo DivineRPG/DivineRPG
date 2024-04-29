@@ -12,7 +12,7 @@
 		"grass_color": 9715551,
 		"foliage_color": 9840470,
 		"music": {
-			"sound": "divinerpg:iceika_music",
+			"sound": "divinerpg:cup_of_tea",
 			"min_delay": 6000,
 			"max_delay": 10000,
 			"replace_current_music": false
@@ -168,12 +168,15 @@
 			"divinerpg:iceika/icicle"
 		],
 		[
-			"divinerpg:iceika/cozybark_tree",
+			"divinerpg:iceika/cozybark_tree"
+		],
+		[
 			"divinerpg:iceika/cozybark_bush",
 			"divinerpg:iceika/cozybark_stump",
-			"minecraft:glow_lichen"
+			"minecraft:glow_lichen",
+			"divinerpg:iceika/cozybark_fern",
+			"divinerpg:iceika/cozybark_grass"
 		],
-		[],
 		[],
 		[
 			"divinerpg:iceika/snow_coverage",

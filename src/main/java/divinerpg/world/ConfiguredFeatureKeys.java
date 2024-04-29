@@ -108,7 +108,7 @@ public final class ConfiguredFeatureKeys {
 		register(context, LOWSPROUT, FeatureRegistry.LOWSPROUT.get(), new TreeConfig(getBlockState("lowsprout_stem"), getBlockState("lowsprout_bulb"), ImmutableList.of()));
 		register(context, SLOWSPROUT, FeatureRegistry.SLOWSPROUT.get(), new TreeConfig(getBlockState("slowsprout_stem"), getBlockState("slowsprout_bulb"), ImmutableList.of()));
 		register(context, SHIVERSPINE_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(getBlockState("shiverspine_log"), getBlockState("brittle_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
-		register(context, COZYBARK_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(getBlockState("cozybark_log"), getBlockState("cozybark_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
+		register(context, COZYBARK_BUSH, FeatureRegistry.COZYBARK_BUSH.get(), new TreeConfig(getBlockState("cozybark_log"), getBlockState("cozybark_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, STREAMLEAF_TREE, FeatureRegistry.STREAMLEAF_TREE.get(), new TreeConfig(getBlockState("streamleaf_log"), getBlockState("streamleaf_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, GEOTHERMAL_POND, FeatureRegistry.GEOTHERMAL_POND.get(), new RuleTestConfig(ImmutableList.of()));
 		register(context, GLACIAL_POND, FeatureRegistry.GLACIAL_POND.get(), new RuleTestConfig(ImmutableList.of()));

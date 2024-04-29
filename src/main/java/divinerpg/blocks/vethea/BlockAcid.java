@@ -16,7 +16,7 @@ import net.minecraft.world.phys.shapes.*;
 public class BlockAcid extends BlockMod {
     public BlockAcid() {super(Block.Properties.copy(Blocks.SNOW).noCollission());}
     @Override public VoxelShape getShape(BlockState state, BlockGetter source, BlockPos pos, CollisionContext context) {return Block.box(0, 0, 0, 16, 2, 16);}
-    @Override public BlockState updateShape(BlockState state, Direction direction, BlockState state1, LevelAccessor level, BlockPos pos, BlockPos pos1) {return !state.canSurvive(level, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, state1, level, pos, pos1);}
+    @Override public BlockState updateShape(BlockState state, Direction direction, BlockState state1, LevelAccessor level, BlockPos pos, BlockPos pos1) {return !state.canSurvive(level, pos) ? Blocks.AIR.defaultBlockState() : state;}
     @Override public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {if(random.nextInt(5) == 0) worldIn.removeBlock(pos, true);}
     @Override public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {if(entity instanceof Player && entity.onGround()) entity.hurt(DamageSources.source(level, DamageSources.ACID), 3);}
     @Override public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {

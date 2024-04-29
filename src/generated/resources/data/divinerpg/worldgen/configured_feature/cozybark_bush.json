@@ -1,5 +1,5 @@
 {
-  "type": "divinerpg:bush",
+  "type": "divinerpg:cozybark_bush",
   "config": {
     "can_grow_on": [],
     "leaves": {

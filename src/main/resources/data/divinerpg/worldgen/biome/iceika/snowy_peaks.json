@@ -12,7 +12,7 @@
 		"grass_color": 14876413,
 		"foliage_color": 14876413,
 		"music": {
-			"sound": "divinerpg:iceika_music",
+			"sound": "divinerpg:snowflakes_after_blizzard",
 			"min_delay": 6000,
 			"max_delay": 10000,
 			"replace_current_music": false

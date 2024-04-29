@@ -1,6 +1,10 @@
 {
   "feature": "divinerpg:cozybark_bush",
   "placement": [
+	{
+	  "type": "minecraft:count",
+	  "count": 3
+	},
     {
       "type": "minecraft:in_square"
     },

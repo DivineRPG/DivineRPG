@@ -44,6 +44,7 @@ public class FeatureRegistry {
     	DEAD_SHIVERSPINE = FEATURES.register("dead_shiverspine", () -> new DeadShiverspine()),
     	AURORAOAK_TREE = FEATURES.register("auroraoak_tree", () -> new AuroraoakTree()),
     	COZYBARK_TREE = FEATURES.register("cozybark_tree", () -> new CozybarkTree()),
+    	COZYBARK_BUSH = FEATURES.register("cozybark_bush", () -> new CozybarkBush()),
     	STUMP = FEATURES.register("stump", () -> new Stump()),
     	FRACTAL_TREE = FEATURES.register("fractal_tree", () -> new FractalTree()),
     	GLOWSPROUT = FEATURES.register("glowsprout", () -> new Glowsprout()),

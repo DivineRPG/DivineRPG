@@ -1,0 +1,19 @@
+{
+	"feature": "minecraft:patch_large_fern",
+	"placement": [
+		{
+			"type": "minecraft:rarity_filter",
+			"chance": 5
+		},
+		{
+			"type": "minecraft:in_square"
+		},
+		{
+			"type": "minecraft:heightmap",
+			"heightmap": "OCEAN_FLOOR"
+		},
+		{
+			"type": "minecraft:biome"
+		}
+	]
+}

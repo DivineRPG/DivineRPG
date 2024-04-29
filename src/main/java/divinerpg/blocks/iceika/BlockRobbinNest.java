@@ -49,15 +49,17 @@ public class BlockRobbinNest extends BaseEntityBlock {
 		} return InteractionResult.PASS;
 	}
 	@Override public void onRemove(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {
-		if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block && !block.getItem().isEmpty()) {
-			level.addFreshEntity(new ItemEntity(level, pos.getX() + .5, pos.getY() + .1, pos.getZ() + .5, block.getItem()));
+		if(!state.is(s.getBlock()) && level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block) {
+			if(!block.isEmpty()) Containers.dropContents(level, pos, block);
 			level.removeBlockEntity(pos);
+			level.updateNeighbourForOutputSignal(pos, this);
 		}
 	}
 	@Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
-		if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block && !block.getItem().isEmpty()) {
-			level.addFreshEntity(new ItemEntity(level, pos.getX() + .5, pos.getY() + .1, pos.getZ() + .5, block.getItem()));
+		if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block) {
+			if(!block.isEmpty()) Containers.dropContents(level, pos, block);
 			level.removeBlockEntity(pos);
+			level.updateNeighbourForOutputSignal(pos, this);
 		} return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
 	}
 }

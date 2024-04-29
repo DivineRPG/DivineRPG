@@ -1311,6 +1311,20 @@
       "divinerpg:snowflakes_after_blizzard_synth"
     ]
   },
+  "cup_of_tea": {
+    "category": "music",
+    "stream": true,
+    "sounds": [
+      "divinerpg:cup_of_tea"
+    ]
+  },
+  "frozen_dispersion": {
+  	"category": "music",
+  	"stream": true,
+  	"sounds": [
+  	  "divinerpg:frozen_dispersion"
+  	]
+  },
   "patchouli_open": {
     "category": "player",
     "sounds": [
