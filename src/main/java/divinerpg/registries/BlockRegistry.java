@@ -175,7 +175,6 @@ public class BlockRegistry {
             olivineCluster = registerBlock("olivine_cluster", () -> new AmethystClusterBlock(7, 3, Properties.copy(Blocks.AMETHYST_CLUSTER).mapColor(COLOR_GREEN).lightLevel((state) -> 3))),
 
             //Extra Wood Blocks
-            crate = registerBlock("crate", () -> new BlockCrate()),
             plankDesign = registerBlock("plank_design", () -> new BlockModPlanks(WOOD, SoundType.WOOD)),
 
             //Divine Tree
@@ -796,6 +795,7 @@ public class BlockRegistry {
             demonFurnace = registerWithRender("demon_furnace", BlockDemonFurnace::new, Rarity.EPIC),
 
             //Chests
+            crate = registerBlock("crate", BlockCrate::new),
             boneChest = registerWithRender("bone_chest", BlockBoneChest::new, Rarity.COMMON),
             frostedChest = registerWithRender("frosted_chest", BlockFrostedChest::new, Rarity.COMMON),
             presentBox = registerWithRender("present_box", BlockPresentBox::new, Rarity.COMMON),

@@ -2,6 +2,8 @@ package divinerpg.entities.projectile;
 
 import divinerpg.enums.BulletType;
 import divinerpg.registries.ItemRegistry;
+import divinerpg.registries.ParticleRegistry;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
@@ -9,21 +11,34 @@ import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.EnderMan;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 
+import java.util.Random;
+
 public class EntityShooterBullet extends DivineThrowable {
     private static final EntityDataAccessor<Byte> BULLET_ID = SynchedEntityData.defineId(EntityShooterBullet.class, EntityDataSerializers.BYTE);
     public BulletType bulletType;
+    public int bounces;
+    public int color = new Random().nextInt(25);
+    public LivingEntity thrower;
     public EntityShooterBullet(EntityType<? extends ThrowableProjectile> type, Level world) {super(type, world);}
-    public EntityShooterBullet(EntityType<? extends ThrowableProjectile> type, Player player, Level level) {super(type, player, level);}
     public EntityShooterBullet(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world, BulletType bulletType) {
         super(type, entity, world);
         this.bulletType = bulletType;
+        thrower = entity;
         setBulletId((byte)bulletType.ordinal());
+    }
+    @Override public void tick() {
+        super.tick();
+        if(bulletType == BulletType.CAPTAINS_SPARKLER_SHOT) {
+            for(int var3 = 0; var3 < 8; ++var3) level().addParticle(ParticleRegistry.SPARKLER.get(), xo, yo, zo, .25 * random.nextGaussian(), 0.25 * random.nextGaussian(), 0.25 * random.nextGaussian());
+        }
+        if(color >= 24) color = 0;
+        else color++;
+        if(bulletType == BulletType.SOUND_OF_MUSIC_SHOT || bulletType ==  BulletType.SOUND_OF_CAROLS_SHOT || bulletType == BulletType.SOUND_OF_WHALES_SHOT) level().addParticle(ParticleTypes.NOTE, xo, yo, zo, (double)color / 24, 0, 0);
     }
     @Override public void onHit(HitResult result) {
         super.onHit(result);
@@ -36,7 +51,7 @@ public class EntityShooterBullet extends DivineThrowable {
     @Override public void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         Entity entity = result.getEntity();
-        entity.hurt(damageSources().thrown(this, getOwner()), getBulletType().getDamage());
+        if(!(this instanceof EntityBouncingProjectile)) entity.hurt(damageSources().thrown(this, thrower), getBulletType().getDamage());
         if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan)) {
             if(bulletType == BulletType.SNOWFLAKE_SHURIKEN_SHOT) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 3));
             if(bulletType == BulletType.VILE_STORM_SHOT || bulletType == BulletType.SERENADE_OF_DEATH_SHOT) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 3));

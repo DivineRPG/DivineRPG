@@ -2320,7 +2320,7 @@
   "tooltip.teleport_respawn_point": "Teleports to the respawn point",
   "tooltip.uses": "%s Uses Remaining",
   "tooltip.uses.infinite": "Infinite Uses",
-  "tooltip.vethean_return": "Returns to sender",
+  "tooltip.return": "Returns to sender",
   "tooltip.weakened_without_arcana": "Damage heavily reduced if the required arcana is not present",
   "enchantment.divinerpg.aftershock": "Aftershock",
   "enchantment.divinerpg.aftershock.desc": "Aftershock has a chance to double the damage done by melee weapons.",

@@ -21,12 +21,19 @@ public enum BulletType {
     MORTUM_SLICER_SHOT(16, ItemLoc("mortum_slicer")),
     HALITE_SLICER_SHOT(22, ItemLoc("halite_slicer")),
 
-    //Other projectiles
-    SERENADE_OF_DEATH_SHOT(14, ProjectileLoc("serenade_of_death")),
+    //Anchors
     CRAB_ANCHOR_SHOT(3, ProjectileLoc("crab_anchor")),
     SHARK_ANCHOR_SHOT(4, ProjectileLoc("shark_anchor")),
     BOWHEAD_ANCHOR_SHOT(5, ProjectileLoc("bowhead_anchor")),
     LIOPLEURODON_ANCHOR_SHOT(6, ProjectileLoc("liopleurodon_anchor")),
+
+    //Harps
+    SOUND_OF_MUSIC_SHOT(10, ProjectileLoc("sound_of_music")),
+    SOUND_OF_CAROLS_SHOT(16, ProjectileLoc("sound_of_carols")),
+    SOUND_OF_WHALES_SHOT(20, ProjectileLoc("sound_of_whales")),
+
+    //Other projectiles
+    SERENADE_OF_DEATH_SHOT(14, ProjectileLoc("serenade_of_death")),
     SCYTHE_SHOT(6, ProjectileLoc("scythe")),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe")),
     CYCLOPSIAN_STAFF_SHOT(6, ItemLoc("cyclops_eye_shards")),
@@ -38,15 +45,20 @@ public enum BulletType {
     MAELSTROM_SHOT(12, ProjectileLoc("maelstrom")),
     GHAST_CANNON_SHOT(16, ProjectileLoc("ghast_cannon")),
     GOLDEN_FURY_SHOT(30, VanillaItemLoc("gold_nugget")),
+    CAPTAINS_SPARKLER_SHOT(20, ProjectileLoc("sparkler")),
     ARCANITE_BLASTER(23, ProjectileLoc("blaster_shot")),
     GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), 31, 93, 210),
     GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), 56, 152, 186),
+
+    //Blitz
     EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleRegistry.EDEN_PORTAL.get()),
     WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleRegistry.WILDWOOD_PORTAL.get()),
     APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleRegistry.APALACHIA_PORTAL.get()),
     SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleRegistry.SKYTHERN_PORTAL.get()),
     MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleRegistry.MORTUM_PORTAL.get()),
     HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleRegistry.GREEN_PORTAL.get()),
+
+    //Phasers
     EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleRegistry.EDEN_PORTAL.get()),
     WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), ParticleRegistry.WILDWOOD_PORTAL.get()),
     APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), ParticleRegistry.APALACHIA_PORTAL.get()),
@@ -91,7 +103,29 @@ public enum BulletType {
     KAROS_STAFF_SHOT(21, ProjectileLoc("bouncing_projectile")),
     HELIOSIS_STAFF_SHOT(28, ProjectileLoc("bouncing_projectile")),
     ARKSIANE_STAFF_SHOT(36, ProjectileLoc("bouncing_projectile")),
-    EVERNIGHT_SHOT(115, ProjectileLoc("bouncing_projectile"));
+    EVERNIGHT_SHOT(115, ProjectileLoc("bouncing_projectile")),
+
+    //Disks
+    TEAKER_DISK(4, ItemLoc("teaker_disk")),
+    AMTHIRMIS_DISK(6, ItemLoc("amthirmis_disk")),
+    DARVEN_DISK(9, ItemLoc("darven_disk")),
+    CERMILE_DISK(13, ItemLoc("cermile_disk")),
+    PARDIMAL_DISK(16, ItemLoc("pardimal_disk")),
+    QUADROTIC_DISK(20, ItemLoc("quadrotic_disk")),
+    KAROS_DISK(22, ItemLoc("karos_disk")),
+    HELIOSIS_DISK(29, ItemLoc("heliosis_disk")),
+    ARKSIANE_DISK(37, ItemLoc("arksiane_disk")),
+
+    //Dissipators
+    TEAKER_DISSIPATOR(4, ItemLoc("teaker_dissipator")),
+    AMTHIRMIS_DISSIPATOR(6, ItemLoc("amthirmis_dissipator")),
+    DARVEN_DISSIPATOR(9, ItemLoc("darven_dissipator")),
+    CERMILE_DISSIPATOR(13, ItemLoc("cermile_dissipator")),
+    PARDIMAL_DISSIPATOR(16, ItemLoc("pardimal_dissipator")),
+    QUADROTIC_DISSIPATOR(20, ItemLoc("quadrotic_dissipator")),
+    KAROS_DISSIPATOR(22, ItemLoc("karos_dissipator")),
+    HELIOSIS_DISSIPATOR(29, ItemLoc("heliosis_dissipator")),
+    ARKSIANE_DISSIPATOR(37, ItemLoc("arksiane_dissipator"));
     private final float damage;
     private final ResourceLocation texture;
     private final SimpleParticleType particle;

@@ -16,18 +16,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemMod extends Item {
-    private static final Item.Properties props = new Item.Properties();
     public int arcanaConsumedAttack;
     public int arcanaConsumedUse;
     public int cooldown;
-    private boolean hasGlint;
-    public ItemMod() {super(props);}
+    public ItemMod() {super(new Properties());}
     public ItemMod(Properties properties) {super(properties);}
-    public ItemMod(Rarity rarity) {super(props.rarity(rarity));}
-    public ItemMod(boolean hasGlint) {
-        super(props);
-        this.hasGlint = hasGlint;
-    }
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
             if(arcana.getArcana() >= arcanaConsumedAttack) arcana.consume(player, arcanaConsumedAttack);
@@ -50,5 +43,4 @@ public class ItemMod extends Item {
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
     }
-    @Override public boolean isEnchantable(ItemStack stack) {return hasGlint || super.isEnchantable(stack);}
 }

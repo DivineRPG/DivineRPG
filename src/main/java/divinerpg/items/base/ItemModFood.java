@@ -18,7 +18,7 @@ public class ItemModFood extends ItemMod {
         this.food = food;
     }
     public ItemModFood(FoodProperties food, boolean fastFood) {
-        super(new Item.Properties().food(food));
+        super(new Properties().food(food));
         this.food = food;
         this.fastFood = fastFood;
     }

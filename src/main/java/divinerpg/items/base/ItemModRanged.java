@@ -5,7 +5,8 @@ import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
 import divinerpg.items.arcana.ItemLaVekor;
-import divinerpg.items.vanilla.*;
+import divinerpg.items.vanilla.ItemScythe;
+import divinerpg.items.vethea.*;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.particles.ParticleTypes;
@@ -24,12 +25,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemModRanged extends ItemMod {
-
-    protected final String entityType;
-    private final SoundEvent sound;
-    private final SoundSource soundCategory;
     private final ResourceLocation ammoSupplier;
+    private final SoundSource soundCategory;
     protected BulletType bulletType;
+    protected final String entityType;
+    public SoundEvent sound;
     /**
      * Constructor for DivineRPG ranged weapons.
      *
@@ -43,23 +43,34 @@ public class ItemModRanged extends ItemMod {
      */
     public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, ResourceLocation ammo, int arcanaConsuming) {
         super(new Properties().durability(uses).rarity(rarity));
-        this.entityType = entityType;
-        this.sound = sound;
-        this.soundCategory = SoundSource.PLAYERS;
-        cooldown = delay;
         ammoSupplier = ammo;
         arcanaConsumedUse = arcanaConsuming;
         this.bulletType = bulletType;
+        cooldown = delay;
+        this.entityType = entityType;
+        this.sound = sound;
+        soundCategory = SoundSource.PLAYERS;
     }
     public ItemModRanged(String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, ResourceLocation ammo, int arcanaConsuming) {
         super(new Properties().durability(uses));
-        this.entityType = entityType;
-        this.sound = sound;
-        this.soundCategory = SoundSource.PLAYERS;
-        cooldown = delay;
         ammoSupplier = ammo;
         arcanaConsumedUse = arcanaConsuming;
         this.bulletType = bulletType;
+        cooldown = delay;
+        this.entityType = entityType;
+        this.sound = sound;
+        soundCategory = SoundSource.PLAYERS;
+    }
+    //Throwables
+    public ItemModRanged(Rarity rarity, BulletType bulletType, int delay) {
+        super(new Properties().rarity(rarity));
+        ammoSupplier = null;
+        arcanaConsumedUse = 0;
+        this.bulletType = bulletType;
+        cooldown = delay;
+        entityType = null;
+        sound = SoundEvents.ARROW_SHOOT;
+        soundCategory = SoundSource.PLAYERS;
     }
     //No rarity, specified arcana usage
     public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay, int arcanaConsuming) {this(null, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);}
@@ -78,10 +89,7 @@ public class ItemModRanged extends ItemMod {
             InteractionResultHolder<Arcana> checkArcana = tryCheckArcana(player);
             if(ammo.getResult() == InteractionResult.SUCCESS && checkArcana.getResult() == InteractionResult.SUCCESS) {
                 doPreUsageEffects(world, player);
-                if(!world.isClientSide) {
-                    world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, 1, 1);
-                    spawnEntity(world, player, stack, bulletType, entityType);
-                }
+                if(!world.isClientSide) spawnEntity(world, player, stack, bulletType, entityType);
                 Arcana arcana = checkArcana.getObject();
                 if(arcana != null) arcana.consume(player, arcanaConsumedUse);
                 ItemStack ammoStack = ammo.getObject();
@@ -90,6 +98,11 @@ public class ItemModRanged extends ItemMod {
                 player.getCooldowns().addCooldown(stack.getItem(), cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 doPostUsageEffects(world, player);
+                if(this instanceof ItemModThrowable || this instanceof ItemVetheanDisk) {
+                    world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, .5F, .4F / (player.getRandom().nextFloat() * .4F + .8F));
+                    return InteractionResultHolder.success(stack);
+                }
+                world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, 1, 1);
                 return InteractionResultHolder.consume(stack);
             }
         } return InteractionResultHolder.pass(stack);
@@ -156,9 +169,11 @@ public class ItemModRanged extends ItemMod {
     protected void doPostUsageEffects(Level world, Player player) {}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(bulletType != null && !(this instanceof ItemStaff) && !(this instanceof ItemLaVekor) && !(this instanceof ItemScythe)) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
+        if(bulletType != null && !(this instanceof ItemStaff) && !(this instanceof ItemLaVekor) && !(this instanceof ItemScythe) && !(this instanceof ItemVetheanDisk) && !(this instanceof ItemModThrowable)) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        tooltip.add(needsAmmo() ? LocalizeUtils.ammo(getAmmo()) : LocalizeUtils.infiniteAmmo());
-        if(!canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
+        if(!(this instanceof ItemModThrowable) && !(this instanceof ItemVetheanDisk)) {
+            tooltip.add(needsAmmo() ? LocalizeUtils.ammo(getAmmo()) : LocalizeUtils.infiniteAmmo());
+            if(!canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
+        }
     }
 }

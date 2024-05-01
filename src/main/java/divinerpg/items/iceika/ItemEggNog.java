@@ -9,7 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public class ItemEggNog extends ItemModFood {
-    public ItemEggNog() {super(new Item.Properties().food(FoodList.EGG_NOG).stacksTo(1));}
+    public ItemEggNog() {super(new Properties().food(FoodList.EGG_NOG).stacksTo(1));}
     @Override public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
         Player player = (Player)entity;
         player.awardStat(Stats.ITEM_USED.get(this));

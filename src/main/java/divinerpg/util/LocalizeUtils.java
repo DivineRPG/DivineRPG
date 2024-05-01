@@ -24,6 +24,7 @@ public class LocalizeUtils {
             LightningShot = "tooltip.lightning_shot",
             Poison = "tooltip.effect.poisons",
             RangedDamage = "tooltip.damage.ranged",
+            ReturnsToSender = "tooltip.return",
             ShotsExplosive = "tooltip.shots.explosive",
             ShotsHoming = "tooltip.shots.homing",
             SlowMobs = "tooltip.effect.slows",
@@ -130,6 +131,10 @@ public class LocalizeUtils {
      * @param damage - damage range
      */
     public static Component rangedDamString(String damage) {return i18n(RangedDamage, damage);}
+    /**
+     * Indicates that the projectile returns back to the sender.
+     */
+    public static Component returnsToSender() {return i18n(ReturnsToSender);}
     /**
      * Indicates how long the slowness effect will last.
      *

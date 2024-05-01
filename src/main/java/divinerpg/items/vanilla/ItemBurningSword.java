@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemBurningSword extends ItemModSword {
     private final int burnSeconds;
     public ItemBurningSword(Tier tier, int seconds) {
-        super(tier, new Item.Properties().fireResistant());
+        super(tier, new Properties().fireResistant());
         burnSeconds = seconds;
     }
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {

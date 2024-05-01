@@ -337,10 +337,10 @@ public class ItemRegistry {
             glistening_template = registerItemVethean("glistening_template"),
             demonized_template = registerItemVethean("demonized_template"),
             tormented_template = registerItemVethean("tormented_template"),
-            dream_flint = registerItem("dream_flint", ItemDreamFlint::new),
-            moon_clock = registerItemVethean("moon_clock"),
-            miners_amulet = registerItem("miners_amulet", ItemMinersAmulet::new),
-            band_of_lheiva_hunting = registerItemVethean("band_of_lheiva_hunting"),
+            dream_flint = registerItemVethean("dream_flint", ItemDreamFlint::new),
+            moon_clock = registerItemVethean("moon_clock", () -> new ItemVethean(new Properties().stacksTo(1))),
+            miners_amulet = registerItemVethean("miners_amulet", ItemMinersAmulet::new),
+            band_of_lheiva_hunting = registerItemVethean("band_of_lheiva_hunting", () -> new ItemVethean(new Properties().stacksTo(1))),
 
             //Pets
             snapper_egg = registerItem("snapper_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.SNAPPER, 0xFFFFFF, 0xFFFFFF, new Properties())),
@@ -449,6 +449,11 @@ public class ItemRegistry {
             serenade_of_health = registerItem("serenade_of_health", ItemSerenadeOfHealth::new),
             serenade_of_infusion = registerItem("serenade_of_infusion", ItemSerenadeOfInfusion::new),
 
+            //Arrows
+            eden_arrow = registerItem("eden_arrow"),
+            wildwood_arrow = registerItem("wildwood_arrow"),
+            fury_arrow = registerItem("fury_arrow"),
+
             //Bows
             hunter_bow = registerItem("hunter_bow", () -> new ItemModBow(ArrowType.HUNTER_ARROW, 2500, new ResourceLocation("arrow"))),
             shadow_bow = registerItem("shadow_bow", () -> new ItemModBow(ArrowType.SHADOW_ARROW, 10000, 36000, new ResourceLocation("arrow"))),
@@ -457,18 +462,13 @@ public class ItemRegistry {
             soulfire_bow = registerItem("soulfire_bow", () -> new ItemModBow(ArrowType.SOULFIRE_ARROW, 0)),
             snowstorm_bow = registerItem("snowstorm_bow", () -> new ItemModBow(ArrowType.SNOWSTORM_ARROW, 0)),
             ender_bow = registerItem("ender_bow", () -> new ItemModBow(RarityList.ENDER, ArrowType.ENDER_ARROW, 0)),
-            eden_bow = registerItem("eden_bow", () -> new ItemModBow(RarityList.EDEN, ArrowType.EDEN_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "eden_arrow"))),
-            wildwood_bow = registerItem("wildwood_bow", () -> new ItemModBow(RarityList.WILDWOOD, ArrowType.LESSER_WILDWOOD_ARROW, 0, 36000, new ResourceLocation(DivineRPG.MODID, "wildwood_arrow"))),
-            apalachia_bow = registerItem("apalachia_bow", () -> new ItemModBow(RarityList.APALACHIA, ArrowType.GREATER_WILDWOOD_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "wildwood_arrow"))),
-            skythern_bow = registerItem("skythern_bow", () -> new ItemModBow(RarityList.SKYTHERN, ArrowType.GREATER_WILDWOOD_ARROW, 0, 36000, new ResourceLocation(DivineRPG.MODID, "wildwood_arrow"))),
-            mortum_bow = registerItem("mortum_bow", () -> new ItemModBow(RarityList.MORTUM, ArrowType.FURY_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "fury_arrow"))),
-            halite_bow = registerItem("halite_bow", () -> new ItemModBow(RarityList.HALITE, ArrowType.FURY_ARROW, 0, 36000, new ResourceLocation(DivineRPG.MODID, "fury_arrow"))),
-            twilight_bow = registerItem("twilight_bow", () -> new ItemModBow(ArrowType.FURY_ARROW, 0, 14400, new ResourceLocation(DivineRPG.MODID, "fury_arrow"))),
-
-            //Arrows
-            eden_arrow = registerItem("eden_arrow"),
-            wildwood_arrow = registerItem("wildwood_arrow"),
-            fury_arrow = registerItem("fury_arrow"),
+            eden_bow = registerItem("eden_bow", () -> new ItemModBow(RarityList.EDEN, ArrowType.EDEN_ARROW, 0, eden_arrow.getId())),
+            wildwood_bow = registerItem("wildwood_bow", () -> new ItemModBow(RarityList.WILDWOOD, ArrowType.LESSER_WILDWOOD_ARROW, 0, 36000, wildwood_arrow.getId())),
+            apalachia_bow = registerItem("apalachia_bow", () -> new ItemModBow(RarityList.APALACHIA, ArrowType.GREATER_WILDWOOD_ARROW, 0, wildwood_arrow.getId())),
+            skythern_bow = registerItem("skythern_bow", () -> new ItemModBow(RarityList.SKYTHERN, ArrowType.GREATER_WILDWOOD_ARROW, 0, 36000, wildwood_arrow.getId())),
+            mortum_bow = registerItem("mortum_bow", () -> new ItemModBow(RarityList.MORTUM, ArrowType.FURY_ARROW, 0, fury_arrow.getId())),
+            halite_bow = registerItem("halite_bow", () -> new ItemModBow(RarityList.HALITE, ArrowType.FURY_ARROW, 0, 36000, fury_arrow.getId())),
+            twilight_bow = registerItem("twilight_bow", () -> new ItemModBow(ArrowType.FURY_ARROW, 0, 14400, fury_arrow.getId())),
 
             //Anchors
             crab_anchor = registerItem("crab_anchor", () -> new ItemAnchor(BulletType.CRAB_ANCHOR_SHOT)),
@@ -477,14 +477,16 @@ public class ItemRegistry {
             liopleurodon_anchor = registerItem("liopleurodon_anchor", () -> new ItemAnchor(BulletType.LIOPLEURODON_ANCHOR_SHOT)),
 
             //Harps
-            sound_of_music = registerItem("sound_of_music", () -> new ItemMusicShooter(SoundRegistry.SOUND_OF_MUSIC.get(), "sound_of_music")),
-            sound_of_carols = registerItem("sound_of_carols", () -> new ItemMusicShooter(SoundRegistry.SOUND_OF_CAROLS.get(), "sound_of_carols")),
-            sound_of_whales = registerItem("sound_of_whales", () -> new ItemMusicShooter(SoundRegistry.WHALE.get(), "sound_of_whales")),
+            sound_of_music = registerItem("sound_of_music", () -> new ItemMusicShooter(SoundRegistry.SOUND_OF_MUSIC.get(), BulletType.SOUND_OF_MUSIC_SHOT)),
+            sound_of_carols = registerItem("sound_of_carols", () -> new ItemMusicShooter(SoundRegistry.SOUND_OF_CAROLS.get(), BulletType.SOUND_OF_CAROLS_SHOT)),
+            sound_of_whales = registerItem("sound_of_whales", () -> new ItemMusicShooter(SoundRegistry.WHALE.get(), BulletType.SOUND_OF_WHALES_SHOT)),
 
-            //Extra
+            //Shurikens
             shuriken = registerItem("shuriken", () -> new ItemModThrowable(BulletType.SHURIKEN_SHOT)),
             snowflake_shuriken = registerItem("snowflake_shuriken", () -> new ItemModThrowable(BulletType.SNOWFLAKE_SHURIKEN_SHOT)),
             vile_storm = registerItem("vile_storm", () -> new ItemModThrowable(BulletType.VILE_STORM_SHOT)),
+
+            //Extra
             scythe = registerItem("scythe", ItemScythe::new),
             cyclopsian_staff = registerItem("cyclopsian_staff", () -> new ItemModRanged(BulletType.CYCLOPSIAN_STAFF_SHOT, SoundRegistry.STAFF.get(), 600, 0)),
             crabclaw_cannon = registerItem("crabclaw_cannon", () -> new ItemModRanged(BulletType.CRABCLAW_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), new ResourceLocation("cactus"), 1000, 12)),
@@ -492,7 +494,7 @@ public class ItemRegistry {
             bowhead_cannon = registerItem("bowhead_cannon", () -> new ItemModRanged(BulletType.BOWHEAD_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), new ResourceLocation("cactus"), 1000, 12)),
             frost_cannon = registerItem("frost_cannon", () -> new ItemModRanged(BulletType.FROST_CANNON_SHOT, SoundRegistry.FROST_CANNON.get(), new ResourceLocation("snowball"), 15000, 0)),
             fractite_cannon = registerItem("fractite_cannon", () -> new ItemModRanged(BulletType.FRACTITE_CANNON_SHOT, SoundRegistry.FRACTITE_CANNON.get(), new ResourceLocation(MODID, "ice_shards"), 10000, 0)),
-            maelstrom = registerItem("maelstrom", () -> new ItemModRanged(BulletType.MAELSTROM_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 0)),
+            maelstrom = registerItem("maelstrom", () -> new ItemModRanged(BulletType.MAELSTROM_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 20)),
             ghast_cannon = registerItem("ghast_cannon", () -> new ItemModRanged(BulletType.GHAST_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 20)),
             corrupted_cannon = registerItem("corrupted_cannon", ItemCorruptedCannon::new),
             corrupted_bullet = registerItem("corrupted_bullet"),
@@ -505,7 +507,7 @@ public class ItemRegistry {
             ender_scepter = registerItem("ender_scepter", ItemEnderScepter::new),
             arcanium_attractor = registerItem("arcanium_attractor", ItemAttractor::new),
             arcanium_reflector = registerItem("arcanium_reflector", ItemReflector::new),
-            captains_sparkler = registerItem("captains_sparkler", ItemCaptainsSparkler::new),
+            captains_sparkler = registerItem("captains_sparkler", () -> new ItemModRanged(BulletType.CAPTAINS_SPARKLER_SHOT, SoundRegistry.SPARKLER.get(), null, 0, 15, 7)),
             arcanite_blaster = registerItem("arcanite_blaster", ItemArcaniteBlaster::new),
             la_vekor = registerItem("la_vekor", ItemLaVekor::new),
             grenade = registerItem("grenade", ItemGrenade::new),
@@ -525,12 +527,12 @@ public class ItemRegistry {
             halite_blitz = registerItem("halite_blitz", () -> new ItemTwilightBlitz(RarityList.HALITE, BulletType.HALITE_BLITZ_SHOT, new ResourceLocation(DivineRPG.MODID, "mortum_dust"))),
 
             //Phasers
-            eden_phaser = registerItem("eden_phaser", () -> new ItemModRanged(RarityList.EDEN, BulletType.EDEN_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 12)),
-            wildwood_phaser = registerItem("wildwood_phaser", () -> new ItemModRanged( RarityList.WILDWOOD, BulletType.WILDWOOD_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 12)),
-            apalachia_phaser = registerItem("apalachia_phaser", () -> new ItemModRanged(RarityList.APALACHIA, BulletType.APALACHIA_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 12)),
-            skythern_phaser = registerItem("skythern_phaser", () -> new ItemModRanged(RarityList.SKYTHERN, BulletType.SKYTHERN_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 12)),
-            mortum_phaser = registerItem("mortum_phaser", () -> new ItemModRanged(RarityList.MORTUM, BulletType.MORTUM_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 12)),
-            halite_phaser = registerItem("halite_phaser", () -> new ItemModRanged(RarityList.HALITE, BulletType.HALITE_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 12)),
+            eden_phaser = registerItem("eden_phaser", () -> new ItemModRanged(RarityList.EDEN, BulletType.EDEN_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
+            wildwood_phaser = registerItem("wildwood_phaser", () -> new ItemModRanged( RarityList.WILDWOOD, BulletType.WILDWOOD_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
+            apalachia_phaser = registerItem("apalachia_phaser", () -> new ItemModRanged(RarityList.APALACHIA, BulletType.APALACHIA_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
+            skythern_phaser = registerItem("skythern_phaser", () -> new ItemModRanged(RarityList.SKYTHERN, BulletType.SKYTHERN_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
+            mortum_phaser = registerItem("mortum_phaser", () -> new ItemModRanged(RarityList.MORTUM, BulletType.MORTUM_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
+            halite_phaser = registerItem("halite_phaser", () -> new ItemModRanged(RarityList.HALITE, BulletType.HALITE_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
 
             //Slicers
             eden_slicer = registerItem("eden_slicer", () -> new ItemModThrowable(RarityList.EDEN, BulletType.EDEN_SLICER_SHOT)),
@@ -659,24 +661,24 @@ public class ItemRegistry {
             arksiane_claw = registerItem("arksiane_claw", () -> new ItemVetheanSword(ToolStats.ARKSIANE_CLAW)),
             everbright = registerItem("everbright", () -> new ItemVetheanSword(ToolStats.EVERBRIGHT)),
 
-            //Vethean Bows
-            teaker_bow = registerItem("teaker_bow", () -> new ItemVetheanBow(ArrowType.TEAKER_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "teaker_arrow"))),
-            amthirmis_bow = registerItem("amthirmis_bow", () -> new ItemVetheanBow(ArrowType.AMTHIRMIS_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "teaker_arrow"))),
-            darven_bow = registerItem("darven_bow", () -> new ItemVetheanBow(ArrowType.DARVEN_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "darven_arrow"))),
-            cermile_bow = registerItem("cermile_bow", () -> new ItemVetheanBow(ArrowType.CERMILE_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "darven_arrow"))),
-            pardimal_bow = registerItem("pardimal_bow", () -> new ItemVetheanBow(ArrowType.PARDIMAL_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "pardimal_arrow"))),
-            quadrotic_bow = registerItem("quadrotic_bow", () -> new ItemVetheanBow(ArrowType.QUADROTIC_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "pardimal_arrow"))),
-            karos_bow = registerItem("karos_bow", () -> new ItemVetheanBow(ArrowType.KAROS_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "karos_arrow"))),
-            heliosis_bow = registerItem("heliosis_bow", () -> new ItemVetheanBow(ArrowType.HELIOSIS_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "karos_arrow"))),
-            arksiane_bow = registerItem("arksiane_bow", () -> new ItemVetheanBow(ArrowType.ARKSIANE_ARROW, 0, new ResourceLocation(DivineRPG.MODID, "karos_arrow"))),
-            everfright = registerItem("everfright", () -> new ItemVetheanBow(ArrowType.EVERFRIGHT, 0, new ResourceLocation(DivineRPG.MODID, "ever_arrow"))),
-
             //Vethean Arrows
             teaker_arrow = registerItemVethean("teaker_arrow"),
             darven_arrow = registerItemVethean("darven_arrow"),
             pardimal_arrow = registerItemVethean("pardimal_arrow"),
             karos_arrow = registerItemVethean("karos_arrow"),
             ever_arrow = registerItemVethean("ever_arrow"),
+
+            //Vethean Bows
+            teaker_bow = registerItem("teaker_bow", () -> new ItemVetheanBow(ArrowType.TEAKER_ARROW, teaker_arrow.getId())),
+            amthirmis_bow = registerItem("amthirmis_bow", () -> new ItemVetheanBow(ArrowType.AMTHIRMIS_ARROW, teaker_arrow.getId())),
+            darven_bow = registerItem("darven_bow", () -> new ItemVetheanBow(ArrowType.DARVEN_ARROW, darven_arrow.getId())),
+            cermile_bow = registerItem("cermile_bow", () -> new ItemVetheanBow(ArrowType.CERMILE_ARROW, darven_arrow.getId())),
+            pardimal_bow = registerItem("pardimal_bow", () -> new ItemVetheanBow(ArrowType.PARDIMAL_ARROW, pardimal_arrow.getId())),
+            quadrotic_bow = registerItem("quadrotic_bow", () -> new ItemVetheanBow(ArrowType.QUADROTIC_ARROW, pardimal_arrow.getId())),
+            karos_bow = registerItem("karos_bow", () -> new ItemVetheanBow(ArrowType.KAROS_ARROW, karos_arrow.getId())),
+            heliosis_bow = registerItem("heliosis_bow", () -> new ItemVetheanBow(ArrowType.HELIOSIS_ARROW, karos_arrow.getId())),
+            arksiane_bow = registerItem("arksiane_bow", () -> new ItemVetheanBow(ArrowType.ARKSIANE_ARROW, karos_arrow.getId())),
+            everfright = registerItem("everfright", () -> new ItemVetheanBow(ArrowType.EVERFRIGHT, ever_arrow.getId())),
 
             //Vethean Staffs
             teaker_staff = registerItem("teaker_staff", () -> new ItemStaff(BulletType.TEAKER_STAFF_SHOT)),
@@ -703,26 +705,26 @@ public class ItemRegistry {
             eversight = registerItem("eversight", () -> new ItemVetheanCannon(BulletType.EVERSIGHT_SHOT)),
 
             //Vethean Disks
-            teaker_disk = registerItem("teaker_disk", () -> new ItemVetheanDisk(DiskType.TEAKER_DISK)),
-            amthirmis_disk = registerItem("amthirmis_disk", () -> new ItemVetheanDisk(DiskType.AMTHRIMIS_DISK)),
-            darven_disk = registerItem("darven_disk", () -> new ItemVetheanDisk(DiskType.DARVEN_DISK)),
-            cermile_disk = registerItem("cermile_disk", () -> new ItemVetheanDisk(DiskType.CERMILE_DISK)),
-            pardimal_disk = registerItem("pardimal_disk", () -> new ItemVetheanDisk(DiskType.PARDIMAL_DISK)),
-            quadrotic_disk = registerItem("quadrotic_disk", () -> new ItemVetheanDisk(DiskType.QUADROTIC_DISK)),
-            karos_disk = registerItem("karos_disk", () -> new ItemVetheanDisk(DiskType.KAROS_DISK)),
-            heliosis_disk = registerItem("heliosis_disk", () -> new ItemVetheanDisk(DiskType.HELIOSIS_DISK)),
-            arksiane_disk = registerItem("arksiane_disk", () -> new ItemVetheanDisk(DiskType.ARKSIANE_DISK)),
+            teaker_disk = registerItem("teaker_disk", () -> new ItemVetheanDisk(BulletType.TEAKER_DISK)),
+            amthirmis_disk = registerItem("amthirmis_disk", () -> new ItemVetheanDisk(BulletType.AMTHIRMIS_DISK)),
+            darven_disk = registerItem("darven_disk", () -> new ItemVetheanDisk(BulletType.DARVEN_DISK)),
+            cermile_disk = registerItem("cermile_disk", () -> new ItemVetheanDisk(BulletType.CERMILE_DISK)),
+            pardimal_disk = registerItem("pardimal_disk", () -> new ItemVetheanDisk(BulletType.PARDIMAL_DISK)),
+            quadrotic_disk = registerItem("quadrotic_disk", () -> new ItemVetheanDisk(BulletType.QUADROTIC_DISK)),
+            karos_disk = registerItem("karos_disk", () -> new ItemVetheanDisk(BulletType.KAROS_DISK)),
+            heliosis_disk = registerItem("heliosis_disk", () -> new ItemVetheanDisk(BulletType.HELIOSIS_DISK)),
+            arksiane_disk = registerItem("arksiane_disk", () -> new ItemVetheanDisk(BulletType.ARKSIANE_DISK)),
 
             //Vethean Dissipators
-            teaker_dissipator = registerItem("teaker_dissipator", () -> new ItemVetheanDissipator(DiskType.TEAKER_DISK)),
-            amthirmis_dissipator = registerItem("amthirmis_dissipator", () -> new ItemVetheanDissipator(DiskType.AMTHRIMIS_DISK)),
-            darven_dissipator = registerItem("darven_dissipator", () -> new ItemVetheanDissipator(DiskType.DARVEN_DISK)),
-            cermile_dissipator = registerItem("cermile_dissipator", () -> new ItemVetheanDissipator(DiskType.CERMILE_DISK)),
-            pardimal_dissipator = registerItem("pardimal_dissipator", () -> new ItemVetheanDissipator(DiskType.PARDIMAL_DISK)),
-            quadrotic_dissipator = registerItem("quadrotic_dissipator", () -> new ItemVetheanDissipator(DiskType.QUADROTIC_DISK)),
-            karos_dissipator = registerItem("karos_dissipator", () -> new ItemVetheanDissipator(DiskType.KAROS_DISK)),
-            heliosis_dissipator = registerItem("heliosis_dissipator", () -> new ItemVetheanDissipator(DiskType.HELIOSIS_DISK)),
-            arksiane_dissipator = registerItem("arksiane_dissipator", () -> new ItemVetheanDissipator(DiskType.ARKSIANE_DISK)),
+            teaker_dissipator = registerItem("teaker_dissipator", () -> new ItemVetheanDissipator(BulletType.TEAKER_DISSIPATOR)),
+            amthirmis_dissipator = registerItem("amthirmis_dissipator", () -> new ItemVetheanDissipator(BulletType.AMTHIRMIS_DISSIPATOR)),
+            darven_dissipator = registerItem("darven_dissipator", () -> new ItemVetheanDissipator(BulletType.DARVEN_DISSIPATOR)),
+            cermile_dissipator = registerItem("cermile_dissipator", () -> new ItemVetheanDissipator(BulletType.CERMILE_DISSIPATOR)),
+            pardimal_dissipator = registerItem("pardimal_dissipator", () -> new ItemVetheanDissipator(BulletType.PARDIMAL_DISSIPATOR)),
+            quadrotic_dissipator = registerItem("quadrotic_dissipator", () -> new ItemVetheanDissipator(BulletType.QUADROTIC_DISSIPATOR)),
+            karos_dissipator = registerItem("karos_dissipator", () -> new ItemVetheanDissipator(BulletType.KAROS_DISSIPATOR)),
+            heliosis_dissipator = registerItem("heliosis_dissipator", () -> new ItemVetheanDissipator(BulletType.HELIOSIS_DISSIPATOR)),
+            arksiane_dissipator = registerItem("arksiane_dissipator", () -> new ItemVetheanDissipator(BulletType.ARKSIANE_DISSIPATOR)),
 
             //Armor Pouches
             armor_pouch = registerItem("armor_pouch", () -> new ItemArmorPouch(Rarity.COMMON)),
@@ -986,6 +988,7 @@ public class ItemRegistry {
         return params == null || params.length < 1 ? MutableComponent.create(new TranslatableContents(id, null, null)) : MutableComponent.create(new TranslatableContents(id, null, params));
     }
     private static RegistryObject<Item> registerItemVethean(String registryId) {return ITEMS.register(registryId, ItemVethean::new);}
+    private static <T extends Item> RegistryObject<T> registerItemVethean(String registryId, Supplier<T> item) {return ITEMS.register(registryId, item);}
     private static RegistryObject<Item> registerItem(String registryId) {return ITEMS.register(registryId, ItemMod::new);}
     private static <T extends Item> RegistryObject<T> registerItem(String registryId, Supplier<T> item) {return ITEMS.register(registryId, item);}
 }

@@ -19,24 +19,25 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemTeleportationCrystal extends ItemMod {
-    public ItemTeleportationCrystal() {super(new Item.Properties().durability(10));}
+    public ItemTeleportationCrystal() {super(new Properties().durability(10));}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
         if(!world.isClientSide && player instanceof ServerPlayer) {
             BlockPos respawnPos = ((ServerPlayer)player).getRespawnPosition();
             if(respawnPos != null) {
                 ResourceKey<Level> respawnDimension = ((ServerPlayer)player).getRespawnDimension();
                 player.changeDimension(world.getServer().getLevel(respawnDimension), new SecondaryTeleporter(world.getServer().getLevel(respawnDimension)));
-                ItemStack stack = player.getItemInHand(hand);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(player.getUsedItemHand()));
                 player.getCooldowns().addCooldown(stack.getItem(), 160);
                 player.awardStat(Stats.ITEM_USED.get(this));
-                return InteractionResultHolder.success(player.getItemInHand(hand));
+                return InteractionResultHolder.success(stack);
             } else {
                 MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_crystal_no_respawn");
                 message.withStyle(ChatFormatting.RED);
                 player.displayClientMessage(message, true);
+                return InteractionResultHolder.fail(stack);
             }
-        } return InteractionResultHolder.fail(player.getItemInHand(hand));
+        } return super.use(world, player, hand);
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {

@@ -20,24 +20,25 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemDreamFlint extends ItemVethean {
+	public ItemDreamFlint() {super(new Properties().stacksTo(1));}
 	@Override public InteractionResult useOn(UseOnContext context) {
 		Level world = context.getLevel();
 		MutableBlockPos pos = context.getClickedPos().mutable();
 		Block mortumBlock = BlockRegistry.mortumBlock.get();
 		if(world.getBlockState(pos).is(mortumBlock)) {
 			boolean northSouth = world.getBlockState(pos.above().north()).is(mortumBlock);
-			if(!northSouth && !world.getBlockState(pos.above().east()).is(mortumBlock)) return InteractionResult.PASS;
+			if(!northSouth && !world.getBlockState(pos.above().east()).is(mortumBlock)) return InteractionResult.FAIL;
 			//TODO: to fix the portal blocks placement, you can create some unexpected shapes with it
 			while(pos.getY() < world.getMaxBuildHeight() && world.getBlockState(pos.move(Direction.UP)).isAir()) {
 				MutableBlockPos search = pos.mutable();
 				if(northSouth) {
-					for(int i = 0; !world.getBlockState(search.move(Direction.NORTH)).is(mortumBlock); i++) if(i > 1) return InteractionResult.PASS;
+					for(int i = 0; !world.getBlockState(search.move(Direction.NORTH)).is(mortumBlock); i++) if(i > 1) return InteractionResult.FAIL;
 					search = pos.mutable();
-					for(int i = 0; !world.getBlockState(search.move(Direction.SOUTH)).is(mortumBlock); i++) if(i > 1) return InteractionResult.PASS;
+					for(int i = 0; !world.getBlockState(search.move(Direction.SOUTH)).is(mortumBlock); i++) if(i > 1) return InteractionResult.FAIL;
 				} else {
-					for(int i = 0; !world.getBlockState(search.move(Direction.EAST)).is(mortumBlock); i++) if(i > 1) return InteractionResult.PASS;
+					for(int i = 0; !world.getBlockState(search.move(Direction.EAST)).is(mortumBlock); i++) if(i > 1) return InteractionResult.FAIL;
 					search = pos.mutable();
-					for(int i = 0; !world.getBlockState(search.move(Direction.WEST)).is(mortumBlock); i++) if(i > 1) return InteractionResult.PASS;
+					for(int i = 0; !world.getBlockState(search.move(Direction.WEST)).is(mortumBlock); i++) if(i > 1) return InteractionResult.FAIL;
 				}
 			} if(world.getBlockState(pos).is(mortumBlock)) {
 				BlockState portal = BlockRegistry.vetheaPortal.get().defaultBlockState().setValue(BlockModPortal.AXIS, northSouth ? Axis.Z : Axis.X);
@@ -58,7 +59,7 @@ public class ItemDreamFlint extends ItemVethean {
 				player.playSound(SoundEvents.FLINTANDSTEEL_USE, 1, 1);
 				return InteractionResult.SUCCESS;
 			}
-		} return InteractionResult.PASS;
+		} return InteractionResult.FAIL;
 	}
 	@OnlyIn(Dist.CLIENT)
 	@Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {

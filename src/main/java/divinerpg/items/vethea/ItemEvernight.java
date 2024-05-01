@@ -1,7 +1,6 @@
 package divinerpg.items.vethea;
 
 import divinerpg.enums.BulletType;
-import divinerpg.items.vanilla.ItemStaff;
 import divinerpg.util.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

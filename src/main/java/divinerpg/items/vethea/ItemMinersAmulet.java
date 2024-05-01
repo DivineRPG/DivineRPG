@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class ItemMinersAmulet extends ItemMod {
-    public ItemMinersAmulet() {super();}
+    public ItemMinersAmulet() {super(new Properties().stacksTo(1));}
     @Override public void inventoryTick(ItemStack stack, Level world, Entity entity, int i, boolean b) {
         Player player = (Player) entity;
         for(InteractionHand hand : InteractionHand.values()) {

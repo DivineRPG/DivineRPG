@@ -21,9 +21,7 @@ import java.util.List;
 
 public class ItemArmorPouch extends ItemMod {
 	public static final String TAG_HELMET = "divinerpg:helmet", TAG_CHESTPLATE = "divinerpg:chestplate", TAG_LEGGINGS = "divinerpg:leggings", TAG_BOOTS = "divinerpg:boots";
-	public ItemArmorPouch(Rarity rarity) {
-		super(new Item.Properties().stacksTo(1).rarity(rarity));
-	}
+	public ItemArmorPouch(Rarity rarity) {super(new Properties().stacksTo(1).rarity(rarity));}
 	@Override public boolean isFoil(ItemStack item) {
 		CompoundTag itemTag = item.getOrCreateTag();
 		return item.isEnchanted() || !(ItemStack.of(itemTag.getCompound(TAG_HELMET)).isEmpty() && ItemStack.of(itemTag.getCompound(TAG_CHESTPLATE)).isEmpty() && ItemStack.of(itemTag.getCompound(TAG_LEGGINGS)).isEmpty() && ItemStack.of(itemTag.getCompound(TAG_BOOTS)).isEmpty());

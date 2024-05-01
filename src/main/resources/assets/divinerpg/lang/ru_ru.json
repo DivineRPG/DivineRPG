@@ -2254,7 +2254,7 @@
   "tooltip.sky_flower.breath": "Даёт скорость и водное дыхание на 30 секунд",
   "tooltip.teleport_respawn_point": "Телепортирует к точке возрождения",
   "tooltip.serenade_of_infusion": "Даёт игроку регенерацию",
-  "tooltip.vethean_return": "Возвращается отправителю",
+  "tooltip.return": "Возвращается отправителю",
   "tooltip.not_done": "Этот предмет еще не завершен",
   "tooltip.ender_scepter": "При использовании: телепортирует игрока",
   "tooltip.staff.bounce": "Прыгающий снаряд",

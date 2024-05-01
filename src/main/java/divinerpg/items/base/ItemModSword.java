@@ -19,9 +19,9 @@ public class ItemModSword extends SwordItem {
     public int arcanaConsumedUse;
     public int arcanaConsumedAttack;
     public int cooldown;
-    public ItemModSword(Rarity rarity, Tier tier) {super(tier, 1, 1, new Item.Properties().rarity(rarity));}
-    public ItemModSword(Tier tier) {super(tier, 1, 1, new Item.Properties());}
-    public ItemModSword(Tier tier, Item.Properties properties) {super(tier, 1, 1, properties);}
+    public ItemModSword(Rarity rarity, Tier tier) {super(tier, 1, 1, new Properties().rarity(rarity));}
+    public ItemModSword(Tier tier) {super(tier, 1, 1, new Properties());}
+    public ItemModSword(Tier tier, Properties properties) {super(tier, 1, 1, properties);}
     //TODO: to use a different method, so that you can't spam click entities, then proceed using the new method in other places
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {

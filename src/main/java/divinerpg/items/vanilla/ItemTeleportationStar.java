@@ -23,7 +23,7 @@ import java.util.List;
 public class ItemTeleportationStar extends ItemMod {
     private final static String posKey = "BlockPos";
     private final static String dimKey = "Dim";
-    public ItemTeleportationStar() {super(new Item.Properties().durability(64));}
+    public ItemTeleportationStar() {super(new Properties().durability(64));}
     /**
      * Tries to set current position.
      *
@@ -38,7 +38,8 @@ public class ItemTeleportationStar extends ItemMod {
         return true;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-        CompoundTag compound = getFromStack(player.getItemInHand(hand));
+        ItemStack stack = player.getItemInHand(hand);
+        CompoundTag compound = getFromStack(stack);
         boolean hasInfo = compound.contains(dimKey) && compound.contains(posKey);
         if(!world.isClientSide) {
             if(player.isShiftKeyDown()) {
@@ -46,22 +47,21 @@ public class ItemTeleportationStar extends ItemMod {
                     MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_change_position");
                     message.withStyle(ChatFormatting.RED);
                     player.displayClientMessage(message, true);
-                } return InteractionResultHolder.success(player.getItemInHand(hand));
+                } return InteractionResultHolder.success(stack);
             } if(!compound.contains(posKey) && !compound.contains(posKey)) {
                 MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_no_position");
                 message.withStyle(ChatFormatting.RED);
                 player.displayClientMessage(message, true);
-                return InteractionResultHolder.fail(player.getItemInHand(hand));
+                return InteractionResultHolder.fail(stack);
             } ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(compound.getString(dimKey)))).getLevel();
             if(player instanceof ServerPlayer) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
-                ItemStack stack = player.getItemInHand(hand);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(player.getUsedItemHand()));
                 player.getCooldowns().addCooldown(stack.getItem(), 160);
                 player.awardStat(Stats.ITEM_USED.get(this));
-                return InteractionResultHolder.success(player.getItemInHand(hand));
+                return InteractionResultHolder.success(stack);
             }
-        } return InteractionResultHolder.fail(player.getItemInHand(hand));
+        } return super.use(world, player, hand);
     }
     private CompoundTag getFromStack(ItemStack stack) {
         if(!stack.hasTag()) stack.setTag(new CompoundTag());
