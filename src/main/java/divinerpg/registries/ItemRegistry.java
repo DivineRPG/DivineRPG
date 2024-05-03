@@ -1,6 +1,6 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
+
 import divinerpg.enums.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
@@ -23,7 +23,6 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
 import java.util.Objects;
 import java.util.function.Supplier;
-
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.MobEffectRegistry.*;
 
@@ -431,16 +430,24 @@ public class ItemRegistry {
             massivence = registerItem("massivence", () -> new ItemHealingSword(ToolStats.PALAVENCE, 1)),
             frossivence = registerItem("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1)),
 
+            //Arcana Misc.
+            divine_accumulator = registerItem("divine_accumulator", ItemDivineAccumulator::new),
+            ender_scepter = registerItem("ender_scepter", ItemEnderScepter::new),
+            ghostbane = registerItem("ghostbane", ItemGhostbane::new),
+            staff_of_enrichment = registerItem("staff_of_enrichment", ItemStaffEnrichment::new),
+            arcanium_attractor = registerItem("arcanium_attractor", ItemAttractor::new),
+            arcanium_reflector = registerItem("arcanium_reflector", ItemReflector::new),
+
             //Shields
-            realmite_shield = registerItem("realmite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "realmite_ingot"), 426, "realmite_shield")),
-            arlemite_shield = registerItem("arlemite_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "arlemite_ingot"), 734, "arlemite_shield")),
-            rupee_shield = registerItem("rupee_shield", () -> new DivineShield(new ResourceLocation(DivineRPG.MODID, "rupee_ingot"), 823, "rupee_shield")),
-            eden_shield = registerItem("eden_shield", () -> new DivineShield(RarityList.EDEN, new ResourceLocation(DivineRPG.MODID, "eden_gem"), 978, "eden_shield")),
-            wildwood_shield = registerItem("wildwood_shield", () -> new DivineShield(RarityList.WILDWOOD, new ResourceLocation(DivineRPG.MODID, "wildwood_gem"), 1125, "wildwood_shield")),
-            apalachia_shield = registerItem("apalachia_shield", () -> new DivineShield(RarityList.APALACHIA, new ResourceLocation(DivineRPG.MODID, "apalachia_gem"), 1256, "apalachia_shield")),
-            skythern_shield = registerItem("skythern_shield", () -> new DivineShield(RarityList.SKYTHERN, new ResourceLocation(DivineRPG.MODID, "skythern_gem"), 1485, "skythern_shield")),
-            mortum_shield = registerItem("mortum_shield", () -> new DivineShield(RarityList.MORTUM, new ResourceLocation(DivineRPG.MODID, "mortum_gem"), 1627, "mortum_shield")),
-            halite_shield = registerItem("halite_shield", () -> new DivineShield(RarityList.HALITE, new ResourceLocation("air") , 0, "halite_shield")),
+            realmite_shield = registerItem("realmite_shield", () -> new DivineShield(realmite_ingot.getId(), 426, "realmite_shield")),
+            arlemite_shield = registerItem("arlemite_shield", () -> new DivineShield(arlemite_ingot.getId(), 734, "arlemite_shield")),
+            rupee_shield = registerItem("rupee_shield", () -> new DivineShield(rupee_ingot.getId(), 823, "rupee_shield")),
+            eden_shield = registerItem("eden_shield", () -> new DivineShield(RarityList.EDEN, eden_gem.getId(), 978, "eden_shield")),
+            wildwood_shield = registerItem("wildwood_shield", () -> new DivineShield(RarityList.WILDWOOD, wildwood_gem.getId(), 1125, "wildwood_shield")),
+            apalachia_shield = registerItem("apalachia_shield", () -> new DivineShield(RarityList.APALACHIA, apalachia_gem.getId(), 1256, "apalachia_shield")),
+            skythern_shield = registerItem("skythern_shield", () -> new DivineShield(RarityList.SKYTHERN, skythern_gem.getId(), 1485, "skythern_shield")),
+            mortum_shield = registerItem("mortum_shield", () -> new DivineShield(RarityList.MORTUM, mortum_gem.getId(), 1627, "mortum_shield")),
+            halite_shield = registerItem("halite_shield", () -> new DivineShield(RarityList.HALITE, new ResourceLocation("air"), 0, "halite_shield")),
 
             //Serenades
             serenade_striker = registerItem("serenade_striker", ItemSerenadeStriker::new),
@@ -486,29 +493,19 @@ public class ItemRegistry {
             snowflake_shuriken = registerItem("snowflake_shuriken", () -> new ItemModThrowable(BulletType.SNOWFLAKE_SHURIKEN_SHOT)),
             vile_storm = registerItem("vile_storm", () -> new ItemModThrowable(BulletType.VILE_STORM_SHOT)),
 
+            //Slicers
+            eden_slicer = registerItem("eden_slicer", () -> new ItemModThrowable(RarityList.EDEN, BulletType.EDEN_SLICER_SHOT)),
+            wildwood_slicer = registerItem("wildwood_slicer", () -> new ItemModThrowable(RarityList.WILDWOOD, BulletType.WILDWOOD_SLICER_SHOT)),
+            apalachia_slicer = registerItem("apalachia_slicer", () -> new ItemModThrowable(RarityList.APALACHIA, BulletType.APALACHIA_SLICER_SHOT)),
+            skythern_slicer = registerItem("skythern_slicer", () -> new ItemModThrowable(RarityList.SKYTHERN, BulletType.SKYTHERN_SLICER_SHOT)),
+            mortum_slicer = registerItem("mortum_slicer", () -> new ItemModThrowable(RarityList.MORTUM, BulletType.MORTUM_SLICER_SHOT)),
+            halite_slicer = registerItem("halite_slicer", () -> new ItemModThrowable(RarityList.HALITE, BulletType.HALITE_SLICER_SHOT)),
+
             //Extra
             scythe = registerItem("scythe", ItemScythe::new),
             cyclopsian_staff = registerItem("cyclopsian_staff", () -> new ItemModRanged(BulletType.CYCLOPSIAN_STAFF_SHOT, SoundRegistry.STAFF.get(), 600, 0)),
-            crabclaw_cannon = registerItem("crabclaw_cannon", () -> new ItemModRanged(BulletType.CRABCLAW_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), new ResourceLocation("cactus"), 1000, 12)),
-            frostclaw_cannon = registerItem("frostclaw_cannon", () -> new ItemModRanged(BulletType.FROSTCLAW_CANNON_SHOT, SoundRegistry.FROSTCLAW_CANNON.get(), new ResourceLocation("cactus"), 10000, 0)),
-            bowhead_cannon = registerItem("bowhead_cannon", () -> new ItemModRanged(BulletType.BOWHEAD_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), new ResourceLocation("cactus"), 1000, 12)),
-            frost_cannon = registerItem("frost_cannon", () -> new ItemModRanged(BulletType.FROST_CANNON_SHOT, SoundRegistry.FROST_CANNON.get(), new ResourceLocation("snowball"), 15000, 0)),
-            fractite_cannon = registerItem("fractite_cannon", () -> new ItemModRanged(BulletType.FRACTITE_CANNON_SHOT, SoundRegistry.FRACTITE_CANNON.get(), new ResourceLocation(MODID, "ice_shards"), 10000, 0)),
             maelstrom = registerItem("maelstrom", () -> new ItemModRanged(BulletType.MAELSTROM_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 20)),
-            ghast_cannon = registerItem("ghast_cannon", () -> new ItemModRanged(BulletType.GHAST_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 20)),
-            corrupted_cannon = registerItem("corrupted_cannon", ItemCorruptedCannon::new),
-            corrupted_bullet = registerItem("corrupted_bullet"),
-            golden_fury = registerItem("golden_fury", () -> new ItemModRanged(BulletType.GOLDEN_FURY_SHOT, SoundRegistry.BLITZ.get(), new ResourceLocation("gold_nugget"), 0, 0)),
-
-            //Arcana
-            divine_accumulator = registerItem("divine_accumulator", ItemDivineAccumulator::new),
-            ghostbane = registerItem("ghostbane", ItemGhostbane::new),
-            staff_of_enrichment = registerItem("staff_of_enrichment", ItemStaffEnrichment::new),
-            ender_scepter = registerItem("ender_scepter", ItemEnderScepter::new),
-            arcanium_attractor = registerItem("arcanium_attractor", ItemAttractor::new),
-            arcanium_reflector = registerItem("arcanium_reflector", ItemReflector::new),
             captains_sparkler = registerItem("captains_sparkler", () -> new ItemModRanged(BulletType.CAPTAINS_SPARKLER_SHOT, SoundRegistry.SPARKLER.get(), null, 0, 15, 7)),
-            arcanite_blaster = registerItem("arcanite_blaster", ItemArcaniteBlaster::new),
             la_vekor = registerItem("la_vekor", ItemLaVekor::new),
             grenade = registerItem("grenade", ItemGrenade::new),
             firefly = registerItem("firefly", ItemFirefly::new),
@@ -518,14 +515,6 @@ public class ItemRegistry {
             staff_of_starlight = registerItem("staff_of_starlight", () -> new ItemStaffStarlight(25, 8)),
             meteor_mash = registerItem("meteor_mash", ItemMeteorMash::new),
 
-            //Blitz
-            eden_blitz = registerItem("eden_blitz", () -> new ItemTwilightBlitz(RarityList.EDEN, BulletType.EDEN_BLITZ_SHOT, new ResourceLocation(DivineRPG.MODID, "eden_dust"))),
-            wildwood_blitz = registerItem("wildwood_blitz", () -> new ItemTwilightBlitz(RarityList.WILDWOOD, BulletType.WILDWOOD_BLITZ_SHOT, new ResourceLocation(DivineRPG.MODID, "wildwood_dust"))),
-            apalachia_blitz = registerItem("apalachia_blitz", () -> new ItemTwilightBlitz(RarityList.APALACHIA, BulletType.APALACHIA_BLITZ_SHOT, new ResourceLocation(DivineRPG.MODID, "apalachia_dust"))),
-            skythern_blitz = registerItem("skythern_blitz", () -> new ItemTwilightBlitz(RarityList.SKYTHERN, BulletType.SKYTHERN_BLITZ_SHOT, new ResourceLocation(DivineRPG.MODID, "skythern_dust"))),
-            mortum_blitz = registerItem("mortum_blitz", () -> new ItemTwilightBlitz(RarityList.MORTUM, BulletType.MORTUM_BLITZ_SHOT, new ResourceLocation(DivineRPG.MODID, "mortum_dust"))),
-            halite_blitz = registerItem("halite_blitz", () -> new ItemTwilightBlitz(RarityList.HALITE, BulletType.HALITE_BLITZ_SHOT, new ResourceLocation(DivineRPG.MODID, "mortum_dust"))),
-
             //Phasers
             eden_phaser = registerItem("eden_phaser", () -> new ItemModRanged(RarityList.EDEN, BulletType.EDEN_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
             wildwood_phaser = registerItem("wildwood_phaser", () -> new ItemModRanged( RarityList.WILDWOOD, BulletType.WILDWOOD_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
@@ -534,13 +523,27 @@ public class ItemRegistry {
             mortum_phaser = registerItem("mortum_phaser", () -> new ItemModRanged(RarityList.MORTUM, BulletType.MORTUM_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
             halite_phaser = registerItem("halite_phaser", () -> new ItemModRanged(RarityList.HALITE, BulletType.HALITE_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
 
-            //Slicers
-            eden_slicer = registerItem("eden_slicer", () -> new ItemModThrowable(RarityList.EDEN, BulletType.EDEN_SLICER_SHOT)),
-            wildwood_slicer = registerItem("wildwood_slicer", () -> new ItemModThrowable(RarityList.WILDWOOD, BulletType.WILDWOOD_SLICER_SHOT)),
-            apalachia_slicer = registerItem("apalachia_slicer", () -> new ItemModThrowable(RarityList.APALACHIA, BulletType.APALACHIA_SLICER_SHOT)),
-            skythern_slicer = registerItem("skythern_slicer", () -> new ItemModThrowable(RarityList.SKYTHERN, BulletType.SKYTHERN_SLICER_SHOT)),
-            mortum_slicer = registerItem("mortum_slicer", () -> new ItemModThrowable(RarityList.MORTUM, BulletType.MORTUM_SLICER_SHOT)),
-            halite_slicer = registerItem("halite_slicer", () -> new ItemModThrowable(RarityList.HALITE, BulletType.HALITE_SLICER_SHOT)),
+            //Cannons
+            crabclaw_cannon = registerItem("crabclaw_cannon", () -> new ItemModRanged(BulletType.CRABCLAW_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), new ResourceLocation("cactus"), 1000, 12)),
+            frostclaw_cannon = registerItem("frostclaw_cannon", () -> new ItemModRanged(BulletType.FROSTCLAW_CANNON_SHOT, SoundRegistry.FROSTCLAW_CANNON.get(), new ResourceLocation("cactus"), 10000, 0)),
+            bowhead_cannon = registerItem("bowhead_cannon", () -> new ItemModRanged(BulletType.BOWHEAD_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), new ResourceLocation("cactus"), 1000, 12)),
+            frost_cannon = registerItem("frost_cannon", () -> new ItemModRanged(BulletType.FROST_CANNON_SHOT, SoundRegistry.FROST_CANNON.get(), new ResourceLocation("snowball"), 15000, 0)),
+            fractite_cannon = registerItem("fractite_cannon", () -> new ItemModRanged(BulletType.FRACTITE_CANNON_SHOT, SoundRegistry.FRACTITE_CANNON.get(), ice_shards.getId(), 10000, 0)),
+            ghast_cannon = registerItem("ghast_cannon", () -> new ItemModRanged(BulletType.GHAST_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 20)),
+            golden_fury = registerItem("golden_fury", () -> new ItemModRanged(BulletType.GOLDEN_FURY_SHOT, SoundRegistry.BLITZ.get(), new ResourceLocation("gold_nugget"), 0, 0)),
+
+            //Blitz
+            eden_blitz = registerItem("eden_blitz", () -> new ItemTwilightBlitz(RarityList.EDEN, BulletType.EDEN_BLITZ_SHOT, eden_dust.getId())),
+            wildwood_blitz = registerItem("wildwood_blitz", () -> new ItemTwilightBlitz(RarityList.WILDWOOD, BulletType.WILDWOOD_BLITZ_SHOT, wildwood_dust.getId())),
+            apalachia_blitz = registerItem("apalachia_blitz", () -> new ItemTwilightBlitz(RarityList.APALACHIA, BulletType.APALACHIA_BLITZ_SHOT, apalachia_dust.getId())),
+            skythern_blitz = registerItem("skythern_blitz", () -> new ItemTwilightBlitz(RarityList.SKYTHERN, BulletType.SKYTHERN_BLITZ_SHOT, skythern_dust.getId())),
+            mortum_blitz = registerItem("mortum_blitz", () -> new ItemTwilightBlitz(RarityList.MORTUM, BulletType.MORTUM_BLITZ_SHOT, mortum_dust.getId())),
+            halite_blitz = registerItem("halite_blitz", () -> new ItemTwilightBlitz(RarityList.HALITE, BulletType.HALITE_BLITZ_SHOT, mortum_dust.getId())),
+
+            //Shotguns
+            corrupted_cannon = registerItem("corrupted_cannon", ItemCorruptedCannon::new),
+            corrupted_bullet = registerItem("corrupted_bullet"),
+            arcanite_blaster = registerItem("arcanite_blaster", ItemArcaniteBlaster::new),
 
     //Tool Sets
     realmite_shovel = registerItem("realmite_shovel", () -> new ItemModShovel(ToolStats.REALMITE_SHOVEL)),

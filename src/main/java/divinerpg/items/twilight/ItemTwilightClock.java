@@ -6,8 +6,9 @@ import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
@@ -27,11 +28,14 @@ public class ItemTwilightClock extends ItemMod {
     };
     public ItemTwilightClock() {super(new Properties().stacksTo(1));}
     @Override public InteractionResult useOn(UseOnContext context) {
-        Player player = context.getPlayer();
         BlockPos pos = context.getClickedPos();
         Direction facing = context.getClickedFace();
+        InteractionHand hand = context.getHand();
         Level level = context.getLevel();
+        Player player = context.getPlayer();
+        ItemStack stack = player.getItemInHand(hand);
         RandomSource random = level.random;
+        if(!player.mayUseItemAt(pos, facing, stack)) return InteractionResult.FAIL;
         if(facing != Direction.UP) return InteractionResult.FAIL;
         for(Direction direction : Direction.Plane.VERTICAL) {
             BlockModPortal portalBlock = null;

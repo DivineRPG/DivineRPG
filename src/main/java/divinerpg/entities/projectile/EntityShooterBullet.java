@@ -1,8 +1,7 @@
 package divinerpg.entities.projectile;
 
 import divinerpg.enums.BulletType;
-import divinerpg.registries.ItemRegistry;
-import divinerpg.registries.ParticleRegistry;
+import divinerpg.registries.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -15,7 +14,6 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
-
 import java.util.Random;
 
 public class EntityShooterBullet extends DivineThrowable {
@@ -76,13 +74,12 @@ public class EntityShooterBullet extends DivineThrowable {
         super.defineSynchedData();
         entityData.define(BULLET_ID, (byte)0);
     }
-    @Override public boolean save(CompoundTag compound) {
-        super.save(compound);
+    @Override public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
         compound.putByte("projectileId", getBulletId());
-        return false;
     }
-    @Override public void load(CompoundTag compound) {
-        super.load(compound);
+    @Override public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
         setBulletId(compound.getByte("projectileId"));
         bulletType = BulletType.getBulletFromOrdinal(getBulletId());
     }

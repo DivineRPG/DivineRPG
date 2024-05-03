@@ -7,7 +7,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class ItemHordeHorn extends ItemBossSpawner {
@@ -16,7 +15,7 @@ public class ItemHordeHorn extends ItemBossSpawner {
         Level world = context.getLevel();
         BlockPos pos = context.getClickedPos().relative(context.getClickedFace());
         BlockState state = world.getBlockState(pos);
-        if(state != Blocks.AIR.defaultBlockState()) return InteractionResult.FAIL;
+        if(!state.isAir()) return InteractionResult.FAIL;
         else if(world.dimension() == dimensionID && world.getDifficulty() != Difficulty.PEACEFUL) {
             world.playSound(null, pos, SoundRegistry.AYERACO_SPAWN.get(), SoundSource.HOSTILE, 20, 1);
             world.setBlock(pos, BlockRegistry.ayeracoSpawn.get().defaultBlockState(), 0);

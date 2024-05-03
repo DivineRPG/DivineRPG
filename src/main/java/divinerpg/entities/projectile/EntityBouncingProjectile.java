@@ -27,7 +27,7 @@ public class EntityBouncingProjectile extends EntityShooterBullet {
         } else if(result.getDirection() == Direction.EAST || result.getDirection() == Direction.WEST) {
             setDeltaMovement(getDeltaMovement().x * -1, getDeltaMovement().y, getDeltaMovement().z);
         } else if(result.getDirection() == Direction.NORTH || result.getDirection() == Direction.SOUTH) {
-            setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z* -1);
+            setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z * -1);
         } bounces++;
         if(bounces == 7) discard();
     }
