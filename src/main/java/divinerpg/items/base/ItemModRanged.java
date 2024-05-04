@@ -5,7 +5,7 @@ import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
 import divinerpg.items.arcana.ItemLaVekor;
-import divinerpg.items.vanilla.ItemScythe;
+import divinerpg.items.vanilla.*;
 import divinerpg.items.vethea.*;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemModRanged extends ItemMod {
-    private final ResourceLocation ammoSupplier;
+    private final Item ammoSupplier;
     private final SoundSource soundCategory;
     protected BulletType bulletType;
     protected final String entityType;
@@ -41,7 +41,7 @@ public class ItemModRanged extends ItemMod {
      * @param ammo - ammo for weapon. If it returns null, no ammo required
      * @param arcanaConsuming - arcana consuming per shot. Pass 0 to not consume at all
      */
-    public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, ResourceLocation ammo, int arcanaConsuming) {
+    public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, Item ammo, int arcanaConsuming) {
         super(new Properties().durability(uses).rarity(rarity));
         ammoSupplier = ammo;
         arcanaConsumedUse = arcanaConsuming;
@@ -51,7 +51,7 @@ public class ItemModRanged extends ItemMod {
         this.sound = sound;
         soundCategory = SoundSource.PLAYERS;
     }
-    public ItemModRanged(String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, ResourceLocation ammo, int arcanaConsuming) {
+    public ItemModRanged(String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, Item ammo, int arcanaConsuming) {
         super(new Properties().durability(uses));
         ammoSupplier = ammo;
         arcanaConsumedUse = arcanaConsuming;
@@ -61,7 +61,7 @@ public class ItemModRanged extends ItemMod {
         this.sound = sound;
         soundCategory = SoundSource.PLAYERS;
     }
-    //Throwables
+    //Throwables (no durability)
     public ItemModRanged(Rarity rarity, BulletType bulletType, int delay) {
         super(new Properties().rarity(rarity));
         ammoSupplier = null;
@@ -73,15 +73,11 @@ public class ItemModRanged extends ItemMod {
         soundCategory = SoundSource.PLAYERS;
     }
     //No rarity, specified arcana usage
-    public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay, int arcanaConsuming) {this(null, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);}
+    public ItemModRanged(BulletType bulletType, SoundEvent sound, Item ammoSupplier, int uses, int delay, int arcanaConsuming) {this(null, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);}
     //No rarity, specified ammo
-    public ItemModRanged(BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay) {this(null, bulletType, sound, uses, delay, ammoSupplier, 0);}
+    public ItemModRanged(BulletType bulletType, SoundEvent sound, Item ammoSupplier, int uses, int delay) {this(null, bulletType, sound, uses, delay, ammoSupplier, 0);}
     //No rarity, no ammo
     public ItemModRanged(BulletType bulletType, SoundEvent sound, int uses, int delay) {this(bulletType, sound, null, uses, delay);}
-    //Has rarity, specified ammo
-    public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, ResourceLocation ammoSupplier, int uses, int delay) {this(rarity, null, bulletType, sound, uses, delay, ammoSupplier, 0);}
-    //Has rarity, no ammo
-    public ItemModRanged(Rarity rarity, BulletType bulletType, SoundEvent sound, int uses, int delay) {this(rarity, bulletType, sound, null, uses, delay);}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if(canUseRangedWeapon(player, stack)) {
@@ -94,25 +90,20 @@ public class ItemModRanged extends ItemMod {
                 if(arcana != null) arcana.consume(player, arcanaConsumedUse);
                 ItemStack ammoStack = ammo.getObject();
                 if(ammoStack != null) ammoStack.shrink(1);
-                if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(player.getUsedItemHand()));
+                if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
                 player.getCooldowns().addCooldown(stack.getItem(), cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 doPostUsageEffects(world, player);
                 if(this instanceof ItemModThrowable || this instanceof ItemVetheanDisk) {
                     world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, .5F, .4F / (player.getRandom().nextFloat() * .4F + .8F));
                     return InteractionResultHolder.success(stack);
-                }
-                world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, 1, 1);
+                } world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, 1, 1);
                 return InteractionResultHolder.consume(stack);
             }
         } return InteractionResultHolder.pass(stack);
     }
-    public Item getAmmo() {
-        if(ForgeRegistries.ITEMS.getValue(ammoSupplier) != Items.AIR) return ForgeRegistries.ITEMS.getValue(ammoSupplier);
-        else return null;
-    }
-    private boolean needsAmmo() {return ForgeRegistries.ITEMS.getValue(ammoSupplier) != Items.AIR;}
-    private boolean isAmmo(@Nullable ItemStack stack) {return stack != null && stack.getItem() == getAmmo();}
+    private boolean needsAmmo() {return ammoSupplier != null;}
+    private boolean isAmmo(@Nullable ItemStack stack) {return stack != null && stack.getItem() == ammoSupplier;}
     private ItemStack findAmmo(Player player) {
         if(this.isAmmo(player.getItemInHand(InteractionHand.OFF_HAND))) return player.getItemInHand(InteractionHand.OFF_HAND);
         else if(this.isAmmo(player.getItemInHand(InteractionHand.MAIN_HAND))) return player.getItemInHand(InteractionHand.MAIN_HAND);
@@ -169,10 +160,12 @@ public class ItemModRanged extends ItemMod {
     protected void doPostUsageEffects(Level world, Player player) {}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(bulletType != null && !(this instanceof ItemStaff) && !(this instanceof ItemLaVekor) && !(this instanceof ItemScythe) && !(this instanceof ItemVetheanDisk) && !(this instanceof ItemModThrowable)) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
+        if(bulletType != null && bulletType.getDamage() != 0 && !(this instanceof ItemStaff) && !(this instanceof ItemLaVekor)
+            && !(this instanceof ItemScythe) && !(this instanceof ItemVetheanDisk) && !(this instanceof ItemModThrowable)
+            && !(this instanceof ItemModShotgun) && !(this instanceof ItemSerenadeOfDeath)) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         if(!(this instanceof ItemModThrowable) && !(this instanceof ItemVetheanDisk)) {
-            tooltip.add(needsAmmo() ? LocalizeUtils.ammo(getAmmo()) : LocalizeUtils.infiniteAmmo());
+            tooltip.add(needsAmmo() ? LocalizeUtils.ammo(ammoSupplier) : LocalizeUtils.infiniteAmmo());
             if(!canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
         }
     }

@@ -38,5 +38,5 @@ public class EntityDisk extends EntityShooterBullet {
             }
         } else if(!level().isClientSide()) discard();
     }
-    @Override protected float getGravity() {return 0;}
+    @Override public float getGravity() {return 0;}
 }

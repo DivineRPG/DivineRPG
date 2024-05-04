@@ -39,8 +39,7 @@ public class RiveHandler {
                     if(tryToBreakBlock(world, player, pos, world.getBlockState(pos), itemStack)) totalBlocksBroken++;
                 }
             }
-        }
-        if(blockState.getDestroySpeed(world, event.getPos()) != 0.0F && totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, (context) -> context.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        } if(blockState.getDestroySpeed(world, event.getPos()) != 0.0F && totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, (ctx) -> ctx.broadcastBreakEvent(EquipmentSlot.MAINHAND));
     }
     private boolean tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool) {
         Block block = blockState.getBlock();
@@ -52,8 +51,7 @@ public class RiveHandler {
             if(!player.isCreative()) {
                 block.playerDestroy(world, player, pos, blockState, null, tool);
                 block.popExperience((ServerLevel) world, pos, block.getExpDrop(blockState, world, world.random, pos, EnchantmentHelper.getEnchantmentLevel(Enchantments.BLOCK_FORTUNE, player), EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player)));
-            }
-            world.destroyBlock(pos, false);
+            } world.destroyBlock(pos, false);
             return true;
         } return false;
     }

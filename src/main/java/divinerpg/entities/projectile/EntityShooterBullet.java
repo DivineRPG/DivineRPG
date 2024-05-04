@@ -28,11 +28,16 @@ public class EntityShooterBullet extends DivineThrowable {
         this.bulletType = bulletType;
         thrower = entity;
         setBulletId((byte)bulletType.ordinal());
+        if(this.bulletType == BulletType.SERENADE_OF_ICE_SHOT) setDeltaMovement(getDeltaMovement().x * 3, getDeltaMovement().y * 3, getDeltaMovement().z * 3);
+    }
+    @Override public float getGravity() {
+        if(bulletType == BulletType.SERENADE_OF_ICE_SHOT) return 0;
+        return super.getGravity();
     }
     @Override public void tick() {
         super.tick();
         if(bulletType == BulletType.CAPTAINS_SPARKLER_SHOT) {
-            for(int var3 = 0; var3 < 8; ++var3) level().addParticle(ParticleRegistry.SPARKLER.get(), xo, yo, zo, .25 * random.nextGaussian(), 0.25 * random.nextGaussian(), 0.25 * random.nextGaussian());
+            for(int var3 = 0; var3 < 8; ++var3) level().addParticle(ParticleRegistry.SPARKLER.get(), xo, yo, zo, .25 * random.nextGaussian(), .25 * random.nextGaussian(), .25 * random.nextGaussian());
         }
         if(color >= 24) color = 0;
         else color++;
@@ -49,10 +54,11 @@ public class EntityShooterBullet extends DivineThrowable {
     @Override public void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         Entity entity = result.getEntity();
-        if(!(this instanceof EntityBouncingProjectile)) entity.hurt(damageSources().thrown(this, thrower), getBulletType().getDamage());
+        if(!(this instanceof EntityBouncingProjectile) && !(bulletType == BulletType.SERENADE_OF_ICE_SHOT)) entity.hurt(damageSources().thrown(this, thrower), getBulletType().getDamage());
         if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan)) {
             if(bulletType == BulletType.SNOWFLAKE_SHURIKEN_SHOT) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 3));
             if(bulletType == BulletType.VILE_STORM_SHOT || bulletType == BulletType.SERENADE_OF_DEATH_SHOT) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 3));
+            if(bulletType == BulletType.SERENADE_OF_ICE_SHOT) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 3));
         }
     }
     @Override protected void onHitBlock(BlockHitResult result) {

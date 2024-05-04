@@ -1,7 +1,6 @@
 package divinerpg.items.base;
 
 import java.util.List;
-
 import divinerpg.DivineRPG;
 import net.minecraft.*;
 import net.minecraft.network.chat.Component;

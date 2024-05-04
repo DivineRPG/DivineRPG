@@ -22,12 +22,12 @@ public class ItemSerenadeOfHealth extends ItemMod {
     public ItemSerenadeOfHealth() {
         super(new Properties().durability(7));
         healAmount = 20;
-        cooldown = 20;
+        cooldown = 40;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {
             ItemStack stack = player.getItemInHand(hand);
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (p_220044_0_) -> p_220044_0_.broadcastBreakEvent(hand));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(hand));
             player.heal(healAmount);
             player.playSound(SoundRegistry.HEAL.get(), 1, 1);
             player.awardStat(Stats.ITEM_USED.get(this));
@@ -37,7 +37,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
     }
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (p_220044_0_) -> p_220044_0_.broadcastBreakEvent(hand));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(hand));
             entity.heal(healAmount);
             entity.playSound(SoundRegistry.HEAL.get(), 1, 1);
             for(int i = 0; i < 7; ++i) {

@@ -65,7 +65,6 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityCaveRock>>				 CAVE_ROCK = registerProjectile(EntityCaveRock::new,                                "cave_rock");
     public static final RegistryObject<EntityType<EntityColoredBullet>>			 COLORED_BULLET = registerProjectile(EntityColoredBullet::new,                      "colored_bullet");
     public static final RegistryObject<EntityType<EntityCoriShot>>				 CORI_SHOT = registerProjectile(EntityCoriShot::new,                                "cori_shot");
-    public static final RegistryObject<EntityType<EntityCorruptedBullet>>		 CORRUPTED_BULLET = registerProjectile(EntityCorruptedBullet::new,                  "corrupted_bullet");
     public static final RegistryObject<EntityType<EntityDisk>>					 DISK = registerProjectile(EntityDisk::new,                                         "disk");
     public static final RegistryObject<EntityType<EntityDissimentShot>>			 DISSIMENT_SHOT = registerProjectile(EntityDissimentShot::new,                      "dissiment_shot");
     public static final RegistryObject<EntityType<EntityDivineArrow>>			 ARROW_SHOT = registerArrowProjectile(EntityDivineArrow::new,                       "arrow_shot");
@@ -88,7 +87,6 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityReflector>>				 REFLECTOR = registerProjectile(EntityReflector::new,                               "reflector");
     public static final RegistryObject<EntityType<EntitySaguaroWormShot>>		 SAGUARO_WORM_SHOT = registerProjectile(EntitySaguaroWormShot::new,                 "saguaro_worm_shot");
     public static final RegistryObject<EntityType<EntityScorcherShot>>			 SCORCHER_SHOT = registerFireballProjectile(EntityScorcherShot::new,                "scorcher_shot");
-    public static final RegistryObject<EntityType<EntitySerenadeOfIce>>			 SERENADE_OF_ICE = registerProjectile(EntitySerenadeOfIce::new,                     "serenade_of_ice");
     public static final RegistryObject<EntityType<EntityShooterBullet>>			 SHOOTER_BULLET = registerProjectile(EntityShooterBullet::new,                      "shooter_bullet");
     public static final RegistryObject<EntityType<EntitySkyreBullet>>			 SKYRE_BULLET = registerProjectile(EntitySkyreBullet::new,                          "skyre_bullet");
     public static final RegistryObject<EntityType<EntitySoulFiendShot>>			 SOUL_FIEND_SHOT = registerProjectile(EntitySoulFiendShot::new,                     "soul_fiend_shot");
@@ -795,7 +793,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(CAVE_ROCK.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "cave_rock"));
         event.registerEntityRenderer(COLORED_BULLET.get(),          RenderShooterBullet::new);
         event.registerEntityRenderer(CORI_SHOT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "cori_shot"));
-        event.registerEntityRenderer(CORRUPTED_BULLET.get(), 		(Context context) -> new RenderItemProjectile<>(context,   "corrupted_bullet"));
         event.registerEntityRenderer(DISK.get(),                    RenderShooterBullet::new);
         event.registerEntityRenderer(DISSIMENT_SHOT.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "dissiment_shot"));
         event.registerEntityRenderer(ENDER_TRIPLETS_FIREBALL.get(), (Context context) -> new RenderDivineFireball<>(context, "ender_triplets_fireball"));
@@ -818,7 +815,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(REFLECTOR.get(),               RenderDivineProjectile::new);
         event.registerEntityRenderer(SAGUARO_WORM_SHOT.get(),       RenderSaguaroWormShot::new);
         event.registerEntityRenderer(SCORCHER_SHOT.get(), 			(Context context) -> new RenderDivineFireball<>(context, "scorcher_shot"));
-        event.registerEntityRenderer(SERENADE_OF_ICE.get(),         RenderDivineProjectile::new);
         event.registerEntityRenderer(SHOOTER_BULLET.get(),          RenderShooterBullet::new);
         event.registerEntityRenderer(SKYRE_BULLET.get(), 		    (Context context) -> new RenderDivineProjectile<>(context, "skyre_bullet"));
         event.registerEntityRenderer(SOUL_FIEND_SHOT.get(),         RenderDivineProjectile::new);

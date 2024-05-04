@@ -21,6 +21,10 @@ public enum BulletType {
     MORTUM_SLICER_SHOT(16, ItemLoc("mortum_slicer")),
     HALITE_SLICER_SHOT(22, ItemLoc("halite_slicer")),
 
+    //Serenades
+    SERENADE_OF_DEATH_SHOT(14, ProjectileLoc("serenade_of_death")),
+    SERENADE_OF_ICE_SHOT(0, ProjectileLoc("serenade_of_ice")),
+
     //Anchors
     CRAB_ANCHOR_SHOT(3, ProjectileLoc("crab_anchor")),
     SHARK_ANCHOR_SHOT(4, ProjectileLoc("shark_anchor")),
@@ -32,23 +36,27 @@ public enum BulletType {
     SOUND_OF_CAROLS_SHOT(16, ProjectileLoc("sound_of_carols")),
     SOUND_OF_WHALES_SHOT(20, ProjectileLoc("sound_of_whales")),
 
-    //Other projectiles
-    SERENADE_OF_DEATH_SHOT(14, ProjectileLoc("serenade_of_death")),
+    //Extra
     SCYTHE_SHOT(6, ProjectileLoc("scythe")),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe")),
     CYCLOPSIAN_STAFF_SHOT(6, ItemLoc("cyclops_eye_shards")),
+    MAELSTROM_SHOT(12, ProjectileLoc("maelstrom"), ParticleRegistry.APALACHIA_PORTAL.get()),
+    CAPTAINS_SPARKLER_SHOT(20, ProjectileLoc("sparkler")),
+    GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), 31, 93, 210),
+    GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), 56, 152, 186),
+
+    //Cannons
     CRABCLAW_CANNON_SHOT(12, ProjectileLoc("crab_anchor")),
     FROSTCLAW_CANNON_SHOT(16, ProjectileLoc("frostclaw_cannon")),
     BOWHEAD_CANNON_SHOT(12, ProjectileLoc("bowhead_anchor")),
     FROST_CANNON_SHOT(6, ProjectileLoc("frost_cannon")),
     FRACTITE_CANNON_SHOT(14, ProjectileLoc("fractite_cannon")),
-    MAELSTROM_SHOT(12, ProjectileLoc("maelstrom")),
     GHAST_CANNON_SHOT(16, ProjectileLoc("ghast_cannon")),
     GOLDEN_FURY_SHOT(30, VanillaItemLoc("gold_nugget")),
-    CAPTAINS_SPARKLER_SHOT(20, ProjectileLoc("sparkler")),
+
+    //Shotguns
     ARCANITE_BLASTER(23, ProjectileLoc("blaster_shot")),
-    GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), 31, 93, 210),
-    GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), 56, 152, 186),
+    CORRUPTED_BULLET(10, ItemLoc("corrupted_bullet")),
 
     //Blitz
     EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleRegistry.EDEN_PORTAL.get()),
@@ -66,13 +74,13 @@ public enum BulletType {
     MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleRegistry.MORTUM_PORTAL.get()),
     HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleRegistry.GREEN_PORTAL.get()),
 
-    //Mob projectiles
+    //Mob Projectiles
     MAGE_SHOT(10, blank(), 62, 212, 254),
     SPELLBINDER_SHOT(12, blank(),234, 158, 253),
     MYSTIC_SHOT(13, blank(), 234, 223, 228),
     SORCERER_SHOT(14, blank(), 97, 31, 54),
 
-    //Boss projectiles
+    //Boss Projectiles
     BONE_FRAGMENT(6, ProjectileLoc("bone_fragment")),
     BONE_BOMB(16, ProjectileLoc("bone_bomb")),
     SUNSTORM(12, blank(),255, 235, 0),
@@ -81,7 +89,7 @@ public enum BulletType {
     SOUL_FIEND_SHOT(0, blank()),
     LUNA_SPARKLER(12, blank(), 139, 103, 255, ParticleRegistry.WILDWOOD_PORTAL.get()),
 
-    //Vethea cannons
+    //Vethea Cannons
     TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
     AMTHIRMIS_CANNON_SHOT(5, ProjectileLoc("cannon")),
     DARVEN_CANNON_SHOT(8, ProjectileLoc("cannon")),
@@ -91,9 +99,9 @@ public enum BulletType {
     KAROS_CANNON_SHOT(21, ProjectileLoc("cannon")),
     HELIOSIS_CANNON_SHOT(28, ProjectileLoc("cannon")),
     ARKSIANE_CANNON_SHOT(36, ProjectileLoc("cannon")),
-    EVERSIGHT_SHOT(42, ProjectileLoc("cannon")),
+    EVERSIGHT_SHOT(42, ProjectileLoc("eversight")),
 
-    //Vethea bouncing projectiles
+    //Vethea Bouncing Projectiles
     TEAKER_STAFF_SHOT(3, ProjectileLoc("bouncing_projectile")),
     AMTHIRMIS_STAFF_SHOT(5, ProjectileLoc("bouncing_projectile")),
     DARVEN_STAFF_SHOT(8, ProjectileLoc("bouncing_projectile")),
@@ -103,7 +111,7 @@ public enum BulletType {
     KAROS_STAFF_SHOT(21, ProjectileLoc("bouncing_projectile")),
     HELIOSIS_STAFF_SHOT(28, ProjectileLoc("bouncing_projectile")),
     ARKSIANE_STAFF_SHOT(36, ProjectileLoc("bouncing_projectile")),
-    EVERNIGHT_SHOT(115, ProjectileLoc("bouncing_projectile")),
+    EVERNIGHT_SHOT(115, ProjectileLoc("evernight")),
 
     //Disks
     TEAKER_DISK(4, ItemLoc("teaker_disk")),

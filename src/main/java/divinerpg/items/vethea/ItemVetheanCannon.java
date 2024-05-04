@@ -5,5 +5,5 @@ import divinerpg.items.base.ItemModRanged;
 import divinerpg.registries.*;
 
 public class ItemVetheanCannon extends ItemModRanged {
-    public ItemVetheanCannon(BulletType projectileType) {super(projectileType, SoundRegistry.BLITZ.get(), ItemRegistry.acid.getId(), 0, 0);}
+    public ItemVetheanCannon(BulletType bulletType) {super(bulletType, SoundRegistry.BLITZ.get(), ItemRegistry.acid.get(), 0, 0);}
 }

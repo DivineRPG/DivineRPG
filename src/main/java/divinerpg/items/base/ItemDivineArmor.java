@@ -70,12 +70,13 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
         this.amplifier = amplifier;
     }
     @Override public int getEnchantmentValue() {return mat.getEnchantmentValue();}
-    @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(armorInfo != null && getFullSetPerks() != null) for(String element : armorInfo.toString(stack, worldIn)) tooltip.add(LocalizeUtils.i18n(element));
-    }
     @Override public Component getFullSetPerks() {
         if(armorInfo == null) return null;
         return armorInfo.FullSetPerks;
+    }
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        if(armorInfo != null && getFullSetPerks() != null) for(String element : armorInfo.toString(stack, worldIn)) tooltip.add(LocalizeUtils.i18n(element));
+        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
     }
 }

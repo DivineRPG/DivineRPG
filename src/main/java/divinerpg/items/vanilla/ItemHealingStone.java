@@ -21,7 +21,7 @@ public class ItemHealingStone extends ItemMod {
     private final float healAmount;
     public ItemHealingStone() {
         healAmount = 20;
-        cooldown = 20;
+        cooldown = 50;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {

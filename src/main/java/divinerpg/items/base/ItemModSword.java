@@ -38,13 +38,6 @@ public class ItemModSword extends SwordItem {
             } return super.use(level, player, hand);
         }).orElse(InteractionResultHolder.pass(player.getItemInHand(hand)));
     }
-    @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
-        if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
-        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
-    }
     @Override public Multimap<Attribute, AttributeModifier> getAttributeModifiers(final EquipmentSlot slot, final ItemStack stack) {
         final Multimap<Attribute, AttributeModifier> modifiers = ArrayListMultimap.create(super.getAttributeModifiers(slot, stack));
         if(slot == EquipmentSlot.MAINHAND) replaceModifier(modifiers, Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_UUID, getTier().getSpeed());
@@ -65,5 +58,12 @@ public class ItemModSword extends SwordItem {
             modifiers.remove(modifier);
             modifiers.add(new AttributeModifier(modifier.getId(), modifier.getName(), modifier.getAmount() * multiplier, modifier.getOperation()));
         });
+    }
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
+        if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
+        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
     }
 }

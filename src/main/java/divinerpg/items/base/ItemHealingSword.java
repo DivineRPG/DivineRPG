@@ -32,7 +32,7 @@ public class ItemHealingSword extends ItemModSword {
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {
             ItemStack stack = player.getItemInHand(hand);
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(hand));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(hand));
             player.heal(healAmount);
             if(player.isOnFire() && this == ItemRegistry.frossivence.get()) player.clearFire();
             player.playSound(SoundRegistry.HEAL.get(), 1, 1);
@@ -43,7 +43,7 @@ public class ItemHealingSword extends ItemModSword {
     }
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(hand));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(hand));
             entity.heal(healAmount);
             if(entity.isOnFire() && this == ItemRegistry.frossivence.get()) entity.extinguishFire();
             entity.playSound(SoundRegistry.HEAL.get(), 1, 1);

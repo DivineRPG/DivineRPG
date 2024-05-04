@@ -71,7 +71,7 @@ public class LocalizeUtils {
      *
      * @param eff - efficiency
      */
-    public static Component efficiency(double eff) {return i18n(Efficiency, eff);}
+    public static Component efficiency(int eff) {return i18n(Efficiency, eff);}
     /**
      * Indicates that the projectiles are explosive.
      */

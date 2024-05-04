@@ -2,8 +2,8 @@ package divinerpg.items.vethea;
 
 import divinerpg.enums.ArrowType;
 import divinerpg.items.base.ItemModBow;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 
 public class ItemVetheanBow extends ItemModBow {
-    public ItemVetheanBow(ArrowType arrowType, ResourceLocation arrowSupplier) {super(arrowType, 0, arrowSupplier);}
+    public ItemVetheanBow(ArrowType arrowType, Item arrowSupplier) {super(arrowType, 0, arrowSupplier);}
 }

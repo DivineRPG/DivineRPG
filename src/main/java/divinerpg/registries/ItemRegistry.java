@@ -18,6 +18,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
@@ -439,15 +440,15 @@ public class ItemRegistry {
             arcanium_reflector = registerItem("arcanium_reflector", ItemReflector::new),
 
             //Shields
-            realmite_shield = registerItem("realmite_shield", () -> new DivineShield(realmite_ingot.getId(), 426, "realmite_shield")),
-            arlemite_shield = registerItem("arlemite_shield", () -> new DivineShield(arlemite_ingot.getId(), 734, "arlemite_shield")),
-            rupee_shield = registerItem("rupee_shield", () -> new DivineShield(rupee_ingot.getId(), 823, "rupee_shield")),
-            eden_shield = registerItem("eden_shield", () -> new DivineShield(RarityList.EDEN, eden_gem.getId(), 978, "eden_shield")),
-            wildwood_shield = registerItem("wildwood_shield", () -> new DivineShield(RarityList.WILDWOOD, wildwood_gem.getId(), 1125, "wildwood_shield")),
-            apalachia_shield = registerItem("apalachia_shield", () -> new DivineShield(RarityList.APALACHIA, apalachia_gem.getId(), 1256, "apalachia_shield")),
-            skythern_shield = registerItem("skythern_shield", () -> new DivineShield(RarityList.SKYTHERN, skythern_gem.getId(), 1485, "skythern_shield")),
-            mortum_shield = registerItem("mortum_shield", () -> new DivineShield(RarityList.MORTUM, mortum_gem.getId(), 1627, "mortum_shield")),
-            halite_shield = registerItem("halite_shield", () -> new DivineShield(RarityList.HALITE, new ResourceLocation("air"), 0, "halite_shield")),
+            realmite_shield = registerItem("realmite_shield", () -> new DivineShield(realmite_ingot.get(), 426, "realmite_shield")),
+            arlemite_shield = registerItem("arlemite_shield", () -> new DivineShield(arlemite_ingot.get(), 734, "arlemite_shield")),
+            rupee_shield = registerItem("rupee_shield", () -> new DivineShield(rupee_ingot.get(), 823, "rupee_shield")),
+            eden_shield = registerItem("eden_shield", () -> new DivineShield(RarityList.EDEN, eden_gem.get(), 978, "eden_shield")),
+            wildwood_shield = registerItem("wildwood_shield", () -> new DivineShield(RarityList.WILDWOOD, wildwood_gem.get(), 1125, "wildwood_shield")),
+            apalachia_shield = registerItem("apalachia_shield", () -> new DivineShield(RarityList.APALACHIA, apalachia_gem.get(), 1256, "apalachia_shield")),
+            skythern_shield = registerItem("skythern_shield", () -> new DivineShield(RarityList.SKYTHERN, skythern_gem.get(), 1485, "skythern_shield")),
+            mortum_shield = registerItem("mortum_shield", () -> new DivineShield(RarityList.MORTUM, mortum_gem.get(), 1627, "mortum_shield")),
+            halite_shield = registerItem("halite_shield", () -> new DivineShield(RarityList.HALITE, Items.AIR, 0, "halite_shield")),
 
             //Serenades
             serenade_striker = registerItem("serenade_striker", ItemSerenadeStriker::new),
@@ -462,20 +463,20 @@ public class ItemRegistry {
             fury_arrow = registerItem("fury_arrow"),
 
             //Bows
-            hunter_bow = registerItem("hunter_bow", () -> new ItemModBow(ArrowType.HUNTER_ARROW, 2500, new ResourceLocation("arrow"))),
-            shadow_bow = registerItem("shadow_bow", () -> new ItemModBow(ArrowType.SHADOW_ARROW, 10000, 36000, new ResourceLocation("arrow"))),
-            icicle_bow = registerItem("icicle_bow", () -> new ItemModBow(ArrowType.ICICLE_ARROW, 10000, 24000, new ResourceLocation("arrow"))),
-            inferno_bow = registerItem("inferno_bow", () -> new ItemModBow(ArrowType.INFERNO_ARROW, 10000, ItemModBow.DEFAULT_MAX_USE_DURATION, null, new Properties().durability(10000).fireResistant())),
+            hunter_bow = registerItem("hunter_bow", () -> new ItemModBow(ArrowType.HUNTER_ARROW, 2500, Items.ARROW)),
+            shadow_bow = registerItem("shadow_bow", () -> new ItemModBow(ArrowType.SHADOW_ARROW, 10000, 36000, Items.ARROW)),
+            icicle_bow = registerItem("icicle_bow", () -> new ItemModBow(ArrowType.ICICLE_ARROW, 10000, 24000, Items.ARROW)),
+            inferno_bow = registerItem("inferno_bow", () -> new ItemModBow(ArrowType.INFERNO_ARROW, ItemModBow.DEFAULT_MAX_USE_DURATION, null, new Properties().durability(10000).fireResistant())),
             soulfire_bow = registerItem("soulfire_bow", () -> new ItemModBow(ArrowType.SOULFIRE_ARROW, 0)),
             snowstorm_bow = registerItem("snowstorm_bow", () -> new ItemModBow(ArrowType.SNOWSTORM_ARROW, 0)),
             ender_bow = registerItem("ender_bow", () -> new ItemModBow(RarityList.ENDER, ArrowType.ENDER_ARROW, 0)),
-            eden_bow = registerItem("eden_bow", () -> new ItemModBow(RarityList.EDEN, ArrowType.EDEN_ARROW, 0, eden_arrow.getId())),
-            wildwood_bow = registerItem("wildwood_bow", () -> new ItemModBow(RarityList.WILDWOOD, ArrowType.LESSER_WILDWOOD_ARROW, 0, 36000, wildwood_arrow.getId())),
-            apalachia_bow = registerItem("apalachia_bow", () -> new ItemModBow(RarityList.APALACHIA, ArrowType.GREATER_WILDWOOD_ARROW, 0, wildwood_arrow.getId())),
-            skythern_bow = registerItem("skythern_bow", () -> new ItemModBow(RarityList.SKYTHERN, ArrowType.GREATER_WILDWOOD_ARROW, 0, 36000, wildwood_arrow.getId())),
-            mortum_bow = registerItem("mortum_bow", () -> new ItemModBow(RarityList.MORTUM, ArrowType.FURY_ARROW, 0, fury_arrow.getId())),
-            halite_bow = registerItem("halite_bow", () -> new ItemModBow(RarityList.HALITE, ArrowType.FURY_ARROW, 0, 36000, fury_arrow.getId())),
-            twilight_bow = registerItem("twilight_bow", () -> new ItemModBow(ArrowType.FURY_ARROW, 0, 14400, fury_arrow.getId())),
+            eden_bow = registerItem("eden_bow", () -> new ItemModBow(RarityList.EDEN, ArrowType.EDEN_ARROW, 0, eden_arrow.get())),
+            wildwood_bow = registerItem("wildwood_bow", () -> new ItemModBow(RarityList.WILDWOOD, ArrowType.LESSER_WILDWOOD_ARROW, 0, 36000, wildwood_arrow.get())),
+            apalachia_bow = registerItem("apalachia_bow", () -> new ItemModBow(RarityList.APALACHIA, ArrowType.GREATER_WILDWOOD_ARROW, 0, wildwood_arrow.get())),
+            skythern_bow = registerItem("skythern_bow", () -> new ItemModBow(RarityList.SKYTHERN, ArrowType.GREATER_WILDWOOD_ARROW, 0, 36000, wildwood_arrow.get())),
+            mortum_bow = registerItem("mortum_bow", () -> new ItemModBow(RarityList.MORTUM, ArrowType.FURY_ARROW, 0, fury_arrow.get())),
+            halite_bow = registerItem("halite_bow", () -> new ItemModBow(RarityList.HALITE, ArrowType.FURY_ARROW, 0, 36000, fury_arrow.get())),
+            twilight_bow = registerItem("twilight_bow", () -> new ItemModBow(ArrowType.FURY_ARROW, 0, 14400, fury_arrow.get())),
 
             //Anchors
             crab_anchor = registerItem("crab_anchor", () -> new ItemAnchor(BulletType.CRAB_ANCHOR_SHOT)),
@@ -506,8 +507,8 @@ public class ItemRegistry {
             cyclopsian_staff = registerItem("cyclopsian_staff", () -> new ItemModRanged(BulletType.CYCLOPSIAN_STAFF_SHOT, SoundRegistry.STAFF.get(), 600, 0)),
             maelstrom = registerItem("maelstrom", () -> new ItemModRanged(BulletType.MAELSTROM_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 20)),
             captains_sparkler = registerItem("captains_sparkler", () -> new ItemModRanged(BulletType.CAPTAINS_SPARKLER_SHOT, SoundRegistry.SPARKLER.get(), null, 0, 15, 7)),
-            la_vekor = registerItem("la_vekor", ItemLaVekor::new),
             grenade = registerItem("grenade", ItemGrenade::new),
+            la_vekor = registerItem("la_vekor", ItemLaVekor::new),
             firefly = registerItem("firefly", ItemFirefly::new),
             meriks_missile = registerItem("meriks_missile", ItemMeriksMissile::new),
             generals_staff = registerItem("generals_staff", ItemGeneralsStaff::new),
@@ -516,34 +517,34 @@ public class ItemRegistry {
             meteor_mash = registerItem("meteor_mash", ItemMeteorMash::new),
 
             //Phasers
-            eden_phaser = registerItem("eden_phaser", () -> new ItemModRanged(RarityList.EDEN, BulletType.EDEN_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
-            wildwood_phaser = registerItem("wildwood_phaser", () -> new ItemModRanged( RarityList.WILDWOOD, BulletType.WILDWOOD_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
-            apalachia_phaser = registerItem("apalachia_phaser", () -> new ItemModRanged(RarityList.APALACHIA, BulletType.APALACHIA_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
-            skythern_phaser = registerItem("skythern_phaser", () -> new ItemModRanged(RarityList.SKYTHERN, BulletType.SKYTHERN_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
-            mortum_phaser = registerItem("mortum_phaser", () -> new ItemModRanged(RarityList.MORTUM, BulletType.MORTUM_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
-            halite_phaser = registerItem("halite_phaser", () -> new ItemModRanged(RarityList.HALITE, BulletType.HALITE_PHASER_SHOT, SoundRegistry.PHASER.get(), 3000, 50)),
+            eden_phaser = registerItem("eden_phaser", () -> new ItemTwilightPhaser(RarityList.EDEN, BulletType.EDEN_PHASER_SHOT)),
+            wildwood_phaser = registerItem("wildwood_phaser", () -> new ItemTwilightPhaser(RarityList.WILDWOOD, BulletType.WILDWOOD_PHASER_SHOT)),
+            apalachia_phaser = registerItem("apalachia_phaser", () -> new ItemTwilightPhaser(RarityList.APALACHIA, BulletType.APALACHIA_PHASER_SHOT)),
+            skythern_phaser = registerItem("skythern_phaser", () -> new ItemTwilightPhaser(RarityList.SKYTHERN, BulletType.SKYTHERN_PHASER_SHOT)),
+            mortum_phaser = registerItem("mortum_phaser", () -> new ItemTwilightPhaser(RarityList.MORTUM, BulletType.MORTUM_PHASER_SHOT)),
+            halite_phaser = registerItem("halite_phaser", () -> new ItemTwilightPhaser(RarityList.HALITE, BulletType.HALITE_PHASER_SHOT)),
 
             //Cannons
-            crabclaw_cannon = registerItem("crabclaw_cannon", () -> new ItemModRanged(BulletType.CRABCLAW_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), new ResourceLocation("cactus"), 1000, 12)),
-            frostclaw_cannon = registerItem("frostclaw_cannon", () -> new ItemModRanged(BulletType.FROSTCLAW_CANNON_SHOT, SoundRegistry.FROSTCLAW_CANNON.get(), new ResourceLocation("cactus"), 10000, 0)),
-            bowhead_cannon = registerItem("bowhead_cannon", () -> new ItemModRanged(BulletType.BOWHEAD_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), new ResourceLocation("cactus"), 1000, 12)),
-            frost_cannon = registerItem("frost_cannon", () -> new ItemModRanged(BulletType.FROST_CANNON_SHOT, SoundRegistry.FROST_CANNON.get(), new ResourceLocation("snowball"), 15000, 0)),
-            fractite_cannon = registerItem("fractite_cannon", () -> new ItemModRanged(BulletType.FRACTITE_CANNON_SHOT, SoundRegistry.FRACTITE_CANNON.get(), ice_shards.getId(), 10000, 0)),
+            crabclaw_cannon = registerItem("crabclaw_cannon", () -> new ItemModRanged(BulletType.CRABCLAW_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), Blocks.CACTUS.asItem(), 1000, 20)),
+            frostclaw_cannon = registerItem("frostclaw_cannon", () -> new ItemModRanged(BulletType.FROSTCLAW_CANNON_SHOT, SoundRegistry.FROSTCLAW_CANNON.get(), Blocks.CACTUS.asItem(), 10000, 0)),
+            bowhead_cannon = registerItem("bowhead_cannon", () -> new ItemModRanged(BulletType.BOWHEAD_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), Blocks.CACTUS.asItem(), 1000, 20)),
+            frost_cannon = registerItem("frost_cannon", () -> new ItemModRanged(BulletType.FROST_CANNON_SHOT, SoundRegistry.FROST_CANNON.get(), Items.SNOWBALL, 15000, 0)),
+            fractite_cannon = registerItem("fractite_cannon", () -> new ItemModRanged(BulletType.FRACTITE_CANNON_SHOT, SoundRegistry.FRACTITE_CANNON.get(), ice_shards.get(), 10000, 0)),
             ghast_cannon = registerItem("ghast_cannon", () -> new ItemModRanged(BulletType.GHAST_CANNON_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 20)),
-            golden_fury = registerItem("golden_fury", () -> new ItemModRanged(BulletType.GOLDEN_FURY_SHOT, SoundRegistry.BLITZ.get(), new ResourceLocation("gold_nugget"), 0, 0)),
+            golden_fury = registerItem("golden_fury", () -> new ItemModRanged(BulletType.GOLDEN_FURY_SHOT, SoundRegistry.BLITZ.get(), Items.GOLD_NUGGET, 0, 0)),
 
             //Blitz
-            eden_blitz = registerItem("eden_blitz", () -> new ItemTwilightBlitz(RarityList.EDEN, BulletType.EDEN_BLITZ_SHOT, eden_dust.getId())),
-            wildwood_blitz = registerItem("wildwood_blitz", () -> new ItemTwilightBlitz(RarityList.WILDWOOD, BulletType.WILDWOOD_BLITZ_SHOT, wildwood_dust.getId())),
-            apalachia_blitz = registerItem("apalachia_blitz", () -> new ItemTwilightBlitz(RarityList.APALACHIA, BulletType.APALACHIA_BLITZ_SHOT, apalachia_dust.getId())),
-            skythern_blitz = registerItem("skythern_blitz", () -> new ItemTwilightBlitz(RarityList.SKYTHERN, BulletType.SKYTHERN_BLITZ_SHOT, skythern_dust.getId())),
-            mortum_blitz = registerItem("mortum_blitz", () -> new ItemTwilightBlitz(RarityList.MORTUM, BulletType.MORTUM_BLITZ_SHOT, mortum_dust.getId())),
-            halite_blitz = registerItem("halite_blitz", () -> new ItemTwilightBlitz(RarityList.HALITE, BulletType.HALITE_BLITZ_SHOT, mortum_dust.getId())),
+            eden_blitz = registerItem("eden_blitz", () -> new ItemTwilightBlitz(RarityList.EDEN, BulletType.EDEN_BLITZ_SHOT, eden_dust.get())),
+            wildwood_blitz = registerItem("wildwood_blitz", () -> new ItemTwilightBlitz(RarityList.WILDWOOD, BulletType.WILDWOOD_BLITZ_SHOT, wildwood_dust.get())),
+            apalachia_blitz = registerItem("apalachia_blitz", () -> new ItemTwilightBlitz(RarityList.APALACHIA, BulletType.APALACHIA_BLITZ_SHOT, apalachia_dust.get())),
+            skythern_blitz = registerItem("skythern_blitz", () -> new ItemTwilightBlitz(RarityList.SKYTHERN, BulletType.SKYTHERN_BLITZ_SHOT, skythern_dust.get())),
+            mortum_blitz = registerItem("mortum_blitz", () -> new ItemTwilightBlitz(RarityList.MORTUM, BulletType.MORTUM_BLITZ_SHOT, mortum_dust.get())),
+            halite_blitz = registerItem("halite_blitz", () -> new ItemTwilightBlitz(RarityList.HALITE, BulletType.HALITE_BLITZ_SHOT, mortum_dust.get())),
 
             //Shotguns
-            corrupted_cannon = registerItem("corrupted_cannon", ItemCorruptedCannon::new),
             corrupted_bullet = registerItem("corrupted_bullet"),
-            arcanite_blaster = registerItem("arcanite_blaster", ItemArcaniteBlaster::new),
+            corrupted_cannon = registerItem("corrupted_cannon", () -> new ItemModShotgun(BulletType.CORRUPTED_BULLET, SoundRegistry.GHAST_CANNON.get(), 0, 15, corrupted_bullet.get(), 0, 4)),
+            arcanite_blaster = registerItem("arcanite_blaster", () -> new ItemModShotgun(BulletType.ARCANITE_BLASTER, SoundRegistry.GHAST_CANNON.get(), 6500, 30, null, 20, 30)),
 
     //Tool Sets
     realmite_shovel = registerItem("realmite_shovel", () -> new ItemModShovel(ToolStats.REALMITE_SHOVEL)),
@@ -556,31 +557,31 @@ public class ItemRegistry {
     arlemite_shovel = registerItem("arlemite_shovel", () -> new ItemModShovel(ToolStats.ARLEMITE_SHOVEL)),
             arlemite_pickaxe = registerItem("arlemite_pickaxe", () -> new ItemModPickaxe(ToolStats.ARLEMITE_PICKAXE)),
             arlemite_axe = registerItem("arlemite_axe", () -> new ItemModAxe(ToolStats.ARLEMITE_AXE, -3)),
-            arlemite_hoe = registerItem("arlemite_hoe", () -> new ItemModHoe(ToolStats.ARLEMITE_HOE, -0)),
+            arlemite_hoe = registerItem("arlemite_hoe", () -> new ItemModHoe(ToolStats.ARLEMITE_HOE, 0)),
             arlemite_shickaxe = registerItem("arlemite_shickaxe", () -> new ItemShickaxe(ToolStats.ARLEMITE_SHICKAXE)),
 
     terran_shovel = registerItem("terran_shovel", () -> new ItemModShovel(ToolStats.TERRAN_SHOVEL)),
             terran_pickaxe = registerItem("terran_pickaxe", () -> new ItemModPickaxe(ToolStats.TERRAN_PICKAXE)),
             terran_axe = registerItem("terran_axe", () -> new ItemModAxe(ToolStats.TERRAN_AXE, -3)),
-            terran_hoe = registerItem("terran_hoe", () -> new ItemModHoe(ToolStats.TERRAN_HOE, -0)),
+            terran_hoe = registerItem("terran_hoe", () -> new ItemModHoe(ToolStats.TERRAN_HOE, 0)),
             terran_shickaxe = registerItem("terran_shickaxe", () -> new ItemShickaxe(ToolStats.TERRAN_SHICKAXE)),
 
     rupee_shovel = registerItem("rupee_shovel", () -> new ItemModShovel(ToolStats.RUPEE_SHOVEL)),
             rupee_pickaxe = registerItem("rupee_pickaxe", () -> new ItemModPickaxe(ToolStats.RUPEE_PICKAXE)),
             rupee_axe = registerItem("rupee_axe", () -> new ItemModAxe(ToolStats.RUPEE_AXE, -3)),
-            rupee_hoe = registerItem("rupee_hoe", () -> new ItemModHoe(ToolStats.RUPEE_HOE, -0)),
+            rupee_hoe = registerItem("rupee_hoe", () -> new ItemModHoe(ToolStats.RUPEE_HOE, 0)),
             rupee_shickaxe = registerItem("rupee_shickaxe", () -> new ItemShickaxe(ToolStats.RUPEE_SHICKAXE)),
 
     corrupted_shovel = registerItem("corrupted_shovel", () -> new ItemModShovel(ToolStats.CORRUPTED_SHOVEL)),
             corrupted_pickaxe = registerItem("corrupted_pickaxe", () -> new ItemModPickaxe(ToolStats.CORRUPTED_PICKAXE)),
             corrupted_axe = registerItem("corrupted_axe", () -> new ItemModAxe(ToolStats.CORRUPTED_AXE, -2.9F)),
-            corrupted_hoe = registerItem("corrupted_hoe", () -> new ItemModHoe(ToolStats.CORRUPTED_HOE, -0)),
+            corrupted_hoe = registerItem("corrupted_hoe", () -> new ItemModHoe(ToolStats.CORRUPTED_HOE, 0)),
             corrupted_shickaxe = registerItem("corrupted_shickaxe", () -> new ItemShickaxe(ToolStats.CORRUPTED_SHICKAXE)),
 
     bedrock_shovel = registerItem("bedrock_shovel", () -> new ItemModShovel(ToolStats.BEDROCK_SHOVEL, new Properties().fireResistant())),
             bedrock_pickaxe = registerItem("bedrock_pickaxe", () -> new ItemModPickaxe(ToolStats.BEDROCK_PICKAXE, new Properties().fireResistant())),
             bedrock_axe = registerItem("bedrock_axe", () -> new ItemModAxe(ToolStats.BEDROCK_AXE, new Properties().fireResistant())),
-            bedrock_hoe = registerItem("bedrock_hoe", () -> new ItemModHoe(ToolStats.BEDROCK_PICKAXE, new Properties().fireResistant())),
+            bedrock_hoe = registerItem("bedrock_hoe", () -> new ItemModHoe(ToolStats.BEDROCK_HOE, new Properties().fireResistant())),
 
     divine_shovel = registerItem("divine_shovel", () -> new ItemModShovel(ToolStats.DIVINE_SHOVEL, RarityList.DIVINE)),
             divine_pickaxe = registerItem("divine_pickaxe", () -> new ItemModPickaxe(ToolStats.DIVINE_PICKAXE, RarityList.DIVINE)),
@@ -672,16 +673,16 @@ public class ItemRegistry {
             ever_arrow = registerItemVethean("ever_arrow"),
 
             //Vethean Bows
-            teaker_bow = registerItem("teaker_bow", () -> new ItemVetheanBow(ArrowType.TEAKER_ARROW, teaker_arrow.getId())),
-            amthirmis_bow = registerItem("amthirmis_bow", () -> new ItemVetheanBow(ArrowType.AMTHIRMIS_ARROW, teaker_arrow.getId())),
-            darven_bow = registerItem("darven_bow", () -> new ItemVetheanBow(ArrowType.DARVEN_ARROW, darven_arrow.getId())),
-            cermile_bow = registerItem("cermile_bow", () -> new ItemVetheanBow(ArrowType.CERMILE_ARROW, darven_arrow.getId())),
-            pardimal_bow = registerItem("pardimal_bow", () -> new ItemVetheanBow(ArrowType.PARDIMAL_ARROW, pardimal_arrow.getId())),
-            quadrotic_bow = registerItem("quadrotic_bow", () -> new ItemVetheanBow(ArrowType.QUADROTIC_ARROW, pardimal_arrow.getId())),
-            karos_bow = registerItem("karos_bow", () -> new ItemVetheanBow(ArrowType.KAROS_ARROW, karos_arrow.getId())),
-            heliosis_bow = registerItem("heliosis_bow", () -> new ItemVetheanBow(ArrowType.HELIOSIS_ARROW, karos_arrow.getId())),
-            arksiane_bow = registerItem("arksiane_bow", () -> new ItemVetheanBow(ArrowType.ARKSIANE_ARROW, karos_arrow.getId())),
-            everfright = registerItem("everfright", () -> new ItemVetheanBow(ArrowType.EVERFRIGHT, ever_arrow.getId())),
+            teaker_bow = registerItem("teaker_bow", () -> new ItemVetheanBow(ArrowType.TEAKER_ARROW, teaker_arrow.get())),
+            amthirmis_bow = registerItem("amthirmis_bow", () -> new ItemVetheanBow(ArrowType.AMTHIRMIS_ARROW, teaker_arrow.get())),
+            darven_bow = registerItem("darven_bow", () -> new ItemVetheanBow(ArrowType.DARVEN_ARROW, darven_arrow.get())),
+            cermile_bow = registerItem("cermile_bow", () -> new ItemVetheanBow(ArrowType.CERMILE_ARROW, darven_arrow.get())),
+            pardimal_bow = registerItem("pardimal_bow", () -> new ItemVetheanBow(ArrowType.PARDIMAL_ARROW, pardimal_arrow.get())),
+            quadrotic_bow = registerItem("quadrotic_bow", () -> new ItemVetheanBow(ArrowType.QUADROTIC_ARROW, pardimal_arrow.get())),
+            karos_bow = registerItem("karos_bow", () -> new ItemVetheanBow(ArrowType.KAROS_ARROW, karos_arrow.get())),
+            heliosis_bow = registerItem("heliosis_bow", () -> new ItemVetheanBow(ArrowType.HELIOSIS_ARROW, karos_arrow.get())),
+            arksiane_bow = registerItem("arksiane_bow", () -> new ItemVetheanBow(ArrowType.ARKSIANE_ARROW, karos_arrow.get())),
+            everfright = registerItem("everfright", () -> new ItemVetheanBow(ArrowType.EVERFRIGHT, ever_arrow.get())),
 
             //Vethean Staffs
             teaker_staff = registerItem("teaker_staff", () -> new ItemStaff(BulletType.TEAKER_STAFF_SHOT)),

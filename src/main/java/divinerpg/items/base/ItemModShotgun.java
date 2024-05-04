@@ -1,29 +1,38 @@
 package divinerpg.items.base;
 
+import divinerpg.entities.projectile.EntityShooterBullet;
 import divinerpg.enums.BulletType;
-import net.minecraft.resources.ResourceLocation;
+import divinerpg.registries.EntityRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.*;
+import javax.annotation.Nullable;
+import java.util.List;
 
-public abstract class ItemModShotgun extends ItemModRanged {
+public class ItemModShotgun extends ItemModRanged {
 	protected final int projectileAmount;
-	public ItemModShotgun(String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, ResourceLocation ammoSupplier, int arcanaConsuming, int projectileAmount) {
-		super(entityType, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);
+	public ItemModShotgun(BulletType bulletType, SoundEvent sound, int uses, int delay, Item ammoSupplier, int arcanaConsuming, int projectileAmount) {
+		super(bulletType, sound, ammoSupplier, uses, delay, arcanaConsuming);
 		this.projectileAmount = projectileAmount;
 	}
 	@Override protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
         RandomSource rand = world.random;
         for(int i = 0; i < projectileAmount; i++) {
-            ThrowableProjectile entity = createProjectile(world, player);
-            entity.shootFromRotation(player, player.xRot + ((rand.nextFloat() - .5F) * 3.5F), player.yRot + ((rand.nextFloat() - .5F) * 3.5F), 0, 1.5F, 1.0F);
+            ThrowableProjectile entity = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, bulletType);
+            entity.shootFromRotation(player, player.xRot + ((rand.nextFloat() - .5F) * 3.5F), player.yRot + ((rand.nextFloat() - .5F) * 3.5F), 0, 1.5F, 1);
             entity.moveTo(entity.getX() + (rand.nextDouble() - .5), entity.getY() + (rand.nextDouble() - .5), entity.getZ() + (rand.nextDouble() - .5));
             world.addFreshEntity(entity);
         }
     }
-	protected abstract ThrowableProjectile createProjectile(Level world, LivingEntity player);
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(LocalizeUtils.rangedDamString(projectileAmount + "x" + (int)bulletType.getDamage()));
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+    }
 }

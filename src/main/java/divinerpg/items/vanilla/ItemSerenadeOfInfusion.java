@@ -26,7 +26,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {
             ItemStack stack = player.getItemInHand(hand);
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (p_220044_0_) -> p_220044_0_.broadcastBreakEvent(hand));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(hand));
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 80, 2, true, false));
             player.playSound(SoundRegistry.HEAL.get(), 1, 1);
             player.awardStat(Stats.ITEM_USED.get(this));
@@ -36,7 +36,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
     }
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (p_220044_0_) -> p_220044_0_.broadcastBreakEvent(hand));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(hand));
             entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 80, 2, true, false));
             entity.playSound(SoundRegistry.HEAL.get(), 1, 1);
             for(int i = 0; i < 7; ++i) {

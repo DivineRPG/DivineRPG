@@ -56,7 +56,7 @@ public class ItemTeleportationStar extends ItemMod {
             } ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(compound.getString(dimKey)))).getLevel();
             if(player instanceof ServerPlayer) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
-                if(!player.isCreative()) stack.hurtAndBreak(1, player, (player1) -> player1.broadcastBreakEvent(player.getUsedItemHand()));
+                if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
                 player.getCooldowns().addCooldown(stack.getItem(), 160);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 return InteractionResultHolder.success(stack);
