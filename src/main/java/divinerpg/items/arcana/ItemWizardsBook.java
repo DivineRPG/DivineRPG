@@ -22,13 +22,12 @@ public class ItemWizardsBook extends ItemMod {
         Player player = context.getPlayer();
         ItemStack stack = player.getItemInHand(hand);
         if(block == BlockRegistry.parasectaAltar.get()) {
-            if(!level.isClientSide) EntityRegistry.PARASECTA.get().spawn((ServerLevel) level, ItemStack.EMPTY, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
+            if(!level.isClientSide) EntityRegistry.PARASECTA.get().spawn((ServerLevel)level, ItemStack.EMPTY, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
             if(!player.isCreative()) stack.shrink(1);
             player.getCooldowns().addCooldown(this, 40);
             return InteractionResult.SUCCESS;
-        }
-        if(block == BlockRegistry.dramixAltar.get()) {
-            if(!level.isClientSide) EntityRegistry.DRAMIX.get().spawn((ServerLevel) level, ItemStack.EMPTY, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
+        } if(block == BlockRegistry.dramixAltar.get()) {
+            if(!level.isClientSide) EntityRegistry.DRAMIX.get().spawn((ServerLevel)level, ItemStack.EMPTY, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
             if(!player.isCreative()) stack.shrink(1);
             player.getCooldowns().addCooldown(this, 40);
             return InteractionResult.SUCCESS;

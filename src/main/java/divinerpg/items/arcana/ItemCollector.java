@@ -24,11 +24,10 @@ public class ItemCollector extends ItemModFuel {
         Block block = level.getBlockState(pos).getBlock();
         Player player = context.getPlayer();
         ItemStack stack = player.getItemInHand(hand);
-        Item item = stack.getItem();
         if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_altar"))) {
             if(!level.isClientSide) EntityRegistry.DUNGEON_CONSTRUCTOR.get().spawn((ServerLevel) level, stack, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
             if(!player.isCreative()) stack.shrink(1);
-            player.getCooldowns().addCooldown(item, 20);
+            player.getCooldowns().addCooldown(this, 20);
             return InteractionResult.SUCCESS;
         }return InteractionResult.PASS;
     }

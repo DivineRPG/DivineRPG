@@ -4,6 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.server.command.TextComponentHelper;
 
@@ -19,7 +20,6 @@ public class LocalizeUtils {
             HarvestLevel = "tooltip.harvest_level",
             HealthRegen = "tooltip.heals",
             InfiniteAmmo = "tooltip.ammo.infinite",
-            InfiniteUses = "tooltip.uses.infinite",
             InstantConsumption = "tooltip.instant_consumption",
             LightningShot = "tooltip.lightning_shot",
             Poison = "tooltip.effect.poisons",
@@ -28,6 +28,10 @@ public class LocalizeUtils {
             ShotsExplosive = "tooltip.shots.explosive",
             ShotsHoming = "tooltip.shots.homing",
             SlowMobs = "tooltip.effect.slows",
+            Summoned = "tooltip.summon",
+            SummonedDamage = "tooltip.summon.damage",
+            SummonedDespawn = "tooltip.summon.despawn",
+            SummonedHealth = "tooltip.summon.health",
             WeakenedWithoutArcana = "tooltip.weakened_without_arcana";
     /**
      * Indicates what ammunition is required.
@@ -102,10 +106,6 @@ public class LocalizeUtils {
      */
     public static Component infiniteAmmo() {return i18n(ChatFormatting.DARK_PURPLE, InfiniteAmmo);}
     /**
-     * Indicates that the item has infinite uses.
-     */
-    public static Component infiniteUses() {return i18n(ChatFormatting.BLUE, InfiniteUses);}
-    /**
      * Indicates that the item is consumed instantly.
      */
     public static Component instantConsumption() {return i18n(ChatFormatting.AQUA, InstantConsumption);}
@@ -142,9 +142,35 @@ public class LocalizeUtils {
      */
     public static Component slow(int seconds) {return i18n(ChatFormatting.DARK_AQUA, SlowMobs, seconds);}
     /**
+     * Specifies the summoned entity.
+     *
+     * @param entity - summoned entity
+     */
+    public static Component summoned(EntityType entity) {
+        Component name = MutableComponent.create(new TranslatableContents(entity.getDescriptionId(), null, null));
+        return i18n(Summoned, name);
+    }
+    /**
+     * Specifies the damage of the summoned entity.
+     *
+     * @param damage - entity's damage
+     */
+    public static Component summonedDamage(int damage) {return i18n(SummonedDamage, damage);}
+    /**
+     * Specifies that the summoned entity disappears after a while.
+     */
+    public static Component summonedDespawn() {return i18n(SummonedDespawn);}
+    /**
+     * Specifies the health of the summoned entity.
+     *
+     * @param health - entity's health
+     */
+    public static Component summonedHealth(int health) {return i18n(SummonedHealth, health);}
+    /**
      * Indicates that the item is weakened without the arcana.
      */
     public static Component weakenedWithoutArcana() {return i18n(ChatFormatting.RED, WeakenedWithoutArcana);}
+    //TODO: this one is unused, to remove if it's no longer needed!
     /**
      * Prints version info.
      *

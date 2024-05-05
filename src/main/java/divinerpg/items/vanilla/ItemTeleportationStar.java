@@ -57,7 +57,7 @@ public class ItemTeleportationStar extends ItemMod {
             if(player instanceof ServerPlayer) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
-                player.getCooldowns().addCooldown(stack.getItem(), 160);
+                player.getCooldowns().addCooldown(this, 160);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 return InteractionResultHolder.success(stack);
             }
@@ -74,7 +74,6 @@ public class ItemTeleportationStar extends ItemMod {
         if(compound.contains(posKey)) {
             BlockPos pos = BlockPos.of(compound.getLong(posKey));
             tooltip.add(LocalizeUtils.i18n("tooltip.block_position", pos.getX(), pos.getY(), pos.getZ()));
-        }
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        } super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

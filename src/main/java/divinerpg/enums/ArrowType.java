@@ -64,9 +64,9 @@ public enum ArrowType {
     }
     private static ResourceLocation ProjectileLoc(String name) {return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");}
     private static ResourceLocation VanillaLoc() {return new ResourceLocation("textures/entity/projectiles/arrow.png");}
-    public float getMinDamage() {return this.minDamage;}
-    public float getMaxDamage() {return this.maxDamage;}
-    public ResourceLocation getTexture() {return this.texture;}
-    public ArrowSpecial getArrowSpecial() {return this.arrowSpecial;}
+    public float getMinDamage() {return minDamage;}
+    public float getMaxDamage() {return maxDamage;}
+    public ResourceLocation getTexture() {return texture;}
+    public ArrowSpecial getArrowSpecial() {return arrowSpecial;}
     public enum ArrowSpecial {NONE, FLAME, WITHER, EXPLODE, SLOW, NAUSEA, BLIND, POISON}
 }

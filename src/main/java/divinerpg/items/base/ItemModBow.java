@@ -138,6 +138,6 @@ public class ItemModBow extends BowItem {
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) tooltip.add(LocalizeUtils.burn(12));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
         tooltip.add(needsArrow(stack) ? LocalizeUtils.ammo(arrowSupplier) : LocalizeUtils.infiniteAmmo());
-        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
+        if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

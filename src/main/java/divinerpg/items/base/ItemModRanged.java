@@ -91,7 +91,7 @@ public class ItemModRanged extends ItemMod {
                 ItemStack ammoStack = ammo.getObject();
                 if(ammoStack != null) ammoStack.shrink(1);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
-                player.getCooldowns().addCooldown(stack.getItem(), cooldown);
+                player.getCooldowns().addCooldown(this, cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 doPostUsageEffects(world, player);
                 if(this instanceof ItemModThrowable || this instanceof ItemVetheanDisk) {
@@ -166,7 +166,7 @@ public class ItemModRanged extends ItemMod {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         if(!(this instanceof ItemModThrowable) && !(this instanceof ItemVetheanDisk)) {
             tooltip.add(needsAmmo() ? LocalizeUtils.ammo(ammoSupplier) : LocalizeUtils.infiniteAmmo());
-            if(!canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
+            if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
         }
     }
 }

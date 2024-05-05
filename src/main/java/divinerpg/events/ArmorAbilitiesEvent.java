@@ -7,11 +7,11 @@ import divinerpg.util.DamageSources;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-
 import java.util.ArrayList;
 
 public class ArmorAbilitiesEvent {
@@ -37,8 +37,7 @@ public class ArmorAbilitiesEvent {
 				supportedEffects.add(supportedEffect);
 				amplifiers.add(armor.amplifier == null ? 0 : armor.amplifier[i]);
 			}
-		}
-		boolean fullArmor = equipment.size() == 4;
+		} boolean fullArmor = equipment.size() == 4;
 		if(fullArmor) {
 			ArmorMaterial mat = equipment.get(0).mat;
 			for(int i = 1; fullArmor && i < 4; i++) if(equipment.get(i).mat != mat) fullArmor = false;//check if all armor pieces are of the same type
@@ -60,21 +59,24 @@ public class ArmorAbilitiesEvent {
         float amount = event.getAmount();
         Entity entity = event.getSource().getEntity();
         DamageSource source = event.getSource();
-        
         if(entity instanceof Player attacker) {
         	if(source.is(DamageTypes.PLAYER_ATTACK)) {
-        		if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH.get())) event.setAmount(amount + 16);
-        		else if(attacker.hasEffect(MobEffectRegistry.DIVINE_STRENGTH.get()) || attacker.hasEffect(MobEffectRegistry.DEMONIZED_HELMET.get())) event.setAmount(amount + 6);
-        		else if(attacker.hasEffect(MobEffectRegistry.GLISTENING_HELMET.get())) event.setAmount(amount + 3);
-        		else if(attacker.hasEffect(MobEffectRegistry.SENG_FUR.get())) event.setAmount(amount + 2);
-        		else if(attacker.hasEffect(MobEffectRegistry.TORMENTED_HELMET.get())) event.setAmount(amount + 9);
-        		else if(attacker.hasEffect(MobEffectRegistry.AWAKENED_HALITE_STRENGTH.get())) event.setAmount(amount + 20);
-        	} else if(attacker.hasEffect(MobEffectRegistry.AWAKENED_HALITE_STRENGTH.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW))) event.setAmount(amount * 1.5F);
-            else if(attacker.hasEffect(MobEffectRegistry.CORRUPTED_STRENGTH.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.THROWN) || source.is(DamageTypes.TRIDENT))) {
-            	event.setAmount(amount * 1.5F);
-            }
-        }
-        if(target instanceof Player) {
+        		if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH.get()))
+					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(16, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+        		else if(attacker.hasEffect(MobEffectRegistry.DIVINE_STRENGTH.get()) || attacker.hasEffect(MobEffectRegistry.DEMONIZED_HELMET.get()))
+					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(6, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+        		else if(attacker.hasEffect(MobEffectRegistry.GLISTENING_HELMET.get()))
+					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(3, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+        		else if(attacker.hasEffect(MobEffectRegistry.SENG_FUR.get()))
+					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(2, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+        		else if(attacker.hasEffect(MobEffectRegistry.TORMENTED_HELMET.get()))
+					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(9, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+        		else if(attacker.hasEffect(MobEffectRegistry.AWAKENED_HALITE_STRENGTH.get()))
+					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(20, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+        	} else if((attacker.hasEffect(MobEffectRegistry.AWAKENED_HALITE_STRENGTH.get()) || attacker.hasEffect(MobEffectRegistry.CORRUPTED_STRENGTH.get()))
+					&& (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.THROWN) || source.is(DamageTypes.TRIDENT)))
+				event.setAmount(amount * 1.5F);
+        } if(target instanceof Player) {
             if((target.hasEffect(MobEffectRegistry.PROJECTILE_PROTECTION.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.THROWN) || source.is(DamageTypes.TRIDENT)))) {
 				event.setAmount(event.getAmount() * .34F);
 			} else if(target.hasEffect(MobEffectRegistry.MELEE_PROTECTION.get()) && (source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.GENERIC)) && !source.is(DamageTypes.MOB_PROJECTILE)) {

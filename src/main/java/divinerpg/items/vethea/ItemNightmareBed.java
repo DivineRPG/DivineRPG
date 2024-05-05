@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemNightmareBed extends BlockItem {
-    public ItemNightmareBed() {super(BlockRegistry.nightmareBed.get(), new Item.Properties().stacksTo(1));}
+    public ItemNightmareBed() {super(BlockRegistry.nightmareBed.get(), new Properties().stacksTo(1));}
     protected boolean placeBlock(BlockPlaceContext context, BlockState state) {return context.getLevel().setBlock(context.getClickedPos(), state, 26);}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {

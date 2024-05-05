@@ -25,7 +25,7 @@ public class ItemModSword extends SwordItem {
     //TODO: to use a different method, so that you can't spam click entities, then proceed using the new method in other places
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            if(arcana.getArcana() >= arcanaConsumedAttack) arcana.consume(player, arcanaConsumedAttack);
+            if(arcana.getArcana() >= arcanaConsumedAttack && arcanaConsumedAttack != 0) arcana.consume(player, arcanaConsumedAttack);
         }); return super.onLeftClickEntity(stack, player, entity);
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
@@ -64,6 +64,6 @@ public class ItemModSword extends SwordItem {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
-        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
+        if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

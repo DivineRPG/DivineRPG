@@ -78,6 +78,6 @@ public class ItemMeriksMissile extends ItemMod {
         tooltip.add(LocalizeUtils.i18n("tooltip.meriks_missile"));
         tooltip.add(LocalizeUtils.rangedDamString("8-25"));
         tooltip.add(LocalizeUtils.arcanaConsumed("10-50"));
-        tooltip.add(LocalizeUtils.infiniteUses());
+        stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

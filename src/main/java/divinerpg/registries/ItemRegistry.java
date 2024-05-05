@@ -1,6 +1,5 @@
 package divinerpg.registries;
 
-
 import divinerpg.enums.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
@@ -12,7 +11,6 @@ import divinerpg.util.*;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;

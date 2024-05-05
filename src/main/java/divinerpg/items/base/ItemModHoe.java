@@ -9,14 +9,14 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemModHoe extends HoeItem {
-    public ItemModHoe(Tier tier, Rarity rarity) {super(tier, 0, 0, new Item.Properties().rarity(rarity));}
-    public ItemModHoe(Tier tier, float attackSpeed) {super(tier, 0, attackSpeed, new Item.Properties());}
+    public ItemModHoe(Tier tier, Rarity rarity) {super(tier, 0, 0, new Properties().rarity(rarity));}
+    public ItemModHoe(Tier tier, float attackSpeed) {super(tier, 0, attackSpeed, new Properties());}
     public ItemModHoe(Tier tier, Properties properties) {super(tier, 0, 0, properties);}
     @SuppressWarnings("deprecation")
 	@OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency((int)speed));
         tooltip.add(LocalizeUtils.harvestLevel(getTier().getLevel()));
-        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
+        if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

@@ -10,18 +10,16 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.*;
 
 public class ItemAquamarine extends BucketItem {
-    public ItemAquamarine() {super(() -> Fluids.WATER, new Item.Properties().durability(10));}
+    public ItemAquamarine() {super(() -> Fluids.WATER, new Properties().durability(10));}
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
     	ItemStack itemstack = player.getItemInHand(hand);
     	BlockHitResult blockhitresult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.NONE);
 	    if(blockhitresult.getType() == HitResult.Type.MISS || blockhitresult.getType() != HitResult.Type.BLOCK) return InteractionResultHolder.pass(itemstack);
-	    BlockPos blockpos = blockhitresult.getBlockPos();
-	    Direction direction = blockhitresult.getDirection();
-	    BlockPos blockpos1 = blockpos.relative(direction);
+        Direction direction = blockhitresult.getDirection();
+        BlockPos blockpos = blockhitresult.getBlockPos(), blockpos1 = blockpos.relative(direction);
 	    if(level.mayInteract(player, blockpos) && player.mayUseItemAt(blockpos1, direction, itemstack)) {
            BlockState blockstate = level.getBlockState(blockpos);
            BlockPos blockpos2 = canBlockContainFluid(level, blockpos, blockstate) ? blockpos : blockpos1;

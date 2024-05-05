@@ -31,11 +31,11 @@ import static net.minecraftforge.common.ToolActions.*;
 public class ItemShickaxe extends DiggerItem {
     protected final Tier tier;
     public ItemShickaxe(Rarity rarity, Tier tier) {
-        super(1, -2.4F, tier, BlockTags.create(new ResourceLocation(DivineRPG.MODID, "shickaxe_effective")), new Item.Properties().durability(tier.getUses()).rarity(rarity));
+        super(1, -2.4F, tier, BlockTags.create(new ResourceLocation(DivineRPG.MODID, "shickaxe_effective")), new Properties().durability(tier.getUses()).rarity(rarity));
         this.tier = tier;
     }
     public ItemShickaxe(Tier tier) {
-        super(1, -2.4F, tier, BlockTags.create(new ResourceLocation(DivineRPG.MODID, "shickaxe_effective")), new Item.Properties().durability(tier.getUses()));
+        super(1, -2.4F, tier, BlockTags.create(new ResourceLocation(DivineRPG.MODID, "shickaxe_effective")), new Properties().durability(tier.getUses()));
         this.tier = tier;
     }
     private static final Set<ToolAction> TOOL_ACTIONS = Stream.of(AXE_DIG, AXE_SCRAPE, AXE_STRIP, AXE_WAX_OFF, PICKAXE_DIG, SHOVEL_DIG, SHOVEL_FLATTEN, HOE_DIG, HOE_TILL).collect(Collectors.toCollection(Sets::newIdentityHashSet));
@@ -118,6 +118,6 @@ public class ItemShickaxe extends DiggerItem {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency((int)speed));
         tooltip.add(LocalizeUtils.harvestLevel(getTier().getLevel()));
-        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
+        if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

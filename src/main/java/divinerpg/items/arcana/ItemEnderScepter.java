@@ -38,6 +38,6 @@ public class ItemEnderScepter extends ItemMod {
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.ender_scepter"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        tooltip.add(LocalizeUtils.infiniteUses());
+        stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

@@ -23,7 +23,7 @@ public class ItemMod extends Item {
     public ItemMod(Properties properties) {super(properties);}
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            if(arcana.getArcana() >= arcanaConsumedAttack) arcana.consume(player, arcanaConsumedAttack);
+            if(arcana.getArcana() >= arcanaConsumedAttack && arcanaConsumedAttack != 0) arcana.consume(player, arcanaConsumedAttack);
         }); return super.onLeftClickEntity(stack, player, entity);
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

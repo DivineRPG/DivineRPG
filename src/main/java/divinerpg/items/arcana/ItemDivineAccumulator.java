@@ -34,6 +34,6 @@ public class ItemDivineAccumulator extends ItemMod {
         list.add(LocalizeUtils.i18n("tooltip.divine_accumulator.launch"));
         list.add(LocalizeUtils.i18n("tooltip.divine_accumulator.fall"));
         super.appendHoverText(stack, worldIn, list, flagIn);
-        list.add(LocalizeUtils.infiniteUses());
+        stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

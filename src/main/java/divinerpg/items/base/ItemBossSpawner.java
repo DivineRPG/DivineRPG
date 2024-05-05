@@ -33,8 +33,7 @@ public class ItemBossSpawner extends ItemMod {
 	}
 	@Override public InteractionResult useOn(UseOnContext context) {
         Level world = context.getLevel();
-        BlockPos pos = context.getClickedPos();
-        BlockPos pos1;
+        BlockPos pos = context.getClickedPos(), pos1;
         if(world.getBlockState(pos).getCollisionShape(world, pos).isEmpty()) pos1 = pos;
         else pos1 = pos.relative(context.getClickedFace());
         Player player = context.getPlayer();

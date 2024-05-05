@@ -13,14 +13,7 @@ public enum BlockColor implements StringRepresentable {
     WHITE("white");
 	public static final EnumProperty<BlockColor> COLOR = EnumProperty.create("color", BlockColor.class);
 	private final String name;
-	private BlockColor(String name) {
-		this.name = name;
-	}
-	@Override
-	public String toString() {
-		return this.getSerializedName();
-	}
-	public String getSerializedName() {
-		return this.name;
-	}
+	BlockColor(String name) {this.name = name;}
+	@Override public String toString() {return this.getSerializedName();}
+	public String getSerializedName() {return this.name;}
 }

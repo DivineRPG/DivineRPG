@@ -15,13 +15,13 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     public final MobEffect[] supportedEffects;
     public final int[] amplifier;
     public ItemDivineArmor(ArmorMaterial materialIn, ArmorItem.Type slot) {
-        super(materialIn, slot, new Item.Properties());
+        super(materialIn, slot, new Properties());
         mat = materialIn;
         supportedEffects = null;
         amplifier = null;
     }
     public ItemDivineArmor(ArmorMaterial materialIn, ArmorItem.Type slot, ArmorInfo armorInfo) {
-        super(materialIn, slot, new Item.Properties());
+        super(materialIn, slot, new Properties());
         mat = materialIn;
         this.armorInfo = armorInfo;
         supportedEffects = null;
@@ -42,28 +42,28 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
         amplifier = null;
     }
     public ItemDivineArmor(ArmorMaterial materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, MobEffect ... effects) {
-        super(materialIn, slot, new Item.Properties());
+        super(materialIn, slot, new Properties());
         mat = materialIn;
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         amplifier = null;
     }
     public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, MobEffect ... effects) {
-        super(materialIn, slot, new Item.Properties().rarity(rarity));
+        super(materialIn, slot, new Properties().rarity(rarity));
         mat = materialIn;
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         amplifier = null;
     }
     public ItemDivineArmor(ArmorMaterial materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, int[] amplifier, MobEffect ... effects) {
-        super(materialIn, slot, new Item.Properties());
+        super(materialIn, slot, new Properties());
         mat = materialIn;
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         this.amplifier = amplifier;
     }
     public ItemDivineArmor(Rarity rarity, ArmorMaterial materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, int[] amplifier, MobEffect ... effects) {
-        super(materialIn, slot, new Item.Properties().rarity(rarity));
+        super(materialIn, slot, new Properties().rarity(rarity));
         mat = materialIn;
         this.armorInfo = armorInfo;
         supportedEffects = effects;
@@ -77,6 +77,6 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(armorInfo != null && getFullSetPerks() != null) for(String element : armorInfo.toString(stack, worldIn)) tooltip.add(LocalizeUtils.i18n(element));
-        if(!stack.getItem().canBeDepleted()) tooltip.add(LocalizeUtils.infiniteUses());
+        if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }
