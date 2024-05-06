@@ -29,6 +29,7 @@ public class EntityShooterBullet extends DivineThrowable {
         thrower = entity;
         setBulletId((byte)bulletType.ordinal());
         if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.NONE) setDeltaMovement(getDeltaMovement().x * 3, getDeltaMovement().y * 3, getDeltaMovement().z * 3);
+        if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.SKY) setDeltaMovement(level().getRandom().nextGaussian() * .05, -.5, level().getRandom().nextGaussian() * .05);
     }
     @Override public float getGravity() {
         if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.NONE) return 0;
@@ -59,6 +60,7 @@ public class EntityShooterBullet extends DivineThrowable {
                 level().addFreshEntity(e);
             }
             if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.EXPLODE) level().explode(this, xo, yo, zo, 3, false, Level.ExplosionInteraction.TNT);
+            if(getBulletType() == BulletType.METEOR) level().explode(this, xo, yo, zo, 4.5F, false, Level.ExplosionInteraction.TNT);
             //TODO: to add proper snowball-like particles for tomato shot
             level().broadcastEntityEvent(this, (byte)3);
         }

@@ -79,7 +79,6 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityLadyLunaSparkler>>		 LADY_LUNA_SPARKLER = registerProjectile(EntityLadyLunaSparkler::new,               "lady_luna_sparkler");
     public static final RegistryObject<EntityType<EntityMandragoraProjectile>>	 MANDRAGORA_PROJECTILE = registerProjectile(EntityMandragoraProjectile::new,        "mandragora_projectile");
     public static final RegistryObject<EntityType<EntityMerikMissile>>			 MERIKS_MISSILE = registerProjectile(EntityMerikMissile::new,                       "meriks_missile");
-    public static final RegistryObject<EntityType<EntityMeteor>>				 METEOR = registerProjectile(EntityMeteor::new,                                     "meteor");
     public static final RegistryObject<EntityType<EntityParticleBullet>>		 PARTICLE_BULLET = registerProjectile(EntityParticleBullet::new,                    "particle_bullet");
     public static final RegistryObject<EntityType<EntityRaglokBomb>>			 RAGLOK_BOMB = registerProjectile(EntityRaglokBomb::new,                            "raglok_bomb");
     public static final RegistryObject<EntityType<EntitySaguaroWormShot>>		 SAGUARO_WORM_SHOT = registerProjectile(EntitySaguaroWormShot::new,                 "saguaro_worm_shot");
@@ -87,7 +86,6 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityShooterBullet>>			 SHOOTER_BULLET = registerProjectile(EntityShooterBullet::new,                      "shooter_bullet");
     public static final RegistryObject<EntityType<EntitySkyreBullet>>			 SKYRE_BULLET = registerProjectile(EntitySkyreBullet::new,                          "skyre_bullet");
     public static final RegistryObject<EntityType<EntitySoulFiendShot>>			 SOUL_FIEND_SHOT = registerProjectile(EntitySoulFiendShot::new,                     "soul_fiend_shot");
-    public static final RegistryObject<EntityType<EntityStar>>					 STARLIGHT = registerProjectile(EntityStar::new,                                    "star");
     public static final RegistryObject<EntityType<EntityTwilightDemonShot>>		 TWILIGHT_DEMON_SHOT = registerProjectile(EntityTwilightDemonShot::new,             "twilight_demon_shot");
     public static final RegistryObject<EntityType<EntityTwilightMageShot>>		 MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new,                        "mage_shot");
     public static final RegistryObject<EntityType<EntityTwilightMageShot>>		 TWILIGHT_MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new,               "twilight_mage_shot");
@@ -804,7 +802,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(MAGE_SHOT.get(),               RenderDivineProjectile::new);
         event.registerEntityRenderer(MANDRAGORA_PROJECTILE.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "mandragora_projectile"));
         event.registerEntityRenderer(MERIKS_MISSILE.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "meriks_missile"));
-        event.registerEntityRenderer(METEOR.get(), 					(Context context) -> new RenderDivineProjectile<>(context, "meteor"));
         event.registerEntityRenderer(PARTICLE_BULLET.get(),         RenderShooterBullet::new);
         event.registerEntityRenderer(RAGLOK_BOMB.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "raglok_bomb"));
         event.registerEntityRenderer(SAGUARO_WORM_SHOT.get(),       RenderSaguaroWormShot::new);
@@ -812,7 +809,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(SHOOTER_BULLET.get(),          RenderShooterBullet::new);
         event.registerEntityRenderer(SKYRE_BULLET.get(), 		    (Context context) -> new RenderDivineProjectile<>(context, "skyre_bullet"));
         event.registerEntityRenderer(SOUL_FIEND_SHOT.get(),         RenderDivineProjectile::new);
-        event.registerEntityRenderer(STARLIGHT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "starlight"));
         event.registerEntityRenderer(TWILIGHT_DEMON_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "twilight_demon_shot"));
         event.registerEntityRenderer(TWILIGHT_MAGE_SHOT.get(),      RenderDivineProjectile::new);
         event.registerEntityRenderer(WATCHER_SHOT.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "watcher_shot"));

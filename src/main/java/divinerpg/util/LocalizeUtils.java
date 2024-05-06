@@ -31,6 +31,7 @@ public class LocalizeUtils {
             ShotsBouncing = "tooltip.shots.bounce",
             ShotsExplosive = "tooltip.shots.explosive",
             ShotsHoming = "tooltip.shots.homing",
+            ShotsSky = "tooltip.shots.sky",
             ShotsSplit = "tooltip.shots.split",
             SlowMobs = "tooltip.effect.slows",
             Summoned = "tooltip.summon",
@@ -164,6 +165,12 @@ public class LocalizeUtils {
      * Indicates that the projectiles are splitting upon hitting something.
      */
     public static Component splitShots() {return LocalizeUtils.i18n(ShotsSplit);}
+    /**
+     * Indicates that the item shoots objects from the sky.
+     *
+     * @param count - amount of objects
+     */
+    public static Component skyShots(Object count) {return i18n(ShotsSky, count);}
     /**
      * Specifies the summoned entity.
      *

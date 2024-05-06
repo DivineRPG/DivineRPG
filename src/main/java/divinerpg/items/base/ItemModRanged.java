@@ -30,6 +30,7 @@ public class ItemModRanged extends ItemMod {
     protected final String entityType;
     public SoundEvent sound;
     public int onUseDamage;
+    public int projectileAmount;
     /**
      * Constructor for DivineRPG ranged weapons.
      *
@@ -166,17 +167,16 @@ public class ItemModRanged extends ItemMod {
                 if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.ARCANA) tooltip.add(LocalizeUtils.arcanaDam((int)bulletType.getDamage()));
                 if(!(this instanceof ItemScythe) && bulletType.getBulletDamageType() == BulletType.BulletDamageType.MAGIC) tooltip.add(LocalizeUtils.magicDam((int)bulletType.getDamage()));
                 if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
-            }
-            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.BOUNCE) tooltip.add(LocalizeUtils.bouncingShots());
-            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
+            } if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.BOUNCE) tooltip.add(LocalizeUtils.bouncingShots());
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.POISON) tooltip.add(LocalizeUtils.poison(bulletType.effectSec));
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.PULL) tooltip.add(LocalizeUtils.pull());
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.PUSH) tooltip.add(LocalizeUtils.push());
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.RETURN) tooltip.add(LocalizeUtils.returnsToSender());
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SKY) tooltip.add(LocalizeUtils.skyShots(projectileAmount));
+            if(bulletType == BulletType.METEOR || bulletType.getBulletSpecial() == BulletType.BulletSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SLOW) tooltip.add(LocalizeUtils.slow(bulletType.effectSec));
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SPLIT) tooltip.add(LocalizeUtils.splitShots());
-        }
-        if(onUseDamage > 0) tooltip.add(LocalizeUtils.onUseDam(onUseDamage));
+        } if(onUseDamage > 0) tooltip.add(LocalizeUtils.onUseDam(onUseDamage));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         if(!(this instanceof ItemModThrowable)) {
             tooltip.add(needsAmmo() ? LocalizeUtils.ammo(ammoSupplier) : LocalizeUtils.infiniteAmmo());

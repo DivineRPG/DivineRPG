@@ -6,8 +6,6 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
 
 public enum BulletType {
-    NONE(0, null),
-
     //Throwables
     TOMATO_SHOT(.5F, ItemLoc("tomato")),
     SHURIKEN_SHOT(4, ItemLoc("shuriken")),
@@ -44,8 +42,10 @@ public enum BulletType {
     ATTRACTOR_SHOT(0, ProjectileLoc("arcana_shot"), BulletDamageType.NONE, BulletSpecial.PULL),
     REFLECTOR_SHOT(0, ProjectileLoc("arcana_shot"), BulletDamageType.NONE, BulletSpecial.PUSH),
     CAPTAINS_SPARKLER_SHOT(20, ProjectileLoc("sparkler"), BulletDamageType.ARCANA, BulletSpecial.RAINBOW),
-    GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.ARCANA, BulletSpecial.SPLIT),
-    GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.ARCANA),
+    GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.SPLIT),
+    GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.SPLIT),
+    STAR(20, ProjectileLoc("starlight"), ParticleRegistry.EDEN_PORTAL.get(), BulletSpecial.SKY),
+    METEOR(20, ProjectileLoc("meteor"), ParticleRegistry.MORTUM_PORTAL.get(), BulletSpecial.SKY),
 
     //Cannons
     CRABCLAW_CANNON_SHOT(12, ProjectileLoc("crab_anchor")),
@@ -88,7 +88,7 @@ public enum BulletType {
     SUNSTORM(12, blank(),255, 235, 0),
     TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"),0, 0, 0),
     TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), 255, 0, 0),
-    SOUL_FIEND_SHOT(0, blank()),
+    SOUL_FIEND_SHOT(0, blank(), BulletDamageType.MAGIC),
     LUNA_SPARKLER(12, blank(), 139, 103, 255, ParticleRegistry.WILDWOOD_PORTAL.get()),
 
     //Vethea Cannons
@@ -153,23 +153,21 @@ public enum BulletType {
         bulletDamageType = type;
         bulletSpecial = BulletSpecial.NONE;
     }
-    BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletDamageType type, BulletSpecial special) {
+    BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletSpecial special) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
         r = 0;
         g = 0;
         b = 0;
-        bulletDamageType = type;
+        bulletDamageType = BulletDamageType.ARCANA;
         bulletSpecial = special;
     }
     BulletType(float damage, ResourceLocation texture, BulletDamageType type, SimpleParticleType particle) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
-        r = 0;
-        g = 0;
-        b = 0;
+        r = g = b = 0;
         bulletDamageType = type;
         bulletSpecial = BulletSpecial.NONE;
     }
@@ -197,9 +195,7 @@ public enum BulletType {
         this.damage = damage;
         this.texture = texture;
         particle = null;
-        r = 0;
-        g = 0;
-        b = 0;
+        r = g = b = 0;
         bulletDamageType = type;
         bulletSpecial = BulletSpecial.NONE;
     }
@@ -207,9 +203,7 @@ public enum BulletType {
         this.damage = damage;
         this.texture = texture;
         particle = null;
-        r = 0;
-        g = 0;
-        b = 0;
+        r = g = b = 0;
         bulletDamageType = BulletDamageType.PHYSIC;
         bulletSpecial = BulletSpecial.NONE;
     }
@@ -218,9 +212,7 @@ public enum BulletType {
         this.damage = damage;
         this.texture = texture;
         particle = null;
-        r = 0;
-        g = 0;
-        b = 0;
+        r = g = b = 0;
         bulletDamageType = type;
         bulletSpecial = special;
         effectSec = sec;
@@ -230,9 +222,7 @@ public enum BulletType {
         this.damage = damage;
         this.texture = texture;
         particle = null;
-        r = 0;
-        g = 0;
-        b = 0;
+        r = g = b = 0;
         bulletDamageType = type;
         bulletSpecial = special;
     }
@@ -251,7 +241,7 @@ public enum BulletType {
     public int getGreen() {return g;}
     public int getBlue() {return b;}
     public BulletSpecial getBulletSpecial() {return bulletSpecial;}
-    public enum BulletSpecial {NONE, BLIND, BOUNCE, EXPLODE, FLAME, MUSIC, NAUSEA, POISON, PULL, PUSH, RAINBOW, RETURN, SLOW, SPLIT, WITHER}
+    public enum BulletSpecial {NONE, BLIND, BOUNCE, EXPLODE, FLAME, MUSIC, NAUSEA, POISON, PULL, PUSH, RAINBOW, RETURN, SKY, SLOW, SPLIT, WITHER}
     public BulletDamageType getBulletDamageType() {return bulletDamageType;}
     public enum BulletDamageType {NONE, PHYSIC, MAGIC, ARCANA}
 }

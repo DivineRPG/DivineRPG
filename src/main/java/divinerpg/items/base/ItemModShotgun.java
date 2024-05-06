@@ -16,7 +16,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemModShotgun extends ItemModRanged {
-	protected final int projectileAmount;
 	public ItemModShotgun(BulletType bulletType, SoundEvent sound, int uses, int delay, Item ammoSupplier, int arcanaConsuming, int projectileAmount) {
 		super(bulletType, sound, ammoSupplier, uses, delay, arcanaConsuming);
 		this.projectileAmount = projectileAmount;
