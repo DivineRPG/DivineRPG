@@ -18,7 +18,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemSerenadeOfHealth extends ItemMod {
-    private final float healAmount;
     public ItemSerenadeOfHealth() {
         super(new Properties().durability(7));
         healAmount = 20;
@@ -53,7 +52,7 @@ public class ItemSerenadeOfHealth extends ItemMod {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.healthRegen(healAmount / 2));
+        tooltip.add(LocalizeUtils.healthRegen((int)(healAmount / 2)));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

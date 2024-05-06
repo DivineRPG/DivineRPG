@@ -434,8 +434,8 @@ public class ItemRegistry {
             ender_scepter = registerItem("ender_scepter", ItemEnderScepter::new),
             ghostbane = registerItem("ghostbane", ItemGhostbane::new),
             staff_of_enrichment = registerItem("staff_of_enrichment", ItemStaffEnrichment::new),
-            arcanium_attractor = registerItem("arcanium_attractor", ItemAttractor::new),
-            arcanium_reflector = registerItem("arcanium_reflector", ItemReflector::new),
+            arcanium_attractor = registerItem("arcanium_attractor", () -> new ItemModRanged(BulletType.ATTRACTOR_SHOT, SoundRegistry.REFLECTOR.get(), null, 0, 0, 20)),
+            arcanium_reflector = registerItem("arcanium_reflector", () -> new ItemModRanged(BulletType.REFLECTOR_SHOT, SoundRegistry.REFLECTOR.get(), null, 0, 0, 20)),
 
             //Shields
             realmite_shield = registerItem("realmite_shield", () -> new DivineShield(realmite_ingot.get(), 426, "realmite_shield")),
@@ -450,8 +450,8 @@ public class ItemRegistry {
 
             //Serenades
             serenade_striker = registerItem("serenade_striker", ItemSerenadeStriker::new),
-            serenade_of_ice = registerItem("serenade_of_ice", ItemSerenadeOfIce::new),
-            serenade_of_death = registerItem("serenade_of_death", ItemSerenadeOfDeath::new),
+            serenade_of_ice = registerItem("serenade_of_ice", () -> new ItemModRanged(BulletType.SERENADE_OF_ICE_SHOT, SoundRegistry.SERENADE.get(), 100, 0)),
+            serenade_of_death = registerItem("serenade_of_death", () -> new ItemModRanged(BulletType.SERENADE_OF_DEATH_SHOT, SoundRegistry.SERENADE.get(), 500, 0)),
             serenade_of_health = registerItem("serenade_of_health", ItemSerenadeOfHealth::new),
             serenade_of_infusion = registerItem("serenade_of_infusion", ItemSerenadeOfInfusion::new),
 
@@ -505,11 +505,11 @@ public class ItemRegistry {
             cyclopsian_staff = registerItem("cyclopsian_staff", () -> new ItemModRanged(BulletType.CYCLOPSIAN_STAFF_SHOT, SoundRegistry.STAFF.get(), 600, 0)),
             maelstrom = registerItem("maelstrom", () -> new ItemModRanged(BulletType.MAELSTROM_SHOT, SoundRegistry.GHAST_CANNON.get(), 100, 20)),
             captains_sparkler = registerItem("captains_sparkler", () -> new ItemModRanged(BulletType.CAPTAINS_SPARKLER_SHOT, SoundRegistry.SPARKLER.get(), null, 0, 15, 7)),
-            grenade = registerItem("grenade", ItemGrenade::new),
-            la_vekor = registerItem("la_vekor", ItemLaVekor::new),
+            grenade = registerItem("grenade", () -> new ItemModThrowable(BulletType.GRENADE)),
+            la_vekor = registerItem("la_vekor", () -> new ItemModRanged(BulletType.GRENADE, SoundRegistry.LA_VEKOR.get(), ItemRegistry.grenade.get(), 0, 10, 15)),
             firefly = registerItem("firefly", ItemFirefly::new),
             meriks_missile = registerItem("meriks_missile", ItemMeriksMissile::new),
-            generals_staff = registerItem("generals_staff", ItemGeneralsStaff::new),
+            generals_staff = registerItem("generals_staff", () -> new ItemModRanged(BulletType.GENERALS_STAFF_SHOT, SoundRegistry.STARLIGHT.get(), null, 0, 50, 20)),
             starlight = registerItem("starlight", () -> new ItemStaffStarlight(5, 1)),
             staff_of_starlight = registerItem("staff_of_starlight", () -> new ItemStaffStarlight(25, 8)),
             meteor_mash = registerItem("meteor_mash", ItemMeteorMash::new),
@@ -683,16 +683,16 @@ public class ItemRegistry {
             everfright = registerItem("everfright", () -> new ItemVetheanBow(ArrowType.EVERFRIGHT, ever_arrow.get())),
 
             //Vethean Staffs
-            teaker_staff = registerItem("teaker_staff", () -> new ItemStaff(BulletType.TEAKER_STAFF_SHOT)),
-            amthirmis_staff = registerItem("amthirmis_staff", () -> new ItemStaff(BulletType.AMTHIRMIS_STAFF_SHOT)),
-            darven_staff = registerItem("darven_staff", () -> new ItemStaff(BulletType.DARVEN_STAFF_SHOT)),
-            cermile_staff = registerItem("cermile_staff", () -> new ItemStaff(BulletType.CERMILE_STAFF_SHOT)),
-            pardimal_staff = registerItem("pardimal_staff", () -> new ItemStaff(BulletType.PARDIMAL_STAFF_SHOT)),
-            quadrotic_staff = registerItem("quadrotic_staff", () -> new ItemStaff(BulletType.QUADROTIC_STAFF_SHOT)),
-            karos_staff = registerItem("karos_staff", () -> new ItemStaff(BulletType.KAROS_STAFF_SHOT)),
-            heliosis_staff = registerItem("heliosis_staff", () -> new ItemStaff(BulletType.HELIOSIS_STAFF_SHOT)),
-            arksiane_staff = registerItem("arksiane_staff", () -> new ItemStaff(BulletType.ARKSIANE_STAFF_SHOT)),
-            evernight = registerItem("evernight", ItemEvernight::new),
+            teaker_staff = registerItem("teaker_staff", () -> new ItemStaff(BulletType.TEAKER_STAFF_SHOT, 10, 0)),
+            amthirmis_staff = registerItem("amthirmis_staff", () -> new ItemStaff(BulletType.AMTHIRMIS_STAFF_SHOT, 10, 0)),
+            darven_staff = registerItem("darven_staff", () -> new ItemStaff(BulletType.DARVEN_STAFF_SHOT, 10, 0)),
+            cermile_staff = registerItem("cermile_staff", () -> new ItemStaff(BulletType.CERMILE_STAFF_SHOT, 10, 0)),
+            pardimal_staff = registerItem("pardimal_staff", () -> new ItemStaff(BulletType.PARDIMAL_STAFF_SHOT, 10, 0)),
+            quadrotic_staff = registerItem("quadrotic_staff", () -> new ItemStaff(BulletType.QUADROTIC_STAFF_SHOT, 10, 0)),
+            karos_staff = registerItem("karos_staff", () -> new ItemStaff(BulletType.KAROS_STAFF_SHOT, 10, 0)),
+            heliosis_staff = registerItem("heliosis_staff", () -> new ItemStaff(BulletType.HELIOSIS_STAFF_SHOT, 10, 0)),
+            arksiane_staff = registerItem("arksiane_staff", () -> new ItemStaff(BulletType.ARKSIANE_STAFF_SHOT, 10, 0)),
+            evernight = registerItem("evernight", () -> new ItemStaff(BulletType.EVERNIGHT_SHOT, 80, 20)),
 
             //Vethean Cannons
             teaker_cannon = registerItem("teaker_cannon", () -> new ItemVetheanCannon(BulletType.TEAKER_CANNON_SHOT)),

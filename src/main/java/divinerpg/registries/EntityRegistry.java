@@ -60,7 +60,6 @@ public class EntityRegistry {
     private EntityRegistry(){}
 
     //Projectiles
-    public static final RegistryObject<EntityType<EntityAttractor>>				 ATTRACTOR = registerProjectile(EntityAttractor::new,                               "attractor");
     public static final RegistryObject<EntityType<EntityBouncingProjectile>>	 BOUNCING_PROJECTILE = registerProjectile(EntityBouncingProjectile::new,            "bouncing_projectile");
     public static final RegistryObject<EntityType<EntityCaveRock>>				 CAVE_ROCK = registerProjectile(EntityCaveRock::new,                                "cave_rock");
     public static final RegistryObject<EntityType<EntityColoredBullet>>			 COLORED_BULLET = registerProjectile(EntityColoredBullet::new,                      "colored_bullet");
@@ -74,7 +73,6 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityFrostCloud>>			 FROST_CLOUD = registerFrostCloud(EntityFrostCloud::new,                            "frost_cloud");
     public static final RegistryObject<EntityType<EntityFrostShot>>				 FROST_SHOT = registerFireballProjectile(EntityFrostShot::new,                      "frost_shot");
     public static final RegistryObject<EntityType<EntityFyracryxFireball>>		 FYRACRYX_FIREBALL = registerFireballProjectile(EntityFyracryxFireball::new,        "fyracryx_fireball");
-    public static final RegistryObject<EntityType<EntityGeneralsStaff>>			 GENERALS_STAFF = registerProjectile(EntityGeneralsStaff::new,                      "generals_staff");
     public static final RegistryObject<EntityType<EntityKazroticShot>>			 KAZROTIC_SHOT = registerProjectile(EntityKazroticShot::new,                        "kazrotic_shot");
     public static final RegistryObject<EntityType<EntityKingOfScorchersMeteor>>  KING_OF_SCORCHERS_METEOR = registerProjectile(EntityKingOfScorchersMeteor::new,    "king_of_scorchers_meteor");
     public static final RegistryObject<EntityType<EntityKingOfScorchersShot>>	 KING_OF_SCORCHERS_SHOT = registerProjectile(EntityKingOfScorchersShot::new,        "king_of_scorchers_shot");
@@ -84,7 +82,6 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityMeteor>>				 METEOR = registerProjectile(EntityMeteor::new,                                     "meteor");
     public static final RegistryObject<EntityType<EntityParticleBullet>>		 PARTICLE_BULLET = registerProjectile(EntityParticleBullet::new,                    "particle_bullet");
     public static final RegistryObject<EntityType<EntityRaglokBomb>>			 RAGLOK_BOMB = registerProjectile(EntityRaglokBomb::new,                            "raglok_bomb");
-    public static final RegistryObject<EntityType<EntityReflector>>				 REFLECTOR = registerProjectile(EntityReflector::new,                               "reflector");
     public static final RegistryObject<EntityType<EntitySaguaroWormShot>>		 SAGUARO_WORM_SHOT = registerProjectile(EntitySaguaroWormShot::new,                 "saguaro_worm_shot");
     public static final RegistryObject<EntityType<EntityScorcherShot>>			 SCORCHER_SHOT = registerFireballProjectile(EntityScorcherShot::new,                "scorcher_shot");
     public static final RegistryObject<EntityType<EntityShooterBullet>>			 SHOOTER_BULLET = registerProjectile(EntityShooterBullet::new,                      "shooter_bullet");
@@ -788,7 +785,6 @@ public class EntityRegistry {
         DivineRPG.LOGGER.info("[DivineRPG] Registered entity renders");
         //Projectiles
         event.registerEntityRenderer(ARROW_SHOT.get(),              RenderDivineArrow::new);
-        event.registerEntityRenderer(ATTRACTOR.get(),               RenderDivineProjectile::new);
         event.registerEntityRenderer(BOUNCING_PROJECTILE.get(), 	RenderShooterBullet::new);
         event.registerEntityRenderer(CAVE_ROCK.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "cave_rock"));
         event.registerEntityRenderer(COLORED_BULLET.get(),          RenderShooterBullet::new);
@@ -801,7 +797,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(FROST_CLOUD.get(),             RenderFrostCloud::new);
         event.registerEntityRenderer(FROST_SHOT.get(), 				(Context context) -> new RenderDivineFireball<>(context, "frost_shot"));
         event.registerEntityRenderer(FYRACRYX_FIREBALL.get(), 		(Context context) -> new RenderDivineFireball<>(context, new ResourceLocation("minecraft:textures/items/fireball.png")));
-        event.registerEntityRenderer(GENERALS_STAFF.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "generals_staff"));
         event.registerEntityRenderer(KAZROTIC_SHOT.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "kazrotic_shot"));
         event.registerEntityRenderer(KING_OF_SCORCHERS_METEOR.get(),(Context context) -> new RenderDivineProjectile<>(context, "king_of_scorchers_meteor"));
         event.registerEntityRenderer(KING_OF_SCORCHERS_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "king_of_scorchers_shot"));
@@ -812,7 +807,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(METEOR.get(), 					(Context context) -> new RenderDivineProjectile<>(context, "meteor"));
         event.registerEntityRenderer(PARTICLE_BULLET.get(),         RenderShooterBullet::new);
         event.registerEntityRenderer(RAGLOK_BOMB.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "raglok_bomb"));
-        event.registerEntityRenderer(REFLECTOR.get(),               RenderDivineProjectile::new);
         event.registerEntityRenderer(SAGUARO_WORM_SHOT.get(),       RenderSaguaroWormShot::new);
         event.registerEntityRenderer(SCORCHER_SHOT.get(), 			(Context context) -> new RenderDivineFireball<>(context, "scorcher_shot"));
         event.registerEntityRenderer(SHOOTER_BULLET.get(),          RenderShooterBullet::new);

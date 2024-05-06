@@ -76,7 +76,7 @@ public class ItemMeriksMissile extends ItemMod {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.meriks_missile"));
-        tooltip.add(LocalizeUtils.rangedDamString("8-25"));
+        tooltip.add(LocalizeUtils.rangedDam("8-25"));
         tooltip.add(LocalizeUtils.arcanaConsumed("10-50"));
         stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }

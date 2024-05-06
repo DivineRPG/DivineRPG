@@ -15,11 +15,11 @@ public class EntityColoredBullet extends EntityShooterBullet {
         super.tick();
         if(level().isClientSide()) {
             for(int i = 0; i < 2; ++i) {
-                Vec3 vector3d = this.getDeltaMovement();
-                double d2 = this.getX() + vector3d.x + (this.random.nextDouble() - this.random.nextDouble()) / 4;
-                double d0 = this.getY() + vector3d.y + (this.random.nextDouble() - this.random.nextDouble()) / 4;
-                double d1 = this.getZ() + vector3d.z + (this.random.nextDouble() - this.random.nextDouble()) / 4;
-                if(getBulletType() != null) this.level().addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), getBulletType().getRed(), getBulletType().getGreen(), getBulletType().getBlue()), d2 - vector3d.x * .25, d0 - vector3d.y * .25, d1 - vector3d.z * .25, vector3d.x, vector3d.y, vector3d.z);
+                Vec3 vector3d = getDeltaMovement();
+                double d2 = getX() + vector3d.x + (random.nextDouble() - random.nextDouble()) / 4;
+                double d0 = getY() + vector3d.y + (random.nextDouble() - random.nextDouble()) / 4;
+                double d1 = getZ() + vector3d.z + (random.nextDouble() - random.nextDouble()) / 4;
+                if(getBulletType() != null) level().addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), getBulletType().getRed(), getBulletType().getGreen(), getBulletType().getBlue()), d2 - vector3d.x * .25, d0 - vector3d.y * .25, d1 - vector3d.z * .25, vector3d.x, vector3d.y, vector3d.z);
             }
         }
     }

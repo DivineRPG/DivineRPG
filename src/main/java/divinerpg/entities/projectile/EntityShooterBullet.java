@@ -28,25 +28,37 @@ public class EntityShooterBullet extends DivineThrowable {
         this.bulletType = bulletType;
         thrower = entity;
         setBulletId((byte)bulletType.ordinal());
-        if(this.bulletType == BulletType.SERENADE_OF_ICE_SHOT) setDeltaMovement(getDeltaMovement().x * 3, getDeltaMovement().y * 3, getDeltaMovement().z * 3);
+        if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.NONE) setDeltaMovement(getDeltaMovement().x * 3, getDeltaMovement().y * 3, getDeltaMovement().z * 3);
     }
     @Override public float getGravity() {
-        if(bulletType == BulletType.SERENADE_OF_ICE_SHOT) return 0;
+        if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.NONE) return 0;
         return super.getGravity();
     }
     @Override public void tick() {
         super.tick();
-        if(bulletType == BulletType.CAPTAINS_SPARKLER_SHOT) {
+        if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.RAINBOW) {
             for(int var3 = 0; var3 < 8; ++var3) level().addParticle(ParticleRegistry.SPARKLER.get(), xo, yo, zo, .25 * random.nextGaussian(), .25 * random.nextGaussian(), .25 * random.nextGaussian());
         }
         if(color >= 24) color = 0;
         else color++;
-        if(bulletType == BulletType.SOUND_OF_MUSIC_SHOT || bulletType ==  BulletType.SOUND_OF_CAROLS_SHOT || bulletType == BulletType.SOUND_OF_WHALES_SHOT) level().addParticle(ParticleTypes.NOTE, xo, yo, zo, (double)color / 24, 0, 0);
+        if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.MUSIC) level().addParticle(ParticleTypes.NOTE, xo, yo, zo, (double)color / 24, 0, 0);
     }
     @Override public void onHit(HitResult result) {
         super.onHit(result);
         if(!level().isClientSide()) {
-            if(bulletType == BulletType.GRENADE) level().explode(this, xo, yo, zo, 3, false, Level.ExplosionInteraction.TNT);
+            if(bulletType == BulletType.GENERALS_STAFF_SHOT) {
+                for(double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
+                    EntityParticleBullet e = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), level(), thrower, BulletType.GENERALS_STAFF_SPRAY);
+                    e.moveTo(xo, yo, zo);
+                    e.shoot(Math.cos(theta), .4, Math.sin(theta), .7F, 0);
+                    level().addFreshEntity(e);
+                }
+                EntityParticleBullet e = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), level(), thrower, BulletType.GENERALS_STAFF_SPRAY);
+                e.moveTo(xo, yo, zo);
+                e.shoot(0, 1, 0, .7F, 0);
+                level().addFreshEntity(e);
+            }
+            if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.EXPLODE) level().explode(this, xo, yo, zo, 3, false, Level.ExplosionInteraction.TNT);
             //TODO: to add proper snowball-like particles for tomato shot
             level().broadcastEntityEvent(this, (byte)3);
         }
@@ -54,12 +66,17 @@ public class EntityShooterBullet extends DivineThrowable {
     @Override public void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         Entity entity = result.getEntity();
-        if(!(this instanceof EntityBouncingProjectile) && !(bulletType == BulletType.SERENADE_OF_ICE_SHOT)) entity.hurt(damageSources().thrown(this, thrower), getBulletType().getDamage());
-        if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan)) {
-            if(bulletType == BulletType.SNOWFLAKE_SHURIKEN_SHOT) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 3));
-            if(bulletType == BulletType.VILE_STORM_SHOT || bulletType == BulletType.SERENADE_OF_DEATH_SHOT) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 3));
-            if(bulletType == BulletType.SERENADE_OF_ICE_SHOT) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 3));
+        if(!(this instanceof EntityBouncingProjectile) && getBulletType().getBulletDamageType() != BulletType.BulletDamageType.NONE) {
+            if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) entity.hurt(damageSources().thrown(this, thrower), getBulletType().getDamage());
+            else entity.hurt(damageSources().indirectMagic(this, thrower), getBulletType().getDamage());
         }
+        if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan)) {
+            if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.POISON) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, bulletType.effectSec * 20, 3));
+            if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.SLOW) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, bulletType.effectSec * 20, 3));
+        }
+        double xDist = (getOwner().xo - xo) / 5, yDist = (getOwner().yo - yo) / 5, zDist = (getOwner().zo - zo) / 5;
+        if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.PULL) entity.setDeltaMovement(xDist, yDist, zDist);
+        if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.PUSH) entity.setDeltaMovement(-xDist, -yDist, -zDist);
     }
     @Override protected void onHitBlock(BlockHitResult result) {
         super.onHitBlock(result);

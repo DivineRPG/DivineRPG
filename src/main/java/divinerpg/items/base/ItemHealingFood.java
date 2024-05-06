@@ -11,19 +11,18 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemHealingFood extends ItemModFood {
-    private final float healthGain;
     public ItemHealingFood(FoodProperties food) {
         super(food);
-        healthGain = food.getNutrition();
+        healAmount = food.getNutrition();
     }
     @Override public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entity) {
-        if(entity.getHealth() < entity.getMaxHealth()) entity.heal(healthGain);
+        if(entity.getHealth() < entity.getMaxHealth()) entity.heal(healAmount);
         return super.finishUsingItem(stack, world, entity);
     }
     @Override public int getUseDuration(ItemStack stack) {return 16;}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.healthRegen(healthGain / 2));
+        tooltip.add(LocalizeUtils.healthRegen((int)(healAmount / 2)));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

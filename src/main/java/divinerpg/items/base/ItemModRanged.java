@@ -4,11 +4,10 @@ import divinerpg.DivineRPG;
 import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
-import divinerpg.items.arcana.ItemLaVekor;
-import divinerpg.items.vanilla.*;
-import divinerpg.items.vethea.*;
+import divinerpg.items.vanilla.ItemScythe;
+import divinerpg.items.vethea.ItemVetheanDisk;
 import divinerpg.registries.EntityRegistry;
-import divinerpg.util.LocalizeUtils;
+import divinerpg.util.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -30,6 +29,7 @@ public class ItemModRanged extends ItemMod {
     protected BulletType bulletType;
     protected final String entityType;
     public SoundEvent sound;
+    public int onUseDamage;
     /**
      * Constructor for DivineRPG ranged weapons.
      *
@@ -91,6 +91,7 @@ public class ItemModRanged extends ItemMod {
                 ItemStack ammoStack = ammo.getObject();
                 if(ammoStack != null) ammoStack.shrink(1);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
+                //TODO: to convert all cooldowns into seconds and put here "* 20"
                 player.getCooldowns().addCooldown(this, cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 doPostUsageEffects(world, player);
@@ -156,15 +157,28 @@ public class ItemModRanged extends ItemMod {
         bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 1.5F, .5F);
         world.addFreshEntity(bullet);
     }
-    protected void doPreUsageEffects(Level world, Player player) {}
+    protected void doPreUsageEffects(Level world, Player player) {if(onUseDamage > 0) player.hurt(DamageSources.source(world, DamageSources.ARCANA), onUseDamage);}
     protected void doPostUsageEffects(Level world, Player player) {}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(bulletType != null && bulletType.getDamage() != 0 && !(this instanceof ItemStaff) && !(this instanceof ItemLaVekor)
-            && !(this instanceof ItemScythe) && !(this instanceof ItemVetheanDisk) && !(this instanceof ItemModThrowable)
-            && !(this instanceof ItemModShotgun) && !(this instanceof ItemSerenadeOfDeath)) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
+        if(bulletType != null) {
+            if(!(this instanceof ItemModShotgun)) {
+                if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.ARCANA) tooltip.add(LocalizeUtils.arcanaDam((int)bulletType.getDamage()));
+                if(!(this instanceof ItemScythe) && bulletType.getBulletDamageType() == BulletType.BulletDamageType.MAGIC) tooltip.add(LocalizeUtils.magicDam((int)bulletType.getDamage()));
+                if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
+            }
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.BOUNCE) tooltip.add(LocalizeUtils.bouncingShots());
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.POISON) tooltip.add(LocalizeUtils.poison(bulletType.effectSec));
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.PULL) tooltip.add(LocalizeUtils.pull());
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.PUSH) tooltip.add(LocalizeUtils.push());
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.RETURN) tooltip.add(LocalizeUtils.returnsToSender());
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SLOW) tooltip.add(LocalizeUtils.slow(bulletType.effectSec));
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SPLIT) tooltip.add(LocalizeUtils.splitShots());
+        }
+        if(onUseDamage > 0) tooltip.add(LocalizeUtils.onUseDam(onUseDamage));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        if(!(this instanceof ItemModThrowable) && !(this instanceof ItemVetheanDisk)) {
+        if(!(this instanceof ItemModThrowable)) {
             tooltip.add(needsAmmo() ? LocalizeUtils.ammo(ammoSupplier) : LocalizeUtils.infiniteAmmo());
             if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
         }

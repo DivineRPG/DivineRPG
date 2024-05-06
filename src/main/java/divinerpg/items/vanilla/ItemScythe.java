@@ -29,7 +29,7 @@ public class ItemScythe extends ItemModRanged {
     }
 	@OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(Minecraft.getInstance().player != null) tooltip.add(LocalizeUtils.rangedDam(isJackoman(Minecraft.getInstance().player) ? (int)BulletType.MEGA_SCYTHE_SHOT.getDamage() : (int)BulletType.SCYTHE_SHOT.getDamage()));
+        if(Minecraft.getInstance().player != null) tooltip.add(LocalizeUtils.magicDam(isJackoman(Minecraft.getInstance().player) ? (int)BulletType.MEGA_SCYTHE_SHOT.getDamage() : (int)BulletType.SCYTHE_SHOT.getDamage()));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

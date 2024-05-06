@@ -12,21 +12,26 @@ public class LocalizeUtils {
     private static final String
             Ammo = "tooltip.ammo",
             ArcanaConsuming = "tooltip.arcana",
-            ArcanaDamageSource = "tooltip.damage.arcana",
+            ArcanaDamage = "tooltip.damage.arcana",
             ArcanaRegen = "tooltip.arcana.regen",
             BurnMobs = "tooltip.effect.burns",
-            ShotsBouncing = "tooltip.staff.bounce",
             Efficiency = "tooltip.efficiency",
             HarvestLevel = "tooltip.harvest_level",
             HealthRegen = "tooltip.heals",
             InfiniteAmmo = "tooltip.ammo.infinite",
             InstantConsumption = "tooltip.instant_consumption",
             LightningShot = "tooltip.lightning_shot",
+            MagicDamage = "tooltip.damage.magic",
+            OnUseDamage = "tooltip.damage.use",
             Poison = "tooltip.effect.poisons",
+            Pull = "tooltip.pull",
+            Push = "tooltip.push",
             RangedDamage = "tooltip.damage.ranged",
             ReturnsToSender = "tooltip.return",
+            ShotsBouncing = "tooltip.shots.bounce",
             ShotsExplosive = "tooltip.shots.explosive",
             ShotsHoming = "tooltip.shots.homing",
+            ShotsSplit = "tooltip.shots.split",
             SlowMobs = "tooltip.effect.slows",
             Summoned = "tooltip.summon",
             SummonedDamage = "tooltip.summon.damage",
@@ -49,11 +54,11 @@ public class LocalizeUtils {
      */
     public static Component arcanaConsumed(Object arcana) {return i18n(ChatFormatting.AQUA, ArcanaConsuming, arcana);}
     /**
-     * Indicates how much damage the arcana does.
+     * Indicates how much damage the arcana deals.
      *
      * @param damage - arcana damage
      */
-    public static Component arcanaDam(int damage) {return i18n(ArcanaDamageSource, damage);}
+    public static Component arcanaDam(Object damage) {return i18n(ArcanaDamage, damage);}
     /**
      * Indicates how much arcana is restored when used.
      *
@@ -96,7 +101,7 @@ public class LocalizeUtils {
     /**
      * Indicates how much health is restored when used.
      */
-    public static Component healthRegen(float health) {return i18n(ChatFormatting.LIGHT_PURPLE, HealthRegen, health);}
+    public static Component healthRegen(Object health) {return i18n(ChatFormatting.LIGHT_PURPLE, HealthRegen, health);}
     /**
      * Indicates that the projectiles are homing.
      */
@@ -114,23 +119,37 @@ public class LocalizeUtils {
      */
     public static Component lightningShots() {return i18n(ChatFormatting.YELLOW, LightningShot);}
     /**
+     * Indicates how much damage the magic deals.
+     *
+     * @param damage - magic damage
+     */
+    public static Component magicDam(Object damage) {return i18n(MagicDamage, damage);}
+    /**
+     * Indicates how much damage the user takes.
+     *
+     * @param damage - on use damage
+     */
+    public static Component onUseDam(Object damage) {return i18n(ChatFormatting.RED, OnUseDamage, damage);}
+    /**
      * Indicates how long the poison effect will last.
      *
      * @param seconds - effect duration
      */
     public static Component poison(int seconds) {return i18n(ChatFormatting.DARK_GREEN, Poison, seconds);}
     /**
+     * Indicates that the item pulls mobs towards the player.
+     */
+    public static Component pull() {return i18n(Pull);}
+    /**
+     * Indicates that the item knocks mobs away.
+     */
+    public static Component push() {return i18n(Push);}
+    /**
      * Indicates how much damage the non-arrow projectiles do.
      *
      * @param damage - damage amount
      */
-    public static Component rangedDam(int damage) {return i18n(RangedDamage, damage);}
-    /**
-     * Specifies the damage range of projectiles.
-     *
-     * @param damage - damage range
-     */
-    public static Component rangedDamString(String damage) {return i18n(RangedDamage, damage);}
+    public static Component rangedDam(Object damage) {return i18n(RangedDamage, damage);}
     /**
      * Indicates that the projectile returns back to the sender.
      */
@@ -141,6 +160,10 @@ public class LocalizeUtils {
      * @param seconds - effect duration
      */
     public static Component slow(int seconds) {return i18n(ChatFormatting.DARK_AQUA, SlowMobs, seconds);}
+    /**
+     * Indicates that the projectiles are splitting upon hitting something.
+     */
+    public static Component splitShots() {return LocalizeUtils.i18n(ShotsSplit);}
     /**
      * Specifies the summoned entity.
      *

@@ -130,7 +130,7 @@ public class ItemModBow extends BowItem {
     @Override public boolean isEnchantable(ItemStack stack) {return getMaxStackSize(stack) == 1 && (stack.getMaxDamage() < 0 || getMaxStackSize(stack) == 1);}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.rangedDamString((int)arrowType.getMinDamage() + "-" + (int)arrowType.getMaxDamage()));
+        tooltip.add(LocalizeUtils.rangedDam((int)arrowType.getMinDamage() + "-" + (int)arrowType.getMaxDamage()));
         int speed = DEFAULT_MAX_USE_DURATION / getUseDuration(stack);
         if(speed > 1) tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.faster", String.format("%s", speed)));
         if(speed < 1) tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.slower", String.format("%s", 1 / speed)));

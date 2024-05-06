@@ -18,7 +18,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemHealingStone extends ItemMod {
-    private final float healAmount;
     public ItemHealingStone() {
         healAmount = 20;
         cooldown = 50;
@@ -52,7 +51,7 @@ public class ItemHealingStone extends ItemMod {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.healthRegen(healAmount / 2));
+        tooltip.add(LocalizeUtils.healthRegen((int)(healAmount / 2)));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

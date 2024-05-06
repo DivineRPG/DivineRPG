@@ -32,7 +32,8 @@ public class ItemModShotgun extends ItemModRanged {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.rangedDamString(projectileAmount + "x" + (int)bulletType.getDamage()));
+        if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) tooltip.add(LocalizeUtils.rangedDam(projectileAmount + "x" + (int)bulletType.getDamage()));
+        if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.ARCANA) tooltip.add(LocalizeUtils.arcanaDam(projectileAmount + "x" + (int)bulletType.getDamage()));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }
