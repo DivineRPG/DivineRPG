@@ -39,7 +39,7 @@ public class EntityAridWarrior extends EntityDivineMonster implements RangedAtta
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (isAlive() && getTarget() != null && !level().isClientSide) {
-            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.ARID_WARRIOR_ARROW, this);
+            EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.ARID_WARRIOR_ARROW, this, target, 1.6F, 0.8F);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();

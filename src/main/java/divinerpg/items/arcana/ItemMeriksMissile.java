@@ -22,25 +22,17 @@ import java.util.List;
 
 public class ItemMeriksMissile extends ItemMod {
     public static final int MAX_USE_DURATION = 72000;
-
-    public ItemMeriksMissile() {
-        super(new Properties().stacksTo(1).durability(-1));
-    }
-
+    public ItemMeriksMissile() {super(new Properties().stacksTo(1).durability(0));}
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
-
-        if (!player.abilities.mayBuild) {
-            return InteractionResultHolder.fail(itemstack);
-        } else {
+        if(!player.abilities.mayBuild) return InteractionResultHolder.fail(itemstack);
+        else {
             player.startUsingItem(hand);
             return InteractionResultHolder.consume(itemstack);
         }
     }
-
-    @Override
-    public void releaseUsing(ItemStack stack, Level world, LivingEntity livingEntity, int timeLeft) {
+    @Override public void releaseUsing(ItemStack stack, Level world, LivingEntity livingEntity, int timeLeft) {
         if (stack.getItem() == ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "meriks_missile")) && livingEntity instanceof Player) {
             Player player = (Player) livingEntity;
 
@@ -66,13 +58,7 @@ public class ItemMeriksMissile extends ItemMod {
 
         }
     }
-
-    @Override
-    public int getUseDuration(ItemStack stack) {
-        return MAX_USE_DURATION;
-    }
-
-
+    @Override public int getUseDuration(ItemStack stack) {return MAX_USE_DURATION;}
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("tooltip.meriks_missile"));
