@@ -4,7 +4,7 @@
   },
   "pattern": [
     "I  ",
-    "III",
+    "ITI",
     "  I"
   ],
   "type": "minecraft:crafting_shaped",
@@ -12,6 +12,9 @@
   "key": {
     "I": {
       "item": "divinerpg:shadow_bar"
+    },
+    "T": {
+      "item": "divinerpg:torridite_chunk"
     }
   }
 }

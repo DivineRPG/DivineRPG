@@ -2303,7 +2303,7 @@
   "tooltip.summon.despawn": "Despawns after a while",
   "tooltip.summon.health": "%s Health",
   "tooltip.teleport_respawn_point": "Teleports to the respawn point",
-  "tooltip.weakened_without_arcana": "Damage heavily reduced if the required arcana is not present",
+  "tooltip.weakened_without_arcana": "Damage is heavily reduced if not enough arcana is present",
   "enchantment.divinerpg.aftershock": "Aftershock",
   "enchantment.divinerpg.aftershock.desc": "Aftershock has a chance to double the damage done by melee weapons.",
   "enchantment.divinerpg.brain_freeze": "Brain Freeze",

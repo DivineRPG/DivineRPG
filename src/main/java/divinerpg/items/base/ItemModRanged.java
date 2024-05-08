@@ -1,7 +1,6 @@
 package divinerpg.items.base;
 
 import divinerpg.DivineRPG;
-import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
 import divinerpg.items.vanilla.ItemScythe;
@@ -83,24 +82,22 @@ public class ItemModRanged extends ItemMod {
         ItemStack stack = player.getItemInHand(hand);
         if(canUseRangedWeapon(player, stack)) {
             InteractionResultHolder<ItemStack> ammo = tryFindAmmo(player);
-            InteractionResultHolder<Arcana> checkArcana = tryCheckArcana(player);
-            if(ammo.getResult() == InteractionResult.SUCCESS && checkArcana.getResult() == InteractionResult.SUCCESS) {
+            if(ammo.getResult() == InteractionResult.SUCCESS) {
                 doPreUsageEffects(world, player);
                 if(!world.isClientSide) spawnEntity(world, player, stack, bulletType, entityType);
-                Arcana arcana = checkArcana.getObject();
-                if(arcana != null) arcana.consume(player, arcanaConsumedUse);
                 ItemStack ammoStack = ammo.getObject();
                 if(ammoStack != null) ammoStack.shrink(1);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
-                //TODO: to convert all cooldowns into seconds and put here "* 20"
-                player.getCooldowns().addCooldown(this, cooldown);
-                player.awardStat(Stats.ITEM_USED.get(this));
+                if(arcanaConsumedUse == 0) {
+                    player.getCooldowns().addCooldown(this, cooldown);
+                    player.awardStat(Stats.ITEM_USED.get(this));
+                }
                 doPostUsageEffects(world, player);
                 if(this instanceof ItemModThrowable || this instanceof ItemVetheanDisk) {
                     world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, .5F, .4F / (player.getRandom().nextFloat() * .4F + .8F));
                     return InteractionResultHolder.success(stack);
                 } world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, 1, 1);
-                return InteractionResultHolder.consume(stack);
+                return super.use(world, player, hand);
             }
         } return InteractionResultHolder.pass(stack);
     }
@@ -128,15 +125,6 @@ public class ItemModRanged extends ItemMod {
             stack = findAmmo(player);
             if(stack == null || stack.getCount() < 1) result = InteractionResult.FAIL;
         } return new InteractionResultHolder<>(result, stack);
-    }
-    //Trying to get capability and check if we have enough arcana.
-    protected InteractionResultHolder<Arcana> tryCheckArcana(Player player) {
-        Arcana arcana = null;
-        InteractionResult result = InteractionResult.SUCCESS;
-        if(this.arcanaConsumedUse > 0) {
-            arcana = player.getCapability(ArcanaProvider.ARCANA).orElseThrow(RuntimeException::new);
-            if(arcana == null || arcana.getArcana() < this.arcanaConsumedUse) result = InteractionResult.FAIL;
-        } return new InteractionResultHolder<>(result, arcana);
     }
     //Trying to detect if we can use the item.
     protected boolean canUseRangedWeapon(Player player, ItemStack stack) {return (player.isCreative() || stack.getMaxDamage() <= 0 || stack.getDamageValue() < stack.getMaxDamage());}

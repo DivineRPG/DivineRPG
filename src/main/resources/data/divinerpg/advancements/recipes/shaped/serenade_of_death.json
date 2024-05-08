@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bar": {
+    "has_chunk": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:shadow_bar"
+              "divinerpg:torridite_chunk"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_bar",
+      "has_chunk",
       "has_the_recipe"
     ]
   ],

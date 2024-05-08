@@ -1,10 +1,8 @@
 package divinerpg.registries;
 
 import divinerpg.enchant.*;
-import net.minecraftforge.registries.*;
-
 import net.minecraft.world.item.enchantment.Enchantment;
-
+import net.minecraftforge.registries.*;
 import java.util.function.Supplier;
 
 import static divinerpg.DivineRPG.MODID;
@@ -16,9 +14,5 @@ public class EnchantmentRegistry {
     	AFTERSHOCK = registerEnchantment("aftershock", AftershockEnchant::new),
     	BRAIN_FREEZE = registerEnchantment("brain_freeze", BrainFreezeEnchant::new),
     	INSULATION = registerEnchantment("insulation", InsulationEnchant::new);
-
-    private static RegistryObject<Enchantment> registerEnchantment(String id, Supplier<Enchantment> enchantment) {
-        return ENCHANTS.register(id, enchantment);
-    }
-
+    private static RegistryObject<Enchantment> registerEnchantment(String id, Supplier<Enchantment> enchantment) {return ENCHANTS.register(id, enchantment);}
 }

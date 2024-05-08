@@ -5,9 +5,10 @@ import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -23,11 +24,11 @@ public class ItemHealingSword extends ItemModSword {
         healAmount = heals;
         cooldown = 3;
     }
-    @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
-        if(player.getHealth() < player.getMaxHealth() && entity instanceof LivingEntity) {
-            player.heal(healAmount);
-            player.playSound(SoundRegistry.HEAL.get(), 1, 1);
-        } return super.onLeftClickEntity(stack, player, entity);
+    @Override public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if(attacker.getHealth() < attacker.getMaxHealth()) {
+            attacker.heal(healAmount);
+            attacker.level().playSound(null, attacker.blockPosition(), SoundRegistry.HEAL.get(), SoundSource.PLAYERS, 1, 1);
+        } return super.hurtEnemy(stack, target, attacker);
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {
