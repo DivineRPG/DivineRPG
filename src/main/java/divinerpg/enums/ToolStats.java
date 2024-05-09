@@ -6,19 +6,18 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public enum ToolStats implements Tier {
     APALACHIA_BLADE(4, 2540, -2.4F, 25, 22, ItemRegistry.apalachia_gem.get()),
-    AQUA_DAGGER(2, 535, -2, 3.5F, 12, ItemRegistry.aquatic_ingot.get()),
-    AQUA_MAUL(2, 1058, -2.7F, 9.2F, 10, ItemRegistry.aquatic_ingot.get()),
-    AQUA_TRIDENT(2, 843, -2.4F, 6, 10, ItemRegistry.aquatic_ingot.get()),
     AQUATON(2, 992, -2.4F, 6.5F, 10, ItemRegistry.aquatic_ingot.get()),
     AQUATOOTH_MAUL(2, 1524, -2.7F, 10.5F, 10, ItemRegistry.liopleurodon_teeth.get()),
     AQUATOOTH_SWORD(2, 1245, -2.4F, 7.5F, 10, ItemRegistry.liopleurodon_teeth.get()),
-    ARCANITE_BLADE(4, 2048, -2.4F, 13, 15, ItemRegistry.arcanium.get()),
-    ARCANIUM_SABER(3, -2.4F, 12),
+    AQUA_DAGGER(2, 535, -2, 3.5F, 12, ItemRegistry.aquatic_ingot.get()),
+    AQUA_MAUL(2, 1058, -2.7F, 9.2F, 10, ItemRegistry.aquatic_ingot.get()),
+    AQUA_TRIDENT(2, 843, -2.4F, 6, 10, ItemRegistry.aquatic_ingot.get()),
+    ARCANITE_BLADE(4, 2048, -2.4F, 13, 15, ItemRegistry.arcanium.get(), SwordSpecial.ARCANA_DAMAGE, 0, 0),
+    ARCANIUM_SABER(3, -2.4F, 12, SwordSpecial.ARCANA_DAMAGE, 0, 0),
     ARLEMITE_STABBER(3, 1535, -2.4F, 5, 10, ItemRegistry.arlemite_ingot.get()),
-    BEDROCK_SWORD(4, -2.4F, 8),
     BEDROCK_MAUL(4, -2.7F, 11.5F),
+    BEDROCK_SWORD(4, -2.4F, 8),
     BLOODGEM_SWORD(3, -2.4F, 5.2F),
-    SOULFIRE_SWORD(4, 1623, -2.4F, 7, 15, ItemRegistry.soulfire_stone.get()),
     CORRUPTED_MAUL(4, 2948, -2.7F, 11.1F, 15, ItemRegistry.corrupted_stone.get()),
     CRABCLAW_MAUL(2, 1025, -2.7F, 6.1F, 13, ItemRegistry.crab_claw.get()),
     CYCLOPSIAN_SWORD(2, 300, -2.4F, 4, 14, ItemRegistry.cyclops_eye.get()),
@@ -26,49 +25,50 @@ public enum ToolStats implements Tier {
     DIVINE_SWORD(4, -2.4F, 13),
     DUAL_CLAW(2, 822, -2.3F, 5.2F, 10, ItemRegistry.crab_claw.get()),
     EDEN_BLADE(4, 2124, -2.4F, 17, 22, ItemRegistry.eden_gem.get()),
+    ENDERICE(4, -2.4F, 13, SwordSpecial.SLOW, 1, 3),
     ENDER_SWORD(4, 2556, -2.4F, 12, 10, ItemRegistry.ender_stone.get()),
-    ENDERICE(4, -2.4F, 13),
-    FLAMING_FURY(4, 3025, -2.3F, 10, 16, ItemRegistry.molten_stone.get()),
-    FROSSIVENCE(0, 270, -2.4F, -1, 0, ItemRegistry.snowflake.get()),
-    FROST_SWORD(3, 1226, -2.4F, 5.1F, 10, ItemRegistry.ice_stone.get()),
+    FLAMING_FURY(4, 3025, -2.3F, 10, 16, ItemRegistry.molten_stone.get(), SwordSpecial.FLAME, 0, 15),
+    FROSSIVENCE(0, 270, -2.4F, -1, 0, ItemRegistry.snowflake.get(), SwordSpecial.HEAL, 0, 0),
     FROSTKING_SWORD(3, 1521, -2.4F, 6.5F, 13, ItemRegistry.snowflake.get()),
-    FROZEN_MAUL(4, -2.7F, 12.5F),
+    FROST_SWORD(3, 1226, -2.4F, 5.1F, 10, ItemRegistry.ice_stone.get(), SwordSpecial.SLOW, 1, 3),
+    FROZEN_MAUL(4, -2.7F, 12.5F, SwordSpecial.SLOW, 1, 3),
     FURY_MAUL(4, 3127, -2.8F, 14, 15, Items.DIAMOND),
-    GLACIER_SWORD(3, 1021, -2.6F, 7, 13, ItemRegistry.snowflake.get()),
-    GLACIAL_BLADE(3, 1232, -2.3F, 11, 13, ItemRegistry.snowflake.get()),
+    GLACIAL_BLADE(3, 1232, -2.3F, 11, 13, ItemRegistry.snowflake.get(), SwordSpecial.SLOW, 4, 2),
+    GLACIER_SWORD(3, 1021, -2.6F, 7, 13, ItemRegistry.snowflake.get(), SwordSpecial.SLOW, 1, 3),
     HALITE_BLADE(4, 3187, -2.4F, 34, 22, ItemRegistry.mortum_gem.get()),
-    ICICLE_BANE(3, 1622, -2.5F, 6, 13, ItemRegistry.snowflake.get()),
-    ICICLE_DAGGER(4, 4, -2, 20, 13),
-    ICINE_SWORD(4, -2.4F, 14),
-    INFERNO_SWORD(2, -2.4F, 5.2F),
-    JUNGLE_KNIFE(3, 1292, -2.4F, 5.2F, 10, ItemRegistry.jungle_stone.get()),
-    JUNGLE_RAPIER(3, 1425, -2.4F, 6, 12, ItemRegistry.jungle_stone.get()),
+    ICICLE_BANE(3, 1622, -2.5F, 6, 13, ItemRegistry.snowflake.get(), SwordSpecial.SLOW, 1, 3),
+    ICICLE_DAGGER(4, 4, -2, 20, 13, Items.AIR),
+    ICINE_SWORD(4, -2.4F, 14, SwordSpecial.SLOW, 1, 3),
+    INFERNO_SWORD(2, -2.4F, 5.2F, SwordSpecial.FLAME, 0, 12),
+    JUNGLE_KNIFE(3, 1292, -2.4F, 5.2F, 10, ItemRegistry.jungle_stone.get(), SwordSpecial.POISON, 1, 3),
+    JUNGLE_RAPIER(3, 1425, -2.4F, 6, 12, ItemRegistry.jungle_stone.get(), SwordSpecial.POISON, 1, 4),
     LIVICIA_SWORD(4, 3223, -2.4F, 15.5F, 15, ItemRegistry.shadow_stone.get()),
-    MOLTEN_SWORD(3, 1297, -2.4F, 5.4F, 10, ItemRegistry.molten_stone.get()),
+    MOLTEN_SWORD(3, 1297, -2.4F, 5.4F, 10, ItemRegistry.molten_stone.get(), SwordSpecial.FLAME, 0, 5),
     MORTUM_BLADE(4, 2922, -2.4F, 31, 22, ItemRegistry.mortum_gem.get()),
     OCEAN_KNIFE(2, 678, -2.4F, 5.4F, 10, ItemRegistry.aquatic_ingot.get()),
-    PALAVENCE(0, 60, -2.4F, -1, 0, ItemRegistry.realmite_ingot.get()),
-    POISON_SABER(3, 1315, -2.4F, 6.5F, 15, ItemRegistry.jungle_stone.get()),
+    PALAVENCE(0, 60, -2.4F, -1, 0, ItemRegistry.realmite_ingot.get(), SwordSpecial.HEAL, 0, 0),
+    POISON_SABER(3, 1315, -2.4F, 6.5F, 15, ItemRegistry.jungle_stone.get(), SwordSpecial.POISON, 1, 5),
     REALMITE_SWORD(2, 325, -2.4F, 4.5F, 14, ItemRegistry.realmite_ingot.get()),
     RUPEE_RAPIER(3, 1634, -2.4F, 5.5F, 14, ItemRegistry.rupee_ingot.get()),
+    SABEAR_SABRE(2, 982, -2.3F, 4.4F, 15, ItemRegistry.sabear_tooth.get()),
     SANDSLASH(4, 100, -2.4F, 16, 15, ItemRegistry.divine_stone.get()),
     SCORCHING_SWORD(4, 1212, -2.4F, 6.2F, 15, ItemRegistry.purple_blaze.get()),
-    SHADOW_SABER(3, -2.2F, 10),
+    SHADOW_SABER(3, -2.2F, 10, SwordSpecial.SPEED, 1, 5),
     SHARK_SWORD(2, 627, -2.4F, 5.5F, 10, ItemRegistry.aquatic_ingot.get()),
     SKYTHERN_BLADE(4, 2783, -2.4F, 29, 22, ItemRegistry.skythern_gem.get()),
     SLIME_SWORD(2, 739, -2.6F, 6.5F, 10, Items.DIAMOND),
-    SNOWSLASH(4, 150, -2.4F, 17, 15, ItemRegistry.snowflake.get()),
-    STORM_SWORD(3, -2.4F, 5),
+    SNOWSLASH(4, 150, -2.4F, 17, 15, ItemRegistry.snowflake.get(), SwordSpecial.SLOW, 1, 3),
+    SOULFIRE_SWORD(4, 1623, -2.4F, 7, 15, ItemRegistry.soulfire_stone.get()),
+    STORM_SWORD(3, -2.4F, 5, SwordSpecial.LIGHTNING, 0, 0),
     TERRAN_DAGGER(3, 425, -2, 3.4F, 12, ItemRegistry.terran_stone.get()),
     TERRAN_KNIFE(3, 1257, -2.4F, 5.1F, 10, ItemRegistry.terran_stone.get()),
     TERRAN_MAUL(3, 1476, -2.7F, 7.4F, 10, ItemRegistry.terran_stone.get()),
     WILDWOOD_BLADE(4, 2342, -2.4F, 21, 22, ItemRegistry.wildwood_gem.get()),
-    SABEAR_SABRE(2, 982, -2.3F, 4.4F, 15, ItemRegistry.sabear_tooth.get()),
 
     //DREAM
-    DREAM_SHOVEL(4, 513, 8, 4, 5),
-    DREAM_PICKAXE(4, 513, 8, 3.5F, 5),
-    DREAM_AXE(4, 513, 8, 8, 5),
+    DREAM_SHOVEL(4, 513, 8, 4, 5, Items.AIR),
+    DREAM_PICKAXE(4, 513, 8, 3.5F, 5, Items.AIR),
+    DREAM_AXE(4, 513, 8, 8, 5, Items.AIR),
 
     //SHICKAXES
     APALACHIA_SHICKAXE(4, 3540, 25, 12, 22, ItemRegistry.apalachia_chunk.get()),
@@ -177,14 +177,16 @@ public enum ToolStats implements Tier {
     ARKSIANE_CLAW(4, -2, 33),
     EVERBRIGHT(4, -2, 40);
 
+    private final Ingredient repairMaterial;
+    private final SwordSpecial swordSpecial;
+    public int effectPower;
+    public int effectSec;
+    private final float attackDamage;
+    private final float efficiency;
+    private final int enchantability;
     private final int harvestLevel;
     private final int maxUses;
-    private final float efficiency;
-    private final float attackDamage;
-    private final int enchantability;
-    private final Ingredient repairMaterial;
-    ToolStats(int harvestLevel, float efficiency, float attackDamage) {this(harvestLevel, 0, efficiency, attackDamage, 0, Items.AIR);}
-    ToolStats(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability) {this(harvestLevel, maxUses, efficiency, attackDamage, enchantability, Items.AIR);}
+    //No specials
     ToolStats(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Item repairMaterialIn) {
         harvestLevel = harvestLevelIn;
         maxUses = maxUsesIn;
@@ -192,11 +194,30 @@ public enum ToolStats implements Tier {
         attackDamage = attackDamageIn;
         enchantability = enchantabilityIn;
         repairMaterial = Ingredient.of(repairMaterialIn);
+        swordSpecial = SwordSpecial.NONE;
     }
+    //No specials, unbreakable
+    ToolStats(int harvestLevel, float efficiency, float attackDamage) {this(harvestLevel, 0, efficiency, attackDamage, 0, Items.AIR);}
+    //Specials, power, seconds
+    ToolStats(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Item repairMaterialIn, SwordSpecial special, int power, int seconds) {
+        harvestLevel = harvestLevelIn;
+        maxUses = maxUsesIn;
+        efficiency = efficiencyIn;
+        attackDamage = attackDamageIn;
+        enchantability = enchantabilityIn;
+        repairMaterial = Ingredient.of(repairMaterialIn);
+        swordSpecial = special;
+        effectPower = power;
+        effectSec = seconds;
+    }
+    //Specials, power, seconds, unbreakable
+    ToolStats(int harvestLevel, float efficiency, float attackDamage, SwordSpecial special, int power, int seconds) {this(harvestLevel, 0, efficiency, attackDamage, 0, Items.AIR, special, power, seconds);}
     @Override public int getUses() {return maxUses;}
     @Override public float getSpeed() {return efficiency;}
     @Override public float getAttackDamageBonus() {return attackDamage;}
     @Override public int getLevel() {return harvestLevel;}
     @Override public int getEnchantmentValue() {return enchantability;}
     @Override public Ingredient getRepairIngredient() {return repairMaterial;}
+    public SwordSpecial getSwordSpecial() {return swordSpecial;}
+    public enum SwordSpecial {NONE, FLAME, WITHER, EXPLODE, SLOW, NAUSEA, BLIND, POISON, LIGHTNING, HEAL, SPEED, ARCANA_DAMAGE}
 }

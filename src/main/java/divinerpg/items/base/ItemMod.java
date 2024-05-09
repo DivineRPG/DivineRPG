@@ -33,8 +33,7 @@ public class ItemMod extends Item {
                 arcana.consume(player, arcanaConsumedUse);
                 player.getCooldowns().addCooldown(this, cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));
-                if(this instanceof ItemModRanged) return InteractionResultHolder.consume(player.getItemInHand(hand));
-                else return InteractionResultHolder.success(player.getItemInHand(hand));
+                return InteractionResultHolder.success(player.getItemInHand(hand));
             } return super.use(level, player, hand);
         }).orElse(InteractionResultHolder.pass(player.getItemInHand(hand)));
     }

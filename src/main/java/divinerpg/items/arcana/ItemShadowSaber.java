@@ -4,16 +4,10 @@ import divinerpg.capability.ArcanaProvider;
 import divinerpg.enums.ToolStats;
 import divinerpg.items.base.ItemModSword;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemShadowSaber extends ItemModSword {
     public ItemShadowSaber() {
@@ -27,10 +21,5 @@ public class ItemShadowSaber extends ItemModSword {
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 1));
             }
         }); return super.onLeftClickEntity(stack, player, entity);
-    }
-    @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.shadow_saber"));
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

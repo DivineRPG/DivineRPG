@@ -1,6 +1,7 @@
 package divinerpg.items.base;
 
 import divinerpg.DivineRPG;
+import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
 import divinerpg.items.vanilla.ItemScythe;
@@ -80,27 +81,26 @@ public class ItemModRanged extends ItemMod {
     public ItemModRanged(BulletType bulletType, SoundEvent sound, int uses, int delay) {this(bulletType, sound, null, uses, delay);}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if(canUseRangedWeapon(player, stack)) {
             InteractionResultHolder<ItemStack> ammo = tryFindAmmo(player);
-            if(ammo.getResult() == InteractionResult.SUCCESS) {
+            InteractionResultHolder<Arcana> checkArcana = tryCheckArcana(player);
+            if(ammo.getResult() == InteractionResult.SUCCESS && checkArcana.getResult() == InteractionResult.SUCCESS) {
                 doPreUsageEffects(world, player);
                 if(!world.isClientSide) spawnEntity(world, player, stack, bulletType, entityType);
+                Arcana arcana = checkArcana.getObject();
+                if(arcana != null) arcana.consume(player, arcanaConsumedUse);
                 ItemStack ammoStack = ammo.getObject();
                 if(ammoStack != null) ammoStack.shrink(1);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
-                if(arcanaConsumedUse == 0) {
-                    player.getCooldowns().addCooldown(this, cooldown);
-                    player.awardStat(Stats.ITEM_USED.get(this));
-                }
+                player.getCooldowns().addCooldown(this, cooldown);
+                player.awardStat(Stats.ITEM_USED.get(this));
                 doPostUsageEffects(world, player);
                 if(this instanceof ItemModThrowable || this instanceof ItemVetheanDisk) {
                     world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, .5F, .4F / (player.getRandom().nextFloat() * .4F + .8F));
                     return InteractionResultHolder.success(stack);
                 } world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, 1, 1);
-                return super.use(world, player, hand);
-            }
-        } return InteractionResultHolder.pass(stack);
-    }
+                return InteractionResultHolder.consume(stack);
+            } return InteractionResultHolder.pass(stack);
+        }
     private boolean needsAmmo() {return ammoSupplier != null;}
     private boolean isAmmo(@Nullable ItemStack stack) {return stack != null && stack.getItem() == ammoSupplier;}
     private ItemStack findAmmo(Player player) {
@@ -126,8 +126,17 @@ public class ItemModRanged extends ItemMod {
             if(stack == null || stack.getCount() < 1) result = InteractionResult.FAIL;
         } return new InteractionResultHolder<>(result, stack);
     }
+    //Trying to get capability and check if we have enough arcana.
+    protected InteractionResultHolder<Arcana> tryCheckArcana(Player player) {
+        Arcana arcana = null;
+        InteractionResult result = InteractionResult.SUCCESS;
+        if(arcanaConsumedUse > 0) {
+            arcana = player.getCapability(ArcanaProvider.ARCANA).orElseThrow(RuntimeException::new);
+            if(arcana == null || arcana.getArcana() < arcanaConsumedUse) result = InteractionResult.FAIL;
+        } return new InteractionResultHolder<>(result, arcana);
+    }
     //Trying to detect if we can use the item.
-    protected boolean canUseRangedWeapon(Player player, ItemStack stack) {return (player.isCreative() || stack.getMaxDamage() <= 0 || stack.getDamageValue() < stack.getMaxDamage());}
+//    protected boolean canUseRangedWeapon(Player player, ItemStack stack) {return (player.isCreative() || stack.getMaxDamage() <= 0 || stack.getDamageValue() < stack.getMaxDamage());}
     protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
         ThrowableProjectile bullet;
         //Class has the most priority

@@ -3,17 +3,12 @@ package divinerpg.items.arcana;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.enums.ToolStats;
 import divinerpg.items.base.ItemModSword;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemStormSword extends ItemModSword {
     public ItemStormSword() {
@@ -31,7 +26,7 @@ public class ItemStormSword extends ItemModSword {
             if(arcana.getArcana() >= arcanaConsumedUse) {
                 for(int i = 2; i < 5; i += 2) {
                     double angle = 0;
-                    while (angle < 2 * Math.PI) {
+                    while(angle < 2 * Math.PI) {
                         LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
                         bolt.moveTo(pos.getLocation());
                         level.addFreshEntity(bolt);
@@ -40,10 +35,5 @@ public class ItemStormSword extends ItemModSword {
                 }
             }
         }); return super.use(level, player, hand);
-    }
-    @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.lightningShots());
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

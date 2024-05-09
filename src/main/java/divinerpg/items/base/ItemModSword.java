@@ -2,10 +2,12 @@ package divinerpg.items.base;
 
 import com.google.common.collect.*;
 import divinerpg.capability.ArcanaProvider;
+import divinerpg.enums.ToolStats;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
+import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.player.Player;
@@ -19,14 +21,34 @@ public class ItemModSword extends SwordItem {
     public int arcanaConsumedUse;
     public int arcanaConsumedAttack;
     public int cooldown;
-    public ItemModSword(Rarity rarity, Tier tier) {super(tier, 1, 1, new Properties().rarity(rarity));}
-    public ItemModSword(Tier tier) {super(tier, 1, 1, new Properties());}
-    public ItemModSword(Tier tier, Properties properties) {super(tier, 1, 1, properties);}
-    //TODO: to use a different method, so that you can't spam click entities, then proceed using the new method in other places
+    public float healAmount;
+    public ToolStats sword;
+    //Have rarity
+    public ItemModSword(Rarity rarity, Tier tier) {
+        super(tier, 1, 1, new Properties().rarity(rarity));
+        sword = (ToolStats)tier;
+    }
+    //No rarity
+    public ItemModSword(Tier tier) {
+        super(tier, 1, 1, new Properties());
+        sword = (ToolStats)tier;
+    }
+    //Fire-resistant swords
+    public ItemModSword(Tier tier, Properties properties) {
+        super(tier, 1, 1, properties);
+        sword = (ToolStats)tier;
+    }
+    //TODO: to find out why does arcana check doesn't seem to work with the hurtEnemy method
     @Override public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
             if(arcana.getArcana() >= arcanaConsumedAttack && arcanaConsumedAttack != 0) arcana.consume(player, arcanaConsumedAttack);
         }); return super.onLeftClickEntity(stack, player, entity);
+    }
+    @Override public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW) target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, sword.effectSec * 20, sword.effectPower));
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.POISON) target.addEffect(new MobEffectInstance(MobEffects.POISON, sword.effectSec * 20, sword.effectPower));
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME) target.setSecondsOnFire(sword.effectSec);
+        return super.hurtEnemy(stack, target, attacker);
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         return player.getCapability(ArcanaProvider.ARCANA).map(arcana -> {
@@ -62,6 +84,12 @@ public class ItemModSword extends SwordItem {
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.ARCANA_DAMAGE) tooltip.add(LocalizeUtils.weakenedWithoutArcana());
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME) tooltip.add(LocalizeUtils.burn(sword.effectSec));
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.HEAL) tooltip.add(LocalizeUtils.healthRegen(healAmount / 2));
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.LIGHTNING) tooltip.add(LocalizeUtils.lightningShots());
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.POISON) tooltip.add(LocalizeUtils.poison(sword.effectSec));
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW) tooltip.add(LocalizeUtils.slow(sword.effectSec));
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
