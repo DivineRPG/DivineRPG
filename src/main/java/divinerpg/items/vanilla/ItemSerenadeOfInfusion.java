@@ -22,6 +22,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
     public ItemSerenadeOfInfusion() {
         super(new Properties().durability(15));
         cooldown = 20;
+        effectSec = 4;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(player.getHealth() < player.getMaxHealth()) {
@@ -37,7 +38,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
             if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(hand));
-            entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 80, 2, true, false));
+            entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION, effectSec * 20, 2, true, false));
             entity.playSound(SoundRegistry.HEAL.get(), 1, 1);
             for(int i = 0; i < 7; ++i) {
                 double d0 = entity.random.nextGaussian() * .02;
@@ -52,7 +53,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.serenade_of_infusion"));
+        tooltip.add(LocalizeUtils.healthRegen(effectSec));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

@@ -1,20 +1,21 @@
 {
   "result": {
-    "item": "divinerpg:stained_glass"
+    "item": "divinerpg:stained_glass",
+    "count": 8
   },
   "pattern": [
-    "y  ",
-    " x ",
-    "   "
+    "ggg",
+    "gmg",
+    "ggg"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "group": "marsine_stained_glass",
   "key": {
-    "x": {
+    "g": {
       "item": "minecraft:glass"
     },
-    "y": {
+    "m": {
       "item": "divinerpg:marsine"
     }
   }

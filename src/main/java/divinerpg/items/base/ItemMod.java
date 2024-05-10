@@ -19,6 +19,7 @@ public class ItemMod extends Item {
     public int arcanaConsumedAttack;
     public int arcanaConsumedUse;
     public int cooldown;
+    public int effectSec;
     public float healAmount;
     public ItemMod() {super(new Properties());}
     public ItemMod(Properties properties) {super(properties);}

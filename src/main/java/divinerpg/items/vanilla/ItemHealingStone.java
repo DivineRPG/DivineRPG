@@ -51,7 +51,7 @@ public class ItemHealingStone extends ItemMod {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.healthRegen((int)(healAmount / 2)));
+        tooltip.add(LocalizeUtils.healthHeal((int)(healAmount / 2)));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

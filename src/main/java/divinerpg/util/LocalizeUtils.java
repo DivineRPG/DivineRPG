@@ -17,7 +17,8 @@ public class LocalizeUtils {
             BurnMobs = "tooltip.effect.burns",
             Efficiency = "tooltip.efficiency",
             HarvestLevel = "tooltip.harvest_level",
-            HealthRegen = "tooltip.heals",
+            HealthHeal = "tooltip.heals",
+            HealthRegen = "tooltip.health.regen",
             InfiniteAmmo = "tooltip.ammo.infinite",
             InstantConsumption = "tooltip.instant_consumption",
             LightningShot = "tooltip.lightning_shot",
@@ -46,7 +47,7 @@ public class LocalizeUtils {
      */
     public static Component ammo(Item ammo) {
         Component ammoName = MutableComponent.create(new TranslatableContents(ammo.getDescriptionId(), null, null));
-        return i18n(ChatFormatting.DARK_GREEN, Ammo, ammoName);
+        return i18n(ChatFormatting.WHITE, Ammo, ammoName);
     }
     /**
      * Indicates how much arcana is being consumed.
@@ -59,7 +60,7 @@ public class LocalizeUtils {
      *
      * @param damage - arcana damage
      */
-    public static Component arcanaDam(Object damage) {return i18n(ArcanaDamage, damage);}
+    public static Component arcanaDam(Object damage) {return i18n(ChatFormatting.DARK_AQUA, ArcanaDamage, damage);}
     /**
      * Indicates how much arcana is restored when used.
      *
@@ -69,7 +70,7 @@ public class LocalizeUtils {
     /**
      * Indicates that the projectiles are bouncing.
      */
-    public static Component bouncingShots() {return LocalizeUtils.i18n(ShotsBouncing);}
+    public static Component bouncingShots() {return LocalizeUtils.i18n(ChatFormatting.GOLD, ShotsBouncing);}
     /**
      * Indicates how long the entity will burn.
      *
@@ -102,15 +103,19 @@ public class LocalizeUtils {
     /**
      * Indicates how much health is restored when used.
      */
-    public static Component healthRegen(Object health) {return i18n(ChatFormatting.LIGHT_PURPLE, HealthRegen, health);}
+    public static Component healthHeal(Object health) {return i18n(ChatFormatting.RED, HealthHeal, health);}
+    /**
+     * Indicates how much health is restored when used.
+     */
+    public static Component healthRegen(Object health) {return i18n(ChatFormatting.RED, HealthRegen, health);}
     /**
      * Indicates that the projectiles are homing.
      */
-    public static Component homingShots() {return LocalizeUtils.i18n(ShotsHoming);}
+    public static Component homingShots() {return LocalizeUtils.i18n(ChatFormatting.GOLD, ShotsHoming);}
     /**
      * Indicates that no ammo is required.
      */
-    public static Component infiniteAmmo() {return i18n(ChatFormatting.DARK_PURPLE, InfiniteAmmo);}
+    public static Component infiniteAmmo() {return i18n(ChatFormatting.BLUE, InfiniteAmmo);}
     /**
      * Indicates that the item is consumed instantly.
      */
@@ -124,7 +129,7 @@ public class LocalizeUtils {
      *
      * @param damage - magic damage
      */
-    public static Component magicDam(Object damage) {return i18n(MagicDamage, damage);}
+    public static Component magicDam(Object damage) {return i18n(ChatFormatting.DARK_PURPLE, MagicDamage, damage);}
     /**
      * Indicates how much damage the user takes.
      *
@@ -150,7 +155,7 @@ public class LocalizeUtils {
      *
      * @param damage - damage amount
      */
-    public static Component rangedDam(Object damage) {return i18n(RangedDamage, damage);}
+    public static Component rangedDam(Object damage) {return i18n(ChatFormatting.DARK_GREEN, RangedDamage, damage);}
     /**
      * Indicates that the projectile returns back to the sender.
      */
@@ -164,13 +169,13 @@ public class LocalizeUtils {
     /**
      * Indicates that the projectiles are splitting upon hitting something.
      */
-    public static Component splitShots() {return LocalizeUtils.i18n(ShotsSplit);}
+    public static Component splitShots() {return LocalizeUtils.i18n(ChatFormatting.GOLD, ShotsSplit);}
     /**
      * Indicates that the item shoots objects from the sky.
      *
      * @param count - amount of objects
      */
-    public static Component skyShots(Object count) {return i18n(ShotsSky, count);}
+    public static Component skyShots(Object count) {return i18n(ChatFormatting.GOLD, ShotsSky, count);}
     /**
      * Specifies the summoned entity.
      *
@@ -185,17 +190,17 @@ public class LocalizeUtils {
      *
      * @param damage - entity's damage
      */
-    public static Component summonedDamage(int damage) {return i18n(SummonedDamage, damage);}
+    public static Component summonedDamage(int damage) {return i18n(ChatFormatting.DARK_GREEN, SummonedDamage, damage);}
     /**
      * Specifies that the summoned entity disappears after a while.
      */
-    public static Component summonedDespawn() {return i18n(SummonedDespawn);}
+    public static Component summonedDespawn() {return i18n(ChatFormatting.BLUE, SummonedDespawn);}
     /**
      * Specifies the health of the summoned entity.
      *
      * @param health - entity's health
      */
-    public static Component summonedHealth(int health) {return i18n(SummonedHealth, health);}
+    public static Component summonedHealth(int health) {return i18n(ChatFormatting.RED, SummonedHealth, health);}
     /**
      * Indicates that the item is weakened without the arcana.
      */

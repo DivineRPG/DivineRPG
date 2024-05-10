@@ -25,7 +25,6 @@ import java.util.List;
 
 public class ItemModRanged extends ItemMod {
     private final Item ammoSupplier;
-    private final SoundSource soundCategory;
     protected BulletType bulletType;
     protected final String entityType;
     public SoundEvent sound;
@@ -50,7 +49,6 @@ public class ItemModRanged extends ItemMod {
         cooldown = delay;
         this.entityType = entityType;
         this.sound = sound;
-        soundCategory = SoundSource.PLAYERS;
     }
     public ItemModRanged(String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, Item ammo, int arcanaConsuming) {
         super(new Properties().durability(uses));
@@ -60,7 +58,6 @@ public class ItemModRanged extends ItemMod {
         cooldown = delay;
         this.entityType = entityType;
         this.sound = sound;
-        soundCategory = SoundSource.PLAYERS;
     }
     //Throwables (no durability)
     public ItemModRanged(Rarity rarity, BulletType bulletType, int delay) {
@@ -71,7 +68,6 @@ public class ItemModRanged extends ItemMod {
         cooldown = delay;
         entityType = null;
         sound = SoundEvents.ARROW_SHOOT;
-        soundCategory = SoundSource.PLAYERS;
     }
     //No rarity, specified arcana usage
     public ItemModRanged(BulletType bulletType, SoundEvent sound, Item ammoSupplier, int uses, int delay, int arcanaConsuming) {this(null, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);}
@@ -81,26 +77,26 @@ public class ItemModRanged extends ItemMod {
     public ItemModRanged(BulletType bulletType, SoundEvent sound, int uses, int delay) {this(bulletType, sound, null, uses, delay);}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-            InteractionResultHolder<ItemStack> ammo = tryFindAmmo(player);
-            InteractionResultHolder<Arcana> checkArcana = tryCheckArcana(player);
-            if(ammo.getResult() == InteractionResult.SUCCESS && checkArcana.getResult() == InteractionResult.SUCCESS) {
-                doPreUsageEffects(world, player);
-                if(!world.isClientSide) spawnEntity(world, player, stack, bulletType, entityType);
-                Arcana arcana = checkArcana.getObject();
-                if(arcana != null) arcana.consume(player, arcanaConsumedUse);
-                ItemStack ammoStack = ammo.getObject();
-                if(ammoStack != null) ammoStack.shrink(1);
-                if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
-                player.getCooldowns().addCooldown(this, cooldown);
-                player.awardStat(Stats.ITEM_USED.get(this));
-                doPostUsageEffects(world, player);
-                if(this instanceof ItemModThrowable || this instanceof ItemVetheanDisk) {
-                    world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, .5F, .4F / (player.getRandom().nextFloat() * .4F + .8F));
-                    return InteractionResultHolder.success(stack);
-                } world.playSound(null, player.blockPosition(), sound != null ? sound : SoundEvents.ARROW_SHOOT, soundCategory != null ? soundCategory : SoundSource.PLAYERS, 1, 1);
-                return InteractionResultHolder.consume(stack);
-            } return InteractionResultHolder.pass(stack);
-        }
+        InteractionResultHolder<ItemStack> ammo = tryFindAmmo(player);
+        InteractionResultHolder<Arcana> checkArcana = tryCheckArcana(player);
+        if(ammo.getResult() == InteractionResult.SUCCESS && checkArcana.getResult() == InteractionResult.SUCCESS) {
+            doPreUsageEffects(world, player);
+            if(!world.isClientSide) spawnEntity(world, player, stack, bulletType, entityType);
+            Arcana arcana = checkArcana.getObject();
+            if(arcana != null) arcana.consume(player, arcanaConsumedUse);
+            ItemStack ammoStack = ammo.getObject();
+            if(ammoStack != null) ammoStack.shrink(1);
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
+            player.getCooldowns().addCooldown(this, cooldown);
+            player.awardStat(Stats.ITEM_USED.get(this));
+            doPostUsageEffects(world, player);
+            if(this instanceof ItemModThrowable || this instanceof ItemVetheanDisk) {
+                player.playSound(sound != null ? sound : SoundEvents.ARROW_SHOOT, .5F, .4F / (player.getRandom().nextFloat() * .4F + .8F));
+                return InteractionResultHolder.success(stack);
+            } player.playSound(sound != null ? sound : SoundEvents.ARROW_SHOOT, 1, 1);
+            return InteractionResultHolder.consume(stack);
+        } return InteractionResultHolder.pass(stack);
+    }
     private boolean needsAmmo() {return ammoSupplier != null;}
     private boolean isAmmo(@Nullable ItemStack stack) {return stack != null && stack.getItem() == ammoSupplier;}
     private ItemStack findAmmo(Player player) {

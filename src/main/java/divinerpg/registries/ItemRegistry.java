@@ -426,7 +426,7 @@ public class ItemRegistry {
 
             //Healing
             palavence = registerItem("palavence", () -> new ItemHealingSword(ToolStats.PALAVENCE, .5F)),
-            massivence = registerItem("massivence", () -> new ItemHealingSword(ToolStats.PALAVENCE, 1)),
+            massivence = registerItem("massivence", () -> new ItemHealingSword(ToolStats.MASSIVENCE, 1)),
             frossivence = registerItem("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1)),
 
             //Arcana Misc.
@@ -484,10 +484,10 @@ public class ItemRegistry {
             twilight_bow = registerItem("twilight_bow", () -> new ItemModBow(ArrowType.FURY_ARROW, 0, 14400)),
 
             //Anchors
-            crab_anchor = registerItem("crab_anchor", () -> new ItemAnchor(BulletType.CRAB_ANCHOR_SHOT)),
-            shark_anchor = registerItem("shark_anchor", () -> new ItemAnchor(BulletType.SHARK_ANCHOR_SHOT)),
-            bowhead_anchor = registerItem("bowhead_anchor", () -> new ItemAnchor(BulletType.BOWHEAD_ANCHOR_SHOT)),
-            liopleurodon_anchor = registerItem("liopleurodon_anchor", () -> new ItemAnchor(BulletType.LIOPLEURODON_ANCHOR_SHOT)),
+            crab_anchor = registerItem("crab_anchor", () -> new ItemAnchor(ToolStats.CRAB_ANCHOR, BulletType.CRAB_ANCHOR_SHOT)),
+            shark_anchor = registerItem("shark_anchor", () -> new ItemAnchor(ToolStats.SHARK_ANCHOR, BulletType.SHARK_ANCHOR_SHOT)),
+            bowhead_anchor = registerItem("bowhead_anchor", () -> new ItemAnchor(ToolStats.BOWHEAD_ANCHOR, BulletType.BOWHEAD_ANCHOR_SHOT)),
+            liopleurodon_anchor = registerItem("liopleurodon_anchor", () -> new ItemAnchor(ToolStats.LIOPLEURODON_ANCHOR, BulletType.LIOPLEURODON_ANCHOR_SHOT)),
 
             //Harps
             sound_of_music = registerItem("sound_of_music", () -> new ItemMusicShooter(SoundRegistry.SOUND_OF_MUSIC.get(), BulletType.SOUND_OF_MUSIC_SHOT)),

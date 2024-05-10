@@ -4,6 +4,7 @@ import divinerpg.entities.projectile.EntityDivineArrow;
 import divinerpg.enums.ArrowType;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
@@ -121,16 +122,22 @@ public class ItemModBow extends BowItem {
         } return ItemStack.EMPTY;
     }
     @Override public boolean isEnchantable(ItemStack stack) {return canBeDepleted();}
+    @Override public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME && enchantment == Enchantments.FLAMING_ARROWS
+        || !needsArrow(stack) && enchantment == Enchantments.INFINITY_ARROWS) return false;
+        else return enchantment.category.canEnchant(stack.getItem());
+    }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.rangedDam((int)arrowType.getBaseDamage() + "-" + (int)Math.ceil(arrowType.getBaseDamage() * 3.5)));
         int speed = DEFAULT_MAX_USE_DURATION / getUseDuration(stack);
-        if(speed > 1) tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.faster", String.format("%s", speed)));
-        if(speed < 1) tooltip.add(LocalizeUtils.i18n("tooltip.bow_speed.slower", String.format("%s", 1 / speed)));
+        if(speed > 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.DARK_GREEN, "tooltip.bow_speed.faster", String.format("%s", speed)));
+        if(speed < 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.DARK_GREEN, "tooltip.bow_speed.slower", String.format("%s", 1 / speed)));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.POISON) tooltip.add(LocalizeUtils.poison(arrowType.effectSec));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) tooltip.add(LocalizeUtils.burn(arrowType.effectSec));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
         tooltip.add(needsArrow(stack) ? LocalizeUtils.ammo(arrowSupplier) : LocalizeUtils.infiniteAmmo());
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

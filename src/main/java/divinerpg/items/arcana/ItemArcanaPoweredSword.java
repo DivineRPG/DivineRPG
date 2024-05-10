@@ -10,7 +10,7 @@ import net.minecraft.world.item.*;
 import java.util.*;
 
 public class ItemArcanaPoweredSword extends ItemModSword {
-    protected static final UUID ATTACK_MODIFIER = UUID.fromString("de0e83e8-d7ff-11eb-b8bc-0242ac130002");
+    protected static final UUID ATTACK_MODIFIER = UUID.fromString("de0e83e8-d7ff-11eb-b8bc-0242ac130001");
     private final Multimap<Attribute, AttributeModifier> attributeModifiers;
     public int weakenedDamageValue;
     public ItemArcanaPoweredSword(Tier tier, int arcanaConsumed, int weakenedDamage) {

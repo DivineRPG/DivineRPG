@@ -1,13 +1,6 @@
 {
   "replace": false,
   "values": [
-    "divinerpg:stained_glass8",
-    "divinerpg:stained_glass",
-    "divinerpg:stained_glass2",
-    "divinerpg:stained_glass3",
-    "divinerpg:stained_glass4",
-    "divinerpg:stained_glass5",
-    "divinerpg:stained_glass6",
-    "divinerpg:stained_glass7"
+    "divinerpg:stained_glass"
   ]
 }

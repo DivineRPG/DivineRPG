@@ -18,8 +18,10 @@ public enum ToolStats implements Tier {
     BEDROCK_MAUL(4, -2.7F, 11.5F),
     BEDROCK_SWORD(4, -2.4F, 8),
     BLOODGEM_SWORD(3, -2.4F, 5.2F),
+    BOWHEAD_ANCHOR(2, -3, 8),
     CORRUPTED_MAUL(4, 2948, -2.7F, 11.1F, 15, ItemRegistry.corrupted_stone.get()),
     CRABCLAW_MAUL(2, 1025, -2.7F, 6.1F, 13, ItemRegistry.crab_claw.get()),
+    CRAB_ANCHOR(2, -3, 6),
     CYCLOPSIAN_SWORD(2, 300, -2.4F, 4, 14, ItemRegistry.cyclops_eye.get()),
     DEATH_BRINGER(4, 1545, -2.4F, 7.3F, 15, ItemRegistry.corrupted_stone.get()),
     DIVINE_SWORD(4, -2.4F, 13),
@@ -42,7 +44,9 @@ public enum ToolStats implements Tier {
     INFERNO_SWORD(2, -2.4F, 5.2F, SwordSpecial.FLAME, 0, 12),
     JUNGLE_KNIFE(3, 1292, -2.4F, 5.2F, 10, ItemRegistry.jungle_stone.get(), SwordSpecial.POISON, 1, 3),
     JUNGLE_RAPIER(3, 1425, -2.4F, 6, 12, ItemRegistry.jungle_stone.get(), SwordSpecial.POISON, 1, 4),
+    LIOPLEURODON_ANCHOR(2, -3, 9),
     LIVICIA_SWORD(4, 3223, -2.4F, 15.5F, 15, ItemRegistry.shadow_stone.get()),
+    MASSIVENCE(0, 60, -2.4F, -1, 0, ItemRegistry.bloodgem.get(), SwordSpecial.HEAL, 0, 0),
     MOLTEN_SWORD(3, 1297, -2.4F, 5.4F, 10, ItemRegistry.molten_stone.get(), SwordSpecial.FLAME, 0, 5),
     MORTUM_BLADE(4, 2922, -2.4F, 31, 22, ItemRegistry.mortum_gem.get()),
     OCEAN_KNIFE(2, 678, -2.4F, 5.4F, 10, ItemRegistry.aquatic_ingot.get()),
@@ -54,6 +58,7 @@ public enum ToolStats implements Tier {
     SANDSLASH(4, 100, -2.4F, 16, 15, ItemRegistry.divine_stone.get()),
     SCORCHING_SWORD(4, 1212, -2.4F, 6.2F, 15, ItemRegistry.purple_blaze.get()),
     SHADOW_SABER(3, -2.2F, 10, SwordSpecial.SPEED, 1, 5),
+    SHARK_ANCHOR(2, -3, 7),
     SHARK_SWORD(2, 627, -2.4F, 5.5F, 10, ItemRegistry.aquatic_ingot.get()),
     SKYTHERN_BLADE(4, 2783, -2.4F, 29, 22, ItemRegistry.skythern_gem.get()),
     SLIME_SWORD(2, 739, -2.6F, 6.5F, 10, Items.DIAMOND),
@@ -65,12 +70,12 @@ public enum ToolStats implements Tier {
     TERRAN_MAUL(3, 1476, -2.7F, 7.4F, 10, ItemRegistry.terran_stone.get()),
     WILDWOOD_BLADE(4, 2342, -2.4F, 21, 22, ItemRegistry.wildwood_gem.get()),
 
-    //DREAM
+    //Dream Tools
     DREAM_SHOVEL(4, 513, 8, 4, 5, Items.AIR),
     DREAM_PICKAXE(4, 513, 8, 3.5F, 5, Items.AIR),
     DREAM_AXE(4, 513, 8, 8, 5, Items.AIR),
 
-    //SHICKAXES
+    //Shickaxes
     APALACHIA_SHICKAXE(4, 3540, 25, 12, 22, ItemRegistry.apalachia_chunk.get()),
     ARLEMITE_SHICKAXE(3, 2535, 8, 3.2F, 10, ItemRegistry.arlemite_ingot.get()),
     CORRUPTED_SHICKAXE(4, 3065, 10, 5, 15, ItemRegistry.corrupted_stone.get()),
@@ -83,7 +88,7 @@ public enum ToolStats implements Tier {
     TERRAN_SHICKAXE(3, 2586, 8, 3.3F, 10, ItemRegistry.terran_stone.get()),
     WILDWOOD_SHICKAXE(4, 3342, 20, 11, 22, ItemRegistry.wildwood_chunk.get()),
 
-    //AXES
+    //Axes
     APALACHIA_AXE(4, 2540, 25, 29, 22, ItemRegistry.apalachia_gem.get()),
     ARLEMITE_AXE(3, 1535, 8, 8, 10, ItemRegistry.arlemite_ingot.get()),
     BEDROCK_AXE(4, 11, 11),

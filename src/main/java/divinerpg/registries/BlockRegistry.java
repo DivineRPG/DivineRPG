@@ -628,13 +628,6 @@ public class BlockRegistry {
             //Glass
             frostedGlass = registerBlock("frosted_glass", BlockModGlass::new),
             stainedGlass = registerBlock("stained_glass", BlockModGlass::new),
-            stainedGlass2 = registerBlock("stained_glass2", BlockModGlass::new),
-            stainedGlass3 = registerBlock("stained_glass3", BlockModGlass::new),
-            stainedGlass4 = registerBlock("stained_glass4", BlockModGlass::new),
-            stainedGlass5 = registerBlock("stained_glass5", BlockModGlass::new),
-            stainedGlass6 = registerBlock("stained_glass6", BlockModGlass::new),
-            stainedGlass7 = registerBlock("stained_glass7", BlockModGlass::new),
-            stainedGlass8 = registerBlock("stained_glass8", BlockModGlass::new),
             smoothGlass = registerBlock("smooth_glass", BlockModGlass::new),
 
             //Plants & Fungi

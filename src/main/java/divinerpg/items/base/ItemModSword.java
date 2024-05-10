@@ -12,6 +12,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
 import javax.annotation.Nullable;
@@ -60,6 +61,10 @@ public class ItemModSword extends SwordItem {
             } return super.use(level, player, hand);
         }).orElse(InteractionResultHolder.pass(player.getItemInHand(hand)));
     }
+    @Override public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && enchantment == Enchantments.FIRE_ASPECT) return false;
+        else return enchantment.category.canEnchant(stack.getItem());
+    }
     @Override public Multimap<Attribute, AttributeModifier> getAttributeModifiers(final EquipmentSlot slot, final ItemStack stack) {
         final Multimap<Attribute, AttributeModifier> modifiers = ArrayListMultimap.create(super.getAttributeModifiers(slot, stack));
         if(slot == EquipmentSlot.MAINHAND) replaceModifier(modifiers, Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_UUID, getTier().getSpeed());
@@ -86,10 +91,11 @@ public class ItemModSword extends SwordItem {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.ARCANA_DAMAGE) tooltip.add(LocalizeUtils.weakenedWithoutArcana());
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME) tooltip.add(LocalizeUtils.burn(sword.effectSec));
-        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.HEAL) tooltip.add(LocalizeUtils.healthRegen(healAmount / 2));
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.HEAL) tooltip.add(LocalizeUtils.healthHeal(healAmount / 2));
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.LIGHTNING) tooltip.add(LocalizeUtils.lightningShots());
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.POISON) tooltip.add(LocalizeUtils.poison(sword.effectSec));
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW) tooltip.add(LocalizeUtils.slow(sword.effectSec));
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SPEED) tooltip.add(LocalizeUtils.i18n("tooltip.shadow_saber"));
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);

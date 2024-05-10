@@ -1,13 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#forge:stained_glass/stained_glass",
-    "#forge:stained_glass/stained_glass2",
-    "#forge:stained_glass/stained_glass3",
-    "#forge:stained_glass/stained_glass4",
-    "#forge:stained_glass/stained_glass5",
-    "#forge:stained_glass/stained_glass6",
-    "#forge:stained_glass/stained_glass7",
-    "#forge:stained_glass/stained_glass8"
+    "#forge:stained_glass/stained_glass"
   ]
 }

@@ -1,7 +1,14 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/stained_glass"
-    }
+    "": [
+      {"model": "divinerpg:block/stained_glass"},
+      {"model": "divinerpg:block/stained_glass1"},
+      {"model": "divinerpg:block/stained_glass2"},
+      {"model": "divinerpg:block/stained_glass3"},
+      {"model": "divinerpg:block/stained_glass4"},
+      {"model": "divinerpg:block/stained_glass5"},
+      {"model": "divinerpg:block/stained_glass6"},
+      {"model": "divinerpg:block/stained_glass7"}
+    ]
   }
 }
