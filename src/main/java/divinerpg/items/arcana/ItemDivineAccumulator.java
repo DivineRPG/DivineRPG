@@ -23,8 +23,9 @@ public class ItemDivineAccumulator extends ItemMod {
         int x = (int) player.xo, y = (int) player.yo, z = (int) player.zo;
         player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
             if(arcana.getArcana() >= arcanaConsumedUse) {
-                //TODO: doesn't work when you use it the moment you jump
+                //TODO: particles don't work
                 DivineRPGPacketHandler.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
+                //TODO: doesn't work when you use it the moment you jump
                 player.setDeltaMovement(player.getDeltaMovement().x, 2, player.getDeltaMovement().z);
                 player.playSound(SoundRegistry.DIVINE_ACCUMULATOR.get(), 1, 1);
             }

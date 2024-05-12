@@ -23,6 +23,6 @@ public class RarityList {
     public static Rarity APALACHIA = Rarity.create("apalachia", style -> style.withColor(13318614));
     public static Rarity SKYTHERN = Rarity.create("skythern", style -> style.withColor(11445945));
     public static Rarity MORTUM = Rarity.create("mortum", style -> style.withColor(7302520));
-    public static Rarity HALITE = Rarity.create("halite", style -> style.withColor(3968626));
+    public static Rarity HALITE = Rarity.create("halite", style -> style.withColor(6471301));
     public static Rarity AWAKENED_HALITE = Rarity.create("awakened_halite", style -> style.withColor(4451564));
 }

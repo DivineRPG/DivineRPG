@@ -1,8 +1,10 @@
 package divinerpg.items.base;
 
+import divinerpg.registries.ItemRegistry;
 import divinerpg.util.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
@@ -69,6 +71,7 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
         supportedEffects = effects;
         this.amplifier = amplifier;
     }
+    @Override public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer) {return stack.getItem() == ItemRegistry.seng_fur_boots.get() || stack.getItem() == ItemRegistry.santa_boots.get();}
     @Override public int getEnchantmentValue() {return mat.getEnchantmentValue();}
     @Override public Component getFullSetPerks() {
         if(armorInfo == null) return null;

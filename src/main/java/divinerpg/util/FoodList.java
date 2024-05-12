@@ -30,6 +30,8 @@ public class FoodList {
     //Arcana
     public static final FoodProperties HITCHAK = (new FoodProperties.Builder()).nutrition(4).saturationMod(.4F).build();
     public static final FoodProperties PINFLY = (new FoodProperties.Builder()).nutrition(4).saturationMod(.3F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 30, 2), 1).build();
+    public static final FoodProperties WEAK_ARCANA_POTION = (new FoodProperties.Builder()).alwaysEat().build();
+    public static final FoodProperties STRONG_ARCANA_POTION = (new FoodProperties.Builder()).alwaysEat().build();
 
     //Eden
     public static final FoodProperties RAW_EMPOWERED_MEAT = (new FoodProperties.Builder()).nutrition(3).saturationMod(.4F).meat().build();

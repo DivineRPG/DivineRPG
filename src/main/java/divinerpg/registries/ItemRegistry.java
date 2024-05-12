@@ -203,8 +203,8 @@ public class ItemRegistry {
             marsine = registerItem("marsine"),
             veilo = registerItem("veilo"),
             orb_of_light = registerItem("orb_of_light"),
-            weak_arcana_potion = registerItem("weak_arcana_potion", () -> new ItemArcanaPotion(100)),
-            strong_arcana_potion = registerItem("strong_arcana_potion", () -> new ItemArcanaPotion(200)),
+            weak_arcana_potion = registerItem("weak_arcana_potion", () -> new ItemArcanaPotion(FoodList.WEAK_ARCANA_POTION, 100)),
+            strong_arcana_potion = registerItem("strong_arcana_potion", () -> new ItemArcanaPotion(FoodList.STRONG_ARCANA_POTION, 200)),
 
             //Twilight Dimensions
             eden_dust = registerItem("eden_dust"),

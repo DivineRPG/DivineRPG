@@ -3,6 +3,7 @@ package divinerpg.items.arcana;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.enums.ToolStats;
 import divinerpg.items.base.ItemModSword;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
@@ -28,7 +29,7 @@ public class ItemStormSword extends ItemModSword {
                     double angle = 0;
                     while(angle < 2 * Math.PI) {
                         LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
-                        bolt.moveTo(pos.getLocation());
+                        bolt.moveTo(pos.getLocation().offsetRandom(RandomSource.create(), 8));
                         level.addFreshEntity(bolt);
                         angle += Math.PI / 8;
                     }
