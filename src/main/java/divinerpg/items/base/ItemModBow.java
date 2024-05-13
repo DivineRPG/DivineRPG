@@ -129,10 +129,10 @@ public class ItemModBow extends BowItem {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.rangedDam((int)arrowType.getBaseDamage() + "-" + (int)Math.ceil(arrowType.getBaseDamage() * 3.5)));
+        tooltip.add(LocalizeUtils.rangedDam((int)arrowType.getBaseDamage() + "-" + (int)(arrowType.getBaseDamage() * 4 + 3)));
         int speed = DEFAULT_MAX_USE_DURATION / getUseDuration(stack);
         if(speed > 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.DARK_GREEN, "tooltip.bow_speed.faster", String.format("%s", speed)));
-        if(speed < 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.DARK_GREEN, "tooltip.bow_speed.slower", String.format("%s", 1 / speed)));
+        if(speed < 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.RED, "tooltip.bow_speed.slower", String.format("%s", 1 / speed)));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.POISON) tooltip.add(LocalizeUtils.poison(arrowType.effectSec));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) tooltip.add(LocalizeUtils.burn(arrowType.effectSec));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());

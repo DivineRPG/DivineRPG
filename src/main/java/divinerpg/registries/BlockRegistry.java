@@ -545,7 +545,7 @@ public class BlockRegistry {
             stackedChamberWall = registerBlock("stacked_chamber_wall", () -> new BlockModUnbreakable(COLOR_BROWN)),
 
             //Steel
-            steel = registerBlock("steel", () -> new BlockMod(WOOL, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+            steel = registerBlock("steel", () -> new BlockMod(METAL, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
             blackSteel = registerBlock("black_steel", () -> new BlockMod(COLOR_BLACK, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
             redSteel = registerBlock("red_steel", () -> new BlockMod(COLOR_RED, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
             orangeSteel = registerBlock("orange_steel", () -> new BlockMod(COLOR_ORANGE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
