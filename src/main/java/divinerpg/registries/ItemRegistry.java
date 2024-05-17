@@ -517,9 +517,9 @@ public class ItemRegistry {
             firefly = registerItem("firefly", ItemFirefly::new),
             meriks_missile = registerItem("meriks_missile", ItemMeriksMissile::new),
             generals_staff = registerItem("generals_staff", () -> new ItemModRanged(BulletType.GENERALS_STAFF_SHOT, SoundRegistry.STARLIGHT.get(), null, 0, 50, 20)),
-            starlight = registerItem("starlight", () -> new ItemStaffStarlight(BulletType.STAR, 5, 1, 10)),
-            staff_of_starlight = registerItem("staff_of_starlight", () -> new ItemStaffStarlight(BulletType.STAR, 25, 8, 40)),
-            meteor_mash = registerItem("meteor_mash", () -> new ItemStaffStarlight(BulletType.METEOR, 35, 1, 30)),
+            starlight = registerItem("starlight", () -> new ItemStaffSkyDrop(BulletType.STAR, 5, 1, 10)),
+            staff_of_starlight = registerItem("staff_of_starlight", () -> new ItemStaffSkyDrop(BulletType.STAR, 25, 8, 40)),
+            meteor_mash = registerItem("meteor_mash", () -> new ItemStaffSkyDrop(BulletType.METEOR, 35, 1, 30)),
 
             //Phasers
             eden_phaser = registerItem("eden_phaser", () -> new ItemTwilightPhaser(RarityList.EDEN, BulletType.EDEN_PHASER_SHOT)),

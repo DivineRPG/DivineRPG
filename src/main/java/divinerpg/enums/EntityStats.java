@@ -164,7 +164,7 @@ public enum EntityStats {
 
     //Mortum
     ANGRY_GLINTHOP(96, 23),
-    BASALISK(300, 23),
+    BASILISK(300, 23),
     DEMON_OF_DARKNESS(200, 24),
     MORTUM_CADILLION(165, 26),
     SORCERER(132, 14),

@@ -62,8 +62,6 @@ public class EntityRegistry {
     //Projectiles
     public static final RegistryObject<EntityType<EntityBouncingProjectile>>	 BOUNCING_PROJECTILE = registerProjectile(EntityBouncingProjectile::new,            "bouncing_projectile");
     public static final RegistryObject<EntityType<EntityCaveRock>>				 CAVE_ROCK = registerProjectile(EntityCaveRock::new,                                "cave_rock");
-    public static final RegistryObject<EntityType<EntityColoredBullet>>			 COLORED_BULLET = registerProjectile(EntityColoredBullet::new,                      "colored_bullet");
-    public static final RegistryObject<EntityType<EntityCoriShot>>				 CORI_SHOT = registerProjectile(EntityCoriShot::new,                                "cori_shot");
     public static final RegistryObject<EntityType<EntityDisk>>					 DISK = registerProjectile(EntityDisk::new,                                         "disk");
     public static final RegistryObject<EntityType<EntityDissimentShot>>			 DISSIMENT_SHOT = registerProjectile(EntityDissimentShot::new,                      "dissiment_shot");
     public static final RegistryObject<EntityType<EntityDivineArrow>>			 ARROW_SHOT = registerArrowProjectile(EntityDivineArrow::new,                       "arrow_shot");
@@ -87,14 +85,8 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntitySkyreBullet>>			 SKYRE_BULLET = registerProjectile(EntitySkyreBullet::new,                          "skyre_bullet");
     public static final RegistryObject<EntityType<EntitySoulFiendShot>>			 SOUL_FIEND_SHOT = registerProjectile(EntitySoulFiendShot::new,                     "soul_fiend_shot");
     public static final RegistryObject<EntityType<EntityTwilightDemonShot>>		 TWILIGHT_DEMON_SHOT = registerProjectile(EntityTwilightDemonShot::new,             "twilight_demon_shot");
-    public static final RegistryObject<EntityType<EntityTwilightMageShot>>		 MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new,                        "mage_shot");
-    public static final RegistryObject<EntityType<EntityTwilightMageShot>>		 TWILIGHT_MAGE_SHOT = registerProjectile(EntityTwilightMageShot::new,               "twilight_mage_shot");
     public static final RegistryObject<EntityType<EntityWatcherShot>>			 WATCHER_SHOT = registerProjectile(EntityWatcherShot::new,                          "watcher_shot");
     public static final RegistryObject<EntityType<EntityWildwoodLog>>			 WILDWOOD_LOG = registerProjectile(EntityWildwoodLog::new,                          "wildwood_log");
-    public static final RegistryObject<EntityType<EntityWreckBouncingProjectile>>WRECK_BOUNCING_PROJECTILE = registerProjectile(EntityWreckBouncingProjectile::new, "wreck_bouncing_projectile");
-    public static final RegistryObject<EntityType<EntityWreckExplosiveShot>>	 WRECK_EXPLOSIVE_SHOT = registerProjectile(EntityWreckExplosiveShot::new,           "wreck_explosive_shot");
-    public static final RegistryObject<EntityType<EntityWreckShot>>				 WRECK_SHOT = registerProjectile(EntityWreckShot::new,                              "wreck_shot");
-    public static final RegistryObject<EntityType<EntityZoragonBomb>>			 ZORAGON_BOMB = registerProjectile(EntityZoragonBomb::new,                          "zoragon_bomb");
 
     //Bosses
     public static final RegistryObject<EntityType<EntityAncientEntity>>      ANCIENT_ENTITY 	 = registerEntity(EntityAncientEntity::new, 	"ancient_entity", 	    4, 6.5F);
@@ -529,7 +521,7 @@ public class EntityRegistry {
         registerMobAttributes(event, ANGRY_GLINTHOP, EntityStats.ANGRY_GLINTHOP);
         registerMobAttributes(event, MORTUM_CADILLION, EntityStats.MORTUM_CADILLION);
         registerMobAttributes(event, SOUL_SPIDER, EntityStats.SOUL_SPIDER);
-        registerMobAttributes(event, BASILISK, EntityStats.BASALISK);
+        registerMobAttributes(event, BASILISK, EntityStats.BASILISK);
         registerMobAttributes(event, DEMON_OF_DARKNESS, EntityStats.DEMON_OF_DARKNESS);
         registerMobAttributes(event, SOUL_STEALER, EntityStats.SOUL_STEALER);
         registerMobAttributes(event, TWILIGHT_ARCHER, EntityStats.TWILIGHT_ARCHER);
@@ -785,8 +777,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(ARROW_SHOT.get(),              RenderDivineArrow::new);
         event.registerEntityRenderer(BOUNCING_PROJECTILE.get(), 	RenderShooterBullet::new);
         event.registerEntityRenderer(CAVE_ROCK.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "cave_rock"));
-        event.registerEntityRenderer(COLORED_BULLET.get(),          RenderShooterBullet::new);
-        event.registerEntityRenderer(CORI_SHOT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "cori_shot"));
         event.registerEntityRenderer(DISK.get(),                    RenderShooterBullet::new);
         event.registerEntityRenderer(DISSIMENT_SHOT.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "dissiment_shot"));
         event.registerEntityRenderer(ENDER_TRIPLETS_FIREBALL.get(), (Context context) -> new RenderDivineFireball<>(context, "ender_triplets_fireball"));
@@ -799,7 +789,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(KING_OF_SCORCHERS_METEOR.get(),(Context context) -> new RenderDivineProjectile<>(context, "king_of_scorchers_meteor"));
         event.registerEntityRenderer(KING_OF_SCORCHERS_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "king_of_scorchers_shot"));
         event.registerEntityRenderer(LADY_LUNA_SPARKLER.get(),      RenderShooterBullet::new);
-        event.registerEntityRenderer(MAGE_SHOT.get(),               RenderDivineProjectile::new);
         event.registerEntityRenderer(MANDRAGORA_PROJECTILE.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "mandragora_projectile"));
         event.registerEntityRenderer(MERIKS_MISSILE.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "meriks_missile"));
         event.registerEntityRenderer(PARTICLE_BULLET.get(),         RenderShooterBullet::new);
@@ -810,13 +799,8 @@ public class EntityRegistry {
         event.registerEntityRenderer(SKYRE_BULLET.get(), 		    (Context context) -> new RenderDivineProjectile<>(context, "skyre_bullet"));
         event.registerEntityRenderer(SOUL_FIEND_SHOT.get(),         RenderDivineProjectile::new);
         event.registerEntityRenderer(TWILIGHT_DEMON_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "twilight_demon_shot"));
-        event.registerEntityRenderer(TWILIGHT_MAGE_SHOT.get(),      RenderDivineProjectile::new);
         event.registerEntityRenderer(WATCHER_SHOT.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "watcher_shot"));
         event.registerEntityRenderer(WILDWOOD_LOG.get(),            RenderWildwoodLog::new);
-        event.registerEntityRenderer(WRECK_BOUNCING_PROJECTILE.get(),(Context context) -> new RenderDivineProjectile<>(context, "wreck_bouncing_projectile"));
-        event.registerEntityRenderer(WRECK_EXPLOSIVE_SHOT.get(), 	(Context context) -> new RenderDivineProjectile<>(context, "wreck_explosive_shot"));
-        event.registerEntityRenderer(WRECK_SHOT.get(), 				(Context context) -> new RenderDivineProjectile<>(context, "wreck_shot"));
-        event.registerEntityRenderer(ZORAGON_BOMB.get(), 			(Context context) -> new RenderDivineProjectile<>(context, "zoragon_bomb"));
 
         //Boss
         event.registerEntityRenderer(ANCIENT_ENTITY.get(), 	(Context context) -> new RenderDivineMob<>(context, "ancient_entity", 	new ModelAncientEntity(context), 6, 6));

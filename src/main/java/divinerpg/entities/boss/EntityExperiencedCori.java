@@ -1,7 +1,8 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.EntityCoriShot;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import divinerpg.util.WeightedRandom;
 import net.minecraft.core.BlockPos;
@@ -11,11 +12,11 @@ import net.minecraft.world.BossEvent;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
@@ -46,7 +47,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
                 double tx = getTarget().getX() - this.getX();
                 double ty = getTarget().getEyeY() - this.getEyeY();
                 double tz = getTarget().getZ() - this.getZ();
-                EntityCoriShot e = new EntityCoriShot(EntityRegistry.CORI_SHOT.get(), level(), this, (float) getAttribute(Attributes.ATTACK_DAMAGE).getValue());
+                ThrowableProjectile e = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level(), BulletType.EXPERIENCED_CORI_SHOT);
                 double horizontalDistance = Math.sqrt(tx * tx + tz * tz);
                 e.shoot(tx, ty, tz, 1.6f, 0);
                 e.setDeltaMovement(tx / horizontalDistance * 1.6f, ty / horizontalDistance * 1.6f, tz / horizontalDistance * 1.6f);

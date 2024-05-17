@@ -15,7 +15,7 @@ public class DivineThrowable extends ThrowableProjectile {
     }
     @Override protected void onHit(HitResult result) {
         super.onHit(result);
-        if(!(this instanceof EntityBouncingProjectile) && !(this instanceof EntityDisk)) discard();
+        discard();
     }
     @Override protected void defineSynchedData() {}
 }

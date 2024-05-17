@@ -1,17 +1,17 @@
 package divinerpg.entities.eden;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
-import divinerpg.entities.projectile.EntityCoriShot;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.*;
 
 public class EntityWeakCori extends EntityDivineFlyingMob implements RangedAttackMob {
@@ -39,7 +39,7 @@ public class EntityWeakCori extends EntityDivineFlyingMob implements RangedAttac
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
         if (isAlive() && getTarget() != null && !level().isClientSide) {
-            Projectile projectile = new EntityCoriShot(EntityRegistry.CORI_SHOT.get(), level(), this, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+            ThrowableProjectile projectile = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level(), BulletType.WEAK_CORI_SHOT);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();

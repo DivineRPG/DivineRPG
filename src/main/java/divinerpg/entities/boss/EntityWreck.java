@@ -2,6 +2,7 @@ package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.entities.projectile.*;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -256,7 +258,7 @@ public class EntityWreck extends EntityDivineBoss {
         double z = getTarget().getZ() - this.getZ();
         switch (this.getAbility()) {
             case BOUNCE:
-                    EntityWreckBouncingProjectile projectile = new EntityWreckBouncingProjectile(EntityRegistry.WRECK_BOUNCING_PROJECTILE.get(), this.level(), this, 35);
+                    ThrowableProjectile projectile = new EntityBouncingProjectile(EntityRegistry.BOUNCING_PROJECTILE.get(), this, level(), BulletType.WRECK_BOUNCING_SHOT);
                     double bounceY = getTarget().getY(0.3333333333333333D) - projectile.getY();
                     double d3 = Mth.sqrt((float) (x * x + z * z));
                     projectile.shoot(x, bounceY + d3 * (double) 0.2F, z, 1.6F, 0.5F);
@@ -265,7 +267,7 @@ public class EntityWreck extends EntityDivineBoss {
                 break;
             case SPEED:
                 if (this.abilityTimer % 5 == 0) {
-                    EntityWreckShot shot = new EntityWreckShot(EntityRegistry.WRECK_SHOT.get(), this.level(), this, 15);
+                    ThrowableProjectile shot = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this,  level(), BulletType.WRECK_SHOT);
                     double shotY = getTarget().getY(0.3333333333333333D) - shot.getY();
                     double ws3 = Mth.sqrt((float) (x * x + z * z));
                     shot.shoot(x, shotY + ws3 * (double) 0.2F, z, 1.6F, 0.5F);
@@ -277,7 +279,7 @@ public class EntityWreck extends EntityDivineBoss {
                 break;
             case EXPLOSIONS:
                 if ((this.abilityTimer % 40) == 0) {
-                    EntityWreckExplosiveShot explosiveShot = new EntityWreckExplosiveShot(EntityRegistry.WRECK_EXPLOSIVE_SHOT.get(), this, this.level());
+                    ThrowableProjectile explosiveShot = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this,  level(), BulletType.WRECK_EXPLOSIVE_SHOT);
                     double explodeY = getTarget().getY(0.3333333333333333D) - explosiveShot.getY();
                     double e3 = Mth.sqrt((float) (x * x + z * z));
                     explosiveShot.shoot(x, explodeY + e3 * (double) 0.2F, z, 1.6F, 0.5F);
@@ -289,7 +291,7 @@ public class EntityWreck extends EntityDivineBoss {
                 break;
             case STRENGTH:
                 if ((this.abilityTimer % 40) == 0) {
-                    EntityWreckShot strengthShot = new EntityWreckShot(EntityRegistry.WRECK_SHOT.get(), this.level(), this, 40);
+                    EntityShooterBullet strengthShot = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level(), BulletType.WRECK_STRONG_SHOT);
                     double strengthY = getTarget().getY(0.3333333333333333D) - strengthShot.getY();
                     double s3 = Mth.sqrt((float) (x * x + z * z));
                     strengthShot.shoot(x, strengthY + s3 * (double) 0.2F, z, 1.6F, 0.5F);

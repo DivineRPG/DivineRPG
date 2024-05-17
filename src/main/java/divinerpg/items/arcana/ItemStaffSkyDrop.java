@@ -9,8 +9,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 
-public class ItemStaffStarlight extends ItemModRanged {
-    public ItemStaffStarlight(BulletType bulletType, int arcana, int count, int delay) {
+public class ItemStaffSkyDrop extends ItemModRanged {
+    public ItemStaffSkyDrop(BulletType bulletType, int arcana, int count, int delay) {
         super(bulletType, SoundRegistry.STARLIGHT.get(), null, 0, delay, arcana);
         projectileAmount = count;
     }

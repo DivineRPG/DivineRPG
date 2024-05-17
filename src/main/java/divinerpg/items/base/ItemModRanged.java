@@ -24,9 +24,9 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemModRanged extends ItemMod {
-    private final Item ammoSupplier;
+    private Item ammoSupplier;
     protected BulletType bulletType;
-    protected final String entityType;
+    protected String entityType;
     public SoundEvent sound;
     public int onUseDamage;
     public int projectileAmount;
@@ -62,11 +62,8 @@ public class ItemModRanged extends ItemMod {
     //Throwables (no durability)
     public ItemModRanged(Rarity rarity, BulletType bulletType, int delay) {
         super(new Properties().rarity(rarity));
-        ammoSupplier = null;
-        arcanaConsumedUse = 0;
         this.bulletType = bulletType;
         cooldown = delay;
-        entityType = null;
         sound = SoundEvents.ARROW_SHOOT;
     }
     //No rarity, specified arcana usage
@@ -131,8 +128,6 @@ public class ItemModRanged extends ItemMod {
             if(arcana == null || arcana.getArcana() < arcanaConsumedUse) result = InteractionResult.FAIL;
         } return new InteractionResultHolder<>(result, arcana);
     }
-    //Trying to detect if we can use the item.
-//    protected boolean canUseRangedWeapon(Player player, ItemStack stack) {return (player.isCreative() || stack.getMaxDamage() <= 0 || stack.getDamageValue() < stack.getMaxDamage());}
     protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
         ThrowableProjectile bullet;
         //Class has the most priority
@@ -145,8 +140,9 @@ public class ItemModRanged extends ItemMod {
             }
         }
         //In other cases we look to a BulletType field
+        else if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.BOUNCE) bullet = new EntityBouncingProjectile(EntityRegistry.BOUNCING_PROJECTILE.get(), player, world, bulletType);
+        else if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.RETURN) bullet = new EntityDisk(EntityRegistry.DISK.get(), player, world, bulletType);
         else if(bulletType.getParticle() != ParticleTypes.BUBBLE) bullet = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), world, player, bulletType);
-        else if(bulletType.getRed() != 0 && bulletType.getGreen() != 0 && bulletType.getBlue() != 0) bullet = new EntityColoredBullet(EntityRegistry.COLORED_BULLET.get(), player, world, bulletType);
         else bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, bulletType);
         bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 1.5F, .5F);
         world.addFreshEntity(bullet);
@@ -168,7 +164,7 @@ public class ItemModRanged extends ItemMod {
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SKY) tooltip.add(LocalizeUtils.skyShots(projectileAmount));
             if(bulletType == BulletType.METEOR || bulletType.getBulletSpecial() == BulletType.BulletSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SLOW) tooltip.add(LocalizeUtils.slow(bulletType.effectSec));
-            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SPLIT) tooltip.add(LocalizeUtils.splitShots());
+            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SPLIT) tooltip.add(LocalizeUtils.splitShots(bulletType.effectPower + 1));
         } if(onUseDamage > 0) tooltip.add(LocalizeUtils.onUseDam(onUseDamage));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         if(!(this instanceof ItemModThrowable)) {

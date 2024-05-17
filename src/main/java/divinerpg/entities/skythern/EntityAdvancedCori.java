@@ -1,17 +1,16 @@
 package divinerpg.entities.skythern;
 
-
 import divinerpg.entities.base.EntityDivineFlyingMob;
-import divinerpg.entities.projectile.EntityCoriShot;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 
 public class EntityAdvancedCori extends EntityDivineFlyingMob implements RangedAttackMob {
@@ -28,8 +27,8 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob implements RangedA
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        if (isAlive() && getTarget() != null && !level().isClientSide) {
-            Projectile projectile = new EntityCoriShot(EntityRegistry.CORI_SHOT.get(), level(), this, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+        if(isAlive() && getTarget() != null && !level().isClientSide) {
+            ThrowableProjectile projectile = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level(), BulletType.ADVANCED_CORI_SHOT);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();

@@ -388,7 +388,7 @@ public class BlockRegistry {
             //Dreamwood
             dreamwoodLeaves = registerBlock("dreamwood_leaves", () -> new BlockModLeaves(COLOR_CYAN, SoundType.GRASS)),
             dreamwoodLog = registerBlock("dreamwood_log", () -> new BlockModLog(COLOR_LIGHT_BLUE, SoundType.WOOD)),
-            dreamwoodWood = registerBlock("dreamwood_wood", () -> new BlockModLog(COLOR_LIGHT_BLUE, SoundType.WOOD)),
+            dreamwoodWood = registerBlock("dreamwood_wood", () -> new BlockModLog(COLOR_CYAN, SoundType.WOOD)),
             strippedDreamwoodLog = registerBlock("stripped_dreamwood_log", () -> new BlockModLog(COLOR_LIGHT_BLUE, SoundType.WOOD)),
             strippedDreamwoodWood = registerBlock("stripped_dreamwood_wood", () -> new BlockModLog(COLOR_LIGHT_BLUE, SoundType.WOOD)),
 

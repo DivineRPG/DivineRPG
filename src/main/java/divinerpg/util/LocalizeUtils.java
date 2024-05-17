@@ -169,7 +169,7 @@ public class LocalizeUtils {
     /**
      * Indicates that the projectiles are splitting upon hitting something.
      */
-    public static Component splitShots() {return LocalizeUtils.i18n(ChatFormatting.GOLD, ShotsSplit);}
+    public static Component splitShots(int count) {return LocalizeUtils.i18n(ChatFormatting.GOLD, ShotsSplit, count);}
     /**
      * Indicates that the item shoots objects from the sky.
      *

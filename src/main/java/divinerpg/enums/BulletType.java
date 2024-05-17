@@ -9,8 +9,8 @@ public enum BulletType {
     //Throwables
     TOMATO_SHOT(.5F, ItemLoc("tomato")),
     SHURIKEN_SHOT(4, ItemLoc("shuriken")),
-    VILE_STORM_SHOT(7, ItemLoc("vile_storm"), BulletDamageType.PHYSIC, BulletSpecial.POISON, 2),
-    SNOWFLAKE_SHURIKEN_SHOT(7, ItemLoc("snowflake_shuriken"), BulletDamageType.PHYSIC, BulletSpecial.SLOW, 2),
+    VILE_STORM_SHOT(7, ItemLoc("vile_storm"), BulletDamageType.PHYSIC, BulletSpecial.POISON, 3, 2),
+    SNOWFLAKE_SHURIKEN_SHOT(7, ItemLoc("snowflake_shuriken"), BulletDamageType.PHYSIC, BulletSpecial.SLOW, 3, 2),
     GRENADE(6, ProjectileLoc("grenade"), BulletDamageType.PHYSIC, BulletSpecial.EXPLODE),
     EDEN_SLICER_SHOT(8, ItemLoc("eden_slicer")),
     WILDWOOD_SLICER_SHOT(10, ItemLoc("wildwood_slicer")),
@@ -20,8 +20,8 @@ public enum BulletType {
     HALITE_SLICER_SHOT(22, ItemLoc("halite_slicer")),
 
     //Serenades
-    SERENADE_OF_DEATH_SHOT(14, ProjectileLoc("serenade_of_death"), BulletDamageType.MAGIC, BulletSpecial.POISON, 2),
-    SERENADE_OF_ICE_SHOT(0, ProjectileLoc("serenade_of_ice"), BulletDamageType.NONE, BulletSpecial.SLOW, 5),
+    SERENADE_OF_DEATH_SHOT(14, ProjectileLoc("serenade_of_death"), BulletDamageType.MAGIC, BulletSpecial.POISON, 3, 2),
+    SERENADE_OF_ICE_SHOT(0, ProjectileLoc("serenade_of_ice"), BulletDamageType.NONE, BulletSpecial.SLOW, 3, 5),
 
     //Anchors
     CRAB_ANCHOR_SHOT(3, ProjectileLoc("crab_anchor")),
@@ -42,8 +42,8 @@ public enum BulletType {
     ATTRACTOR_SHOT(0, ProjectileLoc("arcana_shot"), BulletDamageType.NONE, BulletSpecial.PULL),
     REFLECTOR_SHOT(0, ProjectileLoc("arcana_shot"), BulletDamageType.NONE, BulletSpecial.PUSH),
     CAPTAINS_SPARKLER_SHOT(20, ProjectileLoc("sparkler"), BulletDamageType.ARCANA, BulletSpecial.RAINBOW),
-    GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.SPLIT),
-    GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.SPLIT),
+    GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.NONE),
+    GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletType.GENERALS_STAFF_SPRAY, 4),
     STAR(20, ProjectileLoc("starlight"), ParticleRegistry.EDEN_PORTAL.get(), BulletSpecial.SKY),
     METEOR(20, ProjectileLoc("meteor"), ParticleRegistry.MORTUM_PORTAL.get(), BulletSpecial.SKY),
 
@@ -61,12 +61,12 @@ public enum BulletType {
     CORRUPTED_BULLET(10, ItemLoc("corrupted_bullet")),
 
     //Blitz
-    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), BulletDamageType.PHYSIC, ParticleRegistry.EDEN_PORTAL.get()),
-    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), BulletDamageType.PHYSIC, ParticleRegistry.WILDWOOD_PORTAL.get()),
-    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), BulletDamageType.PHYSIC, ParticleRegistry.APALACHIA_PORTAL.get()),
-    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), BulletDamageType.PHYSIC, ParticleRegistry.SKYTHERN_PORTAL.get()),
-    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), BulletDamageType.PHYSIC, ParticleRegistry.MORTUM_PORTAL.get()),
-    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), BulletDamageType.PHYSIC, ParticleRegistry.GREEN_PORTAL.get()),
+    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.PHYSIC),
+    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.PHYSIC),
+    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.PHYSIC),
+    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
+    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleRegistry.GREEN_PORTAL.get(), BulletDamageType.PHYSIC),
 
     //Phasers
     EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.MAGIC),
@@ -77,19 +77,30 @@ public enum BulletType {
     HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleRegistry.GREEN_PORTAL.get(), BulletDamageType.MAGIC),
 
     //Mob Projectiles
-    MAGE_SHOT(10, blank(), 62, 212, 254),
-    SPELLBINDER_SHOT(12, blank(),234, 158, 253),
-    MYSTIC_SHOT(13, blank(), 234, 223, 228),
-    SORCERER_SHOT(14, blank(), 97, 31, 54),
+    //TODO: to change damage type to Magic for mages (etc.) after we add proper damage reduction for armors
+    WEAK_CORI_SHOT(20, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
+    MAGE_SHOT(10, blank(), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.PHYSIC),
+    SPELLBINDER_SHOT(12, blank(), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    ADVANCED_CORI_SHOT(30, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
+    MYSTIC_SHOT(13, blank(), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.PHYSIC),
+    SORCERER_SHOT(14, blank(), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
+    ZORAGON_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE),
 
     //Boss Projectiles
     BONE_FRAGMENT(6, ProjectileLoc("bone_fragment")),
     BONE_BOMB(16, ProjectileLoc("bone_bomb")),
-    SUNSTORM(12, blank(),255, 235, 0),
-    TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"),0, 0, 0),
-    TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), 255, 0, 0),
-    SOUL_FIEND_SHOT(0, blank(), BulletDamageType.MAGIC),
-    LUNA_SPARKLER(12, blank(), 139, 103, 255, ParticleRegistry.WILDWOOD_PORTAL.get()),
+    SUNSTORM(12, blank(), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.PHYSIC),
+    EXPERIENCED_CORI_SHOT(80, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
+    TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
+    //TODO: to add proper red particles
+    TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    SOUL_FIEND_SHOT(0, blank(), BulletDamageType.NONE),
+    KAROS_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.EXPLODE),
+    LUNA_SPARKLER(12, blank(), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    WRECK_SHOT(15, ProjectileLoc("wreck_shot"), BulletDamageType.PHYSIC),
+    WRECK_STRONG_SHOT(40, ProjectileLoc("wreck_shot"), BulletDamageType.PHYSIC),
+    WRECK_BOUNCING_SHOT(35, ProjectileLoc("wreck_bouncing_projectile"), BulletDamageType.PHYSIC, BulletSpecial.BOUNCE),
+    WRECK_EXPLOSIVE_SHOT(0, ProjectileLoc("wreck_explosive_projectile"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE),
 
     //Vethea Cannons
     TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
@@ -139,109 +150,81 @@ public enum BulletType {
     private final BulletSpecial bulletSpecial;
     private final BulletDamageType bulletDamageType;
     private final ResourceLocation texture;
-    private final SimpleParticleType particle;
+    private SimpleParticleType particle;
+    public BulletType sprayBullet;
     private final float damage;
+    public int effectPower;
     public int effectSec;
-    private final int r, g, b;
+    //Generic bullets
+    BulletType(float damage, ResourceLocation texture) {
+        this.damage = damage;
+        this.texture = texture;
+        bulletDamageType = BulletDamageType.PHYSIC;
+        bulletSpecial = BulletSpecial.NONE;
+    }
+    //Generic bullets with a different damage type
+    BulletType(float damage, ResourceLocation texture, BulletDamageType type) {
+        this.damage = damage;
+        this.texture = texture;
+        bulletDamageType = type;
+        bulletSpecial = BulletSpecial.NONE;
+    }
+    //Generic bullets + have particles
     BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletDamageType type) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
-        r = 0;
-        g = 0;
-        b = 0;
         bulletDamageType = type;
-        bulletSpecial = BulletSpecial.NONE;
-    }
-    BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletSpecial special) {
-        this.damage = damage;
-        this.texture = texture;
-        this.particle = particle;
-        r = 0;
-        g = 0;
-        b = 0;
-        bulletDamageType = BulletDamageType.ARCANA;
-        bulletSpecial = special;
-    }
-    BulletType(float damage, ResourceLocation texture, BulletDamageType type, SimpleParticleType particle) {
-        this.damage = damage;
-        this.texture = texture;
-        this.particle = particle;
-        r = g = b = 0;
-        bulletDamageType = type;
-        bulletSpecial = BulletSpecial.NONE;
-    }
-    BulletType(float damage, ResourceLocation texture, int r, int g, int b) {
-        this.damage = damage;
-        this.texture = texture;
-        particle = null;
-        this.r = r;
-        this.g = g;
-        this.b = b;
-        bulletDamageType = BulletDamageType.MAGIC;
-        bulletSpecial = BulletSpecial.NONE;
-    }
-    BulletType(float damage, ResourceLocation texture, int r, int g, int b, SimpleParticleType particle) {
-        this.damage = damage;
-        this.texture = texture;
-        this.particle = particle;
-        this.r = r;
-        this.g = g;
-        this.b = b;
-        bulletDamageType = BulletDamageType.ARCANA;
-        bulletSpecial = BulletSpecial.NONE;
-    }
-    BulletType(float damage, ResourceLocation texture, BulletDamageType type) {
-        this.damage = damage;
-        this.texture = texture;
-        particle = null;
-        r = g = b = 0;
-        bulletDamageType = type;
-        bulletSpecial = BulletSpecial.NONE;
-    }
-    BulletType(float damage, ResourceLocation texture) {
-        this.damage = damage;
-        this.texture = texture;
-        particle = null;
-        r = g = b = 0;
-        bulletDamageType = BulletDamageType.PHYSIC;
         bulletSpecial = BulletSpecial.NONE;
     }
     //Bullets with effect specials
-    BulletType(float damage, ResourceLocation texture, BulletDamageType type, BulletSpecial special, int sec) {
+    BulletType(float damage, ResourceLocation texture, BulletDamageType type, BulletSpecial special, int power, int sec) {
         this.damage = damage;
         this.texture = texture;
-        particle = null;
-        r = g = b = 0;
         bulletDamageType = type;
         bulletSpecial = special;
+        effectPower = power;
         effectSec = sec;
     }
     //Bullets with other specials
     BulletType(float damage, ResourceLocation texture, BulletDamageType type, BulletSpecial special) {
         this.damage = damage;
         this.texture = texture;
-        particle = null;
-        r = g = b = 0;
         bulletDamageType = type;
         bulletSpecial = special;
     }
+    //Bullets with other specials + have particles
+    BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletSpecial special) {
+        this.damage = damage;
+        this.texture = texture;
+        this.particle = particle;
+        bulletDamageType = BulletDamageType.ARCANA;
+        bulletSpecial = special;
+    }
+    //Split projectiles
+    BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletType type, int amount) {
+        this.damage = damage;
+        this.texture = texture;
+        this.particle = particle;
+        bulletDamageType = BulletDamageType.ARCANA;
+        bulletSpecial = BulletSpecial.SPLIT;
+        sprayBullet = type;
+        effectPower = amount;
+    }
     public static BulletType getBulletFromOrdinal(int ordinal) {
-        if (ordinal < 0 || ordinal > values().length) ordinal = 0;
+        if(ordinal < 0 || ordinal > values().length) ordinal = 0;
         return values()[ordinal];
     }
     private static ResourceLocation ProjectileLoc(String name) {return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");}
+    //TODO: to fix, for some reason blank textures are a 1x1 white square
     private static ResourceLocation blank() {return new ResourceLocation("minecraft:textures/particle/generic_0.png");}
     public static ResourceLocation ItemLoc(String name) {return new ResourceLocation(DivineRPG.MODID, "textures/item/" + name + ".png");}
     private static ResourceLocation VanillaItemLoc(String name) {return new ResourceLocation("minecraft:textures/item/" + name + ".png");}
     public float getDamage() {return damage;}
     public ResourceLocation getTexture() {return texture;}
     public SimpleParticleType getParticle() {return particle;}
-    public int getRed() {return r;}
-    public int getGreen() {return g;}
-    public int getBlue() {return b;}
     public BulletSpecial getBulletSpecial() {return bulletSpecial;}
-    public enum BulletSpecial {NONE, BLIND, BOUNCE, EXPLODE, FLAME, MUSIC, NAUSEA, POISON, PULL, PUSH, RAINBOW, RETURN, SKY, SLOW, SPLIT, WITHER}
+    public enum BulletSpecial {NONE, BLIND, BOUNCE, EXPLODE, MOB_EXPLODE, FLAME, MUSIC, NAUSEA, POISON, PULL, PUSH, RAINBOW, RETURN, SKY, SLOW, SPLIT, WITHER}
     public BulletDamageType getBulletDamageType() {return bulletDamageType;}
     public enum BulletDamageType {NONE, PHYSIC, MAGIC, ARCANA}
 }

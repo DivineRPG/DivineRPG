@@ -2,7 +2,7 @@ package divinerpg.entities.boss;
 
 import divinerpg.entities.ai.AISunstormAttack;
 import divinerpg.entities.base.EntityDivineBoss;
-import divinerpg.entities.projectile.EntityTwilightMageShot;
+import divinerpg.entities.projectile.EntityParticleBullet;
 import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import net.minecraft.sounds.*;
@@ -13,6 +13,7 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 
 public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob {
@@ -34,7 +35,7 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
                     target.setSecondsOnFire(3);
                 }
 
-                EntityTwilightMageShot projectile = new EntityTwilightMageShot(EntityRegistry.MAGE_SHOT.get(), this, level(), BulletType.SUNSTORM);
+                ThrowableProjectile projectile = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), level(), this, BulletType.SUNSTORM);
                 double tx = getTarget().getX() - this.getX();
                 double ty = getTarget().getEyeY() - this.getEyeY();
                 double tz = getTarget().getZ() - this.getZ();

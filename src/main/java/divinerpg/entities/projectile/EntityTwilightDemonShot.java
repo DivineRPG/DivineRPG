@@ -8,7 +8,7 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
-public class EntityTwilightDemonShot extends EntityColoredBullet {
+public class EntityTwilightDemonShot extends EntityParticleBullet {
 
 
     public EntityTwilightDemonShot(EntityType<? extends ThrowableProjectile> type, Level world) {
@@ -16,7 +16,7 @@ public class EntityTwilightDemonShot extends EntityColoredBullet {
     }
 
     public EntityTwilightDemonShot(EntityType<? extends ThrowableProjectile> type, LivingEntity entity, Level world, BulletType bulletType) {
-        super(type, entity, world, bulletType);
+        super(type, world, entity, bulletType);
     }
 
     @Override

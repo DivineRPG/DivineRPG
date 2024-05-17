@@ -2288,7 +2288,7 @@
   "tooltip.shots.explosive": "Explosive projectiles",
   "tooltip.shots.homing": "Homing projectiles",
   "tooltip.shots.sky": "%s projectile(-s) from the sky",
-  "tooltip.shots.split": "Projectiles split on impact",
+  "tooltip.shots.split": "Projectiles split into %s on impact",
   "tooltip.sky_flower.breath": "Gives Speed and Water Breathing for 30 seconds",
   "tooltip.staff_of_enrichment": "Use on Arcanite Dirt to purify",
   "tooltip.summon": "Summons a friendly %s:",
