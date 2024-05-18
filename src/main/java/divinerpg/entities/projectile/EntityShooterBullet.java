@@ -28,8 +28,8 @@ public class EntityShooterBullet extends ThrowableProjectile {
         this.bulletType = bulletType;
         thrower = entity;
         setBulletId((byte)bulletType.ordinal());
-        //TODO: to use a different check, otherwise it gives unintended movement boost to some of the projectiles
-        if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.NONE) setDeltaMovement(getDeltaMovement().x * 3, getDeltaMovement().y * 3, getDeltaMovement().z * 3);
+        //TODO: to add a more universal check or move it somewhere else
+        if(getBulletType() == BulletType.REFLECTOR_SHOT || getBulletType() == BulletType.ATTRACTOR_SHOT || getBulletType() == BulletType.SERENADE_OF_ICE_SHOT) setDeltaMovement(getDeltaMovement().x * 3, getDeltaMovement().y * 3, getDeltaMovement().z * 3);
         if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.SKY) setDeltaMovement(level().getRandom().nextGaussian() * .05, -.5, level().getRandom().nextGaussian() * .05);
     }
     public EntityShooterBullet(EntityType<? extends ThrowableProjectile> type, double x, double y, double z, Level world, BulletType bulletType) {
@@ -64,8 +64,8 @@ public class EntityShooterBullet extends ThrowableProjectile {
                 bullet.moveTo(xo, yo, zo);
                 bullet.shoot(0, 1, 0, .7F, 0);
                 level().addFreshEntity(bullet);
-            } if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.EXPLODE) level().explode(this, xo, yo, zo, 3, false, Level.ExplosionInteraction.TNT);
-            if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.MOB_EXPLODE) level().explode(this, xo, yo, zo, 3, false, Level.ExplosionInteraction.MOB);
+            } if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.EXPLODE) level().explode(this, xo, yo, zo, getBulletType().effectPower, false, Level.ExplosionInteraction.TNT);
+            if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.MOB_EXPLODE) level().explode(this, xo, yo, zo, getBulletType().effectPower, false, Level.ExplosionInteraction.MOB);
             if(getBulletType() == BulletType.METEOR) level().explode(this, xo, yo, zo, 4.5F, false, Level.ExplosionInteraction.TNT);
             //TODO: to add proper snowball-like particles for tomato shot
             level().broadcastEntityEvent(this, (byte)3);
@@ -74,12 +74,14 @@ public class EntityShooterBullet extends ThrowableProjectile {
     @Override public void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         Entity entity = result.getEntity();
-        if(!(this instanceof EntityBouncingProjectile) && getBulletType().getBulletDamageType() != BulletType.BulletDamageType.NONE) {
-            if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) entity.hurt(damageSources().thrown(this, thrower), getBulletType().getDamage());
-            else entity.hurt(damageSources().indirectMagic(this, thrower), getBulletType().getDamage());
-        } if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan)) {
+        //TODO: to make it applicable only when target entity can take damage
+        if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan)) {
             if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.POISON) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, bulletType.effectSec * 20, bulletType.effectPower));
             if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.SLOW) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, bulletType.effectSec * 20, bulletType.effectPower));
+            if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.FLAME) livingEntity.setSecondsOnFire(bulletType.effectSec);
+        } if(!(this instanceof EntityBouncingProjectile) && getBulletType().getBulletDamageType() != BulletType.BulletDamageType.NONE) {
+            if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) entity.hurt(damageSources().thrown(this, thrower), getBulletType().getDamage());
+            else entity.hurt(damageSources().indirectMagic(this, thrower), getBulletType().getDamage());
         } if(thrower != null) {
             double xDist = (thrower.xo - xo) / 5, yDist = (thrower.yo - yo) / 5, zDist = (thrower.zo - zo) / 5;
             if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.PULL) entity.setDeltaMovement(xDist, yDist, zDist);

@@ -11,7 +11,7 @@ public enum BulletType {
     SHURIKEN_SHOT(4, ItemLoc("shuriken")),
     VILE_STORM_SHOT(7, ItemLoc("vile_storm"), BulletDamageType.PHYSIC, BulletSpecial.POISON, 3, 2),
     SNOWFLAKE_SHURIKEN_SHOT(7, ItemLoc("snowflake_shuriken"), BulletDamageType.PHYSIC, BulletSpecial.SLOW, 3, 2),
-    GRENADE(6, ProjectileLoc("grenade"), BulletDamageType.PHYSIC, BulletSpecial.EXPLODE),
+    GRENADE(6, ProjectileLoc("grenade"), BulletDamageType.PHYSIC, BulletSpecial.EXPLODE, 3, 0),
     EDEN_SLICER_SHOT(8, ItemLoc("eden_slicer")),
     WILDWOOD_SLICER_SHOT(10, ItemLoc("wildwood_slicer")),
     APALACHIA_SLICER_SHOT(12, ItemLoc("apalachia_slicer")),
@@ -77,6 +77,7 @@ public enum BulletType {
     HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleRegistry.GREEN_PORTAL.get(), BulletDamageType.MAGIC),
 
     //Mob Projectiles
+    CAVE_ROCK(6, ProjectileLoc("cave_rock"), BulletDamageType.PHYSIC),
     //TODO: to change damage type to Magic for mages (etc.) after we add proper damage reduction for armors
     WEAK_CORI_SHOT(20, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
     MAGE_SHOT(10, blank(), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.PHYSIC),
@@ -84,9 +85,14 @@ public enum BulletType {
     ADVANCED_CORI_SHOT(30, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
     MYSTIC_SHOT(13, blank(), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.PHYSIC),
     SORCERER_SHOT(14, blank(), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
-    ZORAGON_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE),
+    MANDRAGORA_SHOT(4, ProjectileLoc("mandragora_projectile"), BulletDamageType.PHYSIC),
+    KAZROTIC_SHOT(0, ProjectileLoc("kazrotic_shot"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
+    ZORAGON_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
 
     //Boss Projectiles
+    THE_WATCHER_SHOT(4, ProjectileLoc("watcher_shot"), BulletDamageType.PHYSIC, BulletSpecial.MOB_EXPLODE, 5, 0),
+    KING_OF_SCORCHERS_SHOT(14, ProjectileLoc("king_of_scorchers_shot"), BulletDamageType.NONE, BulletSpecial.FLAME, 0, 8),
+    KING_OF_SCORCHERS_METEOR(0, ProjectileLoc("king_of_scorchers_meteor"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
     BONE_FRAGMENT(6, ProjectileLoc("bone_fragment")),
     BONE_BOMB(16, ProjectileLoc("bone_bomb")),
     SUNSTORM(12, blank(), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.PHYSIC),
@@ -95,12 +101,13 @@ public enum BulletType {
     //TODO: to add proper red particles
     TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
     SOUL_FIEND_SHOT(0, blank(), BulletDamageType.NONE),
-    KAROS_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.EXPLODE),
+    KAROS_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.EXPLODE, 3, 0),
     LUNA_SPARKLER(12, blank(), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    RAGLOK_BOMB(0, ProjectileLoc("raglok_bomb"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
     WRECK_SHOT(15, ProjectileLoc("wreck_shot"), BulletDamageType.PHYSIC),
     WRECK_STRONG_SHOT(40, ProjectileLoc("wreck_shot"), BulletDamageType.PHYSIC),
     WRECK_BOUNCING_SHOT(35, ProjectileLoc("wreck_bouncing_projectile"), BulletDamageType.PHYSIC, BulletSpecial.BOUNCE),
-    WRECK_EXPLOSIVE_SHOT(0, ProjectileLoc("wreck_explosive_projectile"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE),
+    WRECK_EXPLOSIVE_SHOT(0, ProjectileLoc("wreck_explosive_projectile"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
 
     //Vethea Cannons
     TEAKER_CANNON_SHOT(3, ProjectileLoc("cannon")),
@@ -177,7 +184,7 @@ public enum BulletType {
         bulletDamageType = type;
         bulletSpecial = BulletSpecial.NONE;
     }
-    //Bullets with effect specials
+    //Bullets with effect/explosive specials
     BulletType(float damage, ResourceLocation texture, BulletDamageType type, BulletSpecial special, int power, int sec) {
         this.damage = damage;
         this.texture = texture;

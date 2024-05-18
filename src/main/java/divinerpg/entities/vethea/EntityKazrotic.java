@@ -1,13 +1,16 @@
 package divinerpg.entities.vethea;
 
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.entities.projectile.EntityKazroticShot;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 
 public class EntityKazrotic extends EntityDivineMonster implements RangedAttackMob {
@@ -34,12 +37,12 @@ public class EntityKazrotic extends EntityDivineMonster implements RangedAttackM
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (isAlive() && getTarget() != null && !level().isClientSide) {
-            EntityKazroticShot projectile = new EntityKazroticShot(EntityRegistry.KAZROTIC_SHOT.get(), target, level());
+            ThrowableProjectile projectile = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level(), BulletType.KAZROTIC_SHOT);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
             double d3 = Math.sqrt((float) (d0 * d0 + d2 * d2));
-            projectile.shoot(d0, d1 + d3 * .2 - .2, d2, 1.6F, 0.8F);
+            projectile.shoot(d0, d1 + d3 * .2, d2, 1.6F, 0.8F);
             this.level().addFreshEntity(projectile);
         }
     }

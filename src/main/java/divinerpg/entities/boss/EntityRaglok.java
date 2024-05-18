@@ -1,7 +1,8 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineBoss;
-import divinerpg.entities.projectile.EntityRaglokBomb;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.sounds.SoundEvent;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
@@ -122,7 +124,7 @@ public class EntityRaglok extends EntityDivineBoss {
                 for (int i = 0; i < 4; i++) {
 
 
-                    EntityRaglokBomb var2 = new EntityRaglokBomb(EntityRegistry.RAGLOK_BOMB.get(), this.level());
+                    ThrowableProjectile var2 = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level(), BulletType.RAGLOK_BOMB);
                     var2.moveTo(player.xo, player.yo + 5, player.zo);
                     var2.setDeltaMovement((random.nextDouble() - random.nextDouble()) / 5, -0.14, (random.nextDouble() - random.nextDouble()) / 5);
                     this.level().addFreshEntity(var2);

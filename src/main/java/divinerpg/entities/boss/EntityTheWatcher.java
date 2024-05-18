@@ -1,7 +1,8 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
-import divinerpg.entities.projectile.EntityWatcherShot;
+import divinerpg.entities.projectile.EntityShooterBullet;
+import divinerpg.enums.BulletType;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.nbt.CompoundTag;
@@ -78,7 +79,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
         if (this.isAlive() && getTarget() != null) {
-            Projectile projectile = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT.get(), level(), this);
+            ThrowableProjectile projectile = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), this, level(), BulletType.THE_WATCHER_SHOT);
             double d0 = getTarget().getX() - this.getX();
             double d1 = getTarget().getY(0.3333333333333333D) - projectile.getY();
             double d2 = getTarget().getZ() - this.getZ();
@@ -194,7 +195,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
                         world.levelEvent(null, 1016, this.mob.blockPosition(), 0);
                     }
 
-                    EntityWatcherShot shot = new EntityWatcherShot(EntityRegistry.WATCHER_SHOT.get(), world, this.mob);
+                    ThrowableProjectile shot = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), livingentity, world, BulletType.THE_WATCHER_SHOT);
                     shot.shoot(d2, d3, d4, 1, 1);
                     shot.setPos(this.mob.getX() + vector3d.x * 4.0D, this.mob.getY(0.5D) + 0.5D, shot.getZ() + vector3d.z * 4.0D);
                     world.addFreshEntity(shot);

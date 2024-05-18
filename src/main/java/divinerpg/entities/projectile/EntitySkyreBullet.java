@@ -36,7 +36,7 @@ public class EntitySkyreBullet extends DivineThrowable {
                 }
             }
 
-            level().explode(this, this.xo, this.yo, this.zo, 4.5F, false, Level.ExplosionInteraction.NONE);
+            level().explode(this, this.xo, this.yo, this.zo, 4.5F, false, Level.ExplosionInteraction.MOB);
 
             if (!this.level().isClientSide()) {
                 this.kill();
@@ -47,7 +47,7 @@ public class EntitySkyreBullet extends DivineThrowable {
     protected void onHit(HitResult result) {
         if (tickCount != 1 || tickCount != 0) {
             if (!this.level().isClientSide()) {
-                this.level().explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.NONE);
+                this.level().explode(this, this.xo, this.yo, this.zo, 2, false, Level.ExplosionInteraction.MOB);
                 this.kill();
             }
         }

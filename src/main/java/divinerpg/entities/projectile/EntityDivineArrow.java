@@ -20,9 +20,7 @@ public class EntityDivineArrow extends AbstractArrow {
     public double damageMin;
     public double damageMax;
     private ArrowType arrowType;
-    public EntityDivineArrow(EntityType<? extends AbstractArrow> type, Level world) {
-        super(type, world);
-    }
+    public EntityDivineArrow(EntityType<? extends AbstractArrow> type, Level world) {super(type, world);}
     public EntityDivineArrow(EntityType<? extends AbstractArrow> type, Level world, ArrowType arrowType, double x, double y, double z) {
         this(type, world);
         this.arrowType = arrowType;
