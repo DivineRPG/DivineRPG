@@ -571,14 +571,14 @@ public class BlockRegistry {
             purpleFairyLights = registerBlock("purple_fairy_lights", BlockLights::new),
 
             //Torches
-            aquaTorch = BLOCKS.register("aqua_torch", () -> new BlockModTorch(FLAME)),
-            aquaWallTorch = BLOCKS.register("aqua_wall_torch", () -> new BlockModWallTorch(FLAME)),
-            skeletonWallTorch = BLOCKS.register("skeleton_wall_torch", () -> new BlockModWallTorch(FLAME)),
-            skeletonTorch = BLOCKS.register("skeleton_torch", () -> new BlockModTorch(FLAME)),
-            arcaniumTorch = BLOCKS.register("arcanium_torch", () -> new BlockModTorch(FLAME)),
-            arcaniumWallTorch = BLOCKS.register("arcanium_wall_torch", () -> new BlockModWallTorch(FLAME)),
-            edenTorch = BLOCKS.register("eden_torch", () -> new BlockModTorch(FLAME)),
-            edenWallTorch = BLOCKS.register("eden_wall_torch", () -> new BlockModWallTorch(FLAME)),
+            aquaTorch = BLOCKS.register("aqua_torch", BlockAquaTorch::new),
+            aquaWallTorch = BLOCKS.register("aqua_wall_torch", BlockAquaWallTorch::new),
+            arcaniumTorch = BLOCKS.register("arcanium_torch", BlockModTorch::new),
+            arcaniumWallTorch = BLOCKS.register("arcanium_wall_torch", BlockModWallTorch::new),
+            edenTorch = BLOCKS.register("eden_torch", BlockModTorch::new),
+            edenWallTorch = BLOCKS.register("eden_wall_torch", BlockModWallTorch::new),
+            skeletonTorch = BLOCKS.register("skeleton_torch", () -> new TorchBlock(Properties.copy(Blocks.TORCH).sound(SoundType.BONE_BLOCK), FLAME)),
+            skeletonWallTorch = BLOCKS.register("skeleton_wall_torch", () -> new WallTorchBlock(Properties.copy(Blocks.WALL_TORCH).sound(SoundType.BONE_BLOCK), FLAME)),
 
             //Stone Lamps
             moltenLamp = registerBlock("molten_lamp", () -> new BlockModLamp(COLOR_ORANGE, SoundType.GLASS)),

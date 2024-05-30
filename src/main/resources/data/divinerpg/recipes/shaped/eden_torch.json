@@ -4,8 +4,9 @@
     "count": 4
   },
   "pattern": [
-    "x",
-    "y"
+    "z",
+    "y",
+    "x"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
@@ -14,6 +15,14 @@
     },
     "y": {
       "item": "minecraft:stick"
-    }
+    },
+    "z": [
+      {
+        "item": "minecraft:coal"
+      },
+      {
+        "item": "minecraft:charcoal"
+      }
+    ]
   }
 }

@@ -1,42 +1,24 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
-import divinerpg.registries.ParticleRegistry;
+import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockModTorch extends TorchBlock {
-
-    public BlockModTorch(ParticleOptions particleData) {
-        super(Properties.copy(Blocks.TORCH), particleData);
-    }
-
-    @Override
+    //TODO: I don't know why it refuses to work when I insert the needed particle into the constructor directly
+    public BlockModTorch() {super(Properties.copy(Blocks.TORCH), ParticleTypes.FLAME);}
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource rand) {
-        double d0 = (double) pos.getX() + rand.nextDouble() * 0.5D + 0.2D;
-        double d1 = (double) pos.getY() + rand.nextDouble() * 0.7D + 0.2D;
-        double d2 = (double) pos.getZ() + rand.nextDouble() * 0.5D + 0.2D;
-        if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "aqua_torch"))) {
-            world.addParticle(ParticleRegistry.BLUE_FLAME.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
-        }
-        else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skeleton_torch"))) {
-            world.addParticle(ParticleRegistry.BLACK_FLAME.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
-        }
-        else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_torch"))) {
-            world.addParticle(ParticleRegistry.GREEN_FLAME.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
-        }
-        else if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_torch"))) {
-            world.addParticle(ParticleRegistry.PURPLE_FLAME.get(), d0, d1, d2, 0.0D, 0.0D, 0.0D);
-        } else {
-            world.addParticle(flameParticle, d0, d1, d2, 0.0D, 0.0D, 0.0D);
-        }
+    @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        double d0 = pos.getX() + .5;
+        double d1 = pos.getY() + .7;
+        double d2 = pos.getZ() + .5;
+        level.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0, 0, 0);
+        if(this == BlockRegistry.arcaniumTorch.get()) level.addParticle(ParticleRegistry.PURPLE_FLAME.get(), d0, d1, d2, 0, 0, 0);
+        if(this == BlockRegistry.edenTorch.get()) level.addParticle(ParticleRegistry.GREEN_FLAME.get(), d0, d1, d2, 0, 0, 0);
     }
 }

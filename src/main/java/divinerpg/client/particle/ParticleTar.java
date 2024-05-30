@@ -1,9 +1,8 @@
 package divinerpg.client.particle;
 
 import net.minecraft.client.particle.*;
-import net.minecraft.core.particles.*;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.api.distmarker.*;
-
 import net.minecraft.client.multiplayer.ClientLevel;
 
 @OnlyIn(Dist.CLIENT)
