@@ -10,36 +10,36 @@ import net.minecraftforge.server.command.TextComponentHelper;
 
 public class LocalizeUtils {
     private static final String
-            Ammo = "tooltip.ammo",
-            ArcanaConsuming = "tooltip.arcana",
-            ArcanaDamage = "tooltip.damage.arcana",
-            ArcanaRegen = "tooltip.arcana.regen",
-            BurnMobs = "tooltip.effect.burns",
-            Efficiency = "tooltip.efficiency",
-            HarvestLevel = "tooltip.harvest_level",
-            HealthHeal = "tooltip.heals",
-            HealthRegen = "tooltip.health.regen",
-            InfiniteAmmo = "tooltip.ammo.infinite",
-            InstantConsumption = "tooltip.instant_consumption",
-            LightningShot = "tooltip.lightning_shot",
-            MagicDamage = "tooltip.damage.magic",
-            OnUseDamage = "tooltip.damage.use",
-            Poison = "tooltip.effect.poisons",
-            Pull = "tooltip.pull",
-            Push = "tooltip.push",
-            RangedDamage = "tooltip.damage.ranged",
-            ReturnsToSender = "tooltip.return",
-            ShotsBouncing = "tooltip.shots.bounce",
-            ShotsExplosive = "tooltip.shots.explosive",
-            ShotsHoming = "tooltip.shots.homing",
-            ShotsSky = "tooltip.shots.sky",
-            ShotsSplit = "tooltip.shots.split",
-            SlowMobs = "tooltip.effect.slows",
-            Summoned = "tooltip.summon",
-            SummonedDamage = "tooltip.summon.damage",
-            SummonedDespawn = "tooltip.summon.despawn",
-            SummonedHealth = "tooltip.summon.health",
-            WeakenedWithoutArcana = "tooltip.weakened_without_arcana";
+            Ammo = "tooltip.divinerpg.ammo",
+            ArcanaConsuming = "tooltip.divinerpg.arcana",
+            ArcanaDamage = "tooltip.divinerpg.damage.arcana",
+            ArcanaRegen = "tooltip.divinerpg.arcana.regen",
+            BurnMobs = "tooltip.divinerpg.effect.burns",
+            Efficiency = "tooltip.divinerpg.tool.efficiency",
+            HarvestLevel = "tooltip.divinerpg.tool.harvest_level",
+            HealthHeal = "tooltip.divinerpg.heals",
+            HealthRegen = "tooltip.divinerpg.health.regen",
+            InfiniteAmmo = "tooltip.divinerpg.ammo.infinite",
+            InstantConsumption = "tooltip.divinerpg.instant_consumption",
+            LightningShot = "tooltip.divinerpg.lightning_shot",
+            MagicDamage = "tooltip.divinerpg.damage.magic",
+            OnUseDamage = "tooltip.divinerpg.damage.use",
+            Poison = "tooltip.divinerpg.effect.poisons",
+            Pull = "tooltip.divinerpg.pull",
+            Push = "tooltip.divinerpg.push",
+            RangedDamage = "tooltip.divinerpg.damage.ranged",
+            ReturnsToSender = "tooltip.divinerpg.return",
+            ShotsBouncing = "tooltip.divinerpg.shots.bounce",
+            ShotsExplosive = "tooltip.divinerpg.shots.explosive",
+            ShotsHoming = "tooltip.divinerpg.shots.homing",
+            ShotsSky = "tooltip.divinerpg.shots.sky",
+            ShotsSplit = "tooltip.divinerpg.shots.split",
+            SlowMobs = "tooltip.divinerpg.effect.slows",
+            Summoned = "tooltip.divinerpg.summon",
+            SummonedDamage = "tooltip.divinerpg.summon.damage",
+            SummonedDespawn = "tooltip.divinerpg.summon.despawn",
+            SummonedHealth = "tooltip.divinerpg.summon.health",
+            WeakenedWithoutArcana = "tooltip.divinerpg.weakened_without_arcana";
     /**
      * Indicates what ammunition is required.
      *
@@ -82,7 +82,7 @@ public class LocalizeUtils {
      *
      * @param eff - efficiency
      */
-    public static Component efficiency(int eff) {return i18n(Efficiency, eff);}
+    public static Component efficiency(int eff) {return i18n(ChatFormatting.WHITE, Efficiency, eff);}
     /**
      * Indicates that the projectiles are explosive.
      */
@@ -99,7 +99,7 @@ public class LocalizeUtils {
      *
      * @param lvl - harvest level
      */
-    public static Component harvestLevel(int lvl) {return i18n(HarvestLevel, lvl);}
+    public static Component harvestLevel(int lvl) {return i18n(ChatFormatting.WHITE, HarvestLevel, lvl);}
     /**
      * Indicates how much health is restored when used.
      */

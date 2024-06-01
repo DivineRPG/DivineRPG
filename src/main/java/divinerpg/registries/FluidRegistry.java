@@ -4,7 +4,7 @@ import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
 import divinerpg.DivineRPG;
 import divinerpg.util.DamageSources;
-import net.minecraft.client.*;
+import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.core.*;
@@ -13,9 +13,7 @@ import net.minecraft.sounds.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.*;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -35,11 +33,10 @@ public class FluidRegistry {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, MODID);
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, MODID);
     private static ForgeFlowingFluid.Properties fluidProperties() {
-        return new ForgeFlowingFluid.Properties(SMOLDERING_TAR, SMOLDERING_TAR_FLUID, SMOLDERING_TAR_FLUID_FLOWING).block(SMOLDERING_TAR_BLOCK).bucket(SMOLDERING_TAR_BUCKET);
+        return new ForgeFlowingFluid.Properties(SMOLDERING_TAR, SMOLDERING_TAR_FLUID, SMOLDERING_TAR_FLUID_FLOWING).block(SMOLDERING_TAR_BLOCK).bucket(ItemRegistry.smoldering_tar_bucket);
     }
     public static final RegistryObject<FluidType> SMOLDERING_TAR = FLUID_TYPES.register("smoldering_tar_fluid_type", () ->
-            new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA))
-            {
+            new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)) {
                 @Override public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
                     consumer.accept(new IClientFluidTypeExtensions() {
                         private static final ResourceLocation
@@ -60,8 +57,7 @@ public class FluidRegistry {
                             if(farDistance > renderDistance) {
                                 farDistance = renderDistance;
                                 shape = FogShape.CYLINDER;
-                            }
-                            RenderSystem.setShaderFogStart(nearDistance);
+                            } RenderSystem.setShaderFogStart(nearDistance);
                             RenderSystem.setShaderFogEnd(farDistance);
                             RenderSystem.setShaderFogShape(shape);
                         }
@@ -125,6 +121,4 @@ public class FluidRegistry {
                     }
                 }
             });
-    public static final RegistryObject<Item> SMOLDERING_TAR_BUCKET = ItemRegistry.ITEMS.register("smoldering_tar_bucket", () ->
-            new BucketItem(SMOLDERING_TAR_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 }

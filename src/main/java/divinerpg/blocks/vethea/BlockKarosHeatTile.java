@@ -1,51 +1,31 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModUnbreakable;
-import divinerpg.util.DamageSources;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.*;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.*;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockKarosHeatTile extends BlockModUnbreakable {
-    private static final AABB KAROS_HEAT_TILE_AABB = new AABB(0.0625D, 0.0D, 0.0625D, 0.9375D, 0.9375D,
-            0.9375D);
-
-    public BlockKarosHeatTile(MapColor color) {
-        super(BlockBehaviour.Properties.of().mapColor(color).randomTicks().strength(-1F, 3600000F).instrument(NoteBlockInstrument.BASEDRUM));
+    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
+    public BlockKarosHeatTile() {
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD).randomTicks().strength(-1, 3600000).instrument(NoteBlockInstrument.BASEDRUM));
+        registerDefaultState(stateDefinition.any().setValue(ACTIVE, false));
     }
-
-    @Override
-    public VoxelShape getCollisionShape(BlockState p_220071_1_, BlockGetter p_220071_2_, BlockPos p_220071_3_, CollisionContext p_220071_4_) {
-        return Shapes.create(KAROS_HEAT_TILE_AABB);
+    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(ACTIVE);}
+    @Override public void randomTick(BlockState state, ServerLevel worldIn, BlockPos pos, RandomSource random) {
+        if(state.getValue(ACTIVE) && random.nextInt(5) == 0) worldIn.setBlock(pos, state.setValue(ACTIVE, false), 2);
     }
-
-    @Override
-    public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
-        return Shapes.create(KAROS_HEAT_TILE_AABB);
-    }
-
-    @Override
-    public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
-        if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_red"))) {
-            world.setBlock(pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_green")).defaultBlockState(), 0);
-        }
-    }
-
-    @Override
-    public void entityInside(BlockState state, Level world, BlockPos pos, Entity entityIn) {
-        if (this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_red")) && entityIn instanceof ServerPlayer) {
-            entityIn.hurt(DamageSources.source(world, DamageSources.TRAP), 6);
-            entityIn.setSecondsOnFire(5);
+    @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+        if(state.getValue(ACTIVE) && entity instanceof ServerPlayer && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
+            entity.hurt(entity.damageSources().hotFloor(), 6);
+            entity.setSecondsOnFire(5);
         }
     }
 }

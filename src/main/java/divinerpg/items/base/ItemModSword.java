@@ -3,6 +3,7 @@ package divinerpg.items.base;
 import com.google.common.collect.*;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.enums.ToolStats;
+import divinerpg.registries.EnchantmentRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -62,7 +63,8 @@ public class ItemModSword extends SwordItem {
         }).orElse(InteractionResultHolder.pass(player.getItemInHand(hand)));
     }
     @Override public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && enchantment == Enchantments.FIRE_ASPECT) return false;
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && enchantment == Enchantments.FIRE_ASPECT ||
+           sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW && enchantment == EnchantmentRegistry.BRAIN_FREEZE.get()) return false;
         else return enchantment.category.canEnchant(stack.getItem());
     }
     @Override public Multimap<Attribute, AttributeModifier> getAttributeModifiers(final EquipmentSlot slot, final ItemStack stack) {
@@ -95,7 +97,7 @@ public class ItemModSword extends SwordItem {
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.LIGHTNING) tooltip.add(LocalizeUtils.lightningShots());
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.POISON) tooltip.add(LocalizeUtils.poison(sword.effectSec));
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW) tooltip.add(LocalizeUtils.slow(sword.effectSec));
-        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SPEED) tooltip.add(LocalizeUtils.i18n("tooltip.shadow_saber"));
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SPEED) tooltip.add(LocalizeUtils.i18n("tooltip.divinerpg.shadow_saber"));
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);

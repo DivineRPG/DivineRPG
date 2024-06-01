@@ -44,8 +44,8 @@ public class FoodList {
 
     //Apalachia
     public static final FoodProperties ENRICHED_MAGIC_MEAT = (new FoodProperties.Builder()).nutrition(7).saturationMod(.8F).meat().build();
-    public static final FoodProperties PINK_GLOWBONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(.5F).build();
     public static final FoodProperties PURPLE_GLOWBONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(.5F).build();
+    public static final FoodProperties PINK_GLOWBONE = (new FoodProperties.Builder()).nutrition(3).saturationMod(.5F).build();
 
     //Skythern
     public static final FoodProperties SKY_FLOWER = (new FoodProperties.Builder()).nutrition(3).saturationMod(.2F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0), 1).effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 600, 0), 1).build();

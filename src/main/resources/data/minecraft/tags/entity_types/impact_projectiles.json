@@ -2,9 +2,6 @@
   "replace": false,
   "values": [
     "divinerpg:bouncing_projectile",
-    "divinerpg:cave_rock",
-    "divinerpg:colored_bullet",
-    "divinerpg:cori_shot",
     "divinerpg:disk",
     "divinerpg:dissiment_shot",
     "divinerpg:ender_triplets_fireball",
@@ -13,27 +10,15 @@
     "divinerpg:frost_cloud",
     "divinerpg:frost_shot",
     "divinerpg:fyracryx_fireball",
-    "divinerpg:kazrotic_shot",
-    "divinerpg:king_of_scorchers_meteor",
-    "divinerpg:king_of_scorchers_shot",
     "divinerpg:lady_luna_sparkler",
-    "divinerpg:mage_shot",
-    "divinerpg:mandragora_projectile",
     "divinerpg:meriks_missile",
     "divinerpg:particle_bullet",
-    "divinerpg:raglok_bomb",
     "divinerpg:saguaro_worm_shot",
     "divinerpg:scorcher_shot",
     "divinerpg:shooter_bullet",
     "divinerpg:skyre_bullet",
     "divinerpg:soul_fiend_shot",
     "divinerpg:twilight_demon_shot",
-    "divinerpg:twilight_mage_shot",
-    "divinerpg:watcher_shot",
-    "divinerpg:wildwood_log",
-    "divinerpg:wreck_bouncing_projectile",
-    "divinerpg:wreck_explosive_shot",
-    "divinerpg:wreck_shot",
-    "divinerpg:zoragon_bomb"
+    "divinerpg:wildwood_log"
   ]
 }

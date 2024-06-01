@@ -1,9 +1,7 @@
 package divinerpg.items.base;
 
-import divinerpg.DivineRPG;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.util.LocalizeUtils;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
@@ -41,7 +39,7 @@ public class ItemMod extends Item {
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        if(getDescriptionId().contains("torridite")) tooltip.add(Component.translatable(DivineRPG.MODID + ".torridite").withStyle(ChatFormatting.GRAY));
+        if(getDescriptionId().contains("torridite")) tooltip.add(LocalizeUtils.i18n("tooltip.divinerpg.torridite"));
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
     }

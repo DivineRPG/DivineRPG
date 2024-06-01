@@ -688,8 +688,8 @@ public class BlockRegistry {
             pinflyPlant = registerBlock("pinfly_plant", BlockPinfly::new),
             veiloPlant = registerBlock("veilo_plant", () -> new BlockModCrop(3, ItemRegistry.veilo_seeds.getId())),
             moonbulbPlant = registerBlock("moonbulb_plant", BlockMoonbulb::new),
-            pinkGlowbonePlant = registerBlock("pink_glowbone_plant", BlockPinkGlowbone::new),
             purpleGlowbonePlant = registerBlock("purple_glowbone_plant", BlockPurpleGlowbone::new),
+            pinkGlowbonePlant = registerBlock("pink_glowbone_plant", BlockPinkGlowbone::new),
             skyPlant = registerBlock("sky_plant", BlockSkyPlant::new),
 
             //Mob Pumpkins
@@ -779,11 +779,11 @@ public class BlockRegistry {
             infusionTable = registerBlock("infusion_table", BlockInfusionTable::new, Rarity.RARE),
 
             //Furnaces
-            coalstoneFurnace = registerBlock("coalstone_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.COALSTONE_FURNACE::get, COLOR_GRAY), Rarity.UNCOMMON),
-            greenlightFurnace = registerBlock("greenlight_furnace", () -> new BlockModFurnace(BlockEntityRegistry.GREENLIGHT_FURNACE::get, TERRACOTTA_LIGHT_GREEN), Rarity.UNCOMMON),
-            moonlightFurnace = registerBlock("moonlight_furnace", () -> new BlockModFurnace(BlockEntityRegistry.MOONLIGHT_FURNACE::get, COLOR_BLUE), Rarity.UNCOMMON),
+            coalstoneFurnace = registerBlock("coalstone_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.COALSTONE_FURNACE::get, COLOR_GRAY)),
             moltenFurnace = registerBlock("molten_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.MOLTEN_FURNACE::get, TERRACOTTA_LIGHT_GRAY), Rarity.UNCOMMON),
+            greenlightFurnace = registerBlock("greenlight_furnace", () -> new BlockModFurnace(BlockEntityRegistry.GREENLIGHT_FURNACE::get, TERRACOTTA_LIGHT_GREEN), Rarity.UNCOMMON),
             oceanfireFurnace = registerBlock("oceanfire_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.OCEANFIRE_FURNACE::get, COLOR_LIGHT_BLUE), Rarity.UNCOMMON),
+            moonlightFurnace = registerBlock("moonlight_furnace", () -> new BlockModFurnace(BlockEntityRegistry.MOONLIGHT_FURNACE::get, COLOR_BLUE), Rarity.UNCOMMON),
             whitefireFurnace = registerBlock("whitefire_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.WHITEFIRE_FURNACE::get, SNOW), Rarity.UNCOMMON),
             demonFurnace = registerWithRender("demon_furnace", BlockDemonFurnace::new, Rarity.EPIC),
 
@@ -811,8 +811,7 @@ public class BlockRegistry {
             spikeBlock = registerBlock("spike_block", () -> new BlockSpike(false, METAL)),
             hotSpikeBlock = registerBlock("hot_spike_block", () -> new BlockSpike(true, CRIMSON_NYLIUM)),
             heatTrap = registerBlock("heat_trap", BlockHeatTrap::new),
-            karosHeatTileGreen = registerBlock("karos_heat_tile_green", () -> new BlockKarosHeatTile(EMERALD)),
-            karosHeatTileRed = registerBlock("karos_heat_tile_red", () -> new BlockKarosHeatTile(FIRE)),
+            karosHeatTile = registerBlock("karos_heat_tile", BlockKarosHeatTile::new),
             karosDispenser = registerBlock("karos_dispenser", BlockKarosDispenser::new),
 
             //Acid

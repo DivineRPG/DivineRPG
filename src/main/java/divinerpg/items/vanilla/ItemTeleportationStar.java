@@ -70,10 +70,10 @@ public class ItemTeleportationStar extends ItemMod {
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         CompoundTag compound = getFromStack(stack);
-        if(compound.contains(dimKey)) tooltip.add(LocalizeUtils.i18n("tooltip.dimension", compound.getString(dimKey)));
+        if(compound.contains(dimKey)) tooltip.add(LocalizeUtils.i18n(ChatFormatting.WHITE, "tooltip.divinerpg.teleport.dimension", compound.getString(dimKey)));
         if(compound.contains(posKey)) {
             BlockPos pos = BlockPos.of(compound.getLong(posKey));
-            tooltip.add(LocalizeUtils.i18n("tooltip.block_position", pos.getX(), pos.getY(), pos.getZ()));
+            tooltip.add(LocalizeUtils.i18n(ChatFormatting.WHITE, "tooltip.divinerpg.teleport.block_position", pos.getX(), pos.getY(), pos.getZ()));
         } super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

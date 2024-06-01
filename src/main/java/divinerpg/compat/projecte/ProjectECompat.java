@@ -181,7 +181,7 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(ItemRegistry.jack_o_man_leggings.get()), 4208);
         register(NSSItem.createItem(ItemRegistry.jack_o_man_boots.get()), 2464);
         register(NSSItem.createItem(ItemRegistry.scythe.get()), 7696);
-        register(NSSItem.createItem(FluidRegistry.SMOLDERING_TAR_BUCKET.get()), 832);
+        register(NSSItem.createItem(ItemRegistry.smoldering_tar_bucket.get()), 832);
         register(NSSItem.createItem(ItemRegistry.gem_fin_bucket.get()), 832);
         register(NSSItem.createItem(ItemRegistry.cauldron_fish_bucket.get()), 832);
         register(NSSItem.createItem(ItemRegistry.miners_amulet.get()), 3840);

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "divinerpg:block/karos_heat_tile"
+    },
+    "active=true": {
+      "model": "divinerpg:block/karos_heat_tile_on"
+    }
+  }
+}

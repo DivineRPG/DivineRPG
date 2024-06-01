@@ -41,7 +41,7 @@ public class ItemTeleportationCrystal extends ItemMod {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.teleport_respawn_point"));
+        tooltip.add(LocalizeUtils.i18n("tooltip.divinerpg.teleport.respawn_point"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

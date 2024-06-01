@@ -157,8 +157,8 @@ public class EntityKaros extends EntityDivineBoss {
                         int var3 = (int) Math.round(Math.cos(var4) * i);
 
                         BlockPos currentPos = new BlockPos((int) this.getX() + var1, (int) this.getY() - 1, (int) this.getZ() + var3);
-                        if (this.level().getBlockState(currentPos).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_green"))) {
-                            this.level().setBlock(currentPos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_heat_tile_red")).defaultBlockState(), 0);
+                        if(level().getBlockState(currentPos).getBlock() == BlockRegistry.karosHeatTile.get()) {
+                            level().setBlock(currentPos, BlockRegistry.karosHeatTile.get().defaultBlockState().setValue(BlockKarosHeatTile.ACTIVE, true), 0);
                         }
                         var4 += Math.PI / 8.0D;
                     }

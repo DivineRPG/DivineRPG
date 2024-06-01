@@ -34,7 +34,7 @@ public class ItemStaffEnrichment extends ItemMod {
         } return super.useOn(context);
     }
     @Override public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.staff_of_enrichment"));
+        tooltip.add(LocalizeUtils.i18n("tooltip.divinerpg.staff_of_enrichment"));
         super.appendHoverText(stack, level, tooltip, flagIn);
     }
 }

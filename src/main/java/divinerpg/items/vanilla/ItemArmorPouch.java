@@ -84,10 +84,10 @@ public class ItemArmorPouch extends ItemMod {
 	@Override public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag tooltip) {
 		CompoundTag itemTag = itemstack.getOrCreateTag();
 		ItemStack helmet = ItemStack.of(itemTag.getCompound(TAG_HELMET)), chestplate = ItemStack.of(itemTag.getCompound(TAG_CHESTPLATE)), leggings = ItemStack.of(itemTag.getCompound(TAG_LEGGINGS)), boots = ItemStack.of(itemTag.getCompound(TAG_BOOTS));
-		if(!helmet.isEmpty()) list.add(Component.translatable("item.divinerpg.armor_pouch.helmet").append(helmet.getHoverName()).withStyle(ChatFormatting.GRAY));
-		if(!chestplate.isEmpty()) list.add(Component.translatable("item.divinerpg.armor_pouch.chestplate").append(chestplate.getHoverName()).withStyle(ChatFormatting.GRAY));
-		if(!leggings.isEmpty()) list.add(Component.translatable("item.divinerpg.armor_pouch.leggings").append(leggings.getHoverName()).withStyle(ChatFormatting.GRAY));
-		if(!boots.isEmpty()) list.add(Component.translatable("item.divinerpg.armor_pouch.boots").append(boots.getHoverName()).withStyle(ChatFormatting.GRAY));
+		if(!helmet.isEmpty()) list.add(Component.translatable("tooltip.divinerpg.armor_pouch.helmet").append(helmet.getHoverName()).withStyle(ChatFormatting.WHITE));
+		if(!chestplate.isEmpty()) list.add(Component.translatable("tooltip.divinerpg.armor_pouch.chestplate").append(chestplate.getHoverName()).withStyle(ChatFormatting.WHITE));
+		if(!leggings.isEmpty()) list.add(Component.translatable("tooltip.divinerpg.armor_pouch.leggings").append(leggings.getHoverName()).withStyle(ChatFormatting.WHITE));
+		if(!boots.isEmpty()) list.add(Component.translatable("tooltip.divinerpg.armor_pouch.boots").append(boots.getHoverName()).withStyle(ChatFormatting.WHITE));
 		super.appendHoverText(itemstack, level, list, tooltip);
 	}
 }

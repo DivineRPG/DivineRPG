@@ -103,7 +103,7 @@ public class AltarOfCorruptionBlockEntity extends BlockEntity implements Nameabl
     }
 
     public Component getName() {
-        return this.name != null ? this.name : Component.translatable("container.altar_of_corruption");
+        return this.name != null ? this.name : Component.translatable("container.enchant");
     }
 
     public void setCustomName(@Nullable Component p_59273_) {

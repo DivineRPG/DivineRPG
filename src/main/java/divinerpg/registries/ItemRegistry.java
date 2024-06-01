@@ -53,12 +53,12 @@ public class ItemRegistry {
             witherReaperInfo = new ArmorInfo(getArmorAbility("wither_protection")),
 
     //Iceika
-            sengFurInfo = new ArmorInfo(Component.translatable("tooltip.armor_info.massive_buff"),
+            sengFurInfo = new ArmorInfo(Component.translatable("tooltip.divinerpg.armor_info.massive_buff"),
             getArmorAbility("speed", 2),
             getArmorAbility("melee_damage", 2),
             getArmorAbility("hunger"),
             getArmorAbility("melee_protection", 30))
-            .withDimension(Component.translatable("tooltip.armor_info.iceika"), x -> Objects.equals(x, LevelRegistry.ICEIKA)),
+            .withDimension(Component.translatable("tooltip.divinerpg.armor_info.iceika"), x -> Objects.equals(x, LevelRegistry.ICEIKA)),
     
     //Twilight
             edenInfo = new ArmorInfo(getArmorAbility("ore_drops", 3)),
@@ -278,8 +278,8 @@ public class ItemRegistry {
             enriched_magic_meat = registerItem("enriched_magic_meat", () -> new ItemModFood(FoodList.ENRICHED_MAGIC_MEAT, true)),
             forbidden_fruit = registerItem("forbidden_fruit", () -> new ItemModFood(FoodList.FORBIDDEN_FRUIT)),
             moonbulb = registerItem("moonbulb", () -> new ItemModFood(FoodList.MOONBULB, true)),
-            pink_glowbone = registerItem("pink_glowbone", () -> new ItemModFood(FoodList.PINK_GLOWBONE, true)),
             purple_glowbone = registerItem("purple_glowbone", () -> new ItemModFood(FoodList.PURPLE_GLOWBONE, true)),
+            pink_glowbone = registerItem("pink_glowbone", () -> new ItemModFood(FoodList.PINK_GLOWBONE, true)),
             sky_flower = registerItem("sky_flower", ItemSkyFlower::new),
             honeysuckle = registerItem("honeysuckle", () -> new ItemModFood(FoodList.HONEYSUCKLE)),
             honeychunk = registerItem("honeychunk", () -> new ItemModFood(FoodList.HONEYCHUNK)),
@@ -633,6 +633,7 @@ public class ItemRegistry {
             //Buckets
             gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
             cauldron_fish_bucket = registerItem("cauldron_fish_bucket", () -> new MobBucketItem(EntityRegistry.CAULDRON_FISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
+            smoldering_tar_bucket = registerItem("smoldering_tar_bucket", () -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))),
 
     //Vethean Swords
             teaker_backsword = registerItemVethean("teaker_backsword", () -> new ItemModSword(ToolStats.TEAKER_BACKSWORD)),
@@ -986,7 +987,7 @@ public class ItemRegistry {
             tormented_boots = registerItemVethean("tormented_boots", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.BOOTS));
 
     public static MutableComponent getArmorAbility(String keyPart, Object... params) {
-        String id = String.format("tooltip.armor_info.%s", keyPart);
+        String id = String.format("tooltip.divinerpg.armor_info.%s", keyPart);
         return params == null || params.length < 1 ? MutableComponent.create(new TranslatableContents(id, null, null)) : MutableComponent.create(new TranslatableContents(id, null, params));
     }
     private static RegistryObject<Item> registerItemVethean(String registryId) {return ITEMS.register(registryId, ItemVethean::new);}
