@@ -1,10 +1,9 @@
 package divinerpg.events;
 
-import divinerpg.config.*;
-import divinerpg.util.DivineRPGPacketHandler;
-import divinerpg.util.Utils;
+import divinerpg.config.ClientConfig;
+import divinerpg.util.*;
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.*;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -13,28 +12,25 @@ import net.minecraftforge.network.PacketDistributor;
 
 public class EventClientLogin {
     @SubscribeEvent
-    public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent evt){
-        Player player = evt.getEntity();
-        if(!player.level().isClientSide()) {
-        	//weather update
+    public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event){
+        Player player = event.getEntity();
+        if(!player.level().isClientSide) {
+        	//Weather update
         	if(player instanceof ServerPlayer pl) DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> pl), Utils.ICEIKA_WEATHER);
             //Send welcome messages
             if(ClientConfig.welcomeMessage.get()) {
-                if (Utils.isDeveloperName(player.getUUID())) {
-                    MutableComponent message = Component.translatable("message.developer", player.getDisplayName());
-                    message.withStyle(ChatFormatting.DARK_RED);
+                Component message;
+                if(Utils.isDeveloperName(player.getUUID())) {
+                    message = LocalizeUtils.clientMessage(ChatFormatting.DARK_RED, "player.developer", player.getDisplayName());
                     player.sendSystemMessage(message);
-                } else if (Utils.isTesterName(player.getUUID())) {
-                    MutableComponent message = Component.translatable("message.tester", player.getDisplayName());
-                    message.withStyle(ChatFormatting.BLUE);
+                } else if(Utils.isTesterName(player.getUUID())) {
+                    message = LocalizeUtils.clientMessage(ChatFormatting.BLUE, "player.tester", player.getDisplayName());
                     player.sendSystemMessage(message);
-                } else if (Utils.isSpecial(player.getUUID())) {
-                    MutableComponent message = Component.translatable("message.special", player.getDisplayName());
-                    message.withStyle(ChatFormatting.GOLD);
+                } else if(Utils.isSpecial(player.getUUID())) {
+                    message = LocalizeUtils.clientMessage(ChatFormatting.GOLD, "player.special", player.getDisplayName());
                     player.sendSystemMessage(message);
-                } else if (Utils.isFriend(player.getUUID())) {
-                    MutableComponent message = Component.translatable("message.friend", player.getDisplayName());
-                    message.withStyle(ChatFormatting.LIGHT_PURPLE);
+                } else if(Utils.isFriend(player.getUUID())) {
+                    message = LocalizeUtils.clientMessage(ChatFormatting.LIGHT_PURPLE, "player.friend", player.getDisplayName());
                     player.sendSystemMessage(message);
                 }
             }

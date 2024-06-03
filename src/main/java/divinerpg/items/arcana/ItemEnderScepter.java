@@ -36,7 +36,7 @@ public class ItemEnderScepter extends ItemMod {
         }); return super.use(level, player, hand);
     }
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.divinerpg.ender_scepter"));
+        tooltip.add(LocalizeUtils.i18n("ender_scepter"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }

@@ -7,7 +7,6 @@ public class ClientConfig {
     public static final ForgeConfigSpec SPEC;
     public static ForgeConfigSpec.ConfigValue<Boolean> welcomeMessage, hideArcanaBar;
     public static ForgeConfigSpec.ConfigValue<Integer> arcanaX, arcanaY;
-
     static {
         BUILDER.push("Client configs for DivineRPG");
         welcomeMessage = BUILDER.comment("Show welcome message").define("welcomeMessage", true);
@@ -17,5 +16,4 @@ public class ClientConfig {
         BUILDER.pop();
         SPEC = BUILDER.build();
     }
-
 }

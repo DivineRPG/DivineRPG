@@ -63,7 +63,7 @@ public class ItemDreamFlint extends ItemVethean {
 	}
 	@OnlyIn(Dist.CLIENT)
 	@Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-		tooltip.add(LocalizeUtils.i18n("tooltip.divinerpg.dream_flint"));
+		tooltip.add(LocalizeUtils.i18n("dream_flint"));
 		super.appendHoverText(stack, worldIn, tooltip, flagIn);
 	}
 }

@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class ItemHordeHorn extends ItemBossSpawner {
-    public ItemHordeHorn() {super("message.ayeraco_horde", Level.END);}
+    public ItemHordeHorn() {super("item.end_only", Level.END);}
     @Override public InteractionResult useOn(UseOnContext context) {
         Level world = context.getLevel();
         BlockPos pos = context.getClickedPos().relative(context.getClickedFace());

@@ -1,10 +1,9 @@
 package divinerpg.entities.eden;
 
 import divinerpg.registries.*;
+import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -54,7 +53,7 @@ public class EntityGemFin extends AbstractSchoolingFish {
             Bucketable.bucketMobPickup(player, hand, this);
             return InteractionResult.SUCCESS;
         } else if (!this.hasBeenFed && !(heldItem.getItem() == BlockRegistry.gemOfTheDunes.get().asItem() || (heldItem.getItem() == Items.WATER_BUCKET))) {
-            player.displayClientMessage(MutableComponent.create(new TranslatableContents("message.feed_gem", null, null)), true);
+            player.displayClientMessage(LocalizeUtils.clientMessage("feed_gem"), true);
             return InteractionResult.CONSUME;
         } else if (this.hasBeenFed && heldItem.getItem() == BlockRegistry.gemOfTheDunes.get().asItem()) {
             return InteractionResult.FAIL;

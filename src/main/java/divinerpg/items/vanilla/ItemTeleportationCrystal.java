@@ -14,7 +14,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.server.command.TextComponentHelper;
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -32,8 +31,7 @@ public class ItemTeleportationCrystal extends ItemMod {
                 player.awardStat(Stats.ITEM_USED.get(this));
                 return InteractionResultHolder.success(stack);
             } else {
-                MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_crystal_no_respawn");
-                message.withStyle(ChatFormatting.RED);
+                Component message = LocalizeUtils.clientMessage(ChatFormatting.RED, "teleport.no_respawn");
                 player.displayClientMessage(message, true);
                 return InteractionResultHolder.fail(stack);
             }
@@ -41,7 +39,7 @@ public class ItemTeleportationCrystal extends ItemMod {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("tooltip.divinerpg.teleport.respawn_point"));
+        tooltip.add(LocalizeUtils.i18n("teleport.respawn_point"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

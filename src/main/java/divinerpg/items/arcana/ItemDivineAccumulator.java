@@ -32,8 +32,8 @@ public class ItemDivineAccumulator extends ItemMod {
         }); return super.use(level, player, hand);
     }
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> list, TooltipFlag flagIn) {
-        list.add(LocalizeUtils.i18n("tooltip.divinerpg.divine_accumulator.launch"));
-        list.add(LocalizeUtils.i18n("tooltip.divinerpg.divine_accumulator.fall"));
+        list.add(LocalizeUtils.i18n("divine_accumulator.launch"));
+        list.add(LocalizeUtils.i18n("divine_accumulator.fall"));
         super.appendHoverText(stack, worldIn, list, flagIn);
         stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }

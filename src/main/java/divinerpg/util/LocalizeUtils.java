@@ -10,36 +10,36 @@ import net.minecraftforge.server.command.TextComponentHelper;
 
 public class LocalizeUtils {
     private static final String
-            Ammo = "tooltip.divinerpg.ammo",
-            ArcanaConsuming = "tooltip.divinerpg.arcana",
-            ArcanaDamage = "tooltip.divinerpg.damage.arcana",
-            ArcanaRegen = "tooltip.divinerpg.arcana.regen",
-            BurnMobs = "tooltip.divinerpg.effect.burns",
-            Efficiency = "tooltip.divinerpg.tool.efficiency",
-            HarvestLevel = "tooltip.divinerpg.tool.harvest_level",
-            HealthHeal = "tooltip.divinerpg.heals",
-            HealthRegen = "tooltip.divinerpg.health.regen",
-            InfiniteAmmo = "tooltip.divinerpg.ammo.infinite",
-            InstantConsumption = "tooltip.divinerpg.instant_consumption",
-            LightningShot = "tooltip.divinerpg.lightning_shot",
-            MagicDamage = "tooltip.divinerpg.damage.magic",
-            OnUseDamage = "tooltip.divinerpg.damage.use",
-            Poison = "tooltip.divinerpg.effect.poisons",
-            Pull = "tooltip.divinerpg.pull",
-            Push = "tooltip.divinerpg.push",
-            RangedDamage = "tooltip.divinerpg.damage.ranged",
-            ReturnsToSender = "tooltip.divinerpg.return",
-            ShotsBouncing = "tooltip.divinerpg.shots.bounce",
-            ShotsExplosive = "tooltip.divinerpg.shots.explosive",
-            ShotsHoming = "tooltip.divinerpg.shots.homing",
-            ShotsSky = "tooltip.divinerpg.shots.sky",
-            ShotsSplit = "tooltip.divinerpg.shots.split",
-            SlowMobs = "tooltip.divinerpg.effect.slows",
-            Summoned = "tooltip.divinerpg.summon",
-            SummonedDamage = "tooltip.divinerpg.summon.damage",
-            SummonedDespawn = "tooltip.divinerpg.summon.despawn",
-            SummonedHealth = "tooltip.divinerpg.summon.health",
-            WeakenedWithoutArcana = "tooltip.divinerpg.weakened_without_arcana";
+            Ammo = "ammo",
+            ArcanaConsuming = "arcana",
+            ArcanaDamage = "damage.arcana",
+            ArcanaRegen = "arcana.regen",
+            BurnMobs = "effect.burns",
+            Efficiency = "tool.efficiency",
+            HarvestLevel = "tool.harvest_level",
+            HealthHeal = "heals",
+            HealthRegen = "health.regen",
+            InfiniteAmmo = "ammo.infinite",
+            InstantConsumption = "instant_consumption",
+            LightningShot = "lightning_shot",
+            MagicDamage = "damage.magic",
+            OnUseDamage = "damage.use",
+            Poison = "effect.poisons",
+            Pull = "pull",
+            Push = "push",
+            RangedDamage = "damage.ranged",
+            ReturnsToSender = "return",
+            ShotsBouncing = "shots.bounce",
+            ShotsExplosive = "shots.explosive",
+            ShotsHoming = "shots.homing",
+            ShotsSky = "shots.sky",
+            ShotsSplit = "shots.split",
+            SlowMobs = "effect.slows",
+            Summoned = "summon",
+            SummonedDamage = "summon.damage",
+            SummonedDespawn = "summon.despawn",
+            SummonedHealth = "summon.health",
+            WeakenedWithoutArcana = "weakened_without_arcana";
     /**
      * Indicates what ammunition is required.
      *
@@ -205,17 +205,6 @@ public class LocalizeUtils {
      * Indicates that the item is weakened without the arcana.
      */
     public static Component weakenedWithoutArcana() {return i18n(ChatFormatting.RED, WeakenedWithoutArcana);}
-    //TODO: this one is unused, to remove if it's no longer needed!
-    /**
-     * Prints version info.
-     *
-     * @param version - version
-     */
-    public static ComponentContents version(String version) {
-        MutableComponent text = MutableComponent.create(new TranslatableContents("message.version", version, null));
-        text.withStyle(ChatFormatting.RED);
-        return text.getContents();
-    }
     /**
      * Returns translated text.
      * @param color - text color
@@ -223,11 +212,19 @@ public class LocalizeUtils {
      * @param args - string format arguments
      */
     public static Component i18n(ChatFormatting color, String text, Object... args) {
-        MutableComponent result = MutableComponent.create(new TranslatableContents(text, null, args));
+        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("tooltip.divinerpg.%s", text), null, args));
         return result.withStyle(color);
     }
     public static Component i18n(String text, Object... args) {
-        MutableComponent result = MutableComponent.create(new TranslatableContents(text, null, args));
+        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("tooltip.divinerpg.%s", text), null, args));
         return result.withStyle(ChatFormatting.GRAY);
+    }
+    public static Component clientMessage(ChatFormatting color, String text, Object... args) {
+        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("message.divinerpg.%s", text), null, args));
+        return result.withStyle(color);
+    }
+    public static Component clientMessage(String text, Object... args) {
+        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("message.divinerpg.%s", text), null, args));
+        return result.withStyle(ChatFormatting.WHITE);
     }
 }

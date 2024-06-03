@@ -39,7 +39,7 @@ public class ItemMod extends Item {
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        if(getDescriptionId().contains("torridite")) tooltip.add(LocalizeUtils.i18n("tooltip.divinerpg.torridite"));
+        if(getDescriptionId().contains("torridite")) tooltip.add(LocalizeUtils.i18n("torridite"));
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
     }

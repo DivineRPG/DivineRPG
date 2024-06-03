@@ -3,7 +3,7 @@ package divinerpg.blocks.iceika;
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.block_entities.block.FrostedAllureBlockEntity;
 import divinerpg.registries.ItemRegistry;
-import net.minecraft.ChatFormatting;
+import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
@@ -23,7 +23,7 @@ import java.util.List;
 public class BlockFrostedAllure extends BaseEntityBlock {
     public static final IntegerProperty CATEGORY = IntegerProperty.create("category", 0, 5);
     public BlockFrostedAllure() {
-        super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(.8F).sound(SoundType.CALCITE).instrument(NoteBlockInstrument.CHIME).randomTicks());
+        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(.8F).sound(SoundType.CALCITE).instrument(NoteBlockInstrument.CHIME).randomTicks());
         registerDefaultState(stateDefinition.any().setValue(CATEGORY, 0));
     }
     @Nullable
@@ -37,32 +37,32 @@ public class BlockFrostedAllure extends BaseEntityBlock {
         if(hand == InteractionHand.MAIN_HAND && player.getItemInHand(hand).getItem() == ItemRegistry.ice_stone.get()){
             if(state.getValue(CATEGORY) == 0) {
                 level.setBlock(pos, state.setValue(CATEGORY, 1), 0);
-                player.displayClientMessage(Component.translatable("tooltip.divinerpg.frosted_allure.monster"), true);
+                player.displayClientMessage(LocalizeUtils.clientMessage("frosted_allure.monster"), true);
                 if(!player.isCreative()) player.getItemInHand(hand).shrink(1);
                 return InteractionResult.SUCCESS;
             } if(state.getValue(CATEGORY) == 1) {
                 level.setBlock(pos, state.setValue(CATEGORY, 2), 0);
-                player.displayClientMessage(Component.translatable("tooltip.divinerpg.frosted_allure.creature"), true);
+                player.displayClientMessage(LocalizeUtils.clientMessage("frosted_allure.creature"), true);
                 if(!player.isCreative()) player.getItemInHand(hand).shrink(1);
                 return InteractionResult.SUCCESS;
             } if(state.getValue(CATEGORY) == 2) {
                 level.setBlock(pos, state.setValue(CATEGORY, 3), 0);
-                player.displayClientMessage(Component.translatable("tooltip.divinerpg.frosted_allure.ambient"), true);
+                player.displayClientMessage(LocalizeUtils.clientMessage("frosted_allure.ambient"), true);
                 if(!player.isCreative()) player.getItemInHand(hand).shrink(1);
                 return InteractionResult.SUCCESS;
             } if(state.getValue(CATEGORY) == 3) {
                 level.setBlock(pos, state.setValue(CATEGORY, 4), 0);
-                player.displayClientMessage(Component.translatable("tooltip.divinerpg.frosted_allure.water"), true);
+                player.displayClientMessage(LocalizeUtils.clientMessage("frosted_allure.water"), true);
                 if(!player.isCreative()) player.getItemInHand(hand).shrink(1);
                 return InteractionResult.SUCCESS;
             } if(state.getValue(CATEGORY) == 4) {
                 level.setBlock(pos, state.setValue(CATEGORY, 5), 0);
-                player.displayClientMessage(Component.translatable("tooltip.divinerpg.frosted_allure.misc"), true);
+                player.displayClientMessage(LocalizeUtils.clientMessage("frosted_allure.misc"), true);
                 if(!player.isCreative()) player.getItemInHand(hand).shrink(1);
                 return InteractionResult.SUCCESS;
             } if(state.getValue(CATEGORY) == 5) {
                 level.setBlock(pos, state.setValue(CATEGORY, 0), 0);
-                player.displayClientMessage(Component.translatable("tooltip.divinerpg.frosted_allure.all"), true);
+                player.displayClientMessage(LocalizeUtils.clientMessage("frosted_allure.all"), true);
                 if(!player.isCreative()) player.getItemInHand(hand).shrink(1);
                 return InteractionResult.SUCCESS;
             }
@@ -70,7 +70,7 @@ public class BlockFrostedAllure extends BaseEntityBlock {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, BlockGetter worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(Component.translatable("tooltip.divinerpg.frosted_allure").withStyle(ChatFormatting.GRAY));
+        tooltip.add(LocalizeUtils.i18n("frosted_allure"));
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

@@ -7,7 +7,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.*;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.stats.Stats;
@@ -16,7 +16,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.server.command.TextComponentHelper;
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -41,16 +40,15 @@ public class ItemTeleportationStar extends ItemMod {
         ItemStack stack = player.getItemInHand(hand);
         CompoundTag compound = getFromStack(stack);
         boolean hasInfo = compound.contains(dimKey) && compound.contains(posKey);
+        Component message;
         if(!world.isClientSide) {
             if(player.isShiftKeyDown()) {
                 if(!trySetCords(compound, player, hasInfo)) {
-                    MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_change_position");
-                    message.withStyle(ChatFormatting.RED);
+                    message = LocalizeUtils.clientMessage(ChatFormatting.RED, "teleport.change_position");
                     player.displayClientMessage(message, true);
                 } return InteractionResultHolder.success(stack);
             } if(!compound.contains(posKey) && !compound.contains(posKey)) {
-                MutableComponent message = TextComponentHelper.createComponentTranslation(player, "message.teleportation_star_no_position");
-                message.withStyle(ChatFormatting.RED);
+                message = LocalizeUtils.clientMessage(ChatFormatting.RED, "teleport.no_position");
                 player.displayClientMessage(message, true);
                 return InteractionResultHolder.fail(stack);
             } ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(compound.getString(dimKey)))).getLevel();
@@ -70,10 +68,10 @@ public class ItemTeleportationStar extends ItemMod {
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         CompoundTag compound = getFromStack(stack);
-        if(compound.contains(dimKey)) tooltip.add(LocalizeUtils.i18n(ChatFormatting.WHITE, "tooltip.divinerpg.teleport.dimension", compound.getString(dimKey)));
+        if(compound.contains(dimKey)) tooltip.add(LocalizeUtils.i18n(ChatFormatting.WHITE, "teleport.dimension", compound.getString(dimKey)));
         if(compound.contains(posKey)) {
             BlockPos pos = BlockPos.of(compound.getLong(posKey));
-            tooltip.add(LocalizeUtils.i18n(ChatFormatting.WHITE, "tooltip.divinerpg.teleport.block_position", pos.getX(), pos.getY(), pos.getZ()));
+            tooltip.add(LocalizeUtils.i18n(ChatFormatting.WHITE, "teleport.block_position", pos.getX(), pos.getY(), pos.getZ()));
         } super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 }

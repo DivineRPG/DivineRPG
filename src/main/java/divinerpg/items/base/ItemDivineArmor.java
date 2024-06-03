@@ -79,7 +79,7 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(armorInfo != null && getFullSetPerks() != null) for(String element : armorInfo.toString(stack, worldIn)) tooltip.add(LocalizeUtils.i18n(element));
+        if(armorInfo != null) tooltip.addAll(armorInfo.asString());
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

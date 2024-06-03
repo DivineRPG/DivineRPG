@@ -133,13 +133,12 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
     private static void logAyeracoSpawn(Level level, ChatFormatting formatting, String name) {
         if (level.getServer() != null) {
             if (name == null) name = formatting.name().toLowerCase();
-            final String langKey = "message.ayeraco." + name;
+            final String langKey = "ayeraco." + name;
             level.getServer()
                     .getPlayerList()
                     .getPlayers()
                     .forEach(x -> {
-                        Component text = LocalizeUtils.getClientSideTranslation(x, langKey);
-                        text.getStyle().withColor(formatting);
+                        Component text = LocalizeUtils.clientMessage(formatting, langKey);
                         x.displayClientMessage(text, true);
                     });
         }
