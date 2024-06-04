@@ -2,7 +2,6 @@ package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-
 import divinerpg.client.models.iceika.ModelRobbin;
 import divinerpg.entities.iceika.EntityRobbin;
 import net.minecraft.client.Minecraft;
@@ -17,11 +16,13 @@ public class RobbinLayer extends RenderLayer<EntityRobbin, ModelRobbin> {
 		int itemID = robbin.getItemID();
 		if(itemID != 0) {
 			stack.pushPose();
-			getParentModel().body.translateAndRotate(stack);
-			stack.translate(0F, -.17F, -.48F);
+			getParentModel().head.translateAndRotate(stack);
+			stack.translate(getParentModel().head.x / 16, getParentModel().head.y / 16, getParentModel().head.z / 16);
 			stack.scale(.25F, .25F, .25F);
+			stack.mulPose(Axis.YP.rotationDegrees(netHeadYaw));
+			stack.mulPose(Axis.XP.rotationDegrees(headPitch));
 			stack.mulPose(Axis.XN.rotationDegrees(85));
-			Minecraft.getInstance().getItemRenderer().renderStatic(robbin, Item.byId(itemID).getDefaultInstance(), ItemDisplayContext.NONE, false, stack, buffer, robbin.level(), packetLightIn, LivingEntityRenderer.getOverlayCoords(robbin, 0F), 0);
+			Minecraft.getInstance().getItemRenderer().renderStatic(robbin, Item.byId(itemID).getDefaultInstance(), ItemDisplayContext.NONE, false, stack, buffer, robbin.level(), packetLightIn, LivingEntityRenderer.getOverlayCoords(robbin, 0), 0);
 			stack.popPose();
 		}
 	}

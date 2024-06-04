@@ -1,17 +1,17 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.iceika.EntityPaleArcher;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.*;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelPaleArcher<T extends Mob & RangedAttackMob> extends HumanoidModel<T> {
+public class ModelPaleArcher extends HumanoidModel<EntityPaleArcher> {
     public static final ModelLayerLocation LAYER_LOCATION = createLocation("pale_archer");
     public ModelPaleArcher(ModelPart part) {super(part);}
     public static LayerDefinition createBodyLayer() {
@@ -27,14 +27,14 @@ public class ModelPaleArcher<T extends Mob & RangedAttackMob> extends HumanoidMo
         body.addOrReplaceChild("trail", CubeListBuilder.create().texOffs(0, 33).addBox(-4, 2, 1, 8, 7, 4, cubeDef), PartPose.offsetAndRotation(.01F, -1, -3, .2618F, 0, 0));
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
-    @Override public void prepareMobModel(T entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
+    @Override public void prepareMobModel(EntityPaleArcher entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
         rightArmPose = leftArmPose = HumanoidModel.ArmPose.EMPTY;
         if(entity.getMainHandItem().getItem() instanceof BowItem && entity.isAggressive()) {
             if(entity.getMainArm() == HumanoidArm.RIGHT) rightArmPose = HumanoidModel.ArmPose.BOW_AND_ARROW;
             else leftArmPose = HumanoidModel.ArmPose.BOW_AND_ARROW;
         } super.prepareMobModel(entity, limbSwing, limbSwingAmount, ageInTicks);
     }
-    @Override public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    @Override public void setupAnim(EntityPaleArcher entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
         super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         if(!entity.isAggressive()) rightArm.xRot = leftArm.xRot = Mth.sqrt((float)Math.atan(200 * limbSwing)) * limbSwingAmount + .1565F;
         body.xRot = .1565F;

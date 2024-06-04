@@ -50,8 +50,8 @@ public class ModelRazorback extends EntityModel<EntityRazorback> {
 		return LayerDefinition.create(meshdefinition, 48, 48);
 	}
 	@Override public void setupAnim(EntityRazorback entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		head.xRot = headPitch * Mth.DEG_TO_RAD / 2;
 		head.yRot = netHeadYaw * Mth.DEG_TO_RAD / 4;
-		head.xRot = headPitch * Mth.DEG_TO_RAD / 4;
 		float f1 = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
 		float f2 = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
 		body.zRot = f1 * .03F;

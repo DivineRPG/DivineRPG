@@ -5,17 +5,7 @@ import net.minecraft.world.item.enchantment.*;
 
 public class BrainFreezeEnchant extends Enchantment {
 
-    public BrainFreezeEnchant() {
-        super(Rarity.UNCOMMON, EnchantmentCategory.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-    }
-
-    @Override
-    public int getMaxLevel() {
-        return 3;
-    }
-
-    @Override
-    public boolean isTreasureOnly() {
-        return super.isTreasureOnly();
-    }
+    public BrainFreezeEnchant() {super(Rarity.UNCOMMON, EnchantmentCategory.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});}
+    @Override public int getMaxLevel() {return 3;}
+    @Override public boolean isTreasureOnly() {return super.isTreasureOnly();}
 }

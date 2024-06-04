@@ -24,6 +24,7 @@ public class EntitySnowSkipper extends PathfinderMob {
         setPathfindingMalus(BlockPathTypes.POWDER_SNOW, 1F);
         setPathfindingMalus(BlockPathTypes.DANGER_POWDER_SNOW, 1F);
     }
+	@Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return .37F;}
 	@Override
 	public boolean checkSpawnObstruction(LevelReader worldIn) {
 		return true;

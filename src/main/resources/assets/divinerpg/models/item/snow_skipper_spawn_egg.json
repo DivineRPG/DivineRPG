@@ -1,1 +1,7 @@
-{"parent": "item/template_spawn_egg"}
+{
+  "parent": "item/template_spawn_egg",
+  "textures": {
+    "layer0": "divinerpg:item/snow_skipper_spawn_egg",
+    "layer1": "divinerpg:item/snow_skipper_spawn_egg"
+  }
+}

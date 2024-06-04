@@ -8,10 +8,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
-public class RenderPaleArcher extends HumanoidMobRenderer<EntityPaleArcher, ModelPaleArcher<EntityPaleArcher>> {
+public class RenderPaleArcher extends HumanoidMobRenderer<EntityPaleArcher, ModelPaleArcher> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/pale_archer.png");
     public RenderPaleArcher(EntityRendererProvider.Context context) {
-        super(context, new ModelPaleArcher<>(context.bakeLayer(ModelPaleArcher.LAYER_LOCATION)), .5F);
+        super(context, new ModelPaleArcher(context.bakeLayer(ModelPaleArcher.LAYER_LOCATION)), .5F);
     }
     @Override public ResourceLocation getTextureLocation(EntityPaleArcher entity) {return TEXTURE;}
 }

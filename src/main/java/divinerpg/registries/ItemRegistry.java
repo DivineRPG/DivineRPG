@@ -275,17 +275,17 @@ public class ItemRegistry {
             band_of_lheiva_hunting = registerItemVethean("band_of_lheiva_hunting", () -> new ItemVethean(new Properties().stacksTo(1))),
 
             //Pets
-            snapper_egg = registerItem("snapper_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.SNAPPER, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            ehu_egg = registerItem("ehu_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.EHU, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            husk_egg = registerItem("husk_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.HUSK, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            brown_grizzle_egg = registerItem("brown_grizzle_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.BROWN_GRIZZLE, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            white_grizzle_egg = registerItem("white_grizzle_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.WHITE_GRIZZLE, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            stone_golem_egg = registerItem("stone_golem_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.STONE_GOLEM, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            smelter_egg = registerItem("smelter_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.SMELTER, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            fyracryx_egg = registerItem("fyracryx_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.FYRACRYX, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            golem_of_rejuvenation_egg = registerItem("golem_of_rejuvenation_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.GOLEM_OF_REJUVENATION, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            paratiku_egg = registerItem("paratiku_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.PARATIKU, 0xFFFFFF, 0xFFFFFF, new Properties())),
-            seimer_egg = registerItem("seimer_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.SEIMER, 0xFFFFFF, 0xFFFFFF, new Properties())),
+            snapper_egg = registerItem("snapper_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SNAPPER)),
+            ehu_egg = registerItem("ehu_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.EHU)),
+            husk_egg = registerItem("husk_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.HUSK)),
+            brown_grizzle_egg = registerItem("brown_grizzle_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.BROWN_GRIZZLE)),
+            white_grizzle_egg = registerItem("white_grizzle_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.WHITE_GRIZZLE)),
+            stone_golem_egg = registerItem("stone_golem_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.STONE_GOLEM)),
+            smelter_egg = registerItem("smelter_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SMELTER)),
+            fyracryx_egg = registerItem("fyracryx_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.FYRACRYX)),
+            golem_of_rejuvenation_egg = registerItem("golem_of_rejuvenation_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.GOLEM_OF_REJUVENATION)),
+            paratiku_egg = registerItem("paratiku_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.PARATIKU)),
+            seimer_egg = registerItem("seimer_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SEIMER)),
 
 
     //Tools, Weapons & Armor

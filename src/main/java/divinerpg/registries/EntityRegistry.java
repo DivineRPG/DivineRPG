@@ -174,7 +174,7 @@ public class EntityRegistry {
     public static final RegistryObject<EntityType<EntityDivineWaterMob>>	PINK_GHOST_GLIDER	= registerEntity(EntityDivineWaterMob::new,		"pink_ghost_glider",	    .5F, .5F, 0xbb94cf, 0xfafafa, MobCategory.WATER_AMBIENT);
     public static final RegistryObject<EntityType<EntityBlubbertusk>>		BLUBBERTUSK			= registerEntity(EntityBlubbertusk::new,		"blubbertusk",			.85F, .875F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
     public static final RegistryObject<EntityType<EntityRobbin>>            ROBBIN              = registerEntity(EntityRobbin::new,             "robbin",                 .3F, .5625F, 0xffffff, 0xffffff, MobCategory.CREATURE);
-    public static final RegistryObject<EntityType<EntitySnowSkipper>>		SNOW_SKIPPER		= registerEntity(EntitySnowSkipper::new,		"snow_skipper",			.5F, .5F, 0x3f3431, 0xcbf8f5, MobCategory.CREATURE);
+    public static final RegistryObject<EntityType<EntitySnowSkipper>>		SNOW_SKIPPER		= registerEntity(EntitySnowSkipper::new,		"snow_skipper",			.43F, .41F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityWolpertinger>>      WOLPERTINGER        = registerEntity(EntityWolpertinger::new,       "wolpertinger",           .6F, .875F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityDolossal>>			DOLOSSAL			= registerEntity(EntityDolossal::new,			"dolossal",				1.3F, 2, 0x462630, 0x422742, MobCategory.CREATURE);
     public static final RegistryObject<EntityType<EntityMamoth>>			MAMOTH				= registerEntity(EntityMamoth::new,				"mamoth",				    1.4F, 2, 0x49302f, 0x87ffd3, MobCategory.CREATURE);
@@ -867,7 +867,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(CAULDRON_FISH.get(),	(Context context) -> new RenderDivineMob<>(context, "cauldron_fish", new ModelCauldronFish(context), .3F));
         event.registerEntityRenderer(DOLOSSAL.get(),		(Context context) -> new RenderDivineMob<>(context, "dolossal", new ModelDolossal(context), .9F));
         event.registerEntityRenderer(MAMOTH.get(),			(Context context) -> new RenderDivineMob<>(context, "mamoth", new ModelMamoth(context), .9F));
-        event.registerEntityRenderer(SNOW_SKIPPER.get(),	(Context context) -> new RenderDivineMob<>(context, "snow_skipper", new ModelSnowSkipper(context), .4F));
+        event.registerEntityRenderer(SNOW_SKIPPER.get(),	(Context context) -> new RenderDivineMob<>(context, "snow_skipper", new ModelSnowSkipper(context), .25F));
         event.registerEntityRenderer(PINK_GHOST_GLIDER.get(),(Context context) -> new RenderDivineMob<>(context, "pink_ghost_glider", new ModelGhostGlider(context), .5F));
         event.registerEntityRenderer(ALICANTO.get(),		 (Context context) -> new RenderDivineMob<>(context, "alicanto",  new ModelAlicanto(context), .7F));
         event.registerEntityRenderer(FRACTITE.get(),		 (Context context) -> new RenderDivineMob<>(context, "fractite",  new ModelFractite(context), .5F, 2));
