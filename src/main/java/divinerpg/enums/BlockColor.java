@@ -15,5 +15,5 @@ public enum BlockColor implements StringRepresentable {
 	private final String name;
 	BlockColor(String name) {this.name = name;}
 	@Override public String toString() {return this.getSerializedName();}
-	public String getSerializedName() {return this.name;}
+    @Override public String getSerializedName() {return this.name;}
 }

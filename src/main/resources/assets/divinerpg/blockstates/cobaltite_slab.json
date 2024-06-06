@@ -4,7 +4,7 @@
       "model": "divinerpg:block/cobaltite_half_slab"
     },
     "type=double": {
-      "model": "divinerpg:block/cobaltite_stone"
+      "model": "divinerpg:block/cobaltite"
     },
     "type=top": {
       "model": "divinerpg:block/cobaltite_upper_slab"

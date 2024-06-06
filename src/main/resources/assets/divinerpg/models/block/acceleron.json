@@ -1,22 +1,7 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "particle": "divinerpg:block/acceleron",
-    "top": "divinerpg:block/acceleron_top",
+    "end": "divinerpg:block/acceleron_top",
     "side": "divinerpg:block/acceleron"
-  },
-  "elements": [
-    {
-      "from": [0, 0, 0],
-      "to": [16, 16, 16],
-      "faces": {
-        "down":  {"texture": "#top", "cullface": "down", "rotation": 180},
-        "up":    {"texture": "#top", "cullface": "up"},
-        "north": {"texture": "#side", "cullface": "north"},
-        "south": {"texture": "#side", "cullface": "south"},
-        "west":  {"texture": "#side", "cullface": "west"},
-        "east":  {"texture": "#side", "cullface": "east"}
-      }
-    }
-  ]
+  }
 }
