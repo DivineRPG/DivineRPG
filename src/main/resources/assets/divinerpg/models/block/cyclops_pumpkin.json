@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/cyclops_pumpkin_side",
-    "south": "divinerpg:block/cyclops_pumpkin_side",
-    "north": "divinerpg:block/cyclops_pumpkin_front",
-    "west": "divinerpg:block/cyclops_pumpkin_side",
-    "particle": "divinerpg:block/cyclops_pumpkin_side",
-    "up": "divinerpg:block/cyclops_pumpkin_top",
-    "down": "divinerpg:block/cyclops_pumpkin_top"
+    "front": "divinerpg:block/cyclops_pumpkin_front",
+    "side": "divinerpg:block/cyclops_pumpkin_side",
+    "top": "divinerpg:block/cyclops_pumpkin_top"
   }
 }

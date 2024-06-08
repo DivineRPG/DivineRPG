@@ -1,12 +1,7 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_column",
   "textures": {
-    "east": "divinerpg:block/infusion_table_side",
-    "south": "divinerpg:block/infusion_table_side",
-    "north": "divinerpg:block/infusion_table_side",
-    "west": "divinerpg:block/infusion_table_side",
-    "particle": "divinerpg:block/infusion_table_side",
-    "up": "divinerpg:block/infusion_table_top",
-    "down": "divinerpg:block/infusion_table_top"
+    "end": "divinerpg:block/infusion_table_top",
+    "side": "divinerpg:block/infusion_table_side"
   }
 }

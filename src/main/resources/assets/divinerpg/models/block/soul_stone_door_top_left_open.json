@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/door_top_left_open",
-  "render_type": "cutout_mipped",
+  "parent": "block/door_top_left_open",
   "textures": {
     "bottom": "divinerpg:block/soul_stone_door_bottom",
     "top": "divinerpg:block/soul_stone_door_top"

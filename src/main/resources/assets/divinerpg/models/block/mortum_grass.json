@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_bottom_top",
   "textures": {
-    "east": "divinerpg:block/mortum_grass_side",
-    "south": "divinerpg:block/mortum_grass_side",
-    "north": "divinerpg:block/mortum_grass_side",
-    "west": "divinerpg:block/mortum_grass_side",
-    "particle": "divinerpg:block/mortum_dirt",
-    "up": "divinerpg:block/mortum_grass_top",
-    "down": "divinerpg:block/mortum_dirt"
+    "bottom": "divinerpg:block/mortum_dirt",
+    "top": "divinerpg:block/mortum_grass_top",
+    "side": "divinerpg:block/mortum_grass_side"
   }
 }

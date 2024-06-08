@@ -1,6 +1,5 @@
 {
-  "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/present_box_break"
+    "particle": "divinerpg:block/present_box_break"
   }
 }

@@ -1,6 +1,5 @@
 {
   "parent": "block/outer_stairs",
-  "render_type": "cutout_mipped",
   "textures": {
     "side": "divinerpg:block/ancient_bricks",
     "top": "divinerpg:block/ancient_bricks",

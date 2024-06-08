@@ -1,0 +1,20 @@
+{
+  "render_type": "cutout",
+  "elements": [
+    {
+      "shade": false,
+      "from": [0, 0, 15.2],
+      "to": [16, 16, 15.2],
+      "faces": {
+        "south": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#texture"
+        },
+        "north": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#texture"
+        }
+      }
+    }
+  ]
+}

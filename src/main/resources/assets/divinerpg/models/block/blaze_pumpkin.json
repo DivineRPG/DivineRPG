@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/blaze_pumpkin_side",
-    "south": "divinerpg:block/blaze_pumpkin_side",
-    "north": "divinerpg:block/blaze_pumpkin_front",
-    "west": "divinerpg:block/blaze_pumpkin_side",
-    "particle": "divinerpg:block/blaze_pumpkin_side",
-    "up": "divinerpg:block/blaze_pumpkin_top",
-    "down": "divinerpg:block/blaze_pumpkin_top"
+    "front": "divinerpg:block/blaze_pumpkin_front",
+    "side": "divinerpg:block/blaze_pumpkin_side",
+    "top": "divinerpg:block/blaze_pumpkin_top"
   }
 }

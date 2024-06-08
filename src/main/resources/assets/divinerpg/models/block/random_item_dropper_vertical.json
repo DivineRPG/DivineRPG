@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/orientable_vertical",
+  "parent": "block/orientable_vertical",
   "textures": {
     "front": "divinerpg:block/random_item_dropper_front_vertical",
-    "side": "minecraft:block/furnace_top"
+    "side": "block/furnace_top"
   }
 }

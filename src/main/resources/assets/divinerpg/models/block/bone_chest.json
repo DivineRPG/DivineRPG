@@ -1,6 +1,5 @@
 {
-  "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/bone_chest_break"
+    "particle": "divinerpg:block/bone_chest_break"
   }
 }

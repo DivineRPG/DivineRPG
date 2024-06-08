@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "block/cube_column",
   "textures": {
     "end": "divinerpg:block/stripped_streamleaf_log_side",
     "side": "divinerpg:block/stripped_streamleaf_log_side"

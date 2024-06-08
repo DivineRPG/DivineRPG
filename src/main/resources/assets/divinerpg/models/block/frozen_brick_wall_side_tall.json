@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/template_wall_side_tall",
-  "render_type": "cutout_mipped",
+  "parent": "block/template_wall_side_tall",
   "textures": {
     "wall": "divinerpg:block/frozen_bricks"
   }

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "block/cube_column",
   "textures": {
     "end": "divinerpg:block/dreamwood_log_top",
     "side": "divinerpg:block/dreamwood_log_side"

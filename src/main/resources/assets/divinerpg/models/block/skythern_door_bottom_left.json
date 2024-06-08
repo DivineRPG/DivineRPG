@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/door_bottom_left",
-  "render_type": "cutout_mipped",
+  "parent": "block/door_bottom_left",
   "textures": {
     "bottom": "divinerpg:block/skythern_door_bottom",
     "top": "divinerpg:block/skythern_door_top"

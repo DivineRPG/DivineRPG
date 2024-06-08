@@ -1,6 +1,5 @@
 {
-  "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/black_hungerstone"
+    "particle": "divinerpg:block/black_hungerstone"
   }
 }

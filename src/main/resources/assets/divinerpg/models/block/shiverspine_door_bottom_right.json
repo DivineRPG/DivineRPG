@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/door_bottom_right",
+  "parent": "block/door_bottom_right",
   "render_type": "translucent",
   "textures": {
     "bottom": "divinerpg:block/shiverspine_door_bottom",

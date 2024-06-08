@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "block/cube_column",
   "textures": {
     "end": "divinerpg:block/slowsprout_stem_top",
     "side": "divinerpg:block/slowsprout_stem_side"

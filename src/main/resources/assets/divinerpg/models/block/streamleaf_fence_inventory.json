@@ -1,6 +1,5 @@
 {
   "parent": "block/fence_inventory",
-  "render_type": "cutout_mipped",
   "textures": {
     "texture": "divinerpg:block/streamleaf_planks"
   }

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "block/slab",
   "textures": {
     "side": "divinerpg:block/eucalyptus_planks",
     "top": "divinerpg:block/eucalyptus_planks",

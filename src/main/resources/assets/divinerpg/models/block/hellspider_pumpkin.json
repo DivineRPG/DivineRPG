@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/hellspider_pumpkin_side",
-    "south": "divinerpg:block/hellspider_pumpkin_side",
-    "north": "divinerpg:block/hellspider_pumpkin_front",
-    "west": "divinerpg:block/hellspider_pumpkin_side",
-    "particle": "divinerpg:block/hellspider_pumpkin_side",
-    "up": "divinerpg:block/hellspider_pumpkin_top",
-    "down": "divinerpg:block/hellspider_pumpkin_top"
+    "front": "divinerpg:block/hellspider_pumpkin_front",
+    "side": "divinerpg:block/hellspider_pumpkin_side",
+    "top": "divinerpg:block/hellspider_pumpkin_top"
   }
 }

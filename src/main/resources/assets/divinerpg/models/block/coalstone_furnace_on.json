@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/coalstone_furnace_side",
-    "south": "divinerpg:block/coalstone_furnace_side",
-    "north": "divinerpg:block/coalstone_furnace_front_on",
-    "west": "divinerpg:block/coalstone_furnace_side",
-    "particle": "divinerpg:block/coalstone_furnace_front_off",
-    "up": "divinerpg:block/coalstone",
-    "down": "divinerpg:block/coalstone"
+    "front": "divinerpg:block/coalstone_furnace_front_on",
+    "side": "divinerpg:block/coalstone_furnace_side",
+    "top": "divinerpg:block/coalstone"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "block/cube_column",
   "textures": {
     "end": "divinerpg:block/eden_log_side",
     "side": "divinerpg:block/eden_log_side"

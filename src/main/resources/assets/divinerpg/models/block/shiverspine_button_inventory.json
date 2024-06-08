@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/button_inventory",
+  "parent": "block/button_inventory",
   "textures": {
     "texture": "divinerpg:block/shiverspine_planks"
   }

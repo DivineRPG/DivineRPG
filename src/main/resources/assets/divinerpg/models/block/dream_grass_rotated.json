@@ -1,18 +1,12 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "particle": "divinerpg:block/dream_dirt",
-    "side": "divinerpg:block/dream_grass_side",
-    "up": "divinerpg:block/dream_grass_top",
-    "down": "divinerpg:block/dream_dirt"
-  },
+  "parent": "divinerpg:block/dream_grass",
   "elements": [
     {
       "from": [0, 0, 0],
       "to": [16, 16, 16],
       "faces": {
-        "down":  {"texture": "#down", "cullface": "down", "rotation": 270},
-        "up":    {"texture": "#up", "cullface": "up"},
+        "down":  {"texture": "#bottom", "cullface": "down", "rotation": 270},
+        "up":    {"texture": "#top", "cullface": "up"},
         "north": {"texture": "#side", "cullface": "north"},
         "south": {"texture": "#side", "cullface": "south"},
         "west":  {"texture": "#side", "cullface": "west"},

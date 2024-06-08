@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/creeper_pumpkin_side",
-    "south": "divinerpg:block/creeper_pumpkin_side",
-    "north": "divinerpg:block/creeper_pumpkin_front",
-    "west": "divinerpg:block/creeper_pumpkin_side",
-    "particle": "divinerpg:block/creeper_pumpkin_side",
-    "up": "divinerpg:block/creeper_pumpkin_top",
-    "down": "divinerpg:block/creeper_pumpkin_top"
+    "front": "divinerpg:block/creeper_pumpkin_front",
+    "side": "divinerpg:block/creeper_pumpkin_side",
+    "top": "divinerpg:block/creeper_pumpkin_top"
   }
 }

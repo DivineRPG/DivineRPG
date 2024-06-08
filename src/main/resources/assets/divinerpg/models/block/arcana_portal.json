@@ -1,18 +1,17 @@
 {
-	"parent": "block/cube_all",
-	"render_type": "cutout_mipped",
-	"textures": {
-		"0": "divinerpg:block/arcana_portal",
-		"particle": "divinerpg:block/arcana_portal"
-	},
-	"elements": [
-		{
-			"from": [0, 5, 0],
-			"to": [16, 8, 16],
-			"faces": {
-				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
-			}
-		}
-	]
+  "parent": "block/block",
+  "textures": {
+	"0": "divinerpg:block/arcana_portal",
+	"particle": "divinerpg:block/arcana_portal"
+  },
+  "elements": [
+    {
+      "from": [0, 5, 0],
+      "to": [16, 8, 16],
+      "faces": {
+	 "up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+	 "down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+      }
+    }
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "block/slab",
   "render_type": "cutout",
   "textures": {
     "side": "divinerpg:block/cut_oxdrite",

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/door_top_right",
+  "parent": "block/door_top_right",
   "render_type": "cutout",
   "textures": {
     "bottom": "divinerpg:block/eucalyptus_door_bottom",

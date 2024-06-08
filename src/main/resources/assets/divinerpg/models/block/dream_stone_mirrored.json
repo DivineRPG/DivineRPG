@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cube_mirrored_all",
+  "parent": "block/cube_mirrored_all",
   "textures": {
     "all": "divinerpg:block/dream_stone"
   }

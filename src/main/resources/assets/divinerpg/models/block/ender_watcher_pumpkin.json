@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/ender_watcher_pumpkin_side",
-    "south": "divinerpg:block/ender_watcher_pumpkin_side",
-    "north": "divinerpg:block/ender_watcher_pumpkin_front",
-    "west": "divinerpg:block/ender_watcher_pumpkin_side",
-    "particle": "divinerpg:block/ender_watcher_pumpkin_side",
-    "up": "divinerpg:block/ender_watcher_pumpkin_top",
-    "down": "divinerpg:block/ender_watcher_pumpkin_top"
+    "front": "divinerpg:block/ender_watcher_pumpkin_front",
+    "side": "divinerpg:block/ender_watcher_pumpkin_side",
+    "top": "divinerpg:block/ender_watcher_pumpkin_top"
   }
 }

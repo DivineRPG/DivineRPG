@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/button_inventory",
+  "parent": "block/button_inventory",
   "render_type": "cutout",
   "textures": {
     "texture": "divinerpg:block/cut_oxdrite"

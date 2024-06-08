@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/ghast_pumpkin_side",
-    "south": "divinerpg:block/ghast_pumpkin_side",
-    "north": "divinerpg:block/ghast_pumpkin_front",
-    "west": "divinerpg:block/ghast_pumpkin_side",
-    "particle": "divinerpg:block/ghast_pumpkin_side",
-    "up": "divinerpg:block/ghast_pumpkin_top",
-    "down": "divinerpg:block/ghast_pumpkin_top"
+    "front": "divinerpg:block/ghast_pumpkin_front",
+    "side": "divinerpg:block/ghast_pumpkin_side",
+    "top": "divinerpg:block/ghast_pumpkin_top"
   }
 }

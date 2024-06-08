@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/door_bottom_right_open",
-  "render_type": "cutout_mipped",
+  "parent": "block/door_bottom_right_open",
   "textures": {
     "bottom": "divinerpg:block/streamleaf_door_bottom",
     "top": "divinerpg:block/streamleaf_door_top"

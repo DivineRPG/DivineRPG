@@ -1,6 +1,4 @@
 {
-	"credit": "Made with Blockbench",
-	"render_type": "cutout",
 	"textures": {
 		"0": "divinerpg:block/arcanite_tubes",
 		"particle": "divinerpg:block/arcanite_tubes"

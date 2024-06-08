@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/oceanfire_furnace_side",
-    "south": "divinerpg:block/oceanfire_furnace_side",
-    "north": "divinerpg:block/oceanfire_furnace_front_off",
-    "west": "divinerpg:block/oceanfire_furnace_side",
-    "particle": "divinerpg:block/oceanfire_furnace_front_off",
-    "up": "divinerpg:block/oceanfire_furnace_top",
-    "down": "divinerpg:block/oceanfire_furnace_top"
+    "front": "divinerpg:block/oceanfire_furnace_front_off",
+    "side": "divinerpg:block/oceanfire_furnace_side",
+    "top": "divinerpg:block/oceanfire_furnace_top"
   }
 }

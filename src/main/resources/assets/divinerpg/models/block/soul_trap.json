@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_bottom_top",
   "textures": {
-    "east": "divinerpg:block/soul_trap_side",
-    "south": "divinerpg:block/soul_trap_side",
-    "north": "divinerpg:block/soul_trap_side",
-    "west": "divinerpg:block/soul_trap_side",
-    "particle": "divinerpg:block/proximity_spawner",
-    "up": "divinerpg:block/soul_trap_top",
-    "down": "divinerpg:block/polished_coalstone"
+    "bottom": "divinerpg:block/polished_coalstone",
+    "top": "divinerpg:block/soul_trap_top",
+    "side": "divinerpg:block/soul_trap_side"
   }
 }

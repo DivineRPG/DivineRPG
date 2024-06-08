@@ -1,120 +1,120 @@
 {
-  "variants": {
-    "east=false,north=false,south=false,up=false,west=false": {
-      "model": "divinerpg:block/weedwood_vine_1"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine"
+      },
+      "when": {
+        "north": "true"
+      }
     },
-    "east=false,north=false,south=true,up=false,west=false": {
-      "model": "divinerpg:block/weedwood_vine_1"
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine"
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
     },
-    "east=false,north=false,south=false,up=false,west=true": {
-      "model": "divinerpg:block/weedwood_vine_1",
-      "y": 90
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true"
+      }
     },
-    "east=false,north=true,south=false,up=false,west=false": {
-      "model": "divinerpg:block/weedwood_vine_1",
-      "y": 180
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
     },
-    "east=true,north=false,south=false,up=false,west=false": {
-      "model": "divinerpg:block/weedwood_vine_1",
-      "y": 270
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true"
+      }
     },
-    "east=true,north=true,south=false,up=false,west=false": {
-      "model": "divinerpg:block/weedwood_vine_2"
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
     },
-    "east=true,north=false,south=true,up=false,west=false": {
-      "model": "divinerpg:block/weedwood_vine_2",
-      "y": 90
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "true"
+      }
     },
-    "east=false,north=false,south=true,up=false,west=true": {
-      "model": "divinerpg:block/weedwood_vine_2",
-      "y": 180
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
     },
-    "east=false,north=true,south=false,up=false,west=true": {
-      "model": "divinerpg:block/weedwood_vine_2",
-      "y": 270
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "up": "true"
+      }
     },
-    "east=true,north=false,south=false,up=false,west=true": {
-      "model": "divinerpg:block/weedwood_vine_2_opposite"
-    },
-    "east=false,north=true,south=true,up=false,west=false": {
-      "model": "divinerpg:block/weedwood_vine_2_opposite",
-      "y": 90
-    },
-    "east=true,north=true,south=true,up=false,west=false": {
-      "model": "divinerpg:block/weedwood_vine_3"
-    },
-    "east=true,north=false,south=true,up=false,west=true": {
-      "model": "divinerpg:block/weedwood_vine_3",
-      "y": 90
-    },
-    "east=false,north=true,south=true,up=false,west=true": {
-      "model": "divinerpg:block/weedwood_vine_3",
-      "y": 180
-    },
-    "east=true,north=true,south=false,up=false,west=true": {
-      "model": "divinerpg:block/weedwood_vine_3",
-      "y": 270
-    },
-    "east=true,north=true,south=true,up=false,west=true": {
-      "model": "divinerpg:block/weedwood_vine_4"
-    },
-    "east=false,north=false,south=false,up=true,west=false": {
-      "model": "divinerpg:block/weedwood_vine_u"
-    },
-    "east=false,north=false,south=true,up=true,west=false": {
-      "model": "divinerpg:block/weedwood_vine_1u"
-    },
-    "east=false,north=false,south=false,up=true,west=true": {
-      "model": "divinerpg:block/weedwood_vine_1u",
-      "y": 90
-    },
-    "east=false,north=true,south=false,up=true,west=false": {
-      "model": "divinerpg:block/weedwood_vine_1u",
-      "y": 180
-    },
-    "east=true,north=false,south=false,up=true,west=false": {
-      "model": "divinerpg:block/weedwood_vine_1u",
-      "y": 270
-    },
-    "east=true,north=true,south=false,up=true,west=false": {
-      "model": "divinerpg:block/weedwood_vine_2u"
-    },
-    "east=true,north=false,south=true,up=true,west=false": {
-      "model": "divinerpg:block/weedwood_vine_2u",
-      "y": 90
-    },
-    "east=false,north=false,south=true,up=true,west=true": {
-      "model": "divinerpg:block/weedwood_vine_2u",
-      "y": 180
-    },
-    "east=false,north=true,south=false,up=true,west=true": {
-      "model": "divinerpg:block/weedwood_vine_2u",
-      "y": 270
-    },
-    "east=true,north=false,south=false,up=true,west=true": {
-      "model": "divinerpg:block/weedwood_vine_2u_opposite"
-    },
-    "east=false,north=true,south=true,up=true,west=false": {
-      "model": "divinerpg:block/weedwood_vine_2u_opposite",
-      "y": 90
-    },
-    "east=true,north=true,south=true,up=true,west=false": {
-      "model": "divinerpg:block/weedwood_vine_3u"
-    },
-    "east=true,north=false,south=true,up=true,west=true": {
-      "model": "divinerpg:block/weedwood_vine_3u",
-      "y": 90
-    },
-    "east=false,north=true,south=true,up=true,west=true": {
-      "model": "divinerpg:block/weedwood_vine_3u",
-      "y": 180
-    },
-    "east=true,north=true,south=false,up=true,west=true": {
-      "model": "divinerpg:block/weedwood_vine_3u",
-      "y": 270
-    },
-    "east=true,north=true,south=true,up=true,west=true": {
-      "model": "divinerpg:block/weedwood_vine_4u"
+    {
+      "apply": {
+        "model": "divinerpg:block/weedwood_vine",
+        "uvlock": true,
+        "x": 270
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
     }
-  }
+  ]
 }

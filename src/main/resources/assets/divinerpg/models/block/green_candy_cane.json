@@ -1,5 +1,5 @@
 {
-  "parent": "divinerpg:block/template_candy_cane",
+  "parent": "block/template_glazed_terracotta",
   "textures": {
     "pattern": "divinerpg:block/green_candy_cane"
   }

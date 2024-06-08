@@ -1,43 +1,7 @@
 {
+  "parent": "divinerpg:block/template_fairy_lights",
   "textures": {
     "texture": "divinerpg:block/red_fairy_lights",
     "particle": "divinerpg:block/red_fairy_lights"
-  },
-  "render_type": "cutout",
-  "ambientocclusion": false,
-  "elements": [
-    {
-      "shade": false,
-      "from": [
-        0.0,
-        0.0,
-        15.2
-      ],
-      "to": [
-        16.0,
-        16.0,
-        15.2
-      ],
-      "faces": {
-        "south": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#texture"
-        },
-        "north": {
-          "uv": [
-            0,
-            0,
-            16,
-            16
-          ],
-          "texture": "#texture"
-        }
-      }
-    }
-  ]
+  }
 }

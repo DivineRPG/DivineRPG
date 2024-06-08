@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "block/cross",
   "render_type": "cutout",
   "textures": {
     "cross": "divinerpg:block/brittle_grass5"

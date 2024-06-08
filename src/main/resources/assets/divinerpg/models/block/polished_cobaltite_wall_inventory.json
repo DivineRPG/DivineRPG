@@ -1,6 +1,5 @@
 {
   "parent": "block/wall_inventory",
-  "render_type": "cutout_mipped",
   "textures": {
     "wall": "divinerpg:block/polished_cobaltite"
   }

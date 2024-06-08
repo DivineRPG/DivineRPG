@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/slab_top",
-  "render_type": "cutout_mipped",
+  "parent": "block/slab_top",
   "textures": {
     "side": "divinerpg:block/ancient_bricks",
     "top": "divinerpg:block/ancient_bricks",

@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/orientable",
+  "parent": "block/orientable",
   "textures": {
     "front": "divinerpg:block/whitefire_furnace_front_on",
     "side": "divinerpg:block/whitefire_furnace_side",

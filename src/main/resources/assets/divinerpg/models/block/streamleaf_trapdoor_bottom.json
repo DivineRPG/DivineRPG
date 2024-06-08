@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/template_orientable_trapdoor_bottom",
-  "render_type": "cutout_mipped",
+  "parent": "block/template_orientable_trapdoor_bottom",
+  "render_type": "cutout",
   "textures": {
     "texture": "divinerpg:block/streamleaf_trapdoor"
   }

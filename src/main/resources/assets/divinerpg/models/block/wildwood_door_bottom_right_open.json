@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/door_bottom_right_open",
-  "render_type": "cutout_mipped",
+  "parent": "block/door_bottom_right_open",
   "textures": {
     "bottom": "divinerpg:block/wildwood_door_bottom",
     "top": "divinerpg:block/wildwood_door_top"

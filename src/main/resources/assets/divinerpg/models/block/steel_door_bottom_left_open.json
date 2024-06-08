@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/door_bottom_left_open",
-  "render_type": "cutout",
+  "parent": "block/door_bottom_left_open",
   "textures": {
     "bottom": "divinerpg:block/steel_door_bottom",
     "top": "divinerpg:block/steel_door_top"

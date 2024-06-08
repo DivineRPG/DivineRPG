@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/door_top_left",
-  "render_type": "cutout_mipped",
+  "parent": "block/door_top_left",
   "textures": {
     "bottom": "divinerpg:block/auroraoak_door_bottom",
     "top": "divinerpg:block/auroraoak_door_top"

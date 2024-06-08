@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/door_bottom_right",
-  "render_type": "cutout_mipped",
+  "parent": "block/door_bottom_right",
   "textures": {
     "bottom": "divinerpg:block/eden_door_bottom",
     "top": "divinerpg:block/eden_door_top"

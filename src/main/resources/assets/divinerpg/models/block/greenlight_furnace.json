@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/orientable",
   "textures": {
-    "east": "divinerpg:block/greenlight_furnace_side",
-    "south": "divinerpg:block/greenlight_furnace_side",
-    "north": "divinerpg:block/greenlight_furnace_front_off",
-    "west": "divinerpg:block/greenlight_furnace_side",
-    "particle": "divinerpg:block/greenlight_furnace_front_off",
-    "up": "divinerpg:block/greenlight_furnace_top",
-    "down": "divinerpg:block/greenlight_furnace_top"
+    "front": "divinerpg:block/greenlight_furnace_front_off",
+    "side": "divinerpg:block/greenlight_furnace_side",
+    "top": "divinerpg:block/greenlight_furnace_top"
   }
 }

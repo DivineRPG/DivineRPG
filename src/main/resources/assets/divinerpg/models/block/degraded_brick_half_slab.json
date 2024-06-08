@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "block/slab",
   "textures": {
     "side": "divinerpg:block/degraded_bricks",
     "top": "divinerpg:block/degraded_bricks",

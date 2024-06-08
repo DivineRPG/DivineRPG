@@ -1,6 +1,6 @@
 {
-    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
     "textures": {
+        "particle": "divinerpg:block/blank_break",
         "ayeraco_spawn": "divinerpg:block/ayeraco_spawn",
         "bedrock": "minecraft:block/bedrock"
     },

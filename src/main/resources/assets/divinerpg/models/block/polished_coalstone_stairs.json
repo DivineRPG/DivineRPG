@@ -1,6 +1,5 @@
 {
   "parent": "block/stairs",
-  "render_type": "cutout_mipped",
   "textures": {
     "side": "divinerpg:block/polished_coalstone",
     "top": "divinerpg:block/polished_coalstone",

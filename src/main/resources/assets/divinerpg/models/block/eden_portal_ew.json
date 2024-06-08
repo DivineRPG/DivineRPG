@@ -1,17 +1,7 @@
 {
-  "parent": "block/block",
-  "render_type": "translucent",
-    "textures": {
-        "particle": "divinerpg:block/eden_portal",
-        "portal": "divinerpg:block/eden_portal"
-    },
-    "elements": [
-        {   "from": [ 6, 0, 0 ],
-            "to": [ 10, 16, 16 ],
-            "faces": {
-                "east": { "uv": [ 0, 0, 16, 16 ], "texture": "#portal" },
-                "west": { "uv": [ 0, 0, 16, 16 ], "texture": "#portal" }
-            }
-        }
-    ]
+  "parent": "divinerpg:block/template_portal_ew",
+  "textures": {
+    "particle": "divinerpg:block/eden_portal",
+    "portal": "divinerpg:block/eden_portal"
+    }
 }

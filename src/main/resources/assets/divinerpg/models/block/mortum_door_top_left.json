@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/door_top_left",
+  "parent": "block/door_top_left",
   "render_type": "translucent",
   "textures": {
     "bottom": "divinerpg:block/mortum_door_bottom",

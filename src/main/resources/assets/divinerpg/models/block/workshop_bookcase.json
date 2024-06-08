@@ -1,12 +1,7 @@
 {
-  "parent": "block/cube",
+  "parent": "block/cube_column",
   "textures": {
-    "east": "divinerpg:block/workshop_bookcase",
-    "south": "divinerpg:block/workshop_bookcase",
-    "north": "divinerpg:block/workshop_bookcase",
-    "west": "divinerpg:block/workshop_bookcase",
-    "particle": "divinerpg:block/workshop_bookcase",
-    "up": "divinerpg:block/coalstone",
-    "down": "divinerpg:block/coalstone"
+    "end": "divinerpg:block/coalstone",
+    "side": "divinerpg:block/workshop_bookcase"
   }
 }

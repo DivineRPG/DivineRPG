@@ -1,12 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_bottom_top",
   "textures": {
-    "east": "divinerpg:block/eden_grass_side",
-    "south": "divinerpg:block/eden_grass_side",
-    "north": "divinerpg:block/eden_grass_side",
-    "west": "divinerpg:block/eden_grass_side",
-    "particle": "divinerpg:block/eden_dirt",
-    "up": "divinerpg:block/eden_grass_top",
-    "down": "divinerpg:block/eden_dirt"
+    "bottom": "divinerpg:block/eden_dirt",
+    "top": "divinerpg:block/eden_grass_top",
+    "side": "divinerpg:block/eden_grass_side"
   }
 }

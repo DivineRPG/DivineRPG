@@ -1,6 +1,7 @@
 {
-	"parent": "block/block",
-	"render_type": "cutout_mipped",
+	"parent": "block/orientable",
+	"render_type": "cutout",
+	"ambientocclusion": false,
 	"textures": {
 		"1": "divinerpg:block/robbin_hut_feeder",
 		"2": "divinerpg:block/robbin_hut_bell",

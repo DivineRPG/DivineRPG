@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/slab_top",
+  "parent": "block/slab_top",
   "textures": {
     "side": "divinerpg:block/streamleaf_planks",
     "top": "divinerpg:block/streamleaf_planks",
