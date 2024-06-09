@@ -798,6 +798,7 @@
     "item.minecraft.splash_potion.effect.grog": "Взрывная бутылочка грога",
     "item.minecraft.lingering_potion.effect.grog": "Бутылочка с гроговой взвесью",
     "item.minecraft.tipped_arrow.effect.grog": "Стрела с высоким содержанием этанола",
+	
     "item.minecraft.potion.effect.warmth": "Зелье теплоты",
     "item.minecraft.splash_potion.effect.warmth": "Взрывное зелье теплоты",
     "item.minecraft.lingering_potion.effect.warmth": "Туманное зелье теплоты",
@@ -832,6 +833,7 @@
     "item.divinerpg.crab_anchor": "Крабовый якорь",
     "item.divinerpg.crabclaw_cannon": "Пушка из клешней краба",
     "item.divinerpg.frostclaw_cannon": "Морозная пушка из клешней краба",
+	
     "item.divinerpg.shark_fin": "Плавник акулы",
     "item.divinerpg.shark_sword": "Акулий меч",
     "item.divinerpg.shark_anchor": "Акулий якорь",
@@ -1210,8 +1212,8 @@
     "item.divinerpg.divine_hoe": "Божественная мотыга",
     "item.divinerpg.divine_shickaxe": "Божественный мультиинструмент",
     "item.divinerpg.divine_accumulator": "Божественный накопитель",
-    "item.divinerpg.armor_pouch": "Сумка для брони",
 	
+    "item.divinerpg.armor_pouch": "Сумка для брони",
     "item.divinerpg.gray_armor_pouch": "Серая сумка для брони",
     "item.divinerpg.red_armor_pouch": "Красная сумка для брони",
     "item.divinerpg.yellow_armor_pouch": "Жёлтая сумка для брони",
@@ -1499,6 +1501,7 @@
     "item.divinerpg.teaker_staff": "Посох Тикера",
     "item.divinerpg.teaker_cannon": "Пушка Тикера",
     "item.divinerpg.teaker_disk": "Диск Тикера",
+	
     "item.divinerpg.teaker_dissipator": "Рассекатель Тикера",
     "item.divinerpg.degraded_helmet": "Попранный шлем",
     "item.divinerpg.degraded_mask": "Попранная маска",
@@ -1516,6 +1519,7 @@
     "item.divinerpg.amthirmis_cannon": "Пушка Амфирмиса",
     "item.divinerpg.amthirmis_disk": "Диск Амфирмиса",
     "item.divinerpg.amthirmis_dissipator": "Рассекатель Амфирмиса",
+	
     "item.divinerpg.finished_helmet": "Законченный шлем",
     "item.divinerpg.finished_mask": "Законченная маска",
     "item.divinerpg.finished_hood": "Законченный капюшон",
@@ -1533,6 +1537,7 @@
     "item.divinerpg.darven_cannon": "Пушка Дарвена",
     "item.divinerpg.darven_disk": "Диск Дарвена",
     "item.divinerpg.darven_dissipator": "Рассекатель Дарвена",
+	
     "item.divinerpg.glistening_helmet": "Сверкающий шлем",
     "item.divinerpg.glistening_mask": "Сверкающая маска",
     "item.divinerpg.glistening_hood": "Сверкающий капюшон",
@@ -1549,6 +1554,7 @@
     "item.divinerpg.cermile_cannon": "Пушка Цермила",
     "item.divinerpg.cermile_disk": "Диск Цермила",
     "item.divinerpg.cermile_dissipator": "Рассекатель Цермила",
+	
     "item.divinerpg.demonized_helmet": "Демонический шлем",
     "item.divinerpg.demonized_mask": "Демоническая маска",
     "item.divinerpg.demonized_hood": "Демонический капюшон",
@@ -1566,6 +1572,7 @@
     "item.divinerpg.pardimal_cannon": "Пушка Пардимала",
     "item.divinerpg.pardimal_disk": "Диск Пардимала",
     "item.divinerpg.pardimal_dissipator": "Рассекатель Пардимала",
+	
     "item.divinerpg.tormented_helmet": "Измученный шлем",
     "item.divinerpg.tormented_mask": "Измученная маска",
     "item.divinerpg.tormented_hood": "Измученный капюшон",
@@ -1775,6 +1782,7 @@
     "item.divinerpg.hell_spider_spawn_egg": "Яйцо призыва адского паука",
     "item.divinerpg.wildfire_spawn_egg": "Яйцо призыва лучника дикого огня",
     "item.divinerpg.scorcher_spawn_egg": "Яйцо призыва лихача",
+	
     "entity.divinerpg.ender_scrounge": "Эндермышь",
     "entity.divinerpg.ender_spider": "Эндерпаук",
     "entity.divinerpg.ender_watcher": "Смотритель Эндера",
@@ -2208,6 +2216,7 @@
     "message.divinerpg.teleport.change_position": "Вы не можете поменять начальную позицию",
     "message.divinerpg.teleport.no_position": "Нажмите «Приседание» + «Использование Предмета», чтобы задать позицию для телепортации",
     "message.divinerpg.teleport.no_respawn": "У вас нет точки возрождения",
+	
     "enchantment.divinerpg.aftershock": "Послеимпульс",
     "enchantment.divinerpg.aftershock.desc": "Послеимпульс имеет шанс удвоить урон, наносимый оружием ближнего боя.",
     "enchantment.divinerpg.brain_freeze": "Мозгоморозка",
