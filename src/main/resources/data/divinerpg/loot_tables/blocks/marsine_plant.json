@@ -14,7 +14,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "divinerpg:marsine_plant",
                   "properties": {
-                    "age": "2"
+                    "age": "7"
                   }
                 }
               ],
@@ -52,7 +52,7 @@
           "condition": "minecraft:block_state_property",
           "block": "divinerpg:marsine_plant",
           "properties": {
-            "age": "2"
+            "age": "7"
           }
         }
       ]

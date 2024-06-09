@@ -1,0 +1,7 @@
+{
+  "parent": "block/crop",
+  "render_type": "cutout",
+  "textures": {
+    "crop": "divinerpg:block/lamona_plant_4"
+  }
+}

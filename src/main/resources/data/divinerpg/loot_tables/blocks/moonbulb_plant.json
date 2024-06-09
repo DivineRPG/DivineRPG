@@ -15,7 +15,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "divinerpg:moonbulb_plant",
                   "properties": {
-                    "age": "1"
+                    "age": "14"
                   }
                 }
               ]
@@ -52,7 +52,7 @@
           "condition": "minecraft:block_state_property",
           "block": "divinerpg:moonbulb_plant",
           "properties": {
-            "age": "1"
+            "age": "14"
           }
         }
       ]

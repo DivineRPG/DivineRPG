@@ -14,7 +14,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "divinerpg:pinfly_plant",
                   "properties": {
-                    "age": "2"
+                    "age": "14"
                   }
                 }
               ],
@@ -52,7 +52,7 @@
           "condition": "minecraft:block_state_property",
           "block": "divinerpg:pinfly_plant",
           "properties": {
-            "age": "2"
+            "age": "14"
           }
         }
       ]

@@ -1,36 +1,28 @@
 {
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/lamona_plant_stage_0"
-      },
-      "when": {
-        "age": "0"
-      }
+  "variants": {
+    "age=0": {
+      "model": "divinerpg:block/lamona_plant_stage_0"
     },
-    {
-      "apply": {
-        "model": "divinerpg:block/lamona_plant_stage_1"
-      },
-      "when": {
-        "age": "1"
-      }
+    "age=1": {
+      "model": "divinerpg:block/lamona_plant_stage_1"
     },
-    {
-      "apply": {
-        "model": "divinerpg:block/lamona_plant_stage_2"
-      },
-      "when": {
-        "age": "2"
-      }
+    "age=2": {
+      "model": "divinerpg:block/lamona_plant_stage_2"
     },
-    {
-      "apply": {
-        "model": "divinerpg:block/lamona_plant_stage_3"
-      },
-      "when": {
-        "age": "3"
-      }
+    "age=3": {
+      "model": "divinerpg:block/lamona_plant_stage_3"
+    },
+    "age=4": {
+      "model": "divinerpg:block/lamona_plant_stage_4"
+    },
+    "age=5": {
+      "model": "divinerpg:block/lamona_plant_stage_5"
+    },
+    "age=6": {
+      "model": "divinerpg:block/lamona_plant_stage_6"
+    },
+    "age=7": {
+      "model": "divinerpg:block/lamona_plant_stage_7"
     }
-  ]
+  }
 }

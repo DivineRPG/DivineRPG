@@ -14,7 +14,7 @@
                   "condition": "minecraft:block_state_property",
                   "block": "divinerpg:white_mushroom_plant",
                   "properties": {
-                    "age": "1"
+                    "age": "7"
                   }
                 }
               ],
@@ -52,7 +52,7 @@
           "condition": "minecraft:block_state_property",
           "block": "divinerpg:white_mushroom_plant",
           "properties": {
-            "age": "1"
+            "age": "7"
           }
         }
       ]

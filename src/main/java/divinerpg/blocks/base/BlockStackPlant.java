@@ -1,26 +1,22 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.util.Utils;
-import net.minecraft.core.BlockPos;
+import net.minecraft.core.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.*;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.PlantType;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockStackPlant extends BlockModDoubleCrop {
-
-    public BlockStackPlant() {
-        super();
-    }
-
-    public boolean canSurvive(BlockState state, LevelReader levelReader, BlockPos pos) {
-        return (levelReader.getRawBrightness(pos, 0) >= 8 || levelReader.canSeeSky(pos)) && levelReader.getBlockState(pos.below()).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_grass")) && Utils.bordersTar(levelReader, pos.getX(), pos.getY() - 1, pos.getZ());
-    }
-
-    @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos) {
-        return PlantType.BEACH;
+    public BlockStackPlant(ResourceLocation seed) {super(seed);}
+    @Override public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        for(Direction direction : Direction.Plane.HORIZONTAL) {
+            BlockState blockstate = level.getBlockState(pos.relative(direction));
+            if(blockstate.isSolid() || level.getFluidState(pos.relative(direction)).is(FluidTags.LAVA)) return false;
+        } BlockState belowState = level.getBlockState(pos.below());
+        return (level.getRawBrightness(pos, 0) >= 8 || level.canSeeSky(pos))
+                && ((belowState.getBlock() == BlockRegistry.arcaniteGrass.get() && Utils.bordersTar(level, pos.getX(), pos.getY() - 1, pos.getZ()))
+                || belowState.is(this) && belowState.getValue(AGE) == 14);
     }
 }
