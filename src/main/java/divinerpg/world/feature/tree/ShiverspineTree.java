@@ -3,6 +3,7 @@ package divinerpg.world.feature.tree;
 import divinerpg.DivineRPG;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -24,7 +25,7 @@ public class ShiverspineTree extends SkythernTree {
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
 			if(level.getBlockState(pos.below()).is(BlockTags.SNOW)) pos = pos.below();
-			int treeHeight, extraHeight, treeType = random.nextInt(11), width = 1;
+			int treeHeight, extraHeight, treeType = random.nextInt(25), width = 1;
     		switch(treeType) {
     		case 1: case 2:
     			//Stacking1, Stacking2
@@ -32,27 +33,32 @@ public class ShiverspineTree extends SkythernTree {
     			extraHeight = treeHeight + 3;
     			break;
     		case 0: case 3: case 7: case 8: case 9: case 10:
-    			//Tall1, Tall2, Tall3, default
+    			//Tall1, Tall2, Tall3
     			width = 2;
     			treeHeight = 15 + random.nextInt(20);
     			extraHeight = treeHeight + 2;
+    			break;
     		default: return super.place(config, level, chunkGen, random, pos);
-    		}
-    		if(heightCheck(level, pos, extraHeight, width)) {
+    		} if(heightCheck(level, pos, extraHeight, width)) {
     			BlockState log = config.log, leaves = config.leaves;
     			BlockPos temp;
     			//Main trunk
-    			grow(level, pos.below(), log, treeHeight + 1);
+    			grow(level, pos, log, treeHeight + 1);
     			grow(level, pos.offset(0, treeHeight + 1, 0), leaves, extraHeight - 1 - treeHeight);
     			if(width == 2) {
-    				grow(level, pos.offset(1, -1, 0), log, treeHeight + 1);
+    				MutableBlockPos mut = pos.offset(1, 0, 0).mutable();
+    				while(hasSpace(level.getBlockState(mut.move(0, -1, 0)))) setBlock(level, mut, log, true);
+    				grow(level, pos.offset(1, 0, 0), log, treeHeight + 1);
     				grow(level, pos.offset(1, treeHeight + 1, 0), leaves, extraHeight - 1 - treeHeight);
-    				grow(level, pos.offset(0, -1, 1), log, treeHeight - 1);
+    				mut = pos.offset(0, 0, 1).mutable();
+    				while(hasSpace(level.getBlockState(mut.move(0, -1, 0)))) setBlock(level, mut, log, true);
+    				grow(level, pos.offset(0, 0, 1), log, treeHeight - 1);
     				grow(level, pos.offset(0, treeHeight + 1, 1), leaves, extraHeight - 1 - treeHeight);
-    				grow(level, pos.offset(1, -1, 1), log, treeHeight + 1);
+    				mut = pos.offset(1, 0, 1).mutable();
+    				while(hasSpace(level.getBlockState(mut.move(0, -1, 0)))) setBlock(level, mut, log, true);
+    				grow(level, pos.offset(1, 0, 1), log, treeHeight + 1);
     				grow(level, pos.offset(1, treeHeight + 1, 1), leaves, extraHeight - 1 - treeHeight);
-    			}
-    			int bottomHeight, offset;
+    			} int bottomHeight, offset;
     			switch(treeType) {
     			case 1: case 2:
     				bottomHeight = random.nextInt(2);
@@ -113,8 +119,7 @@ public class ShiverspineTree extends SkythernTree {
                 			extraHeight = (treeHeight + 1) - (stage - width);
                 			for(offset = 1 - width; offset <= width; offset++) wideGrow(level, pos.offset(0, extraHeight, 0), leaves, treeHeight - extraHeight, width, offset);
                 			wideGrow(level, pos.offset(0, extraHeight, 0), leaves, treeHeight - extraHeight, width - 1, width);
-                		}
-                		if(stage < 6) stage++;
+                		} if(stage < 6) stage++;
                 	}
     			}
     			return true;

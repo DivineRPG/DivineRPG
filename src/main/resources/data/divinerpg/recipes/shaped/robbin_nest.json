@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "divinerpg:robbin_nest"
+  },
+  "pattern": [
+    "L L",
+    "LLL"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "L": {
+      "item": "divinerpg:cozybark_leaves"
+    }
+  }
+}

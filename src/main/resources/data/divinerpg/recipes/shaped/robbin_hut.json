@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "divinerpg:robbin_hut"
+  },
+  "pattern": [
+    " B ",
+    "B B",
+    "PPP"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "divinerpg:shiverspine_wood"
+    },
+    "P": {
+      "item": "divinerpg:shiverspine_planks"
+    }
+  }
+}
