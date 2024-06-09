@@ -76,19 +76,16 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
 	         if (blockentity instanceof InfiniFurnaceBlockEntity) ((InfiniFurnaceBlockEntity)blockentity).setCustomName(stack.getHoverName());
 	    }
 	}
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState st, boolean b) {
-		if (!state.is(st.getBlock())) {
+		if(!state.is(st.getBlock()) || !st.hasBlockEntity()) {
 			BlockEntity blockentity = level.getBlockEntity(pos);
-			if (blockentity instanceof InfiniFurnaceBlockEntity) {
-				if (level instanceof ServerLevel) {
+			if(blockentity instanceof InfiniFurnaceBlockEntity) {
+				if(level instanceof ServerLevel) {
 					Containers.dropContents(level, pos, (InfiniFurnaceBlockEntity)blockentity);
 					((InfiniFurnaceBlockEntity)blockentity).getRecipesToAwardAndPopExperience((ServerLevel)level, Vec3.atCenterOf(pos));
-	            }
-	            level.updateNeighbourForOutputSignal(pos, this);
-			}
-			super.onRemove(state, level, pos, st, b);
+	            } level.updateNeighbourForOutputSignal(pos, this);
+			} level.removeBlockEntity(pos);
 		}
 	}
 	@Override public boolean hasAnalogOutputSignal(BlockState state) {return true;}

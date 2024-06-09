@@ -26,7 +26,7 @@ public class EntityEnchantedWarrior extends EntityDivineMonster {
         RandomSource random = level.getRandom();
         populateDefaultEquipmentSlots(random, difficulty);
         populateDefaultEquipmentEnchantments(getRandom(), difficulty);
-        return super.finalizeSpawn(level, difficulty, type, data, tag);
+        return data;
     }
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.HISS.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}

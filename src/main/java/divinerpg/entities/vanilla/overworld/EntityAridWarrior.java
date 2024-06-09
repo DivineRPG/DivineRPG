@@ -36,7 +36,7 @@ public class EntityAridWarrior extends EntityDivineMonster implements RangedAtta
         RandomSource random = level.getRandom();
         populateDefaultEquipmentSlots(random, difficulty);
         populateDefaultEquipmentEnchantments(random, difficulty);
-        return super.finalizeSpawn(level, difficulty, type, data, tag);
+        return data;
     }
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if(isAlive() && getTarget() != null && !level().isClientSide) {

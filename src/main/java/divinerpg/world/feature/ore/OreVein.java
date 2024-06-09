@@ -17,17 +17,16 @@ public class OreVein extends Feature<OreVeinConfig> {
 	@Override
 	public boolean place(OreVeinConfig config, WorldGenLevel level, ChunkGenerator generator, RandomSource random, BlockPos origin) {
 		List<OreVeinConfig.TargetBlockState> states = config.targetStates;
-		if(OreVein.VeinArm.canBeHere(level, origin, states, random)) {
-			new OreVein.VeinArm(origin, Direction.getRandom(random)).run(level, random, origin, config.cutoffChance, config.straightness, config.branchingChance, states);
+		if(VeinArm.canBeHere(level, origin, states, random)) {
+			new VeinArm(origin, Direction.getRandom(random)).run(level, random, origin, config.cutoffChance, config.straightness, config.branchingChance, states);
 			return true;
-		}
-		return false;
+		} return false;
 	}
 	@Override
 	public boolean place(FeaturePlaceContext<OreVeinConfig> context) {
 		return place(context.config(), context.level(), context.chunkGenerator(), context.random(), context.origin());
 	}
-	public class VeinArm {
+	public static class VeinArm {
 		Direction direction;
 		BlockPos pos;
 		public VeinArm(BlockPos p, Direction dir){
@@ -62,7 +61,7 @@ public class OreVein extends Feature<OreVeinConfig> {
 			if(random.nextFloat() <= targetState.chance
 					&& targetState.target.test(level.getBlockState(pos), random)
 					&& (random.nextFloat() > targetState.discardChanceOnAirExposure || !checkForAir(level, pos)))
-				setBlock(level, pos, targetState.state);
+				level.setBlock(pos, targetState.state, 3);
 		}
 		public boolean checkForAir(WorldGenLevel level, BlockPos pos) {
 			return level.isEmptyBlock(pos.above()) || level.isEmptyBlock(pos.below()) || level.isEmptyBlock(pos.north()) || level.isEmptyBlock(pos.south()) || level.isEmptyBlock(pos.east()) || level.isEmptyBlock(pos.west());

@@ -8,7 +8,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.Item;
@@ -23,7 +22,7 @@ public class GruzzorlugCannoneer extends Gruzzorlug implements RangedAttackMob {
 	@Override protected String getTradesLocation() {return "trades/gruzzorlug_cannoneer";}
 	@Override protected void registerGoals() {
 		super.registerGoals();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 20, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+        goalSelector.addGoal(0, new AggressiveRangedAttackGoal(20));
 		goalSelector.addGoal(4, new FollowLeaderGoal(this, GruzzorlugCommander.class, 1, 4, (float)getAttributeValue(Attributes.FOLLOW_RANGE)));
 	}
 	@Override public void performRangedAttack(LivingEntity target, float f) {

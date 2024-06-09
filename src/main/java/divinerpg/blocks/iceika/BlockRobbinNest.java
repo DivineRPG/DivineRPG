@@ -9,6 +9,7 @@ import net.minecraft.world.*;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -30,6 +31,14 @@ public class BlockRobbinNest extends BaseEntityBlock {
 			EntityRegistry.ROBBIN.get().spawn(level, pos, MobSpawnType.BREEDING);
 		}
 	}
+	@Override
+	public boolean hasAnalogOutputSignal(BlockState state) {
+		return true;
+	}
+	@Override
+	public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+		return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
+	}
 	@Override public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block) {
 			ItemStack handItem = player.getItemInHand(hand);
@@ -49,8 +58,8 @@ public class BlockRobbinNest extends BaseEntityBlock {
 		} return InteractionResult.PASS;
 	}
 	@Override public void onRemove(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {
-		if(!state.is(s.getBlock()) && level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block) {
-			if(!block.isEmpty()) Containers.dropContents(level, pos, block);
+		if((!state.is(s.getBlock()) || !s.hasBlockEntity())) {
+			if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block && !block.isEmpty()) Containers.dropContents(level, pos, block);
 			level.removeBlockEntity(pos);
 			level.updateNeighbourForOutputSignal(pos, this);
 		}

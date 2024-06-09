@@ -87,7 +87,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 		RandomSource random = level.getRandom();
 		populateDefaultEquipmentSlots(random, difficulty);
 		populateDefaultEquipmentEnchantments(random, difficulty);
-		return super.finalizeSpawn(level, difficulty, type, data, tag);
+		return data;
 	}
 	public void setUnimportant() {important = false;}
 	@Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {

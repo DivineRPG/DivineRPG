@@ -70,8 +70,8 @@ public class BlockCrate extends BaseEntityBlock {
 		} return InteractionResult.PASS;
 	}
 	@Override public void onRemove(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {
-		if(!state.is(s.getBlock()) && level.getBlockEntity(pos) instanceof CrateBlockEntity block) {
-			if(!block.isEmpty()) Containers.dropContents(level, pos, block);
+		if((!state.is(s.getBlock()) || !s.hasBlockEntity())) {
+			if(level.getBlockEntity(pos) instanceof CrateBlockEntity block && !block.isEmpty()) Containers.dropContents(level, pos, block);
 			level.removeBlockEntity(pos);
 			level.updateNeighbourForOutputSignal(pos, this);
 		}

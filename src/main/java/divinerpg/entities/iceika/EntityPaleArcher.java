@@ -40,7 +40,7 @@ public class EntityPaleArcher extends EntityDivineMonster implements RangedAttac
         RandomSource random = level.getRandom();
         populateDefaultEquipmentSlots(random, difficulty);
         populateDefaultEquipmentEnchantments(random, difficulty);
-        return super.finalizeSpawn(level, difficulty, type, data, tag);
+        return data;
     }
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
         EntityDivineArrow projectile = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level(), ArrowType.PALE_ARCHER_ARROW, this, target, 1.6F, 1.2F);

@@ -5,7 +5,6 @@ import divinerpg.entities.projectile.EntityShooterBullet;
 import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
