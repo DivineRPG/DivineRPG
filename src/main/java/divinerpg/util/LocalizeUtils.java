@@ -181,7 +181,7 @@ public class LocalizeUtils {
      *
      * @param entity - summoned entity
      */
-    public static Component summoned(EntityType entity) {
+    public static Component summoned(EntityType<?> entity) {
         Component name = MutableComponent.create(new TranslatableContents(entity.getDescriptionId(), null, null));
         return i18n(Summoned, name);
     }

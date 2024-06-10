@@ -109,8 +109,8 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, ROLLUM.get());
     	registerMobSpawn(e, WORKSHOP_MERCHANT.get());
 		registerMobSpawn(e, WORKSHOP_TINKERER.get());
-		registerMonsterSpawn(e, GROGLIN_HUNTER.get());
-		registerMonsterSpawn(e, GRUZZORLUG_MINER.get());
+		registerMobSpawn(e, GROGLIN_HUNTER.get());
+		registerMobSpawn(e, GRUZZORLUG_MINER.get());
 		registerMobSpawn(e, ROBBIN.get());
 		registerMobSpawn(e, WOLPERTINGER.get());
 		//Eden

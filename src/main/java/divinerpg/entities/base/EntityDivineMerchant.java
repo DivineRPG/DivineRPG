@@ -1,10 +1,12 @@
 package divinerpg.entities.base;
 
 import divinerpg.registries.SoundRegistry;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -15,9 +17,13 @@ import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.npc.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.MapItem;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.saveddata.maps.MapDecoration;
+import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 import net.minecraftforge.common.Tags;
 
 import javax.annotation.Nullable;
@@ -65,20 +71,18 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.MERCHANT_HURT.get();}
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (!getOffers().isEmpty()) {
-            if (!level().isClientSide()) {
-            	if(level().hasNearbyAlivePlayer(position().x, position().y, position().z, 16) && needsToRestock()) this.restock();
-                updateSpecialPrices(player);
-                setTradingPlayer(player);
-                openTradingScreen(player, getDisplayName(), 1);
-                player.displayClientMessage(Component.translatable(getChatMessages()[player.random.nextInt(getChatMessages().length)]), true);
-            }
-        }
-        else setUnhappy();
-        return InteractionResult.sidedSuccess(level().isClientSide());
+        	if(needsToRestock()) this.restock();
+            updateSpecialPrices(player);
+            setTradingPlayer(player);
+            openTradingScreen(player, getDisplayName(), 1);
+            String[] messages = getChatMessages();
+            if(messages.length > 0) player.displayClientMessage(Component.translatable(messages[player.random.nextInt(getChatMessages().length)]), true);
+        } else setUnhappy();
+        return InteractionResult.SUCCESS;
     }
     @Override public boolean canRestock() {return true;}
     @Override public boolean showProgressBar() {return false;}
-    @Override public boolean removeWhenFarAway(double distance) {return getVillagerXp() > 0;}
+    @Override public boolean removeWhenFarAway(double distance) {return false;}
     public void restock() {
         for(MerchantOffer merchantoffer : this.getOffers()) {
         	merchantoffer.updateDemand();
@@ -124,8 +128,9 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     private void resetSpecialPrices() {for(MerchantOffer merchantoffer : this.getOffers()) merchantoffer.resetSpecialPriceDiff();}
     
     public static class DivineTrades implements VillagerTrades.ItemListing {
-        private ItemStack input2, input1, output;
-        private int xp, stock;
+		protected ItemStack input1, input2;
+		private ItemStack output;
+        protected int xp, stock;
         public DivineTrades(ItemStack input1, ItemStack input2, ItemStack output, int stock, int xp) {
             this.xp = xp;
             this.stock = stock + 1;
@@ -135,6 +140,33 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         }
         public DivineTrades(ItemStack input1, ItemStack output, int stock, int xp) {this(input1, ItemStack.EMPTY, output, stock, xp);}
         @Override public MerchantOffer getOffer(Entity tradeEnt, RandomSource rand) {return new MerchantOffer(input1, input2, output, stock, xp, 0F);}
+    }
+    public static class DivineMapTrades extends DivineTrades {
+    	private final String displayName;
+    	private final TagKey<Structure> destination;
+    	private final MapDecoration.Type destinationType;
+        public DivineMapTrades(ItemStack input1, ItemStack input2, String displayName, TagKey<Structure> destination, MapDecoration.Type destinationType, int xp) {
+            super(input1, input2, null, 1, xp);
+            this.displayName = displayName;
+            this.destination = destination;
+            this.destinationType = destinationType;
+        }
+        public DivineMapTrades(ItemStack input1, String displayName, TagKey<Structure> destination, MapDecoration.Type destinationType, int xp) {this(input1, ItemStack.EMPTY, displayName, destination, destinationType, xp);}
+        @Override
+        public MerchantOffer getOffer(Entity entity, RandomSource random) {
+        	if(!(entity.level() instanceof ServerLevel)) return null;
+        	else {
+        		ServerLevel serverlevel = (ServerLevel)entity.level();
+                BlockPos blockpos = serverlevel.findNearestMapStructure(destination, entity.blockPosition(), 100, true);
+                if(blockpos != null) {
+                   ItemStack itemstack = MapItem.create(serverlevel, blockpos.getX(), blockpos.getZ(), (byte)2, true, true);
+                   MapItem.renderBiomePreviewMap(serverlevel, itemstack);
+                   MapItemSavedData.addTargetDecoration(itemstack, blockpos, "+", this.destinationType);
+                   itemstack.setHoverName(Component.translatable(this.displayName));
+                   return new MerchantOffer(input1, input2, itemstack, 1, xp, 0F);
+                } else return null;
+            }
+        }
     }
     @Override
     public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {

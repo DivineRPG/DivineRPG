@@ -16,7 +16,6 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.*;
 import java.util.function.Supplier;
 import static divinerpg.DivineRPG.MODID;

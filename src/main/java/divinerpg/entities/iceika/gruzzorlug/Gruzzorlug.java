@@ -11,15 +11,11 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 public abstract class Gruzzorlug extends EntityIceikaNPC {
 	public static final TagKey<Structure> RAID_TARGETS = TagKey.create(Registries.STRUCTURE, new ResourceLocation(DivineRPG.MODID, "gruzzorlug_raid_targets"));
-	public static final TagKey<Item>
-		MINER_ACCEPTED = TagKey.create(Registries.ITEM, new ResourceLocation(DivineRPG.MODID, "gruzzorlug_miner_tradeable")),
-		KNIGHT_ACCEPTED = TagKey.create(Registries.ITEM, new ResourceLocation(DivineRPG.MODID, "gruzzorlug_knight_tradeable"));
 	public Gruzzorlug(EntityType<? extends Gruzzorlug> type, Level worldIn) {super(type, worldIn);}
 	@Override public Faction getFaction() {return Faction.GRUZZORLUG;}
 	@Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.03F;}

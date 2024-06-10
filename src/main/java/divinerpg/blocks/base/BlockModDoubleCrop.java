@@ -40,7 +40,7 @@ public class BlockModDoubleCrop extends SugarCaneBlock {
     @Override public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         for(Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate = level.getBlockState(pos.relative(direction));
-            if(blockstate.isSolid() || level.getFluidState(pos.relative(direction)).is(FluidTags.LAVA)) return false;
+            if(blockstate.hasLargeCollisionShape() || level.getFluidState(pos.relative(direction)).is(FluidTags.LAVA)) return false;
         } BlockState belowState = level.getBlockState(pos.below());
         return (level.getRawBrightness(pos, 0) >= 8 || level.canSeeSky(pos)) && (belowState.is(BlockTags.DIRT) || belowState.is(this) && belowState.getValue(AGE) == 14);
     }

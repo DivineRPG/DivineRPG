@@ -4,9 +4,8 @@ import java.util.*;
 
 import javax.annotation.Nullable;
 
+import divinerpg.capability.ReputationProvider;
 import divinerpg.registries.*;
-import divinerpg.util.Utils;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
@@ -134,13 +133,14 @@ public interface FactionEntity {
 			return isAutoAggressive;
 		}
 		public void modifyReputation(Player player, int amount) {
-			CompoundTag playerData = Utils.getPlayerData(player);
-			playerData.putInt(reputationIdentifier, getReputation(player) + amount);
-			Utils.setPlayerData(player, playerData);
+			player.getCapability(ReputationProvider.REPUTATION).orElse(null).modifyReputation(this, amount);
 		}
 		public int getReputation(Player player) {
-			CompoundTag playerData = Utils.getPlayerData(player);
-			return playerData != null && playerData.contains(reputationIdentifier) ? playerData.getInt(reputationIdentifier) : startingReputation;
+			return player.getCapability(ReputationProvider.REPUTATION).orElse(null).getReputation(this);
+		}
+		@Override
+		public String toString() {
+			return reputationIdentifier;
 		}
 	}
 }

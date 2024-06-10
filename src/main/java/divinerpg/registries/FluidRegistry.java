@@ -98,7 +98,7 @@ public class FluidRegistry {
                 @Override protected void spreadTo(LevelAccessor level, BlockPos pos, BlockState blockState, Direction dir, FluidState fluidState) {
                     if(dir == Direction.DOWN) {
                         FluidState fluidstate = level.getFluidState(pos);
-                        if(is(FluidTags.LAVA) && fluidstate.is(FluidTags.WATER)) {
+                        if(defaultFluidState().is(FluidTags.LAVA) && fluidstate.is(FluidTags.WATER)) {
                             if(blockState.getBlock() instanceof LiquidBlock) level.setBlock(pos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(level, pos, pos, Blocks.STONE.defaultBlockState()), 3);
                             fizz(level, pos);
                             return;

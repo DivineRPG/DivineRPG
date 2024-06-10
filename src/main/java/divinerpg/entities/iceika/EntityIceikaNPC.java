@@ -1,10 +1,10 @@
 package divinerpg.entities.iceika;
 
-import java.util.List;
 import divinerpg.DivineRPG;
 import divinerpg.entities.ai.FactionTargetGoal;
 import divinerpg.entities.base.*;
 import divinerpg.registries.ItemRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.resources.ResourceLocation;
@@ -19,19 +19,18 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.*;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.minecraft.world.level.storage.loot.*;
-import net.minecraft.world.level.storage.loot.parameters.*;
 import javax.annotation.Nullable;
 
-public abstract class EntityIceikaNPC extends EntityDivineMonster implements FactionEntity {
+public abstract class EntityIceikaNPC extends EntityDivineMerchant implements FactionEntity {
+	public static final TagKey<Structure> WHALE_SKULL = TagKey.create(Registries.STRUCTURE, new ResourceLocation(DivineRPG.MODID, "whale_skull"));
 	public static Item getItem(int i) {
 		return switch(i) {
 		case 1 -> ItemRegistry.oxdrite_pickaxe.get();//gruzzorlug miner
@@ -51,12 +50,10 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	}
     protected static final EntityDataAccessor<Integer> ITEM = SynchedEntityData.defineId(EntityIceikaNPC.class, EntityDataSerializers.INT);
     protected boolean important = false;
-	public EntityIceikaNPC(EntityType<? extends Monster> type, Level worldIn) {
+	public EntityIceikaNPC(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
         super(type, worldIn);
         setPathfindingMalus(BlockPathTypes.POWDER_SNOW, -1);
     }
-	protected abstract TagKey<Item> getAcceptedItems();
-	protected abstract String getTradesLocation();
 	protected abstract TagKey<Structure> getRaidTargets();
 	protected abstract MobEffect getTargetEffect();
 	@Override protected void registerGoals() {
@@ -90,32 +87,13 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 		return data;
 	}
 	public void setUnimportant() {important = false;}
-	@Override protected InteractionResult mobInteract(Player player, InteractionHand hand) {
-		if(getFaction().getReputation(player) > 5) {
-			ItemStack stack = player.getItemInHand(hand);
-			if(stack.is(getAcceptedItems())) {
-				ItemStack trade = getTradedItem(player);
-				if(trade != null) {
-					if(!player.isCreative()) {
-						stack.shrink(1);
-						player.setItemInHand(hand, stack);
-					} level().addFreshEntity(new ItemEntity(level(), getX(), getY(), getZ(), trade));
-					getFaction().modifyReputation(player, 1);
-					return InteractionResult.CONSUME;
-				}
-			}
-		} playSound(SoundEvents.VILLAGER_NO);
-		return InteractionResult.FAIL;
-	}
-	private ItemStack getTradedItem(Player player) {
-		if(player.level().isClientSide()) return null;
-        ResourceLocation lootTableLocation = new ResourceLocation(DivineRPG.MODID, getTradesLocation());
-        LootParams lootparams = (new LootParams.Builder((ServerLevel) player.level())).withParameter(LootContextParams.THIS_ENTITY, player).withParameter(LootContextParams.ORIGIN, player.position()).create(LootContextParamSets.SELECTOR);
-        if(new LootContext.Builder(lootparams).create(lootTableLocation) != null) {
-            List<ItemStack> tradedItems = player.getServer().getLootData().getLootTable(lootTableLocation).getRandomItems(lootparams);
-            if(!tradedItems.isEmpty()) return tradedItems.get(0);
-        } return null;
-	}
+	@Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+    	if(getFaction().getReputation(player) > 5) {
+        	return super.mobInteract(player, hand);
+    	} playSound(SoundEvents.VILLAGER_NO);
+    	return InteractionResult.FAIL;
+    }
 	@Override public void die(DamageSource source) {
 		modifyReputationOnDeath(source);
 		super.die(source);
@@ -141,5 +119,15 @@ public abstract class EntityIceikaNPC extends EntityDivineMonster implements Fac
 	@Override public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
 		tag.putBoolean("Important", important);
+	}
+	@Override
+	public String[] getChatMessages() {
+		return new String[0];
+	}
+	@Override
+	protected void rewardTradeXp(MerchantOffer offer) {
+		super.rewardTradeXp(offer);
+		Player player = getTradingPlayer();
+		if(player != null && offer.shouldRewardExp()) getFaction().modifyReputation(player, 1);
 	}
 }

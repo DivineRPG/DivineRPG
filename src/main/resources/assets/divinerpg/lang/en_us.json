@@ -228,6 +228,7 @@
   "block.divinerpg.iceika_portal": "Iceika Portal",
   "block.divinerpg.robbin_nest": "Robbin Nest",
   "block.divinerpg.robbin_hut": "Robbin Hut",
+  "block.divinerpg.calcified_brain": "Calcified Brain",
   "block.divinerpg.kitra_statue": "Kitra Statue",
 
   "block.divinerpg.olivine_block": "Block of Olivine",
@@ -2093,6 +2094,10 @@
   "painting.divinerpg.lurking_terror.author": "Sir_Deccy & Derpanzerfisch",
   "painting.divinerpg.moonlight_rave.title": "Moonlight Rave",
   "painting.divinerpg.moonlight_rave.author": "Sir_Deccy",
+  
+  "filled_map.whale_skull": "Skeletal Remains Exploration Map",
+  "filled_map.groglin_raid_target": "Groglin Military Intel",
+  "filled_map.gruzzorlug_raid_target": "Gruzzorlug Military Intel",
 
   "death.attack.divinerpg.acid": "%1$s melted in acid",
   "death.attack.divinerpg.acid.player": "%1$s melted in acid while fighting %2$s",

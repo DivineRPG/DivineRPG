@@ -7,7 +7,7 @@ import net.minecraftforge.common.util.*;
 import javax.annotation.*;
 
 public class ArcanaProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<Arcana> ARCANA = CapabilityManager.get(new CapabilityToken<>(){});
+    public static final Capability<Arcana> ARCANA = CapabilityManager.get(new CapabilityToken<>(){});
     private Arcana arcana = null;
     private final LazyOptional<Arcana> opt = LazyOptional.of(this::createArcana);
     @Nonnull private Arcana createArcana() {

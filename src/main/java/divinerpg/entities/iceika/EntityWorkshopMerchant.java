@@ -34,6 +34,7 @@ public class EntityWorkshopMerchant extends EntityDivineMerchant implements Fact
     	super.registerGoals();
 		goalSelector.addGoal(4, new AvoidFactionGoal(this, getFaction(), (float)getAttributeValue(Attributes.FOLLOW_RANGE), 1.1, 1.1));
     }
+    @Override
     public String[] getChatMessages() {
         return new String[] {
                 "message.merchant.burr",

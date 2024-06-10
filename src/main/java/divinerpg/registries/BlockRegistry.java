@@ -739,6 +739,7 @@ public class BlockRegistry {
             encagedZelus = registerBlock("encaged_zelus", () -> new BlockModMobCage(EntityRegistry.ZELUS.getId(), ItemRegistry.veilo.getId())),
 
             //Boss Spawners
+            calcifiedBrain = registerBlock("calcified_brain", () -> new BlockModMobCage(Properties.copy(Blocks.BONE_BLOCK), EntityRegistry.KITRA.getId(), ItemRegistry.liopleurodon_skull.getId(), new BlockPos(0, 5, 0))),
             sunstormSpawner = registerBlock("sunstorm_spawner", () -> new BlockModMobCage(EntityRegistry.SUNSTORM.getId(), ItemRegistry.eden_chunk.getId(), COLOR_YELLOW)),
             termasectSpawner = registerBlock("termasect_spawner", () -> new BlockModMobCage(EntityRegistry.TERMASECT.getId(), ItemRegistry.wildwood_chunk.getId(), COLOR_LIGHT_BLUE, new BlockPos(0, 11, 0))),
             eternalArcherSpawner = registerBlock("eternal_archer_spawner", () -> new BlockModMobCage(EntityRegistry.ETERNAL_ARCHER.getId(), ItemRegistry.apalachia_chunk.getId(), COLOR_MAGENTA)),

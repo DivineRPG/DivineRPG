@@ -1,16 +1,18 @@
 package divinerpg.entities.iceika.groglin;
 
 import divinerpg.entities.ai.FollowLeaderGoal;
+import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.entities.projectile.EntityDivineArrow;
 import divinerpg.enums.ArrowType;
 import divinerpg.registries.EntityRegistry;
-import net.minecraft.tags.TagKey;
+import divinerpg.registries.ItemRegistry;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 
 public class GroglinHunter extends Groglin implements RangedAttackMob {
@@ -31,6 +33,16 @@ public class GroglinHunter extends Groglin implements RangedAttackMob {
             level().addFreshEntity(projectile);
         }
 	}
-	@Override protected TagKey<Item> getAcceptedItems() {return Groglin.HUNTER_ACCEPTED;}
-	@Override protected String getTradesLocation() {return "trades/groglin_hunter";}
+	@Override
+	protected void updateTrades() {
+		MerchantOffers merchantoffers = this.getOffers();
+        DivineTrades[] tradetrades = new DivineTrades[]{
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 24), new ItemStack(ItemRegistry.seng_fur.get()), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 12), new ItemStack(ItemRegistry.raw_seng_meat.get(), 2), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 6), new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 5), random.nextInt(7), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 10), new ItemStack(ItemRegistry.cauldron_flesh.get(), 5), random.nextInt(7), 1),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 1), new ItemStack(ItemRegistry.ice_stone.get(), 3), random.nextInt(7), 1)
+        };
+        addOffersFromItemListings(merchantoffers, tradetrades, 3);
+	}
 }

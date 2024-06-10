@@ -14,7 +14,7 @@ public class EventClientLogin {
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event){
         Player player = event.getEntity();
-        if(!player.level().isClientSide) {
+        if(!player.level().isClientSide()) {
         	//Weather update
         	if(player instanceof ServerPlayer pl) DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> pl), Utils.ICEIKA_WEATHER);
             //Send welcome messages
@@ -36,4 +36,14 @@ public class EventClientLogin {
             }
         }
     }
+//    @SubscribeEvent
+//    public void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+//    	Player player = event.getEntity();
+//    	if(!player.level().isClientSide()) {
+//    		player.reviveCaps();
+//    		CompoundSavedData.storeData(player.getServer(), "divinerpg_reputations", player.getStringUUID(), player.getCapability(ReputationProvider.REPUTATION).orElse(null).saveTo(new CompoundTag()));
+//    		CompoundSavedData.storeData(player.getServer(), "divinerpg_inventories", player.getStringUUID(), player.getCapability(DimensionalInventoryProvider.DIMENIONAL_INVENTORY).orElse(null).saveTo(new CompoundTag()));
+//    		player.invalidateCaps();
+//    	}
+//    }
 }

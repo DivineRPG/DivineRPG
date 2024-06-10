@@ -121,10 +121,8 @@ public class ShiverspineTree extends SkythernTree {
                 			wideGrow(level, pos.offset(0, extraHeight, 0), leaves, treeHeight - extraHeight, width - 1, width);
                 		} if(stage < 6) stage++;
                 	}
-    			}
-    			return true;
+    			} return true;
     		}
-		}
-		return false;
+		} return false;
 	}
 }

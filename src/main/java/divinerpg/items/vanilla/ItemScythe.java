@@ -27,6 +27,7 @@ public class ItemScythe extends ItemModRanged {
         Item helmet = stackHelmet.getItem();
         return boots == ItemRegistry.jack_o_man_boots.get() && body == ItemRegistry.jack_o_man_chestplate.get() && legs == ItemRegistry.jack_o_man_leggings.get() && helmet == ItemRegistry.jack_o_man_helmet.get();
     }
+	@SuppressWarnings("resource")
 	@OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(Minecraft.getInstance().player != null) tooltip.add(LocalizeUtils.magicDam(isJackoman(Minecraft.getInstance().player) ? (int)BulletType.MEGA_SCYTHE_SHOT.getDamage() : (int)BulletType.SCYTHE_SHOT.getDamage()));

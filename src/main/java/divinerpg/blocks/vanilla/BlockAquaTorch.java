@@ -30,7 +30,7 @@ public class BlockAquaTorch extends BlockModTorch implements SimpleWaterloggedBl
         state.add(WATERLOGGED);
         super.createBlockStateDefinition(state);
     }
-    @Override public FluidState getFluidState(BlockState state) {return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);}
+    @Override public FluidState getFluidState(BlockState state) {return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : Fluids.EMPTY.defaultFluidState();}
     @OnlyIn(Dist.CLIENT)
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         double d0 = pos.getX() + .5;

@@ -70,7 +70,7 @@ public class EntityPumpkinSpider extends Spider {
 					return;
 				}
 			}
-			entityData.set(PROVOKED, true);
+			if(!level().isClientSide()) entityData.set(PROVOKED, true);
 			setTarget(entity);
 		}
 	}

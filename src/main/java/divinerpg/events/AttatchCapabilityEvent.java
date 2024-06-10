@@ -10,17 +10,17 @@ import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 
 public class AttatchCapabilityEvent {
-    public static final Capability<Arcana> ARCANA = CapabilityManager.get(new CapabilityToken<>() {});
-
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(Arcana.class);
         event.register(SoulTrapCount.class);
+        event.register(Reputation.class);
+        event.register(DimensionalInventory.class);
     }
     public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event){
-        if (event.getObject() instanceof Player) {
-            if (!event.getObject().getCapability(ArcanaProvider.ARCANA).isPresent()) {
-                event.addCapability(new ResourceLocation(DivineRPG.MODID, "arcana"), new ArcanaProvider());
-            }
+        if(event.getObject() instanceof Player player) {
+            if(!player.getCapability(ArcanaProvider.ARCANA).isPresent()) event.addCapability(new ResourceLocation(DivineRPG.MODID, "arcana"), new ArcanaProvider());
+            if(!player.getCapability(ReputationProvider.REPUTATION).isPresent()) event.addCapability(new ResourceLocation(DivineRPG.MODID, "reputation"),  new ReputationProvider());
+            if(!player.getCapability(DimensionalInventoryProvider.DIMENIONAL_INVENTORY).isPresent()) event.addCapability(new ResourceLocation(DivineRPG.MODID, "dimensional_inventory"),  new DimensionalInventoryProvider());
         }
     }
     public static void onAttachCapabilitiesLevelChunk(AttachCapabilitiesEvent<LevelChunk> event){

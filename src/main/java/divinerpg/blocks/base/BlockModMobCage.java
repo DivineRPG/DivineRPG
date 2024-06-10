@@ -18,6 +18,12 @@ import javax.annotation.Nullable;
 public class BlockModMobCage extends BlockMod {
 	public final ResourceLocation type, spawnItem;
 	protected final BlockPos relativePos;
+	public BlockModMobCage(Properties properties, ResourceLocation type, @Nullable ResourceLocation spawnItem, @Nullable BlockPos relativePos) {
+		super(properties.pushReaction(PushReaction.BLOCK));
+		this.type = type;
+		this.spawnItem = spawnItem;
+		this.relativePos = relativePos;
+	}
 	public BlockModMobCage(ResourceLocation type, ResourceLocation spawnItem) {
 		super(Properties.copy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK));
 		this.type = type;
