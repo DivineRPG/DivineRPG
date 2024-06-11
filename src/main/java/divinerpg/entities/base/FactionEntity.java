@@ -6,11 +6,14 @@ import javax.annotation.Nullable;
 
 import divinerpg.capability.ReputationProvider;
 import divinerpg.registries.*;
+import divinerpg.util.DivineRPGPacketHandler;
+import divinerpg.util.packets.PacketRequestReputation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.api.distmarker.*;
 
 public interface FactionEntity {
 	public Faction getFaction();
@@ -135,8 +138,13 @@ public interface FactionEntity {
 		public void modifyReputation(Player player, int amount) {
 			player.getCapability(ReputationProvider.REPUTATION).orElse(null).modifyReputation(this, amount);
 		}
+		@OnlyIn(Dist.CLIENT)
+		public static int rep;
 		public int getReputation(Player player) {
-			return player.getCapability(ReputationProvider.REPUTATION).orElse(null).getReputation(this);
+			if(player.level().isClientSide()) {
+				DivineRPGPacketHandler.INSTANCE.sendToServer(new PacketRequestReputation(this));
+				return rep;
+			} return player.getCapability(ReputationProvider.REPUTATION).orElse(null).getReputation(this);
 		}
 		@Override
 		public String toString() {

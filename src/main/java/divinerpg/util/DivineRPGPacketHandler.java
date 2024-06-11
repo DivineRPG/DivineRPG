@@ -23,6 +23,8 @@ public class DivineRPGPacketHandler {
 		INSTANCE.registerMessage(index++, PacketDivineAccumulator.class, PacketDivineAccumulator::toBytes, PacketDivineAccumulator::new, PacketDivineAccumulator::handle);
 		INSTANCE.registerMessage(index++, PacketItemContentChanged.class, PacketItemContentChanged::toBytes, PacketItemContentChanged::new, PacketItemContentChanged::handle);
 		INSTANCE.registerMessage(index++, PacketRequestItemContent.class, PacketRequestItemContent::toBytes, PacketRequestItemContent::new, PacketRequestItemContent::handle);
+		INSTANCE.registerMessage(index++, PacketRequestReputation.class, PacketRequestReputation::toByte, PacketRequestReputation::new, PacketRequestReputation::handle);
+		INSTANCE.registerMessage(index++, PacketReputation.class, PacketReputation::toBytes, PacketReputation::new, PacketReputation::handle);
 	}
 	public static void handle(Byte i, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {

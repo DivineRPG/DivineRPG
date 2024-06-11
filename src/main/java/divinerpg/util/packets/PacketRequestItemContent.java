@@ -23,7 +23,7 @@ public class PacketRequestItemContent {
 	}
 	public void handle(Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
-			if(ctx.get().getSender().level().getBlockEntity(pos) instanceof RobbinNestBlockEntity robbinNest) DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> ctx.get().getSender()), new PacketItemContentChanged(pos, robbinNest.getItem().getItem()));
+			if(ctx.get().getSender().level().getBlockEntity(pos) instanceof RobbinNestBlockEntity robbinNest) DivineRPGPacketHandler.INSTANCE.reply(new PacketItemContentChanged(pos, robbinNest.getItem().getItem()), ctx.get());
 		});
 		ctx.get().setPacketHandled(true);
 	}

@@ -89,7 +89,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 	public void setUnimportant() {important = false;}
 	@Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-    	if(getFaction().getReputation(player) > 5) {
+		if(getFaction().getReputation(player) > 5) {
         	return super.mobInteract(player, hand);
     	} playSound(SoundEvents.VILLAGER_NO);
     	return InteractionResult.FAIL;
