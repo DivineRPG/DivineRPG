@@ -25,7 +25,7 @@ public class BlockModDoubleCrop extends SugarCaneBlock {
         if(level.isEmptyBlock(pos.above())) {
             int i;
             for(i = 1; level.getBlockState(pos.below(i)).is(this); ++i) {}
-            if(i < 4) {
+            if(i < 3) {
                 int j = state.getValue(AGE);
                 if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(level, pos, state, true)) {
                     if(j == 15) {

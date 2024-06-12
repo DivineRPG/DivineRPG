@@ -19,8 +19,8 @@
   "effect.divinerpg.glistening_helmet": "Сверкание",
   "effect.divinerpg.glistening_hood": "Сверкание",
   "effect.divinerpg.glistening_mask": "Сверкание",
-  "effect.divinerpg.groglin_bounty": "Награда Гроглина",
-  "effect.divinerpg.gruzzorlug_target": "Цель Гразорлага",
+  "effect.divinerpg.groglin_bounty": "Награда гроглина",
+  "effect.divinerpg.gruzzorlug_target": "Цель гразорлага",
   "effect.divinerpg.halite_strength": "Халитовая сила",
   "effect.divinerpg.heavy_air": "Тяжёлый воздух",
   "effect.divinerpg.korma_arcana": "Аркановление",
@@ -38,11 +38,11 @@
   "effect.divinerpg.warmth": "Теплота",
   "effect.divinerpg.wildwood_heal": "Водное лечение",
   "effect.divinerpg.wither_protection": "Нессушение",
-	
+
   "itemGroup.divinerpg.blocks": "DivineRPG: Блоки",
   "itemGroup.divinerpg.misc": "DivineRPG: Разное",
   "itemGroup.divinerpg.tools": "DivineRPG: Снаряжение",
-	
+
   "block.divinerpg.realmite_ore": "Реалмитовая руда",
   "block.divinerpg.realmite_ore_deepslate": "Реалмитоносный глубинный сланец",
   "block.divinerpg.raw_realmite_block": "Блок рудного реалмита",
@@ -55,7 +55,7 @@
   "block.divinerpg.rupee_ore_deepslate": "Рупиеносный глубинный сланец",
   "block.divinerpg.raw_rupee_block": "Блок рудного рупия",
   "block.divinerpg.rupee_block": "Рупиевый блок",
-	
+
   "block.divinerpg.milk_stone": "Молочный камень",
   "block.divinerpg.milk_stone_bricks": "Молочно-каменные кирпичи",
   "block.divinerpg.iron_bricks": "Железные кирпичи",
@@ -72,15 +72,15 @@
   "block.divinerpg.lapis_lazuli_bricks": "Лазуритовые кирпичи",
   "block.divinerpg.purple_bricks": "Фиолетовые кирпичи",
   "block.divinerpg.magenta_bricks": "Пурпурные кирпичи",
-  "block.divinerpg.bloodgem_bricks": "Кроваво-самоцветные кирпичи",
+  "block.divinerpg.bloodgem_bricks": "Кровокварцевые кирпичи",
   "block.divinerpg.minibricks": "Мини-кирпичи",
   "block.divinerpg.bedrock_minibricks": "Бедроковые мини-кирпичи",
   "block.divinerpg.torridite_minibricks": "Торридитовые мини-кирпичи",
   "block.divinerpg.realmite_minibricks": "Реалмитовые мини-кирпичи",
   "block.divinerpg.arlemite_minibricks": "Арлемитовые мини-кирпичи",
   "block.divinerpg.rupee_minibricks": "Рупиевые мини-кирпичи",
-  "block.divinerpg.bloodgem_minibricks": "Кроваво-самоцветные мини-кирпичи",
-	
+  "block.divinerpg.bloodgem_minibricks": "Кровокварцевые мини-кирпичи",
+
   "block.divinerpg.molten_lamp": "Расплавленный фонарь",
   "block.divinerpg.divine_lamp": "Божественный фонарь",
   "block.divinerpg.jungle_lamp": "Фонарь джунглей",
@@ -103,43 +103,43 @@
   "block.divinerpg.lapis_lazuli_lamp": "Лазуритовый фонарь",
   "block.divinerpg.aqua_lamp": "Водяной фонарь",
   "block.divinerpg.ender_lamp": "Эндер-фонарь",
-  "block.divinerpg.bloodgem_lamp": "Кроваво-самоцветный фонарь",
+  "block.divinerpg.bloodgem_lamp": "Кровокварцевый фонарь",
   "block.divinerpg.slime_light": "Слизневый светильник",
-	
+
   "block.divinerpg.aqua_torch": "Водяной факел",
   "block.divinerpg.skeleton_torch": "Скелетный факел",
-	
+
   "block.divinerpg.red_fence": "Красный забор",
   "block.divinerpg.green_fence": "Зелёный забор",
   "block.divinerpg.blue_fence": "Синий забор",
-	
+
   "block.divinerpg.smoldering_tar": "Раскалённый дёготь",
   "fluid_type.divinerpg.smoldering_tar_fluid_type": "Раскалённый дёготь",
   "item.divinerpg.smoldering_tar_bucket": "Ведро раскалённого дёгтя",
   "block.divinerpg.asphalt": "Асфальт",
   "block.divinerpg.asphalt_stairs": "Асфальтовые ступеньки",
   "block.divinerpg.asphalt_slab": "Асфальтовая плита",
-	
+
   "block.divinerpg.bleeding_obsidian": "Кровоточащий обсидиан",
   "block.divinerpg.shining_obsidian": "Сияющий обсидиан",
   "block.divinerpg.glittering_obsidian": "Сверкающий обсидиан",
   "block.divinerpg.seeping_obsidian": "Сочащийся обсидиан",
   "block.divinerpg.vwooping_obsidian": "Урчащий обсидиан",
-	
+
   "block.divinerpg.blaze_pumpkin": "Тыква всполоха",
   "block.divinerpg.creeper_pumpkin": "Тыква крипера",
   "block.divinerpg.cyclops_pumpkin": "Тыква циклопа",
   "block.divinerpg.ender_pumpkin": "Тыква эндермена",
   "block.divinerpg.ender_watcher_pumpkin": "Тыква смотрителя Эндера",
-  "block.divinerpg.frost_pumpkin": "Тыква фроста",
+  "block.divinerpg.frost_pumpkin": "Тыква мороза",
   "block.divinerpg.ghast_pumpkin": "Тыква гаста",
-  "block.divinerpg.glacon_pumpkin": "Тыква глакона",
+  "block.divinerpg.glacon_pumpkin": "Тыква глаконя",
   "block.divinerpg.hellspider_pumpkin": "Тыква адского паука",
   "block.divinerpg.jungle_spider_pumpkin": "Тыква паука джунглей",
   "block.divinerpg.skeleton_pumpkin": "Тыква скелета",
   "block.divinerpg.spider_pumpkin": "Тыква паука",
   "block.divinerpg.zombie_pumpkin": "Тыква зомби",
-	
+
   "block.divinerpg.divine_rock": "Божественная порода",
   "block.divinerpg.divine_moss_stone": "Камень с божественным мхом",
   "block.divinerpg.divine_sapling": "Саженец божественного дерева",
@@ -158,15 +158,15 @@
   "block.divinerpg.divine_trapdoor": "Люк из божественного дерева",
   "block.divinerpg.divine_pressure_plate": "Нажимная плита из божественного дерева",
   "block.divinerpg.divine_button": "Кнопка из божественного дерева",
-	
+
   "block.divinerpg.tomato_plant": "Томат",
   "block.divinerpg.white_mushroom_plant": "Белый гриб",
-	
+
   "block.divinerpg.plank_design": "Дизайнерские доски",
   "block.divinerpg.checker": "Клетчатая шерсть",
   "block.divinerpg.rainbow_wool": "Радужная шерсть",
   "block.divinerpg.fancy_wool": "Красивая шерсть",
-	
+
   "block.divinerpg.proximity_spawner": "Рассадник приближения",
   "block.divinerpg.random_item_dropper": "Выбрасыватель случайного предмета",
   "block.divinerpg.crate": "Ящик",
@@ -177,19 +177,19 @@
   "block.divinerpg.cold_hellfire_sponge": "Охлаждённая губка адского пламени",
   "block.divinerpg.hellfire_sponge": "Губка адского пламени",
   "block.divinerpg.soul_trap": "Ловушка душ",
-	
-  "block.divinerpg.bloodgem_ore": "Кроваво-самоцветная руда",
-  "block.divinerpg.bloodgem_block": "Кроваво-самоцветный блок",
+
+  "block.divinerpg.bloodgem_ore": "Кровокварцевая руда",
+  "block.divinerpg.bloodgem_block": "Кровокварцевый блок",
   "block.divinerpg.torridite_ore": "Торридитовая руда",
   "block.divinerpg.raw_torridite_block": "Блок рудного торридита",
   "block.divinerpg.torridite_block": "Торридитовый блок",
-	
+
   "block.divinerpg.ancient_entity_statue": "Статуя древней сущности",
-  "block.divinerpg.the_watcher_statue": "Статуя Смотрителя",
+  "block.divinerpg.the_watcher_statue": "Статуя смотрителя",
   "block.divinerpg.king_of_scorchers_statue": "Статуя короля лихачей",
   "block.divinerpg.ayeraco_spawn": "Вызов Айрако",
   "block.divinerpg.ayeraco_statue": "Статуя Айрако",
-	
+
   "block.divinerpg.frozen_dirt": "Промёрзлая земля",
   "block.divinerpg.frozen_grass": "Промёрзлый дёрн",
   "block.divinerpg.frozen_gravel": "Промёрзлый гравий",
@@ -210,7 +210,7 @@
   "block.divinerpg.frozen_brick_slab": "Плита из промёрзлого кирпича",
   "block.divinerpg.frozen_brick_pressure_plate": "Нажимная плита из промёрзлого кирпича",
   "block.divinerpg.frozen_brick_button": "Кнопка из промёрзлого кирпича",
-	
+
   "block.divinerpg.frosted_glass": "Замёрзшее стекло",
   "block.divinerpg.frosted_chest": "Замёрзший сундук",
   "block.divinerpg.frosted_allure": "Морозное сияние",
@@ -228,12 +228,13 @@
   "block.divinerpg.iceika_portal": "Портал в Заснежье",
   "block.divinerpg.robbin_nest": "Гнездо ворянки",
   "block.divinerpg.robbin_hut": "Воряночник",
-  "block.divinerpg.kitra_statue": "Статуя Китры",
-	
+  "block.divinerpg.calcified_brain": "Кальцинированный мозг",
+  "block.divinerpg.kitra_statue": "Статуя китры",
+
   "block.divinerpg.olivine_block": "Оливиновый блок",
   "block.divinerpg.budding_olivine": "Цветущий оливин",
   "block.divinerpg.olivine_cluster": "Оливиновая друза",
-	
+
   "block.divinerpg.cobaltite": "Кобальтин",
   "block.divinerpg.cobaltite_stairs": "Кобальтиновые ступеньки",
   "block.divinerpg.cobaltite_slab": "Кобальтиновая плита",
@@ -246,7 +247,7 @@
   "block.divinerpg.polished_cobaltite_wall": "Ограда из полированного кобальтина",
   "block.divinerpg.polished_cobaltite_pressure_plate": "Нажимная плита из полированного кобальтина",
   "block.divinerpg.polished_cobaltite_button": "Кнопка из полированного кобальтина",
-	
+
   "block.divinerpg.anthracite_ore": "Антрацитовая руда",
   "block.divinerpg.coalstone": "Углекамень",
   "block.divinerpg.coalstone_stairs": "Углекаменные ступеньки",
@@ -268,11 +269,11 @@
   "block.divinerpg.polished_coalstone_wall": "Ограда из полированного углекамня",
   "block.divinerpg.polished_coalstone_pressure_plate": "Нажимная плита из полированного углекамня",
   "block.divinerpg.polished_coalstone_button": "Кнопка из полированного углекамня",
-	
+
   "block.divinerpg.workshop_bookcase": "Книжная полка мастерской",
   "block.divinerpg.workshop_carpet": "Ковёр мастерской",
   "block.divinerpg.workshop_lamp": "Фонарь мастерской",
-	
+
   "block.divinerpg.steel": "Сталь",
   "block.divinerpg.black_steel": "Чёрная сталь",
   "block.divinerpg.red_steel": "Красная сталь",
@@ -284,29 +285,29 @@
   "block.divinerpg.purple_steel": "Фиолетовая сталь",
   "block.divinerpg.magenta_steel": "Пурпурная сталь",
   "block.divinerpg.steel_door": "Стальная дверь",
-	
-  "block.divinerpg.oxdrite_ore": "Оксдритовая руда",
-  "block.divinerpg.raw_oxdrite_block": "Блок рудного оксдрита",
-  "block.divinerpg.oxdrite_block": "Оксдритовый блок",
-  "block.divinerpg.cut_oxdrite": "Резной оксдритовый блок",
-  "block.divinerpg.cut_oxdrite_stairs": "Резные оксдритовые ступеньки",
-  "block.divinerpg.cut_oxdrite_slab": "Резная оксдритовая плита",
-  "block.divinerpg.cut_oxdrite_wall": "Резная оксдритовая ограда",
-  "block.divinerpg.cut_oxdrite_pressure_plate": "Резная оксдритовая нажимная плита",
-  "block.divinerpg.cut_oxdrite_button": "Резная оксдритовая кнопка",
-	
+
+  "block.divinerpg.oxdrite_ore": "Окисдитовая руда",
+  "block.divinerpg.raw_oxdrite_block": "Блок рудного окисдита",
+  "block.divinerpg.oxdrite_block": "Окисдитовый блок",
+  "block.divinerpg.cut_oxdrite": "Резной окисдитовый блок",
+  "block.divinerpg.cut_oxdrite_stairs": "Резные окисдитовые ступеньки",
+  "block.divinerpg.cut_oxdrite_slab": "Резная окисдитовая плита",
+  "block.divinerpg.cut_oxdrite_wall": "Резная окисдитовая ограда",
+  "block.divinerpg.cut_oxdrite_pressure_plate": "Резная окисдитовая нажимная плита",
+  "block.divinerpg.cut_oxdrite_button": "Резная окисдитовая кнопка",
+
   "block.divinerpg.red_candy_cane": "Красный карамельный блок",
   "block.divinerpg.yellow_candy_cane": "Жёлтый карамельный блок",
   "block.divinerpg.green_candy_cane": "Зелёный карамельный блок",
   "block.divinerpg.blue_candy_cane": "Синий карамельный блок",
   "block.divinerpg.pink_candy_cane": "Розовый карамельный блок",
-	
+
   "block.divinerpg.red_fairy_lights": "Красные рождественские огни",
   "block.divinerpg.yellow_fairy_lights": "Жёлтые рождественские огни",
   "block.divinerpg.green_fairy_lights": "Зелёные рождественские огни",
   "block.divinerpg.blue_fairy_lights": "Синие рождественские огни",
   "block.divinerpg.purple_fairy_lights": "Фиолетовые рождественские огни",
-	
+
   "block.divinerpg.brittle_moss": "Хрупкий мох",
   "block.divinerpg.brittle_grass": "Хрупкая трава",
   "block.divinerpg.winterberry_bush": "Куст зимней ягоды",
@@ -324,7 +325,7 @@
   "block.divinerpg.globebrush_pot": "Глобурон в горшке",
   "block.divinerpg.thermoliage": "Жаровень",
   "block.divinerpg.thermoliage_pot": "Жаровень в горшке",
-	
+
   "block.divinerpg.glowsprout": "Светогриб",
   "block.divinerpg.glowsprout_pot": "Светогриб в горшке",
   "block.divinerpg.glowsprout_bulb": "Шляпка светогриба",
@@ -337,7 +338,7 @@
   "block.divinerpg.slowsprout_pot": "Вяльник в горшке",
   "block.divinerpg.slowsprout_bulb": "Шляпка вяльника",
   "block.divinerpg.slowsprout_stem": "Ножка вяльника",
-	
+
   "block.divinerpg.shiverspine_sapling": "Саженец мураспина",
   "block.divinerpg.shiverspine_sapling_pot": "Саженец мураспина в горшке",
   "block.divinerpg.brittle_leaves": "Хрупкие листья",
@@ -355,7 +356,7 @@
   "block.divinerpg.shiverspine_trapdoor": "Люк из мураспина",
   "block.divinerpg.shiverspine_pressure_plate": "Нажимная плита из мураспина",
   "block.divinerpg.shiverspine_button": "Кнопка из мураспина",
-	
+
   "block.divinerpg.auroraoak_sapling": "Саженец заревня",
   "block.divinerpg.auroraoak_sapling_pot": "Саженец заревня в горшке",
   "block.divinerpg.auroraoak_leaves": "Листья заревня",
@@ -372,7 +373,7 @@
   "block.divinerpg.auroraoak_trapdoor": "Люк из заревня",
   "block.divinerpg.auroraoak_pressure_plate": "Нажимная плита из заревня",
   "block.divinerpg.auroraoak_button": "Кнопка из заревня",
-	
+
   "block.divinerpg.cozybark_sapling": "Саженец благоры",
   "block.divinerpg.cozybark_sapling_pot": "Саженец благоры в горшке",
   "block.divinerpg.cozybark_leaves": "Листья благоры",
@@ -389,7 +390,7 @@
   "block.divinerpg.cozybark_trapdoor": "Люк из благоры",
   "block.divinerpg.cozybark_pressure_plate": "Нажимная плита из благоры",
   "block.divinerpg.cozybark_button": "Кнопка из благоры",
-	
+
   "block.divinerpg.streamleaf_sapling": "Саженец ручейника",
   "block.divinerpg.streamleaf_sapling_pot": "Саженец ручейника в горшке",
   "block.divinerpg.streamleaf_leaves": "Листья ручейника",
@@ -406,7 +407,7 @@
   "block.divinerpg.streamleaf_trapdoor": "Люк из ручейника",
   "block.divinerpg.streamleaf_pressure_plate": "Нажимная плита из ручейника",
   "block.divinerpg.streamleaf_button": "Кнопка из ручейника",
-	
+
   "block.divinerpg.arcanite_dirt": "Арканитовая земля",
   "block.divinerpg.arcanite_grass": "Арканитовый дёрн",
   "block.divinerpg.arcanite_moss": "Арканитовый мох",
@@ -415,7 +416,7 @@
   "block.divinerpg.arcanite_stone": "Арканитовый камень",
   "block.divinerpg.arcanite_sand": "Арканитовый песок",
   "block.divinerpg.arcanic_sand": "Арканический песок",
-  "block.divinerpg.arcanium_rich_sand": "Обогощённый аркановый песок",
+  "block.divinerpg.arcanium_rich_sand": "Обогащённый арканиевый песок",
   "block.divinerpg.arcana_brush": "Кисточник Арканы",
   "block.divinerpg.arcana_bush": "Куст Арканы",
   "block.divinerpg.arcana_bush_pot": "Куст Арканы в горшке",
@@ -423,7 +424,7 @@
   "block.divinerpg.gem_of_the_dunes_pot": "Жемчужина дюн в горшке",
   "block.divinerpg.weedwood_vine": "Лоза сорняка",
   "block.divinerpg.blossomed_weedwood_vine": "Расцветшая лоза сорняка",
-	
+
   "block.divinerpg.aquamarine_plant": "Аквамарин",
   "block.divinerpg.firestock_plant": "Файрсток",
   "block.divinerpg.hitchak_plant": "Хитчак",
@@ -431,7 +432,7 @@
   "block.divinerpg.marsine_plant": "Марсин",
   "block.divinerpg.pinfly_plant": "Пинфлай",
   "block.divinerpg.veilo_plant": "Вейло",
-	
+
   "block.divinerpg.eucalyptus_plant": "Эвкалипт",
   "block.divinerpg.eucalyptus_log": "Эвкалиптовое бревно",
   "block.divinerpg.eucalyptus_wood": "Эвкалипт",
@@ -446,13 +447,13 @@
   "block.divinerpg.eucalyptus_trapdoor": "Эвкалиптовый люк",
   "block.divinerpg.eucalyptus_pressure_plate": "Эвкалиптовая нажимная плита",
   "block.divinerpg.eucalyptus_button": "Эвкалиптовая кнопка",
-	
-  "block.divinerpg.raw_arcanium": "Необработанный арканиум",
-  "block.divinerpg.arcanium_block": "Аркановый блок",
+
+  "block.divinerpg.raw_arcanium": "Необработанный арканий",
+  "block.divinerpg.arcanium_block": "Арканиевый блок",
   "block.divinerpg.arcana_hard_portal_frame": "Упрочнённая рамка портала в Аркану",
   "block.divinerpg.arcana_portal_frame": "Рамка портала в Аркану",
   "block.divinerpg.arcana_portal": "Портал в Аркану",
-	
+
   "block.divinerpg.ancient_stone": "Крепкий древний камень",
   "block.divinerpg.ancient_stone_breakable": "Древний камень",
   "block.divinerpg.ancient_bricks": "Крепкие древние кирпичи",
@@ -483,35 +484,35 @@
   "block.divinerpg.soul_stone": "Крепкий камень душ",
   "block.divinerpg.soul_stone_breakable": "Камень душ",
   "block.divinerpg.soul_stone_door": "Дверь из камня душ",
-  "block.divinerpg.arcanium_metal": "Крепкий аркановый металл",
-  "block.divinerpg.arcanium_metal_breakable": "Аркановый металл",
-  "block.divinerpg.arcanium_power": "Крепкий аркановый источник силы",
-  "block.divinerpg.arcanium_power_breakable": "Аркановый источник силы",
+  "block.divinerpg.arcanium_metal": "Крепкий арканиевый металл",
+  "block.divinerpg.arcanium_metal_breakable": "Арканиевый металл",
+  "block.divinerpg.arcanium_power": "Крепкий арканиевый источник силы",
+  "block.divinerpg.arcanium_power_breakable": "Арканиевый источник силы",
   "block.divinerpg.battle_bricks": "Кровавые кирпичи",
   "block.divinerpg.gilded_bricks": "Позолоченные кирпичи",
-	
+
   "block.divinerpg.heat_trap": "Огненная ловушка",
   "block.divinerpg.dungeon_lamp": "Крепкий фонарь подземелья",
   "block.divinerpg.dungeon_lamp_breakable": "Фонарь подземелья",
   "block.divinerpg.dungeon_bookshelf": "Книжная полка подземелья",
   "block.divinerpg.arcanite_ladder": "Арканитовая лестница",
   "block.divinerpg.arcanite_tubes": "Арканитовые трубки",
-  "block.divinerpg.arcanium_torch": "Аркановый факел",
+  "block.divinerpg.arcanium_torch": "Арканиевый факел",
   "block.divinerpg.stained_glass": "Витраж",
   "block.divinerpg.dark_bridge": "Тёмный мост",
   "block.divinerpg.star_bridge": "Звёздный мост",
-  "block.divinerpg.acceleron": "Акселерон",
-  "block.divinerpg.elevantium": "Элевантиум",
+  "block.divinerpg.acceleron": "Стремглав",
+  "block.divinerpg.elevantium": "Взмыватель",
   "block.divinerpg.blue_fire": "Синий огонь",
-	
-  "block.divinerpg.arcanium_extractor": "Аркановый экстрактор",
+
+  "block.divinerpg.arcanium_extractor": "Арканиевый экстрактор",
   "block.divinerpg.molten_furnace": "Расплавленная печь",
   "block.divinerpg.greenlight_furnace": "Печь зелёного света",
   "block.divinerpg.oceanfire_furnace": "Печь океанского огня",
   "block.divinerpg.moonlight_furnace": "Печь лунного света",
   "block.divinerpg.whitefire_furnace": "Печь белого огня",
   "block.divinerpg.demon_furnace": "Демоническая печь",
-	
+
   "block.divinerpg.encaged_captain_merik": "Заточённый капитан Мерик",
   "block.divinerpg.encaged_datticon": "Заточённый Даттикон",
   "block.divinerpg.encaged_kazari": "Заточённый Казари",
@@ -519,12 +520,12 @@
   "block.divinerpg.encaged_lord_vatticus": "Заточённый лорд Ваттикус",
   "block.divinerpg.encaged_war_general": "Заточённый военный генерал",
   "block.divinerpg.encaged_zelus": "Заточённый Зелус",
-	
+
   "block.divinerpg.dramix_altar": "Алтарь Драмикса",
   "block.divinerpg.dramix_statue": "Статуя Драмикса",
   "block.divinerpg.parasecta_altar": "Алтарь Парасекты",
   "block.divinerpg.parasecta_statue": "Статуя Парасекты",
-	
+
   "block.divinerpg.twilight_stone": "Сумеречный камень",
   "block.divinerpg.eden_ore": "Руда Эдема",
   "block.divinerpg.eden_block": "Блок Эдема",
@@ -557,7 +558,7 @@
   "block.divinerpg.eden_torch": "Факел Эдема",
   "block.divinerpg.sunstorm_spawner": "Рассадник Солнцешторма",
   "block.divinerpg.sunstorm_statue": "Статуя Солнцешторма",
-	
+
   "block.divinerpg.wildwood_ore": "Руда Диколесья",
   "block.divinerpg.wildwood_block": "Блок Диколесья",
   "block.divinerpg.wildwood_portal": "Портал в Диколесье",
@@ -590,7 +591,7 @@
   "block.divinerpg.wildwood_button": "Кнопка из дерева Диколесья",
   "block.divinerpg.termasect_spawner": "Рассадник Термасекта",
   "block.divinerpg.termasect_statue": "Статуя Термасекта",
-	
+
   "block.divinerpg.apalachia_ore": "Руда Апалачии",
   "block.divinerpg.apalachia_block": "Блок Апалачии",
   "block.divinerpg.apalachia_portal": "Портал в Апалачию",
@@ -622,7 +623,7 @@
   "block.divinerpg.apalachia_button": "Кнопка из дерева Апалачии",
   "block.divinerpg.eternal_archer_spawner": "Рассадник неистощимого лучника",
   "block.divinerpg.eternal_archer_statue": "Статуя неистощимого лучника",
-	
+
   "block.divinerpg.skythern_ore": "Руда Поднебесья",
   "block.divinerpg.skythern_block": "Блок Поднебесья",
   "block.divinerpg.skythern_portal": "Портал в Поднебесье",
@@ -653,7 +654,7 @@
   "block.divinerpg.skythern_button": "Кнопка из дерева Поднебесья",
   "block.divinerpg.experienced_cori_spawner": "Рассадник королевской кори",
   "block.divinerpg.experienced_cori_statue": "Статуя королевской кори",
-	
+
   "block.divinerpg.mortum_ore": "Руда Мёртвума",
   "block.divinerpg.mortum_block": "Блок Мёртвума",
   "block.divinerpg.mortum_portal": "Портал в Мёртвум",
@@ -681,7 +682,7 @@
   "block.divinerpg.mortum_trapdoor": "Люк из дерева Мёртвума",
   "block.divinerpg.mortum_pressure_plate": "Нажимная плита из дерева Мёртвума",
   "block.divinerpg.mortum_button": "Кнопка из дерева Мёртвума",
-	
+
   "block.divinerpg.vamacheron_statue": "Статуя Вамашерона",
   "block.divinerpg.karot_statue": "Статуя Морквута",
   "block.divinerpg.twilight_demon_statue": "Статуя сумеречного демона",
@@ -689,7 +690,7 @@
   "block.divinerpg.reyvor_statue": "Статуя Рейвора",
   "block.divinerpg.soul_fiend_statue": "Статуя демона душ",
   "block.divinerpg.nightmare_bed": "Кровать кошмаров",
-	
+
   "block.divinerpg.vethea_portal": "Портал в Везею",
   "block.divinerpg.dream_dirt": "Земля сновидений",
   "block.divinerpg.flame_grass": "Огненный дёрн",
@@ -709,7 +710,7 @@
   "block.divinerpg.red_dream_bricks": "Красные кирпичи сновидений",
   "block.divinerpg.light_dream_bricks": "Светлые кирпичи сновидений",
   "block.divinerpg.dark_dream_bricks": "Тёмные кирпичи сновидений",
-	
+
   "block.divinerpg.crypt_floor": "Пол склепа",
   "block.divinerpg.crypt_wall": "Стена склепа",
   "block.divinerpg.black_karos_bricks": "Чёрные кирпичи Кароса",
@@ -721,14 +722,14 @@
   "block.divinerpg.shifted_chamber_wall": "Смещённая стена комнаты",
   "block.divinerpg.stacked_chamber_wall": "Сложенная стена комнаты",
   "block.divinerpg.hall_wall": "Стена зала",
-	
+
   "block.divinerpg.acid_block": "Кислотный блок",
   "block.divinerpg.bacterial_acid": "Бактериальная кислота",
   "block.divinerpg.lunic_acid": "Лунная кислота",
-	
+
   "block.divinerpg.hive_egg": "Яйцо улья",
   "block.divinerpg.hive_wall": "Стена улья",
-	
+
   "block.divinerpg.metal_caging": "Металлическая клетка",
   "block.divinerpg.barred_door": "Зарешечённая дверь",
   "block.divinerpg.smooth_glass": "Гладкое стекло",
@@ -737,13 +738,13 @@
   "block.divinerpg.dream_lamp": "Фонарь сновидений",
   "block.divinerpg.infusion_table": "Стол наполнения",
   "block.divinerpg.dungeon_air": "Воздух подземелья",
-	
+
   "block.divinerpg.karos_altar": "Алтарь Кароса",
   "block.divinerpg.lunic_altar": "Лунный алтарь",
   "block.divinerpg.quadrotic_altar": "Алтарь Квадротика",
   "block.divinerpg.raglok_altar": "Алтарь Раглока",
   "block.divinerpg.wreck_altar": "Алтарь Крушителя",
-	
+
   "block.divinerpg.shine_grass": "Сияющая трава",
   "block.divinerpg.shine_grass_pot": "Сияющая трава в горшке",
   "block.divinerpg.cracklespike": "Шипохруст",
@@ -764,56 +765,56 @@
   "block.divinerpg.green_gemtop_pot": "Зелёная жемчужина в горшке",
   "block.divinerpg.purple_gemtop": "Фиолетовая жемчужина",
   "block.divinerpg.purple_gemtop_pot": "Фиолетовая жемчужина в горшке",
-	
+
   "block.divinerpg.firewood_leaves": "Листья огнецвета",
   "block.divinerpg.firewood_log": "Бревно огнецвета",
   "block.divinerpg.firewood_wood": "Огнецвет",
   "block.divinerpg.stripped_firewood_log": "Обтёсанное бревно огнецвета",
   "block.divinerpg.stripped_firewood_wood": "Обтёсанная древесина огнецвета",
-	
+
   "block.divinerpg.dreamwood_leaves": "Листья дерева сновидений",
   "block.divinerpg.dreamwood_log": "Бревно дерева сновидений",
   "block.divinerpg.dreamwood_wood": "Дерево сновидений",
   "block.divinerpg.stripped_dreamwood_log": "Обтёсанное бревно дерева сновидений",
   "block.divinerpg.stripped_dreamwood_wood": "Обтёсанная древесина дерева сновидений",
-	
+
   "block.divinerpg.hyrewood_leaves": "Листья хайрового дерева",
   "block.divinerpg.hyrewood_log": "Бревно хайрового дерева",
   "block.divinerpg.hyrewood_wood": "Хайровое дерево",
   "block.divinerpg.stripped_hyrewood_log": "Обтёсанное бревно хайрового дерева",
   "block.divinerpg.stripped_hyrewood_wood": "Обтёсанная древесина хайрового дерева",
-	
+
   "block.divinerpg.mintwood_leaves": "Листья мятноцвета",
   "block.divinerpg.mintwood_log": "Бревно мятноцвета",
   "block.divinerpg.mintwood_wood": "Мятноцвет",
   "block.divinerpg.stripped_mintwood_log": "Обтёсанное бревно мятноцвета",
   "block.divinerpg.stripped_mintwood_wood": "Обтёсанная древесина мятноцвета",
-	
+
   "item.minecraft.potion.effect.tea": "Бутылочка чая",
   "item.minecraft.splash_potion.effect.tea": "Взрывная бутылочка чая",
   "item.minecraft.lingering_potion.effect.tea": "Бутылочка с чайной взвесью",
   "item.minecraft.tipped_arrow.effect.tea": "Горячая стрела",
-	
+
   "item.minecraft.potion.effect.grog": "Бутылочка грога",
   "item.minecraft.splash_potion.effect.grog": "Взрывная бутылочка грога",
   "item.minecraft.lingering_potion.effect.grog": "Бутылочка с гроговой взвесью",
   "item.minecraft.tipped_arrow.effect.grog": "Стрела с высоким содержанием этанола",
-	
+
   "item.minecraft.potion.effect.warmth": "Зелье теплоты",
   "item.minecraft.splash_potion.effect.warmth": "Взрывное зелье теплоты",
   "item.minecraft.lingering_potion.effect.warmth": "Туманное зелье теплоты",
   "item.minecraft.tipped_arrow.effect.warmth": "Стрела теплоты",
-	
+
   "item.minecraft.potion.effect.long_warmth": "Зелье теплоты",
   "item.minecraft.splash_potion.effect.long_warmth": "Взрывное зелье теплоты",
   "item.minecraft.lingering_potion.effect.long_warmth": "Туманное зелье теплоты",
   "item.minecraft.tipped_arrow.effect.long_warmth": "Стрела теплоты",
-	
+
   "item.divinerpg.tomato": "Томат",
   "item.divinerpg.tomato_seeds": "Семена томата",
   "item.divinerpg.white_mushroom": "Белый гриб",
-  "item.divinerpg.white_mushroom_seeds": "Семена белого гриба",
-	
+  "item.divinerpg.white_mushroom_seeds": "Кусочки белого гриба",
+
   "item.divinerpg.bacon": "Бекон",
   "item.divinerpg.boiled_egg": "Варёное яйцо",
   "item.divinerpg.cheese": "Сыр",
@@ -821,33 +822,33 @@
   "item.divinerpg.hot_pumpkin_pie": "Горячий тыквенный пирог",
   "item.divinerpg.advanced_mushroom_stew": "Улучшенные тушёные грибы",
   "item.divinerpg.chicken_dinner": "Куриный ужин",
-	
+
   "item.divinerpg.cyclops_eye_shards": "Осколок глаза циклопа",
   "item.divinerpg.cyclops_eye": "Глаз циклопа",
   "item.divinerpg.cyclopsian_sword": "Циклопический меч",
   "item.divinerpg.cyclopsian_staff": "Циклопический жезл",
-	
+
   "item.divinerpg.crab_claw": "Клешня краба",
   "item.divinerpg.crabclaw_maul": "Кувалда из клешней краба",
   "item.divinerpg.dual_claw": "Двойная клешня",
   "item.divinerpg.crab_anchor": "Крабовый якорь",
   "item.divinerpg.crabclaw_cannon": "Пушка из клешней краба",
   "item.divinerpg.frostclaw_cannon": "Морозная пушка из клешней краба",
-	
+
   "item.divinerpg.shark_fin": "Плавник акулы",
   "item.divinerpg.shark_sword": "Акулий меч",
   "item.divinerpg.shark_anchor": "Акулий якорь",
-	
+
   "item.divinerpg.whale_fin": "Плавник кита",
   "item.divinerpg.bowhead_anchor": "Гренландский якорь",
   "item.divinerpg.bowhead_cannon": "Гренландская пушка",
-	
+
   "item.divinerpg.liopleurodon_skull": "Череп лиоплевродона",
-  "item.divinerpg.liopleurodon_teeth": "Зуб лиоплевродона",
+  "item.divinerpg.liopleurodon_teeth": "Зубы лиоплевродона",
   "item.divinerpg.liopleurodon_anchor": "Якорь лиоплевродона",
   "item.divinerpg.aquatooth_sword": "Меч из зубов лиоплевродона",
   "item.divinerpg.aquatooth_maul": "Кувалда из зубов лиоплевродона",
-	
+
   "item.divinerpg.aqua_ball": "Сгусток воды",
   "item.divinerpg.aquatic_pellets": "Водяные гранулы",
   "item.divinerpg.pure_aquatic_pellets": "Очищенные водяные гранулы",
@@ -862,36 +863,36 @@
   "item.divinerpg.aquatic_trident": "Водяной трезубец",
   "item.divinerpg.aquaton": "Акватон",
   "item.divinerpg.aquatic_maul": "Водяная кувалда",
-	
+
   "item.divinerpg.kraken_scale": "Чешуйка Кракена",
   "item.divinerpg.kraken_skin": "Чешуя Кракена",
   "item.divinerpg.kraken_helmet": "Шлем Кракена",
   "item.divinerpg.kraken_chestplate": "Нагрудник Кракена",
   "item.divinerpg.kraken_leggings": "Поножи Кракена",
   "item.divinerpg.kraken_boots": "Ботинки Кракена",
-	
+
   "upgrade.divinerpg.aquatic_coating": "Водяное покрытие",
   "item.divinerpg.smithing_template.aquatic_coating.applies_to": "Водяным доспехам",
   "item.divinerpg.smithing_template.aquatic_coating.ingredients": "Чешуя Кракена",
   "item.divinerpg.smithing_template.aquatic_coating.base_slot_description": "Поместите водяной доспех",
   "item.divinerpg.smithing_template.aquatic_coating.additions_slot_description": "Поместите чешую Кракена",
-	
+
   "item.divinerpg.jack_o_man_helmet": "Шлем приспешника Джека",
   "item.divinerpg.jack_o_man_chestplate": "Нагрудник приспешника Джека",
   "item.divinerpg.jack_o_man_leggings": "Поножи приспешника Джека",
   "item.divinerpg.jack_o_man_boots": "Ботинки приспешника Джека",
   "item.divinerpg.scythe": "Коса",
-	
+
   "item.divinerpg.skeleman_helmet": "Шлем скелета",
   "item.divinerpg.skeleman_chestplate": "Нагрудник скелета",
   "item.divinerpg.skeleman_leggings": "Поножи скелета",
   "item.divinerpg.skeleman_boots": "Ботинки скелета",
-	
+
   "item.divinerpg.wither_reaper_helmet": "Шлем иссушающего жнеца",
   "item.divinerpg.wither_reaper_chestplate": "Нагрудник иссушающего жнеца",
   "item.divinerpg.wither_reaper_leggings": "Поножи иссушающего жнеца",
   "item.divinerpg.wither_reaper_boots": "Ботинки иссушающего жнеца",
-	
+
   "item.divinerpg.raw_realmite": "Рудный реалмит",
   "item.divinerpg.realmite_ingot": "Реалмитовый слиток",
   "item.divinerpg.realmite_nugget": "Кусочек реалмита",
@@ -909,7 +910,7 @@
   "item.divinerpg.realmite_pickaxe": "Реалмитовая кирка",
   "item.divinerpg.realmite_axe": "Реалмитовый топор",
   "item.divinerpg.realmite_hoe": "Реалмитовая мотыга",
-	
+
   "item.divinerpg.raw_arlemite": "Рудный арлемит",
   "item.divinerpg.arlemite_ingot": "Арлемитовый слиток",
   "item.divinerpg.arlemite_nugget": "Кусочек арлемита",
@@ -924,7 +925,7 @@
   "item.divinerpg.arlemite_axe": "Арлемитовый топор",
   "item.divinerpg.arlemite_hoe": "Арлемитовая мотыга",
   "item.divinerpg.arlemite_shickaxe": "Арлемитовый мультиинструмент",
-	
+
   "item.divinerpg.raw_rupee": "Рудный рупий",
   "item.divinerpg.rupee_ingot": "Рупиевый слиток",
   "item.divinerpg.rupee_nugget": "Кусочек рупия",
@@ -959,7 +960,7 @@
   "item.divinerpg.rupee_axe": "Рупиевый топор",
   "item.divinerpg.rupee_hoe": "Рупиевая мотыга",
   "item.divinerpg.rupee_shickaxe": "Рупиевый мультиинструмент",
-	
+
   "item.divinerpg.shadow_bar": "Теневой слиток",
   "item.divinerpg.shadow_stone": "Теневой камень",
   "item.divinerpg.shadow_coins": "Теневые монеты",
@@ -969,19 +970,19 @@
   "item.divinerpg.shadow_boots": "Теневые ботинки",
   "item.divinerpg.shadow_saber": "Теневая сабля",
   "item.divinerpg.shadow_bow": "Теневой лук",
-	
+
   "item.divinerpg.gray_diamond_chunk": "Серый алмазный кусок",
   "item.divinerpg.red_diamond_chunk": "Красный алмазный кусок",
   "item.divinerpg.yellow_diamond_chunk": "Жёлтый алмазный кусок",
   "item.divinerpg.green_diamond_chunk": "Зелёный алмазный кусок",
   "item.divinerpg.blue_diamond_chunk": "Синий алмазный кусок",
-	
+
   "trim_pattern.divinerpg.color_template": "Цветовой шаблон",
   "item.divinerpg.smithing_template.color_template.applies_to": "Окрашиваемому снаряжению",
   "item.divinerpg.smithing_template.color_template.ingredients": "Цветной алмазный кусок",
   "item.divinerpg.smithing_template.color_template.base_slot_description": "Поместите окрашиваемое снаряжение",
   "item.divinerpg.smithing_template.color_template.additions_slot_description": "Поместите цветной алмазный кусок",
-	
+
   "item.divinerpg.terran_shards": "Земляные осколки",
   "item.divinerpg.terran_stone": "Земляной камень",
   "item.divinerpg.terran_helmet": "Земляной шлем",
@@ -996,7 +997,7 @@
   "item.divinerpg.terran_axe": "Земляной топор",
   "item.divinerpg.terran_hoe": "Земляная мотыга",
   "item.divinerpg.terran_shickaxe": "Земляной мультиинструмент",
-	
+
   "item.divinerpg.jungle_shards": "Осколки джунглей",
   "item.divinerpg.jungle_stone": "Камень джунглей",
   "item.divinerpg.jungle_helmet": "Шлем джунглей",
@@ -1008,7 +1009,7 @@
   "item.divinerpg.poison_saber": "Отравленная сабля",
   "item.divinerpg.hunter_bow": "Охотничий лук",
   "item.divinerpg.vile_storm": "Отравленный сюрикен",
-	
+
   "item.divinerpg.raw_torridite": "Рудный торридит",
   "item.divinerpg.torridite_ingot": "Торридитовый слиток",
   "item.divinerpg.torridite_nugget": "Кусочек торридита",
@@ -1017,21 +1018,21 @@
   "item.divinerpg.torridite_chestplate": "Торридитовый нагрудник",
   "item.divinerpg.torridite_leggings": "Торридитовые поножи",
   "item.divinerpg.torridite_boots": "Торридитовые ботинки",
-	
-  "item.divinerpg.bloodgem": "Кровавый самоцвет",
-  "item.divinerpg.bloodgem_sword": "Кроваво-самоцветный меч",
-	
+
+  "item.divinerpg.bloodgem": "Кровокварц",
+  "item.divinerpg.bloodgem_sword": "Кровокварцевый меч",
+
   "item.divinerpg.molten_shards": "Расплавленные осколки",
   "item.divinerpg.molten_stone": "Расплавленный камень",
   "item.divinerpg.molten_sword": "Расплавленный меч",
-	
+
   "item.divinerpg.inferno_helmet": "Шлем преисподней",
   "item.divinerpg.inferno_chestplate": "Нагрудник преисподней",
   "item.divinerpg.inferno_leggings": "Поножи преисподней",
   "item.divinerpg.inferno_boots": "Ботинки преисподней",
   "item.divinerpg.inferno_sword": "Меч преисподней",
   "item.divinerpg.inferno_bow": "Лук преисподней",
-	
+
   "item.divinerpg.bedrock_chunk": "Кусок бедрока",
   "item.divinerpg.bedrock_helmet": "Бедроковый шлем",
   "item.divinerpg.bedrock_chestplate": "Бедроковый нагрудник",
@@ -1044,13 +1045,13 @@
   "item.divinerpg.bedrock_pickaxe": "Бедроковая кирка",
   "item.divinerpg.bedrock_axe": "Бедроковый топор",
   "item.divinerpg.bedrock_hoe": "Бедроковая мотыга",
-	
+
   "upgrade.divinerpg.bedrock_upgrade": "Бедроковое улучшение",
   "item.divinerpg.smithing_template.bedrock_upgrade.applies_to": "Доспехам преисподней или торридитовым",
   "item.divinerpg.smithing_template.bedrock_upgrade.ingredients": "Кусок бедрока",
   "item.divinerpg.smithing_template.bedrock_upgrade.base_slot_description": "Поместите доспех преисподней или торридитовый",
   "item.divinerpg.smithing_template.bedrock_upgrade.additions_slot_description": "Поместите кусок бедрока",
-	
+
   "item.divinerpg.hellstone_ingot": "Слиток адского камня",
   "item.divinerpg.ghast_cannon": "Пушка гаста",
   "item.divinerpg.purple_blaze": "Фиолетовое пламя",
@@ -1059,32 +1060,32 @@
   "item.divinerpg.fury_fire": "Яростный огонь",
   "item.divinerpg.flaming_fury": "Пылающая ярость",
   "item.divinerpg.golden_fury": "Золотая ярость",
-	
+
   "item.divinerpg.soulfire_stone": "Камень огня душ",
   "item.divinerpg.soulfire_sword": "Меч огня душ",
   "item.divinerpg.soulfire_bow": "Лук огня душ",
-	
+
   "item.divinerpg.angelic_helmet": "Ангельский шлем",
   "item.divinerpg.angelic_chestplate": "Ангельский нагрудник",
   "item.divinerpg.angelic_leggings": "Ангельские поножи",
   "item.divinerpg.angelic_boots": "Ангельские ботинки",
-	
+
   "item.divinerpg.chocolate_log": "Шоколадное полено",
   "item.divinerpg.egg_nog": "Эгг-ног",
   "item.divinerpg.fruit_cake": "Фруктовый кекс",
   "item.divinerpg.peppermints": "Мятные леденцы",
   "item.divinerpg.snow_cones": "Мороженое в рожке",
   "item.divinerpg.winterberry": "Зимние ягоды",
-	
+
   "item.divinerpg.robbin_egg": "Яйцо ворянки",
   "item.divinerpg.cauldron_flesh": "Плоть котловника",
   "item.divinerpg.raw_wolpertinger_meat": "Сырое мясо вольпертингера",
   "item.divinerpg.wolpertinger_steak": "Стейк из вольпертингера",
-	
+
   "item.divinerpg.sabear_fur": "Мех саблезубого медведя",
   "item.divinerpg.sabear_tooth": "Клык саблезубого медведя",
   "item.divinerpg.sabear_sabre": "Сабля из клыка саблезубого медведя",
-	
+
   "item.divinerpg.raw_seng_meat": "Сырое мясо сенга",
   "item.divinerpg.seng_steak": "Стейк из сенга",
   "item.divinerpg.seng_fur": "Мех сенга",
@@ -1092,19 +1093,19 @@
   "item.divinerpg.seng_fur_chestplate": "Парка из меха сенга",
   "item.divinerpg.seng_fur_leggings": "Штаны из меха сенга",
   "item.divinerpg.seng_fur_boots": "Ботинки из меха сенга",
-	
+
   "item.divinerpg.santa_helmet": "Колпак Санты",
   "item.divinerpg.santa_chestplate": "Полушубок Санты",
   "item.divinerpg.santa_leggings": "Штаны Санты",
   "item.divinerpg.santa_boots": "Сапоги Санты",
-	
+
   "item.divinerpg.anthracite": "Антрацит",
   "item.divinerpg.olivine": "Оливин",
   "trim_material.divinerpg.olivine": "Оливин",
-  "item.divinerpg.raw_oxdrite": "Рудный оксдрит",
-  "item.divinerpg.oxdrite_ingot": "Оксдритовый слиток",
-  "item.divinerpg.oxdrite_pickaxe": "Оксдритовая кирка",
-	
+  "item.divinerpg.raw_oxdrite": "Рудный окисдит",
+  "item.divinerpg.oxdrite_ingot": "Окисдитовый слиток",
+  "item.divinerpg.oxdrite_pickaxe": "Окисдитовая кирка",
+
   "item.divinerpg.ice_shards": "Ледяные осколки",
   "item.divinerpg.ice_stone": "Ледяной камень",
   "item.divinerpg.frozen_helmet": "Замёрзший шлем",
@@ -1116,16 +1117,16 @@
   "item.divinerpg.frostking_sword": "Королевский морозный меч",
   "item.divinerpg.frost_cannon": "Морозная пушка",
   "item.divinerpg.fractite_cannon": "Фрактайтовая пушка",
-	
+
   "item.divinerpg.icicle_bane": "Бич оледенения",
   "item.divinerpg.icicle_dagger": "Сосулечный кинжал",
   "item.divinerpg.icicle_bow": "Сосулечный лук",
-	
+
   "item.divinerpg.slime_sword": "Слизневый меч",
   "item.divinerpg.glacier_sword": "Ледниковый меч",
   "item.divinerpg.glacial_blade": "Ледниковый клинок",
   "item.divinerpg.glacial_wall_totem": "Тотем ледниковой стены",
-	
+
   "item.divinerpg.heat_pack": "Грелка",
   "item.divinerpg.snow_globe": "Снежный шар",
   "item.divinerpg.snowflake": "Снежинка",
@@ -1134,11 +1135,11 @@
   "item.divinerpg.sandslash": "Песчаный разрубатель",
   "item.divinerpg.snowslash": "Снежный разрубатель",
   "item.divinerpg.snowstorm_bow": "Лук метели",
-	
+
   "item.divinerpg.sound_of_music": "Звуки музыки",
   "item.divinerpg.sound_of_carols": "Звуки кэрол",
   "item.divinerpg.sound_of_whales": "Звуки китов",
-	
+
   "item.divinerpg.corrupted_shards": "Повреждённые осколки",
   "item.divinerpg.corrupted_stone": "Повреждённый камень",
   "item.divinerpg.corrupted_helmet": "Повреждённый шлем",
@@ -1154,7 +1155,7 @@
   "item.divinerpg.corrupted_axe": "Повреждённый топор",
   "item.divinerpg.corrupted_hoe": "Повреждённая мотыга",
   "item.divinerpg.corrupted_shickaxe": "Повреждённый мультиинструмент",
-	
+
   "item.divinerpg.ender_shards": "Эндер-осколки",
   "item.divinerpg.ender_stone": "Эндер-камень",
   "item.divinerpg.watching_eye": "Смотрящее око",
@@ -1192,7 +1193,7 @@
   "item.divinerpg.enderice": "Эндероз",
   "item.divinerpg.ender_bow": "Эндер-лук",
   "item.divinerpg.ender_scepter": "Эндер-скипетр",
-	
+
   "item.divinerpg.divine_shards": "Божественные осколки",
   "item.divinerpg.divine_stone": "Божественный камень",
   "item.divinerpg.divine_helmet": "Божественный шлем",
@@ -1212,39 +1213,39 @@
   "item.divinerpg.divine_hoe": "Божественная мотыга",
   "item.divinerpg.divine_shickaxe": "Божественный мультиинструмент",
   "item.divinerpg.divine_accumulator": "Божественный накопитель",
-	
+
   "item.divinerpg.armor_pouch": "Сумка для брони",
   "item.divinerpg.gray_armor_pouch": "Серая сумка для брони",
   "item.divinerpg.red_armor_pouch": "Красная сумка для брони",
   "item.divinerpg.yellow_armor_pouch": "Жёлтая сумка для брони",
   "item.divinerpg.green_armor_pouch": "Зелёная сумка для брони",
   "item.divinerpg.blue_armor_pouch": "Синяя сумка для брони",
-	
+
   "item.divinerpg.teleportation_crystal": "Кристалл телепортации",
   "item.divinerpg.teleportation_star": "Звезда телепортации",
-	
+
   "item.divinerpg.mysterious_clock": "Загадочные часы",
-  "item.divinerpg.call_of_the_watcher": "Призыв Смотрителя",
+  "item.divinerpg.call_of_the_watcher": "Призыв смотрителя",
   "item.divinerpg.infernal_flame": "Адское пламя",
   "item.divinerpg.horde_horn": "Рог орды",
-	
+
   "item.divinerpg.palavence": "Палавенц",
   "item.divinerpg.massivence": "Массивенц",
   "item.divinerpg.frossivence": "Фроссивенц",
-	
+
   "item.divinerpg.serenade_striker": "Ударная серенада",
   "item.divinerpg.serenade_of_death": "Серенада смерти",
   "item.divinerpg.serenade_of_ice": "Серенада льда",
   "item.divinerpg.healing_stone": "Камень здоровья",
   "item.divinerpg.serenade_of_health": "Серенада здоровья",
   "item.divinerpg.serenade_of_infusion": "Серенада наполнения",
-	
+
   "item.divinerpg.collector_fragments": "Фрагменты коллектора",
   "item.divinerpg.collector": "Коллектор",
-  "item.divinerpg.piece_of_raw_arcanium": "Кусочек необработанного арканиума",
-  "item.divinerpg.arcanium": "Арканиум",
+  "item.divinerpg.piece_of_raw_arcanium": "Кусочек необработанного аркания",
+  "item.divinerpg.arcanium": "Арканий",
   "item.divinerpg.dungeon_tokens": "Токены подземелья",
-	
+
   "item.divinerpg.weak_arcana_potion": "Слабое зелье арканы",
   "item.divinerpg.strong_arcana_potion": "Сильное зелье арканы",
   "item.divinerpg.orb_of_light": "Сфера света",
@@ -1255,7 +1256,7 @@
   "item.divinerpg.degraded_key": "Попранный ключ",
   "item.divinerpg.sludge_key": "Осадочный ключ",
   "item.divinerpg.soul_key": "Ключ душ",
-	
+
   "item.divinerpg.aquamarine": "Аквамарин",
   "item.divinerpg.aquamarine_seeds": "Семена аквамарина",
   "item.divinerpg.eucalyptus_root_seeds": "Семена корня эвкалипта",
@@ -1271,13 +1272,13 @@
   "item.divinerpg.pinfly_seeds": "Семена пинфлая",
   "item.divinerpg.veilo": "Вейло",
   "item.divinerpg.veilo_seeds": "Семена вейла",
-	
+
   "item.divinerpg.storm_sword": "Меч бури",
   "item.divinerpg.arcanite_blade": "Арканитовый клинок",
   "item.divinerpg.arcanite_blaster": "Арканитовый бластер",
-  "item.divinerpg.arcanium_attractor": "Аркановый притягиватель",
-  "item.divinerpg.arcanium_reflector": "Аркановый отражатель",
-  "item.divinerpg.arcanium_saber": "Аркановая сабля",
+  "item.divinerpg.arcanium_attractor": "Арканиевый притягиватель",
+  "item.divinerpg.arcanium_reflector": "Арканиевый отражатель",
+  "item.divinerpg.arcanium_saber": "Арканиевая сабля",
   "item.divinerpg.livicia_sword": "Меч Ливиции",
   "item.divinerpg.generals_staff": "Жезл генерала",
   "item.divinerpg.starlight": "Звёздный посох",
@@ -1288,17 +1289,17 @@
   "item.divinerpg.meriks_missile": "Метатель снарядов Мерика",
   "item.divinerpg.grenade": "Граната",
   "item.divinerpg.la_vekor": "Ла-Векор",
-	
+
   "item.divinerpg.korma_helmet": "Шлем Кормы",
   "item.divinerpg.korma_chestplate": "Нагрудник Кормы",
   "item.divinerpg.korma_leggings": "Поножи Кормы",
   "item.divinerpg.korma_boots": "Ботинки Кормы",
-	
+
   "item.divinerpg.vemos_helmet": "Шлем Вемоса",
   "item.divinerpg.vemos_chestplate": "Нагрудник Вемоса",
   "item.divinerpg.vemos_leggings": "Поножи Вемоса",
   "item.divinerpg.vemos_boots": "Ботинки Вемоса",
-	
+
   "item.divinerpg.forbidden_fruit": "Запретный плод",
   "item.divinerpg.raw_empowered_meat": "Сырое усиленное мясо",
   "item.divinerpg.empowered_meat": "Усиленное мясо",
@@ -1312,7 +1313,7 @@
   "item.divinerpg.pink_glowbone_seeds": "Семена розовой светокости",
   "item.divinerpg.sky_flower": "Небесный цветок",
   "item.divinerpg.sky_plant_seeds": "Семена небесного растения",
-	
+
   "item.divinerpg.eden_dust": "Пыль Эдема",
   "item.divinerpg.eden_sparkles": "Блёстки Эдема",
   "item.divinerpg.eden_soul": "Душа Эдема",
@@ -1336,7 +1337,7 @@
   "item.divinerpg.eden_axe": "Топор Эдема",
   "item.divinerpg.eden_hoe": "Мотыга Эдема",
   "item.divinerpg.eden_shickaxe": "Мультиинструмент Эдема",
-	
+
   "item.divinerpg.wildwood_dust": "Пыль Диколесья",
   "item.divinerpg.wildwood_soul": "Душа Диколесья",
   "item.divinerpg.wildwood_fragments": "Фрагменты Диколесья",
@@ -1359,7 +1360,7 @@
   "item.divinerpg.wildwood_axe": "Топор Диколесья",
   "item.divinerpg.wildwood_hoe": "Мотыга Диколесья",
   "item.divinerpg.wildwood_shickaxe": "Мультиинструмент Диколесья",
-	
+
   "item.divinerpg.apalachia_dust": "Пыль Апалачии",
   "item.divinerpg.apalachia_soul": "Душа Апалачии",
   "item.divinerpg.apalachia_fragments": "Фрагменты Апалачии",
@@ -1381,7 +1382,7 @@
   "item.divinerpg.apalachia_axe": "Топор Апалачии",
   "item.divinerpg.apalachia_hoe": "Мотыга Апалачии",
   "item.divinerpg.apalachia_shickaxe": "Мультиинструмент Апалачии",
-	
+
   "item.divinerpg.skythern_dust": "Пыль Поднебесья",
   "item.divinerpg.skythern_soul": "Душа Поднебесья",
   "item.divinerpg.skythern_fragments": "Фрагменты Поднебесья",
@@ -1403,7 +1404,7 @@
   "item.divinerpg.skythern_axe": "Топор Поднебесья",
   "item.divinerpg.skythern_hoe": "Мотыга Поднебесья",
   "item.divinerpg.skythern_shickaxe": "Мультиинструмент Поднебесья",
-	
+
   "item.divinerpg.mortum_dust": "Пыль Мёртвума",
   "item.divinerpg.mortum_soul": "Душа Мёртвума",
   "item.divinerpg.mortum_fragments": "Фрагменты Мёртвума",
@@ -1426,7 +1427,7 @@
   "item.divinerpg.mortum_axe": "Топор Мёртвума",
   "item.divinerpg.mortum_hoe": "Мотыга Мёртвума",
   "item.divinerpg.mortum_shickaxe": "Мультиинструмент Мёртвума",
-	
+
   "item.divinerpg.base_spawn_crystal": "Основа кристалла призыва",
   "item.divinerpg.vamacheron_crystal": "Кристалл Вамашерона",
   "item.divinerpg.karot_crystal": "Кристалл Морквута",
@@ -1434,29 +1435,29 @@
   "item.divinerpg.densos_crystal": "Кристалл Денсоса",
   "item.divinerpg.reyvor_crystal": "Кристалл Рейвора",
   "item.divinerpg.soul_fiend_crystal": "Кристалл демона душ",
-	
+
   "item.divinerpg.halite_helmet": "Халитовый шлем",
   "item.divinerpg.halite_chestplate": "Халитовый нагрудник",
   "item.divinerpg.halite_leggings": "Халитовые поножи",
   "item.divinerpg.halite_boots": "Халитовые ботинки",
-  "item.divinerpg.awakened_halite_helmet": "Пробужденный халитовый шлем",
-  "item.divinerpg.awakened_halite_chestplate": "Пробужденный халитовый нагрудник",
-  "item.divinerpg.awakened_halite_leggings": "Пробужденные халитовые поножи",
-  "item.divinerpg.awakened_halite_boots": "Пробужденные халитовые ботинки",
+  "item.divinerpg.awakened_halite_helmet": "Пробуждённый халитовый шлем",
+  "item.divinerpg.awakened_halite_chestplate": "Пробуждённый халитовый нагрудник",
+  "item.divinerpg.awakened_halite_leggings": "Пробуждённые халитовые поножи",
+  "item.divinerpg.awakened_halite_boots": "Пробуждённые халитовые ботинки",
   "item.divinerpg.halite_shield": "Халитовый щит",
   "item.divinerpg.halite_blade": "Халитовый клинок",
   "item.divinerpg.halite_bow": "Халитовый лук",
-  "item.divinerpg.halite_slicer": "Халитовая резак",
+  "item.divinerpg.halite_slicer": "Халитовый резак",
   "item.divinerpg.halite_phaser": "Халитовый фазер",
   "item.divinerpg.halite_blitz": "Халитовая скорострельная пушка",
   "item.divinerpg.halite_shickaxe": "Халитовый терраформер",
-	
+
   "item.divinerpg.twilight_clock": "Сумеречные часы",
   "item.divinerpg.twilight_bow": "Сумеречный лук",
-	
+
   "item.divinerpg.honeysuckle": "Кусочек мёда",
   "item.divinerpg.honeychunk": "Кусок мёда",
-	
+
   "item.divinerpg.dream_carrot": "Морковь грёз",
   "item.divinerpg.dream_melon": "Арбуз грёз",
   "item.divinerpg.dream_pie": "Пирог грёз",
@@ -1466,18 +1467,18 @@
   "item.divinerpg.dream_shovel": "Лопата грёз",
   "item.divinerpg.dream_pickaxe": "Кирка грёз",
   "item.divinerpg.dream_axe": "Топор грёз",
-	
+
   "item.divinerpg.dream_flint": "Огниво грёз",
   "item.divinerpg.moon_clock": "Лунные часы",
   "item.divinerpg.band_of_lheiva_hunting": "Браслет для охоты на Льхейву",
   "item.divinerpg.miners_amulet": "Амулет шахтёра",
-	
+
   "item.divinerpg.acid": "Кислота",
   "item.divinerpg.dirty_pearls": "Грязный жемчуг",
   "item.divinerpg.clean_pearls": "Чистый жемчуг",
   "item.divinerpg.polished_pearls": "Полированный жемчуг",
   "item.divinerpg.shiny_pearls": "Сверкающий жемчуг",
-	
+
   "item.divinerpg.degraded_template": "Попранный шаблон",
   "item.divinerpg.finished_template": "Законченный шаблон",
   "item.divinerpg.glistening_template": "Сверкающий шаблон",
@@ -1491,7 +1492,7 @@
   "item.divinerpg.cannon_template": "Шаблон пушки",
   "item.divinerpg.disk_template": "Шаблон диска",
   "item.divinerpg.dissipator_template": "Шаблон рассекателя",
-	
+
   "item.divinerpg.teaker_lump": "Глыба Тикера",
   "item.divinerpg.teaker_backsword": "Палаш Тикера",
   "item.divinerpg.teaker_hammer": "Молот Тикера",
@@ -1501,7 +1502,7 @@
   "item.divinerpg.teaker_staff": "Посох Тикера",
   "item.divinerpg.teaker_cannon": "Пушка Тикера",
   "item.divinerpg.teaker_disk": "Диск Тикера",
-	
+
   "item.divinerpg.teaker_dissipator": "Рассекатель Тикера",
   "item.divinerpg.degraded_helmet": "Попранный шлем",
   "item.divinerpg.degraded_mask": "Попранная маска",
@@ -1509,7 +1510,7 @@
   "item.divinerpg.degraded_chestplate": "Попранный нагрудник",
   "item.divinerpg.degraded_leggings": "Попранные поножи",
   "item.divinerpg.degraded_boots": "Попранные ботинки",
-	
+
   "item.divinerpg.amthirmis_lump": "Глыба Амфирмиса",
   "item.divinerpg.amthirmis_backsword": "Палаш Амфирмиса",
   "item.divinerpg.amthirmis_hammer": "Молот Амфирмиса",
@@ -1519,14 +1520,14 @@
   "item.divinerpg.amthirmis_cannon": "Пушка Амфирмиса",
   "item.divinerpg.amthirmis_disk": "Диск Амфирмиса",
   "item.divinerpg.amthirmis_dissipator": "Рассекатель Амфирмиса",
-	
+
   "item.divinerpg.finished_helmet": "Законченный шлем",
   "item.divinerpg.finished_mask": "Законченная маска",
   "item.divinerpg.finished_hood": "Законченный капюшон",
   "item.divinerpg.finished_chestplate": "Законченный нагрудник",
   "item.divinerpg.finished_leggings": "Законченные поножи",
   "item.divinerpg.finished_boots": "Законченные ботинки",
-	
+
   "item.divinerpg.darven_lump": "Глыба Дарвена",
   "item.divinerpg.darven_backsword": "Палаш Дарвена",
   "item.divinerpg.darven_hammer": "Молот Дарвена",
@@ -1537,14 +1538,14 @@
   "item.divinerpg.darven_cannon": "Пушка Дарвена",
   "item.divinerpg.darven_disk": "Диск Дарвена",
   "item.divinerpg.darven_dissipator": "Рассекатель Дарвена",
-	
+
   "item.divinerpg.glistening_helmet": "Сверкающий шлем",
   "item.divinerpg.glistening_mask": "Сверкающая маска",
   "item.divinerpg.glistening_hood": "Сверкающий капюшон",
   "item.divinerpg.glistening_chestplate": "Сверкающий нагрудник",
   "item.divinerpg.glistening_leggings": "Сверкающие поножи",
   "item.divinerpg.glistening_boots": "Сверкающие ботинки",
-	
+
   "item.divinerpg.cermile_lump": "Глыба Цермила",
   "item.divinerpg.cermile_backsword": "Палаш Цермила",
   "item.divinerpg.cermile_hammer": "Молот Цермила",
@@ -1554,14 +1555,14 @@
   "item.divinerpg.cermile_cannon": "Пушка Цермила",
   "item.divinerpg.cermile_disk": "Диск Цермила",
   "item.divinerpg.cermile_dissipator": "Рассекатель Цермила",
-	
+
   "item.divinerpg.demonized_helmet": "Демонический шлем",
   "item.divinerpg.demonized_mask": "Демоническая маска",
   "item.divinerpg.demonized_hood": "Демонический капюшон",
   "item.divinerpg.demonized_chestplate": "Демонический нагрудник",
   "item.divinerpg.demonized_leggings": "Демонические поножи",
   "item.divinerpg.demonized_boots": "Демонические ботинки",
-	
+
   "item.divinerpg.pardimal_lump": "Глыба Пардимала",
   "item.divinerpg.pardimal_backsword": "Палаш Пардимала",
   "item.divinerpg.pardimal_hammer": "Молот Пардимала",
@@ -1572,14 +1573,14 @@
   "item.divinerpg.pardimal_cannon": "Пушка Пардимала",
   "item.divinerpg.pardimal_disk": "Диск Пардимала",
   "item.divinerpg.pardimal_dissipator": "Рассекатель Пардимала",
-	
+
   "item.divinerpg.tormented_helmet": "Измученный шлем",
   "item.divinerpg.tormented_mask": "Измученная маска",
   "item.divinerpg.tormented_hood": "Измученный капюшон",
   "item.divinerpg.tormented_chestplate": "Измученный нагрудник",
   "item.divinerpg.tormented_leggings": "Измученные поножи",
   "item.divinerpg.tormented_boots": "Измученные ботинки",
-	
+
   "item.divinerpg.quadrotic_lump": "Глыба Квадротика",
   "item.divinerpg.quadrotic_backsword": "Палаш Квадротика",
   "item.divinerpg.quadrotic_hammer": "Молот Квадротика",
@@ -1589,7 +1590,7 @@
   "item.divinerpg.quadrotic_cannon": "Пушка Квадротика",
   "item.divinerpg.quadrotic_disk": "Диск Квадротика",
   "item.divinerpg.quadrotic_dissipator": "Рассекатель Квадротика",
-	
+
   "item.divinerpg.karos_lump": "Глыба Кароса",
   "item.divinerpg.karos_backsword": "Палаш Кароса",
   "item.divinerpg.karos_hammer": "Молот Кароса",
@@ -1602,7 +1603,7 @@
   "item.divinerpg.karos_cannon": "Пушка Кароса",
   "item.divinerpg.karos_disk": "Диск Кароса",
   "item.divinerpg.karos_dissipator": "Рассекатель Кароса",
-	
+
   "item.divinerpg.heliosis_lump": "Глыба Гелиозиса",
   "item.divinerpg.heliosis_backsword": "Палаш Гелиозиса",
   "item.divinerpg.heliosis_hammer": "Молот Гелиозиса",
@@ -1612,7 +1613,7 @@
   "item.divinerpg.heliosis_cannon": "Пушка Гелиозиса",
   "item.divinerpg.heliosis_disk": "Диск Гелиозиса",
   "item.divinerpg.heliosis_dissipator": "Рассекатель Гелиозиса",
-	
+
   "item.divinerpg.arksiane_lump": "Глыба Арксиана",
   "item.divinerpg.arksiane_backsword": "Палаш Арксиана",
   "item.divinerpg.arksiane_hammer": "Молот Арксиана",
@@ -1622,17 +1623,17 @@
   "item.divinerpg.arksiane_cannon": "Пушка Арксиана",
   "item.divinerpg.arksiane_disk": "Диск Арксиана",
   "item.divinerpg.arksiane_dissipator": "Рассекатель Арксиана",
-	
+
   "item.divinerpg.everlight": "Молниеносный",
   "item.divinerpg.everbright": "Всесветный",
   "item.divinerpg.everfright": "Всепугающий",
   "item.divinerpg.ever_arrow": "Стрела вечности",
   "item.divinerpg.evernight": "Всенощный",
   "item.divinerpg.eversight": "Всевидящий",
-	
+
   "entity.divinerpg.snapper": "Каймановая черепаха",
   "entity.divinerpg.ehu": "Эху",
-  "entity.divinerpg.husk": "Хаск",
+  "entity.divinerpg.husk": "Гадаврик",
   "entity.divinerpg.brown_grizzle": "Бурый гризли",
   "entity.divinerpg.white_grizzle": "Белый гризли",
   "entity.divinerpg.stone_golem": "Каменный голем",
@@ -1642,10 +1643,10 @@
   "entity.divinerpg.golem_of_rejuvenation": "Голем омоложения",
   "entity.divinerpg.paratiku": "Паратику",
   "entity.divinerpg.seimer": "Сеймер",
-	
+
   "item.divinerpg.snapper_spawn_egg": "Яйцо призыва каймановой черепахи",
   "item.divinerpg.ehu_spawn_egg": "Яйцо призыва эху",
-  "item.divinerpg.husk_spawn_egg": "Яйцо призыва хаска",
+  "item.divinerpg.husk_spawn_egg": "Яйцо призыва кадаврика",
   "item.divinerpg.brown_grizzle_spawn_egg": "Яйцо призыва бурого гризли",
   "item.divinerpg.white_grizzle_spawn_egg": "Яйцо призыва белого гризли",
   "item.divinerpg.stone_golem_spawn_egg": "Яйцо призыва каменного голема",
@@ -1654,7 +1655,7 @@
   "item.divinerpg.golem_of_rejuvenation_spawn_egg": "Яйцо призыва голема омоложения",
   "item.divinerpg.paratiku_spawn_egg": "Яйцо призыва паратику",
   "item.divinerpg.seimer_spawn_egg": "Яйцо призыва сеймера",
-	
+
   "entity.divinerpg.ancient_entity": "Древняя сущность",
   "entity.divinerpg.the_watcher": "Смотритель",
   "entity.divinerpg.king_of_scorchers": "Король лихачей",
@@ -1678,11 +1679,11 @@
   "entity.divinerpg.quadro": "Квадро",
   "entity.divinerpg.raglok": "Раглок",
   "entity.divinerpg.wreck": "Крушитель",
-	
+
   "item.divinerpg.ancient_entity_spawn_egg": "Яйцо призыва древней сущности",
-  "item.divinerpg.the_watcher_spawn_egg": "Яйцо призыва Смотрителя",
+  "item.divinerpg.the_watcher_spawn_egg": "Яйцо призыва смотрителя",
   "item.divinerpg.king_of_scorchers_spawn_egg": "Яйцо призыва короля лихачей",
-  "item.divinerpg.kitra_spawn_egg": "Яйцо призыва Китры",
+  "item.divinerpg.kitra_spawn_egg": "Яйцо призыва китры",
   "item.divinerpg.ayeraco_spawn_egg": "Яйцо призыва Айрако",
   "item.divinerpg.dramix_spawn_egg": "Яйцо призыва Драмикса",
   "item.divinerpg.parasecta_spawn_egg": "Яйцо призыва Парасекты",
@@ -1702,59 +1703,59 @@
   "item.divinerpg.quadro_spawn_egg": "Яйцо призыва Квадро",
   "item.divinerpg.raglok_spawn_egg": "Яйцо призыва Раглока",
   "item.divinerpg.wreck_spawn_egg": "Яйцо призыва Крушителя",
-	
+
   "entity.divinerpg.livestock_merchant": "Продавец существ",
   "entity.divinerpg.jack_o_man": "Приспешник Джека",
   "entity.divinerpg.cyclops": "Циклоп",
-  "entity.divinerpg.kobblin": "Кобблин",
+  "entity.divinerpg.kobblin": "Землешмыг",
   "entity.divinerpg.pumpkin_spider": "Тыквенный паук",
-  "entity.divinerpg.rainbour": "Реинбоур",
-	
+  "entity.divinerpg.rainbour": "Радугокрыл",
+
   "item.divinerpg.livestock_merchant_spawn_egg": "Яйцо призыва продавца существ",
   "item.divinerpg.jack_o_man_spawn_egg": "Яйцо призыва приспешника Джека",
   "item.divinerpg.cyclops_spawn_egg": "Яйцо призыва циклопа",
-  "item.divinerpg.kobblin_spawn_egg": "Яйцо призыва кобблина",
+  "item.divinerpg.kobblin_spawn_egg": "Яйцо призыва землешмыга",
   "item.divinerpg.pumpkin_spider_spawn_egg": "Яйцо призыва тыквенного паука",
-  "item.divinerpg.rainbour_spawn_egg": "Яйцо призыва реинбоура",
-	
+  "item.divinerpg.rainbour_spawn_egg": "Яйцо призыва радугокрыла",
+
   "entity.divinerpg.jungle_bat": "Летучая мышь джунглей",
   "entity.divinerpg.jungle_spider": "Паук джунглей",
   "entity.divinerpg.jungle_dramcryx": "Каратель джунглей",
-	
+
   "item.divinerpg.jungle_bat_spawn_egg": "Яйцо призыва летучей мыши джунглей",
   "item.divinerpg.jungle_spider_spawn_egg": "Яйцо призыва паука джунглей",
   "item.divinerpg.jungle_dramcryx_spawn_egg": "Яйцо призыва карателя джунглей",
-	
+
   "entity.divinerpg.saguaro_worm": "Червь-сагуаро",
   "entity.divinerpg.desert_crawler": "Пустынный ползун",
   "entity.divinerpg.arid_warrior": "Воин засухи",
-	
+
   "item.divinerpg.saguaro_worm_spawn_egg": "Яйцо призыва червя-сагуаро",
   "item.divinerpg.desert_crawler_spawn_egg": "Яйцо призыва пустынного ползуна",
   "item.divinerpg.arid_warrior_spawn_egg": "Яйцо призыва воина засухи",
-	
-  "entity.divinerpg.glacon": "Глакон",
-  "entity.divinerpg.frost": "Фрост",
-	
-  "item.divinerpg.glacon_spawn_egg": "Яйцо призыва глакона",
-  "item.divinerpg.frost_spawn_egg": "Яйцо призыва фроста",
-	
+
+  "entity.divinerpg.glacon": "Глаконь",
+  "entity.divinerpg.frost": "Мороз",
+
+  "item.divinerpg.glacon_spawn_egg": "Яйцо призыва глаконя",
+  "item.divinerpg.frost_spawn_egg": "Яйцо призыва мороза",
+
   "entity.divinerpg.crab": "Краб",
   "entity.divinerpg.king_crab": "Королевский краб",
-	
+
   "item.divinerpg.crab_spawn_egg": "Яйцо призыва краба",
   "item.divinerpg.king_crab_spawn_egg": "Яйцо призыва королевского краба",
-	
+
   "entity.divinerpg.aequorea": "Экворея",
   "entity.divinerpg.shark": "Акула",
   "entity.divinerpg.whale": "Кит",
   "entity.divinerpg.liopleurodon": "Лиоплевродон",
-	
+
   "item.divinerpg.aequorea_spawn_egg": "Яйцо призыва эквореи",
   "item.divinerpg.shark_spawn_egg": "Яйцо призыва акулы",
   "item.divinerpg.whale_spawn_egg": "Яйцо призыва кита",
   "item.divinerpg.liopleurodon_spawn_egg": "Яйцо призыва лиоплевродона",
-	
+
   "entity.divinerpg.diamond_dave": "Алмазный Дэйв",
   "entity.divinerpg.miner": "Шахтёр",
   "entity.divinerpg.rotatick": "Ротатик",
@@ -1763,7 +1764,7 @@
   "entity.divinerpg.the_eye": "Око",
   "entity.divinerpg.enthralled_dramcryx": "Порабощённый каратель",
   "entity.divinerpg.the_grue": "Грю",
-	
+
   "item.divinerpg.diamond_dave_spawn_egg": "Яйцо призыва Алмазного Дэйва",
   "item.divinerpg.miner_spawn_egg": "Яйцо призыва шахтёра",
   "item.divinerpg.rotatick_spawn_egg": "Яйцо призыва ротатика",
@@ -1772,27 +1773,27 @@
   "item.divinerpg.the_eye_spawn_egg": "Яйцо призыва ока",
   "item.divinerpg.enthralled_dramcryx_spawn_egg": "Яйцо призыва порабощённого карателя",
   "item.divinerpg.the_grue_spawn_egg": "Яйцо призыва грю",
-	
+
   "entity.divinerpg.hell_pig": "Адская свинья",
   "entity.divinerpg.hell_spider": "Адский паук",
   "entity.divinerpg.wildfire": "Лучник дикого огня",
   "entity.divinerpg.scorcher": "Лихач",
-	
+
   "item.divinerpg.hell_pig_spawn_egg": "Яйцо призыва адской свиньи",
   "item.divinerpg.hell_spider_spawn_egg": "Яйцо призыва адского паука",
   "item.divinerpg.wildfire_spawn_egg": "Яйцо призыва лучника дикого огня",
   "item.divinerpg.scorcher_spawn_egg": "Яйцо призыва лихача",
-	
+
   "entity.divinerpg.ender_scrounge": "Эндермышь",
   "entity.divinerpg.ender_spider": "Эндерпаук",
   "entity.divinerpg.ender_watcher": "Смотритель Эндера",
   "entity.divinerpg.ender_triplets": "Тройня Эндера",
-	
+
   "item.divinerpg.ender_scrounge_spawn_egg": "Яйцо призыва эндермыши",
   "item.divinerpg.ender_spider_spawn_egg": "Яйцо призыва эндерпаука",
   "item.divinerpg.ender_watcher_spawn_egg": "Яйцо призыва смотрителя Эндера",
   "item.divinerpg.ender_triplets_spawn_egg": "Яйцо призыва тройни Эндера",
-	
+
   "entity.divinerpg.cauldron_fish": "Котловник",
   "entity.divinerpg.pink_ghost_glider": "Розовый призрачный глайдер",
   "entity.divinerpg.blubbertusk": "Бивень",
@@ -1812,7 +1813,7 @@
   "entity.divinerpg.hastreus": "Хастреус",
   "entity.divinerpg.glacide": "Глацид",
   "entity.divinerpg.fractite": "Фрактайт",
-	
+
   "item.divinerpg.cauldron_fish_spawn_egg": "Яйцо призыва котловника",
   "item.divinerpg.cauldron_fish_bucket": "Котловник в ведре",
   "item.divinerpg.pink_ghost_glider_spawn_egg": "Яйцо призыва розового призрачного глайдера",
@@ -1833,35 +1834,35 @@
   "item.divinerpg.hastreus_spawn_egg": "Яйцо призыва хастреуса",
   "item.divinerpg.glacide_spawn_egg": "Яйцо призыва глацида",
   "item.divinerpg.fractite_spawn_egg": "Яйцо призыва фрактайта",
-	
+
   "entity.divinerpg.groglin_merchant": "Гроглин-торговец",
   "entity.divinerpg.groglin_sharlatan": "Гроглин-шарлатан",
   "entity.divinerpg.groglin_hunter": "Гроглин-охотник",
   "entity.divinerpg.groglin_ranger": "Гроглин-егерь",
   "entity.divinerpg.groglin_warrior": "Гроглин-воин",
   "entity.divinerpg.groglin_chieftain": "Гроглин-вождь",
-	
+
   "item.divinerpg.groglin_merchant_spawn_egg": "Яйцо призыва гроглина-торговца",
   "item.divinerpg.groglin_sharlatan_spawn_egg": "Яйцо призыва гроглина-шарлатана",
   "item.divinerpg.groglin_hunter_spawn_egg": "Яйцо призыва гроглина-охотника",
   "item.divinerpg.groglin_ranger_spawn_egg": "Яйцо призыва гроглина-егеря",
   "item.divinerpg.groglin_warrior_spawn_egg": "Яйцо призыва гроглина-воина",
   "item.divinerpg.groglin_chieftain_spawn_egg": "Яйцо призыва гроглина-вождя",
-	
+
   "entity.divinerpg.gruzzorlug_miner": "Гразорлаг-шахтёр",
   "entity.divinerpg.gruzzorlug_cannoneer": "Гразорлаг-канонир",
   "entity.divinerpg.gruzzorlug_commander": "Гразорлаг-командир",
   "entity.divinerpg.gruzzorlug_swordsman": "Гразорлаг-мечник",
   "entity.divinerpg.gruzzorlug_knight": "Гразорлаг-рыцарь",
   "entity.divinerpg.gruzzorlug_general": "Гразорлаг-генерал",
-	
+
   "item.divinerpg.gruzzorlug_miner_spawn_egg": "Яйцо призыва гразорлага-шахтёра",
   "item.divinerpg.gruzzorlug_cannoneer_spawn_egg": "Яйцо призыва гразорлага-канонира",
   "item.divinerpg.gruzzorlug_commander_spawn_egg": "Яйцо призыва гразорлага-командира",
   "item.divinerpg.gruzzorlug_swordsman_spawn_egg": "Яйцо призыва гразорлага-мечника",
   "item.divinerpg.gruzzorlug_knight_spawn_egg": "Яйцо призыва гразорлага-рыцаря",
   "item.divinerpg.gruzzorlug_general_spawn_egg": "Яйцо призыва гразорлага-генерала",
-	
+
   "entity.divinerpg.captain_merik": "Капитан Мерик",
   "entity.divinerpg.datticon": "Даттикон",
   "entity.divinerpg.kazari": "Казари",
@@ -1878,7 +1879,7 @@
   "entity.divinerpg.roamer": "Бродяга",
   "entity.divinerpg.deathcryx": "Смерткрикс",
   "entity.divinerpg.living_statue": "Живая статуя",
-	
+
   "item.divinerpg.captain_merik_spawn_egg": "Яйцо призыва капитана Мерика",
   "item.divinerpg.datticon_spawn_egg": "Яйцо призыва Даттикона",
   "item.divinerpg.kazari_spawn_egg": "Яйцо призыва Казари",
@@ -1894,7 +1895,7 @@
   "item.divinerpg.roamer_spawn_egg": "Яйцо призыва бродяги",
   "item.divinerpg.deathcryx_spawn_egg": "Яйцо призыва смерткрикса",
   "item.divinerpg.living_statue_spawn_egg": "Яйцо призыва живой статуи",
-	
+
   "entity.divinerpg.gem_fin": "Самоцветный плавник",
   "entity.divinerpg.glinthop": "Глинтхоп",
   "entity.divinerpg.eden_tomo": "Томо Эдема",
@@ -1903,7 +1904,7 @@
   "entity.divinerpg.madivel": "Мадивелл",
   "entity.divinerpg.sun_archer": "Солнечный лучник",
   "entity.divinerpg.weak_cori": "Слабая кори",
-	
+
   "item.divinerpg.gem_fin_spawn_egg": "Яйцо призыва самоцветного плавника",
   "item.divinerpg.gem_fin_bucket": "Самоцветный плавник в ведре",
   "item.divinerpg.glinthop_spawn_egg": "Яйцо призыва глинтхопа",
@@ -1913,7 +1914,7 @@
   "item.divinerpg.madivel_spawn_egg": "Яйцо призыва мадивелла",
   "item.divinerpg.sun_archer_spawn_egg": "Яйцо призыва солнечного лучник",
   "item.divinerpg.weak_cori_spawn_egg": "Яйцо призыва слабой кори",
-	
+
   "entity.divinerpg.moon_wolf": "Лунный волк",
   "entity.divinerpg.wildwood_tomo": "Томо Диколесья",
   "entity.divinerpg.wildwood_cadillion": "Единорог Диколесья",
@@ -1923,7 +1924,7 @@
   "entity.divinerpg.verek": "Верек",
   "entity.divinerpg.wildwood_golem": "Голем Диколесья",
   "entity.divinerpg.mage": "Маг",
-	
+
   "item.divinerpg.moon_wolf_spawn_egg": "Яйцо призыва лунного волка",
   "item.divinerpg.wildwood_tomo_spawn_egg": "Яйцо призыва томо Диколесья",
   "item.divinerpg.wildwood_cadillion_spawn_egg": "Яйцо призыва единорога Диколесья",
@@ -1933,21 +1934,21 @@
   "item.divinerpg.verek_spawn_egg": "Яйцо призыва верека",
   "item.divinerpg.wildwood_golem_spawn_egg": "Яйцо призыва голема Диколесья",
   "item.divinerpg.mage_spawn_egg": "Яйцо призыва мага",
-	
+
   "entity.divinerpg.apalachia_tomo": "Томо Апалачии",
   "entity.divinerpg.apalachia_cadillion": "Единорог Апалачии",
   "entity.divinerpg.enchanted_warrior": "Зачарованный воин",
   "entity.divinerpg.apalachia_golem": "Голем Апалачии",
   "entity.divinerpg.enchanted_archer": "Зачарованный лучник",
   "entity.divinerpg.spellbinder": "Чародей",
-	
+
   "item.divinerpg.apalachia_tomo_spawn_egg": "Яйцо призыва томо Апалачии",
   "item.divinerpg.apalachia_cadillion_spawn_egg": "Яйцо призыва единорога Апалачии",
   "item.divinerpg.enchanted_warrior_spawn_egg": "Яйцо призыва зачарованного воина",
   "item.divinerpg.apalachia_golem_spawn_egg": "Яйцо призыва голема Апалачии",
   "item.divinerpg.enchanted_archer_spawn_egg": "Яйцо призыва зачарованного лучника",
   "item.divinerpg.spellbinder_spawn_egg": "Яйцо призыва чародея",
-	
+
   "entity.divinerpg.samek": "Самек",
   "entity.divinerpg.skythern_fiend": "Демон Поднебесья",
   "entity.divinerpg.skythern_golem": "Голем Поднебесья",
@@ -1955,7 +1956,7 @@
   "entity.divinerpg.skythern_archer": "Лучник Поднебесья",
   "entity.divinerpg.mystic": "Мистик",
   "entity.divinerpg.advanced_cori": "Улучшенная кори",
-	
+
   "item.divinerpg.samek_spawn_egg": "Яйцо призыва самека",
   "item.divinerpg.skythern_fiend_spawn_egg": "Яйцо призыва демона Поднебесья",
   "item.divinerpg.skythern_golem_spawn_egg": "Яйцо призыва голема Поднебесья",
@@ -1963,7 +1964,7 @@
   "item.divinerpg.skythern_archer_spawn_egg": "Яйцо призыва лучника Поднебесья",
   "item.divinerpg.mystic_spawn_egg": "Яйцо призыва мистика",
   "item.divinerpg.advanced_cori_spawn_egg": "Яйцо призыва улучшенной кори",
-	
+
   "entity.divinerpg.angry_glinthop": "Злой глинтхоп",
   "entity.divinerpg.mortum_cadillion": "Единорог Мёртвума",
   "entity.divinerpg.soul_spider": "Паук душ",
@@ -1972,7 +1973,7 @@
   "entity.divinerpg.soul_stealer": "Похититель душ",
   "entity.divinerpg.twilight_archer": "Сумеречный лучник",
   "entity.divinerpg.sorcerer": "Колдун",
-	
+
   "item.divinerpg.angry_glinthop_spawn_egg": "Яйцо призыва злого глинтхопа",
   "item.divinerpg.mortum_cadillion_spawn_egg": "Яйцо призыва единорога Мёртвума",
   "item.divinerpg.soul_spider_spawn_egg": "Яйцо призыва паука душ",
@@ -1981,7 +1982,7 @@
   "item.divinerpg.soul_stealer_spawn_egg": "Яйцо призыва похитителя душ",
   "item.divinerpg.twilight_archer_spawn_egg": "Яйцо призыва сумеречного лучника",
   "item.divinerpg.sorcerer_spawn_egg": "Яйцо призыва колдуна",
-	
+
   "entity.divinerpg.the_hunger": "Голод",
   "entity.divinerpg.crypt_keeper": "Хранитель склепа",
   "entity.divinerpg.mysterious_man_layer_1": "Загадочный человек",
@@ -1994,7 +1995,7 @@
   "entity.divinerpg.hover_stinger": "Парящее жало",
   "entity.divinerpg.lorga": "Лорга",
   "entity.divinerpg.shadahier": "Шадахаер",
-	
+
   "item.divinerpg.the_hunger_spawn_egg": "Яйцо призыва Голода",
   "item.divinerpg.crypt_keeper_spawn_egg": "Яйцо призыва хранителя склепа",
   "item.divinerpg.mysterious_man_layer_1_spawn_egg": "Яйцо призыва загадочного человека (I-ый ярус)",
@@ -2007,7 +2008,7 @@
   "item.divinerpg.hover_stinger_spawn_egg": "Яйцо призыва парящего жала",
   "item.divinerpg.lorga_spawn_egg": "Яйцо призыва лорги",
   "item.divinerpg.shadahier_spawn_egg": "Яйцо призыва шадахаера",
-	
+
   "entity.divinerpg.temple_guardian": "Хранитель храма",
   "entity.divinerpg.mysterious_man_layer_2": "Загадочный человек",
   "entity.divinerpg.biphron": "Бифрон",
@@ -2015,7 +2016,7 @@
   "entity.divinerpg.mandragora": "Мандрагора",
   "entity.divinerpg.twins": "Близнецы",
   "entity.divinerpg.vermenous": "Верменус",
-	
+
   "item.divinerpg.temple_guardian_spawn_egg": "Яйцо призыва хранителя храма",
   "item.divinerpg.mysterious_man_layer_2_spawn_egg": "Яйцо призыва загадочного человека (II-ой ярус)",
   "item.divinerpg.biphron_spawn_egg": "Яйцо призыва бифрона",
@@ -2023,7 +2024,7 @@
   "item.divinerpg.mandragora_spawn_egg": "Яйцо призыва мандрагоры",
   "item.divinerpg.twins_spawn_egg": "Яйцо призыва близнецов",
   "item.divinerpg.vermenous_spawn_egg": "Яйцо призыва верменуса",
-	
+
   "entity.divinerpg.mysterious_man_layer_3": "Загадочный человек",
   "entity.divinerpg.bohemite": "Богемит",
   "entity.divinerpg.galroid": "Галроид",
@@ -2031,7 +2032,7 @@
   "entity.divinerpg.lheiva": "Льхеива",
   "entity.divinerpg.lorga_flight": "Летающая лорга",
   "entity.divinerpg.tocaxin": "Токаксин",
-	
+
   "item.divinerpg.mysterious_man_layer_3_spawn_egg": "Яйцо призыва загадочного человека (III-ий ярус)",
   "item.divinerpg.bohemite_spawn_egg": "Яйцо призыва богемита",
   "item.divinerpg.galroid_spawn_egg": "Яйцо призыва галроида",
@@ -2039,20 +2040,20 @@
   "item.divinerpg.lheiva_spawn_egg": "Яйцо призыва льхеивы",
   "item.divinerpg.lorga_flight_spawn_egg": "Яйцо призыва летающей лорги",
   "item.divinerpg.tocaxin_spawn_egg": "Яйцо призыва токаксина",
-	
+
   "entity.divinerpg.dissiment": "Диссимент",
   "entity.divinerpg.helio": "Гелио",
   "entity.divinerpg.vhraak": "Враак",
   "entity.divinerpg.fake_vhraak": "Враак",
   "entity.divinerpg.zone": "Зон",
   "entity.divinerpg.zoragon": "Зорагон",
-	
+
   "item.divinerpg.dissiment_spawn_egg": "Яйцо призыва диссимента",
   "item.divinerpg.helio_spawn_egg": "Яйцо призыва гелио",
   "item.divinerpg.vhraak_spawn_egg": "Яйцо призыва враака",
   "item.divinerpg.zone_spawn_egg": "Яйцо призыва зона",
   "item.divinerpg.zoragon_spawn_egg": "Яйцо призыва зорагона",
-	
+
   "entity.divinerpg.arrow_shot": "Божественная стрела",
   "entity.divinerpg.bouncing_projectile": "Отпрыгивающий снаряд",
   "entity.divinerpg.disk": "Диск",
@@ -2061,7 +2062,7 @@
   "entity.divinerpg.firefly": "Снаряд светлячка",
   "entity.divinerpg.fractite_shot": "Выстрел фрактайта",
   "entity.divinerpg.frost_cloud": "Морозное облако",
-  "entity.divinerpg.frost_shot": "Выстрел фроста",
+  "entity.divinerpg.frost_shot": "Выстрел мороза",
   "entity.divinerpg.fyracryx_fireball": "Файербол фиракрикса",
   "entity.divinerpg.lady_luna_sparkler": "Искромёт леди Луны",
   "entity.divinerpg.meriks_missile": "Взрывной снаряд Мерика",
@@ -2074,7 +2075,7 @@
   "entity.divinerpg.twilight_demon_shot": "Выстрел сумеречного демона",
   "entity.divinerpg.watcher_shot": "Выстрел Смотрителя",
   "entity.divinerpg.wildwood_log": "Бревно дерева Диколесья",
-	
+
   "painting.divinerpg.crawling.title": "Чудовище",
   "painting.divinerpg.crawling.author": "Sir_Deccy",
   "painting.divinerpg.disturbed.title": "Потревоженный",
@@ -2093,7 +2094,11 @@
   "painting.divinerpg.lurking_terror.author": "Sir_Deccy & Derpanzerfisch",
   "painting.divinerpg.moonlight_rave.title": "Рейв при лунном свете",
   "painting.divinerpg.moonlight_rave.author": "Sir_Deccy",
-	
+
+  "filled_map.whale_skull": "Skeletal Remains Exploration Map",
+  "filled_map.groglin_raid_target": "Groglin Military Intel",
+  "filled_map.gruzzorlug_raid_target": "Gruzzorlug Military Intel",
+
   "death.attack.divinerpg.acid": "%1$s расплавился в кислоте",
   "death.attack.divinerpg.acid.player": "%1$s расплавился в кислоте, пока сражался с %2$s",
   "death.attack.divinerpg.arcana": "%1$s был убит с помощью магии Арканы",
@@ -2107,116 +2112,116 @@
   "death.attack.divinerpg.trap": "%1$s попал в ловушку",
   "death.attack.divinerpg.trap.player": "%1$s попал в ловушку, спасаясь от %2$s",
   "death.attack.divinerpg.turtle": "%1$s был съеден черепахой",
-	
-  "tooltip.divinerpg.ammo": "§Боеприпасы: %s",
-  "tooltip.divinerpg.ammo.infinite": "Бесконечные боеприпасы",
-  "tooltip.divinerpg.arcana": "Потребляет %s Арканы",
-  "tooltip.divinerpg.arcana.regen": "Пополняет %s Арканы",
-  "tooltip.divinerpg.armor_info.arcana_protection": "+%s%% Защита Аркары",
-  "tooltip.divinerpg.armor_info.arcana_regen": "Регенерация Арканы",
-  "tooltip.divinerpg.armor_info.block_protection": "Сопротивления урону от блоков",
-  "tooltip.divinerpg.armor_info.conduit_power": "Сила морского проводника",
-  "tooltip.divinerpg.armor_info.explosion_protection": "Сопротивление Взрывам",
-  "tooltip.divinerpg.armor_info.fire_protection": "Сопротивление Огню",
-  "tooltip.divinerpg.armor_info.fly": "Полёт",
-  "tooltip.divinerpg.armor_info.freeze": "Аура Заморозки",
-  "tooltip.divinerpg.armor_info.fullset": "Перки полного набора:",
-  "tooltip.divinerpg.armor_info.haste": "Скорость III",
-  "tooltip.divinerpg.armor_info.health_regen": "Регенерация Здоровья",
-  "tooltip.divinerpg.armor_info.hunger": "Питание",
-  "tooltip.divinerpg.armor_info.iceika": "Перки будут действовать лишь в Заснежье",
-  "tooltip.divinerpg.armor_info.jump_height": "%sx Высота Прыжка",
-  "tooltip.divinerpg.armor_info.melee_damage": "+%s Ближний Урон",
-  "tooltip.divinerpg.armor_info.melee_protection": "+%s%% Защита от Ближнего Урона",
-  "tooltip.divinerpg.armor_info.night_vision": "Ночное Зрение",
-  "tooltip.divinerpg.armor_info.no_fall": "Невосприинчивость к урону от падения",
-  "tooltip.divinerpg.armor_info.ore_drops": "+%s Twilight Ore Drops",
-  "tooltip.divinerpg.armor_info.poison_protection": "Защита от Отравления",
-  "tooltip.divinerpg.armor_info.ranged_damage": "+%s%% Урон от Снарядов",
-  "tooltip.divinerpg.armor_info.ranged_protection": "+%s%% Защита от Снарядов",
-  "tooltip.divinerpg.armor_info.scythe_damage": "%sx Урон Косой",
+
+  "tooltip.divinerpg.ammo": "§9Боеприпасы: %s",
+  "tooltip.divinerpg.ammo.infinite": "Бесконечность",
+  "tooltip.divinerpg.arcana": "Потребляет %s арканы",
+  "tooltip.divinerpg.arcana.regen": "Восполняет %s арканы",
+  "tooltip.divinerpg.armor_info.arcana_protection": "+%s%% Защита от арканы",
+  "tooltip.divinerpg.armor_info.arcana_regen": "Регенерация арканы",
+  "tooltip.divinerpg.armor_info.block_protection": "Сопротивление урону от блоков",
+  "tooltip.divinerpg.armor_info.conduit_power": "Сила источника",
+  "tooltip.divinerpg.armor_info.explosion_protection": "Взрывостойкость",
+  "tooltip.divinerpg.armor_info.fire_protection": "Огнеупорность",
+  "tooltip.divinerpg.armor_info.fly": "Творческий полёт",
+  "tooltip.divinerpg.armor_info.freeze": "Морозная аура",
+  "tooltip.divinerpg.armor_info.fullset": "Бонусы полного комплекта:",
+  "tooltip.divinerpg.armor_info.haste": "Спешка III",
+  "tooltip.divinerpg.armor_info.health_regen": "Регенерация здоровья",
+  "tooltip.divinerpg.armor_info.hunger": "Подпитка",
+  "tooltip.divinerpg.armor_info.iceika": "Бонусы будут действовать лишь в Заснежье",
+  "tooltip.divinerpg.armor_info.jump_height": "%sx Высота прыжка",
+  "tooltip.divinerpg.armor_info.melee_damage": "+%s Урон в ближнем бою",
+  "tooltip.divinerpg.armor_info.melee_protection": "+%s%% Защита в ближнем бою",
+  "tooltip.divinerpg.armor_info.night_vision": "Ночное зрение",
+  "tooltip.divinerpg.armor_info.no_fall": "Невосприимчивость к урону от падения",
+  "tooltip.divinerpg.armor_info.ore_drops": "+%s Дроп сумеречной руды",
+  "tooltip.divinerpg.armor_info.poison_protection": "Ядостойкость",
+  "tooltip.divinerpg.armor_info.ranged_damage": "+%s%% Урон в дальнем бою",
+  "tooltip.divinerpg.armor_info.ranged_protection": "+%s%% Защита от снарядов",
+  "tooltip.divinerpg.armor_info.scythe_damage": "%sx Урон косой",
   "tooltip.divinerpg.armor_info.speed": "Скорость %s",
   "tooltip.divinerpg.armor_info.step_assist": "Автопрыжок",
-  "tooltip.divinerpg.armor_info.swim": "Грациозность Дельфина",
-  "tooltip.divinerpg.armor_info.underwater": "Подводное Дыхание",
-  "tooltip.divinerpg.armor_info.water_health_regen": "Подводная Регенерация",
-  "tooltip.divinerpg.armor_info.wither_protection": "Сопростивление к Иссушению",
+  "tooltip.divinerpg.armor_info.swim": "Грация дельфина",
+  "tooltip.divinerpg.armor_info.underwater": "Водное дыхание",
+  "tooltip.divinerpg.armor_info.water_health_regen": "Водное лечение",
+  "tooltip.divinerpg.armor_info.wither_protection": "Сопротивление иссушению",
   "tooltip.divinerpg.armor_pouch.boots": "§9Ботинки: ",
   "tooltip.divinerpg.armor_pouch.chestplate": "§9Нагрудник: ",
   "tooltip.divinerpg.armor_pouch.helmet": "§9Шлем: ",
   "tooltip.divinerpg.armor_pouch.leggings": "§9Поножи: ",
-  "tooltip.divinerpg.bow_speed.faster": " %sx Ускоренное Натяжение",
-  "tooltip.divinerpg.bow_speed.slower": " %sx Замедленное Натяжение",
-  "tooltip.divinerpg.damage.arcana": " %s Урон Арканы",
-  "tooltip.divinerpg.damage.magic": " %s Магический Урон",
+  "tooltip.divinerpg.bow_speed.faster": " Натяжение %sx быстрее",
+  "tooltip.divinerpg.bow_speed.slower": " Натяжение %sx медленнее",
+  "tooltip.divinerpg.damage.arcana": " Урон от арканы: %s",
+  "tooltip.divinerpg.damage.magic": " Урон от магии: %s",
   "tooltip.divinerpg.damage.ranged": " Урон в дальнем бою: %s",
   "tooltip.divinerpg.damage.use": "Наносит %s урона пользователю",
   "tooltip.divinerpg.divine_accumulator.fall": "Не предотвращает урон от падения",
-  "tooltip.divinerpg.divine_accumulator.launch": "Запуская использующего в воздух",
+  "tooltip.divinerpg.divine_accumulator.launch": "Запускает использующего в воздух",
   "tooltip.divinerpg.dream_flint": "Используется для активации портала из Везеи",
-  "tooltip.divinerpg.effect.burns": "Поджигает мобов на %s секунд",
-  "tooltip.divinerpg.effect.poisons": "Отравляет мобов на %s секунд",
-  "tooltip.divinerpg.effect.slows": "Замедляет мобов на %s секунд",
+  "tooltip.divinerpg.effect.burns": "Поджигает мобов на %s секунды",
+  "tooltip.divinerpg.effect.poisons": "Отравляет мобов на %s секунды",
+  "tooltip.divinerpg.effect.slows": "Замедляет мобов на %s секунды",
   "tooltip.divinerpg.ender_scepter": "Телепортирует использующего",
-  "tooltip.divinerpg.frosted_allure": "Призывает мобов на поверхности. Выбирете категорию моба с помощью Ледяного Камня для более точного призывания.",
-  "tooltip.divinerpg.heals": "Возобнавляет %s сердец",
-  "tooltip.divinerpg.health.regen": "Дает регенерацию на %s секунд",
-  "tooltip.divinerpg.instant_consumption": "Мгновенное Потребление",
-  "tooltip.divinerpg.lightning_shot": "Испускает молнии",
+  "tooltip.divinerpg.frosted_allure": "Призывает мобов на поверхности. Выберите категорию мобов с помощью ледяного камня для более точного призыва",
+  "tooltip.divinerpg.heals": "Восполняет %s сердец",
+  "tooltip.divinerpg.health.regen": "Даёт регенерацию на %s секунды",
+  "tooltip.divinerpg.instant_consumption": "Мгновенное употребление",
+  "tooltip.divinerpg.lightning_shot": "Бьёт молниями",
   "tooltip.divinerpg.nightmare_bed": "Вам придётся поторговать с Голодом, чтобы сделать портал обратно",
-  "tooltip.divinerpg.pull": "Тянет существ к пользователю",
-  "tooltip.divinerpg.push": "Отталкивает существ от пользователя",
+  "tooltip.divinerpg.pull": "Притягивает мобов к пользователю",
+  "tooltip.divinerpg.push": "Отталкивает мобов от пользователя",
   "tooltip.divinerpg.return": "Возвращается к пользователю",
-  "tooltip.divinerpg.shadow_saber": "Ускоряет пользователя с каждой атакой",
+  "tooltip.divinerpg.shadow_saber": "Ускоряет пользователя при каждой атаке",
   "tooltip.divinerpg.shots.bounce": "Отскакивающие снаряды",
   "tooltip.divinerpg.shots.explosive": "Взрывные снаряды",
   "tooltip.divinerpg.shots.homing": "Самонаводящиеся снаряды",
   "tooltip.divinerpg.shots.sky": "%s снарядов с неба",
-  "tooltip.divinerpg.shots.split": "Снаряды разделились на %s при ударе",
-  "tooltip.divinerpg.staff_of_enrichment": "Используйте на Арканитовой Земле, чтобы очистить её",
+  "tooltip.divinerpg.shots.split": "Снаряды разделяются на %s при ударе",
+  "tooltip.divinerpg.staff_of_enrichment": "Используйте на арканитовой земле, чтобы очистить её",
   "tooltip.divinerpg.summon": "Призывает дружелюбного %s:",
-  "tooltip.divinerpg.summon.damage": " %s Урон Атаки",
+  "tooltip.divinerpg.summon.damage": " Урон: %s",
   "tooltip.divinerpg.summon.despawn": "Исчезает через некоторое время",
-  "tooltip.divinerpg.summon.health": " %s Здоровье",
+  "tooltip.divinerpg.summon.health": " Здоровье: %s",
   "tooltip.divinerpg.teleport.block_position": "§9Координаты: §fx=%s, y=%s, z=%s",
   "tooltip.divinerpg.teleport.dimension": "§9Измерение: %s",
   "tooltip.divinerpg.teleport.respawn_point": "Телепортирует на место возрождения",
   "tooltip.divinerpg.tool.efficiency": "§9Эффективность: %s",
-  "tooltip.divinerpg.tool.harvest_level": "§9Уровень Сбора: %s",
+  "tooltip.divinerpg.tool.harvest_level": "§9Уровень сбора: %s",
   "tooltip.divinerpg.torridite": "Бывший незерит",
-  "tooltip.divinerpg.weakened_without_arcana": "Урон сильно уменьшен если не присутсвует аркана",
-	
+  "tooltip.divinerpg.weakened_without_arcana": "Урон сильно снижен, если не хватает арканы",
+
   "message.divinerpg.ayeraco.blue": "Синий Айрако прибыл",
-  "message.divinerpg.ayeraco.green": "Зеленый Айрако прибыл",
+  "message.divinerpg.ayeraco.green": "Зелёный Айрако прибыл",
   "message.divinerpg.ayeraco.light_purple": "Розовый Айрако прибыл",
   "message.divinerpg.ayeraco.red": "Красный Айрако прибыл",
-  "message.divinerpg.ayeraco.yellow": "Желтый Айрако прибыл",
+  "message.divinerpg.ayeraco.yellow": "Жёлтый Айрако прибыл",
   "message.divinerpg.ayeraco.dark_purple": "Фиолетовый Айрако прибыл",
   "message.divinerpg.ayeraco.spawn": "Орда Айрако прибыла!",
-  "message.divinerpg.boss.peaceful": "Призыв боссов на Мирном режиме сложности невозможен!",
+  "message.divinerpg.boss.peaceful": "Призыв боссов на мирной сложности невозможен!",
   "message.divinerpg.feed_gem": "Скорми самоцветному плавнику жемчужину дюн, чтобы он не пропадал!",
-  "message.divinerpg.frosted_allure.all": "Все Категории Мобов",
+  "message.divinerpg.frosted_allure.all": "Все категории мобов",
   "message.divinerpg.frosted_allure.ambient": "Категория: мобы окружения",
   "message.divinerpg.frosted_allure.creature": "Категория: существа",
   "message.divinerpg.frosted_allure.misc": "Категория: разное",
   "message.divinerpg.frosted_allure.monster": "Категория: монстры",
   "message.divinerpg.frosted_allure.water": "Категория: водные мобы",
-  "message.divinerpg.item.overworld_only": "Этот предмет можно применить только во Внешнем Мире",
-  "message.divinerpg.item.nether_only": "Этот предмет можно применить только в Нижнем Мире",
-  "message.divinerpg.item.end_only": "Этот предмет можно применить только в Крае",
+  "message.divinerpg.item.overworld_only": "Этот предмет можно применить только в верхнем мире",
+  "message.divinerpg.item.nether_only": "Этот предмет можно применить только в Незере",
+  "message.divinerpg.item.end_only": "Этот предмет можно применить только в Энде",
   "message.divinerpg.item.mortum_only": "Этот предмет можно применить только в Мёртвуме",
-  "message.divinerpg.nightmare_bed.inventory_full": "Кровать Кошмыров можно только применить с пустым инвентарем",
-  "message.divinerpg.nightmare_bed.overworld_only": "Кровать Кошмыров можно только применить во Внешнем Мире",
-  "message.divinerpg.nightmare_bed.restrict": "Кровать Кошмыров можно только применить в тёмном месте",
-  "message.divinerpg.vethea_portal.inventory_full": "Во Внешний Мир можно вернуться лишь с пустым инвентарем",
+  "message.divinerpg.nightmare_bed.inventory_full": "Кровать кошмаров можно применить только с пустым инвентарём",
+  "message.divinerpg.nightmare_bed.overworld_only": "Кровать кошмаров можно применить только в верхнем мире",
+  "message.divinerpg.nightmare_bed.restrict": "Кровать кошмаров можно применить только в тёмном месте",
+  "message.divinerpg.vethea_portal.inventory_full": "В верхний мир можно вернуться лишь с пустым инвентарём",
   "message.divinerpg.player.developer": "Добро пожаловать, разработчик DivineRPG! Мы рады, что %s является частью команды разработчиков DivineRPG.",
   "message.divinerpg.player.friend": "Добро пожаловать, %s! Вам выражает признательность, по крайней мере, один из членов команды DivineRPG.",
   "message.divinerpg.player.special": "Добро пожаловать в DivineRPG! %s заслужил признание за исключительную крутизну!",
   "message.divinerpg.player.tester": "Добро пожаловать, тестировщик DivineRPG! %s великодушно выделил своё время для помощи в тестировании DivineRPG. Мы очень ценим вашу помощь!",
-  "message.divinerpg.teleport.change_position": "Вы не можете поменять начальную позицию",
-  "message.divinerpg.teleport.no_position": "Нажмите «Приседание» + «Использование Предмета», чтобы задать позицию для телепортации",
+  "message.divinerpg.teleport.change_position": "Вы не можете поменять установленные координаты",
+  "message.divinerpg.teleport.no_position": "Нажмите «Красться» + «Использовать», чтобы задать координаты для телепортации",
   "message.divinerpg.teleport.no_respawn": "У вас нет точки возрождения",
-	
+
   "enchantment.divinerpg.aftershock": "Послеимпульс",
   "enchantment.divinerpg.aftershock.desc": "Послеимпульс имеет шанс удвоить урон, наносимый оружием ближнего боя.",
   "enchantment.divinerpg.brain_freeze": "Мозгоморозка",
@@ -2225,7 +2230,7 @@
   "enchantment.divinerpg.insulation.desc": "Теплоизоляция на нагруднике предотвращает замерзание в Заснежье.",
   "enchantment.divinerpg.rive": "Разрушитель",
   "enchantment.divinerpg.rive.desc": "Разрушитель, при применении к инструменту, добывает в радиусе (3 x 3 x уровень зачарования).",
-	
+
   "advancement.divinerpg.overworld.root": "DivineRPG",
   "advancement.divinerpg.overworld.root.desc": "Путешествие начинается...",
   "advancement.divinerpg.overworld.a_divine_plan": "Божественный план",
@@ -2235,7 +2240,7 @@
   "advancement.divinerpg.overworld.bad_idea": "bad idea right?",
   "advancement.divinerpg.overworld.bad_idea.desc": "Посетите древнюю гробницу",
   "advancement.divinerpg.overworld.attempt_at_ascension": "Попытка стать богом",
-  "advancement.divinerpg.overworld.attempt_at_ascension.desc": "Сделайте божественную брооню и интструменты",
+  "advancement.divinerpg.overworld.attempt_at_ascension.desc": "Сделайте божественную броню и инструменты",
   "advancement.divinerpg.overworld.eye_of_evil": "Око зла",
   "advancement.divinerpg.overworld.eye_of_evil.desc": "Посмотрите в глаз Ока",
   "advancement.divinerpg.overworld.feeding_on_the_fish": "Прикормка для рыб",
@@ -2243,7 +2248,7 @@
   "advancement.divinerpg.overworld.halloween_spirit": "Призрак Хэллоуина",
   "advancement.divinerpg.overworld.halloween_spirit.desc": "Поговорите с приспешником Джека",
   "advancement.divinerpg.overworld.jungle_stegosaurus_slayer": "Смерть всем стегозаврам",
-  "advancement.divinerpg.overworld.jungle_stegosaurus_slayer.desc": "Убейте драмкрикса джунглей",
+  "advancement.divinerpg.overworld.jungle_stegosaurus_slayer.desc": "Убейте карателя джунглей",
   "advancement.divinerpg.overworld.lonely_guy": "История одинокого парня",
   "advancement.divinerpg.overworld.lonely_guy.desc": "Поторгуйте с Алмазным Дэйвом",
   "advancement.divinerpg.overworld.perfectly_corrupted": "Идеальное повреждение",
@@ -2289,7 +2294,7 @@
   "advancement.divinerpg.arcana.my_little_creature": "Моё маленькое существо",
   "advancement.divinerpg.arcana.my_little_creature.desc": "Призовите питомца, купленного у Зелуса",
   "advancement.divinerpg.arcana.sky_high": "Прыжок до небес",
-  "advancement.divinerpg.arcana.sky_high.desc": "Прыгните на элевантиум",
+  "advancement.divinerpg.arcana.sky_high.desc": "Прыгните на взмыватель",
   "advancement.divinerpg.arcana.the_tempest": "Буря",
   "advancement.divinerpg.arcana.the_tempest.desc": "Купите меч бури",
   "advancement.divinerpg.arcana.total_demonization": "Полная демонизация",
@@ -2360,7 +2365,7 @@
   "advancement.divinerpg.vethea.temple_of_doom.desc": "Получите глыбу Цермила из храма",
   "advancement.divinerpg.vethea.unlimited_power": "Безграничная мощь",
   "advancement.divinerpg.vethea.unlimited_power.desc": "Убейте Крушителя",
-	
+
   "message.jackoman.boo": "Бу-у!",
   "message.jackoman.lost": "Кажется, я потерял голову",
   "message.jackoman.hurah": "УРА!",
@@ -2394,7 +2399,7 @@
   "message.leorna.lamona": "Ты пробовал бросать ламону? Это очень удобно для поисков",
   "message.leorna.hitchak": "Хитчак, конечно, очень вкусный",
   "message.leorna.zelus": "Зелус не сводит с меня глаз",
-  "message.vatticus.feel": "Чувствуете ли вы силу арканиума вокруг вас?",
+  "message.vatticus.feel": "Чувствуете ли вы силу аркания вокруг вас?",
   "message.vatticus.noend": "Я слышал, что этому месту нет конца, видимо, как и мне",
   "message.vatticus.strength": "Аркана, приди ко мне, дай мне предельную силу!",
   "message.vatticus.discover": "Я узнал, как разбудить древнего правителя подземелья",
@@ -2405,11 +2410,11 @@
   "message.kazari.1": "Они называют меня «Хранителем подземелья», но я предпочитаю своё настоящее имя, понимаешь?",
   "message.kazari.2": "Большинство здешних ребят враждуют друг с другом; мне пришлось выйти и сказать им, чтобы прекратили",
   "message.kazari.3": "Блоки, что сделал я, лишены проклятия нерушимости, которым охвачено подземелье... или нет. На самом деле я не знаю, что делает их нерушимыми.",
-  "message.kazari.4": "Этот дом? Да, я построил его из материалов вашего мира. Терпеть не могу здешнии унылые синии блоки",
+  "message.kazari.4": "Этот дом? Да, я построил его из материалов вашего мира. Терпеть не могу здешние унылые синие блоки",
   "message.kazari.5": "У Даттикона есть талант, но он растрачивает его на изготовление одной и той же печи по шесть раз",
   "message.kazari.6": "Хитчак какой-то мягкий. Наверное, на вкус и цвет товарищей нет",
   "message.kazari.7": "Маленькие статуи тоже роняют ключи; однако желаю удачи в их поиске",
-  "message.kazari.8": "Вы не первый гость из вашего мира, и я пологаю, что не последний",
+  "message.kazari.8": "Вы не первый гость из вашего мира, и я полагаю, что не последний",
   "message.zelus.fine": "Вы не видели Леорну недавно? Насколько я могу судить, она выглядит прекрасно",
   "message.zelus.minions": "Мои приспешники захватят любой мир",
   "message.zelus.flower": "Я подумываю подарить Леорне цветок, хотя она не сочтёт его слишком уж причудливым",
@@ -2473,49 +2478,49 @@
   "message.wreck.speed": "Скорость!",
   "message.wreck.explosion": "Взрывы!",
   "message.wreck.strength": "Сила!",
-	
+
   "biome.divinerpg.iceika/boneyard": "Заснежье: Кладбище",
-  "biome.divinerpg.iceika/borealis_steeps": "Заснежье: Северные Склоны",
-  "biome.divinerpg.iceika/chill_passage": "Заснежье: Холодный Проход",
-  "biome.divinerpg.iceika/chilly_cavern": "Заснежье: Холодные Пещеры",
-  "biome.divinerpg.iceika/cozybark_forest": "Заснежье: Благорный Лес",
-  "biome.divinerpg.iceika/deep_frozen_ocean": "Заснежье: Глубокий Замёрзший Океан",
-  "biome.divinerpg.iceika/fractal_forest": "Заснежье: Фркатальный Лес",
-  "biome.divinerpg.iceika/frozen_menagerie": "Заснежье: Замороженный Зверинец",
-  "biome.divinerpg.iceika/frozen_ocean": "Заснежье: Замороженный Океан",
-  "biome.divinerpg.iceika/frozen_peaks": "Заснежье: Оледенелые Вершины",
-  "biome.divinerpg.iceika/geyser_plateau": "Заснежье: Гейзерное Плато",
-  "biome.divinerpg.iceika/glowing_deep": "Заснежье: Светящаяся Глубина",
-  "biome.divinerpg.iceika/ice_sheet": "Заснежье: Слой Льда",
-  "biome.divinerpg.iceika/ice_spikes": "Заснежье: Ледяные Пики",
-  "biome.divinerpg.iceika/morgue_marsh": "Заснежье: Morgue Marsh",
-  "biome.divinerpg.iceika/sheltered_garden": "Заснежье: Защищенный Сад",
-  "biome.divinerpg.iceika/shiverspine_forest": "Заснежье: Ледянящий Кровь Лес",
-  "biome.divinerpg.iceika/snow_bog": "Заснежье: Снежное Болото",
-  "biome.divinerpg.iceika/snowy_peaks": "Заснежье: Снежные Вершины",
-  "biome.divinerpg.iceika/thermal_vents": "Заснежье: Термальные Источники",
+  "biome.divinerpg.iceika/borealis_steeps": "Заснежье: Северные склоны",
+  "biome.divinerpg.iceika/chill_passage": "Заснежье: Морозный проход",
+  "biome.divinerpg.iceika/chilly_cavern": "Заснежье: Леденящие пещеры",
+  "biome.divinerpg.iceika/cozybark_forest": "Заснежье: Благорный лес",
+  "biome.divinerpg.iceika/deep_frozen_ocean": "Заснежье: Глубокий замёрзший океан",
+  "biome.divinerpg.iceika/fractal_forest": "Заснежье: Фрактальный лес",
+  "biome.divinerpg.iceika/frozen_menagerie": "Заснежье: Замёрзший зверинец",
+  "biome.divinerpg.iceika/frozen_ocean": "Заснежье: Замёрзший океан",
+  "biome.divinerpg.iceika/frozen_peaks": "Заснежье: Оледенелые вершины",
+  "biome.divinerpg.iceika/geyser_plateau": "Заснежье: Гейзерное плато",
+  "biome.divinerpg.iceika/glowing_deep": "Заснежье: Светящиеся глубины",
+  "biome.divinerpg.iceika/ice_sheet": "Заснежье: Ледниковый покров",
+  "biome.divinerpg.iceika/ice_spikes": "Заснежье: Ледяные пики",
+  "biome.divinerpg.iceika/morgue_marsh": "Заснежье: Мертвецкое болото",
+  "biome.divinerpg.iceika/sheltered_garden": "Заснежье: Укромный сад",
+  "biome.divinerpg.iceika/shiverspine_forest": "Заснежье: Мураспиновый лес",
+  "biome.divinerpg.iceika/snow_bog": "Заснежье: Снежные топи",
+  "biome.divinerpg.iceika/snowy_peaks": "Заснежье: Снежные вершины",
+  "biome.divinerpg.iceika/thermal_vents": "Заснежье: Термальные источники",
   "biome.divinerpg.iceika/tundra": "Заснежье: Тундра",
-  "biome.divinerpg.arcana/barren_highlands": "Аркана: Бесплодное Высокогорье",
-  "biome.divinerpg.arcana/dune_valley": "Аркана: Дюнная Долина",
+  "biome.divinerpg.arcana/barren_highlands": "Аркана: Бесплодное высокогорье",
+  "biome.divinerpg.arcana/dune_valley": "Аркана: Дюнная долина",
   "biome.divinerpg.eden": "Эдем",
   "biome.divinerpg.wildwood": "Диколесье",
   "biome.divinerpg.apalachia": "Апалачия",
   "biome.divinerpg.skythern": "Поднебесье",
   "biome.divinerpg.mortum": "Мёртвум",
-  "biome.divinerpg.vethea/ember_caverns": "Везея: Тлеющие Пещеры",
-  "biome.divinerpg.vethea/dream_grounds": "Везея: Сады Сновидений",
-  "biome.divinerpg.vethea/hyrelands": "Везея: Хайровые Земли",
-  "biome.divinerpg.vethea/scorched_tops": "Везея: Выжженные Вершины",
-	
-  "jeicompat.tile.raw_arcanium.information": "Аркановая руда генерируется в измерении Арканы, получите её, создав портал туда!",
-  "category.divinerpg.arcanium_extractor": "Аркановый экстрактор",
-	
+  "biome.divinerpg.vethea/ember_caverns": "Везея: Тлеющие пещеры",
+  "biome.divinerpg.vethea/dream_grounds": "Везея: Сады сновидений",
+  "biome.divinerpg.vethea/hyrelands": "Везея: Хайровые земли",
+  "biome.divinerpg.vethea/scorched_tops": "Везея: Выжженные вершины",
+
+  "jeicompat.tile.raw_arcanium.information": "Арканиевая руда генерируется в измерении Арканы, получите её, создав портал туда!",
+  "category.divinerpg.arcanium_extractor": "Арканиевый экстрактор",
+
   "book.divinerpg.book_name": "Божественный альманах",
   "book.divinerpg.landing_text": "Этот путеводитель все ещё в разработке. Он будет содержать ответы на большинство часто задаваемых вопросов, а также полезную информацию о том, как играть в мод.",
-	
+
   "book.divinerpg.category.getting_started": "Начало пути",
   "book.divinerpg.category.getting_started.desc": "Как и в случае с любыми другими модами, нужно с чего-то начинать",
-	
+
   "book.entries.getting_started.bosses": "Базовые боссы",
   "book.entries.getting_started.enchantments": "Зачарования",
   "book.entries.getting_started.ores": "Базовые руды",
@@ -2533,7 +2538,7 @@
   "book.entries.vethea.layer_2": "Уровень 2",
   "book.entries.vethea.layer_3": "Уровень 3",
   "book.entries.vethea.layer_4": "Уровень 4",
-	
+
   "book.divinerpg.category.twilight": "Сумеречные измерения",
   "book.divinerpg.category.twilight.desc": "5 сумеречных измерений",
   "book.divinerpg.category.iceika": "Заснежье",
@@ -2542,32 +2547,32 @@
   "book.divinerpg.category.arcana.desc": "Измерение-лабиринт",
   "book.divinerpg.category.vethea": "Везея",
   "book.divinerpg.category.vethea.desc": "Кошмарное измерение",
-	
+
   "book.divinerpg.entry.getting_started.ores.title": "Руды",
   "book.divinerpg.entry.getting_started.ores.1": "Эта глава содержит информацию о рудах, которые можно найти в обычном мире, Незере и Энде.",
-  "book.divinerpg.entry.getting_started.arlemite.title": "Арлемитовая рудак",
+  "book.divinerpg.entry.getting_started.arlemite.title": "Арлемитовая руда",
   "book.divinerpg.entry.getting_started.arlemite.1": "Арлемит обычно генерируется в Обычном мире на высоте ниже 16.",
   "book.divinerpg.entry.getting_started.realmite.title": "Реалмитовая руда",
   "book.divinerpg.entry.getting_started.realmite.1": "Реалмит - одна из наиболее распространенных руд в DivineRPG. Генерируется в Обычном мире на высоте ниже 48.",
   "book.divinerpg.entry.getting_started.rupee.title": "Рупиевая руда",
   "book.divinerpg.entry.getting_started.rupee.1": "Рупий обычно генерируется в Обычном мире на высоте ниже 16.",
-  "book.divinerpg.entry.getting_started.bloodgem.title": "Кроваво-самоцветная руда",
-  "book.divinerpg.entry.getting_started.bloodgem.1": "Каменно-кровавая руда генерируется по всему Нижнему миру.",
+  "book.divinerpg.entry.getting_started.bloodgem.title": "Кровокварцевая руда",
+  "book.divinerpg.entry.getting_started.bloodgem.1": "Кровокварцевая руда генерируется по всему Нижнему миру.",
   "book.divinerpg.entry.getting_started.torridite.title": "Торридитовая руда",
   "book.divinerpg.entry.getting_started.torridite.1": "Торридитовая руда генерируется по всему Нижнему миру. Торридит был известен ранее как Незерит!",
   "book.divinerpg.entry.getting_started.the_watcher.1": "Смотритель - босс который может быть призван с помощью Ока Смотрителя в Нижнем мире. Он летает вокруг вас и стреляет огненными шарами, которые взрываются и разрушают территорию вокруг. Смотритель одни из 3 существ, из которых выпадают божественные осколки",
   "book.divinerpg.entry.getting_started.ancient_entity.1": "Древняя сущность - большой босс, который призывается с помощью Мистических часов. Древняя сущность может запустить игрока в воздух. Является одним из 3 существ, из которых выпадают божественные осколки",
   "book.divinerpg.entry.getting_started.king_of_scorchers.1": "Король лихачей - босс призывающийся с помощью Адского огня. Быстро стреляет огненными шарами в игрока. После его убийства можно получить камень синего огня, а также дикий огонь.",
-  "book.divinerpg.entry.getting_started.ayeraco.1": "Орда Айрако это 5 мини-боссов которые могут брать призваны только с помощью Рога Орды. Красный Айрако будет лечить других, когда его здоровье будет меньше половины. Зеленый Айрако делает других невосприимчивымм к стрелам когда здоровье нижу половины. Синий Айрако ускоряет других, пока у него так же меньше половины здоровья.",
-  "book.divinerpg.entry.getting_started.ayeraco.2": "Желтый Айрако увеличивает урон, наносимый другими и наконец, фиолетовый Айрако телепортирует другого айерако когда у него меньше половины здоровья. Это третье и последнее существо, с которого выпадают божественные осколки.",
+  "book.divinerpg.entry.getting_started.ayeraco.1": "Орда Айрако это 5 мини-боссов которые могут брать призваны только с помощью Рога Орды. Красный Айрако будет лечить других, когда его здоровье будет меньше половины. Зелёный Айрако делает других невосприимчивым к стрелам когда здоровье нижу половины. Синий Айрако ускоряет других, пока у него так же меньше половины здоровья.",
+  "book.divinerpg.entry.getting_started.ayeraco.2": "Жёлтый Айрако увеличивает урон, наносимый другими и наконец, фиолетовый Айрако телепортирует другого Айрако когда у него меньше половины здоровья. Это третье и последнее существо, с которого выпадают божественные осколки.",
   "book.divinerpg.entry.getting_started.ayeraco.title": "Орда Айрако",
   "book.divinerpg.entry.getting_started.enchantments.1": "\"Разрушитель миров\" когда применено к добывающему инструменты, будет копать в радиусе (уровень зачарования x уровень зачарования x уровень зачарования).",
   "book.divinerpg.entry.getting_started.enchantments.2": "\"Расщепитель\" имеется шанс нанести удвоенный урон оружием ближнего боя.",
   "book.divinerpg.entry.getting_started.jack_o_man.1": "Приспешник Джека предлагает броню Скелета, броню приспешника Джека, броню Увядшего жнеца и, наконец, косу.",
   "book.divinerpg.entry.getting_started.livestock_merchant.1": "Продавец существ предлагает следующих питомцев к продаже: Еху, Хаск, Каменный голем, Смелтер, Снаппер, Белый гризли и, наконец, Бурый гризли",
-	
+
   "book.divinerpg.entry.twilight.portals.1": "Сумеречные порталы - это структуры для передвижения между сумеречными измерениями и Внешним Миром. Все сумеречные порталы создаются с помощью как минимум 10 соответсвующих портальных блоков в форме портала Нижнего Мира. Четыре угловых блока не обязательны, но порталы созданные игрой всегда будут их включать, в результате чего получаются 4 дополнительных портальных блока.",
-  "book.divinerpg.entry.twilight.portals.2": "Для того, чтобы поджечь портал, вам нужно будет использоваь Сумеречные Часы на нижнем блоке портала. Сумеречные порталы могут быть активированы лишь во Внешнем Мире или в соответсвующем Измерении.",
+  "book.divinerpg.entry.twilight.portals.2": "Для того, чтобы поджечь портал, вам нужно будет использовать Сумеречные Часы на нижнем блоке портала. Сумеречные порталы могут быть активированы лишь во Внешнем Мире или в соответсвующем Измерении.",
   "book.divinerpg.entry.twilight.portals.3": "Самый дешевый дизайн для портала.",
   "book.divinerpg.entry.twilight.eden_portal.1": "Портал в Эдем создаётся с помощью как минимум 10 божественных камней в форме портала в Нижний мир, затем, чтобы зажечь портал, кликните ПКМ на нижний блок Сумеречными часами.",
   "book.divinerpg.entry.twilight.wildwood_portal.1": "Портал в Дикий лес создаётся с помощью как минимум 10 блоков Эдема в форме портала в Нижний мир, затем, чтобы зажечь портал, кликните ПКМ на нижний блок Сумеречными часами.",
@@ -2576,17 +2581,17 @@
   "book.divinerpg.entry.twilight.mortum_portal.1": "Портал в Мёртвум создаётся с помощью как минимум 10 блоков Поднебесья в форме портала в Нижний мир, затем, чтобы зажечь портал, кликните ПКМ на нижний блок Сумеречными часами.",
   "book.divinerpg.entry.iceika.iceika_portal.1": "Портал в Заснежье создаётся с помощью как минимум 10 блоков снега в форме портала в Нижний мир, затем, чтобы зажечь портал, кликните ПКМ на нижний блок Снежным шарок.",
   "book.divinerpg.entry.iceika.iceika_portal.2": "Порталы в Заснежью могут быть активированы лишь во Внешнем Мире или в Заснежье.",
-  "book.divinerpg.entry.arcana.arcana_portal.1": "Портал в Аркану создаётся с помощью 12 рамок портала Арканы и распологаются в форме портала в Край.",
+  "book.divinerpg.entry.arcana.arcana_portal.1": "Портал в Аркану создаётся с помощью 12 рамок портала Арканы и располагаются в форме портала в Край.",
   "book.divinerpg.entry.arcana.arcana_portal.2": "Видео на следующей странице",
   "book.divinerpg.entry.vethea.nightmare_bed": "Кровать кошмаров должна быть размещена в темноте, чтобы переместить игрока в измерение Везея. Инвентарь игрока поменяется местами, потому что, попав в Везею, вы окажетесь во сне. При выходе из Везеи инвентарь в Обычном мире восстанавливается.",
   "book.divinerpg.entry.twilight.sunstorm": "Структура Солнечного шторма появляется в Эдеме и требует кусок Эдема для активации.",
   "book.divinerpg.entry.twilight.termasect": "Структура Термасекта генерируется в Диком лесу и требует кусок Дикого леса для активации.",
   "book.divinerpg.entry.twilight.eternal_archer": "Структура Вечного лучника генерируется в Апалачии и требует кусок Апалачии для активации.",
   "book.divinerpg.entry.twilight.experienced_cori": "Структура Королевской кори генерируется в Поднебесье и требует кусок Поднебесья для активации.",
-  "book.divinerpg.entry.twilight.densos": "Денсос - босс ближнего боя. Он наносит примерно 31 еденицу урона за удар и имеет 500 здоровья. Лучший друг Денсоса - Рейвор!",
+  "book.divinerpg.entry.twilight.densos": "Денсос - босс ближнего боя. Он наносит примерно 31 единицу урона за удар и имеет 500 здоровья. Лучший друг Денсоса - Рейвор!",
   "book.divinerpg.entry.twilight.karot": "Морквут - это большой сердитый кролик, который порождает меньших сердитых кроликов в качестве приспешников. Морквут имеет 625 здоровья и атакует в ближнем бою.",
   "book.divinerpg.entry.twilight.reyvor": "Рейвор - босс дальнего боя. Он наносит около 40 единиц урона и имеет 500 здоровья. Лучший друг Рейвора - Денсос.!",
-  "book.divinerpg.entry.twilight.soul_fiend": "Демон душ накладывает на вас множество негативных эффектов и атакует в ближнем бою. Он имеет 550 здоровья и наносит 34 еденицы урона.",
+  "book.divinerpg.entry.twilight.soul_fiend": "Демон душ накладывает на вас множество негативных эффектов и атакует в ближнем бою. Он имеет 550 здоровья и наносит 34 единицы урона.",
   "book.divinerpg.entry.twilight.twilight_demon": "Сумеречный демон обладает атаками ближнего и дальнего боя, его дальняя атака накладывает на вас негативные эффекты. У него 800 здоровья.",
   "book.divinerpg.entry.twilight.vamacheron": "Вамашерон - быстрый босс ближнего боя, у него 675 здоровья. Благодаря своей скорости он бьет как грузовик!",
   "book.divinerpg.entry.twilight.eden_ore": "Руда Эдема встречается на всех высотах внутри измерения Эдем, но очень редко.",
@@ -2596,10 +2601,10 @@
   "book.divinerpg.entry.twilight.mortum_ore": "Руда Мёртвума встречается на всех высотах внутри измерения Мёртвум, но очень редко.",
   "book.divinerpg.entry.iceika.structures.1": "В Заснежьи генерируется несколько типов структур. Некоторые из этих структур содержат двух существ, Торговца и Инженера мастерской. В других строениях есть другие типы существ. В структурах вы можете найти углекаменную печь не требующую топлива для плавки, но работающую немного медленнее обычная печь.",
   "book.divinerpg.entry.iceika.structures.2": "Вы так же можете встретить сундуки, покрытые инеем, в которых лежит добыча. Эти сундуки обычно содержат снежинки, ледяные осколки, мороженое, шоколадное полено, мятные конфеты, эгг-ног, фруктовый пирог, звук Каролса и броню Санты.",
-  "book.divinerpg.entry.arcana.dramix": "Драмикс - босс с 2500 еденицами здоровья, ростом в 3 блока и способным становиться невидимым. Он атакует в ближнем бою, но бьет как грузовик. Драмикс появляется, если кликнуть ПКМ Книгой Мастеров на алтаре Драмикса.",
+  "book.divinerpg.entry.arcana.dramix": "Драмикс - босс с 2500 единицами здоровья, ростом в 3 блока и способным становиться невидимым. Он атакует в ближнем бою, но бьет как грузовик. Драмикс появляется, если кликнуть ПКМ Книгой Мастеров на алтаре Драмикса.",
   "book.divinerpg.entry.arcana.parasecta": "Парасекта - летающий босс. Парасекта будет летать вокруг игрока и наносить ему удары, рекомендуется найти способ избежать отдачи. Парасекта появляется, если кликнуть ПКМ Книгой Мастеров на алтаре Парасекты.",
   "book.divinerpg.entry.arcana.captain_merik": "Капитан Мерик предлагает множество сделок. Он может вам предложить: меч Бури, Проклятый призрак, Теневая сабля, сабля Арканы, Меч капитана, Светлячок, Массив Мерикка, меч Левиции, Ла-Векор, гранаты и броню Кормы",
-  "book.divinerpg.entry.arcana.datticon": "Даттикон предлагает множество сделок. Таких как: Звёздный мост, Аркановые трубы, Аркановая лестница, Расплавленная печь, Печь зеленого света, Печь океанского огня, Печь лунного света, Печь белого огня, Демоническая печь, Элевантиум, Акселерон и броню Кормы",
+  "book.divinerpg.entry.arcana.datticon": "Даттикон предлагает множество сделок. Таких как: Звёздный мост, Аркановые трубы, Аркановая лестница, Расплавленная печь, Печь зелёного света, Печь океанского огня, Печь лунного света, Печь белого огня, Демоническая печь, Элевантиум, Акселерон и броню Кормы",
   "book.divinerpg.entry.arcana.kazari": "Казари предлагает множество сделок. Например: Древний ключ, Ржавый ключ, Ключ душ, Осадочный ключ, Древние кирпичи, Древний камень, Древняя плитка, Аркановый металл, Аркановая мощь, попранные кирпичи, Лампа подземелья, Осадок душ и Камень душ",
   "book.divinerpg.entry.arcana.leorna": "Леорна предлагает множество сделок. Она может вам предложить: Семена корня Эвкалипта, Семена Марсина, Семена Файрстока, Семена Пинфлая, Семена аквамарина, Семена Хитчака, Семена Вейло, Семена Ламоны, Аркановая земля и Трава Арканы",
   "book.divinerpg.entry.arcana.lord_vatticus": "Лорд Ватикус предлагает множество сделок. У него можно найти: Синий краситель, Пузырёк опыта, Песок душ, Слабое зелье Арканы, Сильное зелье Арканы, Огненный стержень, Незерский нарост, Книга Мастеров и Чародейский стол",
@@ -2613,9 +2618,9 @@
   "book.divinerpg.entry.vethea.pyramid": "Большие пирамиды, которые появляются на поверхности, - это храмы, в них много интересных вещей, однако будьте осторожны, потому что они похожи на лабиринт, и внутри них много враждебных существ",
   "book.divinerpg.entry.vethea.quadrotic_altar": "Алтарь Квадротика активируется Огнивом сновидений. После активации появится Квадро. Квадро имеет 4 типа атаки: первая - быстрая, но слабая атака ближнего боя, вторая - более сильная атака ближнего боя, третья - слабая скорострельная и последняя - более медленная, но сильная атака дальнего боя!",
   "book.divinerpg.entry.vethea.karos_altar": "Алтарь Кароса активируется с помощью Огнива сновидений. После активации появится доктор Карос. Основной атакой доктора является дождь из взрывающихся красных шаров. Доктор также стреляет стрелами Кароса из пушек в стенах!",
-  "book.divinerpg.entry.vethea.lunic_altar": "Лунный алтарь активируется с помощью Лунных часов. После активации появится Леди Луна. Леди Луна имеет 3 формы: рукопашный (красная), магический (синяя) и дальний (зеленая) бои. Каждая форма означает, что она может наносить только определенный урон.",
+  "book.divinerpg.entry.vethea.lunic_altar": "Лунный алтарь активируется с помощью Лунных часов. После активации появится Леди Луна. Леди Луна имеет 3 формы: рукопашный (красная), магический (синяя) и дальний (зелёная) бои. Каждая форма означает, что она может наносить только определенный урон.",
   "book.divinerpg.entry.vethea.raglok_altar": "Алтарь Раглока активируется с помощью Огнива сновидений. Раглок может ударить, ослепить, сбросить на вас облако частиц, которые будут наносить урон, и, наконец, может вас замедлить или далеко отбросить.",
-	
+
   "travelerstitles.divinerpg.eden": "Эдем",
   "travelerstitles.divinerpg.eden.color": "e1d537",
   "travelerstitles.divinerpg.wildwood": "Диколесье",
@@ -2632,7 +2637,7 @@
   "travelerstitles.divinerpg.arcana.color": "005a53",
   "travelerstitles.divinerpg.vethea": "Везея",
   "travelerstitles.divinerpg.vethea.color": "ca0c00",
-	
+
   "travelerstitles.biome.divinerpg.ice_spikes": "Ледяные пики",
   "biome.divinerpg.ice_spikes.color": "78b7e4",
   "travelerstitles.biome.divinerpg.deep_frozen_ocean": "Глубокий замёрзший океан",
@@ -2661,7 +2666,7 @@
   "biome.divinerpg.barren_highlands.color": "4785ba",
   "travelerstitles.biome.divinerpg.dune_valley": "Дюнная долина",
   "biome.divinerpg.dune_valley.color": "77bdd2",
-	
+
   "effect.divinerpg.heavy_air.description": "Подземелья в Везее заполнены тяжёлым воздухом и требуют рассечения, прежде чем вы сможете разграбить их.",
   "effect.divinerpg.block_protection.description": "Предотвращает урон от блоков.",
   "effect.divinerpg.explosion_protection.description": "Предотвращает урон от взрывов.",

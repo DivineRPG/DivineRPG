@@ -10,9 +10,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "B": {
-      "item": "divinerpg:shiverspine_wood"
-    },
+    "B": [
+      {
+        "item": "divinerpg:shiverspine_log"
+      },
+      {
+        "item": "divinerpg:shiverspine_wood"
+      }
+    ],
     "P": {
       "item": "divinerpg:shiverspine_planks"
     }
