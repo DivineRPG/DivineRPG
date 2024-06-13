@@ -18,7 +18,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockWinterberryVinesBody extends WeepingVinesPlantBlock implements BonemealableBlock {
-	public static final BooleanProperty RIPE = BlockStateProperties.BERRIES;
+	public static final BooleanProperty RIPE = BlockStateProperties.BLOOM;
 
 	public BlockWinterberryVinesBody(Properties properties) {
 		super(properties.randomTicks().lightLevel((state) -> state.getValue(RIPE) ? 5 : 1).dynamicShape());

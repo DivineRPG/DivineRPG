@@ -101,7 +101,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         }
     }
     @Override public boolean hurt(DamageSource source, float amount) {
-    	this.level().broadcastEntityEvent(this, (byte)13);
+    	if(source.getDirectEntity() instanceof Player || source.getEntity() instanceof Player) level().broadcastEntityEvent(this, (byte) 13);
     	setUnhappy();
     	return super.hurt(source, amount);
     }

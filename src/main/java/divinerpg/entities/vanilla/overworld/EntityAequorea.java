@@ -1,6 +1,7 @@
 package divinerpg.entities.vanilla.overworld;
 
 import net.minecraft.core.particles.*;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.*;
@@ -16,10 +17,9 @@ import net.minecraft.world.level.pathfinder.Path;
 import java.util.EnumSet;
 
 public class EntityAequorea extends Squid {
-	private int color;
+	private byte color;
 	public EntityAequorea(EntityType<EntityAequorea> type, Level level) {
 		super(type, level);
-		color = getRandom().nextInt(6);
 	}
 	@Override
 	protected float getStandingEyeHeight(Pose p_29975_, EntityDimensions p_29976_) {
@@ -33,12 +33,22 @@ public class EntityAequorea extends Squid {
 	    targetSelector.addGoal(1, new HurtByTargetGoal(this));
 	    targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
 	}
-	public int getColor() {
+	public byte getColor() {
 		return color;
 	}
 	@Override
 	protected ParticleOptions getInkParticle() {
 		return ParticleTypes.SPLASH;
+	}
+	@Override
+	public void addAdditionalSaveData(CompoundTag tag) {
+		super.addAdditionalSaveData(tag);
+		tag.putByte("color", color);
+	}
+	@Override
+	public void readAdditionalSaveData(CompoundTag tag) {
+		super.readAdditionalSaveData(tag);
+		color = tag.contains("color") ? tag.getByte("color") : (byte) getRandom().nextInt(6);
 	}
 	class RandomMovementGoal extends Goal {
 	      private final EntityAequorea aequorea;

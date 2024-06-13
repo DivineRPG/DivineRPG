@@ -14,7 +14,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockWinterberryVinesHead extends BlockArcaniteVinesHead {
-	public static final BooleanProperty RIPE = BlockStateProperties.BERRIES;
+	public static final BooleanProperty RIPE = BlockStateProperties.BLOOM;
 
 	public BlockWinterberryVinesHead(Properties properties) {
 		super(properties.lightLevel((state) -> 1).dynamicShape());

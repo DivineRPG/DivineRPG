@@ -19,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockWinterberryBush extends BlockMod implements BonemealableBlock {
-	public static final BooleanProperty RIPE = BlockStateProperties.BERRIES;
+	public static final BooleanProperty RIPE = BlockStateProperties.BLOOM;
 
     public BlockWinterberryBush() {
         super((BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).pushReaction(PushReaction.DESTROY).strength(0.2F).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).lightLevel((state) -> state.getValue(RIPE) ? 5 : 1)));

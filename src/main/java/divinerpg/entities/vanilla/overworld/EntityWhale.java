@@ -39,25 +39,7 @@ public class EntityWhale extends EntityDivineWaterMob {
     @Override
     public void tick() {
         super.tick();
-        if (!this.isInWater()) {
-            if (random.nextInt(2) == 0) {
-
-                for (float x = -0.25F; x <= 0.25F; x += 0.125F) {
-                    for (float z = -0.25F; z <= 0.25F; z += 0.125F) {
-                        level().addParticle(ParticleTypes.DRIPPING_WATER, getX() + x, getY(), getZ() + z, 0, 0.4, 0);
-                    }
-                }
-            }
-        }
-        if (this.isInWater()) {
-            for (int i = 0; i < 5; i++) {
-                double bubbleX = this.getX() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
-                double bubbleY = this.getY() + this.random.nextFloat() * this.getBbHeight();
-                double bubbleZ = this.getZ() + (this.random.nextFloat() - 0.5F) * this.getBbWidth();
-                this.level().addParticle(ParticleTypes.BUBBLE, bubbleX, bubbleY, bubbleZ, 0.0D, 0.0D, 0.0D);
-            }
-        }
-
-
+        if(isUnderWater()) for(int i = 0; i < 5; i++) level().addParticle(ParticleTypes.BUBBLE, getX() + (random.nextFloat() - .5F) * getBbWidth(), getY() + random.nextFloat() * getBbHeight() + .2, getZ() + (random.nextFloat() - .5F) * getBbWidth(), 0D, 0D, 0D);
+        else if(isInWaterOrBubble() && random.nextBoolean()) level().addParticle(ParticleTypes.FALLING_WATER, getX(), getY() + 2D, getZ(), random.nextDouble() - .5, random.nextDouble() * 3D + 4D, random.nextDouble() - .5);
     }
 }

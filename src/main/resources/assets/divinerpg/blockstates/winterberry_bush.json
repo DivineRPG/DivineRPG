@@ -1,9 +1,9 @@
 {
   "variants": {
-    "berries=false": {
+    "bloom=false": {
       "model": "divinerpg:block/winterberry_bush"
     },
-    "berries=true": {
+    "bloom=true": {
       "model": "divinerpg:block/ripe_winterberry_bush"
     }
   }
