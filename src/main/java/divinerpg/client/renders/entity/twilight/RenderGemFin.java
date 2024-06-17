@@ -22,13 +22,11 @@ public class RenderGemFin extends MobRenderer<EntityGemFin, ModelGemFin> {
 
     @Override
     public ResourceLocation getTextureLocation(EntityGemFin entity) {
-        if(entity.getVariant() == 0) {
-            return TEXTURE;
-        } else if (entity.getVariant() == 1) {
-            return TEXTURE1;
-        } else {
-            return TEXTURE2;
-        }
+    	return switch(entity.getVariant()) {
+    	case 0 -> TEXTURE;
+    	case 1 -> TEXTURE1;
+    	default -> TEXTURE2;
+    	};
     }
 
     protected void setupRotations(EntityGemFin p_114017_, PoseStack p_114018_, float p_114019_, float p_114020_, float p_114021_) {

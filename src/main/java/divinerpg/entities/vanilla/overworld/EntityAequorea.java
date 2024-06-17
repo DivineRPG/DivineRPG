@@ -2,6 +2,9 @@ package divinerpg.entities.vanilla.overworld;
 
 import net.minecraft.core.particles.*;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.*;
@@ -17,9 +20,15 @@ import net.minecraft.world.level.pathfinder.Path;
 import java.util.EnumSet;
 
 public class EntityAequorea extends Squid {
-	private byte color;
+	private static final EntityDataAccessor<Byte> VARIANT = SynchedEntityData.defineId(Mob.class, EntityDataSerializers.BYTE);
 	public EntityAequorea(EntityType<EntityAequorea> type, Level level) {
 		super(type, level);
+		if(!level.isClientSide()) entityData.set(VARIANT, (byte) getRandom().nextInt(6));
+	}
+	@Override
+    protected void defineSynchedData() {
+		super.defineSynchedData();
+    	entityData.define(VARIANT, (byte)0);
 	}
 	@Override
 	protected float getStandingEyeHeight(Pose p_29975_, EntityDimensions p_29976_) {
@@ -34,7 +43,7 @@ public class EntityAequorea extends Squid {
 	    targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
 	}
 	public byte getColor() {
-		return color;
+		return entityData.get(VARIANT);
 	}
 	@Override
 	protected ParticleOptions getInkParticle() {
@@ -43,12 +52,12 @@ public class EntityAequorea extends Squid {
 	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
-		tag.putByte("color", color);
+		tag.putByte("color_variant", entityData.get(VARIANT));
 	}
 	@Override
 	public void readAdditionalSaveData(CompoundTag tag) {
 		super.readAdditionalSaveData(tag);
-		color = tag.contains("color") ? tag.getByte("color") : (byte) getRandom().nextInt(6);
+		entityData.set(VARIANT, tag.contains("color_variant") ? tag.getByte("color_variant") : (byte) getRandom().nextInt(6));
 	}
 	class RandomMovementGoal extends Goal {
 	      private final EntityAequorea aequorea;
