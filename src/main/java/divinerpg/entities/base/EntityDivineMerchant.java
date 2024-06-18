@@ -119,7 +119,6 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     }
     private void setUnhappy() {
         this.setUnhappyCounter(40);
-        if (!this.level().isClientSide()) this.playSound(SoundRegistry.MERCHANT_HURT.get());
     }
     @Override protected void stopTrading() {
         super.stopTrading();
