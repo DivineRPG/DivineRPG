@@ -1,62 +1,47 @@
 package divinerpg.client.models.iceika;
 
 import com.mojang.blaze3d.vertex.*;
-
 import divinerpg.entities.iceika.EntityFrozenFlesh;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelFrozenFlesh extends EntityModel<EntityFrozenFlesh> {
-
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("frozen_flesh");
-	private final ModelPart Head, Torso, Base;
-
+	public final ModelPart head, torso, base;
 	public ModelFrozenFlesh(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.Head = root.getChild("Head");
-		this.Torso = root.getChild("Torso");
-		this.Base = root.getChild("Base");
+		head = root.getChild("head");
+		torso = root.getChild("torso");
+		base = root.getChild("base");
 	}
-
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-
-		partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 20).addBox(-4.5F, -8.0F, -4.5F, 9.0F, 8.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 4.0F, 0.5F));
-
-		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(29, 30).addBox(-4.0F, -9.0F, -3.0F, 8.0F, 11.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 13.0F, 0.0F));
-
-		Torso.addOrReplaceChild("leftshoulder_r1", CubeListBuilder.create().texOffs(12, 37).addBox(0.0F, -3.0F, -2.0F, 1.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, -6.0F, 0.0F, 0.0F, 0.0F, 0.5236F));
-
-		Torso.addOrReplaceChild("rightshoulder_r1", CubeListBuilder.create().texOffs(0, 37).addBox(-1.0F, -3.0F, -2.0F, 1.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, -6.0F, 0.0F, 0.0F, 0.0F, -0.5236F));
-
-		PartDefinition LeftArm = Torso.addOrReplaceChild("LeftArm", CubeListBuilder.create(), PartPose.offset(4.0F, -7.0F, 0.0F));
-
-		LeftArm.addOrReplaceChild("leftarm_r1", CubeListBuilder.create().texOffs(27, 20).addBox(0.0F, -1.5F, -1.0F, 8.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 1.0F, 0.0F, 0.0F, 0.0F, 0.4363F));
-
-		PartDefinition RightArm = Torso.addOrReplaceChild("RightArm", CubeListBuilder.create(), PartPose.offset(-4.0F, -7.0F, 0.0F));
-
-		RightArm.addOrReplaceChild("rightarm_r1", CubeListBuilder.create().texOffs(27, 24).addBox(-8.0F, -1.5F, -1.0F, 8.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, 1.0F, 0.0F, 0.0F, 0.0F, -0.4363F));
-
-		partdefinition.addOrReplaceChild("Base", CubeListBuilder.create().texOffs(0, 0).addBox(-5.0F, 0.0F, -4.5F, 10.0F, 11.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 13.0F, 0.5F));
-
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 20).addBox(-4.5F, -8, -4.5F, 9, 8, 9, cubeDef), PartPose.offset(0, 2.02F, .5F));
+		PartDefinition torso = partdefinition.addOrReplaceChild("torso", CubeListBuilder.create().texOffs(29, 30).addBox(-4, -9, -3, 8, 11, 7, cubeDef), PartPose.offset(0, 11.01F, 0));
+		torso.addOrReplaceChild("right_shoulder", CubeListBuilder.create().texOffs(0, 37).addBox(-1, -3, -2, 1, 5, 5, cubeDef), PartPose.offsetAndRotation(-4, -6, 0, 0, 0, -.5236F));
+		torso.addOrReplaceChild("left_shoulder", CubeListBuilder.create().texOffs(12, 37).addBox(0, -3, -2, 1, 5, 5, cubeDef), PartPose.offsetAndRotation(4, -6, 0, 0, 0, .5236F));
+		torso.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(27, 24).addBox(-8, -1.5F, -1, 8, 2, 2, cubeDef), PartPose.offsetAndRotation(-3, -6, 0, 0, 0, -.4363F));
+		torso.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(27, 20).addBox(0, -1.5F, -1, 8, 2, 2, cubeDef), PartPose.offsetAndRotation(3, -6, 0, 0, 0, .4363F));
+		partdefinition.addOrReplaceChild("base", CubeListBuilder.create().texOffs(0, 0).addBox(-5, 0, -4.5F, 10, 11, 9, cubeDef), PartPose.offset(0, 13, .5F));
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
-
-	@Override
-	public void setupAnim(EntityFrozenFlesh entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.Head.yRot = netHeadYaw / (180F / (float) Math.PI);
-		this.Head.xRot = headPitch / (180F / (float) Math.PI);
+	@Override public void setupAnim(EntityFrozenFlesh entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
+		head.xRot = headPitch * Mth.DEG_TO_RAD;
+		float f = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
+		torso.yRot = f * .15F;
+		base.yRot = -f * .15F;
 	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Base.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+		base.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 }

@@ -2095,9 +2095,9 @@
   "painting.divinerpg.moonlight_rave.title": "Рейв при лунном свете",
   "painting.divinerpg.moonlight_rave.author": "Sir_Deccy",
 
-  "filled_map.whale_skull": "Skeletal Remains Exploration Map",
-  "filled_map.groglin_raid_target": "Groglin Military Intel",
-  "filled_map.gruzzorlug_raid_target": "Gruzzorlug Military Intel",
+  "filled_map.whale_skull": "Карта исследователя скелетных останков",
+  "filled_map.groglin_raid_target": "Военные разведданные гроглинов",
+  "filled_map.gruzzorlug_raid_target": "Военные разведданные гразорлагов",
 
   "death.attack.divinerpg.acid": "%1$s расплавился в кислоте",
   "death.attack.divinerpg.acid.player": "%1$s расплавился в кислоте, пока сражался с %2$s",
@@ -2152,8 +2152,8 @@
   "tooltip.divinerpg.armor_pouch.leggings": "§9Поножи: ",
   "tooltip.divinerpg.bow_speed.faster": " Натяжение %sx быстрее",
   "tooltip.divinerpg.bow_speed.slower": " Натяжение %sx медленнее",
-  "tooltip.divinerpg.damage.arcana": " Урон от арканы: %s",
-  "tooltip.divinerpg.damage.magic": " Урон от магии: %s",
+  "tooltip.divinerpg.damage.arcana": " Урон арканой: %s",
+  "tooltip.divinerpg.damage.magic": " Урон магией: %s",
   "tooltip.divinerpg.damage.ranged": " Урон в дальнем бою: %s",
   "tooltip.divinerpg.damage.use": "Наносит %s урона пользователю",
   "tooltip.divinerpg.divine_accumulator.fall": "Не предотвращает урон от падения",

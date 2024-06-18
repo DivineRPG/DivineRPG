@@ -17,10 +17,7 @@ public class EntityFrozenFlesh extends EntityPeacefulUntilAttacked {
         super(type, worldIn);
     }
 
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.5625F;
-    }
+    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.68F;}
 
     @Override
     public boolean doHurtTarget(Entity entity) {
