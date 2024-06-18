@@ -14,14 +14,18 @@ import net.minecraft.world.level.Level;
 
 public class ItemHeatPack extends ItemMod implements Vanishable {
 	public ItemHeatPack() {
-		super(new Properties().defaultDurability(500));
+		super(new Properties().defaultDurability(1000));
 	}
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int i, boolean b) {
 		if(isActivated(stack)) {
-			stack.setDamageValue(stack.getDamageValue() + 1);
-			if(stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);
-			if(entity instanceof LivingEntity living && living.getTicksFrozen() > 2) living.setTicksFrozen(living.getTicksFrozen() - 3);
+			if(entity instanceof LivingEntity living) {
+				if(living.getTicksFrozen() > 2) living.setTicksFrozen(living.getTicksFrozen() - 3);
+				stack.hurtAndBreak(1, living, (e) -> {});
+			} else {
+				stack.setDamageValue(stack.getDamageValue() + 1);
+				if(stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);
+			}
 		}
 	}
 	@Override
