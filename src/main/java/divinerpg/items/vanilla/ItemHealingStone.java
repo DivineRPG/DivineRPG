@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemHealingStone extends ItemMod {
+	int healAmount;
     public ItemHealingStone() {
         healAmount = 20;
         cooldown = 50;

@@ -35,7 +35,7 @@ public class ItemMeriksMissile extends ItemMod {
             float arcanaPoints = 50 * charge;
             float finalCharge = charge;
             player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-                if(arcana.getArcana() >= arcanaPoints) {
+                if(arcana.getAmount(world.isClientSide()) >= arcanaPoints) {
                     if(finalCharge < .2) return;
                     float damage = Mth.clamp(finalCharge * 25, 8, 25);
                     world.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1);
@@ -43,7 +43,7 @@ public class ItemMeriksMissile extends ItemMod {
                     bullet.moveTo(player.getX(), player.getY() + 1, player.getZ());
                     bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 3, 1);
                     world.addFreshEntity(bullet);
-                    arcana.consume(player, arcanaPoints);
+                    arcana.modifyAmount(player, -arcanaPoints);
                 }
             });
         }

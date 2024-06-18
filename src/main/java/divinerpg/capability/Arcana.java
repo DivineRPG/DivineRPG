@@ -1,108 +1,97 @@
 package divinerpg.capability;
 
+import javax.annotation.Nullable;
+
+import divinerpg.config.CommonConfig;
 import divinerpg.registries.MobEffectRegistry;
 import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.packets.PacketArcanaBar;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.network.NetworkDirection;
+import net.minecraftforge.common.util.INBTSerializable;
+import net.minecraftforge.network.PacketDistributor;
 
-public class Arcana implements IArcana {
+public class Arcana implements INBTSerializable<CompoundTag> {
+	
+	public static float clientMax, clientAmount;
+	
     private int tickDelay = 4;
-    private float max = 200;
+    private float max = CommonConfig.maxArcana.get();
     private float arcana = max;
-
-    @Override
-    public void consume(Player player, float points) {
-        if (player.isCreative()) return;
-
-        set(getArcana() - points);
-        sendPacket(player);
+    /**
+     * Get current arcana
+     * @return amount of arcana
+     */
+    public float getAmount(boolean clientSide) {
+        return clientSide ? clientAmount : arcana;
     }
-
-    @Override
-    public void fill(Player player, float points) {
-        float prev = getArcana();
-        set(prev + points);
-
-        if (prev != getArcana())
-            sendPacket(player);
+    /**
+     * Gets arcana max
+     * @return amount of max possible arcana
+     */
+    public float getMaxArcana(boolean clientSide) {
+        return clientSide ? clientMax : max;
     }
-
-    @Override
-    public void regen(Player player) {
-        if (player.level().getGameTime() % tickDelay == 0) {
-            fill(player, player.hasEffect(MobEffectRegistry.KORMA_ARCANA.get()) ? 4 : 1);
-        }
-    }
-
-    @Override
-    public void set(float points) {
-        if (points < getMaxArcana()) {
-            arcana = points;
-        }else {
-            arcana = getMaxArcana();
-        }
-    }
-
-    @Override
-    public float getArcana() {
-        return arcana;
-    }
-
-    @Override
-    public float getMaxArcana() {
-        return max;
-    }
-
-    @Override
-    public void setMaxArcana(float max) {
-        if (max < 0) {
-            throw new IllegalArgumentException("Max of arcana cn't be less then null!");
-        }
-
-        this.max = max;
-    }
-
-    @Override
+    /**
+     * Gets delay in ticks
+     * @return - amount of ticks that pass between arcana regeneration
+     */
     public int getRegenDelay() {
         return tickDelay;
     }
-
-    @Override
+    private void sendDataToClient(@Nullable LivingEntity entity) {
+    	if(entity != null && entity instanceof ServerPlayer player) DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new PacketArcanaBar(this));
+    }
+    /**
+     * Set arcana amount
+     * @param entity - affected entity. if it is a server player and the amount changes, the new value gets sent to client
+     * @param amount - count. will be clamped to 0 - max.
+     */
+    public void setAmount(@Nullable LivingEntity entity, float amount) {
+    	float previous = arcana;
+    	arcana = amount > max ? max : (amount < 0F ? 0F : amount);
+    	if(previous != arcana) sendDataToClient(entity);
+    }
+    /**
+     * Change the arcana amount of affected entity
+     * @param entity - affected entity. if it is a server player and the amount changes, the new value gets sent to client
+     * @param amount - the amount to modify the current arcana amount by
+     */
+    public void modifyAmount(@Nullable LivingEntity entity, float amount) {
+    	if(amount != 0F && (amount > 0F || !(entity != null && entity instanceof Player player && player.isCreative()))) setAmount(entity, arcana + amount);
+    }
+    /**
+     * Called every tick. Adds single arcana and sends packet
+     * @param entity - entity (usually the player)
+     */
+    public void regen(@Nullable LivingEntity entity) {
+        if(entity != null && entity.level().getGameTime() % tickDelay == 0) modifyAmount(entity, entity.hasEffect(MobEffectRegistry.KORMA_ARCANA.get()) ? 4F : 1F);
+    }
+    /**
+     * Sets max amount of arcana for player
+     *
+     * @param max - arcana max. Can't be less than zero
+     */
+    public void setMaxArcana(float max) {
+        this.max = max < 0F ? 0F : max;
+    }
+    /**
+     * Managing with arcana regen delay
+     * @param delay - ticks count in which player can regen one arcana
+     */
     public void setRegenDelay(int delay) {
-        if (delay < 1) {
-            throw new IllegalArgumentException("Tick delay beetween regen can't be less than one!");
-        }
-
-        tickDelay = delay;
+        tickDelay = delay < 1 ? 1 : delay;
     }
-
-    private void sendPacket(Player player) {
-        if (!(player instanceof FakePlayer) && player instanceof ServerPlayer) {
-            DivineRPGPacketHandler.INSTANCE.sendTo(new PacketArcanaBar(this), ((ServerPlayer) player).connection.connection, NetworkDirection.PLAY_TO_CLIENT);
-        }
-    }
-
-
-
-    public void saveNBTData(CompoundTag compound) {
-        compound.putFloat("arcana", arcana);
-    }
-
-    public void loadNBTData(CompoundTag compound) {
-        arcana = compound.getFloat("arcana");
-    }
-
     @Override
     public CompoundTag serializeNBT() {
-        return new CompoundTag();
+    	CompoundTag tag = new CompoundTag();
+    	tag.putFloat("arcana", arcana);
+        return tag;
     }
-
     @Override
-    public void deserializeNBT(CompoundTag nbt) {
-
+    public void deserializeNBT(CompoundTag tag) {
+    	arcana = tag.getFloat("arcana");
     }
 }

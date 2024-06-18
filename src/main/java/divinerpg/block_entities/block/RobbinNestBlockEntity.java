@@ -4,20 +4,17 @@ import java.util.function.Predicate;
 
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.util.DivineRPGPacketHandler;
-import divinerpg.util.packets.PacketItemContentChanged;
-import divinerpg.util.packets.PacketRequestItemContent;
+import divinerpg.util.packets.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
 import net.minecraftforge.network.PacketDistributor;
+import net.minecraftforge.network.PacketDistributor.TargetPoint;
 
 public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	private static final String ITEM_TAG = "item";
@@ -51,8 +48,7 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	}
 	public void setItem(ItemStack item) {
 		if(!level.isClientSide() && (this.item == null ? item != null && !item.isEmpty() : (item == null ? !this.item.isEmpty() : this.item.isEmpty() ^ item.isEmpty())))
-			for(Player p : level.getNearbyPlayers(TargetingConditions.forNonCombat(), null, new AABB(worldPosition.offset(-128, -128, -128), worldPosition.offset(128, 128, 128))))
-				DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) p), new PacketItemContentChanged(worldPosition, item.getItem()));
+			DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.NEAR.with(TargetPoint.p(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), 256, level.dimension())), new PacketItemContentChanged(worldPosition, item.getItem()));
 		this.item = item;
 		setChanged();
 	}

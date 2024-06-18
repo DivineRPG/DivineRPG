@@ -9,7 +9,7 @@ import net.minecraftforge.network.*;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class DivineRPGPacketHandler {
-	private static final String PROTOCOL_VERSION = "1";
+	private static final String PROTOCOL_VERSION = "2";
 	public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
 		new ResourceLocation(DivineRPG.MODID, "main"),
 		() -> PROTOCOL_VERSION,
@@ -18,15 +18,14 @@ public class DivineRPGPacketHandler {
 	);
 	public static void init() {
 		int index = 0;
-		INSTANCE.registerMessage(index++, Byte.class, (l, buf) -> buf.writeByte(l), (buf) -> buf.readByte(), DivineRPGPacketHandler::handle);
+		INSTANCE.registerMessage(index++, Byte.class, (l, buf) -> buf.writeByte(l), (buf) -> buf.readByte(), DivineRPGPacketHandler::handleNewWeather);
 		INSTANCE.registerMessage(index++, PacketArcanaBar.class, PacketArcanaBar::toBytes, PacketArcanaBar::new, PacketArcanaBar::handle);
-		INSTANCE.registerMessage(index++, PacketDivineAccumulator.class, PacketDivineAccumulator::toBytes, PacketDivineAccumulator::new, PacketDivineAccumulator::handle);
 		INSTANCE.registerMessage(index++, PacketItemContentChanged.class, PacketItemContentChanged::toBytes, PacketItemContentChanged::new, PacketItemContentChanged::handle);
 		INSTANCE.registerMessage(index++, PacketRequestItemContent.class, PacketRequestItemContent::toBytes, PacketRequestItemContent::new, PacketRequestItemContent::handle);
 		INSTANCE.registerMessage(index++, PacketRequestReputation.class, PacketRequestReputation::toByte, PacketRequestReputation::new, PacketRequestReputation::handle);
 		INSTANCE.registerMessage(index++, PacketReputation.class, PacketReputation::toBytes, PacketReputation::new, PacketReputation::handle);
 	}
-	public static void handle(Byte i, Supplier<NetworkEvent.Context> ctx) {
+	public static void handleNewWeather(Byte i, Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
 			  Utils.ICEIKA_WEATHER = i;
 		});

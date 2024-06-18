@@ -62,7 +62,16 @@ public class EntityGemFin extends AbstractSchoolingFish {
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return !hasBeenFed;
     }
-
+    @Override
+    public void saveToBucketTag(ItemStack stack) {
+    	super.saveToBucketTag(stack);
+    	stack.getTag().putByte("Variant", getVariant());
+    }
+    @Override
+    public void loadFromBucketTag(CompoundTag tag) {
+    	super.loadFromBucketTag(tag);
+    	if(tag.contains("Variant")) entityData.set(VARIANT, tag.getByte("Variant"));
+    }
     public ItemStack getBucketItemStack() {
         return new ItemStack(ItemRegistry.gem_fin_bucket.get());
     }

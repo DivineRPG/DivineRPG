@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemSerenadeOfInfusion extends ItemMod {
+	int effectSec;
     public ItemSerenadeOfInfusion() {
         super(new Properties().durability(15));
         cooldown = 20;

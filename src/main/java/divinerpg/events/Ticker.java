@@ -28,18 +28,15 @@ public class Ticker {
     public static void playerTick(TickEvent.PlayerTickEvent event){
         if(event.phase == TickEvent.Phase.START){
             event.player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            if(arcana != null)
-            arcana.regen(event.player);
-        });
+	            if(arcana != null)
+	            arcana.regen(event.player);
+	        });
         }
         Player player = event.player;
         Level level = player.level();
         if(level.dimension().equals(LevelRegistry.ICEIKA) && !player.isCreative() && !player.isSpectator()) {
         	if(Utils.ICEIKA_WEATHER == 1 && level.isRaining() && player.getItemBySlot(EquipmentSlot.HEAD).isEmpty() && player.getRandom().nextFloat() < .1F && level.canSeeSky(player.blockPosition())) player.hurt(level.damageSources().generic(), 1F);
-        	if(player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments().containsKey(EnchantmentRegistry.INSULATION.get())) {
-        		int f = player.getTicksFrozen();
-        		if(f > 1) player.setTicksFrozen(f - 2);
-        	} else if(!level.isClientSide() && !player.hasEffect(MobEffectRegistry.WARMTH.get()) && level.getLightEngine().getLayerListener(LightLayer.BLOCK).getLightValue(player.blockPosition()) < 8) {
+        	if(!level.isClientSide() && !player.hasEffect(MobEffectRegistry.WARMTH.get()) && !player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments().containsKey(EnchantmentRegistry.INSULATION.get()) && level.getLightEngine().getLayerListener(LightLayer.BLOCK).getLightValue(player.blockPosition()) < 8) {
     			player.setSharedFlagOnFire(false);
     			if(player.isFullyFrozen()) {
     				player.setTicksFrozen(player.getTicksRequiredToFreeze() + 2);
@@ -47,18 +44,15 @@ public class Ticker {
     			} else player.setTicksFrozen(player.getTicksFrozen() + 1 + player.getRandom().nextInt(2) + (Utils.ICEIKA_WEATHER == 2 ? player.getRandom().nextInt(2) : 0));
         	}
         }
+        if(player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments().containsKey(EnchantmentRegistry.INSULATION.get())) {
+    		int f = player.getTicksFrozen();
+    		if(f > 0) player.setTicksFrozen(f - 2);
+        }
     }
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         event.getEntity().getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            arcana.fill(event.getEntity(), arcana.getMaxArcana());
-        });
-    }
-    @SubscribeEvent
-    public void onChangeDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
-        event.getEntity().getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            arcana.fill(event.getEntity(), arcana.getMaxArcana()-arcana.getArcana());
-            event.getEntity().giveExperiencePoints(0);
+            arcana.setAmount(event.getEntity(), arcana.getMaxArcana(event.getEntity().level().isClientSide()));
         });
     }
 }

@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemHealingFood extends ItemModFood {
+	int healAmount;
     public ItemHealingFood(FoodProperties food) {
         super(food);
         healAmount = food.getNutrition();

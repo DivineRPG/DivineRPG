@@ -1,7 +1,9 @@
 package divinerpg.events;
 
+import divinerpg.capability.ArcanaProvider;
 import divinerpg.config.ClientConfig;
 import divinerpg.util.*;
+import divinerpg.util.packets.PacketArcanaBar;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -16,7 +18,12 @@ public class EventClientLogin {
         Player player = event.getEntity();
         if(!player.level().isClientSide()) {
         	//Weather update
-        	if(player instanceof ServerPlayer pl) DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> pl), Utils.ICEIKA_WEATHER);
+        	if(player instanceof ServerPlayer pl) {
+        		DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> pl), Utils.ICEIKA_WEATHER);
+        		player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
+        			DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> pl), new PacketArcanaBar(arcana));
+        		});
+        	}
             //Send welcome messages
             if(ClientConfig.welcomeMessage.get()) {
                 Component message;
@@ -36,14 +43,4 @@ public class EventClientLogin {
             }
         }
     }
-//    @SubscribeEvent
-//    public void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
-//    	Player player = event.getEntity();
-//    	if(!player.level().isClientSide()) {
-//    		player.reviveCaps();
-//    		CompoundSavedData.storeData(player.getServer(), "divinerpg_reputations", player.getStringUUID(), player.getCapability(ReputationProvider.REPUTATION).orElse(null).saveTo(new CompoundTag()));
-//    		CompoundSavedData.storeData(player.getServer(), "divinerpg_inventories", player.getStringUUID(), player.getCapability(DimensionalInventoryProvider.DIMENIONAL_INVENTORY).orElse(null).saveTo(new CompoundTag()));
-//    		player.invalidateCaps();
-//    	}
-//    }
 }

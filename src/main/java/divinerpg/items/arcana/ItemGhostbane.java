@@ -1,7 +1,6 @@
 package divinerpg.items.arcana;
 
 import divinerpg.capability.ArcanaProvider;
-import divinerpg.entities.arcana.EntityWraith;
 import divinerpg.enums.EntityStats;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.EntityRegistry;
@@ -9,6 +8,8 @@ import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
@@ -25,25 +26,25 @@ public class ItemGhostbane extends ItemMod {
         arcanaConsumedUse = 200;
         cooldown = 60;
     }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            if(arcana.getArcana() >= arcanaConsumedUse && !level.isClientSide) new EntityWraith(EntityRegistry.WRAITH.get(), level, player).getType().spawn((ServerLevel)level, ItemStack.EMPTY, null, player.blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
-        }); return super.use(level, player, hand);
+    @Override
+    protected InteractionResultHolder<ItemStack> arcanicUse(Level level, Player player, InteractionHand hand) {
+    	if(level instanceof ServerLevel) EntityRegistry.WRAITH.get().spawn((ServerLevel)level, ItemStack.EMPTY, player, player.blockPosition(), MobSpawnType.MOB_SUMMONED, true, false).tame(player);
+    	return InteractionResultHolder.success(player.getItemInHand(hand));
     }
     @Override public InteractionResult useOn(UseOnContext context) {
-        BlockPos pos = context.getClickedPos(), pos1;
-        Level level = context.getLevel();
-        if(level.getBlockState(pos).getCollisionShape(level, pos).isEmpty()) pos1 = pos;
-        else pos1 = pos.relative(context.getClickedFace());
-        Player player = context.getPlayer();
-        return player.getCapability(ArcanaProvider.ARCANA).map(arcana -> {
-            if(arcana.getArcana() >= arcanaConsumedUse) {
-                arcana.consume(player, arcanaConsumedUse);
+    	Player player = context.getPlayer();
+    	if(player instanceof ServerPlayer) return context.getPlayer().getCapability(ArcanaProvider.ARCANA).map(arcana -> {
+            if(arcanaConsumedUse != 0 && arcana.getAmount(false) >= arcanaConsumedUse) {
+                arcana.modifyAmount(player, -arcanaConsumedUse);
                 player.getCooldowns().addCooldown(this, cooldown);
-                if(!level.isClientSide) new EntityWraith(EntityRegistry.WRAITH.get(), level, player).getType().spawn((ServerLevel)level, ItemStack.EMPTY, null, pos1, MobSpawnType.MOB_SUMMONED, true, false);
+                player.awardStat(Stats.ITEM_USED.get(this));
+                BlockPos pos = context.getClickedPos();
+                if(!context.getLevel().getBlockState(pos).getCollisionShape(context.getLevel(), pos).isEmpty()) pos = pos.relative(context.getClickedFace());
+            	EntityRegistry.WRAITH.get().spawn((ServerLevel)context.getLevel(), ItemStack.EMPTY, player, context.getClickedPos(), MobSpawnType.MOB_SUMMONED, true, false);
                 return InteractionResult.SUCCESS;
-            } return InteractionResult.FAIL;
-        }).orElse(super.useOn(context));
+            } return InteractionResult.PASS;
+        }).orElse(InteractionResult.PASS);
+    	return InteractionResult.PASS;
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {

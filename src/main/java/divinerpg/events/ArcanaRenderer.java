@@ -3,7 +3,7 @@ package divinerpg.events;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import divinerpg.DivineRPG;
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.capability.Arcana;
 import divinerpg.config.ClientConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
@@ -17,35 +17,29 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class ArcanaRenderer extends Gui {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/arcana_bar.png");
 	Minecraft mc;
-
     public ArcanaRenderer() {
         super(Minecraft.getInstance(), Minecraft.getInstance().getItemRenderer());
         this.mc = Minecraft.getInstance();
     }
-
     @SubscribeEvent
     public void renderGameOverlayEvent(RenderGuiOverlayEvent.Post event) {
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-//        Gui ui = mc.gui;
         GuiGraphics gui = event.getGuiGraphics();
 
-        int windowWidth = this.mc.getWindow().getGuiScaledWidth();
-        int windowHeight = this.mc.getWindow().getGuiScaledHeight();
+        int windowWidth = mc.getWindow().getGuiScaledWidth();
+        int windowHeight = mc.getWindow().getGuiScaledHeight();
         int yLocation = windowHeight - ClientConfig.arcanaY.get();
         int xLocation = windowWidth - ClientConfig.arcanaX.get();
 
-            mc.player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-                if(ClientConfig.hideArcanaBar.get() != false) {
-                    if (Mth.clamp(Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 0, 100) != 100) {
-                        gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
-                        gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 18);
-                    }
-                } else {
-                    gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
-                    gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) Math.floor(arcana.getArcana() / arcana.getMaxArcana() * 100), 18);
-                    }
-            });
+        if(ClientConfig.hideArcanaBar.get()) {
+            if(Mth.clamp(Math.floor(Arcana.clientAmount / Arcana.clientMax * 100), 0, 100) != 100) {
+                gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
+                gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) (Arcana.clientAmount / Arcana.clientMax * 100), 18);
+            }
+        } else {
+            gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
+            gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) (Arcana.clientAmount / Arcana.clientMax * 100), 18);
         }
-
+    }
 }

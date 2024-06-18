@@ -19,10 +19,6 @@ public class ArcanaProvider implements ICapabilityProvider, INBTSerializable<Com
         return LazyOptional.empty();
     }
     @Nonnull @Override public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {return getCapability(cap);}
-    @Override public CompoundTag serializeNBT() {
-        CompoundTag nbt = new CompoundTag();
-        createArcana().saveNBTData(nbt);
-        return nbt;
-    }
-    @Override public void deserializeNBT(CompoundTag nbt) {createArcana().loadNBTData(nbt);}
+    @Override public CompoundTag serializeNBT() {return createArcana().serializeNBT();}
+    @Override public void deserializeNBT(CompoundTag nbt) {createArcana().deserializeNBT(nbt);}
 }

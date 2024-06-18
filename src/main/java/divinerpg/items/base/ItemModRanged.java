@@ -80,7 +80,7 @@ public class ItemModRanged extends ItemMod {
             doPreUsageEffects(world, player);
             if(!world.isClientSide) spawnEntity(world, player, stack, bulletType, entityType);
             Arcana arcana = checkArcana.getObject();
-            if(arcana != null) arcana.consume(player, arcanaConsumedUse);
+            if(arcana != null) arcana.modifyAmount(player, -arcanaConsumedUse);
             ItemStack ammoStack = ammo.getObject();
             if(ammoStack != null) ammoStack.shrink(1);
             if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
@@ -124,8 +124,8 @@ public class ItemModRanged extends ItemMod {
         Arcana arcana = null;
         InteractionResult result = InteractionResult.SUCCESS;
         if(arcanaConsumedUse > 0) {
-            arcana = player.getCapability(ArcanaProvider.ARCANA).orElseThrow(RuntimeException::new);
-            if(arcana == null || arcana.getArcana() < arcanaConsumedUse) result = InteractionResult.FAIL;
+            arcana = player.getCapability(ArcanaProvider.ARCANA).orElse(null);
+            if(arcana == null || arcana.getAmount(player.level().isClientSide()) < arcanaConsumedUse) result = InteractionResult.FAIL;
         } return new InteractionResultHolder<>(result, arcana);
     }
     protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {

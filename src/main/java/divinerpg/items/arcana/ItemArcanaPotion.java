@@ -4,9 +4,9 @@ import divinerpg.capability.ArcanaProvider;
 import divinerpg.items.base.ItemModFood;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -20,11 +20,13 @@ public class ItemArcanaPotion extends ItemModFood {
         this.amountToAdd = amountToAdd;
     }
     @Override public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
-        Player player = (Player)entityLiving;
-        player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> arcana.fill(player, amountToAdd));
-        player.awardStat(Stats.ITEM_USED.get(this));
-        if(!player.isCreative()) stack.shrink(1);
-        return stack;
+    	if(!worldIn.isClientSide()) {
+           entityLiving.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> arcana.modifyAmount(entityLiving, amountToAdd));
+           if(entityLiving instanceof ServerPlayer player) {
+        	   player.awardStat(Stats.ITEM_USED.get(this));
+        	   if(!player.isCreative()) stack.shrink(1);
+           }
+    	} return stack;
     }
     @Override public UseAnim getUseAnimation(ItemStack stack) {return UseAnim.DRINK;}
     @Override public int getUseDuration(ItemStack par1ItemStack) {return 20;}

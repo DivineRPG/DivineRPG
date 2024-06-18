@@ -1,7 +1,12 @@
 package divinerpg.items.base;
 
+import java.util.List;
+
+import divinerpg.enums.ToolStats;
 import divinerpg.registries.*;
+import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -13,6 +18,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public class ItemHealingSword extends ItemModSword {
+	public float healAmount;
     public ItemHealingSword(Tier material, float heals) {
         super(material);
         healAmount = heals;
@@ -51,5 +57,10 @@ public class ItemHealingSword extends ItemModSword {
             player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResult.SUCCESS;
         } return super.interactLivingEntity(stack, player, entity, hand);
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    	super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.HEAL) tooltip.add(LocalizeUtils.healthHeal(healAmount / 2));
     }
 }

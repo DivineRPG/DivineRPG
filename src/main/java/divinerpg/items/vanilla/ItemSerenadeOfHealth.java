@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemSerenadeOfHealth extends ItemMod {
+	int healAmount;
     public ItemSerenadeOfHealth() {
         super(new Properties().durability(7));
         healAmount = 20;

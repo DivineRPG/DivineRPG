@@ -1,15 +1,14 @@
 package divinerpg.items.arcana;
 
-import divinerpg.capability.ArcanaProvider;
 import divinerpg.items.base.ItemMod;
-import divinerpg.registries.SoundRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.*;
-import divinerpg.util.packets.PacketDivineAccumulator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -19,17 +18,21 @@ public class ItemDivineAccumulator extends ItemMod {
         arcanaConsumedUse = 80;
         cooldown = 10;
     }
-    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        int x = (int) player.xo, y = (int) player.yo, z = (int) player.zo;
-        player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            if(arcana.getArcana() >= arcanaConsumedUse) {
-                //TODO: particles don't work
-                DivineRPGPacketHandler.INSTANCE.sendToServer(new PacketDivineAccumulator(x, y, z));
-                //TODO: doesn't work when you use it the moment you jump
-                player.setDeltaMovement(player.getDeltaMovement().x, 2, player.getDeltaMovement().z);
-                player.playSound(SoundRegistry.DIVINE_ACCUMULATOR.get(), 1, 1);
-            }
-        }); return super.use(level, player, hand);
+    @Override
+    protected InteractionResultHolder<ItemStack> arcanicUse(Level level, Player player, InteractionHand hand) {
+        double x = player.getX(), y = player.getY(), z = player.getZ();
+        for(double r = 0; r < 4; r += 0.1) for(double theta = 0; theta < 2 * Math.PI; theta += (Math.PI / 24)) {
+        	level.addParticle(ParticleRegistry.EDEN_PORTAL.get(),
+    			x + (r * Math.cos(theta)),
+                y,
+                z + (r * Math.sin(theta)),
+                Math.random(),
+                Math.random(),
+                Math.random());
+        }
+	    player.setDeltaMovement(player.getDeltaMovement().x, player.getDeltaMovement().y + 2, player.getDeltaMovement().z);
+	    player.playSound(SoundRegistry.DIVINE_ACCUMULATOR.get(), 1, 1);
+    	return InteractionResultHolder.success(player.getItemInHand(hand));
     }
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> list, TooltipFlag flagIn) {
         list.add(LocalizeUtils.i18n("divine_accumulator.launch"));
