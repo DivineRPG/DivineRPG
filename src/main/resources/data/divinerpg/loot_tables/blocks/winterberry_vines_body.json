@@ -39,7 +39,7 @@
 									"condition": "minecraft:block_state_property",
 									"block": "divinerpg:winterberry_vines_body",
 									"properties": {
-										"berries": "true"
+										"bloom": "true"
 									}
 								}
 							]

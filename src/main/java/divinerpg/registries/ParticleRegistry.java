@@ -30,6 +30,7 @@ public class ParticleRegistry {
     public static final RegistryObject<SimpleParticleType> SPARKLER = PARTICLES.register("sparkler", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> ENDER_TRIPLET = PARTICLES.register("ender_triplets", () -> new SimpleParticleType(false));
     public static final RegistryObject<SimpleParticleType> TAR = PARTICLES.register("tar", () -> new SimpleParticleType(false));
+    public static final RegistryObject<SimpleParticleType> SPLASH = PARTICLES.register("splash", () -> new SimpleParticleType(false));
     public static final RegistryObject<ParticleType<ParticleColouredType.ParticleColour>> COLORED = PARTICLES.register("colored", () -> new ParticleColouredType(false));
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent public static void registerFactories(RegisterParticleProvidersEvent event) {
@@ -47,6 +48,7 @@ public class ParticleRegistry {
         event.registerSpriteSet(ParticleRegistry.SPARKLER.get(), ParticleSparkler.Provider::new);
         event.registerSpriteSet(ParticleRegistry.ENDER_TRIPLET.get(), ParticleEnderTriplet.Provider::new);
         event.registerSpriteSet(ParticleRegistry.TAR.get(), ParticleTar.Provider::new);
+        event.registerSpriteSet(ParticleRegistry.SPLASH.get(), ParticleSplash.Provider::new);
         event.registerSpriteSet(ParticleRegistry.COLORED.get(), ParticleColored.Provider::new);
     }
 }

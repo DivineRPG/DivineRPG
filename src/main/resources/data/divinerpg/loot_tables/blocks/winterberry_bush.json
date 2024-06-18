@@ -57,7 +57,7 @@
 									"condition": "minecraft:block_state_property",
 									"block": "divinerpg:winterberry_bush",
 									"properties": {
-										"berries": "true"
+										"bloom": "true"
 									}
 								}
 							]
