@@ -3,12 +3,16 @@ package divinerpg.events;
 import divinerpg.capability.*;
 import divinerpg.config.CommonConfig;
 import divinerpg.registries.*;
+import divinerpg.util.DivineRPGPacketHandler;
+import divinerpg.util.packets.PacketArcanaBar;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.level.GameRules;
 import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.*;
+import net.minecraftforge.network.PacketDistributor;
 
 public class VetheaInventorySwapEvent {
 	public static final String OVERWORLD_INVENTORY = "drpg_regular_inventory", VETHEA_INVENTORY = "drpg_dream_inventory";
@@ -37,6 +41,7 @@ public class VetheaInventorySwapEvent {
 	public void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
 		if(!event.isCanceled()) {
 			Player player = event.getEntity();
+			DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer)player), new PacketArcanaBar(new Arcana()));
 			if(CommonConfig.saferVetheanInventory.get() == false) {
 				DimensionalInventory d = player.getCapability(DimensionalInventoryProvider.DIMENIONAL_INVENTORY).orElse(null);
 				if(player.level().dimension().equals(LevelRegistry.VETHEA)) d.loadInventory(player, VETHEA_INVENTORY);

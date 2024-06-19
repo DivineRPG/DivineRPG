@@ -9,7 +9,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraftforge.event.*;
-import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.*;
 
@@ -48,11 +47,5 @@ public class Ticker {
     		int f = player.getTicksFrozen();
     		if(f > 0) player.setTicksFrozen(f - 2);
         }
-    }
-    @SubscribeEvent
-    public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        event.getEntity().getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-            arcana.setAmount(event.getEntity(), arcana.getMaxArcana(event.getEntity().level().isClientSide()));
-        });
     }
 }
