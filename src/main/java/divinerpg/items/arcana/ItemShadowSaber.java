@@ -16,7 +16,7 @@ public class ItemShadowSaber extends ItemModSword {
     @Override
     protected boolean preArcanicAttack(ItemStack stack, Player player, Entity entity) {
     	player.playSound(SoundRegistry.SHADOW_SABER.get(), 1, 1);
-        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 1));
+        player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, sword.effectSec * 20, 1));
     	return false;
     }
 }

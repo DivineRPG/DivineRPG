@@ -7,8 +7,7 @@ import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.MobSpawnType;
@@ -37,10 +36,9 @@ public class ItemGhostbane extends ItemMod {
             if(arcanaConsumedUse != 0 && arcana.getAmount(false) >= arcanaConsumedUse) {
                 arcana.modifyAmount(player, -arcanaConsumedUse);
                 player.getCooldowns().addCooldown(this, cooldown);
-                player.awardStat(Stats.ITEM_USED.get(this));
                 BlockPos pos = context.getClickedPos();
                 if(!context.getLevel().getBlockState(pos).getCollisionShape(context.getLevel(), pos).isEmpty()) pos = pos.relative(context.getClickedFace());
-            	EntityRegistry.WRAITH.get().spawn((ServerLevel)context.getLevel(), ItemStack.EMPTY, player, context.getClickedPos(), MobSpawnType.MOB_SUMMONED, true, false);
+            	EntityRegistry.WRAITH.get().spawn((ServerLevel)context.getLevel(), ItemStack.EMPTY, player, context.getClickedPos(), MobSpawnType.MOB_SUMMONED, true, false).tame(player);
                 return InteractionResult.SUCCESS;
             } return InteractionResult.PASS;
         }).orElse(InteractionResult.PASS);
