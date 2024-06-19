@@ -8,7 +8,6 @@ import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.*;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;

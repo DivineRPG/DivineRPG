@@ -30,6 +30,8 @@ public class ItemDivineAccumulator extends ItemMod {
                 Math.random(),
                 Math.random());
         }
+        player.setJumping(false);
+        player.setOnGround(false);
 	    player.setDeltaMovement(player.getDeltaMovement().x, player.getDeltaMovement().y + 2, player.getDeltaMovement().z);
 	    player.playSound(SoundRegistry.DIVINE_ACCUMULATOR.get(), 1, 1);
     	return InteractionResultHolder.success(player.getItemInHand(hand));

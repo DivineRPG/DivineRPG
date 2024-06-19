@@ -1,9 +1,13 @@
 package divinerpg.events;
 
+import divinerpg.capability.ArcanaProvider;
 import divinerpg.effect.mob.armor.*;
+import divinerpg.enums.ToolStats.SwordSpecial;
 import divinerpg.items.base.ItemDivineArmor;
+import divinerpg.items.base.ItemModSword;
 import divinerpg.registries.MobEffectRegistry;
 import divinerpg.util.DamageSources;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
@@ -61,6 +65,16 @@ public class ArmorAbilitiesEvent {
         DamageSource source = event.getSource();
         if(entity instanceof Player attacker) {
         	if(source.is(DamageTypes.PLAYER_ATTACK)) {
+        		ItemStack item = attacker.getItemInHand(InteractionHand.MAIN_HAND);
+        		if(item.getItem() instanceof ItemModSword sword && sword.arcanaConsumedAttack != 0) {
+        			attacker.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
+        				if(arcana.getAmount(false) >= sword.arcanaConsumedAttack) {
+        					arcana.modifyAmount(attacker, -sword.arcanaConsumedAttack);
+        					if(sword.sword.getSwordSpecial() == SwordSpecial.ARCANA_DAMAGE) event.setAmount(amount + CombatRules.getDamageAfterAbsorb(sword.sword.effectPower, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+        					sword.arcanicAttack(item, attacker, target);
+        				}
+        			});
+        		}
         		if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH.get()))
 					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(16, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
         		else if(attacker.hasEffect(MobEffectRegistry.DIVINE_STRENGTH.get()) || attacker.hasEffect(MobEffectRegistry.DEMONIZED_HELMET.get()))

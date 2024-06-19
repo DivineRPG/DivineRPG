@@ -37,27 +37,18 @@ public class ItemModSword extends SwordItem {
         super(tier, 1, tier.getSpeed(), properties);
         sword = (ToolStats)tier;
     }
-    @Override
-    public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
-    	return player.getCapability(ArcanaProvider.ARCANA).map(arcana -> {
-    		if(arcanaConsumedAttack != 0 && arcana.getAmount(player.level().isClientSide()) >= arcanaConsumedAttack && entity instanceof LivingEntity) {
-    			arcana.modifyAmount(player, -arcanaConsumedAttack);
-    			return preArcanicAttack(stack, player, entity);
-    		} return false;
-    	}).orElse(false);
+    public ItemModSword setAttackArcanaConsumption(int amount) {
+    	arcanaConsumedAttack = amount;
+    	return this;
     }
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
     	if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW) target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, sword.effectSec * 20, sword.effectPower));
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.POISON) target.addEffect(new MobEffectInstance(MobEffects.POISON, sword.effectSec * 20, sword.effectPower));
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME) target.setSecondsOnFire(sword.effectSec);
-    	postArcanicAttack(stack, (Player) attacker, target);
     	return false;
     }
-    protected boolean preArcanicAttack(ItemStack stack, Player player, Entity entity) {
-    	return false;
-    }
-    protected void postArcanicAttack(ItemStack stack, Player player, Entity entity) {
+    public void arcanicAttack(ItemStack stack, Player player, Entity entity) {
     	
     }
     protected InteractionResultHolder<ItemStack> arcanicUse(Level level, Player player, InteractionHand hand){

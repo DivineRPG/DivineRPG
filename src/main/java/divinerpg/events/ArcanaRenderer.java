@@ -8,7 +8,6 @@ import divinerpg.config.ClientConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,6 +20,8 @@ public class ArcanaRenderer extends Gui {
         super(Minecraft.getInstance(), Minecraft.getInstance().getItemRenderer());
         this.mc = Minecraft.getInstance();
     }
+    static long counter = 180;
+    static float previousAmount = 0F;
     @SubscribeEvent
     public void renderGameOverlayEvent(RenderGuiOverlayEvent.Post event) {
         RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
@@ -33,7 +34,11 @@ public class ArcanaRenderer extends Gui {
         int xLocation = windowWidth - ClientConfig.arcanaX.get();
 
         if(ClientConfig.hideArcanaBar.get()) {
-            if(Mth.clamp(Math.floor(Arcana.clientAmount / Arcana.clientMax * 100), 0, 100) != 100) {
+        	if(previousAmount != Arcana.clientAmount) {
+        		previousAmount = Arcana.clientAmount;
+        		counter = mc.level.getGameTime() + 40L;
+        	}
+            if(counter - mc.level.getGameTime() > 0) {
                 gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
                 gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) (Arcana.clientAmount / Arcana.clientMax * 100), 18);
             }
