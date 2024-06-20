@@ -30,7 +30,7 @@ public class ModelFrostedChest<T extends Entity> extends Model {
 
 		partdefinition.addOrReplaceChild("lid", CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, -5.0F, -14.0F, 14.0F, 5.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 7.0F, 15.0F));
 
-		partdefinition.addOrReplaceChild("handle", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, -2.0F, -15.0F, 2.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(8.0F, 7.0F, 15.0F));
+		partdefinition.addOrReplaceChild("handle", CubeListBuilder.create().texOffs(0, 0).addBox(-1F, -2F, -14.9F, 2F, 4F, 1F, new CubeDeformation(0.0F)), PartPose.offset(8.0F, 7.0F, 15.0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}

@@ -4,25 +4,56 @@ import divinerpg.block_entities.chests.FrostedChestBlockEntity;
 import divinerpg.blocks.base.BlockModChest;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.core.BlockPos.MutableBlockPos;
+import net.minecraft.server.level.*;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.api.distmarker.*;
 
 import javax.annotation.*;
 
 public class BlockFrostedChest extends BlockModChest {
-
     public BlockFrostedChest() {
-        super(Properties.of().mapColor(MapColor.COLOR_CYAN).strength(2.5F).sound(SoundType.GLASS), () -> BlockEntityRegistry.FROSTED_CHEST.get());
+        super(Properties.copy(Blocks.ICE).strength(2.5F).randomTicks().noOcclusion(), () -> BlockEntityRegistry.FROSTED_CHEST.get());
     }
-
+    @Override
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    	MutableBlockPos p = pos.offset(2, 2, 2).mutable();
+		for(int x = 0; x < 5; x++) {
+			for(int y = 0; y < 5; y++) {
+				for(int z = 0; z < 5; z++) {
+					if(level.getBlockState(p).is(Blocks.WATER) && random.nextInt(x == 0 || x == 4 || y == 0 || y == 4 || z == 0 || z == 4 ? 4 : 2) == 0) {
+						level.setBlock(p, Blocks.ICE.defaultBlockState(), UPDATE_ALL);
+						return;
+					} p.move(0, 0, -1);
+				} p.move(0, -1, 5);
+			} p.move(-1, 5, 0);
+		}
+    }
+    @Override
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    	if(state.getValue(WATERLOGGED)) return InteractionResult.PASS;
+    	return super.use(state, level, pos, player, hand, hit);
+    }
+    @Override
+    public ItemStack pickupBlock(LevelAccessor level, BlockPos pos, BlockState state) {
+    	return ItemStack.EMPTY;
+    }
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+    	if(state.getValue(WATERLOGGED)) return Shapes.block();
+    	return super.getShape(state, getter, pos, context);
+    }
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
