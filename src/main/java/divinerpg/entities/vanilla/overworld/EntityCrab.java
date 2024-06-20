@@ -9,12 +9,11 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.biome.Biomes;
 
 public class EntityCrab extends EntityPeacefulUntilAttacked {
 
     public static boolean crabSpawnRule(EntityType<? extends Mob> type, LevelAccessor world, MobSpawnType reason, BlockPos pos, RandomSource random) {
-    	return Mob.checkMobSpawnRules(type, world, reason, pos, random) && (world.canSeeSky(pos) || world.getBiome(pos).is(Biomes.LUSH_CAVES));
+    	return Mob.checkMobSpawnRules(type, world, reason, pos, random) && world.canSeeSky(pos);
     }
     public EntityCrab(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);

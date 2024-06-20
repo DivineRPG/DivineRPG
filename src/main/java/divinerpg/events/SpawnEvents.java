@@ -63,7 +63,7 @@ public class SpawnEvents {
     	registerAirSpawn(e, JUNGLE_BAT.get());
     	registerAgileMonsterSpawn(e, JUNGLE_DRAMCRYX.get());
     	registerAgileMonsterSpawn(e, JUNGLE_SPIDER.get());
-    	registerMonsterSpawn(e, KING_CRAB.get());
+    	registerSpawn(e, KING_CRAB.get(), EntityCrab::crabSpawnRule);
     	registerSpawn(e, KOBBLIN.get(), EntityKobblin::kobblinSpawnRule);
 		registerWaterSpawn(e, LIOPLEURODON.get(), EntityLiopleurodon::liopleurodonSpawnRule);
 		registerMobSpawn(e, LIVESTOCK_MERCHANT.get());
