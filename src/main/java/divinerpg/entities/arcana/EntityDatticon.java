@@ -9,16 +9,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.AABB;
-
 import java.util.List;
 
 public class EntityDatticon extends EntityDivineMerchant {
-
-	public EntityDatticon(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-		super(type, worldIn);
-	}
-
-	public String[] getChatMessages() {
+	public EntityDatticon(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {super(type, worldIn);}
+	@Override public String[] getChatMessages() {
 		return new String[] {
 				"message.datticon.merik",
 				"message.datticon.furnace",
@@ -27,17 +22,12 @@ public class EntityDatticon extends EntityDivineMerchant {
 				"message.datticon.redstone"
 		};
 	}
-
-        protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-            return 1.875F;
-        }
-
-	@Override
-	protected void updateTrades() {
-		MerchantOffers merchantoffers = this.getOffers();
-
-		DivineTrades[] tradetrades = new DivineTrades[]{
+	@Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.875F;}
+	@Override protected void updateTrades() {
+		MerchantOffers merchantoffers = getOffers();
+		DivineTrades[] trades = new DivineTrades[]{
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 8), new ItemStack(BlockRegistry.starBridge.get(), 16), random.nextInt(7), 5),
+				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 8), new ItemStack(BlockRegistry.slimeLight.get(), 16), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector.get(), 2), new ItemStack(BlockRegistry.arcaniteTubes.get(), 16), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.collector.get(), 2), new ItemStack(BlockRegistry.arcaniteLadder.get(), 16), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 2), new ItemStack(BlockRegistry.moltenFurnace.get(), 1), random.nextInt(7), 5),
@@ -54,13 +44,11 @@ public class EntityDatticon extends EntityDivineMerchant {
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 10), new ItemStack(ItemRegistry.korma_leggings.get(), 1), random.nextInt(7), 5),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.arcanium.get(), 6), new ItemStack(ItemRegistry.korma_boots.get(), 1), random.nextInt(7), 5)
 		};
-		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
+		addOffersFromItemListings(merchantoffers, trades, 5);
 	}
-
 	public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
 		BlockPos blockpos = pos.below();
 		List<EntityDatticon> entityList = level.getEntitiesOfClass(EntityDatticon.class, new AABB(pos).inflate(16));
 		return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && entityList.isEmpty();
 	}
-
 }

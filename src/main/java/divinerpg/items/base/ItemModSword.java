@@ -41,16 +41,15 @@ public class ItemModSword extends SwordItem {
     	arcanaConsumedAttack = amount;
     	return this;
     }
-    @Override
-    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-    	if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW) target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, sword.effectSec * 20, sword.effectPower));
-        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.POISON) target.addEffect(new MobEffectInstance(MobEffects.POISON, sword.effectSec * 20, sword.effectPower));
-        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME) target.setSecondsOnFire(sword.effectSec);
-    	return false;
+    //TODO: to prevent from spam clicking to inflict effects on targets that weren't hurt
+    @Override public boolean onLeftClickEntity(ItemStack itemstack, Player player, Entity entity) {
+        if(entity instanceof LivingEntity livingEntity) {
+    	    if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, sword.effectSec * 20, sword.effectPower));
+            if(sword.getSwordSpecial() == ToolStats.SwordSpecial.POISON) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, sword.effectSec * 20, sword.effectPower));
+            if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME) livingEntity.setSecondsOnFire(sword.effectSec);
+        } return false;
     }
-    public void arcanicAttack(ItemStack stack, Player player, Entity entity) {
-    	
-    }
+    public void arcanicAttack(ItemStack stack, Player player, Entity entity) {}
     protected InteractionResultHolder<ItemStack> arcanicUse(Level level, Player player, InteractionHand hand){
     	return InteractionResultHolder.success(player.getItemInHand(hand));
     }

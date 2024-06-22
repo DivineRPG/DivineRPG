@@ -646,8 +646,6 @@ public class BlockRegistry {
             gemOfTheDunes = registerBlock("gem_of_the_dunes", () -> new BlockTwilightFlower(arcaniteSand, COLOR_MAGENTA), Rarity.EPIC),
             arcaniteVinesBody = BLOCKS.register("arcanite_vines_body", () -> new BlockArcaniteVinesBody(Properties.copy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
             arcaniteVinesHead = registerBlock("arcanite_vines_head", () -> new BlockArcaniteVinesHead(Properties.copy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
-            weedwoodVine = registerBlock("weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),
-            blossomedWeedwoodVine = registerBlock("blossomed_weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),
             edenBrush = registerBlock("eden_brush", () -> new BlockTwilightGrass(edenGrass, COLOR_YELLOW)),
             sunBlossom = registerBlock("sun_blossom", () -> new BlockTwilightFlower(edenGrass, .9, .6, PLANT)),
             sunbloom = registerBlock("sunbloom", () -> new BlockTwilightFlower(edenGrass, TERRACOTTA_YELLOW)),
@@ -675,6 +673,8 @@ public class BlockRegistry {
             greenDulah = registerBlock("green_dulah", () -> new BlockTwilightFlower(dreamGrass, COLOR_CYAN)),
             greenGemtop = registerBlock("green_gemtop", () -> new BlockTwilightFlower(dreamGrass, COLOR_CYAN)),
             purpleGemtop = registerBlock("purple_gemtop", () -> new BlockTwilightFlower(dreamGrass, COLOR_CYAN)),
+            weedwoodVine = registerBlock("weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),
+            blossomedWeedwoodVine = registerBlock("blossomed_weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),
 
             //Crops
             tomatoPlant = registerBlock("tomato_plant", () -> new BlockModCrop(ItemRegistry.tomato_seeds.getId())),
