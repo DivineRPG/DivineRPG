@@ -6,5 +6,5 @@ import divinerpg.registries.SoundRegistry;
 import net.minecraft.world.item.Rarity;
 
 public class ItemTwilightPhaser extends ItemModRanged {
-    public ItemTwilightPhaser(Rarity rarity, BulletType bulletType) {super(rarity, null, bulletType, SoundRegistry.PHASER.get(), 3000, 50, null, 0);}
+    public ItemTwilightPhaser(Rarity rarity, BulletType bulletType, int uses) {super(rarity, null, bulletType, SoundRegistry.PHASER.get(), uses, 50, null, 0);}
 }

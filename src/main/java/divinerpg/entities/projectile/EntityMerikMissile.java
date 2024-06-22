@@ -7,7 +7,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
 
 public class EntityMerikMissile extends EntityHeatSeekingProjectile {
-    float damage = 8.0F;
+    float damage = 2;
 
     public EntityMerikMissile(EntityType<? extends ThrowableProjectile> type, Level world) {
         super(type, world);

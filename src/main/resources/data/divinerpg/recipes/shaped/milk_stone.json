@@ -1,0 +1,21 @@
+{
+  "result": {
+    "item": "divinerpg:milk_stone",
+    "count": 8
+  },
+  "pattern": [
+    "XXX",
+    "XMX",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "M": {
+      "item": "minecraft:milk_bucket"
+    },
+    "X": {
+      "item": "divinerpg:twilight_stone"
+    }
+  }
+}

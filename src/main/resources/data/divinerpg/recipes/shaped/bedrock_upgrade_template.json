@@ -8,7 +8,6 @@
     "GHG"
   ],
   "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "G": {
       "item": "divinerpg:bloodgem"

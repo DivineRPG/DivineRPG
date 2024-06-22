@@ -7,7 +7,6 @@
     "LLL"
   ],
   "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "L": {
       "item": "divinerpg:cozybark_leaves"

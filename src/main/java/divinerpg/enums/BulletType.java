@@ -17,10 +17,10 @@ public enum BulletType {
     APALACHIA_SLICER_SHOT(12, ItemLoc("apalachia_slicer")),
     SKYTHERN_SLICER_SHOT(14, ItemLoc("skythern_slicer")),
     MORTUM_SLICER_SHOT(16, ItemLoc("mortum_slicer")),
-    HALITE_SLICER_SHOT(22, ItemLoc("halite_slicer")),
+    HALITE_SLICER_SHOT(18, ItemLoc("halite_slicer")),
 
     //Serenades
-    SERENADE_OF_DEATH_SHOT(14, ProjectileLoc("serenade_of_death"), BulletDamageType.MAGIC, BulletSpecial.POISON, 3, 2),
+    SERENADE_OF_DEATH_SHOT(7, ProjectileLoc("serenade_of_death"), BulletDamageType.MAGIC, BulletSpecial.POISON, 3, 2),
     SERENADE_OF_ICE_SHOT(0, ProjectileLoc("serenade_of_ice"), BulletDamageType.NONE, BulletSpecial.SLOW, 3, 5),
 
     //Anchors
@@ -30,34 +30,34 @@ public enum BulletType {
     LIOPLEURODON_ANCHOR_SHOT(6, ProjectileLoc("liopleurodon_anchor")),
 
     //Harps
-    SOUND_OF_MUSIC_SHOT(10, ProjectileLoc("sound_of_music"), BulletDamageType.MAGIC, BulletSpecial.MUSIC),
-    SOUND_OF_CAROLS_SHOT(16, ProjectileLoc("sound_of_carols"), BulletDamageType.MAGIC, BulletSpecial.MUSIC),
-    SOUND_OF_WHALES_SHOT(20, ProjectileLoc("sound_of_whales"), BulletDamageType.MAGIC, BulletSpecial.MUSIC),
+    SOUND_OF_MUSIC_SHOT(9, ProjectileLoc("sound_of_music"), BulletDamageType.MAGIC, BulletSpecial.MUSIC),
+    SOUND_OF_CAROLS_SHOT(11, ProjectileLoc("sound_of_carols"), BulletDamageType.MAGIC, BulletSpecial.MUSIC),
+    SOUND_OF_WHALES_SHOT(13, ProjectileLoc("sound_of_whales"), BulletDamageType.MAGIC, BulletSpecial.MUSIC),
 
     //Extra
     SCYTHE_SHOT(6, ProjectileLoc("scythe"), BulletDamageType.MAGIC),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe"), BulletDamageType.MAGIC),
-    CYCLOPSIAN_STAFF_SHOT(6, ItemLoc("cyclops_eye_shards")),
+    CYCLOPSIAN_STAFF_SHOT(3, ItemLoc("cyclops_eye_shards")),
     MAELSTROM_SHOT(12, ProjectileLoc("maelstrom"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.MAGIC),
     ATTRACTOR_SHOT(0, ProjectileLoc("arcana_shot"), BulletDamageType.NONE, BulletSpecial.PULL),
     REFLECTOR_SHOT(0, ProjectileLoc("arcana_shot"), BulletDamageType.NONE, BulletSpecial.PUSH),
-    CAPTAINS_SPARKLER_SHOT(20, ProjectileLoc("sparkler"), BulletDamageType.ARCANA, BulletSpecial.RAINBOW),
-    GENERALS_STAFF_SPRAY(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.NONE),
-    GENERALS_STAFF_SHOT(18, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletType.GENERALS_STAFF_SPRAY, 4),
-    STAR(20, ProjectileLoc("starlight"), ParticleRegistry.EDEN_PORTAL.get(), BulletSpecial.SKY),
-    METEOR(20, ProjectileLoc("meteor"), ParticleRegistry.MORTUM_PORTAL.get(), BulletSpecial.SKY),
+    CAPTAINS_SPARKLER_SHOT(13, ProjectileLoc("sparkler"), BulletDamageType.ARCANA, BulletSpecial.RAINBOW),
+    GENERALS_STAFF_SPRAY(13, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.NONE),
+    GENERALS_STAFF_SHOT(13, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletType.GENERALS_STAFF_SPRAY, 4),
+    STAR(13, ProjectileLoc("starlight"), ParticleRegistry.EDEN_PORTAL.get(), BulletSpecial.SKY),
+    METEOR(15, ProjectileLoc("meteor"), ParticleRegistry.MORTUM_PORTAL.get(), BulletSpecial.SKY),
 
     //Cannons
-    CRABCLAW_CANNON_SHOT(12, ProjectileLoc("crab_anchor")),
-    FROSTCLAW_CANNON_SHOT(16, ProjectileLoc("frostclaw_cannon")),
-    BOWHEAD_CANNON_SHOT(12, ProjectileLoc("bowhead_anchor")),
+    CRABCLAW_CANNON_SHOT(4, ProjectileLoc("crab_anchor")),
+    FROSTCLAW_CANNON_SHOT(7, ProjectileLoc("frostclaw_cannon")),
+    BOWHEAD_CANNON_SHOT(6, ProjectileLoc("bowhead_anchor")),
     FROST_CANNON_SHOT(6, ProjectileLoc("frost_cannon")),
-    FRACTITE_CANNON_SHOT(14, ProjectileLoc("fractite_cannon")),
-    GHAST_CANNON_SHOT(16, ProjectileLoc("ghast_cannon"), BulletDamageType.MAGIC),
-    GOLDEN_FURY_SHOT(30, VanillaItemLoc("gold_nugget")),
+    FRACTITE_CANNON_SHOT(8, ProjectileLoc("fractite_cannon")),
+    GHAST_CANNON_SHOT(11, ProjectileLoc("ghast_cannon"), BulletDamageType.MAGIC),
+    GOLDEN_FURY_SHOT(17, VanillaItemLoc("gold_nugget")),
 
     //Shotguns
-    ARCANITE_BLASTER(23, ProjectileLoc("blaster_shot"), BulletDamageType.ARCANA),
+    ARCANITE_BLASTER(13, ProjectileLoc("blaster_shot"), BulletDamageType.ARCANA),
     CORRUPTED_BULLET(10, ItemLoc("corrupted_bullet")),
 
     //Blitz
@@ -66,15 +66,15 @@ public enum BulletType {
     APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
     SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.PHYSIC),
     MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
-    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleRegistry.GREEN_PORTAL.get(), BulletDamageType.PHYSIC),
+    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleRegistry.HALITE_PORTAL.get(), BulletDamageType.PHYSIC),
 
     //Phasers
-    EDEN_PHASER_SHOT(14, ProjectileLoc("eden_phaser"), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.MAGIC),
-    WILDWOOD_PHASER_SHOT(17, ProjectileLoc("wildwood_phaser"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.MAGIC),
-    APALACHIA_PHASER_SHOT(20, ProjectileLoc("apalachia_phaser"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.MAGIC),
-    SKYTHERN_PHASER_SHOT(23, ProjectileLoc("skythern_phaser"), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.MAGIC),
-    MORTUM_PHASER_SHOT(26, ProjectileLoc("mortum_phaser"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.MAGIC),
-    HALITE_PHASER_SHOT(29, ProjectileLoc("halite_phaser"), ParticleRegistry.GREEN_PORTAL.get(), BulletDamageType.MAGIC),
+    EDEN_PHASER_SHOT(8, ProjectileLoc("eden_phaser"), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.MAGIC),
+    WILDWOOD_PHASER_SHOT(10, ProjectileLoc("wildwood_phaser"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.MAGIC),
+    APALACHIA_PHASER_SHOT(12, ProjectileLoc("apalachia_phaser"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.MAGIC),
+    SKYTHERN_PHASER_SHOT(14, ProjectileLoc("skythern_phaser"), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.MAGIC),
+    MORTUM_PHASER_SHOT(16, ProjectileLoc("mortum_phaser"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.MAGIC),
+    HALITE_PHASER_SHOT(18, ProjectileLoc("halite_phaser"), ParticleRegistry.HALITE_PORTAL.get(), BulletDamageType.MAGIC),
 
     //Mob Projectiles
     CAVE_ROCK(6, ProjectileLoc("cave_rock"), BulletDamageType.PHYSIC),
@@ -98,8 +98,7 @@ public enum BulletType {
     SUNSTORM(12, blank(), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.PHYSIC),
     EXPERIENCED_CORI_SHOT(80, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
     TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
-    //TODO: to add proper red particles
-    TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), ParticleRegistry.TWILIGHT_PORTAL.get(), BulletDamageType.PHYSIC),
     SOUL_FIEND_SHOT(0, blank(), BulletDamageType.NONE),
     KAROS_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.EXPLODE, 3, 0),
     LUNA_SPARKLER(12, blank(), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),

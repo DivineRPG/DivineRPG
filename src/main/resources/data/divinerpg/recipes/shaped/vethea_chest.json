@@ -3,11 +3,11 @@
     "item": "minecraft:chest"
   },
   "pattern": [
-    " b ",
-    "b b",
-    " b "
+    "bb",
+    "bb"
   ],
   "type": "minecraft:crafting_shaped",
+  "group": "chest",
   "key": {
     "b": {
       "tag": "divinerpg:vethea_logs"

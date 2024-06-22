@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemFirefly extends ItemModRanged {
-    public ItemFirefly() {super("firefly", null, SoundRegistry.FIREFLY.get(), 0, 0, null, 5);}
+    public ItemFirefly() {super("firefly", null, SoundRegistry.FIREFLY.get(), 1216, 30, null, 25);}
     @Override protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
         ThrowableProjectile bullet = new EntityFirefly(EntityRegistry.FIREFLY.get(), player, world);
         bullet.moveTo(player.xo, player.getEyeY(), player.zo);
@@ -24,7 +24,7 @@ public class ItemFirefly extends ItemModRanged {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.rangedDam(15));
+        tooltip.add(LocalizeUtils.arcanaDam(8));
         tooltip.add(LocalizeUtils.homingShots());
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }

@@ -9,7 +9,6 @@
     "DDD"
   ],
   "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "D": {
       "item": "minecraft:diamond"

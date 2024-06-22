@@ -10,8 +10,8 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 
 public class ItemStaffSkyDrop extends ItemModRanged {
-    public ItemStaffSkyDrop(BulletType bulletType, int arcana, int count, int delay) {
-        super(bulletType, SoundRegistry.STARLIGHT.get(), null, 0, delay, arcana);
+    public ItemStaffSkyDrop(BulletType bulletType, int arcana, int count, int delay, int uses) {
+        super(bulletType, SoundRegistry.STARLIGHT.get(), null, uses, delay, arcana);
         projectileAmount = count;
     }
     @Override protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {

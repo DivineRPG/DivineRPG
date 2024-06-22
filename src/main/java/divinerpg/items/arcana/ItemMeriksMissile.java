@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ItemMeriksMissile extends ItemMod {
     public static final int MAX_USE_DURATION = 72000;
-    public ItemMeriksMissile() {super(new Properties().stacksTo(1).durability(0));}
+    public ItemMeriksMissile() {super(new Properties().durability(1315));}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         if(!player.abilities.mayBuild) return InteractionResultHolder.fail(itemstack);
@@ -37,7 +37,7 @@ public class ItemMeriksMissile extends ItemMod {
             player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
                 if(arcana.getAmount(world.isClientSide()) >= arcanaPoints) {
                     if(finalCharge < .2) return;
-                    float damage = Mth.clamp(finalCharge * 25, 8, 25);
+                    float damage = Mth.clamp(finalCharge * 25, 2, 8);
                     world.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1);
                     EntityMerikMissile bullet = new EntityMerikMissile(EntityRegistry.MERIKS_MISSILE.get(), world, player, damage);
                     bullet.moveTo(player.getX(), player.getY() + 1, player.getZ());
@@ -51,10 +51,9 @@ public class ItemMeriksMissile extends ItemMod {
     @Override public int getUseDuration(ItemStack stack) {return MAX_USE_DURATION;}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.rangedDam("8-25"));
+        tooltip.add(LocalizeUtils.rangedDam("2-8"));
         tooltip.add(LocalizeUtils.explosiveShots());
         tooltip.add(LocalizeUtils.homingShots());
         tooltip.add(LocalizeUtils.arcanaConsumed("10-50"));
-        stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }
