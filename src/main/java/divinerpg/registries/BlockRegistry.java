@@ -10,6 +10,7 @@ import divinerpg.items.base.block.*;
 import divinerpg.world.ConfiguredFeatureKeys;
 import divinerpg.world.feature.tree.grower.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
@@ -127,15 +128,15 @@ public class BlockRegistry {
             firelight = registerBlock("firelight", () -> new BlockLightCrystal(COLOR_BLUE)),
 
             //Ores
-            arlemiteOre			 = registerBlock("arlemite_ore",			() -> new BlockMod(STONE, 3, 3)),
-            arlemiteOreDeepslate = registerBlock("arlemite_ore_deepslate",  () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
-            realmiteOre			 = registerBlock("realmite_ore",			() -> new BlockMod(STONE, 3, 3)),
-            realmiteOreDeepslate = registerBlock("realmite_ore_deepslate",  () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
-            rupeeOre			 = registerBlock("rupee_ore",				() -> new BlockMod(STONE, 3, 3)),
-            rupeeOreDeepslate	 = registerBlock("rupee_ore_deepslate",  	() -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
-            bloodgemOre			 = registerBlock("bloodgem_ore",			() -> new BlockMod(NETHER, 3, 3, SoundType.NETHER_ORE, NoteBlockInstrument.BASEDRUM)),
-            torriditeOre		 = registerBlock("torridite_ore",			() -> new BlockMod(NETHER, 3, 1200, SoundType.NETHER_ORE, NoteBlockInstrument.BASEDRUM)),
-            anthraciteOre = registerBlock("anthracite_ore", () -> new BlockMod(GLOW_LICHEN, 3, 3)),
+            arlemiteOre = registerBlock("arlemite_ore", () -> new BlockMod(STONE, 3, 3)),
+            arlemiteOreDeepslate = registerBlock("arlemite_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
+            realmiteOre = registerBlock("realmite_ore", () -> new BlockMod(STONE, 3, 3)),
+            realmiteOreDeepslate = registerBlock("realmite_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
+            rupeeOre  = registerBlock("rupee_ore", () -> new BlockMod(STONE, 3, 3)),
+            rupeeOreDeepslate = registerBlock("rupee_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
+            bloodgemOre	= registerBlock("bloodgem_ore", () -> new DropExperienceBlock(Properties.copy(Blocks.NETHER_GOLD_ORE), UniformInt.of(3, 7))),
+            torriditeOre = registerBlock("torridite_ore", () -> new BlockMod(NETHER, 3, 1200, SoundType.NETHER_ORE, NoteBlockInstrument.BASEDRUM)),
+            anthraciteOre = registerBlock("anthracite_ore", () -> new DropExperienceBlock(Properties.copy(Blocks.COAL_ORE).mapColor(GLOW_LICHEN), UniformInt.of(0, 2))),
             oxdriteOre = registerBlock("oxdrite_ore", () -> new BlockMod(GLOW_LICHEN, 3, 3)),
             rawArcanium = registerBlock("raw_arcanium", () -> new BlockMod(COLOR_BLACK, 5, 6)),
             edenOre = registerBlock("eden_ore", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 3, 32)),

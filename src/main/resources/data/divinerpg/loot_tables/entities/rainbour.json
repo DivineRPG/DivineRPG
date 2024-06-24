@@ -13,16 +13,21 @@
     },
     {
       "name": "divinerpg:rainbour",
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance",
+          "chance": 0.005
+        }
+      ],
       "rolls": 1,
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:color_template",
           "weight": 1
-        },
-        {
-          "type": "empty",
-          "weight": 200
         }
       ]
     }

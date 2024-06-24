@@ -10,29 +10,25 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class DreamLampScreen extends AbstractContainerScreen<DreamLampMenu> {
-    private ResourceLocation texture = new ResourceLocation(DivineRPG.MODID + ":textures/gui/dream_lamp.png");
-
+    private final ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/gui/dream_lamp.png");
     public DreamLampScreen(DreamLampMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);
-
-        this.titleLabelY -= 2;
+        titleLabelY -= 2;
     }
-    public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
-        this.renderBackground(matrixStack);
-        super.render(matrixStack, mouseX, mouseY, partialTicks);
+    @Override public void render(GuiGraphics stack, int mouseX, int mouseY, float partialTicks) {
+        renderBackground(stack);
+        super.render(stack, mouseX, mouseY, partialTicks);
+        renderTooltip(stack, mouseX, mouseY);
     }
-    @Override
-    protected void renderBg(GuiGraphics matrixStack, float partialTicks, int mouseX, int mouseY) {
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+    @Override protected void renderLabels(GuiGraphics stack, int mouseX, int mouseY) {
+        stack.drawString(font, title, 12, 7, 13563562);
+        stack.drawString(font, playerInventoryTitle, 12, 71, 13563562);
+    }
+    @Override protected void renderBg(GuiGraphics stack, float partialTicks, int mouseX, int mouseY) {
+        RenderSystem.setShaderColor(1, 1, 1, 1);
         RenderSystem.setShaderTexture(0, texture);
-
-        int edgeSpacingX = (this.width - this.getXSize()) / 2;
-        int edgeSpacingY = (this.height - this.getYSize()) / 2;
-        matrixStack.blit(texture, edgeSpacingX, edgeSpacingY, 0, 0, this.getXSize(), this.getYSize());
-    }
-    @Override
-    protected void renderLabels(GuiGraphics matrixStack, int mouseX, int mouseY) {
-        matrixStack.drawString(font, this.title, 12, 7, 13563562);
-        matrixStack.drawString(font, playerInventoryTitle, 12, 71, 13563562);
+        int edgeSpacingX = (width - getXSize()) / 2;
+        int edgeSpacingY = (height - getYSize()) / 2;
+        stack.blit(texture, edgeSpacingX, edgeSpacingY, 0, 0, getXSize(), getYSize());
     }
 }
