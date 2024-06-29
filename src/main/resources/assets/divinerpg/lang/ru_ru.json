@@ -2512,6 +2512,15 @@
   "biome.divinerpg.vethea/hyrelands": "Везея: Хайровые земли",
   "biome.divinerpg.vethea/scorched_tops": "Везея: Выжженные вершины",
 
+  "jer.dim.divinerpg:iceika": "Заснежье",
+  "jer.dim.divinerpg:arcana": "Аркана",
+  "jer.dim.divinerpg:eden": "Эдем",
+  "jer.dim.divinerpg:wildwood": "Диколесье",
+  "jer.dim.divinerpg:apalachia": "Апалачия",
+  "jer.dim.divinerpg:skythern": "Поднебесье",
+  "jer.dim.divinerpg:mortum": "Мёртвум",
+  "jer.dim.divinerpg:vethea": "Везея",
+
   "jeicompat.tile.raw_arcanium.information": "Арканиевая руда генерируется в измерении Арканы, получите её, создав портал туда!",
   "category.divinerpg.arcanium_extractor": "Арканиевый экстрактор",
 
