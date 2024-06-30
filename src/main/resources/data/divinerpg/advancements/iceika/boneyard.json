@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:bone_block"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.boneyard"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.iceika.boneyard.desc"
+    }
+  },
+  "parent": "divinerpg:iceika/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/boneyard"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

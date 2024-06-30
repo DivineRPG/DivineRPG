@@ -9,8 +9,7 @@
     "frame": "goal",
     "description": {
       "translate": "advancement.divinerpg.iceika.frozen_goods.desc"
-    },
-    "announce_to_chat": true
+    }
   },
   "parent": "divinerpg:iceika/root",
   "criteria": {

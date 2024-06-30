@@ -1,0 +1,31 @@
+{
+  "parent": "divinerpg:iceika/boneyard",
+  "criteria": {
+    "killed_kitra": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "divinerpg:kitra"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.kill_kitra.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "item": "divinerpg:sound_of_whales"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.kill_kitra"
+    }
+  }
+}

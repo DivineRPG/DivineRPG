@@ -1,10 +1,11 @@
 {
   "result": {
-    "item": "divinerpg:dark_bridge"
+    "item": "divinerpg:dark_bridge",
+    "count": 2
   },
   "pattern": [
     "GGG",
-    "G G",
+    "GRG",
     "GGG"
   ],
   "type": "minecraft:crafting_shaped",
@@ -12,6 +13,9 @@
   "key": {
     "G": {
       "item": "minecraft:glowstone_dust"
+    },
+    "R": {
+      "item": "minecraft:redstone"
     }
   }
 }

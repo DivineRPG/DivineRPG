@@ -1,0 +1,379 @@
+{
+  "parent": "divinerpg:iceika/boneyard",
+  "criteria": {
+    "divinerpg:boneyard": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/boneyard"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:borealis_steeps": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/borealis_steeps"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:chill_passage": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/chill_passage"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:chilly_cavern": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/chilly_cavern"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:cozybark_forest": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/cozybark_forest"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:deep_frozen_ocean": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/deep_frozen_ocean"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:fractal_forest": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/fractal_forest"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:frozen_menagerie": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/frozen_menagerie"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:frozen_ocean": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/frozen_ocean"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:frozen_peaks": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/frozen_peaks"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:geyser_plateau": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/geyser_plateau"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:glowing_deep": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/glowing_deep"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:ice_sheet": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/ice_sheet"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:ice_spikes": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/ice_spikes"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:morgue_marsh": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/morgue_marsh"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:sheltered_garden": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/sheltered_garden"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:shiverspine_forest": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/shiverspine_forest"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:snow_bog": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/snow_bog"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:snowy_peaks": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/snowy_peaks"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:thermal_vents": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/thermal_vents"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "divinerpg:tundra": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "divinerpg:iceika/tundra"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.explore_iceika.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "item": "divinerpg:frozen_grass"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.explore_iceika"
+    }
+  },
+  "requirements": [
+    ["divinerpg:tundra"],
+    ["divinerpg:thermal_vents"],
+    ["divinerpg:snowy_peaks"],
+    ["divinerpg:snow_bog"],
+    ["divinerpg:shiverspine_forest"],
+    ["divinerpg:sheltered_garden"],
+    ["divinerpg:morgue_marsh"],
+    ["divinerpg:ice_spikes"],
+    ["divinerpg:ice_sheet"],
+    ["divinerpg:glowing_deep"],
+    ["divinerpg:geyser_plateau"],
+    ["divinerpg:frozen_peaks"],
+    ["divinerpg:frozen_ocean"],
+    ["divinerpg:frozen_menagerie"],
+    ["divinerpg:fractal_forest"],
+    ["divinerpg:deep_frozen_ocean"],
+    ["divinerpg:chill_passage"],
+    ["divinerpg:chilly_cavern"],
+    ["divinerpg:borealis_steeps"],
+    ["divinerpg:cozybark_forest"],
+    ["divinerpg:boneyard"]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

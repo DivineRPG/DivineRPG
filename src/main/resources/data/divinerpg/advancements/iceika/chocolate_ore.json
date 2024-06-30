@@ -1,0 +1,28 @@
+{
+  "parent": "divinerpg:iceika/root",
+  "criteria": {
+    "oxdrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:oxdrite_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.chocolate_ore.desc"
+    },
+    "icon": {
+      "item": "divinerpg:oxdrite_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.chocolate_ore"
+    }
+  }
+}
