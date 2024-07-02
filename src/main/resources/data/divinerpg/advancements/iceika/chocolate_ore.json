@@ -1,7 +1,19 @@
 {
+  "display": {
+    "icon": {
+      "item": "divinerpg:oxdrite_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.chocolate_ore"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.iceika.chocolate_ore.desc"
+    }
+  },
   "parent": "divinerpg:iceika/root",
   "criteria": {
-    "oxdrite": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -10,19 +22,7 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    }
-  },
-  "display": {
-    "description": {
-      "translate": "advancement.divinerpg.iceika.chocolate_ore.desc"
-    },
-    "icon": {
-      "item": "divinerpg:oxdrite_ingot"
-    },
-    "title": {
-      "translate": "advancement.divinerpg.iceika.chocolate_ore"
+      }
     }
   }
 }

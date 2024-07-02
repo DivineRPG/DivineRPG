@@ -1,7 +1,20 @@
 {
+  "display": {
+    "icon": {
+      "item": "divinerpg:calcified_brain"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.kill_kitra"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.iceika.kill_kitra.desc"
+    },
+    "frame": "goal"
+  },
   "parent": "divinerpg:iceika/boneyard",
   "criteria": {
-    "killed_kitra": {
+    "requirement": {
+      "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": [
           {
@@ -12,20 +25,7 @@
             }
           }
         ]
-      },
-      "trigger": "minecraft:player_killed_entity"
-    }
-  },
-  "display": {
-    "description": {
-      "translate": "advancement.divinerpg.iceika.kill_kitra.desc"
-    },
-    "frame": "goal",
-    "icon": {
-      "item": "divinerpg:sound_of_whales"
-    },
-    "title": {
-      "translate": "advancement.divinerpg.iceika.kill_kitra"
+      }
     }
   }
 }

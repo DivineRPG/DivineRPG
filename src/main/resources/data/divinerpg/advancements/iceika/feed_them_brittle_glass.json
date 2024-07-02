@@ -1,7 +1,19 @@
 {
+  "display": {
+    "icon": {
+      "item": "divinerpg:brittle_grass"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.feed_them_brittle_glass"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.iceika.feed_them_brittle_glass.desc"
+    }
+  },
   "parent": "divinerpg:iceika/root",
   "criteria": {
-    "divinerpg:mamoth": {
+    "requirement": {
+      "trigger": "minecraft:bred_animals",
       "conditions": {
         "child": [
           {
@@ -12,19 +24,7 @@
             }
           }
         ]
-      },
-      "trigger": "minecraft:bred_animals"
-    }
-  },
-  "display": {
-    "description": {
-      "translate": "advancement.divinerpg.iceika.feed_them_brittle_glass.desc"
-    },
-    "icon": {
-      "item": "divinerpg:brittle_grass"
-    },
-    "title": {
-      "translate": "advancement.divinerpg.iceika.feed_them_brittle_glass"
+      }
     }
   }
 }

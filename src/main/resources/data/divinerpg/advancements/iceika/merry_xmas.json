@@ -1,0 +1,56 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:santa_helmet"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.merry_xmas"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.iceika.merry_xmas.desc"
+    },
+    "frame": "challenge",
+    "hidden": true
+  },
+  "parent": "divinerpg:iceika/what_makes_you_beautiful",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "head": {
+                  "items": [
+                    "divinerpg:santa_helmet"
+                  ]
+                },
+                "chest": {
+                  "items": [
+                    "divinerpg:santa_chestplate"
+                  ]
+                },
+                "legs": {
+                  "items": [
+                    "divinerpg:santa_leggings"
+                  ]
+                },
+                "feet": {
+                  "items": [
+                    "divinerpg:santa_boots"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "item": {
+          "potion": "divinerpg:grog"
+        }
+      }
+    }
+  }
+}

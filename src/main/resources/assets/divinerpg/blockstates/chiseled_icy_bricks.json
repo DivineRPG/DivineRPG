@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/chiseled_icy_bricks"
-    }
+    "": [
+      {"model": "divinerpg:block/chiseled_icy_bricks"},
+      {"model": "divinerpg:block/chiseled_icy_bricks1"},
+      {"model": "divinerpg:block/chiseled_icy_bricks2"},
+      {"model": "divinerpg:block/chiseled_icy_bricks3"}
+    ]
   }
 }

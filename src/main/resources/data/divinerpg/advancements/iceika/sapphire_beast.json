@@ -1,7 +1,19 @@
 {
+  "display": {
+    "icon": {
+      "item": "divinerpg:seng_fur"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.sapphire_beast"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.iceika.sapphire_beast.desc"
+    }
+  },
   "parent": "divinerpg:iceika/root",
   "criteria": {
-    "seng_fur": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -10,19 +22,7 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    }
-  },
-  "display": {
-    "description": {
-      "translate": "advancement.divinerpg.iceika.sapphire_beast.desc"
-    },
-    "icon": {
-      "item": "divinerpg:seng_fur"
-    },
-    "title": {
-      "translate": "advancement.divinerpg.iceika.sapphire_beast"
+      }
     }
   }
 }
