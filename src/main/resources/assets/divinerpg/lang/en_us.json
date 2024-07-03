@@ -270,7 +270,7 @@
   "block.divinerpg.polished_coalstone_pressure_plate": "Polished Coalstone Pressure Plate",
   "block.divinerpg.polished_coalstone_button": "Polished Coalstone Button",
 
-  "block.divinerpg.workshop_bookcase": "Workshop Bookcase",
+  "block.divinerpg.workshop_bookcase": "Workshop Bookshelf",
   "block.divinerpg.workshop_carpet": "Workshop Carpet",
   "block.divinerpg.workshop_lamp": "Workshop Lamp",
 
@@ -2240,7 +2240,7 @@
   "advancement.divinerpg.overworld.bad_idea": "bad idea right?",
   "advancement.divinerpg.overworld.bad_idea.desc": "Visit an ancient tomb",
   "advancement.divinerpg.overworld.attempt_at_ascension": "Attempt at Ascension",
-  "advancement.divinerpg.overworld.attempt_at_ascension.desc": "Craft all divine armor and tools",
+  "advancement.divinerpg.overworld.attempt_at_ascension.desc": "Craft all Divine armor and tools",
   "advancement.divinerpg.overworld.eye_of_evil": "Eye of Evil",
   "advancement.divinerpg.overworld.eye_of_evil.desc": "Look into the eye of The Eye",
   "advancement.divinerpg.overworld.feeding_on_the_fish": "Feeding on the Fish",
@@ -2254,7 +2254,7 @@
   "advancement.divinerpg.overworld.perfectly_corrupted": "Perfectly Corrupted",
   "advancement.divinerpg.overworld.perfectly_corrupted.desc": "Use an Altar of Corruption",
   "advancement.divinerpg.overworld.when_pigs_fly": "When Pigs Fly",
-  "advancement.divinerpg.overworld.when_pigs_fly.desc": "Wear a full angelic armor set",
+  "advancement.divinerpg.overworld.when_pigs_fly.desc": "Get a full suit of Angelic armor",
   "advancement.divinerpg.overworld.towering_guardian": "Towering Guardian",
   "advancement.divinerpg.overworld.towering_guardian.desc": "Kill the Ancient Entity",
   "advancement.divinerpg.overworld.seng": "Things to Come?",

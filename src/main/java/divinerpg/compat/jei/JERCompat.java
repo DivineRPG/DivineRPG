@@ -73,7 +73,7 @@ public class JERCompat {
             //Iceika
             plantRegistry.registerWithSoil(new ItemStack(ItemRegistry.winterberry.get()), BlockRegistry.winterberryBush.get().defaultBlockState(), BlockRegistry.brittleMoss.get().defaultBlockState(), new PlantDrop(new ItemStack(ItemRegistry.winterberry.get()), 1, 1));
             //Arcana
-            plantRegistry.register(new ItemStack(ItemRegistry.aquamarine_seeds.get()), BlockRegistry.aquamarinePlant.get().defaultBlockState(), new PlantDrop(new ItemStack(ItemRegistry.aquamarine.get()), 2, 5));
+            plantRegistry.register(new ItemStack(ItemRegistry.aquamarine_seeds.get()), BlockRegistry.aquamarinePlant.get().defaultBlockState(), new PlantDrop(new ItemStack(ItemRegistry.aquamarine.get()), 1, 1), new PlantDrop(new ItemStack(ItemRegistry.aquamarine_seeds.get()), 1, 4));
             plantRegistry.register(new ItemStack(ItemRegistry.eucalyptus_root_seeds.get()), BlockRegistry.eucalyptusPlant.get().defaultBlockState(), new PlantDrop(new ItemStack(BlockRegistry.eucalyptusLog.get()), 1, 1), new PlantDrop(new ItemStack(ItemRegistry.eucalyptus_root_seeds.get()), 1, 4));
             plantRegistry.register(new ItemStack(ItemRegistry.hitchak_seeds.get()), BlockRegistry.hitchakPlant.get().defaultBlockState(), new PlantDrop(new ItemStack(ItemRegistry.hitchak.get()), 2, 5));
             plantRegistry.register(new ItemStack(ItemRegistry.lamona_seeds.get()), BlockRegistry.lamonaPlant.get().defaultBlockState(), new PlantDrop(new ItemStack(ItemRegistry.lamona.get()), 2, 5));

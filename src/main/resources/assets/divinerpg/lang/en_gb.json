@@ -1,0 +1,38 @@
+{
+  "item.divinerpg.smithing_template.aquatic_coating.applies_to": "Aquastrive Armour",
+  "item.divinerpg.smithing_template.aquatic_coating.base_slot_description": "Add aquastrive armour",
+
+  "item.divinerpg.gray_rupee_helmet": "Grey Rupee Helmet",
+  "item.divinerpg.gray_rupee_chestplate": "Grey Rupee Chestplate",
+  "item.divinerpg.gray_rupee_leggings": "Grey Rupee Leggings",
+  "item.divinerpg.gray_rupee_boots": "Grey Rupee Boots",
+
+  "item.divinerpg.gray_diamond_chunk": "Grey Diamond Chunk",
+
+  "item.divinerpg.smithing_template.bedrock_upgrade.applies_to": "Inferno or Torridite Armour",
+  "item.divinerpg.smithing_template.bedrock_upgrade.base_slot_description": "Add inferno or torridite armour",
+
+  "item.divinerpg.seng_fur_leggings": "Seng Fur Trousers",
+  "item.divinerpg.santa_helmet": "Santa Hat",
+  "item.divinerpg.santa_leggings": "Santa Trousers",
+
+  "item.divinerpg.gray_ender_helmet": "Grey Ender Helmet",
+  "item.divinerpg.gray_ender_chestplate": "Grey Ender Chestplate",
+  "item.divinerpg.gray_ender_leggings": "Grey Ender Leggings",
+  "item.divinerpg.gray_ender_boots": "Grey Ender Boots",
+
+  "item.divinerpg.gray_divine_sword": "Grey Divine Sword",
+
+  "item.divinerpg.armor_pouch": "Armour Pouch",
+  "item.divinerpg.gray_armor_pouch": "Grey Armour Pouch",
+  "item.divinerpg.red_armor_pouch": "Red Armour Pouch",
+  "item.divinerpg.yellow_armor_pouch": "Yellow Armour Pouch",
+  "item.divinerpg.green_armor_pouch": "Green Armour Pouch",
+  "item.divinerpg.blue_armor_pouch": "Blue Armour Pouch",
+
+  "item.divinerpg.dream_sweets": "Dream Sweets",
+
+  "advancement.divinerpg.overworld.attempt_at_ascension.desc": "Craft all Divine armour and tools",
+  "advancement.divinerpg.overworld.when_pigs_fly.desc": "Get a full suit of Angelic armour",
+  "advancement.divinerpg.iceika.what_makes_you_beautiful.desc": "Get a full suit of Seng Fur armour"
+}
