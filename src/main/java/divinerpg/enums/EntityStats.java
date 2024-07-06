@@ -26,11 +26,11 @@ public enum EntityStats {
     TERMASECT(1050, 20, 64),
     THE_WATCHER(950, 12, 64),
     TWILIGHT_DEMON(1600, 30, 64),
-    VAMACHERON(1350, 34, 64, 0.405),
+    VAMACHERON(1350, 34, 64, .405),
     WRECK(5000, 30, 64),
 
     //Overworld
-    AEQUOREA(4, 3, 4, 0.135),
+    AEQUOREA(4, 3, 4, .135),
     ARID_WARRIOR(40, 8),
     CAVE_CRAWLER(30, 4),
     CAVECLOPS(60, 6),
@@ -38,8 +38,8 @@ public enum EntityStats {
     CYCLOPS(35),
     DESERT_CRAWLER(40, 6),
     ENTHRALLED_DRAMCRYX(80, 7),
-    FROST(50, 6),
-    GLACON(60, 7, 20, 0.432),
+    FROST(25, 6),
+    GLACON(35, 7, 20, .432),
     JUNGLE_BAT(),
     JUNGLE_DRAMCRYX(40, 7),
     JUNGLE_SPIDER(45, 7),
@@ -53,15 +53,15 @@ public enum EntityStats {
     SAGUARO_WORM(80, 4, 20, 0),
     SHARK(80, 8),
     THE_EYE(40, 10),
-    THE_GRUE(30, 10, 20, 0.31),
+    THE_GRUE(30, 10, 20, .31),
     WHALE(120, 10),
 
     //Livestock Merchant Pets
     EHU(60),
-    GRIZZLE(100, 9, 20, 0.29),
+    GRIZZLE(100, 9, 20, .29),
     HUSK(80, 10),
     SMELTER(120, 7),
-    SNAPPER(150, 4, 20, 0.285),
+    SNAPPER(150, 4, 20, .285),
     STONE_GOLEM(100),
 
     //Nether
@@ -77,23 +77,23 @@ public enum EntityStats {
     ENDER_WATCHER(50, 11),
 
     //Iceika
-    ALICANTO(75, 11),
-    BLUBBERTUSK(60, 4),
-    CAULDRON_FISH(10, 3, 4, 0.135),
-    DOLOSSAL(40, 1, 20, .33),
-    FRACTITE(50),
-    FROZEN_FLESH(140, 16, 20, 0.35),
-    GLACIDE(80, 12, 20, 0.48),
-    HASTREUS(120, 16),
-    MAMOTH(70, 8, 20, .2),
-    PALE_ARCHER(40, 2),
-    ROBBIN(2, 0.5),
-    ROLLUM(150, 12, 20, 0.30),
-    SABEAR(60, 12),
-    SENG(55, 4, 10, 0.33),
-    SNOW_SKIPPER(10),
-    GHOST_GLIDER(10, 2, 4, .125),
-    WOLPERTINGER(15, 2),
+    CAULDRON_FISH(6, 3, 4, .135),
+    GHOST_GLIDER(5, 2, 4, .125),
+    BLUBBERTUSK(35, 4),
+    ROBBIN(4, .5),
+    SNOW_SKIPPER(6),
+    WOLPERTINGER(12, 2),
+    DOLOSSAL(30, 1, 20, .33),
+    MAMOTH(40, 8, 20, .2),
+    FRACTITE(30),
+    ROLLUM(70, 11, 20, .3),
+    PALE_ARCHER(25, 2),
+    FROZEN_FLESH(30, 6, 20, .35),
+    ALICANTO(35, 7),
+    SABEAR(40, 11),
+    SENG(35, 9, 10, .33),
+    HASTREUS(100, 15),
+    GLACIDE(60, 12, 20, .48),
 
     //Groglins
     GROGLIN(40, 2, 20, .31),
@@ -155,7 +155,7 @@ public enum EntityStats {
 
     //Skythern
     ADVANCED_CORI(35, 100),
-    MEGALITH(310, 25, 20, 0.25),
+    MEGALITH(310, 25, 20, .25),
     MYSTIC(120, 12),
     SAMEK(160, 23),
     SKYTHERN_ARCHER(124),
@@ -174,15 +174,15 @@ public enum EntityStats {
 
     //Vethea
     //Layer 1
-    CRYPT_KEEPER(200, 1, 25, 0.32),
-    MYSTERIOUS_MAN(20, 1, 35, 0.32),
+    CRYPT_KEEPER(200, 1, 25, .32),
+    MYSTERIOUS_MAN(20, 1, 35, .32),
     ACID_HAG(25),
     CYMESOID(25, 8),
     DREAMWRECKER(60, 8),
-    DUO(20, 7, 20, 0.32),
+    DUO(20, 7, 20, .32),
     ENT(50, 20),
     HIVE_SOLDIER(20, 6),
-    HOVER_STINGER(20, 4, 35, 0.32),
+    HOVER_STINGER(20, 4, 35, .32),
     LORGA(15, 4),
     SHADAHIER(10, 7),
 
@@ -195,7 +195,7 @@ public enum EntityStats {
     VERMENOUS(100, 14),
 
     //Layer 3
-    BOHEMITE(60, 13, 20, 0.36),
+    BOHEMITE(60, 13, 20, .36),
     GALROID(100, 25),
     KAZROTIC(65, 1),
     LHEIVA(85, 22),
@@ -207,43 +207,38 @@ public enum EntityStats {
     HELIO(140, 40),
     VHRAAK(100, 30),
     ZONE(120),
-    ZORAGON(110, 0, 35, 0.09);
+    ZORAGON(110, 0, 35, .09);
 
     final double health, attackDamage, followRange, movementSpeed;
-    public static final double normalHealth = 20D, normalDamage = 1D, normalSpeed = .27, normalFollowRange = 20D;
-
+    public static final double normalHealth = 20, normalDamage = 1, normalSpeed = .27, normalFollowRange = 20;
     EntityStats() {
-        this.health = normalHealth;
-        this.attackDamage = normalDamage;
-        this.followRange = normalFollowRange;
-        this.movementSpeed = normalSpeed;
+        health = normalHealth;
+        attackDamage = normalDamage;
+        followRange = normalFollowRange;
+        movementSpeed = normalSpeed;
 
     }
-
     EntityStats(double health) {
         this.health = health;
-        this.attackDamage = normalDamage;
-        this.followRange = normalFollowRange;
-        this.movementSpeed = normalSpeed;
+        attackDamage = normalDamage;
+        followRange = normalFollowRange;
+        movementSpeed = normalSpeed;
 
     }
-
     EntityStats(double health, double attackDamage) {
         this.health = health;
         this.attackDamage = attackDamage;
-        this.followRange = normalFollowRange;
-        this.movementSpeed = normalSpeed;
+        followRange = normalFollowRange;
+        movementSpeed = normalSpeed;
 
     }
-
     EntityStats(double health, double attackDamage, double followRange) {
         this.health = health;
         this.attackDamage = attackDamage;
         this.followRange = followRange;
-        this.movementSpeed = normalSpeed;
+        movementSpeed = normalSpeed;
 
     }
-
     EntityStats(double health, double attackDamage, double followRange, double movementSpeed) {
         this.health = health;
         this.attackDamage = attackDamage;
@@ -251,10 +246,8 @@ public enum EntityStats {
         this.movementSpeed = movementSpeed;
 
     }
-
     public double getHealth() {return health;}
     public double getAttackDamage() {return attackDamage;}
     public double getFollowRange() {return followRange;}
     public double getMovementSpeed() {return movementSpeed;}
-
 }
