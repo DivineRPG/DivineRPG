@@ -1,6 +1,7 @@
 package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.boss.EntityKitra;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
@@ -16,6 +17,10 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
         super(type, worldIn, 18F);
         this.fallDistance = 0;
         this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
+    }
+    @Override
+    public void setTarget(LivingEntity entity) {
+    	super.setTarget(entity != null && entity instanceof EntityKitra ? null : entity);
     }
 
     @Override
