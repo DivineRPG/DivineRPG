@@ -9,6 +9,6 @@ import net.minecraft.world.entity.player.Inventory;
 public class OceanfireFurnaceScreen extends InfiniFurnaceScreen<OceanfireFurnaceMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/oceanfire_furnace.png");
     public OceanfireFurnaceScreen(OceanfireFurnaceMenu menu, Inventory inv, Component c) {
-        super(menu, inv, c, TEXTURE, 4210752, 4210752);
+        super(menu, inv, c, TEXTURE, 1980988, 1980988);
     }
 }

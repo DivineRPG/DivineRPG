@@ -784,7 +784,7 @@ public class BlockRegistry {
             coalstoneFurnace = registerBlock("coalstone_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.COALSTONE_FURNACE::get, COLOR_GRAY)),
             moltenFurnace = registerBlock("molten_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.MOLTEN_FURNACE::get, TERRACOTTA_LIGHT_GRAY), Rarity.UNCOMMON),
             greenlightFurnace = registerBlock("greenlight_furnace", () -> new BlockModFurnace(BlockEntityRegistry.GREENLIGHT_FURNACE::get, TERRACOTTA_LIGHT_GREEN), Rarity.UNCOMMON),
-            oceanfireFurnace = registerBlock("oceanfire_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.OCEANFIRE_FURNACE::get, COLOR_LIGHT_BLUE), Rarity.UNCOMMON),
+            oceanfireFurnace = registerBlock("oceanfire_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.OCEANFIRE_FURNACE::get, COLOR_CYAN), Rarity.UNCOMMON),
             moonlightFurnace = registerBlock("moonlight_furnace", () -> new BlockModFurnace(BlockEntityRegistry.MOONLIGHT_FURNACE::get, TERRACOTTA_BLUE), Rarity.UNCOMMON),
             whitefireFurnace = registerBlock("whitefire_furnace", () -> new BlockModInfiniFurnace(BlockEntityRegistry.WHITEFIRE_FURNACE::get, SNOW), Rarity.UNCOMMON),
             demonFurnace = registerWithRender("demon_furnace", BlockDemonFurnace::new, Rarity.EPIC),

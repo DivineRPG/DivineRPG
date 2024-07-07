@@ -4,7 +4,6 @@ import divinerpg.DivineRPG;
 import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
-import divinerpg.items.vanilla.ItemScythe;
 import divinerpg.items.vethea.ItemVetheanDisk;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.*;
@@ -154,7 +153,7 @@ public class ItemModRanged extends ItemMod {
         if(bulletType != null) {
             if(!(this instanceof ItemModShotgun)) {
                 if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.ARCANA) tooltip.add(LocalizeUtils.arcanaDam((int)bulletType.getDamage()));
-                if(!(this instanceof ItemScythe) && bulletType.getBulletDamageType() == BulletType.BulletDamageType.MAGIC) tooltip.add(LocalizeUtils.magicDam((int)bulletType.getDamage()));
+                if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.MAGIC) tooltip.add(LocalizeUtils.magicDam((int)bulletType.getDamage()));
                 if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
             } if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.BOUNCE) tooltip.add(LocalizeUtils.bouncingShots());
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.POISON) tooltip.add(LocalizeUtils.poison(bulletType.effectSec));
