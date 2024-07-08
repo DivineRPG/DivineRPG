@@ -7,41 +7,53 @@ import divinerpg.util.DamageSources;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.common.SoundActions;
-import net.minecraftforge.fluids.*;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.common.SoundActions;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
+
 import java.util.function.Consumer;
 
 import static divinerpg.DivineRPG.MODID;
 
 public class FluidRegistry {
-    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, MODID);
-    public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, MODID);
+    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(BuiltInRegistries.FLUID, MODID);
+    public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES, MODID);
     private static ForgeFlowingFluid.Properties fluidProperties() {
         return new ForgeFlowingFluid.Properties(SMOLDERING_TAR, SMOLDERING_TAR_FLUID, SMOLDERING_TAR_FLUID_FLOWING).block(SMOLDERING_TAR_BLOCK).bucket(ItemRegistry.smoldering_tar_bucket);
     }
-    public static final RegistryObject<FluidType> SMOLDERING_TAR = FLUID_TYPES.register("smoldering_tar_fluid_type", () ->
+    public static final DeferredHolder<FluidType, FluidType> SMOLDERING_TAR = FLUID_TYPES.register("smoldering_tar_fluid_type", () ->
             new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)) {
                 @Override public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
                     consumer.accept(new IClientFluidTypeExtensions() {
                         private static final ResourceLocation
-                                STILL = new ResourceLocation(DivineRPG.MODID, "block/liquid_tar_still"),
-                                FLOW = new ResourceLocation(DivineRPG.MODID, "block/liquid_tar_flow");
+                                STILL = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "block/liquid_tar_still"),
+                                FLOW = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "block/liquid_tar_flow");
                         @Override public ResourceLocation getStillTexture() {return STILL;}
                         @Override public ResourceLocation getFlowingTexture() {return FLOW;}
                         @Override public int getTintColor() {return 0xAF7FFFD4;}
@@ -64,7 +76,7 @@ public class FluidRegistry {
                     });
                 }
             });
-    public static final RegistryObject<FlowingFluid> SMOLDERING_TAR_FLUID = FLUIDS.register("smoldering_tar_still", () ->
+    public static final DeferredHolder<FlowingFluid, FlowingFluid> SMOLDERING_TAR_FLUID = FLUIDS.register("smoldering_tar_still", () ->
             new ForgeFlowingFluid.Source(fluidProperties()) {
                 @Override public int getSlopeFindDistance(LevelReader level) {return level.dimensionType().ultraWarm() ? 4 : 2;}
                 @Override public int getDropOff(LevelReader level) {return level.dimensionType().ultraWarm() ? 1 : 2;}
@@ -91,7 +103,7 @@ public class FluidRegistry {
                 private void fizz(LevelAccessor level, BlockPos pos) {level.levelEvent(1501, pos, 0);}
                 @Override protected void beforeDestroyingBlock(LevelAccessor level, BlockPos pos, BlockState state) {this.fizz(level, pos);}
                 });
-    public static final RegistryObject<Fluid> SMOLDERING_TAR_FLUID_FLOWING = FLUIDS.register("smoldering_tar_flowing", () ->
+    public static final DeferredHolder<Fluid, Fluid> SMOLDERING_TAR_FLUID_FLOWING = FLUIDS.register("smoldering_tar_flowing", () ->
             new ForgeFlowingFluid.Flowing(fluidProperties()) {
                 private void fizz(LevelAccessor level, BlockPos pos) {level.levelEvent(1501, pos, 0);}
                 @Override protected void beforeDestroyingBlock(LevelAccessor level, BlockPos pos, BlockState state) {this.fizz(level, pos);}
@@ -107,7 +119,7 @@ public class FluidRegistry {
                 }
             }
     );
-    public static final RegistryObject<LiquidBlock> SMOLDERING_TAR_BLOCK = BlockRegistry.BLOCKS.register("smoldering_tar", () ->
+    public static final DeferredHolder<LiquidBlock, LiquidBlock> SMOLDERING_TAR_BLOCK = BlockRegistry.BLOCKS.register("smoldering_tar", () ->
             new LiquidBlock(SMOLDERING_TAR_FLUID, BlockBehaviour.Properties.of().sound(SoundType.EMPTY).replaceable().pushReaction(PushReaction.DESTROY).randomTicks().mapColor(MapColor.COLOR_BLACK).noCollission().strength(100).noLootTable()) {
                 @Override public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
                     if(entity.isInFluidType()) {
@@ -115,7 +127,7 @@ public class FluidRegistry {
                         //TODO: fix xp orbs jumping on top of tar
                         entity.makeStuckInBlock(state, new Vec3(.4, .4, .4));
                         //TODO: the fire gets extinguished during rains unlike when entity.lavaHurt() is used
-                        entity.setSecondsOnFire(12);
+                        entity.setRemainingFireTicks(12);
                         //That doesn't look right buh: me trying to copy the way entity.lavaHurt() works
                         if(((entity instanceof LivingEntity && !entity.fireImmune() && !((LivingEntity) entity).hasEffect(MobEffects.FIRE_RESISTANCE)) || (!(entity instanceof LivingEntity) && !entity.fireImmune())) && entity.hurt(DamageSources.source(level, DamageSources.TAR), 4)) entity.playSound(SoundEvents.GENERIC_BURN, .4F, 2 + entity.random.nextFloat() * .4F);
                     }

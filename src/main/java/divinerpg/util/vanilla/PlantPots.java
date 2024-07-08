@@ -1,8 +1,10 @@
 package divinerpg.util.vanilla;
 
-import net.minecraft.world.level.block.*;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import static divinerpg.registries.BlockRegistry.*;
 
@@ -58,5 +60,5 @@ public class PlantPots {
             }
         );
     }
-    private static void addPlant(RegistryObject<Block> plant, RegistryObject<FlowerPotBlock> pot) {((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(plant.getId(), pot);}
+    private static void addPlant(DeferredBlock<Block> plant, DeferredBlock<FlowerPotBlock> pot) {((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(plant.getId(), pot);}
 }

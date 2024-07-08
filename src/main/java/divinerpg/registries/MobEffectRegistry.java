@@ -2,18 +2,22 @@ package divinerpg.registries;
 
 import divinerpg.DivineRPG;
 import divinerpg.effect.mob.*;
-import divinerpg.effect.mob.armor.arcana.*;
+import divinerpg.effect.mob.armor.arcana.VemosHealEffect;
 import divinerpg.effect.mob.armor.base.*;
-import divinerpg.effect.mob.armor.iceika.*;
-import divinerpg.effect.mob.armor.twilight.*;
-import divinerpg.effect.mob.armor.vanilla.*;
+import divinerpg.effect.mob.armor.iceika.FrozenSlownessEffect;
+import divinerpg.effect.mob.armor.iceika.SengFurEffect;
+import divinerpg.effect.mob.armor.twilight.WildwoodHealEffect;
+import divinerpg.effect.mob.armor.vanilla.AngelicFlightEffect;
+import divinerpg.effect.mob.armor.vanilla.SkelemanFeedEffect;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class MobEffectRegistry {
-	public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, DivineRPG.MODID);
+	public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, DivineRPG.MODID);
 	
-	public static final RegistryObject<MobEffect>
+	public static final DeferredHolder<MobEffect, MobEffect>
 		HEAVY_AIR = EFFECTS.register("heavy_air", HeavyAirEffect::new),
 		GRUZZORLUG_TARGET = EFFECTS.register("gruzzorlug_target", GruzzorlugTargetEffect::new),
 		GROGLIN_BOUNTY = EFFECTS.register("groglin_bounty", GroglinBountyEffect::new),
@@ -21,7 +25,7 @@ public class MobEffectRegistry {
 		WARMTH = EFFECTS.register("warmth", WarmthEffect::new);
 	
 	//Armor
-	public static final RegistryObject<MobEffect>
+	public static final DeferredHolder<MobEffect, MobEffect>
 		//Base
 		BLOCK_PROTECTION = EFFECTS.register("block_protection", MarkerEffect::new),
 		EXPLOSION_PROTECTION = EFFECTS.register("explosion_protection", MarkerEffect::new),

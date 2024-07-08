@@ -1,10 +1,10 @@
 package divinerpg.compat;
 
-import divinerpg.*;
+import divinerpg.DivineRPG;
 import divinerpg.compat.jei.JERCompat;
 import divinerpg.compat.projecte.ProjectECompat;
-import net.minecraftforge.fml.*;
-import net.minecraftforge.fml.event.lifecycle.*;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class ModCompat {
     public static void initCommon(FMLCommonSetupEvent e){

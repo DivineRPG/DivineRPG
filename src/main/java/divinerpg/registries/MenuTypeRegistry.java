@@ -1,48 +1,53 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
 import divinerpg.client.menu.*;
 import divinerpg.client.screen.*;
-import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraftforge.common.extensions.IForgeMenuType;
-import net.minecraftforge.registries.*;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static divinerpg.DivineRPG.MODID;
 
+@EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
 public class MenuTypeRegistry
 {
-    public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, MODID);
-    public static final RegistryObject<MenuType<ArcaniumExtractorMenu>> ARCANIUM_EXTRACTOR = CONTAINERS.register("arcanium_extractor", () -> IForgeMenuType.create(ArcaniumExtractorMenu::new));
-    public static final RegistryObject<MenuType<DreamLampMenu>> DREAM_LAMP = CONTAINERS.register("dream_lamp", () -> IForgeMenuType.create(DreamLampMenu::new));
-    public static final RegistryObject<MenuType<InfusionTableMenu>> INFUSION_TABLE = CONTAINERS.register("infusion_table", () -> IForgeMenuType.create(InfusionTableMenu::new));
-    public static final RegistryObject<MenuType<AltarOfCorruptionMenu>> ALTAR_OF_CORRUPTION = CONTAINERS.register("altar_of_corruption", () -> IForgeMenuType.create(AltarOfCorruptionMenu::new));
-    public static final RegistryObject<MenuType<PresentBoxMenu>> PRESENT_BOX = CONTAINERS.register("present_box", () -> IForgeMenuType.create(PresentBoxMenu::new));
-    public static final RegistryObject<MenuType<CoalstoneFurnaceMenu>> COALSTONE_FURNACE = CONTAINERS.register("coalstone_furnace", () -> IForgeMenuType.create(CoalstoneFurnaceMenu::new));
-    public static final RegistryObject<MenuType<DemonFurnaceMenu>> DEMON_FURNACE = CONTAINERS.register("demon_furnace", () -> IForgeMenuType.create(DemonFurnaceMenu::new));
-    public static final RegistryObject<MenuType<GreenlightFurnaceMenu>> GREENLIGHT_FURNACE = CONTAINERS.register("greenlight_furnace", () -> IForgeMenuType.create(GreenlightFurnaceMenu::new));
-    public static final RegistryObject<MenuType<MoltenFurnaceMenu>> MOLTEN_FURNACE = CONTAINERS.register("molten_furnace", () -> IForgeMenuType.create(MoltenFurnaceMenu::new));
-    public static final RegistryObject<MenuType<MoonlightFurnaceMenu>> MOONLIGHT_FURNACE = CONTAINERS.register("moonlight_furnace", () -> IForgeMenuType.create(MoonlightFurnaceMenu::new));
-    public static final RegistryObject<MenuType<OceanfireFurnaceMenu>> OCEANFIRE_FURNACE = CONTAINERS.register("oceanfire_furnace", () -> IForgeMenuType.create(OceanfireFurnaceMenu::new));
-    public static final RegistryObject<MenuType<WhitefireFurnaceMenu>> WHITEFIRE_FURNACE = CONTAINERS.register("whitefire_furnace", () -> IForgeMenuType.create(WhitefireFurnaceMenu::new));
-    public static final RegistryObject<MenuType<BoneChestMenu>> BONE_CHEST = CONTAINERS.register("bone_chest", () -> IForgeMenuType.create(BoneChestMenu::new));
-    public static final RegistryObject<MenuType<FrostedChestMenu>> FROSTED_CHEST = CONTAINERS.register("frosted_chest", () -> IForgeMenuType.create(FrostedChestMenu::new));
+    public static final DeferredRegister<MenuType<?>> MENU_TYPE = DeferredRegister.create(Registries.MENU, MODID);
+    public static final DeferredHolder<MenuType<?>, MenuType<ArcaniumExtractorMenu>> ARCANIUM_EXTRACTOR = MENU_TYPE.register("arcanium_extractor", () -> IMenuTypeExtension.create(ArcaniumExtractorMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<DreamLampMenu>> DREAM_LAMP = MENU_TYPE.register("dream_lamp", () -> IMenuTypeExtension.create(DreamLampMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<InfusionTableMenu>> INFUSION_TABLE = MENU_TYPE.register("infusion_table", () -> IMenuTypeExtension.create(InfusionTableMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<AltarOfCorruptionMenu>> ALTAR_OF_CORRUPTION = MENU_TYPE.register("altar_of_corruption", () -> IMenuTypeExtension.create(AltarOfCorruptionMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<PresentBoxMenu>> PRESENT_BOX = MENU_TYPE.register("present_box", () -> IMenuTypeExtension.create(PresentBoxMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<CoalstoneFurnaceMenu>> COALSTONE_FURNACE = MENU_TYPE.register("coalstone_furnace", () -> IMenuTypeExtension.create(CoalstoneFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<DemonFurnaceMenu>> DEMON_FURNACE = MENU_TYPE.register("demon_furnace", () -> IMenuTypeExtension.create(DemonFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<GreenlightFurnaceMenu>> GREENLIGHT_FURNACE = MENU_TYPE.register("greenlight_furnace", () -> IMenuTypeExtension.create(GreenlightFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<MoltenFurnaceMenu>> MOLTEN_FURNACE = MENU_TYPE.register("molten_furnace", () -> IMenuTypeExtension.create(MoltenFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<MoonlightFurnaceMenu>> MOONLIGHT_FURNACE = MENU_TYPE.register("moonlight_furnace", () -> IMenuTypeExtension.create(MoonlightFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<OceanfireFurnaceMenu>> OCEANFIRE_FURNACE = MENU_TYPE.register("oceanfire_furnace", () -> IMenuTypeExtension.create(OceanfireFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<WhitefireFurnaceMenu>> WHITEFIRE_FURNACE = MENU_TYPE.register("whitefire_furnace", () -> IMenuTypeExtension.create(WhitefireFurnaceMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<BoneChestMenu>> BONE_CHEST = MENU_TYPE.register("bone_chest", () -> IMenuTypeExtension.create(BoneChestMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<FrostedChestMenu>> FROSTED_CHEST = MENU_TYPE.register("frosted_chest", () -> IMenuTypeExtension.create(FrostedChestMenu::new));
 
-    public static void registerScreenFactories() {
-        DivineRPG.LOGGER.info("[DivineRPG] Registered screens");
-        MenuScreens.register(MenuTypeRegistry.ARCANIUM_EXTRACTOR.get(), ArcaniumExtractorScreen::new);
-        MenuScreens.register(MenuTypeRegistry.DREAM_LAMP.get(), DreamLampScreen::new);
-        MenuScreens.register(MenuTypeRegistry.INFUSION_TABLE.get(), InfusionTableScreen::new);
-        MenuScreens.register(MenuTypeRegistry.ALTAR_OF_CORRUPTION.get(), AltarOfCorruptionScreen::new);
-        MenuScreens.register(MenuTypeRegistry.PRESENT_BOX.get(), PresentBoxScreen::new);
-        MenuScreens.register(MenuTypeRegistry.COALSTONE_FURNACE.get(), CoalstoneFurnaceScreen::new);
-        MenuScreens.register(MenuTypeRegistry.DEMON_FURNACE.get(), DemonFurnaceScreen::new);
-        MenuScreens.register(MenuTypeRegistry.GREENLIGHT_FURNACE.get(), GreenlightFurnaceScreen::new);
-        MenuScreens.register(MenuTypeRegistry.MOLTEN_FURNACE.get(), MoltenFurnaceScreen::new);
-        MenuScreens.register(MenuTypeRegistry.MOONLIGHT_FURNACE.get(), MoonlightFurnaceScreen::new);
-        MenuScreens.register(MenuTypeRegistry.OCEANFIRE_FURNACE.get(), OceanfireFurnaceScreen::new);
-        MenuScreens.register(MenuTypeRegistry.WHITEFIRE_FURNACE.get(), WhitefireFurnaceScreen::new);
-        MenuScreens.register(MenuTypeRegistry.BONE_CHEST.get(), BoneChestScreen::new);
-        MenuScreens.register(MenuTypeRegistry.FROSTED_CHEST.get(), FrostedChestScreen::new);
+    @SubscribeEvent
+    public static void registerMenuScreensEvent(RegisterMenuScreensEvent event) {
+        event.register(MenuTypeRegistry.ARCANIUM_EXTRACTOR.get(), ArcaniumExtractorScreen::new);
+        event.register(MenuTypeRegistry.DREAM_LAMP.get(), DreamLampScreen::new);
+        event.register(MenuTypeRegistry.INFUSION_TABLE.get(), InfusionTableScreen::new);
+        event.register(MenuTypeRegistry.ALTAR_OF_CORRUPTION.get(), AltarOfCorruptionScreen::new);
+        event.register(MenuTypeRegistry.PRESENT_BOX.get(), PresentBoxScreen::new);
+        event.register(MenuTypeRegistry.COALSTONE_FURNACE.get(), CoalstoneFurnaceScreen::new);
+        event.register(MenuTypeRegistry.DEMON_FURNACE.get(), DemonFurnaceScreen::new);
+        event.register(MenuTypeRegistry.GREENLIGHT_FURNACE.get(), GreenlightFurnaceScreen::new);
+        event.register(MenuTypeRegistry.MOLTEN_FURNACE.get(), MoltenFurnaceScreen::new);
+        event.register(MenuTypeRegistry.MOONLIGHT_FURNACE.get(), MoonlightFurnaceScreen::new);
+        event.register(MenuTypeRegistry.OCEANFIRE_FURNACE.get(), OceanfireFurnaceScreen::new);
+        event.register(MenuTypeRegistry.WHITEFIRE_FURNACE.get(), WhitefireFurnaceScreen::new);
+        event.register(MenuTypeRegistry.BONE_CHEST.get(), BoneChestScreen::new);
+        event.register(MenuTypeRegistry.FROSTED_CHEST.get(), FrostedChestScreen::new);
     }
 }

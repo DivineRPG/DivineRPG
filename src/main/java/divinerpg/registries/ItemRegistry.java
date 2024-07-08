@@ -1,13 +1,24 @@
 package divinerpg.registries;
 
-import divinerpg.enums.*;
+import divinerpg.enums.ArmorStats;
+import divinerpg.enums.ArrowType;
+import divinerpg.enums.BulletType;
+import divinerpg.enums.ToolStats;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
-import divinerpg.items.iceika.*;
-import divinerpg.items.twilight.*;
+import divinerpg.items.iceika.ItemEggNog;
+import divinerpg.items.iceika.ItemHeatPack;
+import divinerpg.items.iceika.ItemSnowGlobe;
+import divinerpg.items.iceika.ItemWinterberry;
+import divinerpg.items.twilight.ItemSkyFlower;
+import divinerpg.items.twilight.ItemTwilightBlitz;
+import divinerpg.items.twilight.ItemTwilightClock;
+import divinerpg.items.twilight.ItemTwilightPhaser;
 import divinerpg.items.vanilla.*;
 import divinerpg.items.vethea.*;
-import divinerpg.util.*;
+import divinerpg.util.ArmorInfo;
+import divinerpg.util.FoodList;
+import divinerpg.util.RarityList;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
@@ -16,14 +27,19 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.registries.*;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
 import java.util.function.Supplier;
+
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.MobEffectRegistry.*;
 
+@EventBusSubscriber(modid = MODID)
 public class ItemRegistry {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    public static final RegistryObject<Item>
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
+    public static final DeferredItem<Item>
     //Misc
             cyclops_eye_shards = registerItem("cyclops_eye_shards"),
             cyclops_eye = registerItem("cyclops_eye"),
@@ -564,8 +580,8 @@ public class ItemRegistry {
             dream_axe = registerItemVethean("dream_axe", () -> new ItemModAxe(ToolStats.DREAM_AXE, -3.1F)),
 
             //Buckets
-            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
-            cauldron_fish_bucket = registerItem("cauldron_fish_bucket", () -> new MobBucketItem(EntityRegistry.CAULDRON_FISH, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
+            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
+            cauldron_fish_bucket = registerItem("cauldron_fish_bucket", () -> new MobBucketItem(EntityRegistry.CAULDRON_FISH, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
             smoldering_tar_bucket = registerItem("smoldering_tar_bucket", () -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))),
 
     //Vethean Swords
@@ -678,7 +694,7 @@ public class ItemRegistry {
             eden_torch = registerItem("eden_torch", () -> new StandingAndWallBlockItem(BlockRegistry.edenTorch.get(), BlockRegistry.edenWallTorch.get(), new Properties(), Direction.DOWN));
 
     //Armour
-    public static final RegistryObject<Item>
+    public static final DeferredItem<Item>
     realmite_helmet = registerItem("realmite_helmet", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.HELMET)),
             realmite_chestplate = registerItem("realmite_chestplate", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.CHESTPLATE)),
             realmite_leggings = registerItem("realmite_leggings", () -> new ItemDivineArmor(ArmorStats.REALMITE, ArmorItem.Type.LEGGINGS)),
@@ -919,8 +935,8 @@ public class ItemRegistry {
             tormented_leggings = registerItemVethean("tormented_leggings", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.LEGGINGS)),
             tormented_boots = registerItemVethean("tormented_boots", () -> new ItemDivineArmor(ArmorStats.TORMENTED, ArmorItem.Type.BOOTS));
 
-    private static RegistryObject<Item> registerItemVethean(String registryId) {return ITEMS.register(registryId, ItemVethean::new);}
-    private static <T extends Item> RegistryObject<T> registerItemVethean(String registryId, Supplier<T> item) {return ITEMS.register(registryId, item);}
-    private static RegistryObject<Item> registerItem(String registryId) {return ITEMS.register(registryId, ItemMod::new);}
-    private static <T extends Item> RegistryObject<T> registerItem(String registryId, Supplier<T> item) {return ITEMS.register(registryId, item);}
+    private static DeferredItem<Item> registerItemVethean(String registryId) {return ITEMS.register(registryId, ItemVethean::new);}
+    private static <T extends Item> DeferredItem<T> registerItemVethean(String registryId, Supplier<T> item) {return ITEMS.register(registryId, item);}
+    private static DeferredItem<Item> registerItem(String registryId) {return ITEMS.register(registryId, ItemMod::new);}
+    private static <T extends Item> DeferredItem<T> registerItem(String registryId, Supplier<T> item) {return ITEMS.register(registryId, item);}
 }

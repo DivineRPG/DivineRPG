@@ -1,17 +1,18 @@
 package divinerpg.registries;
 
 import divinerpg.DivineRPG;
-import net.minecraftforge.registries.*;
-
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static divinerpg.DivineRPG.MODID;
 
 public class SoundRegistry {
-    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
+    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(Registries.SOUND_EVENT, MODID);
 
-    public static final RegistryObject<SoundEvent>     
+    public static final DeferredHolder<SoundEvent, SoundEvent>
     	ACID_HAG = registerSound("acid_hag"),
         ACID_HAG_HURT = registerSound("acid_hag_hurt"),
         ALICANTO = registerSound("alicanto"),
@@ -246,11 +247,11 @@ public class SoundRegistry {
         MORTUM_MOOD = registerSound("mortum_mood");
 
 
-    private static RegistryObject<SoundEvent> registerSound(String registryName) {
+    private static DeferredHolder<SoundEvent, SoundEvent> registerSound(String registryName) {
         return SOUNDS.register(registryName, () -> createSoundEvent(registryName));
     }
 
     private static SoundEvent createSoundEvent(String soundPath) {
-        return SoundEvent.createVariableRangeEvent(new ResourceLocation(DivineRPG.MODID, soundPath));
+        return SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, soundPath));
     }
 }

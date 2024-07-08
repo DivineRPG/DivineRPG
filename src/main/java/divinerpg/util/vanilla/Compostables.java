@@ -1,11 +1,11 @@
 package divinerpg.util.vanilla;
 
 import divinerpg.DivineRPG;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class Compostables {
     public static void setup(final FMLCommonSetupEvent event) {
@@ -154,7 +154,7 @@ public class Compostables {
 
     }
     public static void add(float quantity, String itemId) {
-        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, itemId));
-        ComposterBlock.add(quantity, item);
+        Item item = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, itemId));
+        ComposterBlock.COMPOSTABLES.put(item, quantity);
     }
 }

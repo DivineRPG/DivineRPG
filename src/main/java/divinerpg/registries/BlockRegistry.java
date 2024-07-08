@@ -1,5 +1,6 @@
 package divinerpg.registries;
 
+import divinerpg.DivineRPG;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
@@ -13,14 +14,20 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.*;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.*;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.PushReaction;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -30,12 +37,12 @@ import static net.minecraft.core.particles.ParticleTypes.FLAME;
 import static net.minecraft.sounds.SoundEvents.*;
 import static net.minecraft.world.level.material.MapColor.*;
 
-@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = MODID)
 public class BlockRegistry {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+        public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
+        public static final DeferredRegister.Items BLOCK_ITEMS = DeferredRegister.createItems(MODID);
 
-    public static final RegistryObject<Block>
+    public static final DeferredBlock<Block>
             //Dirt & Dream Stone
             frozenDirt = registerBlock("frozen_dirt", () -> new BlockModDirt(ICE)),
             arcaniteDirt = registerBlock("arcanite_dirt", () -> new BlockModDirt(TERRACOTTA_BLUE)),
@@ -61,24 +68,24 @@ public class BlockRegistry {
             scorchedGrass = registerBlock("scorched_grass", () -> new BlockModGrass(dreamStone)),
 
             //Mud
-            gelidite = registerBlock("gelidite", () -> new BlockMod(Properties.copy(Blocks.MUD))),
+            gelidite = registerBlock("gelidite", () -> new BlockMod(Properties.ofFullCopy(Blocks.MUD))),
 
             //Gravel
-            frozenGravel = registerBlock("frozen_gravel", () -> new GravelBlock(Properties.copy(Blocks.GRAVEL).mapColor(GLOW_LICHEN))),
+            frozenGravel = registerBlock("frozen_gravel", () -> new GravelBlock(Properties.ofFullCopy(Blocks.GRAVEL).mapColor(GLOW_LICHEN))),
 
             //Sand
-            arcaniteSand = registerBlock("arcanite_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(COLOR_LIGHT_BLUE))),
-            arcanicSand = registerBlock("arcanic_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(COLOR_CYAN))),
-            arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.copy(Blocks.SAND).mapColor(COLOR_BLUE))),
-            soulSludge = registerBlock("soul_sludge", () -> new BlockModUnbreakable(Properties.copy(Blocks.SOUL_SAND).strength(-1, 3600000).mapColor(COLOR_GRAY))),
-            soulSludgeBreakable = registerBlock("soul_sludge_breakable", () -> new BlockMod(Properties.copy(Blocks.SOUL_SAND).mapColor(COLOR_GRAY))),
+            arcaniteSand = registerBlock("arcanite_sand", () -> new SandBlock(7579884, Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_LIGHT_BLUE))),
+            arcanicSand = registerBlock("arcanic_sand", () -> new SandBlock(7579884, Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_CYAN))),
+            arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_BLUE))),
+            soulSludge = registerBlock("soul_sludge", () -> new BlockModUnbreakable(Properties.ofFullCopy(Blocks.SOUL_SAND).strength(-1, 3600000).mapColor(COLOR_GRAY))),
+            soulSludgeBreakable = registerBlock("soul_sludge_breakable", () -> new BlockMod(Properties.ofFullCopy(Blocks.SOUL_SAND).mapColor(COLOR_GRAY))),
 
             //Ice
-            glaciline = registerBlock("glaciline", () -> new BlockMod(Properties.copy(Blocks.BLUE_ICE).mapColor(COLOR_LIGHT_BLUE).friction(.992F))),
+            glaciline = registerBlock("glaciline", () -> new BlockMod(Properties.ofFullCopy(Blocks.BLUE_ICE).mapColor(COLOR_LIGHT_BLUE).friction(.992F))),
 
             //Moss
             brittleMoss = registerBlock("brittle_moss", BlockBrittleMoss::new),
-            arcaniteMoss = registerBlock("arcanite_moss", () -> new BlockModMoss(Properties.copy(Blocks.MOSS_BLOCK).mapColor(COLOR_LIGHT_BLUE))),
+            arcaniteMoss = registerBlock("arcanite_moss", () -> new BlockModMoss(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(COLOR_LIGHT_BLUE))),
 
             //Stone & Stuff
             milkStone = registerBlock("milk_stone", () -> new BlockMod(WOOL, 1.5F, 6)),
@@ -123,7 +130,7 @@ public class BlockRegistry {
             blackHungerstone = registerBlock("black_hungerstone", () -> new BlockModUnbreakable(COLOR_BLACK)),
             greenHungerstone = registerBlock("green_hungerstone", () -> new BlockModUnbreakable(PLANT)),
             lunaStone = registerBlock("luna_stone", () -> new BlockMod(TERRACOTTA_BLUE, 2, 6)),
-            hiveWall = registerBlock("hive_wall", () -> new BlockMod(Properties.copy(Blocks.HONEYCOMB_BLOCK).mapColor(COLOR_GREEN).lightLevel((state) -> 7))),
+            hiveWall = registerBlock("hive_wall", () -> new BlockMod(Properties.ofFullCopy(Blocks.HONEYCOMB_BLOCK).mapColor(COLOR_GREEN).lightLevel((state) -> 7))),
             fireCrystal = registerBlock("fire_crystal", () -> new BlockLightCrystal(COLOR_RED)),
             firelight = registerBlock("firelight", () -> new BlockLightCrystal(COLOR_BLUE)),
 
@@ -134,9 +141,9 @@ public class BlockRegistry {
             realmiteOreDeepslate = registerBlock("realmite_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
             rupeeOre  = registerBlock("rupee_ore", () -> new BlockMod(STONE, 3, 3)),
             rupeeOreDeepslate = registerBlock("rupee_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
-            bloodgemOre	= registerBlock("bloodgem_ore", () -> new DropExperienceBlock(Properties.copy(Blocks.NETHER_GOLD_ORE), UniformInt.of(3, 7))),
+            bloodgemOre	= registerBlock("bloodgem_ore", () -> new DropExperienceBlock(Properties.ofFullCopy(Blocks.NETHER_GOLD_ORE), UniformInt.of(3, 7))),
             torriditeOre = registerBlock("torridite_ore", () -> new BlockMod(NETHER, 3, 1200, SoundType.NETHER_ORE, NoteBlockInstrument.BASEDRUM)),
-            anthraciteOre = registerBlock("anthracite_ore", () -> new DropExperienceBlock(Properties.copy(Blocks.COAL_ORE).mapColor(GLOW_LICHEN), UniformInt.of(0, 2))),
+            anthraciteOre = registerBlock("anthracite_ore", () -> new DropExperienceBlock(Properties.ofFullCopy(Blocks.COAL_ORE).mapColor(GLOW_LICHEN), UniformInt.of(0, 2))),
             oxdriteOre = registerBlock("oxdrite_ore", () -> new BlockMod(GLOW_LICHEN, 3, 3)),
             rawArcanium = registerBlock("raw_arcanium", () -> new BlockMod(COLOR_BLACK, 5, 6)),
             edenOre = registerBlock("eden_ore", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 3, 32)),
@@ -171,9 +178,9 @@ public class BlockRegistry {
             arcanaPortalFrame = registerBlock("arcana_portal_frame", () -> new BlockArcanaPortalFrame(5, 6)),
 
             //Clusters etc.
-            olivineBlock = registerBlock("olivine_block", () -> new AmethystBlock(Properties.copy(Blocks.AMETHYST_BLOCK).mapColor(COLOR_GREEN).lightLevel((state) -> 1))),
-            buddingOlivine = registerBlock("budding_olivine", () -> new BlockBuddingOlivine(Properties.copy(Blocks.BUDDING_AMETHYST).mapColor(COLOR_GREEN).lightLevel((state) -> 2))),
-            olivineCluster = registerBlock("olivine_cluster", () -> new AmethystClusterBlock(7, 3, Properties.copy(Blocks.AMETHYST_CLUSTER).mapColor(COLOR_GREEN).lightLevel((state) -> 3))),
+            olivineBlock = registerBlock("olivine_block", () -> new AmethystBlock(Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(COLOR_GREEN).lightLevel((state) -> 1))),
+            buddingOlivine = registerBlock("budding_olivine", () -> new BlockBuddingOlivine(Properties.ofFullCopy(Blocks.BUDDING_AMETHYST).mapColor(COLOR_GREEN).lightLevel((state) -> 2))),
+            olivineCluster = registerBlock("olivine_cluster", () -> new AmethystClusterBlock(7, 3, Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER).mapColor(COLOR_GREEN).lightLevel((state) -> 3))),
 
             //Extra Wood Blocks
             plankDesign = registerBlock("plank_design", () -> new BlockModPlanks(WOOD, SoundType.WOOD)),
@@ -265,18 +272,18 @@ public class BlockRegistry {
             streamleafButton = registerBlock("streamleaf_button", () -> new BlockModButton(BlockSetType.WARPED)),
             
             //Glowsprout
-    		glowsprout = registerBlock("glowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_CYAN), ConfiguredFeatureKeys.GLOWSPROUT, gelidite.get())),
-            glowsproutBulb = registerBlock("glowsprout_bulb", () -> new HalfTransparentBlock(Properties.copy(Blocks.OCHRE_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(DIAMOND))),
+    		glowsprout = registerBlock("glowsprout", () -> new FungusBlock(Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_CYAN), ConfiguredFeatureKeys.GLOWSPROUT, gelidite.get())),
+            glowsproutBulb = registerBlock("glowsprout_bulb", () -> new HalfTransparentBlock(Properties.ofFullCopy(Blocks.OCHRE_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(DIAMOND))),
             glowsproutStem = registerBlock("glowsprout_stem", () -> new BlockModStem(COLOR_LIGHT_BLUE)),
 			
 			//Lowsprout
-    		lowsprout = registerBlock("lowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_GREEN), ConfiguredFeatureKeys.LOWSPROUT, gelidite.get())),
-            lowsproutBulb = registerBlock("lowsprout_bulb", () -> new HalfTransparentBlock(Properties.copy(Blocks.VERDANT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(WARPED_WART_BLOCK))),
+    		lowsprout = registerBlock("lowsprout", () -> new FungusBlock(Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_GREEN), ConfiguredFeatureKeys.LOWSPROUT, gelidite.get())),
+            lowsproutBulb = registerBlock("lowsprout_bulb", () -> new HalfTransparentBlock(Properties.ofFullCopy(Blocks.VERDANT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(WARPED_WART_BLOCK))),
             lowsproutStem = registerBlock("lowsprout_stem", () -> new BlockModStem(GLOW_LICHEN)),
 			
 			//Slowsprout
-    		slowsprout = registerBlock("slowsprout", () -> new FungusBlock(Properties.copy(Blocks.WARPED_FUNGUS).mapColor(COLOR_MAGENTA), ConfiguredFeatureKeys.SLOWSPROUT, gelidite.get())),
-            slowsproutBulb = registerBlock("slowsprout_bulb", () -> new HalfTransparentBlock(Properties.copy(Blocks.PEARLESCENT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(ICE))),
+    		slowsprout = registerBlock("slowsprout", () -> new FungusBlock(Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_MAGENTA), ConfiguredFeatureKeys.SLOWSPROUT, gelidite.get())),
+            slowsproutBulb = registerBlock("slowsprout_bulb", () -> new HalfTransparentBlock(Properties.ofFullCopy(Blocks.PEARLESCENT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(ICE))),
             slowsproutStem = registerBlock("slowsprout_stem", () -> new BlockModStem(COLOR_PINK)),
 
             //Eucalyptus
@@ -439,7 +446,7 @@ public class BlockRegistry {
             goldBricks = registerBlock("gold_bricks", () -> new BlockMod(GOLD, 2, 6, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             arlemiteBricks = registerBlock("arlemite_bricks", () -> new BlockMod(COLOR_LIGHT_GREEN, 2, 6, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             greenBricks = registerBlock("green_bricks", () -> new BlockMod(COLOR_GREEN, 2, 6, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
-            darkstoneBricks = registerBlock("darkstone_bricks", () -> new BlockMod(Block.Properties.copy(darkstone.get()).strength(6, 1200).sound(SoundType.NETHER_BRICKS))),
+            darkstoneBricks = registerBlock("darkstone_bricks", () -> new BlockMod(Block.Properties.ofFullCopy(darkstone.get()).strength(6, 1200).sound(SoundType.NETHER_BRICKS))),
             aquatonicBricks = registerBlock("aquatonic_bricks", () -> new BlockMod(WARPED_NYLIUM, 2, 6, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             diamondBricks = registerBlock("diamond_bricks", () -> new BlockMod(DIAMOND, 2, 6, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
             lapisLazuliBricks = registerBlock("lapis_lazuli_bricks", () -> new BlockMod(LAPIS, 2, 6, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
@@ -578,8 +585,8 @@ public class BlockRegistry {
             arcaniumWallTorch = BLOCKS.register("arcanium_wall_torch", BlockModWallTorch::new),
             edenTorch = BLOCKS.register("eden_torch", BlockModTorch::new),
             edenWallTorch = BLOCKS.register("eden_wall_torch", BlockModWallTorch::new),
-            skeletonTorch = BLOCKS.register("skeleton_torch", () -> new TorchBlock(Properties.copy(Blocks.TORCH).sound(SoundType.BONE_BLOCK), FLAME)),
-            skeletonWallTorch = BLOCKS.register("skeleton_wall_torch", () -> new WallTorchBlock(Properties.copy(Blocks.WALL_TORCH).sound(SoundType.BONE_BLOCK), FLAME)),
+            skeletonTorch = BLOCKS.register("skeleton_torch", () -> new TorchBlock(Properties.ofFullCopy(Blocks.TORCH).sound(SoundType.BONE_BLOCK), FLAME)),
+            skeletonWallTorch = BLOCKS.register("skeleton_wall_torch", () -> new WallTorchBlock(Properties.ofFullCopy(Blocks.WALL_TORCH).sound(SoundType.BONE_BLOCK), FLAME)),
 
             //Stone Lamps
             moltenLamp = registerBlock("molten_lamp", () -> new BlockModLamp(COLOR_ORANGE, SoundType.GLASS)),
@@ -634,19 +641,19 @@ public class BlockRegistry {
             //Plants & Fungi
             brittleGrass = registerBlock("brittle_grass", BlockBrittleGrass::new),
             winterberryBush = registerBlock("winterberry_bush", BlockWinterberryBush::new),
-            winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.copy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
-            winterberryVinesHead = registerBlock("winterberry_vines_head", () -> new BlockWinterberryVinesHead(Properties.copy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
-            crimpetal = registerBlock("crimpetal", () -> new FlowerBlock(() -> MobEffects.FIRE_RESISTANCE, 7, Properties.copy(Blocks.POPPY).mapColor(COLOR_MAGENTA))),
-            roofbell = registerBlock("roofbell", () -> new FlowerBlock(() -> MobEffects.POISON, 14, Properties.copy(Blocks.RED_MUSHROOM).mapColor(COLOR_PINK))),
-            winterbloom = registerBlock("winterbloom", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 8, Properties.copy(Blocks.LILY_OF_THE_VALLEY).mapColor(SNOW))),
-            wispLeaf = registerBlock("wisp_leaf", () -> new FlowerBlock(() -> MobEffects.DOLPHINS_GRACE, 10, Properties.copy(Blocks.ALLIUM).mapColor(COLOR_LIGHT_GRAY))),
+            winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
+            winterberryVinesHead = registerBlock("winterberry_vines_head", () -> new BlockWinterberryVinesHead(Properties.ofFullCopy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
+            crimpetal = registerBlock("crimpetal", () -> new FlowerBlock(() -> MobEffects.FIRE_RESISTANCE, 7, Properties.ofFullCopy(Blocks.POPPY).mapColor(COLOR_MAGENTA))),
+            roofbell = registerBlock("roofbell", () -> new FlowerBlock(() -> MobEffects.POISON, 14, Properties.ofFullCopy(Blocks.RED_MUSHROOM).mapColor(COLOR_PINK))),
+            winterbloom = registerBlock("winterbloom", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 8, Properties.ofFullCopy(Blocks.LILY_OF_THE_VALLEY).mapColor(SNOW))),
+            wispLeaf = registerBlock("wisp_leaf", () -> new FlowerBlock(() -> MobEffects.DOLPHINS_GRACE, 10, Properties.ofFullCopy(Blocks.ALLIUM).mapColor(COLOR_LIGHT_GRAY))),
             globebrush = registerBlock("globebrush", () -> new BlockModDoublePlant(frozenGrass, SNOW)),
             thermoliage = registerBlock("thermoliage", () -> new BlockModDoublePlant(frozenGrass, COLOR_PINK)),
             arcanaBrush = registerBlock("arcana_brush", () -> new BlockTwilightGrass(arcaniteSand, ICE)),
             arcanaBush = registerBlock("arcana_bush", () -> new BlockTwilightGrass(arcaniteSand, TERRACOTTA_BLUE)),
             gemOfTheDunes = registerBlock("gem_of_the_dunes", () -> new BlockTwilightFlower(arcaniteSand, COLOR_MAGENTA), Rarity.EPIC),
-            arcaniteVinesBody = BLOCKS.register("arcanite_vines_body", () -> new BlockArcaniteVinesBody(Properties.copy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
-            arcaniteVinesHead = registerBlock("arcanite_vines_head", () -> new BlockArcaniteVinesHead(Properties.copy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
+            arcaniteVinesBody = BLOCKS.register("arcanite_vines_body", () -> new BlockArcaniteVinesBody(Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
+            arcaniteVinesHead = registerBlock("arcanite_vines_head", () -> new BlockArcaniteVinesHead(Properties.ofFullCopy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
             edenBrush = registerBlock("eden_brush", () -> new BlockTwilightGrass(edenGrass, COLOR_YELLOW)),
             sunBlossom = registerBlock("sun_blossom", () -> new BlockTwilightFlower(edenGrass, .9, .6, PLANT)),
             sunbloom = registerBlock("sunbloom", () -> new BlockTwilightFlower(edenGrass, TERRACOTTA_YELLOW)),
@@ -740,7 +747,7 @@ public class BlockRegistry {
             encagedZelus = registerBlock("encaged_zelus", () -> new BlockModMobCage(EntityRegistry.ZELUS.getId(), ItemRegistry.veilo.getId())),
 
             //Boss Spawners
-            calcifiedBrain = registerBlock("calcified_brain", () -> new BlockModMobCage(Properties.copy(Blocks.BONE_BLOCK), EntityRegistry.KITRA.getId(), ItemRegistry.liopleurodon_skull.getId(), new BlockPos(0, 5, 0))),
+            calcifiedBrain = registerBlock("calcified_brain", () -> new BlockModMobCage(Properties.ofFullCopy(Blocks.BONE_BLOCK), EntityRegistry.KITRA.getId(), ItemRegistry.liopleurodon_skull.getId(), new BlockPos(0, 5, 0))),
             sunstormSpawner = registerBlock("sunstorm_spawner", () -> new BlockModMobCage(EntityRegistry.SUNSTORM.getId(), ItemRegistry.eden_chunk.getId(), COLOR_YELLOW)),
             termasectSpawner = registerBlock("termasect_spawner", () -> new BlockModMobCage(EntityRegistry.TERMASECT.getId(), ItemRegistry.wildwood_chunk.getId(), COLOR_LIGHT_BLUE, new BlockPos(0, 11, 0))),
             eternalArcherSpawner = registerBlock("eternal_archer_spawner", () -> new BlockModMobCage(EntityRegistry.ETERNAL_ARCHER.getId(), ItemRegistry.apalachia_chunk.getId(), COLOR_MAGENTA)),
@@ -842,7 +849,7 @@ public class BlockRegistry {
             randomItemDropper = registerBlock("random_item_dropper", BlockRandomItemDropper::new);
 
     //Flower Pots
-    public static final RegistryObject<FlowerPotBlock>
+    public static final DeferredBlock<FlowerPotBlock>
             //Saplings
             divineSaplingPot = registerFlowerPot("divine_sapling_pot", divineSapling),
             shiverspineSaplingPot = registerFlowerPot("shiverspine_sapling_pot", shiverspineSapling),
@@ -890,24 +897,24 @@ public class BlockRegistry {
             //Bushes
             arcanaBushPot = registerFlowerPot("arcana_bush_pot", arcanaBush);
 
-    private static RegistryObject<FlowerPotBlock> registerFlowerPot(String name, Supplier<? extends Block> flower) {
-        return BLOCKS.register(name, () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, flower, BlockBehaviour.Properties.copy(Blocks.FLOWER_POT)));
+    private static DeferredBlock<FlowerPotBlock> registerFlowerPot(String name, Supplier<? extends Block> flower) {
+        return BLOCKS.register(name, () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, flower, BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     }
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block, Rarity.COMMON);
     }
-    private static <T extends Block> RegistryObject<T> registerBlock(String registryName, Supplier<T> block, Rarity rarity) {
-        RegistryObject<T> registeredBlock = BLOCKS.register(registryName, block);
+    private static <T extends Block> DeferredBlock<T> registerBlock(String registryName, Supplier<T> block, Rarity rarity) {
+            DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
         BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties().rarity(rarity)));
         return registeredBlock;
     }
-    private static <T extends Block> RegistryObject<T> registerFireResistantBlock(String registryName, Supplier<T> block) {
-        RegistryObject<T> registeredBlock = BLOCKS.register(registryName, block);
+    private static <T extends Block> DeferredBlock<T> registerFireResistantBlock(String registryName, Supplier<T> block) {
+            DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
         BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties().fireResistant()));
         return registeredBlock;
     }
-    private static <T extends Block> RegistryObject<T> registerWithRender(String registryName, Supplier<T> block, Rarity rarity) {
-        RegistryObject<T> registeredBlock = BLOCKS.register(registryName, block);
+    private static <T extends Block> DeferredBlock<T> registerWithRender(String registryName, Supplier<T> block, Rarity rarity) {
+            DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
         if(Objects.equals(registryName, "arcanium_extractor")) BLOCK_ITEMS.register(registryName, () -> new ItemArcaniumExtractor(registeredBlock.get(), new Item.Properties().rarity(rarity)));
         else if(Objects.equals(registryName, "bone_chest")) BLOCK_ITEMS.register(registryName, () -> new ItemBoneChest(registeredBlock.get(), new Item.Properties().rarity(rarity)));
         else if(Objects.equals(registryName, "demon_furnace")) BLOCK_ITEMS.register(registryName, () -> new ItemDemonFurnace(registeredBlock.get(), new Item.Properties().rarity(rarity)));
