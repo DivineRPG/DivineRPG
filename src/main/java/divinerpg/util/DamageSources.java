@@ -9,12 +9,12 @@ import net.minecraft.world.level.Level;
 
 public class DamageSources {
     public static final ResourceKey<DamageType>
-        ACID = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "acid")),
-        ARCANA = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "arcana")),
-        SPIKE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "spike")),
-        TAR = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "tar")),
-        TRAP = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "trap")),
-    	TURTLE = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(DivineRPG.MODID, "turtle"));
+        ACID = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "acid")),
+        ARCANA = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana")),
+        SPIKE = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "spike")),
+        TAR = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "tar")),
+        TRAP = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "trap")),
+    	TURTLE = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "turtle"));
     public static DamageSource source(Level level, ResourceKey<DamageType> id) {
         final Registry<DamageType> registry = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE);
         final Holder.Reference<DamageType> damage = registry.getHolderOrThrow(id);
