@@ -19,9 +19,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
@@ -115,7 +114,7 @@ public class ItemShickaxe extends DiggerItem {
     }
     @SuppressWarnings("deprecation")
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency((int)speed));
         tooltip.add(LocalizeUtils.harvestLevel(getTier().getLevel()));
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);

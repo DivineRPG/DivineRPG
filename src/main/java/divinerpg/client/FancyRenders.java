@@ -4,9 +4,9 @@ import divinerpg.DivineRPG;
 import divinerpg.client.renders.layer.PlayerHatRender;
 import divinerpg.client.renders.tiles.*;
 import divinerpg.registries.BlockEntityRegistry;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.GrassColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -46,6 +46,6 @@ public class FancyRenders {
     	DivineRPG.LOGGER.info("registering block color handlers");
     	event.register((state, getter, pos, index) -> {
             return getter != null && pos != null ? BiomeColors.getAverageGrassColor(getter, pos) : GrassColor.getDefaultColor();
-        }, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass")));
+        }, BlockRegistry.frozenGrass.get());
 	}
 }

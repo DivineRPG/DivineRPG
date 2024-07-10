@@ -7,10 +7,10 @@ import net.minecraft.world.level.material.MapColor;
 public class BlockModDoor extends DoorBlock {
 
 	public BlockModDoor(MapColor color, BlockSetType type) {
-		super(Properties.copy(Blocks.OAK_DOOR).mapColor(color), type);
+		super(type, Properties.ofFullCopy(Blocks.OAK_DOOR).mapColor(color));
 	}
 
 	public BlockModDoor(MapColor color) {
-		super(Properties.copy(Blocks.IRON_DOOR).mapColor(color), BlockSetType.STONE);
+		super(BlockSetType.STONE, Properties.ofFullCopy(Blocks.IRON_DOOR).mapColor(color));
 	}
 }

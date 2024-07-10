@@ -1,11 +1,9 @@
 package divinerpg.entities.eden;
 
-import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineTameable;
 import divinerpg.registries.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
@@ -13,7 +11,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
-import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 
 public class EntityGlinthop extends EntityDivineTameable {
@@ -50,7 +47,7 @@ public class EntityGlinthop extends EntityDivineTameable {
             remove(RemovalReason.KILLED);
         }
     }
-    @Override protected boolean isTamingFood(ItemStack item) {return item.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_sparkles")));}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(ItemRegistry.eden_sparkles.get());}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.GLINTHOP.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GLINTHOP_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.GLINTHOP_HURT.get();}

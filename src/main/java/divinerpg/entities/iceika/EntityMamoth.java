@@ -4,14 +4,13 @@ import java.util.UUID;
 
 import javax.annotation.Nullable;
 
-import divinerpg.DivineRPG;
 import divinerpg.entities.ai.*;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.TimeUtil;
@@ -28,22 +27,21 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityMamoth extends Animal implements NeutralMob {
 	private static final EntityDataAccessor<Boolean> WANTS_TO_FLY = SynchedEntityData.defineId(EntityMamoth.class, EntityDataSerializers.BOOLEAN);
-	public static final Ingredient FOOD = Ingredient.of(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_grass")));
+	public static final Ingredient FOOD = Ingredient.of(BlockRegistry.brittleGrass.get());
 	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 	protected @Nullable Vec3 pathfindPos;
 	private UUID persistentAngerTarget;
 	private int remainingPersistentAngerTime;
 	public EntityMamoth(EntityType<? extends EntityMamoth> type, Level level) {
 		super(type, level);
-		setPathfindingMalus(BlockPathTypes.POWDER_SNOW, -1F);
-		setPathfindingMalus(BlockPathTypes.DANGER_POWDER_SNOW, -1F);
+		setPathfindingMalus(PathType.POWDER_SNOW, -1F);
+		setPathfindingMalus(PathType.DANGER_POWDER_SNOW, -1F);
 	}
 	@Override
 	protected void registerGoals() {

@@ -1,9 +1,8 @@
 package divinerpg.blocks.iceika;
 
 import com.google.common.annotations.VisibleForTesting;
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
@@ -20,7 +19,6 @@ import net.minecraft.world.level.material.*;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
@@ -277,7 +275,7 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
     }
 
     private static void createDripstone(LevelAccessor p_154088_, BlockPos p_154089_, Direction p_154090_, DripstoneThickness p_154091_) {
-        BlockState blockstate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle")).defaultBlockState().setValue(TIP_DIRECTION, p_154090_).setValue(THICKNESS, p_154091_).setValue(WATERLOGGED, Boolean.valueOf(p_154088_.getFluidState(p_154089_).getType() == Fluids.WATER));
+        BlockState blockstate = BlockRegistry.icicle.get().defaultBlockState().setValue(TIP_DIRECTION, p_154090_).setValue(THICKNESS, p_154091_).setValue(WATERLOGGED, Boolean.valueOf(p_154088_.getFluidState(p_154089_).getType() == Fluids.WATER));
         p_154088_.setBlock(p_154089_, blockstate, 3);
     }
 
@@ -303,7 +301,7 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
         } else {
             Direction direction = p_154131_.getValue(TIP_DIRECTION);
             BiPredicate<BlockPos, BlockState> bipredicate = (p_202023_, p_202024_) -> {
-                return p_202024_.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle"))) && p_202024_.getValue(TIP_DIRECTION) == direction;
+                return p_202024_.is(BlockRegistry.icicle.get()) && p_202024_.getValue(TIP_DIRECTION) == direction;
             };
             return findBlockVertical(p_154132_, p_154133_, direction.getAxisDirection(), bipredicate, (p_154168_) -> {
                 return isTip(p_154168_, p_154135_);
@@ -363,7 +361,7 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
     }
 
     private static boolean isTip(BlockState p_154154_, boolean p_154155_) {
-        if (!p_154154_.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle")))) {
+        if (!p_154154_.is(BlockRegistry.icicle.get())) {
             return false;
         } else {
             DripstoneThickness dripstonethickness = p_154154_.getValue(THICKNESS);
@@ -384,7 +382,7 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
     }
 
     private static boolean isStalactiteStartPos(BlockState p_154204_, LevelReader p_154205_, BlockPos p_154206_) {
-        return isStalactite(p_154204_) && !p_154205_.getBlockState(p_154206_.above()).is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle")));
+        return isStalactite(p_154204_) && !p_154205_.getBlockState(p_154206_.above()).is(BlockRegistry.icicle.get());
     }
 
     public boolean isPathfindable(BlockState p_154112_, BlockGetter p_154113_, BlockPos p_154114_, PathComputationType p_154115_) {
@@ -392,11 +390,11 @@ public class BlockIcicle extends Block implements Fallable, SimpleWaterloggedBlo
     }
 
     private static boolean isPointedDripstoneWithDirection(BlockState p_154208_, Direction p_154209_) {
-        return p_154208_.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle"))) && p_154208_.getValue(TIP_DIRECTION) == p_154209_;
+        return p_154208_.is(BlockRegistry.icicle.get()) && p_154208_.getValue(TIP_DIRECTION) == p_154209_;
     }
 
     private static boolean canGrow(BlockState p_154141_, BlockState p_154142_) {
-        return p_154141_.is(BlockTags.ICE) || p_154142_.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "icicle")));
+        return p_154141_.is(BlockTags.ICE) || p_154142_.is(BlockRegistry.icicle.get());
     }
 
 

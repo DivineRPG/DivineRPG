@@ -10,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemArcanaPotion extends ItemModFood {
@@ -31,8 +31,9 @@ public class ItemArcanaPotion extends ItemModFood {
     @Override public UseAnim getUseAnimation(ItemStack stack) {return UseAnim.DRINK;}
     @Override public int getUseDuration(ItemStack par1ItemStack) {return 20;}
     @Override public boolean isFoil(ItemStack stack) {return true;}
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.arcanaRegen(amountToAdd));
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

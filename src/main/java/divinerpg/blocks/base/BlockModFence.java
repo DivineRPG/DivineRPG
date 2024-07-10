@@ -8,7 +8,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public class BlockModFence extends FenceBlock {
     public BlockModFence(MapColor color, SoundType sound) {
-        super(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).mapColor(color).sound(sound));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE).mapColor(color).sound(sound));
     }
 
     @Override

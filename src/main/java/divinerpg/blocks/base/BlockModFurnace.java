@@ -24,7 +24,7 @@ import java.util.function.Supplier;
 public final class BlockModFurnace extends FurnaceBlock {
 	public final Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntityType;
     public BlockModFurnace(Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity, MapColor color) {
-        super(Properties.copy(Blocks.FURNACE).mapColor(color));
+        super(Properties.ofFullCopy(Blocks.FURNACE).mapColor(color));
         blockEntityType = blockEntity;
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
     }

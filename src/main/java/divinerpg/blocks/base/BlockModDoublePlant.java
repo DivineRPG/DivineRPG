@@ -20,13 +20,13 @@ public class BlockModDoublePlant extends DoublePlantBlock {
     private final Supplier<Block> grassSupplier;
 
     public BlockModDoublePlant(Supplier<Block> grassSupplier, MapColor color, SoundType sound) {
-        super(BlockBehaviour.Properties.copy(Blocks.TALL_GRASS).mapColor(color).sound(sound));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS).mapColor(color).sound(sound));
         this.grassSupplier = grassSupplier;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
     public BlockModDoublePlant(Supplier<Block> grassSupplier, MapColor color) {
-        super(BlockBehaviour.Properties.copy(Blocks.ROSE_BUSH).mapColor(color));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH).mapColor(color));
         this.grassSupplier = grassSupplier;
         this.registerDefaultState(this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER));
     }

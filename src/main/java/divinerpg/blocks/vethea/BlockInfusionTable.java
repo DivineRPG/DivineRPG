@@ -1,11 +1,10 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockMod;
 import divinerpg.client.menu.InfusionTableMenu;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -16,7 +15,6 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 
@@ -44,7 +42,7 @@ public class BlockInfusionTable extends BlockMod {
     public MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         return new SimpleMenuProvider((i, inventory, player) -> {
             return new InfusionTableMenu(i, inventory, ContainerLevelAccess.create(level, pos));
-        }, Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table")).getDescriptionId()));
+        }, Component.translatable(BlockRegistry.infusionTable.get().getDescriptionId()));
     }
 
 }

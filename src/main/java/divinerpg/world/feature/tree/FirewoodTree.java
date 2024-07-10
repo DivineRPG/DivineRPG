@@ -1,17 +1,15 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.*;
 import net.minecraft.core.BlockPos.MutableBlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class FirewoodTree extends SkythernTree {
 	protected Direction direction;
@@ -45,7 +43,7 @@ public class FirewoodTree extends SkythernTree {
 	}
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dream_stone"))) || state.is(BlockTags.DIRT);
+		return state.is(BlockRegistry.dreamStone.get()) || state.is(BlockTags.DIRT);
 	}
 	protected void placeBigTree(TreeConfig config, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		int treeHeight = 5 + random.nextInt(8);

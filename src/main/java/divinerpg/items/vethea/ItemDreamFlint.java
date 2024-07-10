@@ -15,8 +15,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemDreamFlint extends ItemVethean {
@@ -62,8 +61,8 @@ public class ItemDreamFlint extends ItemVethean {
 		} return InteractionResult.FAIL;
 	}
 	@OnlyIn(Dist.CLIENT)
-	@Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+	@Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
 		tooltip.add(LocalizeUtils.i18n("dream_flint"));
-		super.appendHoverText(stack, worldIn, tooltip, flagIn);
+		super.appendHoverText(stack, context, tooltip, flagIn);
 	}
 }

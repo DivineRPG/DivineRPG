@@ -11,8 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemModShotgun extends ItemModRanged {
@@ -24,15 +23,15 @@ public class ItemModShotgun extends ItemModRanged {
         RandomSource rand = world.random;
         for(int i = 0; i < projectileAmount; i++) {
             ThrowableProjectile entity = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, bulletType);
-            entity.shootFromRotation(player, player.xRot + ((rand.nextFloat() - .5F) * 3.5F), player.yRot + ((rand.nextFloat() - .5F) * 3.5F), 0, 1.5F, 1);
+            entity.shootFromRotation(player, player.getXRot() + ((rand.nextFloat() - .5F) * 3.5F), player.getYRot() + ((rand.nextFloat() - .5F) * 3.5F), 0, 1.5F, 1);
             entity.moveTo(entity.getX() + (rand.nextDouble() - .5), entity.getY() + (rand.nextDouble() - .5), entity.getZ() + (rand.nextDouble() - .5));
             world.addFreshEntity(entity);
         }
     }
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) tooltip.add(LocalizeUtils.rangedDam(projectileAmount + "x" + (int)bulletType.getDamage()));
         if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.ARCANA) tooltip.add(LocalizeUtils.arcanaDam(projectileAmount + "x" + (int)bulletType.getDamage()));
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

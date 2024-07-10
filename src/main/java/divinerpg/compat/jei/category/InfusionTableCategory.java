@@ -2,6 +2,7 @@ package divinerpg.compat.jei.category;
 
 import divinerpg.DivineRPG;
 import divinerpg.recipe.InfusionTableRecipe;
+import divinerpg.registries.BlockRegistry;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -13,7 +14,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class InfusionTableCategory
         implements IRecipeCategory<InfusionTableRecipe>
@@ -27,7 +27,7 @@ public class InfusionTableCategory
 
     public InfusionTableCategory(IGuiHelper helper) {
         this.back = helper.createDrawable(TEXTURE, 1, 1, 166, 76);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table"))));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.infusionTable.asItem()));
         helper.createCraftingGridHelper();
     }
     @Override
@@ -37,7 +37,7 @@ public class InfusionTableCategory
 
     @Override
     public Component getTitle() {
-        return Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "infusion_table")).getDescriptionId());
+        return Component.translatable(BlockRegistry.infusionTable.get().getDescriptionId());
     }
 
     @Override

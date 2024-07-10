@@ -7,10 +7,10 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 public class BlockModWallTorch extends WallTorchBlock {
-    public BlockModWallTorch() {super(Properties.copy(Blocks.WALL_TORCH), ParticleTypes.FLAME);}
+    public BlockModWallTorch() {super(ParticleTypes.FLAME, Properties.ofFullCopy(Blocks.WALL_TORCH));}
     @OnlyIn(Dist.CLIENT)
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         double d0 = pos.getX() + .5;

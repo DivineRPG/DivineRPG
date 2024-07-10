@@ -19,7 +19,7 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 
 public class BlockModProximitySpawner extends BaseEntityBlock {
 	public BlockModProximitySpawner() {
-		super(Block.Properties.copy(Blocks.SPAWNER));
+		super(Properties.ofFullCopy(Blocks.SPAWNER));
 		registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.ENABLED, false));
 	}
 	@Override

@@ -1,20 +1,18 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class SkythernTree extends DivineTree {
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_dirt"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_grass")));
+		return state.is(BlockRegistry.skythernDirt.get()) || state.is(BlockRegistry.skythernGrass.get());
 	}
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int width, int offset) {
 		wideGrow(world, pos, state, width, offset, false);

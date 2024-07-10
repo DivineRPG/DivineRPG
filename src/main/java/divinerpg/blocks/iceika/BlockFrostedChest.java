@@ -24,7 +24,7 @@ import javax.annotation.*;
 
 public class BlockFrostedChest extends BlockModChest {
     public BlockFrostedChest() {
-        super(Properties.copy(Blocks.ICE).strength(2.5F).randomTicks().noOcclusion(), () -> BlockEntityRegistry.FROSTED_CHEST.get());
+        super(Properties.ofFullCopy(Blocks.ICE).strength(2.5F).randomTicks().noOcclusion(), () -> BlockEntityRegistry.FROSTED_CHEST.get());
     }
     @Override
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {

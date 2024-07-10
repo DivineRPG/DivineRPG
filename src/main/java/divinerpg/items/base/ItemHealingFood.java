@@ -6,15 +6,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemHealingFood extends ItemModFood {
 	int healAmount;
     public ItemHealingFood(FoodProperties food) {
         super(food);
-        healAmount = food.getNutrition();
+        healAmount = food.nutrition();
     }
     @Override public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity entity) {
         if(entity.getHealth() < entity.getMaxHealth()) entity.heal(healAmount);
@@ -22,8 +21,8 @@ public class ItemHealingFood extends ItemModFood {
     }
     @Override public int getUseDuration(ItemStack stack) {return 16;}
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.healthHeal((int)(healAmount / 2)));
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(LocalizeUtils.healthHeal(healAmount / 2));
+        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

@@ -9,7 +9,7 @@ public class BlockModSlab extends SlabBlock {
     private int flammability;
     private int fireSpread;
     public BlockModSlab(Block base) {
-        super(Properties.copy(base));
+        super(Properties.ofFullCopy(base));
         if(base instanceof BlockModPlanks) {
             flammability = BlockModPlanks.flammability;
             fireSpread = BlockModPlanks.fireSpread;

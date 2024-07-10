@@ -1,13 +1,11 @@
 package divinerpg.entities.vethea;
 
 import com.google.common.collect.ImmutableList;
-import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityGifterNPC;
-import net.minecraft.resources.ResourceLocation;
+import divinerpg.registries.ItemRegistry;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 
@@ -20,7 +18,7 @@ public class EntityMysteriousManLayer2 extends EntityGifterNPC {
     }
     @Override
     protected ItemStack getGift() {
-        return new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "darven_lump")), 6);
+        return new ItemStack(ItemRegistry.darven_lump.get(), 6);
     }
     @Override
     protected ArrayList<String> getMessages() {

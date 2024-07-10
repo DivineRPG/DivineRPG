@@ -8,8 +8,7 @@ import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemDivineAccumulator extends ItemMod {
@@ -36,10 +35,11 @@ public class ItemDivineAccumulator extends ItemMod {
 	    player.playSound(SoundRegistry.DIVINE_ACCUMULATOR.get(), 1, 1);
     	return InteractionResultHolder.success(player.getItemInHand(hand));
     }
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> list, TooltipFlag flagIn) {
-        list.add(LocalizeUtils.i18n("divine_accumulator.launch"));
-        list.add(LocalizeUtils.i18n("divine_accumulator.fall"));
-        super.appendHoverText(stack, worldIn, list, flagIn);
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
+        tooltip.add(LocalizeUtils.i18n("divine_accumulator.launch"));
+        tooltip.add(LocalizeUtils.i18n("divine_accumulator.fall"));
+        super.appendHoverText(stack, context, tooltip, flagIn);
         stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

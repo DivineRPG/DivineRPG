@@ -1,28 +1,25 @@
 package divinerpg.blocks.vanilla;
 
 import java.util.Optional;
-
-import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockMod;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockHellfireSponge extends BlockMod {
 	public BlockHellfireSponge() {
-		super(Block.Properties.copy(Blocks.SPONGE).mapColor(MapColor.FIRE));
+		super(Block.Properties.ofFullCopy(Blocks.SPONGE).mapColor(MapColor.FIRE));
 	}
 	@Override
 	public void onPlace(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {
 		if(tryRemoveWater(level, pos.above(), 64) | tryRemoveWater(level, pos.below(), 64) | tryRemoveWater(level, pos.north(), 64) | tryRemoveWater(level, pos.south(), 64) | tryRemoveWater(level, pos.east(), 64) | tryRemoveWater(level, pos.west(), 64)) {
-			level.setBlock(pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cold_hellfire_sponge")).defaultBlockState(), UPDATE_ALL);
+			level.setBlock(pos, BlockRegistry.coldHellfireSponge.get().defaultBlockState(), UPDATE_ALL);
 			level.playLocalSound(pos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1F, 1F, false);
 		}
 	}

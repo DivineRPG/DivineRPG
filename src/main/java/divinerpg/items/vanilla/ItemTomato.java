@@ -21,7 +21,7 @@ public class ItemTomato extends ItemModFood {
             if(!player.isCreative()) stack.shrink(1);
             if(!world.isClientSide) {
                 EntityShooterBullet bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, BulletType.TOMATO_SHOT);
-                bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 1.5F, 1);
+                bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5F, 1);
                 world.addFreshEntity(bullet);
             } player.awardStat(Stats.ITEM_USED.get(this));
             if(!player.isCreative()) stack.shrink(1);

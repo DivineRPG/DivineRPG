@@ -16,7 +16,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
+
 import java.util.List;
 
 public class ItemArmorPouch extends ItemMod {
@@ -81,13 +82,13 @@ public class ItemArmorPouch extends ItemMod {
 		return InteractionResultHolder.success(itemstack);
 	}
 	@OnlyIn(Dist.CLIENT)
-	@Override public void appendHoverText(ItemStack itemstack, Level level, List<Component> list, TooltipFlag tooltip) {
-		CompoundTag itemTag = itemstack.getOrCreateTag();
+	@Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
+		CompoundTag itemTag = stack.getOrCreateTag();
 		ItemStack helmet = ItemStack.of(itemTag.getCompound(TAG_HELMET)), chestplate = ItemStack.of(itemTag.getCompound(TAG_CHESTPLATE)), leggings = ItemStack.of(itemTag.getCompound(TAG_LEGGINGS)), boots = ItemStack.of(itemTag.getCompound(TAG_BOOTS));
-		if(!helmet.isEmpty()) list.add(Component.translatable("tooltip.divinerpg.armor_pouch.helmet").append(helmet.getHoverName()).withStyle(ChatFormatting.WHITE));
-		if(!chestplate.isEmpty()) list.add(Component.translatable("tooltip.divinerpg.armor_pouch.chestplate").append(chestplate.getHoverName()).withStyle(ChatFormatting.WHITE));
-		if(!leggings.isEmpty()) list.add(Component.translatable("tooltip.divinerpg.armor_pouch.leggings").append(leggings.getHoverName()).withStyle(ChatFormatting.WHITE));
-		if(!boots.isEmpty()) list.add(Component.translatable("tooltip.divinerpg.armor_pouch.boots").append(boots.getHoverName()).withStyle(ChatFormatting.WHITE));
-		super.appendHoverText(itemstack, level, list, tooltip);
+		if(!helmet.isEmpty()) tooltip.add(Component.translatable("tooltip.divinerpg.armor_pouch.helmet").append(helmet.getHoverName()).withStyle(ChatFormatting.WHITE));
+		if(!chestplate.isEmpty()) tooltip.add(Component.translatable("tooltip.divinerpg.armor_pouch.chestplate").append(chestplate.getHoverName()).withStyle(ChatFormatting.WHITE));
+		if(!leggings.isEmpty()) tooltip.add(Component.translatable("tooltip.divinerpg.armor_pouch.leggings").append(leggings.getHoverName()).withStyle(ChatFormatting.WHITE));
+		if(!boots.isEmpty()) tooltip.add(Component.translatable("tooltip.divinerpg.armor_pouch.boots").append(boots.getHoverName()).withStyle(ChatFormatting.WHITE));
+		super.appendHoverText(stack, context, tooltip, flagIn);
 	}
 }

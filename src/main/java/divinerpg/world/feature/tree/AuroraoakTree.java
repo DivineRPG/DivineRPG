@@ -1,17 +1,15 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class AuroraoakTree extends DivineTree {
 	protected void gradualGrowth(WorldGenLevel level, RandomSource random, MutableBlockPos pos, BlockState log, BlockState leaves, int maxY, float curvatureChance, float splitChance, boolean replace) {
@@ -24,7 +22,7 @@ public class AuroraoakTree extends DivineTree {
 	}
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockTags.SNOW) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_grass"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_dirt"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_stone"))) || state.is(Blocks.PACKED_ICE) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cobbled_frozen_stone")));
+		return state.is(BlockTags.SNOW) || state.is(BlockRegistry.frozenGrass.get()) || state.is(BlockRegistry.frozenDirt.get()) || state.is(BlockRegistry.frozenStone.get()) || state.is(Blocks.PACKED_ICE) || state.is(BlockRegistry.cobbledFrozenStone.get());
 	}
 	@Override
 	public boolean hasSpace(BlockState state) {

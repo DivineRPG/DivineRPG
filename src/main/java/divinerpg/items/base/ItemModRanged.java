@@ -18,8 +18,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.*;
+
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -100,8 +101,8 @@ public class ItemModRanged extends ItemMod {
         if(this.isAmmo(player.getItemInHand(InteractionHand.OFF_HAND))) return player.getItemInHand(InteractionHand.OFF_HAND);
         else if(this.isAmmo(player.getItemInHand(InteractionHand.MAIN_HAND))) return player.getItemInHand(InteractionHand.MAIN_HAND);
         else {
-            for(int i = 0; i < player.inventory.getContainerSize(); ++i) {
-                ItemStack itemstack = player.inventory.getItem(i);
+            for(int i = 0; i < player.getInventory().getContainerSize(); ++i) {
+                ItemStack itemstack = player.getInventory().getItem(i);
                 if(this.isAmmo(itemstack)) return itemstack;
             } return null;
         }
@@ -144,13 +145,13 @@ public class ItemModRanged extends ItemMod {
         else if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.RETURN) bullet = new EntityDisk(EntityRegistry.DISK.get(), player, world, bulletType);
         else if(bulletType.getParticle() != ParticleTypes.BUBBLE) bullet = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), world, player, bulletType);
         else bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, bulletType);
-        bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 1.5F, .5F);
+        bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5F, .5F);
         world.addFreshEntity(bullet);
     }
     protected void doPreUsageEffects(Level world, Player player) {if(onUseDamage > 0) player.hurt(DamageSources.source(world, DamageSources.ARCANA), onUseDamage);}
     protected void doPostUsageEffects(Level world, Player player) {}
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         if(bulletType != null) {
             if(!(this instanceof ItemModShotgun)) {
                 if(bulletType.getBulletDamageType() == BulletType.BulletDamageType.ARCANA) tooltip.add(LocalizeUtils.arcanaDam((int)bulletType.getDamage()));
@@ -166,7 +167,7 @@ public class ItemModRanged extends ItemMod {
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SLOW) tooltip.add(LocalizeUtils.slow(bulletType.effectSec));
             if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.SPLIT) tooltip.add(LocalizeUtils.splitShots(bulletType.effectPower + 1));
         } if(onUseDamage > 0) tooltip.add(LocalizeUtils.onUseDam(onUseDamage));
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
         if(!(this instanceof ItemModThrowable)) {
             tooltip.add(needsAmmo() ? LocalizeUtils.ammo(ammoSupplier) : LocalizeUtils.infiniteAmmo());
             if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);

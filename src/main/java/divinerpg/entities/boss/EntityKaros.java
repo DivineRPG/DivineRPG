@@ -1,12 +1,10 @@
 package divinerpg.entities.boss;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.vethea.*;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.EntityDimensions;
@@ -19,7 +17,6 @@ import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
@@ -118,9 +115,9 @@ public class EntityKaros extends EntityDivineBoss {
                     for (int z = -40; z < 40; z++) {
                         BlockPos currentPos = this.blockPosition().offset(x, y, z);
                         Block currentBlock = this.level().getBlockState(currentPos).getBlock();
-                        if (currentBlock == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "heliotic_beam"))) {
+                        if (currentBlock == BlockRegistry.helioticBeam.get()) {
                             ceiling.add(currentPos);
-                        } else if (currentBlock == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karos_dispenser"))) {
+                        } else if (currentBlock == BlockRegistry.karosDispenser.get()) {
                             cannons.add(currentPos);
                         }
                     }

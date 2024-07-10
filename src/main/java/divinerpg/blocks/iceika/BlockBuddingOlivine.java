@@ -1,14 +1,12 @@
 package divinerpg.blocks.iceika;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockBuddingOlivine extends AmethystBlock {
 	public BlockBuddingOlivine(Properties p) {
@@ -20,7 +18,7 @@ public class BlockBuddingOlivine extends AmethystBlock {
 	        Direction direction = Direction.values()[random.nextInt(Direction.values().length)];
 	        BlockPos blockpos = pos.relative(direction);
 	        BlockState blockstate = level.getBlockState(blockpos);
-	        if(canClusterGrowAtState(blockstate))  level.setBlockAndUpdate(blockpos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "olivine_cluster")).defaultBlockState().setValue(AmethystClusterBlock.FACING, direction).setValue(AmethystClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER)));
+	        if(canClusterGrowAtState(blockstate))  level.setBlockAndUpdate(blockpos, BlockRegistry.olivineCluster.get().defaultBlockState().setValue(AmethystClusterBlock.FACING, direction).setValue(AmethystClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER)));
 		}
 	}
 	public static boolean canClusterGrowAtState(BlockState state) {

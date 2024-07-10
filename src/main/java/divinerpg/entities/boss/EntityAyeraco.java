@@ -1,6 +1,5 @@
 package divinerpg.entities.boss;
 
-import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
@@ -8,7 +7,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
@@ -26,7 +24,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
@@ -143,12 +140,12 @@ public class EntityAyeraco extends EntityDivineBoss {
 	public byte getVariant() {
 		if(entityData.get(VARIANT) == 6) {
 			BlockState block = level().getBlockState(beam);
-			if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_blue")))) return 0;
-			else if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_green")))) return 1;
-			else if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_pink")))) return 2;
-			else if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_purple")))) return 3;
-			else if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_red")))) return 4;
-			else if(block.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_yellow")))) return 5;
+			if(block.is(BlockRegistry.ayeracoBeamBlue.get())) return 0;
+			else if(block.is(BlockRegistry.ayeracoBeamGreen.get())) return 1;
+			else if(block.is(BlockRegistry.ayeracoBeamPink.get())) return 2;
+			else if(block.is(BlockRegistry.ayeracoBeamPurple.get())) return 3;
+			else if(block.is(BlockRegistry.ayeracoBeamRed.get())) return 4;
+			else if(block.is(BlockRegistry.ayeracoBeamYellow.get())) return 5;
 		} return entityData.get(VARIANT);
 	}
 //	@Override

@@ -2,18 +2,16 @@ package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import divinerpg.DivineRPG;
 import divinerpg.client.models.twilight.ModelTwilightArcher;
 import divinerpg.entities.mortum.EntityTwilightArcher;
+import divinerpg.registries.ItemRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class TwilightArcherLayer extends RenderLayer<EntityTwilightArcher, ModelTwilightArcher<EntityTwilightArcher>> {
@@ -32,7 +30,7 @@ public class TwilightArcherLayer extends RenderLayer<EntityTwilightArcher, Model
         matrixStackIn.mulPose(Axis.YN.rotationDegrees(-20));
         matrixStackIn.mulPose(Axis.ZN.rotationDegrees(45));
 
-        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_bow")).getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
+        Minecraft.getInstance().getItemRenderer().renderStatic(entitylivingbaseIn, ItemRegistry.twilight_bow.get().getDefaultInstance(), ItemDisplayContext.NONE, false, matrixStackIn, bufferIn, entitylivingbaseIn.level(), packedLightIn, LivingEntityRenderer.getOverlayCoords(entitylivingbaseIn, 0.0F), 0);
 
         matrixStackIn.popPose();
     }

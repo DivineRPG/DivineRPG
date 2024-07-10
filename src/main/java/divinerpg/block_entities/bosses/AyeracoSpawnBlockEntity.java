@@ -1,6 +1,5 @@
 package divinerpg.block_entities.bosses;
 
-import divinerpg.DivineRPG;
 import divinerpg.entities.boss.EntityAyeraco;
 import divinerpg.registries.*;
 import divinerpg.block_entities.*;
@@ -9,13 +8,11 @@ import net.minecraft.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
 import net.minecraft.network.chat.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
     /**
@@ -42,27 +39,27 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
             	block.purpleBeam = getBeamLocation(level, pos, -15, 0);
             	block.redBeam = getBeamLocation(level, pos, -8, -12);
             	block.yellowBeam = getBeamLocation(level, pos, 8, -12);
-                level.setBlock(block.blueBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_blue")).defaultBlockState(), 3);
+                level.setBlock(block.blueBeam, BlockRegistry.ayeracoBeamBlue.get().defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.BLUE);
                 break;
             case 500:
-            	level.setBlock(block.greenBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_green")).defaultBlockState(), 3);
+            	level.setBlock(block.greenBeam, BlockRegistry.ayeracoBeamGreen.get().defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.GREEN);
                 break;
             case 400:
-            	level.setBlock(block.pinkBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_pink")).defaultBlockState(), 3);
+            	level.setBlock(block.pinkBeam, BlockRegistry.ayeracoBeamPink.get().defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.LIGHT_PURPLE);
                 break;
             case 300:
-            	level.setBlock(block.purpleBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_purple")).defaultBlockState(), 3);
+            	level.setBlock(block.purpleBeam, BlockRegistry.ayeracoBeamPurple.get().defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.DARK_PURPLE);
                 break;
             case 200:
-            	level.setBlock(block.redBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_red")).defaultBlockState(), 3);
+            	level.setBlock(block.redBeam, BlockRegistry.ayeracoBeamRed.get().defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.RED);
                 break;
             case 100:
-            	level.setBlock(block.yellowBeam, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_beam_yellow")).defaultBlockState(), 3);
+            	level.setBlock(block.yellowBeam, BlockRegistry.ayeracoBeamYellow.get().defaultBlockState(), 3);
             	logAyeracoSpawn(level, ChatFormatting.YELLOW, "yellow");
             	break;
             case 0:

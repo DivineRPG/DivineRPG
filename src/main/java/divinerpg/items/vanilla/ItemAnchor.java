@@ -12,8 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemAnchor extends ItemModSword {
@@ -28,16 +27,16 @@ public class ItemAnchor extends ItemModSword {
         if(!world.isClientSide) {
             ThrowableProjectile bullet;
             bullet = new EntityShooterBullet(EntityRegistry.SHOOTER_BULLET.get(), player, world, bulletType);
-            bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 1.5F, .5F);
+            bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5F, .5F);
             world.addFreshEntity(bullet);
         }
         player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResultHolder.consume(stack);
     }
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.rangedDam((int)bulletType.getDamage()));
         tooltip.add(LocalizeUtils.infiniteAmmo());
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

@@ -6,9 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
@@ -78,7 +76,7 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
         return armorInfo.FullSetPerks;
     }
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         if(armorInfo != null) tooltip.addAll(armorInfo.asString());
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }

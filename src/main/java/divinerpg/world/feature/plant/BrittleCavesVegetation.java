@@ -1,11 +1,10 @@
 package divinerpg.world.feature.plant;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.world.ConfiguredFeatureKeys;
 import divinerpg.world.placement.Underground;
 import net.minecraft.core.*;
 import net.minecraft.core.BlockPos.MutableBlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -14,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.*;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BrittleCavesVegetation extends Feature<NoneFeatureConfiguration> {
 	public BrittleCavesVegetation() {super(NoneFeatureConfiguration.CODEC);}
@@ -32,13 +30,13 @@ public class BrittleCavesVegetation extends Feature<NoneFeatureConfiguration> {
 				if(state.is(Blocks.MOSS_BLOCK)) {
 					if(level.getBlockState(mut.move(Direction.UP)).isAir()) {
 						if(random.nextBoolean()) setBlock(level, mut, Blocks.MOSS_CARPET.defaultBlockState());
-						else if(random.nextBoolean()) setBlock(level, mut, Blocks.GRASS.defaultBlockState());
+						else if(random.nextBoolean()) setBlock(level, mut, Blocks.SHORT_GRASS.defaultBlockState());
 						else if(random.nextBoolean()) setBlock(level, mut, Blocks.AZALEA.defaultBlockState());
 						else if(random.nextBoolean()) setBlock(level, mut, Blocks.FLOWERING_AZALEA.defaultBlockState());
 						else setBlock(level, mut, Blocks.BLUE_ORCHID.defaultBlockState());
 					} else return false;
 				} else if(level.getBlockState(mut.above()).isAir() || level.getBlockState(mut.below()).isAir()) {
-					setBlock(level, mut, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "brittle_moss")).defaultBlockState());
+					setBlock(level, mut, BlockRegistry.brittleMoss.get().defaultBlockState());
 					if(random.nextBoolean()) ConfiguredFeatureKeys.getConfiguredFeature(level, ConfiguredFeatureKeys.BRITTLE_PLANTS).value().place(level, g, random, mut);
 				} else
 					return false;

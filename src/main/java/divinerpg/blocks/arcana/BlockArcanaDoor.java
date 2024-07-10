@@ -17,7 +17,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockArcanaDoor extends DoorBlock {
     private final ResourceLocation keyItem;
     public BlockArcanaDoor(MapColor color, ResourceLocation key) {
-        super(BlockBehaviour.Properties.of().mapColor(color).strength(-1.0F, 3600000.0F).noOcclusion().instrument(NoteBlockInstrument.BASEDRUM), BlockSetType.IRON);
+        super(BlockSetType.IRON, BlockBehaviour.Properties.of().mapColor(color).strength(-1.0F, 3600000.0F).noOcclusion().instrument(NoteBlockInstrument.BASEDRUM));
         this.keyItem = key;
     }
     private void updateAdjacentDoors(Level world, BlockPos pos, Player player, BlockState state) {

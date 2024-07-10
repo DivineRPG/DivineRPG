@@ -1,19 +1,17 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class MortumTree extends DivineTree {
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_dirt"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_grass")));
+		return state.is(BlockRegistry.mortumDirt.get()) || state.is(BlockRegistry.mortumGrass.get());
 	}
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {

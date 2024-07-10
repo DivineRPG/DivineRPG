@@ -1,21 +1,19 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class WildwoodTree extends DivineTree {
 	public static BlockState westVines, eastVines, southVines, northVines;
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_dirt"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_grass")));
+		return state.is(BlockRegistry.wildwoodDirt.get()) || state.is(BlockRegistry.wildwoodGrass.get());
 	}
 	private void growLeavesWithVines(WorldGenLevel world, RandomSource random, BlockPos pos, BlockState leaves, int maxY, int width, int offset, float leavesChance, float vineChance) {
 		for(int minY = 0; minY <= maxY; minY++) {
@@ -47,10 +45,10 @@ public class WildwoodTree extends DivineTree {
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
 			if(northVines == null) {
-				northVines = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_vine")).defaultBlockState().setValue(VineBlock.NORTH, true);
-				eastVines = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_vine")).defaultBlockState().setValue(VineBlock.EAST, true);
-				southVines = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_vine")).defaultBlockState().setValue(VineBlock.SOUTH, true);
-				westVines = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_vine")).defaultBlockState().setValue(VineBlock.WEST, true);
+				northVines = BlockRegistry.wildwoodVine.get().defaultBlockState().setValue(VineBlock.NORTH, true);
+				eastVines = BlockRegistry.wildwoodVine.get().defaultBlockState().setValue(VineBlock.EAST, true);
+				southVines = BlockRegistry.wildwoodVine.get().defaultBlockState().setValue(VineBlock.SOUTH, true);
+				westVines = BlockRegistry.wildwoodVine.get().defaultBlockState().setValue(VineBlock.WEST, true);
 			}
 			int treeHeight, extraHeight, treeType = random.nextInt(7);
     		switch(treeType) {

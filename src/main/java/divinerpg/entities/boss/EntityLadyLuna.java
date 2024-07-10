@@ -23,7 +23,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
 
@@ -92,7 +91,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
 
         if(this.level().getBlockState(current).getBlock() == Blocks.AIR) {
             if(belowState.canOcclude() && belowState.hasLargeCollisionShape()) {
-                this.level().setBlock(current, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lunic_acid")).defaultBlockState(), 1);
+                this.level().setBlock(current, BlockRegistry.lunicAcid.get().defaultBlockState(), 1);
                 acidPositions.add(current);
             }
         }
@@ -102,7 +101,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
             while (iter.hasNext()) {
                 BlockPos pos = iter.next();
 
-                if (this.level().getBlockState(pos).getBlock() != ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "lunic_acid"))) iter.remove();
+                if (this.level().getBlockState(pos).getBlock() != BlockRegistry.lunicAcid.get()) iter.remove();
                 else if (this.random.nextInt(4) == 0) {
                     EntityLadyLunaSparkler e = new EntityLadyLunaSparkler(EntityRegistry.LADY_LUNA_SPARKLER.get(), this.level(), this);
                     e.moveTo(pos.getX() + 0.5, pos.getY() + 0, pos.getZ() + 0.5);
@@ -159,7 +158,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
             this.zo *= 0.6D;
             int var5 = EnchantmentHelper.getFireAspect(this);
             if (var5 > 0)
-                e.setSecondsOnFire(var5 * 4);
+                e.igniteForSeconds(var5 * 4);
         }
         return var4;
     }

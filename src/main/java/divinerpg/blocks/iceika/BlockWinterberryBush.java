@@ -1,9 +1,8 @@
 package divinerpg.blocks.iceika;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockMod;
+import divinerpg.registries.ItemRegistry;
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
@@ -16,7 +15,6 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockWinterberryBush extends BlockMod implements BonemealableBlock {
 	public static final BooleanProperty RIPE = BlockStateProperties.BLOOM;
@@ -49,7 +47,7 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
     @Override
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand p_60507_, BlockHitResult p_60508_) {
 		if (state.getValue(RIPE)) {
-	        popResource(level, pos, new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "winterberry")), 1));
+	        popResource(level, pos, new ItemStack(ItemRegistry.winterberry.get(), 1));
 	        level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
 	        level.setBlock(pos, state.setValue(RIPE, false), 2);
 	        return InteractionResult.SUCCESS;

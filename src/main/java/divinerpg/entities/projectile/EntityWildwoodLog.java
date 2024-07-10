@@ -1,7 +1,6 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.DivineRPG;
-import net.minecraft.resources.ResourceLocation;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -9,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityWildwoodLog extends DivineThrowable {
 
@@ -45,6 +43,6 @@ public class EntityWildwoodLog extends DivineThrowable {
 	}
 
 	public static Block getBlock() {
-		return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_log"));
+		return BlockRegistry.wildwoodLog.get();
 	}
 }

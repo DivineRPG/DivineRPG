@@ -6,7 +6,7 @@ import divinerpg.items.base.ItemModBow;
 import net.minecraft.client.renderer.item.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class ModelPropRegistry {

@@ -10,8 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemFirefly extends ItemModRanged {
@@ -19,13 +18,13 @@ public class ItemFirefly extends ItemModRanged {
     @Override protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
         ThrowableProjectile bullet = new EntityFirefly(EntityRegistry.FIREFLY.get(), player, world);
         bullet.moveTo(player.xo, player.getEyeY(), player.zo);
-        bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 1.5F, 1);
+        bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5F, 1);
         world.addFreshEntity(bullet);
     }
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.arcanaDam(8));
         tooltip.add(LocalizeUtils.homingShots());
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

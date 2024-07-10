@@ -4,12 +4,12 @@ import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.client.models.block.ModelBoneChest;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class RenderBoneChestItem extends BlockEntityWithoutLevelRenderer {
     private final ModelBoneChest<?> model;
@@ -23,7 +23,7 @@ public class RenderBoneChestItem extends BlockEntityWithoutLevelRenderer {
     public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         super.renderByItem(stack, context, matrixStack, buffer, combinedLight, combinedOverlay);
         Item item = stack.getItem();
-        if (item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "bone_chest")).asItem()) {
+        if (item == BlockRegistry.boneChest.asItem()) {
             matrixStack.pushPose();
             matrixStack.translate(0.0, 1.0, 0.0);
             matrixStack.mulPose(Axis.YP.rotationDegrees(-90));

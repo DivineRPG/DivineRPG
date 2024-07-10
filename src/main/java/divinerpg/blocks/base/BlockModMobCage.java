@@ -25,19 +25,19 @@ public class BlockModMobCage extends BlockMod {
 		this.relativePos = relativePos;
 	}
 	public BlockModMobCage(ResourceLocation type, ResourceLocation spawnItem) {
-		super(Properties.copy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK));
+		super(Properties.ofFullCopy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK));
 		this.type = type;
 		this.spawnItem = spawnItem;
 		relativePos = null;
 	}
 	public BlockModMobCage(ResourceLocation type, ResourceLocation spawnItem, MapColor color) {
-		super(Properties.copy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK).mapColor(color));
+		super(Properties.ofFullCopy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK).mapColor(color));
 		this.type = type;
 		this.spawnItem = spawnItem;
 		relativePos = null;
 	}
 	public BlockModMobCage(ResourceLocation type, @Nullable ResourceLocation spawnItem, MapColor color, @Nullable BlockPos relativePos) {
-		super(Properties.copy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK).mapColor(color));
+		super(Properties.ofFullCopy(Blocks.SPAWNER).noOcclusion().pushReaction(PushReaction.BLOCK).mapColor(color));
 		this.type = type;
 		this.spawnItem = spawnItem;
 		this.relativePos = relativePos;

@@ -16,9 +16,8 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.event.ForgeEventFactory;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemModBow extends BowItem {
@@ -79,20 +78,20 @@ public class ItemModBow extends BowItem {
                 if(f >= .1) {
                     if(!worldIn.isClientSide) {
                         AbstractArrow arrow = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), worldIn, arrowType, player);
-                        arrow.shootFromRotation(player, player.xRot, player.yRot, 0, f * 3, 1);
+                        arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, f * 3, 1);
                         if(f == 1) arrow.setCritArrow(true);
                         int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER_ARROWS, entityLiving);
                         if(j > 0) arrow.setBaseDamage(arrow.getBaseDamage() + (double)j * .5 + .5);
                         int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH_ARROWS, entityLiving);
                         if(k > 0) arrow.setKnockback(k);
-                        if(EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAMING_ARROWS, entityLiving) > 0) {arrow.setSecondsOnFire(100);}
+                        if(EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAMING_ARROWS, entityLiving) > 0) {arrow.igniteForSeconds(100);}
                         if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
                         if(infiniteAmmo) {arrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;}
                         worldIn.addFreshEntity(arrow);
                     } worldIn.playSound(null, player.xo, player.yo, player.zo, SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1 / (random.nextFloat() * .4F + 1.2F) + f * .5F);
                     if(!infiniteAmmo) {
                         itemstack.shrink(1);
-                        if(itemstack.isEmpty()) player.inventory.removeItem(itemstack);
+                        if(itemstack.isEmpty()) player.getInventory().removeItem(itemstack);
                     } player.awardStat(Stats.ITEM_USED.get(this));
                 }
             }
@@ -116,8 +115,8 @@ public class ItemModBow extends BowItem {
     private ItemStack findAmmunition(Player player) {
         if(isArrow(player.getItemInHand(InteractionHand.OFF_HAND))) return player.getItemInHand(InteractionHand.OFF_HAND);
         else if(isArrow(player.getItemInHand(InteractionHand.MAIN_HAND))) return player.getItemInHand(InteractionHand.MAIN_HAND);
-        else for(int i = 0; i < player.inventory.getContainerSize(); ++i) {
-            ItemStack stack = player.inventory.getItem(i);
+        else for(int i = 0; i < player.getInventory().getContainerSize(); ++i) {
+            ItemStack stack = player.getInventory().getItem(i);
             if(isArrow(stack)) return stack;
         } return ItemStack.EMPTY;
     }
@@ -128,7 +127,7 @@ public class ItemModBow extends BowItem {
         else return enchantment.category.canEnchant(stack.getItem());
     }
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.rangedDam((int)arrowType.getBaseDamage() + "-" + (int)(arrowType.getBaseDamage() * 4 + 3)));
         int speed = DEFAULT_MAX_USE_DURATION / getUseDuration(stack);
         if(speed > 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.DARK_GREEN, "bow_speed.faster", String.format("%s", speed)));
@@ -138,6 +137,6 @@ public class ItemModBow extends BowItem {
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
         tooltip.add(needsArrow(stack) ? LocalizeUtils.ammo(arrowSupplier) : LocalizeUtils.infiniteAmmo());
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

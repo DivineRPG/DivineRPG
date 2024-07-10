@@ -25,7 +25,7 @@ public class BlockArcanaPortal extends BlockMod {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
     protected static final VoxelShape SHAPE = Block.box(0, 5, 0, 16, 8, 16);
     public BlockArcanaPortal() {
-        super(BlockBehaviour.Properties.copy(Blocks.END_PORTAL));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.END_PORTAL));
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(AXIS);}

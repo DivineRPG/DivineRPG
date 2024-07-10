@@ -3,12 +3,10 @@ package divinerpg.world.feature.decoration;
 import static divinerpg.world.placement.Surface.hasSpace;
 
 import java.util.List;
-
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.decoration.GemClusterConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -19,7 +17,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class GemCluster extends Feature<GemClusterConfig> {
 	public GemCluster() {super(GemClusterConfig.CODEC);}
@@ -65,6 +62,6 @@ public class GemCluster extends Feature<GemClusterConfig> {
 		return false;
 	}
 	public static boolean standardRule(BlockState state) {
-		return state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "frozen_stone"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "cobbled_frozen_stone"))) || state.is(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "gelidite"))) || state.is(BlockTags.ICE);
+		return state.is(BlockRegistry.frozenStone.get()) || state.is(BlockRegistry.cobbledFrozenStone.get()) || state.is(BlockRegistry.gelidite.get()) || state.is(BlockTags.ICE);
 	}
 }

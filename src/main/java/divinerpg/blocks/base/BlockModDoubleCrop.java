@@ -14,11 +14,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class BlockModDoubleCrop extends SugarCaneBlock {
     private final ResourceLocation seed;
     public BlockModDoubleCrop(ResourceLocation seed) {
-        super(Properties.copy(Blocks.WHEAT));
+        super(Properties.ofFullCopy(Blocks.WHEAT));
         this.seed = seed;
     }
     public BlockModDoubleCrop(int lightLevel, ResourceLocation seed) {
-        super(Properties.copy(Blocks.WHEAT).lightLevel((state) -> lightLevel));
+        super(Properties.ofFullCopy(Blocks.WHEAT).lightLevel((state) -> lightLevel));
         this.seed = seed;
     }
     @Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {

@@ -9,7 +9,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public class BlockBlueFire extends BaseFireBlock {
 	public BlockBlueFire() {
-		super(BlockBehaviour.Properties.copy(Blocks.FIRE).mapColor(MapColor.WATER), 1F);
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.FIRE).mapColor(MapColor.WATER), 1F);
 	}
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {

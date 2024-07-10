@@ -1,14 +1,11 @@
 package divinerpg.block_entities.chests;
 
-import divinerpg.DivineRPG;
 import divinerpg.client.menu.PresentBoxMenu;
 import divinerpg.registries.*;
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class PresentBoxBlockEntity extends ModChestBlockEntity {
 
@@ -18,7 +15,7 @@ public class PresentBoxBlockEntity extends ModChestBlockEntity {
 
     @Override
     public String getChestName() {
-        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "present_box")).getDescriptionId();
+        return BlockRegistry.presentBox.get().getDescriptionId();
     }
 
     @Override

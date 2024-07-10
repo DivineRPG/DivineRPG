@@ -1,10 +1,9 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineWaterMob;
+import divinerpg.registries.ItemRegistry;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -12,7 +11,6 @@ import net.minecraft.world.entity.ai.control.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityShark extends EntityDivineWaterMob {
     private int attackTick;
@@ -83,7 +81,8 @@ public class EntityShark extends EntityDivineWaterMob {
         this.level().broadcastEntityEvent(this, (byte)4);
         if(!level().isClientSide()) {
             if (level().getRandom().nextInt(12) == 2) {
-                spawnAtLocation(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "shark_tooth")));
+                //TODO: there is no such thing as shark tooth, so I've put fin as a placeholder
+                spawnAtLocation(ItemRegistry.shark_fin.get());
             }
         }
         return super.doHurtTarget(target);

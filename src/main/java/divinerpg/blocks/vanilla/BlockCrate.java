@@ -19,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class BlockCrate extends BaseEntityBlock {
 	public BlockCrate() {
-		super(Block.Properties.copy(Blocks.OAK_PLANKS).instrument(NoteBlockInstrument.BASS));
+		super(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).instrument(NoteBlockInstrument.BASS));
 		registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.ENABLED, true));
 	}
 	@Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(BlockStateProperties.ENABLED);}

@@ -14,7 +14,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public class BlockBrittleMoss extends BlockModMoss {
 	public BlockBrittleMoss() {
-		super(Block.Properties.copy(Blocks.MOSS_BLOCK).mapColor(MapColor.GLOW_LICHEN));
+		super(Block.Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(MapColor.GLOW_LICHEN));
 	}
 	@Override
 	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean b) {

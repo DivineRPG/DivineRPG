@@ -1,6 +1,5 @@
 package divinerpg.block_entities.block;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.vethea.*;
 import divinerpg.client.menu.*;
 import divinerpg.registries.*;
@@ -8,7 +7,6 @@ import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.*;
 import net.minecraft.network.protocol.game.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
@@ -16,7 +14,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.*;
 
@@ -38,7 +35,7 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 	public static void serverTick(Level level, BlockPos pos, BlockState state, DreamLampBlockEntity block) {
 		if(block.burntime < 0) {
 			ItemStack fuel = block.items.get(0);
-			if(fuel.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")))) {
+			if(fuel.is(ItemRegistry.acid.get())) {
 				fuel.shrink(1);
 				block.burntime += 600;
 				state = state.setValue(BlockDreamLamp.POWERED, true);
@@ -47,7 +44,7 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 			}
 		} else {
 			block.burntime--;
-			if(block.burntime < 0 && !block.items.get(0).is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")))) {
+			if(block.burntime < 0 && !block.items.get(0).is(ItemRegistry.acid.get())) {
 				state = state.setValue(BlockDreamLamp.POWERED, false);
 		        level.setBlock(pos, state, 3);
 		        setChanged(level, pos, state);
@@ -81,11 +78,11 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 	@Override public boolean canPlaceItemThroughFace(int i, ItemStack stack, Direction dir) {return canPlaceItem(i, stack);}
 	@Override
 	public boolean canPlaceItem(int slot, ItemStack stack) {
-		return slot > 0 || stack.is(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "acid")));
+		return slot > 0 || stack.is(ItemRegistry.acid.get());
 	}
 	@Override
 	protected Component getDefaultName() {
-        return Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dream_lamp")).getDescriptionId());
+        return Component.translatable(BlockRegistry.dreamLamp.get().getDescriptionId());
 	}
 	@Override
 	protected AbstractContainerMenu createMenu(int i, Inventory inv) {

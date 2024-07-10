@@ -1,16 +1,14 @@
 package divinerpg.recipe.brewing;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.ItemRegistry;
 import divinerpg.registries.PotionRegistry;
 import divinerpg.util.Utils;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
 import net.minecraftforge.common.brewing.IBrewingRecipe;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class PotionOfWarmthRecipe implements IBrewingRecipe {
-	private static final Item olivine = ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "olivine"));
+	private static final Item olivine = ItemRegistry.olivine.get();
 	@Override public boolean isInput(ItemStack input) {
 		return Utils.isPotion(input, PotionRegistry.TEA.get());
 	}

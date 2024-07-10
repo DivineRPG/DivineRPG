@@ -1,8 +1,7 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
@@ -13,7 +12,6 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.lighting.LightEngine;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Supplier;
 
@@ -36,11 +34,11 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
         return false;
     }
     public BlockState grass() {
-        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eden_brush")).defaultBlockState();
-        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "wildwood_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "moonlight_fern")).defaultBlockState();
-        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "apalachia_tallgrass")).defaultBlockState();
-        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "skythern_brush")).defaultBlockState();
-        if(this == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_grass"))) return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "mortum_brush")).defaultBlockState();
+        if(this == BlockRegistry.edenGrass.get()) return BlockRegistry.edenBrush.get().defaultBlockState();
+        if(this == BlockRegistry.wildwoodGrass.get()) return BlockRegistry.moonlightFern.get().defaultBlockState();
+        if(this == BlockRegistry.apalachiaGrass.get()) return BlockRegistry.apalachiaTallgrass.get().defaultBlockState();
+        if(this == BlockRegistry.skythernGrass.get()) return BlockRegistry.skythernBrush.get().defaultBlockState();
+        if(this == BlockRegistry.mortumGrass.get()) return BlockRegistry.mortumBrush.get().defaultBlockState();
         return null;
     }
     public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean b) {

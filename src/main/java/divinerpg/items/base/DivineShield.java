@@ -8,11 +8,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -40,8 +38,8 @@ public class DivineShield extends ShieldItem {
         consumer.accept(RenderProps.INSTANCE);
     }
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
+        super.appendHoverText(stack, context, tooltip, flagIn);
         if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
     static class RenderProps implements IClientItemExtensions {

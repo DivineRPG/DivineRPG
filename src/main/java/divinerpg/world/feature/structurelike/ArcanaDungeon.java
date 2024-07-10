@@ -1,6 +1,7 @@
 package divinerpg.world.feature.structurelike;
 
 import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -13,8 +14,6 @@ import net.minecraft.world.level.levelgen.feature.*;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
-import net.minecraftforge.registries.ForgeRegistries;
-
 import javax.annotation.Nullable;
 
 import static divinerpg.registries.StructureRegistry.*;
@@ -36,7 +35,7 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 	public boolean place(NoneFeatureConfiguration c, WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
 		if(doorway == null) {
 			StructureTemplateManager manager = level.getLevel().getServer().getStructureManager();
-			BlockState degraded = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "degraded_bricks")).defaultBlockState(), ancientBrick = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_bricks")).defaultBlockState(), sludge = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_stone")).defaultBlockState(), ancient = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_stone")).defaultBlockState();
+			BlockState degraded = BlockRegistry.degradedBricks.get().defaultBlockState(), ancientBrick = BlockRegistry.ancientBricks.get().defaultBlockState(), sludge = BlockRegistry.soulStone.get().defaultBlockState(), ancient = BlockRegistry.ancientStone.get().defaultBlockState();
 			doorway = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/doors/doorway"));
 			entranceRoom = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/entrance_room"));
 			stairs = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/stairs"));
@@ -56,7 +55,7 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 					new Room(manager, "arcana/any/pillars", ancientBrick),
 					new Room(manager, "arcana/any/pillars2", degraded),
 					new Room(manager, "arcana/any/razorback", ancientBrick),
-					new Room(manager, "arcana/any/three_squares", ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_stone")).defaultBlockState()),
+					new Room(manager, "arcana/any/three_squares", BlockRegistry.soulStone.get().defaultBlockState()),
 					new Room(manager, "arcana/any/zelus_farm", degraded),
 					new Room(manager, "arcana/any/serpentine", ancientBrick)
 			};
@@ -127,8 +126,8 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 			seed = newSeed;
 		}
 		for(int x = 0; x < 16; x++) for(int z = 0; z < 16; z++) {
-			setBlock(level, pos.offset(x, 32, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_stone")).defaultBlockState());
-			setBlock(level, pos.offset(x, 33, z), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_stone_breakable")).defaultBlockState());
+			setBlock(level, pos.offset(x, 32, z), BlockRegistry.ancientStone.get().defaultBlockState());
+			setBlock(level, pos.offset(x, 33, z), BlockRegistry.ancientStoneBreakable.get().defaultBlockState());
 		}
 		if(generate(level, random, pos, (byte)0)) {
 			if(generate(level, random, pos.offset(0, 8, 0), (byte)1)) {
@@ -162,7 +161,7 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 	}
 	private void genEntrance(WorldGenLevel level, RandomSource random, BlockPos pos, byte roomShape) {
 		placeStructure(entranceRoom, level, random, pos.offset(1, 0, 1), Rotation.NONE);
-		genWalls(level, random, pos, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_bricks")).defaultBlockState(), roomShape, null);
+		genWalls(level, random, pos, BlockRegistry.ancientBricks.get().defaultBlockState(), roomShape, null);
 		int y = 8;
 		while(!level.getBlockState(pos.offset(6, y, 6)).isAir()) {
 			placeStructure(stairs, level, random, pos.offset(6, y, 6), Rotation.NONE);

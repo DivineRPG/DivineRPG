@@ -18,7 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockRandomItemDropper extends BlockMod {
 	public BlockRandomItemDropper() {
-		super(Properties.copy(Blocks.DROPPER));
+		super(Properties.ofFullCopy(Blocks.DROPPER));
 		registerDefaultState(stateDefinition.any().setValue(DirectionalBlock.FACING, Direction.NORTH).setValue(BlockStateProperties.TRIGGERED, false));
 	}
 	@Override

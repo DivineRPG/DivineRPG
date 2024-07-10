@@ -31,7 +31,7 @@ public class BlockAltarOfCorruption extends BaseEntityBlock {
     }).map(BlockPos::immutable).toList();
 
     public BlockAltarOfCorruption() {
-        super(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).mapColor(MapColor.COLOR_PURPLE));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.ENCHANTING_TABLE).mapColor(MapColor.COLOR_PURPLE));
     }
 
     public static boolean isValidBookShelf(Level p_207910_, BlockPos p_207911_, BlockPos p_207912_) {

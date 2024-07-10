@@ -5,7 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -24,8 +24,8 @@ public class ItemModFood extends ItemMod {
     }
     @Override public int getUseDuration(ItemStack stack) {return fastFood ? 1 : super.getUseDuration(stack);}
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         if(fastFood) tooltip.add(LocalizeUtils.instantConsumption());
-        super.appendHoverText(stack, level, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

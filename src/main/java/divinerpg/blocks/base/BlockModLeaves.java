@@ -8,7 +8,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public class BlockModLeaves extends LeavesBlock {
     public BlockModLeaves(MapColor color, SoundType sound) {
-        super(Properties.copy(Blocks.OAK_LEAVES).mapColor(color).sound(sound));
+        super(Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(color).sound(sound));
     }
 
     @Override

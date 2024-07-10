@@ -6,6 +6,6 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 
 public class BlockModButton extends ButtonBlock {
     public BlockModButton(BlockSetType type) {
-        super(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON), type, 30, true);
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON), type, 30, true);
     }
 }

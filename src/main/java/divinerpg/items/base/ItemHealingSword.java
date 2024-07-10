@@ -15,7 +15,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 public class ItemHealingSword extends ItemModSword {
 	public float healAmount;
@@ -49,9 +49,9 @@ public class ItemHealingSword extends ItemModSword {
             if(entity.isOnFire() && this == ItemRegistry.frossivence.get()) entity.extinguishFire();
             entity.playSound(SoundRegistry.HEAL.get(), 1, 1);
             for(int i = 0; i < 7; ++i) {
-                double d0 = entity.random.nextGaussian() * .02;
-                double d1 = entity.random.nextGaussian() * .02;
-                double d2 = entity.random.nextGaussian() * .02;
+                double d0 = entity.getRandom().nextGaussian() * .02;
+                double d1 = entity.getRandom().nextGaussian() * .02;
+                double d2 = entity.getRandom().nextGaussian() * .02;
                 entity.level().addParticle(ParticleTypes.HEART, entity.getRandomX(1), entity.getRandomY() + .5, entity.getRandomZ(1), d0, d1, d2);
             } player.awardStat(Stats.ITEM_USED.get(this));
             player.getCooldowns().addCooldown(this, cooldown);
@@ -59,8 +59,8 @@ public class ItemHealingSword extends ItemModSword {
         } return super.interactLivingEntity(stack, player, entity, hand);
     }
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.healthHeal(healAmount / 2));
-    	super.appendHoverText(stack, worldIn, tooltip, flagIn);
+    	super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

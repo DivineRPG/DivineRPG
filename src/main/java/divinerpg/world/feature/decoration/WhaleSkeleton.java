@@ -1,11 +1,10 @@
 package divinerpg.world.feature.decoration;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -16,7 +15,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class WhaleSkeleton extends Feature<NoneFeatureConfiguration> {
 	public static BlockState xBone, yBone, zBone, coalstone;
@@ -31,7 +29,7 @@ public class WhaleSkeleton extends Feature<NoneFeatureConfiguration> {
 			xBone = Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Axis.X);
 			yBone = Blocks.BONE_BLOCK.defaultBlockState();
 			zBone = Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Axis.Z);
-			coalstone = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "coalstone")).defaultBlockState();
+			coalstone = BlockRegistry.coalstone.get().defaultBlockState();
 		}
 		if(random.nextBoolean()) origin = origin.below();
 		Direction direction = Direction.getRandom(random);

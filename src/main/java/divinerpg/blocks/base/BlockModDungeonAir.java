@@ -1,9 +1,8 @@
 package divinerpg.blocks.base;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.MobEffectRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -11,7 +10,6 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockModDungeonAir extends BlockMod {
     /**
@@ -27,7 +25,7 @@ public class BlockModDungeonAir extends BlockMod {
 	}
     @Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-    	return context.isHoldingItem(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dungeon_air")).asItem()) ? Shapes.block() : Shapes.empty();
+    	return context.isHoldingItem(BlockRegistry.dungeonAir.asItem()) ? Shapes.block() : Shapes.empty();
 	}
     @Override
 	public float getShadeBrightness(BlockState state, BlockGetter getter, BlockPos pos) {

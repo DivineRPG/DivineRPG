@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.*;
 
 public class BlockIceikaFire extends BaseFireBlock {
 	public BlockIceikaFire() {
-		super(BlockBehaviour.Properties.copy(Blocks.SOUL_FIRE).lightLevel((state) -> 7), 1F);
+		super(BlockBehaviour.Properties.ofFullCopy(Blocks.SOUL_FIRE).lightLevel((state) -> 7), 1F);
 	}
 	@Override
 	public void entityInside(BlockState p_49260_, Level level, BlockPos p_49262_, Entity entity) {

@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemEnderScepter extends ItemMod {
@@ -28,15 +28,16 @@ public class ItemEnderScepter extends ItemMod {
         BlockHitResult pos = player.level().clip(new ClipContext(vec3d, vec3d2, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
     	player.resetFallDistance();
         if(player.isPassenger()) player.stopRiding();
-        for(int i = 0; i < 5; i++) level.addParticle(ParticleTypes.PORTAL, player.getX() + player.random.nextDouble() - .5, player.getY(), player.getZ() + player.random.nextDouble() - .5, 0D, 0D, 0D);
+        for(int i = 0; i < 5; i++) level.addParticle(ParticleTypes.PORTAL, player.getX() + player.getRandom().nextDouble() - .5, player.getY(), player.getZ() + player.getRandom().nextDouble() - .5, 0, 0, 0);
         player.moveTo(pos.getLocation());
-        for(int i = 0; i < 5; i++) level.addParticle(ParticleTypes.PORTAL, player.getX() + player.random.nextDouble() - .5, player.getY(), player.getZ() + player.random.nextDouble() - .5, 0D, 0D, 0D);
+        for(int i = 0; i < 5; i++) level.addParticle(ParticleTypes.PORTAL, player.getX() + player.getRandom().nextDouble() - .5, player.getY(), player.getZ() + player.getRandom().nextDouble() - .5, 0, 0, 0);
         player.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 1, 1);
     	return InteractionResultHolder.success(player.getItemInHand(hand));
     }
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("ender_scepter"));
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
         stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

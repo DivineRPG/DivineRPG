@@ -14,8 +14,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.api.distmarker.*;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.*;
 
 import java.util.function.Supplier;
 
@@ -56,43 +55,43 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
 
     private Model getModel(ItemStack stack){
         Item item = stack.getItem();
-        if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_entity_statue")).asItem()){
+        if(item == BlockRegistry.ancientEntityStatue.asItem()){
             return new ModelAncientEntity(context.bakeLayer(ModelAncientEntity.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "densos_statue")).asItem()){
+        } else if(item == BlockRegistry.densosStatue.asItem()){
             return new ModelDensos<>(context.bakeLayer(ModelDensos.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_statue")).asItem()){
+        } else if(item == BlockRegistry.dramixStatue.asItem()){
             return new ModelDramix<>(context.bakeLayer(ModelDramix.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eternal_archer_statue")).asItem()){
+        } else if(item == BlockRegistry.eternalArcherStatue.asItem()){
             return new ModelEternalArcher<>(context.bakeLayer(ModelEternalArcher.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karot_statue")).asItem()){
+        } else if(item == BlockRegistry.karotStatue.asItem()){
             return new ModelKarot(context.bakeLayer(ModelKarot.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "king_of_scorchers_statue")).asItem()){
+        } else if(item == BlockRegistry.kingOfScorchersStatue.asItem()){
             return new ModelKingOfScorchers(context.bakeLayer(ModelKingOfScorchers.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "parasecta_statue")).asItem()){
+        } else if(item == BlockRegistry.parasectaStatue.asItem()){
             return new ModelParasecta(context.bakeLayer(ModelParasecta.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "reyvor_statue")).asItem()){
+        } else if(item == BlockRegistry.reyvorStatue.asItem()){
             return new ModelDensos<>(context.bakeLayer(ModelDensos.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_fiend_statue")).asItem()){
+        } else if(item == BlockRegistry.soulFiendStatue.asItem()){
             return new ModelSoulFiend(context.bakeLayer(ModelSoulFiend.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "the_watcher_statue")).asItem()){
+        } else if(item == BlockRegistry.theWatcherStatue.asItem()){
             return new ModelWatcher(context.bakeLayer(ModelWatcher.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_demon_statue")).asItem()){
+        } else if(item == BlockRegistry.twilightDemonStatue.asItem()){
             return new ModelTwilightDemon(context.bakeLayer(ModelTwilightDemon.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vamacheron_statue")).asItem()){
+        } else if(item == BlockRegistry.vamacheronStatue.asItem()){
             return new ModelVamacheron(context.bakeLayer(ModelVamacheron.LAYER_LOCATION));
         }
 
-        else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")).asItem()) {
+        else if(item == BlockRegistry.ayeracoStatue.asItem()) {
             return new ModelAyeraco(context.bakeLayer(ModelAyeraco.LAYER_LOCATION));
         }
 
-        else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "termasect_statue")).asItem()){
+        else if(item == BlockRegistry.termasectStatue.asItem()){
             return new ModelTermasect<>(context.bakeLayer(ModelTermasect.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sunstorm_statue")).asItem()){
+        } else if(item == BlockRegistry.sunstormStatue.asItem()){
             return new ModelSunstorm<>(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue")).asItem()){
+        } else if(item == BlockRegistry.experiencedCoriStatue.asItem()){
             return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "kitra_statue")).asItem()){
+        } else if(item == BlockRegistry.kitraStatue.asItem()){
             return new ModelKitra(context.bakeLayer(ModelKitra.LAYER_LOCATION));
         }
 
@@ -103,43 +102,43 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
 
     private ResourceLocation texture(ItemStack stack) {
         Item item = stack.getItem();
-        if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ancient_entity_statue")).asItem()) {
+        if(item == BlockRegistry.ancientEntityStatue.asItem()) {
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/ancient_entity.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "densos_statue")).asItem()){
+        } else if(item == BlockRegistry.densosStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "dramix_statue")).asItem()){
+        } else if(item == BlockRegistry.dramixStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "eternal_archer_statue")).asItem()){
+        } else if(item == BlockRegistry.eternalArcherStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "karot_statue")).asItem()){
+        } else if(item == BlockRegistry.karotStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "king_of_scorchers_statue")).asItem()){
+        } else if(item == BlockRegistry.kingOfScorchersStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/king_of_scorchers.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "parasecta_statue")).asItem()){
+        } else if(item == BlockRegistry.parasectaStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "reyvor_statue")).asItem()){
+        } else if(item == BlockRegistry.reyvorStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/reyvor.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "soul_fiend_statue")).asItem()){
+        } else if(item == BlockRegistry.soulFiendStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "the_watcher_statue")).asItem()){
+        } else if(item == BlockRegistry.theWatcherStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "twilight_demon_statue")).asItem()){
+        } else if(item == BlockRegistry.twilightDemonStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "vamacheron_statue")).asItem()){
+        } else if(item == BlockRegistry.vamacheronStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/mortum_cadillion.png");
         }
 
-        else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "ayeraco_statue")).asItem()){
+        else if(item == BlockRegistry.ayeracoStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_white.png");
         }
 
-        else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "termasect_statue")).asItem()){
+        else if(item == BlockRegistry.termasectStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "sunstorm_statue")).asItem()){
+        } else if(item == BlockRegistry.sunstormStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "experienced_cori_statue")).asItem()){
+        } else if(item == BlockRegistry.experiencedCoriStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png");
-        } else if(item == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "kitra_statue")).asItem()){
+        } else if(item == BlockRegistry.kitraStatue.asItem()){
             return new ResourceLocation(DivineRPG.MODID, "textures/entity/kitra.png");
         }
 

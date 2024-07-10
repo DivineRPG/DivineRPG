@@ -14,8 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemGhostbane extends ItemMod {
@@ -44,12 +43,12 @@ public class ItemGhostbane extends ItemMod {
     	return InteractionResult.PASS;
     }
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.summoned(EntityRegistry.WRAITH.get()));
         tooltip.add(LocalizeUtils.summonedDamage((int)EntityStats.WRAITH.getAttackDamage()));
         tooltip.add(LocalizeUtils.summonedHealth((int)EntityStats.WRAITH.getHealth()));
         tooltip.add(LocalizeUtils.summonedDespawn());
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, context, tooltip, flagIn);
         stack.getOrCreateTag().putBoolean("Unbreakable", true);
     }
 }

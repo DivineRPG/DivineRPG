@@ -7,11 +7,11 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 public class BlockModTorch extends TorchBlock {
     //TODO: I don't know why it refuses to work when I insert the needed particle into the constructor directly
-    public BlockModTorch() {super(Properties.copy(Blocks.TORCH), ParticleTypes.FLAME);}
+    public BlockModTorch() {super(ParticleTypes.FLAME, Properties.ofFullCopy(Blocks.TORCH));}
     @OnlyIn(Dist.CLIENT)
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         double d0 = pos.getX() + .5;

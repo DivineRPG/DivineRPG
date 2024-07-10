@@ -7,8 +7,8 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.particles.*;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.*;
 
 import java.util.Locale;
 

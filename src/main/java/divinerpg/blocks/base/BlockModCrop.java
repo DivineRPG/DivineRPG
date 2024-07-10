@@ -21,7 +21,7 @@ public class BlockModCrop extends CropBlock {
             Block.box(0, 0, 0, 16, 11, 16)
     };
     public BlockModCrop(ResourceLocation seed) {
-        super(Properties.copy(Blocks.WHEAT));
+        super(Properties.ofFullCopy(Blocks.WHEAT));
         this.seed = seed;
         registerDefaultState(stateDefinition.any().setValue(getAgeProperty(), 0));
     }

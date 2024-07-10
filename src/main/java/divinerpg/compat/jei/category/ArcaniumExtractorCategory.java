@@ -3,6 +3,7 @@ package divinerpg.compat.jei.category;
 
 import divinerpg.DivineRPG;
 import divinerpg.recipe.ArcaniumExtractorRecipe;
+import divinerpg.registries.*;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -13,7 +14,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class ArcaniumExtractorCategory
         implements IRecipeCategory<ArcaniumExtractorRecipe>
@@ -26,7 +26,7 @@ public class ArcaniumExtractorCategory
 
     public ArcaniumExtractorCategory(IGuiHelper helper) {
         this.back = helper.createDrawable(ARCANIUM_EXTRACTOR, 1, 1, 167, 78);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_extractor"))));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.arcaniumExtractor.get()));
     }
 
 
@@ -37,7 +37,7 @@ public class ArcaniumExtractorCategory
 
     @Override
     public Component getTitle() {
-        return Component.translatable(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanium_extractor")).getDescriptionId());
+        return Component.translatable(BlockRegistry.arcaniumExtractor.get().getDescriptionId());
     }
 
     @Override
@@ -54,7 +54,7 @@ public class ArcaniumExtractorCategory
 	@Override
     public void setRecipe(IRecipeLayoutBuilder builder, ArcaniumExtractorRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 51, 12).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.CATALYST, 51, 48).addItemStack(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "collector"))));
+        builder.addSlot(RecipeIngredientRole.CATALYST, 51, 48).addItemStack(new ItemStack(ItemRegistry.collector.get()));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 111, 30).addItemStack(recipe.getResultItem(Minecraft.getInstance().level.registryAccess()));
     }
 

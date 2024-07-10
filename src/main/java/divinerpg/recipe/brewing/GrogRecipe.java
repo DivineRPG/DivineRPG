@@ -1,16 +1,14 @@
 package divinerpg.recipe.brewing;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.ItemRegistry;
 import divinerpg.registries.PotionRegistry;
 import divinerpg.util.Utils;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
 import net.minecraftforge.common.brewing.IBrewingRecipe;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class GrogRecipe implements IBrewingRecipe {
-	private static final Item flesh = ForgeRegistries.ITEMS.getValue(new ResourceLocation(DivineRPG.MODID, "cauldron_flesh"));
+	private static final Item flesh = ItemRegistry.cauldron_flesh.get();
 	@Override public boolean isInput(ItemStack input) {
 		return Utils.isPotion(input, Potions.AWKWARD);
 	}

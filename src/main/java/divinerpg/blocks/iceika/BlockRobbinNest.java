@@ -21,7 +21,7 @@ import net.minecraft.world.phys.shapes.*;
 
 public class BlockRobbinNest extends BaseEntityBlock {
 	protected static final VoxelShape BASE_SHAPE = Block.box(2, 0, 2, 14, 4, 14);
-	public BlockRobbinNest() {super(Block.Properties.copy(Blocks.HAY_BLOCK).randomTicks().noOcclusion().mapColor(MapColor.COLOR_BROWN).isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, getter, pos) -> false));}
+	public BlockRobbinNest() {super(Block.Properties.ofFullCopy(Blocks.HAY_BLOCK).randomTicks().noOcclusion().mapColor(MapColor.COLOR_BROWN).isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, getter, pos) -> false));}
 	@Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return BASE_SHAPE;}
 	@Override public RenderShape getRenderShape(BlockState state) {return RenderShape.MODEL;}
 	@Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {return BlockEntityRegistry.ROBBIN_NEST.get().create(pos, state);}

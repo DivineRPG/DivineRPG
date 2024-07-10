@@ -13,7 +13,7 @@ public class BlockBrittleGrass extends BushBlock {
 	public static final BooleanProperty HANGING = BlockStateProperties.HANGING;
 	protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D), HANGING_SHAPE = Block.box(2.0D, 4.0D, 2.0D, 14.0D, 16.0D, 14.0D);
 	public BlockBrittleGrass() {
-		super(Properties.copy(Blocks.SEAGRASS).mapColor(MapColor.GLOW_LICHEN).sound(SoundType.MOSS_CARPET).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ));
+		super(Properties.ofFullCopy(Blocks.SEAGRASS).mapColor(MapColor.GLOW_LICHEN).sound(SoundType.MOSS_CARPET).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ));
 		registerDefaultState(this.stateDefinition.any().setValue(HANGING, false));
 	}
 	@Override

@@ -13,8 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.*;
-import javax.annotation.Nullable;
+import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 public class ItemMeriksMissile extends ItemMod {
@@ -50,7 +49,7 @@ public class ItemMeriksMissile extends ItemMod {
     }
     @Override public int getUseDuration(ItemStack stack) {return MAX_USE_DURATION;}
     @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.rangedDam("2-8"));
         tooltip.add(LocalizeUtils.explosiveShots());
         tooltip.add(LocalizeUtils.homingShots());

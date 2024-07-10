@@ -3,6 +3,7 @@ package divinerpg.util;
 import com.google.gson.*;
 import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.DivineRPG;
+import divinerpg.registries.FluidRegistry;
 import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.Mode;
 import divinerpg.world.placement.Surface.Surface_Type;
@@ -25,7 +26,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.io.IOUtils;
 
 import javax.annotation.Nullable;
@@ -135,7 +135,7 @@ public class Utils {
         for (int i = x - 4; i <= x + 4; ++i) {
             for (int j = y; j <= y + 1; ++j) {
                 for (int k = z - 4; k <= z + 4; ++k) {
-                    if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "smoldering_tar"))) {
+                    if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == FluidRegistry.SMOLDERING_TAR_BLOCK.get()) {
                         return true;
                     }
                 }

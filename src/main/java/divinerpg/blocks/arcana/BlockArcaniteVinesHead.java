@@ -1,13 +1,11 @@
 package divinerpg.blocks.arcana;
 
-import divinerpg.DivineRPG;
+import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcaniteVinesHead extends WeepingVinesBlock {
 	protected static final VoxelShape SHAPE = Block.box(1.0, 0.0, 1.0, 15.0, 16.0, 15.0);
@@ -18,7 +16,7 @@ public class BlockArcaniteVinesHead extends WeepingVinesBlock {
 
     @Override
     protected Block getBodyBlock() {
-        return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, "arcanite_vines_body"));
+        return BlockRegistry.arcaniteVinesBody.get();
     }
 
     @Override
