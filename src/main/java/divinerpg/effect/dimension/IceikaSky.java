@@ -27,11 +27,11 @@ import java.lang.Math;
 
 public class IceikaSky extends DimensionSpecialEffects {
 	public static final ResourceLocation
-		SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/white_dwarf.png"),
-		MOON_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/ice_moon_phases.png"),
-		SNOW_LOCATION = new ResourceLocation("minecraft", "textures/environment/snow.png"),
-		HAIL_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/environment/hail.png"),
-		BONEYARD_LOCATION = new ResourceLocation(DivineRPG.MODID, "boneyard");
+		SUN_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/particle/white_dwarf.png"),
+		MOON_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/particle/ice_moon_phases.png"),
+		SNOW_LOCATION = ResourceLocation.fromNamespaceAndPath("minecraft", "textures/environment/snow.png"),
+		HAIL_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/environment/hail.png"),
+		BONEYARD_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "boneyard");
 	@Nullable private VertexBuffer skyBuffer, starBuffer;
 	private final float[] rainSizeX = new float[1024], rainSizeZ = new float[1024];
 	private boolean isRaining = false, isBoneyard = false, isBlizzard = false;

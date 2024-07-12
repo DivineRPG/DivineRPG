@@ -15,10 +15,6 @@ public class EntityDemonOfDarkness extends EntityDivineMonster {
     public EntityDemonOfDarkness(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.95F;
-    }
     @Override public boolean fireImmune() {return true;}
     @Override public boolean isAggressive() {return true;}
     @Override

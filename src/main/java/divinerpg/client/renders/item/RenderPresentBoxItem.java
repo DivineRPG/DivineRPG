@@ -28,7 +28,7 @@ public class RenderPresentBoxItem extends BlockEntityWithoutLevelRenderer {
             matrixStack.translate(0.0, 1.0, 0.0);
             matrixStack.mulPose(Axis.YP.rotationDegrees(-90));
             matrixStack.mulPose(Axis.XP.rotationDegrees(180));
-            VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/present_box.png")));
+            VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/present_box.png")));
             this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
             matrixStack.popPose();
         }

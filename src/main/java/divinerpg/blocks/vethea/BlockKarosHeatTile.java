@@ -25,7 +25,7 @@ public class BlockKarosHeatTile extends BlockModUnbreakable {
     @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if(state.getValue(ACTIVE) && entity instanceof ServerPlayer && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
             entity.hurt(entity.damageSources().hotFloor(), 6);
-            entity.setSecondsOnFire(5);
+            entity.igniteForSeconds(5);
         }
     }
 }

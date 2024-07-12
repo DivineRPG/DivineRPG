@@ -17,10 +17,6 @@ public class EntityGalroid extends EntityDivineMonster {
 		super(type, worldIn);
 		this.protectionTimer = 200;
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.4175F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {

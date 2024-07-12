@@ -3,7 +3,6 @@ package divinerpg.entities.vanilla.overworld;
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
@@ -114,11 +113,11 @@ public class EntityJungleSpider extends EntityDivineMonster {
     }
 
     @Nullable
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
-        if (level.getRandom().nextInt(100) == 0) {
-            Skeleton skeletonentity = EntityType.SKELETON.create(this.level());
-            skeletonentity.moveTo(this.getX(), this.getY(), this.getZ(), this.yRot, 0.0F);
-            skeletonentity.finalizeSpawn(level, instance, type, (SpawnGroupData)null, (CompoundTag)null);
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data) {
+        if(level.getRandom().nextInt(100) == 0) {
+            Skeleton skeletonentity = EntityType.SKELETON.create(level());
+            skeletonentity.moveTo(getX(), getY(), getZ(), getYRot(), 0);
+            skeletonentity.finalizeSpawn(level, instance, type, null);
             skeletonentity.startRiding(this);
         }
 
@@ -138,11 +137,6 @@ public class EntityJungleSpider extends EntityDivineMonster {
 
         return data;
     }
-
-    protected float getStandingEyeHeight(Pose p_213348_1_, EntityDimensions p_213348_2_) {
-        return 0.65F;
-    }
-
     static class AttackGoal extends MeleeAttackGoal {
         public AttackGoal(EntityJungleSpider p_i46676_1_) {
             super(p_i46676_1_, 1.0D, true);

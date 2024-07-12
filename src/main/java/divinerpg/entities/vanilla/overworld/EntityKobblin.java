@@ -32,11 +32,6 @@ public class EntityKobblin extends EntityDivineMonster {
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.9F;
-    }
-
     protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(PROVOKED, false);

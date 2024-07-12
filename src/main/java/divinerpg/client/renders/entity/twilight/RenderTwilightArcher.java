@@ -6,11 +6,11 @@ import divinerpg.client.renders.layer.*;
 import divinerpg.entities.mortum.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderTwilightArcher extends MobRenderer<EntityTwilightArcher, ModelTwilightArcher<EntityTwilightArcher>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_archer.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/twilight_archer.png");
 
     public RenderTwilightArcher(final EntityRendererProvider.Context context) {
         super(context, new ModelTwilightArcher<>(context), 1F);

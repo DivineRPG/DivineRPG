@@ -15,12 +15,6 @@ public class EntityMadivel extends EntityDivineMonster {
     public EntityMadivel(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.6F;
-    }
-
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;

@@ -18,10 +18,10 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Cancelable;
+import net.neoforged.api.distmarker.*;
 
 import javax.annotation.Nullable;
 
@@ -108,7 +108,7 @@ public class BlockModPortal extends BlockMod {
                         if (CommonConfig.saferVetheanInventory.get()) {
                             if (world.getServer().getLevel(key) != null) {
                                 if (entity instanceof Player player) {
-                                    if (player.inventory.isEmpty()) {
+                                    if (player.getInventory().isEmpty()) {
                                         entity.changeDimension(world.getServer().getLevel(key), new VetheaTeleporter(true));
                                     } else {
                                         Component message = LocalizeUtils.clientMessage(ChatFormatting.RED, "vethea_portal.inventory_full", player.getDisplayName());

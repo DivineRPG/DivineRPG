@@ -21,10 +21,6 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
         return true;
     }
     @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1F;
-    }
-    @Override
     protected float getSoundVolume() {
         return 10F;
     }

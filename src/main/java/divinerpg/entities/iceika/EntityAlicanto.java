@@ -3,11 +3,11 @@ package divinerpg.entities.iceika;
 import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.pathfinder.PathType;
 
 public class EntityAlicanto extends EntityDivineFlyingMob {
     private int attackTick;
@@ -15,19 +15,13 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
     public EntityAlicanto(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn, 18F);
         this.fallDistance = 0;
-        this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
+        this.setPathfindingMalus(PathType.WATER, -1.0F);
     }
 
     @Override
     public boolean isAggressive() {
         return true;
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.05F;
-    }
-
     @Override
     public void addAdditionalSaveData(CompoundTag p_33353_) {
         super.addAdditionalSaveData(p_33353_);

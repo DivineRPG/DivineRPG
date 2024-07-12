@@ -16,10 +16,10 @@ public class RenderDivineProjectile<T extends ThrowableProjectile> extends Entit
     protected final RenderType renderType;
     
     public RenderDivineProjectile(final Context context, final String name) {
-    	this(context, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png"));
+    	this(context, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/projectiles/" + name + ".png"));
     }
     public RenderDivineProjectile(final Context context) {
-    	this(context, new ResourceLocation("textures/particle/generic_0.png"));
+    	this(context, ResourceLocation.fromNamespaceAndPath("textures/particle/generic_0.png"));
     }
     public RenderDivineProjectile(final Context context, final ResourceLocation texture) {
     	super(context);

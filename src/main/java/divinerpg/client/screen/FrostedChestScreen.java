@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class FrostedChestScreen extends AbstractContainerScreen<FrostedChestMenu> implements MenuAccess<FrostedChestMenu> {
-    private static final ResourceLocation LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/gui/frosted_chest_gui.png");
+    private static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/frosted_chest_gui.png");
 
     public FrostedChestScreen(FrostedChestMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);

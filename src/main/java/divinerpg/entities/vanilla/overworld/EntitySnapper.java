@@ -16,9 +16,6 @@ public class EntitySnapper extends EntityDivineTameable {
     public EntitySnapper(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 1F);
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return .375F;
-    }
     @Override
     public boolean isFood(ItemStack item) {
     	return item.is(ItemTags.FISHES);

@@ -4,9 +4,11 @@ import divinerpg.DivineRPG;
 import divinerpg.client.renders.item.DivineShieldRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
@@ -21,13 +23,13 @@ public class DivineShield extends ShieldItem {
         super(new Properties().durability(damage).rarity(rarity));
         this.repairMaterial = Ingredient.of(repairMaterial);
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
-        resource = new ResourceLocation(DivineRPG.MODID, "textures/shield/" + name + ".png");
+        resource = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/shield/" + name + ".png");
     }
     public DivineShield(Item repairMaterial, int damage, String name) {
         super(new Properties().durability(damage));
         this.repairMaterial = Ingredient.of(repairMaterial);
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
-        resource = new ResourceLocation(DivineRPG.MODID, "textures/shield/" + name + ".png");
+        resource = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/shield/" + name + ".png");
     }
     @Override public boolean isValidRepairItem(ItemStack shield, ItemStack repairItem) {
         if(repairMaterial != null) return repairMaterial.test(repairItem);
@@ -40,7 +42,7 @@ public class DivineShield extends ShieldItem {
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, context, tooltip, flagIn);
-        if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
+        if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
     }
     static class RenderProps implements IClientItemExtensions {
         public static RenderProps INSTANCE = new RenderProps();

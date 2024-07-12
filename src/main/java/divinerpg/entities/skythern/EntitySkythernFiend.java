@@ -13,10 +13,6 @@ public class EntitySkythernFiend extends EntityDivineMonster {
     public EntitySkythernFiend(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.75F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public int getArmorValue() {

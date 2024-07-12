@@ -13,12 +13,6 @@ public class EntityEnderSpider extends EnderMan {
     public EntityEnderSpider(EntityType<? extends EnderMan> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.36875F;
-    }
-
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.HELL_SPIDER.get();

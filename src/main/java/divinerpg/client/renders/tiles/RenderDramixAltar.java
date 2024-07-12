@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.ResourceLocation;
 
 public class RenderDramixAltar implements BlockEntityRenderer<DramixAltarBlockEntity> {
-    private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/model/dramix_altar.png");
+    private final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/dramix_altar.png");
     private final ModelDramixAltar<?> model;
     public RenderDramixAltar(BlockEntityRendererProvider.Context context) {
         model = new ModelDramixAltar<>(context.bakeLayer(ModelDramixAltar.LAYER_LOCATION));

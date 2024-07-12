@@ -7,7 +7,6 @@ import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.DifficultyInstance;
@@ -24,6 +23,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
+import javax.annotation.Nullable;
 import java.util.*;
 
 public class EntityLadyLuna extends EntityDivineBoss {
@@ -32,19 +32,13 @@ public class EntityLadyLuna extends EntityDivineBoss {
         super(type, worldIn);
         this.setRandomProtectionValues();
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.90625F;
-    }
-
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(PROTECTION, 0);
     }
-    @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @org.jetbrains.annotations.Nullable SpawnGroupData data, @org.jetbrains.annotations.Nullable CompoundTag tag) {
+    @Nullable
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data) {
         entityData.set(PROTECTION, random.nextInt(2));
         return data;
     }

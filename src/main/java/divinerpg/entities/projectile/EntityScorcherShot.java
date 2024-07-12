@@ -13,7 +13,7 @@ public class EntityScorcherShot extends DivineFireball {
     }
     public EntityScorcherShot(Level world, LivingEntity shooter, double accelX, double accelY, double accelZ) {
         super(EntityRegistry.SCORCHER_SHOT.get(), world, shooter, accelX, accelY, accelZ);
-        moveTo(shooter.xo, shooter.yo, shooter.zo, shooter.xRot, shooter.yRot);
+        moveTo(shooter.xo, shooter.yo, shooter.zo, shooter.getXRot(), shooter.getYRot());
         setPos(shooter.xo, shooter.yo, shooter.zo);
         double d = Math.sqrt(accelX * accelX + accelY * accelY + accelZ * accelZ);
         setDeltaMovement(accelX / d * 0.1D, accelY / d * 0.1D, accelZ / d * 0.1D);
@@ -35,7 +35,7 @@ public class EntityScorcherShot extends DivineFireball {
             if(!entity.fireImmune()) {
                 Entity entity1 = getOwner();
                 int i = entity.getRemainingFireTicks();
-                entity.setSecondsOnFire(5);
+                entity.igniteForSeconds(5);
                 boolean flag = entity.hurt(damageSources().fireball(this, entity1), 5F);
                 if(!flag) entity.setRemainingFireTicks(i);
                 else if(entity1 instanceof LivingEntity) doEnchantDamageEffects((LivingEntity) entity1, entity);

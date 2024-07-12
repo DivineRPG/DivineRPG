@@ -37,11 +37,6 @@ public class EntityAdvancedCori extends EntityDivineFlyingMob implements RangedA
             this.level().addFreshEntity(projectile);
         }
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.8125F;
-    }
-
     @Override
     public int getMaxSpawnClusterSize() {
         return 1;

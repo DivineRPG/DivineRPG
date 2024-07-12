@@ -2,7 +2,7 @@ package divinerpg.client.particle;
 
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.particle.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;

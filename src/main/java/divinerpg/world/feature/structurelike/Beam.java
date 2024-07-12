@@ -24,9 +24,9 @@ public class Beam extends Feature<NoneFeatureConfiguration> {
 	public boolean place(NoneFeatureConfiguration c, WorldGenLevel level, ChunkGenerator gen, RandomSource random, BlockPos pos) {
 		if(base == null) {
 			StructureTemplateManager manager = level.getLevel().getServer().getStructureManager();
-			base = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "vethea/all_biomes/beam_base"));
-			middle = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "vethea/all_biomes/beam_middle"));
-			top = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "vethea/all_biomes/beam_top"));
+			base = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "vethea/all_biomes/beam_base"));
+			middle = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "vethea/all_biomes/beam_middle"));
+			top = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "vethea/all_biomes/beam_top"));
 		}
 		MutableBlockPos p = pos.mutable();
 		placeStructure(base, level, random, p);

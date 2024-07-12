@@ -192,7 +192,7 @@ public class LootTableRegistry {
     public static final ResourceLocation ZELUS = registerTable("entities/zelus");
 
     private static ResourceLocation registerTable(String id) {
-        return register(new ResourceLocation(DivineRPG.MODID, id));
+        return register(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, id));
     }
 
     private static ResourceLocation register(ResourceLocation id) {

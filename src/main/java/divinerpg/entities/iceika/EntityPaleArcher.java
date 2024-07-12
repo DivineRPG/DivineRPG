@@ -17,15 +17,15 @@ import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
+
 import javax.annotation.Nullable;
 
 public class EntityPaleArcher extends EntityDivineMonster implements RangedAttackMob {
     public EntityPaleArcher(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        setPathfindingMalus(BlockPathTypes.WATER, -1);
+        setPathfindingMalus(PathType.WATER, -1);
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.594F;}
     @Override public boolean isAggressive() {return true;}
     @Override protected void registerGoals() {
         super.registerGoals();
@@ -36,10 +36,10 @@ public class EntityPaleArcher extends EntityDivineMonster implements RangedAttac
         setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.icicle_bow.get()));
     }
     @Nullable
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
         RandomSource random = level.getRandom();
         populateDefaultEquipmentSlots(random, difficulty);
-        populateDefaultEquipmentEnchantments(random, difficulty);
+        populateDefaultEquipmentEnchantments(level, random, difficulty);
         return data;
     }
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {

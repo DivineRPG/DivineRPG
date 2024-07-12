@@ -19,9 +19,6 @@ public class EntitySkyre extends EntityDivineMonster {
     public EntitySkyre(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.4375F;
-    }
     @Override public boolean isAggressive() {return false;}
     @Override public boolean fireImmune() {return true;}
     @Override

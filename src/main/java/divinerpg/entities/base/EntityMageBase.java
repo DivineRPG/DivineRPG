@@ -20,10 +20,6 @@ public abstract class EntityMageBase extends EntityDivineMonster {
         this.bullet = bullet;
     }
     @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2F;
-    }
-    @Override
     protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, 0, true, false, null));

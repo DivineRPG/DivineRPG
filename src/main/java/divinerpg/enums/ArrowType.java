@@ -84,8 +84,8 @@ public enum ArrowType {
         if(ordinal < 0 || ordinal > values().length) ordinal = 0;
         return values()[ordinal];
     }
-    private static ResourceLocation ProjectileLoc(String name) {return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");}
-    private static ResourceLocation VanillaLoc() {return new ResourceLocation("textures/entity/projectiles/arrow.png");}
+    private static ResourceLocation ProjectileLoc(String name) {return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/projectiles/" + name + ".png");}
+    private static ResourceLocation VanillaLoc() {return ResourceLocation.withDefaultNamespace("textures/entity/projectiles/arrow.png");}
     public float getBaseDamage() {return baseDamage;}
     public ResourceLocation getTexture() {return texture;}
     public ArrowSpecial getArrowSpecial() {return arrowSpecial;}

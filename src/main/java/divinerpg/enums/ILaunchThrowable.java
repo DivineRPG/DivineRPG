@@ -46,7 +46,7 @@ public interface ILaunchThrowable {
         // taken from snowman
         ThrowableProjectile fireball = createThowable(parent.level(), parent, parent.getX(), parent.getY(), parent.getZ());
 
-        double d0 = target.getY() + (double) target.getEyeHeight() - 1.100000023841858D;
+        double d0 = target.getY() + (double) target.getEyeHeight() - 1.1;
         double d1 = target.getX() - parent.getX();
         double d2 = d0 - fireball.getY();
         double d3 = target.getZ() - parent.getZ();

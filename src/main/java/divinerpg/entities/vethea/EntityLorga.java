@@ -22,10 +22,6 @@ public class EntityLorga extends EntityDivineMonster {
         super(type, worldIn);
         this.canSpawnMinions = canSpawnMinions;
     }
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.0F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public int getMaxSpawnClusterSize() {

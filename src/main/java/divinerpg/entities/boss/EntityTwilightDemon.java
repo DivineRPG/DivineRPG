@@ -21,12 +21,6 @@ public class EntityTwilightDemon extends EntityDivineBoss {
     public EntityTwilightDemon(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 3.5F;
-    }
-
     @Override
     protected void registerGoals() {
         super.registerGoals();

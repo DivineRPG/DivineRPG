@@ -11,7 +11,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 public class DivineRPGPacketHandler {
 	private static final String PROTOCOL_VERSION = "2";
 	public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
-		new ResourceLocation(DivineRPG.MODID, "main"),
+		ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "main"),
 		() -> PROTOCOL_VERSION,
 		PROTOCOL_VERSION::equals,
 		PROTOCOL_VERSION::equals

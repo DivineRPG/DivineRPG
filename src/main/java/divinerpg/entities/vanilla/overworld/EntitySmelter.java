@@ -15,10 +15,6 @@ public class EntitySmelter extends EntityDivineTameable implements IAttackTimer 
         super(type, worldIn, 1F);
     }
     @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 3.2F;
-    }
-    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(ATTACK_TIMER, 0);
@@ -44,9 +40,9 @@ public class EntitySmelter extends EntityDivineTameable implements IAttackTimer 
     public boolean doHurtTarget(Entity entity) {
         boolean attack = super.doHurtTarget(entity);
         if (attack) {
-            entity.setDeltaMovement(-Mth.sin(xRot * (float) Math.PI / 180.0F), 0.1D,
-                    Mth.cos(xRot * (float) Math.PI / 180.0F));
-            entity.setSecondsOnFire(5);
+            entity.setDeltaMovement(-Mth.sin(getXRot() * (float) Math.PI / 180.0F), 0.1D,
+                    Mth.cos(getXRot() * (float) Math.PI / 180.0F));
+            entity.igniteForSeconds(5);
             entityData.set(ATTACK_TIMER, 10);
         }
         return attack;

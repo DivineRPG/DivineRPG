@@ -28,7 +28,7 @@ public class RenderBoneChest implements BlockEntityRenderer<BoneChestBlockEntity
         float lidAngle = tile.getOpenNess(partialTick);
         lidAngle = 1.0F - lidAngle;
         lidAngle = 1.0F - lidAngle * lidAngle * lidAngle;
-        VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/bone_chest.png")));
+        VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/bone_chest.png")));
         model.lid.xRot = -(lidAngle * ((float) Math.PI / 2F));
         model.handle.xRot = model.lid.xRot;
         model.renderToBuffer(matrix, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);

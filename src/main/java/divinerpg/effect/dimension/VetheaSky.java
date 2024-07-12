@@ -16,7 +16,7 @@ import org.joml.*;
 import javax.annotation.Nullable;
 
 public class VetheaSky extends DimensionSpecialEffects {
-	public static final ResourceLocation EYE_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/eye.png");
+	public static final ResourceLocation EYE_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/particle/eye.png");
 	@Nullable private VertexBuffer starBuffer;
 	public VetheaSky() {
 		super(Float.NaN, true, SkyType.NORMAL, false, false);

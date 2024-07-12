@@ -21,7 +21,7 @@ public class ItemMeriksMissile extends ItemMod {
     public ItemMeriksMissile() {super(new Properties().durability(1315));}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
-        if(!player.abilities.mayBuild) return InteractionResultHolder.fail(itemstack);
+        if(!player.getAbilities().mayBuild) return InteractionResultHolder.fail(itemstack);
         else {
             player.startUsingItem(hand);
             return InteractionResultHolder.consume(itemstack);
@@ -47,7 +47,7 @@ public class ItemMeriksMissile extends ItemMod {
             });
         }
     }
-    @Override public int getUseDuration(ItemStack stack) {return MAX_USE_DURATION;}
+    @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return MAX_USE_DURATION;}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.rangedDam("2-8"));

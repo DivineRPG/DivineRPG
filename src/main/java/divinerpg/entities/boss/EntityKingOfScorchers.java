@@ -34,11 +34,6 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAtt
             return Math.abs(entity.getY() - this.getY()) <= 4.0D;
         }));
     }
-
-        protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-            return 1F;
-        }
-
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
         if (this.isAlive() && !level().isClientSide) {

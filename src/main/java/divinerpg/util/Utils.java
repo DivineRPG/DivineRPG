@@ -184,10 +184,10 @@ public class Utils {
         public List<UUID> friend;
     }
     public static Block getBlock(String registryName) {
-    	return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, registryName));
+    	return ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName));
     }
     public static BlockState getBlockState(String registryName) {
-    	return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(DivineRPG.MODID, registryName)).defaultBlockState();
+    	return ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName)).defaultBlockState();
     }
     public static CompoundTag getPlayerData(Player player) {
         CompoundTag persistentData = player.getPersistentData();

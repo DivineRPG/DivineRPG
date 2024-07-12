@@ -12,10 +12,6 @@ public class EntityRazorback extends EntityDivineMonster {
     public EntityRazorback(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.4F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
     @Override

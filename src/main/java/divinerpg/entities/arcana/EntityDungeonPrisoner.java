@@ -14,10 +14,6 @@ public class EntityDungeonPrisoner extends EntityDivineMonster {
     public EntityDungeonPrisoner(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.8125F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
 

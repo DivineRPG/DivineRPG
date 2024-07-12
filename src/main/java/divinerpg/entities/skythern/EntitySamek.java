@@ -14,12 +14,6 @@ public class EntitySamek extends EntityPeacefulUntilAttacked {
     public EntitySamek(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.74F;
-    }
-
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.VEREK.get();

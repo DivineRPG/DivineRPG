@@ -16,9 +16,6 @@ public class EntityDuo extends EntityDivineMonster {
     public EntityDuo(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.8F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {

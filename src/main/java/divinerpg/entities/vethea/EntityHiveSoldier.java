@@ -15,10 +15,6 @@ public class EntityHiveSoldier extends EntityDivineMonster {
     public EntityHiveSoldier(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.84375F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     protected SoundEvent getAmbientSound() {

@@ -11,7 +11,6 @@ import net.minecraft.world.level.Level;
 
 public class EntityLheiva extends EntityDivineMonster {
     public EntityLheiva(EntityType<? extends Monster> type, Level worldIn) {super(type, worldIn);}
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1;}
     @Override public boolean isAggressive() {return true;}
     @Override public boolean hurt(DamageSource source, float par2) {
         Entity var1 = source.getDirectEntity();

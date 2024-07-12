@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class EntityAcidHag extends EntityDivineMonster {
     public EntityAcidHag(EntityType<? extends Monster> type, Level world) {super(type, world);}
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.525F;}
     @Override public boolean isAggressive() {return true;}
     @Override public void tick() {
         super.tick();

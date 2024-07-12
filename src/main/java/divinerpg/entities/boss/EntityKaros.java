@@ -83,11 +83,6 @@ public class EntityKaros extends EntityDivineBoss {
             this.abilityCooldown--;
         }
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.4375F;
-    }
-
     @Override
     public boolean hurt(DamageSource source, float par2) {
         if (source.is(DamageTypes.EXPLOSION)) {

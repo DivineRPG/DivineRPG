@@ -5,7 +5,7 @@ import divinerpg.registries.ParticleRegistry;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 public class EntityFractiteShot extends DivineFireball {
     public EntityFractiteShot(EntityType<? extends DivineFireball> type, Level world) {

@@ -18,7 +18,6 @@ public class EntityCaptainMerik extends EntityDivineMerchant {
 				"message.merik.sword"
 		};
 	}
-	@Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.75F;}
 	@Override protected void updateTrades() {
 		MerchantOffers offers = this.getOffers();
 		DivineTrades[] trades = new DivineTrades[]{

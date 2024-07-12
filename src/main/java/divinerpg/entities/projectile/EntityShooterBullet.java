@@ -78,7 +78,7 @@ public class EntityShooterBullet extends ThrowableProjectile {
         if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan)) {
             if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.POISON) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, bulletType.effectSec * 20, bulletType.effectPower));
             if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.SLOW) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, bulletType.effectSec * 20, bulletType.effectPower));
-            if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.FLAME) livingEntity.setSecondsOnFire(bulletType.effectSec);
+            if(getBulletType().getBulletSpecial() == BulletType.BulletSpecial.FLAME) livingEntity.igniteForSeconds(bulletType.effectSec);
         } if(!(this instanceof EntityBouncingProjectile) && getBulletType().getBulletDamageType() != BulletType.BulletDamageType.NONE) {
             if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.PHYSIC) entity.hurt(damageSources().thrown(this, thrower), getBulletType().getDamage());
             else entity.hurt(damageSources().indirectMagic(this, thrower), getBulletType().getDamage());

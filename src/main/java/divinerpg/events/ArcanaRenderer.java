@@ -8,13 +8,13 @@ import divinerpg.config.ClientConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class ArcanaRenderer extends Gui {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/arcana_bar.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/arcana_bar.png");
 	Minecraft mc;
     public ArcanaRenderer() {
         super(Minecraft.getInstance(), Minecraft.getInstance().getItemRenderer());

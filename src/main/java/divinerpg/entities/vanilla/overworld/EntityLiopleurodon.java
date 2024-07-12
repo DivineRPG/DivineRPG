@@ -23,11 +23,6 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.3F, 0.1F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.40625F;
-    }
-
     @Override
     public boolean isAggressive() {
         return true;

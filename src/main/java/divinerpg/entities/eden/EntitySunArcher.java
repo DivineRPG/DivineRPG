@@ -18,10 +18,6 @@ public class EntitySunArcher extends EntityDivineMonster implements RangedAttack
     public EntitySunArcher(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.0F;
-    }
-
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;

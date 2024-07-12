@@ -17,12 +17,6 @@ public class EntitySoulFiend extends EntityDivineBoss {
     public EntitySoulFiend(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.725F;
-    }
-
     @Override
     public int getArmorValue() {
         return 10;

@@ -17,11 +17,11 @@ public class EntityGlinthop extends EntityDivineTameable {
     private static final EntityDataAccessor<Boolean> TAMED_AND_ANGRY = SynchedEntityData.defineId(EntityGlinthop.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> SPECIAL = SynchedEntityData.defineId(EntityGlinthop.class, EntityDataSerializers.BOOLEAN);
     public EntityGlinthop(EntityType<? extends TamableAnimal> type, Level worldIn) {super(type, worldIn, 1.5F);}
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyInstance, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+    @Nullable
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyInstance, MobSpawnType type, @Nullable SpawnGroupData data) {
         if(random.nextInt(50) == 1) entityData.set(SPECIAL, true);
-        return super.finalizeSpawn(level, difficultyInstance, type, data, tag);
+        return super.finalizeSpawn(level, difficultyInstance, type, data);
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return .6875F;}
     @Override protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(TAMED_AND_ANGRY, false);

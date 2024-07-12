@@ -58,7 +58,6 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
     }
 	@Override public SoundEvent getNotifyTradeSound() {return SoundEvents.VILLAGER_TRADE;}
-	@Override protected float getStandingEyeHeight(Pose p_35297_, EntityDimensions p_35298_) {return 1.62F;}
     @Override protected SoundEvent getAmbientSound() {
     	return switch(this.random.nextInt(3)) {
     	case 0 -> SoundRegistry.MERCHANT_3.get();

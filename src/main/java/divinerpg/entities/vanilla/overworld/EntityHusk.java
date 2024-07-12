@@ -11,9 +11,6 @@ public class EntityHusk extends EntityDivineTameable {
     public EntityHusk(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 1F);
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.3F;
-    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.GROWL.get();

@@ -19,7 +19,7 @@ public class ParticleColouredType extends ParticleType<ParticleColouredType.Part
             Codec.INT.fieldOf("red0").forGetter(data -> data.red),
             Codec.INT.fieldOf("green0").forGetter(data -> data.green),
             Codec.INT.fieldOf("blue0").forGetter(data -> data.blue)
-    ).apply(instance, (type, red, green, blue) -> new ParticleColour((ParticleType<ParticleColour>) ForgeRegistries.PARTICLE_TYPES.getValue(new ResourceLocation(type)), red, green, blue)));
+    ).apply(instance, (type, red, green, blue) -> new ParticleColour((ParticleType<ParticleColour>) ForgeRegistries.PARTICLE_TYPES.getValue(ResourceLocation.withDefaultNamespace(type)), red, green, blue)));
 
     public ParticleColouredType(boolean alwaysShow) {
         super(alwaysShow, ParticleColour.DESERIALIZER);

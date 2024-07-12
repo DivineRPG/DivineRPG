@@ -79,7 +79,7 @@ public final class ConfiguredFeatureKeys {
 			BEAM = registerKey("beam");
 
 	public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-		return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(DivineRPG.MODID, name));
+		return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, name));
 	}
 	
 	public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {

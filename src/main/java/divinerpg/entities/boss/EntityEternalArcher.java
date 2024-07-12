@@ -19,12 +19,6 @@ public class EntityEternalArcher extends EntityDivineBoss {
         super(type, worldIn);
         this.xpReward = 250;
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 4.5F;
-    }
-
     @Override
     protected void registerGoals() {
         super.registerGoals();

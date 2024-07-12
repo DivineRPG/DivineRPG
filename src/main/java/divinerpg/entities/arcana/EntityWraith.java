@@ -29,7 +29,6 @@ public class EntityWraith extends EntityDivineTameable {
         goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 64.0F));
         goalSelector.addGoal(6, new EntityWraith.LookAroundGoal(this));
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.15625F;}
     @Override
     protected float getSoundVolume() {
         return .1F;

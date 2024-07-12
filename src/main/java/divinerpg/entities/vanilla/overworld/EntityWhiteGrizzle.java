@@ -1,7 +1,5 @@
 package divinerpg.entities.vanilla.overworld;
 
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -17,9 +15,4 @@ public class EntityWhiteGrizzle extends EntityBrownGrizzle {
         setHealth(getMaxHealth());
         tame(player);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.22F;
-    }
-
 }

@@ -8,15 +8,18 @@ import divinerpg.items.vanilla.ItemScythe;
 import divinerpg.items.vethea.ItemVetheanDisk;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.*;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.neoforged.api.distmarker.*;
@@ -84,7 +87,7 @@ public class ItemModRanged extends ItemMod {
             if(arcana != null) arcana.modifyAmount(player, -arcanaConsumedUse);
             ItemStack ammoStack = ammo.getObject();
             if(ammoStack != null) ammoStack.shrink(1);
-            if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
+            if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             player.getCooldowns().addCooldown(this, cooldown);
             player.awardStat(Stats.ITEM_USED.get(this));
             doPostUsageEffects(world, player);
@@ -133,7 +136,7 @@ public class ItemModRanged extends ItemMod {
         ThrowableProjectile bullet;
         //Class has the most priority
         if(entityType != null) {
-            try{bullet = (ThrowableProjectile)ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, entityType)).create(world);}
+            try{bullet = (ThrowableProjectile)ForgeRegistries.ENTITY_TYPES.getValue(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, entityType)).create(world);}
             catch(Exception e) {
                 e.printStackTrace();
                 //Weapon will not work, so it would be better to crush
@@ -170,7 +173,7 @@ public class ItemModRanged extends ItemMod {
         super.appendHoverText(stack, context, tooltip, flagIn);
         if(!(this instanceof ItemModThrowable)) {
             tooltip.add(needsAmmo() ? LocalizeUtils.ammo(ammoSupplier) : LocalizeUtils.infiniteAmmo());
-            if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
+            if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
         }
     }
 }

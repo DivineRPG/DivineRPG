@@ -21,9 +21,6 @@ public class EntityEnchantedArcher extends EntityDivineMonster implements Ranged
     public EntityEnchantedArcher(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.9F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {

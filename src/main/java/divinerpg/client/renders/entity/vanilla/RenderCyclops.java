@@ -7,13 +7,13 @@ import divinerpg.entities.vanilla.overworld.EntityCyclops;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 import static divinerpg.util.ClientUtils.layerHumanoid;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderCyclops extends RenderDivineMob<EntityCyclops> {
-    private final ResourceLocation angryCyclopsLoc = new ResourceLocation(DivineRPG.MODID, "textures/entity/angry_cyclops.png");
+    private final ResourceLocation angryCyclopsLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/angry_cyclops.png");
     public RenderCyclops(Context context) {
         super(context, "cyclops", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.8F, 2F);
     }

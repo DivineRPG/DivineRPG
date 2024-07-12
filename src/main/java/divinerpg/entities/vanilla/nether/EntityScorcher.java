@@ -12,19 +12,15 @@ import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 
 public class EntityScorcher extends EntityDivineFireballMob {
     public EntityScorcher(EntityType<? extends EntityScorcher> type, Level world) {
         super(type, world);
-        setPathfindingMalus(BlockPathTypes.LAVA, 8F);
-        setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0F);
-        setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0F);
-        this.xpReward = 10;
-    }
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.625F;
+        setPathfindingMalus(PathType.LAVA, 8);
+        setPathfindingMalus(PathType.DANGER_FIRE, 0);
+        setPathfindingMalus(PathType.DAMAGE_FIRE, 0);
+        xpReward = 10;
     }
     @Override
     protected void registerGoals() {

@@ -13,8 +13,8 @@ import net.minecraft.client.renderer.texture.*;
 import net.minecraft.resources.ResourceLocation;
 
 public class RenderSaguaroWormShot extends EntityRenderer<EntitySaguaroWormShot> {
-    private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/projectiles/saguaro_worm_shot.png");
-    private ModelSaguaroWormShot<EntitySaguaroWorm> model;
+    private final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/projectiles/saguaro_worm_shot.png");
+    private final ModelSaguaroWormShot<EntitySaguaroWorm> model;
 
     public RenderSaguaroWormShot(Context context) {
         super(context);

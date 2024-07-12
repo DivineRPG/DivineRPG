@@ -19,12 +19,6 @@ public class EntityWeakCori extends EntityDivineFlyingMob implements RangedAttac
     public EntityWeakCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.97F;
-    }
-
     @Override
     public boolean isAggressive() {
         return true;

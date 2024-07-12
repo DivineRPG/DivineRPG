@@ -13,9 +13,6 @@ public class EntityMysteriousManLayer1 extends EntityGifterNPC {
     public EntityMysteriousManLayer1(EntityType<? extends PathfinderMob> type, Level worldIn) {
     	super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.99F;
-    }
     @Override
     protected ItemStack getGift() {
         return new ItemStack(ItemRegistry.teaker_lump.get(), 3);

@@ -22,10 +22,6 @@ public class EntitySabear extends EntityDivineMonster {
     public EntitySabear(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.09375F;
-    }
     @Override
     protected void registerGoals() {
     	super.registerGoals();

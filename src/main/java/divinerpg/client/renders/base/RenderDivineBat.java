@@ -26,7 +26,7 @@ public class RenderDivineBat<Type extends Mob> extends MobRenderer<Type, Hierarc
 	public RenderDivineBat(Context context, String name, float shadowSize, float scale) {
         super(context, (HierarchicalModel<Type>) new BatModel(context.bakeLayer(layerBat)), shadowSize);
         this.scale = scale;
-        this.TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/" + name + ".png");
+        this.TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/" + name + ".png");
     }
 
     @Override

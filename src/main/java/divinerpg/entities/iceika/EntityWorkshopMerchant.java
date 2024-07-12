@@ -43,9 +43,6 @@ public class EntityWorkshopMerchant extends EntityDivineMerchant implements Fact
                 "message.merchant.out"
         };
     }
-    @Override protected float getStandingEyeHeight(Pose p_35297_, EntityDimensions p_35298_) {
-        return 1.65125F;
-    }
     @Override
     protected void updateTrades() {
         MerchantOffers merchantoffers = this.getOffers();

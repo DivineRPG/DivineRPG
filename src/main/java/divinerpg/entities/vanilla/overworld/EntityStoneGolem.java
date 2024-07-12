@@ -16,10 +16,6 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
         super(type, worldIn, 1F);
     }
     @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 3.2F;
-    }
-    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(ATTACK_TIMER, Integer.valueOf(0));

@@ -19,10 +19,6 @@ public class EntityCaveclops extends EntityDivineMonster implements RangedAttack
     public EntityCaveclops(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 3.5F;
-    }
     public boolean canSpawn(LevelAccessor worldIn, MobSpawnType spawnReasonIn) {
         return getY() < 20 && level().dimension() == Level.OVERWORLD;
     }

@@ -9,16 +9,12 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 
 public class EntityBasilisk extends EntityDivineMonster {
     public EntityBasilisk(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-        this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
-    }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.55F;
+        this.setPathfindingMalus(PathType.WATER, -1.0F);
     }
     @Override public boolean fireImmune() {return true;}
     @Override public boolean isAggressive() {return true;}

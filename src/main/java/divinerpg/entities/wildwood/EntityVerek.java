@@ -1,8 +1,7 @@
 package divinerpg.entities.wildwood;
 
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.registries.*;
-
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
@@ -14,10 +13,6 @@ public class EntityVerek extends EntityDivineMonster {
 
     public EntityVerek(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-    }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.8F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override

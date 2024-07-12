@@ -117,10 +117,10 @@ public class EntityMamoth extends Animal implements NeutralMob {
 		if(hurt) doEnchantDamageEffects(this, entity);
 		return hurt;
 	}
-	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, SpawnGroupData data, CompoundTag tag) {
-		if(data == null) data = new AgeableMob.AgeableMobGroupData(1F);
-		return super.finalizeSpawn(level, instance, type, data, tag);
+	@Nullable
+	@Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, SpawnGroupData data) {
+		if(data == null) data = new AgeableMob.AgeableMobGroupData(1);
+		return super.finalizeSpawn(level, instance, type, data);
 	}
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mob) {

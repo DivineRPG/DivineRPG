@@ -33,12 +33,6 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.moveControl = new EntityWolpertinger.WolpertingerMoveControl(this);
         this.setSpeedModifier(0.0D);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.75F;
-    }
-
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
@@ -226,8 +220,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
     }
 
     @Nullable
-    @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data) {
         EntityWolpertinger.Variant Wolpertinger$variant = getRandomWolpertingerVariant(level, this.blockPosition());
             data = new EntityWolpertinger.WolpertingerGroupData(Wolpertinger$variant);
             return data;

@@ -14,12 +14,6 @@ public class EntityDensos extends EntityDivineBoss {
     public EntityDensos(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2F;
-    }
-
     @Override
     public int getArmorValue() {
         return 10;

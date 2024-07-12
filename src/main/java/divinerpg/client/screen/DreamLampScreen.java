@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class DreamLampScreen extends AbstractContainerScreen<DreamLampMenu> {
-    private final ResourceLocation texture = new ResourceLocation(DivineRPG.MODID, "textures/gui/dream_lamp.png");
+    private final ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/dream_lamp.png");
     public DreamLampScreen(DreamLampMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);
         titleLabelY -= 2;

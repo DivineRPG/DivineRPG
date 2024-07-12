@@ -19,8 +19,6 @@ public class EntityTheGrue extends EntityDivineMonster {
 	private int attackTick;
 	public EntityTheGrue(EntityType<? extends Monster> type, Level level) {super(type, level);}
 	@Override
-	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 1.625F;}
-	@Override
     protected SoundEvent getAmbientSound() {return DEATHCRYX.get();}
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {return DEATHCRYX_HURT.get();}

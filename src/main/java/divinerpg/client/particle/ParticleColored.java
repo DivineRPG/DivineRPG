@@ -3,7 +3,7 @@ package divinerpg.client.particle;
 import divinerpg.client.particle.options.ParticleColouredType;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 import org.jetbrains.annotations.Nullable;
 
 @OnlyIn(Dist.CLIENT)

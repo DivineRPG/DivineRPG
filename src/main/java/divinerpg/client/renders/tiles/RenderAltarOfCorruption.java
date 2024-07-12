@@ -13,12 +13,12 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderAltarOfCorruption implements BlockEntityRenderer<AltarOfCorruptionBlockEntity> {
     @SuppressWarnings("deprecation")
-	public static final Material TEXTURE_BOOK = new Material(TextureAtlas.LOCATION_BLOCKS, new ResourceLocation(DivineRPG.MODID, "textures/model/altar_book.png"));
+	public static final Material TEXTURE_BOOK = new Material(TextureAtlas.LOCATION_BLOCKS, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/altar_book.png"));
     private final BookModel bookModel;
 
     public RenderAltarOfCorruption(BlockEntityRendererProvider.Context context) {

@@ -9,11 +9,11 @@ import divinerpg.entities.vanilla.overworld.EntityLiopleurodon;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderLiopleurodon extends MobRenderer<EntityLiopleurodon, ModelLiopleurodon> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/liopleurodon.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/liopleurodon.png");
 
     public RenderLiopleurodon(Context context) {
         super(context, new ModelLiopleurodon(context), 2.0F);

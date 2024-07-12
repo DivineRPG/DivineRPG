@@ -20,7 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 
 public class EntityBlubbertusk extends Animal {
@@ -28,10 +28,10 @@ public class EntityBlubbertusk extends Animal {
 	private int energy = 6000, previousEnergy = 6000;
 	public EntityBlubbertusk(EntityType<? extends Animal> type, Level worldIn) {
 		super(type, worldIn);
-		setPathfindingMalus(BlockPathTypes.WATER, 0F);
-		setPathfindingMalus(BlockPathTypes.DOOR_IRON_CLOSED, -1F);
-		setPathfindingMalus(BlockPathTypes.DOOR_WOOD_CLOSED, -1F);
-		setPathfindingMalus(BlockPathTypes.DOOR_OPEN, -1F);
+		setPathfindingMalus(PathType.WATER, 0F);
+		setPathfindingMalus(PathType.DOOR_IRON_CLOSED, -1F);
+		setPathfindingMalus(PathType.DOOR_WOOD_CLOSED, -1F);
+		setPathfindingMalus(PathType.DOOR_OPEN, -1F);
 		moveControl = new SmoothSwimmingMoveControl(this, 85, 10, .18F, .5F, true);
 		lookControl = new SmoothSwimmingLookControl(this, 20);
 		setMaxUpStep(1F);
@@ -64,12 +64,12 @@ public class EntityBlubbertusk extends Animal {
 		if(isInWater()) {
 			energy--;
 			if(energy < 0) energy = 0;
-			if(previousEnergy > 499 && energy < 500) setPathfindingMalus(BlockPathTypes.WATER, -2F);
+			if(previousEnergy > 499 && energy < 500) setPathfindingMalus(PathType.WATER, -2F);
 			if(getAirSupply() < 200 && level().getBlockState(blockPosition().above()).isAir()) setDeltaMovement(getDeltaMovement().add(0D, .5D, 0D));
 		} else {
 			energy += 5;
 			if(energy > 6000) energy = 6000;
-			if(previousEnergy < 5001 && energy > 5000) setPathfindingMalus(BlockPathTypes.WATER, 2F);
+			if(previousEnergy < 5001 && energy > 5000) setPathfindingMalus(PathType.WATER, 2F);
 		}
 	}
 	@Override
@@ -128,10 +128,6 @@ public class EntityBlubbertusk extends Animal {
 	@Override
 	public boolean canBeLeashed(Player p) {
 		return true;
-	}
-	@Override
-	protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-		return .78F;
 	}
 	@Override
 	public float getWalkTargetValue(BlockPos pos, LevelReader level) {

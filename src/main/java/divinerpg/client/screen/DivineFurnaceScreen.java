@@ -9,11 +9,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public abstract class DivineFurnaceScreen<T extends DivineFurnaceMenu> extends AbstractContainerScreen<T> implements RecipeUpdateListener {
-    private static final ResourceLocation RECIPE_BUTTON_LOCATION = new ResourceLocation("textures/gui/recipe_button.png");
+    private static final ResourceLocation RECIPE_BUTTON_LOCATION = ResourceLocation.fromNamespaceAndPath("textures/gui/recipe_button.png");
     public final AbstractFurnaceRecipeBookComponent recipeBookComponent = new SmeltingRecipeBookComponent();
     private boolean widthTooNarrow;
     private final ResourceLocation texture;

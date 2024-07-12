@@ -16,7 +16,7 @@ public class RenderDivineFireball<T extends DivineFireball> extends EntityRender
     protected final RenderType renderType;
     
     public RenderDivineFireball(final Context context, final String name) {
-    	this(context, new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png"));
+    	this(context, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/projectiles/" + name + ".png"));
     }
     public RenderDivineFireball(final Context context, final ResourceLocation texture) {
     	super(context);

@@ -16,13 +16,13 @@ import java.lang.Math;
 
 public class RenderAyeracoBeam implements BlockEntityRenderer<AyeracoBeamBlockEntity> {
 	public static final ResourceLocation
-		blue_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_blue.png"),
-		green_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_green.png"),
-		pink_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_pink.png"),
-		purple_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_purple.png"),
-		red_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_red.png"),
-		yellow_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_yellow.png"),
-		white_beam = new ResourceLocation(DivineRPG.MODID + ":textures/block/beam_white.png");
+		blue_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_blue.png"),
+		green_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_green.png"),
+		pink_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_pink.png"),
+		purple_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_purple.png"),
+		red_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_red.png"),
+		yellow_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_yellow.png"),
+		white_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_white.png");
     public RenderAyeracoBeam(BlockEntityRendererProvider.Context context) {
     }
 

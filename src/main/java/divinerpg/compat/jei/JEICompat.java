@@ -19,7 +19,7 @@ public final class JEICompat
         implements IModPlugin
 {
 
-    public static final ResourceLocation UID = new ResourceLocation(DivineRPG.MODID, "jei_plugin");
+    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "jei_plugin");
 
     @Override
     public ResourceLocation getPluginUid() {

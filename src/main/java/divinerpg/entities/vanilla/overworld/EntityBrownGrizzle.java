@@ -16,9 +16,6 @@ public class EntityBrownGrizzle extends EntityDivineTameable {
     	super.registerGoals();
         this.targetSelector.addGoal(3, (new net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal(this)).setAlertOthers());
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.22F;
-    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.GRIZZLE.get();

@@ -52,9 +52,9 @@ public class EntityDivineWaterMob extends WaterAnimal {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
     @Nullable
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data) {
         this.setAirSupply(this.getMaxAirSupply());
-        this.setXRot(0.0F);
+        this.setXRot(0);
         return data;
     }
 

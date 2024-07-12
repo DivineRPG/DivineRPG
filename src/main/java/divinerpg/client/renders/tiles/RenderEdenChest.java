@@ -27,7 +27,7 @@ public class RenderEdenChest implements BlockEntityRenderer<EdenChestBlockEntity
         float lidAngle = tile.getOpenNess(partialTick);
         lidAngle = 1.0F - lidAngle;
         lidAngle = 1.0F - lidAngle * lidAngle * lidAngle;
-        VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/eden_chest.png")));
+        VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/eden_chest.png")));
         model.lid.xRot = -(lidAngle * ((float) Math.PI / 2F));
         model.chestKnobLeft.xRot = model.lid.xRot;
         model.chestKnobMiddle.xRot = model.lid.xRot;

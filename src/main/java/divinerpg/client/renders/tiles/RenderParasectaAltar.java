@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.*;
 
 public class RenderParasectaAltar implements BlockEntityRenderer<ParasectaAltarBlockEntity> {
-    private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/model/parasecta_altar.png");
+    private ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/parasecta_altar.png");
     private final ModelParasectaAltar<?> model;
     public RenderParasectaAltar(BlockEntityRendererProvider.Context context) {
         model = new ModelParasectaAltar<>(context.bakeLayer(ModelParasectaAltar.LAYER_LOCATION));

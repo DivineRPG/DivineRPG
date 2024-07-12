@@ -14,10 +14,6 @@ public class EntityRollum extends EntityDivineMonster {
     public EntityRollum(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.6125F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public boolean doHurtTarget(Entity entity) {

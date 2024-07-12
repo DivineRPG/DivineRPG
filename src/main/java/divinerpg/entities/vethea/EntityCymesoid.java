@@ -17,10 +17,6 @@ public class EntityCymesoid extends EntityDivineMonster {
     public EntityCymesoid(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.7F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {

@@ -15,10 +15,6 @@ public class EntityFrost extends EntityDivineFireballMob {
         super(type, worldIn);
     }
     @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return .625F;
-    }
-    @Override
     protected void registerGoals() {
     	super.registerGoals();
         goalSelector.addGoal(0, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 40, 50, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));

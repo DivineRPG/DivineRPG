@@ -39,7 +39,7 @@ public class ModelPropRegistry {
         (ItemModBow) ItemRegistry.teaker_bow.get());
         registerMerik((ItemMeriksMissile) ItemRegistry.meriks_missile.get());
 
-        registerShield(new ResourceLocation(DivineRPG.MODID, "blocking"),
+        registerShield(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "blocking"),
             (stack, world, entity, i) -> entity != null && entity.isUsingItem()
             && entity.getUseItem() == stack ? 1.0F : 0.0F,
         ItemRegistry.realmite_shield.get(),

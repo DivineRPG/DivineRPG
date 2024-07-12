@@ -16,9 +16,6 @@ public class EntityMegalith extends EntityDivineMonster {
     public EntityMegalith(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 3.6F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public boolean doHurtTarget(Entity entity) {
@@ -27,8 +24,8 @@ public class EntityMegalith extends EntityDivineMonster {
             if (entity instanceof LivingEntity) {
                 ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 2, false, false));
             }
-            entity.setDeltaMovement(-Mth.sin(this.xRot * (float) Math.PI / 180.0F) * 1.5f, 0.1D,
-                    Mth.cos(this.xRot * (float) Math.PI / 180.0F) * 1.5f);
+            entity.setDeltaMovement(-Mth.sin(getXRot() * (float) Math.PI / 180.0F) * 1.5f, 0.1D,
+                    Mth.cos(getXRot() * (float) Math.PI / 180.0F) * 1.5f);
         }
         return attack;
     }

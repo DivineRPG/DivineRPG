@@ -14,7 +14,6 @@ public class EntityGolemOfRejuvenation extends EntityDivineTameable {
         super(type, worldIn, 1F);
         healTimer = 0;
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.375F;}
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.GOLEM.get();

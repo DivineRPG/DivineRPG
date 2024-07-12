@@ -53,7 +53,7 @@ public class BlockArcanaPortal extends BlockMod {
 //        } else {
 //            teleporter = new ArcanaTeleporter(e.getServer().getLevel(LevelRegistry.ARCANA), Holder.direct(LevelRegistry.ARCANA_PORTAL));
 //        }
-        e.changeDimension(modDimension, new ArcanaTeleporter(modDimension, modDimension.getStructureManager().getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/portal"))));
+        e.changeDimension(modDimension, new ArcanaTeleporter(modDimension, modDimension.getStructureManager().getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/portal"))));
     }
     @Override public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos pos2, boolean unknown) {
         BlockPattern.BlockPatternMatch frame = getOrCreatePortalShape().find(world, pos);

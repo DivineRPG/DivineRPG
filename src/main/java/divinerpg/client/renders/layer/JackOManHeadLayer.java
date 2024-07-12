@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class JackOManHeadLayer extends RenderLayer<EntityJackOMan, HumanoidModel<EntityJackOMan>> {

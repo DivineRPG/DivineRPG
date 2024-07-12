@@ -58,7 +58,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         return new BookModel(context.bakeLayer(ModelLayers.BOOK));
     }
     private static ResourceLocation location(String path) {
-        return new ResourceLocation(DivineRPG.MODID, "textures/entity/" + path + ".png");
+        return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/" + path + ".png");
     }
     public static final ResourceLocation
     	ancient_entity = location("ancient_entity"),
@@ -112,6 +112,6 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         if(block == BlockRegistry.soulFiendStatue.get()) return soul_fiend;
         if(block == BlockRegistry.twilightDemonStatue.get()) return twilight_demon;
         if(block == BlockRegistry.vamacheronStatue.get()) return vamacheron;
-        return new ResourceLocation(DivineRPG.MODID, "textures/block/black_hungerstone.png");
+        return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/black_hungerstone.png");
     }
 }

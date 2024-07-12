@@ -13,12 +13,6 @@ public class EntityAngryGlinthop extends EntityDivineMonster {
     public EntityAngryGlinthop(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.345F;
-    }
-
     @Override
     public boolean fireImmune() {
         return true;

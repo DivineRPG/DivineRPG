@@ -220,7 +220,7 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	      cookingProgress = tag.getInt("CookTime");
 	      cookingTotalTime = tag.getInt("CookTimeTotal");
 	      CompoundTag compoundtag = tag.getCompound("RecipesUsed");
-	      for(String s : compoundtag.getAllKeys()) recipesUsed.put(new ResourceLocation(s), compoundtag.getInt(s));
+	      for(String s : compoundtag.getAllKeys()) recipesUsed.put(ResourceLocation.withDefaultNamespace(s), compoundtag.getInt(s));
 	}
 	@Override
 	protected void saveAdditional(CompoundTag tag) {

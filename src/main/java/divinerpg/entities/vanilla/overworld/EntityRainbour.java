@@ -9,7 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 public class EntityRainbour extends EntityDivineFlyingMob {
     public EntityRainbour(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
@@ -17,10 +17,6 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     }
     public static boolean rainbourSpawnRule(EntityType<? extends Mob> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
         return SpawnEvents.checkDarknessSpawnRules(typeIn, worldIn, reason, pos, randomIn) && !worldIn.canSeeSky(pos);
-    }
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.72F;
     }
     @Override
     public boolean isMaxGroupSizeReached(int i) {

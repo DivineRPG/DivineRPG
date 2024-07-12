@@ -18,14 +18,14 @@ import net.minecraft.util.*;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorruptionMenu> {
-    private static final ResourceLocation ENCHANTING_TABLE_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/gui/altar_of_corruption.png");
-    private static final ResourceLocation ENCHANTING_BOOK_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/model/altar_book.png");
+    private static final ResourceLocation ENCHANTING_TABLE_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/altar_of_corruption.png");
+    private static final ResourceLocation ENCHANTING_BOOK_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/altar_book.png");
     private final RandomSource random = RandomSource.create();
     private BookModel bookModel;
     public int time;

@@ -28,7 +28,7 @@ public class RenderDemonFurnaceItem extends BlockEntityWithoutLevelRenderer {
             matrixStack.translate(0.5, 0.5, 0.5);
             matrixStack.mulPose(Axis.YP.rotationDegrees(270));
             matrixStack.mulPose(Axis.YN.rotationDegrees(270));
-            VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/model/demon_furnace.png")));
+            VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/demon_furnace.png")));
             this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
             matrixStack.popPose();
         }

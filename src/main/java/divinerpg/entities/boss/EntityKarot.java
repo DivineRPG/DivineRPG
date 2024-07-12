@@ -22,12 +22,6 @@ public class EntityKarot extends EntityDivineBoss {
         super(type, worldIn);
         spawnTick=240;
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 3.4375F;
-    }
-
     @Override
     public int getArmorValue() {
         return 10;

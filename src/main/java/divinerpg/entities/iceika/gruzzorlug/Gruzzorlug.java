@@ -15,10 +15,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 public abstract class Gruzzorlug extends EntityIceikaNPC {
-	public static final TagKey<Structure> RAID_TARGETS = TagKey.create(Registries.STRUCTURE, new ResourceLocation(DivineRPG.MODID, "gruzzorlug_raid_targets"));
+	public static final TagKey<Structure> RAID_TARGETS = TagKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "gruzzorlug_raid_targets"));
 	public Gruzzorlug(EntityType<? extends Gruzzorlug> type, Level worldIn) {super(type, worldIn);}
 	@Override public Faction getFaction() {return Faction.GRUZZORLUG;}
-	@Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.03F;}
 	@Override protected TagKey<Structure> getRaidTargets() {return RAID_TARGETS;}
 	@Override protected MobEffect getTargetEffect() {return MobEffectRegistry.GRUZZORLUG_TARGET.get();}
 	public class AggressiveRangedAttackGoal extends RangedAttackGoal {

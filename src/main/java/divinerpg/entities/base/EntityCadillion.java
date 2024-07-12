@@ -20,7 +20,6 @@ public class EntityCadillion extends EntityDivineMonster {
         isCharging = false;
         ramCooldown = 0;
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.3625F;}
     @Override public boolean isAggressive() {return true;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.CADILLION.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}

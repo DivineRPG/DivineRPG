@@ -19,7 +19,7 @@ public class ArcaniumExtractorCategory
         implements IRecipeCategory<ArcaniumExtractorRecipe>
 {
 
-    public static final ResourceLocation ARCANIUM_EXTRACTOR = new ResourceLocation(DivineRPG.MODID, "textures/gui/jei/arcanium_extractor.png");
+    public static final ResourceLocation ARCANIUM_EXTRACTOR = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/arcanium_extractor.png");
     public static final RecipeType<ArcaniumExtractorRecipe> ARCANIUM_EXTRACTOR_TYPE = RecipeType.create(DivineRPG.MODID, "arcanium_extractor", ArcaniumExtractorRecipe.class);
 
     private final IDrawable back, icon;

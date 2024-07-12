@@ -23,7 +23,7 @@ public class ProximitySpawnerBlockEntity extends BlockEntity {
 	public static void serverTick(Level level, BlockPos pos, BlockState state, ProximitySpawnerBlockEntity entity) {
 		if(level instanceof ServerLevel world && entity.entityName != null && world.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 25, EntitySelector.NO_CREATIVE_OR_SPECTATOR) != null) {
 			world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-			ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation(DivineRPG.MODID, entity.entityName)).spawn(world, pos, MobSpawnType.SPAWNER);
+			ForgeRegistries.ENTITY_TYPES.getValue(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, entity.entityName)).spawn(world, pos, MobSpawnType.SPAWNER);
 		}
 	}
 	@Override

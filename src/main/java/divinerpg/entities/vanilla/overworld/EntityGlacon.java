@@ -14,10 +14,6 @@ public class EntityGlacon extends EntityDivineMonster {
     public EntityGlacon(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.21875F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     protected SoundEvent getAmbientSound() {

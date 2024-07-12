@@ -68,7 +68,7 @@ public class EntityDivineArrow extends AbstractArrow {
         Entity entity = result.getEntity();
         if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan)) {
             if(getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.BLIND) livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, arrowType.effectSec * 20, 0));
-            if(getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) livingEntity.setSecondsOnFire(arrowType.effectSec);
+            if(getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) livingEntity.igniteForSeconds(arrowType.effectSec);
             if(getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.NAUSEA) livingEntity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, arrowType.effectSec * 20, 0));
             if(getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.POISON) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, arrowType.effectSec * 20, 3));
             if(getArrowType().getArrowSpecial() == ArrowType.ArrowSpecial.SLOW) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, arrowType.effectSec * 20, 2));

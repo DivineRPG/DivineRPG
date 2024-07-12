@@ -20,30 +20,30 @@ public class JERCompat {
         if(dungeonRegistry != null) {
             //TODO: to add lang keys for translation
             //Overworld
-            dungeonRegistry.registerChest("Diamond Dave's Chest", new ResourceLocation(DivineRPG.MODID, "chests/overworld/amethyst"));
-            dungeonRegistry.registerChest("Ancient Tomb Chest", new ResourceLocation(DivineRPG.MODID, "chests/overworld/ancient_tomb"));
-            dungeonRegistry.registerChest("Merchant's Hut Chest", new ResourceLocation(DivineRPG.MODID, "chests/overworld/livestock_chest"));
+            dungeonRegistry.registerChest("Diamond Dave's Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/overworld/amethyst"));
+            dungeonRegistry.registerChest("Ancient Tomb Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/overworld/ancient_tomb"));
+            dungeonRegistry.registerChest("Merchant's Hut Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/overworld/livestock_chest"));
             //Iceika
-            dungeonRegistry.registerChest("Iceika Chest", new ResourceLocation(DivineRPG.MODID, "chests/iceika/iceika_chest_dungeon"));
-            dungeonRegistry.registerChest("Iceika Hut Chest", new ResourceLocation(DivineRPG.MODID, "chests/iceika/iceika_chest_hut"));
-            dungeonRegistry.registerChest("Groglin Chest", new ResourceLocation(DivineRPG.MODID, "chests/iceika/groglin_chest"));
-            dungeonRegistry.registerChest("Gruzzorlug Chest", new ResourceLocation(DivineRPG.MODID, "chests/iceika/gruzzorlug_chest"));
+            dungeonRegistry.registerChest("Iceika Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/iceika/iceika_chest_dungeon"));
+            dungeonRegistry.registerChest("Iceika Hut Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/iceika/iceika_chest_hut"));
+            dungeonRegistry.registerChest("Groglin Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/iceika/groglin_chest"));
+            dungeonRegistry.registerChest("Gruzzorlug Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/iceika/gruzzorlug_chest"));
             //Arcana
-            dungeonRegistry.registerChest("Banquet Hall Chest", new ResourceLocation(DivineRPG.MODID, "chests/arcana/banquet_hall_loot"));
-            dungeonRegistry.registerChest("Utility Hallway Chest", new ResourceLocation(DivineRPG.MODID, "chests/arcana/utility_hallway_loot"));
+            dungeonRegistry.registerChest("Banquet Hall Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/arcana/banquet_hall_loot"));
+            dungeonRegistry.registerChest("Utility Hallway Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/arcana/utility_hallway_loot"));
             //Twilight
-            dungeonRegistry.registerChest("Eden Hut Chest", new ResourceLocation(DivineRPG.MODID, "chests/twilight/eden/hut_chest"));
-            dungeonRegistry.registerChest("Skythern Chest", new ResourceLocation(DivineRPG.MODID, "chests/twilight/skythern/chest"));
-            dungeonRegistry.registerChest("Wildwood Chest", new ResourceLocation(DivineRPG.MODID, "chests/twilight/wildwood/chest"));
+            dungeonRegistry.registerChest("Eden Hut Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/twilight/eden/hut_chest"));
+            dungeonRegistry.registerChest("Skythern Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/twilight/skythern/chest"));
+            dungeonRegistry.registerChest("Wildwood Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/twilight/wildwood/chest"));
             //Vethea
-            dungeonRegistry.registerChest("Crypt Chest", new ResourceLocation(DivineRPG.MODID, "chests/vethea/crypt_loot"));
-            dungeonRegistry.registerChest("Karos Madhouse Chest", new ResourceLocation(DivineRPG.MODID, "chests/vethea/karos_madhouse_loot"));
-            dungeonRegistry.registerChest("Quadrotic Post Chest", new ResourceLocation(DivineRPG.MODID, "chests/vethea/quadrotic_post_loot"));
-            dungeonRegistry.registerChest("Raglok Chamber Chest", new ResourceLocation(DivineRPG.MODID, "chests/vethea/raglok_chamber_loot"));
-            dungeonRegistry.registerChest("Temple Bottom Chest", new ResourceLocation(DivineRPG.MODID, "chests/vethea/temple_loot_bottom"));
-            dungeonRegistry.registerChest("Temple Middle Chest", new ResourceLocation(DivineRPG.MODID, "chests/vethea/temple_loot_middle"));
-            dungeonRegistry.registerChest("Temple Top Chest", new ResourceLocation(DivineRPG.MODID, "chests/vethea/temple_loot_top"));
-            dungeonRegistry.registerChest("Wreck Hall Chest", new ResourceLocation(DivineRPG.MODID, "chests/vethea/wreck_hall_loot"));
+            dungeonRegistry.registerChest("Crypt Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/crypt_loot"));
+            dungeonRegistry.registerChest("Karos Madhouse Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/karos_madhouse_loot"));
+            dungeonRegistry.registerChest("Quadrotic Post Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/quadrotic_post_loot"));
+            dungeonRegistry.registerChest("Raglok Chamber Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/raglok_chamber_loot"));
+            dungeonRegistry.registerChest("Temple Bottom Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/temple_loot_bottom"));
+            dungeonRegistry.registerChest("Temple Middle Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/temple_loot_middle"));
+            dungeonRegistry.registerChest("Temple Top Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/temple_loot_top"));
+            dungeonRegistry.registerChest("Wreck Hall Chest", ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/wreck_hall_loot"));
         }
         IWorldGenRegistry worldGenRegistry = jerApi.getWorldGenRegistry();
         if(worldGenRegistry != null) {

@@ -3,10 +3,12 @@ package divinerpg.items.arcana;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
 import divinerpg.util.*;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import java.util.List;
@@ -40,6 +42,6 @@ public class ItemDivineAccumulator extends ItemMod {
         tooltip.add(LocalizeUtils.i18n("divine_accumulator.launch"));
         tooltip.add(LocalizeUtils.i18n("divine_accumulator.fall"));
         super.appendHoverText(stack, context, tooltip, flagIn);
-        stack.getOrCreateTag().putBoolean("Unbreakable", true);
+        stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
     }
 }

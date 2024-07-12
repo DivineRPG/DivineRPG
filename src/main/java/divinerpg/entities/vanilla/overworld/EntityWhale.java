@@ -17,10 +17,6 @@ public class EntityWhale extends EntityDivineWaterMob {
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.25F, 0.1F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 20);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.125F;
-    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.WHALE.get();

@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class MoltenFurnaceScreen extends InfiniFurnaceScreen<MoltenFurnaceMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/molten_furnace.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/molten_furnace.png");
     public MoltenFurnaceScreen(MoltenFurnaceMenu menu, Inventory inv, Component c) {
         super(menu, inv, c, TEXTURE, 4210752, 4210752);
     }

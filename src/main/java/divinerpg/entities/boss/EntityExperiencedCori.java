@@ -34,12 +34,6 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
         coriTypePool.addItem(EntityRegistry.WEAK_CORI.get(), 4);
         coriTypePool.addItem(EntityRegistry.ADVANCED_CORI.get(), 1);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 4.0625F;
-    }
-
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
         if (this.isAlive()) {

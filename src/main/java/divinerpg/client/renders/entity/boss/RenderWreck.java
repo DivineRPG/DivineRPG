@@ -10,15 +10,15 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.resources.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderWreck extends RenderDivineMob<EntityWreck> {
     private final EntityModel<EntityWreck> modelMelee, modelArcanic, modelRanged;
     
     private final ResourceLocation 
-    	arcanic = new ResourceLocation(DivineRPG.MODID, "textures/entity/wreck_arcanic.png"),
-    	ranged = new ResourceLocation(DivineRPG.MODID, "textures/entity/wreck_ranged.png");
+    	arcanic = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/wreck_arcanic.png"),
+    	ranged = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/wreck_ranged.png");
 
     public RenderWreck(Context context) {
         super(context, "wreck_melee", new ModelWreck(context), 0.8F);

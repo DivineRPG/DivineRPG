@@ -21,7 +21,6 @@ public class EntityParatiku extends EntityDivineTameable {
         super(type, worldIn, 1F);
         setIsParatikuHanging(true);
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.1875F;}
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();

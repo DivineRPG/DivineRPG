@@ -15,11 +15,6 @@ public class EntityDesertCrawler extends EntityCrawler {
     public EntityDesertCrawler(EntityType<? extends Monster> type, Level level) {
         super(type, level);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.9F;
-    }
-
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();

@@ -189,11 +189,6 @@ public class EntityWreck extends EntityDivineBoss {
         }
 
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.6875F;
-    }
-
     @Override
     public void tick() {
         super.tick();
@@ -237,7 +232,7 @@ public class EntityWreck extends EntityDivineBoss {
                 knockback = 2;
             }
             if (knockback > 0) {
-                par1Entity.setDeltaMovement(-Mth.sin(this.xRot * (float) Math.PI / 180.0F) * knockback * 0.5F, 0.1D, Mth.cos(this.yRot * (float) Math.PI / 180.0F) * knockback * 0.5F);
+                par1Entity.setDeltaMovement(-Mth.sin(getXRot() * (float) Math.PI / 180.0F) * knockback * 0.5F, 0.1D, Mth.cos(getYRot() * (float) Math.PI / 180.0F) * knockback * 0.5F);
 
                 setDeltaMovement(getDeltaMovement().x * 0.6D, getDeltaMovement().y, getDeltaMovement().z*0.6D);
             }
@@ -245,7 +240,7 @@ public class EntityWreck extends EntityDivineBoss {
             int var5 = EnchantmentHelper.getFireAspect(this);
 
             if (var5 > 0) {
-                par1Entity.setSecondsOnFire(var5 * 4);
+                par1Entity.igniteForSeconds(var5 * 4);
             }
         }
 

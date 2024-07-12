@@ -52,11 +52,6 @@ public class EntityRaglok extends EntityDivineBoss {
             manageAbilities();
         }
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 5.0F;
-    }
-
     public void manageAbilities() {
         Player player = this.level().getNearestPlayer(this, 64.0D);
 

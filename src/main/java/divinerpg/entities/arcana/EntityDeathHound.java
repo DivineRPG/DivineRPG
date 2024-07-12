@@ -14,10 +14,6 @@ public class EntityDeathHound extends EntityDivineMonster {
     public EntityDeathHound(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.75F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public boolean doHurtTarget(Entity entity) {

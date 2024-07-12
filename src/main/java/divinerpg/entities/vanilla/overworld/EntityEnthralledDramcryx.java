@@ -19,11 +19,6 @@ public class EntityEnthralledDramcryx extends EntityDivineMonster {
     public EntityEnthralledDramcryx(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.3125F;
-    }
-
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));

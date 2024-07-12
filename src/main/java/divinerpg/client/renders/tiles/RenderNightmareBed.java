@@ -16,14 +16,14 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderNightmareBed implements BlockEntityRenderer<NightmareBedBlockEntity> {
     private final ModelPart headRoot;
     private final ModelPart footRoot;
-    public static final ModelLayerLocation HEAD = new ModelLayerLocation(new ResourceLocation(DivineRPG.MODID, "head"), "main");
-    public static final ModelLayerLocation FOOT = new ModelLayerLocation(new ResourceLocation(DivineRPG.MODID, "foot"), "main");
+    public static final ModelLayerLocation HEAD = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "head"), "main");
+    public static final ModelLayerLocation FOOT = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "foot"), "main");
 
     public RenderNightmareBed(BlockEntityRendererProvider.Context context) {
         this.headRoot = context.bakeLayer(HEAD);
@@ -71,7 +71,7 @@ public class RenderNightmareBed implements BlockEntityRenderer<NightmareBedBlock
         stack.mulPose(Axis.ZP.rotationDegrees(180.0F + direction.toYRot()));
         stack.translate(-0.5F, -0.5F, -0.5F);
 
-        VertexConsumer vertexconsumer = bufferSource.getBuffer(RenderType.entityCutout(new ResourceLocation(DivineRPG.MODID, "textures/block/nightmare_bed.png")));
+        VertexConsumer vertexconsumer = bufferSource.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/nightmare_bed.png")));
         part.render(stack, vertexconsumer, p_173547_, p_173548_);
         stack.popPose();
     }

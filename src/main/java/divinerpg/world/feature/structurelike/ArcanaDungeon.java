@@ -36,15 +36,15 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 		if(doorway == null) {
 			StructureTemplateManager manager = level.getLevel().getServer().getStructureManager();
 			BlockState degraded = BlockRegistry.degradedBricks.get().defaultBlockState(), ancientBrick = BlockRegistry.ancientBricks.get().defaultBlockState(), sludge = BlockRegistry.soulStone.get().defaultBlockState(), ancient = BlockRegistry.ancientStone.get().defaultBlockState();
-			doorway = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/doors/doorway"));
-			entranceRoom = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/entrance_room"));
-			stairs = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/stairs"));
-			stairsTop = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/stairs_top"));
+			doorway = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/doors/doorway"));
+			entranceRoom = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/entrance_room"));
+			stairs = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/stairs"));
+			stairsTop = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/stairs_top"));
 			doors = new StructureTemplate[] {
-					manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/doors/ancient_brick")),
-					manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/doors/degraded_brick")),
-					manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/doors/soul_sludge")),
-					manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, "arcana/doors/soul_stone"))
+					manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/doors/ancient_brick")),
+					manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/doors/degraded_brick")),
+					manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/doors/soul_sludge")),
+					manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/doors/soul_stone"))
 			};
 			adaptiveRooms = new Room[] {
 					new Room(manager, "arcana/any/degraded_maze", degraded),
@@ -259,7 +259,7 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 		public final StructureTemplate room;
 		public final BlockState wallBlock;
 		public Room(StructureTemplateManager manager, String location, @Nullable BlockState wallBlock) {
-			room = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, location));
+			room = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, location));
 			this.wallBlock = wallBlock;
 		}
 		public void gen(WorldGenLevel level, RandomSource random, BlockPos pos, Rotation rotation, byte roomShape) {
@@ -272,7 +272,7 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 		public final StructureTemplate room, door;
 		public final BlockState wallBlock;
 		public VerticalRoom(StructureTemplateManager manager, String location, @Nullable BlockState wallBlock, @Nullable StructureTemplate upperRoomDoor) {
-			room = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, location));
+			room = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, location));
 			this.wallBlock = wallBlock;
 			this.door = upperRoomDoor;
 		}
@@ -288,7 +288,7 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 	class BigRoom {
 		public final StructureTemplate room;
 		public BigRoom(StructureTemplateManager manager, String room) {
-			this.room = manager.getOrCreate(new ResourceLocation(DivineRPG.MODID, room));
+			this.room = manager.getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, room));
 		}
 		public void gen(WorldGenLevel level, RandomSource random, BlockPos pos, int xPart, int zPart) {
 			if(xPart == 0) {

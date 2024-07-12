@@ -2,11 +2,10 @@ package divinerpg.items.base;
 
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemModFood extends ItemMod {
@@ -22,7 +21,7 @@ public class ItemModFood extends ItemMod {
         this.food = food;
         this.fastFood = fastFood;
     }
-    @Override public int getUseDuration(ItemStack stack) {return fastFood ? 1 : super.getUseDuration(stack);}
+    @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return fastFood ? 1 : super.getUseDuration(stack, entity);}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         if(fastFood) tooltip.add(LocalizeUtils.instantConsumption());

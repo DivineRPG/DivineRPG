@@ -15,12 +15,6 @@ public class EntitySoulStealer extends EntityDivineMonster {
     public EntitySoulStealer(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.844F;
-    }
-
     @Override
     public boolean fireImmune() {
         return true;

@@ -10,7 +10,7 @@ import net.minecraft.world.entity.ai.control.LookControl;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 
 public class FollowLeaderGoal extends Goal {
 	protected final Mob mob;
@@ -43,13 +43,13 @@ public class FollowLeaderGoal extends Goal {
 	}
 	public void start() {
 		timetorecalcpath = 0;
-		oldWaterCost = mob.getPathfindingMalus(BlockPathTypes.WATER);
-		mob.setPathfindingMalus(BlockPathTypes.WATER, 0F);
+		oldWaterCost = mob.getPathfindingMalus(PathType.WATER);
+		mob.setPathfindingMalus(PathType.WATER, 0F);
 	}
 	public void stop() {
 		following = null;
 		navigation.stop();
-		mob.setPathfindingMalus(BlockPathTypes.WATER, oldWaterCost);
+		mob.setPathfindingMalus(PathType.WATER, oldWaterCost);
 	}
 	public void tick() {
 		if(following != null && !mob.isLeashed()) {

@@ -22,17 +22,12 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
         super(type, worldIn);
         this.xpReward = 1000;
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.875F;
-    }
-
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if (isAlive() && getTarget() != null && !level().isClientSide) {
             if (canAttack(target)) {
                 if (distanceTo(target) < 3) {
-                    target.setSecondsOnFire(3);
+                    target.igniteForSeconds(3);
                 }
 
                 ThrowableProjectile projectile = new EntityParticleBullet(EntityRegistry.PARTICLE_BULLET.get(), level(), this, BulletType.SUNSTORM);

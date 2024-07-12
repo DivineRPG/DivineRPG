@@ -17,10 +17,6 @@ public class EntityBohemite extends EntityDivineMonster {
     public EntityBohemite(EntityType<? extends Monster> type, Level worldIn) {
     	super(type, worldIn);
     }
-    
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.875F;
-    }
     public static boolean canSpawnOn(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, Random randomIn) {
         return reason == MobSpawnType.SPAWNER || worldIn.getBlockState(pos.below()).isValidSpawn(worldIn, pos.below(), typeIn);
     }

@@ -21,7 +21,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 import java.util.EnumSet;
 
@@ -40,9 +40,6 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
     @Override
     public boolean fireImmune() {
         return true;
-    }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 3.0F;
     }
     public boolean canSpawn(LevelAccessor worldIn, MobSpawnType spawnReasonIn) {
         return level().dimension() == Level.OVERWORLD;

@@ -87,7 +87,7 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	      cookingTotalTime = p_155025_.getInt("CookTimeTotal");
 	      litDuration = getBurnDuration(items.get(1));
 	      CompoundTag compoundtag = p_155025_.getCompound("RecipesUsed");
-	      for(String s : compoundtag.getAllKeys()) recipesUsed.put(new ResourceLocation(s), compoundtag.getInt(s));
+	      for(String s : compoundtag.getAllKeys()) recipesUsed.put(ResourceLocation.withDefaultNamespace(s), compoundtag.getInt(s));
 	}
 	@Override
 	protected void saveAdditional(CompoundTag p_187452_) {

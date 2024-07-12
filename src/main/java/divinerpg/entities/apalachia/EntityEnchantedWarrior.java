@@ -15,17 +15,17 @@ import javax.annotation.Nullable;
 
 public class EntityEnchantedWarrior extends EntityDivineMonster {
     public EntityEnchantedWarrior(EntityType<? extends Monster> type, Level worldIn) {super(type, worldIn);}
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.98F;}
     @Override public boolean isAggressive() {return true;}
     @Override public int getArmorValue() {return 10;}
     @Override protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
         setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.apalachia_blade.get()));
         super.populateDefaultEquipmentSlots(random, difficulty);
     }
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+    @Nullable
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
         RandomSource random = level.getRandom();
         populateDefaultEquipmentSlots(random, difficulty);
-        populateDefaultEquipmentEnchantments(getRandom(), difficulty);
+        populateDefaultEquipmentEnchantments(level, getRandom(), difficulty);
         return data;
     }
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.HISS.get();}

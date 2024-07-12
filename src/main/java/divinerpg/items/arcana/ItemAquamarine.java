@@ -13,7 +13,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.*;
 
 public class ItemAquamarine extends BucketItem {
-    public ItemAquamarine() {super(() -> Fluids.WATER, new Properties().durability(10));}
+    public ItemAquamarine() {super(Fluids.WATER, new Properties().durability(10));}
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
     	ItemStack itemstack = player.getItemInHand(hand);
     	BlockHitResult blockhitresult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.NONE);
@@ -22,7 +22,7 @@ public class ItemAquamarine extends BucketItem {
         BlockPos blockpos = blockhitresult.getBlockPos(), blockpos1 = blockpos.relative(direction);
 	    if(level.mayInteract(player, blockpos) && player.mayUseItemAt(blockpos1, direction, itemstack)) {
            BlockState blockstate = level.getBlockState(blockpos);
-           BlockPos blockpos2 = canBlockContainFluid(level, blockpos, blockstate) ? blockpos : blockpos1;
+           BlockPos blockpos2 = canBlockContainFluid(player, level, blockpos, blockstate) ? blockpos : blockpos1;
            if(emptyContents(player, level, blockpos2, blockhitresult, itemstack)) {
               if(player instanceof ServerPlayer) CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos2, itemstack);
               player.awardStat(Stats.ITEM_USED.get(this));

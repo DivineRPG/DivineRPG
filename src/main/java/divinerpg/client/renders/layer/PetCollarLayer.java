@@ -11,14 +11,14 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class PetCollarLayer extends RenderLayer<EntityDivineTameable, EntityModel<EntityDivineTameable>> {
     private static final ResourceLocation
-            EHU_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/ehu_collar.png"),
-            HELL_PIG_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_collar.png"),
-            SNAPPER_COLLAR = new ResourceLocation(DivineRPG.MODID, "textures/entity/snapper_collar.png");
+            EHU_COLLAR = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/ehu_collar.png"),
+            HELL_PIG_COLLAR = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_collar.png"),
+            SNAPPER_COLLAR = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/snapper_collar.png");
     public PetCollarLayer(RenderLayerParent<EntityDivineTameable, EntityModel<EntityDivineTameable>> p_117707_) {super(p_117707_);}
     private ResourceLocation texture(Entity entity){
         if(entity instanceof EntityEhu) return EHU_COLLAR;

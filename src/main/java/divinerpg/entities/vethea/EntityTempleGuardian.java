@@ -14,11 +14,6 @@ public class EntityTempleGuardian extends EntityGifterNPC {
     public EntityTempleGuardian(EntityType<? extends PathfinderMob> type, Level worldIn) {
     	super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.865F;
-    }
-
     @Override
     protected ItemStack getGift() {
         return new ItemStack(ItemRegistry.cermile_lump.get(), 10);

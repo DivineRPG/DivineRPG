@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.ResourceLocation;
 
 public class RenderArcaniumExtractor implements BlockEntityRenderer<ArcaniumExtractorBlockEntity> {
-    private ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/model/arcanium_extractor.png");
+    private ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/arcanium_extractor.png");
 
     private final ModelArcaniumExtractor<?> model;
     public RenderArcaniumExtractor(BlockEntityRendererProvider.Context context) {

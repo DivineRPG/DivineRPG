@@ -17,9 +17,6 @@ public class EntityWildfire extends EntityDivineMonster implements RangedAttackM
     public EntityWildfire(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.75F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {

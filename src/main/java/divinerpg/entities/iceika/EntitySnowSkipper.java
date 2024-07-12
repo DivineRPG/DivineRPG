@@ -12,7 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 
@@ -21,10 +21,9 @@ public class EntitySnowSkipper extends PathfinderMob {
 	boolean wantsToRest = false;
 	public EntitySnowSkipper(EntityType<? extends EntitySnowSkipper> type, Level worldIn) {
         super(type, worldIn);
-        setPathfindingMalus(BlockPathTypes.POWDER_SNOW, 1F);
-        setPathfindingMalus(BlockPathTypes.DANGER_POWDER_SNOW, 1F);
+        setPathfindingMalus(PathType.POWDER_SNOW, 1F);
+        setPathfindingMalus(PathType.DANGER_POWDER_SNOW, 1F);
     }
-	@Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return .37F;}
 	@Override
 	public boolean checkSpawnObstruction(LevelReader worldIn) {
 		return true;
@@ -78,8 +77,8 @@ public class EntitySnowSkipper extends PathfinderMob {
             //movement
             double speed = getAttributeValue(Attributes.FLYING_SPEED), distanceX = pathfindPos.getX() - getX(), distanceY = pathfindPos.getY() - getY() + (wantsToRest ? .3 : 0D), distanceZ = pathfindPos.getZ() - getZ(), distance = Math.sqrt(distanceX*distanceX+distanceY*distanceY+distanceZ*distanceZ);
             setDeltaMovement(getDeltaMovement().x + distanceX / distance * speed, getDeltaMovement().y + distanceY / distance * speed, getDeltaMovement().z + distanceZ / distance * speed);
-            yRot = Utils.rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
-            xRot = Utils.rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
+            yRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
+            xRot = Utils.rotlerp(getXRot(), (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
             if(distance < 1D) pathfindPos = null;
         }
 	}

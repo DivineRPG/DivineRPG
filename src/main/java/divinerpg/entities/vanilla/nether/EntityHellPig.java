@@ -21,12 +21,6 @@ public class EntityHellPig extends EntityDivineTameable {
     public boolean fireImmune() {
         return true;
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return .99375F;
-    }
-
     @Override
     protected boolean isTamingFood(ItemStack item) {
     	return item.is(Items.BLAZE_POWDER);

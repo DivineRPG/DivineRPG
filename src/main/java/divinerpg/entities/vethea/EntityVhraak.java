@@ -18,10 +18,6 @@ public class EntityVhraak extends EntityDivineMonster {
     public EntityVhraak(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.8F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {

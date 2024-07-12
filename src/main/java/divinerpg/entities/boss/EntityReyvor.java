@@ -23,11 +23,6 @@ public class EntityReyvor extends EntityDivineBoss implements RangedAttackMob {
     public EntityReyvor(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.0F;
-    }
-
     @Override
     protected void registerGoals() {
         super.registerGoals();

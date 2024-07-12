@@ -5,6 +5,7 @@ import divinerpg.enums.ArrowType;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
@@ -14,9 +15,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.api.distmarker.*;
 import java.util.List;
 
@@ -50,7 +52,7 @@ public class ItemModBow extends BowItem {
         this.arrowSupplier = arrowType.getArrowSupplier();
         this.maxUseDuration = maxUseDuration;
     }
-    @Override public int getUseDuration(ItemStack stack) {return maxUseDuration;}
+    @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return maxUseDuration;}
     public boolean needsArrow(ItemStack stack) {
         if(arrowSupplier != null) return stack.getEnchantmentLevel(Enchantments.INFINITY_ARROWS) <= 0;
         else return false;
@@ -58,7 +60,7 @@ public class ItemModBow extends BowItem {
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         boolean hasAmmo = (!needsArrow(stack) || !findAmmunition(player).isEmpty());
-        InteractionResultHolder<ItemStack> ret = ForgeEventFactory.onArrowNock(stack, world, player, hand, hasAmmo);
+        InteractionResultHolder<ItemStack> ret = EventHooks.onArrowNock(stack, world, player, hand, hasAmmo);
         if(ret != null) return ret;
         if(!player.isCreative() && !hasAmmo) return InteractionResultHolder.fail(stack);
         else {
@@ -71,7 +73,7 @@ public class ItemModBow extends BowItem {
         if(entityLiving instanceof Player player) {
             boolean infiniteAmmo = !needsArrow(stack) || player.isCreative() || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY_ARROWS, entityLiving) > 0;
             ItemStack itemstack = findAmmunition(player);
-            int charge = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, player, maxUseDuration - timeLeft, !itemstack.isEmpty() || infiniteAmmo);
+            int charge = EventHooks.onArrowLoose(stack, worldIn, player, maxUseDuration - timeLeft, !itemstack.isEmpty() || infiniteAmmo);
             if(charge < 0) return;
             if(!itemstack.isEmpty() || infiniteAmmo) {
                 float f = getScaledArrowVelocity(charge);
@@ -85,7 +87,7 @@ public class ItemModBow extends BowItem {
                         int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH_ARROWS, entityLiving);
                         if(k > 0) arrow.setKnockback(k);
                         if(EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAMING_ARROWS, entityLiving) > 0) {arrow.igniteForSeconds(100);}
-                        if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
+                        if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
                         if(infiniteAmmo) {arrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;}
                         worldIn.addFreshEntity(arrow);
                     } worldIn.playSound(null, player.xo, player.yo, player.zo, SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1 / (random.nextFloat() * .4F + 1.2F) + f * .5F);
@@ -120,7 +122,7 @@ public class ItemModBow extends BowItem {
             if(isArrow(stack)) return stack;
         } return ItemStack.EMPTY;
     }
-    @Override public boolean isEnchantable(ItemStack stack) {return canBeDepleted();}
+    @Override public boolean isEnchantable(ItemStack stack) {return stack.isDamageableItem();}
     @Override public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME && enchantment == Enchantments.FLAMING_ARROWS
         || !needsArrow(stack) && enchantment == Enchantments.INFINITY_ARROWS) return false;
@@ -136,7 +138,7 @@ public class ItemModBow extends BowItem {
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) tooltip.add(LocalizeUtils.burn(arrowType.effectSec));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
         tooltip.add(needsArrow(stack) ? LocalizeUtils.ammo(arrowSupplier) : LocalizeUtils.infiniteAmmo());
-        if(!canBeDepleted()) stack.getOrCreateTag().putBoolean("Unbreakable", true);
+        if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
         super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

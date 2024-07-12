@@ -54,9 +54,8 @@ public class EntityPumpkinSpider extends Spider {
 		return super.hurt(source, amount);
 	}
 	@Nullable
-	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_33790_, DifficultyInstance p_33791_, MobSpawnType p_33792_, @Nullable SpawnGroupData p_33793_, @Nullable CompoundTag p_33794_) {
-		return p_33793_;
+	@Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
+		return data;
 	}
 	public boolean getProvoked() {
 		return entityData.get(PROVOKED);

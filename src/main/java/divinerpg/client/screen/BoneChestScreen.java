@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class BoneChestScreen extends AbstractContainerScreen<BoneChestMenu> implements MenuAccess<BoneChestMenu> {
-    private static final ResourceLocation LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/gui/bone_chest_gui.png");
+    private static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/bone_chest_gui.png");
 
     public BoneChestScreen(BoneChestMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);

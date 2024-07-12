@@ -15,11 +15,6 @@ public class EntityMoonWolf extends Wolf {
     }
 
     @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.96875F;
-    }
-
-    @Override
     public void setTame(boolean bool) {
         super.setTame(bool);
         if (bool) {

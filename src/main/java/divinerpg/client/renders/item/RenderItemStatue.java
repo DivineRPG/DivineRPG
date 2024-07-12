@@ -103,47 +103,47 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
     private ResourceLocation texture(ItemStack stack) {
         Item item = stack.getItem();
         if(item == BlockRegistry.ancientEntityStatue.asItem()) {
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/ancient_entity.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/ancient_entity.png");
         } else if(item == BlockRegistry.densosStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/densos.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/densos.png");
         } else if(item == BlockRegistry.dramixStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/dramix.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/dramix.png");
         } else if(item == BlockRegistry.eternalArcherStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/eternal_archer.png");
         } else if(item == BlockRegistry.karotStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/karot.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/karot.png");
         } else if(item == BlockRegistry.kingOfScorchersStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/king_of_scorchers.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/king_of_scorchers.png");
         } else if(item == BlockRegistry.parasectaStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/parasecta.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/parasecta.png");
         } else if(item == BlockRegistry.reyvorStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/reyvor.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/reyvor.png");
         } else if(item == BlockRegistry.soulFiendStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/soul_fiend.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/soul_fiend.png");
         } else if(item == BlockRegistry.theWatcherStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/the_watcher.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/the_watcher.png");
         } else if(item == BlockRegistry.twilightDemonStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/twilight_demon.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/twilight_demon.png");
         } else if(item == BlockRegistry.vamacheronStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/mortum_cadillion.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/mortum_cadillion.png");
         }
 
         else if(item == BlockRegistry.ayeracoStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/ayeraco_white.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/ayeraco_white.png");
         }
 
         else if(item == BlockRegistry.termasectStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/termasect.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/termasect.png");
         } else if(item == BlockRegistry.sunstormStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/sunstorm.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/sunstorm.png");
         } else if(item == BlockRegistry.experiencedCoriStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/experienced_cori.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/experienced_cori.png");
         } else if(item == BlockRegistry.kitraStatue.asItem()){
-            return new ResourceLocation(DivineRPG.MODID, "textures/entity/kitra.png");
+            return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/kitra.png");
         }
 
         else {
-            return new ResourceLocation("minecraft:textures/block/stone.png");
+            return ResourceLocation.withDefaultNamespace("minecraft:textures/block/stone.png");
         }
     }
 }

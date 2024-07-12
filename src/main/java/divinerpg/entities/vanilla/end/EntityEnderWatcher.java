@@ -8,7 +8,4 @@ public class EntityEnderWatcher extends EnderMan {
     public EntityEnderWatcher(EntityType<? extends EnderMan> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.5F;
-    }
 }

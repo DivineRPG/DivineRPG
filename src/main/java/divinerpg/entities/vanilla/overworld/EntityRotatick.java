@@ -13,16 +13,16 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
+import javax.annotation.Nullable;
+
 public class EntityRotatick extends EntityDivineMonster {
     private static final EntityDataAccessor<Boolean> SPECIAL = SynchedEntityData.defineId(EntityRotatick.class, EntityDataSerializers.BOOLEAN);
 	public EntityRotatick(EntityType<? extends Monster> type, Level level) {super(type, level);}
-    @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance p_146747_, MobSpawnType p_146748_, @org.jetbrains.annotations.Nullable SpawnGroupData p_146749_, @org.jetbrains.annotations.Nullable CompoundTag p_146750_) {
+    @Nullable
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
         if(random.nextInt(10) == 1) entityData.set(SPECIAL, true);
-        return p_146749_;
+        return data;
     }
-    @Override
-	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {return 0.5F;}
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();

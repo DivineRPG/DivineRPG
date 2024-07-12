@@ -11,11 +11,11 @@ import net.minecraft.resources.ResourceLocation;
 
 public class RenderAequorea extends RenderDivineMob<EntityAequorea> {
 	public static final ResourceLocation
-		TEXTURE1 = new ResourceLocation(DivineRPG.MODID, "textures/entity/aequorea_green.png"),
-		TEXTURE2 = new ResourceLocation(DivineRPG.MODID, "textures/entity/aequorea_pink.png"),
-		TEXTURE3 = new ResourceLocation(DivineRPG.MODID, "textures/entity/aequorea_purple.png"),
-		TEXTURE4 = new ResourceLocation(DivineRPG.MODID, "textures/entity/aequorea_red.png"),
-		TEXTURE5 = new ResourceLocation(DivineRPG.MODID, "textures/entity/aequorea_yellow.png");
+		TEXTURE1 = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/aequorea_green.png"),
+		TEXTURE2 = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/aequorea_pink.png"),
+		TEXTURE3 = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/aequorea_purple.png"),
+		TEXTURE4 = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/aequorea_red.png"),
+		TEXTURE5 = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/aequorea_yellow.png");
 	public RenderAequorea(Context context) {
 		super(context, "aequorea_blue", new ModelAequorea(context), 0.4F);
 	}

@@ -15,10 +15,6 @@ public class EntityShadahier extends EntityDivineMonster {
     public EntityShadahier(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.25F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public boolean doHurtTarget(Entity target) {

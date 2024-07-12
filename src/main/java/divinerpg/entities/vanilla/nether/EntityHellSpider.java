@@ -123,11 +123,6 @@ public class EntityHellSpider extends EntityDivineMonster {
 
         this.entityData.set(CLIMBING, b0);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.65F;
-    }
-
     static class AttackGoal extends MeleeAttackGoal {
         public AttackGoal(EntityHellSpider p_i46676_1_) {
             super(p_i46676_1_, 1.0D, true);

@@ -3,7 +3,7 @@ package divinerpg.client.renders.entity.projectile;
 import divinerpg.entities.projectile.EntityDivineArrow;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderDivineArrow extends ArrowRenderer<EntityDivineArrow> {

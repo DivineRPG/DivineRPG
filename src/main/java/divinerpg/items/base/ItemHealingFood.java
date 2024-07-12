@@ -19,7 +19,7 @@ public class ItemHealingFood extends ItemModFood {
         if(entity.getHealth() < entity.getMaxHealth()) entity.heal(healAmount);
         return super.finishUsingItem(stack, world, entity);
     }
-    @Override public int getUseDuration(ItemStack stack) {return 16;}
+    @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return 16;}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.healthHeal(healAmount / 2));

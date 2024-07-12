@@ -221,11 +221,11 @@ public enum BulletType {
         if(ordinal < 0 || ordinal > values().length) ordinal = 0;
         return values()[ordinal];
     }
-    private static ResourceLocation ProjectileLoc(String name) {return new ResourceLocation(DivineRPG.MODID, "textures/projectiles/" + name + ".png");}
+    private static ResourceLocation ProjectileLoc(String name) {return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/projectiles/" + name + ".png");}
     //TODO: to fix, for some reason blank textures are a 1x1 white square
-    private static ResourceLocation blank() {return new ResourceLocation("minecraft:textures/particle/generic_0.png");}
-    public static ResourceLocation ItemLoc(String name) {return new ResourceLocation(DivineRPG.MODID, "textures/item/" + name + ".png");}
-    private static ResourceLocation VanillaItemLoc(String name) {return new ResourceLocation("minecraft:textures/item/" + name + ".png");}
+    private static ResourceLocation blank() {return ResourceLocation.withDefaultNamespace("minecraft:textures/particle/generic_0.png");}
+    public static ResourceLocation ItemLoc(String name) {return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/item/" + name + ".png");}
+    private static ResourceLocation VanillaItemLoc(String name) {return ResourceLocation.withDefaultNamespace("minecraft:textures/item/" + name + ".png");}
     public float getDamage() {return damage;}
     public ResourceLocation getTexture() {return texture;}
     public SimpleParticleType getParticle() {return particle;}

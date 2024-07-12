@@ -20,12 +20,6 @@ public class EntityShark extends EntityDivineWaterMob {
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.15F, 0.1F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.59375F;
-    }
-
     @Override
     public boolean isAggressive() {
         return true;

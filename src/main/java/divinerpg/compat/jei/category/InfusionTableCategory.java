@@ -19,7 +19,7 @@ public class InfusionTableCategory
         implements IRecipeCategory<InfusionTableRecipe>
 {
     public static final RecipeType<InfusionTableRecipe> INFUSION_TABLE_TYPE = RecipeType.create(DivineRPG.MODID, "infusion_table", InfusionTableRecipe.class);
-    public static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/jei/infusion_table.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/infusion_table.png");
 
 
     private final IDrawable back, icon;

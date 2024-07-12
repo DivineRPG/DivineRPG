@@ -5,13 +5,13 @@ import divinerpg.client.renders.base.RenderDivineMob;
 import divinerpg.entities.vethea.EntityGalroid;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 import net.minecraft.resources.ResourceLocation;
 @OnlyIn(Dist.CLIENT)
 public class RenderGalroid extends RenderDivineMob<EntityGalroid> {
-    ResourceLocation regular = new ResourceLocation(DivineRPG.MODID, "textures/entity/galroid.png");
-    ResourceLocation invulnerable = new ResourceLocation(DivineRPG.MODID, "textures/entity/galroid_invulnerable.png");
+    ResourceLocation regular = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/galroid.png");
+    ResourceLocation invulnerable = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/galroid_invulnerable.png");
 
     public RenderGalroid(EntityRendererProvider.Context context, String name, EntityModel<EntityGalroid> model) {
         super(context, name, model, 0.8F);

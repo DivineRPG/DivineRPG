@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 import java.util.UUID;
 
@@ -20,18 +20,18 @@ import java.util.UUID;
 public class PlayerHatRender<T extends Player, M extends PlayerModel<T>> extends RenderLayer<T, M> {
     private final ModelHat<T> modelHat;
     private final ResourceLocation
-        dev = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_red.png"),
-        tester = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_blue.png"),
-        artist = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_purple.png"),
-        special = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_yellow.png"),
-        friend = new ResourceLocation(DivineRPG.MODID, "textures/model/devhats/hat_pink.png");
+        dev = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/devhats/hat_red.png"),
+        tester = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/devhats/hat_blue.png"),
+        artist = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/devhats/hat_purple.png"),
+        special = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/devhats/hat_yellow.png"),
+        friend = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/devhats/hat_pink.png");
     public PlayerHatRender(RenderLayerParent<T, M> parent, EntityModelSet set) {
         super(parent);
         modelHat = new ModelHat<>(set.bakeLayer(ModelHat.LAYER_LOCATION));
     }
     @Override public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, T entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         UUID id = entity.getUUID();
-        if(entity.inventory.getArmor(3).isEmpty() && !entity.isInvisible() && entity.isModelPartShown(PlayerModelPart.HAT)) {
+        if(entity.getInventory().getArmor(3).isEmpty() && !entity.isInvisible() && entity.isModelPartShown(PlayerModelPart.HAT)) {
             if(Utils.isDeveloperName(id) || Utils.isTesterName(id) || Utils.isFriend(id) || Utils.isSpecial(id) || Utils.isArtist(id)) {
                 modelHat.hat.copyFrom(getParentModel().head);
                 VertexConsumer ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(getTextureLocation(entity)));

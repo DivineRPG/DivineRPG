@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class PresentBoxScreen extends AbstractContainerScreen<PresentBoxMenu> implements MenuAccess<PresentBoxMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/present_box_gui.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/present_box_gui.png");
 
     public PresentBoxScreen(PresentBoxMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);

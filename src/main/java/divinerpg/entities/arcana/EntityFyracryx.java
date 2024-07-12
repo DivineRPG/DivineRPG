@@ -14,9 +14,6 @@ public class EntityFyracryx extends EntityDivineTameable implements RangedAttack
     public EntityFyracryx(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 1F);
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return .85F;
-    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.DEATHCRYX.get();

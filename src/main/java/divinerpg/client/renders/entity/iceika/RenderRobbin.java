@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
 
 public class RenderRobbin extends MobRenderer<EntityRobbin, ModelRobbin> {
-	private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/robbin.png");
+	private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/robbin.png");
 	public RenderRobbin(EntityRendererProvider.Context context) {
 		super(context, new ModelRobbin(context), .2F);
 		addLayer(new RobbinLayer(this));

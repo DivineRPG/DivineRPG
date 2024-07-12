@@ -17,11 +17,6 @@ public class EntityKazrotic extends EntityDivineMonster implements RangedAttackM
     public EntityKazrotic(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.65625F;
-    }
-
     @Override
     public boolean isAggressive() {
         return true;

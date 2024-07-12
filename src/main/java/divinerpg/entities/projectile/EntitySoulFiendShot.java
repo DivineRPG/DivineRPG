@@ -10,7 +10,7 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 public class EntitySoulFiendShot extends EntityShooterBullet {
     public EntitySoulFiendShot(EntityType<? extends ThrowableProjectile> type, Level world) {

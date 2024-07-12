@@ -5,7 +5,6 @@ import divinerpg.entities.projectile.EntityDivineArrow;
 import divinerpg.enums.ArrowType;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -21,7 +20,6 @@ import javax.annotation.Nullable;
 
 public class EntityAridWarrior extends EntityDivineMonster implements RangedAttackMob {
     public EntityAridWarrior(EntityType<? extends Monster> type, Level worldIn) {super(type, worldIn);}
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.875F;}
     @Override public boolean isAggressive() {return true;}
     @Override protected void registerGoals() {
     	super.registerGoals();
@@ -32,10 +30,10 @@ public class EntityAridWarrior extends EntityDivineMonster implements RangedAtta
         setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.shadow_bow.get()));
     }
     @Nullable
-    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
         RandomSource random = level.getRandom();
         populateDefaultEquipmentSlots(random, difficulty);
-        populateDefaultEquipmentEnchantments(random, difficulty);
+        populateDefaultEquipmentEnchantments(level, random, difficulty);
         return data;
     }
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {

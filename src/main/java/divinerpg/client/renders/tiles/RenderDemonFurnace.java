@@ -12,8 +12,8 @@ import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.state.properties.*;
 
 public class RenderDemonFurnace implements BlockEntityRenderer<DemonFurnaceBlockEntity> {
-    private ResourceLocation off = new ResourceLocation(DivineRPG.MODID, "textures/model/demon_furnace.png");
-    private ResourceLocation on = new ResourceLocation(DivineRPG.MODID, "textures/model/demon_furnace_on.png");
+    private ResourceLocation off = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/demon_furnace.png");
+    private ResourceLocation on = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/demon_furnace_on.png");
     private final ModelDemonFurnace<?> model;
     public RenderDemonFurnace(BlockEntityRendererProvider.Context context) {
         model = new ModelDemonFurnace<>(context.bakeLayer(ModelDemonFurnace.LAYER_LOCATION));

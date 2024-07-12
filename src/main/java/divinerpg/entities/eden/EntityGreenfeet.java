@@ -15,12 +15,6 @@ public class EntityGreenfeet extends EntityDivineMonster {
     public EntityGreenfeet(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.625F;
-    }
-
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
@@ -59,7 +53,7 @@ public class EntityGreenfeet extends EntityDivineMonster {
                 }
 
                 if (flag) {
-                    this.setSecondsOnFire(8);
+                    this.igniteForSeconds(8);
                 }
             }
         }

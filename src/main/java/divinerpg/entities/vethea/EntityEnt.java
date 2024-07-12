@@ -15,10 +15,6 @@ public class EntityEnt extends EntityDivineMonster {
     public EntityEnt(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 4.0F;
-    }
     @Override public boolean isAggressive() {return true;}
 
     @Override

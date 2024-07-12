@@ -166,10 +166,6 @@ public class EntityAyeraco extends EntityDivineBoss {
     @Override
     protected SoundEvent getDeathSound() {return AYERACO_HURT.get();}
     @Override
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions dim) {
-        return 0.65625F;
-    }
-    @Override
     public void addAdditionalSaveData(CompoundTag tag) {
     	super.addAdditionalSaveData(tag);
     	for(int i = 0; i < 5; i++) if(group[i] != null) tag.putUUID("Group" + i, group[i].uuid);

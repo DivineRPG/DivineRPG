@@ -23,9 +23,6 @@ public class EntityDungeonConstructor extends EntityDivineMonster {
 		return 1F;
 	}
     @Override public boolean fireImmune() {return true;}
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 0.9F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {

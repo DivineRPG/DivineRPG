@@ -12,6 +12,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -53,7 +54,7 @@ public class ItemTeleportationStar extends ItemMod {
             } ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(compound.getString(dimKey)))).getLevel();
             if(player instanceof ServerPlayer) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
-                if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
+                if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                 player.getCooldowns().addCooldown(this, 160);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 return InteractionResultHolder.success(stack);

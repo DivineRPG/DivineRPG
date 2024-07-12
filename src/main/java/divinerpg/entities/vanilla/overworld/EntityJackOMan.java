@@ -19,11 +19,6 @@ public class EntityJackOMan extends EntityDivineMerchant {
     public EntityJackOMan(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.25F;
-    }
-
     @Override
     public String[] getChatMessages() {
         return new String[] {

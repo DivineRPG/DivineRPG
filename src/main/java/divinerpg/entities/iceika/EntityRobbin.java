@@ -59,7 +59,6 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         goalSelector.addGoal(6, new RobbinRandomStrollGoal(this, 1D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, EntityKitra.class, 6F));
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return .46F;}
     @Override public boolean isMaxGroupSizeReached(int i) {return i > 6;}
     public boolean isTired() {
         return tiredTicks > 1200;

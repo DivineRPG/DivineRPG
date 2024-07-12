@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber
 public class DivineRemapper {
-    private static ResourceLocation id(String name) {return new ResourceLocation(DivineRPG.MODID, name);}
+    private static ResourceLocation id(String name) {return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, name);}
     @SubscribeEvent
     public static void fixMissingMappings(MissingMappingsEvent event) {
         Map<ResourceLocation, Supplier<Item>> itemsMap = (new ImmutableMap.Builder<ResourceLocation, Supplier<Item>>())

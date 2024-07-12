@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class ArcaniumExtractorScreen extends AbstractContainerScreen<ArcaniumExtractorMenu> {
-    private static final ResourceLocation GUI_TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/gui/arcanium_extractor.png");
+    private static final ResourceLocation GUI_TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/arcanium_extractor.png");
     public ArcaniumExtractorScreen(ArcaniumExtractorMenu screenContainer, Inventory inv, Component titleIn) {
         super(screenContainer, inv, titleIn);
     }

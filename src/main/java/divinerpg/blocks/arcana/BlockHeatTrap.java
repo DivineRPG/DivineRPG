@@ -27,7 +27,7 @@ public class BlockHeatTrap extends BlockModUnbreakable {
     	if(state.is(this) && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
             if(!state.getValue(ACTIVE)) level.setBlock(pos, BlockRegistry.heatTrap.get().defaultBlockState().setValue(ACTIVE, true), 2);
             entity.hurt(entity.damageSources().hotFloor(), 4);
-            entity.setSecondsOnFire(7);
+            entity.igniteForSeconds(7);
     	}
     }
 }

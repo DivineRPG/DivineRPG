@@ -15,13 +15,12 @@ import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.AABB;
 
 public class EntityCauldronFish extends Squid implements Bucketable {
 	boolean fromBucket;
-	public EntityCauldronFish(EntityType<EntityCauldronFish> type, Level level) {super(type, level);setPathfindingMalus(BlockPathTypes.RAIL, 1F);}
-	@Override protected float getStandingEyeHeight(Pose pose, EntityDimensions dim) {return .6875F;}
+	public EntityCauldronFish(EntityType<EntityCauldronFish> type, Level level) {super(type, level);setPathfindingMalus(PathType.RAIL, 1F);}
 	@Override protected SoundEvent getAmbientSound() {return SoundEvents.TROPICAL_FISH_AMBIENT;}
 	@Override protected SoundEvent getHurtSound(DamageSource source) {return SoundEvents.TROPICAL_FISH_HURT;}
 	@Override protected SoundEvent getSquirtSound() {return SoundEvents.TROPICAL_FISH_HURT;}

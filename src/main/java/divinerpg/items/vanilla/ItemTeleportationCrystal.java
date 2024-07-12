@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -25,7 +26,7 @@ public class ItemTeleportationCrystal extends ItemMod {
             if(respawnPos != null) {
                 ResourceKey<Level> respawnDimension = ((ServerPlayer)player).getRespawnDimension();
                 player.changeDimension(world.getServer().getLevel(respawnDimension), new SecondaryTeleporter(world.getServer().getLevel(respawnDimension)));
-                if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
+                if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                 player.getCooldowns().addCooldown(this, 160);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 return InteractionResultHolder.success(stack);

@@ -14,11 +14,6 @@ public class EntityCryptKeeper extends EntityGifterNPC {
     public EntityCryptKeeper(EntityType<? extends PathfinderMob> type, Level worldIn) {
     	super(type, worldIn);
 	}
-    
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.9275F;
-    }
-
     @Override
     protected ItemStack getGift() {
         return new ItemStack(ItemRegistry.amthirmis_lump.get(), 5);

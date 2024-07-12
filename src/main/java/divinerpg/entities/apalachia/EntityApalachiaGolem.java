@@ -16,9 +16,6 @@ public class EntityApalachiaGolem extends EntityDivineMonster {
     public EntityApalachiaGolem(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.7F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public int getArmorValue() {

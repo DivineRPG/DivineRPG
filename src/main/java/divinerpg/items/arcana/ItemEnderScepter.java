@@ -2,12 +2,14 @@ package divinerpg.items.arcana;
 
 import divinerpg.items.base.ItemMod;
 import divinerpg.util.LocalizeUtils;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
@@ -38,6 +40,6 @@ public class ItemEnderScepter extends ItemMod {
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("ender_scepter"));
         super.appendHoverText(stack, context, tooltip, flagIn);
-        stack.getOrCreateTag().putBoolean("Unbreakable", true);
+        stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
     }
 }

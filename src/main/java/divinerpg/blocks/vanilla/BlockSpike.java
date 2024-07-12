@@ -19,7 +19,7 @@ public class BlockSpike extends BlockMod {
         if(entityIn instanceof LivingEntity) {
             if(isHot) {
                 entityIn.hurt(DamageSources.source(entityIn.level(), DamageSources.SPIKE), 8);
-                entityIn.setSecondsOnFire(10);
+                entityIn.igniteForSeconds(10);
             }
             else entityIn.hurt(DamageSources.source(entityIn.level(), DamageSources.SPIKE), 5);
         }

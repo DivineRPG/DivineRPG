@@ -10,7 +10,6 @@ public class EntitySeimer extends EntityDivineTameable {
     public EntitySeimer(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 1F);
     }
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return .6F;}
     @Override
     public void tick() {
         super.tick();

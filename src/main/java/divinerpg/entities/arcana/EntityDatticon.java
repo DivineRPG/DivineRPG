@@ -22,7 +22,6 @@ public class EntityDatticon extends EntityDivineMerchant {
 				"message.datticon.redstone"
 		};
 	}
-	@Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.875F;}
 	@Override protected void updateTrades() {
 		MerchantOffers merchantoffers = getOffers();
 		DivineTrades[] trades = new DivineTrades[]{

@@ -17,7 +17,6 @@ import java.util.List;
 public class EntityHastreus extends EntityDivineMonster {
     private int attackTick;
     public EntityHastreus(EntityType<? extends Monster> type, Level worldIn) {super(type, worldIn);}
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.15625F;}
     @Override public boolean isAggressive() {return true;}
     @Override public void tick() {
     	if(level().getRandom().nextInt(10) == 0) {

@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 import javax.annotation.Nullable;
 
 public class BlockAquaWallTorch extends BlockModWallTorch implements SimpleWaterloggedBlock {

@@ -10,9 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class InfusionTableScreen extends AbstractContainerScreen<InfusionTableMenu> implements MenuAccess<InfusionTableMenu> {
-    private static final ResourceLocation LOCATION = new ResourceLocation(
-            DivineRPG.MODID + ":textures/gui/infusion_table.png");
-
+    private static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, ":textures/gui/infusion_table.png");
     public InfusionTableScreen(InfusionTableMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);
 

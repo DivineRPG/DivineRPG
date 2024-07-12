@@ -20,12 +20,6 @@ public class EntityParasecta extends EntityDivineBoss {
     public EntityParasecta(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.8125F;
-    }
-
     @Override
     public BossBarColor getBarColor() {
         return BossBarColor.YELLOW;

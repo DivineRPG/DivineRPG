@@ -17,10 +17,6 @@ public class EntityDissiment extends EntityDivineFlyingMob implements RangedAtta
     public EntityDissiment(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
     }
-    
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.125F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {

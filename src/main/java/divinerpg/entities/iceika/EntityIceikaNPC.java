@@ -26,11 +26,12 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
+
 import javax.annotation.Nullable;
 
 public abstract class EntityIceikaNPC extends EntityDivineMerchant implements FactionEntity {
-	public static final TagKey<Structure> WHALE_SKULL = TagKey.create(Registries.STRUCTURE, new ResourceLocation(DivineRPG.MODID, "whale_skull"));
+	public static final TagKey<Structure> WHALE_SKULL = TagKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "whale_skull"));
 	public static Item getItem(int i) {
 		return switch(i) {
 		case 1 -> ItemRegistry.oxdrite_pickaxe.get();//gruzzorlug miner
@@ -52,7 +53,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
     protected boolean important = false;
 	public EntityIceikaNPC(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
         super(type, worldIn);
-        setPathfindingMalus(BlockPathTypes.POWDER_SNOW, -1);
+        setPathfindingMalus(PathType.POWDER_SNOW, -1);
     }
 	protected abstract TagKey<Structure> getRaidTargets();
 	protected abstract MobEffect getTargetEffect();
@@ -80,10 +81,10 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 		setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(getItem(entityData.get(ITEM))));
 	}
 	@Nullable
-	@Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
+	@Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
 		RandomSource random = level.getRandom();
 		populateDefaultEquipmentSlots(random, difficulty);
-		populateDefaultEquipmentEnchantments(random, difficulty);
+		populateDefaultEquipmentEnchantments(level, random, difficulty);
 		return data;
 	}
 	public void setUnimportant() {important = false;}

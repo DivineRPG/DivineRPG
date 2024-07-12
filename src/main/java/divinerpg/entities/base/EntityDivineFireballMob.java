@@ -13,7 +13,7 @@ import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 
 public abstract class EntityDivineFireballMob extends EntityDivineMonster implements RangedAttackMob {
@@ -21,7 +21,7 @@ public abstract class EntityDivineFireballMob extends EntityDivineMonster implem
 	public EntityDivineFireballMob(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         xpReward = 20;
-        setPathfindingMalus(BlockPathTypes.WATER, -1F);
+        setPathfindingMalus(PathType.WATER, -1F);
     }
 	@Override
 	protected void registerGoals() {

@@ -1,7 +1,6 @@
 package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.*;
-import net.minecraft.nbt.*;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.*;
@@ -18,10 +17,6 @@ public class EntityMiner extends EntityDivineMonster {
     private static final Predicate<Difficulty> HARD_DIFFICULTY_PREDICATE = (p_213697_0_) -> {return p_213697_0_ == Difficulty.HARD;};
     public EntityMiner(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
-    }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.74F;
     }
     @Override public boolean isAggressive() {return true;}
     @Override
@@ -48,8 +43,8 @@ public class EntityMiner extends EntityDivineMonster {
         boolean flag = super.doHurtTarget(entityIn);
         if (flag) {
             float f = (float)this.level().getDifficulty().getId();
-            if (this.getMainHandItem().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
-                entityIn.setSecondsOnFire(2 * (int)f);
+            if (getMainHandItem().isEmpty() && isOnFire() && random.nextFloat() < f * .3F) {
+                entityIn.igniteForSeconds(2 * (int)f);
             }
         }
 
@@ -86,16 +81,17 @@ public class EntityMiner extends EntityDivineMonster {
                 }
 
                 if (flag) {
-                    this.setSecondsOnFire(8);
+                    this.igniteForSeconds(8);
                 }
             }
         }
 
         super.tick();
     }
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor worldIn, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData spawnDataIn, @Nullable CompoundTag dataTag) {
+    @Nullable
+    @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData spawnDataIn) {
         populateDefaultEquipmentSlots(difficultyIn);
-        populateDefaultEquipmentEnchantments(getRandom(), difficultyIn);
+        populateDefaultEquipmentEnchantments(level, getRandom(), difficultyIn);
         return spawnDataIn;
     }
 

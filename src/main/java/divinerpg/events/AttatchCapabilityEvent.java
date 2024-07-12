@@ -18,12 +18,12 @@ public class AttatchCapabilityEvent {
     }
     public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event){
         if(event.getObject() instanceof Player player) {
-            if(!player.getCapability(ArcanaProvider.ARCANA).isPresent()) event.addCapability(new ResourceLocation(DivineRPG.MODID, "arcana"), new ArcanaProvider());
-            if(!player.getCapability(ReputationProvider.REPUTATION).isPresent()) event.addCapability(new ResourceLocation(DivineRPG.MODID, "reputation"),  new ReputationProvider());
-            if(!player.getCapability(DimensionalInventoryProvider.DIMENIONAL_INVENTORY).isPresent()) event.addCapability(new ResourceLocation(DivineRPG.MODID, "dimensional_inventory"),  new DimensionalInventoryProvider());
+            if(!player.getCapability(ArcanaProvider.ARCANA).isPresent()) event.addCapability(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana"), new ArcanaProvider());
+            if(!player.getCapability(ReputationProvider.REPUTATION).isPresent()) event.addCapability(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "reputation"),  new ReputationProvider());
+            if(!player.getCapability(DimensionalInventoryProvider.DIMENIONAL_INVENTORY).isPresent()) event.addCapability(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "dimensional_inventory"),  new DimensionalInventoryProvider());
         }
     }
     public static void onAttachCapabilitiesLevelChunk(AttachCapabilitiesEvent<LevelChunk> event){
-        if(event.getObject() instanceof LevelChunk && !event.getObject().getCapability(SoulTrapCountProvider.SOUL_TRAP_COUNT).isPresent()) event.addCapability(new ResourceLocation(DivineRPG.MODID, "soul_trap_count"), new SoulTrapCountProvider());
+        if(event.getObject() instanceof LevelChunk && !event.getObject().getCapability(SoulTrapCountProvider.SOUL_TRAP_COUNT).isPresent()) event.addCapability(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "soul_trap_count"), new SoulTrapCountProvider());
     }
 }

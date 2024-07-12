@@ -16,9 +16,6 @@ public class EntityFrozenFlesh extends EntityPeacefulUntilAttacked {
     public EntityFrozenFlesh(EntityType<EntityFrozenFlesh> type, Level worldIn) {
         super(type, worldIn);
     }
-
-    @Override protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {return 1.68F;}
-
     @Override
     public boolean doHurtTarget(Entity entity) {
         boolean attack = super.doHurtTarget(entity);
@@ -29,8 +26,8 @@ public class EntityFrozenFlesh extends EntityPeacefulUntilAttacked {
                 }
             }
             ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 2, true, false));
-            entity.setDeltaMovement(-Mth.sin(this.xRot * (float) Math.PI / 180.0F) * 2.5 * 0.5F, 0.1D,
-                    Mth.cos(this.xRot * (float) Math.PI / 180.0F) * 2.5 * 0.5F);
+            entity.setDeltaMovement(-Mth.sin(getXRot() * (float) Math.PI / 180.0F) * 2.5 * 0.5F, 0.1D,
+                    Mth.cos(getXRot() * (float) Math.PI / 180.0F) * 2.5 * 0.5F);
         }
         return attack;
     }

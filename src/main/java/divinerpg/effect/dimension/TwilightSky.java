@@ -21,8 +21,8 @@ import org.joml.Matrix4f;
 import javax.annotation.Nullable;
 
 public class TwilightSky extends DimensionSpecialEffects {
-	public static final ResourceLocation SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/twilight_sun.png"),
-			POG_SUN_LOCATION = new ResourceLocation(DivineRPG.MODID, "textures/particle/pog_sun.png");
+	public static final ResourceLocation SUN_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/particle/twilight_sun.png"),
+			POG_SUN_LOCATION = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/particle/pog_sun.png");
 	@Nullable private VertexBuffer skyBuffer, starBuffer;
 	public TwilightSky() {
 		super(256F, true, SkyType.NORMAL, false, false);

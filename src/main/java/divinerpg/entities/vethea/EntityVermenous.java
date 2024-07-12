@@ -16,10 +16,6 @@ public class EntityVermenous extends EntityDivineMonster {
     public EntityVermenous(EntityType<? extends Monster> type, Level worldIn) {
 		super(type, worldIn);
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 2.5F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {

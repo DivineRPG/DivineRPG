@@ -9,11 +9,11 @@ import divinerpg.entities.boss.EntityEternalArcher;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.*;
+import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderEternalArcher extends MobRenderer<EntityEternalArcher, ModelEternalArcher<EntityEternalArcher>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(DivineRPG.MODID, "textures/entity/eternal_archer.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/eternal_archer.png");
     public RenderEternalArcher(Context context) {
         super(context, new ModelEternalArcher<>(context), 0.8F);
         this.addLayer(new EternalArcherLayer(this));

@@ -18,10 +18,6 @@ public class EntityZone extends EntityDivineMonster {
 		super(type, worldIn);
 		this.setHealth(this.getMaxHealth());
     }
-
-    protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-        return 1.1875F;
-    }
     @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
