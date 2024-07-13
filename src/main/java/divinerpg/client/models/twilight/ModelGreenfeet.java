@@ -76,9 +76,9 @@ public class ModelGreenfeet extends EntityModel<EntityGreenfeet> {
 			modelpart.zRot += Mth.sin(attackTime * Mth.PI) * -.4F;
 		}
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

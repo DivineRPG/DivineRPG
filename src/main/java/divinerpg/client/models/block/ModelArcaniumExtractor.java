@@ -110,27 +110,27 @@ public class ModelArcaniumExtractor<T extends Entity> extends Model {
 
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		P2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		r10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		P4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		P3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		P2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r9.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		r10.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		P4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		P3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

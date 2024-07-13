@@ -16,10 +16,10 @@ public class GlacialWallTotemEvent {
     public void onPlayerHurt(LivingDamageEvent event) {
         if (event.getEntity() instanceof Player) {
             Player player = (Player) event.getEntity();
-            if(player.inventory.getItem(Inventory.SLOT_OFFHAND).is(ItemRegistry.glacial_wall_totem.get())) {
+            if(player.getInventory().getItem(Inventory.SLOT_OFFHAND).is(ItemRegistry.glacial_wall_totem.get())) {
                 if (player.getHealth() <= player.getMaxHealth() * 0.2) {
                     deployIcicleBarrier(player);
-                    player.inventory.getItem(Inventory.SLOT_OFFHAND).shrink(1);
+                    player.getInventory().getItem(Inventory.SLOT_OFFHAND).shrink(1);
                     Level level = player.level();
                     BlockPos playerPos = player.blockPosition();
                     level.playSound(null, playerPos, SoundEvents.TOTEM_USE, SoundSource.PLAYERS, 1.0F, 1.0F);

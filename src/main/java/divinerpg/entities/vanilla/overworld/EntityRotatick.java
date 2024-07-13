@@ -52,6 +52,4 @@ public class EntityRotatick extends EntityDivineMonster {
         super.readAdditionalSaveData(tag);
         if(tag.contains("Special")) entityData.set(SPECIAL, tag.getBoolean("Special"));
     }
-    @Override
-    public MobType getMobType() {return MobType.ARTHROPOD;}
 }

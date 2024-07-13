@@ -73,17 +73,17 @@ public class ModelLorgaFlight<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

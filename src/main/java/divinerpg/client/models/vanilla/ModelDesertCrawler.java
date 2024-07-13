@@ -89,13 +89,13 @@ public class ModelDesertCrawler extends EntityModel<EntityDesertCrawler> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		bb_main.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		skull.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		bb_main.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		skull.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

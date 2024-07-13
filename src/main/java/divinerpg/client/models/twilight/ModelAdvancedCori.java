@@ -113,27 +113,27 @@ public class ModelAdvancedCori<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle11.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle12.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle13.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle14.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle15.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle16.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle17.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle18.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle19.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle20.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle9.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle10.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle11.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle12.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle13.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle14.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle15.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle16.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle17.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle18.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle19.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle20.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

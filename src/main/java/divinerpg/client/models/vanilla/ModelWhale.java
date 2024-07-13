@@ -45,10 +45,10 @@ public class ModelWhale extends EntityModel<EntityWhale> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		flipperL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		flipperR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		flipperL.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		flipperR.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

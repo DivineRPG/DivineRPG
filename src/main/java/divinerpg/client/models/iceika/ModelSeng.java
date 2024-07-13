@@ -79,13 +79,13 @@ public class ModelSeng extends EntityModel<EntitySeng> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		seng.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		frontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		frontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		backRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		backLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		seng.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		frontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		frontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		backRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		backLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

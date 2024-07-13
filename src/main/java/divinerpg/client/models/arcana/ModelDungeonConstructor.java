@@ -61,12 +61,12 @@ public class ModelDungeonConstructor<E extends EntityDivineMonster> extends Enti
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        Leg_Right.render(poseStack, buffer, packedLight, packedOverlay);
-        Leg_Left.render(poseStack, buffer, packedLight, packedOverlay);
-        Arm_Right.render(poseStack, buffer, packedLight, packedOverlay);
-        Arm_Left.render(poseStack, buffer, packedLight, packedOverlay);
-        Head.render(poseStack, buffer, packedLight, packedOverlay);
-        Chest.render(poseStack, buffer, packedLight, packedOverlay);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
+        Leg_Right.render(poseStack, buffer, packedLight, packedOverlay, color);
+        Leg_Left.render(poseStack, buffer, packedLight, packedOverlay, color);
+        Arm_Right.render(poseStack, buffer, packedLight, packedOverlay, color);
+        Arm_Left.render(poseStack, buffer, packedLight, packedOverlay, color);
+        Head.render(poseStack, buffer, packedLight, packedOverlay, color);
+        Chest.render(poseStack, buffer, packedLight, packedOverlay, color);
     }
 }

@@ -173,7 +173,7 @@ public class DivineTeleporter implements ITeleporter {
         if (entity.level().dimension() != world.dimension() && !isntOverworld) {
             return null;
         } else if (!this.hasFrame) {
-            return new PortalInfo(new Vec3(entity.getX(), 255D, entity.getZ()), Vec3.ZERO, entity.yRot, entity.xRot);
+            return new PortalInfo(new Vec3(entity.getX(), 255D, entity.getZ()), Vec3.ZERO, entity.getYRot(), entity.getXRot());
         } else {
             WorldBorder border = destWorld.getWorldBorder();
             double minX = Math.max(-2.9999872E7D, border.getMinX() + 16.0D);
@@ -195,7 +195,7 @@ public class DivineTeleporter implements ITeleporter {
                     vector3d = new Vec3(0.5D, 0.0D, 0.0D);
                 }
 
-                return PortalShape.createPortalInfo(destWorld, result, axis, vector3d, entity.getDimensions(entity.getPose()), entity.getDeltaMovement(), entity.yRot, entity.xRot);
+                return PortalShape.createPortalInfo(destWorld, result, axis, vector3d, entity.getDimensions(entity.getPose()), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot());
             }).orElse(null);
         }
     }

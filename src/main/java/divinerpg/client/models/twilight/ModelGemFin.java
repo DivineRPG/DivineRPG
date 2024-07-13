@@ -60,9 +60,9 @@ public class ModelGemFin extends EntityModel<EntityGemFin> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-            Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-            Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-            TailFin.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+            Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+            Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+            TailFin.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
     }
 }

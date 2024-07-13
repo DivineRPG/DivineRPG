@@ -184,41 +184,41 @@ public class ModelVermenous<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		part1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part12.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part11.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part13.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part14.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part15.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part16.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part18.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		part17.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		part1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part9.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part10.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part12.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part11.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part13.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part14.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part15.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part16.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part18.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		part17.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

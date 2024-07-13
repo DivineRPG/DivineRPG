@@ -56,13 +56,13 @@ public class ModelRobbin extends EntityModel<EntityRobbin> {
 			leftLeg.xRot = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
 		}
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightWing.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftWing.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightWing.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftWing.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

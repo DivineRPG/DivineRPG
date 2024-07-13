@@ -30,7 +30,7 @@ public class RenderPresentBox implements BlockEntityRenderer<PresentBoxBlockEnti
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/present_box.png")));
         model.lid.xRot = -(lidAngle * ((float) Math.PI / 2F));
         model.handle.xRot = model.lid.xRot;
-        model.renderToBuffer(matrix, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        model.renderToBuffer(matrix, builder, combinedLight, combinedOverlay, 1);
         matrix.popPose();
     }
 }

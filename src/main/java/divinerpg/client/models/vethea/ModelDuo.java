@@ -175,34 +175,34 @@ public class ModelDuo extends EntityModel<EntityDuo> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates11.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates12.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates13.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates14.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates15.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates17.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates16.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates18.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates19.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rotates20.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates9.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates10.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates11.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates12.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates13.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates14.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates15.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates17.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates16.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates18.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates19.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rotates20.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

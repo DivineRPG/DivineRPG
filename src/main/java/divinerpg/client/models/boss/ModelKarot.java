@@ -93,19 +93,19 @@ public class ModelKarot extends EntityModel<EntityKarot> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Ear1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Ear2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Ear1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Ear2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

@@ -46,7 +46,7 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
                     }
                     if(texture(stack) != null) {
                         VertexConsumer builder = renderType.getBuffer(RenderType.entityCutout(texture(stack)));
-                        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+                        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1);
                     }
                     matrixStack.popPose();
                 }

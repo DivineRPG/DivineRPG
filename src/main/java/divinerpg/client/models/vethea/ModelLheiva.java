@@ -125,30 +125,30 @@ public class ModelLheiva<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape11.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape12.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape13.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape14.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape15.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape16.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape17.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape18.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape19.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape20.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape21.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape22.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape23.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape24.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape9.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape10.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape11.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape12.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape13.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape14.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape15.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape16.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape17.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape18.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape19.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape20.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape21.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape22.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape23.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape24.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

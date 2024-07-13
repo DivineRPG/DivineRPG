@@ -65,9 +65,9 @@ public class ModelTheGrue extends EntityModel<EntityTheGrue> {
 		RightLeg.xRot = f * 1.4F;
 		LeftLeg.xRot = f1;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

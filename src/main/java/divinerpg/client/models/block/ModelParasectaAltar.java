@@ -60,15 +60,15 @@ public class ModelParasectaAltar<T extends Entity> extends Model {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Base.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		P1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		P2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		P3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		P4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		S4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Base.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		P1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		P2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		P3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		P4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		S4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

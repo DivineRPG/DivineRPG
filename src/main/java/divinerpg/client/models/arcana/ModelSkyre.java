@@ -65,12 +65,12 @@ public class ModelSkyre<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Skull.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Skull.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

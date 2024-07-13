@@ -45,7 +45,7 @@ public class ModelFrost extends EntityModel<EntityFrost> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		frostBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		frostBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

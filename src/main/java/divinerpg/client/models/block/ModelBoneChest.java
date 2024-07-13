@@ -36,9 +36,9 @@ public class ModelBoneChest<T extends Entity> extends Model {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		storage.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		lid.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		handle.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		storage.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		lid.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		handle.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

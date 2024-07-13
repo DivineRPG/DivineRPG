@@ -72,13 +72,13 @@ public class ModelGlacon extends EntityModel<EntityGlacon> {
 		RightFrontLeg.xRot = LeftMiddleLeg.xRot = LeftRearLeg.xRot = f1;
 		LeftFrontLeg.xRot = RightMiddleLeg.xRot = RightRearLeg.xRot = f;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightMiddleLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightRearLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftMiddleLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftRearLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightMiddleLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightRearLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftMiddleLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftRearLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

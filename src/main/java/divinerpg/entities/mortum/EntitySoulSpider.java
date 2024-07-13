@@ -43,9 +43,4 @@ public class EntitySoulSpider extends EntityDivineMonster {
     public float getWalkTargetValue(BlockPos pos, LevelReader world) {
         return 0.0F;
     }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
-    }
 }

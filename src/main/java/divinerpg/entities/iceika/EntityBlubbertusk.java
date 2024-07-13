@@ -98,10 +98,6 @@ public class EntityBlubbertusk extends Animal {
 		return false;
 	}
 	@Override
-	public MobType getMobType() {
-		return MobType.WATER;
-	}
-	@Override
 	protected void playSwimSound(float f) {
 		super.playSwimSound(f * 1.5F);
 	}

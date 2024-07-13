@@ -78,11 +78,11 @@ public class ModelKitra extends EntityModel<EntityKitra> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightFin.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftFin.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		TailBase.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightFin.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftFin.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		TailBase.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

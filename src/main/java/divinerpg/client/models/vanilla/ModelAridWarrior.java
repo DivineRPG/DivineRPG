@@ -63,12 +63,12 @@ public class ModelAridWarrior extends HumanoidModel<EntityAridWarrior> {
 		modelpart.translateAndRotate(stack);
 		modelpart.x -= f;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

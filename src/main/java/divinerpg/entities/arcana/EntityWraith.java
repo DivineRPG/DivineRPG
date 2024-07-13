@@ -207,9 +207,4 @@ public class EntityWraith extends EntityDivineTameable {
             this.parentEntity.getMoveControl().setWantedPosition(d0, d1, d2, 1.0D);
         }
     }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.UNDEAD;
-    }
 }

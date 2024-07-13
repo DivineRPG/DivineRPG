@@ -97,11 +97,6 @@ public class EntityHellSpider extends EntityDivineMonster {
             super.makeStuckInBlock(state, motionMultiplierIn);
         }
     }
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
-    }
-
-
     public boolean canBeAffected(MobEffectInstance potioneffectIn) {
         if (potioneffectIn.getEffect() == MobEffects.POISON) {
 

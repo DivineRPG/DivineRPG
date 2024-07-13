@@ -129,16 +129,16 @@ public class ModelBehemoth extends EntityModel<EntityBehemoth> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LegL1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LegL2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LegL3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LegL4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LegR1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LegR2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LegR3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LegR4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LegL1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LegL2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LegL3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LegL4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LegR1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LegR2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LegR3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LegR4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

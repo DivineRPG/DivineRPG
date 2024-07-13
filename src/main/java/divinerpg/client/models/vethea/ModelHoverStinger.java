@@ -89,20 +89,20 @@ public class ModelHoverStinger<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Wing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape9.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape10.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Wing2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Wing3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Wing4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Wing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape9.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape10.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Wing2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Wing3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Wing4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

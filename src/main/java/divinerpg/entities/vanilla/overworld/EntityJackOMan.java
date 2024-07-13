@@ -75,9 +75,4 @@ public class EntityJackOMan extends EntityDivineMerchant {
         List<EntityJackOMan> entityList = level.getEntitiesOfClass(EntityJackOMan.class, new AABB(pos).inflate(32));
         return entityList.isEmpty();
     }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.UNDEAD;
-    }
 }

@@ -53,9 +53,9 @@ public class ModelEdenTomo extends EntityModel<EntityEdenTomo> {
 		RightFoot.xRot = f2 * .7F;
 		LeftFoot.xRot = Mth.cos(limbSwing * .6662F + Mth.PI) * .7F * limbSwingAmount;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

@@ -28,9 +28,4 @@ public class EntityRazorback extends EntityDivineMonster {
     protected SoundEvent getDeathSound() {
         return SoundRegistry.RAZORBACK_HURT.get();
     }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
-    }
 }

@@ -73,12 +73,12 @@ public class ModelWolpertinger extends EntityModel<EntityWolpertinger> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		BackRightFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		BackLeftFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackRightFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackLeftFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

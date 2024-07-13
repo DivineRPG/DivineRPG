@@ -93,8 +93,8 @@ public class ModelMadivel extends EntityModel<EntityMadivel> {
 			leftArm.xRot = Mth.cos(limbSwing * .6662F) * limbSwingAmount;
 		}
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		edenSpirit.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		edenSpirit.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

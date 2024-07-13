@@ -128,17 +128,17 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
         float f5 = Mth.clamp(Mth.frac(f1 + 0.75F) * 1.6F - 0.3F, 0.0F, 1.0F);
         this.bookModel.setupAnim(0.0F, f4, f5, f);
         VertexConsumer vertexconsumer = p_289697_.bufferSource().getBuffer(this.bookModel.renderType(ENCHANTING_BOOK_LOCATION));
-        this.bookModel.renderToBuffer(p_289697_.pose(), vertexconsumer, 15728880, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        this.bookModel.renderToBuffer(p_289697_.pose(), vertexconsumer, 15728880, OverlayTexture.NO_OVERLAY, 1);
         p_289697_.flush();
         p_289697_.pose().popPose();
         Lighting.setupFor3DItems();
     }
 
-    public void render(GuiGraphics p_283462_, int p_282491_, int p_281953_, float p_282182_) {
-        p_282182_ = this.minecraft.getFrameTime();
-        this.renderBackground(p_283462_);
-        super.render(p_283462_, p_282491_, p_281953_, p_282182_);
-        this.renderTooltip(p_283462_, p_282491_, p_281953_);
+    @Override public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
+        partialTicks = this.minecraft.getFrameTime();
+        this.renderBackground(matrixStack, mouseX, mouseY, partialTicks);
+        super.render(matrixStack, mouseX, mouseY, partialTicks);
+        this.renderTooltip(matrixStack, mouseX, mouseY);
         boolean flag = this.minecraft.player.getAbilities().instabuild;
         int i = this.menu.getGoldCount();
 
@@ -147,7 +147,7 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
             Enchantment enchantment = Enchantment.byId((this.menu).enchantClue[j]);
             int l = (this.menu).levelClue[j];
             int i1 = j + 1;
-            if (this.isHovering(60, 14 + 19 * j, 108, 17, (double)p_282491_, (double)p_281953_) && k > 0) {
+            if (this.isHovering(60, 14 + 19 * j, 108, 17, (double)mouseX, (double)mouseY) && k > 0) {
                 List<Component> list = Lists.newArrayList();
                 list.add((Component.translatable("container.enchant.clue", enchantment == null ? "" : enchantment.getFullname(l))).withStyle(ChatFormatting.WHITE));
                 if (enchantment == null) {
@@ -177,7 +177,7 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
                     }
                 }
 
-                p_283462_.renderComponentTooltip(this.font, list, p_282491_, p_281953_);
+                matrixStack.renderComponentTooltip(this.font, list, mouseX, mouseY);
                 break;
             }
         }

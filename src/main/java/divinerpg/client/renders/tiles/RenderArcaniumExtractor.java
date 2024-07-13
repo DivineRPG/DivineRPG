@@ -24,7 +24,7 @@ public class RenderArcaniumExtractor implements BlockEntityRenderer<ArcaniumExtr
         poseStack.translate(0.5D, 0D, 0.5D);
         poseStack.mulPose(Axis.YP.rotationDegrees(te.getBlockState().getValue(BlockArcaniumExtractor.FACING).toYRot()));
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
-        model.renderToBuffer(poseStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+        model.renderToBuffer(poseStack, builder, combinedLight, combinedOverlay, 1);
         poseStack.popPose();
     }
 }

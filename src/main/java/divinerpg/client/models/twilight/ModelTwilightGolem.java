@@ -82,18 +82,18 @@ public class ModelTwilightGolem<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		headLeft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		headRight.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightShoulder.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightHand.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftShoulder.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftHand.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		headLeft.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		headRight.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightShoulder.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightHand.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftShoulder.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftHand.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

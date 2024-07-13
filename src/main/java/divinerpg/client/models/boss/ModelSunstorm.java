@@ -115,12 +115,12 @@ public class ModelSunstorm<T extends LivingEntity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		UpperBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LowerBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLegThigh.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLegThigh.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		UpperBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LowerBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLegThigh.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLegThigh.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

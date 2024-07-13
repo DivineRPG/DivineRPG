@@ -99,13 +99,13 @@ public class ModelRainbour extends EntityModel<EntityRainbour> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		tail1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		lwing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rwing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		lhip.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rhip.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		tail1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		lwing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rwing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		lhip.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rhip.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

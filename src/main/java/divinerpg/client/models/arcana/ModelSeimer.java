@@ -97,23 +97,23 @@ public class ModelSeimer<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		headtop.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		headbottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		headright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		headleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		hornright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		hornright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		sensorright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		sensorleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		wingright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		wingleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		wingleft1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		wingright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		hornleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		sensorright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		hornleft2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		sensorleft2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		headtop.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		headbottom.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		headright.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		headleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		hornright.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		hornright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		sensorright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		sensorleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		wingright.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		wingleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		wingleft1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		wingright2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		hornleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		sensorright.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		hornleft2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		sensorleft2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

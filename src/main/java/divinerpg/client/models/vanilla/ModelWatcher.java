@@ -89,14 +89,14 @@ public class ModelWatcher extends EntityModel<Mob> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Jaw.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle11.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle12.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle21.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle22.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle31.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tentacle32.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Jaw.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle11.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle12.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle21.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle22.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle31.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tentacle32.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

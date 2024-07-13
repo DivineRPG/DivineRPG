@@ -60,13 +60,13 @@ public class ModelBasilisk extends EntityModel<EntityBasilisk> {
         this.leg6.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
 	}
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

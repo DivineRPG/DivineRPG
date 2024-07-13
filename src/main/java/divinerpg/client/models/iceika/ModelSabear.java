@@ -61,12 +61,12 @@ public class ModelSabear extends EntityModel<EntitySabear> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		RearLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RearRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		RearLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RearRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

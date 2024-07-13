@@ -71,11 +71,11 @@ public class ModelGlacide extends EntityModel<EntityGlacide> {
 		FrontRightLowerLeg.xRot = BackLeftLowerLeg.xRot = lowLegMov;
 		BackRightLowerLeg.xRot = FrontLeftLowerLeg.xRot = lowLegMov1;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

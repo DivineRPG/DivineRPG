@@ -95,13 +95,13 @@ public class ModelVamacheron extends EntityModel<EntityVamacheron> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Head2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Head2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

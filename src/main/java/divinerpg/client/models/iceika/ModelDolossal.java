@@ -99,9 +99,9 @@ public class ModelDolossal extends AgeableListModel<EntityDolossal> {
 		leftWing.zRot = -rightWing.zRot;
 	}
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 	@Override
 	protected Iterable<ModelPart> headParts() {

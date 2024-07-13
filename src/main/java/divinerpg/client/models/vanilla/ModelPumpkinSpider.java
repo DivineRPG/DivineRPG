@@ -67,8 +67,7 @@ public class ModelPumpkinSpider extends EntityModel<EntityPumpkinSpider> {
 			Thorax.xRot = Mth.HALF_PI;
 			Thorax.y = 26;
 			Thorax.z = 3;
-		}
-		float f = Mth.PI / 6;
+		} float f = Mth.PI / 6;
 		RightLeg4.zRot = RightLeg3.zRot = RightLeg2.zRot = RightLeg1.zRot = -f;
 		LeftLeg4.zRot = LeftLeg3.zRot = LeftLeg2.zRot = LeftLeg1.zRot = f;
 		float f1 = f / 2;
@@ -104,17 +103,17 @@ public class ModelPumpkinSpider extends EntityModel<EntityPumpkinSpider> {
 		RightLeg1.zRot += f10;
 		LeftLeg1.zRot -= f10;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Thorax.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RightLeg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LeftLeg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Thorax.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLeg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLeg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLeg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightLeg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLeg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLeg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLeg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftLeg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

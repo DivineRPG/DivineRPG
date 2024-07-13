@@ -65,15 +65,15 @@ public class ModelKobblin extends EntityModel<EntityKobblin> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Pad.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tongue.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		RLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		LLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Pad.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tongue.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

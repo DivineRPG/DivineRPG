@@ -85,11 +85,6 @@ public class EntityJungleSpider extends EntityDivineMonster {
         }
 
     }
-
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
-    }
-
     public boolean canBeAffected(MobEffectInstance effectInstance) {
         if (effectInstance.getEffect() == MobEffects.POISON) {
             return false;

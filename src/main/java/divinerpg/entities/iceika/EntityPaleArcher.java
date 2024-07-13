@@ -58,5 +58,4 @@ public class EntityPaleArcher extends EntityDivineMonster implements RangedAttac
     @Override protected SoundEvent getDeathSound() {return SoundEvents.STRAY_DEATH;}
     @Override protected void playStepSound(BlockPos pos, BlockState state) {}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
-    @Override public MobType getMobType() {return MobType.UNDEAD;}
 }

@@ -58,5 +58,7 @@ public class ModelRotatick extends EntityModel<EntityRotatick> {
 		MiddleLeftLeg.yRot = -.2F;
 		FrontLeftLeg.yRot = -.1F;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {Body.render(poseStack, buffer, packedLight, packedOverlay);}
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
+		Body.render(poseStack, buffer, packedLight, packedOverlay, color);
+	}
 }

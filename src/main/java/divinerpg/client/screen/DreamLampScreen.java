@@ -16,7 +16,7 @@ public class DreamLampScreen extends AbstractContainerScreen<DreamLampMenu> {
         titleLabelY -= 2;
     }
     @Override public void render(GuiGraphics stack, int mouseX, int mouseY, float partialTicks) {
-        renderBackground(stack);
+        renderBackground(stack, mouseX, mouseY, partialTicks);
         super.render(stack, mouseX, mouseY, partialTicks);
         renderTooltip(stack, mouseX, mouseY);
     }

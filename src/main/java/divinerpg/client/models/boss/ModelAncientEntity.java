@@ -94,12 +94,12 @@ public class ModelAncientEntity extends EntityModel<EntityAncientEntity> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, buffer, packedLight, packedOverlay);
-		legr.render(poseStack, buffer, packedLight, packedOverlay);
-		legl.render(poseStack, buffer, packedLight, packedOverlay);
-		body.render(poseStack, buffer, packedLight, packedOverlay);
-		legL2.render(poseStack, buffer, packedLight, packedOverlay);
-		legR2.render(poseStack, buffer, packedLight, packedOverlay);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
+		head.render(poseStack, buffer, packedLight, packedOverlay, color);
+		legr.render(poseStack, buffer, packedLight, packedOverlay, color);
+		legl.render(poseStack, buffer, packedLight, packedOverlay, color);
+		body.render(poseStack, buffer, packedLight, packedOverlay, color);
+		legL2.render(poseStack, buffer, packedLight, packedOverlay, color);
+		legR2.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 }

@@ -75,12 +75,12 @@ public class ModelDensos<E extends EntityDensos> extends EntityModel<EntityDenso
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, buffer, packedLight, packedOverlay);
-		rightarm.render(poseStack, buffer, packedLight, packedOverlay);
-		leftarm.render(poseStack, buffer, packedLight, packedOverlay);
-		rightleg.render(poseStack, buffer, packedLight, packedOverlay);
-		leftleg.render(poseStack, buffer, packedLight, packedOverlay);
-		head.render(poseStack, buffer, packedLight, packedOverlay);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, buffer, packedLight, packedOverlay, color);
+		rightarm.render(poseStack, buffer, packedLight, packedOverlay, color);
+		leftarm.render(poseStack, buffer, packedLight, packedOverlay, color);
+		rightleg.render(poseStack, buffer, packedLight, packedOverlay, color);
+		leftleg.render(poseStack, buffer, packedLight, packedOverlay, color);
+		head.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 }

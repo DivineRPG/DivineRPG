@@ -9,7 +9,6 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
-
 import javax.annotation.*;
 import java.util.function.*;
 
@@ -62,41 +61,28 @@ public class EntityMiner extends EntityDivineMonster {
             this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.WOODEN_PICKAXE));
         }
     }
-
-    public void tick() {
-        if (this.isAlive()) {
-            boolean flag = true && this.isSunBurnTick();
-            if (flag) {
-                ItemStack itemstack = this.getItemBySlot(EquipmentSlot.HEAD);
-                if (!itemstack.isEmpty()) {
-                    if (itemstack.isDamageableItem()) {
-                        itemstack.setDamageValue(itemstack.getDamageValue() + this.random.nextInt(2));
-                        if (itemstack.getDamageValue() >= itemstack.getMaxDamage()) {
-                            this.broadcastBreakEvent(EquipmentSlot.HEAD);
-                            this.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
+    @Override public void aiStep() {
+        if(this.isAlive()) {
+            boolean flag = isSunBurnTick();
+            if(flag) {
+                ItemStack itemstack = getItemBySlot(EquipmentSlot.HEAD);
+                if(!itemstack.isEmpty()) {
+                    if(itemstack.isDamageableItem()) {
+                        Item item = itemstack.getItem();
+                        itemstack.setDamageValue(itemstack.getDamageValue() + random.nextInt(2));
+                        if(itemstack.getDamageValue() >= itemstack.getMaxDamage()) {
+                            onEquippedItemBroken(item, EquipmentSlot.HEAD);
+                            setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
                         }
-                    }
-
-                    flag = false;
-                }
-
-                if (flag) {
-                    this.igniteForSeconds(8);
-                }
+                    } flag = false;
+                } if(flag) igniteForSeconds(8);
             }
-        }
-
-        super.tick();
+        } super.aiStep();
     }
     @Nullable
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficultyIn, MobSpawnType reason, @Nullable SpawnGroupData spawnDataIn) {
         populateDefaultEquipmentSlots(difficultyIn);
         populateDefaultEquipmentEnchantments(level, getRandom(), difficultyIn);
         return spawnDataIn;
-    }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.UNDEAD;
     }
 }

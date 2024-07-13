@@ -71,18 +71,18 @@ public class ModelLeorna<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		a.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Bar1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Bar2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Bar3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Bar4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Box.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		a.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Bar1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Bar2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Bar3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Bar4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Box.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

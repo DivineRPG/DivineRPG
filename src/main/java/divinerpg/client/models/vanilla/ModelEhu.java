@@ -60,11 +60,11 @@ public class ModelEhu extends EntityModel<EntityDivineTameable> {
 			FrontLeftLeg.xRot = BackRightLeg.xRot = f;
 		}
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

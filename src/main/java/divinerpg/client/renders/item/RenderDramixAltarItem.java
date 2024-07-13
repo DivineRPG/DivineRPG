@@ -29,7 +29,7 @@ public class RenderDramixAltarItem extends BlockEntityWithoutLevelRenderer {
             matrixStack.mulPose(Axis.YP.rotationDegrees(270));
             matrixStack.mulPose(Axis.YN.rotationDegrees(270));
             VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/dramix_altar.png")));
-            this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);
+            this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1);
             matrixStack.popPose();
         }
 

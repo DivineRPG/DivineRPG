@@ -59,7 +59,7 @@ public class ModelRazorback extends EntityModel<EntityRazorback> {
 		leftHindLeg.xRot = rightFrontLeg.xRot = f2;
 		tail.yRot = f1 * .2F;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

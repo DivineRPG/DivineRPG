@@ -97,22 +97,22 @@ public class ModelMage<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		staffProng2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		staffPole.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		staffCap.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		staffProng3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		staffProng1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		staffProng4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ray2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ray1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ray4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ray3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		staffProng2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		staffPole.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		staffCap.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		staffProng3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		staffProng1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		staffProng4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ray2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ray1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ray4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ray3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

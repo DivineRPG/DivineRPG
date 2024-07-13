@@ -22,15 +22,15 @@ public class EntityDissimentShot extends DivineThrowable {
             return;
         }
 
-        this.moveTo(entity.xo, entity.yo + (double)entity.getEyeHeight(), entity.zo, entity.yRot, entity.xRot);
-        this.xo -= (double)(Mth.cos(this.yRot / 180.0F * (float)Math.PI) * 0.16F);
-        this.yo -= 0.10000000149011612D;
-        this.zo -= (double)(Mth.sin(this.yRot / 180.0F * (float)Math.PI) * 0.16F);
+        this.moveTo(entity.xo, entity.yo + (double)entity.getEyeHeight(), entity.zo, entity.getYRot(), entity.getXRot());
+        this.xo -= (double)(Mth.cos(getYRot() / 180.0F * (float)Math.PI) * 0.16F);
+        this.yo -= 0.1;
+        this.zo -= (double)(Mth.sin(getYRot() / 180.0F * (float)Math.PI) * 0.16F);
         this.setPos(this.xo, this.yo, this.zo);
         float f = 0.4F;
-        this.setDeltaMovement((double)(-Mth.sin(this.yRot / 180.0F * (float)Math.PI) * Mth.cos(this.xRot / 180.0F * (float)Math.PI) * f),
-                (double)(Mth.cos(this.yRot / 180.0F * (float)Math.PI) * Mth.cos(this.xRot / 180.0F * (float)Math.PI) * f),
-                (double)(-Mth.sin((this.xRot + this.getGravity()) / 180.0F * (float)Math.PI) * f));
+        this.setDeltaMovement((double)(-Mth.sin(getYRot() / 180.0F * (float)Math.PI) * Mth.cos(getXRot() / 180.0F * (float)Math.PI) * f),
+                (double)(Mth.cos(getYRot() / 180.0F * (float)Math.PI) * Mth.cos(getXRot() / 180.0F * (float)Math.PI) * f),
+                (double)(-Mth.sin((getXRot() + (float)getGravity()) / 180 * (float)Math.PI) * f));
         this.shoot(this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z, 1.6F, 1.0F);
     }
 

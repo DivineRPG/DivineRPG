@@ -156,25 +156,25 @@ public class ModelAyeraco extends EntityModel<EntityAyeraco> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, buffer, packedLight, packedOverlay);
-		Tail.render(poseStack, buffer, packedLight, packedOverlay);
-		WingLB.render(poseStack, buffer, packedLight, packedOverlay);
-		Tail2.render(poseStack, buffer, packedLight, packedOverlay);
-		Tail3.render(poseStack, buffer, packedLight, packedOverlay);
-		WingRB.render(poseStack, buffer, packedLight, packedOverlay);
-		WingRF.render(poseStack, buffer, packedLight, packedOverlay);
-		WingLF.render(poseStack, buffer, packedLight, packedOverlay);
-		WingRM.render(poseStack, buffer, packedLight, packedOverlay);
-		WingLM.render(poseStack, buffer, packedLight, packedOverlay);
-		Head2.render(poseStack, buffer, packedLight, packedOverlay);
-		Body.render(poseStack, buffer, packedLight, packedOverlay);
-		Shape2.render(poseStack, buffer, packedLight, packedOverlay);
-		Shape3.render(poseStack, buffer, packedLight, packedOverlay);
-		Shape5.render(poseStack, buffer, packedLight, packedOverlay);
-		Shape7.render(poseStack, buffer, packedLight, packedOverlay);
-		Shape9.render(poseStack, buffer, packedLight, packedOverlay);
-		Shape11.render(poseStack, buffer, packedLight, packedOverlay);
-		Shape13.render(poseStack, buffer, packedLight, packedOverlay);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Tail.render(poseStack, buffer, packedLight, packedOverlay, color);
+		WingLB.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Tail2.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Tail3.render(poseStack, buffer, packedLight, packedOverlay, color);
+		WingRB.render(poseStack, buffer, packedLight, packedOverlay, color);
+		WingRF.render(poseStack, buffer, packedLight, packedOverlay, color);
+		WingLF.render(poseStack, buffer, packedLight, packedOverlay, color);
+		WingRM.render(poseStack, buffer, packedLight, packedOverlay, color);
+		WingLM.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Head2.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Body.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Shape2.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Shape3.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Shape5.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Shape7.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Shape9.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Shape11.render(poseStack, buffer, packedLight, packedOverlay, color);
+		Shape13.render(poseStack, buffer, packedLight, packedOverlay, color);
 	}
 }

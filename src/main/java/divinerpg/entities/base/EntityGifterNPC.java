@@ -31,7 +31,7 @@ public abstract class EntityGifterNPC extends PathfinderMob {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if(this.isAlive()) {
             if(!this.level().isClientSide()) {
-                player.inventory.add(this.getGift());
+                player.getInventory().add(this.getGift());
                 sendRandomChatMessage(player);
                 this.remove(Entity.RemovalReason.DISCARDED);
             }

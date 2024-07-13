@@ -18,22 +18,22 @@ public class DimensionalInventory implements INBTSerializable<CompoundTag> {
 	}
 	public void saveInventory(Player player, String inv) {
 		if(inv == VetheaInventorySwapEvent.VETHEA_INVENTORY) {
-			vetheaInventory = player.inventory.save(new ListTag());
+			vetheaInventory = player.getInventory().save(new ListTag());
 			if(ModList.get().isLoaded("curios")) vetheaCurios = CuriosCompat.saveInventory(player);
 		} else {
-			overworldInventory = player.inventory.save(new ListTag());
+			overworldInventory = player.getInventory().save(new ListTag());
 			if(ModList.get().isLoaded("curios")) overworldCurios = CuriosCompat.saveInventory(player);
 		}
 	}
 	public void loadInventory(Player player, String inv) {
 		if(inv == VetheaInventorySwapEvent.VETHEA_INVENTORY) {
 			if(ModList.get().isLoaded("curios")) CuriosCompat.loadInventory(vetheaCurios, player);
-			player.inventory.clearContent();
-			player.inventory.load(vetheaInventory);
+			player.getInventory().clearContent();
+			player.getInventory().load(vetheaInventory);
 		} else {
 			if(ModList.get().isLoaded("curios")) CuriosCompat.loadInventory(overworldCurios, player);
-			player.inventory.clearContent();
-			player.inventory.load(overworldInventory);
+			player.getInventory().clearContent();
+			player.getInventory().load(overworldInventory);
 		} player.inventoryMenu.broadcastChanges();
 	}
 	public void clearInventory(String inv) {

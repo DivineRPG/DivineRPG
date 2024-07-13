@@ -75,12 +75,12 @@ public class ModelEnderScrounge extends EntityModel<Monster> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		frontleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		frontright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		backleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		backright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		frontleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		frontright.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		backleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		backright.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

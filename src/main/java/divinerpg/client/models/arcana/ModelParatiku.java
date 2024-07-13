@@ -75,15 +75,15 @@ public class ModelParatiku<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		WingRT.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		WingRB.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		WingLB.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		WingLT.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		WingRT.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		WingRB.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		WingLB.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		WingLT.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Shape3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

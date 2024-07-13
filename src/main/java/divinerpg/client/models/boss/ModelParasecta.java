@@ -118,22 +118,22 @@ public class ModelParasecta extends EntityModel<EntityParasecta> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		foot6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		wing2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		wing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		foot4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		foot5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		foot1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		foot2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		foot3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		foot6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		wing2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		wing1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		foot4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		foot5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		foot1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		foot2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		foot3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

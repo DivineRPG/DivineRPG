@@ -22,7 +22,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public class BlockNightmareBed extends BedBlock {
     public BlockNightmareBed() {super(DyeColor.BLACK, Properties.of().mapColor(MapColor.COLOR_GRAY).ignitedByLava().pushReaction(PushReaction.DESTROY).strength(.2F).sound(SoundType.WOOD));}
     @Override public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
-        if(player.inventory.isEmpty() && CommonConfig.saferVetheanInventory.get()) {
+        if(player.getInventory().isEmpty() && CommonConfig.saferVetheanInventory.get()) {
             if(!worldIn.isClientSide && player.getUsedItemHand() == handIn) {
                 if(worldIn.dimension() == Level.OVERWORLD) {
                     if(worldIn.getChunkSource().getLightEngine().getLayerListener(LightLayer.BLOCK).getLightValue(pos) < 7

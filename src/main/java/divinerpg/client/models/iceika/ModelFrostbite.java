@@ -53,7 +53,7 @@ public class ModelFrostbite extends EntityModel<EntityDivineMonster> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

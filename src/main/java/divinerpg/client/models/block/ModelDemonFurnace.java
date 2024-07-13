@@ -43,13 +43,13 @@ public class ModelDemonFurnace<T extends Entity> extends Model{
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Box.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Arm1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Arm2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Arm3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Arm4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Arm5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Arm6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Box.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Arm1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Arm2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Arm3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Arm4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Arm5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Arm6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

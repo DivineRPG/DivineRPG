@@ -88,20 +88,20 @@ public class ModelTermid<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		legR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		legL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ridge1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ridge2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ridge3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ridge4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ridge5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ridge6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		ridge7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		jawL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		jawR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		legR.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		legL.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ridge1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ridge2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ridge3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ridge4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ridge5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ridge6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		ridge7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		jawL.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		jawR.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

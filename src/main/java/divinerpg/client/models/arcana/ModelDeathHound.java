@@ -61,12 +61,12 @@ public class ModelDeathHound extends EntityModel<EntityDeathHound> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Leg5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Leg5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

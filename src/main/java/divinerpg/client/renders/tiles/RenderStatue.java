@@ -33,7 +33,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         } matrixStack.mulPose(Axis.YP.rotationDegrees(-te.getBlockState().getValue(AbstractFurnaceBlock.FACING).toYRot()));
         matrixStack.mulPose(Axis.XP.rotationDegrees(180));
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(texture(te)));
-        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1, 1, 1, 1);
+        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1);
         matrixStack.popPose();
     }
     private Model getModel(StatueBlockEntity tile) {

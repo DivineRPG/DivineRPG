@@ -74,15 +74,15 @@ public class ModelFractite extends EntityModel<EntityFractite> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		frostBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		shard1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		shard2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		shard7.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		shard8.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		shard4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		shard3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		shard5.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		shard6.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		frostBody.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		shard1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		shard2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		shard7.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		shard8.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		shard4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		shard3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		shard5.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		shard6.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

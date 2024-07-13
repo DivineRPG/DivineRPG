@@ -37,9 +37,4 @@ public class EntityCrab extends EntityPeacefulUntilAttacked {
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
     }
-
-    @Override
-    public MobType getMobType() {
-        return MobType.ARTHROPOD;
-    }
 }

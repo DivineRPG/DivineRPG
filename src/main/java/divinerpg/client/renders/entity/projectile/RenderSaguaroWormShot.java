@@ -27,7 +27,7 @@ public class RenderSaguaroWormShot extends EntityRenderer<EntitySaguaroWormShot>
         super.render(entity, yaw, ticks, matrixStack, buffer, packedLightCoords);
         matrixStack.pushPose();
         VertexConsumer vertexBuilder = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
-        model.renderToBuffer(matrixStack, vertexBuilder, packedLightCoords, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        model.renderToBuffer(matrixStack, vertexBuilder, packedLightCoords, OverlayTexture.NO_OVERLAY, 1);
         matrixStack.popPose();
     }
 

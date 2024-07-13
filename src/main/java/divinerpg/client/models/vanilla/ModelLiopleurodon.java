@@ -66,11 +66,11 @@ public class ModelLiopleurodon extends EntityModel<EntityLiopleurodon> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		fin3B.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		fin4B.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		fin1A.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		fin2A.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		fin3B.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		fin4B.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		fin1A.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		fin2A.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

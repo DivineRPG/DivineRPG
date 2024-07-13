@@ -60,13 +60,13 @@ public class ModelGrizzle<T extends EntityDivineTameable> extends EntityModel<T>
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

@@ -71,11 +71,11 @@ public class ModelShark<T extends EntityShark> extends EntityModel<T> {
 	}
 
 	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Jaw.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		flipperL.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		flipperR.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Jaw.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Spine.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		flipperL.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		flipperR.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

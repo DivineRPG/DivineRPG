@@ -17,10 +17,10 @@ public class BoneChestScreen extends AbstractContainerScreen<BoneChestMenu> impl
         this.inventoryLabelY -= -2;
     }
 
-    public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
-        this.renderBackground(matrixStack);
+    @Override public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
+        renderBackground(matrixStack, mouseX, mouseY, partialTicks);
         super.render(matrixStack, mouseX, mouseY, partialTicks);
-        this.renderTooltip(matrixStack, mouseX, mouseY);
+        renderTooltip(matrixStack, mouseX, mouseY);
     }
 
     @Override

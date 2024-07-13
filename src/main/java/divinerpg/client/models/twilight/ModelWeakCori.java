@@ -56,8 +56,8 @@ public class ModelWeakCori extends EntityModel<EntityWeakCori> {
 		FrontRightTendril.xRot = FrontLeftTendril.zRot = FrontLeftTendril.xRot = BackLeftTendril.zRot = f - .3491F;
 		FrontRightTendril.zRot = BackLeftTendril.xRot = BackRightTendril.xRot = BackRightTendril.zRot = -f + .3491F;
 	}
-	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-		Tendrils.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		Tendrils.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

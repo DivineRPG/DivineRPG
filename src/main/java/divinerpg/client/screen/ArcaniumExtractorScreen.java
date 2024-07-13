@@ -15,7 +15,7 @@ public class ArcaniumExtractorScreen extends AbstractContainerScreen<ArcaniumExt
         super(screenContainer, inv, titleIn);
     }
     @Override public void render(GuiGraphics stack, int x, int y, float partialTicks) {
-        renderBackground(stack);
+        renderBackground(stack, x, y, partialTicks);
         super.render(stack, x, y, partialTicks);
         renderTooltip(stack, x, y);
     }
@@ -26,9 +26,9 @@ public class ArcaniumExtractorScreen extends AbstractContainerScreen<ArcaniumExt
         int j = topPos;
         stack.blit(GUI_TEXTURE, i, j, 0, 0, imageWidth, imageHeight);
         if(menu.isLit()) {
-            int k = menu.getLitProgress();
+            int k = (int)menu.getLitProgress();
             stack.blit(GUI_TEXTURE, i + 56, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
-        } int l = menu.getBurnProgress();
+        } int l = (int)menu.getBurnProgress();
         stack.blit(GUI_TEXTURE, i + 79, j + 34, 176, 14, l + 1, 16);
     }
 }
