@@ -17,7 +17,7 @@ public class BlockBrittleMoss extends BlockModMoss {
 		super(Block.Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(MapColor.GLOW_LICHEN));
 	}
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean b) {
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
 		return level.getBlockState(pos.below()).isAir() || level.getBlockState(pos.above()).isAir();
 	}
 	@Override

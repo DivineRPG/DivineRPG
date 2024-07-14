@@ -30,7 +30,7 @@ public class BlockArcaniteVinesHead extends WeepingVinesBlock {
 	}
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean bool) {
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
         return false;
     }
 

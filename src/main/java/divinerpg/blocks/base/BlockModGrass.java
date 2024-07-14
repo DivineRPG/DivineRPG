@@ -41,13 +41,13 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
         if(this == BlockRegistry.mortumGrass.get()) return BlockRegistry.mortumBrush.get().defaultBlockState();
         return null;
     }
-    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean b) {
+    @Override public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
         return level.getBlockState(pos.above()).isAir();
     }
-    public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
+    @Override public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return true;
     }
-    public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
+    @Override public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
     	BlockState myState = defaultBlockState();
 		place(level, random, pos.above(), myState);
 		place(level, random, pos.below(), myState);
@@ -80,7 +80,7 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
     private static boolean canPropagate(BlockState state, LevelReader level, BlockPos pos) {
         return canBeGrass(state, level, pos) && !level.getFluidState(pos.above()).is(FluidTags.WATER);
     }
-    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    @Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(!canBeGrass(state, level, pos)) level.setBlockAndUpdate(pos, dirtSupplier.get().defaultBlockState());
         else if(level.getMaxLocalRawBrightness(pos.above()) >= 9) {
         	BlockState blockstate = defaultBlockState();

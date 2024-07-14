@@ -24,9 +24,9 @@ public class EntityGemFin extends AbstractSchoolingFish {
         if(!level.isClientSide()) entityData.set(VARIANT, (byte) getRandom().nextInt(3));
     }
     @Override
-    protected void defineSynchedData() {
-		super.defineSynchedData();
-    	entityData.define(VARIANT, (byte)0);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+    	builder.define(VARIANT, (byte)0);
 	}
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);

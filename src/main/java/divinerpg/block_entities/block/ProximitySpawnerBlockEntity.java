@@ -3,6 +3,7 @@ package divinerpg.block_entities.block;
 import divinerpg.DivineRPG;
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -27,13 +28,13 @@ public class ProximitySpawnerBlockEntity extends BlockEntity {
 		}
 	}
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
-		super.saveAdditional(tag);
+	protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+		super.saveAdditional(tag, registries);
 		if(entityName != null) tag.putString(ENTITY_NAME_TAG, entityName);
 	}
 	@Override
-	public void load(CompoundTag tag) {
-		super.load(tag);
+	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+		super.loadAdditional(tag, registries);
 		if(tag.contains(ENTITY_NAME_TAG)) entityName = tag.getString(ENTITY_NAME_TAG);
 	}
 }

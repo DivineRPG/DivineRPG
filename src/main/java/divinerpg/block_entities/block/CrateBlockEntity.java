@@ -4,6 +4,7 @@ import java.util.function.Predicate;
 
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
@@ -28,14 +29,14 @@ public class CrateBlockEntity extends BlockEntity implements Hopper {
 		}
 	}
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
-		super.saveAdditional(tag);
-		tag.put("item", getItem().save(new CompoundTag()));
+	protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+		super.saveAdditional(tag, registries);
+		tag.put("item", getItem().save(registries));
 	}
 	@Override
-	public void load(CompoundTag tag) {
-		super.load(tag);
-		if(tag.contains("item")) stack = ItemStack.of(tag.getCompound("item"));
+	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+		super.loadAdditional(tag, registries);
+		if(tag.contains("item")) stack = ItemStack.parseOptional(registries, tag.getCompound("item"));
 	}
 	@Override
 	public int getContainerSize() {

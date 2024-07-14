@@ -22,9 +22,9 @@ public class EntityParatiku extends EntityDivineTameable {
         setIsParatikuHanging(true);
     }
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(HANGING, (byte) 0);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(HANGING, (byte) 0);
     }
     @Override public boolean isPushable() {return false;}
     @Override protected void doPush(Entity ent) {}
@@ -85,9 +85,9 @@ public class EntityParatiku extends EntityDivineTameable {
                 Vec3 vector3d1 = vector3d.add((Math.signum(d2) * .5 - vector3d.x) * .1, (Math.signum(d0) * .7 - vector3d.y) * .1, (Math.signum(d1) * .5 - vector3d.z) * .1);
                 setDeltaMovement(vector3d1);
                 float f = (float) (Mth.atan2(vector3d1.z, vector3d1.x) * (180F / Math.PI)) - 90F;
-                float f1 = Mth.wrapDegrees(f - yRot);
+                float f1 = Mth.wrapDegrees(f - getYRot());
                 zza = .5F;
-                yRot += f1;
+                yHeadRot += f1;
                 if(random.nextInt(100) == 0 && level().getBlockState(blockpos1).isRedstoneConductor(level(), blockpos1)) setIsParatikuHanging(true);
             }
         }

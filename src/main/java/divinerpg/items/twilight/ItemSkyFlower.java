@@ -6,9 +6,7 @@ import divinerpg.util.FoodList;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
-import javax.annotation.Nullable;
 import java.util.*;
 
 public class ItemSkyFlower extends ItemModFood {

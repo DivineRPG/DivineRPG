@@ -189,9 +189,9 @@ public class EntityAyeraco extends EntityDivineBoss {
     	assignGroup(group);
     }
     @Override
-    protected void defineSynchedData() {
-    	super.defineSynchedData();
-    	entityData.define(VARIANT, (byte)6);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    	super.defineSynchedData(builder);
+    	builder.define(VARIANT, (byte)6);
     }
     public EntityAyeraco find(UUID id) {
     	if(level() != null && !level().isClientSide && id != null) {

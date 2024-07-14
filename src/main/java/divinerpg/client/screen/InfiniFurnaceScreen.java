@@ -15,7 +15,7 @@ import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceMenu> extends AbstractContainerScreen<T> implements RecipeUpdateListener {
-	public static final ResourceLocation RECIPE_BUTTON_LOCATION = ResourceLocation.fromNamespaceAndPath("textures/gui/recipe_button.png");
+	public static final ResourceLocation RECIPE_BUTTON_LOCATION = ResourceLocation.withDefaultNamespace("textures/gui/recipe_button.png");
 	public final AbstractFurnaceRecipeBookComponent recipeBookComponent = new SmeltingRecipeBookComponent();
 	private boolean widthTooNarrow;
 	private final ResourceLocation texture;
@@ -44,7 +44,7 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceMenu> extends A
 		recipeBookComponent.tick();
 	}
 	@Override public void render(GuiGraphics stack, int i, int j, float f) {
-	      renderBackground(stack);
+	      renderBackground(stack, i, j, f);
 	      if(recipeBookComponent.isVisible() && widthTooNarrow) {
 	         renderBg(stack, f, i, j);
 	         recipeBookComponent.render(stack, i, j, f);

@@ -20,10 +20,7 @@ public class EntitySkyreBullet extends DivineThrowable {
         setDeltaMovement(level().getRandom().nextGaussian() * 0.05, -0.5, level().getRandom().nextGaussian() * 0.05);
     }
 
-    @Override
-    protected float getGravity() {
-        return 0.0F;
-    }
+    @Override public boolean isNoGravity() {return true;}
 
     @Override
     protected void onHitEntity(EntityHitResult result) {

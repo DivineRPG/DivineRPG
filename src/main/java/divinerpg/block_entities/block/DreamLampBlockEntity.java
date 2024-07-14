@@ -89,16 +89,16 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 		return new DreamLampMenu(i, inv, this);
 	}
 	@Override
-	public void load(CompoundTag tag) {
-	      super.load(tag);
+	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+	      super.loadAdditional(tag, registries);
 	      items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
-	      ContainerHelper.loadAllItems(tag, items);
+	      ContainerHelper.loadAllItems(tag, items, registries);
 	      burntime = tag.getInt("burntime");
 	}
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
-	      super.saveAdditional(tag);
+	protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+	      super.saveAdditional(tag, registries);
 	      tag.putInt("burntime", burntime);
-	      ContainerHelper.saveAllItems(tag, items);
+	      ContainerHelper.saveAllItems(tag, items, registries);
 	}
 }

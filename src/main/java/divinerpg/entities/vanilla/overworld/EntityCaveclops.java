@@ -13,7 +13,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.*;
-import net.minecraftforge.common.Tags.Biomes;
+import net.neoforged.neoforge.common.Tags.Biomes;
 
 public class EntityCaveclops extends EntityDivineMonster implements RangedAttackMob {
     public EntityCaveclops(EntityType<? extends Monster> type, Level worldIn) {

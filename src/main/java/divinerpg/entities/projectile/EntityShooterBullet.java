@@ -36,10 +36,10 @@ public class EntityShooterBullet extends ThrowableProjectile {
         super(type, x, y, z, world);
         this.bulletType = bulletType;
     }
-    @Override public float getGravity() {
-        //TODO: to add gravity int in bulletType
-        if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.NONE) return 0;
-        return super.getGravity();
+    @Override public boolean isNoGravity() {
+        //TODO: to add a different check (gravity int in bulletType or something)
+        if(getBulletType().getBulletDamageType() == BulletType.BulletDamageType.NONE) return true;
+        return super.isNoGravity();
     }
     @Override public void tick() {
         if(tickCount > 200) discard();
@@ -103,8 +103,8 @@ public class EntityShooterBullet extends ThrowableProjectile {
             level().broadcastEntityEvent(this, (byte)3);
         }
     }
-    @Override public void defineSynchedData() {
-        entityData.define(BULLET_ID, (byte)0);
+    @Override public void defineSynchedData(SynchedEntityData.Builder builder) {
+        builder.define(BULLET_ID, (byte)0);
     }
     @Override public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);

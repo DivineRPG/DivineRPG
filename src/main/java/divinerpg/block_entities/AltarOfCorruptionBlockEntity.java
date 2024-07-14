@@ -2,6 +2,7 @@ package divinerpg.block_entities;
 
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.*;
@@ -30,21 +31,13 @@ public class AltarOfCorruptionBlockEntity extends BlockEntity implements Nameabl
     public AltarOfCorruptionBlockEntity(BlockPos p_155501_, BlockState p_155502_) {
         super(BlockEntityRegistry.ALTAR_OF_CORRUPTION.get(), p_155501_, p_155502_);
     }
-
-    protected void saveAdditional(CompoundTag p_187500_) {
-        super.saveAdditional(p_187500_);
-        if (this.hasCustomName()) {
-            p_187500_.putString("CustomName", Component.Serializer.toJson(this.name));
-        }
-
+    @Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
+        if(hasCustomName()) tag.putString("CustomName", Component.Serializer.toJson(name, registries));
     }
-
-    public void load(CompoundTag p_155509_) {
-        super.load(p_155509_);
-        if (p_155509_.contains("CustomName", 8)) {
-            this.name = Component.Serializer.fromJson(p_155509_.getString("CustomName"));
-        }
-
+    @Override public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.loadAdditional(tag, registries);
+        if(tag.contains("CustomName", 8)) name = Component.Serializer.fromJson(tag.getString("CustomName"), registries);
     }
 
     public static void bookAnimationTick(Level p_155504_, BlockPos p_155505_, BlockState p_155506_, AltarOfCorruptionBlockEntity p_155507_) {

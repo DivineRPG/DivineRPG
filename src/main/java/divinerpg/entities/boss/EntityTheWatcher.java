@@ -96,10 +96,9 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
             return super.hurt(source, amount);
         }
     }
-
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ATTACKING, false);
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(ATTACKING, false);
     }
 
     public SoundSource getSoundSource() {
@@ -221,16 +220,16 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
         public void tick() {
             if (this.mob.getTarget() == null) {
                 Vec3 vector3d = this.mob.getDeltaMovement();
-                this.mob.yRot = -((float)Math.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
-                this.mob.yBodyRot = this.mob.yRot;
+                this.mob.yHeadRot = -((float)Math.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
+                this.mob.yBodyRot = this.mob.getYRot();
             } else {
                 LivingEntity livingentity = this.mob.getTarget();
 //                double d0 = 64.0D;
                 if (livingentity.distanceToSqr(this.mob) < 4096.0D) {
                     double d1 = livingentity.getX() - this.mob.getX();
                     double d2 = livingentity.getZ() - this.mob.getZ();
-                    this.mob.yRot = -((float)Math.atan2(d1, d2)) * (180F / (float)Math.PI);
-                    this.mob.yBodyRot = this.mob.yRot;
+                    this.mob.yHeadRot = -((float)Math.atan2(d1, d2)) * (180F / (float)Math.PI);
+                    this.mob.yBodyRot = this.mob.getYRot();
                 }
             }
 

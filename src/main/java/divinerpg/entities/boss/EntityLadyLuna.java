@@ -33,9 +33,9 @@ public class EntityLadyLuna extends EntityDivineBoss {
         this.setRandomProtectionValues();
     }
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(PROTECTION, 0);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(PROTECTION, 0);
     }
     @Nullable
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance instance, MobSpawnType type, @Nullable SpawnGroupData data) {

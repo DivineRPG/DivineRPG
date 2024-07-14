@@ -13,9 +13,9 @@ public class ItemEggNog extends ItemModFood {
     @Override public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
         Player player = (Player)entity;
         player.awardStat(Stats.ITEM_USED.get(this));
-        player.getFoodData().eat(stack.getFoodProperties(entity).getNutrition(), stack.getFoodProperties(entity).getSaturationModifier());
+        player.getFoodData().eat(stack.getFoodProperties(entity).nutrition(), stack.getFoodProperties(entity).saturation());
         if(!player.isCreative()) stack.shrink(1);
-        return stack.isEmpty() ? new ItemStack(Items.BUCKET) : stack;
+        return stack.isEmpty() ? stack.getFoodProperties(entity).usingConvertsTo().get() : stack;
     }
     @Override public UseAnim getUseAnimation(ItemStack stack) {return UseAnim.DRINK;}
 }

@@ -16,9 +16,9 @@ public class EntityDesertCrawler extends EntityCrawler {
         super(type, level);
     }
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(HAS_SEEN, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(HAS_SEEN, false);
     }
 
     public void addAdditionalSaveData(CompoundTag compound) {

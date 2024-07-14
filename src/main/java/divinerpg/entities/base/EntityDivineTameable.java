@@ -21,6 +21,8 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.neoforged.neoforge.event.EventHooks;
+
 import javax.annotation.Nullable;
 import java.util.UUID;
 
@@ -33,7 +35,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     protected EntityDivineTameable(EntityType<? extends TamableAnimal> type, Level worldIn, float healthIncrease) {
         super(type, worldIn);
         this.healthIncrease = healthIncrease;
-        setTame(false);
+        setTame(false, false);
     }
     public boolean isMeat(ItemStack item) {return item.getFoodProperties(this) != null && item.getFoodProperties(this).isMeat();}
     @Override protected void registerGoals() {
@@ -42,7 +44,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
         goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
         goalSelector.addGoal(4, new LeapAtTargetGoal(this, .4F));
         goalSelector.addGoal(5, new MeleeAttackGoal(this, 1, true));
-        goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, 10, 2, false));
+        goalSelector.addGoal(6, new FollowOwnerGoal(this, 1, 10, 2));
 //      goalSelector.addGoal(7, new BreedGoal(this, 1));
         goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1));
         goalSelector.addGoal(10, new LookAtPlayerGoal(this, Player.class, 8));
@@ -63,17 +65,17 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
             return super.hurt(source, amount);
         }
     }
-    @Override public void setTame(boolean tamed) {
-        super.setTame(tamed);
+    @Override public void setTame(boolean tamed, boolean applyTamingSideEffects) {
+        super.setTame(tamed, applyTamingSideEffects);
         if(isTame()) {
             AttributeInstance attribute = getAttribute(Attributes.MAX_HEALTH);
             attribute.setBaseValue(attribute.getValue() * healthIncrease);
         }
     }
-    @Override protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(DATA_COLLAR_COLOR, DyeColor.RED.getId());
-        entityData.define(DATA_REMAINING_ANGER_TIME, 0);
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_COLLAR_COLOR, DyeColor.RED.getId());
+        builder.define(DATA_REMAINING_ANGER_TIME, 0);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
@@ -100,7 +102,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
         if(isTame()) {
             if(isFood(itemstack) && getHealth() < getMaxHealth()) {
                 if(!player.isCreative()) itemstack.shrink(1);
-                heal((float) item.getFoodProperties(itemstack, this).getNutrition());
+                heal((float) item.getFoodProperties(itemstack, this).nutrition());
                 gameEvent(GameEvent.EAT, this);
                 return InteractionResult.SUCCESS;
             }
@@ -124,7 +126,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
             }
         } else if(isTamingFood(itemstack) && !isAngry() && !player.isCreative()) {
             itemstack.shrink(1);
-            if(random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+            if(random.nextInt(3) == 0 && !EventHooks.onAnimalTame(this, player)) {
                 tame(player);
                 navigation.stop();
                 setTarget(null);
@@ -145,7 +147,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
             else return !(entity instanceof TamableAnimal) || !((TamableAnimal)entity).isTame();
         } else return false;
     }
-    @Override public boolean canBeLeashed(Player player) {return !isAngry() && super.canBeLeashed(player);}
+    @Override public boolean canBeLeashed() {return !isAngry() && super.canBeLeashed();}
     @Override public int getRemainingPersistentAngerTime() {return entityData.get(DATA_REMAINING_ANGER_TIME);}
     @Override public void setRemainingPersistentAngerTime(int p_30404_) {entityData.set(DATA_REMAINING_ANGER_TIME, p_30404_);}
     @Override public void startPersistentAngerTimer() {setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(random));}

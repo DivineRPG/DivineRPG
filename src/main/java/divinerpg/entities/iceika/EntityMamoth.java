@@ -107,9 +107,9 @@ public class EntityMamoth extends Animal implements NeutralMob {
 		}
 	}
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		entityData.define(WANTS_TO_FLY, false);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(WANTS_TO_FLY, false);
 	}
 	@Override
 	public boolean doHurtTarget(Entity entity) {

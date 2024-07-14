@@ -81,9 +81,9 @@ public class EntityDivineArrow extends AbstractArrow {
             else level().explode(this, xo, yo, zo, 3, false, Level.ExplosionInteraction.TNT);
         }
     }
-    @Override protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(ARROW_ID, (byte)0);
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(ARROW_ID, (byte)0);
     }
     @Override public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);

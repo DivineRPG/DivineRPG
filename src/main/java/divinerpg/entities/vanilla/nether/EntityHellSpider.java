@@ -49,11 +49,11 @@ public class EntityHellSpider extends EntityDivineMonster {
     public boolean fireImmune() {
         return true;
     }
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(CLIMBING, (byte)0);
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(CLIMBING, (byte)0);
     }
-    public void tick() {
+    @Override public void tick() {
         super.tick();
         if (!this.level().isClientSide()) {
             this.setBesideClimbableBlock(this.horizontalCollision);

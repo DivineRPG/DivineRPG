@@ -186,7 +186,7 @@ public class BlockRegistry {
             plankDesign = registerBlock("plank_design", () -> new BlockModPlanks(WOOD, SoundType.WOOD)),
 
             //Divine Tree
-            divineSapling = registerBlock("divine_sapling", () -> new BlockModSapling(GOLD, () -> Blocks.GRASS, () -> Blocks.DIRT, new DivineTreeGrower())),
+            divineSapling = registerBlock("divine_sapling", () -> new BlockModSapling(GOLD, () -> Blocks.GRASS_BLOCK, () -> Blocks.DIRT, new DivineTreeGrower())),
             divineLeaves = registerBlock("divine_leaves", () -> new BlockModLeaves(GOLD, SoundType.GRASS)),
             divineLog = registerBlock("divine_log", () -> new BlockModLog(TERRACOTTA_LIGHT_GREEN, SoundType.CHERRY_WOOD)),
             divineWood = registerBlock("divine_wood", () -> new BlockModLog(TERRACOTTA_LIGHT_GREEN, SoundType.CHERRY_WOOD)),

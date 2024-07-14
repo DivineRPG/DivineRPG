@@ -212,10 +212,10 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	      } else return false;
 	}
 	@Override
-	public void load(CompoundTag tag) {
-	      super.load(tag);
+	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+	      super.loadAdditional(tag, registries);
 	      items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
-	      ContainerHelper.loadAllItems(tag, items);
+	      ContainerHelper.loadAllItems(tag, items, registries);
 	      isLit = tag.getBoolean("isLit");
 	      cookingProgress = tag.getInt("CookTime");
 	      cookingTotalTime = tag.getInt("CookTimeTotal");
@@ -223,12 +223,12 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	      for(String s : compoundtag.getAllKeys()) recipesUsed.put(ResourceLocation.withDefaultNamespace(s), compoundtag.getInt(s));
 	}
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
-	      super.saveAdditional(tag);
+	protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+	      super.saveAdditional(tag, registries);
 	      tag.putBoolean("isLit", isLit);
 	      tag.putInt("CookTime", cookingProgress);
 	      tag.putInt("CookTimeTotal", cookingTotalTime);
-	      ContainerHelper.saveAllItems(tag, items);
+	      ContainerHelper.saveAllItems(tag, items, registries);
 	      CompoundTag compoundtag = new CompoundTag();
 	      recipesUsed.forEach((p_187449_, p_187450_) -> {
 	         compoundtag.putInt(p_187449_.toString(), p_187450_);

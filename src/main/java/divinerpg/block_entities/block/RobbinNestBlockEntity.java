@@ -7,6 +7,7 @@ import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.packets.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
@@ -23,14 +24,14 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 		super(BlockEntityRegistry.ROBBIN_NEST.get(), pos, state);
 	}
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
-		super.saveAdditional(tag);
-		tag.put(ITEM_TAG, getItem().save(new CompoundTag()));
+	protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+		super.saveAdditional(tag, registries);
+		tag.put(ITEM_TAG, getItem().save(registries));
 	}
 	@Override
-	public void load(CompoundTag tag) {
-		super.load(tag);
-		if(tag.contains(ITEM_TAG)) item = ItemStack.of(tag.getCompound(ITEM_TAG));
+	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+		super.loadAdditional(tag, registries);
+		if(tag.contains(ITEM_TAG)) item = ItemStack.parseOptional(registries, tag.getCompound(ITEM_TAG));
 	}
 	@SuppressWarnings("resource") @Override public void onLoad() {
 		super.onLoad();

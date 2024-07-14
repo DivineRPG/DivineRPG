@@ -41,8 +41,8 @@ public class EntityFrostCloud extends Entity {
         return 3F;
     }
     @Override
-    protected void defineSynchedData() {
-    	entityData.define(RADIUS, Float.valueOf(3F));
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    	builder.define(RADIUS, Float.valueOf(3F));
     }
     public int getDuration(){
         return duration;

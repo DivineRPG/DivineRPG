@@ -13,7 +13,7 @@ public class BlockModMoss extends MossBlock {
 		super(properties);
 	}
 	@Override
-	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean b) {
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
 		return level.getBlockState(pos.below()).isAir();
 	}
 	@Override

@@ -74,16 +74,16 @@ public class EntityWraith extends EntityDivineTameable {
         public void tick() {
             if (this.parentEntity.getTarget() == null) {
                 Vec3 vector3d = this.parentEntity.getDeltaMovement();
-                this.parentEntity.xRot = -((float) Mth.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
-                this.parentEntity.xRotO = this.parentEntity.xRot;
+                this.parentEntity.lerpXRot = -((float) Mth.atan2(vector3d.x, vector3d.z)) * (180F / (float)Math.PI);
+                this.parentEntity.xRotO = this.parentEntity.getXRot();
             } else {
                 LivingEntity livingentity = this.parentEntity.getTarget();
 //                double d0 = 64.0D;
                 if (livingentity.distanceToSqr(this.parentEntity) < 4096.0D) {
                     double d1 = livingentity.getX() - this.parentEntity.getX();
                     double d2 = livingentity.getZ() - this.parentEntity.getZ();
-                    this.parentEntity.xRot = -((float)Mth.atan2(d1, d2)) * (180F / (float)Math.PI);
-                    this.parentEntity.xRotO = this.parentEntity.xRot;
+                    this.parentEntity.lerpXRot = -((float)Mth.atan2(d1, d2)) * (180F / (float)Math.PI);
+                    this.parentEntity.xRotO = this.parentEntity.getXRot();
                 }
             }
 
@@ -114,7 +114,7 @@ public class EntityWraith extends EntityDivineTameable {
                 }
 
                 float f = (float)(Mth.atan2(d2, d0) * (double)(180F / (float)Math.PI)) - 90.0F;
-                this.mob.yRot = this.rotlerp(this.mob.yRot, f, 90.0F);
+                this.mob.yHeadRot = this.rotlerp(this.mob.getYRot(), f, 90.0F);
                 float f1;
                 if (this.mob.onGround()) {
                     f1 = (float)(this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED));
@@ -125,7 +125,7 @@ public class EntityWraith extends EntityDivineTameable {
                 this.mob.setSpeed(f1);
                 double d4 = (double)Mth.sqrt((float) (d0 * d0 + d2 * d2));
                 float f2 = (float)(-(Mth.atan2(d1, d4) * (double)(180F / (float)Math.PI)));
-                this.mob.xRot = this.rotlerp(this.mob.xRot, f2, (float)20);
+                this.mob.xRotO = this.rotlerp(this.mob.getXRot(), f2, (float)20);
                 this.mob.setYya(d1 > 0.0D ? f1 : -f1);
 
 

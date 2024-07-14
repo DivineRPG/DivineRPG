@@ -16,7 +16,7 @@ import net.minecraft.world.entity.ai.navigation.*;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
-import net.minecraftforge.common.Tags.Blocks;
+import net.neoforged.neoforge.common.Tags.Blocks;
 
 public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAttackMob {
     private static final EntityDataAccessor<Boolean> PROVOKED = SynchedEntityData.defineId(EntitySaguaroWorm.class, EntityDataSerializers.BOOLEAN);
@@ -38,9 +38,9 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
         return new WallClimberNavigation(this, worldIn);
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(PROVOKED, Boolean.valueOf(false));
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(PROVOKED, false);
     }
 
     public boolean getProvoked() {
@@ -93,7 +93,7 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
 
 
     public static boolean saguaroWormSpawnRule(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return reason == MobSpawnType.SPAWNER || worldIn.getBlockState(pos.below()).is(Blocks.SAND);
+        return reason == MobSpawnType.SPAWNER || worldIn.getBlockState(pos.below()).is(Blocks.SANDS);
     }
 
     @Override

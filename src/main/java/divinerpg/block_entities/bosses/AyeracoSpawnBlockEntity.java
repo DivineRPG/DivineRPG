@@ -91,7 +91,7 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
         return beamCoords;
     }
     @Override
-    public void load(CompoundTag tag) {
+    public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         this.spawnTick = tag.getInt("spawnTick");
 
         blueBeam = BlockPos.of(tag.getLong("blueBeam"));
@@ -102,8 +102,8 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
         yellowBeam = BlockPos.of(tag.getLong("yellowBeam"));
     }
     @Override
-    protected void saveAdditional(CompoundTag tag) {
-        super.saveAdditional(tag);
+    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+        super.saveAdditional(tag, registries);
         tag.putInt("spawnTick", this.spawnTick);
         
         if(blueBeam != null) tag.putLong("blueBeam", blueBeam.asLong());

@@ -40,7 +40,7 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
 	}
 
     @Override
-	public boolean isValidBonemealTarget(LevelReader p_53900_, BlockPos p_53901_, BlockState state, boolean p_53903_) {
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
 		return !state.getValue(RIPE);
 	}
 

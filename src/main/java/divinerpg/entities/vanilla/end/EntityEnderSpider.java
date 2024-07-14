@@ -6,7 +6,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 
 public class EntityEnderSpider extends EnderMan {
 

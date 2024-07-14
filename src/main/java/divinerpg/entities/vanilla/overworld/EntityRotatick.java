@@ -24,9 +24,9 @@ public class EntityRotatick extends EntityDivineMonster {
         return data;
     }
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(SPECIAL, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(SPECIAL, false);
     }
     public boolean isSpecialAlt() {
         return this.entityData.get(SPECIAL);

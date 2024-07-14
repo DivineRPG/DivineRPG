@@ -37,9 +37,9 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         super(entityType, world);
         moveControl = new RobbinMoveControl(this);
     }
-    @Override protected void defineSynchedData() {
-    	super.defineSynchedData();
-    	entityData.define(ITEM, 0);
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    	super.defineSynchedData(builder);
+    	builder.define(ITEM, 0);
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
     	super.addAdditionalSaveData(tag);

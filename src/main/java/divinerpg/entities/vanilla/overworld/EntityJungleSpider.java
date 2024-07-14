@@ -51,12 +51,12 @@ public class EntityJungleSpider extends EntityDivineMonster {
         return new WallClimberNavigation(this, p_175447_1_);
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_FLAGS_ID, (byte)0);
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_FLAGS_ID, (byte)0);
     }
 
-    public void tick() {
+    @Override public void tick() {
         super.tick();
         if (!this.level().isClientSide()) {
             this.setClimbing(this.horizontalCollision);

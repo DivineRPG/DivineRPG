@@ -15,6 +15,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class RenderWildwoodLog extends EntityRenderer<EntityWildwoodLog> {
     private final BlockRenderDispatcher dispatcher;
@@ -38,8 +39,8 @@ public class RenderWildwoodLog extends EntityRenderer<EntityWildwoodLog> {
                 BlockPos blockpos = new BlockPos((int) entity.getX(), (int) entity.getBoundingBox().maxY, (int) entity.getZ());
                 p_114637_.translate(-0.5D, 0.0D, -0.5D);
                 var model = this.dispatcher.getBlockModel(blockstate);
-                for (var renderType : model.getRenderTypes(blockstate, RandomSource.create(blockstate.getSeed(entity.blockPosition())), net.minecraftforge.client.model.data.ModelData.EMPTY))
-                    this.dispatcher.getModelRenderer().tesselateBlock(level, model, blockstate, blockpos, p_114637_, p_114638_.getBuffer(renderType), false, RandomSource.create(), blockstate.getSeed(entity.blockPosition()), OverlayTexture.NO_OVERLAY, net.minecraftforge.client.model.data.ModelData.EMPTY, renderType);
+                for (var renderType : model.getRenderTypes(blockstate, RandomSource.create(blockstate.getSeed(entity.blockPosition())), ModelData.EMPTY))
+                    this.dispatcher.getModelRenderer().tesselateBlock(level, model, blockstate, blockpos, p_114637_, p_114638_.getBuffer(renderType), false, RandomSource.create(), blockstate.getSeed(entity.blockPosition()), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, renderType);
                 p_114637_.popPose();
                 super.render(entity, p_114635_, p_114636_, p_114637_, p_114638_, p_114639_);
             }

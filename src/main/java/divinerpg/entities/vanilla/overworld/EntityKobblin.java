@@ -32,9 +32,9 @@ public class EntityKobblin extends EntityDivineMonster {
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
     }
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(PROVOKED, false);
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(PROVOKED, false);
     }
 
     @Override

@@ -7,7 +7,7 @@ import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 
 public abstract class EntityDivineMonster extends Monster {
     public EntityDivineMonster(EntityType<? extends Monster> type, Level worldIn) {

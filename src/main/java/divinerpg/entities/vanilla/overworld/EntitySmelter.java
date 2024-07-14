@@ -15,9 +15,9 @@ public class EntitySmelter extends EntityDivineTameable implements IAttackTimer 
         super(type, worldIn, 1F);
     }
     @Override
-    protected void defineSynchedData() {
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData();
-        entityData.define(ATTACK_TIMER, 0);
+        builder.define(ATTACK_TIMER, 0);
     }
     @Override
     public void tick() {

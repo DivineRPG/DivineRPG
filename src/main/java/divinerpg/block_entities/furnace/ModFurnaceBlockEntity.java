@@ -78,29 +78,29 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	}
 	public boolean isLit() {return this.litTime > 0;}
 	@Override
-	public void load(CompoundTag p_155025_) {
-	      super.load(p_155025_);
+	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+	      super.loadAdditional(tag, registries);
 	      items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
-	      ContainerHelper.loadAllItems(p_155025_, items);
-	      litTime = p_155025_.getInt("BurnTime");
-	      cookingProgress = p_155025_.getInt("CookTime");
-	      cookingTotalTime = p_155025_.getInt("CookTimeTotal");
+	      ContainerHelper.loadAllItems(tag, items, registries);
+	      litTime = tag.getInt("BurnTime");
+	      cookingProgress = tag.getInt("CookTime");
+	      cookingTotalTime = tag.getInt("CookTimeTotal");
 	      litDuration = getBurnDuration(items.get(1));
-	      CompoundTag compoundtag = p_155025_.getCompound("RecipesUsed");
+	      CompoundTag compoundtag = tag.getCompound("RecipesUsed");
 	      for(String s : compoundtag.getAllKeys()) recipesUsed.put(ResourceLocation.withDefaultNamespace(s), compoundtag.getInt(s));
 	}
 	@Override
-	protected void saveAdditional(CompoundTag p_187452_) {
-	      super.saveAdditional(p_187452_);
-	      p_187452_.putInt("BurnTime", this.litTime);
-	      p_187452_.putInt("CookTime", this.cookingProgress);
-	      p_187452_.putInt("CookTimeTotal", this.cookingTotalTime);
-	      ContainerHelper.saveAllItems(p_187452_, this.items);
+	protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+	      super.saveAdditional(tag, registries);
+	      tag.putInt("BurnTime", this.litTime);
+	      tag.putInt("CookTime", this.cookingProgress);
+	      tag.putInt("CookTimeTotal", this.cookingTotalTime);
+	      ContainerHelper.saveAllItems(tag, items, registries);
 	      CompoundTag compoundtag = new CompoundTag();
 	      this.recipesUsed.forEach((p_187449_, p_187450_) -> {
 	         compoundtag.putInt(p_187449_.toString(), p_187450_);
 	      });
-	      p_187452_.put("RecipesUsed", compoundtag);
+	      tag.put("RecipesUsed", compoundtag);
 	}
 	public static void serverTick(Level p_155014_, BlockPos p_155015_, BlockState p_155016_, ModFurnaceBlockEntity p_155017_) {
 	      boolean flag = p_155017_.isLit();

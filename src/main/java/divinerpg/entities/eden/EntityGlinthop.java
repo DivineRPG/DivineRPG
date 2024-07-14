@@ -22,10 +22,10 @@ public class EntityGlinthop extends EntityDivineTameable {
         if(random.nextInt(50) == 1) entityData.set(SPECIAL, true);
         return super.finalizeSpawn(level, difficultyInstance, type, data);
     }
-    @Override protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(TAMED_AND_ANGRY, false);
-        entityData.define(SPECIAL, false);
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(TAMED_AND_ANGRY, false);
+        builder.define(SPECIAL, false);
     }
     @Override public void die(DamageSource source) {
         super.die(source);

@@ -205,8 +205,8 @@ public class ItemRegistry {
             hot_pumpkin_pie = registerItem("hot_pumpkin_pie", () -> new ItemModFood(FoodList.HOT_PUMPKIN_PIE)),
             tomato = registerItem("tomato", ItemTomato::new),
             white_mushroom = registerItem("white_mushroom", () -> new ItemModFood(FoodList.WHITE_MUSHROOM)),
-            advanced_mushroom_stew = registerItem("advanced_mushroom_stew", () -> new BowlFoodItem(new Properties().food(FoodList.ADVANCED_MUSHROOM_STEW).stacksTo(1))),
-            chicken_dinner = registerItem("chicken_dinner", () -> new BowlFoodItem(new Properties().food(FoodList.CHICKEN_DINNER).stacksTo(1))),
+            advanced_mushroom_stew = registerItem("advanced_mushroom_stew", () -> new ItemModFood(new Properties().food(FoodList.ADVANCED_MUSHROOM_STEW).stacksTo(1))),
+            chicken_dinner = registerItem("chicken_dinner", () -> new ItemModFood(new Properties().food(FoodList.CHICKEN_DINNER).stacksTo(1))),
             robbin_egg = registerItem("robbin_egg"),
             cauldron_flesh = registerItem("cauldron_flesh", () -> new ItemModFood(FoodList.CAULDRON_FLESH)),
             raw_seng_meat = registerItem("raw_seng_meat", () -> new ItemModFood(FoodList.RAW_SENG_MEAT)),
@@ -290,17 +290,17 @@ public class ItemRegistry {
             band_of_lheiva_hunting = registerItemVethean("band_of_lheiva_hunting", () -> new ItemVethean(new Properties().stacksTo(1))),
 
             //Pets
-            snapper_egg = registerItem("snapper_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SNAPPER)),
-            ehu_egg = registerItem("ehu_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.EHU)),
-            husk_egg = registerItem("husk_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.HUSK)),
-            brown_grizzle_egg = registerItem("brown_grizzle_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.BROWN_GRIZZLE)),
-            white_grizzle_egg = registerItem("white_grizzle_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.WHITE_GRIZZLE)),
-            stone_golem_egg = registerItem("stone_golem_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.STONE_GOLEM)),
-            smelter_egg = registerItem("smelter_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SMELTER)),
-            fyracryx_egg = registerItem("fyracryx_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.FYRACRYX)),
-            golem_of_rejuvenation_egg = registerItem("golem_of_rejuvenation_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.GOLEM_OF_REJUVENATION)),
-            paratiku_egg = registerItem("paratiku_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.PARATIKU)),
-            seimer_egg = registerItem("seimer_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SEIMER)),
+            snapper_egg = registerItem("snapper_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SNAPPER.get())),
+            ehu_egg = registerItem("ehu_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.EHU.get())),
+            husk_egg = registerItem("husk_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.HUSK.get())),
+            brown_grizzle_egg = registerItem("brown_grizzle_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.BROWN_GRIZZLE.get())),
+            white_grizzle_egg = registerItem("white_grizzle_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.WHITE_GRIZZLE.get())),
+            stone_golem_egg = registerItem("stone_golem_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.STONE_GOLEM.get())),
+            smelter_egg = registerItem("smelter_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SMELTER.get())),
+            fyracryx_egg = registerItem("fyracryx_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.FYRACRYX.get())),
+            golem_of_rejuvenation_egg = registerItem("golem_of_rejuvenation_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.GOLEM_OF_REJUVENATION.get())),
+            paratiku_egg = registerItem("paratiku_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.PARATIKU.get())),
+            seimer_egg = registerItem("seimer_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SEIMER.get())),
 
 
     //Tools, Weapons & Armor
@@ -580,9 +580,9 @@ public class ItemRegistry {
             dream_axe = registerItemVethean("dream_axe", () -> new ItemModAxe(ToolStats.DREAM_AXE, -3.1F)),
 
             //Buckets
-            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
-            cauldron_fish_bucket = registerItem("cauldron_fish_bucket", () -> new MobBucketItem(EntityRegistry.CAULDRON_FISH, Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
-            smoldering_tar_bucket = registerItem("smoldering_tar_bucket", () -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))),
+            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
+            cauldron_fish_bucket = registerItem("cauldron_fish_bucket", () -> new MobBucketItem(EntityRegistry.CAULDRON_FISH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
+            smoldering_tar_bucket = registerItem("smoldering_tar_bucket", () -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))),
 
     //Vethean Swords
             teaker_backsword = registerItemVethean("teaker_backsword", () -> new ItemModSword(ToolStats.TEAKER_BACKSWORD)),

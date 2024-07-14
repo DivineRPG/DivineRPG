@@ -122,7 +122,7 @@ public class EntityBlubbertusk extends Animal {
 		return item.is(ItemTags.FISHES);
 	}
 	@Override
-	public boolean canBeLeashed(Player p) {
+	public boolean canBeLeashed() {
 		return true;
 	}
 	@Override

@@ -10,7 +10,7 @@ import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 
 import javax.annotation.Nullable;
 
@@ -21,9 +21,9 @@ public class EntityPumpkinSpider extends Spider {
 		super(type, worldIn);
 	}
 	@Override
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.entityData.define(PROVOKED, false);
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+		super.defineSynchedData(builder);
+		builder.define(PROVOKED, false);
 		setRot(0, 0);
 		setYBodyRot(0);
 	}

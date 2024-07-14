@@ -45,8 +45,8 @@ public class BlockWinterberryVinesBody extends WeepingVinesPlantBlock implements
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader p_53900_, BlockPos p_53901_, BlockState state, boolean p_53903_) {
-		return !state.getValue(RIPE) || super.isValidBonemealTarget(p_53900_, p_53901_, state, p_53903_);
+	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+		return !state.getValue(RIPE) || super.isValidBonemealTarget(level, pos, state);
 	}
 
 	@Override

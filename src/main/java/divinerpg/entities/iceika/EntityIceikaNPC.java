@@ -72,9 +72,9 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 		nav.setCanPassDoors(true);
 		return nav;
 	}
-	@Override protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(ITEM, 0);
+	@Override protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(ITEM, 0);
     }
 	@Override protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
 		super.populateDefaultEquipmentSlots(random, difficulty);

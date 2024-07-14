@@ -14,7 +14,7 @@ public class EntityHellPig extends EntityDivineTameable {
 
     public EntityHellPig(EntityType<? extends TamableAnimal> type, Level worldIn) {
         super(type, worldIn, 2F);
-        this.setTame(false);
+        this.setTame(false , false);
     }
 
     @Override

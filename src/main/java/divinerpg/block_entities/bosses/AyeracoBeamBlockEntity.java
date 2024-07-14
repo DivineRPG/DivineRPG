@@ -11,7 +11,7 @@ public class AyeracoBeamBlockEntity extends ModUpdatableBlockEntity {
         super(BlockEntityRegistry.AYERACO_BEAM.get(), p_155229_, p_155230_);
     }
 	@Override
-	public void load(CompoundTag tag) {
-		if(level != null && !level.isClientSide) super.load(tag);
+	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+		if(level != null && !level.isClientSide) super.loadAdditional(tag, registries);
 	}
 }

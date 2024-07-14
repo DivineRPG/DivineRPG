@@ -15,9 +15,9 @@ public class EntityMoonWolf extends Wolf {
     }
 
     @Override
-    public void setTame(boolean bool) {
-        super.setTame(bool);
-        if (bool) {
+    public void setTame(boolean tamed, boolean applyTamingSideEffects) {
+        super.setTame(tamed, applyTamingSideEffects);
+        if (tamed) {
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(EntityStats.MOON_WOLF.getHealth());
             this.setHealth((float)EntityStats.MOON_WOLF.getHealth());
         } else {

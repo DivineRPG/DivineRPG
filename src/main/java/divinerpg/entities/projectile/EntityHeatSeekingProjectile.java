@@ -25,10 +25,7 @@ public class EntityHeatSeekingProjectile extends DivineThrowable {
         this.onlyPlayers = true;
     }
 
-    @Override
-    public float getGravity() {
-        return 0;
-    }
+    @Override public boolean isNoGravity() {return true;}
 
     @Override
     public void tick() {

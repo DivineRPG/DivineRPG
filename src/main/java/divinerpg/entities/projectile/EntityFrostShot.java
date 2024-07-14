@@ -1,13 +1,13 @@
 package divinerpg.entities.projectile;
 
 import divinerpg.registries.*;
-import net.minecraft.sounds.*;
-import net.minecraft.world.damagesource.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.phys.*;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.EntityHitResult;
+import java.util.List;
 
-import java.util.*;
 
 public class EntityFrostShot extends DivineFireball {
     public EntityFrostShot(EntityType<? extends DivineFireball> type, Level world) {
@@ -34,7 +34,7 @@ public class EntityFrostShot extends DivineFireball {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if(!level().isClientSide() && tickCount > 1 && (result.getEntity() == null || !result.getEntity().equals(shootingEntity))) {
-            List<LivingEntity> list = level().<LivingEntity>getEntitiesOfClass(LivingEntity.class, getBoundingBox().inflate(4D, 2D, 4D));
+            List<LivingEntity> list = level().getEntitiesOfClass(LivingEntity.class, getBoundingBox().inflate(4D, 2D, 4D));
             if(!list.isEmpty()) for(LivingEntity entitylivingbase : list) if(distanceTo(entitylivingbase) < 16D) {
             	EntityFrostCloud frostCloud = new EntityFrostCloud(EntityRegistry.FROST_CLOUD.get(), level(), xo, yo, zo);
                 frostCloud.setOwner(shootingEntity);
@@ -44,7 +44,7 @@ public class EntityFrostShot extends DivineFireball {
                 frostCloud.setPos(entitylivingbase.xo, entitylivingbase.yo, entitylivingbase.zo);
                 level().addFreshEntity(frostCloud);
             }
-            playSound(SoundEvents.GENERIC_EXPLODE);
+            playSound(SoundEvents.GENERIC_EXPLODE.value());
             discard();
         }
     }

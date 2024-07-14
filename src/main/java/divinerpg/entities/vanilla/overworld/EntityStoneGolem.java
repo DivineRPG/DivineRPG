@@ -16,9 +16,9 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
         super(type, worldIn, 1F);
     }
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(ATTACK_TIMER, Integer.valueOf(0));
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(ATTACK_TIMER, Integer.valueOf(0));
     }
     @Override
     public void tick() {

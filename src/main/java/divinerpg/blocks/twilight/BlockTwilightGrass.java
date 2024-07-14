@@ -7,10 +7,11 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.common.*;
+import net.neoforged.neoforge.common.IShearable;
 
 import java.util.function.Supplier;
 
-public class BlockTwilightGrass extends BushBlock implements IPlantable, IForgeShearable {
+public class BlockTwilightGrass extends BushBlock implements IPlantable, IShearable {
     private Supplier<Block> grassSupplier;
 
     public BlockTwilightGrass(Supplier<Block> grassSupplier, MapColor color) {

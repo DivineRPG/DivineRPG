@@ -21,10 +21,7 @@ public class EntityLadyLunaSparkler extends EntityParticleBullet {
     }
 
 
-    @Override
-    public float getGravity() {
-        return 0;
-    }
+    @Override public boolean isNoGravity() {return true;}
 
     @Override
     public void tick() {
