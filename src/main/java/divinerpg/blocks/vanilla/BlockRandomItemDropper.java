@@ -4,6 +4,7 @@ import java.util.Set;
 
 import divinerpg.blocks.base.BlockMod;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -14,7 +15,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockRandomItemDropper extends BlockMod {
 	public BlockRandomItemDropper() {
@@ -44,9 +44,9 @@ public class BlockRandomItemDropper extends BlockMod {
 			if(triggered && !hasSignal) level.setBlock(pos, state.setValue(BlockStateProperties.TRIGGERED, false), UPDATE_NONE);
 			else if(hasSignal && !triggered) {
 				level.setBlock(pos, state.setValue(BlockStateProperties.TRIGGERED, true), 4);
-				Set<ResourceLocation> keys = ForgeRegistries.ITEMS.getKeys();
+				Set<ResourceLocation> keys = BuiltInRegistries.ITEM.keySet();
 				Direction dir = state.getValue(DirectionalBlock.FACING);
-				ItemEntity i = new ItemEntity(level, pos.getX() + .7 * dir.getStepX(), pos.getY() + .7 * dir.getStepY(), pos.getZ() + .7 * dir.getStepZ(), new ItemStack(ForgeRegistries.ITEMS.getValue((ResourceLocation) keys.toArray()[level.random.nextInt(keys.size())])));
+				ItemEntity i = new ItemEntity(level, pos.getX() + .7 * dir.getStepX(), pos.getY() + .7 * dir.getStepY(), pos.getZ() + .7 * dir.getStepZ(), new ItemStack(BuiltInRegistries.ITEM.get((ResourceLocation) keys.toArray()[level.random.nextInt(keys.size())])));
 				i.setDeltaMovement(i.getDeltaMovement().add(dir.getStepX() * .5, dir.getStepY() * .5, dir.getStepZ() * .5));
 				level.addFreshEntity(i);
 				level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);

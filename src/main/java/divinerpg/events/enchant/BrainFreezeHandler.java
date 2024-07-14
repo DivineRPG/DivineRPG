@@ -5,14 +5,14 @@ import divinerpg.registries.EnchantmentRegistry;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
-@Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class BrainFreezeHandler {
     @SubscribeEvent
-    public static void onHurt(LivingAttackEvent event) {
+    public static void onHurt(LivingIncomingDamageEvent event) {
         if(event.isCanceled()) return;
         Entity entity = event.getSource().getDirectEntity();
         if(!(entity instanceof LivingEntity livingEntity)) return;

@@ -17,22 +17,21 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraftforge.event.entity.*;
-import net.minecraftforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck;
-import net.minecraftforge.eventbus.api.Event.Result;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
 import java.util.*;
 
 import static divinerpg.registries.EntityRegistry.*;
-import static net.minecraft.world.entity.SpawnPlacements.Type.*;
+import static net.minecraft.world.entity.SpawnPlacementTypes.*;
 import static net.minecraft.world.level.levelgen.Heightmap.Types.*;
-import static net.minecraftforge.event.entity.SpawnPlacementRegisterEvent.Operation.REPLACE;
+import static net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent.Operation.REPLACE;
 
-@Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class SpawnEvents {
-	public static void spawnPlacementCheck(SpawnPlacementCheck e) {
+	public static void spawnPlacementCheck(MobSpawnEvent.SpawnPlacementCheck e) {
 		if(e.getLevel() instanceof ServerLevel level) {
 			MobSpawnType type = e.getSpawnType();
 			if((type == MobSpawnType.NATURAL || type == MobSpawnType.STRUCTURE || type == MobSpawnType.PATROL) && level.getChunkAt(e.getPos()).getCapability(SoulTrapCountProvider.SOUL_TRAP_COUNT).orElseGet(() -> new SoulTrapCount()).count > 0) {
@@ -41,7 +40,7 @@ public class SpawnEvents {
 		}
 	}
 	@SubscribeEvent
-	public static void registerSpawnPlacements(SpawnPlacementRegisterEvent e) {
+	public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent e) {
     	//Boss
     	registerSpawn(e, AYERACO.get());
     	//Overworld
@@ -211,55 +210,55 @@ public class SpawnEvents {
     	registerMonsterSpawn(e, ZONE.get());
 		registerMonsterSpawn(e, ZORAGON.get());
 	}
-	public static void registerSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Entity> type) {
+	public static void registerSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Entity> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::always, REPLACE);
     }
-    public static <T extends Entity> void registerSpawn(SpawnPlacementRegisterEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
+    public static <T extends Entity> void registerSpawn(RegisterSpawnPlacementsEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, predicate, REPLACE);
     }
-    public static void registerAgileMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    public static void registerAgileMonsterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING, Monster::checkAnyLightMonsterSpawnRules, REPLACE);
     }
-    public static void registerAgileMobSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    public static void registerAgileMobSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING, Mob::checkMobSpawnRules, REPLACE);
     }
-	public static void registerWaterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Entity> type) {
+	public static void registerWaterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Entity> type) {
 		e.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
 	}
-	public static <T extends Entity> void registerWaterSpawn(SpawnPlacementRegisterEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
+	public static <T extends Entity> void registerWaterSpawn(RegisterSpawnPlacementsEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
 		e.register(type, IN_WATER, MOTION_BLOCKING, predicate, REPLACE);
 	}
-	public static void registerLavaSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+	public static void registerLavaSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
 		e.register(type, IN_LAVA, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
 	}
-    public static void registerAirSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    public static void registerAirSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
     	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
     }
-    public static <T extends Mob> void registerAirSpawn(SpawnPlacementRegisterEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
+    public static <T extends Mob> void registerAirSpawn(RegisterSpawnPlacementsEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
     	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, predicate, REPLACE);
     }
-    public static void registerDarkAirSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    public static void registerDarkAirSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
     	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::checkDarknessSpawnRules, REPLACE);
     }
-    public static void registerPassiveAirSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    public static void registerPassiveAirSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
     	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
     }
-    public static void registerMobSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    public static void registerMobSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, REPLACE);
     }
-    public static void registerMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    public static void registerMonsterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules, REPLACE);
     }
-    public static void registerDarkSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    public static void registerDarkSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, REPLACE);
     }
-    public static void registerSurfaceSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Mob> type) {
+    public static void registerSurfaceSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::onSurface, REPLACE);
     }
-    public static void registerSurfaceMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    public static void registerSurfaceMonsterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::monsterOnSurface, REPLACE);
     }
-    public static void registerAgileSurfaceMonsterSpawn(SpawnPlacementRegisterEvent e, EntityType<? extends Monster> type) {
+    public static void registerAgileSurfaceMonsterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
     	e.register(type, ON_GROUND, MOTION_BLOCKING, SpawnEvents::monsterOnSurface, REPLACE);
     }
 	public static boolean always(EntityType<? extends Entity> e, ServerLevelAccessor l, MobSpawnType t, BlockPos p, RandomSource r) {

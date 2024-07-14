@@ -1,12 +1,12 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockModCrop extends CropBlock {
     private final ResourceLocation seed;
@@ -26,5 +26,5 @@ public class BlockModCrop extends CropBlock {
         registerDefaultState(stateDefinition.any().setValue(getAgeProperty(), 0));
     }
     @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return SHAPE_BY_AGE[state.getValue(getAgeProperty())];}
-    @Override protected ItemLike getBaseSeedId() {return ForgeRegistries.ITEMS.getValue(seed);}
+    @Override protected ItemLike getBaseSeedId() {return BuiltInRegistries.ITEM.get(seed);}
 }

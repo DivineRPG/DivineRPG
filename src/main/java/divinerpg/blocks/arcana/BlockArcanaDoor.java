@@ -1,6 +1,7 @@
 package divinerpg.blocks.arcana;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
@@ -12,7 +13,6 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockArcanaDoor extends DoorBlock {
     private final ResourceLocation keyItem;
@@ -35,19 +35,17 @@ public class BlockArcanaDoor extends DoorBlock {
             }
         }
     }
-    @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult) {
-        ItemStack itemstack = player.getItemInHand(hand);
+    @Override public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult blockHitResult) {
+        ItemStack itemstack = player.getUseItem();
         BlockState iblockstate = pos.equals(pos.below()) ? state : world.getBlockState(pos.below());
-        Item key = ForgeRegistries.ITEMS.getValue(keyItem);
+        Item key = BuiltInRegistries.ITEM.get(keyItem);
         if(!iblockstate.is(this)) return InteractionResult.FAIL;
         else {
             if(!player.isCreative()) {
                 if(iblockstate.getValue(OPEN).equals(true)) return InteractionResult.FAIL;
                 if(itemstack.getItem() != key) return InteractionResult.FAIL;
                 itemstack.shrink(1);
-            }
-            world.setBlockAndUpdate(pos, state.cycle(BlockStateProperties.OPEN));
+            } world.setBlockAndUpdate(pos, state.cycle(BlockStateProperties.OPEN));
             world.levelEvent(player, state.getValue(BlockStateProperties.OPEN) ? 1005 : 1011, pos, 0);
             if(state.getValue(OPEN)) world.playSound(player, pos, SoundEvents.IRON_DOOR_CLOSE, SoundSource.BLOCKS, 1F, .8F);
             else world.playSound(player, pos, SoundEvents.IRON_DOOR_OPEN, SoundSource.BLOCKS, 1F, .8F);

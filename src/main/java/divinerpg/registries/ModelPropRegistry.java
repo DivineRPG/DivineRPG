@@ -56,14 +56,14 @@ public class ModelPropRegistry {
     public static void registerBow(ItemModBow... item){
         for (ItemModBow bow : item) {
 
-            ItemProperties.register(bow, new ResourceLocation("pull"), (stack, level, entity, i) -> {
+            ItemProperties.register(bow, ResourceLocation.withDefaultNamespace("pull"), (stack, level, entity, i) -> {
                 if (entity == null) {
                     return 0.0F;
                 } else {
                     return entity.getUseItem() != stack ? 0.0F : (float)(stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
                 }
             });
-            ItemProperties.register(bow, new ResourceLocation("pulling"), (stack, level, entity, i) -> {
+            ItemProperties.register(bow, ResourceLocation.withDefaultNamespace("pulling"), (stack, level, entity, i) -> {
                 return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
             });
         }
@@ -71,14 +71,14 @@ public class ModelPropRegistry {
 
     public static void registerMerik(ItemMeriksMissile... item){
         for (ItemMeriksMissile missile : item) {
-            ItemProperties.register(missile, new ResourceLocation("pull"), (stack, level, entity, i) -> {
+            ItemProperties.register(missile, ResourceLocation.withDefaultNamespace("pull"), (stack, level, entity, i) -> {
                 if (entity == null) {
                     return 0.0F;
                 } else {
                     return entity.getUseItem() != stack ? 0.0F : (float)(stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
                 }
             });
-            ItemProperties.register(missile, new ResourceLocation("pulling"), (stack, level, entity, i) -> {
+            ItemProperties.register(missile, ResourceLocation.withDefaultNamespace("pulling"), (stack, level, entity, i) -> {
                 return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
             });
         }

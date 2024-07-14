@@ -9,10 +9,10 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraftforge.event.*;
-import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.common.*;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 
-@Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class Ticker {
     public static int tick;
     @SubscribeEvent

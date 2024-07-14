@@ -7,7 +7,7 @@ import divinerpg.world.feature.config.*;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.Holder.Reference;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.*;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.*;
@@ -15,74 +15,73 @@ import net.minecraft.world.level.levelgen.feature.*;
 import net.minecraft.world.level.levelgen.feature.LakeFeature.Configuration;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 
 import static divinerpg.util.Utils.*;
 
-@SuppressWarnings("deprecation")
-@Mod.EventBusSubscriber(modid = DivineRPG.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public final class ConfiguredFeatureKeys {
 	private ConfiguredFeatureKeys() {}
 
 	//Overworld
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DIVINE_TREE = registerKey("divine_tree"),
-			TAR_LAKE = registerKey("tar_lake");
+	public static final ResourceKey<ConfiguredFeature<?, ?>>
+		DIVINE_TREE = registerKey("divine_tree"),
+		TAR_LAKE = registerKey("tar_lake"),
 
 	//Twilight
-	public static final ResourceKey<ConfiguredFeature<?, ?>> TWILIGHT_TAR_LAKE = registerKey("twilight_tar_lake"),
-			EDEN_TREE = registerKey("eden_tree"),
-			EDEN_BUSH = registerKey("eden_bush"),
-			WILDWOOD_TREE = registerKey("wildwood_tree"),
-			APALACHIA_TREE = registerKey("apalachia_tree"),
-			SKYTHERN_TREE = registerKey("skythern_tree"),
-			SKYTHERN_BUSH = registerKey("skythern_bush"),
-			MORTUM_TREE = registerKey("mortum_tree"),
-			MORTUM_BUSH = registerKey("mortum_bush");
+		TWILIGHT_TAR_LAKE = registerKey("twilight_tar_lake"),
+		EDEN_TREE = registerKey("eden_tree"),
+		EDEN_BUSH = registerKey("eden_bush"),
+		WILDWOOD_TREE = registerKey("wildwood_tree"),
+		APALACHIA_TREE = registerKey("apalachia_tree"),
+		SKYTHERN_TREE = registerKey("skythern_tree"),
+		SKYTHERN_BUSH = registerKey("skythern_bush"),
+		MORTUM_TREE = registerKey("mortum_tree"),
+		MORTUM_BUSH = registerKey("mortum_bush"),
 
 	//Iceika
-	public static final ResourceKey<ConfiguredFeature<?, ?>>
-			SHIVERSPINE_TREE = registerKey("shiverspine_tree"),
-			DEAD_SHIVERSPINE = registerKey("dead_shiverspine"),
-			AURORAOAK_TREE = registerKey("auroraoak_tree"),
-			COZYBARK_TREE = registerKey("cozybark_tree"),
-			COZYBARK_STUMP = registerKey("cozybark_stump"),
-			FRACTAL_TREE = registerKey("fractal_tree"),
-			STREAMLEAF_TREE = registerKey("streamleaf_tree"),
-			GLOWSPROUT = registerKey("glowsprout"),
-			LOWSPROUT = registerKey("lowsprout"),
-			SLOWSPROUT = registerKey("slowsprout"),
-			SHIVERSPINE_BUSH = registerKey("shiverspine_bush"),
-			COZYBARK_BUSH = registerKey("cozybark_bush"),
-			GEOTHERMAL_POND = registerKey("geothermal_pond"),
-			GLACIAL_POND = registerKey("glacial_pond"),
-			BRITTLE_POND = registerKey("brittle_pond"),
-			THERMAL_VENT = registerKey("thermal_vent"),
-			FROZEN_LIGHT = registerKey("frozen_light"),
-			BRITTLE_PLANTS = registerKey("brittle_plants"),
-			BRITTLE_CAVES_VEGETATION = registerKey("brittle_caves_vegetation"),
-			WHALE_SKELETON = registerKey("whale_skeleton"),
-			SNOW_COVERAGE = registerKey("snow_coverage"),
-			SNOW_SPREADER = registerKey("snow_spreader");
+		SHIVERSPINE_TREE = registerKey("shiverspine_tree"),
+		DEAD_SHIVERSPINE = registerKey("dead_shiverspine"),
+		AURORAOAK_TREE = registerKey("auroraoak_tree"),
+		COZYBARK_TREE = registerKey("cozybark_tree"),
+		COZYBARK_STUMP = registerKey("cozybark_stump"),
+		FRACTAL_TREE = registerKey("fractal_tree"),
+		STREAMLEAF_TREE = registerKey("streamleaf_tree"),
+		GLOWSPROUT = registerKey("glowsprout"),
+		LOWSPROUT = registerKey("lowsprout"),
+		SLOWSPROUT = registerKey("slowsprout"),
+		SHIVERSPINE_BUSH = registerKey("shiverspine_bush"),
+		COZYBARK_BUSH = registerKey("cozybark_bush"),
+		GEOTHERMAL_POND = registerKey("geothermal_pond"),
+		GLACIAL_POND = registerKey("glacial_pond"),
+		BRITTLE_POND = registerKey("brittle_pond"),
+		THERMAL_VENT = registerKey("thermal_vent"),
+		FROZEN_LIGHT = registerKey("frozen_light"),
+		BRITTLE_PLANTS = registerKey("brittle_plants"),
+		BRITTLE_CAVES_VEGETATION = registerKey("brittle_caves_vegetation"),
+		WHALE_SKELETON = registerKey("whale_skeleton"),
+		SNOW_COVERAGE = registerKey("snow_coverage"),
+		SNOW_SPREADER = registerKey("snow_spreader"),
 
 	//Arcana
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ARCANA_DUNGEON = registerKey("arcana_dungeon"),
-			ARCANA_TAR_LAKE = registerKey("arcana_tar_lake"),
-			ARCANITE_VINES = registerKey("arcanite_vines");
+		ARCANA_DUNGEON = registerKey("arcana_dungeon"),
+		ARCANA_TAR_LAKE = registerKey("arcana_tar_lake"),
+		ARCANITE_VINES = registerKey("arcanite_vines"),
 
 	//Vethea
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DREAM_ASTEROID = registerKey("dream_asteroid"),
-			DREAM_ASTEROID_SMALL = registerKey("dream_asteroid_small"),
-			FIREWOOD_TREE = registerKey("firewood_tree"),
-			DREAMWOOD_TREE = registerKey("dreamwood_tree"),
-			HYREWOOD_TREE = registerKey("hyrewood_tree"),
-			MINTWOOD_TREE = registerKey("mintwood_tree"),
-			BEAM = registerKey("beam");
+		DREAM_ASTEROID = registerKey("dream_asteroid"),
+		DREAM_ASTEROID_SMALL = registerKey("dream_asteroid_small"),
+		FIREWOOD_TREE = registerKey("firewood_tree"),
+		DREAMWOOD_TREE = registerKey("dreamwood_tree"),
+		HYREWOOD_TREE = registerKey("hyrewood_tree"),
+		MINTWOOD_TREE = registerKey("mintwood_tree"),
+		BEAM = registerKey("beam");
 
 	public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
 		return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, name));
 	}
 	
-	public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		//Overworld
 		register(context, DIVINE_TREE, FeatureRegistry.DIVINE_TREE.get(), new TreeConfig(getBlockState("divine_log"), getBlockState("divine_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, TAR_LAKE, Feature.LAKE, new Configuration(BlockStateProvider.simple(getBlock("smoldering_tar")), BlockStateProvider.simple(Blocks.STONE)));
@@ -137,11 +136,11 @@ public final class ConfiguredFeatureKeys {
 
 	}
 
-	public static void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Feature<NoneFeatureConfiguration> feature) {
+	public static void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Feature<NoneFeatureConfiguration> feature) {
 		register(context, key, feature, FeatureConfiguration.NONE);
 	}
 
-	public static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
+	public static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
 		context.register(key, new ConfiguredFeature<>(feature, configuration));
 	}
 	

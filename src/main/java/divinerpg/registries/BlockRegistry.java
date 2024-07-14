@@ -1,6 +1,5 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
@@ -11,6 +10,7 @@ import divinerpg.items.base.block.*;
 import divinerpg.world.ConfiguredFeatureKeys;
 import divinerpg.world.feature.tree.grower.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.effect.MobEffects;
@@ -27,7 +27,6 @@ import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -71,12 +70,12 @@ public class BlockRegistry {
             gelidite = registerBlock("gelidite", () -> new BlockMod(Properties.ofFullCopy(Blocks.MUD))),
 
             //Gravel
-            frozenGravel = registerBlock("frozen_gravel", () -> new GravelBlock(Properties.ofFullCopy(Blocks.GRAVEL).mapColor(GLOW_LICHEN))),
+            frozenGravel = registerBlock("frozen_gravel", () -> new ColoredFallingBlock(new ColorRGBA(13561077), Properties.ofFullCopy(Blocks.GRAVEL).mapColor(GLOW_LICHEN))),
 
             //Sand
-            arcaniteSand = registerBlock("arcanite_sand", () -> new SandBlock(7579884, Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_LIGHT_BLUE))),
-            arcanicSand = registerBlock("arcanic_sand", () -> new SandBlock(7579884, Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_CYAN))),
-            arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new SandBlock(7579884, Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_BLUE))),
+            arcaniteSand = registerBlock("arcanite_sand", () -> new ColoredFallingBlock(new ColorRGBA(7911916), Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_LIGHT_BLUE))),
+            arcanicSand = registerBlock("arcanic_sand", () -> new ColoredFallingBlock(new ColorRGBA(4027550), Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_CYAN))),
+            arcanium_rich_sand = registerBlock("arcanium_rich_sand", () -> new ColoredFallingBlock(new ColorRGBA(1130855), Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_BLUE))),
             soulSludge = registerBlock("soul_sludge", () -> new BlockModUnbreakable(Properties.ofFullCopy(Blocks.SOUL_SAND).strength(-1, 3600000).mapColor(COLOR_GRAY))),
             soulSludgeBreakable = registerBlock("soul_sludge_breakable", () -> new BlockMod(Properties.ofFullCopy(Blocks.SOUL_SAND).mapColor(COLOR_GRAY))),
 
@@ -141,9 +140,9 @@ public class BlockRegistry {
             realmiteOreDeepslate = registerBlock("realmite_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
             rupeeOre  = registerBlock("rupee_ore", () -> new BlockMod(STONE, 3, 3)),
             rupeeOreDeepslate = registerBlock("rupee_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
-            bloodgemOre	= registerBlock("bloodgem_ore", () -> new DropExperienceBlock(Properties.ofFullCopy(Blocks.NETHER_GOLD_ORE), UniformInt.of(3, 7))),
+            bloodgemOre	= registerBlock("bloodgem_ore", () -> new DropExperienceBlock(UniformInt.of(3, 7), Properties.ofFullCopy(Blocks.NETHER_GOLD_ORE))),
             torriditeOre = registerBlock("torridite_ore", () -> new BlockMod(NETHER, 3, 1200, SoundType.NETHER_ORE, NoteBlockInstrument.BASEDRUM)),
-            anthraciteOre = registerBlock("anthracite_ore", () -> new DropExperienceBlock(Properties.ofFullCopy(Blocks.COAL_ORE).mapColor(GLOW_LICHEN), UniformInt.of(0, 2))),
+            anthraciteOre = registerBlock("anthracite_ore", () -> new DropExperienceBlock(UniformInt.of(0, 2), Properties.ofFullCopy(Blocks.COAL_ORE).mapColor(GLOW_LICHEN))),
             oxdriteOre = registerBlock("oxdrite_ore", () -> new BlockMod(GLOW_LICHEN, 3, 3)),
             rawArcanium = registerBlock("raw_arcanium", () -> new BlockMod(COLOR_BLACK, 5, 6)),
             edenOre = registerBlock("eden_ore", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 3, 32)),
@@ -272,17 +271,17 @@ public class BlockRegistry {
             streamleafButton = registerBlock("streamleaf_button", () -> new BlockModButton(BlockSetType.WARPED)),
             
             //Glowsprout
-    		glowsprout = registerBlock("glowsprout", () -> new FungusBlock(Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_CYAN), ConfiguredFeatureKeys.GLOWSPROUT, gelidite.get())),
+    		glowsprout = registerBlock("glowsprout", () -> new FungusBlock(ConfiguredFeatureKeys.GLOWSPROUT, gelidite.get(), Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_CYAN))),
             glowsproutBulb = registerBlock("glowsprout_bulb", () -> new HalfTransparentBlock(Properties.ofFullCopy(Blocks.OCHRE_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(DIAMOND))),
             glowsproutStem = registerBlock("glowsprout_stem", () -> new BlockModStem(COLOR_LIGHT_BLUE)),
 			
 			//Lowsprout
-    		lowsprout = registerBlock("lowsprout", () -> new FungusBlock(Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_GREEN), ConfiguredFeatureKeys.LOWSPROUT, gelidite.get())),
+    		lowsprout = registerBlock("lowsprout", () -> new FungusBlock(ConfiguredFeatureKeys.LOWSPROUT, gelidite.get(), Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_GREEN))),
             lowsproutBulb = registerBlock("lowsprout_bulb", () -> new HalfTransparentBlock(Properties.ofFullCopy(Blocks.VERDANT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(WARPED_WART_BLOCK))),
             lowsproutStem = registerBlock("lowsprout_stem", () -> new BlockModStem(GLOW_LICHEN)),
 			
 			//Slowsprout
-    		slowsprout = registerBlock("slowsprout", () -> new FungusBlock(Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_MAGENTA), ConfiguredFeatureKeys.SLOWSPROUT, gelidite.get())),
+    		slowsprout = registerBlock("slowsprout", () -> new FungusBlock(ConfiguredFeatureKeys.SLOWSPROUT, gelidite.get(), Properties.ofFullCopy(Blocks.WARPED_FUNGUS).mapColor(COLOR_MAGENTA))),
             slowsproutBulb = registerBlock("slowsprout_bulb", () -> new HalfTransparentBlock(Properties.ofFullCopy(Blocks.PEARLESCENT_FROGLIGHT).noOcclusion().lightLevel((state) -> 10).mapColor(ICE))),
             slowsproutStem = registerBlock("slowsprout_stem", () -> new BlockModStem(COLOR_PINK)),
 
@@ -585,8 +584,8 @@ public class BlockRegistry {
             arcaniumWallTorch = BLOCKS.register("arcanium_wall_torch", BlockModWallTorch::new),
             edenTorch = BLOCKS.register("eden_torch", BlockModTorch::new),
             edenWallTorch = BLOCKS.register("eden_wall_torch", BlockModWallTorch::new),
-            skeletonTorch = BLOCKS.register("skeleton_torch", () -> new TorchBlock(Properties.ofFullCopy(Blocks.TORCH).sound(SoundType.BONE_BLOCK), FLAME)),
-            skeletonWallTorch = BLOCKS.register("skeleton_wall_torch", () -> new WallTorchBlock(Properties.ofFullCopy(Blocks.WALL_TORCH).sound(SoundType.BONE_BLOCK), FLAME)),
+            skeletonTorch = BLOCKS.register("skeleton_torch", () -> new TorchBlock(FLAME, Properties.ofFullCopy(Blocks.TORCH).sound(SoundType.BONE_BLOCK))),
+            skeletonWallTorch = BLOCKS.register("skeleton_wall_torch", () -> new WallTorchBlock(FLAME, Properties.ofFullCopy(Blocks.WALL_TORCH).sound(SoundType.BONE_BLOCK))),
 
             //Stone Lamps
             moltenLamp = registerBlock("molten_lamp", () -> new BlockModLamp(COLOR_ORANGE, SoundType.GLASS)),
@@ -643,10 +642,10 @@ public class BlockRegistry {
             winterberryBush = registerBlock("winterberry_bush", BlockWinterberryBush::new),
             winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
             winterberryVinesHead = registerBlock("winterberry_vines_head", () -> new BlockWinterberryVinesHead(Properties.ofFullCopy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
-            crimpetal = registerBlock("crimpetal", () -> new FlowerBlock(() -> MobEffects.FIRE_RESISTANCE, 7, Properties.ofFullCopy(Blocks.POPPY).mapColor(COLOR_MAGENTA))),
-            roofbell = registerBlock("roofbell", () -> new FlowerBlock(() -> MobEffects.POISON, 14, Properties.ofFullCopy(Blocks.RED_MUSHROOM).mapColor(COLOR_PINK))),
-            winterbloom = registerBlock("winterbloom", () -> new FlowerBlock(() -> MobEffects.LEVITATION, 8, Properties.ofFullCopy(Blocks.LILY_OF_THE_VALLEY).mapColor(SNOW))),
-            wispLeaf = registerBlock("wisp_leaf", () -> new FlowerBlock(() -> MobEffects.DOLPHINS_GRACE, 10, Properties.ofFullCopy(Blocks.ALLIUM).mapColor(COLOR_LIGHT_GRAY))),
+            crimpetal = registerBlock("crimpetal", () -> new FlowerBlock(MobEffects.FIRE_RESISTANCE, 7, Properties.ofFullCopy(Blocks.POPPY).mapColor(COLOR_MAGENTA))),
+            roofbell = registerBlock("roofbell", () -> new FlowerBlock(MobEffects.POISON, 14, Properties.ofFullCopy(Blocks.RED_MUSHROOM).mapColor(COLOR_PINK))),
+            winterbloom = registerBlock("winterbloom", () -> new FlowerBlock(MobEffects.LEVITATION, 8, Properties.ofFullCopy(Blocks.LILY_OF_THE_VALLEY).mapColor(SNOW))),
+            wispLeaf = registerBlock("wisp_leaf", () -> new FlowerBlock(MobEffects.DOLPHINS_GRACE, 10, Properties.ofFullCopy(Blocks.ALLIUM).mapColor(COLOR_LIGHT_GRAY))),
             globebrush = registerBlock("globebrush", () -> new BlockModDoublePlant(frozenGrass, SNOW)),
             thermoliage = registerBlock("thermoliage", () -> new BlockModDoublePlant(frozenGrass, COLOR_PINK)),
             arcanaBrush = registerBlock("arcana_brush", () -> new BlockTwilightGrass(arcaniteSand, ICE)),

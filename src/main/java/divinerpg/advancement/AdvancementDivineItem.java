@@ -73,7 +73,7 @@ public class AdvancementDivineItem implements CriterionTrigger<AdvancementDivine
 
     public AdvancementDivineItem(String parString) {
         super();
-        RL = new ResourceLocation(parString);
+        RL = ResourceLocation.parse(parString);
     }
 
 

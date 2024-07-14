@@ -51,7 +51,7 @@ public class ItemTeleportationStar extends ItemMod {
                 message = LocalizeUtils.clientMessage(ChatFormatting.RED, "teleport.no_position");
                 player.displayClientMessage(message, true);
                 return InteractionResultHolder.fail(stack);
-            } ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, new ResourceLocation(compound.getString(dimKey)))).getLevel();
+            } ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse(compound.getString(dimKey)))).getLevel();
             if(player instanceof ServerPlayer) {
                 player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));

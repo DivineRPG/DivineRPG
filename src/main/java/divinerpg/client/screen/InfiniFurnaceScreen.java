@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import divinerpg.client.menu.InfiniFurnaceMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.recipebook.*;
 import net.minecraft.client.renderer.GameRenderer;
@@ -15,7 +16,10 @@ import net.neoforged.api.distmarker.*;
 
 @OnlyIn(Dist.CLIENT)
 public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceMenu> extends AbstractContainerScreen<T> implements RecipeUpdateListener {
-	public static final ResourceLocation RECIPE_BUTTON_LOCATION = ResourceLocation.withDefaultNamespace("textures/gui/recipe_button.png");
+	public static final WidgetSprites RECIPE_BUTTON_SPRITES = new WidgetSprites(
+			ResourceLocation.withDefaultNamespace("recipe_book/button"),
+			ResourceLocation.withDefaultNamespace("recipe_book/button_highlighted")
+	);
 	public final AbstractFurnaceRecipeBookComponent recipeBookComponent = new SmeltingRecipeBookComponent();
 	private boolean widthTooNarrow;
 	private final ResourceLocation texture;
@@ -32,7 +36,7 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceMenu> extends A
 		widthTooNarrow = width < 379;
 	    recipeBookComponent.init(width, height, minecraft, widthTooNarrow, menu);
 	    leftPos = recipeBookComponent.updateScreenPosition(width, imageWidth);
-	    addRenderableWidget(new ImageButton(leftPos + 20, height / 2 - 49, 20, 18, 0, 0, 19, RECIPE_BUTTON_LOCATION, (component) -> {
+	    addRenderableWidget(new ImageButton(leftPos + 20, height / 2 - 49, 20, 18, 0, 0, 19, RECIPE_BUTTON_SPRITES, (component) -> {
 	         recipeBookComponent.toggleVisibility();
 	         leftPos = recipeBookComponent.updateScreenPosition(width, imageWidth);
 	         component.setPosition(leftPos + 20, height / 2 - 49);

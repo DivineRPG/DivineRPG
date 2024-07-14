@@ -10,6 +10,7 @@ import divinerpg.registries.EntityRegistry;
 import divinerpg.util.*;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
@@ -21,7 +22,6 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.neoforged.api.distmarker.*;
 
 import javax.annotation.Nullable;
@@ -136,7 +136,7 @@ public class ItemModRanged extends ItemMod {
         ThrowableProjectile bullet;
         //Class has the most priority
         if(entityType != null) {
-            try{bullet = (ThrowableProjectile)ForgeRegistries.ENTITY_TYPES.getValue(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, entityType)).create(world);}
+            try{bullet = (ThrowableProjectile) BuiltInRegistries.ENTITY_TYPE.get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, entityType)).create(world);}
             catch(Exception e) {
                 e.printStackTrace();
                 //Weapon will not work, so it would be better to crush

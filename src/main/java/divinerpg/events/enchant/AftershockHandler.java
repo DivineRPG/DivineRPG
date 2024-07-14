@@ -3,14 +3,15 @@ package divinerpg.events.enchant;
 import divinerpg.registries.EnchantmentRegistry;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class AftershockHandler {
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onHurt(LivingHurtEvent event) {
+    public static void onHurt(LivingDamageEvent.Post event) {
         if(event.isCanceled()) return;
         Entity entity = event.getSource().getDirectEntity();
         if(!(entity instanceof LivingEntity livingEntity)) return;

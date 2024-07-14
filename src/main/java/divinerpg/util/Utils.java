@@ -10,6 +10,7 @@ import divinerpg.world.placement.Surface.Surface_Type;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos.MutableBlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -184,10 +185,10 @@ public class Utils {
         public List<UUID> friend;
     }
     public static Block getBlock(String registryName) {
-    	return ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName));
+    	return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName));
     }
     public static BlockState getBlockState(String registryName) {
-    	return ForgeRegistries.BLOCKS.getValue(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName)).defaultBlockState();
+    	return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName)).defaultBlockState();
     }
     public static CompoundTag getPlayerData(Player player) {
         CompoundTag persistentData = player.getPersistentData();

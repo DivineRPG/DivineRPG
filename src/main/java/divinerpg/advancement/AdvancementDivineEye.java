@@ -70,7 +70,7 @@ public class AdvancementDivineEye implements CriterionTrigger<AdvancementDivineE
 
     public AdvancementDivineEye(String parString) {
         super();
-        RL = new ResourceLocation(parString);
+        RL = ResourceLocation.parse(parString);
     }
 
     @Override

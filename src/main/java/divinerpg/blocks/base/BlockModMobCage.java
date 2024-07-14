@@ -1,6 +1,7 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
@@ -12,7 +13,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nullable;
 
 public class BlockModMobCage extends BlockMod {
@@ -43,15 +43,15 @@ public class BlockModMobCage extends BlockMod {
 		this.relativePos = relativePos;
 	}
 	@Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
-		if(!level.isClientSide && !player.isCreative()) ForgeRegistries.ENTITY_TYPES.getValue(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
+		if(!level.isClientSide && !player.isCreative()) BuiltInRegistries.ENTITY_TYPE.get(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
 		return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
 	}
 	@Override public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		ItemStack item = player.getItemInHand(hand);
-		if(!player.getCooldowns().isOnCooldown(item.getItem()) && (spawnItem == null || item.is(ForgeRegistries.ITEMS.getValue(spawnItem)))) {
+		if(!player.getCooldowns().isOnCooldown(item.getItem()) && (spawnItem == null || item.is(BuiltInRegistries.ITEM.get(spawnItem)))) {
 			if (!(spawnItem == null || player.isCreative())) item.shrink(1);
 			player.getCooldowns().addCooldown(item.getItem(), 40);
-			if(!level.isClientSide) ForgeRegistries.ENTITY_TYPES.getValue(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
+			if(!level.isClientSide) BuiltInRegistries.ENTITY_TYPE.get(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
 			return InteractionResult.SUCCESS;
 		} return InteractionResult.FAIL;
 	}

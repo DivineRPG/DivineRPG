@@ -4,12 +4,14 @@ import com.google.common.collect.*;
 import com.google.gson.*;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.*;
 import net.minecraft.server.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.common.util.*;
 import net.minecraftforge.registries.*;
+import net.neoforged.neoforge.common.util.JsonUtils;
 
 import javax.annotation.*;
 import java.util.*;
@@ -79,7 +81,7 @@ public class AdvancementDivineBlock implements CriterionTrigger<AdvancementDivin
 
     public AdvancementDivineBlock(String parString) {
         super();
-        RL = new ResourceLocation(parString);
+        RL = ResourceLocation.parse(parString);
     }
 
     @Override
@@ -121,14 +123,14 @@ public class AdvancementDivineBlock implements CriterionTrigger<AdvancementDivin
     }
 
     @Override
-    public Instance createInstance(JsonObject json, DeserializationContext parser) {
+    public Instance createInstance(JsonObject json, JsonDeserializationContext parser) {
         Block block = null;
         if (json.has("block")) {
-            ResourceLocation resourcelocation = new ResourceLocation(JsonUtils.readNBT(json, "block").getAsString());
-            if (!ForgeRegistries.BLOCKS.containsKey(resourcelocation)) {
+            ResourceLocation resourcelocation = ResourceLocation.parse(JsonUtils.readNBT(json, "block").getAsString());
+            if (!BuiltInRegistries.BLOCK.containsKey(resourcelocation)) {
                 throw new JsonSyntaxException("Unknown block type '" + resourcelocation + "'");
             }
-            block = ForgeRegistries.BLOCKS.getValue(resourcelocation);
+            block = BuiltInRegistries.BLOCK.get(resourcelocation);
         }
         return new Instance(getId(), block);
     }

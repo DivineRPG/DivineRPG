@@ -3,6 +3,7 @@ package divinerpg.recipe;
 import com.google.gson.*;
 import divinerpg.registries.RecipeRegistry;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -11,7 +12,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 
@@ -74,8 +74,8 @@ public class InfusionTableRecipe implements Recipe<Container> {
             ItemStack inputItem;
             if(json.get("input").isJsonObject()) inputItem = ShapedRecipe.itemStackFromJson(json.getAsJsonObject("input"));
             else {
-                ResourceLocation id = new ResourceLocation(GsonHelper.getAsString(json, "input"));
-                Item item = ForgeRegistries.ITEMS.getValue(id);
+                ResourceLocation id = ResourceLocation.parse(GsonHelper.getAsString(json, "input"));
+                Item item = BuiltInRegistries.ITEM.get(id);
                 if(item == null) throw new JsonSyntaxException("Unknown item '" + id + "'");
 	            if(!json.has("count")) count = 1;
 	            else count = GsonHelper.getAsInt(json, "count");
