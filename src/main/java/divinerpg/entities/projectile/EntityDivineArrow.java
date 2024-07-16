@@ -45,7 +45,7 @@ public class EntityDivineArrow extends AbstractArrow {
         playSound(SoundEvents.SKELETON_SHOOT, 1, 1 / (random.nextFloat() * .4F + .8F));
         setOwner(shooter);
     }
-    @Override protected ItemStack getPickupItem() {
+    @Override protected ItemStack getDefaultPickupItem() {
         if(arrowType.getArrowSupplier() != null) return new ItemStack(arrowType.getArrowSupplier());
         else return new ItemStack(Items.AIR);
     }

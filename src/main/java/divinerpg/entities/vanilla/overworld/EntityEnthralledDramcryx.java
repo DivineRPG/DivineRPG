@@ -26,15 +26,12 @@ public class EntityEnthralledDramcryx extends EntityDivineMonster {
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true){
-            @Override
-            protected double getAttackReachSqr(LivingEntity entity) {
-                return (double)(this.mob.getBbWidth() * 2.0F * this.mob.getBbWidth() * 2.0F + entity.getBbWidth());
-            }
-        });
+        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-
+//    protected double getAttackReachSqr(LivingEntity entity) {
+//        return (double)(this.mob.getBbWidth() * 2.0F * this.mob.getBbWidth() * 2.0F + entity.getBbWidth());
+//    }
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.DRAMCRYX.get();

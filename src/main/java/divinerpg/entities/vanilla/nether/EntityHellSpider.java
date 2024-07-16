@@ -3,8 +3,10 @@ package divinerpg.entities.vanilla.nether;
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.network.syncher.*;
 import net.minecraft.sounds.*;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
@@ -17,8 +19,6 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-
-import java.util.Random;
 
 public class EntityHellSpider extends EntityDivineMonster {
     private static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(EntityHellSpider.class, EntityDataSerializers.BYTE);
@@ -143,17 +143,16 @@ public class EntityHellSpider extends EntityDivineMonster {
     }
 
     public static class GroupData implements SpawnGroupData {
-        public MobEffect effect;
-
-        public void setRandomEffect(Random p_111104_1_) {
+        public Holder<MobEffect> effect;
+        public void setRandomEffect(RandomSource p_111104_1_) {
             int i = p_111104_1_.nextInt(5);
             if (i <= 1) {
                 this.effect = MobEffects.MOVEMENT_SPEED;
-            } else if (i <= 2) {
+            } else if (i == 2) {
                 this.effect = MobEffects.DAMAGE_BOOST;
-            } else if (i <= 3) {
+            } else if (i == 3) {
                 this.effect = MobEffects.REGENERATION;
-            } else if (i <= 4) {
+            } else if (i == 4) {
                 this.effect = MobEffects.INVISIBILITY;
             }
 

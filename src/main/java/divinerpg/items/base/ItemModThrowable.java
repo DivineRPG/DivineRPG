@@ -12,7 +12,7 @@ public class ItemModThrowable extends ItemModRanged {
         super(Rarity.COMMON, bulletType, 0);
         if(bulletType == BulletType.GRENADE) {
             cooldown = 20;
-            sound = SoundEvents.TRIDENT_THROW;
+            sound = SoundEvents.TRIDENT_THROW.value();
         }
     }
     public ItemModThrowable(Rarity rarity, BulletType bulletType) {super(rarity, bulletType, 0);}

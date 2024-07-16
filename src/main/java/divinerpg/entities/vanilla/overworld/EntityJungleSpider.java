@@ -3,6 +3,7 @@ package divinerpg.entities.vanilla.overworld;
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.network.syncher.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
@@ -124,7 +125,7 @@ public class EntityJungleSpider extends EntityDivineMonster {
         }
 
         if (data instanceof EntityJungleSpider.GroupData) {
-            MobEffect effect = ((EntityJungleSpider.GroupData)data).effect;
+            Holder<MobEffect> effect = ((EntityJungleSpider.GroupData)data).effect;
             if (effect != null) {
                 this.addEffect(new MobEffectInstance(effect, Integer.MAX_VALUE));
             }
@@ -157,7 +158,7 @@ public class EntityJungleSpider extends EntityDivineMonster {
     }
 
     public static class GroupData implements SpawnGroupData {
-        public MobEffect effect;
+        public Holder<MobEffect> effect;
 
         public void setRandomEffect(RandomSource p_111104_1_) {
             int i = p_111104_1_.nextInt(5);

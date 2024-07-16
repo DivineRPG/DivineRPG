@@ -31,14 +31,14 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 		return i > 0;
 	}
 	public static boolean isWaterBlock(BlockState state) {
-		return state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElseGet(() -> false) || state.is(BlockTags.UNDERWATER_BONEMEALS) || state.is(Blocks.KELP) || state.is(Blocks.TALL_SEAGRASS);
+		return state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElse(false) || state.is(BlockTags.UNDERWATER_BONEMEALS) || state.is(Blocks.KELP) || state.is(Blocks.TALL_SEAGRASS);
 	}
 	public static byte snow(WorldGenLevel level, RandomSource random, MutableBlockPos position) {
 		if(level.getChunkSource() instanceof ServerChunkCache source) {
 			while(isWaterBlock(level.getBlockState(position))) position.move(0, 1, 0);
 			SinglePointContext context = new SinglePointContext(position.getX(), position.getY(), position.getZ());
 			NoiseRouter router = source.randomState().router();
-			double depth = ((level.getBiome(position).get().getModifiedClimateSettings().downfall() + level.getBiome(position.north()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.south()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.east()).get().getModifiedClimateSettings().downfall() + level.getBiome(position.west()).get().getModifiedClimateSettings().downfall()) / 5D)
+			double depth = ((level.getBiome(position).value().getModifiedClimateSettings().downfall() + level.getBiome(position.north()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.south()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.east()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.west()).value().getModifiedClimateSettings().downfall()) / 5D)
 					* (router.vegetation().compute(context) + 1.1) + router.temperature().compute(context) + 1D;
 			if(depth >= .125) {
 				BlockPos below = position.below();

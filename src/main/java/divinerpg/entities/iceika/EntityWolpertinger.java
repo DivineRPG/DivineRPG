@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.event.EventHooks;
 
 import javax.annotation.Nullable;
 import java.util.function.IntFunction;
@@ -64,7 +65,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
     }
 
     @Override
-    protected void jumpFromGround() {
+    public void jumpFromGround() {
         super.jumpFromGround();
         double d0 = this.moveControl.getSpeedModifier();
         if (d0 > 0.0D) {
@@ -359,7 +360,7 @@ public class EntityWolpertinger extends EntityDivineMonster {
 
         public boolean canUse() {
             if (this.nextStartTick <= 0) {
-                if (!net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.Wolpertinger.level(), this.Wolpertinger)) {
+                if (!EventHooks.canEntityGrief(this.Wolpertinger.level(), this.Wolpertinger)) {
                     return false;
                 }
 

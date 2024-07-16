@@ -51,6 +51,7 @@ public class DivineRPG {
         PointOfInterestRegistry.POI.register(bus);
         LootModifierRegistry.GLOBAL_LOOT_MODIFIERS.register(bus);
         CreativeTabRegistry.CREATIVE_MODE_TABS.register(bus);
+        ArmorMaterialRegistry.ARMOR_MATERIALS.register(bus);
         EventRegistry.init();
         bus.addListener(this::setup);
         bus.addListener(this::post);

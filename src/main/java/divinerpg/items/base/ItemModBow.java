@@ -6,6 +6,7 @@ import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
@@ -54,13 +55,13 @@ public class ItemModBow extends BowItem {
     }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return maxUseDuration;}
     public boolean needsArrow(ItemStack stack) {
-        if(arrowSupplier != null) return stack.getEnchantmentLevel(Enchantments.INFINITY_ARROWS) <= 0;
+        if(arrowSupplier != null) return stack.getEnchantmentLevel(Enchantments.INFINITY) <= 0;
         else return false;
     }
-    @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         boolean hasAmmo = (!needsArrow(stack) || !findAmmunition(player).isEmpty());
-        InteractionResultHolder<ItemStack> ret = EventHooks.onArrowNock(stack, world, player, hand, hasAmmo);
+        InteractionResultHolder<ItemStack> ret = EventHooks.onArrowNock(stack, level, player, hand, hasAmmo);
         if(ret != null) return ret;
         if(!player.isCreative() && !hasAmmo) return InteractionResultHolder.fail(stack);
         else {
@@ -68,29 +69,29 @@ public class ItemModBow extends BowItem {
             return InteractionResultHolder.consume(stack);
         }
     }
-    @Override public void releaseUsing(ItemStack stack, Level worldIn, LivingEntity entityLiving, int timeLeft) {
-        RandomSource random = worldIn.getRandom();
+    @Override public void releaseUsing(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft) {
+        RandomSource random = level.getRandom();
         if(entityLiving instanceof Player player) {
-            boolean infiniteAmmo = !needsArrow(stack) || player.isCreative() || EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY_ARROWS, entityLiving) > 0;
+            boolean infiniteAmmo = !needsArrow(stack) || player.isCreative() || EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.INFINITY), entityLiving) > 0;
             ItemStack itemstack = findAmmunition(player);
-            int charge = EventHooks.onArrowLoose(stack, worldIn, player, maxUseDuration - timeLeft, !itemstack.isEmpty() || infiniteAmmo);
+            int charge = EventHooks.onArrowLoose(stack, level, player, maxUseDuration - timeLeft, !itemstack.isEmpty() || infiniteAmmo);
             if(charge < 0) return;
             if(!itemstack.isEmpty() || infiniteAmmo) {
                 float f = getScaledArrowVelocity(charge);
                 if(f >= .1) {
-                    if(!worldIn.isClientSide) {
-                        AbstractArrow arrow = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), worldIn, arrowType, player);
+                    if(!level.isClientSide) {
+                        AbstractArrow arrow = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), level, arrowType, player);
                         arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, f * 3, 1);
                         if(f == 1) arrow.setCritArrow(true);
-                        int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER_ARROWS, entityLiving);
+                        int j = EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.POWER), entityLiving);
                         if(j > 0) arrow.setBaseDamage(arrow.getBaseDamage() + (double)j * .5 + .5);
-                        int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH_ARROWS, entityLiving);
-                        if(k > 0) arrow.setKnockback(k);
-                        if(EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAMING_ARROWS, entityLiving) > 0) {arrow.igniteForSeconds(100);}
+                        int k = EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.PUNCH), entityLiving);
+//                        if(k > 0) arrow.setKnockback(k);
+                        if(EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.FLAME), entityLiving) > 0) {arrow.igniteForSeconds(100);}
                         if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
                         if(infiniteAmmo) {arrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;}
-                        worldIn.addFreshEntity(arrow);
-                    } worldIn.playSound(null, player.xo, player.yo, player.zo, SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1 / (random.nextFloat() * .4F + 1.2F) + f * .5F);
+                        level.addFreshEntity(arrow);
+                    } level.playSound(null, player.xo, player.yo, player.zo, SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1 / (random.nextFloat() * .4F + 1.2F) + f * .5F);
                     if(!infiniteAmmo) {
                         itemstack.shrink(1);
                         if(itemstack.isEmpty()) player.getInventory().removeItem(itemstack);
@@ -123,15 +124,15 @@ public class ItemModBow extends BowItem {
         } return ItemStack.EMPTY;
     }
     @Override public boolean isEnchantable(ItemStack stack) {return stack.isDamageableItem();}
-    @Override public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-        if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME && enchantment == Enchantments.FLAMING_ARROWS
-        || !needsArrow(stack) && enchantment == Enchantments.INFINITY_ARROWS) return false;
-        else return enchantment.category.canEnchant(stack.getItem());
-    }
+//    @Override public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+//        if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME && enchantment == Enchantments.FLAME
+//                || !needsArrow(stack) && enchantment == Enchantments.INFINITY) return false;
+//        else return enchantment.category.canEnchant(stack.getItem());
+//    }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.rangedDam((int)arrowType.getBaseDamage() + "-" + (int)(arrowType.getBaseDamage() * 4 + 3)));
-        int speed = DEFAULT_MAX_USE_DURATION / getUseDuration(stack);
+        int speed = DEFAULT_MAX_USE_DURATION / maxUseDuration;
         if(speed > 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.DARK_GREEN, "bow_speed.faster", String.format("%s", speed)));
         if(speed < 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.RED, "bow_speed.slower", String.format("%s", 1 / speed)));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.POISON) tooltip.add(LocalizeUtils.poison(arrowType.effectSec));

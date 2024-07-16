@@ -2,7 +2,6 @@ package divinerpg.items.base;
 
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.enums.ToolStats;
-import divinerpg.registries.EnchantmentRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -13,7 +12,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
-import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import java.util.*;
@@ -64,11 +62,11 @@ public class ItemModSword extends SwordItem {
             } return super.use(level, player, hand);
         }).orElse(super.use(level, player, hand));
     }
-    @Override public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && enchantment == Enchantments.FIRE_ASPECT ||
-           sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW && enchantment == EnchantmentRegistry.BRAIN_FREEZE.get()) return false;
-        else return enchantment.category.canEnchant(stack.getItem());
-    }
+//    @Override public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+//        if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && enchantment == Enchantments.FIRE_ASPECT ||
+//           sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW && enchantment == EnchantmentRegistry.BRAIN_FREEZE.get()) return false;
+//        else return enchantment.category.canEnchant(stack.getItem());
+//    }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, context, tooltip, flagIn);

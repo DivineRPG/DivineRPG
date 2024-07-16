@@ -185,7 +185,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
     		Path path = getNavigation().getPath();
     		if(path != null) {
     			double distanceX = path.getNextNodePos().getX() - getX(), distanceZ = path.getNextNodePos().getZ() - getZ();
-    			yRot = Utils.rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
+    			yRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
     		}
     	}
     }

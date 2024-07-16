@@ -16,13 +16,13 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     public ArmorInfo armorInfo;
     public final MobEffect[] supportedEffects;
     public final int[] amplifier;
-    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot) {
-        super(materialIn, slot, new Properties());
+    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability) {
+        super(materialIn, slot, new Properties().durability(slot.getDurability(durability)));
         supportedEffects = null;
         amplifier = null;
     }
-    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, ArmorInfo armorInfo) {
-        super(materialIn, slot, new Properties());
+    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo) {
+        super(materialIn, slot, new Properties().durability(slot.getDurability(durability)));
         this.armorInfo = armorInfo;
         supportedEffects = null;
         amplifier = null;
@@ -39,26 +39,26 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
         supportedEffects = effects;
         amplifier = null;
     }
-    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, MobEffect ... effects) {
-        super(materialIn, slot, new Properties());
+    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, MobEffect ... effects) {
+        super(materialIn, slot, new Properties().durability(slot.getDurability(durability)));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         amplifier = null;
     }
-    public ItemDivineArmor(Rarity rarity, Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, MobEffect ... effects) {
-        super(materialIn, slot, new Properties().rarity(rarity));
+    public ItemDivineArmor(Rarity rarity, Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, MobEffect ... effects) {
+        super(materialIn, slot, new Properties().durability(slot.getDurability(durability)).rarity(rarity));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         amplifier = null;
     }
-    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, int[] amplifier, MobEffect ... effects) {
-        super(materialIn, slot, new Properties());
+    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, int[] amplifier, MobEffect ... effects) {
+        super(materialIn, slot, new Properties().durability(slot.getDurability(durability)));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         this.amplifier = amplifier;
     }
-    public ItemDivineArmor(Rarity rarity, Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, int[] amplifier, MobEffect ... effects) {
-        super(materialIn, slot, new Properties().rarity(rarity));
+    public ItemDivineArmor(Rarity rarity, Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, int[] amplifier, MobEffect ... effects) {
+        super(materialIn, slot, new Properties().rarity(rarity).durability(slot.getDurability(durability)));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         this.amplifier = amplifier;

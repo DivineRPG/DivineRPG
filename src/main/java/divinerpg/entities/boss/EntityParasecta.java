@@ -77,9 +77,9 @@ public class EntityParasecta extends EntityDivineBoss {
             if (Math.signum(x) != 0 || Math.signum(y) != 0 || Math.signum(z) != 0) {
                 setDeltaMovement(getDeltaMovement().x + (Math.signum(x) * 0.5D - this.getDeltaMovement().x) * 0.10000000149011612D, getDeltaMovement().y + (Math.signum(y) * 1.699999988079071D - this.getDeltaMovement().y) * 0.10000000149011612D, getDeltaMovement().z + (Math.signum(z) * 0.5D - this.getDeltaMovement().z) * 0.10000000149011612D);
                 float var7 = (float) (Math.atan2(this.getDeltaMovement().z, this.getDeltaMovement().x) * 180.0D / Math.PI) - 90.0F;
-                float var8 = Mth.wrapDegrees(var7 - this.xRot);
+                float var8 = Mth.wrapDegrees(var7 - this.getXRot());
                 this.moveDist = 0.5F;
-                this.xRot += var8;
+                this.xRotO += var8;
             }
         }
     }

@@ -41,7 +41,7 @@ public class EntityStoneGolem extends EntityDivineTameable implements IAttackTim
     public boolean doHurtTarget(Entity entity) {
         boolean attack = super.doHurtTarget(entity);
         if(attack) {
-            entity.setDeltaMovement(-Mth.sin(xRot * (float) Math.PI / 180F), .1, Mth.cos(xRot * (float) Math.PI / 180F));
+            entity.setDeltaMovement(-Mth.sin(getXRot() * (float) Math.PI / 180F), .1, Mth.cos(getXRot() * (float) Math.PI / 180F));
             entityData.set(ATTACK_TIMER, Integer.valueOf(10));
         }
         return attack;

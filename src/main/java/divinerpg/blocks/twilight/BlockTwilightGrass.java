@@ -37,12 +37,6 @@ public class BlockTwilightGrass extends BushBlock implements IPlantable, ISheara
         BlockState soil = worldIn.getBlockState(pos);
         return worldIn.getBlockState(pos.below()).getBlock() != this && soil.getBlock() == grassSupplier.get();
     }
-
-    @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos) {
-        return PlantType.PLAINS;
-    }
-
     @Override
     public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
         return 100;

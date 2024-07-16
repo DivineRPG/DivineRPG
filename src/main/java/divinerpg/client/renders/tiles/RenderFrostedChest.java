@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.client.model.data.ModelData;
+import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class RenderFrostedChest implements BlockEntityRenderer<FrostedChestBlockEntity> {
     private final ModelFrostedChest<?> model;

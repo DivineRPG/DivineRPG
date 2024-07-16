@@ -135,7 +135,7 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
     }
 
     @Override public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
-        partialTicks = this.minecraft.getFrameTime();
+        partialTicks = this.minecraft.getFrameTimeNs();
         this.renderBackground(matrixStack, mouseX, mouseY, partialTicks);
         super.render(matrixStack, mouseX, mouseY, partialTicks);
         this.renderTooltip(matrixStack, mouseX, mouseY);

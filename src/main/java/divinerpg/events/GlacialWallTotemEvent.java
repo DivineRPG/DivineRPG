@@ -7,13 +7,13 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
 public class GlacialWallTotemEvent {
 
     @SubscribeEvent
-    public void onPlayerHurt(LivingDamageEvent event) {
+    public void onPlayerHurt(LivingDamageEvent.Pre event) {
         if (event.getEntity() instanceof Player) {
             Player player = (Player) event.getEntity();
             if(player.getInventory().getItem(Inventory.SLOT_OFFHAND).is(ItemRegistry.glacial_wall_totem.get())) {

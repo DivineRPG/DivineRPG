@@ -14,7 +14,7 @@ public class EntityLheiva extends EntityDivineMonster {
     @Override public boolean isAggressive() {return true;}
     @Override public boolean hurt(DamageSource source, float par2) {
         Entity var1 = source.getDirectEntity();
-        if(var1 instanceof Player && ((Player)var1).inventory.contains(ItemRegistry.band_of_lheiva_hunting.get().getDefaultInstance())) return super.hurt(source, par2);
+        if(var1 instanceof Player && ((Player)var1).getInventory().contains(ItemRegistry.band_of_lheiva_hunting.get().getDefaultInstance())) return super.hurt(source, par2);
         else if(source.is(DamageTypes.FELL_OUT_OF_WORLD)) return super.hurt(source, par2);
         return false;
     }

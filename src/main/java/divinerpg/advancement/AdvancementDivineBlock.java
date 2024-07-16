@@ -9,8 +9,6 @@ import net.minecraft.resources.*;
 import net.minecraft.server.*;
 import net.minecraft.server.level.*;
 import net.minecraft.world.level.block.*;
-import net.minecraftforge.common.util.*;
-import net.minecraftforge.registries.*;
 import net.neoforged.neoforge.common.util.JsonUtils;
 
 import javax.annotation.*;
@@ -56,7 +54,7 @@ public class AdvancementDivineBlock implements CriterionTrigger<AdvancementDivin
         public void trigger(ServerPlayer player, Block block) {
             ArrayList<CriterionTrigger.Listener<AdvancementDivineBlock.Instance>> list = null;
             for (CriterionTrigger.Listener<AdvancementDivineBlock.Instance> listener : listeners) {
-                if (listener.getTriggerInstance().test(block)) {
+                if (listener.trigger().test(block)) {
                     if (list == null) {
                         list = Lists.newArrayList();
                     }

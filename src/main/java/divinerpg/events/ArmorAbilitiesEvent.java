@@ -3,8 +3,7 @@ package divinerpg.events;
 import divinerpg.capability.ArcanaProvider;
 import divinerpg.effect.mob.armor.*;
 import divinerpg.enums.ToolStats.SwordSpecial;
-import divinerpg.items.base.ItemDivineArmor;
-import divinerpg.items.base.ItemModSword;
+import divinerpg.items.base.*;
 import divinerpg.registries.MobEffectRegistry;
 import divinerpg.util.DamageSources;
 import net.minecraft.world.InteractionHand;
@@ -14,8 +13,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraftforge.event.entity.living.*;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.living.*;
 import java.util.ArrayList;
 
 public class ArmorAbilitiesEvent {
@@ -75,51 +74,51 @@ public class ArmorAbilitiesEvent {
         				}
         			});
         		}
-        		if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH.get()))
+        		if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH))
 					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(16, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-        		else if(attacker.hasEffect(MobEffectRegistry.DIVINE_STRENGTH.get()) || attacker.hasEffect(MobEffectRegistry.DEMONIZED_HELMET.get()))
+        		else if(attacker.hasEffect(MobEffectRegistry.DIVINE_STRENGTH) || attacker.hasEffect(MobEffectRegistry.DEMONIZED_HELMET.get()))
 					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(6, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-        		else if(attacker.hasEffect(MobEffectRegistry.GLISTENING_HELMET.get()))
+        		else if(attacker.hasEffect(MobEffectRegistry.GLISTENING_HELMET))
 					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(3, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-        		else if(attacker.hasEffect(MobEffectRegistry.SENG_FUR.get()))
+        		else if(attacker.hasEffect(MobEffectRegistry.SENG_FUR_STRENGTH))
 					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(2, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-        		else if(attacker.hasEffect(MobEffectRegistry.TORMENTED_HELMET.get()))
+        		else if(attacker.hasEffect(MobEffectRegistry.TORMENTED_HELMET))
 					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(9, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-        		else if(attacker.hasEffect(MobEffectRegistry.AWAKENED_HALITE_STRENGTH.get()))
+        		else if(attacker.hasEffect(MobEffectRegistry.AWAKENED_HALITE_STRENGTH))
 					event.setAmount(amount + CombatRules.getDamageAfterAbsorb(20, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-        	} else if((attacker.hasEffect(MobEffectRegistry.AWAKENED_HALITE_STRENGTH.get()) || attacker.hasEffect(MobEffectRegistry.CORRUPTED_STRENGTH.get()))
+        	} else if((attacker.hasEffect(MobEffectRegistry.AWAKENED_HALITE_STRENGTH) || attacker.hasEffect(MobEffectRegistry.CORRUPTED_STRENGTH.get()))
 					&& (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.THROWN) || source.is(DamageTypes.TRIDENT)))
 				event.setAmount(amount * 1.5F);
         } if(target instanceof Player) {
-            if((target.hasEffect(MobEffectRegistry.PROJECTILE_PROTECTION.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.THROWN) || source.is(DamageTypes.TRIDENT)))) {
+            if((target.hasEffect(MobEffectRegistry.PROJECTILE_PROTECTION) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.THROWN) || source.is(DamageTypes.TRIDENT)))) {
 				event.setAmount(event.getAmount() * .34F);
-			} else if(target.hasEffect(MobEffectRegistry.MELEE_PROTECTION.get()) && (source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.GENERIC)) && !source.is(DamageTypes.MOB_PROJECTILE)) {
+			} else if(target.hasEffect(MobEffectRegistry.MELEE_PROTECTION) && (source.is(DamageTypes.MOB_ATTACK) || source.is(DamageTypes.PLAYER_ATTACK) || source.is(DamageTypes.GENERIC)) && !source.is(DamageTypes.MOB_PROJECTILE)) {
                 event.setAmount(event.getAmount() * .67F);
-            } else if(target.hasEffect(MobEffectRegistry.SENG_FUR.get())) {
+            } else if(target.hasEffect(MobEffectRegistry.SENG_FUR_STRENGTH)) {
             	event.setAmount(event.getAmount() * .7F);
-            } else if((target.hasEffect(MobEffectRegistry.DEGRADED_HOOD.get()) && source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.DEGRADED_HELMET.get()) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.DEGRADED_MASK.get()) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
+            } else if((target.hasEffect(MobEffectRegistry.DEGRADED_HOOD) && source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.DEGRADED_HELMET) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.DEGRADED_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * .82F);
-            } else if((target.hasEffect(MobEffectRegistry.FINISHED_HOOD.get()) && source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.FINISHED_HELMET.get()) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.FINISHED_MASK.get()) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
+            } else if((target.hasEffect(MobEffectRegistry.FINISHED_HOOD) && source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.FINISHED_HELMET) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.FINISHED_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * .773F);
-            } else if((target.hasEffect(MobEffectRegistry.GLISTENING_HOOD.get()) && source.is(DamageTypes.MAGIC)
-            		|| (target.hasEffect(MobEffectRegistry.GLISTENING_HELMET.get()) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.GLISTENING_MASK.get()) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC)))) {
+            } else if((target.hasEffect(MobEffectRegistry.GLISTENING_HOOD) && source.is(DamageTypes.MAGIC)
+            		|| (target.hasEffect(MobEffectRegistry.GLISTENING_HELMET) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.GLISTENING_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC)))) {
                 event.setAmount(amount * .7F);
-            } else if((target.hasEffect(MobEffectRegistry.DEMONIZED_HOOD.get()) && source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.DEMONIZED_HELMET.get()) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.DEMONIZED_MASK.get()) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
+            } else if((target.hasEffect(MobEffectRegistry.DEMONIZED_HOOD) && source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.DEMONIZED_HELMET) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.DEMONIZED_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * .625F);
-            } else if((target.hasEffect(MobEffectRegistry.TORMENTED_HOOD.get()) && source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.TORMENTED_HELMET.get()) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
-            		|| (target.hasEffect(MobEffectRegistry.TORMENTED_MASK.get()) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
+            } else if((target.hasEffect(MobEffectRegistry.TORMENTED_HOOD) && source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.TORMENTED_HELMET) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
+            		|| (target.hasEffect(MobEffectRegistry.TORMENTED_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setAmount(amount * .348F);
-            } else if(target.hasEffect(MobEffectRegistry.BLOCK_PROTECTION.get()) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(target.damageSources().fallingBlock(target)) || source.equals(target.damageSources().anvil(target)) || source.equals(target.damageSources().inWall()) || source.equals(DamageSources.source(target.level(), DamageSources.TRAP)))) {
+            } else if(target.hasEffect(MobEffectRegistry.BLOCK_PROTECTION) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(target.damageSources().fallingBlock(target)) || source.equals(target.damageSources().anvil(target)) || source.equals(target.damageSources().inWall()) || source.equals(DamageSources.source(target.level(), DamageSources.TRAP)))) {
             	event.setCanceled(true);
-            } else if(target.hasEffect(MobEffectRegistry.EXPLOSION_PROTECTION.get()) && (source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))) event.setCanceled(true);
+            } else if(target.hasEffect(MobEffectRegistry.EXPLOSION_PROTECTION) && (source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))) event.setCanceled(true);
         }
     }
 }

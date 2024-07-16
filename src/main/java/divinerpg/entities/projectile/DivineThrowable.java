@@ -1,5 +1,6 @@
 package divinerpg.entities.projectile;
 
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
@@ -17,5 +18,5 @@ public class DivineThrowable extends ThrowableProjectile {
         super.onHit(result);
         discard();
     }
-    @Override protected void defineSynchedData() {}
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {}
 }

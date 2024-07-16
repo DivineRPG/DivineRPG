@@ -42,8 +42,8 @@ public class EntitySoulFiend extends EntityDivineBoss {
                 ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.CONFUSION, 12 * 20, 0));
                 ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 12 * 20, 0));
             }
-            entity.setDeltaMovement(-Mth.sin(this.xRot * (float) Math.PI / 180.0F) * 2.5, 0.4D,
-                    Mth.cos(this.xRot * (float) Math.PI / 180.0F) * 2.5);
+            entity.setDeltaMovement(-Mth.sin(this.getXRot() * (float) Math.PI / 180.0F) * 2.5, 0.4D,
+                    Mth.cos(this.getXRot() * (float) Math.PI / 180.0F) * 2.5);
             setDeltaMovement(getDeltaMovement().x*0.6D, getDeltaMovement().y, getDeltaMovement().z*0.6D);
             return true;
         } else {

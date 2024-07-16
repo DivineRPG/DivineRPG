@@ -8,15 +8,16 @@ import divinerpg.util.Utils;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
-import net.minecraftforge.event.*;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
 @EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class Ticker {
     public static int tick;
     @SubscribeEvent
-    public void tickServer(TickEvent.ServerTickEvent evt) {
+    public void tickServer(ServerTickEvent evt) {
         if(evt.phase == TickEvent.Phase.END) {
             tick++;
             if(tick>100000) tick = 0;
@@ -24,14 +25,14 @@ public class Ticker {
         }
     }
 	@SubscribeEvent
-    public static void playerTick(TickEvent.PlayerTickEvent event){
+    public static void playerTick(PlayerTickEvent event){
         if(event.phase == TickEvent.Phase.START){
             event.player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
 	            if(arcana != null)
 	            arcana.regen(event.player);
 	        });
         }
-        Player player = event.player;
+        Player player = event.getEntity();
         Level level = player.level();
         if(level.dimension().equals(LevelRegistry.ICEIKA) && !player.isCreative() && !player.isSpectator()) {
         	if(Utils.ICEIKA_WEATHER == 1 && level.isRaining() && player.getItemBySlot(EquipmentSlot.HEAD).isEmpty() && player.getRandom().nextFloat() < .1F && level.canSeeSky(player.blockPosition())) player.hurt(level.damageSources().generic(), 1F);

@@ -4,19 +4,15 @@ import divinerpg.DivineRPG;
 import divinerpg.effect.mob.*;
 import divinerpg.effect.mob.armor.arcana.VemosHealEffect;
 import divinerpg.effect.mob.armor.base.*;
-import divinerpg.effect.mob.armor.iceika.FrozenSlownessEffect;
-import divinerpg.effect.mob.armor.iceika.SengFurEffect;
+import divinerpg.effect.mob.armor.iceika.*;
 import divinerpg.effect.mob.armor.twilight.WildwoodHealEffect;
-import divinerpg.effect.mob.armor.vanilla.AngelicFlightEffect;
-import divinerpg.effect.mob.armor.vanilla.SkelemanFeedEffect;
+import divinerpg.effect.mob.armor.vanilla.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffect;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.*;
 
 public class MobEffectRegistry {
 	public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, DivineRPG.MODID);
-	
 	public static final DeferredHolder<MobEffect, MobEffect>
 		HEAVY_AIR = EFFECTS.register("heavy_air", HeavyAirEffect::new),
 		GRUZZORLUG_TARGET = EFFECTS.register("gruzzorlug_target", GruzzorlugTargetEffect::new),
@@ -51,7 +47,7 @@ public class MobEffectRegistry {
 
 		//Iceika
 		FROZEN_SLOWNESS = EFFECTS.register("frozen_slowness", FrozenSlownessEffect::new),
-		SENG_FUR = EFFECTS.register("seng_fur", SengFurEffect::new),
+		SENG_FUR_STRENGTH = EFFECTS.register("seng_fur", SengFurEffect::new),
 
 		//Vethea
 		DEGRADED_HELMET = EFFECTS.register("degraded_helmet", MarkerEffect::new),

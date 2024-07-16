@@ -11,8 +11,9 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.DispenserBlock;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.api.distmarker.*;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
+
 import java.util.List;
 import java.util.function.Consumer;
 

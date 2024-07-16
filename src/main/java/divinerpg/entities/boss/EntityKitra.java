@@ -6,6 +6,7 @@ import divinerpg.enums.BulletType;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.DamageSources;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.*;
@@ -220,8 +221,8 @@ public class EntityKitra extends EntityWhale {
 
     }
     private MobEffectInstance getRandomNegativeEffect() {
-        List<MobEffect> negativeEffects = Arrays.asList(MobEffects.BLINDNESS, MobEffects.HUNGER, MobEffects.POISON, MobEffects.WITHER, MobEffects.BAD_OMEN, MobEffects.CONFUSION, MobEffects.DIG_SLOWDOWN, MobEffects.WEAKNESS, MobEffects.UNLUCK);
-        MobEffect negativeEffect = negativeEffects.get(this.random.nextInt(negativeEffects.size()));
+        List<Holder<MobEffect>> negativeEffects = Arrays.asList(MobEffects.BLINDNESS, MobEffects.HUNGER, MobEffects.POISON, MobEffects.WITHER, MobEffects.BAD_OMEN, MobEffects.CONFUSION, MobEffects.DIG_SLOWDOWN, MobEffects.WEAKNESS, MobEffects.UNLUCK);
+        Holder<MobEffect> negativeEffect = negativeEffects.get(this.random.nextInt(negativeEffects.size()));
         int duration = 20 * (this.random.nextInt(60) + 30); // 30-90 seconds
         int amplifier = this.random.nextInt(2); // Level 0-1
         return new MobEffectInstance(negativeEffect, duration, amplifier);
