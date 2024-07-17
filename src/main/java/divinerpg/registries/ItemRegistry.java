@@ -525,7 +525,7 @@ public class ItemRegistry {
 
     bedrock_shovel = registerItem("bedrock_shovel", () -> new ItemModShovel(ToolStats.BEDROCK_SHOVEL, new Properties().fireResistant())),
             bedrock_pickaxe = registerItem("bedrock_pickaxe", () -> new ItemModPickaxe(ToolStats.BEDROCK_PICKAXE, new Properties().fireResistant())),
-            bedrock_axe = registerItem("bedrock_axe", () -> new ItemModAxe(ToolStats.BEDROCK_AXE, new Properties().fireResistant())),
+            bedrock_axe = registerItem("bedrock_axe", () -> new ItemModAxe(ToolStats.BEDROCK_AXE, -2.9F, new Properties().fireResistant())),
             bedrock_hoe = registerItem("bedrock_hoe", () -> new ItemModHoe(ToolStats.BEDROCK_HOE, new Properties().fireResistant())),
 
     divine_shovel = registerItem("divine_shovel", () -> new ItemModShovel(ToolStats.DIVINE_SHOVEL, RarityList.DIVINE)),
@@ -741,15 +741,15 @@ public class ItemRegistry {
             jungle_leggings = registerItem("jungle_leggings", () -> new ItemDivineArmor(JUNGLE, LEGGINGS, 33, jungleInfo)),
             jungle_boots = registerItem("jungle_boots", () -> new ItemDivineArmor(JUNGLE, BOOTS, 33, jungleInfo)),
 
-    inferno_helmet = registerItem("inferno_helmet", () -> new ItemDivineArmor(INFERNO, HELMET, fireInfo, new Properties().fireResistant().durability(HELMET.getDurability(34)), FIRE_RESISTANCE.value())),
-            inferno_chestplate = registerItem("inferno_chestplate", () -> new ItemDivineArmor(INFERNO, CHESTPLATE, fireInfo, new Properties().fireResistant().durability(CHESTPLATE.getDurability(34)))),
-            inferno_leggings = registerItem("inferno_leggings", () -> new ItemDivineArmor(INFERNO, LEGGINGS, fireInfo, new Properties().fireResistant().durability(LEGGINGS.getDurability(34)))),
-            inferno_boots = registerItem("inferno_boots", () -> new ItemDivineArmor(INFERNO, BOOTS, fireInfo, new Properties().fireResistant().durability(BOOTS.getDurability(34)))),
+    inferno_helmet = registerItem("inferno_helmet", () -> new ItemDivineArmor(INFERNO, HELMET, 34, fireInfo, new Properties().fireResistant(), FIRE_RESISTANCE.value())),
+            inferno_chestplate = registerItem("inferno_chestplate", () -> new ItemDivineArmor(INFERNO, CHESTPLATE, 34, fireInfo, new Properties().fireResistant())),
+            inferno_leggings = registerItem("inferno_leggings", () -> new ItemDivineArmor(INFERNO, LEGGINGS, 34, fireInfo, new Properties().fireResistant())),
+            inferno_boots = registerItem("inferno_boots", () -> new ItemDivineArmor(INFERNO, BOOTS, 34, fireInfo, new Properties().fireResistant())),
 
-    torridite_helmet = registerItem("torridite_helmet", () -> new ItemDivineArmor(TORRIDITE, HELMET, fireInfo, new Properties().fireResistant().durability(HELMET.getDurability(34)), FIRE_RESISTANCE.value())),
-            torridite_chestplate = registerItem("torridite_chestplate", () -> new ItemDivineArmor(TORRIDITE, CHESTPLATE, fireInfo, new Properties().fireResistant().durability(CHESTPLATE.getDurability(34)))),
-            torridite_leggings = registerItem("torridite_leggings", () -> new ItemDivineArmor(TORRIDITE, LEGGINGS, fireInfo, new Properties().fireResistant().durability(LEGGINGS.getDurability(34)))),
-            torridite_boots = registerItem("torridite_boots", () -> new ItemDivineArmor(TORRIDITE, BOOTS, fireInfo, new Properties().fireResistant().durability(BOOTS.getDurability(34)))),
+    torridite_helmet = registerItem("torridite_helmet", () -> new ItemDivineArmor(TORRIDITE, HELMET, 34, fireInfo, new Properties().fireResistant(), FIRE_RESISTANCE.value())),
+            torridite_chestplate = registerItem("torridite_chestplate", () -> new ItemDivineArmor(TORRIDITE, CHESTPLATE, 34, fireInfo, new Properties().fireResistant())),
+            torridite_leggings = registerItem("torridite_leggings", () -> new ItemDivineArmor(TORRIDITE, LEGGINGS, 34, fireInfo, new Properties().fireResistant())),
+            torridite_boots = registerItem("torridite_boots", () -> new ItemDivineArmor(TORRIDITE, BOOTS, 34, fireInfo, new Properties().fireResistant())),
 
     terran_helmet = registerItem("terran_helmet", () -> new ItemDivineArmor(TERRAN, HELMET, 34, terranInfo, new int[]{2}, DIG_SPEED.value())),
             terran_chestplate = registerItem("terran_chestplate", () -> new ItemDivineArmor(TERRAN, CHESTPLATE, 34, terranInfo)),
@@ -806,10 +806,10 @@ public class ItemRegistry {
             corrupted_leggings = registerItem("corrupted_leggings", () -> new ItemDivineArmor(CORRUPTED, LEGGINGS, 40, corruptedInfo)),
             corrupted_boots = registerItem("corrupted_boots", () -> new ItemDivineArmor(CORRUPTED, BOOTS, 40, corruptedInfo)),
 
-    bedrock_helmet = registerItem("bedrock_helmet", () -> new ItemDivineArmor(BEDROCK, HELMET, bedrockInfo, new Properties().fireResistant().durability(HELMET.getDurability(0)), FIRE_RESISTANCE.value(), EXPLOSION_PROTECTION.get())),
-            bedrock_chestplate = registerItem("bedrock_chestplate", () -> new ItemDivineArmor(BEDROCK, CHESTPLATE, bedrockInfo, new Properties().fireResistant().durability(CHESTPLATE.getDurability(0)))),
-            bedrock_leggings = registerItem("bedrock_leggings", () -> new ItemDivineArmor(BEDROCK, LEGGINGS, bedrockInfo, new Properties().fireResistant().durability(LEGGINGS.getDurability(0)))),
-            bedrock_boots = registerItem("bedrock_boots", () -> new ItemDivineArmor(BEDROCK, BOOTS, bedrockInfo, new Properties().fireResistant().durability(BOOTS.getDurability(0)))),
+    bedrock_helmet = registerItem("bedrock_helmet", () -> new ItemDivineArmor(BEDROCK, HELMET, 0, bedrockInfo, new Properties().fireResistant(), FIRE_RESISTANCE.value(), EXPLOSION_PROTECTION.get())),
+            bedrock_chestplate = registerItem("bedrock_chestplate", () -> new ItemDivineArmor(BEDROCK, CHESTPLATE, 0, bedrockInfo, new Properties().fireResistant())),
+            bedrock_leggings = registerItem("bedrock_leggings", () -> new ItemDivineArmor(BEDROCK, LEGGINGS, 0, bedrockInfo, new Properties().fireResistant())),
+            bedrock_boots = registerItem("bedrock_boots", () -> new ItemDivineArmor(BEDROCK, BOOTS, 0, bedrockInfo, new Properties().fireResistant())),
 
     korma_helmet = registerItem("korma_helmet", () -> new ItemDivineArmor(KORMA, HELMET, 41, kormInfo, KORMA_ARCANA.get())),
             korma_chestplate = registerItem("korma_chestplate", () -> new ItemDivineArmor(KORMA, CHESTPLATE, 41, kormInfo)),

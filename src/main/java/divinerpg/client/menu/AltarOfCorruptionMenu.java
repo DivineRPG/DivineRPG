@@ -17,6 +17,8 @@ import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.EventHooks;
 
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
         });
         this.addSlot(new Slot(this.enchantSlots, 1, 35, 47) {
             public boolean mayPlace(ItemStack p_39517_) {
-                return p_39517_.is(net.minecraftforge.common.Tags.Items.ENCHANTING_FUELS);
+                return p_39517_.is(Tags.Items.ENCHANTING_FUELS);
             }
         });
 
@@ -105,7 +107,7 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
                         if (this.costs[k] < k + 1) {
                             this.costs[k] = 0;
                         }
-                        this.costs[k] = net.minecraftforge.event.ForgeEventFactory.onEnchantmentLevelSet(p_39485_, p_39486_, k, (int)j, itemstack, costs[k]);
+                        this.costs[k] = EventHooks.onEnchantmentLevelSet(p_39485_, p_39486_, k, (int)j, itemstack, costs[k]);
                     }
 
                     for(int l = 0; l < 3; ++l) {
@@ -239,7 +241,7 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
                 if (!this.moveItemStackTo(itemstack1, 2, 38, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (itemstack1.is(net.minecraftforge.common.Tags.Items.ENCHANTING_FUELS)) {
+            } else if (itemstack1.is(Tags.Items.ENCHANTING_FUELS)) {
                 if (!this.moveItemStackTo(itemstack1, 1, 2, true)) {
                     return ItemStack.EMPTY;
                 }

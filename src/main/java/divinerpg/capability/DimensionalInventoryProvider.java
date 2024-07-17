@@ -2,13 +2,13 @@ package divinerpg.capability;
 
 import javax.annotation.*;
 
-import net.minecraft.core.Direction;
+import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraftforge.common.capabilities.*;
-import net.minecraftforge.common.util.*;
+import net.neoforged.neoforge.capabilities.ICapabilityProvider;
+import net.neoforged.neoforge.common.util.INBTSerializable;
 
 public class DimensionalInventoryProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-	public static final Capability<DimensionalInventory> DIMENIONAL_INVENTORY = CapabilityManager.get(new CapabilityToken<>(){});
+	public static final Capabilities<DimensionalInventory> DIMENSIONAL_INVENTORY = CapabilityManager.get(new CapabilityToken<>(){});
 	private DimensionalInventory dimensionalInventory = null;
 	private final LazyOptional<DimensionalInventory> opt = LazyOptional.of(this::getOrCreateDimensionalInventory);
 	@Nonnull private DimensionalInventory getOrCreateDimensionalInventory() {
@@ -16,12 +16,12 @@ public class DimensionalInventoryProvider implements ICapabilityProvider, INBTSe
 		return dimensionalInventory;
 	}
     @Nonnull @Override public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-    	return DIMENIONAL_INVENTORY.orEmpty(cap, opt);
+    	return DIMENSIONAL_INVENTORY.orEmpty(cap, opt);
     }
-    @Override public CompoundTag serializeNBT() {
+	@Override public CompoundTag serializeNBT(HolderLookup.Provider provider) {
         return getOrCreateDimensionalInventory().serializeNBT();
     }
-    @Override public void deserializeNBT(CompoundTag nbt) {
+    @Override public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
     	getOrCreateDimensionalInventory().deserializeNBT(nbt);
     }
 }

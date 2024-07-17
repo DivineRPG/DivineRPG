@@ -40,7 +40,7 @@ public class ItemMeriksMissile extends ItemMod {
                     world.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1);
                     EntityMerikMissile bullet = new EntityMerikMissile(EntityRegistry.MERIKS_MISSILE.get(), world, player, damage);
                     bullet.moveTo(player.getX(), player.getY() + 1, player.getZ());
-                    bullet.shootFromRotation(player, player.xRot, player.yRot, 0, 3, 1);
+                    bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 3, 1);
                     world.addFreshEntity(bullet);
                     arcana.modifyAmount(player, -arcanaPoints);
                 }

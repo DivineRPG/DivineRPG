@@ -99,7 +99,7 @@ public class LocalizeUtils {
      *
      * @param lvl - harvest level
      */
-    public static Component harvestLevel(int lvl) {return i18n(ChatFormatting.WHITE, HarvestLevel, lvl);}
+    public static Component harvestLevel(Item lvl) {return i18n(ChatFormatting.WHITE, HarvestLevel, lvl);}
     /**
      * Indicates how much health is restored when used.
      */

@@ -27,14 +27,14 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
         supportedEffects = null;
         amplifier = null;
     }
-    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, Properties properties) {
-        super(materialIn, slot, properties);
+    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, Properties properties) {
+        super(materialIn, slot, properties.durability(slot.getDurability(durability)));
         this.armorInfo = armorInfo;
         supportedEffects = null;
         amplifier = null;
     }
-    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, ArmorInfo armorInfo, Properties properties, MobEffect ... effects) {
-        super(materialIn, slot, properties);
+    public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, Properties properties, MobEffect ... effects) {
+        super(materialIn, slot, properties.durability(slot.getDurability(durability)));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         amplifier = null;

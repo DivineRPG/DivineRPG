@@ -3,7 +3,7 @@ package divinerpg.events.enchant;
 import divinerpg.registries.EnchantmentRegistry;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.*;
@@ -22,7 +22,7 @@ public class RiveHandler {
         Player player = event.getPlayer();
         ItemStack itemStack = player.getMainHandItem();
         BlockState blockState = world.getBlockState(event.getPos());
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE.get(), player);
+        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE, player);
         float pitch = player.getXRot();
         Direction facing = (pitch > 45) ? Direction.DOWN : (pitch < -45) ? Direction.UP : player.getDirection();
         if(world.isClientSide) return;
@@ -39,7 +39,7 @@ public class RiveHandler {
                     if(tryToBreakBlock(world, player, pos, world.getBlockState(pos), itemStack)) totalBlocksBroken++;
                 }
             }
-        } if(blockState.getDestroySpeed(world, event.getPos()) != 0.0F && totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, (ctx) -> ctx.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        } if(blockState.getDestroySpeed(world, event.getPos()) != 0.0F && totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
     }
     private boolean tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool) {
         Block block = blockState.getBlock();
@@ -50,7 +50,7 @@ public class RiveHandler {
         if(block.canHarvestBlock(blockState, world, pos, player) && world instanceof ServerLevel) {
             if(!player.isCreative()) {
                 block.playerDestroy(world, player, pos, blockState, null, tool);
-                block.popExperience((ServerLevel) world, pos, block.getExpDrop(blockState, world, world.random, pos, EnchantmentHelper.getEnchantmentLevel(Enchantments.BLOCK_FORTUNE, player), EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player)));
+                block.popExperience((ServerLevel) world, pos, block.getExpDrop(blockState, world, world.random, pos, EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, player), EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player)));
             } world.destroyBlock(pos, false);
             return true;
         } return false;

@@ -1,24 +1,20 @@
 package divinerpg.recipe.brewing;
 
-import divinerpg.registries.ItemRegistry;
-import divinerpg.registries.PotionRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.Utils;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
-import net.minecraftforge.common.brewing.IBrewingRecipe;
+import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
 
 public class TeaRecipe implements IBrewingRecipe {
-	private static final Item winterberry = ItemRegistry.winterberry.get();
 	@Override public boolean isInput(ItemStack input) {
-		return Utils.isPotion(input, Potions.WATER);
+		return Utils.isPotion(input, Potions.WATER.value());
 	}
-	@Override
-	public boolean isIngredient(ItemStack ingredient) {
-		return ingredient.is(winterberry) || ingredient.is(Items.SWEET_BERRIES);
+	@Override public boolean isIngredient(ItemStack ingredient) {
+		return ingredient.is(ItemRegistry.winterberry.get()) || ingredient.is(Items.SWEET_BERRIES);
 	}
-	@Override
-	public ItemStack getOutput(ItemStack input, ItemStack ingredient) {
-		if(isInput(input) && isIngredient(ingredient)) return PotionUtils.setPotion(input.copy(), PotionRegistry.TEA.get());
+	@Override public ItemStack getOutput(ItemStack input, ItemStack ingredient) {
+		if(isInput(input) && isIngredient(ingredient)) return PotionContents.createItemStack(input.copy().getItem(), PotionRegistry.TEA);
 		return ItemStack.EMPTY;
 	}
 }

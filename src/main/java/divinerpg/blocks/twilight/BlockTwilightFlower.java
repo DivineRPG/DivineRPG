@@ -85,10 +85,10 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
         return this.grassSupplier.get();
     }
 
-    @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos) {
-        return PlantType.PLAINS;
-    }
+//    @Override
+//    public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+//        return PlantType.PLAINS;
+//    }
 
     @Override
     public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {

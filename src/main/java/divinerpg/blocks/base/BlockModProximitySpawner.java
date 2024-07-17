@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 
 public class BlockModProximitySpawner extends BaseEntityBlock {
 	public BlockModProximitySpawner() {
@@ -39,7 +39,7 @@ public class BlockModProximitySpawner extends BaseEntityBlock {
 		if(player.isCreative() && level.getBlockEntity(pos) instanceof ProximitySpawnerBlockEntity entity) {
 			ItemStack item = player.getItemInHand(hand);
 			if(item == null || item.isEmpty()) entity.entityName = null;
-			else if(item.getItem() instanceof ForgeSpawnEggItem spawnegg) entity.entityName = spawnegg.getType(null).toShortString();
+			else if(item.getItem() instanceof SpawnEggItem spawnegg) entity.entityName = spawnegg.getType(null).toShortString();
 			else return InteractionResult.FAIL;
 			boolean enabled = entity.entityName != null;
 			if(state.getValue(BlockStateProperties.ENABLED) != enabled) level.setBlock(pos, state.setValue(BlockStateProperties.ENABLED, enabled), UPDATE_ALL);

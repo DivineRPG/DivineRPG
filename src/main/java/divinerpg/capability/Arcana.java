@@ -6,12 +6,13 @@ import divinerpg.config.CommonConfig;
 import divinerpg.registries.MobEffectRegistry;
 import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.packets.PacketArcanaBar;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.network.PacketDistributor;
+import net.neoforged.neoforge.common.util.INBTSerializable;
 
 public class Arcana implements INBTSerializable<CompoundTag> {
 	
@@ -84,14 +85,12 @@ public class Arcana implements INBTSerializable<CompoundTag> {
     public void setRegenDelay(int delay) {
         tickDelay = delay < 1 ? 1 : delay;
     }
-    @Override
-    public CompoundTag serializeNBT() {
+    @Override public CompoundTag serializeNBT(HolderLookup.Provider provider) {
     	CompoundTag tag = new CompoundTag();
     	tag.putFloat("arcana", arcana);
         return tag;
     }
-    @Override
-    public void deserializeNBT(CompoundTag tag) {
+    @Override public void deserializeNBT(HolderLookup.Provider provider, CompoundTag tag) {
     	arcana = tag.getFloat("arcana");
     }
 }

@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.*;
 
@@ -23,7 +22,7 @@ public class ArmorMaterialRegistry {
         SANTA = register(2, 7, 6, 2, 0, 0, 15, ARMOR_EQUIP_LEATHER, seng_fur.get()),
         AQUASTRIVE = register(2, 7, 6, 2, 0, 0, 9, ARMOR_EQUIP_IRON, aquatic_ingot.get()),
         KRAKEN = register(2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_TURTLE, kraken_skin.get()),
-        JACK_O_MAN = register(2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_GENERIC, Blocks.PUMPKIN.asItem()),
+        JACK_O_MAN = register(2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_GENERIC, Items.PUMPKIN),
         SKELEMAN = register(2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_GENERIC, Items.BONE),
         WITHER_REAPER = register(2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_CHAIN, Items.BONE),
         ARLEMITE = register(3, 7, 6, 3, 1.5F, 0, 10, ARMOR_EQUIP_IRON, arlemite_ingot.get()),

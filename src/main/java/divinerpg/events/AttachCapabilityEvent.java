@@ -9,7 +9,7 @@ import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraftforge.common.capabilities.*;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 
-public class AttatchCapabilityEvent {
+public class AttachCapabilityEvent {
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(Arcana.class);
         event.register(SoulTrapCount.class);

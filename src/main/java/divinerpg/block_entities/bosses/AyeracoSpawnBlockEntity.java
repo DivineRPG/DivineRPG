@@ -16,12 +16,12 @@ import net.minecraft.world.level.block.state.*;
 
 public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
     /**
-     * Using in render, so it need to be proceed through update package
+     * Using in render, so it needs to be proceeded through update package
      */
     public int spawnTick;
     private BlockPos blueBeam, greenBeam, pinkBeam, purpleBeam, redBeam, yellowBeam;
     /**
-     * Always should be a empty ctor
+     * Always should be an empty ctor
      *
      * @param p_155229_
      * @param p_155230_
@@ -65,7 +65,7 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
             case 0:
                 if (!level.isClientSide) {
                 	EntityAyeraco group[] = new EntityAyeraco[6];
-                	for(byte i = 0; i < 6; i++) group[i] = EntityRegistry.AYERACO.get().create((ServerLevel) level, null, null, pos, MobSpawnType.MOB_SUMMONED, true, false).setVariant(i);
+                	for(byte i = 0; i < 6; i++) group[i] = EntityRegistry.AYERACO.get().create((ServerLevel)level, null, pos, MobSpawnType.MOB_SUMMONED, true, false).setVariant(i);
                 	group[0].setBeamPos(block.blueBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[4], group[5]});
                     group[1].setBeamPos(block.greenBeam).assignGroup(new EntityAyeraco[]{group[0], group[2], group[3], group[4], group[5]});
                     group[2].setBeamPos(block.pinkBeam).assignGroup(new EntityAyeraco[]{group[1], group[0], group[3], group[4], group[5]});;

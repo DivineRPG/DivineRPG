@@ -1,9 +1,10 @@
 package divinerpg.capability;
 
+import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.core.Direction;
-import net.minecraftforge.common.capabilities.*;
-import net.minecraftforge.common.util.*;
+import net.neoforged.neoforge.capabilities.ICapabilityProvider;
+import net.neoforged.neoforge.common.util.INBTSerializable;
+
 import javax.annotation.*;
 
 public class ArcanaProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
@@ -19,6 +20,10 @@ public class ArcanaProvider implements ICapabilityProvider, INBTSerializable<Com
         return LazyOptional.empty();
     }
     @Nonnull @Override public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {return getCapability(cap);}
-    @Override public CompoundTag serializeNBT() {return createArcana().serializeNBT();}
-    @Override public void deserializeNBT(CompoundTag nbt) {createArcana().deserializeNBT(nbt);}
+    @Override public CompoundTag serializeNBT(HolderLookup.Provider provider) {
+        return createArcana().serializeNBT(provider);
+    }
+    @Override public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
+        createArcana().deserializeNBT(provider, nbt);
+    }
 }

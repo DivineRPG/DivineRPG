@@ -165,7 +165,7 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	         ItemStack itemstack2 = p_155028_.get(2);
 	         if (itemstack2.isEmpty()) p_155028_.set(2, itemstack1.copy());
 	         else if (itemstack2.is(itemstack1.getItem())) itemstack2.grow(itemstack1.getCount());
-	         if (itemstack.is(Blocks.WET_SPONGE.asItem()) && !p_155028_.get(1).isEmpty() && p_155028_.get(1).is(Items.BUCKET)) p_155028_.set(1, new ItemStack(Items.WATER_BUCKET));
+	         if (itemstack.is(Items.WET_SPONGE) && !p_155028_.get(1).isEmpty() && p_155028_.get(1).is(Items.BUCKET)) p_155028_.set(1, new ItemStack(Items.WATER_BUCKET));
 	         itemstack.shrink(1);
 	         return true;
 	      } else return false;
