@@ -46,13 +46,13 @@ public class BlockModMobCage extends BlockMod {
 		if(!level.isClientSide && !player.isCreative()) BuiltInRegistries.ENTITY_TYPE.get(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
 		return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
 	}
-	@Override public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+	@Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		ItemStack item = player.getItemInHand(hand);
 		if(!player.getCooldowns().isOnCooldown(item.getItem()) && (spawnItem == null || item.is(BuiltInRegistries.ITEM.get(spawnItem)))) {
 			if (!(spawnItem == null || player.isCreative())) item.shrink(1);
 			player.getCooldowns().addCooldown(item.getItem(), 40);
 			if(!level.isClientSide) BuiltInRegistries.ENTITY_TYPE.get(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
-			return InteractionResult.SUCCESS;
-		} return InteractionResult.FAIL;
+			return ItemInteractionResult.SUCCESS;
+		} return ItemInteractionResult.FAIL;
 	}
 }

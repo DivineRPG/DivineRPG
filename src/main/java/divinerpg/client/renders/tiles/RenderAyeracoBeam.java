@@ -90,7 +90,7 @@ public class RenderAyeracoBeam implements BlockEntityRenderer<AyeracoBeamBlockEn
     }
 
     private static void addVertex(Matrix4f p_228838_0_, Matrix3f p_228838_1_, VertexConsumer p_228838_2_, float p_228838_3_, float p_228838_4_, float p_228838_5_, float p_228838_6_, int p_228838_7_, float p_228838_8_, float p_228838_9_, float p_228838_10_, float p_228838_11_) {
-        p_228838_2_.vertex(p_228838_0_, p_228838_8_, (float)p_228838_7_, p_228838_9_).color(p_228838_3_, p_228838_4_, p_228838_5_, p_228838_6_).uv(p_228838_10_, p_228838_11_).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(15728880).normal(p_228838_1_, 0.0F, 1.0F, 0.0F).endVertex();
+        p_228838_2_.addVertex(p_228838_0_, p_228838_8_, (float)p_228838_7_, p_228838_9_).setColor(p_228838_3_, p_228838_4_, p_228838_5_, p_228838_6_).setUv(p_228838_10_, p_228838_11_).setOverlay(OverlayTexture.NO_OVERLAY).setLight(15728880).setNormal(0.0F, 1.0F, 0.0F);
     }
 
     public boolean shouldRenderOffScreen(AyeracoBeamBlockEntity p_188185_1_) {

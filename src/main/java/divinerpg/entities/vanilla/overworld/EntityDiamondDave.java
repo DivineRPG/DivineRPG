@@ -16,8 +16,7 @@ public class EntityDiamondDave extends EntityDivineMerchant {
     public EntityDiamondDave(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override
-    public String[] getChatMessages() {
+    @Override public String[] getChatMessages() {
         return new String[] {
                 "message.diamond_dave.isolation",
                 "message.diamond_dave.cruel",
@@ -27,30 +26,25 @@ public class EntityDiamondDave extends EntityDivineMerchant {
                 "message.diamond_dave.mysterious"
         };
     }
-    @Override
-    protected void updateTrades() {
-        MerchantOffers merchantoffers = this.getOffers();
-
+    @Override protected void updateTrades() {
+        MerchantOffers merchantoffers = getOffers();
         DivineTrades[] tradetrades = new DivineTrades[] {
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Items.DIAMOND, 16 + random.nextInt(8)), random.nextBoolean() ? new ItemStack(ItemRegistry.realmite_pickaxe.get()) : EnchantmentHelper.enchantItem(random, new ItemStack(ItemRegistry.realmite_pickaxe.get(), 1), random.nextInt(30), false), random.nextInt(3), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Items.COAL, 8 + random.nextInt(2)), new ItemStack(Items.TORCH, 16), random.nextInt(7), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Items.RAW_IRON, 4), new ItemStack(Items.GLOW_BERRIES, 2 + random.nextInt(14)), random.nextInt(7), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.DEEPSLATE, 32 + random.nextInt(32)), new ItemStack(Items.ARROW, 16), random.nextInt(3), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(random.nextBoolean() ? Items.DIAMOND : Items.EMERALD, 8 + random.nextInt(2)), PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.NIGHT_VISION), random.nextInt(2), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(random.nextBoolean() ? Items.DIAMOND : Items.EMERALD, 8 + random.nextInt(2)), PotionContents.createItemStack(Items.POTION, Potions.NIGHT_VISION), random.nextInt(2), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Items.COAL, 4 + random.nextInt(12)), new ItemStack(BlockRegistry.divineLog.get(), 4 + random.nextInt(12)), random.nextInt(3), 5)
         };
-        this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
+        addOffersFromItemListings(merchantoffers, tradetrades, 5);
     }
-    @Override
-    protected SoundEvent getAmbientSound() {
+    @Override protected SoundEvent getAmbientSound() {
         return SoundRegistry.LIVESTOCK_MERCHANT.get();
     }
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
+    @Override protected SoundEvent getHurtSound(DamageSource source) {
         return SoundRegistry.LIVESTOCK_MERCHANT_HURT.get();
     }
-    @Override
-    protected SoundEvent getDeathSound() {
+    @Override protected SoundEvent getDeathSound() {
         return SoundRegistry.LIVESTOCK_MERCHANT_HURT.get();
     }
 }

@@ -147,39 +147,39 @@ public class EntityWreck extends EntityDivineBoss {
 
                 switch (this.getAbility()) {
                     case CHARGE:
-                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.charge"), true);
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.charge"), true);
                         break;
                     case PULL:
                         this.playSound(SoundRegistry.FEEL_SOUL_ARKSIANE.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.pull"), true);
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.pull"), true);
                         }
                             break;
                     case FIRE:
-                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.fire"), true);
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.fire"), true);
                         break;
                     case FREEZE:
                         this.playSound(SoundRegistry.STOP_AT_ONCE.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.freeze"), true);
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.freeze"), true);
                         }
                         break;
                     case SPEED:
                         this.playSound(SoundRegistry.WRECK_SPEED.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.speed"), true);
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.speed"), true);
                     }
                         break;
                     case EXPLOSIONS:
                         this.playSound(SoundRegistry.EXPLOSIONS.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.explosion"), true);
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.explosion"), true);
                     }
                         break;
                     case STRENGTH:
                         this.playSound(SoundRegistry.WRECK_STRENGTH.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.wreck.strength"), true);
+                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.strength"), true);
                     }
                         break;
                     default:
@@ -195,8 +195,8 @@ public class EntityWreck extends EntityDivineBoss {
         if (!level().isClientSide() && !loaded) {
             List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
             for (Player p : players) {
-                p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.run"), true);
-                p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.wreck.smell"), true);
+                p.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.run"), true);
+                p.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.smell"), true);
             }
             this.playSound(SoundRegistry.WRECK_INTRO.get(), 1.0F, 1.0F);
             loaded = true;

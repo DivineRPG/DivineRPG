@@ -30,6 +30,9 @@ public class RenderShooterBullet extends EntityRenderer<EntityShooterBullet> {
             super.render(entity, yaw, partialTicks, matrix, buffer, packedLight);
         }
     }
-    private static void pos(VertexConsumer vertexBuilder, Matrix4f matrix4f, Matrix3f normal, int lightmapUV, float x, float y, float u, float v) {vertexBuilder.vertex(matrix4f, x - .5F, y - .25F, 0).color(255, 255, 255, 255).uv(u, v).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(lightmapUV).normal(normal, 0, 1, 0).endVertex();}
-    @Override public ResourceLocation getTextureLocation(EntityShooterBullet entity) {return entity.getTexture() != null ? entity.getTexture() : ResourceLocation.withDefaultNamespace("textures/particle/generic_" + entity.level().random.nextInt(7) + ".png");}
+    private static void pos(VertexConsumer vertexBuilder, Matrix4f matrix4f, Matrix3f normal, int lightmapUV, float x, float y, float u, float v) {
+        vertexBuilder.addVertex(matrix4f, x - .5F, y - .25F, 0).setColor(255, 255, 255, 255).setUv(u, v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(lightmapUV).setNormal(0, 1, 0);}
+    @Override public ResourceLocation getTextureLocation(EntityShooterBullet entity) {
+        return entity.getTexture() != null ? entity.getTexture() : ResourceLocation.withDefaultNamespace("textures/particle/generic_" + entity.level().random.nextInt(7) + ".png");
+    }
 }

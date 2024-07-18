@@ -14,13 +14,13 @@ import static net.minecraft.tags.BlockTags.*;
 
 public class ItemModPickaxe extends PickaxeItem {
     public ItemModPickaxe(Tier tier, Rarity rarity) {
-        super(tier, new Properties().attributes(PickaxeItem.createAttributes(tier, tier.getAttackDamageBonus(), -2.8F)).rarity(rarity));
+        super(tier, new Properties().attributes(PickaxeItem.createAttributes(tier, 0, -2.8F)).rarity(rarity));
     }
     public ItemModPickaxe(Tier tier) {
-        super(tier, new Properties().attributes(PickaxeItem.createAttributes(tier, tier.getAttackDamageBonus(), -2.8F)));
+        super(tier, new Properties().attributes(PickaxeItem.createAttributes(tier, 0, -2.8F)));
     }
     public ItemModPickaxe(Tier tier, Properties properties) {
-        super(tier, properties.attributes(PickaxeItem.createAttributes(tier, tier.getAttackDamageBonus(), -2.8F)));
+        super(tier, properties.attributes(PickaxeItem.createAttributes(tier, 0, -2.8F)));
     }
 	@OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {

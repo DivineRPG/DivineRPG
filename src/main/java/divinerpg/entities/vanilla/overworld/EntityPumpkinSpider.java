@@ -33,10 +33,10 @@ public class EntityPumpkinSpider extends Spider {
 		goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
 		goalSelector.addGoal(4, new MeleeAttackGoal(this, 1, getProvoked()));
 	}
-	@Override
-	public double getMeleeAttackRangeSqr(LivingEntity entity) {
-		return super.getMeleeAttackRangeSqr(entity) * 1.25;
-	}
+//	@Override
+//	public double getMeleeAttackRangeSqr(LivingEntity entity) {
+//		return super.getMeleeAttackRangeSqr(entity) * 1.25;
+//	}
 	@Override
 	public void tick() {
 		super.tick();

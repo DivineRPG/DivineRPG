@@ -6,7 +6,8 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class WitherProtectionEffect extends ArmorEffect {
 	public WitherProtectionEffect() {super(10991286);}
-	@Override public void applyEffectTick(LivingEntity entity, int i) {
+	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
 		if(entity.hasEffect(MobEffects.WITHER)) entity.removeEffect(MobEffects.WITHER);
-	}
+        return false;
+    }
 }

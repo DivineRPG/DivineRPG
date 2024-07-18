@@ -9,8 +9,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.*;
-import net.minecraftforge.client.event.RenderGuiOverlayEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class ArcanaRenderer extends Gui {
@@ -23,7 +23,7 @@ public class ArcanaRenderer extends Gui {
     static long counter = 180;
     static float previousAmount = 0F;
     @SubscribeEvent
-    public void renderGameOverlayEvent(RenderGuiOverlayEvent.Post event) {
+    public void renderGameOverlayEvent(CustomizeGuiOverlayEvent event) {
         RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         GuiGraphics gui = event.getGuiGraphics();

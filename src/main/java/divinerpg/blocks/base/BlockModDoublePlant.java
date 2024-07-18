@@ -10,7 +10,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
-import net.minecraftforge.common.PlantType;
 
 import javax.annotation.Nullable;
 import java.util.function.Supplier;
@@ -56,18 +55,11 @@ public class BlockModDoublePlant extends DoublePlantBlock {
             return blockstate.is(this) && blockstate.getValue(HALF) == DoubleBlockHalf.LOWER;
         }
     }
-
-    @Override
-    public void playerWillDestroy(Level p_176208_1_, BlockPos p_176208_2_, BlockState p_176208_3_, Player p_176208_4_) {
-        if (!p_176208_1_.isClientSide) {
-            if (p_176208_4_.isCreative()) {
-                preventCreativeDropFromBottomPart(p_176208_1_, p_176208_2_, p_176208_3_, p_176208_4_);
-            }
-        }
-
-        super.playerWillDestroy(p_176208_1_, p_176208_2_, p_176208_3_, p_176208_4_);
+    @Override public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if(!level.isClientSide && player.isCreative()) preventCreativeDropFromBottomPart(level, pos, state, player);
+        super.playerWillDestroy(level, pos, state, player);
+        return state;
     }
-
     @Override
     public void playerDestroy(Level p_180657_1_, Player p_180657_2_, BlockPos p_180657_3_, BlockState p_180657_4_, @Nullable BlockEntity p_180657_5_, ItemStack p_180657_6_) {
         super.playerDestroy(p_180657_1_, p_180657_2_, p_180657_3_, Blocks.AIR.defaultBlockState(), p_180657_5_, p_180657_6_);
@@ -96,10 +88,10 @@ public class BlockModDoublePlant extends DoublePlantBlock {
         p_206840_1_.add(HALF);
     }
 
-    @Override
-    public PlantType getPlantType(BlockGetter world, BlockPos pos) {
-        return PlantType.PLAINS;
-    }
+//    @Override
+//    public PlantType getPlantType(BlockGetter world, BlockPos pos) {
+//        return PlantType.PLAINS;
+//    }
 
     @Override
     public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {

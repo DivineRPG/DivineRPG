@@ -1,34 +1,34 @@
 package divinerpg.effect.mob.armor.vanilla;
 
-import divinerpg.effect.mob.armor.ArmorEffect;
-import divinerpg.effect.mob.armor.UpdatableArmorEffect;
+import divinerpg.effect.mob.armor.*;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
 
 public class AngelicFlightEffect extends ArmorEffect implements UpdatableArmorEffect {
 	public AngelicFlightEffect() {super(10991286);}
-	@Override
-	public void addAttributeModifiers(LivingEntity entity, AttributeMap map, int i) {
-		super.addAttributeModifiers(entity, map, i);
+	@SuppressWarnings("deprecation")
+	@Override public void addAttributeModifiers(AttributeMap map, int i) {
+		super.addAttributeModifiers(map, i);
 		if(entity instanceof ServerPlayer player && !player.isCreative()) {
-			player.abilities.mayfly = true;
+			player.getAbilities().mayfly = true;
 			player.onUpdateAbilities();
 		}
 	}
-	@Override
-	public void removeAttributeModifiers(LivingEntity entity, AttributeMap map, int i) {
-		super.removeAttributeModifiers(entity, map, i);
+	@SuppressWarnings("deprecation")
+	@Override public void removeAttributeModifiers(AttributeMap map) {
+		super.removeAttributeModifiers(map);
 		if(entity instanceof ServerPlayer player && !player.isCreative()) {
-			player.abilities.mayfly = false;
-            player.abilities.flying = false;
+			player.getAbilities().mayfly = false;
+            player.getAbilities().flying = false;
             player.onUpdateAbilities();
 		}
 	}
-	@Override public boolean isDurationEffectTick(int i, int j) {return false;}
+//	@Override public boolean isDurationEffectTick(int i, int j) {return false;}
+	@SuppressWarnings("deprecation")
 	@Override public void update(LivingEntity entity) {
-		if(entity instanceof ServerPlayer player && !player.isCreative() && !player.abilities.mayfly) {
-			player.abilities.mayfly = true;
+		if(entity instanceof ServerPlayer player && !player.isCreative() && !player.getAbilities().mayfly) {
+			player.getAbilities().mayfly = true;
 			player.onUpdateAbilities();
 		}
 	}

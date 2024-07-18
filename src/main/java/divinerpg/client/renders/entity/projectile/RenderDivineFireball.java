@@ -41,7 +41,7 @@ public class RenderDivineFireball<T extends DivineFireball> extends EntityRender
         matrix.popPose();
     }
     private static void pos(VertexConsumer vertexBuilder, Matrix4f matrix4f, Matrix3f normal, int lightmapUV, float x, float y, float u, float v) {
-        vertexBuilder.vertex(matrix4f, x - .5F, y - .25f, 0).color(255, 255, 255, 255).uv(u, v).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(lightmapUV).normal(normal, 0, 1, 0).endVertex();
+        vertexBuilder.addVertex(matrix4f, x - .5F, y - .25f, 0).setColor(255, 255, 255, 255).setUv(u, v).setOverlay(OverlayTexture.NO_OVERLAY).setLight(lightmapUV).setNormal(0, 1, 0);
     }
     @Override
     public ResourceLocation getTextureLocation(T entity) {

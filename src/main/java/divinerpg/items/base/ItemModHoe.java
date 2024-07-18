@@ -14,13 +14,13 @@ import static net.minecraft.tags.BlockTags.*;
 
 public class ItemModHoe extends HoeItem {
     public ItemModHoe(Tier tier, Rarity rarity) {
-        super(tier, new Properties().attributes(HoeItem.createAttributes(tier, tier.getAttackDamageBonus(), 0)).rarity(rarity));
+        super(tier, new Properties().attributes(HoeItem.createAttributes(tier, 0, 0)).rarity(rarity));
     }
     public ItemModHoe(Tier tier, float attackSpeed) {
-        super(tier, new Properties().attributes(HoeItem.createAttributes(tier, tier.getAttackDamageBonus(), attackSpeed)));
+        super(tier, new Properties().attributes(HoeItem.createAttributes(tier, 0, attackSpeed)));
     }
     public ItemModHoe(Tier tier, Properties properties) {
-        super(tier, properties.attributes(HoeItem.createAttributes(tier, tier.getAttackDamageBonus(), 0)));
+        super(tier, properties.attributes(HoeItem.createAttributes(tier, 0, 0)));
     }
 	@OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {

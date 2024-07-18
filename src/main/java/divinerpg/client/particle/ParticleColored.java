@@ -4,7 +4,7 @@ import divinerpg.client.particle.options.ParticleColouredType;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.neoforged.api.distmarker.*;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleColored extends SimpleAnimatedParticle {

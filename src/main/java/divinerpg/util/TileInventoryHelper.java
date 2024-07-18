@@ -1,10 +1,11 @@
 package divinerpg.util;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.*;
-import net.minecraftforge.items.*;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.function.*;
 
@@ -40,12 +41,12 @@ public class TileInventoryHelper implements Container {
         return new TileInventoryHelper(size);
     }
 
-    public CompoundTag serializeNBT() {
-        return chestContents.serializeNBT();
+    public CompoundTag serializeNBT(HolderLookup.Provider provider) {
+        return chestContents.serializeNBT(provider);
     }
 
-    public void deserializeNBT(CompoundTag nbt) {
-        chestContents.deserializeNBT(nbt);
+    public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
+        chestContents.deserializeNBT(provider, nbt);
     }
 
     @Override

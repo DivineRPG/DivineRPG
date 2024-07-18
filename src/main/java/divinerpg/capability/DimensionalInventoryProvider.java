@@ -19,9 +19,9 @@ public class DimensionalInventoryProvider implements ICapabilityProvider, INBTSe
     	return DIMENSIONAL_INVENTORY.orEmpty(cap, opt);
     }
 	@Override public CompoundTag serializeNBT(HolderLookup.Provider provider) {
-        return getOrCreateDimensionalInventory().serializeNBT();
+        return getOrCreateDimensionalInventory().serializeNBT(provider);
     }
     @Override public void deserializeNBT(HolderLookup.Provider provider, CompoundTag nbt) {
-    	getOrCreateDimensionalInventory().deserializeNBT(nbt);
+    	getOrCreateDimensionalInventory().deserializeNBT(provider, nbt);
     }
 }

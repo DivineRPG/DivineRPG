@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.api.distmarker.*;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class BlockFrostedAllure extends BaseEntityBlock {

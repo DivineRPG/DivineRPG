@@ -15,13 +15,13 @@ import static divinerpg.util.Utils.*;
 
 public class GroglinBountyEffect extends MobEffect {
 	public GroglinBountyEffect() {super(MobEffectCategory.HARMFUL, 10991286);}
-	@Override public boolean isDurationEffectTick(int i, int j) {return true;}
+//	@Override public boolean isDurationEffectTick(int i, int j) {return true;}
 	@Override public void applyInstantenousEffect(Entity entity, Entity e, LivingEntity living, int i, double d) {}
-	@Override public void applyEffectTick(LivingEntity entity, int i) {
+	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
 		if(entity.level() instanceof ServerLevel level && level.getGameTime() % 20 == 0 && level.getDifficulty() != Difficulty.PEACEFUL && !level.getGameRules().getBoolean(GameRules.RULE_DISABLE_RAIDS) && level.canSeeSky(entity.blockPosition()) && Faction.hasNearbyTarget(entity, entity.getBoundingBox().inflate(16D), Faction.GROGLIN)) {
 			BlockPos structure = level.findNearestMapStructure(Groglin.RAID_TARGETS, entity.blockPosition(), 4, false);
 			if(structure != null && entity.distanceToSqr(structure.getX(), entity.getBlockY(), structure.getZ()) < 128D) {
-				BlockPos pos = getNearbySpawnPos(level, entity.random, entity.blockPosition());
+				BlockPos pos = getNearbySpawnPos(level, entity.getRandom(), entity.blockPosition());
 				CompoundTag unimportant = new CompoundTag();
 				unimportant.putBoolean("Important", false);
 				EntityRegistry.GROGLIN_SHARLATAN.get().spawn(level, unimportant, null, pos, MobSpawnType.REINFORCEMENT, false, false).setUnimportant();
@@ -36,6 +36,6 @@ public class GroglinBountyEffect extends MobEffect {
 				ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, -3).mutable()), MobSpawnType.REINFORCEMENT);
 				entity.removeEffect(this);
 			}
-		}
+		} return false;
 	}
 }

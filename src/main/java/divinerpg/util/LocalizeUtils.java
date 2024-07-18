@@ -1,12 +1,10 @@
 package divinerpg.util;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.commands.CommandSource;
 import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.server.command.TextComponentHelper;
 
 public class LocalizeUtils {
     private static final String
@@ -90,10 +88,9 @@ public class LocalizeUtils {
     /**
      * Creates message from server to translate on client.
      *
-     * @param sender - player (mostly) to send message
      * @param string - lang key
      */
-    public static Component getClientSideTranslation(CommandSource sender, String string, final Object... argument) {return TextComponentHelper.createComponentTranslation(sender, string, argument);}
+    public static Component getClientSideTranslation(String string, final Object... argument) {return Component.translatable(string, argument);}
     /**
      * Indicates the harvest level of the tools.
      *

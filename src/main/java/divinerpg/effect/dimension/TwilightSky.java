@@ -61,7 +61,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 				Vec3 vec3 = level.getSkyColor(camera.getPosition(), partialTick);
 				float f = (float)vec3.x, f1 = (float)vec3.y, f2 = (float)vec3.z;
 				FogRenderer.levelFogColor();
-				BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
+				BufferBuilder bufferbuilder = Tesselator.getInstance().begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
 				RenderSystem.depthMask(false);
 				RenderSystem.setShaderColor(f, f1, f2, 1F);
 				ShaderInstance shaderinstance = RenderSystem.getShader();
@@ -76,20 +76,18 @@ public class TwilightSky extends DimensionSpecialEffects {
 //					RenderSystem.disableBlend();
 					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 					poseStack.pushPose();
-					poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+					poseStack.mulPose(Axis.XP.rotationDegrees(90));
 					float f3 = Mth.sin(level.getSunAngle(partialTick)) < 0F ? 180F : 0F;
 					poseStack.mulPose(Axis.ZP.rotationDegrees(f3));
 					poseStack.mulPose(Axis.ZP.rotationDegrees(90F));
 					float f4 = afloat[0], f5 = afloat[1], f6 = afloat[2];
 					Matrix4f matrix4f = poseStack.last().pose();
-					bufferbuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
-					bufferbuilder.vertex(matrix4f, 0F, 100F, 0F).color(f4, f5, f6, afloat[3]).endVertex();
+					bufferbuilder.addVertex(matrix4f, 0F, 100F, 0F).setColor(f4, f5, f6, afloat[3]);
 					for(int j = 0; j <= 16; ++j) {
 						float f7 = (float)(j * (Math.PI * 2F) / 16F), f8 = Mth.sin(f7);
 						float f9 = Mth.cos(f7);
-						bufferbuilder.vertex(matrix4f, f8 * 120F, f9 * 120F, -f9 * 40F * afloat[3]).color(afloat[0], afloat[1], afloat[2], 0F).endVertex();
-					}
-					BufferUploader.drawWithShader(bufferbuilder.end());
+						bufferbuilder.addVertex(matrix4f, f8 * 120F, f9 * 120F, -f9 * 40F * afloat[3]).setColor(afloat[0], afloat[1], afloat[2], 0F);
+					} BufferUploader.drawWithShader(bufferbuilder.buildOrThrow());
 					poseStack.popPose();
 				}
 //				RenderSystem.enableBlend();
@@ -103,12 +101,12 @@ public class TwilightSky extends DimensionSpecialEffects {
 				float f12 = 30F;
 				RenderSystem.setShader(GameRenderer::getPositionTexShader);
 				RenderSystem.setShaderTexture(0, level.dimension() == LevelRegistry.MORTUM && camera.getPosition().y < 0 ? POG_SUN_LOCATION : SUN_LOCATION);
-				bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-				bufferbuilder.vertex(matrix4f1, -f12, 100.0F, -f12).uv(0.0F, 0.0F).endVertex();
-				bufferbuilder.vertex(matrix4f1, f12, 100.0F, -f12).uv(1.0F, 0.0F).endVertex();
-				bufferbuilder.vertex(matrix4f1, f12, 100.0F, f12).uv(1.0F, 1.0F).endVertex();
-				bufferbuilder.vertex(matrix4f1, -f12, 100.0F, f12).uv(0.0F, 1.0F).endVertex();
-				BufferUploader.drawWithShader(bufferbuilder.end());
+				BufferBuilder bufferbuilder1 = Tesselator.getInstance().begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+				bufferbuilder1.addVertex(matrix4f1, -f12, 100, -f12).setUv(0, 0);
+				bufferbuilder1.addVertex(matrix4f1, f12, 100, -f12).setUv(1, 0);
+				bufferbuilder1.addVertex(matrix4f1, f12, 100, f12).setUv(1, 1);
+				bufferbuilder1.addVertex(matrix4f1, -f12, 100, f12).setUv(0, 1);
+				BufferUploader.drawWithShader(bufferbuilder1.buildOrThrow());
 				float f10 = level.getStarBrightness(partialTick) * f11 * 1.01F;
 				if(f10 > 0F) {
 					RenderSystem.setShaderColor(f10, f10, f10, f10);
@@ -143,11 +141,11 @@ public class TwilightSky extends DimensionSpecialEffects {
 		return livingentity.hasEffect(MobEffects.BLINDNESS) || livingentity.hasEffect(MobEffects.DARKNESS) || livingentity.hasEffect(MobEffectRegistry.HEAVY_AIR.get());
 	}
 	public static BufferBuilder.RenderedBuffer buildSkyDisc(BufferBuilder builder, float g) {
-		float f = Math.signum(g) * 512.0F;
+		float f = Math.signum(g) * 512;
 		RenderSystem.setShader(GameRenderer::getPositionShader);
 		builder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
 		builder.vertex(0D, g, 0D).endVertex();
-		for(int i = -180; i <= 180; i += 45) builder.vertex(f * Math.cos(i * (Math.PI / 180D)), g, 512.0F * Math.sin(i * (Math.PI / 180D))).endVertex();
+		for(int i = -180; i <= 180; i += 45) builder.vertex(f * Math.cos(i * (Math.PI / 180D)), g, 512 * Math.sin(i * (Math.PI / 180D))).endVertex();
 		return builder.end();
 	}
 	public static BufferBuilder.RenderedBuffer drawStars(BufferBuilder builder) {

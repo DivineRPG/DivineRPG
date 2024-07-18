@@ -6,6 +6,7 @@ import net.minecraft.world.entity.projectile.Fireball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.neoforged.neoforge.event.EventHooks;
 
 public class DivineFireball extends Fireball {
 	public byte explosionPower;
@@ -35,8 +36,8 @@ public class DivineFireball extends Fireball {
 	        super.onHit(result);
 	        if(!level().isClientSide() && explosionPower > 0) {
 	           // TODO 1.19.3: The creation of Level.ExplosionInteraction means this code path will fire EntityMobGriefingEvent twice. Should we try and fix it? -SS
-	           boolean flag = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(level(), getOwner());
-	           level().explode(this, getX(), getY(), getZ(), (float)explosionPower, flag, Level.ExplosionInteraction.MOB);
+	           boolean flag = EventHooks.canEntityGrief(level(), getOwner());
+	           level().explode(this, getX(), getY(), getZ(), explosionPower, flag, Level.ExplosionInteraction.MOB);
 	           discard();
 	        }
     	}

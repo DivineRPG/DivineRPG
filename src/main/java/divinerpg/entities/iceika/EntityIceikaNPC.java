@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import divinerpg.entities.ai.FactionTargetGoal;
 import divinerpg.entities.base.*;
 import divinerpg.registries.ItemRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -56,7 +57,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
         setPathfindingMalus(PathType.POWDER_SNOW, -1);
     }
 	protected abstract TagKey<Structure> getRaidTargets();
-	protected abstract MobEffect getTargetEffect();
+	protected abstract Holder<MobEffect> getTargetEffect();
 	@Override protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
         if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));

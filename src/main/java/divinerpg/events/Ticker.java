@@ -36,7 +36,7 @@ public class Ticker {
         Level level = player.level();
         if(level.dimension().equals(LevelRegistry.ICEIKA) && !player.isCreative() && !player.isSpectator()) {
         	if(Utils.ICEIKA_WEATHER == 1 && level.isRaining() && player.getItemBySlot(EquipmentSlot.HEAD).isEmpty() && player.getRandom().nextFloat() < .1F && level.canSeeSky(player.blockPosition())) player.hurt(level.damageSources().generic(), 1F);
-        	if(!level.isClientSide() && !player.hasEffect(MobEffectRegistry.WARMTH.get()) && !player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments().containsKey(EnchantmentRegistry.INSULATION.get()) && level.getLightEngine().getLayerListener(LightLayer.BLOCK).getLightValue(player.blockPosition()) < 8) {
+        	if(!level.isClientSide() && !player.hasEffect(MobEffectRegistry.WARMTH) && !player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments().containsKey(EnchantmentRegistry.INSULATION.get()) && level.getLightEngine().getLayerListener(LightLayer.BLOCK).getLightValue(player.blockPosition()) < 8) {
     			player.setSharedFlagOnFire(false);
     			if(player.isFullyFrozen()) {
     				player.setTicksFrozen(player.getTicksRequiredToFreeze() + 2);
@@ -44,7 +44,7 @@ public class Ticker {
     			} else player.setTicksFrozen(player.getTicksFrozen() + 1 + player.getRandom().nextInt(2) + (Utils.ICEIKA_WEATHER == 2 ? player.getRandom().nextInt(2) : 0));
         	}
         }
-        if(player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments().containsKey(EnchantmentRegistry.INSULATION.get())) {
+        if(player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments().containsKey(EnchantmentRegistry.INSULATION)) {
     		int f = player.getTicksFrozen();
     		if(f > 0) player.setTicksFrozen(f - 2);
         }

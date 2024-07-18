@@ -30,7 +30,6 @@ public class BlockArcanaPortal extends BlockMod {
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(AXIS);}
     @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return SHAPE;}
-    @Override public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {return new ItemStack(this);}
     @Override public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
         if(world instanceof ServerLevel server && !entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && Shapes.joinIsNotEmpty(Shapes.create(entity.getBoundingBox().move(-pos.getX(), -pos.getY(), -pos.getZ())), state.getShape(world, pos), BooleanOp.AND)) {
         	if(entity.isOnPortalCooldown()) entity.setPortalCooldown();
@@ -43,7 +42,7 @@ public class BlockArcanaPortal extends BlockMod {
         	}
         }
     }
-    @Override public ItemStack getCloneItemStack(BlockGetter getter, BlockPos pos, BlockState state) {return ItemStack.EMPTY;}
+    @Override public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {return ItemStack.EMPTY;}
     @Override public boolean canBeReplaced(BlockState state, Fluid fluid) {return false;}
     public static void transferEntity(Entity e, ServerLevel modDimension) {
         if(e == null || modDimension == null) return;

@@ -66,7 +66,7 @@ public class EntityKaros extends EntityDivineBoss {
                     if (!this.level().isClientSide) {
                         List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
                         for (Player p : players) {
-                            p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.explosion"), true);
+                            p.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.karos.explosion"), true);
                         }
                     }
                     break;
@@ -101,8 +101,8 @@ public class EntityKaros extends EntityDivineBoss {
                 List<Player> players = level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
                 for (Player p : players) {
                     this.level().playSound(p, p.blockPosition(), SoundRegistry.KAROS_INTRO.get(), SoundSource.HOSTILE, 1.0F, 1.0F);
-                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.game"), true);
-                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.karos.begin"), true);
+                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.karos.game"), true);
+                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.karos.begin"), true);
                 }
             }
             for (int x = -40; x < 40; x++) {
@@ -195,7 +195,7 @@ public class EntityKaros extends EntityDivineBoss {
 
         level().getEntitiesOfClass(Player.class, this.getBoundingBox()
                 .expandTowards(30, 30, 30))
-                .forEach(x -> x.displayClientMessage(LocalizeUtils.getClientSideTranslation(x, langKey), true));
+                .forEach(x -> x.displayClientMessage(LocalizeUtils.getClientSideTranslation(langKey), true));
 
         return sound;
     }

@@ -36,10 +36,10 @@ import static net.neoforged.neoforge.common.ItemAbilities.*;
 
 public class ItemShickaxe extends DiggerItem {
     public ItemShickaxe(Rarity rarity, Tier tier) {
-        super(tier, BlockTags.create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), new Properties().attributes(ShovelItem.createAttributes(tier, tier.getAttackDamageBonus(), -2.4F)).rarity(rarity));
+        super(tier, BlockTags.create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), new Properties().attributes(ShovelItem.createAttributes(tier, 1, -2.4F)).rarity(rarity));
     }
     public ItemShickaxe(Tier tier) {
-        super(tier, BlockTags.create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), new Properties().attributes(ShovelItem.createAttributes(tier, tier.getAttackDamageBonus(), -2.4F)));
+        super(tier, BlockTags.create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), new Properties().attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
     }
     private static final Set<ItemAbility> TOOL_ACTIONS = Stream.of(AXE_DIG, AXE_SCRAPE, AXE_STRIP, AXE_WAX_OFF, PICKAXE_DIG, SHOVEL_DIG, SHOVEL_FLATTEN, HOE_DIG, HOE_TILL).collect(Collectors.toCollection(Sets::newIdentityHashSet));
     @Override public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {return TOOL_ACTIONS.contains(itemAbility);}

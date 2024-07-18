@@ -3,6 +3,7 @@ package divinerpg.entities.iceika.groglin;
 import divinerpg.DivineRPG;
 import divinerpg.entities.iceika.EntityIceikaNPC;
 import divinerpg.registries.MobEffectRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -16,5 +17,5 @@ public abstract class Groglin extends EntityIceikaNPC {
 	public Groglin(EntityType<? extends Groglin> type, Level worldIn) {super(type, worldIn);}
 	@Override public Faction getFaction() {return Faction.GROGLIN;}
 	@Override protected TagKey<Structure> getRaidTargets() {return RAID_TARGETS;}
-	@Override protected MobEffect getTargetEffect() {return MobEffectRegistry.GROGLIN_BOUNTY.get();}
+	@Override protected Holder<MobEffect> getTargetEffect() {return MobEffectRegistry.GROGLIN_BOUNTY;}
 }

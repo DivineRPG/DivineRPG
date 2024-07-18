@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
@@ -24,7 +23,7 @@ public class BlockHeatTrap extends BlockModUnbreakable {
         if(state.getValue(ACTIVE) && random.nextInt(5) == 0) worldIn.setBlock(pos, state.setValue(ACTIVE, false), 2);
     }
     @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
-    	if(state.is(this) && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)entity)) {
+    	if(state.is(this) && entity instanceof LivingEntity) {
             if(!state.getValue(ACTIVE)) level.setBlock(pos, BlockRegistry.heatTrap.get().defaultBlockState().setValue(ACTIVE, true), 2);
             entity.hurt(entity.damageSources().hotFloor(), 4);
             entity.igniteForSeconds(7);

@@ -35,7 +35,7 @@ public class BlockArcanaPortalFrame extends BlockMod {
         if(portalShape == null) portalShape = BlockPatternBuilder.start().aisle("?vvv?", ">???<", ">???<", ">???<", "?^^^?").where('?', BlockInWorld.hasState(BlockStatePredicate.ANY)).where('^', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.arcanaPortalFrame.get()).where(FACING, Predicates.equalTo(Direction.SOUTH)))).where('>', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.arcanaPortalFrame.get().where(FACING, Predicates.equalTo(Direction.WEST)))).where('v', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.arcanaPortalFrame.get().where(FACING, Predicates.equalTo(Direction.NORTH)))).where('<', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.arcanaPortalFrame.get().where(FACING, Predicates.equalTo(Direction.EAST)))).build())));
         return portalShape;
     }
-    @Override public boolean isPathfindable(BlockState state, BlockGetter getter, BlockPos pos, PathComputationType type) {return false;}
+    @Override public boolean isPathfindable(BlockState state, PathComputationType type) {return false;}
     @Override public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos pos2, boolean unknown) {
     	DebugPackets.sendNeighborsUpdatePacket(world, pos);
         if(world.getBlockState(pos2).getBlock().defaultBlockState() == BlockRegistry.arcanaPortal.get().defaultBlockState() || world.getBlockState(pos2).getBlock().defaultBlockState() == BlockRegistry.arcanaPortalFrame.get().defaultBlockState()) {

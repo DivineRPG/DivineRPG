@@ -10,9 +10,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 
@@ -35,12 +34,11 @@ public class GruzzorlugCannoneer extends Gruzzorlug implements RangedAttackMob {
             playSound(SoundRegistry.FROST_CANNON.get());
         }
 	}
-	@Override
-	protected void updateTrades() {
-		MerchantOffers merchantoffers = this.getOffers();
+	@Override protected void updateTrades() {
+		MerchantOffers merchantoffers = getOffers();
         DivineTrades[] tradetrades = new DivineTrades[]{
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 10), new ItemStack(BlockRegistry.workshopLamp.get(), 4), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 2), PotionUtils.setPotion(new ItemStack(Items.POTION), PotionRegistry.TEA.get()), random.nextInt(7), 1),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 2), PotionContents.createItemStack(Items.POTION, PotionRegistry.TEA), random.nextInt(7), 1),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 18), new ItemStack(ItemRegistry.sabear_tooth.get()), random.nextInt(7), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 13), new ItemStack(ItemRegistry.sabear_fur.get()), random.nextInt(7), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 1), new ItemStack(ItemRegistry.ice_stone.get(), 2), random.nextInt(7), 1)

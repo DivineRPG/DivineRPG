@@ -3,6 +3,7 @@ package divinerpg.entities.iceika.gruzzorlug;
 import divinerpg.DivineRPG;
 import divinerpg.entities.iceika.EntityIceikaNPC;
 import divinerpg.registries.MobEffectRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -19,7 +20,7 @@ public abstract class Gruzzorlug extends EntityIceikaNPC {
 	public Gruzzorlug(EntityType<? extends Gruzzorlug> type, Level worldIn) {super(type, worldIn);}
 	@Override public Faction getFaction() {return Faction.GRUZZORLUG;}
 	@Override protected TagKey<Structure> getRaidTargets() {return RAID_TARGETS;}
-	@Override protected MobEffect getTargetEffect() {return MobEffectRegistry.GRUZZORLUG_TARGET.get();}
+	@Override protected Holder<MobEffect> getTargetEffect() {return MobEffectRegistry.GRUZZORLUG_TARGET;}
 	public class AggressiveRangedAttackGoal extends RangedAttackGoal {
 		public AggressiveRangedAttackGoal(int attackInterval) {
 			super((RangedAttackMob) Gruzzorlug.this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), attackInterval, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue());

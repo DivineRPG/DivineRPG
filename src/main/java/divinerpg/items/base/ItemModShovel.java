@@ -14,13 +14,13 @@ import static net.minecraft.tags.BlockTags.*;
 
 public class ItemModShovel extends ShovelItem {
     public ItemModShovel(Tier tier, Rarity rarity) {
-        super(tier, new Properties().attributes(ShovelItem.createAttributes(tier, tier.getAttackDamageBonus(), -3)).rarity(rarity));
+        super(tier, new Properties().attributes(ShovelItem.createAttributes(tier, 0, -3)).rarity(rarity));
     }
     public ItemModShovel(Tier tier) {
-        super(tier, new Properties().attributes(ShovelItem.createAttributes(tier, tier.getAttackDamageBonus(), -3)));
+        super(tier, new Properties().attributes(ShovelItem.createAttributes(tier, 0, -3)));
     }
     public ItemModShovel(Tier tier, Properties properties) {
-        super(tier, properties.attributes(ShovelItem.createAttributes(tier, tier.getAttackDamageBonus(), -3)));
+        super(tier, properties.attributes(ShovelItem.createAttributes(tier, 0, -3)));
     }
 	@OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {

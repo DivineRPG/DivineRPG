@@ -15,7 +15,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 
 public class Arcana implements INBTSerializable<CompoundTag> {
-	
+
 	public static float clientMax, clientAmount;
 	
     private int tickDelay = 4;

@@ -17,11 +17,12 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.Cancelable;
 import net.neoforged.api.distmarker.*;
+import net.neoforged.bus.api.ICancellableEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.level.BlockEvent;
 
 import javax.annotation.Nullable;
 
@@ -168,9 +169,8 @@ public class BlockModPortal extends BlockMod {
         }
 
     }
-
     @Override
-    public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
         return ItemStack.EMPTY;
     }
 
@@ -211,11 +211,10 @@ public class BlockModPortal extends BlockMod {
     }
 
     public static boolean onTrySpawnPortal(LevelAccessor world, BlockPos pos, BlockModPortal.Size size) {
-        return MinecraftForge.EVENT_BUS.post(new PortalSpawnEvent(world, pos, world.getBlockState(pos), size));
+        return NeoForge.EVENT_BUS.post(new PortalSpawnEvent(world, pos, world.getBlockState(pos), size));
     }
 
-    @Cancelable
-    public static class PortalSpawnEvent extends BlockEvent {
+    public static class PortalSpawnEvent extends BlockEvent implements ICancellableEvent {
         private final BlockModPortal.Size size;
 
         public PortalSpawnEvent(LevelAccessor world, BlockPos pos, BlockState state, BlockModPortal.Size size) {

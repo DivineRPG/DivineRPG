@@ -41,7 +41,7 @@ public class EntityRaglok extends EntityDivineBoss {
             List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
 
             for (Player p : players) {
-                p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.raglok.dare"), true);
+                p.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.dare"), true);
             }
 
             this.playSound(SoundRegistry.RAGLOK_AWAKEN.get(), 1.0F, 1.0F);
@@ -141,27 +141,27 @@ public class EntityRaglok extends EntityDivineBoss {
                     case LIGHTNING:
                         this.playSound(SoundRegistry.RAGLOK_GUARDIAN.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.think"), true);
-                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.great"), true);
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.think"), true);
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.great"), true);
                         }
                         break;
                     case BLIND:
                         this.playSound(SoundRegistry.RAGLOK_DARK.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.future"), true);
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.future"), true);
                         }
                         break;
                     case BOMBS:
                         this.playSound(SoundRegistry.RAGLOK_RAIN.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.rain"), true);
-                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.kill"), true);
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.rain"), true);
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.kill"), true);
                         }
                         break;
                     case SLOW:
                         this.playSound(SoundRegistry.RAGLOK_NOTHING.get(), 1.0F, 1.0F);
                         if (!level().isClientSide) {
-                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation(player, "message.raglok.compare"), true);
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.compare"), true);
                         }
                         break;
                     default:
@@ -205,7 +205,7 @@ public class EntityRaglok extends EntityDivineBoss {
             if (!level().isClientSide()) {
                 List<Player> players = level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
                 for (Player p : players) {
-                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, "message.raglok.avenge"), true);
+                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.avenge"), true);
                 }
             }
             Player player = level().getNearestPlayer(this, 64.0D);

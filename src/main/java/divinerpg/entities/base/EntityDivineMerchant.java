@@ -22,8 +22,7 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.saveddata.maps.MapDecoration;
-import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
+import net.minecraft.world.level.saveddata.maps.*;
 import net.neoforged.neoforge.common.Tags;
 
 import javax.annotation.Nullable;
@@ -75,7 +74,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
             setTradingPlayer(player);
             openTradingScreen(player, getDisplayName(), 1);
             String[] messages = getChatMessages();
-            if(messages.length > 0) player.displayClientMessage(Component.translatable(messages[player.random.nextInt(getChatMessages().length)]), true);
+            if(messages.length > 0) player.displayClientMessage(Component.translatable(messages[player.getRandom().nextInt(getChatMessages().length)]), true);
         } else setUnhappy();
         return InteractionResult.SUCCESS;
     }
@@ -142,14 +141,14 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     public static class DivineMapTrades extends DivineTrades {
     	private final String displayName;
     	private final TagKey<Structure> destination;
-    	private final MapDecoration.Type destinationType;
-        public DivineMapTrades(ItemStack input1, ItemStack input2, String displayName, TagKey<Structure> destination, MapDecoration.Type destinationType, int xp) {
+    	private final MapDecorationType destinationType;
+        public DivineMapTrades(ItemStack input1, ItemStack input2, String displayName, TagKey<Structure> destination, MapDecorationType destinationType, int xp) {
             super(input1, input2, null, 1, xp);
             this.displayName = displayName;
             this.destination = destination;
             this.destinationType = destinationType;
         }
-        public DivineMapTrades(ItemStack input1, String displayName, TagKey<Structure> destination, MapDecoration.Type destinationType, int xp) {this(input1, ItemStack.EMPTY, displayName, destination, destinationType, xp);}
+        public DivineMapTrades(ItemStack input1, String displayName, TagKey<Structure> destination, MapDecorationType destinationType, int xp) {this(input1, ItemStack.EMPTY, displayName, destination, destinationType, xp);}
         @Override
         public MerchantOffer getOffer(Entity entity, RandomSource random) {
         	if(!(entity.level() instanceof ServerLevel)) return null;

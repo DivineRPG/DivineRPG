@@ -2,11 +2,12 @@ package divinerpg.capability;
 
 import divinerpg.compat.CuriosCompat;
 import divinerpg.events.VetheaInventorySwapEvent;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.util.INBTSerializable;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.common.util.INBTSerializable;
 
 public class DimensionalInventory implements INBTSerializable<CompoundTag> {
 	ListTag overworldInventory = new ListTag(), overworldCurios = new ListTag(), vetheaInventory = new ListTag(), vetheaCurios = new ListTag();
@@ -48,8 +49,7 @@ public class DimensionalInventory implements INBTSerializable<CompoundTag> {
 	public void stateVetheanInventory() {
 		System.err.println("Current Vethea Inventory: " + vetheaInventory);
 	}
-	@Override
-	public CompoundTag serializeNBT() {
+	@Override public CompoundTag serializeNBT(HolderLookup.Provider provider) {
 		CompoundTag tag = new CompoundTag();
 		if(ModList.get().isLoaded("curios")) {
 			tag.put("vethea_curios", vetheaCurios);
@@ -58,8 +58,7 @@ public class DimensionalInventory implements INBTSerializable<CompoundTag> {
 		tag.put("vethea_inventory", vetheaInventory);
 		return tag;
 	}
-	@Override
-	public void deserializeNBT(CompoundTag tag) {
+	@Override public void deserializeNBT(HolderLookup.Provider provider, CompoundTag tag) {
 		if(ModList.get().isLoaded("curios") && tag.contains("vethea_curios")) {
 			vetheaCurios = tag.getList("vethea_curios", 10);
 			overworldCurios = tag.getList("overworld_curios", 10);

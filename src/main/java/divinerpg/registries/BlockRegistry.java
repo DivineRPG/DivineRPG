@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -92,19 +93,19 @@ public class BlockRegistry {
             frozenStairs = registerBlock("frozen_stairs", () -> new BlockModStairs(frozenStone.get())),
             frozenSlab = registerBlock("frozen_slab", () -> new BlockModSlab(frozenStone.get())),
             frozenPressurePlate = registerBlock("frozen_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, GLOW_LICHEN, BlockSetType.STONE)),
-            frozenButton = registerBlock("frozen_button", () -> new BlockModButton(BlockSetType.STONE)),
+            frozenButton = registerBlock("frozen_button", BlockModButton::new),
             cobbledFrozenStone = registerBlock("cobbled_frozen_stone", () -> new BlockMod(GLOW_LICHEN, 2, 6)),
             cobbledFrozenStairs = registerBlock("cobbled_frozen_stairs", () -> new BlockModStairs(cobbledFrozenStone.get())),
             cobbledFrozenSlab = registerBlock("cobbled_frozen_slab", () -> new BlockModSlab(cobbledFrozenStone.get())),
             cobbledFrozenWall = registerBlock("cobbled_frozen_wall", () -> new BlockModWall(cobbledFrozenStone.get())),
             cobbledFrozenPressurePlate = registerBlock("cobbled_frozen_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, GLOW_LICHEN, BlockSetType.STONE)),
-            cobbledFrozenButton = registerBlock("cobbled_frozen_button", () -> new BlockModButton(BlockSetType.STONE)),
+            cobbledFrozenButton = registerBlock("cobbled_frozen_button", BlockModButton::new),
             cobaltite = registerBlock("cobaltite", () -> new BlockMod(COLOR_LIGHT_BLUE, 1.5F, 6)),
             cobaltiteStairs = registerBlock("cobaltite_stairs", () -> new BlockModStairs(cobaltite.get())),
             cobaltiteSlab = registerBlock("cobaltite_slab", () -> new BlockModSlab(cobaltite.get())),
             cobaltiteWall = registerBlock("cobaltite_wall", () -> new BlockModWall(cobaltite.get())),
             cobaltitePressurePlate = registerBlock("cobaltite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_LIGHT_BLUE, BlockSetType.STONE)),
-            cobaltiteButton = registerBlock("cobaltite_button", () -> new BlockModButton(BlockSetType.STONE)),
+            cobaltiteButton = registerBlock("cobaltite_button", BlockModButton::new),
             icyStone = registerBlock("icy_stone", () -> new BlockMod(ICE, 50, 1200)),
             blueStone = registerBlock("blue_stone", () -> new BlockLightCrystal(COLOR_LIGHT_BLUE)),
             icicle = registerBlock("icicle", BlockIcicle::new),
@@ -113,7 +114,7 @@ public class BlockRegistry {
             coalstoneSlab = registerBlock("coalstone_slab", () -> new BlockModSlab(coalstone.get())),
             coalstoneWall = registerBlock("coalstone_wall", () -> new BlockModWall(coalstone.get())),
             coalstonePressurePlate = registerBlock("coalstone_pressure_plate", () -> new BlockModPressurePlate(Blocks.POLISHED_BLACKSTONE_PRESSURE_PLATE, COLOR_GRAY, BlockSetType.STONE)),
-            coalstoneButton = registerBlock("coalstone_button", () -> new BlockModButton(BlockSetType.STONE)),
+            coalstoneButton = registerBlock("coalstone_button", BlockModButton::new),
             thermalVent = registerBlock("thermal_vent", BlockThermalVent::new),
             arcaniteStone = registerBlock("arcanite_stone", () -> new BlockMod(COLOR_CYAN, 1.5F, 6)),
             ancientStone = registerBlock("ancient_stone", () -> new BlockModUnbreakable(COLOR_GRAY)),
@@ -468,7 +469,7 @@ public class BlockRegistry {
             frozenBrickSlab = registerBlock("frozen_brick_slab", () -> new BlockModSlab(frozenBricks.get())),
             frozenBrickWall = registerBlock("frozen_brick_wall", () -> new BlockModWall(frozenBricks.get())),
             frozenBrickPressurePlate = registerBlock("frozen_brick_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, GLOW_LICHEN, BlockSetType.STONE)),
-            frozenBrickButton = registerBlock("frozen_brick_button", () -> new BlockModButton(BlockSetType.STONE)),
+            frozenBrickButton = registerBlock("frozen_brick_button", BlockModButton::new),
             snowBricks = registerBlock("snow_bricks", () -> new BlockMod(SNOW, 1.5F, 6)),
             icyBricks = registerBlock("icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
             chiseledIcyBricks = registerBlock("chiseled_icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
@@ -477,26 +478,26 @@ public class BlockRegistry {
             coalstoneBrickSlab = registerBlock("coalstone_brick_slab", () -> new BlockModSlab(coalstoneBricks.get())),
             coalstoneBrickWall = registerBlock("coalstone_brick_wall", () -> new BlockModWall(coalstoneBricks.get())),
             coalstoneBrickPressurePlate = registerBlock("coalstone_brick_pressure_plate", () -> new BlockModPressurePlate(Blocks.POLISHED_BLACKSTONE_PRESSURE_PLATE, COLOR_GRAY, BlockSetType.POLISHED_BLACKSTONE)),
-            coalstoneBrickButton = registerBlock("coalstone_brick_button", () -> new BlockModButton(BlockSetType.POLISHED_BLACKSTONE)),
+            coalstoneBrickButton = registerBlock("coalstone_brick_button", BlockModButton::new),
             chiseledCoalstoneBricks = registerBlock("chiseled_coalstone_bricks", () -> new BlockMod(COLOR_GRAY, 1.5F, 6)),
             polishedCoalstone = registerBlock("polished_coalstone", () -> new BlockMod(COLOR_GRAY, 1.5F, 6)),
             polishedCoalstoneStairs = registerBlock("polished_coalstone_stairs", () -> new BlockModStairs(polishedCoalstone.get())),
             polishedCoalstoneSlab = registerBlock("polished_coalstone_slab", () -> new BlockModSlab(polishedCoalstone.get())),
             polishedCoalstoneWall = registerBlock("polished_coalstone_wall", () -> new BlockModWall(polishedCoalstone.get())),
             polishedCoalstonePressurePlate = registerBlock("polished_coalstone_pressure_plate", () -> new BlockModPressurePlate(Blocks.POLISHED_BLACKSTONE_PRESSURE_PLATE, COLOR_GRAY, BlockSetType.POLISHED_BLACKSTONE)),
-            polishedCoalstoneButton = registerBlock("polished_coalstone_button", () -> new BlockModButton(BlockSetType.POLISHED_BLACKSTONE)),
+            polishedCoalstoneButton = registerBlock("polished_coalstone_button", BlockModButton::new),
             polishedCobaltite = registerBlock("polished_cobaltite", () -> new BlockMod(COLOR_LIGHT_BLUE, 1.5F, 6)),
             polishedCobaltiteStairs = registerBlock("polished_cobaltite_stairs", () -> new BlockModStairs(polishedCobaltite.get())),
             polishedCobaltiteSlab = registerBlock("polished_cobaltite_slab", () -> new BlockModSlab(polishedCobaltite.get())),
             polishedCobaltiteWall = registerBlock("polished_cobaltite_wall", () -> new BlockModWall(polishedCobaltite.get())),
             polishedCobaltitePressurePlate = registerBlock("polished_cobaltite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_LIGHT_BLUE, BlockSetType.STONE)),
-            polishedCobaltiteButton = registerBlock("polished_cobaltite_button", () -> new BlockModButton(BlockSetType.STONE)),
+            polishedCobaltiteButton = registerBlock("polished_cobaltite_button", BlockModButton::new),
             cutOxdrite = registerBlock("cut_oxdrite", () -> new BlockMod(Properties.of().mapColor(COLOR_BROWN).requiresCorrectToolForDrops().strength(5, 6).sound(SoundType.COPPER).noOcclusion())),
             cutOxdriteStairs = registerBlock("cut_oxdrite_stairs", () -> new BlockModStairs(cutOxdrite.get())),
             cutOxdriteSlab = registerBlock("cut_oxdrite_slab", () -> new BlockModSlab(cutOxdrite.get())),
             cutOxdriteWall = registerBlock("cut_oxdrite_wall", () -> new BlockModWall(cutOxdrite.get())),
             cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_BROWN, BlockSetType.IRON)),
-            cutOxdriteButton = registerBlock("cut_oxdrite_button", () -> new BlockModButton(BlockSetType.IRON)),
+            cutOxdriteButton = registerBlock("cut_oxdrite_button", BlockModButton::new),
 
             //Arcana Bricks & Other Blocks
             ancientBricks = registerBlock("ancient_bricks", () -> new BlockModUnbreakable(WARPED_NYLIUM)),
@@ -621,7 +622,7 @@ public class BlockRegistry {
             dungeonLampBreakable = registerBlock("dungeon_lamp_breakable", () -> new BlockMod(Properties.of().mapColor(QUARTZ).strength(.3F).sound(SoundType.GLASS).instrument(NoteBlockInstrument.HAT).lightLevel((state) -> 15))),
             cellLamp = registerBlock("cell_lamp", () -> new BlockModLamp(COLOR_LIGHT_GREEN, SoundType.GLASS)),
             villageLamp = registerBlock("village_lamp", () -> new BlockModLamp(TERRACOTTA_RED, SoundType.GLASS)),
-            dreamLamp = registerBlock("dream_lamp", BlockDreamLamp::new),
+            dreamLamp = registerBlock("dream_lamp", () -> new BlockDreamLamp(Properties.of().strength(.3F).sound(SoundType.GLASS))),
 
             //Bridges
             darkBridge = registerBlock("dark_bridge", BlockModBridge::new),
@@ -762,7 +763,7 @@ public class BlockRegistry {
             wreckAltar = registerBlock("wreck_altar", () -> new BlockWreckAltar(COLOR_RED)),
 
             //Hive Egg
-            hiveEgg = registerBlock("hive_egg", BlockHiveEgg::new),
+            hiveEgg = registerBlock("hive_egg", () -> new BlockHiveEgg(Properties.ofFullCopy(Blocks.DRAGON_EGG).mapColor(MapColor.GRASS))),
 
             //Ayeraco Technical Blocks
             ayeracoBeamRed = BLOCKS.register("ayeraco_beam_red", () -> new BlockAyeracoBeam(BossBarColor.RED)),
@@ -810,7 +811,7 @@ public class BlockRegistry {
             coldHellfireSponge = registerBlock("cold_hellfire_sponge", BlockColdHellfireSponge::new),
             frostedAllure = registerBlock("frosted_allure", BlockFrostedAllure::new, Rarity.UNCOMMON),
             robbinNest = registerBlock("robbin_nest", BlockRobbinNest::new),
-            robbinHut = registerBlock("robbin_hut", BlockRobbinHut::new),
+            robbinHut = registerBlock("robbin_hut", () -> new BlockRobbinHut(Properties.ofFullCopy(Blocks.SPRUCE_PLANKS).randomTicks().noOcclusion().mapColor(MapColor.COLOR_LIGHT_GRAY).isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false))),
             acceleron = registerBlock("acceleron", BlockAcceleron::new, Rarity.UNCOMMON),
             elevantium = registerBlock("elevantium", BlockElevantium::new, Rarity.UNCOMMON),
             soulTrap = registerBlock("soul_trap", BlockModSoulTrap::new),

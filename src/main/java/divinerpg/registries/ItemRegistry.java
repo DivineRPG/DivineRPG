@@ -926,8 +926,8 @@ public class ItemRegistry {
             tormented_leggings = registerItemVethean("tormented_leggings", () -> new ItemDivineArmor(TORMENTED, LEGGINGS, 45)),
             tormented_boots = registerItemVethean("tormented_boots", () -> new ItemDivineArmor(TORMENTED, BOOTS, 45));
 
-    private static DeferredItem<Item> registerItemVethean(String registryId) {return ITEMS.register(registryId, ItemVethean::new);}
+    private static DeferredItem<Item> registerItemVethean(String registryId) {return ITEMS.register(registryId, () -> new ItemVethean());}
     private static <T extends Item> DeferredItem<T> registerItemVethean(String registryId, Supplier<T> item) {return ITEMS.register(registryId, item);}
-    private static DeferredItem<Item> registerItem(String registryId) {return ITEMS.register(registryId, ItemMod::new);}
+    private static DeferredItem<Item> registerItem(String registryId) {return ITEMS.register(registryId, () -> new ItemMod());}
     private static <T extends Item> DeferredItem<T> registerItem(String registryId, Supplier<T> item) {return ITEMS.register(registryId, item);}
 }

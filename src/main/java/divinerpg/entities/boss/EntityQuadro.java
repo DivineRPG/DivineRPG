@@ -113,7 +113,7 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
                 this.level().playSound(p, p.blockPosition(), sound, SoundSource.HOSTILE, 1.0F, 1.0F);
 
                 if (!level().isClientSide())
-                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation(p, chatMessage), true);
+                    p.displayClientMessage(LocalizeUtils.getClientSideTranslation(chatMessage), true);
 
             }
         }

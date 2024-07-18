@@ -17,23 +17,21 @@ import net.neoforged.api.distmarker.*;
 import java.util.*;
 
 public class ItemModSword extends SwordItem {
-    public int arcanaConsumedUse;
-    public int arcanaConsumedAttack;
-    public int cooldown;
+    public int arcanaConsumedUse, arcanaConsumedAttack, cooldown;
     public ToolStats sword;
     //Have rarity
     public ItemModSword(Rarity rarity, Tier tier) {
-        super(tier, 1, tier.getSpeed(), new Properties().rarity(rarity));
+        super(tier, new Properties().attributes(ShovelItem.createAttributes(tier, 1, tier.getSpeed())).rarity(rarity));
         sword = (ToolStats)tier;
     }
     //No rarity
     public ItemModSword(Tier tier) {
-        super(tier, 1, tier.getSpeed(), new Properties());
+        super(tier, new Properties().attributes(ShovelItem.createAttributes(tier, 1, tier.getSpeed())));
         sword = (ToolStats)tier;
     }
     //Fire-resistant swords
     public ItemModSword(Tier tier, Properties properties) {
-        super(tier, 1, tier.getSpeed(), properties);
+        super(tier, properties.attributes(ShovelItem.createAttributes(tier, 1, tier.getSpeed())));
         sword = (ToolStats)tier;
     }
     public ItemModSword setAttackArcanaConsumption(int amount) {

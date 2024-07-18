@@ -1,6 +1,6 @@
 package divinerpg.items.base;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 

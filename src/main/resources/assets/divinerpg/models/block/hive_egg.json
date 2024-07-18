@@ -1,6 +1,5 @@
 {
   "parent": "block/dragon_egg",
-  "ambientocclusion": false,
   "textures": {
     "particle": "divinerpg:block/hive_egg",
     "all": "divinerpg:block/hive_egg"

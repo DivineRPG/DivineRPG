@@ -11,7 +11,7 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.saveddata.maps.MapDecoration.Type;
+import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
 
 public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 	public GruzzorlugCommander(EntityType<? extends Gruzzorlug> type, Level worldIn) {
@@ -37,7 +37,7 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 		MerchantOffers merchantoffers = this.getOffers();
 		DivineTrades[] tradetrades = new DivineTrades[]{
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 1), new ItemStack(ItemRegistry.ice_shards.get(), 12), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineMapTrades(new ItemStack(ItemRegistry.olivine.get(), 25), new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 5), "filled_map.whale_skull", WHALE_SKULL, Type.MONUMENT, 25),
+                new EntityDivineMerchant.DivineMapTrades(new ItemStack(ItemRegistry.olivine.get(), 25), new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 5), "filled_map.whale_skull", WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT.value(), 25),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 8), new ItemStack(BlockRegistry.icyBricks.get(), 4), random.nextInt(7), 1),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 10), new ItemStack(BlockRegistry.frostedGlass.get(), 4), random.nextInt(7), 1),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 12), new ItemStack(BlockRegistry.chiseledIcyBricks.get(), 4), random.nextInt(7), 1)

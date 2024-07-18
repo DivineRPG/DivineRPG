@@ -14,13 +14,13 @@ import static net.minecraft.tags.BlockTags.*;
 
 public class ItemModAxe extends AxeItem {
     public ItemModAxe(Tier tier, float attackSpeed, Rarity rarity) {
-        super(tier, new Properties().attributes(AxeItem.createAttributes(tier, tier.getAttackDamageBonus(), attackSpeed)).rarity(rarity));
+        super(tier, new Properties().attributes(AxeItem.createAttributes(tier, 0, attackSpeed)).rarity(rarity));
     }
     public ItemModAxe(Tier tier, float attackSpeed) {
-        super(tier, new Properties().attributes(AxeItem.createAttributes(tier, tier.getAttackDamageBonus(), attackSpeed)));
+        super(tier, new Properties().attributes(AxeItem.createAttributes(tier, 0, attackSpeed)));
     }
     public ItemModAxe(Tier tier, float attackSpeed, Properties properties) {
-        super(tier, properties.attributes(AxeItem.createAttributes(tier, tier.getAttackDamageBonus(), attackSpeed)));
+        super(tier, properties.attributes(AxeItem.createAttributes(tier, 0, attackSpeed)));
     }
 	@OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
