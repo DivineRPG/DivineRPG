@@ -26,15 +26,13 @@ public class EntityAncientEntity extends EntityDivineBoss {
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true) {
-            @Override
-            protected double getAttackReachSqr(LivingEntity entity) {
-                return (double)(this.mob.getBbWidth() * 1.125F * this.mob.getBbWidth() * 1.125F + entity.getBbWidth());
-            }
-        });
+        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-
+//    @Override
+//    protected double getAttackReachSqr(LivingEntity entity) {
+//        return (double)(this.mob.getBbWidth() * 1.125F * this.mob.getBbWidth() * 1.125F + entity.getBbWidth());
+//    }
     @Override
     public boolean doHurtTarget(Entity entity) {
         super.doHurtTarget(entity);

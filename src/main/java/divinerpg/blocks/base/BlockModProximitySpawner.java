@@ -1,5 +1,6 @@
 package divinerpg.blocks.base;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.block_entities.block.ProximitySpawnerBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -18,8 +19,10 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class BlockModProximitySpawner extends BaseEntityBlock {
-	public BlockModProximitySpawner() {
-		super(Properties.ofFullCopy(Blocks.SPAWNER));
+	public static final MapCodec<BlockModProximitySpawner> CODEC = simpleCodec(BlockModProximitySpawner::new);
+	@Override public MapCodec<BlockModProximitySpawner> codec() {return CODEC;}
+	public BlockModProximitySpawner(Properties properties) {
+		super(properties);
 		registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.ENABLED, false));
 	}
 	@Override
@@ -35,17 +38,15 @@ public class BlockModProximitySpawner extends BaseEntityBlock {
 		return state;
 	}
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+	public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		if(player.isCreative() && level.getBlockEntity(pos) instanceof ProximitySpawnerBlockEntity entity) {
-			ItemStack item = player.getItemInHand(hand);
-			if(item == null || item.isEmpty()) entity.entityName = null;
-			else if(item.getItem() instanceof SpawnEggItem spawnegg) entity.entityName = spawnegg.getType(null).toShortString();
-			else return InteractionResult.FAIL;
+			if(stack == null || stack.isEmpty()) entity.entityName = null;
+			else if(stack.getItem() instanceof SpawnEggItem spawnegg) entity.entityName = spawnegg.getType(null).toShortString();
+			else return ItemInteractionResult.FAIL;
 			boolean enabled = entity.entityName != null;
 			if(state.getValue(BlockStateProperties.ENABLED) != enabled) level.setBlock(pos, state.setValue(BlockStateProperties.ENABLED, enabled), UPDATE_ALL);
-			return InteractionResult.SUCCESS;
-		}
-		return InteractionResult.PASS;
+			return ItemInteractionResult.SUCCESS;
+		} return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 	@Override
 	public RenderShape getRenderShape(BlockState state) {

@@ -9,8 +9,9 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.CommonHooks;
 
-public abstract class DivineFurnaceMenu extends RecipeBookMenu<Container> {
+public abstract class DivineFurnaceMenu extends RecipeBookMenu<RecipeInput, Recipe<RecipeInput>> {
     public static final int INGREDIENT_SLOT = 0;
     public static final int FUEL_SLOT = 1;
     public static final int RESULT_SLOT = 2;
@@ -75,9 +76,7 @@ public abstract class DivineFurnaceMenu extends RecipeBookMenu<Container> {
         this.getSlot(2).set(ItemStack.EMPTY);
     }
 
-    public boolean recipeMatches(Recipe<? super Container> p_38980_) {
-        return p_38980_.matches(this.container, this.level);
-    }
+    @Override public boolean recipeMatches(RecipeHolder recipe) {return recipe.value().matches(container, level);}
 
     public int getResultSlotIndex() {
         return 2;
@@ -152,8 +151,8 @@ public abstract class DivineFurnaceMenu extends RecipeBookMenu<Container> {
         return this.level.getRecipeManager().getRecipeFor((RecipeType<AbstractCookingRecipe>)recipeType, new SimpleContainer(p_38978_), this.level).isPresent();
     }
 
-    public boolean isFuel(ItemStack p_38989_) {
-        return net.minecraftforge.common.ForgeHooks.getBurnTime(p_38989_, this.recipeType) > 0;
+    public boolean isFuel(ItemStack stack) {
+        return stack.getBurnTime(recipeType) > 0;
     }
 
     public int getBurnProgress() {

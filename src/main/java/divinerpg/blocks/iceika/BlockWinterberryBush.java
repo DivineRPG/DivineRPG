@@ -45,7 +45,7 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
 	}
 
     @Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand p_60507_, BlockHitResult p_60508_) {
+	public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult p_60508_) {
 		if (state.getValue(RIPE)) {
 	        popResource(level, pos, new ItemStack(ItemRegistry.winterberry.get(), 1));
 	        level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);

@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 public class BlockInfusionTable extends BlockMod {
 
     public BlockInfusionTable() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).strength(-1, 3600000F).instrument(NoteBlockInstrument.BASEDRUM));
+        super(BlockBehaviour.Properties.of().mapColor(MapColor.FIRE).strength(-1, 3600000).instrument(NoteBlockInstrument.BASEDRUM));
     }
 
     @Override
@@ -30,7 +30,7 @@ public class BlockInfusionTable extends BlockMod {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult result) {
         if (player instanceof ServerPlayer)
             InfusionTableMenu.openContainer((ServerPlayer)player, pos);
 

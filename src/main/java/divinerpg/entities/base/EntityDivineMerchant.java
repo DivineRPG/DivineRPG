@@ -2,6 +2,7 @@ package divinerpg.entities.base;
 
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -141,14 +142,16 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     public static class DivineMapTrades extends DivineTrades {
     	private final String displayName;
     	private final TagKey<Structure> destination;
-    	private final MapDecorationType destinationType;
-        public DivineMapTrades(ItemStack input1, ItemStack input2, String displayName, TagKey<Structure> destination, MapDecorationType destinationType, int xp) {
+    	private final Holder<MapDecorationType> destinationType;
+        public DivineMapTrades(ItemStack input1, ItemStack input2, String displayName, TagKey<Structure> destination, Holder<MapDecorationType> destinationType, int xp) {
             super(input1, input2, null, 1, xp);
             this.displayName = displayName;
             this.destination = destination;
             this.destinationType = destinationType;
         }
-        public DivineMapTrades(ItemStack input1, String displayName, TagKey<Structure> destination, MapDecorationType destinationType, int xp) {this(input1, ItemStack.EMPTY, displayName, destination, destinationType, xp);}
+        public DivineMapTrades(ItemStack input1, String displayName, TagKey<Structure> destination, Holder<MapDecorationType> destinationType, int xp) {
+            this(input1, ItemStack.EMPTY, displayName, destination, destinationType, xp);
+        }
         @Override
         public MerchantOffer getOffer(Entity entity, RandomSource random) {
         	if(!(entity.level() instanceof ServerLevel)) return null;

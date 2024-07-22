@@ -9,7 +9,7 @@ public class BlockModStairs extends StairBlock {
     private int flammability;
     private int fireSpread;
     public BlockModStairs(Block base) {
-        super(base::defaultBlockState, Properties.ofFullCopy(base));
+        super(base.defaultBlockState(), Properties.ofFullCopy(base));
         if(base instanceof BlockModPlanks) {
             flammability = BlockModPlanks.flammability;
             fireSpread = BlockModPlanks.fireSpread;

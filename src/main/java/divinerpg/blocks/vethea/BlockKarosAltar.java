@@ -47,19 +47,17 @@ public class BlockKarosAltar extends BlockVetheaAltar {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        ItemStack heldItemStack = player.getItemInHand(hand);
-
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         BlockPos bossSpawnPos = findSafeBossSpawnPos(world, pos, 10);
-        if(bossSpawnPos != null && heldItemStack != null && heldItemStack.getItem() == acceptedItem()) {
+        if(bossSpawnPos != null && stack != null && stack.getItem() == acceptedItem()) {
             if (!player.isCreative()) {
-                heldItemStack.shrink(1);
+                stack.shrink(1);
             }
             spawnBoss(world, bossSpawnPos.above());
-            return InteractionResult.SUCCESS;
+            return ItemInteractionResult.SUCCESS;
         } else {
             onFailure();
-            return InteractionResult.PASS;
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
     }
 

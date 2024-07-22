@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.*;
@@ -14,8 +15,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
-import net.minecraft.world.entity.monster.Creeper;
-import net.minecraft.world.entity.monster.Ghast;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
@@ -37,7 +37,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
         this.healthIncrease = healthIncrease;
         setTame(false, false);
     }
-    public boolean isMeat(ItemStack item) {return item.getFoodProperties(this) != null && item.getFoodProperties(this).isMeat();}
+    public boolean isMeat(ItemStack stack) {return stack.is(ItemTags.MEAT);}
     @Override protected void registerGoals() {
         super.registerGoals();
         goalSelector.addGoal(1, new FloatGoal(this));

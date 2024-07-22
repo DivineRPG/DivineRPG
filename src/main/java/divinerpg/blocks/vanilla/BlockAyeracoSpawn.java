@@ -1,5 +1,6 @@
 package divinerpg.blocks.vanilla;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.block_entities.bosses.AyeracoSpawnBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -12,8 +13,10 @@ import net.minecraft.world.phys.shapes.*;
 import javax.annotation.Nullable;
 
 public class BlockAyeracoSpawn extends BaseEntityBlock {
-    public BlockAyeracoSpawn() {
-        super(BlockBehaviour.Properties.of().strength(6000000F, 6000000F).noOcclusion().randomTicks());
+    public static final MapCodec<BlockAyeracoSpawn> CODEC = simpleCodec(BlockAyeracoSpawn::new);
+    @Override public MapCodec<BlockAyeracoSpawn> codec() {return CODEC;}
+    public BlockAyeracoSpawn(Properties properties) {
+        super(properties.strength(6000000, 6000000).noOcclusion().randomTicks());
     }
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {

@@ -5,6 +5,7 @@ import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.*;
 
 public class OceanfireFurnaceBlockEntity extends InfiniFurnaceBlockEntity {

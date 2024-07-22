@@ -54,11 +54,11 @@ public interface FactionEntity {
 		public static final Faction
 			GROGLIN = new Faction(true, 0, "groglin_reputation") {
 			public boolean isAgressiveTowards(LivingEntity entity) {
-				return entity.hasEffect(MobEffectRegistry.GROGLIN_BOUNTY.get()) || super.isAgressiveTowards(entity);
+				return entity.hasEffect(MobEffectRegistry.GROGLIN_BOUNTY) || super.isAgressiveTowards(entity);
 			};},
 			GRUZZORLUG = new Faction(true, 0, "gruzzorlug_reputation") {
 			public boolean isAgressiveTowards(LivingEntity entity) {
-				return entity.hasEffect(MobEffectRegistry.GRUZZORLUG_TARGET.get()) || super.isAgressiveTowards(entity);
+				return entity.hasEffect(MobEffectRegistry.GRUZZORLUG_TARGET) || super.isAgressiveTowards(entity);
 			};},
 			ICEIKA_MERCHANT = new Faction(false, 20, "iceika_merchant_reputation").addEnemy(GROGLIN).addEnemy(GRUZZORLUG);
 		static {

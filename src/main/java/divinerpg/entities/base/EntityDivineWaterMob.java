@@ -58,9 +58,9 @@ public class EntityDivineWaterMob extends WaterAnimal {
         return data;
     }
 
-    public boolean canBreatheUnderwater() {
-        return true;
-    }
+//    public boolean canBreatheUnderwater() {
+//        return true;
+//    }
 
     protected void handleAirSupply(int p_28326_) {
     }

@@ -53,6 +53,8 @@ public class DreamLampBlockEntity extends BaseContainerBlockEntity implements Wo
 	}
 	@Override public int getContainerSize() {return 1;}
 	@Override public boolean isEmpty() {return items.get(0).isEmpty();}
+	@Override protected NonNullList<ItemStack> getItems() {return items;}
+	@Override protected void setItems(NonNullList<ItemStack> items) {this.items = items;}
 	@Override public ItemStack getItem(int i) {return items.get(0);}
 	@Override
 	public ItemStack removeItem(int i, int j) {

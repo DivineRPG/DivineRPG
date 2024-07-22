@@ -2,6 +2,7 @@ package divinerpg.blocks.vanilla;
 
 import javax.annotation.Nullable;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.block_entities.block.CrateBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -18,8 +19,10 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class BlockCrate extends BaseEntityBlock {
-	public BlockCrate() {
-		super(Block.Properties.ofFullCopy(Blocks.OAK_PLANKS).instrument(NoteBlockInstrument.BASS));
+	public static final MapCodec<BlockCrate> CODEC = simpleCodec(BlockCrate::new);
+	@Override public MapCodec<BlockCrate> codec() {return CODEC;}
+	public BlockCrate(Properties properties) {
+		super(properties.instrument(NoteBlockInstrument.BASS));
 		registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.ENABLED, true));
 	}
 	@Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(BlockStateProperties.ENABLED);}
@@ -53,21 +56,20 @@ public class BlockCrate extends BaseEntityBlock {
 	public RenderShape getRenderShape(BlockState state) {
 		return RenderShape.MODEL;
 	}
-	@Override public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+	@Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		if(level.getBlockEntity(pos) instanceof CrateBlockEntity block) {
-			ItemStack handItem = player.getItemInHand(hand);
-			if(handItem == null || handItem.isEmpty()) {
+			if(stack == null || stack.isEmpty()) {
 				if(!block.getItem(0).isEmpty()) {
 					player.setItemInHand(hand, block.getItem(0));
 					block.clearContent();
-					return InteractionResult.SUCCESS;
-				} return InteractionResult.FAIL;
+					return ItemInteractionResult.SUCCESS;
+				} return ItemInteractionResult.FAIL;
 			} if(block.getItem(0).isEmpty()) {
-				block.setItem(0, handItem.copy());
+				block.setItem(0, stack.copy());
 				if(!player.isCreative()) player.setItemInHand(hand, ItemStack.EMPTY);
-				return InteractionResult.SUCCESS;
+				return ItemInteractionResult.SUCCESS;
 			}
-		} return InteractionResult.PASS;
+		} return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 	}
 	@Override public void onRemove(BlockState state, Level level, BlockPos pos, BlockState s, boolean b) {
 		if((!state.is(s.getBlock()) || !s.hasBlockEntity())) {

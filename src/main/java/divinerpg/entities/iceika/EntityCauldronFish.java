@@ -43,7 +43,7 @@ public class EntityCauldronFish extends Squid implements Bucketable {
 	}
 	@Override public void tick() {
     	if(level().getRandom().nextInt(10) == 0) {
-            List<Entity> e = level().getEntities(this, new AABB(blockPosition().offset(-25, -16, -25), blockPosition().offset(25, 16, 25)));
+            List<Entity> e = level().getEntities(this, new AABB(-25, -16, -25, 25, 16, 25));
             for(Entity entity : e) if(entity instanceof LivingEntity ent) {
     	        if(entity instanceof EntityCauldronFish || (entity instanceof Player && (((Player)entity).isCreative() || ((Player)entity).isSpectator()))) continue;
     	        if(entity.position().distanceToSqr(position()) < 1.5) ent.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 18, true, false));

@@ -18,10 +18,10 @@ public class EntityDungeonConstructor extends EntityDivineMonster {
         super(type, worldIn);
         this.angerLevel = 0;
     }
-	@Override
-	public float getStepHeight() {
-		return 1F;
-	}
+//	@Override
+//	public float getStepHeight() {
+//		return 1F;
+//	}
     @Override public boolean fireImmune() {return true;}
     @Override public boolean isAggressive() {return true;}
     @Override

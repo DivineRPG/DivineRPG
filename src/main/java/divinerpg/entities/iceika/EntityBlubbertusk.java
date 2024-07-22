@@ -34,7 +34,7 @@ public class EntityBlubbertusk extends Animal {
 		setPathfindingMalus(PathType.DOOR_OPEN, -1F);
 		moveControl = new SmoothSwimmingMoveControl(this, 85, 10, .18F, .5F, true);
 		lookControl = new SmoothSwimmingLookControl(this, 20);
-		setMaxUpStep(1F);
+//		setMaxUpStep(1F);
 	}
 	@Override
 	public boolean hurt(DamageSource source, float f) {
@@ -93,10 +93,10 @@ public class EntityBlubbertusk extends Animal {
 	protected int increaseAirSupply(int i) {
 		return 4000;
 	}
-	@Override
-	public boolean canBreatheUnderwater() {
-		return false;
-	}
+//	@Override
+//	public boolean canBreatheUnderwater() {
+//		return false;
+//	}
 	@Override
 	protected void playSwimSound(float f) {
 		super.playSwimSound(f * 1.5F);

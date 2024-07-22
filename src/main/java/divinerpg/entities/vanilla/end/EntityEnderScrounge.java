@@ -22,6 +22,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.event.EventHooks;
+import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -169,7 +171,7 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
         boolean flag = blockstate.isCollisionShapeFullBlock(level(), blockpos$mutableblockpos);
         boolean flag1 = blockstate.getFluidState().is(FluidTags.WATER);
         if (flag && !flag1) {
-            net.minecraftforge.event.entity.EntityTeleportEvent.EnderEntity event = net.minecraftforge.event.ForgeEventFactory.onEnderTeleport(this, p_32544_, p_32545_, p_32546_);
+            EntityTeleportEvent.EnderEntity event = EventHooks.onEnderTeleport(this, p_32544_, p_32545_, p_32546_);
             if (event.isCanceled()) return false;
             Vec3 vec3 = this.position();
             boolean flag2 = this.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true);

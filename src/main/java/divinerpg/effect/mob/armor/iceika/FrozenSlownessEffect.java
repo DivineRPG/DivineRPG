@@ -11,7 +11,7 @@ import net.minecraft.world.phys.AABB;
 public class FrozenSlownessEffect extends ArmorEffect {
 	public FrozenSlownessEffect() {super(10991286);}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
-		List<Mob> entities = entity.getCommandSenderWorld().getEntitiesOfClass(Mob.class, new AABB(entity.blockPosition().offset(-6, -6, -6), entity.blockPosition().offset(6, 6, 6)));
+		List<Mob> entities = entity.getCommandSenderWorld().getEntitiesOfClass(Mob.class, new AABB(-6, -6, -6, 6, 6, 6));
         for(Mob e : entities) e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1, true, true, false));
         return false;
     }

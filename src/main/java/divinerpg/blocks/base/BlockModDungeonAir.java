@@ -20,8 +20,8 @@ public class BlockModDungeonAir extends BlockMod {
     }
     @Override
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-		if(entity instanceof ServerPlayer && !((ServerPlayer) entity).hasEffect(MobEffectRegistry.HEAVY_AIR.get()) && ((ServerPlayer) entity).gameMode.getGameModeForPlayer() == GameType.SURVIVAL)
-			((ServerPlayer) entity).addEffect(new MobEffectInstance(MobEffectRegistry.HEAVY_AIR.get(), 20, 1, true, false, false));
+		if(entity instanceof ServerPlayer && !((ServerPlayer) entity).hasEffect(MobEffectRegistry.HEAVY_AIR) && ((ServerPlayer) entity).gameMode.getGameModeForPlayer() == GameType.SURVIVAL)
+			((ServerPlayer) entity).addEffect(new MobEffectInstance(MobEffectRegistry.HEAVY_AIR, 20, 1, true, false, false));
 	}
     @Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {

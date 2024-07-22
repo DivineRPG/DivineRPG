@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 
 public class ItemHeatPack extends ItemMod implements Vanishable {
 	public ItemHeatPack() {
-		super(new Properties().defaultDurability(1000));
+		super(new Properties().durability(1000));
 	}
 	@Override
 	public void inventoryTick(ItemStack stack, Level level, Entity entity, int i, boolean b) {

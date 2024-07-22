@@ -1,5 +1,6 @@
 package divinerpg.blocks.twilight;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
@@ -8,8 +9,10 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.MapColor;
 
 public class BlockBlueFire extends BaseFireBlock {
-	public BlockBlueFire() {
-		super(BlockBehaviour.Properties.ofFullCopy(Blocks.FIRE).mapColor(MapColor.WATER), 1F);
+	public static final MapCodec<BlockBlueFire> CODEC = simpleCodec(BlockBlueFire::new);
+	@Override public MapCodec<BlockBlueFire> codec() {return CODEC;}
+	public BlockBlueFire(Properties properties) {
+		super(properties.mapColor(MapColor.WATER), 1);
 	}
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {

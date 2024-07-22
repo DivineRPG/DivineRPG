@@ -98,7 +98,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
     			setMouthPiece(ItemStack.EMPTY);
     		}
     	} else {
-    		List<ItemEntity> items = level().getEntitiesOfClass(ItemEntity.class, new AABB(targetPos.offset(-1, -1, -1), targetPos.offset(1, 1, 1)));
+    		List<ItemEntity> items = level().getEntitiesOfClass(ItemEntity.class, new AABB(-1, -1, -1, 1, 1, 1));
     		if(items.size() > 0) {
     			setMouthPiece(items.get(0).getItem());
     			level().playSound(this, targetPos, SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, .5F, 1F);
@@ -126,7 +126,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
             } else if(wantsNest || !mouthPiece.isEmpty()) {for(int x = blockPosition().getX() - 5; x < blockPosition().getX() + 5; x++) for(int y = blockPosition().getY() - 5; y < blockPosition().getY() + 5; y++) for(int z = blockPosition().getZ() - 5; z < blockPosition().getZ() + 5; z++) if(!level().isOutsideBuildHeight(pos = new BlockPos(x, y, z)) && level().getBlockState(pos).is(BlockRegistry.robbinNest.get()) && level().getBlockEntity(pos) instanceof RobbinNestBlockEntity nest && (nest.isEmpty() || (wantsNest && !nest.getItem().is(ItemRegistry.robbin_egg.get()))))
  				getNavigation().moveTo(x, y, z, 1D);
 			} else {
-    			List<Entity> items = level().getEntities(this, new AABB(blockPosition().offset(-5, -5, -5), blockPosition().offset(5, 5, 5)), (entity) -> entity instanceof ItemEntity);
+    			List<Entity> items = level().getEntities(this, new AABB(-5, -5, -5, 5, 5, 5), (entity) -> entity instanceof ItemEntity);
             	if(items.size() > 0) {
             		ItemEntity nearest = (ItemEntity) items.get(0);
             		for(Entity e : items) if(distanceTo(e) < distanceTo(nearest)) nearest = (ItemEntity) e;
@@ -165,7 +165,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
                if(mob.onGround()) {
                   mob.setSpeed((float)(speedModifier * mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
                   if(jumpDelay-- <= 0) {
-                     jumpDelay = mob.random.nextInt(10) + 1;
+                     jumpDelay = mob.getRandom().nextInt(10) + 1;
                      mob.getJumpControl().jump();
                   } else {
                      mob.xxa = 0F;
@@ -185,7 +185,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
     		Path path = getNavigation().getPath();
     		if(path != null) {
     			double distanceX = path.getNextNodePos().getX() - getX(), distanceZ = path.getNextNodePos().getZ() - getZ();
-    			yRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
+    			yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
     		}
     	}
     }

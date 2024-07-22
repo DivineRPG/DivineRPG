@@ -59,7 +59,7 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     @Override public boolean causeFallDamage(float f, float g, DamageSource d) {return false;}
     @Override protected void checkFallDamage(double d, boolean b, BlockState s, BlockPos p) {}
     @Override public boolean onClimbable() {return false;}
-    public void reachTarget() {};
+    public void reachTarget() {}
     @Override protected void customServerAiStep() {
         if(!isNoGravity()) setNoGravity(true);
         if(isInWater()) {
@@ -91,8 +91,8 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
         double speed = getAttributeValue(Attributes.FLYING_SPEED);
         setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64D * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64D * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64D * speed);
         double distanceX = pathfindPos.x - getX(), distanceY = pathfindPos.y- getY(), distanceZ = pathfindPos.z - getZ();
-        yRot = Utils.rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
-        xRot = Utils.rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
+        yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
+        xRotO = Utils.rotlerp(getXRot(), (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
         if(Math.sqrt(distanceToSqr(pathfindPos)) < 1D) {
         	pathfindPos = null;
         	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 1.5F) {

@@ -35,8 +35,8 @@ public class BlockStatue extends BlockMod implements EntityBlock {
     @Override public void setPlacedBy(Level world, BlockPos pos, BlockState state, @Nullable LivingEntity player, ItemStack stack) {
         world.setBlock(pos, state.setValue(FACING, player.getDirection().getOpposite()), 2);
     }
-    @Override public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
-        if((player.isCrouching() && !player.getItemInHand(hand).isEmpty()) || statueSound == null) return InteractionResult.PASS;
+    @Override public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult trace) {
+        if((player.isCrouching() && !player.getMainHandItem().isEmpty()) || statueSound == null) return InteractionResult.PASS;
         world.playSound(player, pos, statueSound.get(), SoundSource.BLOCKS, 3, 1);
         return InteractionResult.SUCCESS;
     }

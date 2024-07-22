@@ -44,7 +44,8 @@ public abstract class InfiniFurnaceBlockEntity extends BaseContainerBlockEntity 
 	      }
 	      public int getCount() {return 2;}
 	};
-	
+	@Override protected NonNullList<ItemStack> getItems() {return items;}
+	@Override protected void setItems(NonNullList<ItemStack> items) {this.items = items;}
 	public final String containerName;
 	public final double speed;
 	public boolean isLit = false;

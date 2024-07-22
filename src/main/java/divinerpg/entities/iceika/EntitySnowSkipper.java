@@ -77,8 +77,8 @@ public class EntitySnowSkipper extends PathfinderMob {
             //movement
             double speed = getAttributeValue(Attributes.FLYING_SPEED), distanceX = pathfindPos.getX() - getX(), distanceY = pathfindPos.getY() - getY() + (wantsToRest ? .3 : 0D), distanceZ = pathfindPos.getZ() - getZ(), distance = Math.sqrt(distanceX*distanceX+distanceY*distanceY+distanceZ*distanceZ);
             setDeltaMovement(getDeltaMovement().x + distanceX / distance * speed, getDeltaMovement().y + distanceY / distance * speed, getDeltaMovement().z + distanceZ / distance * speed);
-            yRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
-            xRot = Utils.rotlerp(getXRot(), (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
+            yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
+            xRotO = Utils.rotlerp(getXRot(), (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
             if(distance < 1D) pathfindPos = null;
         }
 	}

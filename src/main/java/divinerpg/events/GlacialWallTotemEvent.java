@@ -44,7 +44,7 @@ public class GlacialWallTotemEvent {
                 }
             }
         }
-        AABB box = new AABB(playerPos.offset(-radius, 1, -radius), playerPos.offset(radius, 4, radius));
+        AABB box = new AABB(-radius, 1, -radius, radius, 4, radius);
         level.getEntitiesOfClass(LivingEntity.class, box).stream()
                 .filter(entity -> entity != player && !(entity instanceof Player) && entity instanceof Mob)
                 .forEach(entity -> {

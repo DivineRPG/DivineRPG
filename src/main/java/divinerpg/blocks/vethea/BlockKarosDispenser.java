@@ -1,5 +1,6 @@
 package divinerpg.blocks.vethea;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.*;
 import divinerpg.registries.*;
@@ -10,7 +11,6 @@ import net.minecraft.core.dispenser.*;
 import net.minecraft.server.level.*;
 import net.minecraft.stats.*;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
@@ -27,8 +27,10 @@ import javax.annotation.*;
 import java.util.*;
 
 public class BlockKarosDispenser extends BaseEntityBlock {
+    public static final MapCodec<BlockKarosDispenser> CODEC = simpleCodec(BlockKarosDispenser::new);
     public static final DirectionProperty FACING = DirectionalBlock.FACING;
     public static final BooleanProperty TRIGGERED = BlockStateProperties.TRIGGERED;
+    @Override public MapCodec<BlockKarosDispenser> codec() {return CODEC;}
     private static final Map<Item, DispenseItemBehavior> DISPENSER_REGISTRY = Util.make(new Object2ObjectOpenHashMap<>(), (p_212564_0_) -> {
         p_212564_0_.defaultReturnValue(new DefaultDispenseItemBehavior());
     });
@@ -37,8 +39,8 @@ public class BlockKarosDispenser extends BaseEntityBlock {
         DISPENSER_REGISTRY.put(provider.asItem(), behavior);
     }
 
-    public BlockKarosDispenser() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).strength(-1, 3600000F).instrument(NoteBlockInstrument.BASEDRUM));
+    public BlockKarosDispenser(Properties properties) {
+        super(properties.mapColor(MapColor.PLANT).strength(-1, 3600000).instrument(NoteBlockInstrument.BASEDRUM));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TRIGGERED, Boolean.valueOf(false)));
     }
 
@@ -104,18 +106,16 @@ public class BlockKarosDispenser extends BaseEntityBlock {
         return this.defaultBlockState().setValue(FACING, p_196258_1_.getNearestLookingDirection().getOpposite());
     }
 
-    public void setPlacedBy(Level p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, LivingEntity p_180633_4_, ItemStack p_180633_5_) {
-        if (p_180633_5_.hasCustomHoverName()) {
-            BlockEntity blockEntity = p_180633_1_.getBlockEntity(p_180633_2_);
-            if (blockEntity instanceof DispenserBlockEntity) {
-                ((DispenserBlockEntity)blockEntity).setCustomName(p_180633_5_.getHoverName());
-            }
-        }
-
-    }
-
-    @SuppressWarnings("deprecation")
-	public void onRemove(BlockState p_196243_1_, Level p_196243_2_, BlockPos p_196243_3_, BlockState p_196243_4_, boolean p_196243_5_) {
+//    public void setPlacedBy(Level p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, LivingEntity p_180633_4_, ItemStack p_180633_5_) {
+//        if (p_180633_5_.hasCustomHoverName()) {
+//            BlockEntity blockEntity = p_180633_1_.getBlockEntity(p_180633_2_);
+//            if (blockEntity instanceof DispenserBlockEntity) {
+//                ((DispenserBlockEntity)blockEntity).setCustomName(p_180633_5_.getHoverName());
+//            }
+//        }
+//
+//    }
+	@Override public void onRemove(BlockState p_196243_1_, Level p_196243_2_, BlockPos p_196243_3_, BlockState p_196243_4_, boolean p_196243_5_) {
         if (!p_196243_1_.is(p_196243_4_.getBlock())) {
             BlockEntity blockEntity = p_196243_2_.getBlockEntity(p_196243_3_);
             if (blockEntity instanceof DispenserBlockEntity) {
@@ -128,10 +128,10 @@ public class BlockKarosDispenser extends BaseEntityBlock {
     }
 
     public static Position getDispensePosition(BlockSource p_149939_0_) {
-        Direction direction = p_149939_0_.getBlockState().getValue(FACING);
-        double d0 = p_149939_0_.x() + 0.7D * (double)direction.getStepX();
-        double d1 = p_149939_0_.y() + 0.7D * (double)direction.getStepY();
-        double d2 = p_149939_0_.z() + 0.7D * (double)direction.getStepZ();
+        Direction direction = p_149939_0_.state().getValue(FACING);
+        double d0 = p_149939_0_.pos().getX() + 0.7D * (double)direction.getStepX();
+        double d1 = p_149939_0_.pos().getY() + 0.7D * (double)direction.getStepY();
+        double d2 = p_149939_0_.pos().getZ() + 0.7D * (double)direction.getStepZ();
         return new PositionImpl(d0, d1, d2);
     }
 

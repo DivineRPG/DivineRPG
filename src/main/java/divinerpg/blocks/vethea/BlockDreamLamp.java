@@ -22,7 +22,7 @@ public class BlockDreamLamp extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     @Override public MapCodec<BlockDreamLamp> codec() {return CODEC;}
     public BlockDreamLamp(Properties properties) {
-        super(properties);
+        super(properties.strength(.3F).sound(SoundType.GLASS));
         this.registerDefaultState(this.getStateDefinition().any().setValue(POWERED, false));
     }
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {

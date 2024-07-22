@@ -28,12 +28,12 @@ public final class BlockModFurnace extends FurnaceBlock {
         blockEntityType = blockEntity;
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
     }
-    @Override public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
-        if(stack.hasCustomHoverName()) {
-           BlockEntity blockentity = level.getBlockEntity(pos);
-           if(blockentity instanceof ModFurnaceBlockEntity) ((ModFurnaceBlockEntity)blockentity).setCustomName(stack.getHoverName());
-        }
-	}
+//    @Override public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
+//        if(stack.hasCustomHoverName()) {
+//           BlockEntity blockentity = level.getBlockEntity(pos);
+//           if(blockentity instanceof ModFurnaceBlockEntity) ((ModFurnaceBlockEntity)blockentity).setCustomName(stack.getHoverName());
+//        }
+//	}
 	@Override public void onRemove(BlockState state, Level level, BlockPos pos, BlockState st, boolean b) {
 		if(!state.is(st.getBlock())) {
 			BlockEntity blockentity = level.getBlockEntity(pos);

@@ -1,5 +1,6 @@
 package divinerpg.blocks.vanilla;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.block_entities.AltarOfCorruptionBlockEntity;
 import divinerpg.client.menu.AltarOfCorruptionMenu;
 import divinerpg.registries.BlockEntityRegistry;
@@ -8,10 +9,8 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
@@ -25,13 +24,13 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class BlockAltarOfCorruption extends BaseEntityBlock {
+    public static final MapCodec<BlockAltarOfCorruption> CODEC = simpleCodec(BlockAltarOfCorruption::new);
     protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
-    public static final List<BlockPos> BOOKSHELF_OFFSETS = BlockPos.betweenClosedStream(-2, 0, -2, 2, 1, 2).filter((p_207914_) -> {
-        return Math.abs(p_207914_.getX()) == 2 || Math.abs(p_207914_.getZ()) == 2;
-    }).map(BlockPos::immutable).toList();
+    @Override public MapCodec<BlockAltarOfCorruption> codec() {return CODEC;}
+    public static final List<BlockPos> BOOKSHELF_OFFSETS = BlockPos.betweenClosedStream(-2, 0, -2, 2, 1, 2).filter((p_207914_) -> Math.abs(p_207914_.getX()) == 2 || Math.abs(p_207914_.getZ()) == 2).map(BlockPos::immutable).toList();
 
-    public BlockAltarOfCorruption() {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.ENCHANTING_TABLE).mapColor(MapColor.COLOR_PURPLE));
+    public BlockAltarOfCorruption(Properties properties) {
+        super(properties.mapColor(MapColor.COLOR_PURPLE));
     }
 
     public static boolean isValidBookShelf(Level p_207910_, BlockPos p_207911_, BlockPos p_207912_) {
@@ -92,15 +91,15 @@ public class BlockAltarOfCorruption extends BaseEntityBlock {
         }
     }
 
-    public void setPlacedBy(Level p_52963_, BlockPos p_52964_, BlockState p_52965_, LivingEntity p_52966_, ItemStack p_52967_) {
-        if (p_52967_.hasCustomHoverName()) {
-            BlockEntity blockentity = p_52963_.getBlockEntity(p_52964_);
-            if (blockentity instanceof AltarOfCorruptionBlockEntity) {
-                ((AltarOfCorruptionBlockEntity)blockentity).setCustomName(p_52967_.getHoverName());
-            }
-        }
-
-    }
+//    public void setPlacedBy(Level p_52963_, BlockPos p_52964_, BlockState p_52965_, LivingEntity p_52966_, ItemStack p_52967_) {
+//        if (p_52967_.hasCustomHoverName()) {
+//            BlockEntity blockentity = p_52963_.getBlockEntity(p_52964_);
+//            if (blockentity instanceof AltarOfCorruptionBlockEntity) {
+//                ((AltarOfCorruptionBlockEntity)blockentity).setCustomName(p_52967_.getHoverName());
+//            }
+//        }
+//
+//    }
 
     public boolean isPathfindable(BlockState p_52969_, BlockGetter p_52970_, BlockPos p_52971_, PathComputationType p_52972_) {
         return false;

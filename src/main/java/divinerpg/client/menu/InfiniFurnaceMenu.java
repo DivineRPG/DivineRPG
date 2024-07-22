@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
-public class InfiniFurnaceMenu extends RecipeBookMenu<Container> {
+public class InfiniFurnaceMenu extends RecipeBookMenu<RecipeInput, Recipe<RecipeInput>> {
 	private final Container container;
 	private final ContainerData data;
 	protected final Level level;
@@ -45,10 +45,7 @@ public class InfiniFurnaceMenu extends RecipeBookMenu<Container> {
 		getSlot(0).set(ItemStack.EMPTY);
 		getSlot(1).set(ItemStack.EMPTY);
 	}
-	@Override
-	public boolean recipeMatches(Recipe<? super Container> recipe) {
-	      return recipe.matches(container, level);
-	}
+	@Override public boolean recipeMatches(RecipeHolder recipe) {return recipe.value().matches(container, level);}
 	@Override public boolean stillValid(Player player) {return container.stillValid(player);}
 	@Override public int getResultSlotIndex() {return 1;}
 	@Override public int getGridWidth() {return 1;}

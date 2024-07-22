@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.lighting.LightEngine;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraftforge.common.IPlantable;
 
 import java.util.function.Supplier;
 
@@ -25,14 +24,14 @@ public class BlockModGrass extends BlockMod implements BonemealableBlock {
         super(Block.Properties.of().mapColor(MapColor.COLOR_CYAN).randomTicks().strength(2F, 6F).sound(SoundType.NYLIUM).instrument(NoteBlockInstrument.BASEDRUM));
         dirtSupplier = dirt;
     }
-    @Override
-    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
-        Block block = plantable.getPlant(world, pos.above()).getBlock();
-        if (block instanceof BushBlock && !(block instanceof WaterlilyBlock) && !(block instanceof CropBlock)) {
-            return true;
-        }
-        return false;
-    }
+//    @Override
+//    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
+//        Block block = plantable.getPlant(world, pos.above()).getBlock();
+//        if (block instanceof BushBlock && !(block instanceof WaterlilyBlock) && !(block instanceof CropBlock)) {
+//            return true;
+//        }
+//        return false;
+//    }
     public BlockState grass() {
         if(this == BlockRegistry.edenGrass.get()) return BlockRegistry.edenBrush.get().defaultBlockState();
         if(this == BlockRegistry.wildwoodGrass.get()) return BlockRegistry.moonlightFern.get().defaultBlockState();

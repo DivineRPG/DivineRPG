@@ -44,7 +44,7 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
     }
 
 	public static boolean liopleurodonSpawnRule(EntityType<? extends Mob> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-		List<Entity> entities = worldIn.getEntities(null, new AABB(pos.offset(-48, -48, -48), pos.offset(48, 48, 48)));
+		List<Entity> entities = worldIn.getEntities(null, new AABB(-48, -48, -48, 48, 48, 48));
 		List<EntityLiopleurodon> liopleurodon = new ArrayList<>();
 		for (int i = 0; i < entities.size(); i++) {
 			if (entities.get(i) instanceof EntityLiopleurodon) {

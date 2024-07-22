@@ -87,8 +87,8 @@ public class EntityMamoth extends Animal implements NeutralMob {
 				        double speed = getAttributeValue(Attributes.FLYING_SPEED);
 				        setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64D * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64D * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64D * speed);
 				        double distanceX = pathfindPos.x - getX(), distanceY = pathfindPos.y- getY(), distanceZ = pathfindPos.z - getZ();
-				        yRot = Utils.rotlerp(yRot, (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
-				        xRot = Utils.rotlerp(xRot, (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
+				        yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
+				        xRotO = Utils.rotlerp(getXRot(), (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
 				        if(Math.sqrt(distanceToSqr(pathfindPos)) < 2D) pathfindPos = null;
 				        fallDistance = 0F;
 					}

@@ -37,7 +37,7 @@ public class GroglinSharlatan extends Groglin implements RangedAttackMob {
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 6), PotionContents.createItemStack(Items.POTION, PotionRegistry.GROG), random.nextInt(7), 2),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 4), PotionContents.createItemStack(Items.POTION, PotionRegistry.TEA), random.nextInt(7), 2),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 15), PotionContents.createItemStack(Items.POTION, PotionRegistry.LONG_WARMTH), random.nextInt(7), 2),
-                new EntityDivineMerchant.DivineMapTrades(new ItemStack(ItemRegistry.olivine.get(), 25), new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 5), "filled_map.whale_skull", WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT.value(), 25),
+                new EntityDivineMerchant.DivineMapTrades(new ItemStack(ItemRegistry.olivine.get(), 25), new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 5), "filled_map.whale_skull", WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT, 25),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 16), new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 4), new ItemStack(BlockRegistry.frostedAllure.get()), random.nextInt(7), 8)
         };
         addOffersFromItemListings(merchantoffers, tradetrades, 3);

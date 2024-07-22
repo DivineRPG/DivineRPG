@@ -19,20 +19,13 @@ public abstract class BlockVetheaAltar extends BlockModUnbreakable {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        ItemStack heldItemStack = player.getItemInHand(hand);
-
-        if(!world.isClientSide && heldItemStack != null && heldItemStack.getItem() == acceptedItem()) {
-            if (!player.isCreative()) {
-                heldItemStack.shrink(1);
-            }
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        if(!world.isClientSide && stack != null && stack.getItem() == acceptedItem()) {
+            if (!player.isCreative()) stack.shrink(1);
             spawnBoss(world, pos);
         }
-        else {
-            onFailure();
-        }
-
-        return InteractionResult.PASS;
+        else onFailure();
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     public void spawnBoss(Level worldIn, BlockPos pos) {

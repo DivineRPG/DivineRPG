@@ -38,25 +38,21 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	int litTime, litDuration, cookingProgress, cookingTotalTime;
 	protected final ContainerData dataAccess = new ContainerData() {
 	      public int get(int p_58431_) {
-	         switch (p_58431_) {
-	            case 0: return ModFurnaceBlockEntity.this.litTime;
-	            case 1: return ModFurnaceBlockEntity.this.litDuration;
-	            case 2:
-	               return ModFurnaceBlockEntity.this.cookingProgress;
-	            case 3: return ModFurnaceBlockEntity.this.cookingTotalTime;
-	            default: return 0;
-	         }
+			  return switch (p_58431_) {
+				  case 0 -> ModFurnaceBlockEntity.this.litTime;
+				  case 1 -> ModFurnaceBlockEntity.this.litDuration;
+				  case 2 -> ModFurnaceBlockEntity.this.cookingProgress;
+				  case 3 -> ModFurnaceBlockEntity.this.cookingTotalTime;
+				  default -> 0;
+			  };
 	      }
 	      public void set(int p_58433_, int p_58434_) {
-	         switch (p_58433_) {
-	            case 0: ModFurnaceBlockEntity.this.litTime = p_58434_;
-	               break;
-	            case 1: ModFurnaceBlockEntity.this.litDuration = p_58434_;
-	               break;
-	            case 2: ModFurnaceBlockEntity.this.cookingProgress = p_58434_;
-	               break;
-	            case 3: ModFurnaceBlockEntity.this.cookingTotalTime = p_58434_;
-	         }
+			  switch (p_58433_) {
+				  case 0 -> ModFurnaceBlockEntity.this.litTime = p_58434_;
+				  case 1 -> ModFurnaceBlockEntity.this.litDuration = p_58434_;
+				  case 2 -> ModFurnaceBlockEntity.this.cookingProgress = p_58434_;
+				  case 3 -> ModFurnaceBlockEntity.this.cookingTotalTime = p_58434_;
+			  }
 	      }
 	      public int getCount() {return 4;}
 	};
@@ -71,7 +67,7 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	}
 	protected int getBurnDuration(ItemStack stack) {
 		if (stack.isEmpty()) return 0;
-	    else return (int)(ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) / speed);
+	    else return (int)(stack.getBurnTime(RecipeType.SMELTING) / speed);
 	}
 	public static int getTotalCookTime(Level level, ModFurnaceBlockEntity tile) {
 		return (int) (tile.quickCheck.getRecipeFor(tile, level).map(AbstractCookingRecipe::getCookingTime).orElse(200) / tile.speed);
@@ -170,8 +166,8 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	         return true;
 	      } else return false;
 	}
-	public static boolean isFuel(ItemStack p_58400_) {
-	      return ForgeHooks.getBurnTime(p_58400_, null) > 0;
+	public boolean isFuel(ItemStack stack) {
+	      return stack.getBurnTime(null) > 0;
 	}
 	@Override
 	public int[] getSlotsForFace(Direction p_58363_) {
@@ -196,6 +192,8 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	      for(ItemStack itemstack : this.items) if (!itemstack.isEmpty()) return false;
 	      return true;
 	}
+	@Override protected NonNullList<ItemStack> getItems() {return items;}
+	@Override protected void setItems(NonNullList<ItemStack> items) {this.items = items;}
 	@Override
 	public ItemStack getItem(int p_58328_) {
 	      return this.items.get(p_58328_);
@@ -226,12 +224,12 @@ public abstract class ModFurnaceBlockEntity extends BaseContainerBlockEntity imp
 	      else return p_58340_.distanceToSqr((double)this.worldPosition.getX() + 0.5D, (double)this.worldPosition.getY() + 0.5D, (double)this.worldPosition.getZ() + 0.5D) <= 64.0D;
 	}
 	@Override
-	public boolean canPlaceItem(int p_58389_, ItemStack p_58390_) {
+	public boolean canPlaceItem(int p_58389_, ItemStack stack) {
 	      if (p_58389_ == 2) return false;
 	      else if (p_58389_ != 1) return true;
 	      else {
 	         ItemStack itemstack = this.items.get(1);
-	         return ForgeHooks.getBurnTime(p_58390_, RecipeType.SMELTING) > 0 || p_58390_.is(Items.BUCKET) && !itemstack.is(Items.BUCKET);
+	         return stack.getBurnTime(RecipeType.SMELTING) > 0 || stack.is(Items.BUCKET) && !itemstack.is(Items.BUCKET);
 	      }
 	}
 	@Override

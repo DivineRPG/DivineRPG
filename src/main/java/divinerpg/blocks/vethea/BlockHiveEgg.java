@@ -10,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.*;
@@ -20,7 +21,7 @@ public class BlockHiveEgg extends FallingBlock {
     public static final MapCodec<BlockHiveEgg> CODEC = simpleCodec(BlockHiveEgg::new);
     protected static final VoxelShape SHAPE = box(1, 0, 1, 15, 16, 15);
     @Override public MapCodec<BlockHiveEgg> codec() {return CODEC;}
-    public BlockHiveEgg(Properties properties) {super(properties);}
+    public BlockHiveEgg(Properties properties) {super(properties.mapColor(MapColor.GRASS));}
     @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return SHAPE;}
     @Override public boolean isPathfindable(BlockState state, PathComputationType type) {return false;}
     @Override public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult result) {

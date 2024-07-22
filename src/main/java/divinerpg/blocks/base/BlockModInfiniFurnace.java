@@ -1,5 +1,6 @@
 package divinerpg.blocks.base;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.block_entities.furnace.InfiniFurnaceBlockEntity;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
@@ -25,13 +26,16 @@ import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class BlockModInfiniFurnace extends BaseEntityBlock {
-	public final Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntityType;
+	public static final MapCodec<BlockModInfiniFurnace> CODEC = simpleCodec(BlockModInfiniFurnace::new);
+	public Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntityType;
+	@Override public MapCodec<BlockModInfiniFurnace> codec() {return CODEC;}
+	public BlockModInfiniFurnace(Properties properties) {super(properties);}
 	public BlockModInfiniFurnace(Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity, MapColor color) {
-        super(Block.Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(3.5F).instrument(NoteBlockInstrument.BASEDRUM));
+        super(Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(3.5F).instrument(NoteBlockInstrument.BASEDRUM));
         this.blockEntityType = blockEntity;
         this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(false)));
     }
-	protected BlockModInfiniFurnace(BlockBehaviour.Properties properties, Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity) {
+	protected BlockModInfiniFurnace(Properties properties, Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity) {
 		super(properties);
         this.blockEntityType = blockEntity;
 		this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(false)));
@@ -58,7 +62,7 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
         }
     }
 	@Override
-	public InteractionResult use(BlockState p_48706_, Level level, BlockPos pos, Player player, InteractionHand p_48710_, BlockHitResult p_48711_) {
+	public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult result) {
 		if (level.isClientSide) return InteractionResult.SUCCESS;
 		else {
 	        openContainer(level, pos, player);
@@ -69,13 +73,13 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		return this.defaultBlockState().setValue(AbstractFurnaceBlock.FACING, context.getHorizontalDirection().getOpposite());
 	}
-	@Override
-	public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
-		if (stack.hasCustomHoverName()) {
-	         BlockEntity blockentity = level.getBlockEntity(pos);
-	         if (blockentity instanceof InfiniFurnaceBlockEntity) ((InfiniFurnaceBlockEntity)blockentity).setCustomName(stack.getHoverName());
-	    }
-	}
+//	@Override
+//	public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity entity, ItemStack stack) {
+//		if (stack.hasCustomHoverName().) {
+//	         BlockEntity blockentity = level.getBlockEntity(pos);
+//	         if (blockentity instanceof InfiniFurnaceBlockEntity) ((InfiniFurnaceBlockEntity)blockentity).setCustomName(stack.getHoverName());
+//	    }
+//	}
 	@Override
 	public void onRemove(BlockState state, Level level, BlockPos pos, BlockState st, boolean b) {
 		if(!state.is(st.getBlock()) || !st.hasBlockEntity()) {

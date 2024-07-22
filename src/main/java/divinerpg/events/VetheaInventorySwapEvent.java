@@ -22,7 +22,7 @@ public class VetheaInventorySwapEvent {
 		Player original = event.getOriginal(), clone = event.getEntity();
 		original.reviveCaps();
 		original.getCapability(ReputationProvider.REPUTATION).ifPresent((origin) -> clone.getCapability(ReputationProvider.REPUTATION).ifPresent((target) -> origin.transferTo(target)));
-		original.getCapability(DimensionalInventoryProvider.DIMENSIONAL_INVENTORY).ifPresent((origin) -> clone.getCapability(DimensionalInventoryProvider.DIMENIONAL_INVENTORY).ifPresent((target) -> origin.transferTo(target)));
+		original.getCapability(DimensionalInventoryProvider.DIMENSIONAL_INVENTORY).ifPresent((origin) -> clone.getCapability(DimensionalInventoryProvider.DIMENSIONAL_INVENTORY).ifPresent((target) -> origin.transferTo(target)));
 		original.invalidateCaps();
 	}
 	@SubscribeEvent(priority = EventPriority.HIGH)

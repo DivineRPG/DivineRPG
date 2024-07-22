@@ -76,9 +76,9 @@ public class ParticleEnderTriplet extends TextureSheetParticle {
            this.yo = this.y;
            this.zo = this.z;
 
-           if (this.age++ >= this.lifetime) {
-               this.shouldCull();
-           }
+//           if (this.age++ >= this.lifetime) {
+//               this.shouldCull();
+//           }
 
            this.yd += 0.004D;
            this.xd *= 0.8999999761581421D;

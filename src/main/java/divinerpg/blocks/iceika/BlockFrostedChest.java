@@ -41,12 +41,12 @@ public class BlockFrostedChest extends BlockModChest {
 		}
     }
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
     	if(state.getValue(WATERLOGGED)) return InteractionResult.PASS;
-    	return super.use(state, level, pos, player, hand, hit);
+    	return super.useWithoutItem(state, level, pos, player, hit);
     }
     @Override
-    public ItemStack pickupBlock(LevelAccessor level, BlockPos pos, BlockState state) {
+    public ItemStack pickupBlock(Player player, LevelAccessor level, BlockPos pos, BlockState state) {
     	return ItemStack.EMPTY;
     }
     @Override

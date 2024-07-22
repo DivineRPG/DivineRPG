@@ -1,5 +1,6 @@
 package divinerpg.blocks.vanilla;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.block_entities.bosses.AyeracoBeamBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.BossEvent.BossBarColor;
@@ -12,9 +13,14 @@ import net.minecraft.world.phys.shapes.*;
 import javax.annotation.Nullable;
 
 public class BlockAyeracoBeam extends BaseEntityBlock {
-	private final BossBarColor color;
+    public static final MapCodec<BlockAyeracoBeam> CODEC = simpleCodec(BlockAyeracoBeam::new);
+	private BossBarColor color;
+    @Override public MapCodec<BlockAyeracoBeam> codec() {return CODEC;}
+    public BlockAyeracoBeam(Properties properties) {
+        super(properties);
+    }
     public BlockAyeracoBeam(BossBarColor color) {
-        super(Block.Properties.of().strength(6000000.0F, 6000000.0F).air());
+        super(Properties.of().strength(6000000, 6000000).air());
         this.color = color;
     }
     @Override
