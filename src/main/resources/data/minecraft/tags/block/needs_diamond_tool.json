@@ -1,14 +1,9 @@
 {
-  "replace": false,
   "values": [
-    "divinerpg:torridite_ore",
-    "divinerpg:torridite_block",
+    "#divinerpg:crying_obsidians",
+    "divinerpg:darkstone",
     "divinerpg:raw_torridite_block",
-    "divinerpg:seeping_obsidian",
-    "divinerpg:glittering_obsidian",
-    "divinerpg:vwooping_obsidian",
-    "divinerpg:bleeding_obsidian",
-    "divinerpg:shining_obsidian",
-    "divinerpg:darkstone"
+    "divinerpg:torridite_block",
+    "divinerpg:torridite_ore"
   ]
 }

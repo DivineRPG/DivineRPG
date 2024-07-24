@@ -1,0 +1,13 @@
+{
+  "values": {
+    "divinerpg:crate": {
+      "burn_time": 300
+    },
+    "divinerpg:anthracite": {
+      "burn_time": 3200
+    },
+    "divinerpg:collector": {
+      "burn_time": 100
+    }
+  }
+}

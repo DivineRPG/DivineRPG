@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#forge:chests/eden",
-    "#forge:chests/bone",
-    "#forge:chests/present",
-    "#forge:chests/frosted"
-  ]
-}

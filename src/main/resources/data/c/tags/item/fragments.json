@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#c:fragments/eden_fragments",
+    "#c:fragments/wildwood_fragments",
+    "#c:fragments/apalachia_fragments",
+    "#c:fragments/skythern_fragments",
+    "#c:fragments/mortum_fragments"
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "replace": false,
   "values": [
+    "#divinerpg:shickaxes",
     "divinerpg:arlemite_axe",
     "divinerpg:realmite_axe",
     "divinerpg:rupee_axe",
@@ -13,7 +13,6 @@
     "divinerpg:apalachia_axe",
     "divinerpg:skythern_axe",
     "divinerpg:mortum_axe",
-    "divinerpg:dream_axe",
-    "#divinerpg:shickaxes"
+    "divinerpg:dream_axe"
   ]
 }

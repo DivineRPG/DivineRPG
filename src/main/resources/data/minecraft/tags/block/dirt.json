@@ -1,19 +1,17 @@
 {
-  "replace": false,
   "values": [
-    "#forge:dirts/frozen",
-    "#forge:dirts/eden",
-    "#forge:dirts/wildwood",
-    "#forge:dirts/apalachia",
-    "#forge:dirts/skythern",
-    "#forge:dirts/mortum",
-    "#forge:dirts/arcanite",
-    "#forge:dirts/dream",
-    "#forge:dirts/flame",
-    "#forge:dirts/evergrass",
-    "#forge:dirts/scorched",
-    "divinerpg:gelidite",
-    "divinerpg:arcanite_moss",
-    "divinerpg:brittle_moss"
+    "#divinerpg:dirts/frozen",
+    "#divinerpg:dirts/arcanite",
+    "#divinerpg:dirts/eden",
+    "#divinerpg:dirts/wildwood",
+    "#divinerpg:dirts/apalachia",
+    "#divinerpg:dirts/skythern",
+    "#divinerpg:dirts/mortum",
+    "#divinerpg:dirts/dream",
+    "#divinerpg:dirts/flame",
+    "#divinerpg:dirts/evergrass",
+    "#divinerpg:dirts/scorched",
+    "#divinerpg:moss",
+    "divinerpg:gelidite"
   ]
 }

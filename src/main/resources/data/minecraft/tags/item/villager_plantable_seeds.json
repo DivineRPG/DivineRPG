@@ -1,8 +1,13 @@
 {
-  "replace": false,
   "values": [
-    "divinerpg:tomato_seeds",
-    "divinerpg:hitchak_seeds",
-    "divinerpg:white_mushroom_seeds"
+    "#c:seeds/aquamarine",
+    "#c:seeds/eucalyptus_root",
+    "#c:seeds/hitchak",
+    "#c:seeds/lamona",
+    "#c:seeds/marsine",
+    "#c:seeds/sky_plant",
+    "#c:seeds/tomato",
+    "#c:seeds/veilo",
+    "#c:seeds/white_mushroom"
   ]
 }

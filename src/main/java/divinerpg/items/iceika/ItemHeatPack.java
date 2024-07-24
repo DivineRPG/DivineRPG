@@ -9,10 +9,9 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.level.Level;
 
-public class ItemHeatPack extends ItemMod implements Vanishable {
+public class ItemHeatPack extends ItemMod {
 	public ItemHeatPack() {
 		super(new Properties().durability(1000));
 	}
@@ -21,7 +20,7 @@ public class ItemHeatPack extends ItemMod implements Vanishable {
 		if(isActivated(stack)) {
 			if(entity instanceof LivingEntity living) {
 				if(living.getTicksFrozen() > 2) living.setTicksFrozen(living.getTicksFrozen() - 3);
-				stack.hurtAndBreak(1, living, (e) -> {});
+				stack.hurtAndBreak(1, living, LivingEntity.getSlotForHand(living.getUsedItemHand()));
 			} else {
 				stack.setDamageValue(stack.getDamageValue() + 1);
 				if(stack.getDamageValue() >= stack.getMaxDamage()) stack.setCount(0);

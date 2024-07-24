@@ -1,14 +1,13 @@
 {
-  "replace": false,
   "values": [
     "divinerpg:frozen_dirt",
     "divinerpg:arcanite_dirt",
-    "divinerpg:dream_dirt",
     "divinerpg:eden_dirt",
     "divinerpg:wildwood_dirt",
     "divinerpg:apalachia_dirt",
     "divinerpg:skythern_dirt",
     "divinerpg:mortum_dirt",
+    "divinerpg:dream_dirt",
     "divinerpg:gelidite"
   ]
 }

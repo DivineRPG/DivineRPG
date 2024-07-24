@@ -1,0 +1,26 @@
+{
+  "values": [
+    "#c:storage_blocks/raw_realmite",
+    "#c:storage_blocks/realmite",
+    "#c:storage_blocks/raw_arlemite",
+    "#c:storage_blocks/arlemite",
+    "#c:storage_blocks/raw_rupee",
+    "#c:storage_blocks/rupee",
+    "#c:storage_blocks/bloodgem",
+    "#c:storage_blocks/raw_torridite",
+    "#c:storage_blocks/torridite",
+    "#c:storage_blocks/olivine",
+    "#c:storage_blocks/anthracite",
+    "#c:storage_blocks/raw_oxdrite",
+    "#c:storage_blocks/oxdrite",
+    "#c:storage_blocks/arcanic_sand",
+    "#c:storage_blocks/arcanium_rich_sand",
+    "#c:storage_blocks/raw_arcanium",
+    "#c:storage_blocks/arcanium",
+    "#c:storage_blocks/eden",
+    "#c:storage_blocks/wildwood",
+    "#c:storage_blocks/apalachia",
+    "#c:storage_blocks/skythern",
+    "#c:storage_blocks/mortum"
+  ]
+}

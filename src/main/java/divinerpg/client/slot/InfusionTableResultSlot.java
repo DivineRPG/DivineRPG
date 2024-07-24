@@ -5,6 +5,8 @@ import divinerpg.recipe.InfusionTableRecipe;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.event.EventHooks;
 
 import java.util.Optional;
 
@@ -34,14 +36,14 @@ public class InfusionTableResultSlot extends Slot {
     protected void checkTakeAchievements(ItemStack stack) {
     	stack.onCraftedBy(player.level(), player, removeCount);
         removeCount = 0;
-        net.minecraftforge.event.ForgeEventFactory.firePlayerSmeltedEvent(player, stack);
+        EventHooks.firePlayerSmeltedEvent(player, stack);
     }
     public void onTake(Player player, ItemStack stack) {
         if(player.level() != null && !player.level().isClientSide()) {
             checkTakeAchievements(stack);
-            net.minecraftforge.common.ForgeHooks.setCraftingPlayer(player);
+            CommonHooks.setCraftingPlayer(player);
             Optional<InfusionTableRecipe> recipe = player.level().getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, craftSlots, player.level());
-            net.minecraftforge.common.ForgeHooks.setCraftingPlayer(null);
+            CommonHooks.setCraftingPlayer(null);
             if(recipe.isPresent()) craftSlots.getItem(0).shrink(recipe.get().getCount());
             super.onTake(player, stack);
         }

@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#forge:nuggets/arlemite",
-    "#forge:nuggets/realmite",
-    "#forge:nuggets/rupee",
-    "#forge:nuggets/torridite"
-  ]
-}

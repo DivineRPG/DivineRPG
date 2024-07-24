@@ -1,0 +1,24 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#neoforge:is_coniferous",
+  "spawners": [
+	  {
+	    "type": "divinerpg:cyclops",
+	    "weight": 80,
+	    "minCount": 2,
+	    "maxCount": 4
+	  },
+	  {
+		  "type": "divinerpg:jack_o_man",
+		  "weight": 24,
+		  "minCount": 1,
+		  "maxCount": 1
+	  },
+	  {
+	    "type": "divinerpg:pumpkin_spider",
+	    "weight": 60,
+	    "minCount": 1,
+	    "maxCount": 3
+  	  }
+  ]
+}

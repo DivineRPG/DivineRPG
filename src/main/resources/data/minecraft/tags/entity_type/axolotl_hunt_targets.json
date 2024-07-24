@@ -1,8 +1,8 @@
 {
-  "replace": false,
   "values": [
     "divinerpg:aequorea",
-    "divinerpg:gem_fin",
-    "divinerpg:cauldron_fish"
+    "divinerpg:cauldron_fish",
+    "divinerpg:ghost_glider",
+    "divinerpg:gem_fin"
   ]
 }

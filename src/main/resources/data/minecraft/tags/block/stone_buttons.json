@@ -1,5 +1,4 @@
 {
-  "replace": false,
   "values": [
     "divinerpg:frozen_button",
     "divinerpg:cobbled_frozen_button",
@@ -8,7 +7,6 @@
     "divinerpg:coalstone_brick_button",
     "divinerpg:cobaltite_button",
     "divinerpg:polished_coalstone_button",
-    "divinerpg:polished_cobaltite_button",
-    "divinerpg:cut_oxdrite_button"
+    "divinerpg:polished_cobaltite_button"
   ]
 }

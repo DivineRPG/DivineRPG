@@ -1,28 +1,13 @@
 {
-  "replace": false,
   "values": [
-    "divinerpg:apalachia_leaves",
-    "divinerpg:arcanite_moss",
-    "divinerpg:brittle_leaves",
-    "divinerpg:brittle_moss",
-    "divinerpg:divine_leaves",
-    "divinerpg:dreamwood_leaves",
-    "divinerpg:eden_leaves",
-    "divinerpg:firewood_leaves",
-    "divinerpg:hyrewood_leaves",
-    "divinerpg:mintwood_leaves",
-    "divinerpg:mortum_leaves",
-    "divinerpg:skythern_leaves",
-    "divinerpg:wildwood_leaves",
-    "divinerpg:auroraoak_leaves",
-    "divinerpg:cozybark_leaves",
-    "divinerpg:streamleaf_leaves",
-    "divinerpg:winterberry_bush",
+    "#divinerpg:leaves",
+    "#divinerpg:moss",
     "divinerpg:hellfire_sponge",
     "divinerpg:cold_hellfire_sponge",
+    "divinerpg:robbin_nest",
+    "divinerpg:winterberry_bush",
     "divinerpg:glowsprout_bulb",
     "divinerpg:lowsprout_bulb",
-    "divinerpg:slowsprout_bulb",
-    "divinerpg:robbin_nest"
+    "divinerpg:slowsprout_bulb"
   ]
 }

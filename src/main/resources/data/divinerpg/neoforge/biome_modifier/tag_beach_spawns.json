@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#divinerpg:is_beach",
+  "spawners": [
+	  {
+	    "type": "divinerpg:crab",
+	    "weight": 40,
+	    "minCount": 1,
+	    "maxCount": 5
+	  },
+	  {
+	    "type": "divinerpg:king_crab",
+	    "weight": 20,
+	    "minCount": 1,
+	    "maxCount": 5
+  	  }
+  ]
+}

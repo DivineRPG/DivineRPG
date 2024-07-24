@@ -93,10 +93,6 @@ public class EntityBlubbertusk extends Animal {
 	protected int increaseAirSupply(int i) {
 		return 4000;
 	}
-//	@Override
-//	public boolean canBreatheUnderwater() {
-//		return false;
-//	}
 	@Override
 	protected void playSwimSound(float f) {
 		super.playSwimSound(f * 1.5F);

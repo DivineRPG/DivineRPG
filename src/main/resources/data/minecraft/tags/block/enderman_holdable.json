@@ -1,9 +1,8 @@
 {
-  "replace": false,
   "values": [
-    "#forge:sand/arcanic",
-    "#forge:sand/arcanite",
-    "#forge:sand/arcanium_rich",
+    "divinerpg:arcanite_sand",
+    "divinerpg:arcanic_sand",
+    "divinerpg:arcanium_rich_sand",
     "divinerpg:dreamglow",
     "divinerpg:frozen_gravel",
     "divinerpg:glowsprout",

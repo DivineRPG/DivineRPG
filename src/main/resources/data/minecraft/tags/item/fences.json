@@ -1,8 +1,5 @@
 {
-  "replace": false,
   "values": [
-    "#forge:fences/blue",
-    "#forge:fences/green",
-    "#forge:fences/red"
+    "#c:fences/redstone"
   ]
 }

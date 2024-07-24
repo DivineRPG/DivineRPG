@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "entries": [
-    "divinerpg:spawn_bonus_chest_modifier",
-    "divinerpg:abandoned_mineshaft_modifier",
-    "divinerpg:jungle_temple_modifier"
-  ]
-}

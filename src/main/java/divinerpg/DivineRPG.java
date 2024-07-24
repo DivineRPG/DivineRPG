@@ -1,28 +1,19 @@
 package divinerpg;
 
 import divinerpg.compat.ModCompat;
-import divinerpg.config.ClientConfig;
-import divinerpg.config.CommonConfig;
-import divinerpg.events.ArcanaRenderer;
-import divinerpg.events.AttachCapabilityEvent;
-import divinerpg.events.EventClientLogin;
-import divinerpg.events.SpawnEvents;
+import divinerpg.config.*;
+import divinerpg.events.*;
 import divinerpg.registries.*;
 import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.Utils;
-import divinerpg.util.vanilla.Compostables;
-import divinerpg.util.vanilla.LogStripper;
-import divinerpg.util.vanilla.PlantPots;
+import divinerpg.util.vanilla.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.neoforged.fml.event.lifecycle.*;
 import net.neoforged.neoforge.common.NeoForge;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 @Mod(DivineRPG.MODID)
 public class DivineRPG {
@@ -76,7 +67,6 @@ public class DivineRPG {
             RecipeRegistry.BrewingRecipes.init();
             LogStripper.setup(event);
             PlantPots.setup(event);
-            Compostables.setup(event);
         });
     }
     private void client(final FMLClientSetupEvent event) {

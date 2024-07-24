@@ -1,6 +1,6 @@
 {
 	"type": "minecraft:jigsaw",
-	"biomes": "#forge:is_plains",
+	"biomes": "#neoforge:is_plains",
 	"step": "surface_structures",
 	"spawn_overrides": {},
 	"terrain_adaptation": "beard_thin",

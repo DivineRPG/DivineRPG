@@ -1,16 +1,15 @@
 {
-  "replace": false,
   "values": [
-    "#forge:fences/eden",
-    "#forge:fences/wildwood",
-    "#forge:fences/apalachia",
-    "#forge:fences/skythern",
-    "#forge:fences/mortum",
-    "#forge:fences/divine",
-    "#forge:fences/shiverspine",
-    "#forge:fences/eucalyptus",
-    "#forge:fences/auroraoak",
-    "#forge:fences/cozybark",
-    "#forge:fences/streamleaf"
+    "#c:fences/eden",
+    "#c:fences/wildwood",
+    "#c:fences/apalachia",
+    "#c:fences/skythern",
+    "#c:fences/mortum",
+    "#c:fences/divine",
+    "#c:fences/shiverspine",
+    "#c:fences/eucalyptus",
+    "#c:fences/auroraoak",
+    "#c:fences/cozybark",
+    "#c:fences/streamleaf"
   ]
 }

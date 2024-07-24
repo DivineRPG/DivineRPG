@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "divinerpg:eden_log",
-    "divinerpg:stripped_eden_log",
-    "divinerpg:eden_wood",
-    "divinerpg:stripped_eden_wood"
-  ]
-}

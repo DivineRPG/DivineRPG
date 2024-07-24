@@ -1,6 +1,6 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.ItemModFuel;
+import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -12,8 +12,8 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
-public class ItemCollector extends ItemModFuel {
-    public ItemCollector() {super(100);}
+public class ItemCollector extends ItemMod {
+    public ItemCollector() {super();}
     @Override public InteractionResult useOn(UseOnContext context) {
         BlockPos pos = context.getClickedPos();
         InteractionHand hand = context.getHand();
@@ -26,6 +26,6 @@ public class ItemCollector extends ItemModFuel {
             if(!player.isCreative()) stack.shrink(1);
             player.getCooldowns().addCooldown(this, 20);
             return InteractionResult.SUCCESS;
-        }return InteractionResult.PASS;
+        } return InteractionResult.PASS;
     }
 }

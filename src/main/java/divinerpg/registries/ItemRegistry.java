@@ -100,7 +100,7 @@ public class ItemRegistry {
             sabear_fur = registerItem("sabear_fur"),
             sabear_tooth = registerItem("sabear_tooth"),
             snowflake = registerItem("snowflake"),
-            anthracite = registerItem("anthracite", () -> new ItemModFuel(3200)),
+            anthracite = registerItem("anthracite"),
             olivine = registerItem("olivine"),
             raw_oxdrite = registerItem("raw_oxdrite"),
             oxdrite_ingot = registerItem("oxdrite_ingot"),
@@ -571,8 +571,8 @@ public class ItemRegistry {
             dream_axe = registerItemVethean("dream_axe", () -> new ItemModAxe(ToolStats.DREAM_AXE, -3.1F)),
 
             //Buckets
-            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
             cauldron_fish_bucket = registerItem("cauldron_fish_bucket", () -> new MobBucketItem(EntityRegistry.CAULDRON_FISH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
+            gem_fin_bucket = registerItem("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
             smoldering_tar_bucket = registerItem("smoldering_tar_bucket", () -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))),
 
     //Vethean Swords

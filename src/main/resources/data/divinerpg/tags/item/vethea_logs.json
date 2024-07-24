@@ -1,8 +1,8 @@
 {
   "values": [
-    "#forge:wood/hyrewood",
-    "#forge:wood/firewood",
-    "#forge:wood/mintwood",
-    "#forge:wood/dreamwood"
+    "#divinerpg:wood_types/hyrewood",
+    "#divinerpg:wood_types/firewood",
+    "#divinerpg:wood_types/mintwood",
+    "#divinerpg:wood_types/dreamwood"
   ]
 }

@@ -1,20 +1,19 @@
 {
-  "replace": false,
   "values": [
-    "#forge:wood/divine",
-    "#forge:wood/eden",
-    "#forge:wood/wildwood",
-    "#forge:wood/apalachia",
-    "#forge:wood/skythern",
-    "#forge:wood/mortum",
-    "#forge:wood/eucalyptus",
-    "#forge:wood/dreamwood",
-    "#forge:wood/firewood",
-    "#forge:wood/hyrewood",
-    "#forge:wood/mintwood",
-    "#forge:wood/shiverspine",
-    "#forge:wood/auroraoak",
-    "#forge:wood/cozybark",
-    "#forge:wood/streamleaf"
+    "#divinerpg:wood_types/divine",
+    "#divinerpg:wood_types/eden",
+    "#divinerpg:wood_types/wildwood",
+    "#divinerpg:wood_types/apalachia",
+    "#divinerpg:wood_types/skythern",
+    "#divinerpg:wood_types/mortum",
+    "#divinerpg:wood_types/eucalyptus",
+    "#divinerpg:wood_types/dreamwood",
+    "#divinerpg:wood_types/firewood",
+    "#divinerpg:wood_types/hyrewood",
+    "#divinerpg:wood_types/mintwood",
+    "#divinerpg:wood_types/shiverspine",
+    "#divinerpg:wood_types/auroraoak",
+    "#divinerpg:wood_types/cozybark",
+    "#divinerpg:wood_types/streamleaf"
   ]
 }
