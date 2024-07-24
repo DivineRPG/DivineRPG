@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:wood/shiverspine"
+            "tag": "divinerpg:wood_types/shiverspine"
           }
         ]
       },

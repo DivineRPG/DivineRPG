@@ -5,7 +5,7 @@
   },
   "ingredients": [
     {
-      "tag": "forge:wood/mortum"
+      "tag": "divinerpg:wood_types/mortum"
     }
   ],
   "type": "minecraft:crafting_shapeless",

@@ -16,7 +16,7 @@
                     {
                       "condition": "minecraft:match_tool",
                       "predicate": {
-                        "tag": "forge:shears"
+                        "tag": "c:tools/shear"
                       }
                     },
                     {
@@ -72,7 +72,7 @@
               {
                 "condition": "minecraft:match_tool",
                 "predicate": {
-                  "tag": "forge:shears"
+                  "tag": "c:tools/shear"
                 }
               },
               {
@@ -138,7 +138,7 @@
               {
                 "condition": "minecraft:match_tool",
                 "predicate": {
-                  "tag": "forge:shears"
+                  "tag": "c:tools/shear"
                 }
               },
               {

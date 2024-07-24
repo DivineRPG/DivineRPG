@@ -5,7 +5,7 @@
   },
   "ingredients": [
     {
-      "tag": "forge:wood/divine"
+      "tag": "divinerpg:wood_types/divine"
     }
   ],
   "type": "minecraft:crafting_shapeless",

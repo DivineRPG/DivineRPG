@@ -5,7 +5,7 @@
   },
   "ingredients": [
     {
-      "tag": "forge:wood/eucalyptus"
+      "tag": "divinerpg:wood_types/eucalyptus"
     }
   ],
   "type": "minecraft:crafting_shapeless",

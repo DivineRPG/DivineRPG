@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:wood/wildwood"
+            "tag": "divinerpg:wood_types/wildwood"
           }
         ]
       },

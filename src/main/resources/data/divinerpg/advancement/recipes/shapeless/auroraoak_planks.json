@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:wood/auroraoak"
+            "tag": "divinerpg:wood_types/auroraoak"
           }
         ]
       },

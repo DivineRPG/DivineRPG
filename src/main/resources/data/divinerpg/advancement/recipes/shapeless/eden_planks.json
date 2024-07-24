@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:wood/eden"
+            "tag": "divinerpg:wood_types/eden"
           }
         ]
       },

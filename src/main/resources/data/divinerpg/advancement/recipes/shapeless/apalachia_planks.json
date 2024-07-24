@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:wood/apalachia"
+            "tag": "divinerpg:wood_types/apalachia"
           }
         ]
       },

@@ -2,7 +2,7 @@
   "type": "divinerpg:underwater_ruin_big_modifier",
   "conditions": [
     {
-          "condition": "forge:loot_table_id",
+          "condition": "neoforge:loot_table_id",
           "loot_table_id": "minecraft:chests/underwater_ruin_big"
     }
   ],

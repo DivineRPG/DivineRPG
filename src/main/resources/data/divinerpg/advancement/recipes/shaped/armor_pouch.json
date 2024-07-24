@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:leather"
+            "tag": "c:leathers"
           }
         ]
       },
@@ -39,7 +39,7 @@
       "conditions": {
         "items": [
           {
-              "tag": "forge:wood/divine"
+              "tag": "divinerpg:wood_types/divine"
           }
         ]
       },

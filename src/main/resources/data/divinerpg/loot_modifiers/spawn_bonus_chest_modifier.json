@@ -2,7 +2,7 @@
   "type": "divinerpg:spawn_bonus_modifier",
   "conditions": [
     {
-          "condition": "forge:loot_table_id",
+          "condition": "neoforge:loot_table_id",
           "loot_table_id": "minecraft:chests/spawn_bonus_chest"
     }
   ],

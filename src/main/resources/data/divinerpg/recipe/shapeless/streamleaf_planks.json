@@ -5,7 +5,7 @@
   },
   "ingredients": [
     {
-      "tag": "forge:wood/streamleaf"
+      "tag": "divinerpg:wood_types/streamleaf"
     }
   ],
   "type": "minecraft:crafting_shapeless",

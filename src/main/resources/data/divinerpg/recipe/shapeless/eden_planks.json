@@ -5,7 +5,7 @@
   },
   "ingredients": [
     {
-      "tag": "forge:wood/eden"
+      "tag": "divinerpg:wood_types/eden"
     }
   ],
   "type": "minecraft:crafting_shapeless",

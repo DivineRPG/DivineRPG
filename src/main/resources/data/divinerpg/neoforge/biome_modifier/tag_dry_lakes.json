@@ -1,5 +1,5 @@
 {
-  "type": "forge:add_features",
+  "type": "neoforge:add_features",
   "biomes": "#neoforge:is_dry/overworld",
   "features": "divinerpg:tar_lake",
   "step": "lakes"

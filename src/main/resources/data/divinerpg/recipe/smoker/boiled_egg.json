@@ -3,7 +3,7 @@
     "item": "divinerpg:boiled_egg"
   },
   "ingredient": {
-    "tag": "forge:eggs"
+    "tag": "c:eggs"
   },
   "type": "minecraft:smoking",
   "category": "food",

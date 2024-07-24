@@ -5,7 +5,7 @@
   },
   "ingredients": [
     {
-      "tag": "forge:wood/apalachia"
+      "tag": "divinerpg:wood_types/apalachia"
     }
   ],
   "type": "minecraft:crafting_shapeless",

@@ -1,5 +1,5 @@
 {
-  "type": "forge:add_spawns",
+  "type": "neoforge:add_spawns",
   "biomes": "#neoforge:is_spooky",
   "spawners": [
 	  {

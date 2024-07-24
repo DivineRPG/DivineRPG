@@ -5,7 +5,7 @@
   },
   "ingredients": [
     {
-      "tag": "forge:wood/wildwood"
+      "tag": "divinerpg:wood_types/wildwood"
     }
   ],
   "type": "minecraft:crafting_shapeless",

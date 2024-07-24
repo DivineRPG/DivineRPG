@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:wood/eucalyptus"
+            "tag": "divinerpg:wood_types/eucalyptus"
           }
         ]
       },

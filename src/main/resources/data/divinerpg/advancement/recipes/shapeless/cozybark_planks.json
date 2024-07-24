@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:wood/cozybark"
+            "tag": "divinerpg:wood_types/cozybark"
           }
         ]
       },

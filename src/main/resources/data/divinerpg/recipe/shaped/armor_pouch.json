@@ -14,13 +14,13 @@
       "item": "minecraft:string"
     },
     "l": {
-      "tag": "forge:leather"
+      "tag": "c:leathers"
     },
     "a": {
       "item": "minecraft:armor_stand"
     },
     "d": {
-      "tag": "forge:wood/divine"
+      "tag": "divinerpg:wood_types/divine"
     }
   }
 }

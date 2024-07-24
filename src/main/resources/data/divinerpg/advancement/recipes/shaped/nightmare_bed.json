@@ -17,7 +17,7 @@
       "conditions": {
         "items": [
           {
-              "tag": "forge:wood/mortum"
+              "tag": "divinerpg:wood_types/mortum"
           }
         ]
       },

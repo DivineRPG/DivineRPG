@@ -7,7 +7,7 @@
       {
         "target": {
           "predicate_type": "minecraft:tag_match",
-          "tag": "forge:stone"
+          "tag": "c:stones"
         },
         "state": {
           "Name": "divinerpg:skythern_ore"

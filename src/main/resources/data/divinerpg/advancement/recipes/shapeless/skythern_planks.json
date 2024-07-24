@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:wood/skythern"
+            "tag": "divinerpg:wood_types/skythern"
           }
         ]
       },
