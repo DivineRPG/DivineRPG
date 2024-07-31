@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.142'
+    id 'net.neoforged.gradle.userdev' version '7.0.145'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -138,5 +138,13 @@ idea {
     module {
         downloadSources = true
         downloadJavadoc = true
+    }
+}
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xmaxerrs" << "100000"
+        }
     }
 }
