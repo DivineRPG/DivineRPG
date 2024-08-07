@@ -6,15 +6,14 @@
     "title": {
       "translate": "advancement.divinerpg.iceika.frozen_goods"
     },
-    "frame": "goal",
     "description": {
       "translate": "advancement.divinerpg.iceika.frozen_goods.desc"
     },
-    "announce_to_chat": true
+    "frame": "goal"
   },
   "parent": "divinerpg:iceika/root",
   "criteria": {
-    "obtain_snowflake": {
+    "requirement": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

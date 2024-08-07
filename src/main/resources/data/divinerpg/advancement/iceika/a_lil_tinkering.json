@@ -1,15 +1,14 @@
 {
   "display": {
     "icon": {
-      "item": "divinerpg:frozen_maul"
+      "item": "divinerpg:frostking_sword"
     },
     "title": {
       "translate": "advancement.divinerpg.iceika.a_lil_tinkering"
     },
     "description": {
       "translate": "advancement.divinerpg.iceika.a_lil_tinkering.desc"
-    },
-    "announce_to_chat": true
+    }
   },
   "parent": "divinerpg:iceika/frozen_goods",
   "criteria": {

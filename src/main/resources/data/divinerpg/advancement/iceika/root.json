@@ -9,11 +9,10 @@
     "description": {
       "translate": "advancement.divinerpg.iceika.root.desc"
     },
-    "background": "divinerpg:textures/block/frozen_dirt.png",
-    "announce_to_chat": true
+    "background": "divinerpg:textures/block/frozen_dirt.png"
   },
   "criteria": {
-    "divinerpg": {
+    "requirement": {
       "trigger": "minecraft:changed_dimension",
       "conditions": {
         "to": "divinerpg:iceika"

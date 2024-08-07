@@ -2,6 +2,7 @@ package divinerpg.blocks.base;
 
 import com.mojang.serialization.MapCodec;
 import divinerpg.block_entities.furnace.InfiniFurnaceBlockEntity;
+import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -9,10 +10,8 @@ import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -115,17 +114,22 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
 	protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(Level level, BlockEntityType<T> type, BlockEntityType< ? extends InfiniFurnaceBlockEntity> entityType) {
 		return level.isClientSide ? null : createTickerHelper(type, entityType, InfiniFurnaceBlockEntity::serverTick);
 	}
-	@Override
-	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-	      if (state.getValue(AbstractFurnaceBlock.LIT)) {
-	         double d0 = (double)pos.getX() + 0.5D, d1 = (double)pos.getY(), d2 = (double)pos.getZ() + 0.5D;
-	         if (random.nextDouble() < 0.1D) level.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-	         Direction direction = state.getValue(AbstractFurnaceBlock.FACING);
-	         Direction.Axis direction$axis = direction.getAxis();
-	         double d4 = random.nextDouble() * 0.6D - 0.3D, d5 = direction$axis == Direction.Axis.X ? (double)direction.getStepX() * 0.52D : d4;
-	         double d6 = random.nextDouble() * 6.0D / 16.0D, d7 = direction$axis == Direction.Axis.Z ? (double)direction.getStepZ() * 0.52D : d4;
-	         level.addParticle(ParticleTypes.SMOKE, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
-	         level.addParticle(ParticleTypes.FLAME, d0 + d5, d1 + d6, d2 + d7, 0.0D, 0.0D, 0.0D);
-	      }
+	@Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+		if(state.getValue(AbstractFurnaceBlock.LIT)) {
+			double d0 = pos.getX() + .5;
+			double d1 = pos.getY();
+			double d2 = pos.getZ() + .5;
+			if(random.nextDouble() < .1) level.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1, 1, false);
+			Direction direction = state.getValue(AbstractFurnaceBlock.FACING);
+			Direction.Axis direction$axis = direction.getAxis();
+			double d3 = 0.52;
+			double d4 = random.nextDouble() * .6 - .3;
+			double d5 = direction$axis == Direction.Axis.X ? direction.getStepX() * d3 : d4;
+			double d6 = random.nextDouble() * 6 / 16;
+			double d7 = direction$axis == Direction.Axis.Z ? direction.getStepZ() * d3 : d4;
+			level.addParticle(ParticleTypes.SMOKE, d0 + d5, d1 + d6, d2 + d7, 0, 0, 0);
+			if(state.getBlock() == BlockRegistry.oceanfireFurnace.get()) level.addParticle(ParticleRegistry.BLUE_FLAME.get(), d0 + d5, d1 + d6, d2 + d7, 0, 0, 0);
+			else level.addParticle(ParticleTypes.FLAME, d0 + d5, d1 + d6, d2 + d7, 0, 0, 0);
+		}
 	}
 }

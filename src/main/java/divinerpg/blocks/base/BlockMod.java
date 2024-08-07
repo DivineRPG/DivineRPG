@@ -15,7 +15,7 @@ public class BlockMod extends Block {
         flammability = fireSpread = 0;
     }
     public BlockMod(MapColor color, float hardness, float resistance) {
-        super(Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(hardness, resistance).instrument((NoteBlockInstrument.BASEDRUM)));
+        super(Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(hardness, resistance).instrument(NoteBlockInstrument.BASEDRUM));
         flammability = fireSpread = 0;
     }
     public BlockMod(MapColor color, float hardness, float resistance, SoundType sound, NoteBlockInstrument instrument) {

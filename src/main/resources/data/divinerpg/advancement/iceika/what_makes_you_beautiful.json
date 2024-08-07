@@ -9,12 +9,11 @@
     "frame": "challenge",
     "description": {
       "translate": "advancement.divinerpg.iceika.what_makes_you_beautiful.desc"
-    },
-    "announce_to_chat": true
+    }
   },
-  "parent": "divinerpg:iceika/root",
+  "parent": "divinerpg:iceika/sapphire_beast",
   "criteria": {
-    "wear_angelic_armor": {
+    "have_seng_armor": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

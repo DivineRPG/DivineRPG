@@ -1,5 +1,6 @@
 package divinerpg.blocks.iceika;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.block_entities.block.FrostedAllureBlockEntity;
 import divinerpg.registries.ItemRegistry;
@@ -21,9 +22,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class BlockFrostedAllure extends BaseEntityBlock {
+    public static final MapCodec<BlockFrostedAllure> CODEC = simpleCodec(BlockFrostedAllure::new);
     public static final IntegerProperty CATEGORY = IntegerProperty.create("category", 0, 5);
-    public BlockFrostedAllure() {
-        super(Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(.8F).sound(SoundType.CALCITE).instrument(NoteBlockInstrument.CHIME).randomTicks());
+    @Override public MapCodec<BlockFrostedAllure> codec() {return CODEC;}
+    public BlockFrostedAllure(Properties properties) {
+        super(properties.mapColor(MapColor.COLOR_LIGHT_BLUE).strength(.8F).sound(SoundType.CALCITE).instrument(NoteBlockInstrument.CHIME).randomTicks());
         registerDefaultState(stateDefinition.any().setValue(CATEGORY, 0));
     }
     @Nullable

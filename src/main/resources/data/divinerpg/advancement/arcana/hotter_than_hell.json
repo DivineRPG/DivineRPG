@@ -8,18 +8,31 @@
     },
     "description": {
       "translate": "advancement.divinerpg.arcana.hotter_than_hell.desc"
-    },
-    "announce_to_chat": true
+    }
   },
   "parent": "divinerpg:arcana/root",
   "criteria": {
-    "step_on_heat_trap": {
-      "trigger": "minecraft:enter_block",
+    "requirement": {
+      "trigger": "minecraft:location",
       "conditions": {
-        "block": "divinerpg:heat_trap",
-        "state": {
-          "active": "true"
-        }
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "stepping_on": {
+                "block": {
+                  "blocks": [
+                    "divinerpg:heat_trap"
+                  ],
+                  "state": {
+                    "active": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
     }
   }

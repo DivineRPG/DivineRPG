@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "divinerpg:chiseled_icy_bricks"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.icy_catacombs"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.iceika.icy_catacombs.desc"
+    },
+    "frame": "goal"
+  },
+  "parent": "divinerpg:iceika/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "divinerpg:iceika/dungeon"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
