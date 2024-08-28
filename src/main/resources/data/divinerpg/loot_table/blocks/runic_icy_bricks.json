@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "divinerpg:chiseled_icy_bricks",
+              "name": "divinerpg:runic_icy_bricks",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

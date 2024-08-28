@@ -471,7 +471,7 @@ public class BlockRegistry {
             frozenBrickButton = registerBlock("frozen_brick_button", BlockModButton::new),
             snowBricks = registerBlock("snow_bricks", () -> new BlockMod(SNOW, 1.5F, 6)),
             icyBricks = registerBlock("icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
-            chiseledIcyBricks = registerBlock("chiseled_icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
+            runicIcyBricks = registerBlock("runic_icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
             coalstoneBricks = registerBlock("coalstone_bricks", () -> new BlockMod(COLOR_GRAY, 1.5F, 6)),
             coalstoneBrickStairs = registerBlock("coalstone_brick_stairs", () -> new BlockModStairs(coalstoneBricks.get())),
             coalstoneBrickSlab = registerBlock("coalstone_brick_slab", () -> new BlockModSlab(coalstoneBricks.get())),

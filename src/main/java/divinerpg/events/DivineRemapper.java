@@ -3,6 +3,7 @@ package divinerpg.events;
 import com.google.common.collect.ImmutableMap;
 import divinerpg.DivineRPG;
 import divinerpg.registries.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -36,6 +37,7 @@ public class DivineRemapper {
                 .put(id("stripped_frozen_log"), () -> BlockRegistry.strippedShiverspineLog.get().asItem())
                 .put(id("frozen_planks"), () -> BlockRegistry.shiverspinePlanks.get().asItem())
                 .put(id("frozen_fence"), () -> BlockRegistry.shiverspineFence.get().asItem())
+                .put(id("chiseled_icy_bricks"), () -> BlockRegistry.runicIcyBricks.get().asItem())
                 .put(id("stained_glass2"), () -> BlockRegistry.stainedGlass.get().asItem())
                 .put(id("stained_glass3"), () -> BlockRegistry.stainedGlass.get().asItem())
                 .put(id("stained_glass4"), () -> BlockRegistry.stainedGlass.get().asItem())
@@ -62,6 +64,7 @@ public class DivineRemapper {
                 .put(id("stripped_frozen_log"), BlockRegistry.strippedShiverspineLog)
                 .put(id("frozen_planks"), BlockRegistry.shiverspinePlanks)
                 .put(id("frozen_fence"), BlockRegistry.shiverspineFence)
+                .put(id("chiseled_icy_bricks"), BlockRegistry.runicIcyBricks)
                 .put(id("stained_glass2"), BlockRegistry.stainedGlass)
                 .put(id("stained_glass3"), BlockRegistry.stainedGlass)
                 .put(id("stained_glass4"), BlockRegistry.stainedGlass)
@@ -72,13 +75,13 @@ public class DivineRemapper {
                 .put(id("karos_heat_tile_green"), BlockRegistry.karosHeatTile)
                 .put(id("karos_heat_tile_red"), BlockRegistry.karosHeatTile)
                 .build();
-        for(MissingMappingsEvent.Mapping<Item> mapping : event.getMappings(ForgeRegistries.Keys.ITEMS, DivineRPG.MODID)) {
+        for(MissingMappingsEvent.Mapping<Item> mapping : event.getMappings(BuiltInRegistries.ITEM, DivineRPG.MODID)) {
             Supplier<Item> itemSupplier = itemsMap.get(mapping.getKey());
             if(itemSupplier != null) {
                 Item item = itemSupplier.get();
                 mapping.remap(item);
             }
-        } for(MissingMappingsEvent.Mapping<Block> mapping : event.getMappings(ForgeRegistries.Keys.BLOCKS, DivineRPG.MODID)) {
+        } for(MissingMappingsEvent.Mapping<Block> mapping : event.getMappings(BuiltInRegistries.BLOCK, DivineRPG.MODID)) {
             Supplier<Block> itemSupplier = blocksMap.get(mapping.getKey());
             if(itemSupplier != null) {
                 Block item = itemSupplier.get();

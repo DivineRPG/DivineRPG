@@ -231,7 +231,7 @@
 //        register(NSSItem.createItem(BlockRegistry.snowBricks.get()), 16);
 //        register(NSSItem.createItem(BlockRegistry.icyStone.get()), 16);
 //        register(NSSItem.createItem(BlockRegistry.icyBricks.get()), 16);
-//        register(NSSItem.createItem(BlockRegistry.chiseledIcyBricks.get()), 16);
+//        register(NSSItem.createItem(BlockRegistry.runicIcyBricks.get()), 16);
 //        register(NSSItem.createItem(BlockRegistry.icicle.get()), 16);
 //        register(NSSItem.createItem(BlockRegistry.thermalVent.get()), 16);
 //        register(NSSItem.createItem(BlockRegistry.icyStone.get()), 16);
