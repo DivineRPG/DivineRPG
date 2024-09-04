@@ -2,20 +2,19 @@ package divinerpg.block_entities.block;
 
 import java.util.function.Predicate;
 
+import divinerpg.network.payload.*;
 import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.util.DivineRPGPacketHandler;
-import divinerpg.util.packets.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.network.PacketDistributor;
-import net.minecraftforge.network.PacketDistributor.TargetPoint;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	private static final String ITEM_TAG = "item";
@@ -36,9 +35,7 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	@SuppressWarnings("resource") @Override public void onLoad() {
 		super.onLoad();
 		if(level == null) level = Minecraft.getInstance().level;
-		if(level.isClientSide()) {
-			DivineRPGPacketHandler.INSTANCE.sendToServer(new PacketRequestItemContent(worldPosition));
-		}
+		if(level.isClientSide()) PacketDistributor.sendToServer(new RequestItemContent(worldPosition));
 	}
 	public void setItemNoUpdate(ItemStack item) {
 		this.item = item;
@@ -49,7 +46,7 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	}
 	public void setItem(ItemStack item) {
 		if(!level.isClientSide() && (this.item == null ? item != null && !item.isEmpty() : (item == null ? !this.item.isEmpty() : this.item.isEmpty() ^ item.isEmpty())))
-			DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.NEAR.with(TargetPoint.p(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), 256, level.dimension())), new PacketItemContentChanged(worldPosition, item.getItem()));
+			PacketDistributor.sendToPlayersTrackingChunk((ServerLevel) level, new ChunkPos(worldPosition), new ItemContentChanged(worldPosition, item.getItem().getDescriptionId()));
 		this.item = item;
 		setChanged();
 	}

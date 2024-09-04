@@ -4,16 +4,12 @@ import java.util.*;
 
 import javax.annotation.Nullable;
 
-import divinerpg.capability.ReputationProvider;
 import divinerpg.registries.*;
-import divinerpg.util.DivineRPGPacketHandler;
-import divinerpg.util.packets.PacketRequestReputation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
-import net.neoforged.api.distmarker.*;
 
 public interface FactionEntity {
 	public Faction getFaction();
@@ -136,15 +132,16 @@ public interface FactionEntity {
 			return isAutoAggressive;
 		}
 		public void modifyReputation(Player player, int amount) {
-			player.getCapability(ReputationProvider.REPUTATION).orElse(null).modifyReputation(this, amount);
+			player.getData(AttachmentRegistry.REPUTATION).modifyReputation(this, amount);
 		}
-		@OnlyIn(Dist.CLIENT)
-		public static int rep;
+		public void setReputation(Player player, int amount) {
+			player.getData(AttachmentRegistry.REPUTATION).setReputation(this, amount);
+		}
 		public int getReputation(Player player) {
-			if(player.level().isClientSide()) {
-				DivineRPGPacketHandler.INSTANCE.sendToServer(new PacketRequestReputation(this));
-				return rep;
-			} return player.getCapability(ReputationProvider.REPUTATION).orElse(null).getReputation(this);
+			return player.getData(AttachmentRegistry.REPUTATION).getReputation(this);
+		}
+		public static Faction getFation(String reputationidentifier) {
+			return reputationidentifier.equals(GROGLIN.reputationIdentifier) ? GROGLIN : (reputationidentifier.equals(GRUZZORLUG.reputationIdentifier) ? GRUZZORLUG : ICEIKA_MERCHANT);
 		}
 		@Override
 		public String toString() {

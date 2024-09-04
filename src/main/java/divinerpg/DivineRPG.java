@@ -43,13 +43,13 @@ public class DivineRPG {
         LootModifierRegistry.GLOBAL_LOOT_MODIFIERS.register(bus);
         CreativeTabRegistry.CREATIVE_MODE_TABS.register(bus);
         ArmorMaterialRegistry.ARMOR_MATERIALS.register(bus);
+        AttachmentRegistry.ATTACHMENT_TYPES.register(bus);
         EventRegistry.init();
         bus.addListener(this::setup);
         bus.addListener(this::post);
         bus.addListener(this::client);
 //        NeoForge.EVENT_BUS.addGenericListener(Entity.class, AttachCapabilityEvent::onAttachCapabilitiesPlayer);
 //        NeoForge.EVENT_BUS.addGenericListener(LevelChunk.class, AttachCapabilityEvent::onAttachCapabilitiesLevelChunk);
-        NeoForge.EVENT_BUS.addListener(AttachCapabilityEvent::onRegisterCapabilities);
         NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
         container.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
         container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/divinerpg-common.toml");

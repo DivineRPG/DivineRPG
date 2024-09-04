@@ -24,7 +24,7 @@ public class FrostedAllureBlockEntity extends BlockEntity {
         return ClientboundBlockEntityDataPacket.create(this);
     }
     public static void serverTick(Level level, BlockPos pos, BlockState state, FrostedAllureBlockEntity block) {
-        if (level instanceof ServerLevel && level.random.nextInt(5000) == 0 && ((ServerLevel) level).getAllEntities().spliterator().estimateSize() <= CommonConfig.allureMaxMobs.get()) {
+        if (level instanceof ServerLevel && level.random.nextInt(5000) == 0 && ((ServerLevel) level).getAllEntities().spliterator().estimateSize() <= CommonConfig.ALLURE_MAX) {
             switch(state.getValue(BlockFrostedAllure.CATEGORY)) {
                 case 1:
                     NaturalSpawner.spawnCategoryForPosition(MobCategory.MONSTER, (ServerLevel) level, pos.above());

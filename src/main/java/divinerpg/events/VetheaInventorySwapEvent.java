@@ -1,35 +1,29 @@
 package divinerpg.events;
 
-import divinerpg.capability.*;
+import divinerpg.attachments.*;
 import divinerpg.config.CommonConfig;
 import divinerpg.registries.*;
-import divinerpg.util.DivineRPGPacketHandler;
-import divinerpg.util.packets.PacketArcanaBar;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.level.GameRules;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.bus.api.*;
 import net.neoforged.neoforge.event.entity.EntityTravelToDimensionEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
 
 public class VetheaInventorySwapEvent {
 	public static final String OVERWORLD_INVENTORY = "drpg_regular_inventory", VETHEA_INVENTORY = "drpg_dream_inventory";
 	@SubscribeEvent
 	public void onClone(PlayerEvent.Clone event) {
 		Player original = event.getOriginal(), clone = event.getEntity();
-		original.reviveCaps();
-		original.getCapability(ReputationProvider.REPUTATION).ifPresent((origin) -> clone.getCapability(ReputationProvider.REPUTATION).ifPresent((target) -> origin.transferTo(target)));
-		original.getCapability(DimensionalInventoryProvider.DIMENSIONAL_INVENTORY).ifPresent((origin) -> clone.getCapability(DimensionalInventoryProvider.DIMENSIONAL_INVENTORY).ifPresent((target) -> origin.transferTo(target)));
-		original.invalidateCaps();
+		if(original.hasData(AttachmentRegistry.REPUTATION)) clone.setData(AttachmentRegistry.REPUTATION, original.getData(AttachmentRegistry.REPUTATION));
+		if(original.hasData(AttachmentRegistry.DIMENSIONAL_INVENTORY)) clone.setData(AttachmentRegistry.DIMENSIONAL_INVENTORY, original.getData(AttachmentRegistry.DIMENSIONAL_INVENTORY));
+		if(original.hasData(AttachmentRegistry.MAX_ARCANA)) clone.setData(AttachmentRegistry.MAX_ARCANA, original.getData(AttachmentRegistry.MAX_ARCANA));
 	}
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onDeath(LivingDeathEvent event) {
 		if(!event.isCanceled() && event.getEntity() instanceof Player player) {
-			if(CommonConfig.saferVetheanInventory.get() == false) {
-				DimensionalInventory d = player.getCapability(DimensionalInventoryProvider.DIMENSIONAL_INVENTORY).orElse(null);
+			if(!CommonConfig.SAFER_VETHEA) {
+				DimensionalInventory d = player.getData(AttachmentRegistry.DIMENSIONAL_INVENTORY);
 				if(player.level().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) {
 					if(player.level().dimension().equals(LevelRegistry.VETHEA)) d.saveInventory(player, VETHEA_INVENTORY);
 					else d.saveInventory(player, OVERWORLD_INVENTORY);
@@ -40,23 +34,20 @@ public class VetheaInventorySwapEvent {
 	}
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
-		if(!event.isCanceled()) {
-			Player player = event.getEntity();
-			DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer)player), new PacketArcanaBar(new Arcana()));
-			if(CommonConfig.saferVetheanInventory.get() == false) {
-				DimensionalInventory d = player.getCapability(DimensionalInventoryProvider.DIMENSIONAL_INVENTORY).orElse(null);
-				if(player.level().dimension().equals(LevelRegistry.VETHEA)) d.loadInventory(player, VETHEA_INVENTORY);
-				else d.loadInventory(player, OVERWORLD_INVENTORY);
-				player.inventoryMenu.broadcastChanges();
-			} ArmorAbilitiesEvent.updateAbilities(player);
-		}
+		Player player = event.getEntity();
+		if(!CommonConfig.SAFER_VETHEA) {
+			DimensionalInventory d = player.getData(AttachmentRegistry.DIMENSIONAL_INVENTORY);
+			if(player.level().dimension().equals(LevelRegistry.VETHEA)) d.loadInventory(player, VETHEA_INVENTORY);
+			else d.loadInventory(player, OVERWORLD_INVENTORY);
+			player.inventoryMenu.broadcastChanges();
+		} ArmorAbilitiesEvent.updateAbilities(player);
 	}
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public void onDimensionChange(EntityTravelToDimensionEvent event) {
 		if(!event.isCanceled() && event.getEntity() instanceof Player player) {
-			if(CommonConfig.saferVetheanInventory.get() == false) {
+			if(!CommonConfig.SAFER_VETHEA) {
 				boolean from = player.level().dimension().equals(LevelRegistry.VETHEA), to = event.getDimension().equals(LevelRegistry.VETHEA);
-				DimensionalInventory d = player.getCapability(DimensionalInventoryProvider.DIMENSIONAL_INVENTORY).orElse(null);
+				DimensionalInventory d = player.getData(AttachmentRegistry.DIMENSIONAL_INVENTORY);
 				if(from ^ to) {
 					if(from) {
 						d.saveInventory(player, VETHEA_INVENTORY);

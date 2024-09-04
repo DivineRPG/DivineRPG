@@ -9,6 +9,8 @@ import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.structure.*;
 import net.minecraft.world.level.levelgen.structure.pools.*;
+import net.minecraft.world.level.levelgen.structure.pools.alias.PoolAliasLookup;
+import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
 
 import java.util.*;
 
@@ -69,7 +71,7 @@ public final class LowestCeilingType extends Structure {
                         new BlockPos(x, y, z),
                         false,
                         Optional.empty(),
-                        this.maxDistanceFromCenter);
+                        this.maxDistanceFromCenter, PoolAliasLookup.EMPTY, DimensionPadding.ZERO, LiquidSettings.APPLY_WATERLOGGING);
 
         return structurePiecesGenerator;
     }

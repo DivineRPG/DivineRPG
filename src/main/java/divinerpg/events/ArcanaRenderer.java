@@ -3,7 +3,7 @@ package divinerpg.events;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import divinerpg.DivineRPG;
-import divinerpg.capability.Arcana;
+import divinerpg.attachments.Arcana;
 import divinerpg.config.ClientConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.*;

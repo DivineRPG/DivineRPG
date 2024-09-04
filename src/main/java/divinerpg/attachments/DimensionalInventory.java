@@ -1,4 +1,4 @@
-package divinerpg.capability;
+package divinerpg.attachments;
 
 import divinerpg.compat.CuriosCompat;
 import divinerpg.events.VetheaInventorySwapEvent;

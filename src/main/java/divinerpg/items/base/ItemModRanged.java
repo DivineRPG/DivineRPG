@@ -1,6 +1,7 @@
 package divinerpg.items.base;
 
 import divinerpg.DivineRPG;
+import divinerpg.attachments.Arcana;
 import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;

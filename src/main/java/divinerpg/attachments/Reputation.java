@@ -1,11 +1,15 @@
-package divinerpg.capability;
+package divinerpg.attachments;
 
 import java.util.ArrayList;
 
-import divinerpg.entities.base.FactionEntity.Faction;
-import net.minecraft.nbt.CompoundTag;
+import org.jetbrains.annotations.UnknownNullability;
 
-public class Reputation {
+import divinerpg.entities.base.FactionEntity.Faction;
+import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.nbt.CompoundTag;
+import net.neoforged.neoforge.common.util.INBTSerializable;
+
+public class Reputation implements INBTSerializable<CompoundTag> {
 	ArrayList<Faction> factions = new ArrayList<>();
 	ArrayList<Integer> reputation = new ArrayList<>();
 	public void transferTo(Reputation target) {
@@ -45,5 +49,13 @@ public class Reputation {
 		if(tag.contains(Faction.GROGLIN.reputationIdentifier)) setReputation(Faction.GROGLIN, tag.getInt(Faction.GROGLIN.reputationIdentifier));
 		if(tag.contains(Faction.GRUZZORLUG.reputationIdentifier)) setReputation(Faction.GRUZZORLUG, tag.getInt(Faction.GRUZZORLUG.reputationIdentifier));
 		if(tag.contains(Faction.ICEIKA_MERCHANT.reputationIdentifier)) setReputation(Faction.ICEIKA_MERCHANT, tag.getInt(Faction.ICEIKA_MERCHANT.reputationIdentifier));
+	}
+	@Override
+	public @UnknownNullability CompoundTag serializeNBT(Provider provider) {
+		return saveTo(new CompoundTag());
+	}
+	@Override
+	public void deserializeNBT(Provider provider, CompoundTag nbt) {
+		loadFrom(nbt);
 	}
 }
