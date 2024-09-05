@@ -79,8 +79,8 @@ dependencies {
     runtimeOnly("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
 //    compileOnly("curse.maven:projecte-226410:${projecte_id}") //ProjectE
 //    runtimeOnly("curse.maven:projecte-226410:${projecte_id}") //ProjectE
-//    compileOnly("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-NEOFORGE-SNAPSHOT:api") //Patchouli
-//    runtimeOnly("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-NEOFORGE-SNAPSHOT") //Patchouli
+    compileOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT:api") //Patchouli
+    runtimeOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT") //Patchouli
 //    runtimeOnly("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}:${bookshelf_version}") //Bookshelf
 //    runtimeOnly("curse.maven:enchantment-descriptions-250419:${enchantment_descriptions_id}") //Enchantment Descriptions
     runtimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}") //Enchantment Descriptions
