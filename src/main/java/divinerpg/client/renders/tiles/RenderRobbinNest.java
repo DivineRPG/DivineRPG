@@ -1,15 +1,14 @@
 package divinerpg.client.renders.tiles;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-
 import divinerpg.block_entities.block.RobbinNestBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.blockentity.*;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraftforge.api.distmarker.*;
 
-@OnlyIn(Dist.CLIENT)
+
 public class RenderRobbinNest implements BlockEntityRenderer<RobbinNestBlockEntity> {
 	public RenderRobbinNest(BlockEntityRendererProvider.Context context) {}
 	@Override
