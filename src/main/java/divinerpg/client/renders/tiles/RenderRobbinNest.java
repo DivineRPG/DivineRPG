@@ -16,7 +16,7 @@ public class RenderRobbinNest implements BlockEntityRenderer<RobbinNestBlockEnti
 		if(!blockEntity.getItem().isEmpty()) {
 			matrixStackIn.pushPose();
 			matrixStackIn.translate(.5F, .25F, .5F);
-			Minecraft.getInstance().getItemRenderer().renderStatic(blockEntity.getItem(), ItemDisplayContext.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn, blockEntity.getLevel(), 0);
+			Minecraft.getInstance().getItemRenderer().renderStatic(blockEntity.getItem(), ItemDisplayContext.GROUND, combinedLightIn, combinedOverlayIn, matrixStackIn, bufferIn, null, 0);
 			matrixStackIn.popPose();
 		}
 	}

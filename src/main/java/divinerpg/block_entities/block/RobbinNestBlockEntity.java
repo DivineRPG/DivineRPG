@@ -1,20 +1,21 @@
 package divinerpg.block_entities.block;
 
-import java.util.function.Predicate;
-
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.util.DivineRPGPacketHandler;
-import divinerpg.util.packets.*;
-import net.minecraft.client.Minecraft;
+import divinerpg.util.packets.PacketItemContentChanged;
+import divinerpg.util.packets.PacketRequestItemContent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.PacketDistributor.TargetPoint;
+
+import java.util.function.Predicate;
 
 public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	private static final String ITEM_TAG = "item";
@@ -34,7 +35,6 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	}
 	@SuppressWarnings("resource") @Override public void onLoad() {
 		super.onLoad();
-		if(level == null) level = Minecraft.getInstance().level;
 		if(level.isClientSide()) {
 			DivineRPGPacketHandler.INSTANCE.sendToServer(new PacketRequestItemContent(worldPosition));
 		}
