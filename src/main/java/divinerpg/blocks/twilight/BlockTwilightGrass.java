@@ -6,12 +6,13 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.common.*;
 import net.neoforged.neoforge.common.IShearable;
 
 import java.util.function.Supplier;
 
-public class BlockTwilightGrass extends BushBlock implements IPlantable, IShearable {
+import com.mojang.serialization.MapCodec;
+
+public class BlockTwilightGrass extends BushBlock implements IShearable {
     private Supplier<Block> grassSupplier;
 
     public BlockTwilightGrass(Supplier<Block> grassSupplier, MapColor color) {
@@ -24,13 +25,13 @@ public class BlockTwilightGrass extends BushBlock implements IPlantable, ISheara
         return SHAPE;
     }
 
-    @Override
-    public BlockState getPlant(BlockGetter world, BlockPos pos) {
-        BlockState state = world.getBlockState(pos);
-        if (state.getBlock() != this)
-            return defaultBlockState();
-        return state;
-    }
+//    @Override
+//    public BlockState getPlant(BlockGetter world, BlockPos pos) {
+//        BlockState state = world.getBlockState(pos);
+//        if (state.getBlock() != this)
+//            return defaultBlockState();
+//        return state;
+//    }
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
@@ -46,4 +47,10 @@ public class BlockTwilightGrass extends BushBlock implements IPlantable, ISheara
     public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
         return 60;
     }
+
+	@Override
+	protected MapCodec<? extends BushBlock> codec() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

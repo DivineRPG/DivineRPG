@@ -833,13 +833,13 @@ public class BlockRegistry {
 
             //Portals
             arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
-            iceikaPortal = registerBlock("iceika_portal", () -> new BlockModPortal(Blocks.SNOW_BLOCK)),
-            edenPortal = registerBlock("eden_portal", () -> new BlockModPortal(divineRock.get())),
-            wildwoodPortal = registerBlock("wildwood_portal", () -> new BlockModPortal(edenBlock.get())),
-            apalachiaPortal = registerBlock("apalachia_portal", () -> new BlockModPortal(wildwoodBlock.get())),
-            skythernPortal = registerBlock("skythern_portal", () -> new BlockModPortal(apalachiaBlock.get())),
-            mortumPortal = registerBlock("mortum_portal", () -> new BlockModPortal(skythernBlock.get())),
-            vetheaPortal = registerBlock("vethea_portal", () -> new BlockModPortal(mortumBlock.get())),
+            iceikaPortal = registerBlock("iceika_portal", () -> new BlockModPortal(LevelRegistry.ICEIKA, PointOfInterestRegistry.ICEIKA_PORTAL.getKey(), Blocks.SNOW)),
+            edenPortal = registerBlock("eden_portal", () -> new BlockModPortal(LevelRegistry.EDEN, PointOfInterestRegistry.EDEN_PORTAL.getKey(), divineRock.get())),
+            wildwoodPortal = registerBlock("wildwood_portal", () -> new BlockModPortal(LevelRegistry.WILDWOOD, PointOfInterestRegistry.WILDWOOD_PORTAL.getKey(), edenBlock.get())),
+            apalachiaPortal = registerBlock("apalachia_portal", () -> new BlockModPortal(LevelRegistry.APALACHIA, PointOfInterestRegistry.APALACHIA_PORTAL.getKey(), wildwoodBlock.get())),
+            skythernPortal = registerBlock("skythern_portal", () -> new BlockModPortal(LevelRegistry.SKYTHERN, PointOfInterestRegistry.SKYTHERN_PORTAL.getKey(), apalachiaBlock.get())),
+            mortumPortal = registerBlock("mortum_portal", () -> new BlockModPortal(LevelRegistry.MORTUM, PointOfInterestRegistry.MORTUM_PORTAL.getKey(), mortumBlock.get())),
+            vetheaPortal = registerBlock("vethea_portal", () -> new BlockModPortal(LevelRegistry.VETHEA)),
 
             //Air
             dungeonAir = registerBlock("dungeon_air", BlockModDungeonAir::new, Rarity.EPIC),

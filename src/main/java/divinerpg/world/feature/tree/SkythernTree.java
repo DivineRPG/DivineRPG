@@ -76,15 +76,15 @@ public class SkythernTree extends DivineTree {
     			grow(level, pos.offset(0, treeHeight + 1, 0), leaves, tempInt);
     			if(width == 2) {
     				MutableBlockPos mut = pos.offset(1, 0, 0).mutable();
-    				while(hasSpace(level.getBlockState(mut.move(0, -1, 0)))) setBlock(level, mut, log, true);
+    				for(int n = 0; n < 4 && hasSpace(level.getBlockState(mut.move(0, -1, 0))); n++) setBlock(level, mut, log, true);
     				grow(level, pos.offset(1, 0, 0), log, treeHeight);
     				grow(level, pos.offset(1, treeHeight + 1, 0), leaves, tempInt);
     				mut = pos.offset(0, 0, 1).mutable();
-    				while(hasSpace(level.getBlockState(mut.move(0, -1, 0)))) setBlock(level, mut, log, true);
+    				for(int n = 0; n < 4 && hasSpace(level.getBlockState(mut.move(0, -1, 0))); n++) setBlock(level, mut, log, true);
     				grow(level, pos.offset(0, 0, 1), log, treeHeight);
     				grow(level, pos.offset(0, treeHeight + 1, 1), leaves, tempInt);
     				mut = pos.offset(1, 0, 1).mutable();
-    				while(hasSpace(level.getBlockState(mut.move(0, -1, 0)))) setBlock(level, mut, log, true);
+    				for(int n = 0; n < 4 && hasSpace(level.getBlockState(mut.move(0, -1, 0))); n++) setBlock(level, mut, log, true);
     				grow(level, pos.offset(1, 0, 1), log, treeHeight);
     				grow(level, pos.offset(1, treeHeight + 1, 1), leaves, tempInt);
     			}

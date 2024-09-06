@@ -4,7 +4,6 @@ import divinerpg.compat.ModCompat;
 import divinerpg.config.*;
 import divinerpg.events.*;
 import divinerpg.registries.*;
-import divinerpg.util.DivineRPGPacketHandler;
 import divinerpg.util.Utils;
 import divinerpg.util.vanilla.*;
 import net.neoforged.bus.api.IEventBus;
@@ -48,8 +47,6 @@ public class DivineRPG {
         bus.addListener(this::setup);
         bus.addListener(this::post);
         bus.addListener(this::client);
-//        NeoForge.EVENT_BUS.addGenericListener(Entity.class, AttachCapabilityEvent::onAttachCapabilitiesPlayer);
-//        NeoForge.EVENT_BUS.addGenericListener(LevelChunk.class, AttachCapabilityEvent::onAttachCapabilitiesLevelChunk);
         NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
         container.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
         container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/divinerpg-common.toml");
@@ -61,7 +58,6 @@ public class DivineRPG {
         ModCompat.initCommon(event);
         TriggerRegistry.registerTriggers();
         PlacementModifierRegistry.init();
-        DivineRPGPacketHandler.init();
 
         event.enqueueWork(() -> {
             RecipeRegistry.BrewingRecipes.init();

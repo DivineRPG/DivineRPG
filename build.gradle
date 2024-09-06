@@ -1,9 +1,7 @@
 plugins {
     id 'java-library'
-    id 'eclipse'
-    id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.145'
+    id 'net.neoforged.moddev' version '1.0.17'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -15,15 +13,7 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
-    //    maven { url = "https://minecraft.curseforge.com/api/maven/"}
-//    maven { url = "https://dvs1.progwml6.com/files/maven/"}
-    maven { url = "https://modmaven.dev"}
     maven { url = "https://www.cursemaven.com"}
-//    maven { url 'https://maven.blamejared.com'}
-//    maven { url "https://maven.shedaniel.me" }
-//    maven { url = uri("https://maven.architectury.dev/") }
-//    maven { url = uri("https://maven.blakesmods.com") }
-    maven { url 'https://maven.theillusivec4.top/'}
 }
 
 base {
@@ -32,31 +22,49 @@ base {
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
-minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
-//minecraft.accessTransformers.entry public net.minecraft.client.Minecraft textureManager # textureManager
+neoForge {
+    version = project.neo_version
 
-runs {
-    configureEach {
-        systemProperty 'forge.logging.markers', 'REGISTRIES'
-        systemProperty 'forge.logging.console.level', 'debug'
-        modSource project.sourceSets.main
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
     }
 
-    client {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    // This line is optional. Access Transformers are automatically detected
+    // accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        gameTestServer {
+            type = "gameTestServer"
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
     }
 
-    server {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-        programArgument '--nogui'
-    }
-
-    gameTestServer {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-    }
-
-    data {
-        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
     }
 }
 
@@ -68,35 +76,17 @@ configurations {
 
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
-//    implementation "me.shedaniel.cloth:cloth-config-neoforge:${cloth_version}"
-//    implementation "dev.architectury:architectury-neoforge:${architectury_version}"
-//    implementation "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
-    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}") //Just Enough Items
-    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}") //Just Enough Items
-    runtimeOnly("mezz.jei:jei-${minecraft_version}-common:${jei_version}") //Just Enough Items
-    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}") //Just Enough Items
-    compileOnly("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
-    runtimeOnly("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
-//    compileOnly("curse.maven:projecte-226410:${projecte_id}") //ProjectE
-//    runtimeOnly("curse.maven:projecte-226410:${projecte_id}") //ProjectE
-    compileOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT:api") //Patchouli
-    runtimeOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT") //Patchouli
-//    runtimeOnly("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}:${bookshelf_version}") //Bookshelf
-//    runtimeOnly("curse.maven:enchantment-descriptions-250419:${enchantment_descriptions_id}") //Enchantment Descriptions
-    runtimeOnly("curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}") //Enchantment Descriptions
-//    runtimeOnly("curse.maven:selene-499980:${selene_id}") //Moonlight Lib (For Target Dummy)
-//    runtimeOnly("curse.maven:mmmmmmmmmmmm-225738:${mmm_id}") //MmmMmmMmmMmm (Target Dummy)
-    runtimeOnly("curse.maven:jade-324717:${jade_id}") //Jade
-//    compileOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}:api")
-//    runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}")
-//    implementation "com.blakebr0.cucumber:Cucumber:${minecraft_version}-6.2.0"
-//    implementation "com.blakebr0.mysticalagriculture:MysticalAgriculture:${minecraft_version}-6.2.0"
-//    implementation "com.blakebr0.mysticalcustomization:MysticalCustomization:${minecraft_version}-4.2.0"
-    runtimeOnly("curse.maven:model-gap-fix-676136:${mgf_id}") // Model Gap Fix
 
+    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}" //JEI
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}" //JEI
+    compileOnly "vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE:api" //Patchouli
+    
+    localRuntime "vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE" //Patchouli
+    localRuntime "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}" //JEI
+    localRuntime "curse.maven:jade-324717:${jade_id}" //Jade
 }
 
-tasks.withType(ProcessResources).configureEach {
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
@@ -111,11 +101,12 @@ tasks.withType(ProcessResources).configureEach {
             mod_description        : mod_description
     ]
     inputs.properties replaceProperties
-
-    filesMatching(['META-INF/neoforge.mods.toml']) {
-        expand replaceProperties
-    }
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
 }
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
 
 publishing {
     publications {
@@ -138,13 +129,5 @@ idea {
     module {
         downloadSources = true
         downloadJavadoc = true
-    }
-}
-
-allprojects {
-    gradle.projectsEvaluated {
-        tasks.withType(JavaCompile) {
-            options.compilerArgs << "-Xmaxerrs" << "100000"
-        }
     }
 }

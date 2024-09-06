@@ -66,8 +66,7 @@ public class BlockKarosDispenser extends BaseEntityBlock {
         double var5 = pos.getX();
         double var7 = pos.getY();
         double var9 = pos.getZ();
-        BlockSourceImpl proxyblocksource = new BlockSourceImpl(world, pos);
-        Direction direction = proxyblocksource.getBlockState().getValue(FACING);
+        Direction direction = world.getBlockState(pos).getValue(FACING);
         EntityDivineArrow var11 = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), world, ArrowType.KAROS_ARROW, var5 + 0.5D + direction.getStepX(), var7 + 0.5D, var9 + 0.5D + direction.getStepZ());
         var11.damageMin = var11.damageMax = 12;
         double var12 = world.random.nextDouble() * 0.1D + 0.9D;
@@ -132,7 +131,7 @@ public class BlockKarosDispenser extends BaseEntityBlock {
         double d0 = p_149939_0_.pos().getX() + 0.7D * (double)direction.getStepX();
         double d1 = p_149939_0_.pos().getY() + 0.7D * (double)direction.getStepY();
         double d2 = p_149939_0_.pos().getZ() + 0.7D * (double)direction.getStepZ();
-        return new PositionImpl(d0, d1, d2);
+        return new Vec3(d0, d1, d2);
     }
 
     public boolean hasAnalogOutputSignal(BlockState p_149740_1_) {

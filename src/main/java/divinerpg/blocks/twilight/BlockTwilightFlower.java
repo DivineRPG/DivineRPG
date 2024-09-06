@@ -7,11 +7,13 @@ import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.*;
-import net.minecraftforge.common.*;
+import net.neoforged.neoforge.common.util.TriState;
 
 import java.util.function.Supplier;
 
-public class BlockTwilightFlower extends BushBlock implements IPlantable {
+import com.mojang.serialization.MapCodec;
+
+public class BlockTwilightFlower extends BushBlock {
     private Supplier<Block> grassSupplier;
 //    private AABB size;
 
@@ -52,23 +54,22 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
 //                rightCorner);
     }
 
-    @Override
-    public BlockState getPlant(BlockGetter world, BlockPos pos) {
-        BlockState state = world.getBlockState(pos);
-        if (state.getBlock() != this)
-            return defaultBlockState();
-        return state;
-    }
+//    @Override
+//    public BlockState getPlant(BlockGetter world, BlockPos pos) {
+//        BlockState state = world.getBlockState(pos);
+//        if (state.getBlock() != this)
+//            return defaultBlockState();
+//        return state;
+//    }
 
     @Override
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
         BlockState soil = worldIn.getBlockState(pos);
         return worldIn.getBlockState(pos.below()).getBlock() != this && soil.getBlock() == grassSupplier.get();
     }
-
     @Override
-    public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction facing, IPlantable plantable) {
-        return state.getBlock() == grassSupplier.get();
+    public TriState canSustainPlant(BlockState state, BlockGetter level, BlockPos soilPosition, Direction facing, BlockState plant) {
+    	return state.getBlock() == grassSupplier.get() ? TriState.TRUE : TriState.FALSE;
     }
 
     protected static final VoxelShape SHAPE = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 10.0D, 11.0D);
@@ -99,4 +100,10 @@ public class BlockTwilightFlower extends BushBlock implements IPlantable {
     public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {
         return 60;
     }
+
+	@Override
+	protected MapCodec<? extends BushBlock> codec() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
