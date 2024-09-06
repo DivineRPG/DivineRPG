@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pointed_dripstone",
-  "render_type": "cutout",
+  "render_type": "tripwire",
   "textures": {
     "particle": "#cross"
   }

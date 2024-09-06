@@ -15,27 +15,20 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.*;
 
 public class BlockHiveEgg extends FallingBlock {
-    protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
-
-    public BlockHiveEgg()
-    {
-        super(BlockBehaviour.Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.GRASS).strength(3F, 9F));
+    protected static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 16, 15);
+    public BlockHiveEgg() {
+        super(Properties.of().pushReaction(PushReaction.DESTROY).mapColor(MapColor.GRASS).strength(3, 9));
     }
-
-    public VoxelShape getShape(BlockState p_220053_1_, BlockGetter p_220053_2_, BlockPos p_220053_3_, CollisionContext p_220053_4_) {
+    @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
-
-    public boolean isPathfindable(BlockState p_196266_1_, BlockGetter p_196266_2_, BlockPos p_196266_3_, PathComputationType p_196266_4_) {
+    @Override public boolean isPathfindable(BlockState state, BlockGetter getter, BlockPos pos, PathComputationType type) {
         return false;
     }
-
-    @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player playerEntity, InteractionHand hand, BlockHitResult result) {
-        if(!world.isClientSide){
+    @Override public InteractionResult use(BlockState state, Level world, BlockPos pos, Player playerEntity, InteractionHand hand, BlockHitResult result) {
+        if(!world.isClientSide) {
             EntityRegistry.HIVE_QUEEN.get().spawn((ServerLevel) world, null, playerEntity, pos, MobSpawnType.MOB_SUMMONED, true, false);
             world.setBlock(pos, Blocks.AIR.defaultBlockState(), 0);
-        }
-        return InteractionResult.SUCCESS;
+        } return InteractionResult.SUCCESS;
     }
 }
