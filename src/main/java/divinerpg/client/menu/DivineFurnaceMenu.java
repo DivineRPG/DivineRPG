@@ -9,7 +9,6 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.common.CommonHooks;
 
 public abstract class DivineFurnaceMenu extends RecipeBookMenu<RecipeInput, Recipe<RecipeInput>> {
     public static final int INGREDIENT_SLOT = 0;
@@ -75,8 +74,7 @@ public abstract class DivineFurnaceMenu extends RecipeBookMenu<RecipeInput, Reci
         this.getSlot(0).set(ItemStack.EMPTY);
         this.getSlot(2).set(ItemStack.EMPTY);
     }
-
-    @Override public boolean recipeMatches(RecipeHolder recipe) {return recipe.value().matches(container, level);}
+    @Override public boolean recipeMatches(RecipeHolder<Recipe<RecipeInput>> recipe) {return recipe.value().matches(new SingleRecipeInput(container.getItem(0)), level);}
 
     public int getResultSlotIndex() {
         return 2;
@@ -148,7 +146,7 @@ public abstract class DivineFurnaceMenu extends RecipeBookMenu<RecipeInput, Reci
 
     @SuppressWarnings("unchecked")
 	protected boolean canSmelt(ItemStack p_38978_) {
-        return this.level.getRecipeManager().getRecipeFor((RecipeType<AbstractCookingRecipe>)recipeType, new SimpleContainer(p_38978_), this.level).isPresent();
+        return this.level.getRecipeManager().getRecipeFor((RecipeType<AbstractCookingRecipe>)recipeType, new SingleRecipeInput(p_38978_), this.level).isPresent();
     }
 
     public boolean isFuel(ItemStack stack) {

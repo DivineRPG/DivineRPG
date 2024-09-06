@@ -45,7 +45,7 @@ public class InfiniFurnaceMenu extends RecipeBookMenu<RecipeInput, Recipe<Recipe
 		getSlot(0).set(ItemStack.EMPTY);
 		getSlot(1).set(ItemStack.EMPTY);
 	}
-	@Override public boolean recipeMatches(RecipeHolder recipe) {return recipe.value().matches(container, level);}
+	@Override public boolean recipeMatches(RecipeHolder<Recipe<RecipeInput>> recipe) {return recipe.value().matches(new SingleRecipeInput(container.getItem(0)), level);}
 	@Override public boolean stillValid(Player player) {return container.stillValid(player);}
 	@Override public int getResultSlotIndex() {return 1;}
 	@Override public int getGridWidth() {return 1;}
@@ -78,7 +78,7 @@ public class InfiniFurnaceMenu extends RecipeBookMenu<RecipeInput, Recipe<Recipe
 	      return itemstack;
 	}
 	protected boolean canSmelt(ItemStack stack) {
-	      return level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(stack), level).isPresent();
+	      return level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(stack), level).isPresent();
 	}
 	public int getBurnProgress() {
 	      int i = data.get(0), j = data.get(1);

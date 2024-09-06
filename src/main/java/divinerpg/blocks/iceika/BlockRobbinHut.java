@@ -23,15 +23,14 @@ public class BlockRobbinHut extends BaseEntityBlock {
 		super(properties.randomTicks().noOcclusion().mapColor(MapColor.COLOR_LIGHT_GRAY).isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false));
 	}
 	@Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return BASE_SHAPE;}
-	@SuppressWarnings("deprecation")
 	@Override public RenderShape getRenderShape(BlockState state) {return RenderShape.MODEL;}
 	@Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-		if(level.getBlockEntity(pos) instanceof RobbinHutBlockEntity block && (block.robbin1 != null || block.robbin2 != null) && level.getBlockState(pos = pos.offset(state.getValue(HorizontalDirectionalBlock.FACING).getNormal())).isAir()) {
+		if(level.getBlockEntity(pos) instanceof RobbinHutBlockEntity block && !(block.robbin1 == null && block.robbin2 == null) && level.getBlockState(pos = pos.offset(state.getValue(HorizontalDirectionalBlock.FACING).getNormal())).isAir()) {
 			if(block.robbin2 == null) {
-				EntityRegistry.ROBBIN.get().spawn(level, block.robbin1, null, pos, MobSpawnType.DISPENSER, true, true);
+				EntityRegistry.ROBBIN.get().spawn(level, (en) -> en.load(block.robbin1), pos, MobSpawnType.DISPENSER, true, true);
 				block.robbin1 = null;
 			} else {
-				EntityRegistry.ROBBIN.get().spawn(level, block.robbin2, null, pos, MobSpawnType.DISPENSER, true, true).wantsNest = block.robbin1 != null;
+				EntityRegistry.ROBBIN.get().spawn(level, null, pos, MobSpawnType.DISPENSER, true, true).wantsNest = block.robbin1 != null;
 				block.robbin2 = null;
 			}
 		}
@@ -41,7 +40,6 @@ public class BlockRobbinHut extends BaseEntityBlock {
 	@Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {return BlockEntityRegistry.ROBBIN_HUT.get().create(pos, state);}
 	@Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(HorizontalDirectionalBlock.FACING);}
 	@Override public BlockState getStateForPlacement(BlockPlaceContext context) {return defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, context.getHorizontalDirection().getOpposite());}
-	@SuppressWarnings("deprecation")
 	@Override public BlockState rotate(BlockState state, Rotation rot) {return state.setValue(HorizontalDirectionalBlock.FACING, rot.rotate(state.getValue(HorizontalDirectionalBlock.FACING)));}
 	@SuppressWarnings("deprecation")
 	@Override public BlockState mirror(BlockState state, Mirror mir) {return state.rotate(mir.getRotation(state.getValue(HorizontalDirectionalBlock.FACING)));}

@@ -1,8 +1,6 @@
 package divinerpg.block_entities;
 
 import net.minecraft.core.*;
-import net.minecraft.nbt.*;
-import net.minecraft.network.*;
 import net.minecraft.network.protocol.game.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.*;
@@ -19,19 +17,9 @@ public class ModUpdatableBlockEntity extends BlockEntity {
     public ModUpdatableBlockEntity(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
         super(p_155228_, p_155229_, p_155230_);
     }
-
     @Nullable
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
-    }
-
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider registries) {
-        this.deserializeNBT(pkt.getTag());
-    }
-    @Override
-    public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
-        loadAdditional(tag, registries);
     }
 }

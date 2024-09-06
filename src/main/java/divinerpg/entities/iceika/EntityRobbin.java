@@ -43,11 +43,11 @@ public class EntityRobbin extends EntityDivineFlyingMob {
     }
     @Override public void addAdditionalSaveData(CompoundTag tag) {
     	super.addAdditionalSaveData(tag);
-    	tag.put("MouthPiece", mouthPiece.save(new CompoundTag()));
+    	tag.put("MouthPiece", mouthPiece.save(registryAccess()));
     }
     @Override public void readAdditionalSaveData(CompoundTag tag) {
     	super.readAdditionalSaveData(tag);
-    	if(tag.contains("MouthPiece")) setMouthPiece(ItemStack.of(tag.getCompound("MouthPiece")));
+    	if(tag.contains("MouthPiece")) setMouthPiece(ItemStack.parse(registryAccess(), tag.getCompound("MouthPiece")).orElse(ItemStack.EMPTY));
     }
     public int getItemID() {
     	return entityData.get(ITEM);

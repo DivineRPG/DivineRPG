@@ -14,7 +14,7 @@ import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
 
 public class VetheaPortal extends BlockModPortal {
-	protected VetheaPortal() {
+	public VetheaPortal() {
 		super(LevelRegistry.VETHEA, BlockRegistry.mortumBlock.get());
 	}
 	@Override

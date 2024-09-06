@@ -839,7 +839,7 @@ public class BlockRegistry {
             apalachiaPortal = registerBlock("apalachia_portal", () -> new BlockModPortal(LevelRegistry.APALACHIA, PointOfInterestRegistry.APALACHIA_PORTAL.getKey(), wildwoodBlock.get())),
             skythernPortal = registerBlock("skythern_portal", () -> new BlockModPortal(LevelRegistry.SKYTHERN, PointOfInterestRegistry.SKYTHERN_PORTAL.getKey(), apalachiaBlock.get())),
             mortumPortal = registerBlock("mortum_portal", () -> new BlockModPortal(LevelRegistry.MORTUM, PointOfInterestRegistry.MORTUM_PORTAL.getKey(), mortumBlock.get())),
-            vetheaPortal = registerBlock("vethea_portal", () -> new BlockModPortal(LevelRegistry.VETHEA)),
+            vetheaPortal = registerBlock("vethea_portal", VetheaPortal::new),
 
             //Air
             dungeonAir = registerBlock("dungeon_air", BlockModDungeonAir::new, Rarity.EPIC),
