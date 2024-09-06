@@ -1,20 +1,22 @@
 package divinerpg.block_entities.block;
 
-import java.util.function.Predicate;
-
-import divinerpg.network.payload.*;
+import divinerpg.network.payload.ItemContentChanged;
+import divinerpg.network.payload.RequestItemContent;
 import divinerpg.registries.BlockEntityRegistry;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.network.PacketDistributor;
+
+import java.util.function.Predicate;
 
 public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	private static final String ITEM_TAG = "item";
@@ -34,7 +36,6 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	}
 	@SuppressWarnings("resource") @Override public void onLoad() {
 		super.onLoad();
-		if(level == null) level = Minecraft.getInstance().level;
 		if(level.isClientSide()) PacketDistributor.sendToServer(new RequestItemContent(worldPosition));
 	}
 	public void setItemNoUpdate(ItemStack item) {
