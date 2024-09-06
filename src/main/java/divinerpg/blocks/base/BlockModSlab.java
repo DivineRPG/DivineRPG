@@ -6,13 +6,12 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class BlockModSlab extends SlabBlock {
-    private int flammability;
-    private int fireSpread;
+    private int flammability, fireSpread;
     public BlockModSlab(Block base) {
         super(Properties.copy(base));
         if(base instanceof BlockModPlanks) {
-            flammability = BlockModPlanks.flammability;
-            fireSpread = BlockModPlanks.fireSpread;
+            flammability = 20;
+            fireSpread = 5;
         }
     }
     @Override public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {return flammability;}
