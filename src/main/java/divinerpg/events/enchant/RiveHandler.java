@@ -1,14 +1,18 @@
 package divinerpg.events.enchant;
 
+import divinerpg.blocks.base.BlockModMobCage;
 import divinerpg.registries.EnchantmentRegistry;
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -44,17 +48,25 @@ public class RiveHandler {
     private boolean tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool) {
         Block block = blockState.getBlock();
         if(!tool.getItem().isCorrectToolForDrops(tool, blockState)) return false;
-        if(block instanceof DoorBlock) return false;
-        if(blockState.hasBlockEntity()) return false;
+        if(!(block instanceof BlockModMobCage) && blockState.hasBlockEntity()) return false;
         if(block.defaultDestroyTime() < 0) return false;
+
+        // Check if the block is a mob cage and manually trigger entity spawn logic
+        if(block instanceof BlockModMobCage mobCage) {
+            mobCage.onDestroyedByPlayer(blockState, world, pos, player, true, world.getFluidState(pos));
+        }
+
         if(block.canHarvestBlock(blockState, world, pos, player) && world instanceof ServerLevel) {
             if(!player.isCreative()) {
                 block.playerDestroy(world, player, pos, blockState, null, tool);
                 block.popExperience((ServerLevel) world, pos, block.getExpDrop(blockState, world, world.random, pos, EnchantmentHelper.getEnchantmentLevel(Enchantments.BLOCK_FORTUNE, player), EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player)));
-            } world.destroyBlock(pos, false);
+            }
+            world.destroyBlock(pos, false);
             return true;
-        } return false;
+        }
+        return false;
     }
+
     private int[] getSizeByDirection(Direction facing, int level) {
         int depth = level - 1;
         //Format: fromX, fromY, fromZ, toX, toY, toZ
