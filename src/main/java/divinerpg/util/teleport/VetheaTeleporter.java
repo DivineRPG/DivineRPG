@@ -33,6 +33,20 @@ public class VetheaTeleporter implements ITeleporter {
 		if(entity instanceof ServerPlayer && !((ServerPlayer) entity).isOnPortalCooldown()) {
 			ServerPlayer player = (ServerPlayer) entity;
 			player.setPortalCooldown();
+
+			if(destWorld.dimension() == LevelRegistry.VETHEA && !isPortalTravel) {
+				//teleport to vethea without creating portal, cap Y to 50
+				MutableBlockPos mut = new MutableBlockPos(entity.blockPosition().getX(), Math.min(destWorld.getMinBuildHeight() + 1, 50), entity.blockPosition().getZ());
+
+				// Ensure Y position doesn't exceed 50 while searching for air blocks
+				while(!destWorld.getBlockState(mut).isAir() && mut.getY() < 50) mut.move(Direction.UP);
+
+				// Adjust to ensure correct landing location
+				while(!destWorld.getBlockState(mut.above()).isAir() || !destWorld.getBlockState(mut).isAir() || destWorld.getBlockState(mut.below()).isAir()) mut.move(Direction.NORTH);
+
+				return new PortalInfo(new Vec3(mut.getX() + (entity.getX() % 1), mut.getY() + .5, mut.getZ() + (entity.getZ() % 1)), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot());
+			}
+
 			if(destWorld.dimension() == LevelRegistry.VETHEA && !isPortalTravel) {
 				//teleport to vethea without creating portal. only return through death (waking up) or creating a portal
 				MutableBlockPos mut = new MutableBlockPos(entity.blockPosition().getX(), destWorld.getMinBuildHeight() + 1, entity.blockPosition().getZ());
