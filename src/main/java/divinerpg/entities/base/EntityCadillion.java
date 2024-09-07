@@ -14,6 +14,7 @@ import net.minecraft.world.level.*;
 public class EntityCadillion extends EntityDivineMonster {
     private int chargeTime, ramCooldown;
     private boolean isCharging;
+
     public EntityCadillion(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
         chargeTime = 0;
@@ -30,18 +31,20 @@ public class EntityCadillion extends EntityDivineMonster {
         super.aiStep();
         if(level().isClientSide()) return;
         if(ramCooldown > 0) ramCooldown--;
-        if(getTarget() != null) {
+
+        Entity target = getTarget();
+        if(target != null) {
             if(isCharging) {
                 chargeTime++;
+                lookAt(target, 30.0F, 30.0F);
                 if(chargeTime >= 20) {
-                    Entity target = getTarget();
                     double targetX = target.getX();
                     double targetZ = target.getZ();
                     double dx = targetX - getX();
                     double dz = targetZ - getZ();
                     double distance = Math.sqrt(dx * dx + dz * dz);
                     if(distance > 0) {
-                        double speed = 2.5;
+                        double speed = 1.75 * getAttributeValue(Attributes.MOVEMENT_SPEED);
                         double motionX = (dx / distance) * speed;
                         double motionZ = (dz / distance) * speed;
                         setDeltaMovement(motionX, 0, motionZ);
@@ -53,6 +56,9 @@ public class EntityCadillion extends EntityDivineMonster {
             } else if(ramCooldown == 0) {
                 getNavigation().stop();
                 chargeTime++;
+                if(chargeTime == 1) {
+                    playSound(SoundRegistry.GROWL_HURT.get(), 1.0F, 1.0F);
+                }
                 if(chargeTime >= 40) {
                     isCharging = true;
                     chargeTime = 0;
@@ -63,7 +69,9 @@ public class EntityCadillion extends EntityDivineMonster {
             if(nearestPlayer != null && !nearestPlayer.isCreative()) getNavigation().moveTo(nearestPlayer, 1);
         }
     }
-    @Override protected void registerGoals() {
+
+    @Override
+    protected void registerGoals() {
         super.registerGoals();
         goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
     }
