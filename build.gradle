@@ -13,6 +13,7 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven { url = "https://modmaven.dev"}
     maven { url = "https://www.cursemaven.com"}
 }
 
