@@ -8,8 +8,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.*;
 
 public class BlockMod extends Block {
-    public static int flammability;
-    public static int fireSpread;
+    public int flammability, fireSpread;
     public BlockMod(Properties properties) {
         super(properties);
         flammability = fireSpread = 0;
