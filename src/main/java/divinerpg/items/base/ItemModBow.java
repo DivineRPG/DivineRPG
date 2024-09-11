@@ -81,11 +81,11 @@ public class ItemModBow extends BowItem {
                         AbstractArrow arrow = new EntityDivineArrow(EntityRegistry.ARROW_SHOT.get(), worldIn, arrowType, player);
                         arrow.shootFromRotation(player, player.xRot, player.yRot, 0, f * 3, 1);
                         if(f == 1) arrow.setCritArrow(true);
-                        int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER_ARROWS, entityLiving);
+                        int j = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.POWER_ARROWS, stack);
                         if(j > 0) arrow.setBaseDamage(arrow.getBaseDamage() + (double)j * .5 + .5);
-                        int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH_ARROWS, entityLiving);
+                        int k = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PUNCH_ARROWS, stack);
                         if(k > 0) arrow.setKnockback(k);
-                        if(EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAMING_ARROWS, entityLiving) > 0) {arrow.setSecondsOnFire(100);}
+                        if(EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FLAMING_ARROWS, stack) > 0) {arrow.setSecondsOnFire(100);}
                         if(!player.isCreative()) stack.hurtAndBreak(1, player, (ctx) -> ctx.broadcastBreakEvent(player.getUsedItemHand()));
                         if(infiniteAmmo) {arrow.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;}
                         worldIn.addFreshEntity(arrow);
