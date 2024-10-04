@@ -2,7 +2,9 @@ package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
@@ -29,7 +31,7 @@ public class EntityDiamondDave extends EntityDivineMerchant {
     @Override protected void updateTrades() {
         MerchantOffers merchantoffers = getOffers();
         DivineTrades[] tradetrades = new DivineTrades[] {
-                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.DIAMOND, 16 + random.nextInt(8)), random.nextBoolean() ? new ItemStack(ItemRegistry.realmite_pickaxe.get()) : EnchantmentHelper.enchantItem(random, new ItemStack(ItemRegistry.realmite_pickaxe.get(), 1), random.nextInt(30), false), random.nextInt(3), 5),
+                new EntityDivineMerchant.DivineTrades(new ItemStack(Items.DIAMOND, 16 + random.nextInt(8)), random.nextBoolean() ? new ItemStack(ItemRegistry.realmite_pickaxe.get()) : EnchantmentHelper.enchantItem(random, new ItemStack(ItemRegistry.realmite_pickaxe.get(), 1), random.nextInt(30), level().registryAccess(), level().registryAccess().registryOrThrow(Registries.ENCHANTMENT).getTag(EnchantmentTags.ON_TRADED_EQUIPMENT)), random.nextInt(3), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Items.COAL, 8 + random.nextInt(2)), new ItemStack(Items.TORCH, 16), random.nextInt(7), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Items.RAW_IRON, 4), new ItemStack(Items.GLOW_BERRIES, 2 + random.nextInt(14)), random.nextInt(7), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Blocks.DEEPSLATE, 32 + random.nextInt(32)), new ItemStack(Items.ARROW, 16), random.nextInt(3), 5),

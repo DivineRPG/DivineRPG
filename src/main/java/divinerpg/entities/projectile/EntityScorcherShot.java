@@ -2,8 +2,10 @@ package divinerpg.entities.projectile;
 
 import divinerpg.registries.EntityRegistry;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
@@ -30,15 +32,16 @@ public class EntityScorcherShot extends DivineFireball {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
-        if(tickCount > 1 && !level().isClientSide()) {
+        if(tickCount > 1 && level() instanceof ServerLevel level) {
             Entity entity = result.getEntity();
             if(!entity.fireImmune()) {
                 Entity entity1 = getOwner();
                 int i = entity.getRemainingFireTicks();
                 entity.igniteForSeconds(5);
-                boolean flag = entity.hurt(damageSources().fireball(this, entity1), 5F);
+                DamageSource source = damageSources().fireball(this, entity1);
+                boolean flag = entity.hurt(source, 5F);
                 if(!flag) entity.setRemainingFireTicks(i);
-                else if(entity1 instanceof LivingEntity) doEnchantDamageEffects((LivingEntity) entity1, entity);
+                else if(entity1 instanceof LivingEntity) EnchantmentHelper.doPostAttackEffects(level, entity1, source);
             }
         }
     }

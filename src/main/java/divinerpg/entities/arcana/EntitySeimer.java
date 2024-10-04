@@ -1,6 +1,6 @@
 package divinerpg.entities.arcana;
 
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.attachments.Arcana;
 import divinerpg.entities.base.EntityDivineTameable;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.*;
@@ -13,9 +13,6 @@ public class EntitySeimer extends EntityDivineTameable {
     @Override
     public void tick() {
         super.tick();
-        if(getOwner() != null && getOwner() instanceof ServerPlayer player)
-            player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-                arcana.modifyAmount(player, 1);
-            });
+        if(getOwner() != null && getOwner() instanceof ServerPlayer player) Arcana.modifyAmount(player, 1);
     }
 }

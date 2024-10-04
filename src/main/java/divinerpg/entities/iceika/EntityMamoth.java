@@ -16,6 +16,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -24,6 +25,7 @@ import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -113,8 +115,9 @@ public class EntityMamoth extends Animal implements NeutralMob {
 	}
 	@Override
 	public boolean doHurtTarget(Entity entity) {
-		boolean hurt = entity.hurt(damageSources().mobAttack(this), (int)getAttributeValue(Attributes.ATTACK_DAMAGE));
-		if(hurt) doEnchantDamageEffects(this, entity);
+		DamageSource source = damageSources().mobAttack(this);
+		boolean hurt = entity.hurt(source, (int)getAttributeValue(Attributes.ATTACK_DAMAGE));
+		if(hurt && entity.level() instanceof ServerLevel level) EnchantmentHelper.doPostAttackEffects(level, entity, source);
 		return hurt;
 	}
 	@Nullable

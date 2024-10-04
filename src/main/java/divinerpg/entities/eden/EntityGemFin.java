@@ -2,6 +2,7 @@ package divinerpg.entities.eden;
 
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 
 public class EntityGemFin extends AbstractSchoolingFish {
@@ -65,7 +67,7 @@ public class EntityGemFin extends AbstractSchoolingFish {
     @Override
     public void saveToBucketTag(ItemStack stack) {
     	super.saveToBucketTag(stack);
-    	stack.getTag().putByte("Variant", getVariant());
+    	CustomData.update(DataComponents.BUCKET_ENTITY_DATA, stack, tag -> {tag.putByte("Variant", getVariant());});
     }
     @Override
     public void loadFromBucketTag(CompoundTag tag) {

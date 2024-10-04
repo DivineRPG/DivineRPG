@@ -3,6 +3,7 @@ package divinerpg.entities.base;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -19,12 +20,15 @@ import net.minecraft.world.entity.npc.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.*;
 import net.neoforged.neoforge.common.Tags;
+
+import java.util.Optional;
 
 import javax.annotation.Nullable;
 
@@ -137,7 +141,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
             this.input2 = input2;
         }
         public DivineTrades(ItemStack input1, ItemStack output, int stock, int xp) {this(input1, ItemStack.EMPTY, output, stock, xp);}
-        @Override public MerchantOffer getOffer(Entity tradeEnt, RandomSource rand) {return new MerchantOffer(input1, input2, output, stock, xp, 0F);}
+        @Override public MerchantOffer getOffer(Entity tradeEnt, RandomSource rand) {return new MerchantOffer(new ItemCost(input1.getItem(), input1.getCount()), Optional.of(new ItemCost(input1.getItem(), input1.getCount())), output, stock, xp, 0F);}
     }
     public static class DivineMapTrades extends DivineTrades {
     	private final String displayName;
@@ -162,8 +166,8 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
                    ItemStack itemstack = MapItem.create(serverlevel, blockpos.getX(), blockpos.getZ(), (byte)2, true, true);
                    MapItem.renderBiomePreviewMap(serverlevel, itemstack);
                    MapItemSavedData.addTargetDecoration(itemstack, blockpos, "+", this.destinationType);
-                   itemstack.setHoverName(Component.translatable(this.displayName));
-                   return new MerchantOffer(input1, input2, itemstack, 1, xp, 0F);
+                   itemstack.set(DataComponents.CUSTOM_NAME, Component.translatable(this.displayName));
+                   return new MerchantOffer(new ItemCost(input1.getItem(), input1.getCount()), Optional.of(new ItemCost(input1.getItem(), input1.getCount())), itemstack, 1, xp, 0F);
                 } else return null;
             }
         }

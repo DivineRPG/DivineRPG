@@ -1,11 +1,15 @@
 package divinerpg.entities.projectile;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.Fireball;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
 
 public class DivineFireball extends Fireball {
@@ -16,12 +20,12 @@ public class DivineFireball extends Fireball {
         explosionPower = 0;
     }
     public DivineFireball(EntityType<? extends DivineFireball> type, Level world, LivingEntity shooter, double accelX, double accelY, double accelZ) {
-        super(type, shooter, accelX, accelY, accelZ, world);
+        super(type, shooter, new Vec3(accelX, accelY, accelZ), world);
         shootingEntity=shooter;
         explosionPower = 0;
     }
     public DivineFireball(EntityType<? extends DivineFireball> type, Level world, LivingEntity shooter, double accelX, double accelY, double accelZ, byte explosionPower) {
-        super(type, shooter, accelX, accelY, accelZ, world);
+        super(type, shooter, new Vec3(accelX, accelY, accelZ), world);
         shootingEntity=shooter;
         this.explosionPower = explosionPower;
     }
@@ -45,11 +49,12 @@ public class DivineFireball extends Fireball {
     protected void onHitEntity(EntityHitResult result) {
     	if(tickCount > 1) {
 	        super.onHitEntity(result);
-	        if(!level().isClientSide()) {
+	        if(level() instanceof ServerLevel level) {
 	           Entity entity = result.getEntity();
 	           Entity entity1 = getOwner();
-	           entity.hurt(damageSources().fireball(this, entity1), 6F);
-	           if(entity1 instanceof LivingEntity) doEnchantDamageEffects((LivingEntity)entity1, entity);
+	           DamageSource source = damageSources().fireball(this, entity1);
+	           entity.hurt(source, 6F);
+	           if(entity1 instanceof LivingEntity) EnchantmentHelper.doPostAttackEffects(level, entity1, source);
 	        }
     	}
     }
