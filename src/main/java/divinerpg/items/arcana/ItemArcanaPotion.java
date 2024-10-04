@@ -1,6 +1,6 @@
 package divinerpg.items.arcana;
 
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.attachments.Arcana;
 import divinerpg.items.base.ItemModFood;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
@@ -21,11 +21,11 @@ public class ItemArcanaPotion extends ItemModFood {
     }
     @Override public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entityLiving) {
     	if(!worldIn.isClientSide()) {
-           entityLiving.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> arcana.modifyAmount(entityLiving, amountToAdd));
-           if(entityLiving instanceof ServerPlayer player) {
-        	   player.awardStat(Stats.ITEM_USED.get(this));
-        	   if(!player.isCreative()) stack.shrink(1);
-           }
+    		if(Arcana.hasArcana(entityLiving)) Arcana.modifyAmount(entityLiving, amountToAdd);
+    		if(entityLiving instanceof ServerPlayer player) {
+    			player.awardStat(Stats.ITEM_USED.get(this));
+    			if(!player.isCreative()) stack.shrink(1);
+			}
     	} return stack;
     }
     @Override public UseAnim getUseAnimation(ItemStack stack) {return UseAnim.DRINK;}

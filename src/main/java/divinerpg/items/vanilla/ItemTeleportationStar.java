@@ -16,6 +16,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.portal.DimensionTransition;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.*;
 import java.util.List;
 
@@ -53,7 +55,8 @@ public class ItemTeleportationStar extends ItemMod {
                 return InteractionResultHolder.fail(stack);
             } ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse(compound.getString(dimKey)))).getLevel();
             if(player instanceof ServerPlayer) {
-                player.changeDimension(serverWorld, new SecondaryTeleporter(serverWorld, BlockPos.of(compound.getLong(posKey))));
+            	BlockPos pos = BlockPos.of(compound.getLong(posKey));
+                player.changeDimension(new DimensionTransition(serverWorld, new Vec3(pos.getX(), pos.getY(), pos.getZ()), player.getDeltaMovement(), player.getXRot(), player.getYRot(), false, (e) -> {}));
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                 player.getCooldowns().addCooldown(this, 160);
                 player.awardStat(Stats.ITEM_USED.get(this));

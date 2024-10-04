@@ -1,6 +1,6 @@
 package divinerpg.events;
 
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.attachments.Arcana;
 import divinerpg.effect.mob.armor.*;
 import divinerpg.enums.ToolStats.SwordSpecial;
 import divinerpg.items.base.*;
@@ -66,13 +66,11 @@ public class ArmorAbilitiesEvent {
         	if(source.is(DamageTypes.PLAYER_ATTACK)) {
         		ItemStack item = attacker.getItemInHand(InteractionHand.MAIN_HAND);
         		if(item.getItem() instanceof ItemModSword sword && sword.arcanaConsumedAttack != 0) {
-        			attacker.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-        				if(arcana.getAmount(false) >= sword.arcanaConsumedAttack) {
-        					arcana.modifyAmount(attacker, -sword.arcanaConsumedAttack);
-        					if(sword.sword.getSwordSpecial() == SwordSpecial.ARCANA_DAMAGE) event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, sword.sword.effectPower, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-        					sword.arcanicAttack(item, attacker, target);
-        				}
-        			});
+        			if(Arcana.hasArcana(attacker) && Arcana.getAmount(attacker) >= sword.arcanaConsumedAttack) {
+    					Arcana.modifyAmount(attacker, -sword.arcanaConsumedAttack);
+    					if(sword.sword.getSwordSpecial() == SwordSpecial.ARCANA_DAMAGE) event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, sword.sword.effectPower, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+    					sword.arcanicAttack(item, attacker, target);
+        			}
         		}
         		if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH))
 					event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, 16, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
@@ -117,8 +115,8 @@ public class ArmorAbilitiesEvent {
             		|| (target.hasEffect(MobEffectRegistry.TORMENTED_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setNewDamage(amount * .348F);
             } else if(target.hasEffect(MobEffectRegistry.BLOCK_PROTECTION) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(target.damageSources().fallingBlock(target)) || source.equals(target.damageSources().anvil(target)) || source.equals(target.damageSources().inWall()) || source.equals(DamageSources.source(target.level(), DamageSources.TRAP)))) {
-            	event.setCanceled(true);
-            } else if(target.hasEffect(MobEffectRegistry.EXPLOSION_PROTECTION) && (source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))) event.setCanceled(true);
+            	event.setNewDamage(0F);
+            } else if(target.hasEffect(MobEffectRegistry.EXPLOSION_PROTECTION) && (source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))) event.setNewDamage(0F);
         }
     }
 }

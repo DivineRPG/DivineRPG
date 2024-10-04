@@ -17,7 +17,7 @@ public class ArcanaRenderer extends Gui {
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/arcana_bar.png");
 	Minecraft mc;
     public ArcanaRenderer() {
-        super(Minecraft.getInstance(), Minecraft.getInstance().getItemRenderer());
+        super(Minecraft.getInstance());
         this.mc = Minecraft.getInstance();
     }
     static long counter = 180;
@@ -30,21 +30,22 @@ public class ArcanaRenderer extends Gui {
 
         int windowWidth = mc.getWindow().getGuiScaledWidth();
         int windowHeight = mc.getWindow().getGuiScaledHeight();
-        int yLocation = windowHeight - ClientConfig.arcanaY.get();
-        int xLocation = windowWidth - ClientConfig.arcanaX.get();
+        int yLocation = windowHeight - ClientConfig.ARCANAY;
+        int xLocation = windowWidth - ClientConfig.ARCANAX;
 
-        if(ClientConfig.hideArcanaBar.get()) {
-        	if(previousAmount != Arcana.clientAmount) {
-        		previousAmount = Arcana.clientAmount;
+        if(ClientConfig.HIDE_ARCANA_BAR) {
+        	float arcana = Arcana.getAmount(mc.player);
+        	if(previousAmount != arcana) {
+        		previousAmount = arcana;
         		counter = mc.level.getGameTime() + 40L;
         	}
             if(counter - mc.level.getGameTime() > 0) {
                 gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
-                gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) (Arcana.clientAmount / Arcana.clientMax * 100), 18);
+                gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) (arcana / Arcana.getMaxArcana(mc.player) * 100), 18);
             }
         } else {
             gui.blit(TEXTURE, xLocation, yLocation, 0, 0, 100, 9);
-            gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) (Arcana.clientAmount / Arcana.clientMax * 100), 18);
+            gui.blit(TEXTURE, xLocation, yLocation, 0, 9, (int) (Arcana.getAmount(mc.player) / Arcana.getMaxArcana(mc.player) * 100), 18);
         }
     }
 }

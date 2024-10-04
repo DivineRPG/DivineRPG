@@ -1,6 +1,6 @@
 package divinerpg.items.base;
 
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.attachments.Arcana;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -27,14 +27,12 @@ public class ItemMod extends Item {
     	return InteractionResultHolder.success(player.getItemInHand(hand));
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-    	return player.getCapability(ArcanaProvider.ARCANA).map(arcana -> {
-            if(arcanaConsumedUse != 0 && arcana.getAmount(level.isClientSide()) >= arcanaConsumedUse) {
-                arcana.modifyAmount(player, -arcanaConsumedUse);
-                player.getCooldowns().addCooldown(this, cooldown);
-                player.awardStat(Stats.ITEM_USED.get(this));
-                return arcanicUse(level, player, hand);
-            } return super.use(level, player, hand);
-        }).orElse(super.use(level, player, hand));
+    	if(arcanaConsumedUse != 0 && Arcana.getAmount(player) >= arcanaConsumedUse) {
+            Arcana.modifyAmount(player, -arcanaConsumedUse);
+            player.getCooldowns().addCooldown(this, cooldown);
+            player.awardStat(Stats.ITEM_USED.get(this));
+            return arcanicUse(level, player, hand);
+        } return super.use(level, player, hand);
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {

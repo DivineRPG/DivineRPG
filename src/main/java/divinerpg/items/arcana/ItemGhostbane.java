@@ -1,6 +1,6 @@
 package divinerpg.items.arcana;
 
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.attachments.Arcana;
 import divinerpg.enums.EntityStats;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.EntityRegistry;
@@ -31,18 +31,17 @@ public class ItemGhostbane extends ItemMod {
     	return InteractionResultHolder.success(player.getItemInHand(hand));
     }
     @Override public InteractionResult useOn(UseOnContext context) {
-    	Player player = context.getPlayer();
-    	if(player instanceof ServerPlayer) return context.getPlayer().getCapability(ArcanaProvider.ARCANA).map(arcana -> {
-            if(arcanaConsumedUse != 0 && arcana.getAmount(false) >= arcanaConsumedUse) {
-                arcana.modifyAmount(player, -arcanaConsumedUse);
-                player.getCooldowns().addCooldown(this, cooldown);
-                BlockPos pos = context.getClickedPos();
-                if(!context.getLevel().getBlockState(pos).getCollisionShape(context.getLevel(), pos).isEmpty()) pos = pos.relative(context.getClickedFace());
-            	EntityRegistry.WRAITH.get().spawn((ServerLevel)context.getLevel(), ItemStack.EMPTY, player, context.getClickedPos(), MobSpawnType.MOB_SUMMONED, true, false).tame(player);
-                return InteractionResult.SUCCESS;
-            } return InteractionResult.PASS;
-        }).orElse(InteractionResult.PASS);
-    	return InteractionResult.PASS;
+    	if(context.getPlayer() instanceof ServerPlayer pl) {
+    		float amount = Arcana.getAmount(pl);
+    		if(arcanaConsumedUse != 0 && amount >= arcanaConsumedUse) {
+    			Arcana.modifyAmount(pl, -arcanaConsumedUse);
+    			pl.getCooldowns().addCooldown(this, cooldown);
+    			BlockPos pos = context.getClickedPos();
+    			if(!context.getLevel().getBlockState(pos).getCollisionShape(context.getLevel(), pos).isEmpty()) pos = pos.relative(context.getClickedFace());
+    			EntityRegistry.WRAITH.get().spawn((ServerLevel)context.getLevel(), ItemStack.EMPTY, pl, context.getClickedPos(), MobSpawnType.MOB_SUMMONED, true, false).tame(pl);
+    			return InteractionResult.SUCCESS;
+    		}
+    	} return InteractionResult.PASS;
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {

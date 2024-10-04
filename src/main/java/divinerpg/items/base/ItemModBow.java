@@ -5,6 +5,7 @@ import divinerpg.enums.ArrowType;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -54,8 +55,9 @@ public class ItemModBow extends BowItem {
         this.maxUseDuration = maxUseDuration;
     }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return maxUseDuration;}
-    public boolean needsArrow(ItemStack stack) {
-        if(arrowSupplier != null) return stack.getEnchantmentLevel(Enchantments.INFINITY) <= 0;
+    @SuppressWarnings("unchecked")
+	public boolean needsArrow(ItemStack stack) {
+        if(arrowSupplier != null) return stack.getEnchantmentLevel((Holder<Enchantment>) Enchantments.INFINITY) <= 0;
         else return false;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

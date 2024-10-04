@@ -10,6 +10,9 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 public class Arcana {
+	public static boolean hasArcana(@Nullable LivingEntity entity) {
+		return entity != null && entity.hasData(AttachmentRegistry.ARCANA);
+	}
     /**
      * Get current arcana
      * @return amount of arcana

@@ -1,6 +1,6 @@
 package divinerpg.world.placement;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 
 import divinerpg.registries.PlacementModifierRegistry;
 import net.minecraft.core.*;
@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 
 public class Underground extends PlacementFilter {
 	private static final Underground INSTANCE = new Underground();
-	public static final Codec<Underground> CODEC = Codec.unit(() -> INSTANCE);
+	public static final MapCodec<Underground> CODEC = MapCodec.unit(() -> INSTANCE);
 	private Underground() {}
 	public static Underground underground() {return INSTANCE;}
 	@Override

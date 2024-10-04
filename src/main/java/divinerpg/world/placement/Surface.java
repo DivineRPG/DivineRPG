@@ -1,6 +1,7 @@
 package divinerpg.world.placement;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.registries.PlacementModifierRegistry;
 import net.minecraft.core.*;
@@ -16,7 +17,7 @@ import java.util.stream.Stream;
 public class Surface extends PlacementModifier {
 	public static enum Surface_Type {HIGHEST_CEILING, HIGHEST_GROUND, LOWEST_CEILING, LOWEST_GROUND}
 	public static enum Mode {FULL, RANDOM_SECTION, SLICE}
-	public static final Codec<Surface> CODEC = RecordCodecBuilder.create((instance) -> {
+	public static final MapCodec<Surface> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
 		return instance.group(Codec.STRING.fieldOf("surface").forGetter((config) -> {
 	        return config.surface;
 		}),  Codec.STRING.optionalFieldOf("mode", "full").forGetter((config) -> {

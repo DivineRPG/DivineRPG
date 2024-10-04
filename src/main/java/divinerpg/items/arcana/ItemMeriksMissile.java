@@ -1,6 +1,6 @@
 package divinerpg.items.arcana;
 
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.attachments.Arcana;
 import divinerpg.entities.projectile.EntityMerikMissile;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
@@ -33,18 +33,17 @@ public class ItemMeriksMissile extends ItemMod {
             if(charge > 1) charge = 1;
             float arcanaPoints = 50 * charge;
             float finalCharge = charge;
-            player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-                if(arcana.getAmount(world.isClientSide()) >= arcanaPoints) {
-                    if(finalCharge < .2) return;
-                    float damage = Mth.clamp(finalCharge * 25, 2, 8);
-                    world.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1);
-                    EntityMerikMissile bullet = new EntityMerikMissile(EntityRegistry.MERIKS_MISSILE.get(), world, player, damage);
-                    bullet.moveTo(player.getX(), player.getY() + 1, player.getZ());
-                    bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 3, 1);
-                    world.addFreshEntity(bullet);
-                    arcana.modifyAmount(player, -arcanaPoints);
-                }
-            });
+            float amount = Arcana.getAmount(player);
+            if(amount >= arcanaPoints) {
+                if(finalCharge < .2) return;
+                float damage = Mth.clamp(finalCharge * 25, 2, 8);
+                world.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1);
+                EntityMerikMissile bullet = new EntityMerikMissile(EntityRegistry.MERIKS_MISSILE.get(), world, player, damage);
+                bullet.moveTo(player.getX(), player.getY() + 1, player.getZ());
+                bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 3, 1);
+                world.addFreshEntity(bullet);
+                Arcana.modifyAmount(player, -arcanaPoints);
+            }
         }
     }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return MAX_USE_DURATION;}

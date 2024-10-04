@@ -2,7 +2,6 @@ package divinerpg.items.base;
 
 import divinerpg.DivineRPG;
 import divinerpg.attachments.Arcana;
-import divinerpg.capability.*;
 import divinerpg.entities.projectile.*;
 import divinerpg.enums.BulletType;
 import divinerpg.items.vethea.ItemVetheanDisk;
@@ -79,12 +78,10 @@ public class ItemModRanged extends ItemMod {
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         InteractionResultHolder<ItemStack> ammo = tryFindAmmo(player);
-        InteractionResultHolder<Arcana> checkArcana = tryCheckArcana(player);
-        if(ammo.getResult() == InteractionResult.SUCCESS && checkArcana.getResult() == InteractionResult.SUCCESS) {
+        if(ammo.getResult() == InteractionResult.SUCCESS && Arcana.getAmount(player) <= arcanaConsumedUse) {
             doPreUsageEffects(world, player);
             if(!world.isClientSide) spawnEntity(world, player, stack, bulletType, entityType);
-            Arcana arcana = checkArcana.getObject();
-            if(arcana != null) arcana.modifyAmount(player, -arcanaConsumedUse);
+            Arcana.modifyAmount(player, -arcanaConsumedUse);
             ItemStack ammoStack = ammo.getObject();
             if(ammoStack != null) ammoStack.shrink(1);
             if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
@@ -122,15 +119,6 @@ public class ItemModRanged extends ItemMod {
             stack = findAmmo(player);
             if(stack == null || stack.getCount() < 1) result = InteractionResult.FAIL;
         } return new InteractionResultHolder<>(result, stack);
-    }
-    //Trying to get capability and check if we have enough arcana.
-    protected InteractionResultHolder<Arcana> tryCheckArcana(Player player) {
-        Arcana arcana = null;
-        InteractionResult result = InteractionResult.SUCCESS;
-        if(arcanaConsumedUse > 0) {
-            arcana = player.getCapability(ArcanaProvider.ARCANA).orElse(null);
-            if(arcana == null || arcana.getAmount(player.level().isClientSide()) < arcanaConsumedUse) result = InteractionResult.FAIL;
-        } return new InteractionResultHolder<>(result, arcana);
     }
     protected void spawnEntity(Level world, Player player, ItemStack stack, BulletType bulletType, String entityType) {
         ThrowableProjectile bullet;

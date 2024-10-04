@@ -2,11 +2,9 @@ package divinerpg.items.vanilla;
 
 import divinerpg.items.base.ItemMod;
 import divinerpg.util.LocalizeUtils;
-import divinerpg.util.teleport.SecondaryTeleporter;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.*;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
@@ -21,11 +19,10 @@ public class ItemTeleportationCrystal extends ItemMod {
     public ItemTeleportationCrystal() {super(new Properties().durability(10));}
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if(!world.isClientSide && player instanceof ServerPlayer) {
+        if(!world.isClientSide && player instanceof ServerPlayer s) {
             BlockPos respawnPos = ((ServerPlayer)player).getRespawnPosition();
             if(respawnPos != null) {
-                ResourceKey<Level> respawnDimension = ((ServerPlayer)player).getRespawnDimension();
-                player.changeDimension(world.getServer().getLevel(respawnDimension), new SecondaryTeleporter(world.getServer().getLevel(respawnDimension)));
+                s.findRespawnPositionAndUseSpawnBlock(true, (e) -> {});
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                 player.getCooldowns().addCooldown(this, 160);
                 player.awardStat(Stats.ITEM_USED.get(this));

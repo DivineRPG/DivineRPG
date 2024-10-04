@@ -1,9 +1,9 @@
 package divinerpg.events;
 
-import divinerpg.capability.ArcanaProvider;
+import divinerpg.attachments.Arcana;
 import divinerpg.config.ClientConfig;
+import divinerpg.network.payload.*;
 import divinerpg.util.*;
-import divinerpg.util.packets.PacketArcanaBar;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,14 +18,9 @@ public class EventClientLogin {
         Player player = event.getEntity();
         if(!player.level().isClientSide()) {
         	//Weather update
-        	if(player instanceof ServerPlayer pl) {
-        		DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> pl), Utils.ICEIKA_WEATHER);
-        		player.getCapability(ArcanaProvider.ARCANA).ifPresent(arcana -> {
-        			DivineRPGPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(() -> pl), new PacketArcanaBar(arcana));
-        		});
-        	}
+        	if(player instanceof ServerPlayer pl) PacketDistributor.sendToPlayer(pl, new Weather(Utils.ICEIKA_WEATHER), new MaxArcana(Arcana.getMaxArcana(pl)), new ArcanaAmount(Arcana.getAmount(pl)));
             //Send welcome messages
-            if(ClientConfig.welcomeMessage.get()) {
+            if(ClientConfig.WELCOME_MESSAGE) {
                 Component message;
                 if(Utils.isDeveloperName(player.getUUID())) {
                     message = LocalizeUtils.clientMessage(ChatFormatting.DARK_RED, "player.developer", player.getDisplayName());
