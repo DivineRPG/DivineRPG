@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 	
-	private static final String[] MESSAGE = {"message.merchant.ho", "message.merchant.out", "message.merchant.in", "message.merchant.burr"};
+	private static final String[] MESSAGE = {"message.tinkerer.1", "message.tinkerer.2", "message.tinkerer.3", "message.tinkerer.4"};
 
 	public EntityWorkshopTinkerer(World var1)  {
 		super(var1);
@@ -25,7 +25,7 @@ public class EntityWorkshopTinkerer extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-	    p.addChatMessage(Util.getChatComponent("Tinkerer: " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
+	    p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
 	}
 	
 	@Override
