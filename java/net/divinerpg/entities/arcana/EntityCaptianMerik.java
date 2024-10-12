@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class EntityCaptianMerik extends EntityDivineRPGVillager {
 
