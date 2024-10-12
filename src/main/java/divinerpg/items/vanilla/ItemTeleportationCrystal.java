@@ -12,6 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.portal.DimensionTransition;
 import net.neoforged.api.distmarker.*;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ItemTeleportationCrystal extends ItemMod {
         if(!world.isClientSide && player instanceof ServerPlayer s) {
             BlockPos respawnPos = ((ServerPlayer)player).getRespawnPosition();
             if(respawnPos != null) {
-                s.findRespawnPositionAndUseSpawnBlock(true, (e) -> {});
+                s.findRespawnPositionAndUseSpawnBlock(true, DimensionTransition.DO_NOTHING);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                 player.getCooldowns().addCooldown(this, 160);
                 player.awardStat(Stats.ITEM_USED.get(this));

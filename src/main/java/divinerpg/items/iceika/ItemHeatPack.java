@@ -1,10 +1,8 @@
 package divinerpg.items.iceika;
 
 import divinerpg.items.base.ItemMod;
-import divinerpg.registries.SoundRegistry;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import divinerpg.registries.*;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -35,14 +33,13 @@ public class ItemHeatPack extends ItemMod {
 	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
 		if(!isActivated(stack)) {
-			stack.getOrCreateTag().putBoolean("activated", true);
+			stack.set(DataComponentRegistry.activated, true);
 			player.playSound(SoundRegistry.SNAP.get());
 			return InteractionResultHolder.success(stack);
 		} return InteractionResultHolder.pass(stack);
 	}
 	private static boolean isActivated(ItemStack stack) {
-		CompoundTag tag = stack.getTag();
-		return tag != null && tag.contains("activated") && tag.getBoolean("activated");
+		return stack.has(DataComponentRegistry.activated) && stack.get(DataComponentRegistry.activated);
 	}
 	@Override
 	public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {

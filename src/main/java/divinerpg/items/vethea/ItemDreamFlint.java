@@ -1,6 +1,5 @@
 package divinerpg.items.vethea;
 
-import divinerpg.blocks.base.BlockModPortal;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -15,6 +14,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.api.distmarker.*;
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class ItemDreamFlint extends ItemVethean {
 					for(int i = 0; !world.getBlockState(search.move(Direction.WEST)).is(mortumBlock); i++) if(i > 1) return InteractionResult.FAIL;
 				}
 			} if(world.getBlockState(pos).is(mortumBlock)) {
-				BlockState portal = BlockRegistry.vetheaPortal.get().defaultBlockState().setValue(BlockModPortal.AXIS, northSouth ? Axis.Z : Axis.X);
+				BlockState portal = BlockRegistry.vetheaPortal.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, northSouth ? Axis.Z : Axis.X);
 				while(world.getBlockState(pos.move(Direction.DOWN)).isAir()) {
 					world.setBlock(pos, portal, 2);
 					MutableBlockPos place = pos.mutable();

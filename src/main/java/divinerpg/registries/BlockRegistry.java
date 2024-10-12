@@ -13,21 +13,15 @@ import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import java.util.Objects;
-import java.util.Optional;
+import net.neoforged.neoforge.registries.*;
+import java.util.*;
 import java.util.function.Supplier;
 
 import static divinerpg.DivineRPG.MODID;
@@ -833,12 +827,12 @@ public class BlockRegistry {
 
             //Portals
             arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
-            iceikaPortal = registerBlock("iceika_portal", () -> new BlockModPortal(LevelRegistry.ICEIKA, PointOfInterestRegistry.ICEIKA_PORTAL.getKey(), Blocks.SNOW)),
-            edenPortal = registerBlock("eden_portal", () -> new BlockModPortal(LevelRegistry.EDEN, PointOfInterestRegistry.EDEN_PORTAL.getKey(), divineRock.get())),
-            wildwoodPortal = registerBlock("wildwood_portal", () -> new BlockModPortal(LevelRegistry.WILDWOOD, PointOfInterestRegistry.WILDWOOD_PORTAL.getKey(), edenBlock.get())),
-            apalachiaPortal = registerBlock("apalachia_portal", () -> new BlockModPortal(LevelRegistry.APALACHIA, PointOfInterestRegistry.APALACHIA_PORTAL.getKey(), wildwoodBlock.get())),
-            skythernPortal = registerBlock("skythern_portal", () -> new BlockModPortal(LevelRegistry.SKYTHERN, PointOfInterestRegistry.SKYTHERN_PORTAL.getKey(), apalachiaBlock.get())),
-            mortumPortal = registerBlock("mortum_portal", () -> new BlockModPortal(LevelRegistry.MORTUM, PointOfInterestRegistry.MORTUM_PORTAL.getKey(), mortumBlock.get())),
+            iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, "iceika_portal_frame", Blocks.SNOW)),
+            edenPortal = registerBlock("eden_portal", () -> new SimplePortalBlock(LevelRegistry.EDEN, "eden_portal_frame", divineRock.get())),
+            wildwoodPortal = registerBlock("wildwood_portal", () -> new SimplePortalBlock(LevelRegistry.WILDWOOD, "wildwood_portal_frame", edenBlock.get())),
+            apalachiaPortal = registerBlock("apalachia_portal", () -> new SimplePortalBlock(LevelRegistry.APALACHIA, "apalachia_portal_frame", wildwoodBlock.get())),
+            skythernPortal = registerBlock("skythern_portal", () -> new SimplePortalBlock(LevelRegistry.SKYTHERN, "skythern_portal_frame", apalachiaBlock.get())),
+            mortumPortal = registerBlock("mortum_portal", () -> new SimplePortalBlock(LevelRegistry.MORTUM, "mortum_portal_frame", skythernBlock.get())),
             vetheaPortal = registerBlock("vethea_portal", VetheaPortal::new),
 
             //Air

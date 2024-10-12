@@ -10,15 +10,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.level.BlockEvent;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class RiveHandler {
     @SubscribeEvent
     public void handleWorldBreak(BlockEvent.BreakEvent event) {
@@ -26,7 +25,7 @@ public class RiveHandler {
         Player player = event.getPlayer();
         ItemStack itemStack = player.getMainHandItem();
         BlockState blockState = world.getBlockState(event.getPos());
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE.get(), player);
+        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE.getDelegate(), player);
         float pitch = player.getXRot();
         Direction facing = (pitch > 45) ? Direction.DOWN : (pitch < -45) ? Direction.UP : player.getDirection();
         if(world.isClientSide) return;
@@ -43,7 +42,7 @@ public class RiveHandler {
                     if(tryToBreakBlock(world, player, pos, world.getBlockState(pos), itemStack)) totalBlocksBroken++;
                 }
             }
-        } if(blockState.getDestroySpeed(world, event.getPos()) != 0.0F && totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, (ctx) -> ctx.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        } if(blockState.getDestroySpeed(world, event.getPos()) != 0.0F && totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, EquipmentSlot.MAINHAND);
     }
     private boolean tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool) {
         Block block = blockState.getBlock();

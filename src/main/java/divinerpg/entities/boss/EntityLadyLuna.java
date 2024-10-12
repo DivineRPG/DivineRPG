@@ -5,7 +5,7 @@ import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.entities.projectile.EntityLadyLunaSparkler;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.*;
 import net.minecraft.sounds.SoundEvent;
@@ -151,8 +151,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
             this.level().explode(this, e.getX(), e.getY(), e.getZ(), 2, Level.ExplosionInteraction.BLOCK);
             this.xo *= 0.6D;
             this.zo *= 0.6D;
-            @SuppressWarnings("unchecked")
-			int var5 = EnchantmentHelper.getEnchantmentLevel((Holder<Enchantment>) Enchantments.FIRE_ASPECT, this);
+			int var5 = EnchantmentHelper.getEnchantmentLevel(level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FIRE_ASPECT), this);
             if(var5 > 0) e.igniteForSeconds(var5 * 4);
         }
         return var4;

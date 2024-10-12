@@ -12,7 +12,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 public class AftershockHandler {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onHurt(LivingDamageEvent.Pre event) {
-        if(event.isCanceled()) return;
+//        if(event.isCanceled()) return;
         Entity entity = event.getSource().getDirectEntity();
         if(!(entity instanceof LivingEntity livingEntity)) return;
         int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.AFTERSHOCK, livingEntity);

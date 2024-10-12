@@ -6,7 +6,7 @@ import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.*;
@@ -18,9 +18,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 
@@ -239,8 +237,7 @@ public class EntityWreck extends EntityDivineBoss {
 
                 setDeltaMovement(getDeltaMovement().x * 0.6D, getDeltaMovement().y, getDeltaMovement().z*0.6D);
             }
-            @SuppressWarnings("unchecked")
-			int var5 = EnchantmentHelper.getEnchantmentLevel((Holder<Enchantment>) Enchantments.FIRE_ASPECT, this);
+			int var5 = EnchantmentHelper.getEnchantmentLevel(level().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FIRE_ASPECT), this);
             if(var5 > 0) par1Entity.igniteForSeconds(var5 * 4);
         }
 

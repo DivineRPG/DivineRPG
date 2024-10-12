@@ -21,6 +21,7 @@ public class DivineRPG {
 
     public DivineRPG(IEventBus bus, ModContainer container) {
         BlockRegistry.BLOCKS.register(bus);
+        DataComponentRegistry.DATA_COMPONENTS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockRegistry.BLOCK_ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);

@@ -9,9 +9,11 @@ import divinerpg.world.placement.Surface.Mode;
 import divinerpg.world.placement.Surface.Surface_Type;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup.RegistryLookup;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.*;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -22,6 +24,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.*;
@@ -190,18 +193,8 @@ public class Utils {
     public static BlockState getBlockState(String registryName) {
     	return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName)).defaultBlockState();
     }
-    public static CompoundTag getPlayerData(Player player) {
-        CompoundTag persistentData = player.getPersistentData();
-        CompoundTag entityData;
-        if(persistentData.contains(Player.PERSISTED_NBT_TAG)) entityData = persistentData.getCompound(Player.PERSISTED_NBT_TAG);
-        else {
-            entityData = new CompoundTag();
-            persistentData.put(Player.PERSISTED_NBT_TAG, entityData);
-        }
-        return entityData;
-    }
-    public static Tag setPlayerData(Player player, CompoundTag data) {
-    	return player.getPersistentData().put(Player.PERSISTED_NBT_TAG, data);
+    public static boolean hasEnchantment(ItemStack stack, RegistryLookup<Enchantment> registry, ResourceKey<Enchantment> enchantment) {
+    	return stack.getEnchantmentLevel(registry.getOrThrow(enchantment)) != 0;
     }
     public static boolean isPotion(ItemStack stack, Potion potion) {
     	return (stack.is(Items.POTION) || stack.is(Items.SPLASH_POTION) || stack.is(Items.LINGERING_POTION)) && PotionUtils.getPotion(stack) == potion;
