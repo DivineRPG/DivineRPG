@@ -42,16 +42,16 @@ public class EntityLivestockMerchant extends EntityDivineRPGVillager {
 	public void extraInteract(EntityPlayer p) {
 	    switch (this.rand.nextInt(4)) {
 	        case 0:
-	            p.addChatMessage(Util.getChatComponent("Livestock Merchant: When traveling, I met a merchant named Zelus, who sold me the eggs that grew into the pets I breed now."));
+	            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.livestock.1")));
 	            break;
 	        case 1:
-	            p.addChatMessage(Util.getChatComponent("Livestock Merchant: I sell only the healthiest pets!"));
+	            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.livestock.2")));
 	            break;
 	        case 2:
-	            p.addChatMessage(Util.getChatComponent("Livestock Merchant: Tell Zelus I said Hi!"));
+	            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.livestock.3")));
 	            break;
 	        case 3:
-	            p.addChatMessage(Util.getChatComponent("Livestock Merchant: I'd be afraid to feed a Snapper with my bare hands..."));
+	            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.livestock.4")));
 	            break;
 	        }
 	}
