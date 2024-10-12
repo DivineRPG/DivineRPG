@@ -9,6 +9,7 @@ import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.config;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
