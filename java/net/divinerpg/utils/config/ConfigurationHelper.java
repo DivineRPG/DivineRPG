@@ -25,6 +25,7 @@ public class ConfigurationHelper {
     public static int     eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
     public static int     edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
     public static int     arcanaX, arcanaY;
+    public static int     vetheaInventory;
 
     public static void dimensionInit() {
         edenBiome = cfg.get("Dimension", "Eden biome ID", 100).getInt();
