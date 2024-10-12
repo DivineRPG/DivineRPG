@@ -89,7 +89,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						return true;
 					}
 			} else {
-				player.addChatMessage(Util.getChatComponent(Util.AQUA + "This item can only be used in Mortum."));
+				player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.normal("message.crystal.mortum")));
 			}
 		}
 		return false;
