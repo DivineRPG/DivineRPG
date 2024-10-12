@@ -53,6 +53,8 @@ public class ConfigurationHelper {
         keepLoadingVethea = cfg.get("Dimension", "Keep loading Vethea", false).getBoolean(true);
         keepLoadingArcana = cfg.get("Dimension", "Keep loading Arcana", false).getBoolean(true);
         keepLoadingIceika = cfg.get("Dimension", "Keep loading Iceika", false).getBoolean(true);
+
+        vetheaInventory = cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean(true);
     }
 
     public static void miscInit() {
