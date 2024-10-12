@@ -29,6 +29,8 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.divinerpg.utils.config;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class BlockNightmareBed extends BlockBed {
 
@@ -74,7 +76,7 @@ public class BlockNightmareBed extends BlockBed {
 
             if (player.worldObj.provider.dimensionId != ConfigurationHelper.vethea) {
                 if (world.getBlockLightValue(x, y, z) > 7) {
-                    player.addChatMessage(Util.getChatComponent("You can only use the Nightmare Bed in a dark place."));
+                    player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.bed.dark")));
                     return true;
                 }
                 EntityPlayer entityplayer1 = null;
@@ -98,12 +100,16 @@ public class BlockNightmareBed extends BlockBed {
                     EntityPlayer.EnumStatus enumstatus = player.sleepInBedAt(x, y, z);
                     MPPlayer.timeUntilPortal = 10;
                     MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
-                    this.persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
-                    player.getEntityData().setTag("PlayerPersisted", this.persistantData);
-                    player.inventory.clearInventory(null, -1);
-                    NBTTagList inv = this.persistantData.getTagList("VetheaInv", 10);
-                    player.inventory.readFromNBT(inv);
-                    player.inventoryContainer.detectAndSendChanges();
+                    
+                    if (ConfigurationHelper.config.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+                        this.persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
+                        player.getEntityData().setTag("PlayerPersisted", this.persistantData);
+                        player.inventory.clearInventory(null, -1);
+                        NBTTagList inv = this.persistantData.getTagList("VetheaInv", 10);
+                        player.inventory.readFromNBT(inv);
+                        player.inventoryContainer.detectAndSendChanges();
+                    }
+                    
                     ChunkCoordinates c = new ChunkCoordinates();
                     c.posX = (int) player.posX + 2;
                     c.posY = 18;
@@ -114,12 +120,16 @@ public class BlockNightmareBed extends BlockBed {
                 return true;
             } else if (player.worldObj.provider.dimensionId == ConfigurationHelper.vethea) {
                 MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, 0, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(0)));
-                this.persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
-                player.getEntityData().setTag("PlayerPersisted", this.persistantData);
-                player.inventory.clearInventory(null, -1);
-                NBTTagList inv = this.persistantData.getTagList("OverworldInv", 10);
-                player.inventory.readFromNBT(inv);
-                player.inventoryContainer.detectAndSendChanges();
+
+                if (ConfigurationHelper.config.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+                    this.persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
+                    player.getEntityData().setTag("PlayerPersisted", this.persistantData);
+                    player.inventory.clearInventory(null, -1);
+                    NBTTagList inv = this.persistantData.getTagList("OverworldInv", 10);
+                    player.inventory.readFromNBT(inv);
+                    player.inventoryContainer.detectAndSendChanges();
+                }
+                
                 return true;
             } else {
                 double d2 = (double) x + 0.5D;
