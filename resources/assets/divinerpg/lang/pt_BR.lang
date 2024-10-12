@@ -8,6 +8,7 @@ itemGroup.Spawner=DivineRPG: Invocador
 itemGroup.Utility=DivineRPG: Utilidade
 itemGroup.Herbalism=DivineRPG: Fitoterapia
 itemGroup.Vethea=DivineRPG: Vethea
+
 tile.rupeeOre.name=Minério de Rupee
 tile.arlemiteOre.name=Minério de Arlemite
 tile.realmiteOre.name=Minério de Realmite
@@ -350,6 +351,7 @@ tile.karosBrick2.name=Tijolo de Karos2
 tile.infusionTable.name=Mesa de Infusão
 tile.helioticBeam.name=Canhão Heliotico
 tile.nightmareBedBlock.name=Bloco de cama do Pesadelo
+
 item.bacon.name=Bacon
 item.baconCooked.name=Bacon Cozido
 item.boiledEgg.name=Ovo Cozido
@@ -886,6 +888,7 @@ item.wildWoodShovel.name=Pá de Wild Wood
 item.apalachiaShovel.name=Pá de Apalachia
 item.skythernShovel.name=Pá de Skythern
 item.mortumShovel.name=Pá de Mortum
+
 entity.divinerpg.EnderWatcher.name=Observador do Fim
 entity.EnderWatcher.name=Observador do Fim
 entity.divinerpg.Crab.name=Carangueijo
@@ -1162,6 +1165,7 @@ entity.divinerpg.Zelus.name=Zelus
 entity.Zelus.name=Zelus
 entity.divinerpg.Roamer.name=Roamer
 entity.Roamer.name=Roamer
+
 achievement.divineIntervention.desc=Invoque o The Watcher
 achievement.possibilities.desc=Entre na Dimensão do Eden
 achievement.friendOrFoe.desc=Mate um Coelho
