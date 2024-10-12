@@ -10,6 +10,7 @@ import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.config;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
@@ -29,7 +30,6 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.divinerpg.utils.config;
 import net.divinerpg.utils.MessageLocalizer;
 
 public class BlockNightmareBed extends BlockBed {
