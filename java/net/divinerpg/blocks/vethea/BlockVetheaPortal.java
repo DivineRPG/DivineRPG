@@ -56,12 +56,16 @@ public class BlockVetheaPortal extends BlockBreakable {
         		else if(player.dimension == ConfigurationHelper.vethea) {
         			player.timeUntilPortal = 10;
         			NBTTagCompound persistantData = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
-        			persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
-                	player.getEntityData().setTag("PlayerPersisted", persistantData);
-                    player.inventory.clearInventory(null, -1);
-                    NBTTagList inv = persistantData.getTagList("OverworldInv", 10);
-                    player.inventory.readFromNBT(inv);
-                    player.inventoryContainer.detectAndSendChanges();
+                    
+                    if (ConfigurationHelper.config.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+        			    persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
+                	    player.getEntityData().setTag("PlayerPersisted", persistantData);
+                        player.inventory.clearInventory(null, -1);
+                        NBTTagList inv = persistantData.getTagList("OverworldInv", 10);
+                        player.inventory.readFromNBT(inv);
+                        player.inventoryContainer.detectAndSendChanges();
+                    }
+                    
         			player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterVetheaToOverworld(player.mcServer.worldServerForDimension(0)));
         		}
         	}
