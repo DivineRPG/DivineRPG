@@ -12,6 +12,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class EntityTheHunger extends EntityDivineRPGVillager {
 
@@ -28,16 +29,16 @@ public class EntityTheHunger extends EntityDivineRPGVillager {
 	public void extraInteract(EntityPlayer var2) {
 		switch (this.rand.nextInt(4)) {
 		case 0:
-			var2.addChatMessage(Util.getChatComponent("The Hunger: Mmm. I'm hungry."));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.hunger.1")));
 			break;
 		case 1:
-			var2.addChatMessage(Util.getChatComponent("The Hunger: Can you come a little closer?"));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.hunger.2")));
 			break;
 		case 2:
-			var2.addChatMessage(Util.getChatComponent("The Hunger: You need to fatten yourself up."));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.hunger.3")));
 			break;
 		case 3:
-			var2.addChatMessage(Util.getChatComponent("The Hunger: Let's go out to dinner. You'll be cooking."));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.hunger.4")));
 			break;
 		}
 	}
