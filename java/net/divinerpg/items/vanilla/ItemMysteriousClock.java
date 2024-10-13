@@ -7,6 +7,7 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class ItemMysteriousClock extends ItemMod {
 
