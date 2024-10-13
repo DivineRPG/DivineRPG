@@ -7,33 +7,23 @@ import divinerpg.util.DamageSources;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.neoforged.neoforge.common.SoundActions;
-import net.neoforged.neoforge.fluids.FluidType;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.neoforge.common.*;
+import net.neoforged.neoforge.fluids.*;
+import net.neoforged.neoforge.registries.*;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
@@ -44,8 +34,8 @@ import static divinerpg.DivineRPG.MODID;
 public class FluidRegistry {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(BuiltInRegistries.FLUID, MODID);
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(NeoForgeRegistries.FLUID_TYPES, MODID);
-    private static ForgeFlowingFluid.Properties fluidProperties() {
-        return new ForgeFlowingFluid.Properties(SMOLDERING_TAR, SMOLDERING_TAR_FLUID, SMOLDERING_TAR_FLUID_FLOWING).block(SMOLDERING_TAR_BLOCK).bucket(ItemRegistry.smoldering_tar_bucket);
+    private static BaseFlowingFluid.Properties fluidProperties() {
+        return new BaseFlowingFluid.Properties(SMOLDERING_TAR, SMOLDERING_TAR_FLUID, SMOLDERING_TAR_FLUID_FLOWING).block(SMOLDERING_TAR_BLOCK).bucket(ItemRegistry.smoldering_tar_bucket);
     }
     public static final DeferredHolder<FluidType, FluidType> SMOLDERING_TAR = FLUID_TYPES.register("smoldering_tar_fluid_type", () ->
             new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)) {
@@ -76,8 +66,8 @@ public class FluidRegistry {
                     });
                 }
             });
-    public static final DeferredHolder<FlowingFluid, FlowingFluid> SMOLDERING_TAR_FLUID = FLUIDS.register("smoldering_tar_still", () ->
-            new ForgeFlowingFluid.Source(fluidProperties()) {
+    public static final DeferredHolder<Fluid, BaseFlowingFluid> SMOLDERING_TAR_FLUID = FLUIDS.register("smoldering_tar_still", () ->
+            new BaseFlowingFluid.Source(fluidProperties()) {
                 @Override public int getSlopeFindDistance(LevelReader level) {return level.dimensionType().ultraWarm() ? 4 : 2;}
                 @Override public int getDropOff(LevelReader level) {return level.dimensionType().ultraWarm() ? 1 : 2;}
                 @Override public int getTickDelay(LevelReader level) {return level.dimensionType().ultraWarm() ? 30 : 50;}
@@ -104,14 +94,14 @@ public class FluidRegistry {
                 @Override protected void beforeDestroyingBlock(LevelAccessor level, BlockPos pos, BlockState state) {this.fizz(level, pos);}
                 });
     public static final DeferredHolder<Fluid, Fluid> SMOLDERING_TAR_FLUID_FLOWING = FLUIDS.register("smoldering_tar_flowing", () ->
-            new ForgeFlowingFluid.Flowing(fluidProperties()) {
+            new BaseFlowingFluid.Flowing(fluidProperties()) {
                 private void fizz(LevelAccessor level, BlockPos pos) {level.levelEvent(1501, pos, 0);}
                 @Override protected void beforeDestroyingBlock(LevelAccessor level, BlockPos pos, BlockState state) {this.fizz(level, pos);}
                 @Override protected void spreadTo(LevelAccessor level, BlockPos pos, BlockState blockState, Direction dir, FluidState fluidState) {
                     if(dir == Direction.DOWN) {
                         FluidState fluidstate = level.getFluidState(pos);
                         if(defaultFluidState().is(FluidTags.LAVA) && fluidstate.is(FluidTags.WATER)) {
-                            if(blockState.getBlock() instanceof LiquidBlock) level.setBlock(pos, net.minecraftforge.event.ForgeEventFactory.fireFluidPlaceBlockEvent(level, pos, pos, Blocks.STONE.defaultBlockState()), 3);
+                            if(blockState.getBlock() instanceof LiquidBlock) level.setBlock(pos, fireFluidPlaceBlockEvent(level, pos, pos, Blocks.STONE.defaultBlockState()), 3);
                             fizz(level, pos);
                             return;
                         }
@@ -119,8 +109,14 @@ public class FluidRegistry {
                 }
             }
     );
-    public static final DeferredHolder<LiquidBlock, LiquidBlock> SMOLDERING_TAR_BLOCK = BlockRegistry.BLOCKS.register("smoldering_tar", () ->
-            new LiquidBlock(SMOLDERING_TAR_FLUID, BlockBehaviour.Properties.of().sound(SoundType.EMPTY).replaceable().pushReaction(PushReaction.DESTROY).randomTicks().mapColor(MapColor.COLOR_BLACK).noCollission().strength(100).noLootTable()) {
+    public static BlockState fireFluidPlaceBlockEvent(LevelAccessor level, BlockPos pos, BlockPos liquidPos, BlockState state)
+    {
+        net.neoforged.neoforge.event.level.BlockEvent.FluidPlaceBlockEvent event = new net.neoforged.neoforge.event.level.BlockEvent.FluidPlaceBlockEvent(level, pos, liquidPos, state);
+        NeoForge.EVENT_BUS.post(event);
+        return event.getNewState();
+    }
+    public static final DeferredBlock<LiquidBlock> SMOLDERING_TAR_BLOCK = BlockRegistry.BLOCKS.register("smoldering_tar", () ->
+            new LiquidBlock(SMOLDERING_TAR_FLUID.get(), BlockBehaviour.Properties.of().sound(SoundType.EMPTY).replaceable().pushReaction(PushReaction.DESTROY).randomTicks().mapColor(MapColor.COLOR_BLACK).noCollission().strength(100).noLootTable()) {
                 @Override public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
                     if(entity.isInFluidType()) {
                         //TODO: fix slowing down differently if you stay on top of a none solid block (e.g. a slab)
@@ -129,7 +125,7 @@ public class FluidRegistry {
                         //TODO: the fire gets extinguished during rains unlike when entity.lavaHurt() is used
                         entity.setRemainingFireTicks(12);
                         //That doesn't look right buh: me trying to copy the way entity.lavaHurt() works
-                        if(((entity instanceof LivingEntity && !entity.fireImmune() && !((LivingEntity) entity).hasEffect(MobEffects.FIRE_RESISTANCE)) || (!(entity instanceof LivingEntity) && !entity.fireImmune())) && entity.hurt(DamageSources.source(level, DamageSources.TAR), 4)) entity.playSound(SoundEvents.GENERIC_BURN, .4F, 2 + entity.random.nextFloat() * .4F);
+                        if(((entity instanceof LivingEntity && !entity.fireImmune() && !((LivingEntity) entity).hasEffect(MobEffects.FIRE_RESISTANCE)) || (!(entity instanceof LivingEntity) && !entity.fireImmune())) && entity.hurt(DamageSources.source(level, DamageSources.TAR), 4)) entity.playSound(SoundEvents.GENERIC_BURN, .4F, 2 + entity.getRandom().nextFloat() * .4F);
                     }
                 }
             });

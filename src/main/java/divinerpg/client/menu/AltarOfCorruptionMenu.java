@@ -4,13 +4,13 @@ import divinerpg.blocks.vanilla.BlockAltarOfCorruption;
 import divinerpg.registries.*;
 import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.*;
+import net.minecraft.core.registries.*;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
@@ -21,6 +21,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.EventHooks;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AltarOfCorruptionMenu extends AbstractContainerMenu {
     private final Container enchantSlots = new SimpleContainer(2) {
@@ -84,12 +85,12 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
         this(i, inventory, ContainerLevelAccess.NULL);
     }
 
-    @SuppressWarnings("deprecation")
 	public void slotsChanged(Container p_39461_) {
         if (p_39461_ == this.enchantSlots) {
             ItemStack itemstack = p_39461_.getItem(0);
             if (!itemstack.isEmpty() && itemstack.isEnchantable()) {
                 this.access.execute((p_39485_, p_39486_) -> {
+                	IdMap<Holder<Enchantment>> idmap = p_39485_.registryAccess().registryOrThrow(Registries.ENCHANTMENT).asHolderIdMap();
                     float j = 30;
 
                     for(BlockPos blockpos : BlockAltarOfCorruption.BOOKSHELF_OFFSETS) {
@@ -112,10 +113,10 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
 
                     for(int l = 0; l < 3; ++l) {
                         if (this.costs[l] > 0) {
-                            List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, l, this.costs[l]);
+                            List<EnchantmentInstance> list = this.getEnchantmentList(p_39485_.registryAccess(), itemstack, l, this.costs[l]);
                             if (list != null && !list.isEmpty()) {
                                 EnchantmentInstance enchantmentinstance = list.get(this.random.nextInt(list.size()));
-                                this.enchantClue[l] = BuiltInRegistries.ENCHANTMENT.getId(enchantmentinstance.enchantment);
+                                this.enchantClue[l] = idmap.getId(enchantmentinstance.enchantment);
                                 this.levelClue[l] = enchantmentinstance.level;
                             }
                         }
@@ -147,34 +148,16 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
             } else {
                 this.access.execute((p_39481_, p_39482_) -> {
                     ItemStack itemstack2 = itemstack;
-                    List<EnchantmentInstance> list = this.getEnchantmentList(itemstack, p_39466_, this.costs[p_39466_]);
+                    List<EnchantmentInstance> list = this.getEnchantmentList(p_39481_.registryAccess(), itemstack, p_39466_, this.costs[p_39466_]);
                     if (!list.isEmpty()) {
                         p_39465_.onEnchantmentPerformed(itemstack, i);
-                        boolean flag = itemstack.is(Items.BOOK);
-                        if (flag) {
-                            itemstack2 = new ItemStack(Items.ENCHANTED_BOOK);
-                            CompoundTag compoundtag = itemstack.getTag();
-                            if (compoundtag != null) {
-                                itemstack2.setTag(compoundtag.copy());
-                            }
+                        itemstack2 = itemstack.getItem().applyEnchantments(itemstack, list);
+                        this.enchantSlots.setItem(0, itemstack2);
+                        net.neoforged.neoforge.common.CommonHooks.onPlayerEnchantItem(p_39465_, itemstack2, list);
 
-                            this.enchantSlots.setItem(0, itemstack2);
-                        }
-
-                        for(int j = 0; j < list.size(); ++j) {
-                            EnchantmentInstance enchantmentinstance = list.get(j);
-                            if (flag) {
-                                EnchantedBookItem.addEnchantment(itemstack2, enchantmentinstance);
-                            } else {
-                                itemstack2.enchant(enchantmentinstance.enchantment, enchantmentinstance.level);
-                            }
-                        }
-
-                        if (!p_39465_.getAbilities().instabuild) {
-                            itemstack1.shrink(i);
-                            if (itemstack1.isEmpty()) {
-                                this.enchantSlots.setItem(1, ItemStack.EMPTY);
-                            }
+                        itemstack1.consume(i, p_39465_);
+                        if (itemstack1.isEmpty()) {
+                            this.enchantSlots.setItem(1, ItemStack.EMPTY);
                         }
 
                         p_39465_.awardStat(Stats.ENCHANT_ITEM);
@@ -185,7 +168,9 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
                         this.enchantSlots.setChanged();
                         this.enchantmentSeed.set(p_39465_.getEnchantmentSeed());
                         this.slotsChanged(this.enchantSlots);
-                        p_39481_.playSound((Player)null, p_39482_, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, p_39481_.random.nextFloat() * 0.1F + 0.9F);
+                        p_39481_.playSound(
+                            null, p_39482_, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1.0F, p_39481_.random.nextFloat() * 0.1F + 0.9F
+                        );
                     }
 
                 });
@@ -197,14 +182,19 @@ public class AltarOfCorruptionMenu extends AbstractContainerMenu {
         }
     }
 
-    private List<EnchantmentInstance> getEnchantmentList(ItemStack p_39472_, int p_39473_, int p_39474_) {
-        this.random.setSeed((long)(this.enchantmentSeed.get() + p_39473_));
-        List<EnchantmentInstance> list = EnchantmentHelper.selectEnchantment(this.random, p_39472_, p_39474_, false);
-        if (p_39472_.is(Items.BOOK) && list.size() > 1) {
-            list.remove(this.random.nextInt(list.size()));
-        }
+    private List<EnchantmentInstance> getEnchantmentList(RegistryAccess registryAccess, ItemStack stack, int slot, int cost) {
+    	this.random.setSeed((long)(this.enchantmentSeed.get() + slot));
+        Optional<HolderSet.Named<Enchantment>> optional = registryAccess.registryOrThrow(Registries.ENCHANTMENT).getTag(EnchantmentTags.IN_ENCHANTING_TABLE);
+        if (optional.isEmpty()) {
+            return List.of();
+        } else {
+            List<EnchantmentInstance> list = EnchantmentHelper.selectEnchantment(this.random, stack, cost, optional.get().stream());
+            if (stack.is(Items.BOOK) && list.size() > 1) {
+                list.remove(this.random.nextInt(list.size()));
+            }
 
-        return list;
+            return list;
+        }
     }
 
     public int getGoldCount() {

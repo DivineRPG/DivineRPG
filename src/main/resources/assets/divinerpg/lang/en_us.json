@@ -2206,6 +2206,7 @@
   "message.divinerpg.frosted_allure.misc": "Misc Mob Category",
   "message.divinerpg.frosted_allure.monster": "Monster Mob Category",
   "message.divinerpg.frosted_allure.water": "Water Mob Category",
+  "message.divinerpg.item.overworld_only": "This item can only be used in the Overworld",
   "message.divinerpg.item.nether_only": "This item can only be used in the Nether",
   "message.divinerpg.item.end_only": "This item can only be used in the End",
   "message.divinerpg.item.mortum_only": "This item can only be used in the Mortum",

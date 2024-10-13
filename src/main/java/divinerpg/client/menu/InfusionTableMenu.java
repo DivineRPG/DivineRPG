@@ -5,17 +5,14 @@ import divinerpg.recipe.*;
 import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.network.*;
-import net.minecraft.network.chat.*;
-//import net.minecraft.network.protocol.game.*;
-import net.minecraft.server.level.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.CraftingInput;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.*;
-import net.minecraftforge.network.*;
 
-import javax.annotation.*;
 import java.util.*;
 
 public class InfusionTableMenu extends AbstractContainerMenu {
@@ -43,9 +40,9 @@ public class InfusionTableMenu extends AbstractContainerMenu {
         access.execute((world, pos) -> slotChangedCraftingGrid(world, player, inputs, output));
     }
     protected void slotChangedCraftingGrid(Level world, Player player, InfusionInventory inv, ResultContainer craftResult) {
-        Optional<InfusionTableRecipe> recipeOptional = world.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, inv, world);
+        Optional<RecipeHolder<InfusionTableRecipe>> recipeOptional = world.getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, CraftingInput.of(1, 2, List.of(inv.getItem(0), inv.getItem(1))), world);
         if(recipeOptional.isPresent()) {
-            ItemStack output = recipeOptional.get().output.copy();
+            ItemStack output = recipeOptional.get().value().output.copy();
             if(!craftResult.getItem(2).is(output.getItem())) {
             	craftResult.setItem(2, output);
 //            	((ServerPlayer) player).connection.send(new ClientboundContainerSetSlotPacket(containerId, incrementStateId(), 2, output));
@@ -85,18 +82,6 @@ public class InfusionTableMenu extends AbstractContainerMenu {
             if(slotStack.getCount() == stack.getCount()) return ItemStack.EMPTY;
             slot.onTake(player, slotStack);
         } return stack;
-    }
-    public static void openContainer(ServerPlayer player, BlockPos pos) {
-        NetworkHooks.openScreen(player, new MenuProvider() {
-            @Override
-            public Component getDisplayName() {
-                return Component.translatable(BlockRegistry.infusionTable.get().getDescriptionId());
-            }
-            @Nullable @Override
-            public AbstractContainerMenu createMenu(int windowId, Inventory inv, Player player) {
-                return new InfusionTableMenu(windowId, inv, ContainerLevelAccess.create(player.level(), pos));
-            }
-        }, pos);
     }
     public static class InfusionInventory implements CraftingContainer {
         private final NonNullList<ItemStack> stackList;
