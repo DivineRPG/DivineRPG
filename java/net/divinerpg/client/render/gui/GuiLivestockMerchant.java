@@ -5,11 +5,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.util.StatCollector;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class GuiLivestockMerchant extends GuiDivineMerchant {
 
 	public GuiLivestockMerchant(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, "Livestock Merchant", "livestockMerchant");
+		super(container, mer, (MessageLocalizer.normal("entity.DRPGLivestockMerchant")), "livestockMerchant");
 	}
 
 	@Override
