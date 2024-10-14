@@ -3,11 +3,12 @@ package net.divinerpg.client.render.gui;
 import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.util.StatCollector;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class GuiHunger extends GuiDivineMerchant{
 
 	public GuiHunger(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, "The Hunger", "hunger");
+		super(container, mer, (MessageLocalizer.normal("entity.DRPGTheHunger.name")), "hunger");
 	}
 	
 	@Override
