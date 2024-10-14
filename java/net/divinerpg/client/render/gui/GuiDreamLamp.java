@@ -12,6 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.divinerpg.utils.MessageLocalizer;
 
 @SideOnly(Side.CLIENT)
 public class GuiDreamLamp extends GuiContainer {
