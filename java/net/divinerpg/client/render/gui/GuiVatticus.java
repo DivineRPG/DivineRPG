@@ -6,6 +6,6 @@ import net.minecraft.entity.IMerchant;
 public class GuiVatticus extends GuiDivineMerchant{
 
 	public GuiVatticus(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, "Vatticus", "vatticus");
+		super(container, mer, (MessageLocalizer.normal("entity.DRPGLordVatticus.name")), "vatticus");
 	}
 }
