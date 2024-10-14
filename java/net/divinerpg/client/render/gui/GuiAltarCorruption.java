@@ -16,6 +16,7 @@ import net.minecraft.util.EnchantmentNameParts;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -48,7 +49,7 @@ public class GuiAltarCorruption extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int i, int j) {
-        this.fontRendererObj.drawString("Altar of Corruption", 12, 5, 4210752);
+        this.fontRendererObj.drawString((MessageLocalizer.normal("gui.corruptionaltar")), 12, 5, 4210752);
         this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
     }
 
