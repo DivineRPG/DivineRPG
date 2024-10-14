@@ -6,6 +6,6 @@ import net.minecraft.entity.IMerchant;
 public class GuiZelus extends GuiDivineMerchant{
 
 	public GuiZelus(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, "Zelus", "zelus");
+		super(container, mer, (MessageLocalizer.normal("entity.DRPGZelus.name")), "zelus");
 	}
 }
