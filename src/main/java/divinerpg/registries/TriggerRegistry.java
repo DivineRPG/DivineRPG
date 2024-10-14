@@ -1,16 +1,17 @@
 package divinerpg.registries;
 
 
-import divinerpg.*;
 import divinerpg.advancement.*;
 import net.minecraft.advancements.*;
+import net.minecraft.core.registries.Registries;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import static divinerpg.DivineRPG.MODID;
 
 public class TriggerRegistry {
-    public static final AdvancementDivineItem DIVINERPG_ITEM = CriteriaTriggers.register("divinerpg_item", new AdvancementDivineItem("divinerpg:item"));
-    public static final AdvancementDivineBlock DIVINERPG_BLOCK = CriteriaTriggers.register("divinerpg_block", new AdvancementDivineBlock("divinerpg:block"));
-    public static final AdvancementDivineEye DIVINERPG_EYE = CriteriaTriggers.register("divinerpg_eye", new AdvancementDivineEye("divinerpg:eye"));
+    public static final DeferredRegister<CriterionTrigger<?>> TRIGGERS = DeferredRegister.create(Registries.TRIGGER_TYPE, MODID);
 
-    public static void registerTriggers() {
-        DivineRPG.LOGGER.info("[DivineRPG] Registered triggers");
-    }
+    public static final DeferredHolder<CriterionTrigger<?>, LookAtEyeTrigger> EYE = TRIGGERS.register("eye", LookAtEyeTrigger::new);
+
 }

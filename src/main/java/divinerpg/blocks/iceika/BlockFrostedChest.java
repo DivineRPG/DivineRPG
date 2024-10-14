@@ -60,13 +60,13 @@ public class BlockFrostedChest extends BlockModChest {
         return new FrostedChestBlockEntity(p_153215_, p_153216_);
     }
 
-    @Override
-    public void playerDestroy(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity te, ItemStack stack) {
-        super.playerDestroy(world, player, pos, state, te, stack);
-        if (player instanceof ServerPlayer) {
-            TriggerRegistry.DIVINERPG_BLOCK.trigger((ServerPlayer) player, this);
-        }
-    }
+//    @Override
+//    public void playerDestroy(Level world, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity te, ItemStack stack) {
+//        super.playerDestroy(world, player, pos, state, te, stack);
+//        if (player instanceof ServerPlayer) {
+//            TriggerRegistry.DIVINERPG_BLOCK.trigger((ServerPlayer) player, this);
+//        }
+//    }
 
     @Override
     @OnlyIn(Dist.CLIENT)

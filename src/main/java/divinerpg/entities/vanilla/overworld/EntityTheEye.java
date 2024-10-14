@@ -39,7 +39,7 @@ public class EntityTheEye extends EntityDivineMonster {
         LivingEntity entity = this.getTarget();
         if(entity != null && entity instanceof ServerPlayer && (isLookingAt(this, entity) || isLookingAt(entity, this))) {
             entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 0, false, true));
-            TriggerRegistry.DIVINERPG_EYE.trigger((ServerPlayer) entity);
+            TriggerRegistry.EYE.get().trigger((ServerPlayer) entity, this);
         }
     }
     public static boolean theEyeSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {

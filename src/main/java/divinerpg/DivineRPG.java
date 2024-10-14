@@ -44,6 +44,7 @@ public class DivineRPG {
         CreativeTabRegistry.CREATIVE_MODE_TABS.register(bus);
         ArmorMaterialRegistry.ARMOR_MATERIALS.register(bus);
         AttachmentRegistry.ATTACHMENT_TYPES.register(bus);
+        TriggerRegistry.TRIGGERS.register(bus);
         EventRegistry.init();
         bus.addListener(this::setup);
         bus.addListener(this::post);
@@ -57,7 +58,6 @@ public class DivineRPG {
 
     private void setup(final FMLCommonSetupEvent event) {
         ModCompat.initCommon(event);
-        TriggerRegistry.registerTriggers();
         PlacementModifierRegistry.init();
 
         event.enqueueWork(() -> {
