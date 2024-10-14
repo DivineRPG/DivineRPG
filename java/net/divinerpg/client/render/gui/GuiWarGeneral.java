@@ -3,11 +3,12 @@ package net.divinerpg.client.render.gui;
 import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.util.StatCollector;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class GuiWarGeneral extends GuiDivineMerchant{
 
 	public GuiWarGeneral(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, "War General", "warGeneral");
+		super(container, mer, (MessageLocalizer.normal("entity.DRPGWarGeneral.name")), "warGeneral");
 	}
 	
 	@Override
