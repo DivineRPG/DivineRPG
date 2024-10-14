@@ -6,7 +6,7 @@ import net.minecraft.entity.IMerchant;
 public class GuiWorkshopMerchant extends GuiDivineMerchant{
 
 	public GuiWorkshopMerchant(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, "Merchant", "workshopWorker");
+		super(container, mer, (MessageLocalizer.normal("entity.DRPGWorkshopMerchant.name")), "workshopWorker");
 	}
 
 }
