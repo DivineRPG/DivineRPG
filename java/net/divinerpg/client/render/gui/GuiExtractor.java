@@ -11,6 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.divinerpg.utils.MessageLocalizer;
 
 @SideOnly(Side.CLIENT)
 public class GuiExtractor extends GuiContainer {
@@ -24,7 +25,7 @@ public class GuiExtractor extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
-        String s = "Extractor";
+        String s = (MessageLocalizer.normal("gui.extractor"));
         this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
         s = "Inventory";
         this.fontRendererObj.drawString(s, 8, this.ySize - 96 + 2, 4210752);
