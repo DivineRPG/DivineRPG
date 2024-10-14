@@ -8,6 +8,6 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiGreenlightFurnace extends GuiModFurnace {
 
 	public GuiGreenlightFurnace(InventoryPlayer par1InventoryPlayer, TileEntityModFurnace par2TileEntityFurnace) {
-		super(par1InventoryPlayer, par2TileEntityFurnace, (MessageLocalizer.normal("gui.greenlightfurnace")), "greenlightFurnace");
+		super(par1InventoryPlayer, par2TileEntityFurnace, (MessageLocalizer.normal("tile.greenlightFurnace")), "greenlightFurnace");
 	}
 }
