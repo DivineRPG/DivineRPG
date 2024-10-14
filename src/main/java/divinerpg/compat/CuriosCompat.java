@@ -3,9 +3,10 @@ package divinerpg.compat;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.util.LazyOptional;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
+
+import java.util.Optional;
 
 public class CuriosCompat {
 	public static void loadInventory(CompoundTag from, Player player) {
@@ -18,7 +19,7 @@ public class CuriosCompat {
 		CuriosApi.getCuriosInventory(player).ifPresent((curinv) -> to.put("curios", curinv.saveInventory(false)));
 	}
 	public static ListTag saveInventory(Player player) {
-		LazyOptional<ICuriosItemHandler> l = CuriosApi.getCuriosInventory(player);
+		Optional<ICuriosItemHandler> l = CuriosApi.getCuriosInventory(player);
 		if(l.isPresent()) return l.orElse(null).saveInventory(false);
 		return new ListTag();
 	}

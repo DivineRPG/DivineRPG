@@ -17,6 +17,7 @@ repositories {
     mavenLocal()
     maven { url = "https://modmaven.dev"}
     maven { url = "https://www.cursemaven.com"}
+    maven { url = "https://maven.octo-studios.com/releases"}
 }
 
 base {
@@ -68,6 +69,8 @@ dependencies {
     runtimeOnly("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
     compileOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT:api") //Patchouli
     runtimeOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT") //Patchouli
+    compileOnly("curse.maven:curios-continuation-1037991:${curios_version}") //Curios Continuation
+    runtimeOnly("curse.maven:curios-continuation-1037991:${curios_version}") //Curios Continuation
 }
 
 tasks.withType(ProcessResources).configureEach {
