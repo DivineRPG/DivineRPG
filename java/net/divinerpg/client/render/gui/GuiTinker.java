@@ -7,6 +7,6 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiTinker extends GuiDivineMerchant{
 
 	public GuiTinker(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, (MessageLocalizer.normal("gui.workshopworker")), "workshopWorker");
+		super(container, mer, (MessageLocalizer.normal("entity.DRPGWorkshopTinkerer.name")), "workshopWorker");
 	}	
 }
