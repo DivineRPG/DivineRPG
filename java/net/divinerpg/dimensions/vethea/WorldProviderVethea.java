@@ -27,7 +27,7 @@ public class WorldProviderVethea extends WorldProvider {
 	}
 
 	public boolean canCoordinateBeSpawn(int var1, int var2) {
-		return false;
+		return true;
 	}
 
 	public float calculateCelestialAngle(long var1, float var3) {
