@@ -45,6 +45,11 @@ public class EntityWildfire extends EntityDivineRPGMob implements IRangedAttackM
     protected String getHurtSound() {
         return Sounds.getSoundName(Sounds.wildFireHurt);
     }
+	
+    @Override
+    protected String getDeathSound() {
+        return Sounds.getSoundName(Sounds.wildFireHurt);
+    }
 
     @Override
     public ItemStack getHeldItem() {
