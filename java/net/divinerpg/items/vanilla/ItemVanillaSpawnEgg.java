@@ -39,7 +39,7 @@ public class ItemVanillaSpawnEgg extends ItemMod implements IDivineMetaItem {
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
             try {
-                Entity e = (Entity) mobs[stack.getMetadata()].getConstructor(World.class, EntityPlayer.class).newInstance(world, player);
+                Entity e = (Entity) mobs[stack.getItemDamage()].getConstructor(World.class, EntityPlayer.class).newInstance(world, player);
                 e.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
                 world.spawnEntityInWorld(e);
                 player.triggerAchievement(DivineRPGAchievements.petCollector);
@@ -54,7 +54,7 @@ public class ItemVanillaSpawnEgg extends ItemMod implements IDivineMetaItem {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        String str = (String) EntityList.classToStringMapping.get(mobs[stack.getMetadata()]);
+        String str = (String) EntityList.classToStringMapping.get(mobs[stack.getItemDamage()]);
         return "item." + str.substring(4) + "Egg";
     }
 
@@ -69,7 +69,7 @@ public class ItemVanillaSpawnEgg extends ItemMod implements IDivineMetaItem {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         Item item = stack.getItem();
-        list.add("Spawns a pet " + ((String)EntityList.classToStringMapping.get(mobs[stack.getMetadata()])).substring(4));
+        list.add("Spawns a pet " + ((String)EntityList.classToStringMapping.get(mobs[stack.getItemDamage()])).substring(4));
     }
 
     @Override

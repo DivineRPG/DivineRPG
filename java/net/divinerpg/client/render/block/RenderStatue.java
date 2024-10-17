@@ -13,7 +13,7 @@ public class RenderStatue extends TileEntitySpecialRenderer {
         if(te instanceof TileEntityStatue) {
         	TileEntityStatue tes = (TileEntityStatue)te;
             int rotation = 0;
-            if(tes.getWorld() != null) 
+            if(tes.getWorldObj() != null) 
                 rotation = tes.getBlockMetadata();            
             Minecraft.getMinecraft().getTextureManager().bindTexture(tes.texture);
             GL11.glPushMatrix();

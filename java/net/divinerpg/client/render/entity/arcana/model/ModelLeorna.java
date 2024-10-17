@@ -152,9 +152,9 @@ public class ModelLeorna extends ModelBase
         float var8;
         float var9;
 
-        if (this.swingProgress > -9990.0F)
+        if (this.onGround > -9990.0F)
         {
-            var8 = this.swingProgress;
+            var8 = this.onGround;
             this.body.rotateAngleY = MathHelper.sin(MathHelper.sqrt_float(var8) * (float)Math.PI * 2.0F) * 0.2F;
             this.rightarm.rotationPointZ = MathHelper.sin(this.body.rotateAngleY) * 5.0F;
             this.rightarm.rotationPointX = -MathHelper.cos(this.body.rotateAngleY) * 5.0F;
@@ -163,15 +163,15 @@ public class ModelLeorna extends ModelBase
             this.rightarm.rotateAngleY += this.body.rotateAngleY;
             this.leftarm.rotateAngleY += this.body.rotateAngleY;
             this.leftarm.rotateAngleX += this.body.rotateAngleY;
-            var8 = 1.0F - this.swingProgress;
+            var8 = 1.0F - this.onGround;
             var8 *= var8;
             var8 *= var8;
             var8 = 1.0F - var8;
             var9 = MathHelper.sin(var8 * (float)Math.PI);
-            float var10 = MathHelper.sin(this.swingProgress * (float)Math.PI) * -(this.head.rotateAngleX - 0.7F) * 0.75F;
+            float var10 = MathHelper.sin(this.onGround * (float)Math.PI) * -(this.head.rotateAngleX - 0.7F) * 0.75F;
             this.rightarm.rotateAngleX = (float)((double)this.rightarm.rotateAngleX - ((double)var9 * 1.2D + (double)var10));
             this.rightarm.rotateAngleY += this.body.rotateAngleY * 2.0F;
-            this.rightarm.rotateAngleZ = MathHelper.sin(this.swingProgress * (float)Math.PI) * -0.4F;
+            this.rightarm.rotateAngleZ = MathHelper.sin(this.onGround * (float)Math.PI) * -0.4F;
         }
 
         {

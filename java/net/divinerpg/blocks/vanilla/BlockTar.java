@@ -21,7 +21,7 @@ public class BlockTar extends BlockFluidClassic{
 		DivineRPG.tarFluid.setBlock(this);
 		setLightLevel(1F);
 		GameRegistry.registerBlock(this, "Tar");
-		setUnlocalizedName("Tar");
+		setBlockName("Tar");
 		LangRegistry.addBlock(this);
 	}
 
@@ -32,7 +32,7 @@ public class BlockTar extends BlockFluidClassic{
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister registry) {
+	public void registerBlockIcons(IIconRegister registry) {
 		this.theIIcon = new IIcon[] {registry.registerIcon(Reference.PREFIX + "Tar"), registry.registerIcon(Reference.PREFIX + "Tar")};
 	}
 }

@@ -10,7 +10,6 @@ import net.divinerpg.utils.LangRegistry;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
-import net.divinerpg.utils.config;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
@@ -48,7 +47,7 @@ public class BlockNightmareBed extends BlockBed {
         String name = "nightmareBedBlock";
         setStepSound(Block.soundTypeStone);
         setCreativeTab(null);
-        setUnlocalizedName(name);
+        setBlockName(name);
         setHardness(9);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
@@ -63,8 +62,8 @@ public class BlockNightmareBed extends BlockBed {
 
             if (!isBlockHeadOfBed(i1)) {
                 int j1 = getDirection(i1);
-                x += bedDirections[j1][0];
-                z += bedDirections[j1][1];
+                x += field_149981_a[j1][0];
+                z += field_149981_a[j1][1];
 
                 if (world.getBlock(x, y, z) != this)
                     return true;
@@ -76,7 +75,7 @@ public class BlockNightmareBed extends BlockBed {
 
             if (player.worldObj.provider.dimensionId != ConfigurationHelper.vethea) {
                 if (world.getBlockLightValue(x, y, z) > 7) {
-                    player.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.bed.dark")));
+                    player.addChatMessage(Util.getChatComponent (Util.AQUA + (MessageLocalizer.norecolor("message.bed.dark"))));
                     return true;
                 }
                 EntityPlayer entityplayer1 = null;
@@ -101,7 +100,7 @@ public class BlockNightmareBed extends BlockBed {
                     MPPlayer.timeUntilPortal = 10;
                     MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
                     
-                    if (ConfigurationHelper.config.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+                    if (ConfigurationHelper.cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
                         this.persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
                         player.getEntityData().setTag("PlayerPersisted", this.persistantData);
                         player.inventory.clearInventory(null, -1);
@@ -121,7 +120,7 @@ public class BlockNightmareBed extends BlockBed {
             } else if (player.worldObj.provider.dimensionId == ConfigurationHelper.vethea) {
                 MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, 0, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(0)));
 
-                if (ConfigurationHelper.config.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+                if (ConfigurationHelper.cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
                     this.persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
                     player.getEntityData().setTag("PlayerPersisted", this.persistantData);
                     player.inventory.clearInventory(null, -1);
@@ -137,8 +136,8 @@ public class BlockNightmareBed extends BlockBed {
                 double d1 = (double) z + 0.5D;
                 world.setBlockToAir(x, y, z);
                 int k1 = getDirection(i1);
-                x += bedDirections[k1][0];
-                z += bedDirections[k1][1];
+                x += field_149981_a[k1][0];
+                z += field_149981_a[k1][1];
 
                 if (world.getBlock(x, y, z) == this) {
                     world.setBlockToAir(x, y, z);
@@ -173,7 +172,7 @@ public class BlockNightmareBed extends BlockBed {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister register) {
+    public void registerBlockIcons(IIconRegister register) {
         top = new IIcon[] { register.registerIcon(Reference.PREFIX + "nightmareBedFeetTop"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadTop") };
         end = new IIcon[] { register.registerIcon(Reference.PREFIX + "nightmareBedFeetEnd"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadEnd") };
         side = new IIcon[] { register.registerIcon(Reference.PREFIX + "nightmareBedFeetSide"), register.registerIcon(Reference.PREFIX + "nightmareBedHeadSide") };

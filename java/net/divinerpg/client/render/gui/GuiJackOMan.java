@@ -8,7 +8,7 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiJackOMan extends GuiDivineMerchant{
 
 	public GuiJackOMan(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, (MessageLocalizer.normal("entity.DRPGJackOMan.name")), "jackOMan");
+		super(container, mer, (MessageLocalizer.norecolor("entity.DRPGJackOMan.name")), "jackOMan");
 	}
 	
 	@Override

@@ -28,7 +28,7 @@ public class RenderAyeracoBeam extends TileEntitySpecialRenderer{
             GL11.glDisable(GL11.GL_BLEND);
             GL11.glDepthMask(true);
             OpenGlHelper.glBlendFunc(770, 1, 1, 0);
-            float f2 = (float)entity.getWorld().getTotalWorldTime() + f;
+            float f2 = (float)entity.getWorldObj().getTotalWorldTime() + f;
             float f3 = -f2 * 0.2F - (float)MathHelper.floor_float(-f2 * 0.1F);
             byte b0 = 1;
             double d3 = (double)f2 * 0.025D * (1.0D - (double)(b0 & 1) * 2.5D);

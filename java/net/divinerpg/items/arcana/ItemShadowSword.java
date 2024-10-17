@@ -19,7 +19,7 @@ public class ItemShadowSword extends ItemModSword {
     public ItemShadowSword(String name, ToolMaterial mat) {
         super(mat, name);
         this.maxStackSize = 1;
-        this.setMaxDurability(-1);
+        this.setMaxDamage(-1);
     }
 
     @Override

@@ -40,7 +40,7 @@ public class BlockLamp2 extends VanillaBlock implements IDivineMetaBlock{
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir){
+	public void registerBlockIcons(IIconRegister ir){
 		for(int i = 0; i<12; i++) {
 			this.iconArray[i] = ir.registerIcon("divinerpg:" + names[i] + "Lamp");
 		}

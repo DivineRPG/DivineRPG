@@ -15,11 +15,11 @@ public class BlockParasectaAltar extends BlockContainer {
 
 	public BlockParasectaAltar(String name) {
 		super(Material.rock);
-		setUnlocalizedName(name);
+		setBlockName(name);
 		setCreativeTab(DivineRPGTabs.blocks);
 		setBlockUnbreakable();
 		setResistance(6000000F);
-		setTextureName("stone");
+		setBlockTextureName("stone");
 		LangRegistry.addBlock(this);
 		GameRegistry.registerBlock(this, name);
 	}

@@ -6,11 +6,11 @@ import net.minecraft.tileentity.TileEntityChest;
 public class TileEntityBoneChest extends TileEntityChest {
 	
 	public TileEntityBoneChest() {
-		this.setCustomName("Bone Chest");
+		this.func_145976_a("Bone Chest");
 	}
 	
 	@Override
-	public void closeChest()
+	public void closeInventory()
     {
         if (this.getBlockType() instanceof BlockBoneChest)
         {

@@ -4,8 +4,12 @@ import net.minecraft.item.Item;
 import net.minecraft.util.StatCollector;
 
 public class MessageLocalizer {
-    
+
     protected static final String STAND = "message.standard", VERS = "message.version";
+
+    public static String norecolor(String message) {
+        return StatCollector.translateToLocal(message);
+    }
 
     public static String normal(String message) {
         return Util.WHITE + StatCollector.translateToLocal(message);

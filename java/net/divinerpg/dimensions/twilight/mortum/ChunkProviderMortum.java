@@ -441,7 +441,7 @@ public class ChunkProviderMortum implements IChunkProvider {
 	}
 
 	@Override
-	public ChunkPosition findClosestStructure(World world, String s, int i, int j, int k) {
+	public ChunkPosition func_147416_a(World world, String s, int i, int j, int k) {
 		return null;
 	}
 

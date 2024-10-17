@@ -11,6 +11,7 @@ public class WorldProviderVethea extends WorldProvider {
 	public void registerWorldChunkManager()  {
 		this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.vetheaBiome, 1.0F);
 		this.dimensionId = ConfigurationHelper.vethea;
+		this.hasNoSky=true;
 	}
 
 	public float getCloudHeight() {
@@ -23,7 +24,7 @@ public class WorldProviderVethea extends WorldProvider {
 	}
 
 	public boolean isSurfaceWorld() {
-		return false;
+		return true;
 	}
 
 	public boolean canCoordinateBeSpawn(int var1, int var2) {
@@ -31,7 +32,7 @@ public class WorldProviderVethea extends WorldProvider {
 	}
 
 	public float calculateCelestialAngle(long var1, float var3) {
-		return 0.3F;
+		return 0.5F;
 	}
 
 	public boolean canRespawnHere() {

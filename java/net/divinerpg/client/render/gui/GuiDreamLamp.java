@@ -28,8 +28,8 @@ public class GuiDreamLamp extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        this.fontRendererObj.drawString(this.blockInv.isCustomInventoryName() ? this.blockInv.getInventoryName() : I18n.format(this.blockInv.getInventoryName(), new Object[0]), 12, 8, 0x6FA940);
-        this.fontRendererObj.drawString(this.playerInv.isCustomInventoryName() ? this.playerInv.getInventoryName() : I18n.format(this.playerInv.getInventoryName(), new Object[0]), 12, this.ySize - 96, 0x6FA940);
+        this.fontRendererObj.drawString(this.blockInv.hasCustomInventoryName() ? this.blockInv.getInventoryName() : I18n.format(this.blockInv.getInventoryName(), new Object[0]), 12, 8, 0x6FA940);
+        this.fontRendererObj.drawString(this.playerInv.hasCustomInventoryName() ? this.playerInv.getInventoryName() : I18n.format(this.playerInv.getInventoryName(), new Object[0]), 12, this.ySize - 96, 0x6FA940);
     }
 
     @Override

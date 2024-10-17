@@ -28,8 +28,8 @@ public class BlockModFire extends BlockFire {
         this.name = name;
         setLightLevel(1.0F);
         setCreativeTab(null);
-        setUnlocalizedName(name);
-        setTextureName(Reference.PREFIX + name);
+        setBlockName(name);
+        setBlockTextureName(Reference.PREFIX + name);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
     }
@@ -58,7 +58,7 @@ public class BlockModFire extends BlockFire {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerIcons(IIconRegister iconReg) {
+    public void registerBlockIcons(IIconRegister iconReg) {
         this.icons = new IIcon[] { iconReg.registerIcon(Reference.PREFIX + "blueFire_0"), iconReg.registerIcon(Reference.PREFIX + "blueFire_1") };
     }
 

@@ -67,7 +67,7 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 		if(!this.canBlockStay(world, i, j, k)) {
 			if(world.getBlockMetadata(i, j, k) == 2)this.dropBlockAsItemWithChance(world, i, j, k, world.getBlockMetadata(i, j, k), 1f, 0);
 			else if(world.getBlockMetadata(i, j, k) == 0)this.dropBlockAsItem(world, i, j, k, new ItemStack(this == ArcanaBlocks.pinfly ? ArcanaItems.pinflySeeds : ArcanaItems.firestockSeeds));
-			world.breakBlock(i, j, k, false);
+			world.func_147480_a(i, j, k, false);
 		}else if(world.getBlockMetadata(i, j, k) != 0 && world.getBlock(i, j+1, k) != this){
 			world.setBlock(i, j, k, this, 0, 2);
 		}
@@ -141,7 +141,7 @@ public class BlockStackPlant extends BlockMod implements IPlantable {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister i) {
+	public void registerBlockIcons(IIconRegister i) {
 		this.iconArray[0] = i.registerIcon(Reference.PREFIX + name + "_top");
 		this.iconArray[1] = i.registerIcon(Reference.PREFIX + name + "_bottom");
 	}

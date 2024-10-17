@@ -8,7 +8,7 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiHunger extends GuiDivineMerchant{
 
 	public GuiHunger(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, (MessageLocalizer.normal("entity.DRPGTheHunger.name")), "hunger");
+		super(container, mer, (MessageLocalizer.norecolor("entity.DRPGTheHunger.name")), "hunger");
 	}
 	
 	@Override

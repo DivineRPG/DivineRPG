@@ -17,8 +17,8 @@ public class BlockRedstonelessRails extends BlockRailPowered {
 				
 	public BlockRedstonelessRails(String name) {
 		setCreativeTab(DivineRPGTabs.utility);
-		setUnlocalizedName(name);
-		setTextureName(Reference.PREFIX + name);
+		setBlockName(name);
+		setBlockTextureName(Reference.PREFIX + name);
 		GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
 	}
@@ -141,7 +141,7 @@ public class BlockRedstonelessRails extends BlockRailPowered {
     }
 
 	@Override
-    protected void onRedstoneSignal(World p_150048_1_, int p_150048_2_, int p_150048_3_, int p_150048_4_, int p_150048_5_, int p_150048_6_, Block p_150048_7_)
+    protected void func_150048_a(World p_150048_1_, int p_150048_2_, int p_150048_3_, int p_150048_4_, int p_150048_5_, int p_150048_6_, Block p_150048_7_)
     {
         boolean flag = this.func_150058_a(p_150048_1_, p_150048_2_, p_150048_3_, p_150048_4_, p_150048_5_, true, 0) || this.func_150058_a(p_150048_1_, p_150048_2_, p_150048_3_, p_150048_4_, p_150048_5_, false, 0);
         boolean flag1 = false;

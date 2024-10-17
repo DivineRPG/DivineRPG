@@ -41,7 +41,7 @@ public class EntityKobblin extends EntityDivineRPGMob {
     }
 
     @Override
-    protected void playStepSound(int x, int y, int z, Block b) {}
+    protected void func_145780_a(int x, int y, int z, Block b) {}
 
     @Override
     protected String getHurtSound() {

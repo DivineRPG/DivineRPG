@@ -30,8 +30,8 @@ public class BlockDreamLamp extends BlockContainer {
         } else {
             setCreativeTab(DivineRPGTabs.vethea); 
         }
-        setTextureName(Reference.PREFIX + name);
-        setUnlocalizedName("dreamLamp");
+        setBlockTextureName(Reference.PREFIX + name);
+        setBlockName("dreamLamp");
         setHardness(1);
         LangRegistry.addBlock(this);
         GameRegistry.registerBlock(this, name);

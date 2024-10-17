@@ -18,7 +18,7 @@ public class BlockSlimeLight extends BlockMod {
     public BlockSlimeLight(boolean on) {
         super(EnumBlockType.GLASS, on ? "slimeLightOn" : "slimeLight", 2);
         this.isOn = on;
-        setUnlocalizedName("slimeLight");
+        setBlockName("slimeLight");
         if (on) {
             this.setLightLevel(1.0F);
             setCreativeTab(null);

@@ -8,7 +8,7 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiWarGeneral extends GuiDivineMerchant{
 
 	public GuiWarGeneral(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, (MessageLocalizer.normal("entity.DRPGWarGeneral.name")), "warGeneral");
+		super(container, mer, (MessageLocalizer.norecolor("entity.DRPGWarGeneral.name")), "warGeneral");
 	}
 	
 	@Override

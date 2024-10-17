@@ -48,7 +48,7 @@ public class RenderSunArcher extends RenderLiving {
             this.renderManager.itemRenderer.renderItem(var1, var3, 0);
 
             if (var3.getItem().requiresMultipleRenderPasses()) {
-                for (int var7 = 1; var7 < var3.getItem().getRenderPasses(var3.getMetadata()); var7++) {
+                for (int var7 = 1; var7 < var3.getItem().getRenderPasses(var3.getItemDamage()); var7++) {
                     this.renderManager.itemRenderer.renderItem(var1, var3, var7);
                 }
             }

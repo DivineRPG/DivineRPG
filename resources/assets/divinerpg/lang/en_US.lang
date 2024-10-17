@@ -1470,7 +1470,13 @@ tooltip.noblock=Cannot Block
 tooltip.effect.poisons=Poisons mobs for |seconds| seconds
 tooltip.effect.burns=Burns mobs for |seconds| seconds
 tooltip.effect.slows=Slows mobs for |seconds| seconds
-tooltip.frozencharge=Use on Arcanium Power to open blocked passageways in the Dungeon of Arcana
+tooltip.frozencharge=Opens sealed passages in the Dungeon of Arcana
+tooltip.fills=Fills
+tooltip.hungerbars= hunger bars
+tooltip.saturation= saturation
+tooltip.petfood=Pet food:
+tooltip.true=True
+tooltip.false=False
 
 message.livestock.1=Livestock Merchant: When traveling, I met a merchant named Zelus, who sold me the eggs that grew into the pets I breed now.
 message.livestock.2=Livestock Merchant: I sell only the healthiest pets!

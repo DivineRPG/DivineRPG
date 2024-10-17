@@ -13,7 +13,7 @@ public class ItemAquamarine extends ItemMod{
 
 	public ItemAquamarine(String name) {
 		super(name, DivineRPGTabs.utility);
-		setMaxDurability(10);
+		setMaxDamage(10);
 	}
 	
 	@Override

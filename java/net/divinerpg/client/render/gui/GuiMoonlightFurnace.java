@@ -8,6 +8,6 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiMoonlightFurnace extends GuiModFurnace {
 
 	public GuiMoonlightFurnace(InventoryPlayer par1InventoryPlayer, TileEntityModFurnace par2TileEntityFurnace) {
-		super(par1InventoryPlayer, par2TileEntityFurnace, (MessageLocalizer.normal("tile.moonlightFurnace.name")), "moonlightFurnace");
+		super(par1InventoryPlayer, par2TileEntityFurnace, (MessageLocalizer.norecolor("tile.moonlightFurnace.name")), "moonlightFurnace");
 	}
 }

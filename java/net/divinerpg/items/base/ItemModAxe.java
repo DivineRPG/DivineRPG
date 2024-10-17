@@ -29,7 +29,7 @@ public class ItemModAxe extends ItemAxe{
     @Override
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
         infoList.add(TooltipLocalizer.efficiency(toolMaterial.getEfficiencyOnProperMaterial()));
-        if(item.getMaxDurability() != -1) infoList.add(TooltipLocalizer.usesRemaining(item.getMaxDurability() - item.getMetadata()));
+        if(item.getMaxDamage() != -1) infoList.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
 		else infoList.add(TooltipLocalizer.infiniteUses());
     }
 }

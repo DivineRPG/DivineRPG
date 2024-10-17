@@ -6,6 +6,7 @@ import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldProviderIceika extends WorldProvider{
@@ -14,16 +15,16 @@ public class WorldProviderIceika extends WorldProvider{
 	public void registerWorldChunkManager() {
 		this.dimensionId = ConfigurationHelper.iceika;
 		this.worldChunkMgr = new WorldChunkManagerHell(DimensionHelper.iceikaBiome, 1.0F);
-		this.hasNoSky=true;
+		this.hasNoSky=false;
 	}
 
 	@Override
 	public float getCloudHeight() {
 		return 128.0F;
 	}
-	
-	@Override
-	public boolean canSnowAt(int x, int y, int z, boolean checkLight) {
+
+	public boolean canDoRainSnowIce(Chunk chunk)
+	{
 		return true;
 	}
 
@@ -34,7 +35,7 @@ public class WorldProviderIceika extends WorldProvider{
 	
 	@Override
 	protected void generateLightBrightnessTable() {
-        float f = 0.01F;
+        float f = 0.2F;
 
         for (int i = 0; i <= 15; ++i) {
             float f1 = 1.0F - (float)i / 15.0F;
@@ -48,19 +49,23 @@ public class WorldProviderIceika extends WorldProvider{
     }
 	@Override
 	public boolean isSurfaceWorld() {
-		return false;
+		return true;
 
 	}
 	
 	@Override
 	public float calculateCelestialAngle(long var1, float var3) {
-		return 0.28F;
+		return 0.5F;
 	}
 
 
 	@Override
 	public boolean canRespawnHere() {
-		return false;
+		return true;
+	}
+
+	public boolean canCoordinateBeSpawn(int var1, int var2) {
+		return true;
 	}
 
 	@Override

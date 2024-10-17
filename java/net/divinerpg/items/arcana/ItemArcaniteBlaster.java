@@ -30,7 +30,7 @@ public class ItemArcaniteBlaster extends ItemMod {
 		super("arcaniteBlaster");
 		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxStackSize(1);
-		setMaxDurability(6500);
+		setMaxDamage(6500);
 	}
 	
 	@Override
@@ -69,6 +69,6 @@ public class ItemArcaniteBlaster extends ItemMod {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add(TooltipLocalizer.bowDam("30x23"));
 		list.add(TooltipLocalizer.arcanaConsumed(20));
-		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
 	}
 }

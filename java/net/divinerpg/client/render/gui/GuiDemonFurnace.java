@@ -7,6 +7,6 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiDemonFurnace extends GuiInfiniteFurnace {
 
 	public GuiDemonFurnace(InventoryPlayer par1InventoryPlayer, TileEntityInfiniteFurnace par2TileEntityFurnace) {
-		super(par1InventoryPlayer, par2TileEntityFurnace, (MessageLocalizer.normal("tile.demonFurnace.name")), "demonFurnace");
+		super(par1InventoryPlayer, par2TileEntityFurnace, (MessageLocalizer.norecolor("tile.demonFurnace.name")), "demonFurnace");
 	}
 }

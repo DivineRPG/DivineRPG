@@ -15,7 +15,7 @@ public class ContainerDreamLamp extends Container {
     {
         this.blockInv = block;
         this.numRows = block.getSizeInventory() / 9;
-        block.openChest();
+        block.openInventory();
         int i = -19;
         int j;
         int k;

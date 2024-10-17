@@ -7,6 +7,6 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiOceanfireFurnace extends GuiInfiniteFurnace {
 
 	public GuiOceanfireFurnace(InventoryPlayer par1InventoryPlayer, TileEntityInfiniteFurnace entity) {
-		super(par1InventoryPlayer, entity, (MessageLocalizer.normal("tile.oceanfireFurnace.name")), "oceanfireFurnace");
+		super(par1InventoryPlayer, entity, (MessageLocalizer.norecolor("tile.oceanfireFurnace.name")), "oceanfireFurnace");
 	}
 }

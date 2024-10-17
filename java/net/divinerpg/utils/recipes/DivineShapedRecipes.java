@@ -85,7 +85,7 @@ public class DivineShapedRecipes implements IRecipe {
                         return false;
                     }
 
-                    if (itemstack.getMetadata() != 32767 && itemstack.getMetadata() != itemstack1.getMetadata())
+                    if (itemstack.getItemDamage() != 32767 && itemstack.getItemDamage() != itemstack1.getItemDamage())
                     {
                         return false;
                     }

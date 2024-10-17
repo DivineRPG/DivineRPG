@@ -423,7 +423,7 @@ public class ChunkProviderSkythern implements IChunkProvider{
 	public void saveExtraData() { }
 
 	@Override
-	public ChunkPosition findClosestStructure(World var1, String var2, int var3, int var4, int var5) {
+	public ChunkPosition func_147416_a(World var1, String var2, int var3, int var4, int var5) {
 		return null;
 	}
 }

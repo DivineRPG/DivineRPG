@@ -19,7 +19,7 @@ public class ItemCallOfTheWatcher extends ItemMod {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
-        if(world.provider.dimensionId != -1) player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.normal("message.spawner.callofthewatcher")));
+        if(world.provider.dimensionId != -1) player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.callofthewatcher")));
         if(!world.isRemote && world.provider.dimensionId == -1) {
                 EntityTheWatcher entity = new EntityTheWatcher(world);
                 entity.setPosition(x, y + 1, z);

@@ -74,10 +74,25 @@ public class EntityHellPig extends EntityDivineRPGTameable {
     }
 	
 	@Override
-    protected void playStepSound(int x, int y, int z, Block b) {
-        this.playSound("mob.wolf.step", 0.15F, 1.0F);
+    protected void func_145780_a(int x, int y, int z, Block b) {
+        this.playSound("mob.pig.step", 0.15F, 1.0F);
     }
-	
+
+    protected String getLivingSound()
+    {
+        return "mob.pig.say";
+    }
+
+    protected String getHurtSound()
+    {
+        return "mob.pig.say";
+    }
+
+    protected String getDeathSound()
+    {
+        return "mob.pig.death";
+    }
+
 	@Override
     public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeEntityToNBT(par1NBTTagCompound);
@@ -126,7 +141,7 @@ public class EntityHellPig extends EntityDivineRPGTameable {
                     if(itemfood.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectFloat(18) < 20.0F) {
                         if(!par1EntityPlayer.capabilities.isCreativeMode)
                         	--itemstack.stackSize;            
-                        this.heal((float)itemfood.getHealAmount(itemstack));
+                        this.heal((float)itemfood.func_150905_g(itemstack));
                         if(itemstack.stackSize <= 0)
                             par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);
                         return true;

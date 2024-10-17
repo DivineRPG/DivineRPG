@@ -15,8 +15,8 @@ public class ItemEggNog extends ItemModFood{
 	}
 	
 	@Override
-	public ItemStack onItemUseFinish(ItemStack item, World world, EntityPlayer player){
-		super.onItemUseFinish(item, world, player);
+	public ItemStack onEaten(ItemStack item, World world, EntityPlayer player){
+		super.onEaten(item, world, player);
 		return new ItemStack(Items.bucket);
 	}
 	

@@ -7,7 +7,7 @@ import net.divinerpg.utils.MessageLocalizer;
 public class GuiMerik extends GuiDivineMerchant{
 
 	public GuiMerik(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, (MessageLocalizer.normal("entity.DRPGCaptainMerik.name")), "merik");
+		super(container, mer, (MessageLocalizer.norecolor("entity.DRPGCaptainMerik.name")), "merik");
 	}
 
 }

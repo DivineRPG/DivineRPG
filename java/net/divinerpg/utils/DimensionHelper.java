@@ -23,7 +23,7 @@ import net.minecraftforge.common.DimensionManager;
 
 public class DimensionHelper {
 
-	protected static final BiomeGenBase.Height iceikaHeight 	= new BiomeGenBase.Height(0.0F, 0.7F); 
+	protected static final BiomeGenBase.Height iceikaHeight 	= new BiomeGenBase.Height(0.0F, 0.2F);
 	protected static final BiomeGenBase.Height vetheaHeight 	= new BiomeGenBase.Height(-1.0F, 0.0F);
 	protected static final BiomeGenBase.Height apalachiaHeight	= new BiomeGenBase.Height(0.5F, 2.0F);
 	

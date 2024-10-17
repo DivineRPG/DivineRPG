@@ -49,7 +49,7 @@ public class GuiAltarCorruption extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int i, int j) {
-        this.fontRendererObj.drawString((MessageLocalizer.normal("tile.altarOfCorruption.name")), 12, 5, 4210752);
+        this.fontRendererObj.drawString((MessageLocalizer.norecolor("tile.altarOfCorruption.name")), 12, 5, 4210752);
         this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
     }
 
@@ -163,7 +163,7 @@ public class GuiAltarCorruption extends GuiContainer {
                 if(this.mc.thePlayer.experienceLevel < j1 && !this.mc.thePlayer.capabilities.isCreativeMode) {
                     this.drawTexturedModalRect(k + 60, l + 14 + 19 * i1, 0, 185, 108, 19);
                     fontrenderer.drawSplitString(s, k + 62, l + 16 + 19 * i1, 104, (k1 & 16711422) >> 1);
-                    fontrenderer = this.mc.fontRendererObj;
+                    fontrenderer = this.mc.fontRenderer;
                     k1 = 4226832;
                     fontrenderer.drawStringWithShadow(s1, k + 62 + 104 - fontrenderer.getStringWidth(s1), l + 16 + 19 * i1 + 7, k1);
                 } else {
@@ -175,7 +175,7 @@ public class GuiAltarCorruption extends GuiContainer {
                     } 
                     else this.drawTexturedModalRect(k + 60, l + 14 + 19 * i1, 0, 166, 108, 19);
                     fontrenderer.drawSplitString(s, k + 62, l + 16 + 19 * i1, 104, k1);
-                    fontrenderer = this.mc.fontRendererObj;
+                    fontrenderer = this.mc.fontRenderer;
                     k1 = 8453920;
                     fontrenderer.drawStringWithShadow(s1, k + 62 + 104 - fontrenderer.getStringWidth(s1), l + 16 + 19 * i1 + 7, k1);
                 }

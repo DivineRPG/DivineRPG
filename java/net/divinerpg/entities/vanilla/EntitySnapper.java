@@ -51,7 +51,7 @@ public class EntitySnapper extends EntityDivineRPGTameable {
                             --stack.stackSize;
                         }
 
-                        this.heal(var3.getHealAmount(stack));
+                        this.heal(var3.func_150905_g(stack));
 
                         if (stack.stackSize <= 0) {
                             player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
@@ -78,7 +78,7 @@ public class EntitySnapper extends EntityDivineRPGTameable {
     public void onUpdate() {
         super.onUpdate();
         if (this.getOwner() != null && this.getOwner() instanceof EntityPlayer) {
-            if(this.rand.nextInt(3000)==0) this.getOwner().addPotionEffect(new PotionEffect(Potion.saturation.id, 5, 0));
+            if(this.rand.nextInt(3000)==0) this.getOwner().addPotionEffect(new PotionEffect(Potion.regeneration.id, 5, 0));
         }
     }
 

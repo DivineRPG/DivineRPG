@@ -33,8 +33,8 @@ public class ContainerInfiniteFurnace extends Container {
 	}
 
 	@Override
-	public void onCraftGuiOpened(ICrafting par1ICrafting) {
-		super.onCraftGuiOpened(par1ICrafting);
+	public void addCraftingToCrafters(ICrafting par1ICrafting) {
+		super.addCraftingToCrafters(par1ICrafting);
 		par1ICrafting.sendProgressBarUpdate(this, 0, this.tileFurnace.furnaceCookTime);
 		par1ICrafting.sendProgressBarUpdate(this, 1, this.tileFurnace.furnaceBurnTime);
 		par1ICrafting.sendProgressBarUpdate(this, 2, this.tileFurnace.flameTime);
@@ -90,7 +90,7 @@ public class ContainerInfiniteFurnace extends Container {
             }
             else if (slotNumber != 0)
             {
-                if (FurnaceRecipes.instance().getSmeltingResult(itemstack1) != null)
+                if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null)
                 {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false))
                     {

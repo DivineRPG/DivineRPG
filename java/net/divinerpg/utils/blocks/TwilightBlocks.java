@@ -29,6 +29,7 @@ import net.divinerpg.dimensions.twilight.wildwood.WorldGenWildwoodTree3;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.items.TwilightItemsOther;
 import net.divinerpg.utils.material.EnumBlockType;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.divinerpg.utils.Util;
 
@@ -101,11 +102,11 @@ public class TwilightBlocks {
     public static Block twilightStone   = new BlockMod("twilightStone", 6.0F);
     public static Block wildwoodVine    = new BlockModVine("wildwoodVine");
     public static Block blueFire        = new BlockBlueFire("blueFire");
-    public static Block edenPortal      = new BlockModPortal("edenPortal", ConfigurationHelper.eden, blueFire, VanillaBlocks.divineRock);
-    public static Block wildwoodPortal  = new BlockModPortal("wildwoodPortal", ConfigurationHelper.wildwood, blueFire, edenBlock);
-    public static Block apalachiaPortal = new BlockModPortal("apalachiaPortal", ConfigurationHelper.apalachia, blueFire, wildwoodBlock);
-    public static Block skythernPortal  = new BlockModPortal("skythernPortal", ConfigurationHelper.skythern, blueFire, apalachiaBlock);
-    public static Block mortumPortal    = new BlockModPortal("mortumPortal", ConfigurationHelper.mortum, blueFire, skythernBlock);
+    public static Block edenPortal      = new BlockModPortal("edenPortal", ConfigurationHelper.eden, blueFire, VanillaBlocks.divineRock).setCreativeTab(DivineRPGTabs.blocks);
+    public static Block wildwoodPortal  = new BlockModPortal("wildwoodPortal", ConfigurationHelper.wildwood, blueFire, edenBlock).setCreativeTab(DivineRPGTabs.blocks);
+    public static Block apalachiaPortal = new BlockModPortal("apalachiaPortal", ConfigurationHelper.apalachia, blueFire, wildwoodBlock).setCreativeTab(DivineRPGTabs.blocks);
+    public static Block skythernPortal  = new BlockModPortal("skythernPortal", ConfigurationHelper.skythern, blueFire, apalachiaBlock).setCreativeTab(DivineRPGTabs.blocks);
+    public static Block mortumPortal    = new BlockModPortal("mortumPortal", ConfigurationHelper.mortum, blueFire, skythernBlock).setCreativeTab(DivineRPGTabs.blocks);
 
     public static Block edenTorch      = new BlockModTorch("edenTorch", "greenFlame");
     public static Block edenChest      = new BlockEdenChest("edenChest");

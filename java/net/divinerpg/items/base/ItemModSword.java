@@ -66,7 +66,7 @@ public class ItemModSword extends ItemSword {
     public void addInformation(ItemStack item, EntityPlayer player, List list, boolean par4) {
     	list.add(TooltipLocalizer.meleeDam(this.mat.getDamageVsEntity()+5));
         addAdditionalInformation(list);
-        if (item.getMaxDurability() != -1) list.add(TooltipLocalizer.usesRemaining(item.getMaxDurability() - item.getMetadata()));
+        if (item.getMaxDamage() != -1) list.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
         else list.add(TooltipLocalizer.infiniteUses());
     }
     

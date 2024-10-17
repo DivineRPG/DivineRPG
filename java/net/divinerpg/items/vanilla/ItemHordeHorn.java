@@ -39,7 +39,7 @@ public class ItemHordeHorn extends ItemMod {
 					player.inventory.consumeInventoryItem(this);
 				}
 			} else 
-				player.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, MessageLocalizer.normal("message.spawner.hordehorn")));
+				player.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, MessageLocalizer.norecolor("message.spawner.hordehorn")));
 			return false;
 		}
 	}

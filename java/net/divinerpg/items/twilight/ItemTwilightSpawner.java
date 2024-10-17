@@ -90,7 +90,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						return true;
 					}
 			} else {
-				player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.normal("message.crystal.mortum")));
+				player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.crystal.mortum")));
 			}
 		}
 		return false;
