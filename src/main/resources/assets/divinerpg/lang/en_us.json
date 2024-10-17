@@ -2218,7 +2218,7 @@
   "message.divinerpg.player.friend": "Welcome, %s! They are highly regarded by at least one member of the DivineRPG team.",
   "message.divinerpg.player.special": "Welcome DivineRPG player! %s has earned recognition for being exceptionally cool!",
   "message.divinerpg.player.tester": "Welcome DivineRPG tester! %s has generously dedicated their time to assist in testing DivineRPG. We greatly appreciate your service!",
-  "message.divinerpg.teleport.change_position": "You set your new Teleportation position",
+  "message.divinerpg.teleport.change_position": "You set your new teleportation position",
   "message.divinerpg.teleport.no_position": "Press «Sneak» + «Use Item» to set a teleportation position",
   "message.divinerpg.teleport.no_respawn": "You don't have a respawn point",
 
