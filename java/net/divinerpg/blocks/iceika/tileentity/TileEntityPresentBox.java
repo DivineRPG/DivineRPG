@@ -31,7 +31,7 @@ public class TileEntityPresentBox extends TileEntity implements IInventory {
     }
 
 	@Override
-	public void closeChest() {
+	public void closeInventory() {
         if (this.getBlockType() instanceof BlockPresentBox)
         {
             --this.numPlayersUsing;
@@ -106,11 +106,11 @@ public class TileEntityPresentBox extends TileEntity implements IInventory {
     
     @Override
     public String getInventoryName() {
-        return this.isCustomInventoryName() ? this.customName : "container.chest";
+        return this.hasCustomInventoryName() ? this.customName : "container.chest";
     }
 
     @Override
-    public boolean isCustomInventoryName() {
+    public boolean hasCustomInventoryName() {
         return this.customName != null && this.customName.length() > 0;
     }
 
@@ -142,7 +142,7 @@ public class TileEntityPresentBox extends TileEntity implements IInventory {
     }
     
     @Override
-    public void openChest() {
+    public void openInventory() {
         if (this.numPlayersUsing < 0)  this.numPlayersUsing = 0;
 
         ++this.numPlayersUsing;
@@ -169,7 +169,7 @@ public class TileEntityPresentBox extends TileEntity implements IInventory {
 
         tag.setTag("Items", nbttaglist);
 
-        if (this.isCustomInventoryName())
+        if (this.hasCustomInventoryName())
         {
             tag.setString("CustomName", this.customName);
         }

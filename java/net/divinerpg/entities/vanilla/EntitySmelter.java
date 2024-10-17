@@ -67,7 +67,7 @@ public class EntitySmelter extends EntityDivineRPGTameable implements IAttackTim
                             --stack.stackSize;
                         }
 
-                        this.heal(var3.getHealAmount(stack));
+                        this.heal(var3.func_150905_g(stack));
 
                         if (stack.stackSize <= 0) {
                             player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);

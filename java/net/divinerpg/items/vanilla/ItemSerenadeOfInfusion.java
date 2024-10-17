@@ -17,7 +17,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
     public ItemSerenadeOfInfusion(String name){
         super(name);
         setCreativeTab(DivineRPGTabs.utility);
-        setMaxDurability(15);
+        setMaxDamage(15);
         setMaxStackSize(1);
     }
     
@@ -31,6 +31,6 @@ public class ItemSerenadeOfInfusion extends ItemMod {
     
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
+        list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
     }
 }

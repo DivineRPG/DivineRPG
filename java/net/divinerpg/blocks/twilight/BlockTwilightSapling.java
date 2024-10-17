@@ -80,17 +80,17 @@ public class BlockTwilightSapling extends BlockMod implements IGrowable {
     }
 
     @Override
-    public boolean canFertilize(World w, int x, int y, int z, boolean isClient) {
+    public boolean func_149851_a(World w, int x, int y, int z, boolean isClient) {
         return true;
     }
 
     @Override
-    public boolean shouldFertilize(World w, Random random, int x, int y, int z) {
+    public boolean func_149852_a(World w, Random random, int x, int y, int z) {
         return w.rand.nextFloat() < 0.45F;
     }
 
     @Override
-    public void fertilize(World w, Random random, int x, int y, int z) {
+    public void func_149853_b(World w, Random random, int x, int y, int z) {
         this.grow(w, x, y, z, random);
     }
 

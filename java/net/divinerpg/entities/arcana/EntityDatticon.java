@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class EntityDatticon extends EntityDivineRPGVillager {
 
@@ -26,19 +27,19 @@ public class EntityDatticon extends EntityDivineRPGVillager {
 	public void extraInteract(EntityPlayer var2) {
 		switch (this.rand.nextInt(5)) {
 		case 0:
-			var2.addChatMessage(Util.getChatComponent("Datticon: Keep an eye on Merik, he's stealing my technology."));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.datticon.1")));
 			break;
 		case 1:
-			var2.addChatMessage(Util.getChatComponent("Datticon: Do you need something hotter than hell? I've come up with this new furnace."));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.datticon.2")));
 			break;
 		case 2:
-			var2.addChatMessage(Util.getChatComponent("Datticon: Those other fools think it's all magic, I use science!"));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.datticon.3")));
 			break;
 		case 3:
-			var2.addChatMessage(Util.getChatComponent("Datticon: That doesn't need to be plugged in."));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.datticon.4")));
 			break;
 		case 4:
-			var2.addChatMessage(Util.getChatComponent("Datticon: I tried using redstone, but it's primitive."));
+			var2.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.datticon.5")));
 			break;
 		}
 	}

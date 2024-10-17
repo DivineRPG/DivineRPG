@@ -95,15 +95,15 @@ public class BlockMobPumpkin extends BlockDirectional {
 	}
 
 	public Block setName(String name){
-		setUnlocalizedName(name);
-		setTextureName(name);
+		setBlockName(name);
+		setBlockTextureName(name);
 		GameRegistry.registerBlock(this, name);
 		return this;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister icon) {
+	public void registerBlockIcons(IIconRegister icon) {
 		this.front = icon.registerIcon(Reference.PREFIX + this.getTextureName() + "_front");
 		this.top = icon.registerIcon(Reference.PREFIX + this.getTextureName() + "_top");
 		this.blockIcon = icon.registerIcon(Reference.PREFIX + this.getTextureName() + "_side");

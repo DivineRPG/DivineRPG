@@ -27,7 +27,7 @@ public class ItemGrizzleEgg extends ItemMod implements IDivineMetaItem {
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            EntityGrizzle e = new EntityGrizzle(world, player, stack.getMetadata());
+            EntityGrizzle e = new EntityGrizzle(world, player, stack.getItemDamage());
             e.setLocationAndAngles(x, y + 1, z, 0.0F, 0.0F);
             world.spawnEntityInWorld(e);
             player.triggerAchievement(DivineRPGAchievements.petCollector);
@@ -40,7 +40,7 @@ public class ItemGrizzleEgg extends ItemMod implements IDivineMetaItem {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
         Item item = stack.getItem();
-        String col = stack.getMetadata() == 1 ? "Brown" : "White";
+        String col = stack.getItemDamage() == 1 ? "Brown" : "White";
         list.add("Spawns a pet " + col + " Grizzle");
     }
     
@@ -52,7 +52,7 @@ public class ItemGrizzleEgg extends ItemMod implements IDivineMetaItem {
     
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return "item." + (stack.getMetadata() == 1 ? "brown" : "white") + "GrizzleEgg";
+        return "item." + (stack.getItemDamage() == 1 ? "brown" : "white") + "GrizzleEgg";
     }
 
     @Override

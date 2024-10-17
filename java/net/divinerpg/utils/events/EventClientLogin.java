@@ -31,7 +31,7 @@ public class EventClientLogin {
             }
             if (Util.isDeveloperName(p.getCommandSenderName())) {
                 p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.developer")));
-            } else {
+            } else if (ConfigurationHelper.cfg.get("GUI", "Enable a special Thank-You message for installing Divine RPG upon entering a world", true).getBoolean()) {
                 p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
             }
         }

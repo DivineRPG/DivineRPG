@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.libs.DivineRPGAchievements;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.ItemsFood;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -36,8 +37,8 @@ public class ItemModFood extends ItemFood {
     }
     
     @Override
-    public ItemStack onItemUseFinish(ItemStack item, World world, EntityPlayer player) {
-    	super.onItemUseFinish(item, world, player);
+    public ItemStack onEaten(ItemStack item, World world, EntityPlayer player) {
+    	super.onEaten(item, world, player);
     	if(item.getItem() == ItemsFood.chickenDinner)
     		player.triggerAchievement(DivineRPGAchievements.mealToRemember);
     	return item;
@@ -45,9 +46,9 @@ public class ItemModFood extends ItemFood {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-        list.add("Fills " + (double) getHealAmount(stack) / 2 + " Hunger Bars");
-        list.add(getSaturationModifier(stack) + " Saturation");
-        list.add(!isWolfsFavoriteMeat() ? Util.BLUE + "Pet Food:" + EnumChatFormatting.RESET + " false" : Util.BLUE + "Pet Food:" + EnumChatFormatting.RESET + " true");
+        list.add((MessageLocalizer.norecolor("tooltip.fills")) + (double) func_150905_g(stack) / 2 + (MessageLocalizer.norecolor("tooltip.hungerbars")));
+        list.add(func_150906_h(stack) + (MessageLocalizer.norecolor("tooltip.saturation")));
+        list.add(!isWolfsFavoriteMeat() ? Util.BLUE + (MessageLocalizer.norecolor("tooltip.petfood")) + EnumChatFormatting.RESET + (MessageLocalizer.norecolor("tooltip.true")): Util.BLUE + (MessageLocalizer.norecolor("tooltip.petfood")) + EnumChatFormatting.RESET + (MessageLocalizer.norecolor("tooltip.false")));
     }
 
 }

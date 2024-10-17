@@ -1,20 +1,15 @@
 package net.divinerpg.utils.items;
 
 import net.divinerpg.client.render.EntityResourceLocation;
-import net.divinerpg.items.base.ItemDivineArmor;
-import net.divinerpg.items.base.ItemHealingSword;
-import net.divinerpg.items.base.ItemMod;
-import net.divinerpg.items.base.ItemModBow;
-import net.divinerpg.items.base.ItemModFood;
-import net.divinerpg.items.base.ItemProjectileShooter;
-import net.divinerpg.items.base.ItemSlowingSword;
-import net.divinerpg.items.base.ItemThrowable;
+import net.divinerpg.items.base.*;
 import net.divinerpg.items.iceika.ItemEggNog;
 import net.divinerpg.items.iceika.ItemMusicShooter;
 import net.divinerpg.items.iceika.ItemSerenadeOfIce;
 import net.divinerpg.items.iceika.ItemSnowGlobe;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.enums.ArmorInfo;
 import net.divinerpg.utils.material.EnumArmor;
 import net.divinerpg.utils.material.ToolMaterialMod;

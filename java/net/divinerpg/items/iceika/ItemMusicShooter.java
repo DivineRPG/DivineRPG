@@ -24,7 +24,7 @@ public class ItemMusicShooter extends ItemMod {
 		super(name);
 		setCreativeTab(DivineRPGTabs.ranged);
 		setMaxStackSize(1);
-		setMaxDurability(4000);
+		setMaxDamage(4000);
 	}
 	
 	@Override
@@ -50,6 +50,6 @@ public class ItemMusicShooter extends ItemMod {
 		} else {
 			list.add(TooltipLocalizer.rangedDam(10));
 		}
-		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
 	}
 }

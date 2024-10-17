@@ -17,8 +17,8 @@ public class ItemSkyFlower extends ItemFastFood {
     }
     
     @Override
-    public ItemStack onItemUseFinish(ItemStack stack, World world, EntityPlayer player) {
-        super.onItemUseFinish(stack, world, player);
+    public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+        super.onEaten(stack, world, player);
         player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 600, 0, true));
         player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 600, 0, true));
         return stack;

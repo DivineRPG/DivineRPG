@@ -25,7 +25,7 @@ public class BlockWhitefireFurnace extends BlockModFurnace {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister par1IIconRegister) {
+	public void registerBlockIcons(IIconRegister par1IIconRegister) {
 		this.side = par1IIconRegister.registerIcon(Reference.PREFIX + "whitefireFurnace_side");
 		this.front = par1IIconRegister.registerIcon(active ? Reference.PREFIX + "whitefireFurnace_front_on" : Reference.PREFIX + "whitefireFurnace_front_off");
 		this.top = par1IIconRegister.registerIcon(Reference.PREFIX + "whitefireFurnace_top");

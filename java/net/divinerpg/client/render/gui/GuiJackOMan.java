@@ -3,11 +3,12 @@ package net.divinerpg.client.render.gui;
 import net.divinerpg.blocks.base.tileentity.container.ContainerDivineMerchant;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.util.StatCollector;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class GuiJackOMan extends GuiDivineMerchant{
 
 	public GuiJackOMan(ContainerDivineMerchant container, IMerchant mer) {
-		super(container, mer, "Jack 'O' Man", "jackOMan");
+		super(container, mer, (MessageLocalizer.norecolor("entity.DRPGJackOMan.name")), "jackOMan");
 	}
 	
 	@Override

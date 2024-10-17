@@ -21,7 +21,7 @@ public class ItemArcaniumSaber extends ItemModSword {
 	public ItemArcaniumSaber(String name, ToolMaterial var2) {
 		super(var2, name);
 		this.maxStackSize = 1;
-		this.setMaxDurability(-1);
+		this.setMaxDamage(-1);
 	}
 
 	@Override

@@ -13,7 +13,7 @@ public class BlockModStairs extends BlockStairs {
 		super(stair, 0);
 		this.setCreativeTab(DivineRPGTabs.blocks);
 		LangRegistry.addBlock(this);
-		setUnlocalizedName(name);
+		setBlockName(name);
 		GameRegistry.registerBlock(this, name);
 		this.useNeighborBrightness = true;
 	}

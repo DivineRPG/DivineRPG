@@ -7,6 +7,7 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class ItemCallOfTheWatcher extends ItemMod {
 
@@ -18,7 +19,7 @@ public class ItemCallOfTheWatcher extends ItemMod {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
-        if(world.provider.dimensionId != -1) player.addChatMessage(Util.getChatComponent(Util.AQUA + "This item can only be used in the Nether."));
+        if(world.provider.dimensionId != -1) player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.callofthewatcher")));
         if(!world.isRemote && world.provider.dimensionId == -1) {
                 EntityTheWatcher entity = new EntityTheWatcher(world);
                 entity.setPosition(x, y + 1, z);

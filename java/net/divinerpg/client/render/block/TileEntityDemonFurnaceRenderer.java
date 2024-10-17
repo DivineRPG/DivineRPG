@@ -18,7 +18,7 @@ public class TileEntityDemonFurnaceRenderer extends TileEntitySpecialRenderer {
 		String tex = "demonFurnace";
 		TileEntityInfiniteFurnace te = (TileEntityInfiniteFurnace)entity;
         int rotation = 0;
-        if(entity.getWorld() != null) rotation = entity.getBlockMetadata();    
+        if(entity.getWorldObj() != null) rotation = entity.getBlockMetadata();    
 		if(rotation >= 8) {
 			tex = "demonFurnace_on";
 			rotation = rotation - 8;

@@ -53,14 +53,14 @@ public class ArcanaBlocks {
 	public static Block ancientBrick = new BlockMod("ancientBrick", false);
 	public static Block ancientStone = new BlockMod("ancientStone", false);
 	public static Block lightDegradedBrick = new BlockMod("lightDegradedBrick", false);
-	public static Block stainedGlass = new BlockModGlass("stainedGlass", 0.3F).setUnlocalizedName("stainedGlass");
-	public static Block stainedGlass2 = new BlockModGlass("stainedGlass2", 0.3F).setUnlocalizedName("stainedGlass");
-	public static Block stainedGlass3 = new BlockModGlass("stainedGlass3", 0.3F).setUnlocalizedName("stainedGlass");
-	public static Block stainedGlass4 = new BlockModGlass("stainedGlass4", 0.3F).setUnlocalizedName("stainedGlass");
-	public static Block stainedGlass5 = new BlockModGlass("stainedGlass5", 0.3F).setUnlocalizedName("stainedGlass");
-	public static Block stainedGlass6 = new BlockModGlass("stainedGlass6", 0.3F).setUnlocalizedName("stainedGlass");
-	public static Block stainedGlass7 = new BlockModGlass("stainedGlass7", 0.3F).setUnlocalizedName("stainedGlass");
-	public static Block stainedGlass8 = new BlockModGlass("stainedGlass8", 0.3F).setUnlocalizedName("stainedGlass");
+	public static Block stainedGlass = new BlockModGlass("stainedGlass", 0.3F).setBlockName("stainedGlass");
+	public static Block stainedGlass2 = new BlockModGlass("stainedGlass2", 0.3F).setBlockName("stainedGlass");
+	public static Block stainedGlass3 = new BlockModGlass("stainedGlass3", 0.3F).setBlockName("stainedGlass");
+	public static Block stainedGlass4 = new BlockModGlass("stainedGlass4", 0.3F).setBlockName("stainedGlass");
+	public static Block stainedGlass5 = new BlockModGlass("stainedGlass5", 0.3F).setBlockName("stainedGlass");
+	public static Block stainedGlass6 = new BlockModGlass("stainedGlass6", 0.3F).setBlockName("stainedGlass");
+	public static Block stainedGlass7 = new BlockModGlass("stainedGlass7", 0.3F).setBlockName("stainedGlass");
+	public static Block stainedGlass8 = new BlockModGlass("stainedGlass8", 0.3F).setBlockName("stainedGlass");
 	public static Block dungenSpawnerPrisoner = new BlockStupidSpawner("dungeonPrisonerSpawner", "DungeonPrisoner", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
 	public static Block razorbackSpawner = new BlockStupidSpawner("razorbackSpawner", "Razorback", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
 	public static Block deathHoundSpawner = new BlockStupidSpawner("deathHoundSpawner", "DeathHound", "arcanaSpawner", false).setBlockUnbreakable().setResistance(6000000F);
@@ -70,10 +70,10 @@ public class ArcanaBlocks {
 	public static Block ancientTile = new BlockMod("ancientTile", false);
 	public static Block starBridge = new BlockStarBridge("starBridge", false);
 	public static Block starBridgeOn = new BlockStarBridge("starBridgeOn", true);
-	public static Block soulSludgeDoor = new BlockModDoor(EnumBlockType.IRON, "soulSludgeDoor", -1F, false);
-	public static Block ancientBrickDoor = new BlockModDoor(EnumBlockType.IRON, "ancientBrickDoor", -1F, false);
-	public static Block soulStoneDoor = new BlockModDoor(EnumBlockType.IRON, "soulStoneDoor", -1F, false);
-	public static Block degradedBrickDoor = new BlockModDoor(EnumBlockType.IRON, "degradedBrickDoor", -1F, false);
+	public static Block soulSludgeDoor = new BlockModDoor(EnumBlockType.IRON, "soulSludgeDoor", -1F, false).setCreativeTab(DivineRPGTabs.blocks);
+	public static Block ancientBrickDoor = new BlockModDoor(EnumBlockType.IRON, "ancientBrickDoor", -1F, false).setCreativeTab(DivineRPGTabs.blocks);
+	public static Block soulStoneDoor = new BlockModDoor(EnumBlockType.IRON, "soulStoneDoor", -1F, false).setCreativeTab(DivineRPGTabs.blocks);
+	public static Block degradedBrickDoor = new BlockModDoor(EnumBlockType.IRON, "degradedBrickDoor", -1F, false).setCreativeTab(DivineRPGTabs.blocks);
 
 	public static Block dramixAltar = new BlockDramixAltar("dramixAltar");
 	public static Block parasectaAltar = new BlockParasectaAltar("parasectaAltar");

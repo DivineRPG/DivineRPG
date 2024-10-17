@@ -39,7 +39,7 @@ public class BlockSteel extends VanillaBlock implements IDivineMetaBlock{
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir){
+	public void registerBlockIcons(IIconRegister ir){
 		for(int i = 0; i<10; i++) {
 			this.iconArray[i] = ir.registerIcon("divinerpg:" + names[i] + "Steel");
 		}

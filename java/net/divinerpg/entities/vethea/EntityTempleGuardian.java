@@ -17,7 +17,7 @@ public class EntityTempleGuardian extends EntityGive {
 
 	@Override
 	public void Interact(EntityPlayer p) {
-		p.addChatMessage(Util.getChatComponent("Temple Guardian: " + MessageLocalizer.normal(MESSAGE[rand.nextInt(5)])));
+		p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal(MESSAGE[rand.nextInt(5)])));
 	}
 	
 

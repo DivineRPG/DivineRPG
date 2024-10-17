@@ -46,7 +46,7 @@ public class WorldProviderEden extends WorldProvider {
 
     @Override
     public float calculateCelestialAngle(long var1, float var3) {
-        return 0.1F;
+        return 0.0F;
     }
 
     @Override

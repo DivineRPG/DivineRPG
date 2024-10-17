@@ -27,8 +27,8 @@ public class BlockEdenChest extends BlockContainer {
 		super(Material.rock);
 		setCreativeTab(DivineRPGTabs.blocks);
 		setStepSound(soundTypePiston);
-		setTextureName(Reference.PREFIX + "edenBlock");
-		setUnlocalizedName(name);
+		setBlockTextureName(Reference.PREFIX + "edenBlock");
+		setBlockName(name);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
 		setHardness(15);
@@ -77,14 +77,14 @@ public class BlockEdenChest extends BlockContainer {
 							j1 = itemstack.stackSize;
 
 						itemstack.stackSize -= j1;
-						entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getMetadata()));
+						entityitem = new EntityItem(w, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 						entityitem.motionX = (double)((float)rand.nextGaussian() * f3);
 						entityitem.motionY = (double)((float)rand.nextGaussian() * f3 + 0.2F);
 						entityitem.motionZ = (double)((float)rand.nextGaussian() * f3);
 					}
 				}
 			}
-			w.updateNeighborsAboutBlockChange(x, y, z, b);
+			w.notifyBlocksOfNeighborChange(x, y, z, b);
 		}
 		super.breakBlock(w, x, y, z, b, i);
 	}

@@ -25,6 +25,8 @@ public class ConfigurationHelper {
     public static int     eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
     public static int     edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
     public static int     arcanaX, arcanaY;
+    public static boolean     vetheaInventory;
+    public static boolean     startupMessage;
 
     public static void dimensionInit() {
         edenBiome = cfg.get("Dimension", "Eden biome ID", 100).getInt();
@@ -53,6 +55,8 @@ public class ConfigurationHelper {
         keepLoadingVethea = cfg.get("Dimension", "Keep loading Vethea", false).getBoolean(true);
         keepLoadingArcana = cfg.get("Dimension", "Keep loading Arcana", false).getBoolean(true);
         keepLoadingIceika = cfg.get("Dimension", "Keep loading Iceika", false).getBoolean(true);
+
+        vetheaInventory = cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean(true);
     }
 
     public static void miscInit() {
@@ -62,6 +66,7 @@ public class ConfigurationHelper {
         canShowOverlay = cfg.get("GUI", "Can show overlay in top left corner or debug screen", true).getBoolean(true);
         arcanaX = cfg.get("GUI", "Arcana Bar X", 111).getInt();
         arcanaY = cfg.get("GUI", "Arcana Bar Y", 18).getInt();
+        startupMessage = cfg.get("GUI", "Enable a special Thank-You message for installing Divine RPG upon entering a world", true).getBoolean(true);
         updateChecker = cfg.get("Updates", "Check For Updates", true).getBoolean(true);
     }
 

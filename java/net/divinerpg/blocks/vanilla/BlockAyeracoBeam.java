@@ -16,8 +16,8 @@ public class BlockAyeracoBeam extends BlockContainer {
 	
 	public BlockAyeracoBeam(String name, String tex) {
 		super(Material.cactus); 
-		setTextureName(Reference.PREFIX + "beam" + tex);
-		setUnlocalizedName(name);
+		setBlockTextureName(Reference.PREFIX + "beam" + tex);
+		setBlockName(name);
 		setCreativeTab(null);
 		setResistance(1000000);
 		this.tex = tex;

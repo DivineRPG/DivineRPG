@@ -5,6 +5,7 @@ import net.divinerpg.utils.Util;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class EntityMysteriousManLayer1 extends EntityGive {
 
@@ -23,13 +24,13 @@ public class EntityMysteriousManLayer1 extends EntityGive {
 	public void Interact(EntityPlayer var1) {
 		switch (this.rand.nextInt(3)){
 		case 0:
-			var1.addChatMessage(Util.getChatComponent("Mysterious Man: You look new around here. Be careful."));
+			var1.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.mysteriousman1.1")));
 			break;
 		case 1:
-			var1.addChatMessage(Util.getChatComponent("Mysterious Man: Take these, use them at an infusion table."));
+			var1.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.mysteriousman1.2")));
 			break;
 		case 2:
-			var1.addChatMessage(Util.getChatComponent("Mysterious Man: Don't tell anybody you saw me."));
+			var1.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.mysteriousman1.3")));
 			break;
 		}
 	}

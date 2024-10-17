@@ -51,8 +51,8 @@ public class BlockModPortal extends BlockBreakable {
         this.dimensionID = dimensionID;
         this.fireBlock = fireBlock;
         this.blockFrame = blockFrame;
-        setUnlocalizedName(name);
-        setTextureName(Reference.PREFIX + name);
+        setBlockName(name);
+        setBlockTextureName(Reference.PREFIX + name);
         if(Reference.DEBUG)setCreativeTab(DivineRPGTabs.blocks);
         else setCreativeTab(null);
         setTickRandomly(true);

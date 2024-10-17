@@ -70,7 +70,7 @@ public class ItemModBow extends ItemBow {
     }
 
     public ItemModBow(String name, int uses, int damageMin, int damageMax, int maxUseDuraction, Item arrow) {
-        setMaxDurability(uses);
+    	setMaxDamage(uses);
         this.name = name;
         this.textureName = Reference.PREFIX + name;
         if (arrow == null) needArrow = false;
@@ -156,7 +156,7 @@ public class ItemModBow extends ItemBow {
         double speed = (double) DEFAULT_MAX_USE_DURATION / (double) getMaxItemUseDuration(stack);
         if (speed > 1) list.add(speed + " Times Faster");
         if (speed < 1) list.add((1 / speed) + " Times Slower");
-        list.add(!unbreakable ? TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()) : TooltipLocalizer.infiniteUses());
+        list.add(!unbreakable ? TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()) : TooltipLocalizer.infiniteUses());
         if(this.arrowTex == "bluefireArrow" || this.arrowTex == "snowstormArrow") list.add(TooltipLocalizer.explosiveShots());
         list.add(this.arrow == null ? TooltipLocalizer.infiniteAmmo() : TooltipLocalizer.ammo(this.arrow));
         if(this.vethean) list.add(TooltipLocalizer.vethean());

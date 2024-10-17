@@ -63,7 +63,7 @@ public class BlockWinterberryBush extends BlockMod implements IShearable {
     }
     
     @Override
-    public void registerIcons(IIconRegister i) {
+    public void registerBlockIcons(IIconRegister i) {
     	this.blockIcon = i.registerIcon(textureName);
     	this.textures[0] = i.registerIcon(textureName);
     	this.textures[1] = i.registerIcon(textureName + "_fast");

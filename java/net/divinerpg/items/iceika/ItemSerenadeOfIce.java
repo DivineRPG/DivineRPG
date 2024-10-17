@@ -27,7 +27,7 @@ public class ItemSerenadeOfIce extends ItemMod {
 	public ItemSerenadeOfIce(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.utility);
-		setMaxDurability(100);
+		setMaxDamage(100);
 		setMaxStackSize(1);
 	}
 
@@ -45,6 +45,6 @@ public class ItemSerenadeOfIce extends ItemMod {
 	@Override
 	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
 		infoList.add("Slows mobs for 5 seconds");
-		infoList.add(TooltipLocalizer.usesRemaining(getMaxDurability() - item.getMetadata()));
+		infoList.add(TooltipLocalizer.usesRemaining(getMaxDamage() - item.getItemDamage()));
 	}
 }

@@ -79,7 +79,7 @@ public class BlockModDoor extends BlockMod {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister icon) {
+    public void registerBlockIcons(IIconRegister icon) {
         this.topIcon = new IIcon[2];
         this.bottomIcon = new IIcon[2];
         this.topIcon[0] = icon.registerIcon(textureName + "_top");

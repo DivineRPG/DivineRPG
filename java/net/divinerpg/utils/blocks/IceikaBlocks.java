@@ -21,6 +21,7 @@ import net.divinerpg.blocks.iceika.BlockXmasLights;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.material.EnumBlockType;
+import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 
@@ -67,7 +68,7 @@ public class IceikaBlocks {
     public static Block presentBox = new BlockPresentBox();
 
     public static Block iceikaFire   = new BlockIceikaFire("iceikaFire");
-    public static Block iceikaPortal = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow);
+    public static Block iceikaPortal = new BlockModPortal("iceikaPortal", ConfigurationHelper.iceika, iceikaFire, Blocks.snow).setCreativeTab(DivineRPGTabs.blocks);
 
     public static void init() {
         Util.registerSlab(frozenSlab, frozenSlabDouble);

@@ -183,7 +183,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 	public final void genBiomeTerrain(World w, Random rand, Block[] blocks, byte[] bytes, int i, int j, double d, BiomeGenBase b) {
 		boolean flag = true;
 		Block block = b.topBlock;
-		byte b0 = (byte)(b.topBlockMetadata & 255);
+		byte b0 = (byte)(b.field_150604_aj & 255);
 		Block block1 = b.fillerBlock;
 		int k = -1;
 		int l = (int)(d / 3.0D + 3.0D + rand.nextDouble() * 0.25D);
@@ -207,7 +207,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 							}
 							else if(l1 >= 59 && l1 <= 64) {
 								block = b.topBlock;
-								b0 = (byte)(b.topBlockMetadata & 255);
+								b0 = (byte)(b.field_150604_aj & 255);
 								block1 = b.fillerBlock;
 							}
 
@@ -262,7 +262,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 		this.generate(par1, par2, ablock);
 		this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
 		this.replaceBlocksForBiome(par1, par2, ablock, abyte, this.biomesForGeneration);
-		this.caveGenerator.generate(this, this.worldObj, par1, par2, ablock);
+		this.caveGenerator.func_151539_a(this, this.worldObj, par1, par2, ablock);
 		Chunk chunk = new Chunk(this.worldObj, ablock, abyte, par1, par2);
 		byte[] abyte1 = chunk.getBiomeArray();
 
@@ -299,8 +299,8 @@ public class ChunkProviderIceika implements IChunkProvider {
 				for(int l1 = -b0; l1 <= b0; ++l1) {
 					for(int i2 = -b0; i2 <= b0; ++i2) {
 						BiomeGenBase biomegenbase1 = this.biomesForGeneration[j1 + l1 + 2 + (k1 + i2 + 2) * 10];
-						float f3 = biomegenbase1.minHeight;
-						float f4 = biomegenbase1.maxHeight;
+						float f3 = biomegenbase1.rootHeight;
+						float f4 = biomegenbase1.heightVariation;
 
 						if(this.type == WorldType.AMPLIFIED && f3 > 0.0F) {
 							f3 = 1.0F + f3 * 2.0F;
@@ -309,7 +309,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 
 						float f5 = this.parabolicField[l1 + 2 + (i2 + 2) * 5] / (f3 + 2.0F);
 
-						if(biomegenbase1.minHeight > biomegenbase.minHeight)
+						if(biomegenbase1.rootHeight > biomegenbase.rootHeight)
 							f5 /= 2.0F;
 
 						f += f4 * f5;
@@ -462,6 +462,25 @@ public class ChunkProviderIceika implements IChunkProvider {
 			y = this.worldObj.getHeightValue(x, z);
 			(new WorldGenGiantTree(false)).generate(this.worldObj, this.rand, x, y, z);
 		}
+		int k = (par2 << 4) + 8;
+		int l = (par3 <<4) + 8;
+		for (int k1 = 0; k1 < 16; ++k1)
+		{
+			for (int l1 = 0; l1 < 16; ++l1)
+			{
+				int i2 = this.worldObj.getPrecipitationHeight(k + k1, l + l1);
+
+				if (this.worldObj.isBlockFreezable(k1 + k, i2 - 1, l1 + l))
+				{
+					this.worldObj.setBlock(k1 + k, i2 - 1, l1 + l, Blocks.ice, 0, 2);
+				}
+
+				if (this.worldObj.func_147478_e(k1 + k, i2, l1 + l, true))
+				{
+					this.worldObj.setBlock(k1 + k, i2, l1 + l, Blocks.snow_layer, 0, 2);
+				}
+			}
+		}
 	}
 
 	@Override
@@ -494,7 +513,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 	}
 
 	@Override
-	public ChunkPosition findClosestStructure(World w, String s, int x, int y, int z) {
+	public ChunkPosition func_147416_a(World w, String s, int x, int y, int z) {
 		return null;
 	}
 

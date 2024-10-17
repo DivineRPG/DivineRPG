@@ -1,6 +1,7 @@
 package net.divinerpg.blocks.vethea.container.tileentity;
 
 import net.divinerpg.blocks.vethea.BlockDreamLamp;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.items.VetheaItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,9 +20,9 @@ public class TileEntityDreamLamp extends TileEntity implements IInventory {
     public void updateEntity() {
         super.updateEntity();
         if(slot != null && slot.getItem() == VetheaItems.acid && this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord) == VetheaBlocks.dreamLamp) {
-            BlockDreamLamp.updateState(true, this.getWorld(), this.xCoord, this.yCoord, this.zCoord);
+            BlockDreamLamp.updateState(true, this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord);
         } else if((slot == null || (slot != null && slot.getItem() != VetheaItems.acid)) && this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord) == VetheaBlocks.dreamLampOn) {
-            BlockDreamLamp.updateState(false, this.getWorld(), this.xCoord, this.yCoord, this.zCoord);
+            BlockDreamLamp.updateState(false, this.getWorldObj(), this.xCoord, this.yCoord, this.zCoord);
         }
     }
     
@@ -69,11 +70,11 @@ public class TileEntityDreamLamp extends TileEntity implements IInventory {
 
     @Override
     public String getInventoryName() {
-        return "Dream Lamp";
+        return (MessageLocalizer.norecolor("tile.dreamLamp.name"));
     }
 
     @Override
-    public boolean isCustomInventoryName() {
+    public boolean hasCustomInventoryName() {
         return false;
     }
 
@@ -88,10 +89,10 @@ public class TileEntityDreamLamp extends TileEntity implements IInventory {
     }
 
     @Override
-    public void openChest() {}
+    public void openInventory() {}
 
     @Override
-    public void closeChest() {}
+    public void closeInventory() {}
 
     @Override
     public boolean isItemValidForSlot(int index, ItemStack stack) {
@@ -106,7 +107,7 @@ public class TileEntityDreamLamp extends TileEntity implements IInventory {
     
     @Override
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet) {
-        this.slot = ItemStack.loadItemStackFromNBT(packet.getNbtCompound());
+        this.slot = ItemStack.loadItemStackFromNBT(packet.func_148857_g());
     }
     
     @Override

@@ -30,8 +30,8 @@ public class BlockAltarOfCorruption extends BlockContainer {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
 		setHardness(5.0F);
 		setResistance(2000.0F);
-		setUnlocalizedName(name);
-		setTextureName(Reference.PREFIX + name);
+		setBlockName(name);
+		setBlockTextureName(Reference.PREFIX + name);
 		setCreativeTab(DivineRPGTabs.blocks);
 		GameRegistry.registerBlock(this, name);
 		LangRegistry.addBlock(this);
@@ -67,7 +67,7 @@ public class BlockAltarOfCorruption extends BlockContainer {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister icon) {
+	public void registerBlockIcons(IIconRegister icon) {
 		this.side = icon.registerIcon(this.getTextureName() + "_side");
 		this.top = icon.registerIcon(this.getTextureName() + "_top");
 		this.bottom = icon.registerIcon(this.getTextureName() + "_bottom");

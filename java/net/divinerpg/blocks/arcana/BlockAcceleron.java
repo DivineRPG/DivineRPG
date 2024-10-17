@@ -29,7 +29,7 @@ public class BlockAcceleron extends BlockMod {
 	
 	@Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister icon) {
+    public void registerBlockIcons(IIconRegister icon) {
         side = icon.registerIcon(Reference.PREFIX + "acceleron" + "_side");
         top_n = icon.registerIcon(Reference.PREFIX + "acceleron" + "_north");
         top_s = icon.registerIcon(Reference.PREFIX + "acceleron" + "_south");

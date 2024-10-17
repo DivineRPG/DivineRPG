@@ -27,7 +27,7 @@ public class ItemSerenadeStriker extends ItemMod {
 	public ItemSerenadeStriker(String name){
 		super(name);
 		setCreativeTab(DivineRPGTabs.ranged);
-		setMaxDurability(100);
+		setMaxDamage(100);
 		setMaxStackSize(1);
 	}
 
@@ -55,6 +55,6 @@ public class ItemSerenadeStriker extends ItemMod {
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
 		list.add("Shoots Lightning");
-		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDurability() - stack.getMetadata()));
+		list.add(TooltipLocalizer.usesRemaining(stack.getMaxDamage() - stack.getItemDamage()));
 	}
 }

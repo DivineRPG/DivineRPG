@@ -89,11 +89,11 @@ public class TileEntityModFurnace extends TileEntity implements ISidedInventory 
 
     @Override
     public String getInventoryName() {
-        return this.isCustomInventoryName() ? this.furnaceCustomName : "container.furnace";
+        return this.hasCustomInventoryName() ? this.furnaceCustomName : "container.furnace";
     }
 
     @Override
-    public boolean isCustomInventoryName()
+    public boolean hasCustomInventoryName()
     {
         return this.furnaceCustomName != null && this.furnaceCustomName.length() > 0;
     }
@@ -141,7 +141,7 @@ public class TileEntityModFurnace extends TileEntity implements ISidedInventory 
 
         compound.setTag("Items", nbttaglist);
 
-        if (this.isCustomInventoryName()) compound.setString("CustomName", this.furnaceCustomName);
+        if (this.hasCustomInventoryName()) compound.setString("CustomName", this.furnaceCustomName);
     }
 
     @Override
@@ -213,7 +213,7 @@ public class TileEntityModFurnace extends TileEntity implements ISidedInventory 
     private boolean canSmelt() {
         if (this.furnaceItemStacks[0] == null) return false;
         else {
-            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
+            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
             if (itemstack == null) return false;
             if (this.furnaceItemStacks[2] == null) return true;
             if (!this.furnaceItemStacks[2].isItemEqual(itemstack)) return false;
@@ -224,7 +224,7 @@ public class TileEntityModFurnace extends TileEntity implements ISidedInventory 
 
     public void smeltItem() {
         if (this.canSmelt()) {
-            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
+            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
 
             if (this.furnaceItemStacks[2] == null) this.furnaceItemStacks[2] = itemstack.copy();
             else if (this.furnaceItemStacks[2].getItem() == itemstack.getItem()) this.furnaceItemStacks[2].stackSize += itemstack.stackSize;
@@ -262,7 +262,7 @@ public class TileEntityModFurnace extends TileEntity implements ISidedInventory 
 
             if (item instanceof ItemTool && ((ItemTool)item).getToolMaterialName().equals("WOOD")) return 200;
             if (item instanceof ItemSword && ((ItemSword)item).getToolMaterialName().equals("WOOD")) return 200;
-            if (item instanceof ItemHoe && ((ItemHoe)item).getMaterialName().equals("WOOD")) return 200;
+            if (item instanceof ItemHoe && ((ItemHoe)item).getToolMaterialName().equals("WOOD")) return 200;
             if (item == Items.stick) return 100;
             if (item == Items.coal) return 1600;
             if (item == Items.lava_bucket) return 20000;
@@ -281,9 +281,9 @@ public class TileEntityModFurnace extends TileEntity implements ISidedInventory 
         return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
     }
 
-    public void openChest() {}
+    public void openInventory() {}
 
-    public void closeChest() {}
+    public void closeInventory() {}
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack stack) {
@@ -291,7 +291,7 @@ public class TileEntityModFurnace extends TileEntity implements ISidedInventory 
     }
 
     @Override
-    public int[] getSlotsForFace(int face) {
+    public int[] getAccessibleSlotsFromSide(int face) {
         return face == 0 ? slotsBottom : (face == 1 ? slotsTop : slotsSides);
     }
 

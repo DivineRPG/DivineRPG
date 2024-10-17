@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 	
-	private static final String[] MESSAGE = {"message.merchant.ho", "message.merchant.out", "message.merchant.in", "message.merchant.burr"};
+	private static final String[] MESSAGE = {"message.merchant.1", "message.merchant.2", "message.merchant.3", "message.merchant.4"};
 
 	public EntityWorkshopMerchant(World var1) {
 		super(var1);
@@ -24,7 +24,7 @@ public class EntityWorkshopMerchant extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		p.addChatMessage(Util.getChatComponent("Merchant: " + MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
+		p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal(MESSAGE[rand.nextInt(4)])));
 	}
 	
 	@Override

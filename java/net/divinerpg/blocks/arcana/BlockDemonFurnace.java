@@ -24,7 +24,7 @@ public class BlockDemonFurnace extends BlockModFurnace {
 	
 	public BlockDemonFurnace(String name, boolean act) {
 		super(name, act, GuiHandler.demon);
-		setTextureName("stone");
+		setBlockTextureName("stone");
 	}
 
 	@Override

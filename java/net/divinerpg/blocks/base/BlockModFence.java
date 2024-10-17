@@ -17,8 +17,8 @@ public class BlockModFence extends BlockFence {
     public BlockModFence(String name) {
         super(name, Material.wood);
         this.name = name;
-        setUnlocalizedName(name);
-        setTextureName(Reference.PREFIX + name);
+        setBlockName(name);
+        setBlockTextureName(Reference.PREFIX + name);
         GameRegistry.registerBlock(this, name);
         LangRegistry.addBlock(this);
     }

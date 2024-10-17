@@ -46,7 +46,7 @@ public class BlockModGrass extends BlockMod {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister icon) {
+    public void registerBlockIcons(IIconRegister icon) {
         side = icon.registerIcon(textureName + "_side");
         top = icon.registerIcon(textureName + "_top");
         bottom = icon.registerIcon(dirtName);

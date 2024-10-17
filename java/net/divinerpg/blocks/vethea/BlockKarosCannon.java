@@ -53,22 +53,22 @@ public class BlockKarosCannon extends BlockContainer {
 			Block block3 = par1World.getBlock(par2 + 1, par3, par4);
 			byte b0 = 3;
 
-			if (block.isFullBlock() && !block1.isFullBlock())
+			if (block.isOpaqueCube() && !block1.isOpaqueCube())
 			{
 				b0 = 3;
 			}
 
-			if (block1.isFullBlock() && !block.isFullBlock())
+			if (block1.isOpaqueCube() && !block.isOpaqueCube())
 			{
 				b0 = 2;
 			}
 
-			if (block2.isFullBlock() && !block3.isFullBlock())
+			if (block2.isOpaqueCube() && !block3.isOpaqueCube())
 			{
 				b0 = 5;
 			}
 
-			if (block3.isFullBlock() && !block2.isFullBlock())
+			if (block3.isOpaqueCube() && !block2.isOpaqueCube())
 			{
 				b0 = 4;
 			}
@@ -100,8 +100,8 @@ public class BlockKarosCannon extends BlockContainer {
 	}
 
 	public Block register() {
-		setTextureName(Reference.PREFIX + "karosCannonBlock");
-		setUnlocalizedName("karosCannon");
+		setBlockTextureName(Reference.PREFIX + "karosCannonBlock");
+		setBlockName("karosCannon");
 		GameRegistry.registerBlock(this, "karosCannonBlock");
 		LangRegistry.addBlock(this);
 		return this;

@@ -44,7 +44,7 @@ public class ExtractorRecipes {
     public ItemStack getSmeltingResult(ItemStack item)  {
         if (item == null)
             return null;
-        ItemStack ret = metaSmeltingList.get(Arrays.asList(Item.getIdFromItem(item.getItem()), item.getMetadata()));
+        ItemStack ret = metaSmeltingList.get(Arrays.asList(Item.getIdFromItem(item.getItem()), item.getItemDamage()));
         if (ret != null)
             return ret;
         return (ItemStack)smeltingList.get(Integer.valueOf(Item.getIdFromItem(item.getItem())));
@@ -54,8 +54,8 @@ public class ExtractorRecipes {
         if (item == null || item.getItem() == null)
             return 0;
         float ret = item.getItem().getSmeltingExperience(item);
-        if(ret < 0 && metaExperience.containsKey(Arrays.asList(Item.getIdFromItem(item.getItem()), item.getMetadata()))) 
-            ret = metaExperience.get(Arrays.asList(Item.getIdFromItem(item.getItem()), item.getMetadata()));
+        if(ret < 0 && metaExperience.containsKey(Arrays.asList(Item.getIdFromItem(item.getItem()), item.getItemDamage()))) 
+            ret = metaExperience.get(Arrays.asList(Item.getIdFromItem(item.getItem()), item.getItemDamage()));
         
         if(ret < 0 && experienceList.containsKey(Item.getIdFromItem(item.getItem())));
             ret = (((Float) experienceList.get(Item.getIdFromItem(item.getItem()))).floatValue());

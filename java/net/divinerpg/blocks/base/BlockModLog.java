@@ -25,8 +25,8 @@ public class BlockModLog extends BlockRotatedPillar {
     public BlockModLog(String name) {
         super(Material.wood);
         this.name = name;
-        setUnlocalizedName(name);
-        setTextureName(Reference.PREFIX + name);
+        setBlockName(name);
+        setBlockTextureName(Reference.PREFIX + name);
         setHardness(3.0F);
         setResistance(5);
         setCreativeTab(DivineRPGTabs.blocks);
@@ -37,7 +37,7 @@ public class BlockModLog extends BlockRotatedPillar {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister icon) {
+    public void registerBlockIcons(IIconRegister icon) {
         side = icon.registerIcon(getTextureName() + "_side");
         top = icon.registerIcon(getTextureName() + "_top");
     }

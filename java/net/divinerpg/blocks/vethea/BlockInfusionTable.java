@@ -34,8 +34,8 @@ public class BlockInfusionTable extends BlockContainer {
 	}
 	
 	public Block setName(String name){
-		setTextureName(name);
-        setUnlocalizedName(name);
+		setBlockTextureName(name);
+        setBlockName(name);
         GameRegistry.registerBlock(this, name);
 		return this;
 	}
@@ -50,7 +50,7 @@ public class BlockInfusionTable extends BlockContainer {
 	
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerIcons(IIconRegister icon) {
+    public void registerBlockIcons(IIconRegister icon) {
         side = icon.registerIcon(Reference.PREFIX + getTextureName() + "_side");
         top = icon.registerIcon(Reference.PREFIX + getTextureName() + "_top");
     }

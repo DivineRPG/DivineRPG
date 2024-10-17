@@ -66,8 +66,8 @@ public class ContainerAltarCorruption extends Container {
 	}
 
 	@Override
-	public void onCraftGuiOpened(ICrafting par1ICrafting) {
-		super.onCraftGuiOpened(par1ICrafting);
+	public void addCraftingToCrafters(ICrafting par1ICrafting) {
+		super.addCraftingToCrafters(par1ICrafting);
 		par1ICrafting.sendProgressBarUpdate(this, 0, this.enchantLevels[0]);
 		par1ICrafting.sendProgressBarUpdate(this, 1, this.enchantLevels[1]);
 		par1ICrafting.sendProgressBarUpdate(this, 2, this.enchantLevels[2]);
@@ -146,7 +146,7 @@ public class ContainerAltarCorruption extends Container {
 					par1EntityPlayer.addExperienceLevel(-this.enchantLevels[par2]);
 
 					if (flag) {
-						itemstack.setItem(Items.enchanted_book);
+						itemstack.func_150996_a(Items.enchanted_book);
 					}
 
 					int j = flag && list.size() > 1 ? this.rand.nextInt(list.size()) : -1;
@@ -208,7 +208,7 @@ public class ContainerAltarCorruption extends Container {
 					itemstack1.stackSize = 0;
 				}
 				else if (itemstack1.stackSize >= 1) {
-					((Slot)this.inventorySlots.get(0)).putStack(new ItemStack(itemstack1.getItem(), 1, itemstack1.getMetadata()));
+					((Slot)this.inventorySlots.get(0)).putStack(new ItemStack(itemstack1.getItem(), 1, itemstack1.getItemDamage()));
 					--itemstack1.stackSize;
 				}
 			}

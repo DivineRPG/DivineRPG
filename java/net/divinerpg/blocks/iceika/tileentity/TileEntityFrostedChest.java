@@ -6,11 +6,11 @@ import net.minecraft.tileentity.TileEntityChest;
 public class TileEntityFrostedChest extends TileEntityChest {
 	
 	public TileEntityFrostedChest() {
-		this.setCustomName("Frosted Chest");
+		this.func_145976_a("Frosted Chest");
 	}
 	
 	@Override
-	public void closeChest()
+	public void closeInventory()
     {
         if (this.getBlockType() instanceof BlockFrostedChest)
         {

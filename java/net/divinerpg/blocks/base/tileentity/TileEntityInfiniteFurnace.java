@@ -90,7 +90,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     }
 
     @Override
-    public boolean isCustomInventoryName() {
+    public boolean hasCustomInventoryName() {
         return true;
     }
 
@@ -132,7 +132,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
         }
 
         nbt.setTag("Items", nbttaglist);
-        if (this.isCustomInventoryName()) nbt.setString("CustomName", this.customName);
+        if (this.hasCustomInventoryName()) nbt.setString("CustomName", this.customName);
     }
 
     @Override
@@ -195,7 +195,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
 		if (this.furnaceItemStacks[0] == null) {
 			return false;
 		} else {
-			ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
+			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
 			if (itemstack == null) return false;
 			if (this.furnaceItemStacks[1] == null) return true;
 			if (!this.furnaceItemStacks[1].isItemEqual(itemstack)) return false;
@@ -207,7 +207,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
 
     public void smeltItem() {
         if(this.canSmelt()) {
-            ItemStack itemstack = FurnaceRecipes.instance().getSmeltingResult(this.furnaceItemStacks[0]);
+            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0]);
 
             if(this.furnaceItemStacks[1] == null) 
                 this.furnaceItemStacks[1] = itemstack.copy();
@@ -228,10 +228,10 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     }
 
     @Override
-    public void openChest() {}
+    public void openInventory() {}
 
     @Override
-    public void closeChest() {}
+    public void closeInventory() {}
 
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack par2ItemStack) {
@@ -239,7 +239,7 @@ public abstract class TileEntityInfiniteFurnace extends TileEntity implements IS
     }
 
     @Override
-    public int[] getSlotsForFace(int slot) {
+    public int[] getAccessibleSlotsFromSide(int slot) {
         return slot == 0 ? slotsBottom : (slot == 1 ? slotsTop : new int[]{});
     }
 

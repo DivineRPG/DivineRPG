@@ -23,7 +23,7 @@ public class BlockLightFence extends BlockModFence {
 		super(name);
 		this.name = name;
 		this.powered = powered;
-		setTextureName(Reference.PREFIX + name);
+		setBlockTextureName(Reference.PREFIX + name);
 		setStepSound(Block.soundTypeGlass);
 		setHardness(hardness);
 		setCreativeTab(DivineRPGTabs.blocks);
@@ -35,7 +35,7 @@ public class BlockLightFence extends BlockModFence {
 	
 	@Override
     @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister icon) {
+    public void registerBlockIcons(IIconRegister icon) {
         this.blockIcon = icon.registerIcon(Reference.PREFIX + this.name);
     }
 

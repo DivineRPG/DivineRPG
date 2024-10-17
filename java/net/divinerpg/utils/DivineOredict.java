@@ -2,6 +2,7 @@ package net.divinerpg.utils;
 
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.TwilightBlocks;
+import net.divinerpg.utils.blocks.ArcanaBlocks;
 import net.divinerpg.utils.blocks.VanillaBlocks;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -10,6 +11,7 @@ public class DivineOredict {
     public static void init() {
         OreDictionary.registerOre("plankWood", VanillaBlocks.divinePlanks);
         OreDictionary.registerOre("plankWood", IceikaBlocks.frozenPlanks);
+        OreDictionary.registerOre("plankWood", ArcanaBlocks.eucalyptusPlank);
         OreDictionary.registerOre("plankWood", TwilightBlocks.edenPlanks);
         OreDictionary.registerOre("plankWood", TwilightBlocks.wildwoodPlanks);
         OreDictionary.registerOre("plankWood", TwilightBlocks.apalachiaPlanks);

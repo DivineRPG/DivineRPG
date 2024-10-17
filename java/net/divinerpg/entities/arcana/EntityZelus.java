@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class EntityZelus extends EntityDivineRPGVillager {
 
@@ -49,16 +50,16 @@ public class EntityZelus extends EntityDivineRPGVillager {
 	public void extraInteract(EntityPlayer var1) {
 		switch (this.rand.nextInt(4)) {
 		case 0:
-			var1.addChatMessage(Util.getChatComponent("Zelus: Have you seen Leorna lately? She's looking mighty fine as far as I can tell."));
+			var1.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.zelus.1")));
 			break;
 		case 1:
-			var1.addChatMessage(Util.getChatComponent("Zelus: My minions will overun any world."));
+			var1.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.zelus.2")));
 			break;
 		case 2:
-			var1.addChatMessage(Util.getChatComponent("Zelus: I'm thinking of giving Leorna a flower, she won't find it too fancy though."));
+			var1.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.zelus.3")));
 			break;
 		case 3:
-			var1.addChatMessage(Util.getChatComponent("Zelus: I've always wondered, does Leorna like plants because she almost is one?"));
+			var1.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.zelus.4")));
 			break;
 		}
 	}

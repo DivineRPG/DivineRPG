@@ -71,7 +71,7 @@ public class EntityFyracryx extends EntityDivineRPGTameable implements IRangedAt
                             --var2.stackSize;
                         }
 
-                        this.heal(var3.getHealAmount(var2));
+                        this.heal(var3.func_150905_g(var2));
 
                         if (var2.stackSize <= 0) {
                             par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack)null);

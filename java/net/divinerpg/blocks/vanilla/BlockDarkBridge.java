@@ -23,7 +23,7 @@ public class BlockDarkBridge extends BlockMod {
     public BlockDarkBridge(boolean on) {
         super(EnumBlockType.GLASS, on ? "darkBridgeOn" : "darkBridge", 1.5F);
         this.on = on;
-        setUnlocalizedName("darkBridge");
+        setBlockName("darkBridge");
         if(on) {
             this.setLightLevel(1.0F);
             setCreativeTab(null);

@@ -19,8 +19,8 @@ public class BlockAyeracoSpawn extends BlockContainer {
 		setResistance(6000000F);
 		setBlockBounds(0, 0, 0, 0, 0, 0);
 		String name = "ayeracoSpawn";
-		setUnlocalizedName(name);
-		setTextureName(Reference.PREFIX + name);
+		setBlockName(name);
+		setBlockTextureName(Reference.PREFIX + name);
 		LangRegistry.addBlock(this);
 		GameRegistry.registerBlock(this, name);
 	}

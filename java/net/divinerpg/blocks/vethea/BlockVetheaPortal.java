@@ -1,12 +1,16 @@
 package net.divinerpg.blocks.vethea;
 
+import java.util.Iterator;
 import java.util.Random;
 
 import net.divinerpg.dimensions.base.DivineTeleporter;
+import net.divinerpg.dimensions.vethea.TeleporterVethea;
 import net.divinerpg.dimensions.vethea.TeleporterVetheaToOverworld;
 import net.divinerpg.entities.fx.EntitySkythernPortalFX;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.MessageLocalizer;
+import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.TwilightBlocks;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -14,10 +18,13 @@ import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
@@ -28,12 +35,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockVetheaPortal extends BlockBreakable {
 
     public static final int[][] sides = new int[][] { new int[0], { 3, 1 }, { 2, 0 } };
-    
+
     public BlockVetheaPortal() {
         super(Reference.PREFIX + "vetheaPortal", Material.portal, false);
     	String name = "vetheaPortal";
-        setUnlocalizedName(name);
-        setTextureName(Reference.PREFIX + name);
+        setBlockName(name);
+        setBlockTextureName(Reference.PREFIX + name);
         if(Reference.DEBUG) setCreativeTab(DivineRPGTabs.blocks);
         else setCreativeTab(null);
         setTickRandomly(true);
@@ -53,17 +60,43 @@ public class BlockVetheaPortal extends BlockBreakable {
         			player.timeUntilPortal = 10;
         		}
 
-        		else if(player.dimension == ConfigurationHelper.vethea) {
+                NBTTagCompound persistantData = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
+
+        		if(player.dimension == ConfigurationHelper.vethea) {
         			player.timeUntilPortal = 10;
-        			NBTTagCompound persistantData = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
-        			persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
-                	player.getEntityData().setTag("PlayerPersisted", persistantData);
-                    player.inventory.clearInventory(null, -1);
-                    NBTTagList inv = persistantData.getTagList("OverworldInv", 10);
-                    player.inventory.readFromNBT(inv);
-                    player.inventoryContainer.detectAndSendChanges();
+
+                    if (ConfigurationHelper.cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+        			    persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
+                	    player.getEntityData().setTag("PlayerPersisted", persistantData);
+                        player.inventory.clearInventory(null, -1);
+                        NBTTagList inv = persistantData.getTagList("OverworldInv", 10);
+                        player.inventory.readFromNBT(inv);
+                        player.inventoryContainer.detectAndSendChanges();
+                    }
+
         			player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterVetheaToOverworld(player.mcServer.worldServerForDimension(0)));
         		}
+
+                else if (player.dimension != ConfigurationHelper.vethea) {
+                    player.timeUntilPortal = 10;
+
+                    if (ConfigurationHelper.cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+                        persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
+                        player.getEntityData().setTag("PlayerPersisted", persistantData);
+                        player.inventory.clearInventory(null, -1);
+                        NBTTagList inv = persistantData.getTagList("VetheaInv", 10);
+                        player.inventory.readFromNBT(inv);
+                        player.inventoryContainer.detectAndSendChanges();
+                    }
+
+                    player.mcServer.getConfigurationManager().transferPlayerToDimension(player, ConfigurationHelper.vethea, new TeleporterVethea(player.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
+
+                        ChunkCoordinates c = new ChunkCoordinates();
+                        c.posX = (int) player.posX + 2;
+                        c.posY = 18;
+                        c.posZ = (int) player.posZ - 2;
+                        player.setSpawnChunk(c, true, ConfigurationHelper.vethea);
+                    }
         	}
         }
     }

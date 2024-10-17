@@ -213,7 +213,7 @@ public class EntityParatiku extends EntityDivineRPGTameable {
 			this.currentFlightTarget = new ChunkCoordinates(var1, var2, var3);
 		}
 		else if (this.getOwner() != null) {
-			this.currentFlightTarget = this.worldObj.getPlayerEntityByName(this.func_152113_b()).getCommandSenderPosition();
+			this.currentFlightTarget = this.worldObj.getPlayerEntityByName(this.func_152113_b()).getPlayerCoordinates();
 		} else {
 			if (this.rand.nextInt(200) == 0) {
 				this.rotationYawHead = this.rand.nextInt(360);

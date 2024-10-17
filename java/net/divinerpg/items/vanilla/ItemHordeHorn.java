@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class ItemHordeHorn extends ItemMod {
 
@@ -38,7 +39,7 @@ public class ItemHordeHorn extends ItemMod {
 					player.inventory.consumeInventoryItem(this);
 				}
 			} else 
-				player.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, "The Ayeraco Horde can only be spawned in The End"));
+				player.addChatMessage(Util.addChatMessage(EnumChatFormatting.AQUA, MessageLocalizer.norecolor("message.spawner.hordehorn")));
 			return false;
 		}
 	}

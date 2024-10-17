@@ -100,7 +100,7 @@ public class BlockModDoublePlant extends BlockMod implements IShearable {
     
     @Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister i) {
+	public void registerBlockIcons(IIconRegister i) {
 		this.blockIcon = i.registerIcon(Reference.PREFIX + name + "_bottom");
 		this.bottomIcon = i.registerIcon(Reference.PREFIX + name + "_top");
 	}

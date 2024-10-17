@@ -16,6 +16,7 @@ import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.divinerpg.utils.MessageLocalizer;
 
 public class ItemTwilightSpawner extends ItemMod {
 
@@ -89,7 +90,7 @@ public class ItemTwilightSpawner extends ItemMod {
 						return true;
 					}
 			} else {
-				player.addChatMessage(Util.getChatComponent(Util.AQUA + "This item can only be used in Mortum."));
+				player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.crystal.mortum")));
 			}
 		}
 		return false;

@@ -144,7 +144,7 @@ public class ItemDivineArmor extends ItemArmor implements ISpecialArmor {
         double roundPH = Math.round(damageReduction * 1000);
         double roundedDamage = roundPH / 10;
         list.add(damageReduction == 0.0 ? TooltipLocalizer.noProtection() : TooltipLocalizer.damageReduction(roundedDamage, fullReduction));
-        list.add(!unbreakable ? TooltipLocalizer.usesRemaining((item.getMaxDurability() - item.getMetadata())) : TooltipLocalizer.infiniteUses());
+        list.add(!unbreakable ? TooltipLocalizer.usesRemaining((item.getMaxDamage() - item.getItemDamage())) : TooltipLocalizer.infiniteUses());
         String perks = "";
         for (int i = 0; i < ChatFormats.DIMENSIONS_LIST.length; i++)
             if (armorInfo[0].equals(ChatFormats.DIMENSIONS_LIST[i])) perks += "In " + armorInfo[0].toString() + ": ";

@@ -17,14 +17,14 @@ public class ItemVetheanSword extends ItemModSword {
 
     public ItemVetheanSword(String name, ToolMaterial toolMaterial) {
         super(toolMaterial, name);
-        setMaxDurability(-1);
+        setMaxDamage(-1);
         setCreativeTab(DivineRPGTabs.vethea);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-        if (item.getMaxDurability() != -1) infoList.add(TooltipLocalizer.usesRemaining(item.getMaxDurability() - item.getMetadata()));
+        if (item.getMaxDamage() != -1) infoList.add(TooltipLocalizer.usesRemaining(item.getMaxDamage() - item.getItemDamage()));
         else infoList.add(TooltipLocalizer.infiniteUses());
     	infoList.add(TooltipLocalizer.meleeDam(this.mat.getDamageVsEntity()+5));
         if(this instanceof ItemVetheanClaw) infoList.add(TooltipLocalizer.cantBlock());
