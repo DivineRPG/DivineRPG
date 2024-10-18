@@ -2,1405 +2,1393 @@
   "acid_hag": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:acid_hag"
+      "divinerpg:maybe_replace/acid_hag"
     ]
   },
   "acid_hag_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:acid_hag_hurt"
+      "divinerpg:maybe_replace/acid_hag_hurt"
     ]
   },
   "alicanto": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:alicanto"
+      "divinerpg:to_replace/alicanto"
     ]
   },
   "alicanto_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:alicanto_hurt"
+      "divinerpg:to_replace/alicanto_hurt"
     ]
   },
   "archer": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:archer"
+      "divinerpg:to_replace/archer"
     ]
   },
   "arid_warrior": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:arid_warrior"
+      "divinerpg:to_replace/arid_warrior"
     ]
   },
   "arid_warrior_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:arid_warrior_hurt"
+      "divinerpg:to_replace/arid_warrior_hurt"
     ]
   },
   "ayeraco": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:ayeraco"
+      "divinerpg:to_replace/ayeraco"
     ]
   },
   "ayeraco_half_health": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:ayeraco_half_health"
+      "divinerpg:to_replace/ayeraco_half_health"
     ]
   },
   "ayeraco_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:ayeraco_hurt"
+      "divinerpg:to_replace/ayeraco_hurt"
     ]
   },
   "ayeraco_pillar": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:ayeraco_pillar"
+      "divinerpg:blocks/ayeraco_pillar"
     ]
   },
   "ayeraco_spawn": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:ayeraco_spawn"
+      "divinerpg:to_replace/ayeraco_spawn"
     ]
   },
   "ayeraco_teleport": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:ayeraco_teleport"
+      "divinerpg:to_replace/ayeraco_teleport"
     ]
   },
   "biphron": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:biphron"
+      "divinerpg:to_replace/biphron"
     ]
   },
   "biphron_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:biphron_hurt"
+      "divinerpg:to_replace/biphron_hurt"
     ]
   },
   "bohemite": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:bohemite"
+      "divinerpg:maybe_replace/bohemite"
     ]
   },
   "bohemite_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:bohemite_hurt"
+      "divinerpg:maybe_replace/bohemite_hurt"
     ]
   },
   "glinthop": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:glinthop"
+      "divinerpg:to_replace/glinthop"
     ]
   },
   "glinthop_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:glinthop_hurt"
+      "divinerpg:to_replace/glinthop_hurt"
     ]
   },
   "cadillion": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:cadillion"
+      "divinerpg:to_replace/cadillion"
     ]
   },
   "ceiling_explosions": {
     "category": "master",
     "sounds": [
-      "divinerpg:ceiling_explosions"
+      "divinerpg:maybe_replace/ceiling_explosions"
     ]
   },
   "constructor_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:constructor_hurt"
+      "divinerpg:to_replace/constructor_hurt"
     ]
   },
   "constructor_punch": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:constructor_punch"
+      "divinerpg:to_replace/constructor_punch"
     ]
   },
   "cori": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:cori"
+      "divinerpg:to_replace/cori"
     ]
   },
   "cori_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:cori_hurt"
+      "divinerpg:to_replace/cori_hurt"
     ]
   },
   "cori_idle": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:cori_idle"
+      "divinerpg:to_replace/cori_idle"
     ]
   },
   "cori_shoot": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:cori_shoot"
+      "divinerpg:to_replace/cori_shoot"
     ]
   },
   "crab": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:crab"
+      "divinerpg:to_replace/crab"
     ]
   },
   "crab_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:crab_hurt"
+      "divinerpg:to_replace/crab_hurt"
     ]
   },
   "crawler": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:crawler"
+      "divinerpg:to_replace/crawler"
     ]
   },
   "crawler_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:crawler_hurt"
+      "divinerpg:to_replace/crawler_hurt"
     ]
   },
   "cave_crawler_step": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:cave_crawler_step"
+      "divinerpg:to_replace/cave_crawler_step"
     ]
   },
   "croak": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:croak"
+      "divinerpg:to_replace/croak"
     ]
   },
   "cyclops": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:cyclops"
+      "divinerpg:to_replace/cyclops"
     ]
   },
   "cyclops_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:cyclops_hurt"
+      "divinerpg:to_replace/cyclops_hurt"
     ]
   },
   "cymesoid": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:cymesoid"
+      "divinerpg:maybe_replace/cymesoid"
     ]
   },
   "cymesoid_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:cymesoid_hurt"
+      "divinerpg:maybe_replace/cymesoid_hurt"
     ]
   },
   "deathcryx": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:deathcryx"
+      "divinerpg:to_replace/deathcryx"
     ]
   },
   "deathcryx_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:deathcryx_hurt"
+      "divinerpg:to_replace/deathcryx_hurt"
     ]
   },
   "death_hound": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:death_hound"
+      "divinerpg:to_replace/death_hound"
     ]
   },
   "death_hound_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:death_hound_hurt"
+      "divinerpg:to_replace/death_hound_hurt"
     ]
   },
   "demon_of_darkness": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:demon_of_darkness"
+      "divinerpg:to_replace/demon_of_darkness"
     ]
   },
   "densos": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:densos"
+      "divinerpg:mobs/boss/densos"
     ]
   },
   "densos_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:densos_hurt"
+      "divinerpg:mobs/boss/densos_hurt"
     ]
   },
   "dissiment": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dissiment"
+      "divinerpg:to_replace/dissiment"
     ]
   },
   "dissiment_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dissiment_hurt"
+      "divinerpg:to_replace/dissiment_hurt"
     ]
   },
   "dramcryx": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dramcryx"
+      "divinerpg:to_replace/dramcryx"
     ]
   },
   "dramcryx_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dramcryx_hurt"
+      "divinerpg:to_replace/dramcryx_hurt"
     ]
   },
   "dramix": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dramix"
+      "divinerpg:to_replace/dramix"
     ]
   },
   "dramix_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dramix_hurt"
+      "divinerpg:to_replace/dramix_hurt"
     ]
   },
   "dream_wrecker": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dream_wrecker"
+      "divinerpg:to_replace/dream_wrecker"
     ]
   },
   "dream_wrecker_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dream_wrecker_hurt"
+      "divinerpg:to_replace/dream_wrecker_hurt"
     ]
   },
   "dungeon_prisoner": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dungeon_prisoner"
+      "divinerpg:to_replace/dungeon_prisoner"
     ]
   },
   "dungeon_prisoner_change": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dungeon_prisoner_change"
+      "divinerpg:to_replace/dungeon_prisoner_change"
     ]
   },
   "dungeon_prisoner_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:dungeon_prisoner_hurt"
+      "divinerpg:to_replace/dungeon_prisoner_hurt"
     ]
   },
   "duo": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:duo"
+      "divinerpg:maybe_replace/duo"
     ]
   },
   "duo_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:duo_hurt"
+      "divinerpg:maybe_replace/duo_hurt"
     ]
   },
   "endiku": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:endiku"
+      "divinerpg:to_replace/endiku"
     ]
   },
   "endiku_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:endiku_hurt"
+      "divinerpg:to_replace/endiku_hurt"
     ]
   },
   "ent": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:ent"
+      "divinerpg:to_replace/ent"
     ]
   },
   "ent_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:ent_hurt"
+      "divinerpg:to_replace/ent_hurt"
     ]
   },
   "explosions": {
     "category": "master",
     "sounds": [
-      "divinerpg:explosions"
+      "divinerpg:maybe_replace/explosions"
     ]
   },
   "feel_soul_arksiane": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:feel_soul_arksiane"
+      "divinerpg:maybe_replace/feel_soul_arksiane"
     ]
   },
   "fractite": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:fractite"
+      "divinerpg:to_replace/fractite"
     ]
   },
   "fractite_attack": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:fractite_attack"
+      "divinerpg:to_replace/fractite_attack"
     ]
   },
   "fractite_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:fractite_hurt"
+      "divinerpg:to_replace/fractite_hurt"
     ]
   },
   "frost": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:frost"
+      "divinerpg:to_replace/frost"
     ]
   },
   "frozen_flesh": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:frozen_flesh"
+      "divinerpg:to_replace/frozen_flesh"
     ]
   },
   "frozen_flesh_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:frozen_flesh_hurt"
+      "divinerpg:to_replace/frozen_flesh_hurt"
     ]
   },
   "galroid": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:galroid"
+      "divinerpg:maybe_replace/galroid"
     ]
   },
   "galroid_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:galroid_hurt"
+      "divinerpg:maybe_replace/galroid_hurt"
     ]
   },
   "glacide": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:glacide"
+      "divinerpg:to_replace/glacide"
     ]
   },
   "glacide_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:glacide_hurt"
+      "divinerpg:to_replace/glacide_hurt"
     ]
   },
   "golem": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:golem"
+      "divinerpg:to_replace/golem"
     ]
   },
   "gorgosion": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:gorgosion"
+      "divinerpg:to_replace/gorgosion"
     ]
   },
   "gorgosion_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:gorgosion_hurt"
+      "divinerpg:to_replace/gorgosion_hurt"
     ]
   },
   "grizzle": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:grizzle"
+      "divinerpg:mobs/overworld/grizzle"
     ]
   },
   "grizzle_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:grizzle_hurt"
+      "divinerpg:mobs/overworld/grizzle_hurt"
     ]
   },
   "growl": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:growl"
+      "divinerpg:to_replace/growl"
     ]
   },
   "growl_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:growl_hurt"
+      "divinerpg:to_replace/growl_hurt"
     ]
   },
   "hastreus": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:hastreus"
+      "divinerpg:to_replace/hastreus"
     ]
   },
   "hastreus_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:hastreus_hurt"
+      "divinerpg:to_replace/hastreus_hurt"
     ]
   },
   "helio": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:helio"
+      "divinerpg:to_replace/helio"
     ]
   },
   "helio_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:helio_hurt"
+      "divinerpg:to_replace/helio_hurt"
     ]
   },
   "hell_spider": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:hell_spider"
-    ]
-  },
-  "herbomancer": {
-    "category": "neutral",
-    "sounds": [
-      "divinerpg:herbomancer"
-    ]
-  },
-  "herbomancer_hurt": {
-    "category": "neutral",
-    "sounds": [
-      "divinerpg:herbomancer_hurt"
+      "divinerpg:mobs/nether/hell_spider"
     ]
   },
   "high_hit": {
     "category": "master",
     "sounds": [
-      "divinerpg:high_hit"
+      "divinerpg:to_replace/high_hit"
     ]
   },
   "hiss": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:hiss"
+      "divinerpg:to_replace/hiss"
     ]
   },
   "hive_queen": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:hive_queen"
+      "divinerpg:to_replace/hive_queen"
     ]
   },
   "hive_queen_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:hive_queen_hurt"
+      "divinerpg:to_replace/hive_queen_hurt"
     ]
   },
   "hover_stinger": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:hover_stinger"
+      "divinerpg:to_replace/hover_stinger"
     ]
   },
   "hover_stinger_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:hover_stinger_hurt"
+      "divinerpg:to_replace/hover_stinger_hurt"
     ]
   },
   "iceman": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:iceman"
+      "divinerpg:to_replace/iceman"
     ]
   },
   "iceman_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:iceman_hurt"
+      "divinerpg:to_replace/iceman_hurt"
     ]
   },
   "insect": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:insect"
+      "divinerpg:to_replace/insect"
     ]
   },
   "jackoman": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:jackoman"
+      "divinerpg:to_replace/jackoman"
     ]
   },
   "jungle_spider": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:jungle_spider"
+      "divinerpg:mobs/overworld/jungle_spider"
     ]
   },
   "karos_intro": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:karos_intro"
+      "divinerpg:maybe_replace/karos_intro"
     ]
   },
   "karos_laugh": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:karos_laugh"
+      "divinerpg:maybe_replace/karos_laugh"
     ]
   },
   "kazrotic": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:kazrotic"
+      "divinerpg:maybe_replace/kazrotic"
     ]
   },
   "kazrotic_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:kazrotic_hurt"
+      "divinerpg:maybe_replace/kazrotic_hurt"
     ]
   },
   "king_of_scorchers": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:king_of_scorchers"
+      "divinerpg:mobs/boss/king_of_scorchers"
     ]
   },
   "king_of_scorchers_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:king_of_scorchers_hurt"
+      "divinerpg:mobs/boss/king_of_scorchers_hurt"
     ]
   },
   "kobblin": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:kobblin"
+      "divinerpg:to_replace/kobblin"
     ]
   },
   "lady_luna": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:lady_luna1",
-      "divinerpg:lady_luna2",
-      "divinerpg:lady_luna3"
+      "divinerpg:maybe_replace/lady_luna1",
+      "divinerpg:maybe_replace/lady_luna2",
+      "divinerpg:maybe_replace/lady_luna3"
     ]
   },
   "lady_luna_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:lady_luna_hurt"
+      "divinerpg:maybe_replace/lady_luna_hurt"
     ]
   },
   "lheiva": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:lheiva"
+      "divinerpg:to_replace/lheiva"
     ]
   },
   "lheiva_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:lheiva_hurt"
+      "divinerpg:to_replace/lheiva_hurt"
     ]
   },
   "liopleurodon": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:liopleurodon"
+      "divinerpg:to_replace/liopleurodon"
     ]
   },
   "liopleurodon_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:liopleurodon_hurt"
+      "divinerpg:to_replace/liopleurodon_hurt"
     ]
   },
   "livestock_merchant": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:livestock_merchant"
+      "divinerpg:to_replace/livestock_merchant"
     ]
   },
   "livestock_merchant_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:livestock_merchant_hurt"
+      "divinerpg:to_replace/livestock_merchant_hurt"
     ]
   },
   "lorga": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:lorga"
+      "divinerpg:to_replace/lorga"
     ]
   },
   "lorga_flight": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:lorga_flight"
+      "divinerpg:to_replace/lorga_flight"
     ]
   },
   "lorga_flight_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:lorga_flight_hurt"
+      "divinerpg:to_replace/lorga_flight_hurt"
     ]
   },
   "lorga_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:lorga_hurt"
+      "divinerpg:to_replace/lorga_hurt"
     ]
   },
   "madivel": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:madivel"
+      "divinerpg:to_replace/madivel"
     ]
   },
   "madivel_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:madivel_hurt"
+      "divinerpg:to_replace/madivel_hurt"
     ]
   },
   "mage_fire": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mage_fire"
+      "divinerpg:to_replace/mage_fire"
     ]
   },
   "mandragora": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mandragora"
+      "divinerpg:to_replace/mandragora"
     ]
   },
   "meet_doom": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:meet_doom"
+      "divinerpg:maybe_replace/meet_doom"
     ]
   },
   "megalith": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:megalith"
+      "divinerpg:to_replace/megalith"
     ]
   },
   "megalith_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:megalith_hurt"
+      "divinerpg:to_replace/megalith_hurt"
     ]
   },
   "mucky": {
     "category": "master",
     "sounds": [
-      "divinerpg:mucky"
+      "divinerpg:to_replace/mucky"
     ]
   },
   "nesro": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:nesro"
+      "divinerpg:nto_replace/esro"
     ]
   },
   "nesro_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:nesro_hurt"
+      "divinerpg:to_replace/nesro_hurt"
     ]
   },
   "nobody_can_defeat": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:nobody_can_defeat"
+      "divinerpg:maybe_replace/nobody_can_defeat"
     ]
   },
   "parasecta": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:parasecta"
+      "divinerpg:to_replace/parasecta"
     ]
   },
   "parasecta_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:parasecta_hurt"
+      "divinerpg:to_replace/parasecta_hurt"
     ]
   },
   "quadro_die_before": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_die_before"
+      "divinerpg:maybe_replace/quadro_die_before"
     ]
   },
   "quadro_enough": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_enough"
+      "divinerpg:maybe_replace/quadro_enough"
     ]
   },
   "quadro_incoming_punch": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_incoming_punch"
+      "divinerpg:maybe_replace/quadro_incoming_punch"
     ]
   },
   "quadro_is_next": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_is_next"
+      "divinerpg:maybe_replace/quadro_is_next"
     ]
   },
   "quadro_kill_mine": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_kill_mine"
+      "divinerpg:maybe_replace/quadro_kill_mine"
     ]
   },
   "quadro_my_kill": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_my_kill"
+      "divinerpg:maybe_replace/quadro_my_kill"
     ]
   },
   "quadro_no_die": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_no_die"
+      "divinerpg:maybe_replace/quadro_no_die"
     ]
   },
   "quadro_sit_down": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_sit_down"
+      "divinerpg:maybe_replace/quadro_sit_down"
     ]
   },
   "quadro_taste_fist": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:quadro_taste_fist"
+      "divinerpg:maybe_replace/quadro_taste_fist"
     ]
   },
   "raglok_avenge": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:raglok_avenge"
+      "divinerpg:maybe_replace/raglok_avenge"
     ]
   },
   "raglok_awaken": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:raglok_awaken"
+      "divinerpg:maybe_replace/raglok_awaken"
     ]
   },
   "raglok_dark": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:raglok_dark"
+      "divinerpg:maybe_replace/raglok_dark"
     ]
   },
   "raglok_guardian": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:raglok_guardian"
+      "divinerpg:maybe_replace/raglok_guardian"
     ]
   },
   "raglok_nothing": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:raglok_nothing"
+      "divinerpg:maybe_replace/raglok_nothing"
     ]
   },
   "raglok_rain": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:raglok_rain"
+      "divinerpg:maybe_replace/raglok_rain"
     ]
   },
   "rainbour": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:rainbour"
+      "divinerpg:to_replace/rainbour"
     ]
   },
   "rainbour_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:rainbour_hurt"
+      "divinerpg:to_replace/rainbour_hurt"
     ]
   },
   "razorback": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:razorback"
+      "divinerpg:to_replace/razorback"
     ]
   },
   "razorback_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:razorback_hurt"
+      "divinerpg:to_replace/razorback_hurt"
     ]
   },
   "reyvor": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:reyvor"
+      "divinerpg:mobs/boss/reyvor"
     ]
   },
   "reyvor_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:reyvor_hurt"
+      "divinerpg:mobs/boss/reyvor_hurt"
     ]
   },
   "roamer": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:roamer"
+      "divinerpg:to_replace/roamer"
     ]
   },
   "roamer_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:roamer_hurt"
+      "divinerpg:to_replace/roamer_hurt"
     ]
   },
   "roar": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:roar"
+      "divinerpg:to_replace/roar"
     ]
   },
   "rollum": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:rollum"
+      "divinerpg:to_replace/rollum"
     ]
   },
   "rollum_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:rollum_hurt"
+      "divinerpg:to_replace/rollum_hurt"
     ]
   },
   "rotatick": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:rotatick"
+      "divinerpg:to_replace/rotatick"
     ]
   },
   "rotatick_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:rotatick_hurt"
+      "divinerpg:to_replace/rotatick_hurt"
     ]
   },
   "saguaro_worm": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:saguaro_worm"
+      "divinerpg:to_replace/saguaro_worm"
     ]
   },
   "scorcher": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:scorcher"
+      "divinerpg:mobs/nether/scorcher"
     ]
   },
   "shadahier": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:shadahier"
+      "divinerpg:maybe_replace/shadahier"
     ]
   },
   "shadahier_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:shadahier_hurt"
+      "divinerpg:maybe_replace/shadahier_hurt"
     ]
   },
   "shark": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:shark"
+      "divinerpg:maybe_replace/shark"
     ]
   },
   "shark_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:shark_hurt"
+      "divinerpg:maybe_replace/shark_hurt"
     ]
   },
   "stop_at_once": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:stop_at_once"
+      "divinerpg:maybe_replace/stop_at_once"
     ]
   },
   "the_eye": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:the_eye"
+      "divinerpg:to_replace/the_eye"
     ]
   },
   "the_eye_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:the_eye_hurt"
+      "divinerpg:to_replace/the_eye_hurt"
     ]
   },
   "tocaxin": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:tocaxin"
+      "divinerpg:maybe_replace/tocaxin"
     ]
   },
   "tocaxin_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:tocaxin_hurt"
+      "divinerpg:maybe_replace/tocaxin_hurt"
     ]
   },
   "try_your_best": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:try_your_best"
+      "divinerpg:maybe_replace/try_your_best"
     ]
   },
   "vhraak": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:vhraak"
+      "divinerpg:maybe_replace/vhraak"
     ]
   },
   "vhraak_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:vhraak_hurt"
+      "divinerpg:maybe_replace/vhraak_hurt"
     ]
   },
   "verek": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:verek"
+      "divinerpg:to_replace/verek"
     ]
   },
   "verek_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:verek_hurt"
+      "divinerpg:to_replace/verek_hurt"
     ]
   },
   "vermenous": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:vermenous"
+      "divinerpg:to_replace/vermenous"
     ]
   },
   "vermenous_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:vermenous_hurt"
+      "divinerpg:to_replace/vermenous_hurt"
     ]
   },
   "whale": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:whale"
+      "divinerpg:to_replace/whale"
     ]
   },
   "whale_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:whale_hurt"
+      "divinerpg:to_replace/whale_hurt"
     ]
   },
   "wildfire": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:wildfire"
+      "divinerpg:to_replace/wildfire"
     ]
   },
   "wildfire_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:wildfire_hurt"
+      "divinerpg:to_replace/wildfire_hurt"
     ]
   },
   "merchant_1": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:merchant_1"
+      "divinerpg:mobs/base/merchant_1"
     ]
   },
   "merchant_2": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:merchant_2"
+      "divinerpg:mobs/base/merchant_2"
     ]
   },
   "merchant_3": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:merchant_3"
+      "divinerpg:mobs/base/merchant_3"
     ]
   },
   "merchant_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:merchant_hurt"
+      "divinerpg:mobs/base/merchant_hurt"
     ]
   },
   "wraith": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:wraith"
+      "divinerpg:to_replace/wraith"
     ]
   },
   "wraith_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:wraith_hurt"
+      "divinerpg:to_replace/wraith_hurt"
     ]
   },
   "wreck_intro": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:wreck_intro"
+      "divinerpg:maybe_replace/wreck_intro"
     ]
   },
   "wreck_speed": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:wreck_speed"
+      "divinerpg:maybe_replace/wreck_speed"
     ]
   },
   "wreck_strength": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:wreck_strength"
+      "divinerpg:maybe_replace/wreck_strength"
     ]
   },
   "you_cant_kill_me": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:you_cant_kill_me"
+      "divinerpg:maybe_replace/you_cant_kill_me"
     ]
   },
   "zone": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:zone"
+      "divinerpg:to_replace/zone"
     ]
   },
   "zone_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:zone_hurt"
+      "divinerpg:to_replace/zone_hurt"
     ]
   },
   "zoragon": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:zoragon"
+      "divinerpg:to_replace/zoragon"
     ]
   },
   "zoragon_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:zoragon_hurt"
+      "divinerpg:to_replace/zoragon_hurt"
     ]
   },
   "arcanium_saber": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:arcanium_saber"
+      "divinerpg:to_replace/arcanium_saber"
     ]
   },
   "blitz": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:blitz"
+      "divinerpg:to_replace/blitz"
     ]
   },
   "divine_accumulator": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:divine_accumulator"
+      "divinerpg:to_replace/divine_accumulator"
     ]
   },
   "deep_laugh": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:deep_laugh"
+      "divinerpg:to_replace/deep_laugh"
     ]
   },
   "firefly": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:firefly"
+      "divinerpg:to_replace/firefly"
     ]
   },
   "fractite_cannon": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:fractite_cannon"
+      "divinerpg:to_replace/fractite_cannon"
     ]
   },
   "frostclaw_cannon": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:frostclaw_cannon"
+      "divinerpg:to_replace/frostclaw_cannon"
     ]
   },
   "frost_cannon": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:frost_cannon"
+      "divinerpg:to_replace/frost_cannon"
     ]
   },
   "ghast_cannon": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:ghast_cannon"
+      "divinerpg:to_replace/ghast_cannon"
     ]
   },
   "heal": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:heal"
+      "divinerpg:to_replace/heal"
     ]
   },
   "la_vekor": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:la_vekor"
+      "divinerpg:to_replace/la_vekor"
     ]
   },
   "phaser": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:phaser"
+      "divinerpg:to_replace/phaser"
     ]
   },
   "reflector": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:reflector"
+      "divinerpg:to_replace/reflector"
     ]
   },
   "serenade": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:serenade"
+      "divinerpg:to_replace/serenade"
     ]
   },
   "shadow_saber": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:shadow_saber"
+      "divinerpg:to_replace/shadow_saber"
     ]
   },
   "sound_of_carols": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:sound_of_carols"
+      "divinerpg:to_replace/sound_of_carols"
     ]
   },
   "sound_of_music": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:sound_of_music"
+      "divinerpg:to_replace/sound_of_music"
     ]
   },
   "sparkler": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:sparkler"
+      "divinerpg:to_replace/sparkler"
     ]
   },
   "staff": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:staff"
+      "divinerpg:to_replace/staff"
     ]
   },
   "starlight": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:starlight"
+      "divinerpg:to_replace/starlight"
     ]
   },
   "vethea_bow": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:vethea_bow"
+      "divinerpg:items/vethea_bow"
     ]
   },
   "iceika_music": {
     "category": "music",
     "sounds": [
-      "divinerpg:iceika_music"
+      "divinerpg:music/iceika_music"
     ]
   },
   "snowflakes_after_blizzard": {
     "category": "music",
     "stream": true,
     "sounds": [
-      "divinerpg:snowflakes_after_blizzard"
+      "divinerpg:music/snowflakes_after_blizzard"
     ]
   },
   "snowflakes_after_blizzard_synth": {
     "category": "music",
     "stream": true,
     "sounds": [
-      "divinerpg:snowflakes_after_blizzard_synth"
+      "divinerpg:music/snowflakes_after_blizzard_synth"
     ]
   },
   "cup_of_tea": {
     "category": "music",
     "stream": true,
     "sounds": [
-      "divinerpg:cup_of_tea"
+      "divinerpg:music/cup_of_tea"
     ]
   },
   "frozen_dispersion": {
   	"category": "music",
   	"stream": true,
   	"sounds": [
-  	  "divinerpg:frozen_dispersion"
+  	  "divinerpg:music/frozen_dispersion"
   	]
   },
   "patchouli_open": {
     "category": "player",
     "sounds": [
-      "divinerpg:patchouli_open"
+      "divinerpg:items/patchouli_open"
     ]
   },
   "patchouli_flip": {
     "category": "player",
     "sounds": [
-      "divinerpg:patchouli_flip"
+      "divinerpg:items/patchouli_flip"
     ]
   },
   "skyre_die": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:skyre_die"
+      "divinerpg:mobs/arcana/skyre_die"
     ]
   },
   "skyre_ambient": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:skyre_ambient"
+      "divinerpg:mobs/arcana/skyre_ambient"
     ]
   },
   "skyre_shoot": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:skyre_shoot"
+      "divinerpg:mobs/arcana/skyre_shoot"
     ]
   },
   "skyre_spark": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:skyre_spark"
+      "divinerpg:mobs/arcana/skyre_spark"
     ]
   },
   "mortum_ambience": {
     "category": "music",
     "sounds": [
-      "divinerpg:mortum_ambience1"
+      "divinerpg:ambience/mortum_ambience1"
     ]
   },
   "mortum_mood": {
   	"category": "music",
   	"sounds": [
-      "divinerpg:mortum_ambience"
+      "divinerpg:ambience/mortum_ambience"
   	]
   },
   "vethea_teleport": {
     "category": "player",
     "sounds": [
-      "divinerpg:vethea_teleport"
+      "divinerpg:blocks/vethea_teleport"
     ]
   },
   "snap": {
-  	"category": "player",
-  	"sounds": [
-  		"divinerpg:snap"
-  	]
+    "category": "player",
+    "sounds": [
+      "divinerpg:items/snap"
+    ]
   },
   "seng_ambient": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:seng_ambient"
+      "divinerpg:mobs/iceika/seng_ambient"
     ]
   },
   "seng_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:seng_hurt"
+      "divinerpg:mobs/iceika/seng_hurt"
     ]
   },
   "seng_growl": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:seng_growl"
+      "divinerpg:mobs/iceika/seng_growl"
     ]
   }
 }
