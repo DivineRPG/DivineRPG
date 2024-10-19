@@ -14,19 +14,19 @@
   "alicanto": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/alicanto"
+      "divinerpg:mobs/iceika/alicanto"
     ]
   },
   "alicanto_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/alicanto_hurt"
+      "divinerpg:mobs/iceika/alicanto_hurt"
     ]
   },
   "archer": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/archer"
+      "divinerpg:mobs/base/archer"
     ]
   },
   "arid_warrior": {
@@ -1156,7 +1156,7 @@
   "arcanium_saber": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:to_replace/arcanium_saber"
+      "divinerpg:items/arcanium_saber"
     ]
   },
   "blitz": {
