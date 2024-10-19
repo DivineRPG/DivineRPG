@@ -29,10 +29,9 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.*;
-import net.neoforged.neoforge.internal.versions.neoforge.NeoForgeVersion;
 
 public class PortalBlock extends BaseEntityBlock implements Portal {
-	public static final TagKey<Block> portalTag = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(NeoForgeVersion.MOD_ID, "portals"));
+	public static final TagKey<Block> portalTag = TagKey.create(Registries.BLOCK, ResourceLocation.parse("c:portals"));
 	public static final VoxelShape X_AXIS_AABB = Block.box(0.0, 0.0, 6.0, 16.0, 16.0, 10.0), Z_AXIS_AABB = Block.box(6.0, 0.0, 0.0, 10.0, 16.0, 16.0);
 	public final ResourceKey<Level> rootDimension;
 	public final TagKey<Block> frameTag;

@@ -2,7 +2,6 @@ package divinerpg.client.renders.layer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import divinerpg.DivineRPG;
 import divinerpg.client.models.twilight.ModelTwilightArcher;
 import divinerpg.entities.skythern.EntitySkythernArcher;
 import divinerpg.registries.ItemRegistry;
@@ -11,7 +10,6 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.neoforged.api.distmarker.*;
 

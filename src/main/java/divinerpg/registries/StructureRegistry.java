@@ -1,6 +1,5 @@
 package divinerpg.registries;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import divinerpg.DivineRPG;
 import divinerpg.world.structure.HighestCeilingType;
@@ -30,7 +29,7 @@ public class StructureRegistry {
     	HIGHEST_CEILING = STRUCTURE_TYPE.register("highest_ceiling", () -> codecConv(HighestCeilingType.CODEC)),
     	LOWEST_CEILING = STRUCTURE_TYPE.register("lowest_ceiling", () -> codecConv(LowestCeilingType.CODEC));
 
-    private static <S extends Structure> StructureType<S> codecConv(Codec<S> codec) {
+	private static <S extends Structure> StructureType<S> codecConv(MapCodec<S> codec) {
         return () -> (MapCodec<S>) codec;
     }
     public static void placeStructure(StructureTemplate structure, WorldGenLevel level, RandomSource random, BlockPos pos) {

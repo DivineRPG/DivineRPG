@@ -23,7 +23,7 @@ public class ItemSnowGlobe extends ItemMod {
         if(!player.mayUseItemAt(pos, facing, player.getItemInHand(context.getHand()))) return InteractionResult.FAIL;
         PortalBlock portal = (PortalBlock)BlockRegistry.iceikaPortal.get();
         BlockPos location = pos.relative(facing);
-        if(worldIn.getBlockState(pos).is(Blocks.SNOW)) {
+        if(worldIn.getBlockState(pos).is(portal.frameTag)) {
             if(!worldIn.isClientSide()) {
             	Axis axis = portal.checkForFrame(worldIn, location);
                 if(axis != null) {

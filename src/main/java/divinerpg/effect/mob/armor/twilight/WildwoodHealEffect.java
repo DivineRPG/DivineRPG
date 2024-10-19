@@ -5,7 +5,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
 
 public class WildwoodHealEffect extends ArmorEffect {
 	public WildwoodHealEffect() {super(10991286);}

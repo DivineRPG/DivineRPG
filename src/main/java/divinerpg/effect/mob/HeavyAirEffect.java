@@ -3,7 +3,6 @@ package divinerpg.effect.mob;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
 import net.minecraft.world.level.GameType;
 
 public class HeavyAirEffect extends MobEffect {

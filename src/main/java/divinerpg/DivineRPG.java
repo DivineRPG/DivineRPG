@@ -32,7 +32,6 @@ public class DivineRPG {
         ParticleRegistry.PARTICLES.register(bus);
         RecipeRegistry.Serailizers.SERIALIZER.register(bus);
         SoundRegistry.SOUNDS.register(bus);
-        EnchantmentRegistry.ENCHANTMENTS.register(bus);
         MobEffectRegistry.EFFECTS.register(bus);
         PotionRegistry.POTIONS.register(bus);
         RecipeRegistry.Types.RECIPE_TYPES.register(bus);

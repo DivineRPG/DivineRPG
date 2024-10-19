@@ -19,7 +19,7 @@ import net.minecraft.world.level.portal.DimensionTransition;
 
 public class VetheaPortal extends PortalBlock {
 	public VetheaPortal() {
-		super(Properties.ofFullCopy(Blocks.NETHER_PORTAL), LevelRegistry.VETHEA, TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "vethea_portal_frame")));
+		super(Properties.ofFullCopy(Blocks.NETHER_PORTAL), LevelRegistry.VETHEA, TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "portal_frames/vethea_portal")));
 	}
 	@Override
 	public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {

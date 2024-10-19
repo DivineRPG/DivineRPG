@@ -1,7 +1,6 @@
 package divinerpg.util;
 
 import com.google.gson.*;
-import com.mojang.util.UUIDTypeAdapter;
 import divinerpg.DivineRPG;
 import divinerpg.registries.FluidRegistry;
 import divinerpg.world.placement.Surface;
@@ -14,22 +13,18 @@ import net.minecraft.core.HolderLookup.RegistryLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.*;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.io.IOUtils;
@@ -75,7 +70,8 @@ public class Utils {
             String urlString = "https://raw.githubusercontent.com/DivineRPG/DivineRPG-Assets/main/hats.json";
 
             try {
-                HttpURLConnection con = (HttpURLConnection) new URL(urlString).openConnection();
+                @SuppressWarnings("deprecation")
+				HttpURLConnection con = (HttpURLConnection) new URL(urlString).openConnection();
                 con.setConnectTimeout(1000);
                 InputStream in2 = con.getInputStream();
                 List<String> lines = IOUtils.readLines(in2, Charset.defaultCharset());

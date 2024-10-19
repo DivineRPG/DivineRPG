@@ -4,6 +4,7 @@ import divinerpg.blocks.base.BlockModMobCage;
 import divinerpg.registries.EnchantmentRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +26,7 @@ public class RiveHandler {
         Player player = event.getPlayer();
         ItemStack itemStack = player.getMainHandItem();
         BlockState blockState = world.getBlockState(event.getPos());
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.RIVE.getDelegate(), player);
+        int level = EnchantmentHelper.getEnchantmentLevel(world.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(EnchantmentRegistry.RIVE), player);
         float pitch = player.getXRot();
         Direction facing = (pitch > 45) ? Direction.DOWN : (pitch < -45) ? Direction.UP : player.getDirection();
         if(world.isClientSide) return;

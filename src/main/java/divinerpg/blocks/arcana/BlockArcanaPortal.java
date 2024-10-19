@@ -24,7 +24,7 @@ import java.util.*;
 public class BlockArcanaPortal extends PortalBlock {
     protected static final VoxelShape SHAPE = Block.box(0, 5, 0, 16, 8, 16);
     public BlockArcanaPortal() {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.END_PORTAL), LevelRegistry.ARCANA, TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana_portal_frame")));
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.END_PORTAL), LevelRegistry.ARCANA, TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "portal_frames/arcana_portal")));
         this.registerDefaultState(this.stateDefinition.any());
     }
     @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return SHAPE;}

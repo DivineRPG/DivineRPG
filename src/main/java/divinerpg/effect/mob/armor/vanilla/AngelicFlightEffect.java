@@ -2,9 +2,7 @@ package divinerpg.effect.mob.armor.vanilla;
 
 import divinerpg.effect.mob.armor.*;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
 
 public class AngelicFlightEffect extends ArmorEffect implements UpdatableArmorEffect {
 	public AngelicFlightEffect() {super(10991286);}
@@ -17,6 +15,7 @@ public class AngelicFlightEffect extends ArmorEffect implements UpdatableArmorEf
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override public void onMobRemoved(LivingEntity entity, int amplifier, Entity.RemovalReason reason) {
 		super.onMobRemoved(entity, amplifier, reason);
 		if(entity instanceof ServerPlayer player && !player.isCreative()) {

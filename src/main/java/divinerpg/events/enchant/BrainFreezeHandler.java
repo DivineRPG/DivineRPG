@@ -2,6 +2,7 @@ package divinerpg.events.enchant;
 
 import divinerpg.DivineRPG;
 import divinerpg.registries.EnchantmentRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -16,7 +17,7 @@ public class BrainFreezeHandler {
         if(event.isCanceled()) return;
         Entity entity = event.getSource().getDirectEntity();
         if(!(entity instanceof LivingEntity livingEntity)) return;
-        int level = EnchantmentHelper.getEnchantmentLevel(EnchantmentRegistry.BRAIN_FREEZE, livingEntity);
+        int level = EnchantmentHelper.getEnchantmentLevel(entity.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(EnchantmentRegistry.BRAIN_FREEZE), livingEntity);
         if(level < 1) return;
         if(livingEntity.getRandom().nextInt(100) > 30 - level * 5) return;
         event.getEntity().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * level, 10, true, false, false));

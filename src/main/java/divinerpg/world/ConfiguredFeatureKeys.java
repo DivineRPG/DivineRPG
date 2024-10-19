@@ -19,6 +19,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 
 import static divinerpg.util.Utils.*;
 
+@SuppressWarnings("deprecation")
 @EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public final class ConfiguredFeatureKeys {
 	private ConfiguredFeatureKeys() {}

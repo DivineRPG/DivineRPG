@@ -827,12 +827,12 @@ public class BlockRegistry {
 
             //Portals
             arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
-            iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, "iceika_portal_frame", Blocks.SNOW)),
-            edenPortal = registerBlock("eden_portal", () -> new SimplePortalBlock(LevelRegistry.EDEN, "eden_portal_frame", divineRock.get())),
-            wildwoodPortal = registerBlock("wildwood_portal", () -> new SimplePortalBlock(LevelRegistry.WILDWOOD, "wildwood_portal_frame", edenBlock.get())),
-            apalachiaPortal = registerBlock("apalachia_portal", () -> new SimplePortalBlock(LevelRegistry.APALACHIA, "apalachia_portal_frame", wildwoodBlock.get())),
-            skythernPortal = registerBlock("skythern_portal", () -> new SimplePortalBlock(LevelRegistry.SKYTHERN, "skythern_portal_frame", apalachiaBlock.get())),
-            mortumPortal = registerBlock("mortum_portal", () -> new SimplePortalBlock(LevelRegistry.MORTUM, "mortum_portal_frame", skythernBlock.get())),
+            iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, "portal_frames/iceika_portal", Blocks.SNOW)),
+            edenPortal = registerBlock("eden_portal", () -> new SimplePortalBlock(LevelRegistry.EDEN, "portal_frames/eden_portal", divineRock.get())),
+            wildwoodPortal = registerBlock("wildwood_portal", () -> new SimplePortalBlock(LevelRegistry.WILDWOOD, "portal_frames/wildwood_portal", edenBlock.get())),
+            apalachiaPortal = registerBlock("apalachia_portal", () -> new SimplePortalBlock(LevelRegistry.APALACHIA, "portal_frames/apalachia_portal", wildwoodBlock.get())),
+            skythernPortal = registerBlock("skythern_portal", () -> new SimplePortalBlock(LevelRegistry.SKYTHERN, "portal_frames/skythern_portal", apalachiaBlock.get())),
+            mortumPortal = registerBlock("mortum_portal", () -> new SimplePortalBlock(LevelRegistry.MORTUM, "portal_frames/mortum_portal", skythernBlock.get())),
             vetheaPortal = registerBlock("vethea_portal", VetheaPortal::new),
 
             //Air
