@@ -1,14 +1,20 @@
 package net.divinerpg.utils;
 
-import net.divinerpg.utils.blocks.IceikaBlocks;
-import net.divinerpg.utils.blocks.TwilightBlocks;
-import net.divinerpg.utils.blocks.ArcanaBlocks;
-import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.blocks.*;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class DivineOredict {
     
     public static void init() {
+        OreDictionary.registerOre("logWood", VanillaBlocks.divineWood);
+        OreDictionary.registerOre("logWood", IceikaBlocks.frozenWood);
+        OreDictionary.registerOre("logWood", ArcanaBlocks.eucalyptusWood);
+        OreDictionary.registerOre("logWood", TwilightBlocks.edenLogs);
+        OreDictionary.registerOre("logWood", TwilightBlocks.wildwoodLogs);
+        OreDictionary.registerOre("logWood", TwilightBlocks.apalachiaLogs);
+        OreDictionary.registerOre("logWood", TwilightBlocks.skythernLogs);
+        OreDictionary.registerOre("logWood", TwilightBlocks.mortumLogs);
+
         OreDictionary.registerOre("plankWood", VanillaBlocks.divinePlanks);
         OreDictionary.registerOre("plankWood", IceikaBlocks.frozenPlanks);
         OreDictionary.registerOre("plankWood", ArcanaBlocks.eucalyptusPlank);
@@ -33,6 +39,23 @@ public class DivineOredict {
         OreDictionary.registerOre("slabWood", TwilightBlocks.apalachiaSlab);
         OreDictionary.registerOre("slabWood", TwilightBlocks.skythernSlab);
         OreDictionary.registerOre("slabWood", TwilightBlocks.mortumSlab);
+
+        OreDictionary.registerOre("treeLeaves", VanillaBlocks.divineLeaves);
+        OreDictionary.registerOre("treeLeaves", IceikaBlocks.brittleLeaves);
+        OreDictionary.registerOre("treeLeaves", TwilightBlocks.edenLeaves);
+        OreDictionary.registerOre("treeLeaves", TwilightBlocks.wildwoodLeaves);
+        OreDictionary.registerOre("treeLeaves", TwilightBlocks.apalachiaLeaves);
+        OreDictionary.registerOre("treeLeaves", TwilightBlocks.skythernLeaves);
+        OreDictionary.registerOre("treeLeaves", TwilightBlocks.mortumLeaves);
+
+        OreDictionary.registerOre("stone", VanillaBlocks.milkStone);
+        OreDictionary.registerOre("stone", TwilightBlocks.twilightStone);
+        OreDictionary.registerOre("stone", IceikaBlocks.frozenStone);
+
+        OreDictionary.registerOre("cobblestone", VanillaBlocks.divineMossystone);
+        OreDictionary.registerOre("cobblestone", IceikaBlocks.coalstone);
+
+        OreDictionary.registerOre("stonebrick", IceikaBlocks.snowBricks);
     }
 
 }
