@@ -4,9 +4,9 @@ license = "https://www.curseforge.com/project/363543/license"
 issueTrackerURL = "https://github.com/DivineRPG/DivineRPG/issues"
 
 [[mods]]
-modId = "${mod_id}"
-version = "${mod_version}"
-displayName = "${mod_name}"
+modId = "divinerpg"
+version = "1.10.8"
+displayName = "DivineRPG"
 updateJSONURL = "https://raw.githubusercontent.com/DivineRPG/DivineRPG-Assets/main/divinerpg_update.json"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/official-divinerpg"
 logoFile = "logo.png"
