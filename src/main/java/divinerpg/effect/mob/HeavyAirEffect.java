@@ -8,15 +8,15 @@ import net.minecraft.world.level.GameType;
 
 public class HeavyAirEffect extends MobEffect {
 	public HeavyAirEffect() {super(MobEffectCategory.HARMFUL, 10991286);}
-	@Override public void removeAttributeModifiers(AttributeMap map) {
-		super.removeAttributeModifiers(map);
-		if(entity instanceof ServerPlayer && ((ServerPlayer) entity).gameMode.getGameModeForPlayer() == GameType.ADVENTURE) ((ServerPlayer) entity).setGameMode(GameType.SURVIVAL);
-	}
-	@Override public void addAttributeModifiers(AttributeMap map, int i) {
+	@Override public void onEffectAdded(LivingEntity entity, int amplifier) {
+		super.onEffectAdded(entity, amplifier);
 		if(entity instanceof ServerPlayer && ((ServerPlayer) entity).gameMode.getGameModeForPlayer() == GameType.SURVIVAL) {
-			super.addAttributeModifiers(map, i);
 			((ServerPlayer) entity).setGameMode(GameType.ADVENTURE);
 		}
+	}
+	@Override public void onMobRemoved(LivingEntity entity, int amplifier, Entity.RemovalReason reason) {
+		super.onMobRemoved(entity, amplifier, reason);
+		if(entity instanceof ServerPlayer && ((ServerPlayer) entity).gameMode.getGameModeForPlayer() == GameType.ADVENTURE) ((ServerPlayer) entity).setGameMode(GameType.SURVIVAL);
 	}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {return false;}
 	@Override public void applyInstantenousEffect(Entity entity, Entity e, LivingEntity living, int i, double d) {}
