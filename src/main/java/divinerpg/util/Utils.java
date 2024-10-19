@@ -113,30 +113,6 @@ public class Utils {
         });
     }
 
-
-    public static CompletableFuture<UUID> getLicenceId(String nick) {
-        return CompletableFuture.supplyAsync(() -> {
-            String url = "https://api.mojang.com/users/profiles/minecraft/" + nick;
-            UUID result = new UUID(0, 0);
-
-            try {
-                HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-                connection.setRequestMethod("GET");
-                InputStream stream = connection.getInputStream();
-                String json = IOUtils.toString(stream, Charset.defaultCharset());
-                JsonObject object = new Gson().fromJson(json, JsonObject.class);
-
-                if (!object.has("error")) {
-                    result = UUIDTypeAdapter.fromString(object.get("id").getAsString());
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return result;
-        });
-    }
     public static boolean bordersTar(BlockGetter world, int x, int y, int z) {
         for (int i = x - 4; i <= x + 4; ++i) {
             for (int j = y; j <= y + 1; ++j) {
@@ -151,33 +127,6 @@ public class Utils {
         return false;
     }
 
-    /**
-     * Spawns a persistent entity at the given location.
-     *
-     * @param world  the world to spawn the entity in
-     * @param pos    the position to spawn the entity at
-     * @param entity the entity to spawn
-     */
-    public static void spawnPersistentEntity(Level world, BlockPos pos, LivingEntity entity) {
-        entity.getType().spawn((ServerLevel) world, ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, false, false);
-    }
-
-    /**
-     * Populates the loot chest below the given position.
-     *
-     * @param world     the world
-     * @param pos       the position above the chest
-     * @param rand      the seeded random number generator
-     * @param lootTable the loot table to fill it with
-     */
-    public static void populateLootChestBelow(Level world, BlockPos pos, Random rand, ResourceLocation lootTable) {
-        BlockPos chestPosition = pos.below();
-        BlockEntity blockEntity = world.getBlockEntity(chestPosition);
-        if (blockEntity instanceof RandomizableContainerBlockEntity) {
-            ((RandomizableContainerBlockEntity) blockEntity).setLootTable(lootTable, rand.nextLong());
-        }
-    }
-    
     public static void drop(Level level, Vec3 pos, @Nullable ItemStack item) {
 		if(item != null) level.addFreshEntity(new ItemEntity(level, pos.x, pos.y, pos.z, item));
 	}
