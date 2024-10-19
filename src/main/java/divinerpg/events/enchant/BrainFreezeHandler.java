@@ -9,8 +9,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
-
-@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = DivineRPG.MODID)
 public class BrainFreezeHandler {
     @SubscribeEvent
     public static void onHurt(LivingIncomingDamageEvent event) {

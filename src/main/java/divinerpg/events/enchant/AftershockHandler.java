@@ -1,5 +1,6 @@
 package divinerpg.events.enchant;
 
+import divinerpg.DivineRPG;
 import divinerpg.registries.EnchantmentRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.*;
@@ -9,7 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
-@EventBusSubscriber
+@EventBusSubscriber(modid = DivineRPG.MODID)
 public class AftershockHandler {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onHurt(LivingDamageEvent.Pre event) {

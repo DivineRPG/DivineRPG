@@ -1,5 +1,6 @@
 package divinerpg.events.enchant;
 
+import divinerpg.DivineRPG;
 import divinerpg.blocks.base.BlockModMobCage;
 import divinerpg.registries.EnchantmentRegistry;
 import net.minecraft.core.BlockPos;
@@ -18,7 +19,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
-@EventBusSubscriber
+@EventBusSubscriber(modid = DivineRPG.MODID)
 public class RiveHandler {
     @SubscribeEvent
     public void handleWorldBreak(BlockEvent.BreakEvent event) {
