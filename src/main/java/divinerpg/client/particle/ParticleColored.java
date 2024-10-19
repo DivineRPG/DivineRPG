@@ -1,6 +1,6 @@
 package divinerpg.client.particle;
 
-import divinerpg.client.particle.options.ParticleColouredType;
+import divinerpg.client.particle.options.ParticleColouredOption;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.neoforged.api.distmarker.*;
@@ -58,7 +58,7 @@ public class ParticleColored extends SimpleAnimatedParticle {
             this.remove();
     }
 
-    public static class Provider implements ParticleProvider<ParticleColouredType.ParticleColour> {
+    public static class Provider implements ParticleProvider<ParticleColouredOption> {
 
         private final SpriteSet sprites;
 
@@ -68,8 +68,8 @@ public class ParticleColored extends SimpleAnimatedParticle {
 
         @Nullable
         @Override
-        public Particle createParticle(ParticleColouredType.ParticleColour data, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            return new ParticleColored(level, x, y, z, xSpeed, ySpeed, zSpeed, sprites, data.getRed(), data.getGreen(), data.getBlue());
+        public Particle createParticle(ParticleColouredOption data, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+            return new ParticleColored(level, x, y, z, xSpeed, ySpeed, zSpeed, sprites, (int) data.getRed(), (int) data.getGreen(), (int) data.getBlue());
         }
     }
 }

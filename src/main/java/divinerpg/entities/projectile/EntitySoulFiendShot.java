@@ -1,6 +1,6 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.client.particle.options.ParticleColouredType;
+import divinerpg.client.particle.options.ParticleColouredOption;
 import divinerpg.enums.BulletType;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
@@ -42,8 +42,8 @@ public class EntitySoulFiendShot extends EntityShooterBullet {
         super.tick();
         if (level().isClientSide()) {
         for (int cnt = 0; cnt < 8; ++cnt) {
-                level().addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), 0, 0, 0), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
-                level().addParticle(new ParticleColouredType.ParticleColour(ParticleRegistry.COLORED.get(), 255, 0, 0), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
+                level().addParticle(new ParticleColouredOption(ParticleRegistry.COLORED.get(), 000000), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
+                level().addParticle(new ParticleColouredOption(ParticleRegistry.COLORED.get(), 255000), this.xo + (random.nextDouble() - random.nextDouble()) / 4, this.yo + (random.nextDouble() - random.nextDouble()) / 4, this.zo + (random.nextDouble() - random.nextDouble()) / 4, 0.2D, 0.2D, 0.2D);
             }
         }
         if (!this.level().isClientSide() && this.tickCount > 20) {

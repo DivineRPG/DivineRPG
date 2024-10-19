@@ -1,11 +1,14 @@
 package divinerpg.registries;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.client.particle.*;
-import divinerpg.client.particle.options.ParticleColouredType;
+import divinerpg.client.particle.options.ParticleColouredOption;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -35,7 +38,7 @@ public class ParticleRegistry {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ENDER_TRIPLET = PARTICLES.register("ender_triplets", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> TAR = PARTICLES.register("tar", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SPLASH = PARTICLES.register("splash", () -> new SimpleParticleType(false));
-    public static final DeferredHolder<ParticleType<?>, ParticleType<ParticleColouredType.ParticleColour>> COLORED = PARTICLES.register("colored", () -> new ParticleColouredType(false));
+    public static final DeferredHolder<ParticleType<?>, ParticleType<ParticleColouredOption>> COLORED = PARTICLES.register("colored", () -> new ParticleType<ParticleColouredOption>(false) {@Override public MapCodec<ParticleColouredOption> codec() {return null;} @Override public StreamCodec<? super RegistryFriendlyByteBuf, ParticleColouredOption> streamCodec() {return null;}});
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerFactories(RegisterParticleProvidersEvent event) {
