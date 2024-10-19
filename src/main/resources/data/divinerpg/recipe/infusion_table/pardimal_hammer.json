@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:pardimal_lump",
+    "id": "divinerpg:pardimal_lump",
     "count": 17
   },
   "template": {
-    "item": "divinerpg:hammer_template"
+    "id": "divinerpg:hammer_template"
   },
   "output": {
-    "item": "divinerpg:pardimal_hammer"
+    "id": "divinerpg:pardimal_hammer"
   }
 }

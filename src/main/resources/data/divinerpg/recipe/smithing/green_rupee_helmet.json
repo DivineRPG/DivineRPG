@@ -7,7 +7,7 @@
     "item": "divinerpg:rupee_helmet"
   },
   "result": {
-    "item": "divinerpg:green_rupee_helmet"
+    "id": "divinerpg:green_rupee_helmet"
   },
   "template": {
 	"item": "divinerpg:color_template"

@@ -7,7 +7,7 @@
     "item": "divinerpg:ender_boots"
   },
   "result": {
-    "item": "divinerpg:red_ender_boots"
+    "id": "divinerpg:red_ender_boots"
   },
   "template": {
 	"item": "divinerpg:color_template"

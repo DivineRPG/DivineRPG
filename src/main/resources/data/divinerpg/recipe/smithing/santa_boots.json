@@ -7,7 +7,7 @@
     "item": "divinerpg:seng_fur_boots"
   },
   "result": {
-    "item": "divinerpg:santa_boots"
+    "id": "divinerpg:santa_boots"
   },
   "template": {
 	"item": "divinerpg:color_template"

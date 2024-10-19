@@ -7,7 +7,7 @@
     "item": "divinerpg:divine_sword"
   },
   "result": {
-    "item": "divinerpg:green_divine_sword"
+    "id": "divinerpg:green_divine_sword"
   },
   "template": {
 	"item": "divinerpg:color_template"

@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:oxdrite_block"
   },
-  "result": "divinerpg:cut_oxdrite",
+  "result": {
+    "id": "divinerpg:cut_oxdrite"
+  },
   "count": 4
 }

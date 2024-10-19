@@ -7,7 +7,7 @@
     "item": "divinerpg:ender_chestplate"
   },
   "result": {
-    "item": "divinerpg:green_ender_chestplate"
+    "id": "divinerpg:green_ender_chestplate"
   },
   "template": {
 	"item": "divinerpg:color_template"

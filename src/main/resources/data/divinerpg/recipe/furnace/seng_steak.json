@@ -3,7 +3,9 @@
   "ingredient": {
     "item": "divinerpg:raw_seng_meat"
   },
-  "result": "divinerpg:seng_steak",
+  "result": {
+    "id": "divinerpg:seng_steak"
+  },
   "category": "food",
   "experience": 0.35,
   "cookingtime": 200

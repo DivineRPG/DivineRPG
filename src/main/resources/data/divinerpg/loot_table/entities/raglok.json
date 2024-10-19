@@ -17,12 +17,14 @@
 							}
 						},
 						{
-              				"function": "looting_enchant",
-							"count": {
-								"min": 0,
-								"max": 1
-							}
-						}
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "enchantment": "minecraft:looting",
+              "function": "minecraft:enchanted_count_increase"
+            }
 					]
 				}
 			]

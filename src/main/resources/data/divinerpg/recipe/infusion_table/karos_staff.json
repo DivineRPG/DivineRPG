@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:karos_lump",
+    "id": "divinerpg:karos_lump",
     "count": 16
   },
   "template": {
-    "item": "divinerpg:staff_template"
+    "id": "divinerpg:staff_template"
   },
   "output": {
-    "item": "divinerpg:karos_staff"
+    "id": "divinerpg:karos_staff"
   }
 }

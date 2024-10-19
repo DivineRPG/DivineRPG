@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:heliosis_lump",
+    "id": "divinerpg:heliosis_lump",
     "count": 20
   },
   "template": {
-    "item": "divinerpg:dissipator_template"
+    "id": "divinerpg:dissipator_template"
   },
   "output": {
-    "item": "divinerpg:heliosis_dissipator"
+    "id": "divinerpg:heliosis_dissipator"
   }
 }

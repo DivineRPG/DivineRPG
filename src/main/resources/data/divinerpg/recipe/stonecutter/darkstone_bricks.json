@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:darkstone"
   },
-  "result": "divinerpg:darkstone_bricks",
+  "result": {
+    "id": "divinerpg:darkstone_bricks"
+  },
   "count": 1
 }

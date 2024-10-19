@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:arlemite_bricks"
   },
-  "result": "divinerpg:arlemite_minibricks",
+  "result": {
+    "id": "divinerpg:arlemite_minibricks"
+  },
   "count": 1
 }

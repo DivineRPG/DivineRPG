@@ -7,7 +7,7 @@
     "item": "divinerpg:aquastrive_leggings"
   },
   "result": {
-    "item": "divinerpg:kraken_leggings"
+    "id": "divinerpg:kraken_leggings"
   },
   "template": {
 	"item": "divinerpg:aquatic_coating_template"

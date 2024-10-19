@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:ancient_bricks_breakable"
   },
-  "result": "divinerpg:ancient_brick_stairs_breakable",
+  "result": {
+    "id": "divinerpg:ancient_brick_stairs_breakable"
+  },
   "count": 1
 }

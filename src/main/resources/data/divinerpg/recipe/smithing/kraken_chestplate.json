@@ -7,7 +7,7 @@
     "item": "divinerpg:aquastrive_chestplate"
   },
   "result": {
-    "item": "divinerpg:kraken_chestplate"
+    "id": "divinerpg:kraken_chestplate"
   },
   "template": {
 	"item": "divinerpg:aquatic_coating_template"

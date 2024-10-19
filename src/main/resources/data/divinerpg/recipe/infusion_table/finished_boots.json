@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:amthirmis_lump",
+    "id": "divinerpg:amthirmis_lump",
     "count": 8
   },
   "template": {
-    "item": "divinerpg:finished_template"
+    "id": "divinerpg:finished_template"
   },
   "output": {
-    "item": "divinerpg:finished_boots"
+    "id": "divinerpg:finished_boots"
   }
 }

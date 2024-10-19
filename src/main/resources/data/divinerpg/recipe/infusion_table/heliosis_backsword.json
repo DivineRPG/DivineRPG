@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:heliosis_lump",
+    "id": "divinerpg:heliosis_lump",
     "count": 20
   },
   "template": {
-    "item": "divinerpg:backsword_template"
+    "id": "divinerpg:backsword_template"
   },
   "output": {
-    "item": "divinerpg:heliosis_backsword"
+    "id": "divinerpg:heliosis_backsword"
   }
 }

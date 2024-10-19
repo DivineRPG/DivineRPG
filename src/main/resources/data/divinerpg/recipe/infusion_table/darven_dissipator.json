@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:darven_lump",
+    "id": "divinerpg:darven_lump",
     "count": 6
   },
   "template": {
-    "item": "divinerpg:dissipator_template"
+    "id": "divinerpg:dissipator_template"
   },
   "output": {
-    "item": "divinerpg:darven_dissipator"
+    "id": "divinerpg:darven_dissipator"
   }
 }

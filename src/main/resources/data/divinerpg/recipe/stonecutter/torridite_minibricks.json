@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:torridite_bricks"
   },
-  "result": "divinerpg:torridite_minibricks",
+  "result":  {
+    "id": "divinerpg:torridite_minibricks"
+  },
   "count": 1
 }

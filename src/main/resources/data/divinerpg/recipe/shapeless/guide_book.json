@@ -9,7 +9,7 @@
     }
   ],
   "result": {
-    "item": "patchouli:guide_book",
+    "id": "patchouli:guide_book",
     "nbt": {
       "patchouli:book": "divinerpg:divine"
     },

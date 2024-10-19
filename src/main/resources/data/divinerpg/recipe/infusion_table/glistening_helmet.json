@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:darven_lump",
+    "id": "divinerpg:darven_lump",
     "count": 10
   },
   "template": {
-    "item": "divinerpg:glistening_template"
+    "id": "divinerpg:glistening_template"
   },
   "output": {
-    "item": "divinerpg:glistening_helmet"
+    "id": "divinerpg:glistening_helmet"
   }
 }

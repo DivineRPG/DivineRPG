@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:frozen_stone"
   },
-  "result": "divinerpg:frozen_stairs",
+  "result":{
+    "id":  "divinerpg:frozen_stairs"
+  },
   "count": 1
 }

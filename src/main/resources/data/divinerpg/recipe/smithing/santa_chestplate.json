@@ -7,7 +7,7 @@
     "item": "divinerpg:seng_fur_chestplate"
   },
   "result": {
-    "item": "divinerpg:santa_chestplate"
+    "id": "divinerpg:santa_chestplate"
   },
   "template": {
 	"item": "divinerpg:color_template"

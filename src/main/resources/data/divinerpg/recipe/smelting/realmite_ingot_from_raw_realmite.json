@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "divinerpg:realmite_ingot"
+    "id": "divinerpg:realmite_ingot"
   },
   "ingredient": {
     "item": "divinerpg:raw_realmite"

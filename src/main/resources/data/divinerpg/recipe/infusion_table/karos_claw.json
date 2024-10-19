@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:karos_lump",
+    "id": "divinerpg:karos_lump",
     "count": 16
   },
   "template": {
-    "item": "divinerpg:claw_template"
+    "id": "divinerpg:claw_template"
   },
   "output": {
-    "item": "divinerpg:karos_claw"
+    "id": "divinerpg:karos_claw"
   }
 }

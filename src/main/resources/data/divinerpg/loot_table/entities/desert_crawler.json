@@ -48,11 +48,11 @@
           "conditions": [
             {
               "condition": "minecraft:entity_properties",
-              "entity": "killer",
+              "entity": "attacker",
               "predicate": {
                 "equipment": {
                   "mainhand": {
-                    "tag": "minecraft:pickaxes"
+                    "items": "#minecraft:pickaxes"
                   }
                 }
               }
@@ -79,11 +79,11 @@
           "conditions": [
             {
               "condition": "minecraft:entity_properties",
-              "entity": "killer",
+              "entity": "attacker",
               "predicate": {
                 "equipment": {
                   "mainhand": {
-                    "tag": "minecraft:shovels"
+                    "items": "#minecraft:shovels"
                   }
                 }
               }
@@ -119,11 +119,11 @@
             },
             {
               "condition": "minecraft:entity_properties",
-              "entity": "killer",
+              "entity": "attacker",
               "predicate": {
                 "equipment": {
                   "mainhand": {
-                    "tag": "minecraft:pickaxes"
+                    "items": "#minecraft:pickaxes"
                   }
                 }
               }
@@ -167,7 +167,10 @@
           "predicate": {
             "stepping_on": {
               "fluid": {
-                "tag": "minecraft:water"
+                "fluids": [
+                  "minecraft:flowing_water",
+                  "minecraft:water"
+                ]
               }
             }
           }

@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "minecraft:stone"
   },
-  "result": "divinerpg:minibricks",
+  "result": {
+    "id": "divinerpg:minibricks"
+  },
   "count": 1
 }

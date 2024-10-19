@@ -7,7 +7,7 @@
     "item": "divinerpg:ender_sword"
   },
   "result": {
-    "item": "divinerpg:blue_ender_sword"
+    "id": "divinerpg:blue_ender_sword"
   },
   "template": {
 	"item": "divinerpg:color_template"

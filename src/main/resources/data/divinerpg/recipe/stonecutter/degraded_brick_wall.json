@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:degraded_bricks_breakable"
   },
-  "result": "divinerpg:degraded_brick_wall_breakable",
+  "result":{
+    "id":  "divinerpg:degraded_brick_wall_breakable"
+  },
   "count": 1
 }

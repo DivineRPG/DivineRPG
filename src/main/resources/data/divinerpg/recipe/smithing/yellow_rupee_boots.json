@@ -7,7 +7,7 @@
     "item": "divinerpg:rupee_boots"
   },
   "result": {
-    "item": "divinerpg:yellow_rupee_boots"
+    "id": "divinerpg:yellow_rupee_boots"
   },
   "template": {
 	"item": "divinerpg:color_template"

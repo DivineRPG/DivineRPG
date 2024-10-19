@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:teaker_lump",
+    "id": "divinerpg:teaker_lump",
     "count": 2
   },
   "template": {
-    "item": "divinerpg:staff_template"
+    "id": "divinerpg:staff_template"
   },
   "output": {
-    "item": "divinerpg:teaker_staff"
+    "id": "divinerpg:teaker_staff"
   }
 }

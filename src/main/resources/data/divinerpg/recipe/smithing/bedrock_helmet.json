@@ -12,7 +12,7 @@
     }
   ],
   "result": {
-    "item": "divinerpg:bedrock_helmet"
+    "id": "divinerpg:bedrock_helmet"
   },
   "template": {
 	"item": "divinerpg:bedrock_upgrade_template"

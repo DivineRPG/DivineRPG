@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:arksiane_lump",
+    "id": "divinerpg:arksiane_lump",
     "count": 21
   },
   "template": {
-    "item": "divinerpg:claw_template"
+    "id": "divinerpg:claw_template"
   },
   "output": {
-    "item": "divinerpg:arksiane_claw"
+    "id": "divinerpg:arksiane_claw"
   }
 }

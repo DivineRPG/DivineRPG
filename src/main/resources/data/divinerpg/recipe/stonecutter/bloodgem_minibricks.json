@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:bloodgem_bricks"
   },
-  "result": "divinerpg:bloodgem_minibricks",
+  "result":{
+    "id": "divinerpg:bloodgem_minibricks"
+  },
   "count": 1
 }

@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:cermile_lump",
+    "id": "divinerpg:cermile_lump",
     "count": 6
   },
   "template": {
-    "item": "divinerpg:claw_template"
+    "id": "divinerpg:claw_template"
   },
   "output": {
-    "item": "divinerpg:cermile_claw"
+    "id": "divinerpg:cermile_claw"
   }
 }

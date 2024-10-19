@@ -3,7 +3,9 @@
   "ingredient": {
     "item": "divinerpg:raw_wolpertinger_meat"
   },
-  "result": "divinerpg:wolpertinger_steak",
+  "result": {
+    "id": "divinerpg:wolpertinger_steak"
+  },
   "category": "food",
   "experience": 0.35,
   "cookingtime": 600

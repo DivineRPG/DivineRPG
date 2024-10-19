@@ -45,7 +45,7 @@
 				"maxCount": 1
 			},
 			{
-				"type": "minecraft:glacon",
+				"type": "divinerpg:glacon",
 				"weight": 1,
 				"minCount": 1,
 				"maxCount": 1

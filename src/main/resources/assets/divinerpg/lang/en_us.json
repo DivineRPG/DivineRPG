@@ -795,6 +795,8 @@
   "item.minecraft.lingering_potion.effect.tea": "Lingering Tea Bottle",
   "item.minecraft.tipped_arrow.effect.tea": "Hot Arrow",
 
+  "item.divinerpg.potion.red_cattle": "Red Cattle",
+  "item.divinerpg.potion.wreck_potion": "Wreck Potion",
   "item.minecraft.potion.effect.grog": "Grog Bottle",
   "item.minecraft.splash_potion.effect.grog": "Splash Grog Bottle",
   "item.minecraft.lingering_potion.effect.grog": "Lingering Grog Bottle",
@@ -2728,5 +2730,8 @@
   "effect.divinerpg.demonized_hood.description": "Gives the player a arcana damage reduction.",
   "effect.divinerpg.finished_hood.description": "Gives the player a arcana damage reduction.",
   "effect.divinerpg.glistening_hood.description": "Gives the player a arcana damage reduction.",
-  "effect.divinerpg.tormented_hood.description": "Gives the player a arcana damage reduction."
+  "effect.divinerpg.tormented_hood.description": "Gives the player a arcana damage reduction.",
+
+  "lore.divinerpg.red_cattle": "The fear of failure that drives you",
+  "lore.divinerpg.wreck_potion": "Maybe there's a use for this somewhere..."
 }

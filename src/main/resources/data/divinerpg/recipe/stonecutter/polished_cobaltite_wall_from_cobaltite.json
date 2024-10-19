@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:cobaltite"
   },
-  "result": "divinerpg:polished_cobaltite_wall",
+  "result": {
+    "id": "divinerpg:polished_cobaltite_wall"
+  },
   "count": 1
 }

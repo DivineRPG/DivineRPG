@@ -45,331 +45,331 @@
     "divinerpg:divine_sapling": {
       "chance": 0.3
     },
-    "minecraft:shiverspine_sapling": {
+    "divinerpg:shiverspine_sapling": {
       "chance": 0.3
     },
-    "minecraft:auroraoak_sapling": {
+    "divinerpg:auroraoak_sapling": {
       "chance": 0.3
     },
-    "minecraft:cozybark_sapling": {
+    "divinerpg:cozybark_sapling": {
       "chance": 0.3
     },
-    "minecraft:streamleaf_sapling": {
+    "divinerpg:streamleaf_sapling": {
       "chance": 0.3
     },
-    "minecraft:eden_sapling": {
+    "divinerpg:eden_sapling": {
       "chance": 0.3
     },
-    "minecraft:wildwood_sapling": {
+    "divinerpg:wildwood_sapling": {
       "chance": 0.3
     },
-    "minecraft:apalachia_sapling": {
+    "divinerpg:apalachia_sapling": {
       "chance": 0.3
     },
-    "minecraft:skythern_sapling": {
+    "divinerpg:skythern_sapling": {
       "chance": 0.3
     },
-    "minecraft:mortum_sapling": {
+    "divinerpg:mortum_sapling": {
       "chance": 0.3
     },
-    "minecraft:brittle_grass": {
+    "divinerpg:brittle_grass": {
       "chance": 0.3
     },
-    "minecraft:apalachia_tallgrass": {
+    "divinerpg:apalachia_tallgrass": {
       "chance": 0.3
     },
-    "minecraft:tomato_seeds": {
+    "divinerpg:tomato_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:white_mushroom_seeds": {
+    "divinerpg:white_mushroom_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:aquamarine_seeds": {
+    "divinerpg:aquamarine_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:eucalyptus_root_seeds": {
+    "divinerpg:eucalyptus_root_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:firestock_seeds": {
+    "divinerpg:firestock_seeds": {
       "chance": 0.3
     },
-    "minecraft:hitchak_seeds": {
+    "divinerpg:hitchak_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:lamona_seeds": {
+    "divinerpg:lamona_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:marsine_seeds": {
+    "divinerpg:marsine_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:pinfly_seeds": {
+    "divinerpg:pinfly_seeds": {
       "chance": 0.3
     },
-    "minecraft:veilo_seeds": {
+    "divinerpg:veilo_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:moonbulb_seeds": {
+    "divinerpg:moonbulb_seeds": {
       "chance": 0.3
     },
-    "minecraft:pink_glowbone_seeds": {
+    "divinerpg:pink_glowbone_seeds": {
       "chance": 0.3
     },
-    "minecraft:purple_glowbone_seeds": {
+    "divinerpg:purple_glowbone_seeds": {
       "chance": 0.3
     },
-    "minecraft:sky_plant_seeds": {
+    "divinerpg:sky_plant_seeds": {
       "can_villager_compost": true,
       "chance": 0.3
     },
-    "minecraft:winterberry": {
+    "divinerpg:winterberry": {
       "chance": 0.3
     },
-    "minecraft:wildwood_tallgrass": {
+    "divinerpg:wildwood_tallgrass": {
       "chance": 0.5
     },
-    "minecraft:dream_melon": {
+    "divinerpg:dream_melon": {
       "chance": 0.5
     },
-    "minecraft:arcana_brush": {
+    "divinerpg:arcana_brush": {
       "chance": 0.5
     },
-    "minecraft:eden_brush": {
+    "divinerpg:eden_brush": {
       "chance": 0.5
     },
-    "minecraft:skythern_brush": {
+    "divinerpg:skythern_brush": {
       "chance": 0.5
     },
-    "minecraft:mortum_brush": {
+    "divinerpg:mortum_brush": {
       "chance": 0.5
     },
-    "minecraft:winterberry_vines_head": {
+    "divinerpg:winterberry_vines_head": {
       "chance": 0.5
     },
-    "minecraft:arcanite_vines_head": {
+    "divinerpg:arcanite_vines_head": {
       "chance": 0.5
     },
-    "minecraft:wildwood_vine": {
+    "divinerpg:wildwood_vine": {
       "chance": 0.5
     },
-    "minecraft:weedwood_vine": {
+    "divinerpg:weedwood_vine": {
       "chance": 0.5
     },
-    "minecraft:blossomed_weedwood_vine": {
+    "divinerpg:blossomed_weedwood_vine": {
       "chance": 0.5
     },
-    "minecraft:blaze_pumpkin": {
+    "divinerpg:blaze_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:creeper_pumpkin": {
+    "divinerpg:creeper_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:cyclops_pumpkin": {
+    "divinerpg:cyclops_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:ender_pumpkin": {
+    "divinerpg:ender_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:ender_watcher_pumpkin": {
+    "divinerpg:ender_watcher_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:frost_pumpkin": {
+    "divinerpg:frost_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:ghast_pumpkin": {
+    "divinerpg:ghast_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:glacon_pumpkin": {
+    "divinerpg:glacon_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:hellspider_pumpkin": {
+    "divinerpg:hellspider_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:jungle_spider_pumpkin": {
+    "divinerpg:jungle_spider_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:skeleton_pumpkin": {
+    "divinerpg:skeleton_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:spider_pumpkin": {
+    "divinerpg:spider_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:zombie_pumpkin": {
+    "divinerpg:zombie_pumpkin": {
       "chance": 0.65
     },
-    "minecraft:glowsprout": {
+    "divinerpg:glowsprout": {
       "chance": 0.65
     },
-    "minecraft:lowsprout": {
+    "divinerpg:lowsprout": {
       "chance": 0.65
     },
-    "minecraft:slowsprout": {
+    "divinerpg:slowsprout": {
       "chance": 0.65
     },
-    "minecraft:truffle": {
+    "divinerpg:truffle": {
       "chance": 0.65
     },
-    "minecraft:dreamglow": {
+    "divinerpg:dreamglow": {
       "chance": 0.65
     },
-    "minecraft:crimpetal": {
+    "divinerpg:crimpetal": {
       "chance": 0.65
     },
-    "minecraft:roofbell": {
+    "divinerpg:roofbell": {
       "chance": 0.65
     },
-    "minecraft:winterbloom": {
+    "divinerpg:winterbloom": {
       "chance": 0.65
     },
-    "minecraft:wisp_leaf": {
+    "divinerpg:wisp_leaf": {
       "chance": 0.65
     },
-    "minecraft:gem_of_the_dunes": {
+    "divinerpg:gem_of_the_dunes": {
       "chance": 0.65
     },
-    "minecraft:sun_blossom": {
+    "divinerpg:sun_blossom": {
       "chance": 0.65
     },
-    "minecraft:sunbloom": {
+    "divinerpg:sunbloom": {
       "chance": 0.65
     },
-    "minecraft:moonlight_fern": {
+    "divinerpg:moonlight_fern": {
       "chance": 0.65
     },
-    "minecraft:moon_bud": {
+    "divinerpg:moon_bud": {
       "chance": 0.65
     },
-    "minecraft:dust_lily": {
+    "divinerpg:dust_lily": {
       "chance": 0.65
     },
-    "minecraft:eye_plant": {
+    "divinerpg:eye_plant": {
       "chance": 0.65
     },
-    "minecraft:shine_grass": {
+    "divinerpg:shine_grass": {
       "chance": 0.65
     },
-    "minecraft:cracklespike": {
+    "divinerpg:cracklespike": {
       "chance": 0.65
     },
-    "minecraft:fernite": {
+    "divinerpg:fernite": {
       "chance": 0.65
     },
-    "minecraft:bulbatobe": {
+    "divinerpg:bulbatobe": {
       "chance": 0.65
     },
-    "minecraft:shimmer": {
+    "divinerpg:shimmer": {
       "chance": 0.65
     },
-    "minecraft:yellow_dulah": {
+    "divinerpg:yellow_dulah": {
       "chance": 0.65
     },
-    "minecraft:green_dulah": {
+    "divinerpg:green_dulah": {
       "chance": 0.65
     },
-    "minecraft:green_gemtop": {
+    "divinerpg:green_gemtop": {
       "chance": 0.65
     },
-    "minecraft:purple_gemtop": {
+    "divinerpg:purple_gemtop": {
       "chance": 0.65
     },
-    "minecraft:globebrush": {
+    "divinerpg:globebrush": {
       "chance": 0.65
     },
-    "minecraft:thermoliage": {
+    "divinerpg:thermoliage": {
       "chance": 0.65
     },
-    "minecraft:dusk_flower": {
+    "divinerpg:dusk_flower": {
       "chance": 0.65
     },
-    "minecraft:dust_brambles": {
+    "divinerpg:dust_brambles": {
       "chance": 0.65
     },
-    "minecraft:demon_brambles": {
+    "divinerpg:demon_brambles": {
       "chance": 0.65
     },
-    "minecraft:winterberry_bush": {
+    "divinerpg:winterberry_bush": {
       "chance": 0.65
     },
-    "minecraft:arcana_bush": {
+    "divinerpg:arcana_bush": {
       "chance": 0.65
     },
-    "minecraft:brittle_moss": {
+    "divinerpg:brittle_moss": {
       "chance": 0.65
     },
-    "minecraft:arcanite_moss": {
+    "divinerpg:arcanite_moss": {
       "chance": 0.65
     },
-    "minecraft:tomato": {
+    "divinerpg:tomato": {
       "chance": 0.65
     },
-    "minecraft:white_mushroom": {
+    "divinerpg:white_mushroom": {
       "chance": 0.65
     },
-    "minecraft:aquamarine": {
+    "divinerpg:aquamarine": {
       "chance": 0.65
     },
-    "minecraft:hitchak": {
+    "divinerpg:hitchak": {
       "chance": 0.65
     },
-    "minecraft:pinfly": {
+    "divinerpg:pinfly": {
       "chance": 0.65
     },
-    "minecraft:moonbulb": {
+    "divinerpg:moonbulb": {
       "chance": 0.65
     },
-    "minecraft:pink_glowbone": {
+    "divinerpg:pink_glowbone": {
       "chance": 0.65
     },
-    "minecraft:purple_glowbone": {
+    "divinerpg:purple_glowbone": {
       "chance": 0.65
     },
-    "minecraft:dream_carrot": {
+    "divinerpg:dream_carrot": {
       "chance": 0.65
     },
-    "minecraft:chocolate_log": {
+    "divinerpg:chocolate_log": {
       "chance": 0.85
     },
-    "minecraft:donut": {
+    "divinerpg:donut": {
       "chance": 0.85
     },
-    "minecraft:forbidden_fruit": {
+    "divinerpg:forbidden_fruit": {
       "chance": 0.85
     },
-    "minecraft:glowsprout_bulb": {
+    "divinerpg:glowsprout_bulb": {
       "chance": 0.85
     },
-    "minecraft:glowsprout_stem": {
+    "divinerpg:glowsprout_stem": {
       "chance": 0.85
     },
-    "minecraft:lowsprout_bulb": {
+    "divinerpg:lowsprout_bulb": {
       "chance": 0.85
     },
-    "minecraft:lowsprout_stem": {
+    "divinerpg:lowsprout_stem": {
       "chance": 0.85
     },
-    "minecraft:slowsprout_bulb": {
+    "divinerpg:slowsprout_bulb": {
       "chance": 0.85
     },
-    "minecraft:slowsprout_stem": {
+    "divinerpg:slowsprout_stem": {
       "chance": 0.85
     },
-    "minecraft:dream_cake": {
+    "divinerpg:dream_cake": {
       "chance": 1
     },
-    "minecraft:dream_pie": {
+    "divinerpg:dream_pie": {
       "chance": 1
     },
-    "minecraft:fruit_cake": {
+    "divinerpg:fruit_cake": {
       "chance": 1
     },
-    "minecraft:hot_pumpkin_pie": {
+    "divinerpg:hot_pumpkin_pie": {
       "chance": 1
     }
   }

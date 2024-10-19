@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:polished_coalstone"
   },
-  "result": "divinerpg:polished_coalstone_stairs",
+  "result": {
+    "id": "divinerpg:polished_coalstone_stairs"
+  },
   "count": 1
 }

@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:asphalt"
   },
-  "result": "divinerpg:asphalt_stairs",
+  "result": {
+    "id": "divinerpg:asphalt_stairs"
+  },
   "count": 1
 }

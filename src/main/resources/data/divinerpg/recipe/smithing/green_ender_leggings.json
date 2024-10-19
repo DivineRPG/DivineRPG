@@ -7,7 +7,7 @@
     "item": "divinerpg:ender_leggings"
   },
   "result": {
-    "item": "divinerpg:green_ender_leggings"
+    "id": "divinerpg:green_ender_leggings"
   },
   "template": {
 	"item": "divinerpg:color_template"

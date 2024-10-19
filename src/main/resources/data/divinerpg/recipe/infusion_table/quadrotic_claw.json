@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:quadrotic_lump",
+    "id": "divinerpg:quadrotic_lump",
     "count": 10
   },
   "template": {
-    "item": "divinerpg:claw_template"
+    "id": "divinerpg:claw_template"
   },
   "output": {
-    "item": "divinerpg:quadrotic_claw"
+    "id": "divinerpg:quadrotic_claw"
   }
 }

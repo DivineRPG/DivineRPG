@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:pardimal_lump",
+    "id": "divinerpg:pardimal_lump",
     "count": 10
   },
   "template": {
-    "item": "divinerpg:tormented_template"
+    "id": "divinerpg:tormented_template"
   },
   "output": {
-    "item": "divinerpg:tormented_helmet"
+    "id": "divinerpg:tormented_helmet"
   }
 }

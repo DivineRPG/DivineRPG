@@ -7,7 +7,7 @@
     "item": "divinerpg:rupee_leggings"
   },
   "result": {
-    "item": "divinerpg:blue_rupee_leggings"
+    "id": "divinerpg:blue_rupee_leggings"
   },
   "template": {
 	"item": "divinerpg:color_template"

@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:coalstone"
   },
-  "result": "divinerpg:coalstone_wall",
+  "result": {
+    "id": "divinerpg:coalstone_wall"
+  },
   "count": 1
 }

@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:cobaltite"
   },
-  "result": "divinerpg:cobaltite_stairs",
+  "result": {
+    "id": "divinerpg:cobaltite_stairs"
+  },
   "count": 1
 }

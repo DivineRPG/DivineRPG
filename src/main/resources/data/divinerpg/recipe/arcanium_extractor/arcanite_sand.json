@@ -3,7 +3,9 @@
   "ingredient": {
     "item": "divinerpg:arcanite_stone"
   },
-  "result": "divinerpg:arcanite_sand",
+  "result":{
+    "id":  "divinerpg:arcanite_sand"
+  },
   "experience": 0.1,
   "cookingtime": 20
 }

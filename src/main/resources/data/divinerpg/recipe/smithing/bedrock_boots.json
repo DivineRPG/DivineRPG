@@ -12,7 +12,7 @@
     }
   ],
   "result": {
-    "item": "divinerpg:bedrock_boots"
+    "id": "divinerpg:bedrock_boots"
   },
   "template": {
 	"item": "divinerpg:bedrock_upgrade_template"

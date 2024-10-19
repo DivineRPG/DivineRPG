@@ -4,9 +4,10 @@
       "name": "divinerpg:liopleurodon",
       "conditions": [
         {
-          "condition": "random_chance_with_looting",
-          "chance": 0.25,
-          "looting_multiplier": 0.05
+          "condition": "minecraft:random_chance_with_enchanted_bonus",
+          "enchantment": "minecraft:looting",
+          "unenchanted_chance": 0.25,
+          "enchanted_chance": 0.3
         }
       ],
       "rolls": 1,
@@ -35,11 +36,13 @@
               }
             },
             {
-              "function": "looting_enchant",
               "count": {
-                "min": 0,
-                "max": 1
-              }
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "enchantment": "minecraft:looting",
+              "function": "minecraft:enchanted_count_increase"
             }
           ]
         }

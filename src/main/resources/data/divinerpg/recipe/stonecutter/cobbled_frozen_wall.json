@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:cobbled_frozen_stone"
   },
-  "result": "divinerpg:cobbled_frozen_wall",
+  "result": {
+    "id": "divinerpg:cobbled_frozen_wall"
+  },
   "count": 1
 }

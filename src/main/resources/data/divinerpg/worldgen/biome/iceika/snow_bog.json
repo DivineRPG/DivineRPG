@@ -75,7 +75,7 @@
 				"maxCount": 5
 			},
 			{
-				"type": "divinerpg:ghost_glider",
+				"type": "divinerpg:pink_ghost_glider",
 				"weight": 3,
 				"minCount": 1,
 				"maxCount": 4

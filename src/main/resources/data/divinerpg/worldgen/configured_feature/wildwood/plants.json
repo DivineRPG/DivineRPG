@@ -9,10 +9,8 @@
     "vegetation_chance": 1,
     "xz_radius": {
       "type": "minecraft:uniform",
-      "value": {
-        "min_inclusive": 3,
-        "max_inclusive": 7
-      }
+      "min_inclusive": 3,
+      "max_inclusive": 7
     },
     "replaceable": "#minecraft:mineable/shovel",
     "ground_state": {

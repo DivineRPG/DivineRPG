@@ -7,7 +7,7 @@
     "item": "divinerpg:rupee_chestplate"
   },
   "result": {
-    "item": "divinerpg:blue_rupee_chestplate"
+    "id": "divinerpg:blue_rupee_chestplate"
   },
   "template": {
 	"item": "divinerpg:color_template"

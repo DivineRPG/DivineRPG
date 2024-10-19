@@ -12,7 +12,7 @@
     }
   ],
   "result": {
-    "item": "divinerpg:bedrock_chestplate"
+    "id": "divinerpg:bedrock_chestplate"
   },
   "template": {
 	"item": "divinerpg:bedrock_upgrade_template"

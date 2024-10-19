@@ -22,7 +22,8 @@
                 "max": 1.0,
                 "min": 0.0
               },
-              "function": "minecraft:looting_enchant"
+              "enchantment": "minecraft:looting",
+              "function": "minecraft:enchanted_count_increase"
             }
           ],
           "name": "minecraft:rabbit_hide"
@@ -65,7 +66,8 @@
                 "max": 1.0,
                 "min": 0.0
               },
-              "function": "minecraft:looting_enchant"
+              "enchantment": "minecraft:looting",
+              "function": "minecraft:enchanted_count_increase"
             }
           ],
           "name": "divinerpg:raw_wolpertinger_meat"
@@ -78,11 +80,6 @@
       "conditions": [
         {
           "condition": "minecraft:killed_by_player"
-        },
-        {
-          "chance": 0.1,
-          "condition": "minecraft:random_chance_with_looting",
-          "looting_multiplier": 0.03
         }
       ],
       "entries": [

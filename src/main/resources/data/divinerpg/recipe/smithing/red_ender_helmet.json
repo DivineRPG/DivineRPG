@@ -7,7 +7,7 @@
     "item": "divinerpg:ender_helmet"
   },
   "result": {
-    "item": "divinerpg:red_ender_helmet"
+    "id": "divinerpg:red_ender_helmet"
   },
   "template": {
 	"item": "divinerpg:color_template"

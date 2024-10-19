@@ -16,6 +16,7 @@ import net.minecraft.world.entity.animal.Squid;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.Path;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumSet;
 
@@ -26,7 +27,7 @@ public class EntityAequorea extends Squid {
 		if(!level.isClientSide()) entityData.set(VARIANT, (byte) getRandom().nextInt(6));
 	}
 	@Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
 		super.defineSynchedData(builder);
     	builder.define(VARIANT, (byte)0);
 	}

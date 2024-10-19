@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:quadrotic_lump",
+    "id": "divinerpg:quadrotic_lump",
     "count": 13
   },
   "template": {
-    "item": "divinerpg:disk_template"
+    "id": "divinerpg:disk_template"
   },
   "output": {
-    "item": "divinerpg:quadrotic_disk"
+    "id": "divinerpg:quadrotic_disk"
   }
 }

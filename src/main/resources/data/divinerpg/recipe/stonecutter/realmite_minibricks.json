@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "divinerpg:realmite_bricks"
   },
-  "result": "divinerpg:realmite_minibricks",
+  "result": {
+    "id": "divinerpg:realmite_minibricks"
+  },
   "count": 1
 }

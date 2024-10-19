@@ -1,13 +1,13 @@
 {
   "type": "divinerpg:infusion_table",
   "input": {
-    "item": "divinerpg:karos_lump",
+    "id": "divinerpg:karos_lump",
     "count": 18
   },
   "template": {
-    "item": "divinerpg:dissipator_template"
+    "id": "divinerpg:dissipator_template"
   },
   "output": {
-    "item": "divinerpg:karos_dissipator"
+    "id": "divinerpg:karos_dissipator"
   }
 }

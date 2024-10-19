@@ -3,7 +3,9 @@
   "ingredient": {
     "item": "divinerpg:raw_arcanium"
   },
-  "result": "divinerpg:arcanium",
+  "result": {
+    "id": "divinerpg:arcanium"
+  },
   "experience": 1,
   "cookingtime": 100
 }

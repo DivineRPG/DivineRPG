@@ -239,6 +239,8 @@ public class SoundRegistry {
         ICEIKA_MUSIC = registerSound("iceika_music"),
         SNOWFLAKES_AFTER_BLIZZARD = registerSound("snowflakes_after_blizzard"),
         SNOWFLAKES_AFTER_BLIZZARD_SYNTH = registerSound("snowflakes_after_blizzard_synth"),
+        FROZEN_DISPERSION = registerSound("frozen_dispersion"),
+        CUP_OF_TEA = registerSound("cup_of_tea"),
         PATCHOULI_FLIP = registerSound("patchouli_flip"),
         PATCHOULI_OPEN = registerSound("patchouli_open"),
         MORTUM_AMBIENCE = registerSound("mortum_ambience"),

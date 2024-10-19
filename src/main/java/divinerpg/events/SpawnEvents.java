@@ -32,6 +32,7 @@ import static net.minecraft.world.level.levelgen.Heightmap.Types.*;
 import static net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent.Operation.REPLACE;
 
 public class SpawnEvents {
+	@SubscribeEvent
 	public static void spawnPlacementCheck(MobSpawnEvent.SpawnPlacementCheck e) {
 		if(e.getLevel() instanceof ServerLevel level) {
 			MobSpawnType type = e.getSpawnType();

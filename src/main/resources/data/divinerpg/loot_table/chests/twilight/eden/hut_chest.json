@@ -103,8 +103,45 @@
 					"name": "minecraft:potion",
 					"functions": [
 						{
-							"function": "minecraft:set_nbt",
-							"tag": "{CustomPotionEffects:[{Id:1,Duration:400,ShowParticles:0b},{Id:8,Duration:300,ShowParticles:0b},{Id:10,Amplifier:1,Duration:400,ShowParticles:0b},{Id:11,Duration:3600,ShowParticles:0b},{Id:21,Amplifier:2,Duration:1200,ShowParticles:0b}],CustomPotionColor:16122624,display:{Name:\"\\\"Red Cattle\\\"\",Lore:[\"The fear of failure that drives you\"]}}"
+							"function": "minecraft:set_components",
+							"components": {
+								"minecraft:lore": [
+									"lore.divinerpg.red_cattle"
+								],
+								"minecraft:item_name": "item.divinerpg.potion.red_cattle",
+								"minecraft:potion_contents": {
+									"custom_color": 16122624,
+									"custom_effects": [
+										{
+											"id": "minecraft:speed",
+											"duration": 400,
+											"show_particles": false
+										},
+										{
+											"id": "minecraft:jump_boost",
+											"duration": 300,
+											"show_particles": false
+										},
+										{
+											"id": "minecraft:regeneration",
+											"amplifier": 1,
+											"duration": 400,
+											"show_particles": false
+										},
+										{
+											"id": "minecraft:resistance",
+											"duration": 3600,
+											"show_particles": false
+										},
+										{
+											"id": "minecraft:health_boost",
+											"amplifier": 2,
+											"duration": 1200,
+											"show_particles": false
+										}
+									]
+								}
+							}
 						}
 					]
 				},

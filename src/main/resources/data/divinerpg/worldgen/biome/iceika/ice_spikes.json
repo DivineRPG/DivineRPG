@@ -89,7 +89,7 @@
 				"maxCount": 3
 			},
 			{
-				"type": "divinerpg:fox",
+				"type": "minecraft:fox",
 				"weight": 5,
 				"minCount": 1,
 				"maxCount": 3

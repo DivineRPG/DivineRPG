@@ -7,7 +7,7 @@
     "item": "divinerpg:aquastrive_boots"
   },
   "result": {
-    "item": "divinerpg:kraken_boots"
+    "id": "divinerpg:kraken_boots"
   },
   "template": {
 	"item": "divinerpg:aquatic_coating_template"

@@ -7,7 +7,7 @@
     "item": "divinerpg:seng_fur_leggings"
   },
   "result": {
-    "item": "divinerpg:santa_leggings"
+    "id": "divinerpg:santa_leggings"
   },
   "template": {
 	"item": "divinerpg:color_template"

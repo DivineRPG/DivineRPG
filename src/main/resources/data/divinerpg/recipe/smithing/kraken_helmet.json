@@ -7,7 +7,7 @@
     "item": "divinerpg:aquastrive_helmet"
   },
   "result": {
-    "item": "divinerpg:kraken_helmet"
+    "id": "divinerpg:kraken_helmet"
   },
   "template": {
 	"item": "divinerpg:aquatic_coating_template"
