@@ -3,13 +3,12 @@ package divinerpg.blocks.base;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.util.Utils;
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class BlockStackPlant extends BlockModDoubleCrop {
-    public BlockStackPlant(ResourceLocation seed) {super(seed);}
+    public BlockStackPlant() {super();}
     @Override public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         for(Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate = level.getBlockState(pos.relative(direction));

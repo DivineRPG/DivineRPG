@@ -8,7 +8,7 @@ import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
 
 public class PotionOfWarmthRecipe implements IBrewingRecipe {
 	@Override public boolean isInput(ItemStack input) {
-		return Utils.isPotion(input, PotionRegistry.TEA.get());
+		return Utils.isPotion(input, PotionRegistry.TEA);
 	}
 	@Override public boolean isIngredient(ItemStack ingredient) {
 		return ingredient.is(ItemRegistry.olivine.get());

@@ -97,7 +97,8 @@ public class EntityHellSpider extends EntityDivineMonster {
             super.makeStuckInBlock(state, motionMultiplierIn);
         }
     }
-    public boolean canBeAffected(MobEffectInstance potioneffectIn) {
+    @SuppressWarnings("deprecation")
+	public boolean canBeAffected(MobEffectInstance potioneffectIn) {
         if (potioneffectIn.getEffect() == MobEffects.POISON) {
 
             return false;

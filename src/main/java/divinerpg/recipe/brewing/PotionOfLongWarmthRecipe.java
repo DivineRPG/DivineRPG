@@ -8,7 +8,7 @@ import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
 
 public class PotionOfLongWarmthRecipe implements IBrewingRecipe {
 	@Override public boolean isInput(ItemStack input) {
-		return Utils.isPotion(input, PotionRegistry.WARMTH.get());
+		return Utils.isPotion(input, PotionRegistry.WARMTH);
 	}
 	@Override public boolean isIngredient(ItemStack ingredient) {
 		return ingredient.is(Items.REDSTONE);

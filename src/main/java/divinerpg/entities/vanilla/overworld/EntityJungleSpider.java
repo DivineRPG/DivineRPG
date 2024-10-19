@@ -86,7 +86,8 @@ public class EntityJungleSpider extends EntityDivineMonster {
         }
 
     }
-    public boolean canBeAffected(MobEffectInstance effectInstance) {
+    @SuppressWarnings("deprecation")
+	public boolean canBeAffected(MobEffectInstance effectInstance) {
         if (effectInstance.getEffect() == MobEffects.POISON) {
             return false;
         }

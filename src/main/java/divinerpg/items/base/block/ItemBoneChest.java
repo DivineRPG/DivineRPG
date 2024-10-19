@@ -16,7 +16,6 @@ public class ItemBoneChest extends BlockItem {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        super.initializeClient(consumer);
         consumer.accept(RenderBoneChest.INSTANCE);
     }
 

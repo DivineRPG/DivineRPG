@@ -9,6 +9,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
@@ -23,12 +24,14 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.api.distmarker.*;
 import java.util.List;
+import java.util.Optional;
 
 public class ItemModBow extends BowItem {
     public static final int DEFAULT_MAX_USE_DURATION = 72000;
     protected ArrowType arrowType;
     protected int maxUseDuration;
     protected Item arrowSupplier;
+    public Optional<Integer> nameColor;
     //No rarity, custom use duration
     public ItemModBow(ArrowType arrowType, int uses, int maxUseDuration) {
         super(new Properties().durability(uses));
@@ -37,16 +40,17 @@ public class ItemModBow extends BowItem {
         this.maxUseDuration = maxUseDuration;
     }
     //Have rarity, custom use duration
-    public ItemModBow(Rarity rarity, ArrowType arrowType, int uses, int maxUseDuration) {
-        super(new Properties().durability(uses).rarity(rarity));
+    public ItemModBow(int nameColor, ArrowType arrowType, int uses, int maxUseDuration) {
+        super(new Properties().durability(uses));
         this.arrowType = arrowType;
         this.arrowSupplier = arrowType.getArrowSupplier();
         this.maxUseDuration = maxUseDuration;
+        this.nameColor = Optional.of(nameColor);
     }
     //No rarity, default use duration
     public ItemModBow(ArrowType arrowType, int uses) {this(arrowType, uses, DEFAULT_MAX_USE_DURATION);}
     //Have rarity, default use duration
-    public ItemModBow(Rarity rarity, ArrowType arrowType, int uses) {this(rarity, arrowType, uses, DEFAULT_MAX_USE_DURATION);}
+    public ItemModBow(int nameColor, ArrowType arrowType, int uses) {this(nameColor, arrowType, uses, DEFAULT_MAX_USE_DURATION);}
     //Fire-resistant bows
     public ItemModBow(ArrowType arrowType, int maxUseDuration, Properties properties) {
         super(properties);
@@ -87,7 +91,7 @@ public class ItemModBow extends BowItem {
                         if(f == 1) arrow.setCritArrow(true);
                         int j = EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.POWER), entityLiving);
                         if(j > 0) arrow.setBaseDamage(arrow.getBaseDamage() + (double)j * .5 + .5);
-                        int k = EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.PUNCH), entityLiving);
+//                        int k = EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.PUNCH), entityLiving);
 //                        if(k > 0) arrow.setKnockback(k);
                         if(EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.FLAME), entityLiving) > 0) {arrow.igniteForSeconds(100);}
                         if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
@@ -143,5 +147,9 @@ public class ItemModBow extends BowItem {
         tooltip.add(needsArrow(stack) ? LocalizeUtils.ammo(arrowSupplier) : LocalizeUtils.infiniteAmmo());
         if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
         super.appendHoverText(stack, context, tooltip, flagIn);
+    }
+    @Override
+    public Component getName(ItemStack pStack) {
+    	return nameColor != null && nameColor.isPresent() ? ((MutableComponent) super.getName(pStack)).withColor(nameColor.get()) : super.getName(pStack);
     }
 }

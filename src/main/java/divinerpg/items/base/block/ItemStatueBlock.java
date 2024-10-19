@@ -17,7 +17,6 @@ public class ItemStatueBlock extends BlockItem {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        super.initializeClient(consumer);
         consumer.accept(RenderStatueBlock.INSTANCE);
     }
 

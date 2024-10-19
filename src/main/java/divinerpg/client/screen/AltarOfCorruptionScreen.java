@@ -12,6 +12,9 @@ import net.minecraft.client.gui.screens.inventory.*;
 import net.minecraft.client.model.BookModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.core.Holder;
+import net.minecraft.core.IdMap;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.*;
@@ -144,12 +147,13 @@ public class AltarOfCorruptionScreen extends AbstractContainerScreen<AltarOfCorr
 
         for(int j = 0; j < 3; ++j) {
             int k = (this.menu).costs[j];
-            Enchantment enchantment = Enchantment.byId((this.menu).enchantClue[j]);
+            IdMap<Holder<Enchantment>> idmap = minecraft.level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).asHolderIdMap();
+            Holder<Enchantment> enchantment = idmap.byId((this.menu).enchantClue[j]);
             int l = (this.menu).levelClue[j];
             int i1 = j + 1;
             if (this.isHovering(60, 14 + 19 * j, 108, 17, (double)mouseX, (double)mouseY) && k > 0) {
                 List<Component> list = Lists.newArrayList();
-                list.add((Component.translatable("container.enchant.clue", enchantment == null ? "" : enchantment.getFullname(l))).withStyle(ChatFormatting.WHITE));
+                list.add((Component.translatable("container.enchant.clue", enchantment == null ? "" : Enchantment.getFullname(enchantment, l))).withStyle(ChatFormatting.WHITE));
                 if (enchantment == null) {
                     list.add(Component.literal(""));
                     list.add(Component.translatable("neoforge.container.enchant.limitedEnchantability").withStyle(ChatFormatting.RED));

@@ -7,6 +7,7 @@ import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -35,8 +36,10 @@ import static net.minecraft.world.level.gameevent.GameEvent.BLOCK_CHANGE;
 import static net.neoforged.neoforge.common.ItemAbilities.*;
 
 public class ItemShickaxe extends DiggerItem {
-    public ItemShickaxe(Rarity rarity, Tier tier) {
-        super(tier, BlockTags.create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), new Properties().attributes(ShovelItem.createAttributes(tier, 1, -2.4F)).rarity(rarity));
+	public Optional<Integer> nameColor;
+    public ItemShickaxe(int nameColor, Tier tier) {
+        super(tier, BlockTags.create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), new Properties().attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
+        this.nameColor = Optional.of(nameColor);
     }
     public ItemShickaxe(Tier tier) {
         super(tier, BlockTags.create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), new Properties().attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
@@ -111,5 +114,9 @@ public class ItemShickaxe extends DiggerItem {
             : (tagKey == INCORRECT_FOR_STONE_TOOL ? Items.LAPIS_LAZULI
             : (tagKey == INCORRECT_FOR_IRON_TOOL ? Items.DIAMOND : Items.OBSIDIAN))));
         if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
+    }
+    @Override
+    public Component getName(ItemStack pStack) {
+    	return nameColor != null && nameColor.isPresent() ? ((MutableComponent) super.getName(pStack)).withColor(nameColor.get()) : super.getName(pStack);
     }
 }

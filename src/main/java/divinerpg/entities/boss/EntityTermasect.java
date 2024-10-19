@@ -112,7 +112,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
             EntityRegistry.TERMID.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, pos, MobSpawnType.MOB_SUMMONED, true, false);
         }
 
-        if (this.level().isRaining() && this.level().canSeeSky(blockPosition()) && level().random.nextInt(50) == 3) {
+        if (this.level().isRaining() && this.level().canSeeSky(blockPosition()) && level().getRandom().nextInt(50) == 3) {
             this.heal(5.0f);
         }
     }

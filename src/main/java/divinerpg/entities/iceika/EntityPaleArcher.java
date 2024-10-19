@@ -5,7 +5,6 @@ import divinerpg.entities.projectile.EntityDivineArrow;
 import divinerpg.enums.ArrowType;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;

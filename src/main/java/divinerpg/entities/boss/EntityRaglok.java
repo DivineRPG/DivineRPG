@@ -140,27 +140,27 @@ public class EntityRaglok extends EntityDivineBoss {
                 switch (ability) {
                     case LIGHTNING:
                         this.playSound(SoundRegistry.RAGLOK_GUARDIAN.get(), 1.0F, 1.0F);
-                        if (!level().isClientSide) {
+                        if (!level().isClientSide()) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.think"), true);
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.great"), true);
                         }
                         break;
                     case BLIND:
                         this.playSound(SoundRegistry.RAGLOK_DARK.get(), 1.0F, 1.0F);
-                        if (!level().isClientSide) {
+                        if (!level().isClientSide()) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.future"), true);
                         }
                         break;
                     case BOMBS:
                         this.playSound(SoundRegistry.RAGLOK_RAIN.get(), 1.0F, 1.0F);
-                        if (!level().isClientSide) {
+                        if (!level().isClientSide()) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.rain"), true);
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.kill"), true);
                         }
                         break;
                     case SLOW:
                         this.playSound(SoundRegistry.RAGLOK_NOTHING.get(), 1.0F, 1.0F);
-                        if (!level().isClientSide) {
+                        if (!level().isClientSide()) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.raglok.compare"), true);
                         }
                         break;

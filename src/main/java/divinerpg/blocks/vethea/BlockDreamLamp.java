@@ -32,7 +32,6 @@ public class BlockDreamLamp extends BaseEntityBlock {
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(POWERED, false);
     }
-    @SuppressWarnings("deprecation")
     @Override public RenderShape getRenderShape(BlockState state) {return RenderShape.MODEL;}
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(POWERED);

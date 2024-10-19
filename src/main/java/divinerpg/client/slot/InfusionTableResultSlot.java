@@ -5,9 +5,12 @@ import divinerpg.recipe.InfusionTableRecipe;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CraftingInput;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.event.EventHooks;
 
+import java.util.List;
 import java.util.Optional;
 
 public class InfusionTableResultSlot extends Slot {
@@ -42,9 +45,9 @@ public class InfusionTableResultSlot extends Slot {
         if(player.level() != null && !player.level().isClientSide()) {
             checkTakeAchievements(stack);
             CommonHooks.setCraftingPlayer(player);
-            Optional<InfusionTableRecipe> recipe = player.level().getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, craftSlots, player.level());
+            Optional<RecipeHolder<InfusionTableRecipe>> recipe = player.level().getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, CraftingInput.of(1, 2, List.of(craftSlots.getItem(0), craftSlots.getItem(1))), player.level());
             CommonHooks.setCraftingPlayer(null);
-            if(recipe.isPresent()) craftSlots.getItem(0).shrink(recipe.get().getCount());
+            if(recipe.isPresent()) craftSlots.getItem(0).shrink(recipe.get().value().input.getCount());
             super.onTake(player, stack);
         }
     }

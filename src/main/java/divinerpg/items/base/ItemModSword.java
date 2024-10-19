@@ -5,6 +5,7 @@ import divinerpg.enums.ToolStats;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.effect.*;
@@ -17,12 +18,14 @@ import net.neoforged.api.distmarker.*;
 import java.util.*;
 
 public class ItemModSword extends SwordItem {
+	public Optional<Integer> nameColor;
     public int arcanaConsumedUse, arcanaConsumedAttack, cooldown;
     public ToolStats sword;
     //Have rarity
-    public ItemModSword(Rarity rarity, Tier tier) {
-        super(tier, new Properties().attributes(ShovelItem.createAttributes(tier, 1, tier.getSpeed())).rarity(rarity));
+    public ItemModSword(int nameColor, Tier tier) {
+        super(tier, new Properties().attributes(ShovelItem.createAttributes(tier, 1, tier.getSpeed())));
         sword = (ToolStats)tier;
+        this.nameColor = Optional.of(nameColor);
     }
     //No rarity
     public ItemModSword(Tier tier) {
@@ -75,5 +78,9 @@ public class ItemModSword extends SwordItem {
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
         if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
+    }
+    @Override
+    public Component getName(ItemStack pStack) {
+    	return nameColor != null && nameColor.isPresent() ? ((MutableComponent) super.getName(pStack)).withColor(nameColor.get()) : super.getName(pStack);
     }
 }

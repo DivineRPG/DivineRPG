@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.*;
@@ -147,7 +148,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return new Vec3(pos.x * scale, pos.y, pos.z * scale);
 	}
 	public static DimensionTransition transitionTo(MinecraftServer server, Entity entity, UniversalPosition pos) {
-		return new DimensionTransition((ServerLevel) pos.level(server), pos.pos(), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.DO_NOTHING);
+		return new DimensionTransition((ServerLevel) pos.level(server), pos.pos(), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND);
 	}
 	public static void linkPortals(MinecraftServer server, UniversalPosition origin, UniversalPosition target) {
 		if(!hasPortal(server, origin) || !hasPortal(server, target)) return;
@@ -223,8 +224,17 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	}
 	@Override
 	protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+		return canSurvive(state, level, pos) ? state : Blocks.AIR.defaultBlockState();
+	}
+	@Override
+	protected void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pNeighborBlock, BlockPos pNeighborPos, boolean pMovedByPiston) {
+		if(!canSurvive(pState, pLevel, pPos)) pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), UPDATE_NEIGHBORS);
+		super.neighborChanged(pState, pLevel, pPos, pNeighborBlock, pNeighborPos, pMovedByPiston);
+	}
+	@Override
+	protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
 		Axis axis = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-		return supportedBy(level.getBlockState(pos.above())) && supportedBy(level.getBlockState(pos.below())) && supportedBy(level.getBlockState(pos.relative(axis, 1))) && supportedBy(level.getBlockState(pos.relative(axis, -1))) ? state : Blocks.AIR.defaultBlockState();
+		return supportedBy(level.getBlockState(pos.above())) && supportedBy(level.getBlockState(pos.below())) && supportedBy(level.getBlockState(pos.relative(axis, 1))) && supportedBy(level.getBlockState(pos.relative(axis, -1)));
 	}
 	public boolean supportedBy(BlockState state) {
 		return state.is(portalTag) || state.is(frameTag);
@@ -257,6 +267,10 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(BlockStateProperties.HORIZONTAL_AXIS);
     }
+	@Override
+	public boolean canBeReplaced(BlockState state, Fluid fluid) {
+		return false;
+	}
 	@Override
     public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
         return ItemStack.EMPTY;

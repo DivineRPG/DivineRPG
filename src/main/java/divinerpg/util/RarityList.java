@@ -1,8 +1,5 @@
 package divinerpg.util;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.world.item.Rarity;
-
 public class RarityList {
     /** Use these 3 Rarities for yellow, aqua, and light purple colors instead of custom ones:
      * UNCOMMON(ChatFormatting.YELLOW),
@@ -10,19 +7,21 @@ public class RarityList {
      * EPIC(ChatFormatting.LIGHT_PURPLE);
      */
     //Extra Base Colors
-    public static Rarity GRAY = Rarity.create("gray", ChatFormatting.GRAY);
-    public static Rarity DARK_GRAY = Rarity.create("dark_gray", ChatFormatting.DARK_GRAY);
-    public static Rarity RED = Rarity.create("red", ChatFormatting.RED);
-    public static Rarity GREEN = Rarity.create("green", ChatFormatting.GREEN);
-    public static Rarity BLUE = Rarity.create("blue", ChatFormatting.BLUE);
+    public static int GRAY = 11184810;
+    public static int DARK_GRAY = 5592405;
+    public static int RED = 16733525;
+    public static int GREEN = 5635925;
+    public static int BLUE = 5592575;
     //Materials
-    public static Rarity ENDER = Rarity.create("ender", style -> style.withColor(11294186));
-    public static Rarity DIVINE = Rarity.create("divine", style -> style.withColor(16506215));
-    public static Rarity EDEN = Rarity.create("eden", style -> style.withColor(15360539));
-    public static Rarity WILDWOOD = Rarity.create("wildwood", style -> style.withColor(1484773));
-    public static Rarity APALACHIA = Rarity.create("apalachia", style -> style.withColor(13318614));
-    public static Rarity SKYTHERN = Rarity.create("skythern", style -> style.withColor(11445945));
-    public static Rarity MORTUM = Rarity.create("mortum", style -> style.withColor(7302520));
-    public static Rarity HALITE = Rarity.create("halite", style -> style.withColor(6471301));
-    public static Rarity AWAKENED_HALITE = Rarity.create("awakened_halite", style -> style.withColor(4451564));
+    public static int ENDER = 11294186;
+    public static int DIVINE = 16506215;
+    public static int EDEN = 15360539;
+    public static int WILDWOOD = 1484773;
+    public static int APALACHIA = 13318614;
+    public static int SKYTHERN = 11445945;
+    public static int MORTUM = 7302520;
+    public static int HALITE = 6471301;
+    public static int AWAKENED_HALITE = 4451564;
+    public static int UNCOMMON = 16777045;
+    public static int COMMON = 16777215;
 }

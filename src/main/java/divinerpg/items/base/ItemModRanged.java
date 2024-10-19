@@ -25,6 +25,7 @@ import net.neoforged.api.distmarker.*;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Optional;
 
 public class ItemModRanged extends ItemMod {
     private Item ammoSupplier;
@@ -44,14 +45,15 @@ public class ItemModRanged extends ItemMod {
      * @param ammo - ammo for weapon. If it returns null, no ammo required
      * @param arcanaConsuming - arcana consuming per shot. Pass 0 to not consume at all
      */
-    public ItemModRanged(Rarity rarity, String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, Item ammo, int arcanaConsuming) {
-        super(new Properties().durability(uses).rarity(rarity));
+    public ItemModRanged(int nameColor, String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, Item ammo, int arcanaConsuming) {
+        super(new Properties().durability(uses));
         ammoSupplier = ammo;
         arcanaConsumedUse = arcanaConsuming;
         this.bulletType = bulletType;
         cooldown = delay;
         this.entityType = entityType;
         this.sound = sound;
+        this.nameColor = Optional.of(nameColor);
     }
     public ItemModRanged(String entityType, BulletType bulletType, SoundEvent sound, int uses, int delay, Item ammo, int arcanaConsuming) {
         super(new Properties().durability(uses));
@@ -63,11 +65,12 @@ public class ItemModRanged extends ItemMod {
         this.sound = sound;
     }
     //Throwables (no durability)
-    public ItemModRanged(Rarity rarity, BulletType bulletType, int delay) {
-        super(new Properties().rarity(rarity));
+    public ItemModRanged(int nameColor, BulletType bulletType, int delay) {
+        super(new Properties());
         this.bulletType = bulletType;
         cooldown = delay;
         sound = SoundEvents.ARROW_SHOOT;
+        this.nameColor = Optional.of(nameColor);
     }
     //No rarity, specified arcana usage
     public ItemModRanged(BulletType bulletType, SoundEvent sound, Item ammoSupplier, int uses, int delay, int arcanaConsuming) {this(null, bulletType, sound, uses, delay, ammoSupplier, arcanaConsuming);}

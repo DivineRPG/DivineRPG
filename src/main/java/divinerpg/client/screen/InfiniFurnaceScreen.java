@@ -36,7 +36,7 @@ public abstract class InfiniFurnaceScreen<T extends InfiniFurnaceMenu> extends A
 		widthTooNarrow = width < 379;
 	    recipeBookComponent.init(width, height, minecraft, widthTooNarrow, menu);
 	    leftPos = recipeBookComponent.updateScreenPosition(width, imageWidth);
-	    addRenderableWidget(new ImageButton(leftPos + 20, height / 2 - 49, 20, 18, 0, 0, 19, RECIPE_BUTTON_SPRITES, (component) -> {
+	    addRenderableWidget(new ImageButton(leftPos + 20, height / 2 - 49, 20, 18, /*0, 0, 19,*/ RECIPE_BUTTON_SPRITES, (component) -> {
 	         recipeBookComponent.toggleVisibility();
 	         leftPos = recipeBookComponent.updateScreenPosition(width, imageWidth);
 	         component.setPosition(leftPos + 20, height / 2 - 49);

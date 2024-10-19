@@ -22,9 +22,13 @@ import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ItemArmorPouch extends ItemMod {
-	public ItemArmorPouch(Rarity rarity) {super(new Properties().stacksTo(1).rarity(rarity));}
+	public ItemArmorPouch(int nameColor) {
+		super(new Properties().stacksTo(1));
+		this.nameColor = Optional.of(nameColor);
+	}
 	@Override public boolean isFoil(ItemStack item) {
 		return item.isEnchanted() || item.has(DataComponents.CONTAINER);
 	}

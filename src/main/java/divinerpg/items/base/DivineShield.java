@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
@@ -15,16 +16,19 @@ import net.neoforged.api.distmarker.*;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class DivineShield extends ShieldItem {
     public ResourceLocation resource;
+    public Optional<Integer> nameColor;
     private final Ingredient repairMaterial;
-    public DivineShield(Rarity rarity, Item repairMaterial, int damage, String name) {
-        super(new Properties().durability(damage).rarity(rarity));
+    public DivineShield(int nameColor, Item repairMaterial, int damage, String name) {
+        super(new Properties().durability(damage));
         this.repairMaterial = Ingredient.of(repairMaterial);
         DispenserBlock.registerBehavior(this, ArmorItem.DISPENSE_ITEM_BEHAVIOR);
         resource = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/shield/" + name + ".png");
+        this.nameColor = Optional.of(nameColor);
     }
     public DivineShield(Item repairMaterial, int damage, String name) {
         super(new Properties().durability(damage));
@@ -37,7 +41,6 @@ public class DivineShield extends ShieldItem {
         else return super.isValidRepairItem(shield, repairItem);
     }
     @Override public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        super.initializeClient(consumer);
         consumer.accept(RenderProps.INSTANCE);
     }
     @OnlyIn(Dist.CLIENT)
@@ -48,5 +51,9 @@ public class DivineShield extends ShieldItem {
     static class RenderProps implements IClientItemExtensions {
         public static RenderProps INSTANCE = new RenderProps();
         @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {return new DivineShieldRenderer(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());}
+    }
+    @Override
+    public Component getName(ItemStack pStack) {
+    	return nameColor != null && nameColor.isPresent() ? ((MutableComponent) super.getName(pStack)).withColor(nameColor.get()) : super.getName(pStack);
     }
 }

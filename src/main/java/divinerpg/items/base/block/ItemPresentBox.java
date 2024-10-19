@@ -16,7 +16,6 @@ public class ItemPresentBox extends BlockItem {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        super.initializeClient(consumer);
         consumer.accept(RenderPresentBox.INSTANCE);
     }
 

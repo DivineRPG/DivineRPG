@@ -9,7 +9,9 @@ import divinerpg.world.placement.Surface.Mode;
 import divinerpg.world.placement.Surface.Surface_Type;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup.RegistryLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.*;
@@ -196,8 +198,8 @@ public class Utils {
     public static boolean hasEnchantment(ItemStack stack, RegistryLookup<Enchantment> registry, ResourceKey<Enchantment> enchantment) {
     	return stack.getEnchantmentLevel(registry.getOrThrow(enchantment)) != 0;
     }
-    public static boolean isPotion(ItemStack stack, Potion potion) {
-    	return (stack.is(Items.POTION) || stack.is(Items.SPLASH_POTION) || stack.is(Items.LINGERING_POTION)) && PotionUtils.getPotion(stack) == potion;
+    public static boolean isPotion(ItemStack stack, Holder<Potion> potion) {
+    	return (stack.is(Items.POTION) || stack.is(Items.SPLASH_POTION) || stack.is(Items.LINGERING_POTION)) && stack.get(DataComponents.POTION_CONTENTS).is(potion);
     }
     public static BlockPos getNearbySpawnPos(ServerLevel level, RandomSource random, BlockPos position) {
 		int x = position.getX() + random.nextInt(16) - 8, z = position.getZ() + random.nextInt(16) - 8, y = Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, 64, 250, 1, level, random, x, z);

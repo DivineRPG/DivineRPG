@@ -7,9 +7,7 @@ import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.*;
-import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.Monster;
@@ -63,7 +61,7 @@ public class EntityKaros extends EntityDivineBoss {
                 case 0:
                     ability = CEILING;
                     this.playSound(SoundRegistry.CEILING_EXPLOSIONS.get(), 1.0F, 1.0F);
-                    if (!this.level().isClientSide) {
+                    if (!this.level().isClientSide()) {
                         List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
                         for (Player p : players) {
                             p.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.karos.explosion"), true);

@@ -2,7 +2,6 @@ package divinerpg.entities.apalachia;
 
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.*;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;

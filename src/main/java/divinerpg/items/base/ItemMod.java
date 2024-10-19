@@ -3,6 +3,7 @@ package divinerpg.items.base;
 import divinerpg.attachments.Arcana;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -10,8 +11,10 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import java.util.List;
+import java.util.Optional;
 
 public class ItemMod extends Item {
+	public Optional<Integer> nameColor;
     public int arcanaConsumedUse, cooldown;
     public ItemMod() {super(new Properties());}
     public ItemMod(Properties properties) {super(properties);}
@@ -39,5 +42,9 @@ public class ItemMod extends Item {
         super.appendHoverText(stack, context, tooltip, flagIn);
         if(getDescriptionId().contains("torridite")) tooltip.add(LocalizeUtils.i18n("torridite"));
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
+    }
+    @Override
+    public Component getName(ItemStack pStack) {
+    	return nameColor != null && nameColor.isPresent() ? ((MutableComponent) super.getName(pStack)).withColor(nameColor.get()) : super.getName(pStack);
     }
 }

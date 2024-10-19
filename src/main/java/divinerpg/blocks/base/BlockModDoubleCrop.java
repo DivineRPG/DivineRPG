@@ -1,7 +1,6 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.*;
 import net.minecraft.util.RandomSource;
@@ -11,14 +10,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.CommonHooks;
 
 public class BlockModDoubleCrop extends SugarCaneBlock {
-    private final ResourceLocation seed;
-    public BlockModDoubleCrop(ResourceLocation seed) {
+//    private final ResourceLocation seed;
+    public BlockModDoubleCrop() {
         super(Properties.ofFullCopy(Blocks.WHEAT));
-        this.seed = seed;
+//        this.seed = seed;
     }
-    public BlockModDoubleCrop(int lightLevel, ResourceLocation seed) {
+    public BlockModDoubleCrop(int lightLevel) {
         super(Properties.ofFullCopy(Blocks.WHEAT).lightLevel((state) -> lightLevel));
-        this.seed = seed;
+//        this.seed = seed;
     }
     @Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(level.isEmptyBlock(pos.above())) {

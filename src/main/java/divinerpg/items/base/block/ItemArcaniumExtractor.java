@@ -16,7 +16,6 @@ public class ItemArcaniumExtractor extends BlockItem {
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        super.initializeClient(consumer);
         consumer.accept(RenderArcaniumExtractor.INSTANCE);
     }
 

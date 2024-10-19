@@ -8,7 +8,7 @@ import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
 
 public class GrogRecipe implements IBrewingRecipe {
 	@Override public boolean isInput(ItemStack input) {
-		return Utils.isPotion(input, Potions.AWKWARD.value());
+		return Utils.isPotion(input, Potions.AWKWARD);
 	}
 	@Override public boolean isIngredient(ItemStack ingredient) {
 		return ingredient.is(ItemRegistry.cauldron_flesh.get());
