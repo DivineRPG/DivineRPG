@@ -29,19 +29,17 @@ public class TwilightSky extends DimensionSpecialEffects {
 		
 		//create sky
 		Tesselator tesselator = Tesselator.getInstance();
-		BufferBuilder bufferbuilder = tesselator.getBuilder();
 		RenderSystem.setShader(GameRenderer::getPositionShader);
 		if(starBuffer != null) starBuffer.close();
 		starBuffer = new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
-		BufferBuilder.RenderedBuffer bufferbuilder$renderedbuffer = drawStars(bufferbuilder);
+		MeshData bufferbuilder$renderedbuffer = drawStars(tesselator);
 		starBuffer.bind();
 		starBuffer.upload(bufferbuilder$renderedbuffer);
 		VertexBuffer.unbind();
 		tesselator = Tesselator.getInstance();
-	    bufferbuilder = tesselator.getBuilder();
 	    if(skyBuffer != null) skyBuffer.close();
 	    skyBuffer = new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
-	    bufferbuilder$renderedbuffer = buildSkyDisc(bufferbuilder, 16F);
+	    bufferbuilder$renderedbuffer = buildSkyDisc(tesselator, 16F);
 	    skyBuffer.bind();
 	    skyBuffer.upload(bufferbuilder$renderedbuffer);
 	    VertexBuffer.unbind();
@@ -52,7 +50,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 	}
 	public boolean isFoggyAt(int i, int ii) {return false;}
 	@Override
-	public boolean renderSky(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
+	public boolean renderSky(ClientLevel level, int ticks, float partialTick, Matrix4f modelViewMatrix, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
 		setupFog.run();
 		if(!isFoggy) {
 			FogType fogtype = camera.getFluidInCamera();
@@ -66,7 +64,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 				RenderSystem.setShaderColor(f, f1, f2, 1F);
 				ShaderInstance shaderinstance = RenderSystem.getShader();
 				skyBuffer.bind();
-				skyBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, shaderinstance);
+				skyBuffer.drawWithShader(modelViewMatrix, projectionMatrix, shaderinstance);
 				VertexBuffer.unbind();
 				RenderSystem.enableBlend();
 				RenderSystem.defaultBlendFunc();
@@ -75,44 +73,39 @@ public class TwilightSky extends DimensionSpecialEffects {
 					RenderSystem.setShader(GameRenderer::getPositionColorShader);
 //					RenderSystem.disableBlend();
 					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
-					poseStack.pushPose();
-					poseStack.mulPose(Axis.XP.rotationDegrees(90));
+					modelViewMatrix.rotate(Axis.XP.rotationDegrees(90));
 					float f3 = Mth.sin(level.getSunAngle(partialTick)) < 0F ? 180F : 0F;
-					poseStack.mulPose(Axis.ZP.rotationDegrees(f3));
-					poseStack.mulPose(Axis.ZP.rotationDegrees(90F));
+					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(f3));
+					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(90F));
 					float f4 = afloat[0], f5 = afloat[1], f6 = afloat[2];
-					Matrix4f matrix4f = poseStack.last().pose();
-					bufferbuilder.addVertex(matrix4f, 0F, 100F, 0F).setColor(f4, f5, f6, afloat[3]);
+					bufferbuilder.addVertex(modelViewMatrix, 0F, 100F, 0F).setColor(f4, f5, f6, afloat[3]);
 					for(int j = 0; j <= 16; ++j) {
 						float f7 = (float)(j * (Math.PI * 2F) / 16F), f8 = Mth.sin(f7);
 						float f9 = Mth.cos(f7);
-						bufferbuilder.addVertex(matrix4f, f8 * 120F, f9 * 120F, -f9 * 40F * afloat[3]).setColor(afloat[0], afloat[1], afloat[2], 0F);
+						bufferbuilder.addVertex(modelViewMatrix, f8 * 120F, f9 * 120F, -f9 * 40F * afloat[3]).setColor(afloat[0], afloat[1], afloat[2], 0F);
 					} BufferUploader.drawWithShader(bufferbuilder.buildOrThrow());
-					poseStack.popPose();
 				}
 //				RenderSystem.enableBlend();
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-				poseStack.pushPose();
 				float f11 = 1F - level.getRainLevel(partialTick);
 				RenderSystem.setShaderColor(1F, 1F, 1F, f11);
-				poseStack.mulPose(Axis.YP.rotationDegrees(-90F));
-				poseStack.mulPose(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
-				Matrix4f matrix4f1 = poseStack.last().pose();
+				modelViewMatrix.rotate(Axis.YP.rotationDegrees(-90F));
+				modelViewMatrix.rotate(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
 				float f12 = 30F;
 				RenderSystem.setShader(GameRenderer::getPositionTexShader);
 				RenderSystem.setShaderTexture(0, level.dimension() == LevelRegistry.MORTUM && camera.getPosition().y < 0 ? POG_SUN_LOCATION : SUN_LOCATION);
 				BufferBuilder bufferbuilder1 = Tesselator.getInstance().begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-				bufferbuilder1.addVertex(matrix4f1, -f12, 100, -f12).setUv(0, 0);
-				bufferbuilder1.addVertex(matrix4f1, f12, 100, -f12).setUv(1, 0);
-				bufferbuilder1.addVertex(matrix4f1, f12, 100, f12).setUv(1, 1);
-				bufferbuilder1.addVertex(matrix4f1, -f12, 100, f12).setUv(0, 1);
+				bufferbuilder1.addVertex(modelViewMatrix, -f12, 100, -f12).setUv(0, 0);
+				bufferbuilder1.addVertex(modelViewMatrix, f12, 100, -f12).setUv(1, 0);
+				bufferbuilder1.addVertex(modelViewMatrix, f12, 100, f12).setUv(1, 1);
+				bufferbuilder1.addVertex(modelViewMatrix, -f12, 100, f12).setUv(0, 1);
 				BufferUploader.drawWithShader(bufferbuilder1.buildOrThrow());
 				float f10 = level.getStarBrightness(partialTick) * f11 * 1.01F;
 				if(f10 > 0F) {
 					RenderSystem.setShaderColor(f10, f10, f10, f10);
 					FogRenderer.setupNoFog();
 					starBuffer.bind();
-					starBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, GameRenderer.getPositionShader());
+					starBuffer.drawWithShader(modelViewMatrix, projectionMatrix, GameRenderer.getPositionShader());
 					VertexBuffer.unbind();
 					setupFog.run();
 				}
@@ -124,7 +117,6 @@ public class TwilightSky extends DimensionSpecialEffects {
 				else RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 				RenderSystem.disableBlend();
 				RenderSystem.defaultBlendFunc();
-				poseStack.popPose();
 //				RenderSystem.disableBlend();
 //				RenderSystem.setShaderColor(0F, 0F, 0F, 1F);
 //				if(level.effects().hasGround()) RenderSystem.setShaderColor(f * .2F + .04F, f1 * .2F + .04F, f2 * .6F + .1F, 1F);
@@ -138,19 +130,19 @@ public class TwilightSky extends DimensionSpecialEffects {
 	public static boolean doesMobEffectBlockSky(Camera camera) {
 		Entity entity = camera.getEntity();
 		if(!(entity instanceof LivingEntity livingentity)) return false;
-		return livingentity.hasEffect(MobEffects.BLINDNESS) || livingentity.hasEffect(MobEffects.DARKNESS) || livingentity.hasEffect(MobEffectRegistry.HEAVY_AIR.get());
+		return livingentity.hasEffect(MobEffects.BLINDNESS) || livingentity.hasEffect(MobEffects.DARKNESS) || livingentity.hasEffect(MobEffectRegistry.HEAVY_AIR);
 	}
-	public static BufferBuilder.RenderedBuffer buildSkyDisc(BufferBuilder builder, float g) {
+	public static MeshData buildSkyDisc(Tesselator tesselator, float g) {
 		float f = Math.signum(g) * 512;
 		RenderSystem.setShader(GameRenderer::getPositionShader);
-		builder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
-		builder.vertex(0D, g, 0D).endVertex();
-		for(int i = -180; i <= 180; i += 45) builder.vertex(f * Math.cos(i * (Math.PI / 180D)), g, 512 * Math.sin(i * (Math.PI / 180D))).endVertex();
-		return builder.end();
+		BufferBuilder builder = tesselator.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
+		builder.addVertex(0F, g, 0F);
+		for(int i = -180; i <= 180; i += 45) builder.addVertex((float)(f * Math.cos(i * (Math.PI / 180D))), g, (float)(512 * Math.sin(i * (Math.PI / 180D))));
+		return builder.build();
 	}
-	public static BufferBuilder.RenderedBuffer drawStars(BufferBuilder builder) {
+	public static MeshData drawStars(Tesselator tesselator) {
 		RandomSource randomsource = RandomSource.create(10842L);
-		builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+		BufferBuilder builder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
 		for(int i = 0; i < 1500; ++i) {
 			double d0 = randomsource.nextFloat() * 2F - 1F, d1 = randomsource.nextFloat() * 2F - 1F, d2 = randomsource.nextFloat() * 2F - 1F,
 				d3 = .15F + randomsource.nextFloat() * .1F, d4 = d0 * d0 + d1 * d1 + d2 * d2;
@@ -164,10 +156,10 @@ public class TwilightSky extends DimensionSpecialEffects {
 	            for(int j = 0; j < 4; ++j) {
 	               double d18 = ((j & 2) - 1) * d3, d19 = ((j + 1 & 2) - 1) * d3, d21 = d18 * d16 - d19 * d15, d22 = d19 * d16 + d18 * d15,
 	               	d23 = d21 * d12 + 0D * d13, d24 = 0D * d12 - d21 * d13, d25 = d24 * d9 - d22 * d10, d26 = d22 * d9 + d24 * d10;
-	               builder.vertex(d5 + d25, d6 + d23, d7 + d26).endVertex();
+	               builder.addVertex((float)(d5 + d25), (float)(d6 + d23), (float)(d7 + d26));
 	            }
 	         }
 	      }
-	      return builder.end();
+	      return builder.build();
 	}
 }

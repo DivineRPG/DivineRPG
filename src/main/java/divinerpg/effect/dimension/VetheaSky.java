@@ -23,11 +23,10 @@ public class VetheaSky extends DimensionSpecialEffects {
 		
 		//create sky
 		Tesselator tesselator = Tesselator.getInstance();
-		BufferBuilder bufferbuilder = tesselator.getBuilder();
 		RenderSystem.setShader(GameRenderer::getPositionShader);
 		if(starBuffer != null) starBuffer.close();
 		starBuffer = new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
-		BufferBuilder.RenderedBuffer bufferbuilder$renderedbuffer = TwilightSky.drawStars(bufferbuilder);
+		MeshData bufferbuilder$renderedbuffer = TwilightSky.drawStars(tesselator);
 		starBuffer.bind();
 		starBuffer.upload(bufferbuilder$renderedbuffer);
 		VertexBuffer.unbind();
@@ -38,7 +37,7 @@ public class VetheaSky extends DimensionSpecialEffects {
 	}
 	@Override public boolean isFoggyAt(int i, int ii) {return false;}
 	@Override
-	public boolean renderSky(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
+	public boolean renderSky(ClientLevel level, int ticks, float partialTick, Matrix4f modelViewMatrix, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
 		setupFog.run();
 		if(!isFoggy) {
 			FogType fogtype = camera.getFluidInCamera();
@@ -47,7 +46,7 @@ public class VetheaSky extends DimensionSpecialEffects {
 				Vec3 vec3 = level.getSkyColor(camera.getPosition(), partialTick);
 				float f = (float)vec3.x, f1 = (float)vec3.y, f2 = (float)vec3.z;
 				FogRenderer.levelFogColor();
-				BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
+				Tesselator tesselator = Tesselator.getInstance();
 				RenderSystem.depthMask(false);
 				RenderSystem.setShaderColor(f, f1, f2, 1F);
 //				ShaderInstance shaderinstance = RenderSystem.getShader();
@@ -55,35 +54,32 @@ public class VetheaSky extends DimensionSpecialEffects {
 				RenderSystem.defaultBlendFunc();
 //				RenderSystem.enableBlend();
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-				poseStack.pushPose();
 				float f11 = 1F - level.getRainLevel(partialTick);
 				RenderSystem.setShaderColor(1F, 1F, 1F, f11);
-				poseStack.mulPose(Axis.YP.rotationDegrees(-90F));
-				poseStack.mulPose(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
-				Matrix4f matrix4f1 = poseStack.last().pose();
+				modelViewMatrix.rotate(Axis.YP.rotationDegrees(-90F));
+				modelViewMatrix.rotate(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
 				float f12 = 20F;
 				RenderSystem.setShader(GameRenderer::getPositionTexShader);
 				RenderSystem.setShaderTexture(0, EYE_LOCATION);
 				int k = level.getMoonPhase(), l = k % 4, i1 = k / 4 % 2;
 				float f13 = (l + 0) / 4F, f14 = (i1 + 0) / 2F, f15 = (l + 1) / 4F, f16 = (i1 + 1) / 2F;
-				bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-				bufferbuilder.vertex(matrix4f1, -f12, -100F, f12).uv(f15, f16).endVertex();
-				bufferbuilder.vertex(matrix4f1, f12, -100F, f12).uv(f13, f16).endVertex();
-				bufferbuilder.vertex(matrix4f1, f12, -100F, -f12).uv(f13, f14).endVertex();
-				bufferbuilder.vertex(matrix4f1, -f12, -100F, -f12).uv(f15, f14).endVertex();
-				BufferUploader.drawWithShader(bufferbuilder.end());
+				BufferBuilder bufferbuilder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+				bufferbuilder.addVertex(modelViewMatrix, -f12, -100F, f12).setUv(f15, f16);
+				bufferbuilder.addVertex(modelViewMatrix, f12, -100F, f12).setUv(f13, f16);
+				bufferbuilder.addVertex(modelViewMatrix, f12, -100F, -f12).setUv(f13, f14);
+				bufferbuilder.addVertex(modelViewMatrix, -f12, -100F, -f12).setUv(f15, f14);
+				BufferUploader.drawWithShader(bufferbuilder.build());
 //				RenderSystem.disableBlend();
 				float f10 = level.getStarBrightness(partialTick) * f11 * 1.01F;
 				RenderSystem.setShaderColor(f10, f10, f10, f10);
                 FogRenderer.setupNoFog();
                 starBuffer.bind();
-                starBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, GameRenderer.getPositionShader());
+                starBuffer.drawWithShader(modelViewMatrix, projectionMatrix, GameRenderer.getPositionShader());
                 VertexBuffer.unbind();
                 setupFog.run();
                 RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
                 RenderSystem.disableBlend();
 				RenderSystem.defaultBlendFunc();
-                poseStack.popPose();
 //                RenderSystem.disableBlend();
 //                RenderSystem.setShaderColor(0F, 0F, 0F, 1F);
 //                if(level.effects().hasGround()) RenderSystem.setShaderColor(f * .2F + .04F, f1 * .2F + .04F, f2 * .6F + .1F, 1F);

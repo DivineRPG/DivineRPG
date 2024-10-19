@@ -46,23 +46,22 @@ public class IceikaSky extends DimensionSpecialEffects {
 		}
 		//create sky
 		Tesselator tesselator = Tesselator.getInstance();
-		BufferBuilder bufferbuilder = tesselator.getBuilder();
 		RenderSystem.setShader(GameRenderer::getPositionShader);
 		if(starBuffer != null) starBuffer.close();
 		starBuffer = new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
-		BufferBuilder.RenderedBuffer bufferbuilder$renderedbuffer = TwilightSky.drawStars(bufferbuilder);
+		MeshData bufferbuilder$renderedbuffer = TwilightSky.drawStars(tesselator);
 		starBuffer.bind();
 		starBuffer.upload(bufferbuilder$renderedbuffer);
 		VertexBuffer.unbind();
 		tesselator = Tesselator.getInstance();
-	    bufferbuilder = tesselator.getBuilder();
 	    if(skyBuffer != null) skyBuffer.close();
 	    skyBuffer = new VertexBuffer(VertexBuffer.Usage.DYNAMIC);
-	    bufferbuilder$renderedbuffer = TwilightSky.buildSkyDisc(bufferbuilder, 16F);
+	    bufferbuilder$renderedbuffer = TwilightSky.buildSkyDisc(tesselator, 16F);
 	    skyBuffer.bind();
 	    skyBuffer.upload(bufferbuilder$renderedbuffer);
 	    VertexBuffer.unbind();
 	}
+	@SuppressWarnings("resource")
 	@Override
 	public boolean renderSnowAndRain(ClientLevel level, int ticks, float partialTick, LightTexture lightTexture, double camX, double camY, double camZ) {
 		float f = level.getRainLevel(partialTick);
@@ -70,7 +69,7 @@ public class IceikaSky extends DimensionSpecialEffects {
     	  lightTexture.turnOnLightLayer();
           int i = Mth.floor(camX), j = Mth.floor(camY), k = Mth.floor(camZ);
           Tesselator tesselator = Tesselator.getInstance();
-          BufferBuilder bufferbuilder = tesselator.getBuilder();
+          BufferBuilder bufferbuilder = null;
           RenderSystem.disableCull();
           RenderSystem.enableBlend();
           RenderSystem.defaultBlendFunc();
@@ -99,26 +98,26 @@ public class IceikaSky extends DimensionSpecialEffects {
                  int precipitationType = Utils.ICEIKA_WEATHER;
                  if(precipitationType == 0) {
                      if(i1 != 0) {
-                         if(i1 >= 0) tesselator.end();
+                         if(i1 >= 0) BufferUploader.drawWithShader(bufferbuilder.build());
                          i1 = 0;
                          RenderSystem.setShaderTexture(0, SNOW_LOCATION);
-                         bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.PARTICLE);
+                         bufferbuilder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.PARTICLE);
                       }
                       float f5 = -((ticks & 511) + partialTick) / 512F, f6 = (float)(randomsource.nextDouble() + f1 * .01 * randomsource.nextGaussian()), f7 = (float)(randomsource.nextDouble() + f1 * randomsource.nextGaussian() * .001D);
                       double d3 = k1 + .5 - camX, d5 = j1 + .5D - camZ;
                       float f8 = (float) (Math.sqrt(d3 * d3 + d5 * d5) / l), f9 = ((1F - f8 * f8) * .3F + .5F) * f;
                       blockpos$mutableblockpos.set(k1, l2, j1);
                       int k3 = LevelRenderer.getLightColor(level, blockpos$mutableblockpos), l3 = k3 >> 16 & '\uffff', i4 = k3 & '\uffff', j4 = (l3 * 3 + 240) / 4, k4 = (i4 * 3 + 240) / 4;
-                      bufferbuilder.vertex(k1 - camX - d0 + .5, k2 - camY, j1 - camZ - d1 + .5).uv(0F + f6, j2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
-                      bufferbuilder.vertex(k1 - camX + d0 + .5, k2 - camY, j1 - camZ + d1 + .5).uv(1F + f6, j2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
-                      bufferbuilder.vertex(k1 - camX + d0 + .5, j2 - camY, j1 - camZ + d1 + .5).uv(1F + f6, k2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
-                      bufferbuilder.vertex(k1 - camX - d0 + .5, j2 - camY, j1 - camZ - d1 + .5).uv(0F + f6, k2 * .25F + f5 + f7).color(1F, 1F, 1F, f9).uv2(k4, j4).endVertex();
+                      bufferbuilder.addVertex((float)(k1 - camX - d0 + .5), (float)(k2 - camY), (float)(j1 - camZ - d1 + .5)).setUv(0F + f6, j2 * .25F + f5 + f7).setColor(1F, 1F, 1F, f9).setUv2(k4, j4);
+                      bufferbuilder.addVertex((float)(k1 - camX + d0 + .5), (float)(k2 - camY), (float)(j1 - camZ + d1 + .5)).setUv(1F + f6, j2 * .25F + f5 + f7).setColor(1F, 1F, 1F, f9).setUv2(k4, j4);
+                      bufferbuilder.addVertex((float)(k1 - camX + d0 + .5), (float)(j2 - camY), (float)(j1 - camZ + d1 + .5)).setUv(1F + f6, k2 * .25F + f5 + f7).setColor(1F, 1F, 1F, f9).setUv2(k4, j4);
+                      bufferbuilder.addVertex((float)(k1 - camX - d0 + .5), (float)(j2 - camY), (float)(j1 - camZ - d1 + .5)).setUv(0F + f6, k2 * .25F + f5 + f7).setColor(1F, 1F, 1F, f9).setUv2(k4, j4);
                  } else if(precipitationType == 1) {
                 	 if(i1 != 1) {
-                         if(i1 >= 0) tesselator.end();
+                         if(i1 >= 0) BufferUploader.drawWithShader(bufferbuilder.build());
                          i1 = 1;
                          RenderSystem.setShaderTexture(0, HAIL_LOCATION);
-                         bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.PARTICLE);
+                         bufferbuilder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.PARTICLE);
                       }
                       int i3 = ticks + k1 * k1 * 3121 + k1 * 45238971 + j1 * j1 * 418711 + j1 * 13761 & 31;
                       float f2 = -(i3 + partialTick) / 32F * (3F + randomsource.nextFloat());
@@ -127,10 +126,10 @@ public class IceikaSky extends DimensionSpecialEffects {
                       float f4 = ((1F - f3 * f3) * .5F + .5F) * f;
                       blockpos$mutableblockpos.set(k1, l2, j1);
                       int j3 = LevelRenderer.getLightColor(level, blockpos$mutableblockpos);
-                      bufferbuilder.vertex(k1 - camX - d0 + .5, k2 - camY, j1 - camZ - d1 + .5).uv(0F, j2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
-                      bufferbuilder.vertex(k1 - camX + d0 + .5, k2 - camY, j1 - camZ + d1 + .5).uv(1F, j2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
-                      bufferbuilder.vertex(k1 - camX + d0 + .5, j2 - camY, j1 - camZ + d1 + .5).uv(1F, k2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
-                      bufferbuilder.vertex(k1 - camX - d0 + .5, j2 - camY, j1 - camZ - d1 + .5).uv(0F, k2 * .25F + f2).color(1F, 1F, 1F, f4).uv2(j3).endVertex();
+                      uv2(bufferbuilder.addVertex((float)(k1 - camX - d0 + .5), (float)(k2 - camY), (float)(j1 - camZ - d1 + .5)).setUv(0F, j2 * .25F + f2).setColor(1F, 1F, 1F, f4), j3);
+                      uv2(bufferbuilder.addVertex((float)(k1 - camX + d0 + .5), (float)(k2 - camY), (float)(j1 - camZ + d1 + .5)).setUv(1F, j2 * .25F + f2).setColor(1F, 1F, 1F, f4), j3);
+                      uv2(bufferbuilder.addVertex((float)(k1 - camX + d0 + .5), (float)(j2 - camY), (float)(j1 - camZ + d1 + .5)).setUv(1F, k2 * .25F + f2).setColor(1F, 1F, 1F, f4), j3);
+                      uv2(bufferbuilder.addVertex((float)(k1 - camX - d0 + .5), (float)(j2 - camY), (float)(j1 - camZ - d1 + .5)).setUv(0F, k2 * .25F + f2).setColor(1F, 1F, 1F, f4), j3);
                  } else if(precipitationType == 2 && lastTick != ticks && Minecraft.getInstance().options.particles().get() != ParticleStatus.MINIMAL && randomsource.nextBoolean()) {
                 	 double x = camX + Math.random() * 38D - 19D, y = camY + Math.random() * 16D - 8D, z = camZ + Math.random() * 32D - 16D;
                 	 if(level.canSeeSky(new BlockPos((int)x, (int)y, (int)z))) {
@@ -141,13 +140,16 @@ public class IceikaSky extends DimensionSpecialEffects {
                }
             }
           }
-          if(i1 >= 0) tesselator.end();
+          if(i1 >= 0) BufferUploader.drawWithShader(bufferbuilder.build());
           RenderSystem.enableCull();
           RenderSystem.disableBlend();
           lightTexture.turnOffLightLayer();
 		}
 		lastTick = ticks;
 		return true;
+	}
+	public static void uv2(VertexConsumer c, int j) {
+		c.setUv2(j & '\uffff', j >> 16 & '\uffff');
 	}
 	@Override
 	public boolean tickRain(ClientLevel level, int ticks, Camera camera) {
@@ -165,7 +167,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 	}
 
 	@Override
-	public boolean renderSky(ClientLevel level, int ticks, float partialTick, PoseStack poseStack, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
+	public boolean renderSky(ClientLevel level, int ticks, float partialTick, Matrix4f modelViewMatrix, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
         if(isBlizzard && Utils.ICEIKA_WEATHER != 2 && level.canSeeSky(camera.getBlockPosition())) {
        	 isBlizzard = false;
        	 level.playLocalSound(camera.getBlockPosition(), SoundRegistry.SNOWFLAKES_AFTER_BLIZZARD.get(), SoundSource.MUSIC, .2F, 1F, false);
@@ -180,12 +182,12 @@ public class IceikaSky extends DimensionSpecialEffects {
 				Vec3 vec3 = level.getSkyColor(camera.getPosition(), partialTick);
 				float f = (float)(vec3.x * .1), f1 = (float)(vec3.y * .1), f2 = (float)(vec3.z * .17);
 				FogRenderer.levelFogColor();
-				BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
+				Tesselator tesselator = Tesselator.getInstance();
 				RenderSystem.depthMask(false);
 				RenderSystem.setShaderColor(f, f1, f2, 1F);
 				ShaderInstance shaderinstance = RenderSystem.getShader();
 				skyBuffer.bind();
-				skyBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, shaderinstance);
+				skyBuffer.drawWithShader(modelViewMatrix, projectionMatrix, shaderinstance);
 				VertexBuffer.unbind();
 				RenderSystem.enableBlend();
 				RenderSystem.defaultBlendFunc();
@@ -194,61 +196,55 @@ public class IceikaSky extends DimensionSpecialEffects {
 					RenderSystem.setShader(GameRenderer::getPositionColorShader);
 //					RenderSystem.disableBlend();
 					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
-					poseStack.pushPose();
-					poseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+					modelViewMatrix.rotate(Axis.XP.rotationDegrees(90.0F));
 					float f3 = Mth.sin(level.getSunAngle(partialTick)) < 0F ? 180F : 0F;
-					poseStack.mulPose(Axis.ZP.rotationDegrees(f3));
-					poseStack.mulPose(Axis.ZP.rotationDegrees(90F));
+					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(f3));
+					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(90F));
 					float f4 = afloat[0], f5 = afloat[1], f6 = afloat[2];
-					Matrix4f matrix4f = poseStack.last().pose();
-					bufferbuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
-					bufferbuilder.vertex(matrix4f, 0F, 100F, 0F).color(f4, f5, f6, afloat[3]).endVertex();
+					BufferBuilder bufferbuilder = tesselator.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
+					bufferbuilder.addVertex(modelViewMatrix, 0F, 100F, 0F).setColor(f4, f5, f6, afloat[3]);
 					for(int j = 0; j <= 16; ++j) {
 						float f7 = (float)(j * (Math.PI * 2F) / 16F), f8 = Mth.sin(f7), f9 = Mth.cos(f7);
-						bufferbuilder.vertex(matrix4f, f8 * 120F, f9 * 120F, -f9 * 40F * afloat[3]).color(afloat[0], afloat[1], afloat[2], 0F).endVertex();
+						bufferbuilder.addVertex(modelViewMatrix, f8 * 120F, f9 * 120F, -f9 * 40F * afloat[3]).setColor(afloat[0], afloat[1], afloat[2], 0F);
 					}
-					BufferUploader.drawWithShader(bufferbuilder.end());
-					poseStack.popPose();
+					BufferUploader.drawWithShader(bufferbuilder.build());
 				}
 //				RenderSystem.enableBlend();
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-				poseStack.pushPose();
 				float f11 = 1F - level.getRainLevel(partialTick);
 				RenderSystem.setShaderColor(1F, 1F, 1F, f11);
-				poseStack.mulPose(Axis.YP.rotationDegrees(-90F));
-				poseStack.mulPose(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
-				Matrix4f matrix4f1 = poseStack.last().pose();
+				modelViewMatrix.rotate(Axis.YP.rotationDegrees(-90F));
+				modelViewMatrix.rotate(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * 360F));
 				float f12 = 30F;
 				RenderSystem.setShader(GameRenderer::getPositionTexShader);
 				RenderSystem.setShaderTexture(0, SUN_LOCATION);
-				bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-				bufferbuilder.vertex(matrix4f1, -f12, 100F, -f12).uv(0F, 0F).endVertex();
-				bufferbuilder.vertex(matrix4f1, f12, 100F, -f12).uv(1F, 0F).endVertex();
-				bufferbuilder.vertex(matrix4f1, f12, 100F, f12).uv(1F, 1F).endVertex();
-				bufferbuilder.vertex(matrix4f1, -f12, 100F, f12).uv(0F, 1F).endVertex();
-				BufferUploader.drawWithShader(bufferbuilder.end());
+				BufferBuilder bufferbuilder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+				bufferbuilder.addVertex(modelViewMatrix, -f12, 100F, -f12).setUv(0F, 0F);
+				bufferbuilder.addVertex(modelViewMatrix, f12, 100F, -f12).setUv(1F, 0F);
+				bufferbuilder.addVertex(modelViewMatrix, f12, 100F, f12).setUv(1F, 1F);
+				bufferbuilder.addVertex(modelViewMatrix, -f12, 100F, f12).setUv(0F, 1F);
+				BufferUploader.drawWithShader(bufferbuilder.build());
 				f12 = 20F;
 	            RenderSystem.setShaderTexture(0, MOON_LOCATION);
 	            int k = level.getMoonPhase(), l = k % 4, i1 = k / 4 % 2;
 	            float f13 = l / 4F, f14 = i1 / 2F, f15 = (l + 1) / 4F, f16 = (i1 + 1) / 2F;
-	            bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-	            bufferbuilder.vertex(matrix4f1, -f12, -100F, f12).uv(f15, f16).endVertex();
-	            bufferbuilder.vertex(matrix4f1, f12, -100F, f12).uv(f13, f16).endVertex();
-	            bufferbuilder.vertex(matrix4f1, f12, -100F, -f12).uv(f13, f14).endVertex();
-	            bufferbuilder.vertex(matrix4f1, -f12, -100F, -f12).uv(f15, f14).endVertex();
-	            BufferUploader.drawWithShader(bufferbuilder.end());
+	            bufferbuilder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+	            bufferbuilder.addVertex(modelViewMatrix, -f12, -100F, f12).setUv(f15, f16);
+	            bufferbuilder.addVertex(modelViewMatrix, f12, -100F, f12).setUv(f13, f16);
+	            bufferbuilder.addVertex(modelViewMatrix, f12, -100F, -f12).setUv(f13, f14);
+	            bufferbuilder.addVertex(modelViewMatrix, -f12, -100F, -f12).setUv(f15, f14);
+	            BufferUploader.drawWithShader(bufferbuilder.build());
 //	            RenderSystem.disableBlend();
 				float f10 = level.getStarBrightness(partialTick) * f11 + .5F;
 				RenderSystem.setShaderColor(f10, f10, f10, f10);
 				FogRenderer.setupNoFog();
 				starBuffer.bind();
-				starBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, GameRenderer.getPositionShader());
+				starBuffer.drawWithShader(modelViewMatrix, projectionMatrix, GameRenderer.getPositionShader());
 				VertexBuffer.unbind();
 				setupFog.run();
 				RenderSystem.setShaderColor(.82F, .85F + ((afloat == null ? 0F : afloat[1] * 1.84F) * (.398F - Math.abs(Mth.cos(level.getTimeOfDay(partialTick) * ((float)Math.PI * 2F))))), .92F + f2 * 1.4F, 1F);
 				RenderSystem.disableBlend();
 				RenderSystem.defaultBlendFunc();
-				poseStack.popPose();
 				RenderSystem.depthMask(true);
 			}
 		}
