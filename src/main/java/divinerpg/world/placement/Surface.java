@@ -93,6 +93,6 @@ public class Surface extends PlacementModifier {
 	}
 	@Override
 	public PlacementModifierType<?> type() {
-		return PlacementModifierRegistry.SURFACE_PLACEMENT;
+		return PlacementModifierRegistry.SURFACE_PLACEMENT.get();
 	}
 }
