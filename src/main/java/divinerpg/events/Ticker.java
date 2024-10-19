@@ -2,22 +2,28 @@ package divinerpg.events;
 
 import divinerpg.*;
 import divinerpg.attachments.Arcana;
+import divinerpg.entities.ai.TurtleEatAequorea;
+import divinerpg.entities.vanilla.overworld.EntityAequorea;
 import divinerpg.network.payload.Weather;
 import divinerpg.registries.*;
 import divinerpg.util.Utils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.tick.*;
 
 public class Ticker {
     public static int tick;
     @SubscribeEvent
-    public void tickServer(ServerTickEvent evt) {
+    public void tickServer(ServerTickEvent.Pre evt) {
         if(evt.hasTime()) {
             tick++;
             if(tick>100000) tick = 0;
@@ -25,7 +31,7 @@ public class Ticker {
         }
     }
 	@SubscribeEvent
-    public static void playerTick(PlayerTickEvent event){
+    public void playerTick(PlayerTickEvent.Pre event){
         Player player = event.getEntity();
         Level level = player.level();
         Arcana.regen(player);
@@ -42,6 +48,15 @@ public class Ticker {
         if(player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments(CommonHooks.resolveLookup(Registries.ENCHANTMENT)).keySet().contains(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(EnchantmentRegistry.INSULATION))) {
     		int f = player.getTicksFrozen();
     		if(f > 0) player.setTicksFrozen(f - 2);
+        }
+    }
+
+    @SubscribeEvent
+    public void addVanillaMobGoals(EntityJoinLevelEvent event) {
+        if(event.getEntity() instanceof Turtle) {
+            Turtle turtle = (Turtle) event.getEntity();
+            turtle.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(turtle, EntityAequorea.class, false));
+            turtle.goalSelector.addGoal(3, new TurtleEatAequorea(turtle, turtle.getAttributeValue(Attributes.FOLLOW_RANGE), false));
         }
     }
 }

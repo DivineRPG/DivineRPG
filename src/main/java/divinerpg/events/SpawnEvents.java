@@ -303,12 +303,5 @@ public class SpawnEvents {
 		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
 		return r.nextInt(10) >= cancelChance && Monster.checkAnyLightMonsterSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
 	}
-    @SubscribeEvent
-    public void addVanillaMobGoals(EntityJoinLevelEvent event) {
-        if(event.getEntity() instanceof Turtle) {
-            Turtle turtle = (Turtle) event.getEntity();
-            turtle.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(turtle, EntityAequorea.class, false));
-            turtle.goalSelector.addGoal(3, new TurtleEatAequorea(turtle, turtle.getAttributeValue(Attributes.FOLLOW_RANGE), false));
-        }
-    }
+
 }

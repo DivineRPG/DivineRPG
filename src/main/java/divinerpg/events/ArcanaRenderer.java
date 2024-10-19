@@ -23,7 +23,7 @@ public class ArcanaRenderer extends Gui {
     static long counter = 180;
     static float previousAmount = 0F;
     @SubscribeEvent
-    public void renderGameOverlayEvent(CustomizeGuiOverlayEvent event) {
+    public void renderGameOverlayEvent(CustomizeGuiOverlayEvent.BossEventProgress event) {
         RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         GuiGraphics gui = event.getGuiGraphics();

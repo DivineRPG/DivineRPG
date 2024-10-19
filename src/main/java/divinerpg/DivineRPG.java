@@ -51,26 +51,24 @@ public class DivineRPG {
         bus.addListener(this::setup);
         bus.addListener(this::post);
         bus.addListener(this::client);
+        bus.register(EntityRegistry.class);
         NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
-        container.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
+        bus.addListener(CreativeTabRegistry::creativeTab);
         container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/divinerpg-common.toml");
+        container.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
 
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         ModCompat.initCommon(event);
         NeoForge.EVENT_BUS.register(new RiveHandler());
-        NeoForge.EVENT_BUS.register(new SpawnEvents());
         NeoForge.EVENT_BUS.register(new Ticker());
-        NeoForge.EVENT_BUS.register(new BlockRegistry());
-        NeoForge.EVENT_BUS.register(new CreativeTabRegistry());
-        NeoForge.EVENT_BUS.register(new EntityRegistry());
-        NeoForge.EVENT_BUS.register(new FeatureRegistry());
-        NeoForge.EVENT_BUS.register(new ItemRegistry());
-        NeoForge.EVENT_BUS.register(new LevelRegistry());
-        NeoForge.EVENT_BUS.register(new ParticleRegistry());
-        NeoForge.EVENT_BUS.register(new ConfiguredFeatureKeys());
-        NeoForge.EVENT_BUS.register(new CommonConfig());
+//        NeoForge.EVENT_BUS.register(new FeatureRegistry());
+//        NeoForge.EVENT_BUS.register(new ItemRegistry());
+//        NeoForge.EVENT_BUS.register(new LevelRegistry());
+//        NeoForge.EVENT_BUS.register(new ParticleRegistry());
+//        NeoForge.EVENT_BUS.register(new ConfiguredFeatureKeys());
+//        NeoForge.EVENT_BUS.register(new CommonConfig());
 
         event.enqueueWork(() -> {
             RecipeRegistry.BrewingRecipes.init();
@@ -83,8 +81,8 @@ public class DivineRPG {
         BlockEntityRegistry.renderTiles();
         NeoForge.EVENT_BUS.register(new ArcanaRenderer());
         NeoForge.EVENT_BUS.register(new EventClientLogin());
-        NeoForge.EVENT_BUS.register(new MenuTypeRegistry());
-        NeoForge.EVENT_BUS.register(new ClientConfig());
+//        NeoForge.EVENT_BUS.register(new MenuTypeRegistry());
+//        NeoForge.EVENT_BUS.register(new ClientConfig());
         Utils.loadHatInformation();
     }
     private void post(final FMLLoadCompleteEvent event){
