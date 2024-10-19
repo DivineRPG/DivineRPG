@@ -16,6 +16,6 @@ description = '''Adds various dimensions, weapons, and mobs'''
 [[dependencies.divinerpg]]
 modId="neoforge"
 required=true
-versionRange="${neoforge_version_range}"
+versionRange="${neo_version_range}"
 ordering="NONE"
 side="BOTH"
