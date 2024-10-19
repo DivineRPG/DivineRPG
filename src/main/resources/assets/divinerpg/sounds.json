@@ -1186,7 +1186,7 @@
   "fractite_cannon": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:to_replace/fractite_cannon"
+      "divinerpg:items/fractite_cannon"
     ]
   },
   "frostclaw_cannon": {
