@@ -14,7 +14,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static divinerpg.DivineRPG.MODID;
 
-@EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
 public class MenuTypeRegistry
 {
     public static final DeferredRegister<MenuType<?>> MENU_TYPE = DeferredRegister.create(Registries.MENU, MODID);

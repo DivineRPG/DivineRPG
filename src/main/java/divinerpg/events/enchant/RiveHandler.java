@@ -19,7 +19,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
-@EventBusSubscriber(modid = DivineRPG.MODID)
 public class RiveHandler {
     @SubscribeEvent
     public void handleWorldBreak(BlockEvent.BreakEvent event) {

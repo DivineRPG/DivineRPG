@@ -74,10 +74,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.util.ClientUtils.*;
 
-@EventBusSubscriber(modid = MODID)
 public class EntityRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, MODID);
-    private EntityRegistry(){}
+    public EntityRegistry(){}
 
     //Projectiles
     public static final DeferredHolder<EntityType<?>, EntityType<EntityBouncingProjectile>>	 BOUNCING_PROJECTILE = registerProjectile(EntityBouncingProjectile::new,            "bouncing_projectile");

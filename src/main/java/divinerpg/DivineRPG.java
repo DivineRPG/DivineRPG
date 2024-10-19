@@ -3,9 +3,11 @@ package divinerpg;
 import divinerpg.compat.ModCompat;
 import divinerpg.config.*;
 import divinerpg.events.*;
+import divinerpg.events.enchant.RiveHandler;
 import divinerpg.registries.*;
 import divinerpg.util.Utils;
 import divinerpg.util.vanilla.*;
+import divinerpg.world.ConfiguredFeatureKeys;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -57,6 +59,18 @@ public class DivineRPG {
     private void setup(final FMLCommonSetupEvent event) {
         ModCompat.initCommon(event);
         PlacementModifierRegistry.init();
+        NeoForge.EVENT_BUS.register(new RiveHandler());
+        NeoForge.EVENT_BUS.register(new SpawnEvents());
+        NeoForge.EVENT_BUS.register(new Ticker());
+        NeoForge.EVENT_BUS.register(new BlockRegistry());
+        NeoForge.EVENT_BUS.register(new CreativeTabRegistry());
+        NeoForge.EVENT_BUS.register(new EntityRegistry());
+        NeoForge.EVENT_BUS.register(new FeatureRegistry());
+        NeoForge.EVENT_BUS.register(new ItemRegistry());
+        NeoForge.EVENT_BUS.register(new LevelRegistry());
+        NeoForge.EVENT_BUS.register(new ParticleRegistry());
+        NeoForge.EVENT_BUS.register(new ConfiguredFeatureKeys());
+        NeoForge.EVENT_BUS.register(new CommonConfig());
 
         event.enqueueWork(() -> {
             RecipeRegistry.BrewingRecipes.init();
@@ -69,6 +83,8 @@ public class DivineRPG {
         BlockEntityRegistry.renderTiles();
         NeoForge.EVENT_BUS.register(new ArcanaRenderer());
         NeoForge.EVENT_BUS.register(new EventClientLogin());
+        NeoForge.EVENT_BUS.register(new MenuTypeRegistry());
+        NeoForge.EVENT_BUS.register(new ClientConfig());
         Utils.loadHatInformation();
     }
     private void post(final FMLLoadCompleteEvent event){

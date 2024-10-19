@@ -31,6 +31,6 @@ public class Underground extends PlacementFilter {
 	}
 	@Override
 	public PlacementModifierType<?> type() {
-		return PlacementModifierRegistry.UNDERGROUND;
+		return PlacementModifierRegistry.UNDERGROUND.get();
 	}
 }

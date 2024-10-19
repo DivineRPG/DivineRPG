@@ -5,6 +5,8 @@ import divinerpg.registries.ParticleRegistry;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.function.Supplier;
+
 public enum BulletType {
     //Throwables
     TOMATO_SHOT(.5F, ItemLoc("tomato")),
@@ -38,14 +40,14 @@ public enum BulletType {
     SCYTHE_SHOT(6, ProjectileLoc("scythe"), BulletDamageType.MAGIC),
     MEGA_SCYTHE_SHOT(18, ProjectileLoc("scythe"), BulletDamageType.MAGIC),
     CYCLOPSIAN_STAFF_SHOT(3, ItemLoc("cyclops_eye_shards")),
-    MAELSTROM_SHOT(12, ProjectileLoc("maelstrom"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.MAGIC),
+    MAELSTROM_SHOT(12, ProjectileLoc("maelstrom"), ()-> ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.MAGIC),
     ATTRACTOR_SHOT(0, ProjectileLoc("arcana_shot"), BulletDamageType.NONE, BulletSpecial.PULL),
     REFLECTOR_SHOT(0, ProjectileLoc("arcana_shot"), BulletDamageType.NONE, BulletSpecial.PUSH),
     CAPTAINS_SPARKLER_SHOT(13, ProjectileLoc("sparkler"), BulletDamageType.ARCANA, BulletSpecial.RAINBOW),
-    GENERALS_STAFF_SPRAY(13, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.NONE),
-    GENERALS_STAFF_SHOT(13, ProjectileLoc("generals_staff"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletType.GENERALS_STAFF_SPRAY, 4),
-    STAR(13, ProjectileLoc("starlight"), ParticleRegistry.EDEN_PORTAL.get(), BulletSpecial.SKY),
-    METEOR(15, ProjectileLoc("meteor"), ParticleRegistry.MORTUM_PORTAL.get(), BulletSpecial.SKY),
+    GENERALS_STAFF_SPRAY(13, ProjectileLoc("generals_staff"), ()-> ParticleRegistry.WILDWOOD_PORTAL.get(), BulletSpecial.NONE),
+    GENERALS_STAFF_SHOT(13, ProjectileLoc("generals_staff"), ()-> ParticleRegistry.WILDWOOD_PORTAL.get(), BulletType.GENERALS_STAFF_SPRAY, 4),
+    STAR(13, ProjectileLoc("starlight"), ()-> ParticleRegistry.EDEN_PORTAL.get(), BulletSpecial.SKY),
+    METEOR(15, ProjectileLoc("meteor"), ()-> ParticleRegistry.MORTUM_PORTAL.get(), BulletSpecial.SKY),
 
     //Cannons
     CRABCLAW_CANNON_SHOT(4, ProjectileLoc("crab_anchor")),
@@ -61,30 +63,30 @@ public enum BulletType {
     CORRUPTED_BULLET(10, ItemLoc("corrupted_bullet")),
 
     //Blitz
-    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.PHYSIC),
-    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.PHYSIC),
-    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
-    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.PHYSIC),
-    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
-    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ParticleRegistry.HALITE_PORTAL.get(), BulletDamageType.PHYSIC),
+    EDEN_BLITZ_SHOT(10, ProjectileLoc("eden_blitz"), ()-> ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.PHYSIC),
+    WILDWOOD_BLITZ_SHOT(12, ProjectileLoc("wildwood_blitz"), ()-> ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.PHYSIC),
+    APALACHIA_BLITZ_SHOT(14, ProjectileLoc("apalachia_blitz"), ()-> ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    SKYTHERN_BLITZ_SHOT(16, ProjectileLoc("skythern_blitz"), ()-> ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.PHYSIC),
+    MORTUM_BLITZ_SHOT(18, ProjectileLoc("mortum_blitz"), ()-> ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
+    HALITE_BLITZ_SHOT(20, ProjectileLoc("halite_blitz"), ()-> ParticleRegistry.HALITE_PORTAL.get(), BulletDamageType.PHYSIC),
 
     //Phasers
-    EDEN_PHASER_SHOT(8, ProjectileLoc("eden_phaser"), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.MAGIC),
-    WILDWOOD_PHASER_SHOT(10, ProjectileLoc("wildwood_phaser"), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.MAGIC),
-    APALACHIA_PHASER_SHOT(12, ProjectileLoc("apalachia_phaser"), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.MAGIC),
-    SKYTHERN_PHASER_SHOT(14, ProjectileLoc("skythern_phaser"), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.MAGIC),
-    MORTUM_PHASER_SHOT(16, ProjectileLoc("mortum_phaser"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.MAGIC),
-    HALITE_PHASER_SHOT(18, ProjectileLoc("halite_phaser"), ParticleRegistry.HALITE_PORTAL.get(), BulletDamageType.MAGIC),
+    EDEN_PHASER_SHOT(8, ProjectileLoc("eden_phaser"), ()-> ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.MAGIC),
+    WILDWOOD_PHASER_SHOT(10, ProjectileLoc("wildwood_phaser"), ()-> ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.MAGIC),
+    APALACHIA_PHASER_SHOT(12, ProjectileLoc("apalachia_phaser"), ()-> ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.MAGIC),
+    SKYTHERN_PHASER_SHOT(14, ProjectileLoc("skythern_phaser"), ()-> ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.MAGIC),
+    MORTUM_PHASER_SHOT(16, ProjectileLoc("mortum_phaser"), ()-> ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.MAGIC),
+    HALITE_PHASER_SHOT(18, ProjectileLoc("halite_phaser"), ()-> ParticleRegistry.HALITE_PORTAL.get(), BulletDamageType.MAGIC),
 
     //Mob Projectiles
     CAVE_ROCK(6, ProjectileLoc("cave_rock"), BulletDamageType.PHYSIC),
     //TODO: to change damage type to Magic for mages (etc.) after we add proper damage reduction for armors
     WEAK_CORI_SHOT(20, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
-    MAGE_SHOT(10, blank(), ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.PHYSIC),
-    SPELLBINDER_SHOT(12, blank(), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    MAGE_SHOT(10, blank(), ()-> ParticleRegistry.WILDWOOD_PORTAL.get(), BulletDamageType.PHYSIC),
+    SPELLBINDER_SHOT(12, blank(), ()-> ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
     ADVANCED_CORI_SHOT(30, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
-    MYSTIC_SHOT(13, blank(), ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.PHYSIC),
-    SORCERER_SHOT(14, blank(), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
+    MYSTIC_SHOT(13, blank(), ()-> ParticleRegistry.SKYTHERN_PORTAL.get(), BulletDamageType.PHYSIC),
+    SORCERER_SHOT(14, blank(), ()-> ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
     MANDRAGORA_SHOT(4, ProjectileLoc("mandragora_projectile"), BulletDamageType.PHYSIC),
     KAZROTIC_SHOT(0, ProjectileLoc("kazrotic_shot"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
     ZORAGON_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
@@ -95,13 +97,13 @@ public enum BulletType {
     KING_OF_SCORCHERS_METEOR(0, ProjectileLoc("king_of_scorchers_meteor"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
     BONE_FRAGMENT(6, ProjectileLoc("bone_fragment")),
     BONE_BOMB(16, ProjectileLoc("bone_bomb")),
-    SUNSTORM(12, blank(), ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.PHYSIC),
+    SUNSTORM(12, blank(), ()-> ParticleRegistry.EDEN_PORTAL.get(), BulletDamageType.PHYSIC),
     EXPERIENCED_CORI_SHOT(80, ProjectileLoc("cori_shot"), BulletDamageType.PHYSIC),
-    TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
-    TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), ParticleRegistry.TWILIGHT_PORTAL.get(), BulletDamageType.PHYSIC),
+    TWILIGHT_DEMON_BLACK_SHOT(16, ProjectileLoc("twilight_demon_shot"), ()-> ParticleRegistry.MORTUM_PORTAL.get(), BulletDamageType.PHYSIC),
+    TWILIGHT_DEMON_RED_SHOT(16, ProjectileLoc("twilight_demon_shot"), ()-> ParticleRegistry.TWILIGHT_PORTAL.get(), BulletDamageType.PHYSIC),
     SOUL_FIEND_SHOT(0, blank(), BulletDamageType.NONE),
     KAROS_BOMB(0, ProjectileLoc("zoragon_bomb"), BulletDamageType.NONE, BulletSpecial.EXPLODE, 3, 0),
-    LUNA_SPARKLER(12, blank(), ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
+    LUNA_SPARKLER(12, blank(), ()-> ParticleRegistry.APALACHIA_PORTAL.get(), BulletDamageType.PHYSIC),
     RAGLOK_BOMB(0, ProjectileLoc("raglok_bomb"), BulletDamageType.NONE, BulletSpecial.MOB_EXPLODE, 3, 0),
     WRECK_SHOT(15, ProjectileLoc("wreck_shot"), BulletDamageType.PHYSIC),
     WRECK_STRONG_SHOT(40, ProjectileLoc("wreck_shot"), BulletDamageType.PHYSIC),
@@ -156,7 +158,7 @@ public enum BulletType {
     private final BulletSpecial bulletSpecial;
     private final BulletDamageType bulletDamageType;
     private final ResourceLocation texture;
-    private SimpleParticleType particle;
+    private Supplier<SimpleParticleType> particle;
     public BulletType sprayBullet;
     private final float damage;
     public int effectPower;
@@ -176,7 +178,7 @@ public enum BulletType {
         bulletSpecial = BulletSpecial.NONE;
     }
     //Generic bullets + have particles
-    BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletDamageType type) {
+    BulletType(float damage, ResourceLocation texture, Supplier<SimpleParticleType> particle, BulletDamageType type) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
@@ -200,7 +202,7 @@ public enum BulletType {
         bulletSpecial = special;
     }
     //Bullets with other specials + have particles
-    BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletSpecial special) {
+    BulletType(float damage, ResourceLocation texture, Supplier<SimpleParticleType> particle, BulletSpecial special) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
@@ -208,7 +210,7 @@ public enum BulletType {
         bulletSpecial = special;
     }
     //Split projectiles
-    BulletType(float damage, ResourceLocation texture, SimpleParticleType particle, BulletType type, int amount) {
+    BulletType(float damage, ResourceLocation texture, Supplier<SimpleParticleType> particle, BulletType type, int amount) {
         this.damage = damage;
         this.texture = texture;
         this.particle = particle;
@@ -223,12 +225,12 @@ public enum BulletType {
     }
     private static ResourceLocation ProjectileLoc(String name) {return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/projectiles/" + name + ".png");}
     //TODO: to fix, for some reason blank textures are a 1x1 white square
-    private static ResourceLocation blank() {return ResourceLocation.withDefaultNamespace("minecraft:textures/particle/generic_0.png");}
+    private static ResourceLocation blank() {return ResourceLocation.withDefaultNamespace("textures/particle/generic_0.png");}
     public static ResourceLocation ItemLoc(String name) {return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/item/" + name + ".png");}
-    private static ResourceLocation VanillaItemLoc(String name) {return ResourceLocation.withDefaultNamespace("minecraft:textures/item/" + name + ".png");}
+    private static ResourceLocation VanillaItemLoc(String name) {return ResourceLocation.withDefaultNamespace("textures/item/" + name + ".png");}
     public float getDamage() {return damage;}
     public ResourceLocation getTexture() {return texture;}
-    public SimpleParticleType getParticle() {return particle;}
+    public SimpleParticleType getParticle() {return particle.get();}
     public BulletSpecial getBulletSpecial() {return bulletSpecial;}
     public enum BulletSpecial {NONE, BLIND, BOUNCE, EXPLODE, MOB_EXPLODE, FLAME, MUSIC, NAUSEA, POISON, PULL, PUSH, RAINBOW, RETURN, SKY, SLOW, SPLIT, WITHER}
     public BulletDamageType getBulletDamageType() {return bulletDamageType;}

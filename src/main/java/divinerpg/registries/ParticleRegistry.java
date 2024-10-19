@@ -19,7 +19,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static divinerpg.DivineRPG.MODID;
 
-@EventBusSubscriber(modid = MODID)
 public class ParticleRegistry {
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, MODID);
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> EDEN_PORTAL = PARTICLES.register("eden_portal", () -> new SimpleParticleType(true));

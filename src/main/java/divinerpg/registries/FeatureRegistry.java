@@ -33,7 +33,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static divinerpg.DivineRPG.MODID;
 
-@EventBusSubscriber(modid = MODID)
 public class FeatureRegistry {
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BuiltInRegistries.FEATURE, DivineRPG.MODID);
     

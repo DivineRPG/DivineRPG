@@ -31,7 +31,6 @@ import static net.minecraft.world.entity.SpawnPlacementTypes.*;
 import static net.minecraft.world.level.levelgen.Heightmap.Types.*;
 import static net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent.Operation.REPLACE;
 
-@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class SpawnEvents {
 	public static void spawnPlacementCheck(MobSpawnEvent.SpawnPlacementCheck e) {
 		if(e.getLevel() instanceof ServerLevel level) {

@@ -104,10 +104,10 @@ public class ArmorInfo {
     }
     public static MutableComponent getArmorInfo(ChatFormatting color, String text, Object... args) {
         String id = String.format("tooltip.divinerpg.armor_info.%s", text);
-        return args == null || args.length < 1 ? MutableComponent.create(new TranslatableContents(id, null, null)).withStyle(color) : MutableComponent.create(new TranslatableContents(id, null, args)).withStyle(color);
+        return args == null || args.length < 1 ? MutableComponent.create(new TranslatableContents(id, null, new Object[0])).withStyle(color) : MutableComponent.create(new TranslatableContents(id, null, args)).withStyle(color);
     }
     public static MutableComponent getArmorInfo(String text, Object... args) {
         String id = String.format("tooltip.divinerpg.armor_info.%s", text);
-        return args == null || args.length < 1 ? MutableComponent.create(new TranslatableContents(id, null, null)).withStyle(ChatFormatting.BLUE) : MutableComponent.create(new TranslatableContents(id, null, args)).withStyle(ChatFormatting.BLUE);
+        return args == null || args.length < 1 ? MutableComponent.create(new TranslatableContents(id, null, new Object[0])).withStyle(ChatFormatting.BLUE) : MutableComponent.create(new TranslatableContents(id, null, args)).withStyle(ChatFormatting.BLUE);
     }
 }

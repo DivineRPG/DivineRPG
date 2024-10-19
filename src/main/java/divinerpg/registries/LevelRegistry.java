@@ -10,7 +10,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent;
 
-@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class LevelRegistry {
     public static final ResourceKey<Level>
         EDEN = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden")),

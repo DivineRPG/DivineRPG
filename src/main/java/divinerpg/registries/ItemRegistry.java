@@ -27,7 +27,6 @@ import static divinerpg.util.ArmorInfo.*;
 import static net.minecraft.world.effect.MobEffects.*;
 import static net.minecraft.world.item.ArmorItem.Type.*;
 
-@EventBusSubscriber(modid = MODID)
 public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredItem<Item>

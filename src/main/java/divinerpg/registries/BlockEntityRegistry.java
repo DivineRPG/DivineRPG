@@ -50,7 +50,6 @@ public class BlockEntityRegistry {
     private static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> register(String registryName, Supplier<BlockEntityType<T>> tile) {
         return BLOCK_ENTITIES.register(registryName, tile);
     }
-    @OnlyIn(Dist.CLIENT)
     public static void renderTiles(){
         BlockEntityRenderers.register(ALTAR_OF_CORRUPTION.get(), RenderAltarOfCorruption::new);
         BlockEntityRenderers.register(NIGHTMARE_BED.get(), RenderNightmareBed::new);

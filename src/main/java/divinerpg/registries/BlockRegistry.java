@@ -30,7 +30,6 @@ import static net.minecraft.core.particles.ParticleTypes.FLAME;
 import static net.minecraft.sounds.SoundEvents.*;
 import static net.minecraft.world.level.material.MapColor.*;
 
-@EventBusSubscriber(modid = MODID)
 public class BlockRegistry {
         public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
         public static final DeferredRegister.Items BLOCK_ITEMS = DeferredRegister.createItems(MODID);
