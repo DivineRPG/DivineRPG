@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[${loader_version_range},)"
+loaderVersion="${loader_version_range}"
 license = "https://www.curseforge.com/project/363543/license"
 issueTrackerURL = "https://github.com/DivineRPG/DivineRPG/issues"
 
