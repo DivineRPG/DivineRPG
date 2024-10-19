@@ -8,6 +8,7 @@ import net.divinerpg.items.iceika.ItemSerenadeOfIce;
 import net.divinerpg.items.iceika.ItemSnowGlobe;
 import net.divinerpg.libs.ChatFormats;
 import net.divinerpg.libs.Sounds;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.blocks.VetheaBlocks;
 import net.divinerpg.utils.enums.ArmorInfo;
@@ -52,7 +53,7 @@ public class IceikaItems {
 	public static Item icicleBow = new ItemModBow("icicleBow", 10000, 2, 11, 24000, Items.arrow, "icicleArrow");
 	public static Item snowstormBow = new ItemModBow("snowstormBow", -1, 2, 11, "snowstormArrow");
 
-	private static Object[] santaInfo = new Object[] { ChatFormats.ICEIKA, "Massive Buff", 2, ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
+	private static Object[] santaInfo = new Object[] { ChatFormats.ICEIKA, (MessageLocalizer.norecolor("armor.tooltip.massivebuff")), 2, ArmorInfo.SPEED, 6, ArmorInfo.MELEE_DAMAGE, ArmorInfo.HUNGER, 80, ArmorInfo.DAMAGE_REDUCTION };
 	public static Item santaCap = new ItemDivineArmor(EnumArmor.SANTA, HEAD, santaInfo);
 	public static Item santaTunic = new ItemDivineArmor(EnumArmor.SANTA, BODY, santaInfo);
 	public static Item santaPants = new ItemDivineArmor(EnumArmor.SANTA, LEGS, santaInfo);

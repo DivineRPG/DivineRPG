@@ -21,11 +21,5 @@ public class BiomeGenEden extends BiomeGenBase {
         this.theBiomeDecorator.treesPerChunk = 6;
         this.waterColorMultiplier = 2368548;
 	}
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getSkyColorByTemp(float par1) {
-        return Color.getHSBColor(0.1361F, 0.95F, 1.0F).getRGB();
-    }
 	
 }

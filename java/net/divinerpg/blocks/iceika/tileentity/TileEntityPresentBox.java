@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import net.divinerpg.blocks.iceika.BlockPresentBox;
+import net.divinerpg.utils.MessageLocalizer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
@@ -23,7 +24,7 @@ public class TileEntityPresentBox extends TileEntity implements IInventory {
     private int ticksSinceSync;
 	
 	public TileEntityPresentBox() {
-		this.setCustomName("Present Box");
+		this.setCustomName(MessageLocalizer.norecolor("tile.presentBox.name"));
 	}
 	
 	public int getSizeInventory() {

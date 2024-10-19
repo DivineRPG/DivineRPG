@@ -4,6 +4,7 @@ import net.divinerpg.utils.DimensionHelper;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldProviderArcana extends WorldProvider {
@@ -31,6 +32,11 @@ public class WorldProviderArcana extends WorldProvider {
     public float getCloudHeight()
     {
         return 128.0F;
+    }
+
+    public boolean canDoRainSnowIce(Chunk chunk)
+    {
+        return false;
     }
 
     @Override

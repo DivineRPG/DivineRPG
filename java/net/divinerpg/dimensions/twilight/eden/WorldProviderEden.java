@@ -53,7 +53,7 @@ public class WorldProviderEden extends WorldProvider {
     public boolean canRespawnHere() {
         return false;
     }
-    
+
     @Override
     public String getDimensionName() {
         return "Eden";

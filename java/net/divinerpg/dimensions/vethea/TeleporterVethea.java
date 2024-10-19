@@ -69,7 +69,7 @@ public class TeleporterVethea extends Teleporter {
 			if(this.isBlockPortal(this.myWorld, var12, var13, var14 + 1)) var24 += 0.5D;
 			
 
-			entity.setLocationAndAngles(var28, var22 + 1.0D, var24 + 1.0D, entity.rotationYaw, 0.0F);
+			entity.setLocationAndAngles(var28 + 1.0D, var22 + 1.0D, var24, entity.rotationYaw, 0.0F);
 			entity.motionX = entity.motionY = entity.motionZ = 0.0D;
 			return true;
 		} else 

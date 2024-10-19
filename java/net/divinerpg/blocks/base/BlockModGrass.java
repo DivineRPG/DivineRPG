@@ -31,7 +31,7 @@ public class BlockModGrass extends BlockMod {
         this.dirtName = Reference.PREFIX + dirtName;
         setTextureName(textureName);
         setTickRandomly(true);
-        setHarvestLevel("shovel", 3);
+        setHarvestLevel("shovel", 0);
     }
 
     @SideOnly(Side.CLIENT)

@@ -61,7 +61,7 @@ public class WorldProviderIceika extends WorldProvider{
 
 	@Override
 	public boolean canRespawnHere() {
-		return true;
+		return false;
 	}
 
 	public boolean canCoordinateBeSpawn(int var1, int var2) {

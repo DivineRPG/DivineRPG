@@ -39,7 +39,7 @@ public class EntityDramix extends EntityDivineRPGBoss {
     @Override
     public void onLivingUpdate() {
 
-        if(this.ticksExisted%600 < 300) this.addPotionEffect(new PotionEffect(Potion.invisibility.id, 5, 0, true));
+        if(this.ticksExisted%600 > 300) this.addPotionEffect(new PotionEffect(Potion.invisibility.id, 5, 0, true));
 
         super.onLivingUpdate();
     }
