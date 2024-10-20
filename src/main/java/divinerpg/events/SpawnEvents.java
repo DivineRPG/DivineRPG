@@ -89,7 +89,8 @@ public class SpawnEvents {
     	//End
 		registerDarkSpawn(e, ENDER_SPIDER.get());
     	registerAirSpawn(e, ENDER_TRIPLETS.get(), EntityEnderTriplets::enderTripletSpawnRule);
-    	registerMonsterSpawn(e, ENDER_WATCHER.get());
+		registerMonsterSpawn(e, ENDER_WATCHER.get());
+		registerMonsterSpawn(e, ENDER_SCROUNGE.get());
     	//Iceika
     	registerWaterSpawn(e, CAULDRON_FISH.get());
     	registerSurfaceSpawn(e, BLUBBERTUSK.get());

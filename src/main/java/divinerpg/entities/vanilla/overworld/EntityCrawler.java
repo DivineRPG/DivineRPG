@@ -3,12 +3,14 @@ package divinerpg.entities.vanilla.overworld;
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.EntityRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import static divinerpg.registries.SoundRegistry.*;
 
@@ -25,5 +27,10 @@ public class EntityCrawler extends EntityDivineMonster {
     protected void playStepSound(BlockPos p_20135_, BlockState p_20136_) {
     	super.playStepSound(p_20135_, p_20136_);
     	if(getType() == EntityRegistry.CAVE_CRAWLER.get()) playSound(CAVE_CRAWLER_STEP.get(), 1F, 1F);
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
+        super.defineSynchedData(builder);
     }
 }

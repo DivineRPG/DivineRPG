@@ -44,7 +44,7 @@ public class LocalizeUtils {
      * @param ammo - ammunition
      */
     public static Component ammo(Item ammo) {
-        Component ammoName = MutableComponent.create(new TranslatableContents(ammo.getDescriptionId(), null, null));
+        Component ammoName = MutableComponent.create(new TranslatableContents(ammo.getDescriptionId(), null, new Object[0]));
         return i18n(ChatFormatting.WHITE, Ammo, ammoName);
     }
     /**

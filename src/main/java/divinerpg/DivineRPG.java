@@ -4,6 +4,7 @@ import divinerpg.compat.ModCompat;
 import divinerpg.config.*;
 import divinerpg.events.*;
 import divinerpg.events.enchant.RiveHandler;
+import divinerpg.network.Payloads;
 import divinerpg.registries.*;
 import divinerpg.util.Utils;
 import divinerpg.util.vanilla.*;
@@ -53,7 +54,9 @@ public class DivineRPG {
         bus.addListener(this::client);
         bus.register(EntityRegistry.class);
         NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
+        bus.addListener(SpawnEvents::registerSpawnPlacements);
         bus.addListener(CreativeTabRegistry::creativeTab);
+        bus.register(Payloads.class);
         container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/divinerpg-common.toml");
         container.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
 
