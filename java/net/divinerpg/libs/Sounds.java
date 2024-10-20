@@ -164,6 +164,7 @@ public class Sounds {
     public static Sound quadroNoDie           = new Sound("quadroNoDie");
     public static Sound quadroSitDown         = new Sound("quadroSitDown");
     public static Sound quadroTasteFist       = new Sound("quadroTasteFist");
+    public static Sound quadroBanana       = new Sound("quadroBanana");
     public static Sound raglokAvenge          = new Sound("raglokAvenge");
     public static Sound raglokAwaken          = new Sound("raglokAwaken");
     public static Sound raglokDark            = new Sound("raglokDark");
