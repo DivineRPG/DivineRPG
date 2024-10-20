@@ -60,13 +60,13 @@ public class ItemModBow extends BowItem {
     }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return maxUseDuration;}
     @SuppressWarnings("unchecked")
-	public boolean needsArrow(ItemStack stack) {
-        if(arrowSupplier != null) return stack.getEnchantmentLevel((Holder<Enchantment>) Enchantments.INFINITY) <= 0;
+	public boolean needsArrow(ItemStack stack, Level level) {
+        if(arrowSupplier != null) return stack.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.INFINITY)) <= 0;
         else return false;
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        boolean hasAmmo = (!needsArrow(stack) || !findAmmunition(player).isEmpty());
+        boolean hasAmmo = (!needsArrow(stack, level) || !findAmmunition(player).isEmpty());
         InteractionResultHolder<ItemStack> ret = EventHooks.onArrowNock(stack, level, player, hand, hasAmmo);
         if(ret != null) return ret;
         if(!player.isCreative() && !hasAmmo) return InteractionResultHolder.fail(stack);
@@ -78,7 +78,7 @@ public class ItemModBow extends BowItem {
     @Override public void releaseUsing(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft) {
         RandomSource random = level.getRandom();
         if(entityLiving instanceof Player player) {
-            boolean infiniteAmmo = !needsArrow(stack) || player.isCreative() || EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.INFINITY), entityLiving) > 0;
+            boolean infiniteAmmo = !needsArrow(stack, level) || player.isCreative() || EnchantmentHelper.getEnchantmentLevel(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.INFINITY), entityLiving) > 0;
             ItemStack itemstack = findAmmunition(player);
             int charge = EventHooks.onArrowLoose(stack, level, player, maxUseDuration - timeLeft, !itemstack.isEmpty() || infiniteAmmo);
             if(charge < 0) return;
@@ -144,7 +144,8 @@ public class ItemModBow extends BowItem {
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.POISON) tooltip.add(LocalizeUtils.poison(arrowType.effectSec));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.FLAME) tooltip.add(LocalizeUtils.burn(arrowType.effectSec));
         if(arrowType.getArrowSpecial() == ArrowType.ArrowSpecial.EXPLODE) tooltip.add(LocalizeUtils.explosiveShots());
-        tooltip.add(needsArrow(stack) ? LocalizeUtils.ammo(arrowSupplier) : LocalizeUtils.infiniteAmmo());
+        //TODO - re-add infinity check
+//        tooltip.add(needsArrow(stack) ? LocalizeUtils.ammo(arrowSupplier) : LocalizeUtils.infiniteAmmo());
         if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
         super.appendHoverText(stack, context, tooltip, flagIn);
     }

@@ -30,10 +30,6 @@ public class ItemModPickaxe extends PickaxeItem {
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency((int)getTier().getSpeed()));
         TagKey<Block> tagKey = getTier().getIncorrectBlocksForDrops();
-        tooltip.add(LocalizeUtils.harvestLevel(
-            tagKey == INCORRECT_FOR_WOODEN_TOOL || tagKey == INCORRECT_FOR_GOLD_TOOL ? Items.COAL
-            : (tagKey == INCORRECT_FOR_STONE_TOOL ? Items.LAPIS_LAZULI
-            : (tagKey == INCORRECT_FOR_IRON_TOOL ? Items.DIAMOND : Items.OBSIDIAN))));
         if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
     }
 	@Override

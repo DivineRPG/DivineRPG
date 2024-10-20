@@ -96,7 +96,7 @@ public class LocalizeUtils {
      *
      * @param lvl - harvest level
      */
-    public static Component harvestLevel(Item lvl) {return i18n(ChatFormatting.WHITE, HarvestLevel, lvl);}
+//    public static Component harvestLevel(Item lvl) {return i18n(ChatFormatting.WHITE, HarvestLevel, lvl);}
     /**
      * Indicates how much health is restored when used.
      */
@@ -209,18 +209,22 @@ public class LocalizeUtils {
      * @param args - string format arguments
      */
     public static Component i18n(ChatFormatting color, String text, Object... args) {
+        if(args == null) {args = new Object[0];}
         MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("tooltip.divinerpg.%s", text), null, args));
         return result.withStyle(color);
     }
     public static Component i18n(String text, Object... args) {
+        if(args == null) {args = new Object[0];}
         MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("tooltip.divinerpg.%s", text), null, args));
         return result.withStyle(ChatFormatting.GRAY);
     }
     public static Component clientMessage(ChatFormatting color, String text, Object... args) {
+        if(args == null) {args = new Object[0];}
         MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("message.divinerpg.%s", text), null, args));
         return result.withStyle(color);
     }
     public static Component clientMessage(String text, Object... args) {
+        if(args == null) {args = new Object[0];}
         MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("message.divinerpg.%s", text), null, args));
         return result.withStyle(ChatFormatting.WHITE);
     }
