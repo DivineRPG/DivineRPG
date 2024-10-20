@@ -57,7 +57,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	@Override
 	public DimensionTransition getPortalDestination(ServerLevel level, Entity entity, BlockPos pos) {
 		if(hasConnection(level, pos)) return transitionTo(level.getServer(), entity, ((PortalBlockEntity)level.getBlockEntity(pos)).targetPosition);
-		DivineRPG.LOGGER.info("No Connection Present. Creating new Portal.");
+//		DivineRPG.LOGGER.info("No Connection Present. Creating new Portal.");
 		Axis axis = level.getBlockState(pos).getValue(BlockStateProperties.HORIZONTAL_AXIS);
 		ResourceKey<Level> targetDimension = level.dimension() == rootDimension ? Level.OVERWORLD : rootDimension;
 		ServerLevel targetLevel = level.getServer().getLevel(targetDimension);
@@ -173,14 +173,10 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 			return;
 		} ServerLevel level = origin.level(server);
 		BlockPos pos = origin.blockPos();
-		BlockState state = level.getBlockState(pos);
-		Axis axis = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-		((PortalBlock)state.getBlock()).connectTo(level, pos, target, axis);
+		connectTo(level, pos, target, level.getBlockState(pos).getValue(BlockStateProperties.HORIZONTAL_AXIS));
 		level = target.level(server);
 		pos = target.blockPos();
-		state = level.getBlockState(pos);
-		axis = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-		((PortalBlock)state.getBlock()).connectTo(level, pos, origin, axis);
+		connectTo(level, pos, origin, level.getBlockState(pos).getValue(BlockStateProperties.HORIZONTAL_AXIS));
 //		DivineRPG.LOGGER.info("portal linking succeeded");
 	}
 	public static void spreadBlock(Level level, BlockState newState, BlockPos pos, Block spreadTarget, Axis axis) {
@@ -193,7 +189,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 			spreadBlock(level, newState, pos.relative(axis, -1), spreadTarget, axis);
 		}
 	}
-	public void connectTo(ServerLevel level, BlockPos pos, UniversalPosition connection, Axis axis) {
+	public static void connectTo(ServerLevel level, BlockPos pos, UniversalPosition connection, Axis axis) {
 		if(level.getBlockEntity(pos) instanceof PortalBlockEntity portal && connection != portal.targetPosition && !connection.equals(portal.targetPosition)) {
 			portal.targetPosition = connection;
 			connectTo(level, pos.above(), connection, axis);

@@ -39,7 +39,7 @@ public class ItemTwilightClock extends ItemMod {
                 }
             } if(BaseFireBlock.canBePlacedAt(worldIn, location, facing.getOpposite())) {
                 worldIn.playSound(player, location, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, player.getRandom().nextFloat() * .4F + .8F);
-                worldIn.setBlock(location, BlockRegistry.iceikaFire.get().defaultBlockState(), 0);
+                worldIn.setBlock(location, BlockRegistry.blueFire.get().defaultBlockState(), 0);
                 return InteractionResult.SUCCESS;
             }
         } return InteractionResult.FAIL;

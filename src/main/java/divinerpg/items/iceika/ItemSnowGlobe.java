@@ -1,5 +1,6 @@
 package divinerpg.items.iceika;
 
+import divinerpg.DivineRPG;
 import divinerpg.blocks.base.PortalBlock;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
@@ -11,23 +12,28 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class ItemSnowGlobe extends ItemMod {
     public ItemSnowGlobe() {super(new Properties().stacksTo(1));}
     @Override public InteractionResult useOn(UseOnContext context) {
-        BlockPos pos = context.getClickedPos();
         Direction facing = context.getClickedFace();
+        BlockPos pos = context.getClickedPos(), location = pos.relative(facing);
         Level worldIn = context.getLevel();
         Player player = context.getPlayer();
         if(!player.mayUseItemAt(pos, facing, player.getItemInHand(context.getHand()))) return InteractionResult.FAIL;
+        BlockState block = worldIn.getBlockState(pos);
         PortalBlock portal = (PortalBlock)BlockRegistry.iceikaPortal.get();
-        BlockPos location = pos.relative(facing);
-        if(worldIn.getBlockState(pos).is(portal.frameTag)) {
+        if(!block.is(portal.frameTag)) {
+            DivineRPG.LOGGER.info("Not a valid block for Snowglobe: " + block.getBlock().getName());
+            portal = null;
+        }
+        if(portal != null) {
             if(!worldIn.isClientSide()) {
-            	Axis axis = portal.checkForFrame(worldIn, location);
+                Axis axis = portal.checkForFrame(worldIn, location);
                 if(axis != null) {
-                	PortalBlock.spreadBlock(worldIn, portal.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), location, Blocks.AIR, axis);
+                    PortalBlock.spreadBlock(worldIn, portal.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), location, Blocks.AIR, axis);
                     worldIn.playSound(player, location, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, player.getRandom().nextFloat() * .4F + .8F);
                     return InteractionResult.SUCCESS;
                 }
