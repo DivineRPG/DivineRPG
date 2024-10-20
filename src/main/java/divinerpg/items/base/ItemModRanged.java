@@ -164,7 +164,7 @@ public class ItemModRanged extends ItemMod {
         super.appendHoverText(stack, context, tooltip, flagIn);
         if(!(this instanceof ItemModThrowable)) {
             tooltip.add(needsAmmo() ? LocalizeUtils.ammo(ammoSupplier) : LocalizeUtils.infiniteAmmo());
-            if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
+            if(stack.getMaxDamage() == 0) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
         }
     }
 }

@@ -109,7 +109,7 @@ public class ItemShickaxe extends DiggerItem {
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency((int)getTier().getSpeed()));
         TagKey<Block> tagKey = getTier().getIncorrectBlocksForDrops();
-        if(!stack.isDamageableItem()) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
+        if(stack.getMaxDamage() == 0) stack.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
     }
     @Override
     public Component getName(ItemStack pStack) {
