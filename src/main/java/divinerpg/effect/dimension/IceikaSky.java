@@ -196,7 +196,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 					RenderSystem.setShader(GameRenderer::getPositionColorShader);
 //					RenderSystem.disableBlend();
 					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
-					modelViewMatrix.rotate(Axis.XP.rotationDegrees(90.0F));
+					modelViewMatrix.rotate(Axis.XP.rotationDegrees(90F));
 					float f3 = Mth.sin(level.getSunAngle(partialTick)) < 0F ? 180F : 0F;
 					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(f3));
 					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(90F));
@@ -208,6 +208,9 @@ public class IceikaSky extends DimensionSpecialEffects {
 						bufferbuilder.addVertex(modelViewMatrix, f8 * 120F, f9 * 120F, -f9 * 40F * afloat[3]).setColor(afloat[0], afloat[1], afloat[2], 0F);
 					}
 					BufferUploader.drawWithShader(bufferbuilder.build());
+					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(-90F));
+					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(-f3));
+					modelViewMatrix.rotate(Axis.XP.rotationDegrees(-90F));
 				}
 //				RenderSystem.enableBlend();
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
@@ -234,6 +237,8 @@ public class IceikaSky extends DimensionSpecialEffects {
 	            bufferbuilder.addVertex(modelViewMatrix, f12, -100F, -f12).setUv(f13, f14);
 	            bufferbuilder.addVertex(modelViewMatrix, -f12, -100F, -f12).setUv(f15, f14);
 	            BufferUploader.drawWithShader(bufferbuilder.build());
+				modelViewMatrix.rotate(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * -360F));
+				modelViewMatrix.rotate(Axis.YP.rotationDegrees(90F));
 //	            RenderSystem.disableBlend();
 				float f10 = level.getStarBrightness(partialTick) * f11 + .5F;
 				RenderSystem.setShaderColor(f10, f10, f10, f10);

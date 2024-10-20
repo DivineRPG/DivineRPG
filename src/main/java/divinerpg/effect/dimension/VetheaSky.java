@@ -75,6 +75,8 @@ public class VetheaSky extends DimensionSpecialEffects {
                 FogRenderer.setupNoFog();
                 starBuffer.bind();
                 starBuffer.drawWithShader(modelViewMatrix, projectionMatrix, GameRenderer.getPositionShader());
+				modelViewMatrix.rotate(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * -360F));
+				modelViewMatrix.rotate(Axis.YP.rotationDegrees(90F));
                 VertexBuffer.unbind();
                 setupFog.run();
                 RenderSystem.setShaderColor(1F, 1F, 1F, 1F);

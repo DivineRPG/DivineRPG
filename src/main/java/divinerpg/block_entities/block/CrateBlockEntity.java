@@ -27,7 +27,7 @@ public class CrateBlockEntity extends BlockEntity implements Hopper {
 	}
 	@Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
 		super.saveAdditional(tag, registries);
-		tag.put("item", getItem().save(registries));
+		if(stack != null && !stack.isEmpty()) tag.put("item", getItem().save(registries));
 	}
 	@Override public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
 		super.loadAdditional(tag, registries);

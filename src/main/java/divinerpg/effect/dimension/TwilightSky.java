@@ -73,7 +73,7 @@ public class TwilightSky extends DimensionSpecialEffects {
 					RenderSystem.setShader(GameRenderer::getPositionColorShader);
 //					RenderSystem.disableBlend();
 					RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
-					modelViewMatrix.rotate(Axis.XP.rotationDegrees(90));
+					modelViewMatrix.rotate(Axis.XP.rotationDegrees(90F));
 					float f3 = Mth.sin(level.getSunAngle(partialTick)) < 0F ? 180F : 0F;
 					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(f3));
 					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(90F));
@@ -84,6 +84,9 @@ public class TwilightSky extends DimensionSpecialEffects {
 						float f9 = Mth.cos(f7);
 						bufferbuilder.addVertex(modelViewMatrix, f8 * 120F, f9 * 120F, -f9 * 40F * afloat[3]).setColor(afloat[0], afloat[1], afloat[2], 0F);
 					} BufferUploader.drawWithShader(bufferbuilder.buildOrThrow());
+					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(-90F));
+					modelViewMatrix.rotate(Axis.ZP.rotationDegrees(-f3));
+					modelViewMatrix.rotate(Axis.XP.rotationDegrees(-90F));
 				}
 //				RenderSystem.enableBlend();
 				RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
@@ -108,7 +111,8 @@ public class TwilightSky extends DimensionSpecialEffects {
 					starBuffer.drawWithShader(modelViewMatrix, projectionMatrix, GameRenderer.getPositionShader());
 					VertexBuffer.unbind();
 					setupFog.run();
-				}
+				} modelViewMatrix.rotate(Axis.XP.rotationDegrees(level.getTimeOfDay(partialTick) * -360F));
+				modelViewMatrix.rotate(Axis.YP.rotationDegrees(90F));
 				if(level.dimension() == LevelRegistry.EDEN) RenderSystem.setShaderColor(1F, 1F, .9F, 1F);
 				else if(level.dimension() == LevelRegistry.WILDWOOD) RenderSystem.setShaderColor(.8F, .9F, 1F, 1F);
 				else if(level.dimension() == LevelRegistry.APALACHIA) RenderSystem.setShaderColor(.9F, .8F, 1F, 1F);
