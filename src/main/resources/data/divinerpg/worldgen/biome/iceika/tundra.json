@@ -71,7 +71,7 @@
 				"maxCount": 3
 			}
 		],
-		"underground_water_creature": [
+		"water_creature": [
 			{
 				"type": "minecraft:squid",
 				"weight": 5,

@@ -51,12 +51,6 @@
 	        "maxCount": 3,
 	        "minCount": 2,
 	        "weight": 5
-	      },
-	      {
-	        "type": "minecraft:tropical_fish",
-	        "maxCount": 8,
-	        "minCount": 2,
-	        "weight": 6
 	      }
     	],
     	"water_ambient": [

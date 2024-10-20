@@ -30,7 +30,7 @@ public class ItemTeleportationStar extends ItemMod {
             if(player.isShiftKeyDown()) {
             	stack.set(DataComponentRegistry.dimension, player.level().dimension().location());
                 stack.set(DataComponentRegistry.position, player.blockPosition());
-                message = LocalizeUtils.clientMessage(ChatFormatting.RED, "teleport.change_position");
+                message = LocalizeUtils.clientMessage("teleport.change_position");
                 player.displayClientMessage(message, true);
                 return InteractionResultHolder.success(stack);
             } if(hasInfo) {

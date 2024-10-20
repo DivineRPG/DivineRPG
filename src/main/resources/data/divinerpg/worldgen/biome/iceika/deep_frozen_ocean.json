@@ -40,14 +40,6 @@
 				"maxCount": 2
 			}
 		],
-		"underground_water_creature": [
-			{
-				"type": "minecraft:salmon",
-				"weight": 3,
-				"minCount": 1,
-				"maxCount": 3
-			}
-		],
 		"water_creature": [
 			{
 				"type": "divinerpg:blubbertusk",

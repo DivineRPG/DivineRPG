@@ -54,13 +54,15 @@
 				"maxCount": 5
 			},
 			{
-				"type": "divinerpg:mysterious_man_layer_1",
+				"type": "divinerpg:shadahier",
 				"weight": 1,
 				"minCount": 1,
 				"maxCount": 2
-			},
+			}
+		],
+		"creature": [
 			{
-				"type": "divinerpg:shadahier",
+				"type": "divinerpg:mysterious_man_layer_1",
 				"weight": 1,
 				"minCount": 1,
 				"maxCount": 2

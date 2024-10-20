@@ -73,6 +73,12 @@
 				"weight": 5,
 				"minCount": 2,
 				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:seng",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
 			}
 		],
 		"creature": [
@@ -83,19 +89,11 @@
 				"maxCount": 3
 			},
 			{
-				"type": "divinerpg:seng",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 3
-			},
-			{
 				"type": "minecraft:fox",
 				"weight": 5,
 				"minCount": 1,
 				"maxCount": 3
-			}
-		],
-		"ambient": [
+			},
 			{
 				"type": "divinerpg:robbin",
 				"weight": 2,
@@ -103,7 +101,7 @@
 				"maxCount": 3
 			}
 		],
-		"underground_water_creature": [
+		"water_creature": [
 			{
 				"type": "minecraft:squid",
 				"weight": 5,

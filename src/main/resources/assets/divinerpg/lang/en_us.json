@@ -2229,7 +2229,7 @@
   "enchantment.divinerpg.brain_freeze": "Brain Freeze",
   "enchantment.divinerpg.brain_freeze.desc": "Brain Freeze has a chance to temporarily freeze mobs where they stand.",
   "enchantment.divinerpg.insulation": "Insulation",
-  "enchantment.divinerpg.insulation.desc": "Insulation prevents freezing in Iceika when applied to the chestplate.",
+  "enchantment.divinerpg.insulation.desc": "Insulation prevents freezing when applied to the chestplate.",
   "enchantment.divinerpg.rive": "Rive",
   "enchantment.divinerpg.rive.desc": "Rive when applied to a mining tool will excavate in a (3 x 3 x enchant level) sized radius.",
 

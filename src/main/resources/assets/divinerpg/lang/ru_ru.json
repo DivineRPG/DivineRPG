@@ -2218,7 +2218,7 @@
   "message.divinerpg.player.friend": "Добро пожаловать, %s! Вам выражает признательность, по крайней мере, один из членов команды DivineRPG.",
   "message.divinerpg.player.special": "Добро пожаловать в DivineRPG! %s заслужил признание за исключительную крутизну!",
   "message.divinerpg.player.tester": "Добро пожаловать, тестировщик DivineRPG! %s великодушно выделил своё время для помощи в тестировании DivineRPG. Мы очень ценим вашу помощь!",
-  "message.divinerpg.teleport.change_position": "Вы не можете поменять установленные координаты",
+  "message.divinerpg.teleport.change_position": "Вы задали новые координаты для телепортации",
   "message.divinerpg.teleport.no_position": "Нажмите «Красться» + «Использовать», чтобы задать координаты для телепортации",
   "message.divinerpg.teleport.no_respawn": "У вас нет точки возрождения",
 
@@ -2227,7 +2227,7 @@
   "enchantment.divinerpg.brain_freeze": "Мозгоморозка",
   "enchantment.divinerpg.brain_freeze.desc": "Мозгоморозка даёт шанс временно заморозить мобов там, где они стоят.",
   "enchantment.divinerpg.insulation": "Теплоизоляция",
-  "enchantment.divinerpg.insulation.desc": "Теплоизоляция на нагруднике предотвращает замерзание в Заснежье.",
+  "enchantment.divinerpg.insulation.desc": "Теплоизоляция на нагруднике предотвращает замерзание.",
   "enchantment.divinerpg.rive": "Разрушитель",
   "enchantment.divinerpg.rive.desc": "Разрушитель, при применении к инструменту, добывает в радиусе (3 x 3 x уровень зачарования).",
 

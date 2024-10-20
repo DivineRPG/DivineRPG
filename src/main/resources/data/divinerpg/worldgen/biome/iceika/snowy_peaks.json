@@ -49,6 +49,12 @@
 				"weight": 3,
 				"minCount": 1,
 				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
 			}
 		],
 		"creature": [
@@ -60,12 +66,6 @@
 			},
 			{
 				"type": "divinerpg:wolpertinger",
-				"weight": 1,
-				"minCount": 1,
-				"maxCount": 1
-			},
-			{
-				"type": "divinerpg:sabear",
 				"weight": 1,
 				"minCount": 1,
 				"maxCount": 1

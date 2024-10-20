@@ -155,7 +155,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityKingCrab>>			 KING_CRAB 			 = registerEntity(EntityKingCrab::new, 			"king_crab", 			    1.8F, 1.4375F, 1.125F, 0xffffff, 0xffffff);
 
     //Water
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityAequorea>>			 AEQUOREA 			 = registerEntity(EntityAequorea::new, 			"aequorea", 			    .3F, .3125F, .25F, 0x79ab82, 0x7ae174, MobCategory.WATER_CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityAequorea>>			 AEQUOREA 			 = registerEntity(EntityAequorea::new, 			"aequorea", 			    .3F, .3125F, .25F, 0x79ab82, 0x7ae174, MobCategory.WATER_AMBIENT);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityShark>>				 SHARK 				 = registerEntity(EntityShark::new, 			"shark", 				    1, .75F, .59375F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWhale>>				 WHALE 				 = registerEntity(EntityWhale::new, 			"whale", 				    3, 1.875F, 1.125F, 0x638bb3, 0x273649, MobCategory.WATER_CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		 = registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		    3, 1, .40625F, 0x253a73, 0x6273a5, MobCategory.WATER_CREATURE);

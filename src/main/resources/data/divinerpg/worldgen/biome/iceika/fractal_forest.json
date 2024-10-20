@@ -33,6 +33,12 @@
 				"maxCount": 3
 			},
 			{
+				"type": "divinerpg:sabear",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
 				"type": "divinerpg:hastreus",
 				"weight": 3,
 				"minCount": 1,
@@ -55,6 +61,18 @@
 				"weight": 1,
 				"minCount": 1,
 				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:frozen_flesh",
+				"weight": 6,
+				"minCount": 1,
+				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:alicanto",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
 			}
 		],
 		"creature": [
@@ -63,12 +81,6 @@
 				"weight": 5,
 				"minCount": 1,
 				"maxCount": 4
-			},
-			{
-				"type": "divinerpg:sabear",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 2
 			},
 			{
 				"type": "minecraft:polar_bear",
@@ -81,14 +93,6 @@
 				"weight": 2,
 				"minCount": 1,
 				"maxCount": 2
-			}
-		],
-		"underground_water_creature": [
-			{
-				"type": "minecraft:squid",
-				"weight": 4,
-				"minCount": 1,
-				"maxCount": 3
 			}
 		],
 		"water_creature": [
@@ -105,20 +109,6 @@
 				"weight": 5,
 				"minCount": 1,
 				"maxCount": 4
-			}
-		],
-		"misc": [
-			{
-				"type": "divinerpg:frozen_flesh",
-				"weight": 6,
-				"minCount": 1,
-				"maxCount": 4
-			},
-			{
-				"type": "divinerpg:alicanto",
-				"weight": 1,
-				"minCount": 1,
-				"maxCount": 1
 			}
 		]
 	},

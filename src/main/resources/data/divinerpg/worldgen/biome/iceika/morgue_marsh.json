@@ -67,6 +67,12 @@
 				"weight": 10,
 				"minCount": 3,
 				"maxCount": 6
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
 			}
 		],
 		"creature": [
@@ -77,25 +83,11 @@
 				"maxCount": 3
 			},
 			{
-				"type": "divinerpg:sabear",
-				"weight": 1,
-				"minCount": 1,
-				"maxCount": 1
-			},
-			{
 				"type": "minecraft:fox",
 				"weight": 4,
 				"minCount": 1,
 				"maxCount": 3
 			},
-			{
-				"type": "divinerpg:blubbertusk",
-				"weight": 2,
-				"minCount": 2,
-				"maxCount": 4
-			}
-		],
-		"ambient": [
 			{
 				"type": "divinerpg:robbin",
 				"weight": 2,
@@ -103,20 +95,12 @@
 				"maxCount": 3
 			}
 		],
-		"underground_water_creature": [
-			{
-				"type": "divinerpg:aequorea",
-				"weight": 5,
-				"minCount": 1,
-				"maxCount": 3
-			}
-		],
 		"water_creature": [
 			{
-				"type": "divinerpg:cauldron_fish",
-				"weight": 4,
-				"minCount": 1,
-				"maxCount": 2
+				"type": "divinerpg:blubbertusk",
+				"weight": 2,
+				"minCount": 2,
+				"maxCount": 4
 			}
 		],
 		"water_ambient": [
@@ -125,6 +109,18 @@
 				"weight": 8,
 				"minCount": 1,
 				"maxCount": 5
+			},
+			{
+				"type": "divinerpg:cauldron_fish",
+				"weight": 4,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:aequorea",
+				"weight": 5,
+				"minCount": 1,
+				"maxCount": 3
 			}
 		]
 	},

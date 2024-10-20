@@ -59,14 +59,6 @@
 				"maxCount": 3
 			}
 		],
-		"underground_water_creature": [
-			{
-				"type": "minecraft:salmon",
-				"weight": 5,
-				"minCount": 1,
-				"maxCount": 3
-			}
-		],
 		"water_ambient": [
 			{
 				"type": "minecraft:salmon",

@@ -47,7 +47,9 @@
 				"weight": 8,
 				"minCount": 1,
 				"maxCount": 4
-			},
+			}
+		],
+		"water_ambient": [
 			{
 				"type": "divinerpg:aequorea",
 				"weight": 10,

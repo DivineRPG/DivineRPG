@@ -26,12 +26,6 @@
         "maxCount": 4
       },
       {
-        "type": "divinerpg:glinthop",
-        "weight": 20,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
         "type": "divinerpg:weak_cori",
         "weight": 1,
         "minCount": 1,
@@ -58,6 +52,14 @@
       {
         "type": "divinerpg:sun_archer",
         "weight": 6,
+        "minCount": 4,
+        "maxCount": 4
+      }
+    ],
+    "creature": [
+      {
+        "type": "divinerpg:glinthop",
+        "weight": 20,
         "minCount": 4,
         "maxCount": 4
       }

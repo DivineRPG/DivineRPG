@@ -31,14 +31,16 @@
 				"maxCount": 2
 			},
 			{
-				"type": "divinerpg:mysterious_man_layer_2",
-				"weight": 1,
-				"minCount": 1,
-				"maxCount": 2
-			},
-			{
 				"type": "divinerpg:twins",
 				"weight": 2,
+				"minCount": 1,
+				"maxCount": 2
+			}
+		],
+		"creature": [
+			{
+				"type": "divinerpg:mysterious_man_layer_2",
+				"weight": 1,
 				"minCount": 1,
 				"maxCount": 2
 			}

@@ -49,6 +49,12 @@
 				"weight": 1,
 				"minCount": 1,
 				"maxCount": 1
+			},
+			{
+				"type": "divinerpg:seng",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
 			}
 		],
 		"creature": [
@@ -57,12 +63,6 @@
 				"weight": 3,
 				"minCount": 2,
 				"maxCount": 5
-			},
-			{
-				"type": "divinerpg:seng",
-				"weight": 1,
-				"minCount": 1,
-				"maxCount": 1
 			}
 		],
 		"underground_water_creature": [
@@ -73,7 +73,7 @@
 				"maxCount": 3
 			}
 		],
-		"water_creature": [
+		"water_ambient": [
 			{
 				"type": "divinerpg:cauldron_fish",
 				"weight": 3,
