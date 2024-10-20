@@ -76,11 +76,11 @@ public class TwilightBlocks {
     public static Block skythernLogs  = new BlockModLog("skythernLog");
     public static Block mortumLogs    = new BlockModLog("mortumLog");
 
-    public static Block edenPlanks      = new BlockMod(EnumBlockType.WOOD, "edenPlanks", 8).setResistance(5);
-    public static Block wildwoodPlanks  = new BlockMod(EnumBlockType.WOOD, "wildwoodPlanks", 8).setResistance(5);
-    public static Block apalachiaPlanks = new BlockMod(EnumBlockType.WOOD, "apalachiaPlanks", 8).setResistance(5);
-    public static Block skythernPlanks  = new BlockMod(EnumBlockType.WOOD, "skythernPlanks", 8).setResistance(5);
-    public static Block mortumPlanks    = new BlockMod(EnumBlockType.WOOD, "mortumPlanks", 8).setResistance(5);
+    public static Block edenPlanks      = new BlockMod(EnumBlockType.WOOD, "edenPlanks", 2).setResistance(15);
+    public static Block wildwoodPlanks  = new BlockMod(EnumBlockType.WOOD, "wildwoodPlanks", 2).setResistance(15);
+    public static Block apalachiaPlanks = new BlockMod(EnumBlockType.WOOD, "apalachiaPlanks", 2).setResistance(15);
+    public static Block skythernPlanks  = new BlockMod(EnumBlockType.WOOD, "skythernPlanks", 2).setResistance(15);
+    public static Block mortumPlanks    = new BlockMod(EnumBlockType.WOOD, "mortumPlanks", 2).setResistance(15);
 
     public static Block edenStairs      = new BlockModStairs(edenPlanks, "edenStairs");
     public static Block wildwoodStairs  = new BlockModStairs(wildwoodPlanks, "wildwoodStairs");

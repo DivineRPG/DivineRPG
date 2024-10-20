@@ -27,13 +27,13 @@ import net.minecraft.init.Blocks;
 
 public class IceikaBlocks {
 
-    public static Block frozenDirt    = new BlockMod(EnumBlockType.DIRT, "frozenDirt", 2.5F);
-    public static Block frozenGrass   = new BlockModGrass((BlockMod) frozenDirt, "frozenGrass", "frozenDirt", 2.5F);
-    public static Block frozenStone   = new BlockMod("frozenStone", 6.0F);
-    public static Block frozenWood    = new BlockModLog("frozenLog").setHardness(5.0F);
-    public static Block brittleLeaves = new BlockModLeaves("brittleLeaves", 0.1F);
+    public static Block frozenDirt    = new BlockMod(EnumBlockType.DIRT, "frozenDirt", 0.6F);
+    public static Block frozenGrass   = new BlockModGrass((BlockMod) frozenDirt, "frozenGrass", "frozenDirt", 0.5F);
+    public static Block frozenStone   = new BlockMod("frozenStone", 1.5F);
+    public static Block frozenWood    = new BlockModLog("frozenLog").setHardness(2.0F);
+    public static Block brittleLeaves = new BlockModLeaves("brittleLeaves", 0.2F);
 
-    public static Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozenPlanks", 6).setResistance(5);
+    public static Block frozenPlanks = new BlockMod(EnumBlockType.WOOD, "frozenPlanks", 2).setResistance(15);
     public static Block frozenStairs = new BlockModStairs(frozenPlanks, "frozenStairs");
     public static Block frozenSlab = new BlockModSlab((BlockMod)frozenPlanks, false, "Planks", null);
     public static Block frozenSlabDouble = new BlockModSlab((BlockMod)frozenPlanks, true, "Planks", frozenSlab);
