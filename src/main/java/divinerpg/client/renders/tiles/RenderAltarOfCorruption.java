@@ -49,7 +49,7 @@ public class RenderAltarOfCorruption implements BlockEntityRenderer<AltarOfCorru
         float f6 = Mth.lerp(partialTicks, blockEntity.oOpen, blockEntity.open);
         this.bookModel.setupAnim(f, Mth.clamp(f4, 0.0F, 1.0F), Mth.clamp(f5, 0.0F, 1.0F), f6);
         VertexConsumer ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(TEXTURE_BOOK.texture()));
-        bookModel.renderToBuffer(matrixStackIn, ivertexbuilder, combinedLightIn, combinedOverlayIn, 1);
+        bookModel.renderToBuffer(matrixStackIn, ivertexbuilder, combinedLightIn, combinedOverlayIn);
         matrixStackIn.popPose();
     }
 }

@@ -22,7 +22,7 @@ public class RenderDramixAltar implements BlockEntityRenderer<DramixAltarBlockEn
         matrixStack.pushPose();
         matrixStack.translate(0.5D, -0.625D, 0.5D);
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(TEXTURE));
-        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1);
+        model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay);
         matrixStack.popPose();
     }
 }

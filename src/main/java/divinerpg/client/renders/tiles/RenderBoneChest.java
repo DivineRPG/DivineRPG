@@ -31,7 +31,7 @@ public class RenderBoneChest implements BlockEntityRenderer<BoneChestBlockEntity
         VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/bone_chest.png")));
         model.lid.xRot = -(lidAngle * ((float) Math.PI / 2F));
         model.handle.xRot = model.lid.xRot;
-        model.renderToBuffer(matrix, builder, combinedLight, combinedOverlay, 1);
+        model.renderToBuffer(matrix, builder, combinedLight, combinedOverlay);
         matrix.popPose();
     }
 }

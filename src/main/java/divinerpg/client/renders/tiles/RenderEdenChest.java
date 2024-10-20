@@ -32,7 +32,7 @@ public class RenderEdenChest implements BlockEntityRenderer<EdenChestBlockEntity
         model.chestKnobLeft.xRot = model.lid.xRot;
         model.chestKnobMiddle.xRot = model.lid.xRot;
         model.chestKnobRight.xRot = model.lid.xRot;
-        model.renderToBuffer(matrix, builder, combinedLight, combinedOverlay, 1);
+        model.renderToBuffer(matrix, builder, combinedLight, combinedOverlay);
         matrix.popPose();
     }
 }

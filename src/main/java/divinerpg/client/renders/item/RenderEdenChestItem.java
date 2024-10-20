@@ -29,7 +29,7 @@ public class RenderEdenChestItem extends BlockEntityWithoutLevelRenderer {
             matrixStack.mulPose(Axis.YP.rotationDegrees(-90));
             matrixStack.mulPose(Axis.XP.rotationDegrees(180));
             VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/eden_chest.png")));
-            this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1);
+            this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay);
             matrixStack.popPose();
         }
 

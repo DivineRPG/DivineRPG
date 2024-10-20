@@ -29,7 +29,7 @@ public class RenderParasectaAltarItem extends BlockEntityWithoutLevelRenderer {
             matrixStack.mulPose(Axis.YP.rotationDegrees(270));
             matrixStack.mulPose(Axis.YN.rotationDegrees(270));
             VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/parasecta_altar.png")));
-            this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay, 1);
+            this.model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay);
             matrixStack.popPose();
         }
 
