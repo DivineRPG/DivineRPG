@@ -41,7 +41,6 @@ public class DivineRPG {
         FeatureRegistry.FEATURES.register(bus);
         StructureRegistry.STRUCTURE_TYPE.register(bus);
         PaintingRegistry.PAINTING_VARIANTS.register(bus);
-        PointOfInterestRegistry.POI.register(bus);
         LootModifierRegistry.GLOBAL_LOOT_MODIFIERS.register(bus);
         CreativeTabRegistry.CREATIVE_MODE_TABS.register(bus);
         ArmorMaterialRegistry.ARMOR_MATERIALS.register(bus);

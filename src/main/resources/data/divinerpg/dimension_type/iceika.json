@@ -7,7 +7,7 @@
 	"has_raids": false,
 	"has_skylight": true,
 	"has_ceiling": false,
-	"coordinate_scale": 1,
+	"coordinate_scale": 16,
 	"ambient_light": 0,
 	"logical_height": 244,
 	"effects": "divinerpg:iceika_sky",

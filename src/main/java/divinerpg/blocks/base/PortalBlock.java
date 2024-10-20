@@ -3,6 +3,7 @@ package divinerpg.blocks.base;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import divinerpg.DivineRPG;
 import divinerpg.block_entities.block.PortalBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
 import divinerpg.util.UniversalPosition;
@@ -19,6 +20,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -29,6 +31,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.*;
+import org.jetbrains.annotations.Nullable;
 
 public class PortalBlock extends BaseEntityBlock implements Portal {
 	public static final TagKey<Block> portalTag = TagKey.create(Registries.BLOCK, ResourceLocation.parse("c:portals"));
@@ -54,17 +57,19 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	@Override
 	public DimensionTransition getPortalDestination(ServerLevel level, Entity entity, BlockPos pos) {
 		if(hasConnection(level, pos)) return transitionTo(level.getServer(), entity, ((PortalBlockEntity)level.getBlockEntity(pos)).targetPosition);
+		DivineRPG.LOGGER.info("No Connection Present. Creating new Portal.");
 		Axis axis = level.getBlockState(pos).getValue(BlockStateProperties.HORIZONTAL_AXIS);
 		ResourceKey<Level> targetDimension = level.dimension() == rootDimension ? Level.OVERWORLD : rootDimension;
-		BlockPos targetPosition = UniversalPosition.toBlockPos(scalePosition(entity.position(), level.dimensionType(), level.getServer().getLevel(targetDimension).dimensionType()));
+		ServerLevel targetLevel = level.getServer().getLevel(targetDimension);
+		BlockPos targetPosition = UniversalPosition.toBlockPos(scalePosition(entity.position(), level.dimensionType(), targetLevel.dimensionType()));
 		UniversalPosition origin = new UniversalPosition(level, pos);
 		pos = targetPosition;
 		for(int tries = 0; tries < 10; tries++) {
-			pos = applyPlacementLocationPreference(level, entity, pos);
-			if(hasRoomForPortal(level, pos)) break;
+			pos = applyPlacementLocationPreference(targetLevel, entity, pos);
+			if(hasRoomForPortal(targetLevel, pos)) break;
 			if(tries == 9) pos = targetPosition;
 			else pos = targetPosition.offset((int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)), 0, (int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)));
-		} targetPosition = placePortal(level, pos, axis);
+		} targetPosition = placePortal(targetLevel, pos, axis);
 		if(targetPosition == null) return null;
 		UniversalPosition target = new UniversalPosition(targetDimension, targetPosition);
 		linkPortals(level.getServer(), origin, target);
@@ -77,7 +82,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	 * @return
 	 */
 	public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-		return new BlockPos(pos.getX(), Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight(), level.getMaxBuildHeight(), 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
+		return new BlockPos(pos.getX(), Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight(), level.dimensionType().logicalHeight(), 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
 	}
 	public boolean hasRoomForPortal(ServerLevel level, BlockPos pos) {
 		pos = pos.above();
@@ -92,6 +97,8 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	 */
 	public BlockPos placePortal(ServerLevel level, BlockPos pos, Axis axis) {return null;}
 	public static BlockPos placeVanillaLookingPortal(ServerLevel level, BlockPos pos, BlockState frameBlock, BlockState portalBlock, Axis axis) {
+		if(!level.ensureCanWrite(pos)) return null;
+		Axis other = axis == Axis.X ? Axis.Z : Axis.X;
 		BlockState air = Blocks.AIR.defaultBlockState();
 		MutableBlockPos mut = pos.mutable();
 		setBlock(level, mut, frameBlock);
@@ -104,15 +111,15 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		setBlock(level, mut.move(Direction.DOWN), portalBlock);
 		setBlock(level, mut.move(Direction.DOWN), portalBlock);
 		setBlock(level, mut.move(Direction.DOWN), frameBlock);
-		if(level.getBlockState(mut.move(Direction.DOWN.getClockWise(axis))).isAir()) level.setBlock(mut, frameBlock, UPDATE_NONE);
+		if(level.getBlockState(mut.set(mut.relative(other, 1))).isAir()) level.setBlock(mut, frameBlock, UPDATE_KNOWN_SHAPE);
 		setBlock(level, mut.move(Direction.UP), air);
 		setBlock(level, mut.move(Direction.UP), air);
 		setBlock(level, mut.move(Direction.UP), air);
 		setBlock(level, mut.set(mut.relative(axis, 1)), air);
 		setBlock(level, mut.move(Direction.DOWN), air);
 		setBlock(level, mut.move(Direction.DOWN), air);
-		if(level.getBlockState(mut.move(Direction.DOWN)).isAir()) level.setBlock(mut, frameBlock, UPDATE_NONE);
-		setBlock(level, mut.move(Direction.DOWN.getCounterClockWise(axis)), frameBlock);
+		if(level.getBlockState(mut.move(Direction.DOWN)).isAir()) level.setBlock(mut, frameBlock, UPDATE_KNOWN_SHAPE);
+		setBlock(level, mut.set(mut.relative(other, -1)), frameBlock);
 		setBlock(level, mut.set(mut.relative(axis, 1)), frameBlock);
 		setBlock(level, mut.move(Direction.UP), frameBlock);
 		setBlock(level, mut.move(Direction.UP), frameBlock);
@@ -122,19 +129,30 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		setBlock(level, mut.move(Direction.DOWN), portalBlock);
 		setBlock(level, mut.move(Direction.DOWN), portalBlock);
 		setBlock(level, mut.move(Direction.DOWN), portalBlock);
-		setBlock(level, mut.move(Direction.DOWN.getCounterClockWise(axis)), air);
-		if(level.getBlockState(mut.move(Direction.DOWN)).isAir()) level.setBlock(mut, frameBlock, UPDATE_NONE);
-		if(level.getBlockState(mut.set(mut.relative(axis, -1))).isAir()) level.setBlock(mut, frameBlock, UPDATE_NONE);
+		setBlock(level, mut.set(mut.relative(other, -1)), air);
+		if(level.getBlockState(mut.move(Direction.DOWN)).isAir()) level.setBlock(mut, frameBlock, UPDATE_KNOWN_SHAPE);
+		if(level.getBlockState(mut.set(mut.relative(axis, -1))).isAir()) level.setBlock(mut, frameBlock, UPDATE_KNOWN_SHAPE);
 		setBlock(level, mut.move(Direction.UP), air);
 		setBlock(level, mut.move(Direction.UP), air);
 		setBlock(level, mut.move(Direction.UP), air);
 		setBlock(level, mut.set(mut.relative(axis, 1)), air);
 		setBlock(level, mut.move(Direction.DOWN), air);
-		return pos.relative(axis, 1).above();
+		pos = mut.set(mut.relative(other, 1).below()).immutable();
+//		Block portal = portalBlock.getBlock();
+//		level.blockUpdated(mut, portal);
+//		level.blockUpdated(mut.move(Direction.UP), portal);
+//		level.blockUpdated(mut.move(Direction.UP), portal);
+//		level.blockUpdated(mut.set(mut.relative(axis, -1)), portal);
+//		level.blockUpdated(mut.move(Direction.DOWN), portal);
+//		level.blockUpdated(mut.move(Direction.DOWN), portal);
+		return pos;
 	}
 	public static void setBlock(ServerLevel level, BlockPos pos, BlockState state) {
 		BlockState block = level.getBlockState(pos);
-		if(state.isAir() || block.getBlock().defaultDestroyTime() > -1) level.setBlock(pos, state, UPDATE_NONE);
+		if(state.isAir() || block.getBlock().defaultDestroyTime() > -1) {
+			level.setBlock(pos, state, UPDATE_KNOWN_SHAPE);
+			if(state.getBlock() instanceof PortalBlock) level.setBlockEntity(BlockEntityRegistry.PORTAL.get().create(pos, state));
+		}
 	}
 	public static boolean hasConnection(ServerLevel level, BlockPos pos) {
 		return level.getBlockEntity(pos) instanceof PortalBlockEntity p && p.hasTargetPos() && hasPortal(level.getServer(), p.targetPosition);
@@ -147,11 +165,13 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return new Vec3(pos.x * scale, pos.y, pos.z * scale);
 	}
 	public static DimensionTransition transitionTo(MinecraftServer server, Entity entity, UniversalPosition pos) {
-		return new DimensionTransition((ServerLevel) pos.level(server), pos.pos(), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND);
+		return new DimensionTransition((ServerLevel) pos.level(server), pos.pos(), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET));
 	}
 	public static void linkPortals(MinecraftServer server, UniversalPosition origin, UniversalPosition target) {
-		if(!hasPortal(server, origin) || !hasPortal(server, target)) return;
-		ServerLevel level = origin.level(server);
+		if(!hasPortal(server, origin) || !hasPortal(server, target)) {
+//			DivineRPG.LOGGER.error("portal linking failed");
+			return;
+		} ServerLevel level = origin.level(server);
 		BlockPos pos = origin.blockPos();
 		BlockState state = level.getBlockState(pos);
 		Axis axis = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
@@ -161,11 +181,12 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		state = level.getBlockState(pos);
 		axis = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
 		((PortalBlock)state.getBlock()).connectTo(level, pos, origin, axis);
+//		DivineRPG.LOGGER.info("portal linking succeeded");
 	}
 	public static void spreadBlock(Level level, BlockState newState, BlockPos pos, Block spreadTarget, Axis axis) {
 		BlockState state;
 		if((state = level.getBlockState(pos)).is(spreadTarget) && !state.is(newState.getBlock())) {
-			level.setBlock(pos, newState, UPDATE_CLIENTS);
+			level.setBlock(pos, newState, UPDATE_ALL);
 			spreadBlock(level, newState, pos.above(), spreadTarget, axis);
 			spreadBlock(level, newState, pos.below(), spreadTarget, axis);
 			spreadBlock(level, newState, pos.relative(axis, 1), spreadTarget, axis);
@@ -173,12 +194,12 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		}
 	}
 	public void connectTo(ServerLevel level, BlockPos pos, UniversalPosition connection, Axis axis) {
-		if(level.getBlockEntity(pos) instanceof PortalBlockEntity portal && connection != portal.targetPosition && !portal.targetPosition.equals(connection)) {
+		if(level.getBlockEntity(pos) instanceof PortalBlockEntity portal && connection != portal.targetPosition && !connection.equals(portal.targetPosition)) {
 			portal.targetPosition = connection;
 			connectTo(level, pos.above(), connection, axis);
 			connectTo(level, pos.below(), connection, axis);
 			connectTo(level, pos.relative(axis, 1), connection, axis);
-			connectTo(level, pos.relative(axis, 1), connection, axis);
+			connectTo(level, pos.relative(axis, -1), connection, axis);
 		}
 	}
 	public Axis checkForFrame(Level level, BlockPos pos) {
@@ -222,16 +243,23 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return null;
 	}
 	@Override
+	public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
+		return rotate(defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, context.getHorizontalDirection().getAxis()), Rotation.CLOCKWISE_90);
+	}
+	@Override
+	protected RenderShape getRenderShape(BlockState state) {
+		return RenderShape.MODEL;
+	}
+	@Override
 	protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
-		return canSurvive(state, level, pos) ? state : Blocks.AIR.defaultBlockState();
+		return isSupported(state, level, pos) ? state : Blocks.AIR.defaultBlockState();
 	}
 	@Override
 	protected void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pNeighborBlock, BlockPos pNeighborPos, boolean pMovedByPiston) {
-		if(!canSurvive(pState, pLevel, pPos)) pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), UPDATE_NEIGHBORS);
-		super.neighborChanged(pState, pLevel, pPos, pNeighborBlock, pNeighborPos, pMovedByPiston);
+		if(!isSupported(pState, pLevel, pPos)) pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), UPDATE_ALL);
+		else super.neighborChanged(pState, pLevel, pPos, pNeighborBlock, pNeighborPos, pMovedByPiston);
 	}
-	@Override
-	protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+	public boolean isSupported(BlockState state, LevelReader level, BlockPos pos) {
 		Axis axis = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
 		return supportedBy(level.getBlockState(pos.above())) && supportedBy(level.getBlockState(pos.below())) && supportedBy(level.getBlockState(pos.relative(axis, 1))) && supportedBy(level.getBlockState(pos.relative(axis, -1)));
 	}
@@ -256,7 +284,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	}
 	@Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if(entity.canUsePortal(false)) entity.setAsInsidePortal(this, pos);
+        if(entity.canUsePortal(true)) entity.setAsInsidePortal(this, pos);
     }
 	@Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
@@ -271,16 +299,12 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return false;
 	}
 	@Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-        return ItemStack.EMPTY;
-    }
-	@Override
     protected BlockState rotate(BlockState state, Rotation rot) {
         switch(rot) {
             case COUNTERCLOCKWISE_90: case CLOCKWISE_90:
                 switch (state.getValue(BlockStateProperties.HORIZONTAL_AXIS)) {
-                    case Z: return state.setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.X);
-                    case X: return state.setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.Z);
+                    case Z: return state.setValue(BlockStateProperties.HORIZONTAL_AXIS, Axis.X);
+                    case X: return state.setValue(BlockStateProperties.HORIZONTAL_AXIS, Axis.Z);
                     default: return state;
                 }
             default: return state;

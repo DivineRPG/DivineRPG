@@ -1,6 +1,7 @@
 package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.*;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.*;
@@ -23,6 +24,11 @@ public class EntityMiner extends EntityDivineMonster {
         super.registerGoals();
         goalSelector.addGoal(1, new BreakDoorGoal(this, HARD_DIFFICULTY_PREDICATE));
 	}
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+    }
 
     @Override
     protected SoundEvent getAmbientSound() {

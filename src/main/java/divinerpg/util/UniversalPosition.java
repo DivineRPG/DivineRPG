@@ -13,10 +13,10 @@ public record UniversalPosition(ResourceKey<Level> dimension, Vec3 pos) {
 		this(level.dimension(), pos);
 	}
 	public UniversalPosition(ResourceKey<Level> dimension, BlockPos pos) {
-		this(dimension, new Vec3(pos.getX(), pos.getY(), pos.getZ()));
+		this(dimension, toVec3(pos));
 	}
 	public UniversalPosition(Level level, BlockPos pos) {
-		this(level.dimension(), new Vec3(pos.getX(), pos.getY(), pos.getZ()));
+		this(level.dimension(), toVec3(pos));
 	}
 	public BlockPos blockPos() {
 		return new BlockPos((int)pos.x, (int)pos.y, (int)pos.z);
@@ -34,4 +34,5 @@ public record UniversalPosition(ResourceKey<Level> dimension, Vec3 pos) {
 	public static BlockPos toBlockPos(Vec3 v) {
 		return new BlockPos((int)v.x, (int)v.y, (int)v.z);
 	}
+	public static Vec3 toVec3(BlockPos p) {return new Vec3(p.getX(), p.getY(), p.getZ());}
 }
