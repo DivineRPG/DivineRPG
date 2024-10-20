@@ -20,6 +20,8 @@ public class SimplePortalBlock extends PortalBlock {
 	}
 	@Override
 	public BlockPos placePortal(ServerLevel level, BlockPos pos, Axis axis) {
-		return placeVanillaLookingPortal(level, pos, frameBlock.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), defaultBlockState(), axis);
+		return placeVanillaLookingPortal(level, pos, frameBlock.defaultBlockState()
+//				.setValue(BlockStateProperties.HORIZONTAL_AXIS, axis) Removed because this is frame blocks
+				, defaultBlockState(), axis);
 	}
 }
