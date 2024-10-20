@@ -1,6 +1,6 @@
 {
   "description": {
-    "translate": "enchantment.divinerpg.brain_freeze.desc"
+    "translate": "enchantment.divinerpg.brain_freeze"
   },
   "supported_items": "#minecraft:enchantable/sharp_weapon",
   "weight": 1,

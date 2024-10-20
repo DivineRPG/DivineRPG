@@ -1,6 +1,6 @@
 {
   "description": {
-    "translate": "enchantment.divinerpg.aftershock.desc"
+    "translate": "enchantment.divinerpg.aftershock"
   },
   "supported_items": "#minecraft:enchantable/sharp_weapon",
   "weight": 1,

@@ -1,6 +1,6 @@
 {
   "description": {
-    "translate": "enchantment.divinerpg.insulation.desc"
+    "translate": "enchantment.divinerpg.insulation"
   },
   "supported_items": "#minecraft:enchantable/chest_armor",
   "weight": 1,

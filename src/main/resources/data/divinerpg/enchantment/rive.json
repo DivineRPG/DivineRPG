@@ -1,6 +1,6 @@
 {
   "description": {
-    "translate": "enchantment.divinerpg.rive.desc"
+    "translate": "enchantment.divinerpg.rive"
   },
   "supported_items": "#minecraft:enchantable/mining",
   "weight": 10,
