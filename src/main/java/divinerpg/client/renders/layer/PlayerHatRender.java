@@ -35,7 +35,7 @@ public class PlayerHatRender<T extends Player, M extends PlayerModel<T>> extends
             if(Utils.isDeveloperName(id) || Utils.isTesterName(id) || Utils.isFriend(id) || Utils.isSpecial(id) || Utils.isArtist(id)) {
                 modelHat.hat.copyFrom(getParentModel().head);
                 VertexConsumer ivertexbuilder = bufferIn.getBuffer(RenderType.entityCutout(getTextureLocation(entity)));
-                modelHat.renderToBuffer(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1);
+                modelHat.renderToBuffer(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY);
             }
         }
     }
