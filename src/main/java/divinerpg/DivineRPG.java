@@ -49,14 +49,17 @@ public class DivineRPG {
         TriggerRegistry.TRIGGERS.register(bus);
         PlacementModifierRegistry.PLACEMENT_MODIFIER.register(bus);
         EventRegistry.init();
+        NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
         bus.addListener(this::setup);
         bus.addListener(this::post);
         bus.addListener(this::client);
-        bus.register(EntityRegistry.class);
-        NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
         bus.addListener(SpawnEvents::registerSpawnPlacements);
         bus.addListener(CreativeTabRegistry::creativeTab);
         bus.register(Payloads.class);
+        bus.register(EntityRegistry.class);
+        bus.register(MenuTypeRegistry.class);
+        bus.register(LevelRegistry.class);
+        bus.register(ParticleRegistry.class);
         container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/divinerpg-common.toml");
         container.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/divinerpg-client.toml");
 
@@ -66,12 +69,6 @@ public class DivineRPG {
         ModCompat.initCommon(event);
         NeoForge.EVENT_BUS.register(new RiveHandler());
         NeoForge.EVENT_BUS.register(new Ticker());
-//        NeoForge.EVENT_BUS.register(new FeatureRegistry());
-//        NeoForge.EVENT_BUS.register(new ItemRegistry());
-//        NeoForge.EVENT_BUS.register(new LevelRegistry());
-//        NeoForge.EVENT_BUS.register(new ParticleRegistry());
-//        NeoForge.EVENT_BUS.register(new ConfiguredFeatureKeys());
-//        NeoForge.EVENT_BUS.register(new CommonConfig());
 
         event.enqueueWork(() -> {
             RecipeRegistry.BrewingRecipes.init();
@@ -84,8 +81,6 @@ public class DivineRPG {
         BlockEntityRegistry.renderTiles();
         NeoForge.EVENT_BUS.register(new ArcanaRenderer());
         NeoForge.EVENT_BUS.register(new EventClientLogin());
-//        NeoForge.EVENT_BUS.register(new MenuTypeRegistry());
-//        NeoForge.EVENT_BUS.register(new ClientConfig());
         Utils.loadHatInformation();
     }
     private void post(final FMLLoadCompleteEvent event){
