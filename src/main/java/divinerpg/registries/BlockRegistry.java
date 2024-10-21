@@ -825,7 +825,7 @@ public class BlockRegistry {
 
             //Portals
             arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
-            iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, "portal_frames/iceika_portal", Blocks.SNOW)),
+            iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, "portal_frames/iceika_portal", Blocks.SNOW_BLOCK)),
             edenPortal = registerBlock("eden_portal", () -> new BlockTwilightPortal(LevelRegistry.EDEN, "portal_frames/eden_portal", BlockRegistry.divineRock.get())),
             wildwoodPortal = registerBlock("wildwood_portal", () -> new BlockTwilightPortal(LevelRegistry.WILDWOOD, "portal_frames/wildwood_portal", edenBlock.get())),
             apalachiaPortal = registerBlock("apalachia_portal", () -> new BlockTwilightPortal(LevelRegistry.APALACHIA, "portal_frames/apalachia_portal", wildwoodBlock.get())),

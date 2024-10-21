@@ -29,7 +29,7 @@ public record UniversalPosition(ResourceKey<Level> dimension, Vec3 pos) {
 	}
 	@Override
 	public final boolean equals(Object o) {
-		return o != null && o instanceof UniversalPosition p && p.dimension.location().equals(dimension.location()) && p.pos.equals(pos);
+		return o != null && (o == this || (o instanceof UniversalPosition p && p.dimension == dimension && p.pos.equals(pos)));
 	}
 	public static BlockPos toBlockPos(Vec3 v) {
 		return new BlockPos((int)v.x, (int)v.y, (int)v.z);

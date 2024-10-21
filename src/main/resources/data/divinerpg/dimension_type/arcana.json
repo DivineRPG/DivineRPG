@@ -10,7 +10,7 @@
 	"coordinate_scale": 12,
 	"ambient_light": 0.2,
 	"fixed_time": 6000,
-	"logical_height": 78,
+	"logical_height": 128,
 	"effects": "minecraft:nether",
 	"infiniburn": "#minecraft:infiniburn_overworld",
 	"min_y": 0,
