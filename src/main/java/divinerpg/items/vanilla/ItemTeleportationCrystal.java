@@ -23,10 +23,10 @@ public class ItemTeleportationCrystal extends ItemMod {
         if(!world.isClientSide && player instanceof ServerPlayer s) {
             BlockPos respawnPos = ((ServerPlayer)player).getRespawnPosition();
             if(respawnPos != null) {
-                s.findRespawnPositionAndUseSpawnBlock(true, DimensionTransition.DO_NOTHING);
                 if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                 player.getCooldowns().addCooldown(this, 160);
                 player.awardStat(Stats.ITEM_USED.get(this));
+                player.changeDimension(s.findRespawnPositionAndUseSpawnBlock(true, DimensionTransition.PLAY_PORTAL_SOUND));
                 return InteractionResultHolder.success(stack);
             } else {
                 Component message = LocalizeUtils.clientMessage(ChatFormatting.RED, "teleport.no_respawn");
