@@ -7,7 +7,7 @@ Download (CurseForge): https://www.curseforge.com/minecraft/mc-mods/official-div
 
 Discord: https://discord.gg/R9Zc32D
 
-This branch is for the latest 1.7.10 version (1.4.1.4). 1.7.10 is no longer supported, so don't be opening up pull requests or issues for it.
+This branch is for the latest 1.7.10 version (1.4.2).
 
 ### What you can and cannot do with DivineRPG
 ###### You CAN:

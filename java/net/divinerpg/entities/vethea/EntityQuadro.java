@@ -106,6 +106,11 @@ public class EntityQuadro extends EntityDivineRPGBoss {
                             p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.deserve")));
                         }
                         break;
+                    case 8:
+                        this.worldObj.playSoundAtEntity(p, Sounds.quadroBanana.getPrefixedName(), 1.0F, 1.0F);
+                        if (!this.worldObj.isRemote)
+                            p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.quadro.banana")));
+                        break;
                     default:
                         this.worldObj.playSoundAtEntity(p, Sounds.quadroTasteFist.getPrefixedName(), 1.0F, 1.0F);
                         if (!this.worldObj.isRemote)

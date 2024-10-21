@@ -1,12 +1,13 @@
 package net.divinerpg.blocks.iceika.tileentity;
 
 import net.divinerpg.blocks.iceika.BlockFrostedChest;
+import net.divinerpg.utils.MessageLocalizer;
 import net.minecraft.tileentity.TileEntityChest;
 
 public class TileEntityFrostedChest extends TileEntityChest {
 	
 	public TileEntityFrostedChest() {
-		this.func_145976_a("Frosted Chest");
+		this.func_145976_a(MessageLocalizer.norecolor("tile.frostedChest.name"));
 	}
 	
 	@Override

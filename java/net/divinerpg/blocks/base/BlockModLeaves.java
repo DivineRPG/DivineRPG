@@ -27,8 +27,8 @@ public class BlockModLeaves extends BlockMod implements IShearable
 
     public BlockModLeaves(String name, float hardness) {
         super(EnumBlockType.LEAVES, name, hardness);
-        this.setHardness(0.3F);
-        this.setLightOpacity(1);
+        this.setHardness(0.2F);
+        this.setLightOpacity(5);
         this.setTickRandomly(true);
     }
     

@@ -27,8 +27,8 @@ public class BlockModLog extends BlockRotatedPillar {
         this.name = name;
         setBlockName(name);
         setBlockTextureName(Reference.PREFIX + name);
-        setHardness(3.0F);
-        setResistance(5);
+        setHardness(2.0F);
+        setResistance(10);
         setCreativeTab(DivineRPGTabs.blocks);
         setStepSound(soundTypeWood);
         GameRegistry.registerBlock(this, name);

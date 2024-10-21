@@ -52,18 +52,18 @@ public class BlockVetheaPortal extends BlockBreakable {
 
     @Override
     public void onEntityCollidedWithBlock(World world, int xPos, int yPos, int zPos, Entity entity) {
-    	
-        if ((entity.ridingEntity == null) && (entity.riddenByEntity == null)){
+    	if (entity == null || entity.timeUntilPortal > 0) return;
+        if ((entity.ridingEntity == null) && (entity.riddenByEntity == null)) {
         	if(entity instanceof EntityPlayerMP) {
         		EntityPlayerMP player = (EntityPlayerMP) entity;
         		if (player.timeUntilPortal > 0) {
-        			player.timeUntilPortal = 10;
+                    entity.timeUntilPortal = entity.getPortalCooldown();
         		}
 
                 NBTTagCompound persistantData = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
 
         		if(player.dimension == ConfigurationHelper.vethea) {
-        			player.timeUntilPortal = 10;
+                    entity.timeUntilPortal = entity.getPortalCooldown();
 
                     if (ConfigurationHelper.cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
         			    persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
@@ -75,10 +75,11 @@ public class BlockVetheaPortal extends BlockBreakable {
                     }
 
         			player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 0, new TeleporterVetheaToOverworld(player.mcServer.worldServerForDimension(0)));
+                    entity.timeUntilPortal = entity.getPortalCooldown();
         		}
 
                 else if (player.dimension != ConfigurationHelper.vethea) {
-                    player.timeUntilPortal = 10;
+                    entity.timeUntilPortal = entity.getPortalCooldown();
 
                     if (ConfigurationHelper.cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
                         persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
@@ -90,6 +91,7 @@ public class BlockVetheaPortal extends BlockBreakable {
                     }
 
                     player.mcServer.getConfigurationManager().transferPlayerToDimension(player, ConfigurationHelper.vethea, new TeleporterVethea(player.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
+                    entity.timeUntilPortal = entity.getPortalCooldown();
 
                         ChunkCoordinates c = new ChunkCoordinates();
                         c.posX = (int) player.posX + 2;
