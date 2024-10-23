@@ -85,13 +85,13 @@ public class VanillaBlocks {
     public static Block plankDesign = new VanillaBlock(EnumBlockType.WOOD, "plankDesign", 2.5F, WOOD_GOLD);
     public static Block blueStone   = new VanillaBlock(EnumBlockType.ROCK, "blueStone", 1.5F, WOOD_GOLD).setResistance(10F).setLightLevel(1);
 
-    public static Block blueVane   = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 2.0F, IRON).setResistance(10F);
-    public static Block cyanVane   = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 2.0F, IRON).setResistance(10F);
-    public static Block purpleVane = new VanillaBlock(EnumBlockType.ROCK, "purpleVane", 2.0F, IRON).setResistance(10F);
-    public static Block redVane    = new VanillaBlock(EnumBlockType.ROCK, "redVane", 2.0F, IRON).setResistance(10F);
-    public static Block yellowVane = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 2.0F, IRON).setResistance(10F);
+    public static Block blueVane   = new VanillaBlock(EnumBlockType.ROCK, "blueVane", 50.0F, STONE).setResistance(6000F);
+    public static Block cyanVane   = new VanillaBlock(EnumBlockType.ROCK, "cyanVane", 50.0F, STONE).setResistance(6000F);
+    public static Block purpleVane = new VanillaBlock(EnumBlockType.ROCK, "purpleVane", 50.0F, STONE).setResistance(6000F);
+    public static Block redVane    = new VanillaBlock(EnumBlockType.ROCK, "redVane", 50.0F, STONE).setResistance(6000F);
+    public static Block yellowVane = new VanillaBlock(EnumBlockType.ROCK, "yellowVane", 50.0F, STONE).setResistance(6000F);
 
-    public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE).setResistance(10F);
+    public static Block divineRock = new VanillaBlock(EnumBlockType.ROCK, "divineRock", 1.5F, STONE).setResistance(30F);
     public static Block tar        = new BlockTar();
 
     public static Block fancyWool = new VanillaBlock(EnumBlockType.WOOL, "fancyWool", 0.8F, WOOD_GOLD);
@@ -143,11 +143,11 @@ public class VanillaBlocks {
 
     public static Block divineWood                = new BlockModLog("divineLog");
     public static Block divineLeaves              = new BlockModLeaves("divineLeaves", 0.3F);
-    public static Block divineMossystone          = new BlockMod("divineMossStone", 2.0F).setResistance(10);
+    public static Block divineMossystone          = new BlockMod("divineMossStone", 1.5F).setResistance(30);
     public static Block enthralledDramcryxSpawner = new BlockStupidSpawner("enthralledDramcryxSpawner", "EnthralledDramcryx", "divineSpawner", true);
     public static Block rotatickSpawner           = new BlockStupidSpawner("rotatickSpawner", "Rotatick", "divineSpawner", true);
 
-    public static Block divinePlanks     = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks).setResistance(5);
+    public static Block divinePlanks     = new BlockMod(EnumBlockType.WOOD, "divinePlanks", 2, DivineRPGTabs.blocks).setResistance(15);
     public static Block divineStairs     = new BlockModStairs(divinePlanks, "divineStairs");
     public static Block divineSlab       = new BlockModSlab((BlockMod) divinePlanks, false, "Planks", null);
     public static Block divineSlabDouble = new BlockModSlab((BlockMod) divinePlanks, true, "Planks", divineSlab);

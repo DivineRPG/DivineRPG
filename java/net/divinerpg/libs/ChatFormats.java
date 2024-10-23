@@ -1,5 +1,6 @@
 package net.divinerpg.libs;
 
+import net.divinerpg.utils.MessageLocalizer;
 import net.minecraft.util.EnumChatFormatting;
 
 public class ChatFormats {
@@ -31,16 +32,16 @@ public class ChatFormats {
 
     public static final String   RESET           = EnumChatFormatting.RESET.toString();
 
-    public static final String   ARCANA          = "Arcana";
-    public static final String   ICEIKA          = "Iceika";
-    public static final String   TWILIGHT        = "Twilight";
-    public static final String   EDEN            = "Eden";
-    public static final String   WILDWOODS       = "Wildwoods";
-    public static final String   APALACHIA       = "Apalachia";
-    public static final String   SKYTHERN        = "Skythern";
-    public static final String   MORTUM          = "Mortum";
-    public static final String   HALITE          = "Halite";
-    public static final String   VETHEA          = "Vethea";
+    public static final String   ARCANA          = (MessageLocalizer.norecolor("tooltip.arcana"));
+    public static final String   ICEIKA          = (MessageLocalizer.norecolor("tooltip.iceika"));
+    public static final String   TWILIGHT        = (MessageLocalizer.norecolor("tooltip.twilight"));
+    public static final String   EDEN            = (MessageLocalizer.norecolor("tooltip.eden"));
+    public static final String   WILDWOODS       = (MessageLocalizer.norecolor("tooltip.wildwoods"));
+    public static final String   APALACHIA       = (MessageLocalizer.norecolor("tooltip.apalachia"));
+    public static final String   SKYTHERN        = (MessageLocalizer.norecolor("tooltip.skythern"));
+    public static final String   MORTUM          = (MessageLocalizer.norecolor("tooltip.mortum"));
+    public static final String   HALITE          = (MessageLocalizer.norecolor("tooltip.halite"));
+    public static final String   VETHEA          = (MessageLocalizer.norecolor("tooltip.vethea"));
 
     public static final String[] DIMENSIONS_LIST = new String[] { ARCANA, ICEIKA, TWILIGHT, EDEN, WILDWOODS, APALACHIA, SKYTHERN, MORTUM, VETHEA };
 }

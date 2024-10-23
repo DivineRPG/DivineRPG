@@ -35,16 +35,16 @@ import net.divinerpg.utils.Util;
 
 public class TwilightBlocks {
 
-    public static Block edenDirt       = new BlockMod(EnumBlockType.DIRT, "edenDirt", 5.0F);
-    public static Block wildwoodDirt   = new BlockMod(EnumBlockType.DIRT, "wildwoodDirt", 5.0F);
-    public static Block apalachiaDirt  = new BlockMod(EnumBlockType.DIRT, "apalachiaDirt", 5.0F);
-    public static Block skythernDirt   = new BlockMod(EnumBlockType.DIRT, "skythernDirt", 5.0F);
-    public static Block mortumDirt     = new BlockMod(EnumBlockType.DIRT, "mortumDirt", 5.0F);
-    public static Block edenGrass      = new BlockModGrass((BlockMod) edenDirt, "edenGrass", "edenDirt", 5.0F);
-    public static Block wildwoodGrass  = new BlockModGrass((BlockMod) wildwoodDirt, "wildwoodGrass", "wildwoodDirt", 5.0F);
-    public static Block apalachiaGrass = new BlockModGrass((BlockMod) apalachiaDirt, "apalachiaGrass", "apalachiaDirt", 5.0F);
-    public static Block skythernGrass  = new BlockModGrass((BlockMod) skythernDirt, "skythernGrass", "skythernDirt", 5.0F);
-    public static Block mortumGrass    = new BlockModGrass((BlockMod) mortumDirt, "mortumGrass", "mortumDirt", 5.0F);
+    public static Block edenDirt       = new BlockMod(EnumBlockType.DIRT, "edenDirt", 0.6F);
+    public static Block wildwoodDirt   = new BlockMod(EnumBlockType.DIRT, "wildwoodDirt", 0.6F);
+    public static Block apalachiaDirt  = new BlockMod(EnumBlockType.DIRT, "apalachiaDirt", 0.6F);
+    public static Block skythernDirt   = new BlockMod(EnumBlockType.DIRT, "skythernDirt", 0.6F);
+    public static Block mortumDirt     = new BlockMod(EnumBlockType.DIRT, "mortumDirt", 0.6F);
+    public static Block edenGrass      = new BlockModGrass((BlockMod) edenDirt, "edenGrass", "edenDirt", 0.5F);
+    public static Block wildwoodGrass  = new BlockModGrass((BlockMod) wildwoodDirt, "wildwoodGrass", "wildwoodDirt", 0.5F);
+    public static Block apalachiaGrass = new BlockModGrass((BlockMod) apalachiaDirt, "apalachiaGrass", "apalachiaDirt", 0.5F);
+    public static Block skythernGrass  = new BlockModGrass((BlockMod) skythernDirt, "skythernGrass", "skythernDirt", 0.5F);
+    public static Block mortumGrass    = new BlockModGrass((BlockMod) mortumDirt, "mortumGrass", "mortumDirt", 0.5F);
 
     public static Block edenOre      = new BlockMod("edenOre", 9).toggleExp(true).setTwilightOre(true).setDropItem(TwilightItemsOther.edenFragments);
     public static Block wildwoodOre  = new BlockMod("wildwoodOre", 9).setTwilightOre(true).setDropItem(TwilightItemsOther.wildwoodFragments);
@@ -64,11 +64,11 @@ public class TwilightBlocks {
     public static Block skythernSapling  = new BlockTwilightSapling("skythernSapling", skythernGrass, skythernDirt, new WorldGenSkythernTree(true));
     public static Block mortumSapling    = new BlockTwilightSapling("mortumSapling", mortumGrass, mortumDirt, new WorldGenMortumTree(true));
 
-    public static Block edenLeaves      = new BlockModLeaves("edenLeaves", 0.5F, edenSapling);
-    public static Block wildwoodLeaves  = new BlockModLeaves("wildwoodLeaves", 0.5F, wildwoodSapling);
-    public static Block apalachiaLeaves = new BlockModLeaves("apalachiaLeaves", 0.5F, apalachiaSapling).setLightLevel(0.5F);
-    public static Block skythernLeaves  = new BlockModLeaves("skythernLeaves", 0.5F, skythernSapling);
-    public static Block mortumLeaves    = new BlockModLeaves("mortumLeaves", 0.5F, mortumSapling);
+    public static Block edenLeaves      = new BlockModLeaves("edenLeaves", 0.2F, edenSapling);
+    public static Block wildwoodLeaves  = new BlockModLeaves("wildwoodLeaves", 0.2F, wildwoodSapling);
+    public static Block apalachiaLeaves = new BlockModLeaves("apalachiaLeaves", 0.2F, apalachiaSapling).setLightLevel(0.5F);
+    public static Block skythernLeaves  = new BlockModLeaves("skythernLeaves", 0.2F, skythernSapling);
+    public static Block mortumLeaves    = new BlockModLeaves("mortumLeaves", 0.2F, mortumSapling);
 
     public static Block edenLogs      = new BlockModLog("edenLog");
     public static Block wildwoodLogs  = new BlockModLog("wildwoodLog");
@@ -76,11 +76,11 @@ public class TwilightBlocks {
     public static Block skythernLogs  = new BlockModLog("skythernLog");
     public static Block mortumLogs    = new BlockModLog("mortumLog");
 
-    public static Block edenPlanks      = new BlockMod(EnumBlockType.WOOD, "edenPlanks", 8).setResistance(5);
-    public static Block wildwoodPlanks  = new BlockMod(EnumBlockType.WOOD, "wildwoodPlanks", 8).setResistance(5);
-    public static Block apalachiaPlanks = new BlockMod(EnumBlockType.WOOD, "apalachiaPlanks", 8).setResistance(5);
-    public static Block skythernPlanks  = new BlockMod(EnumBlockType.WOOD, "skythernPlanks", 8).setResistance(5);
-    public static Block mortumPlanks    = new BlockMod(EnumBlockType.WOOD, "mortumPlanks", 8).setResistance(5);
+    public static Block edenPlanks      = new BlockMod(EnumBlockType.WOOD, "edenPlanks", 2).setResistance(15);
+    public static Block wildwoodPlanks  = new BlockMod(EnumBlockType.WOOD, "wildwoodPlanks", 2).setResistance(15);
+    public static Block apalachiaPlanks = new BlockMod(EnumBlockType.WOOD, "apalachiaPlanks", 2).setResistance(15);
+    public static Block skythernPlanks  = new BlockMod(EnumBlockType.WOOD, "skythernPlanks", 2).setResistance(15);
+    public static Block mortumPlanks    = new BlockMod(EnumBlockType.WOOD, "mortumPlanks", 2).setResistance(15);
 
     public static Block edenStairs      = new BlockModStairs(edenPlanks, "edenStairs");
     public static Block wildwoodStairs  = new BlockModStairs(wildwoodPlanks, "wildwoodStairs");
