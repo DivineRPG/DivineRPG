@@ -6,7 +6,8 @@
 			"count": 4
 		},
 		{
-			"type": "minecraft:in_square"
+			"type": "divinerpg:in_square",
+			"margin": 3
 		},
 		{
 			"type": "divinerpg:surface_placement",

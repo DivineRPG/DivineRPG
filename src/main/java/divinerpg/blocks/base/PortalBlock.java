@@ -97,7 +97,10 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	public BlockPos placePortal(ServerLevel level, BlockPos pos, Axis axis) {return null;}
 	public static BlockPos placeVanillaLookingPortal(ServerLevel level, BlockPos pos, BlockState frameBlock, BlockState portalBlock, Axis axis) {
 		if(!level.ensureCanWrite(pos)) return null;
-		Axis other = axis == Axis.X ? Axis.Z : Axis.X;
+		{
+			Block p = portalBlock.getBlock();
+			for(int x = -3; x < 4; x++) for(int y = -3; y < 4; y++) for(int z = -3; z < 4; z++) if(level.getBlockState(pos.offset(x, y, z)).is(p)) return pos.offset(x, y, z);
+		}Axis other = axis == Axis.X ? Axis.Z : Axis.X;
 		BlockState air = Blocks.AIR.defaultBlockState();
 		MutableBlockPos mut = pos.mutable();
 		setBlock(level, mut, frameBlock);
@@ -181,7 +184,12 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		}
 	}
 	public void connectTo(ServerLevel level, BlockPos pos, @NotNull UniversalPosition connection, Axis axis) {
-		if(level.getBlockEntity(pos) instanceof PortalBlockEntity portal && connection != portal.targetPosition && !connection.equals(portal.targetPosition)) {
+		BlockEntity b = level.getBlockEntity(pos);
+		BlockState state = level.getBlockState(pos);
+		if(b == null && state.getBlock() instanceof PortalBlock) {
+			b = BlockEntityRegistry.PORTAL.get().create(pos, state);
+			level.setBlockEntity(b);
+		} if(b instanceof PortalBlockEntity portal && connection != portal.targetPosition && !connection.equals(portal.targetPosition)) {
 			portal.targetPosition = connection;
 			connectTo(level, pos.above(), connection, axis);
 			connectTo(level, pos.below(), connection, axis);

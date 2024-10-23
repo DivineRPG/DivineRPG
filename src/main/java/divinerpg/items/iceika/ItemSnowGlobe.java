@@ -25,10 +25,7 @@ public class ItemSnowGlobe extends ItemMod {
         if(!player.mayUseItemAt(pos, facing, player.getItemInHand(context.getHand()))) return InteractionResult.FAIL;
         BlockState block = worldIn.getBlockState(pos);
         PortalBlock portal = (PortalBlock)BlockRegistry.iceikaPortal.get();
-        if(!block.is(portal.frameTag)) {
-            DivineRPG.LOGGER.info("Not a valid block for Snowglobe: " + block.getBlock().getName());
-            portal = null;
-        }
+        if(!block.is(portal.frameTag)) portal = null;
         if(portal != null) {
             if(!worldIn.isClientSide()) {
                 Axis axis = portal.checkForFrame(worldIn, location);

@@ -22,9 +22,9 @@ public class BrittleCavesVegetation extends Feature<NoneFeatureConfiguration> {
 	}
 	@Override
 	public boolean place(NoneFeatureConfiguration c, WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
-		if(Underground.isUnderground(level, pos) && pos.getY() < 63) {
+		if(level.ensureCanWrite(pos) && Underground.isUnderground(level, pos) && pos.getY() < 63) {
 			MutableBlockPos mut = pos.mutable();
-			if(level.getBlockState(pos).isAir()) for(int i = 0; level.getBlockState(mut.move(Direction.UP)).isAir() && i < 16; i++);
+			if(isAirOrVine(level.getBlockState(pos))) for(int i = 0; isAirOrVine(level.getBlockState(mut.move(Direction.UP))) && i < 16; i++);
 			BlockState state = level.getBlockState(mut);
 			if(state.is(Blocks.MOSS_BLOCK) || state.is(BlockTags.MOSS_REPLACEABLE) || state.is(BlockTags.SNOW)) {
 				if(state.is(Blocks.MOSS_BLOCK)) {
@@ -45,5 +45,8 @@ public class BrittleCavesVegetation extends Feature<NoneFeatureConfiguration> {
 				return true;
 			}
 		} return false;
+	}
+	public boolean isAirOrVine(BlockState state) {
+		return state.isAir() || state.is(BlockRegistry.winterberryVinesHead) || state.is(BlockRegistry.winterberryVinesBody);
 	}
 }

@@ -9,6 +9,10 @@
       "type": "minecraft:in_square"
     },
     {
+      "type": "divinerpg:chunk_margin",
+      "margin": 2
+    },
+    {
       "type": "minecraft:heightmap",
       "heightmap": "OCEAN_FLOOR"
     },

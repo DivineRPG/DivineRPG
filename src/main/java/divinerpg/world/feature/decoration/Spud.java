@@ -16,7 +16,7 @@ public class Spud extends Feature<SpudConfig> {
 	}
 	@Override
 	public boolean place(SpudConfig config, WorldGenLevel level, ChunkGenerator c, RandomSource random, BlockPos pos) {
-		if(GemCluster.canBeHere(level, random, pos, config.rules)) {
+		if(level.ensureCanWrite(pos) && GemCluster.canBeHere(level, random, pos, config.rules)) {
 			setBlock(level, pos, config.center);
 			if(config.edge.isPresent()) {
 				BlockState edge = config.edge.get();

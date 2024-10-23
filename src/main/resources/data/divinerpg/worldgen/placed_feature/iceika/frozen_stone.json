@@ -6,7 +6,8 @@
 			"count": 1
 		},
 		{
-			"type": "minecraft:in_square"
+			"type": "divinerpg:in_square",
+			"margin": 1
 		},
 		{
 			"type": "minecraft:biome"

@@ -110,7 +110,7 @@ public class DivineTree extends Feature<TreeConfig> {
      * @param pos the center of which the width and offset will be applied relative to
      * @param state the block to grow
      * @param maxY (inclusive) to end growing at relative to {@code pos}.
-     * @param width
+     * @param width the tree width offset
      * @param offset note that {@code (width, offset) = (offset, -width)}
      * @param chance of setting a block at a position. {@code 1} = will always set block
      */

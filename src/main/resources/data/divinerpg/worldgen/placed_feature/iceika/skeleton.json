@@ -2,7 +2,8 @@
 	"feature": "divinerpg:iceika/skeleton",
 	"placement": [
 		{
-			"type": "minecraft:in_square"
+			"type": "divinerpg:in_square",
+			"margin": 3
 		},
 		{
 			"type": "minecraft:height_range",
