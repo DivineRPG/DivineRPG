@@ -86,10 +86,13 @@ public abstract class EntityDivineMerchant extends Villager {
     @Override protected SoundEvent getHurtSound(DamageSource p_35498_) {return SoundRegistry.MERCHANT_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.MERCHANT_HURT.get();}
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if(getVillagerData().getProfession() == VillagerProfession.NONE && profession != null){
+            setVillagerData(getVillagerData().setProfession(profession));
+        }
         if (!level().isClientSide && !getOffers().isEmpty()) {
             updateSpecialPrices(player);
             setTradingPlayer(player);
-            openTradingScreen(player, Objects.requireNonNull(getDisplayName()), getVillagerData().getLevel());
+            openTradingScreen(player, getDisplayName(), getVillagerData().getLevel());
         }
         return InteractionResult.SUCCESS;
     }
@@ -142,7 +145,7 @@ public abstract class EntityDivineMerchant extends Villager {
             this.input2 = input2;
         }
         public DivineTrades(ItemStack input1, ItemStack output, int stock, int xp) {this(input1, ItemStack.EMPTY, output, stock, xp);}
-        @Override public MerchantOffer getOffer(Entity tradeEnt, RandomSource rand) {return new MerchantOffer(new ItemCost(input1.getItem(), input1.getCount()), Optional.of(new ItemCost(input1.getItem(), input1.getCount())), output, stock, xp, 0F);}
+        @Override public MerchantOffer getOffer(Entity tradeEnt, RandomSource rand) {return new MerchantOffer(new ItemCost(input1.getItem(), input1.getCount()), Optional.of(new ItemCost(input2.getItem(), input2.getCount())), output, stock, xp, 0F);}
     }
     public static class DivineMapTrades extends DivineTrades {
     	private final String displayName;
