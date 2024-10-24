@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#neoforge:is_spooky",
+  "biomes": "#c:is_spooky",
   "spawners": [
 	  {
 	    "type": "divinerpg:cyclops",

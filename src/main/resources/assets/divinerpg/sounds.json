@@ -742,7 +742,7 @@
   "nesro": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:nto_replace/esro"
+      "divinerpg:to_replace/nesro"
     ]
   },
   "nesro_hurt": {

@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#neoforge:is_swamp",
+  "biomes": "#c:is_swamp",
   "spawners": [
 	  {
 	    "type": "divinerpg:jack_o_man",

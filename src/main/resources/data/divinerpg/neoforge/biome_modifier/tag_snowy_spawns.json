@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#neoforge:is_snowy",
+  "biomes": "#c:is_snowy",
   "spawners": [
 	  {
 	    "type": "divinerpg:frost",

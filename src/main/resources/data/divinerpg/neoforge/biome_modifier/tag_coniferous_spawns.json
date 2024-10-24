@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#neoforge:is_coniferous",
+  "biomes": "#c:is_forest",
   "spawners": [
 	  {
 	    "type": "divinerpg:cyclops",

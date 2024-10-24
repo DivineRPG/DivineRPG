@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#neoforge:is_lush",
+  "biomes": "#c:is_lush",
   "spawners": [
 	  {
 	    "type": "divinerpg:cave_crawler",
