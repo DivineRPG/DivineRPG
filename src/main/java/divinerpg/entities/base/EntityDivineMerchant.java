@@ -16,8 +16,10 @@ import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
 import net.minecraft.world.item.trading.ItemCost;
@@ -28,15 +30,26 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.*;
 import net.neoforged.neoforge.common.Tags;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
 
-public abstract class EntityDivineMerchant extends AbstractVillager {
-	public EntityDivineMerchant(EntityType<? extends EntityDivineMerchant> type, Level level) {
+public abstract class EntityDivineMerchant extends Villager {
+    VillagerProfession profession;
+	public EntityDivineMerchant(EntityType<? extends EntityDivineMerchant> type, Level level, VillagerProfession profession) {
 		super(type, level);
         ((GroundPathNavigation) getNavigation()).setCanOpenDoors(true);
+        this.profession = profession;
 	}
+
+    @Nullable
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData spawnData) {
+        SpawnGroupData data = super.finalizeSpawn(world, difficulty, reason, spawnData);
+        setVillagerData(getVillagerData().setProfession(profession));
+        return data;
+    }
 	public abstract String[] getChatMessages();
 	@Override protected void rewardTradeXp(MerchantOffer offer) {
 	      int i = 3 + this.random.nextInt(4);
@@ -51,9 +64,9 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
 	public int getMaxSpawnClusterSize() {
 		return 2;
 	}
-	@Override public AgeableMob getBreedOffspring(ServerLevel p_146743_, AgeableMob p_146744_) {return null;}
 	@Override protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Monster.class, 8f, 0.8d, 1.2d));
         this.goalSelector.addGoal(1, new OpenDoorGoal(this, true));
         this.goalSelector.addGoal(2, new PanicGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
@@ -73,30 +86,18 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     @Override protected SoundEvent getHurtSound(DamageSource p_35498_) {return SoundRegistry.MERCHANT_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.MERCHANT_HURT.get();}
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!getOffers().isEmpty()) {
-        	if(needsToRestock()) this.restock();
+        if (!level().isClientSide && !getOffers().isEmpty()) {
             updateSpecialPrices(player);
             setTradingPlayer(player);
-            openTradingScreen(player, getDisplayName(), 1);
-            String[] messages = getChatMessages();
-            if(messages.length > 0) player.displayClientMessage(Component.translatable(messages[player.getRandom().nextInt(getChatMessages().length)]), true);
-        } else setUnhappy();
+            openTradingScreen(player, Objects.requireNonNull(getDisplayName()), getVillagerData().getLevel());
+        }
         return InteractionResult.SUCCESS;
     }
     @Override public boolean canRestock() {return true;}
     @Override public boolean showProgressBar() {return false;}
     @Override public boolean removeWhenFarAway(double distance) {return false;}
-    public void restock() {
-        for(MerchantOffer merchantoffer : this.getOffers()) {
-        	merchantoffer.updateDemand();
-        	merchantoffer.resetUses();
-        }
-    }
-    private boolean needsToRestock() {
-        for(MerchantOffer merchantoffer : this.getOffers()) if (merchantoffer.needsRestock()) return true;
-        return false;
-    }
-    protected void updateSpecialPrices(Player player) {if (player != this.lastHurtByPlayer) for(MerchantOffer offer : getOffers()) offer.addToSpecialPriceDiff(-Mth.floor(offer.getPriceMultiplier()));}
+
+    protected void updateSpecialPrices(Player player) {int reputation = getPlayerReputation(player); if (reputation != 0) {for(MerchantOffer offer : getOffers()) {offer.addToSpecialPriceDiff(-Mth.floor((float)reputation * offer.getPriceMultiplier()));}}}
     @Override public void tick() {
         super.tick();
         if (this.getUnhappyCounter() > 0) {
@@ -156,20 +157,23 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         public DivineMapTrades(ItemStack input1, String displayName, TagKey<Structure> destination, Holder<MapDecorationType> destinationType, int xp) {
             this(input1, ItemStack.EMPTY, displayName, destination, destinationType, xp);
         }
+        @Nullable
         @Override
-        public MerchantOffer getOffer(Entity entity, RandomSource random) {
-        	if(!(entity.level() instanceof ServerLevel)) return null;
-        	else {
-        		ServerLevel serverlevel = (ServerLevel)entity.level();
-                BlockPos blockpos = serverlevel.findNearestMapStructure(destination, entity.blockPosition(), 100, true);
-                if(blockpos != null) {
-                   ItemStack itemstack = MapItem.create(serverlevel, blockpos.getX(), blockpos.getZ(), (byte)2, true, true);
-                   MapItem.renderBiomePreviewMap(serverlevel, itemstack);
-                   MapItemSavedData.addTargetDecoration(itemstack, blockpos, "+", this.destinationType);
-                   itemstack.set(DataComponents.CUSTOM_NAME, Component.translatable(this.displayName));
-                   return new MerchantOffer(new ItemCost(input1.getItem(), input1.getCount()), Optional.of(new ItemCost(input1.getItem(), input1.getCount())), itemstack, 1, xp, 0F);
-                } else return null;
+        public MerchantOffer getOffer(Entity trader, RandomSource rand) {
+            MerchantOffer offer;
+            ItemStack itemstack = MapItem.create(trader.level(), trader.blockPosition().getX(), trader.blockPosition().getZ(), (byte)2, true, true);
+
+            if (input2 != null) {
+                offer = new MerchantOffer(new ItemCost(input1.getItem(), input1.getCount()), Optional.of(new ItemCost(input2.getItem(), input2.getCount())), itemstack, stock, xp, 0f);
             }
+            else if (input1 != null) {
+                offer = new MerchantOffer(new ItemCost(input1.getItem(), input1.getCount()), itemstack, stock, xp, 0f);
+            }
+            else {
+                return null;
+            }
+
+            return offer;
         }
     }
     @Override

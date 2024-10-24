@@ -21,6 +21,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.*;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.trading.MerchantOffer;
@@ -52,8 +53,8 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 	}
     protected static final EntityDataAccessor<Integer> ITEM = SynchedEntityData.defineId(EntityIceikaNPC.class, EntityDataSerializers.INT);
     protected boolean important = false;
-	public EntityIceikaNPC(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-        super(type, worldIn);
+	public EntityIceikaNPC(EntityType<? extends EntityDivineMerchant> type, Level worldIn, VillagerProfession profession) {
+        super(type, worldIn, profession);
         setPathfindingMalus(PathType.POWDER_SNOW, -1);
     }
 	protected abstract TagKey<Structure> getRaidTargets();

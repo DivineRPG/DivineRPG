@@ -2,13 +2,14 @@ package divinerpg.entities.arcana;
 
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.ItemRegistry;
+import divinerpg.registries.ProfessionRegistry;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 
 public class EntityCaptainMerik extends EntityDivineMerchant {
-	public EntityCaptainMerik(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {super(type, worldIn);}
+	public EntityCaptainMerik(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {super(type, worldIn, ProfessionRegistry.CAPTAIN_MERIK.get());}
 	@Override public String[] getChatMessages() {
 		return new String[] {
 				"message.merik.battles",

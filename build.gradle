@@ -82,6 +82,7 @@ dependencies {
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}") //Just Enough Items
 //    compileOnly("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
 //    runtimeOnly("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
+    runtimeOnly("curse.maven:just-enough-professions-jep-417645:${jep_version}") //Curios Continuation
     compileOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT:api") //Patchouli
     runtimeOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT") //Patchouli
     compileOnly("curse.maven:curios-continuation-1037991:${curios_version}") //Curios Continuation

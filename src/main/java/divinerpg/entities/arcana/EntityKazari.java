@@ -10,7 +10,7 @@ import net.minecraft.world.level.*;
 public class EntityKazari extends EntityDivineMerchant {
 
 	public EntityKazari(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-		super(type, worldIn);
+		super(type, worldIn, ProfessionRegistry.KAZARI.get());
 	}
 
 	public String[] getChatMessages() {

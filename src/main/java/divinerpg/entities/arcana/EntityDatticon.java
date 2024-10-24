@@ -12,7 +12,7 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class EntityDatticon extends EntityDivineMerchant {
-	public EntityDatticon(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {super(type, worldIn);}
+	public EntityDatticon(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {super(type, worldIn, ProfessionRegistry.DATTICON.get());}
 	@Override public String[] getChatMessages() {
 		return new String[] {
 				"message.datticon.merik",

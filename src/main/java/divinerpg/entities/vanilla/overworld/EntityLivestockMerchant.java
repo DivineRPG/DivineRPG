@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 
 public class EntityLivestockMerchant extends EntityDivineMerchant {
     public EntityLivestockMerchant(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, ProfessionRegistry.LIVESTOCK_MERCHANT.get());
     }
     @Override
     public String[] getChatMessages() {

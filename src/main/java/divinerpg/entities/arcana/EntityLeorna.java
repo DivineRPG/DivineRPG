@@ -10,7 +10,7 @@ import net.minecraft.world.level.*;
 public class EntityLeorna extends EntityDivineMerchant {
 
 	public EntityLeorna(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-		super(type, worldIn);
+		super(type, worldIn, ProfessionRegistry.LEORNA.get());
 	}
 
 	public String[] getChatMessages() {

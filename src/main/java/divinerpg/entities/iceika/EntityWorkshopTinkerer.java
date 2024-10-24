@@ -4,6 +4,7 @@ import divinerpg.entities.ai.AvoidFactionGoal;
 import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.entities.base.FactionEntity;
 import divinerpg.registries.ItemRegistry;
+import divinerpg.registries.ProfessionRegistry;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -16,7 +17,7 @@ import net.minecraft.world.level.*;
 
 public class EntityWorkshopTinkerer extends EntityDivineMerchant implements FactionEntity {
     public EntityWorkshopTinkerer(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, ProfessionRegistry.WORKSHOP_TINKERER.get());
     }
     @Override
     public Faction getFaction() {

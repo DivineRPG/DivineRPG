@@ -16,7 +16,7 @@ import net.minecraft.world.level.Level;
 
 public class EntityWorkshopMerchant extends EntityDivineMerchant implements FactionEntity {
     public EntityWorkshopMerchant(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, ProfessionRegistry.WORKSHOP_MERCHANT.get());
     }
     @Override
     public Faction getFaction() {

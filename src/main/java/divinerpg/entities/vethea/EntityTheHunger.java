@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 
 public class EntityTheHunger extends EntityDivineMerchant {
     public EntityTheHunger(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-        super(type, worldIn);
+        super(type, worldIn, ProfessionRegistry.THE_HUNGER.get());
     }
 
     public String[] getChatMessages() {
