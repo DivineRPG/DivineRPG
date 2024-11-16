@@ -33,11 +33,11 @@ public class VetheaBlocks {
 	public static Block biphronSpawner = new BlockStupidSpawner("biphronSpawner", "Biphron", "fireCrystal", true);
 	public static Block gorgosionSpawner = new BlockStupidSpawner("gorgosionSpawner", "Gorgosion", "fireCrystal", true);
 
-	public static Block wreckAltar = new BlockMod("wreckAltar", 0.7F, DivineRPGTabs.spawner);
-	public static Block quadroticAltar = new BlockMod("quadroticAltar", 0.7F, DivineRPGTabs.spawner);
-	public static Block karosAltar = new BlockMod("karosAltar", 0.7F, DivineRPGTabs.spawner);
-	public static Block raglokAltar = new BlockMod("raglokAltar", 0.7F, DivineRPGTabs.spawner);
-	public static Block lunicAltar = new BlockMod("lunicAltar", 0.7F, DivineRPGTabs.spawner);
+	public static Block wreckAltar = new BlockMod("wreckAltar", false, DivineRPGTabs.spawner);
+	public static Block quadroticAltar = new BlockMod("quadroticAltar", false, DivineRPGTabs.spawner);
+	public static Block karosAltar = new BlockMod("karosAltar", false, DivineRPGTabs.spawner);
+	public static Block raglokAltar = new BlockMod("raglokAltar", false, DivineRPGTabs.spawner);
+	public static Block lunicAltar = new BlockMod("lunicAltar", false, DivineRPGTabs.spawner);
 
 	public static Block dreamStone = new BlockMod("dreamStone", 0.25F, DivineRPGTabs.vethea);
 	public static Block dreamDirt = new BlockMod(EnumBlockType.DIRT, "dreamDirt", 0.5F, DivineRPGTabs.vethea);
