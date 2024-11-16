@@ -12,8 +12,9 @@ import net.divinerpg.dimensions.iceika.village.WorldGenHouse5;
 import net.divinerpg.dimensions.iceika.village.WorldGenLibrary;
 import net.divinerpg.dimensions.iceika.village.WorldGenLights;
 import net.divinerpg.dimensions.iceika.village.WorldGenWorkShop;
-import net.divinerpg.items.base.WorldGenSantaHouse;
+import net.divinerpg.dimensions.iceika.WorldGenSantaHouse;
 import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EnumCreatureType;
@@ -48,33 +49,36 @@ public class ChunkProviderIceika implements IChunkProvider {
 	private BiomeGenBase[] biomesForGeneration;
 	private double[] gen1, gen2, gen3, gen4;
 	private int[][] ia = new int[32][32];
-	private ArrayList<WorldGenerator> lights, village, dungeons, rareHouses;
+	private ArrayList<WorldGenerator> lights, village, dungeons1, dungeons2, rareHouses;
 
 	public ChunkProviderIceika(World par1World, long par2) {
 		this.worldObj = par1World;
 		this.type = par1World.getWorldInfo().getTerrainType();
 		this.rand = new Random(par2);
-		
-		lights = new ArrayList(2);
-		lights.add(new WorldGenLights.Light1());
-		lights.add(new WorldGenLights.Light2());
-		lights.add(new WorldGenLights.Light3());
-		
-		village = new ArrayList(5);
-		village.add(new WorldGenLibrary());
-		village.add(new WorldGenWorkShop());
-		village.add(new WorldGenHouse1());
-		village.add(new WorldGenHouse2());
-		village.add(new WorldGenHouse3());
-		village.add(new WorldGenHouse4());
-		village.add(new WorldGenHouse5());
-		
-		rareHouses = new ArrayList(0);
-		rareHouses.add(new WorldGenSantaHouse());
-		
-		dungeons = new ArrayList(1);
-		dungeons.add(new WorldGenRollumDungeon());
-		dungeons.add(new WorldGenArcherDungeon());
+
+			lights = new ArrayList(3);
+			lights.add(new WorldGenLights.Light1());
+			lights.add(new WorldGenLights.Light2());
+			lights.add(new WorldGenLights.Light3());
+
+			village = new ArrayList(7);
+			village.add(new WorldGenLibrary());
+			village.add(new WorldGenWorkShop());
+			village.add(new WorldGenHouse1());
+			village.add(new WorldGenHouse2());
+			village.add(new WorldGenHouse3());
+			village.add(new WorldGenHouse4());
+			village.add(new WorldGenHouse5());
+
+			rareHouses = new ArrayList(1);
+			rareHouses.add(new WorldGenSantaHouse());
+
+			dungeons1 = new ArrayList(1);
+			dungeons1.add(new WorldGenRollumDungeon());
+
+			dungeons2 = new ArrayList(1);
+			dungeons2.add(new WorldGenArcherDungeon());
+
 		
 		this.noiseGen1 = new NoiseGeneratorOctaves(this.rand, 16);
 		this.noiseGen2 = new NoiseGeneratorOctaves(this.rand, 16);
@@ -392,11 +396,18 @@ public class ChunkProviderIceika implements IChunkProvider {
 		this.rand.setSeed((long)par2 * p1 + (long)par3 * j1 ^ this.worldObj.getSeed());
 		int j, var12, var13, var14, x, i, y, z;
 		
-		if(rand.nextInt(5) == 0) { 
+		if(rand.nextInt(5) == 0 && (ConfigurationHelper.generateIceikaRollumDungeons)) {
 			x = var4 + this.rand.nextInt(16);
 			z = var5 + this.rand.nextInt(16);
 			y = rand.nextInt(50);
-			(dungeons.get(rand.nextInt(dungeons.size()))).generate(this.worldObj, this.rand, x, y, z);
+			(dungeons1.get(rand.nextInt(dungeons1.size()))).generate(this.worldObj, this.rand, x, y, z);
+		}
+
+		if(rand.nextInt(5) == 0 && (ConfigurationHelper.generateIceikaArcherDungeons)) {
+			x = var4 + this.rand.nextInt(16);
+			z = var5 + this.rand.nextInt(16);
+			y = rand.nextInt(50);
+			(dungeons2.get(rand.nextInt(dungeons2.size()))).generate(this.worldObj, this.rand, x, y, z);
 		}
 		
 		for(i = 0; i < 2; i++) {
@@ -411,7 +422,7 @@ public class ChunkProviderIceika implements IChunkProvider {
 				}
 			}
 			if(foundGround) {
-				if (rand.nextInt(4) == 3) { 
+				if (rand.nextInt(4) == 3 && (ConfigurationHelper.generateIceikaLights)) {
 					(lights.get(rand.nextInt(lights.size()))).generate(this.worldObj, this.rand, x, y, z);
 				}
 			}
@@ -429,13 +440,13 @@ public class ChunkProviderIceika implements IChunkProvider {
 				}
 			}
 			if(foundGround) {
-				if (rand.nextInt(4) == 3) { 
+				if (rand.nextInt(4) == 3 && (ConfigurationHelper.generateIceikaVillage)) {
 					(village.get(rand.nextInt(village.size()))).generate(this.worldObj, this.rand, x, y, z);
 				}
 			}
 		}
 		
-		if(rand.nextInt(8) == 0) { 
+		if(rand.nextInt(8) == 0 && (ConfigurationHelper.generateIceikaSantaHouse)) {
 			x = var4 + this.rand.nextInt(16);
 			z = var5 + this.rand.nextInt(16);
 			boolean foundGround = false;

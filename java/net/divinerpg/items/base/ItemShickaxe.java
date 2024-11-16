@@ -49,7 +49,7 @@ public class ItemShickaxe extends ItemTool {
         return isEfficient(block);
     }
 
-    public float getStrVsBlock(ItemStack stack, Block block) {
+    public float func_150893_a(ItemStack stack, Block block) {
         return this.toolMaterial.getEfficiencyOnProperMaterial();
     }
 

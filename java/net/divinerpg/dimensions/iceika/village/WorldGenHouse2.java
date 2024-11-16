@@ -6,6 +6,7 @@ import net.divinerpg.dimensions.base.WorldGenAPI;
 import net.divinerpg.entities.iceika.EntityWorkshopMerchant;
 import net.divinerpg.entities.iceika.EntityWorkshopTinkerer;
 import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.world.World;

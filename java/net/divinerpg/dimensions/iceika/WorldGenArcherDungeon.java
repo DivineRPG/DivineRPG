@@ -3,6 +3,7 @@ import java.util.Random;
 
 import net.divinerpg.dimensions.base.WorldGenAPI;
 import net.divinerpg.utils.blocks.IceikaBlocks;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -22,7 +23,8 @@ public class WorldGenArcherDungeon extends WorldGenerator {
 	
 	@Override
     public boolean generate(World w, Random rand, int x, int y, int z) {
-		if(!locationIsValidSpawn(w, x, y, z)) return false;
+		if(!locationIsValidSpawn(w, x, y, z))
+			return false;
 		WorldGenAPI.addRectangle(6, 4, 5, w, x, y, z, IceikaBlocks.icyBricks);
 		WorldGenAPI.addRectangle(8, 8, 5, w, x + 5, y, z - 2, IceikaBlocks.icyBricks);
 		WorldGenAPI.addRectangle(8, 6, 3, w, x + 6, y + 1, z - 1, Blocks.air);
