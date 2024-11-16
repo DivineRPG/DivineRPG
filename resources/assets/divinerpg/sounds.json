@@ -1569,6 +1569,16 @@
 ,
 
 
+  "quadroBanana": {
+    "category":"master","sounds": [{
+      "name":
+      "quadroBanana",
+      "stream": false
+    }]
+  }
+,
+
+
  "raglokAvenge": {
   "category":"master","sounds": [{
     "name":
