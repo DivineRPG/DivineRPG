@@ -20,7 +20,8 @@ public class ConfigurationHelper {
     }
 
     public static boolean keepLoadingEden, keepLoadingWildwood, keepLoadingApalachia, keepLoadingSkythern, keepLoadingMortum, keepLoadingVethea, keepLoadingArcana, keepLoadingIceika;
-    public static boolean canShowOverlay, updateChecker, generateHuts, generateTrees, generateTar;
+    public static boolean canShowOverlay, updateChecker;
+    public static boolean generateHuts, generateTrees, generateTar, generateIceikaVillage, generateIceikaSantaHouse, generateIceikaLights, generateIceikaRollumDungeons, generateIceikaArcherDungeons, generateHunger, generateCrypts, generateHive, generatePyramids, generateQuadro, generateKaros, generateRaglok, generateWreck, generateLuna;
 
     public static int     eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
     public static int     edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
@@ -57,13 +58,30 @@ public class ConfigurationHelper {
         keepLoadingArcana = cfg.get("Dimension", "Keep loading Arcana", false).getBoolean(true);
         keepLoadingIceika = cfg.get("Dimension", "Keep loading Iceika", false).getBoolean(true);
 
-        vetheaInventory = cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean(true);
+        vetheaInventory = cfg.get("Vethea Inventory", "Enable Vethea-exclusive inventory system", true).getBoolean(true);
     }
 
     public static void miscInit() {
-        generateHuts = cfg.get("Worldgen", "Generate livestock merchant huts in the overworld?", true).getBoolean(true);
-        generateTrees = cfg.get("Worldgen", "Generate divine trees in the overworld?", true).getBoolean(true);
-        generateTar = cfg.get("Worldgen", "Generate tar lakes in the overworld?", true).getBoolean(true);
+        generateHuts = cfg.get("Overworld Worldgen", "Generate livestock merchant huts in the Overworld?", true).getBoolean(true);
+        generateTrees = cfg.get("Overworld Worldgen", "Generate divine trees in the Overworld?", true).getBoolean(true);
+        generateTar = cfg.get("Overworld Worldgen", "Generate tar lakes in the Overworld?", true).getBoolean(true);
+
+        generateIceikaLights = cfg.get("Iceika Worldgen", "Generate lights in Iceika?", true).getBoolean(true);
+        generateIceikaVillage = cfg.get("Iceika Worldgen", "Generate workshop houses in Iceika?", true).getBoolean(true);
+        generateIceikaSantaHouse = cfg.get("Iceika Worldgen", "Generate a rare 'Santa's House' in Iceika?", true).getBoolean(true);
+        generateIceikaRollumDungeons = cfg.get("Iceika Worldgen", "Generate Rollum dungeons in Iceika?", true).getBoolean(true);
+        generateIceikaArcherDungeons = cfg.get("Iceika Worldgen", "Generate Archer dungeons in Iceika?", true).getBoolean(true);
+        
+        generateHunger = cfg.get("Vethea Worldgen", "Generate Floating Villages in Vethea?", true).getBoolean(true);
+        generateCrypts = cfg.get("Vethea Worldgen", "Generate Crypts in Vethea?", true).getBoolean(true);
+        generateHive = cfg.get("Vethea Worldgen", "Generate Hive Nests in Vethea?", true).getBoolean(true);
+        generatePyramids = cfg.get("Vethea Worldgen", "Generate Pyramids in Vethea?", true).getBoolean(true);
+        generateQuadro = cfg.get("Vethea Worldgen", "Generate Quadrotic Posts in Vethea?", true).getBoolean(true);
+        generateKaros = cfg.get("Vethea Worldgen", "Generate Karos Madhouses in Vethea?", true).getBoolean(true);
+        generateRaglok = cfg.get("Vethea Worldgen", "Generate Raglok Chambers in Vethea?", true).getBoolean(true);
+        generateWreck = cfg.get("Vethea Worldgen", "Generate Wreck Halls in Vethea?", true).getBoolean(true);
+        generateLuna = cfg.get("Vethea Worldgen", "Generate Evergardens in Vethea?", true).getBoolean(true);
+
         canShowOverlay = cfg.get("GUI", "Can show overlay in top left corner or debug screen", true).getBoolean(true);
         arcanaX = cfg.get("GUI", "Arcana Bar X", 111).getInt();
         arcanaY = cfg.get("GUI", "Arcana Bar Y", 18).getInt();
