@@ -71,7 +71,7 @@ public class ConfigurationHelper {
         generateIceikaSantaHouse = cfg.get("Iceika Worldgen", "Generate a rare 'Santa's House' in Iceika?", true).getBoolean(true);
         generateIceikaRollumDungeons = cfg.get("Iceika Worldgen", "Generate Rollum dungeons in Iceika?", true).getBoolean(true);
         generateIceikaArcherDungeons = cfg.get("Iceika Worldgen", "Generate Archer dungeons in Iceika?", true).getBoolean(true);
-        
+
         generateHunger = cfg.get("Vethea Worldgen", "Generate Floating Villages in Vethea?", true).getBoolean(true);
         generateCrypts = cfg.get("Vethea Worldgen", "Generate Crypts in Vethea?", true).getBoolean(true);
         generateHive = cfg.get("Vethea Worldgen", "Generate Hive Nests in Vethea?", true).getBoolean(true);
