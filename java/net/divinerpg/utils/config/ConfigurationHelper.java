@@ -23,9 +23,11 @@ public class ConfigurationHelper {
     public static boolean canShowOverlay, updateChecker;
     public static boolean generateHuts, generateTrees, generateTar, generateIceikaVillage, generateIceikaSantaHouse, generateIceikaLights, generateIceikaRollumDungeons, generateIceikaArcherDungeons, generateHunger, generateCrypts, generateHive, generatePyramids, generateQuadro, generateKaros, generateRaglok, generateWreck, generateLuna;
 
-    public static int     eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
-    public static int     edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
-    public static int     arcanaX, arcanaY;
+    public static int eden, wildwood, apalachia, skythern, mortum, vethea, arcana, iceika;
+    public static int edenBiome, wildwoodBiome, apalachiaBiome, skythernBiome, mortumBiome, vetheaBiome, arcanaBiome, iceikaBiome;
+    public static int arcanaX, arcanaY;
+
+    public static int ancientEntityDim, theWatcherDim, kingOfScorchersDim, ayeracoHordeDim, twilightDim;
 
     public static boolean     vetheaInventory;
     public static boolean     startupMessage;
@@ -87,6 +89,12 @@ public class ConfigurationHelper {
         arcanaY = cfg.get("GUI", "Arcana Bar Y", 18).getInt();
         startupMessage = cfg.get("GUI", "Enable a special Thank-You message for installing Divine RPG upon entering a world", true).getBoolean(true);
         updateChecker = cfg.get("Updates", "Check For Updates", true).getBoolean(true);
+
+        ancientEntityDim = cfg.get("Bosses", "Dimension ID the Ancient Entity can be summoned in (Default is the Overworld)", 0).getInt();
+        theWatcherDim = cfg.get("Bosses", "Dimension ID the Watcher can be summoned in (Default is the Nether)", -1).getInt();
+        kingOfScorchersDim = cfg.get("Bosses", "Dimension ID the King Of Scorchers can be summoned in (Default is the Nether)", -1).getInt();
+        ayeracoHordeDim = cfg.get("Bosses", "Dimension ID the Ayeraco Horde can be summoned in (Default is the End)", 1).getInt();
+        twilightDim = cfg.get("Bosses", "Dimension ID the Twilight Bosses can be summoned in (Default is Mortum)", 54).getInt();
     }
 
     public static int getConfig(String name) {

@@ -3,6 +3,7 @@ package net.divinerpg.items.vanilla;
 import net.divinerpg.entities.vanilla.EntityTheWatcher;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.Util;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,7 +20,7 @@ public class ItemCallOfTheWatcher extends ItemMod {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
-        if(world.provider.dimensionId != -1) player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.callofthewatcher")));
+        if(world.provider.dimensionId !=  ConfigurationHelper.theWatcherDim) player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.callofthewatcher")));
         if(!world.isRemote && world.provider.dimensionId == -1) {
                 EntityTheWatcher entity = new EntityTheWatcher(world);
                 entity.setPosition(x, y + 1, z);

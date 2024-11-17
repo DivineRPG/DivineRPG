@@ -13,6 +13,7 @@ public class ItemTwilightClock extends ItemMod {
 
 	public ItemTwilightClock(String name){
 		super(name);
+		setMaxStackSize(1);
 		setCreativeTab(DivineRPGTabs.utility);
 	}
 
