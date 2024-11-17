@@ -57,7 +57,7 @@ public class VetheaBlocks {
 	public static Block blossomingWeedwoodVine = new BlockModVine("blossomedWeedWoodVine").setCreativeTab(DivineRPGTabs.vethea);
 	public static Block cryptWall = new BlockMod("cryptWall", false, DivineRPGTabs.vethea);
 	public static Block smoothGlass = new BlockModGlass("smoothGlass", 0.3F).setCreativeTab(DivineRPGTabs.vethea);
-	public static Block villageLamp = new BlockMod(EnumBlockType.GLASS, "villageLamp", 1.0F, DivineRPGTabs.vethea).setLightLevel(1);
+	public static Block villageLamp = new BlockMod(EnumBlockType.GLASS, "villageLamp", false, DivineRPGTabs.vethea).setLightLevel(1);
 	public static Block cellLamp = new BlockMod(EnumBlockType.GLASS, "cellLamp", false, DivineRPGTabs.vethea).setLightLevel(1);
 	public static Block barredDoor = new BlockModDoor(EnumBlockType.IRON, "barredDoorBlock", 0.5F, true);
 	public static Block firelight = new BlockMod(EnumBlockType.GLASS, "firelight", 1.0F, DivineRPGTabs.vethea).setLightLevel(1).setResistance(1);
