@@ -4,6 +4,7 @@ import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.libs.Sounds;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.blocks.VanillaBlocks;
+import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -29,7 +30,7 @@ public class ItemHordeHorn extends ItemMod {
 			y += Facing.offsetsYForSide[side];
 			z += Facing.offsetsZForSide[side];
 
-			if (world.provider.dimensionId == 1) {
+			if (world.provider.dimensionId ==  ConfigurationHelper.ayeracoHordeDim) {
 			    if (world.getBlock(x, y, z) != Blocks.air) {
 			        return false;
 			    }

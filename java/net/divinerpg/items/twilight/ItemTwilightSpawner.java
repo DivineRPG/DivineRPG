@@ -29,7 +29,7 @@ public class ItemTwilightSpawner extends ItemMod {
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10) {
 		if (!world.isRemote) {
-			if(world.provider.dimensionId == ConfigurationHelper.mortum){
+			if(world.provider.dimensionId == ConfigurationHelper.twilightDim){
 					if(stack.getItem() == TwilightItemsOther.karotCrystal){
 						EntityKarot e = new EntityKarot(world);
 						e.setPosition(x, y+1, z);
