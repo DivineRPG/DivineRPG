@@ -1598,6 +1598,7 @@ message.ayeraco.purple=The Purple Ayeraco has been called upon...
 message.ayeraco.spawn=The Ayeraco Horde has arrived!
 message.spawner.mysteriousclock=This item can't be used in this dimension.
 message.spawner.callofthewatcher=This item can't be used in this dimension.
+message.spawner.infernalflame=This item can't be used in this dimension.
 message.spawner.hordehorn=This item can't be used in this dimension.
 message.crystal.mortum=This item can't be used in this dimension.
 message.bed.dark=You can only sleep at night.

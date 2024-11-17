@@ -2,6 +2,7 @@ package net.divinerpg.items.vanilla;
 
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
 import net.divinerpg.items.base.ItemMod;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -19,7 +20,7 @@ public class ItemInfernalFlame extends ItemMod {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
-        if(world.provider.dimensionId !=  ConfigurationHelper.kingOfScorchersDim) player.addChatMessage(Util.getChatComponent(Util.AQUA + "This item can only be used in the Nether."));
+        if(world.provider.dimensionId !=  ConfigurationHelper.kingOfScorchersDim) player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.infernalflame")));
         else if(!world.isRemote) {
                 EntityKingOfScorchers entity = new EntityKingOfScorchers(world);
                 entity.setPosition(x, y + 1, z);
