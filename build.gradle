@@ -3,7 +3,11 @@ buildscript {
         mavenCentral()
         maven {
             name = "forge"
-            url = "https://maven.minecraftforge.net/"
+            url = "https://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
     }
     dependencies {
@@ -13,22 +17,15 @@ buildscript {
     }
 }
 
-plugins {
-    id 'java-library'
-    id 'maven-publish'
-}
-
 apply plugin: 'forge'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 version = project.version
-group = project.group
+group = project.group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "divinerpg"
 
 minecraft {
-    version = project.minecraft_version + "-" + project.forge_version
-    runDir = "run"
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "eclipse"
 }
 
 dependencies {
@@ -36,48 +33,19 @@ dependencies {
 }
 
 processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
     inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft_version
-    filesMatching('mcmod.info') {
-        expand 'version': project.version, 'mcversion': project.minecraft_version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        expand 'version': project.version, 'mcversion': project.minecraft.version
     }
 
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = "sources"
-    from sourceSets.main.allSource
-}
-
-task devJar(type: Jar) {
-    classifier = "dev"
-    from sourceSets.main.output
-}
-
-artifacts {
-    archives sourcesJar
-    archives devJar
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact(jar) {
-                builtBy build
-            }
-            artifact(sourcesJar) {
-                builtBy sourcesJar
-            }
-            artifact(devJar) {
-                builtBy devJar
-            }
-        }
-    }
-
-    repositories {
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
     }
 }
+
