@@ -1,0 +1,69 @@
+[16:20:28] [Server thread/INFO]: Starting minecraft server version 1.7.10
+[16:20:33] [Server thread/INFO]: Loading properties
+[16:20:33] [Server thread/INFO]: Default game type: SURVIVAL
+[16:20:33] [Server thread/INFO]: Generating keypair
+[16:20:33] [Server thread/INFO]: Starting Minecraft server on *:25565
+[16:20:33] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[16:20:33] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[16:20:33] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[16:20:33] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[16:20:33] [Server thread/INFO]: Preparing level "world"
+[16:20:35] [Server thread/WARN]: Unable to find spawn biome
+[16:20:35] [Server thread/INFO]: Preparing start region for level 0
+[16:20:36] [Server thread/INFO]: Preparing spawn area: 17%
+[16:20:37] [Server thread/INFO]: Preparing spawn area: 55%
+[16:20:38] [Server thread/INFO]: Done (4.233s)! For help, type "help" or "?"
+[16:21:51] [Server thread/INFO]: Stopping the server
+[16:21:51] [Server thread/INFO]: Stopping server
+[16:21:51] [Server thread/INFO]: Saving players
+[16:21:51] [Server thread/INFO]: Saving worlds
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Overworld
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Nether
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/The End
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Iceika
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Arcana
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Vethea
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Mortum
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Skythern
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Apalachia
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/The Wildwood
+[16:21:51] [Server thread/INFO]: Saving chunks for level 'world'/Eden
+rver thread/INFO]: Converting map!
+[16:21:03] [Server thread/INFO]: Scanning folders...
+[16:21:03] [Server thread/INFO]: Total conversion count is 0
+[16:21:04] [Server thread/WARN]: Unable to find spawn biome
+[16:21:04] [Server thread/INFO]: Preparing start region for level 0
+[16:21:05] [Server thread/INFO]: Preparing spawn area: 62%
+[16:21:06] [Server thread/INFO]: Changing view distance to 12, from 10
+[16:21:06] [Server thread/INFO]: Player593[local:E:9cd77915] logged in with entity id 44 at (501.5, 72.0, 323.5)
+[16:21:06] [Server thread/INFO]: Player593 joined the game
+[16:21:08] [Client thread/INFO]: [CHAT] §bThank you Player593 for downloading and playing §aDivineRPG!
+[16:21:09] [Server thread/INFO]: Player593 has just earned the achievement [Taking Inventory]
+[16:21:09] [Client thread/INFO]: [CHAT] Player593 has just earned the achievement [Taking Inventory]
+[16:21:45] [Server thread/INFO]: Saving and pausing game...
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Iceika
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Arcana
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Vethea
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Mortum
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Skythern
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Apalachia
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/The Wildwood
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Eden
+[16:21:45] [Server thread/INFO]: Stopping server
+[16:21:45] [Server thread/INFO]: Saving players
+[16:21:45] [Server thread/INFO]: Saving worlds
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Iceika
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Arcana
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Vethea
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Mortum
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Skythern
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Apalachia
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/The Wildwood
+[16:21:45] [Server thread/INFO]: Saving chunks for level 'New World'/Eden
+[16:21:47] [Client thread/INFO]: Stopping!
