@@ -1505,6 +1505,7 @@ message.ayeraco.purple=这个紫色艾瓦卡已被召唤
 message.ayeraco.spawn=艾瓦卡的部落已经来临!
 message.spawner.mysteriousclock=你不能在这个维度使用这个物品。
 message.spawner.callofthewatcher=你不能在这个维度使用这个物品。
+message.spawner.infernalflame=你不能在这个维度使用这个物品。
 message.spawner.hordehorn=你不能在这个维度使用这个物品。
 message.crystal.mortum=你不能在这个维度使用这个物品。
 message.bed.dark=你只能睡在黑暗的地方

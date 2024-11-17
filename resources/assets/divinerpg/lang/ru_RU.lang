@@ -1503,6 +1503,7 @@ message.ayeraco.purple=Фиолетовый Айрако был призван
 message.ayeraco.spawn=Орда Айрако прибыла!
 message.spawner.mysteriousclock=Вы не можете использовать этот предмет в этом измерении.
 message.spawner.callofthewatcher=Вы не можете использовать этот предмет в этом измерении.
+message.spawner.infernalflame=Вы не можете использовать этот предмет в этом измерении.
 message.spawner.hordehorn=Вы не можете использовать этот предмет в этом измерении.
 message.crystal.mortum=Вы не можете использовать этот предмет в этом измерении.
 message.bed.dark=Спать можно только в темном месте
