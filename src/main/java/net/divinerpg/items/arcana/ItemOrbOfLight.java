@@ -14,6 +14,7 @@ public class ItemOrbOfLight extends ItemMod {
 
 	public ItemOrbOfLight() {
 		super("orbOfLight");
+        setMaxStackSize(1);
 		setCreativeTab(DivineRPGTabs.utility);
 	}
 	
