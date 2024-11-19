@@ -1474,9 +1474,9 @@ tooltip.frozencharge=Opens sealed passages in the Dungeon of Arcana
 tooltip.fills=Fills 
 tooltip.hungerbars= hunger bars
 tooltip.saturation= saturation
-tooltip.petfood=Pet food:
-tooltip.true=True
-tooltip.false=False
+tooltip.petfood=Pet food: 
+tooltip.true=True!
+tooltip.false=False...
 
 armor.tooltip.fireprotection=Fire Protection
 armor.tooltip.nofall=No Fall Damage
