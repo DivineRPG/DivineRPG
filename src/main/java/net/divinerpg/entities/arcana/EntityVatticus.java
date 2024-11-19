@@ -26,7 +26,7 @@ public class EntityVatticus extends EntityDivineRPGVillager {
 
 	@Override
 	public void extraInteract(EntityPlayer p) {
-		p.addChatMessage(Util.getChatComponent("Lord Vatticus: " + MessageLocalizer.normal(MESSAGE[rand.nextInt(5)])));
+		p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal(MESSAGE[rand.nextInt(5)])));
 	}
 
 	@Override
