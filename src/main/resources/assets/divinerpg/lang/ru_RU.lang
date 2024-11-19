@@ -1378,10 +1378,11 @@ tooltip.effect.slows=Замедляет существ на |seconds| секун
 tooltip.frozencharge=Открывает запечатанные проходы в Подземелье Тайн.
 tooltip.fills=Заполняет
 tooltip.hungerbars= голодные батончики
+tooltip.health= Здоровье
 tooltip.saturation= насыщенность
 tooltip.petfood=корм для домашних животных:
-tooltip.true=истинный
-tooltip.false=ЛОЖЬ
+tooltip.true= истинный
+tooltip.false= ЛОЖЬ
 
 armor.tooltip.fireprotection=Противопожарная защита
 armor.tooltip.nofall=Нет повреждений от падения
