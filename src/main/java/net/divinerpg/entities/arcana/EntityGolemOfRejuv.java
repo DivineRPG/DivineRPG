@@ -90,6 +90,6 @@ public class EntityGolemOfRejuv extends EntityDivineRPGTameable {
 
 	@Override
 	public String mobName() {
-		return "Golem of Rejuv'";
+		return "Golem of Rejuvination";
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import net.divinerpg.items.base.ItemModFood;
 import net.divinerpg.libs.Reference;
 import net.divinerpg.utils.LangRegistry;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.TooltipLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
@@ -28,9 +29,9 @@ public class ItemVetheanFood extends ItemModFood {
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add("Replenishes " + food + " Hunger");
-		list.add(saturation + " Saturation");
-		list.add("Pet Food: False");
+		list.add((MessageLocalizer.norecolor("tooltip.fills")) + food + (MessageLocalizer.norecolor("tooltip.hungerbars")));
+		list.add(saturation + (MessageLocalizer.norecolor("tooltip.saturation")));
+		list.add((MessageLocalizer.norecolor("tooltip.petfood")) + (MessageLocalizer.norecolor("tooltip.false")));
 		list.add(TooltipLocalizer.vethean());
 	}
 }

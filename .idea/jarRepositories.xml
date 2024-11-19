@@ -26,5 +26,10 @@
       <option name="name" value="forge" />
       <option name="url" value="https://maven.minecraftforge.net" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="ossrh-snapshots-for-forgegradle-separated" />
+      <option name="name" value="ossrh-snapshots-for-forgegradle-separated" />
+      <option name="url" value="https://oss.sonatype.org/content/repositories/snapshots" />
+    </remote-repository>
   </component>
 </project>

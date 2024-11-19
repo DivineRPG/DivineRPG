@@ -14,7 +14,8 @@ import net.minecraft.world.World;
 public class ItemNightmareBed extends ItemMod {
 
 	public ItemNightmareBed() {
-		super("nightmareBed", "bed", DivineRPGTabs.vethea);
+		super("nightmareBed","bed", DivineRPGTabs.vethea);
+        setMaxStackSize(1);
 	}
 	
 	@Override
