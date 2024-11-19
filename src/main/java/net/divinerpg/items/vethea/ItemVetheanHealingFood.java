@@ -3,9 +3,11 @@ package net.divinerpg.items.vethea;
 import java.util.List;
 
 import net.divinerpg.utils.TooltipLocalizer;
+import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 public class ItemVetheanHealingFood extends ItemVetheanFood {
@@ -31,10 +33,9 @@ public class ItemVetheanHealingFood extends ItemVetheanFood {
     }
 
     @Override
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        par3List.add("Replenishes " + this.healthGain + " Health");
-        par3List.add(saturation + " Saturation");
-        par3List.add("Pet Food: False");
-        par3List.add(TooltipLocalizer.vethean());
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+        list.add((MessageLocalizer.norecolor("tooltip.fills")) + this.healthGain + (MessageLocalizer.norecolor("tooltip.health")));
+        list.add(func_150906_h(stack) + (MessageLocalizer.norecolor("tooltip.saturation")));
+        list.add(!isWolfsFavoriteMeat() ? Util.BLUE + (MessageLocalizer.norecolor("tooltip.petfood")) + EnumChatFormatting.RESET + (MessageLocalizer.norecolor("tooltip.true")): Util.BLUE + (MessageLocalizer.norecolor("tooltip.petfood")) + EnumChatFormatting.RESET + (MessageLocalizer.norecolor("tooltip.false")));
     }
 }

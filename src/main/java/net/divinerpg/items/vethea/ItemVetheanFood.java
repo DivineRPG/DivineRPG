@@ -13,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.util.EnumChatFormatting;
 
 public class ItemVetheanFood extends ItemModFood {
 	
@@ -29,9 +30,9 @@ public class ItemVetheanFood extends ItemModFood {
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-		list.add((MessageLocalizer.norecolor("tooltip.fills")) + food + (MessageLocalizer.norecolor("tooltip.hungerbars")));
-		list.add(saturation + (MessageLocalizer.norecolor("tooltip.saturation")));
-		list.add((MessageLocalizer.norecolor("tooltip.petfood")) + (MessageLocalizer.norecolor("tooltip.false")));
+		list.add((MessageLocalizer.norecolor("tooltip.fills")) + (double) func_150905_g(stack) / 2 + (MessageLocalizer.norecolor("tooltip.health")));
+		list.add(func_150906_h(stack) + (MessageLocalizer.norecolor("tooltip.saturation")));
+		list.add(!isWolfsFavoriteMeat() ? Util.BLUE + (MessageLocalizer.norecolor("tooltip.petfood")) + EnumChatFormatting.RESET + (MessageLocalizer.norecolor("tooltip.true")): Util.BLUE + (MessageLocalizer.norecolor("tooltip.petfood")) + EnumChatFormatting.RESET + (MessageLocalizer.norecolor("tooltip.false")));
 		list.add(TooltipLocalizer.vethean());
 	}
 }
