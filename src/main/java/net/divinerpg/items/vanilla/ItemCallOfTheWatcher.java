@@ -20,16 +20,17 @@ public class ItemCallOfTheWatcher extends ItemMod {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
-        if(world.provider.dimensionId !=  ConfigurationHelper.theWatcherDim) player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.callofthewatcher")));
         if(!world.isRemote && world.provider.dimensionId == ConfigurationHelper.theWatcherDim) {
                 EntityTheWatcher entity = new EntityTheWatcher(world);
                 entity.setPosition(x, y + 1, z);
-                if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) { 
+                if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) {
                     world.spawnEntityInWorld(entity);
                     if(!player.capabilities.isCreativeMode) stack.stackSize--;
                 }
-                
         }
-        return true;
+        else {
+            player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.callofthewatcher")));
+        }
+        return false;
     }
 }

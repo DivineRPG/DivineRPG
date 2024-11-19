@@ -1,5 +1,6 @@
 package net.divinerpg.items.vanilla;
 
+import net.divinerpg.entities.vanilla.EntityAncientEntity;
 import net.divinerpg.entities.vanilla.EntityKingOfScorchers;
 import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.MessageLocalizer;
@@ -20,16 +21,17 @@ public class ItemInfernalFlame extends ItemMod {
 
     @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
-        if(world.provider.dimensionId !=  ConfigurationHelper.kingOfScorchersDim) player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.infernalflame")));
-        else if(!world.isRemote) {
+        if(!world.isRemote && world.provider.dimensionId == ConfigurationHelper.kingOfScorchersDim) {
                 EntityKingOfScorchers entity = new EntityKingOfScorchers(world);
                 entity.setPosition(x, y + 1, z);
-                if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) { 
+                if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) {
                     world.spawnEntityInWorld(entity);
                     if(!player.capabilities.isCreativeMode) stack.stackSize--;
                 }
-                
         }
-        return true;
+        else {
+            player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.infernalflame")));
+        }
+        return false;
     }
 }
