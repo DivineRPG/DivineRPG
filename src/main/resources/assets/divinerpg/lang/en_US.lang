@@ -1472,11 +1472,12 @@ tooltip.effect.burns=Burns mobs for |seconds| seconds
 tooltip.effect.slows=Slows mobs for |seconds| seconds
 tooltip.frozencharge=Opens sealed passages in the Dungeon of Arcana
 tooltip.fills=Fills 
-tooltip.hungerbars= hunger bars
-tooltip.saturation= saturation
-tooltip.petfood=Pet food:
-tooltip.true=True!
-tooltip.false=False...
+tooltip.hungerbars= Hunger Bars
+tooltip.health= Hearts
+tooltip.saturation= Saturation
+tooltip.petfood=Pet Food:
+tooltip.true= True!
+tooltip.false= False...
 
 armor.tooltip.fireprotection=Fire Protection
 armor.tooltip.nofall=No Fall Damage

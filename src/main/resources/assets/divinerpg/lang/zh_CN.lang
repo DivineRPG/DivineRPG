@@ -1380,10 +1380,11 @@ tooltip.effect.slows=缓慢 |seconds| 秒
 tooltip.frozencharge=打开阿卡纳地牢中的密封通道
 tooltip.fills=填充
 tooltip.hungerbars= 饥饿酒吧
+tooltip.health= 健康
 tooltip.saturation= 饱和
 tooltip.petfood=宠物食品:
-tooltip.true=真的
-tooltip.false=错误的
+tooltip.true= 真的
+tooltip.false= 错误的
 
 armor.tooltip.fireprotection=消防
 armor.tooltip.nofall=无坠落损坏
