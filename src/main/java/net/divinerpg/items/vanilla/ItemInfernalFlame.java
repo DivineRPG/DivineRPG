@@ -6,6 +6,7 @@ import net.divinerpg.items.base.ItemMod;
 import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
+import net.divinerpg.utils.items.VanillaItemsOther;
 import net.divinerpg.utils.tabs.DivineRPGTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -20,17 +21,21 @@ public class ItemInfernalFlame extends ItemMod {
     }
 
     @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10) {
-        if(!world.isRemote && world.provider.dimensionId == ConfigurationHelper.kingOfScorchersDim) {
-                EntityKingOfScorchers entity = new EntityKingOfScorchers(world);
-                entity.setPosition(x, y + 1, z);
-                if(world.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty()) {
-                    world.spawnEntityInWorld(entity);
-                    if(!player.capabilities.isCreativeMode) stack.stackSize--;
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10) {
+        if (!world.isRemote) {
+            if (world.provider.dimensionId == ConfigurationHelper.kingOfScorchersDim) {
+                if (stack.getItem() == VanillaItemsOther.infernalFlame) {
+                    EntityKingOfScorchers e = new EntityKingOfScorchers(world);
+                    e.setPosition(x, y + 1, z);
+                    if (world.getCollidingBoundingBoxes(e, e.boundingBox).isEmpty()) {
+                        world.spawnEntityInWorld(e);
+                        if (!player.capabilities.isCreativeMode) player.inventory.consumeInventoryItem(stack.getItem());
+                    }
+                    return true;
                 }
-        }
-        else {
-            player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.infernalflame")));
+            } else {
+                player.addChatMessage(Util.getChatComponent(Util.AQUA + MessageLocalizer.norecolor("message.spawner.infernalflame")));
+            }
         }
         return false;
     }
