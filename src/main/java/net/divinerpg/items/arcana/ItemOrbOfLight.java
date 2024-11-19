@@ -20,7 +20,6 @@ public class ItemOrbOfLight extends ItemMod {
 	
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int var4, boolean var5) {
-		if(Ticker.tick%1 == 0) {
 		world.setLightValue(EnumSkyBlock.Block, (int)entity.posX, (int)entity.posY, (int)entity.posZ, 15);
         world.markBlockRangeForRenderUpdate((int)entity.posX, (int)entity.posY, (int)entity.posX, 12, 12, 12);
         world.markBlockForUpdate((int)entity.posX, (int)entity.posY, (int)entity.posZ);
@@ -50,6 +49,5 @@ public class ItemOrbOfLight extends ItemMod {
         world.updateLightByType(EnumSkyBlock.Block, (int)entity.posX -1, (int)entity.posY, (int)entity.posZ);
         world.updateLightByType(EnumSkyBlock.Block, (int)entity.posX, (int)entity.posY, (int)entity.posZ +1);
         world.updateLightByType(EnumSkyBlock.Block, (int)entity.posX, (int)entity.posY, (int)entity.posZ -1);
-		}
 	}
 }
