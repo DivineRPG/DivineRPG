@@ -100,7 +100,7 @@ public class BlockNightmareBed extends BlockBed {
                     MPPlayer.timeUntilPortal = 10;
                     MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, ConfigurationHelper.vethea, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(ConfigurationHelper.vethea)));
                     
-                    if (ConfigurationHelper.cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+                    if (ConfigurationHelper.vetheaInventory) {
                         this.persistantData.setTag("OverworldInv", player.inventory.writeToNBT(new NBTTagList()));
                         player.getEntityData().setTag("PlayerPersisted", this.persistantData);
                         player.inventory.clearInventory(null, -1);
@@ -120,7 +120,7 @@ public class BlockNightmareBed extends BlockBed {
             } else if (player.worldObj.provider.dimensionId == ConfigurationHelper.vethea) {
                 MPPlayer.mcServer.getConfigurationManager().transferPlayerToDimension(MPPlayer, 0, new TeleporterVethea(MPPlayer.mcServer.worldServerForDimension(0)));
 
-                if (ConfigurationHelper.cfg.get("Vethea", "Enable Vethea-exclusive inventory system", true).getBoolean()) {
+                if (ConfigurationHelper.vetheaInventory) {
                     this.persistantData.setTag("VetheaInv", player.inventory.writeToNBT(new NBTTagList()));
                     player.getEntityData().setTag("PlayerPersisted", this.persistantData);
                     player.inventory.clearInventory(null, -1);
