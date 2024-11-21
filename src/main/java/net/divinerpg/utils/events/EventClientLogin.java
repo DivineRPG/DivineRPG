@@ -2,6 +2,7 @@ package net.divinerpg.utils.events;
 
 import java.io.IOException;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import net.divinerpg.utils.MessageLocalizer;
 import net.divinerpg.utils.Util;
 import net.divinerpg.utils.config.ConfigurationHelper;
@@ -29,9 +30,9 @@ public class EventClientLogin {
                 }
 
             }
-            if (Util.isDeveloperName(p.getCommandSenderName())) {
+            if (Util.isDeveloperName(p.getCommandSenderName()) && ConfigurationHelper.devMessage) {
                 p.addChatMessage(Util.getChatComponent(MessageLocalizer.normal("message.developer")));
-            } else if (ConfigurationHelper.cfg.get("GUI", "Enable a special Thank-You message for installing Divine RPG upon entering a world", true).getBoolean()) {
+            } else if (ConfigurationHelper.startupMessage) {
                 p.addChatMessage(Util.addChatMessage(MessageLocalizer.standard(p.getDisplayName())));
             }
         }

@@ -30,7 +30,7 @@ public class ConfigurationHelper {
     public static int ancientEntityDim, theWatcherDim, kingOfScorchersDim, ayeracoHordeDim, twilightDim;
 
     public static boolean     vetheaInventory;
-    public static boolean     startupMessage;
+    public static boolean     startupMessage, devMessage;
 
     public static void dimensionInit() {
         edenBiome = cfg.get("Dimension", "Eden biome ID", 100).getInt();
@@ -88,6 +88,7 @@ public class ConfigurationHelper {
         arcanaX = cfg.get("GUI", "Arcana Bar X", 111).getInt();
         arcanaY = cfg.get("GUI", "Arcana Bar Y", 18).getInt();
         startupMessage = cfg.get("GUI", "Enable a special Thank-You message for installing Divine RPG upon entering a world", true).getBoolean(true);
+        devMessage = cfg.get("GUI", "Enable a special message for devs upon entering a world", true).getBoolean(true);
         updateChecker = cfg.get("Updates", "Check For Updates", true).getBoolean(true);
 
         ancientEntityDim = cfg.get("Bosses", "Dimension ID the Ancient Entity can be summoned in (Default is the Overworld)", 0).getInt();
