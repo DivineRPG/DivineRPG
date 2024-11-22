@@ -225,7 +225,7 @@ public class EntityResourceLocation {
     public static ResourceLocation MM1                  = addMob("mysteriousMan1");
     public static ResourceLocation MM2                  = addMob("mysteriousMan2");
     public static ResourceLocation MM3                  = addMob("mysteriousMan3");
-    public static ResourceLocation CRYPT_KEEPER         = TEMPLE_GUARDIAN;
+    public static ResourceLocation CRYPT_KEEPER         = addMob("crypt_keeper");
     public static ResourceLocation DUO                  = addMob("duo");
     public static ResourceLocation VERMSILLION          = addMob("vermsillion");
     public static ResourceLocation WRECK_SHOT           = addProjectile("wreckShot");

@@ -34,10 +34,7 @@ public class WorldProviderArcana extends WorldProvider {
         return 128.0F;
     }
 
-    public boolean canDoRainSnowIce(Chunk chunk)
-    {
-        return false;
-    }
+    public boolean canDoRainSnowIce(Chunk chunk) {return false;}
 
     @Override
     public IChunkProvider createChunkGenerator()
