@@ -66,7 +66,7 @@ public class UpdateChecker {
     }
 
     public static String getCurrentVersion() throws IOException {
-        BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://raw.github.com/DivineRPG/DivineRPG/master/Version.txt").openStream()));
+        BufferedReader versionFile = new BufferedReader(new InputStreamReader(new URL("https://github.com/DivineRPG/DivineRPG/blob/1.7.10/Version.txt").openStream()));
         String curVersion = versionFile.readLine();
         versionFile.close();
         return curVersion;

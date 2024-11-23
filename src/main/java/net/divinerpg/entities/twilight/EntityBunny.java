@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 public class EntityBunny extends EntityDivineRPGTameable {
 
@@ -34,12 +35,15 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		if(!this.isTamed())this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(net.divinerpg.entities.base.EntityStats.bunnyHealth);
-		else this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(net.divinerpg.entities.base.EntityStats.bunnySpeed);
-		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(net.divinerpg.entities.base.EntityStats.bunnyFollowRange);
+		double health = this.isTamed() ? 20 : EntityStats.bunnyHealth;
+		if (this.getEntityAttribute(SharedMonsterAttributes.maxHealth).getBaseValue() != health) {
+			this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(health);
+			this.setHealth((float) health);
+		}
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(EntityStats.bunnySpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(EntityStats.bunnyFollowRange);
 	}
-
+	
 	@Override
 	protected boolean canDespawn() {
 		return !this.isTamed();
@@ -65,20 +69,23 @@ public class EntityBunny extends EntityDivineRPGTameable {
 		}
 		return target.attackEntityFrom(DamageSource.causeMobDamage(this), (float)i);
 	}
-	
+
 	@Override
 	public void onUpdate() {
-	    super.onUpdate();
-	    if(!this.worldObj.isRemote) {
-	        if(this.isTamed() && this.getAttackTarget() == null) this.dataWatcher.updateObject(19, 0);
-	    }
+		super.onUpdate();
+		if (!this.worldObj.isRemote) {
+			int currentValue = this.dataWatcher.getWatchableObjectInt(19);
+			if (this.isTamed() && this.getAttackTarget() == null && currentValue != 0) {
+				this.dataWatcher.updateObject(19, 0);
+			}
+		}
 	}
 
-	private void transform()  {
-		if(!this.worldObj.isRemote) {
-			EntityAngryBunny e = new EntityAngryBunny(this.worldObj);
-			e.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
-			this.worldObj.spawnEntityInWorld(e);
+	private void transform() {
+		if (!this.worldObj.isRemote) {
+			EntityAngryBunny angryBunny = new EntityAngryBunny(this.worldObj);
+			angryBunny.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
+			this.worldObj.spawnEntityInWorld(angryBunny);
 			this.setDead();
 		}
 	}
@@ -102,11 +109,15 @@ public class EntityBunny extends EntityDivineRPGTameable {
 					return true;
 				}
 			}
-			if(player.getUniqueID().toString().equals(this.func_152113_b()) && !this.worldObj.isRemote) {
-				this.aiSit.setSitting(!this.isSitting());
+			if (player.getUniqueID().toString().equals(this.func_152113_b()) && !this.worldObj.isRemote) {
+				boolean sitting = !this.isSitting();
+				this.aiSit.setSitting(sitting);
+				if (!sitting) {
+					this.setPathToEntity(null); // Only clear path if standing
+				}
 				this.isJumping = false;
-				this.setPathToEntity((PathEntity)null);
 			}
+
 		}
 		else if(held != null && held.getItem() == TwilightItemsOther.edenSparkles) {
 			if(!player.capabilities.isCreativeMode) {
@@ -167,11 +178,16 @@ public class EntityBunny extends EntityDivineRPGTameable {
 	public EntityAgeable createChild(EntityAgeable var1) {
 		return null;
 	}
-	
+
 	@Override
 	public EntityLivingBase getAttackTarget() {
-	    EntityLivingBase e = super.getAttackTarget();
-	    if(e != null && ((this.isTamed() && this.getDistanceSqToEntity(e) < 144) || !this.isTamed())) return e;
-	    return null;
+		EntityLivingBase e = super.getAttackTarget();
+		if (e != null) {
+			if (!this.isTamed() || (this.getDistanceSqToEntity(e) < 144)) {
+				return e;
+			}
+		}
+		return null;
 	}
+
 }
