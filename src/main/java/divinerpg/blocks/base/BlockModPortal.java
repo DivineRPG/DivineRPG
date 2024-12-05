@@ -105,7 +105,7 @@ public class BlockModPortal extends BlockMod {
                         }
                         } else if (this == BlockRegistry.vetheaPortal.get()) {
                         ResourceKey<Level> key = world.dimension() == LevelRegistry.VETHEA ? Level.OVERWORLD : LevelRegistry.VETHEA;
-                        if (CommonConfig.saferVetheanInventory.get()) {
+                        if (!CommonConfig.expermentalInventory.get()) {
                             if (world.getServer().getLevel(key) != null) {
                                 if (entity instanceof Player player) {
                                     if (player.inventory.isEmpty()) {
