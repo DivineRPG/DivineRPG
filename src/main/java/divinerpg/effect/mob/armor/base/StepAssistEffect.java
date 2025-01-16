@@ -35,5 +35,4 @@ public class StepAssistEffect extends ArmorEffect implements UpdatableArmorEffec
 			map.addTransientAttributeModifiers(attributes);
 		} else if(stepHeight.getModifier(STEP_MOD.id()) == null) stepHeight.addTransientModifier(STEP_MOD);
 	}
-//	@Override public boolean isDurationEffectTick(int i, int j) {return false;}
 }

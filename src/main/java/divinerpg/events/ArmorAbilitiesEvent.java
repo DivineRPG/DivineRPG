@@ -65,7 +65,8 @@ public class ArmorAbilitiesEvent {
 	}
 	@SubscribeEvent
 	public void onEffectRemoved(MobEffectEvent.Remove event) {
-		if(event.getEffect().is(MobEffectRegistry.SENG_FUR_STRENGTH.getKey())) event.getEffect().value().onMobRemoved(event.getEntity(), 0, null);
+		Holder<MobEffect> e = event.getEffect();
+		if(e.is(MobEffectRegistry.SENG_FUR_STRENGTH.getKey()) || e.is(MobEffectRegistry.WILDWOOD_HEAL.getKey()) || e.is(MobEffectRegistry.ANGELIC_FLIGHT.getKey())) e.value().onMobRemoved(event.getEntity(), 0, null);
 	}
     @SubscribeEvent
     public void onLivingHurtEvent(LivingDamageEvent.Pre event) {
@@ -125,9 +126,9 @@ public class ArmorAbilitiesEvent {
             		|| (target.hasEffect(MobEffectRegistry.TORMENTED_HELMET) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
             		|| (target.hasEffect(MobEffectRegistry.TORMENTED_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setNewDamage(amount * .348F);
-            } else if(target.hasEffect(MobEffectRegistry.BLOCK_PROTECTION) && (source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.CACTUS) || source.equals(target.damageSources().fallingBlock(target)) || source.equals(target.damageSources().anvil(target)) || source.equals(target.damageSources().inWall()))) {
-            	event.setNewDamage(0F);
-            } else if(target.hasEffect(MobEffectRegistry.EXPLOSION_PROTECTION) && (source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))) event.setNewDamage(0F);
+            } else if(target.hasEffect(MobEffectRegistry.BLOCK_PROTECTION) && (source.is(DamageTypes.CACTUS) || source.equals(target.damageSources().fallingBlock(target)) || source.equals(target.damageSources().anvil(target)) || source.equals(target.damageSources().inWall()))) event.setNewDamage(0F);
+            else if(target.hasEffect(MobEffectRegistry.EXPLOSION_PROTECTION) && (source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))) event.setNewDamage(0F);
+			else if(target.hasEffect(MobEffectRegistry.WITHER_PROTECTION) && source.is(DamageTypes.WITHER)) event.setNewDamage(0F);
         }
     }
 }

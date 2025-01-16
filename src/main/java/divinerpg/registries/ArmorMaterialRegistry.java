@@ -2,8 +2,6 @@ package divinerpg.registries;
 
 import divinerpg.DivineRPG;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -27,7 +25,7 @@ public class ArmorMaterialRegistry {
         AQUASTRIVE = register("aquastrive", 2, 7, 6, 2, 0, 0, 9, ARMOR_EQUIP_IRON, aquatic_ingot),
         KRAKEN = register("kraken", 2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_TURTLE, kraken_skin),
         JACK_O_MAN = register("jack_o_man", 2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_GENERIC, () -> Ingredient.of(Items.PUMPKIN)),
-        SKELEMAN = register("skeleman", 2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_GENERIC, () -> Ingredient.of(Items.BONE)),
+        SKELEMAN = register("skeleman", 2, 7, 6, 3, 0, 0, 9, Holder.direct(SKELETON_STEP), () -> Ingredient.of(Items.BONE)),
         WITHER_REAPER = register("wither_reaper", 2, 7, 6, 3, 0, 0, 9, ARMOR_EQUIP_CHAIN, () -> Ingredient.of(Items.BONE)),
         ARLEMITE = register("arlemite", 3, 7, 6, 3, 1.5F, 0, 10, ARMOR_EQUIP_IRON, arlemite_ingot),
         FROZEN = register("frozen", 3, 8, 6, 3, 2, 0, 10, ARMOR_EQUIP_DIAMOND, ice_stone),

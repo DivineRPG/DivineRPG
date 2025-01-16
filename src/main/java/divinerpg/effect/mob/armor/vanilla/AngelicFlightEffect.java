@@ -26,8 +26,6 @@ public class AngelicFlightEffect extends ArmorEffect implements UpdatableArmorEf
 			player.onUpdateAbilities();
 		}
 	}
-
-//	@Override public boolean isDurationEffectTick(int i, int j) {return false;}
 	@SuppressWarnings("deprecation")
 	@Override public void update(ResourceKey<Level> level, LivingEntity entity) {
 		if(entity instanceof ServerPlayer player && !player.isCreative() && !player.getAbilities().mayfly) {

@@ -19,7 +19,7 @@ public class HeavyAirEffect extends MobEffect {
 	}
 	@Override
 	public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-		return duration == 1;
+		return duration == 10;
 	}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
 		if(entity.level().getBlockState(new BlockPos(entity.getBlockX(), (int) (entity.getY() + entity.getEyeHeight()), entity.getBlockZ())).is(BlockRegistry.dungeonAir)) {

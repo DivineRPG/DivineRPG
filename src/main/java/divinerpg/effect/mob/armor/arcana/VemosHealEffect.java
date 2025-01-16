@@ -5,9 +5,10 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class VemosHealEffect extends ArmorEffect {
 	public VemosHealEffect() {super(10991286);}
+    @Override public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {return true;}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
 		float current = entity.getHealth();
         if((current > 0.0F) && (current < 20.0F)) entity.heal(.1F);
-        return false;
+        return true;
     }
 }

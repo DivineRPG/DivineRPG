@@ -6,8 +6,9 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class PoisonProtectionEffect extends ArmorEffect {
 	public PoisonProtectionEffect() {super(10991286);}
+	@Override public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {return true;}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
 		if(entity.hasEffect(MobEffects.POISON)) entity.removeEffect(MobEffects.POISON);
-        return false;
+        return true;
     }
 }
