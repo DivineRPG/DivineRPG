@@ -178,6 +178,8 @@ public class BlockRegistry {
 
             //Extra Wood Blocks
             plankDesign = registerBlock("plank_design", () -> new BlockModPlanks(WOOD, SoundType.WOOD)),
+            slabDesign = registerBlock("slab_design", () -> new BlockModSlab(plankDesign.get())),
+            stairDesign = registerBlock("stair_design", () -> new BlockModStairs(plankDesign.get())),
 
             //Divine Tree
             divineSapling = registerBlock("divine_sapling", () -> new BlockModSapling(GOLD, new TreeGrower("divine", Optional.empty(), Optional.of(ConfiguredFeatureKeys.DIVINE_TREE), Optional.empty()))),
