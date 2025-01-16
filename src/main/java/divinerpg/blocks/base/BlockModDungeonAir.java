@@ -3,7 +3,9 @@ package divinerpg.blocks.base;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.MobEffectRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.*;
@@ -20,7 +22,7 @@ public class BlockModDungeonAir extends BlockMod {
     }
     @Override
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-		if(entity instanceof ServerPlayer && !((ServerPlayer) entity).hasEffect(MobEffectRegistry.HEAVY_AIR) && ((ServerPlayer) entity).gameMode.getGameModeForPlayer() == GameType.SURVIVAL)
+		if(entity instanceof ServerPlayer && ((ServerPlayer) entity).gameMode.getGameModeForPlayer() == GameType.SURVIVAL)
 			((ServerPlayer) entity).addEffect(new MobEffectInstance(MobEffectRegistry.HEAVY_AIR, 20, 1, true, false, false));
 	}
     @Override
@@ -39,4 +41,9 @@ public class BlockModDungeonAir extends BlockMod {
 	public boolean propagatesSkylightDown(BlockState state, BlockGetter getter, BlockPos pos) {
 		return true;
     }
+
+	@Override
+	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+		level.addParticle(ParticleTypes.SMOKE, pos.getX() + random.nextDouble(), pos.getY() + random.nextDouble(), pos.getZ() + random.nextDouble(), .0, .0, .0);
+	}
 }
