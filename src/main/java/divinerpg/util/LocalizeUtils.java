@@ -1,6 +1,5 @@
 package divinerpg.util;
 
-import divinerpg.registries.ItemRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.*;
@@ -15,6 +14,7 @@ public class LocalizeUtils {
             ArcanaConsuming = "arcana",
             ArcanaDamage = "damage.arcana",
             ArcanaRegen = "arcana.regen",
+            BaseDamage = "damage.base",
             BurnMobs = "effect.burns",
             Efficiency = "tool.efficiency",
             HarvestLevel = "tool.harvest_level",
@@ -37,6 +37,7 @@ public class LocalizeUtils {
             ShotsSplit = "shots.split",
             ShotsBlinding = "shots.blind",
             ShotsBurning = "shots.burn",
+            ShootingPower = "ranged.power",
             SlowMobs = "effect.slows",
             Summoned = "summon",
             SummonedDamage = "summon.damage",
@@ -121,11 +122,17 @@ public class LocalizeUtils {
     /**
      * Indicates that the projectiles are homing.
      */
-    public static Component homingShots() {return LocalizeUtils.i18n(ChatFormatting.GOLD, ShotsHoming);}
+    public static Component homingShots() {return i18n(ChatFormatting.GOLD, ShotsHoming);}
     /**
      * Indicates that no ammo is required.
      */
     public static Component infiniteAmmo() {return i18n(ChatFormatting.BLUE, InfiniteAmmo);}
+
+    /**
+     * Indicates the speed of the shot projectiles.
+     */
+    public static Component shootingPower(Object power) {return i18n(ChatFormatting.DARK_GREEN, ShootingPower, power);}
+    public static Component baseDamage(Object damage) {return i18n(ChatFormatting.DARK_GREEN, BaseDamage, damage);}
     /**
      * Indicates that the item is consumed instantly.
      */

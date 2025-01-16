@@ -69,6 +69,7 @@ public class ItemBow extends BowItem {
         if(speed > 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.DARK_GREEN, "bow_speed.faster", String.format("%s", speed)));
         if(speed < 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.RED, "bow_speed.slower", String.format("%s", 1 / speed)));
         if(infinityArrow != null) tooltip.add(LocalizeUtils.infiniteAmmo());
+        tooltip.add(LocalizeUtils.shootingPower(speedScale));
         super.appendHoverText(stack, context, tooltip, flagIn);
     }
     @Override public Component getName(ItemStack pStack) {

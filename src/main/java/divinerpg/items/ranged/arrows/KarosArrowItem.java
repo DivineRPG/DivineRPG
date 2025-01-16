@@ -24,4 +24,9 @@ public class KarosArrowItem extends ItemDivineArrow {
         arrow.pickup = AbstractArrow.Pickup.ALLOWED;
         return arrow;
     }
+
+    @Override
+    public float getBaseDamage() {
+        return 7F;
+    }
 }

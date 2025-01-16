@@ -19,6 +19,10 @@ public class DarvenArrowItem extends ItemDivineArrow {
     public AbstractArrow createArrow(Level level, ItemStack ammo, LivingEntity shooter, @Nullable ItemStack weapon) {
         return new DarvenArrow(level, shooter, ammo.copyWithCount(1), weapon);
     }
+    @Override
+    public float getBaseDamage() {
+        return 3F;
+    }
     public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
         AbstractArrow arrow = new DarvenArrow(level, pos.x(), pos.y(), pos.z(), stack.copyWithCount(1), null);
         arrow.pickup = AbstractArrow.Pickup.ALLOWED;

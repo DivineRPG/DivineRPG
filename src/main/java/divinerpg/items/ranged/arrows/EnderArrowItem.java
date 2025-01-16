@@ -31,4 +31,9 @@ public class EnderArrowItem extends ItemDivineArrow {
         tooltipComponents.add(LocalizeUtils.hitEnder());
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
+
+    @Override
+    public float getBaseDamage() {
+        return 4F;
+    }
 }
