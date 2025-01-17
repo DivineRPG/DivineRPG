@@ -6,7 +6,7 @@ public enum EntityStats {
 
     //Bosses
     ANCIENT_ENTITY(800, 12, 64),
-    AYERACO(600, 1, 64),
+    AYERACO(600, 9, 64),
     DENSOS(1000, 30, 64),
     DRAMIX(1400, 30, 64),
     ETERNAL_ARCHER(1550, 12, 64),

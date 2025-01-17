@@ -27,11 +27,9 @@ import java.util.*;
 import static divinerpg.registries.SoundRegistry.*;
 
 public class EntityAyeraco extends EntityDivineBoss {
-	public BlockPos beam = BlockPos.ZERO;
+	public BlockPos beam;
 	private EntityAyeraco[] group = new EntityAyeraco[5];
 	private boolean angry, empowered, projectileProtected, magicProtected, canTeleport, canHeal, fast;
-	private boolean broadcast = false;
-	private CompoundTag tag;
 	
 	private Vec3 moveTargetPoint = Vec3.ZERO;
 	private boolean circling = true;
@@ -39,13 +37,10 @@ public class EntityAyeraco extends EntityDivineBoss {
 	public EntityAyeraco(EntityType<? extends Monster> type, Level level) {
 		this(type, level, BlockPos.ZERO, (byte) 0, null);
 	}
-	public EntityAyeraco(EntityType<? extends Monster> type, Level level, BlockPos beam, byte variant) {
-		this(type, level, beam, variant, null);
-	}
 	public EntityAyeraco(EntityType<? extends Monster> type, Level worldIn, BlockPos beam, byte variant, EntityAyeraco[] group) {
 		super(type, worldIn);
 		this.beam = beam;
-        AttachmentRegistry.VARIANT.set(this, variant);
+        if(!worldIn.isClientSide()) AttachmentRegistry.VARIANT.setSilent(this, variant);
 		moveControl = new AyeracoMoveControl(this);
 		lookControl = new AyeracoLookControl(this);
 		assignGroup(group);
@@ -66,10 +61,9 @@ public class EntityAyeraco extends EntityDivineBoss {
     	goalSelector.addGoal(3, new AyeracoCircleAroundAnchorGoal());
     	targetSelector.addGoal(1, new AyeracoAttackPlayerTargetGoal());
     }
-	public EntityAyeraco assignGroup(EntityAyeraco[] group) {
+	public void assignGroup(EntityAyeraco[] group) {
 		this.group = group == null || group.length != 5 ? new EntityAyeraco[1] : group;
 		if(this.group.length == 5) updateAbilities();
-		return this;
 	}
 	public void updateAbilities() {
 		updateAbilities(angry = getHealth() < getMaxHealth() / 2F);
@@ -83,7 +77,7 @@ public class EntityAyeraco extends EntityDivineBoss {
 			case 4: for(EntityAyeraco entity : group) if(entity != null) entity.canHeal = angry; break;
 			case 5: for(EntityAyeraco entity : group) if(entity != null) entity.fast = angry; break;
             case 6: for(EntityAyeraco entity : group) if(entity != null) entity.empowered = angry; break;
-			default: break; };
+			default: break; }
 			if(angry && isAlive()) {
 				boolean b = group[0] == null;
 				for(byte by = 1; b && by < 5; by++) b = group[by] == null;
@@ -120,7 +114,7 @@ public class EntityAyeraco extends EntityDivineBoss {
 	}
 	@Override
 	public void heal(float amount) {
-        if (isAlive()) {
+        if(isAlive()) {
             super.heal(amount);
             updateAbilities();
         }
@@ -129,12 +123,12 @@ public class EntityAyeraco extends EntityDivineBoss {
 	public BossBarColor getBarColor() {return byByte(AttachmentRegistry.VARIANT.get(this));}
 	public static BossBarColor byByte(byte i) {
 		return switch(i) {
+        case 0 -> BossBarColor.BLUE;
 		case 1 -> BossBarColor.GREEN;
 		case 2 -> BossBarColor.PINK;
 		case 3 -> BossBarColor.PURPLE;
 		case 4 -> BossBarColor.RED;
 		case 5 -> BossBarColor.YELLOW;
-        case 6 -> BossBarColor.BLUE;
 		default -> BossBarColor.WHITE;
 		};
 	}
@@ -149,11 +143,6 @@ public class EntityAyeraco extends EntityDivineBoss {
 			else if(block.is(BlockRegistry.ayeracoBeamYellow.get())) return 5;
 		} return AttachmentRegistry.VARIANT.get(this);
 	}
-//	@Override
-//	public void handleEntityEvent(byte b) {
-//		if(b > 60 && b < 68) entityData.set(VARIANT, (byte) (b - 61));
-//		else super.handleEntityEvent(b);
-//	}
 	public EntityAyeraco setVariant(byte variant) {AttachmentRegistry.VARIANT.set(this, variant); return this;}
 	public EntityAyeraco setBeamPos(BlockPos pos) {beam = pos; return this;}
 	@Override
@@ -176,14 +165,11 @@ public class EntityAyeraco extends EntityDivineBoss {
     public void readAdditionalSaveData(CompoundTag tag) {
     	super.readAdditionalSaveData(tag);
     	loadExtra(tag);
-    	broadcast = true;
-    	this.tag = tag;
     }
     private void loadExtra(CompoundTag tag) {
     	EntityAyeraco[] group = new EntityAyeraco[5];
     	for(int i = 0; i < 5; i++) if(tag.contains("Group" + i)) group[i] = find(tag.getUUID("Group" + i));
     	beam = BlockPos.of(tag.getLong("Beam"));
-//    	level.broadcastEntityEvent(this, (byte) (b + 61));
     	assignGroup(group);
     }
     public EntityAyeraco find(UUID id) {
@@ -195,10 +181,6 @@ public class EntityAyeraco extends EntityDivineBoss {
     @Override
     public void tick() {
     	if(angry && canHeal) heal(2.5F);
-    	if(broadcast && !level().isClientSide) {
-    		loadExtra(tag);
-    		broadcast = false;
-    	}
     	super.tick();
     }
     
@@ -406,10 +388,8 @@ public class EntityAyeraco extends EntityDivineBoss {
       private int nextScanTick = reducedTickDelay(20);
       @Override
       public boolean canUse() {
-         if(nextScanTick > 0) {
-            --nextScanTick;
-            return false;
-         } else {
+         if(nextScanTick > 0) nextScanTick--;
+         else {
             nextScanTick = reducedTickDelay(60);
             List<Player> list = EntityAyeraco.this.level().getNearbyPlayers(attackTargeting, EntityAyeraco.this, EntityAyeraco.this.getBoundingBox().inflate(16.0D, 64.0D, 16.0D));
             if(!list.isEmpty()) {
@@ -419,8 +399,7 @@ public class EntityAyeraco extends EntityDivineBoss {
                  return true;
                }
             }
-            return false;
-         }
+         } return false;
       }
       @Override
       public boolean canContinueToUse() {
