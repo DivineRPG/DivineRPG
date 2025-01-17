@@ -3,10 +3,13 @@ package divinerpg.items.ranged.bows;
 import divinerpg.items.ranged.ItemBow;
 import divinerpg.registries.ItemRegistry;
 import divinerpg.util.*;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.neoforged.api.distmarker.*;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,5 +30,13 @@ public class InfernoBow extends ItemBow {
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.burningShots());
         super.appendHoverText(stack, context, tooltip, flagIn);
+    }
+    @Override
+    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+        return super.supportsEnchantment(stack, enchantment) && !enchantment.is(Enchantments.FLAME);
+    }
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return super.isBookEnchantable(stack, book) && !Utils.hasStoredEnchantment(Enchantments.FLAME, book);
     }
 }

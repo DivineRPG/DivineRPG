@@ -30,7 +30,7 @@ public class InfernoArrow extends DivineArrow {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
-        if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan) && !(entity instanceof Player p && p.isCreative())) livingEntity.igniteForSeconds(240);
+        if(entity instanceof LivingEntity livingEntity && !(entity instanceof EnderMan) && !(entity instanceof Player p && p.isCreative())) livingEntity.igniteForSeconds(6);
         super.onHitEntity(result);
     }
 }

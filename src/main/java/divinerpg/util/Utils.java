@@ -6,6 +6,7 @@ import divinerpg.registries.FluidRegistry;
 import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.Mode;
 import divinerpg.world.placement.Surface.Surface_Type;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -23,6 +24,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -168,5 +170,38 @@ public class Utils {
         if(f1 < 0F) f1 += 360F;
         else if(f1 > 360F) f1 -= 360F;
         return f1;
+    }
+
+    /**
+     * use this if you do not have level registry access
+     */
+    public static int getEnchantmentLevel(ResourceKey<Enchantment> enchantment, ItemStack stack) {
+        ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
+        for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return entry.getIntValue();
+        return 0;
+    }
+    /**
+     * use this if you do not have level registry access
+     */
+    public static int getStoredEnchantmentLevel(ResourceKey<Enchantment> enchantment, ItemStack stack) {
+        ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY);
+        for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return entry.getIntValue();
+        return 0;
+    }
+    /**
+     * use this if you do not have level registry access
+     */
+    public static boolean hasEnchantment(ResourceKey<Enchantment> enchantment, ItemStack stack) {
+        ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
+        for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return true;
+        return false;
+    }
+    /**
+     * use this if you do not have level registry access
+     */
+    public static boolean hasStoredEnchantment(ResourceKey<Enchantment> enchantment, ItemStack stack) {
+        ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY);
+        for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return true;
+        return false;
     }
 }

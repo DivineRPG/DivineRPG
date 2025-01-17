@@ -35,7 +35,7 @@ public enum ToolStats implements Tier {
     ENDERICE(INCORRECT_FOR_NETHERITE_TOOL, -2.4F, 13, SLOW, 1, 3),
     ENDER_SWORD(INCORRECT_FOR_NETHERITE_TOOL, 2556, -2.4F, 12, 10, ender_stone.get()),
     FLAMING_FURY(INCORRECT_FOR_NETHERITE_TOOL, 3025, -2.3F, 10, 16, molten_stone.get(), FLAME, 0, 15),
-    FROSSIVENCE(INCORRECT_FOR_WOODEN_TOOL, 270, -2.4F, -1, 0, snowflake.get(), HEAL, 0, 0),
+    FROSSIVENCE(INCORRECT_FOR_WOODEN_TOOL, 270, -2.4F, -1, 5, snowflake.get(), HEAL, 0, 0),
     FROSTKING_SWORD(INCORRECT_FOR_DIAMOND_TOOL, 1521, -2.4F, 6.5F, 13, snowflake.get()),
     FROST_SWORD(INCORRECT_FOR_DIAMOND_TOOL, 1226, -2.4F, 5.1F, 10, ice_stone.get(), SLOW, 1, 3),
     FROZEN_MAUL(INCORRECT_FOR_NETHERITE_TOOL, -2.7F, 12.5F, SLOW, 1, 3),
@@ -51,11 +51,11 @@ public enum ToolStats implements Tier {
     JUNGLE_RAPIER(INCORRECT_FOR_DIAMOND_TOOL, 1425, -2.4F, 6, 12, jungle_stone.get(), POISON, 1, 4),
     LIOPLEURODON_ANCHOR(INCORRECT_FOR_IRON_TOOL, 960, -3, 9, 15, liopleurodon_teeth.get()),
     LIVICIA_SWORD(INCORRECT_FOR_NETHERITE_TOOL, 3223, -2.4F, 15.5F, 16, shadow_stone.get()),
-    MASSIVENCE(INCORRECT_FOR_WOODEN_TOOL, 60, -2.4F, -1, 0, bloodgem.get(), HEAL, 0, 0),
+    MASSIVENCE(INCORRECT_FOR_WOODEN_TOOL, 60, -2.4F, -1, 5, bloodgem.get(), HEAL, 0, 0),
     MOLTEN_SWORD(INCORRECT_FOR_DIAMOND_TOOL, 1297, -2.4F, 5.4F, 10, molten_stone.get(), FLAME, 0, 5),
     MORTUM_BLADE(INCORRECT_FOR_NETHERITE_TOOL, 2922, -2.4F, 31, 22, mortum_gem.get()),
     OCEAN_KNIFE(INCORRECT_FOR_IRON_TOOL, 678, -2.4F, 5.4F, 10, aquatic_ingot.get()),
-    PALAVENCE(INCORRECT_FOR_WOODEN_TOOL, 60, -2.4F, -1, 0, realmite_ingot.get(), HEAL, 0, 0),
+    PALAVENCE(INCORRECT_FOR_WOODEN_TOOL, 60, -2.4F, -1, 5, realmite_ingot.get(), HEAL, 0, 0),
     POISON_SABER(INCORRECT_FOR_DIAMOND_TOOL, 1315, -2.4F, 6.5F, 15, jungle_stone.get(), POISON, 1, 5),
     REALMITE_SWORD(INCORRECT_FOR_IRON_TOOL, 325, -2.4F, 4.5F, 14, realmite_ingot.get()),
     RUPEE_RAPIER(INCORRECT_FOR_DIAMOND_TOOL, 1634, -2.4F, 5.5F, 14, rupee_ingot.get()),
@@ -207,7 +207,7 @@ public enum ToolStats implements Tier {
     }
     //No specials, unbreakable
     ToolStats(TagKey<Block> harvestLevel, float efficiency, float attackDamage) {
-        this(harvestLevel, 0, efficiency, attackDamage, 0, null);
+        this(harvestLevel, 0, efficiency, attackDamage, 5, null);
     }
     //Specials, power, seconds
     ToolStats(TagKey<Block> harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Item repairMaterialIn, SwordSpecial special, int power, int seconds) {
@@ -223,7 +223,7 @@ public enum ToolStats implements Tier {
     }
     //Specials, power, seconds, unbreakable
     ToolStats(TagKey<Block> harvestLevel, float efficiency, float attackDamage, SwordSpecial special, int power, int seconds) {
-        this(harvestLevel, 0, efficiency, attackDamage, 0, null, special, power, seconds);
+        this(harvestLevel, 0, efficiency, attackDamage, 5, null, special, power, seconds);
     }
     @Override public int getUses() {return maxUses;}
     @Override public float getSpeed() {return efficiency;}

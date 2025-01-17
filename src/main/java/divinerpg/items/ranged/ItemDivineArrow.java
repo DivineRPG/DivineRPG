@@ -6,6 +6,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.enchantment.Enchantments;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class ItemDivineArrow extends ArrowItem {
         super(properties);
     }
     public boolean isInfinite(ItemStack ammo, ItemStack bow, LivingEntity livingEntity) {
-        return bow.getItem() instanceof ItemBow b && b.infinityArrow != null && b.infinityArrow.get() == this;
+        return bow.getEnchantmentLevel(livingEntity.registryAccess().holderOrThrow(Enchantments.INFINITY)) > 0 || (bow.getItem() instanceof ItemBow b && b.infinityArrow != null && b.infinityArrow.get() == this);
     }
     public float getBaseDamage() {return 2F;}
     @Override
