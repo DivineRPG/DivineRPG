@@ -105,7 +105,7 @@ public class LocalizeUtils {
      * @param string - lang key
      */
     public static Component getClientSideTranslation(String string, final Object... argument) {return Component.translatable(string, argument);}
-    /*
+    /**
      * Indicates the harvest level of the tools.
      *
      * @param lvl - harvest level
@@ -127,11 +127,13 @@ public class LocalizeUtils {
      * Indicates that no ammo is required.
      */
     public static Component infiniteAmmo() {return i18n(ChatFormatting.BLUE, InfiniteAmmo);}
-
     /**
      * Indicates the speed of the shot projectiles.
      */
     public static Component shootingPower(Object power) {return i18n(ChatFormatting.DARK_GREEN, ShootingPower, power);}
+    /**
+     * Indicates the base damage of the shot projectiles.
+     */
     public static Component baseDamage(Object damage) {return i18n(ChatFormatting.DARK_GREEN, BaseDamage, damage);}
     /**
      * Indicates that the item is consumed instantly.

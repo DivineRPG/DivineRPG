@@ -959,7 +959,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(ENDER_TRIPLETS_FIREBALL.get(), (Context context) -> new RenderDivineFireball<>(context, "ender_triplets_fireball"));
         event.registerEntityRenderer(FRACTITE_SHOT.get(), 			(Context context) -> new RenderDivineFireball<>(context, "fractite_shot"));
         event.registerEntityRenderer(FROST_SHOT.get(), 				(Context context) -> new RenderDivineFireball<>(context, "frost_shot"));
-        event.registerEntityRenderer(FYRACRYX_FIREBALL.get(), 		(Context context) -> new RenderDivineFireball<>(context, ResourceLocation.withDefaultNamespace("textures/items/fireball.png")));
+        event.registerEntityRenderer(FYRACRYX_FIREBALL.get(), 		(Context context) -> new RenderDivineFireball<>(context, ResourceLocation.withDefaultNamespace("textures/item/fire_charge.png")));
 
         event.registerEntityRenderer(SAGUARO_WORM_SHOT.get(),       RenderSaguaroWormShot::new);
         event.registerEntityRenderer(SCORCHER_SHOT.get(), 			(Context context) -> new RenderDivineFireball<>(context, "scorcher_shot"));

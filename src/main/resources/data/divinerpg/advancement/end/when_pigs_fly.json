@@ -1,5 +1,5 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "end/elytra",
   "display": {
     "icon": {
       "id": "divinerpg:angelic_helmet"

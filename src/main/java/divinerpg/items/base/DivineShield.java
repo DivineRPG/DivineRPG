@@ -2,15 +2,17 @@ package divinerpg.items.base;
 
 import divinerpg.DivineRPG;
 import divinerpg.client.renders.item.DivineShieldRenderer;
+import divinerpg.util.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
@@ -50,13 +52,14 @@ public class DivineShield extends ShieldItem {
         public static RenderProps INSTANCE = new RenderProps();
         @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {return new DivineShieldRenderer(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());}
     }
-    @Override
-    public Component getName(ItemStack pStack) {
+    @Override public Component getName(ItemStack pStack) {
     	return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
     }
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return true;
+    @Override public boolean isEnchantable(ItemStack stack) {return true;}
+    @Override public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+        return super.supportsEnchantment(stack, enchantment) && !(stack.has(DataComponents.UNBREAKABLE) && (enchantment.is(Enchantments.MENDING) || enchantment.is(Enchantments.UNBREAKING)));
+    }
+    @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return !(stack.has(DataComponents.UNBREAKABLE) && (Utils.hasStoredEnchantment(Enchantments.MENDING, book) || Utils.hasStoredEnchantment(Enchantments.UNBREAKING, book)));
     }
 }

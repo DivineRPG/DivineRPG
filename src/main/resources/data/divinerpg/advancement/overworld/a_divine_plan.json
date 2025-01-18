@@ -1,5 +1,5 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "divinerpg:overworld/towering_guardian",
   "display": {
     "icon": {
       "id": "divinerpg:divine_sword"

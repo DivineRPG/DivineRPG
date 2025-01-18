@@ -126,7 +126,13 @@ public class ArmorAbilitiesEvent {
             		|| (target.hasEffect(MobEffectRegistry.TORMENTED_HELMET) && !source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))
             		|| (target.hasEffect(MobEffectRegistry.TORMENTED_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setNewDamage(amount * .348F);
-            } else if(target.hasEffect(MobEffectRegistry.BLOCK_PROTECTION) && (source.is(DamageTypes.CACTUS) || source.equals(target.damageSources().fallingBlock(target)) || source.equals(target.damageSources().anvil(target)) || source.equals(target.damageSources().inWall()))) event.setNewDamage(0F);
+            } else if(target.hasEffect(MobEffectRegistry.BLOCK_PROTECTION) && (source.is(DamageTypes.CACTUS)
+					//TODO: falling blocks still damage the player (anvil and stalactites)
+					|| source.equals(target.damageSources().fallingBlock(target))
+					|| source.equals(target.damageSources().fallingStalactite(target))
+					|| source.equals(target.damageSources().anvil(target))
+					|| source.equals(target.damageSources().inWall())))
+				event.setNewDamage(0);
             else if(target.hasEffect(MobEffectRegistry.EXPLOSION_PROTECTION) && (source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.PLAYER_EXPLOSION))) event.setNewDamage(0F);
 			else if(target.hasEffect(MobEffectRegistry.WITHER_PROTECTION) && source.is(DamageTypes.WITHER)) event.setNewDamage(0F);
         }

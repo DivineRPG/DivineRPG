@@ -1,21 +1,22 @@
 {
   "result": {
     "id": "divinerpg:plank_design",
-    "count": 9
+    "count": 7
   },
   "pattern": [
     "xyx",
     "yxy",
     "xyx"
   ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
+  "group": "divinerpg_planks",
   "key": {
     "x": {
-      "tag": "minecraft:planks"
+      "tag": "planks"
     },
     "y": {
-      "tag": "minecraft:planks"
+      "tag": "wooden_slabs"
     }
   }
 }
