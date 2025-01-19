@@ -67,4 +67,13 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
     public boolean isAggressive() {
         return AttachmentRegistry.ANGRY.get(this);
     }
+
+    @Override
+    public boolean isPreventingPlayerRest(Player player) {
+        return false;
+    }
+    @Override
+    protected boolean shouldDespawnInPeaceful() {
+        return false;
+    }
 }

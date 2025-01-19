@@ -11,10 +11,6 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
 public class EntityCrab extends EntityPeacefulUntilAttacked {
-
-    public static boolean crabSpawnRule(EntityType<? extends Mob> type, LevelAccessor world, MobSpawnType reason, BlockPos pos, RandomSource random) {
-    	return Mob.checkMobSpawnRules(type, world, reason, pos, random) && world.canSeeSky(pos);
-    }
     public EntityCrab(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }

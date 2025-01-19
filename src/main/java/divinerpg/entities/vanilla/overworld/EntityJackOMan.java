@@ -71,7 +71,7 @@ public class EntityJackOMan extends EntityDivineMerchant {
         return SoundRegistry.JACKOMAN.get();
     }
 
-    public static boolean rules(EntityType<? extends Mob> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+    public static boolean rules(ServerLevelAccessor level, BlockPos pos) {
         List<EntityJackOMan> entityList = level.getEntitiesOfClass(EntityJackOMan.class, new AABB(pos).inflate(32));
         return entityList.isEmpty();
     }

@@ -3,14 +3,11 @@
   "placement": [
     {
 	  "type": "minecraft:count",
-	  "count": 10
+	  "count": 12
 	},
     {
-      "type": "minecraft:in_square"
-    },
-    {
-      "type": "divinerpg:chunk_margin",
-      "margin": 2
+      "type": "divinerpg:in_square",
+      "margin": 1
     },
     {
       "type": "minecraft:heightmap",

@@ -69,7 +69,7 @@ public class EntityEnderTriplets extends EntityDivineFlyingMob implements Ranged
             }
         }
     }
-    public static boolean enderTripletSpawnRule(EntityType<? extends Entity> e, ServerLevelAccessor l, MobSpawnType t, BlockPos p, RandomSource r) {
+    public static boolean enderTripletSpawnRule(BlockPos p) {
 		return p.getY() > 60;
 	}
 }

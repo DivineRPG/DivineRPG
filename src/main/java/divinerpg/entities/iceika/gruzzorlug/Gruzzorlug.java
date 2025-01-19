@@ -19,7 +19,6 @@ public abstract class Gruzzorlug extends EntityIceikaNPC {
 	public static final TagKey<Structure> RAID_TARGETS = TagKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "gruzzorlug_raid_targets"));
 	public Gruzzorlug(EntityType<? extends Gruzzorlug> type, Level worldIn) {super(type, worldIn, "gruzzorlug");}
 	@Override public Faction getFaction() {return Faction.GRUZZORLUG;}
-	@Override protected TagKey<Structure> getRaidTargets() {return RAID_TARGETS;}
 	@Override protected Holder<MobEffect> getTargetEffect() {return MobEffectRegistry.GRUZZORLUG_TARGET;}
 	public class AggressiveRangedAttackGoal extends RangedAttackGoal {
 		public AggressiveRangedAttackGoal(int attackInterval) {

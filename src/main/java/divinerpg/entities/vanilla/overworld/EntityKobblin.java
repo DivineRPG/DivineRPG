@@ -24,8 +24,8 @@ public class EntityKobblin extends EntityDivineMonster {
         super(type, worldIn);
     }
 
-    public static boolean kobblinSpawnRule(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return worldIn.getBlockState(pos.below()).is(BlockTags.DIRT) && worldIn.canSeeSky(pos);
+    public static boolean kobblinSpawnRule(LevelAccessor worldIn, BlockPos pos) {
+        return worldIn.getBlockState(pos.below()).is(BlockTags.DIRT);
     }
 
     @Override

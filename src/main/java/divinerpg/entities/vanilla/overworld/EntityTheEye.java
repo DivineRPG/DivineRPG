@@ -42,9 +42,6 @@ public class EntityTheEye extends EntityDivineMonster {
             TriggerRegistry.EYE.get().trigger((ServerPlayer) entity, this);
         }
     }
-    public static boolean theEyeSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return pos.getY() < 0 && checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn);
-    }
 
     boolean isLookingAt(LivingEntity target, LivingEntity looking) {
             Vec3 vec3 = looking.getViewVector(64.0F).normalize();

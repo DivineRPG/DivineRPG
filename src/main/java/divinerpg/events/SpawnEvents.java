@@ -11,7 +11,9 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.SpawnPlacements.SpawnPredicate;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
@@ -37,266 +39,223 @@ public class SpawnEvents {
 	@SubscribeEvent
 	public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent e) {
     	//Boss
-    	registerSpawn(e, AYERACO.get());
+		register(e, AYERACO.get(), SpawnType.FLY, ALWAYS);
     	//Overworld
-    	registerWaterSpawn(e, AEQUOREA.get());
-    	registerMonsterSpawn(e, ARID_WARRIOR.get());
-    	registerSpawn(e, BROWN_GRIZZLE.get());
-    	registerDarkSpawn(e, CAVE_CRAWLER.get());
-    	registerSpawn(e, CAVECLOPS.get(), EntityCaveclops::caveClopsSpawnRule);
-    	registerSpawn(e, CRAB.get(), EntityCrab::crabSpawnRule);
-    	registerSpawn(e, CYCLOPS.get(), EntityKobblin::kobblinSpawnRule);
-		registerMonsterSpawn(e, DESERT_CRAWLER.get());
-		registerMobSpawn(e, DIAMOND_DAVE.get());
-    	registerSpawn(e, EHU.get());
-    	registerSpawn(e, ENTHRALLED_DRAMCRYX.get(), EntityEnthralledDramcryx::enthralledDramcryxSpawnRule);
-    	registerAgileSurfaceMonsterSpawn(e, FROST.get());
-    	registerSurfaceMonsterSpawn(e, GLACON.get());
-    	registerSpawn(e, HUSK.get());
-    	registerSpawn(e, JACK_O_MAN.get(), EntityJackOMan::rules);
-    	registerAirSpawn(e, JUNGLE_BAT.get());
-    	registerAgileMonsterSpawn(e, JUNGLE_DRAMCRYX.get());
-    	registerAgileMonsterSpawn(e, JUNGLE_SPIDER.get());
-    	registerSpawn(e, KING_CRAB.get(), EntityCrab::crabSpawnRule);
-    	registerSpawn(e, KOBBLIN.get(), EntityKobblin::kobblinSpawnRule);
-		registerWaterSpawn(e, LIOPLEURODON.get(), EntityLiopleurodon::liopleurodonSpawnRule);
-		registerMobSpawn(e, LIVESTOCK_MERCHANT.get());
-    	registerDarkSpawn(e, MINER.get());
-    	registerSpawn(e, PUMPKIN_SPIDER.get(), EntityKobblin::kobblinSpawnRule);
-    	registerAirSpawn(e, RAINBOUR.get(), EntityRainbour::rainbourSpawnRule);
-    	registerSpawn(e, ROTATICK.get(), EntityRotatick::rotatickSpawnRule);
-    	registerSpawn(e, SAGUARO_WORM.get(), EntitySaguaroWorm::saguaroWormSpawnRule);
-    	registerWaterSpawn(e, SHARK.get());
-    	registerSpawn(e, SMELTER.get());
-    	registerSpawn(e, SNAPPER.get());
-    	registerSpawn(e, STONE_GOLEM.get());
-    	registerSpawn(e, THE_EYE.get(), EntityTheEye::theEyeSpawnRule);
-    	registerSpawn(e, THE_GRUE.get(), EntityTheGrue::theGrueSpawnRule);
-    	registerWaterSpawn(e, WHALE.get());
-    	registerSpawn(e, WHITE_GRIZZLE.get());
+		register(e, AEQUOREA.get(), SpawnType.WATER, DIFFICULTY_FILTER);
+		register(e, ARID_WARRIOR.get(), SpawnType.GROUND, MONSTER_DARKNESS_UNDER_SKY);
+		register(e, BROWN_GRIZZLE.get(), SpawnType.GROUND, MOB);
+		register(e, CAVE_CRAWLER.get(), SpawnType.GROUND, CAVE_MONSTER);
+		register(e, CAVECLOPS.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityCaveclops.caveClopsSpawnRule(s, p) && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r));
+		register(e, CRAB.get(), SpawnType.GROUND, MOB_UNDER_SKY);
+		register(e, CYCLOPS.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityKobblin.kobblinSpawnRule(s, p));
+		register(e, DESERT_CRAWLER.get(), SpawnType.GROUND, MONSTER_DARKNESS_UNDER_SKY);
+		register(e, DIAMOND_DAVE.get(), SpawnType.GROUND, MOB);
+		register(e, EHU.get(), SpawnType.GROUND, MOB);
+		register(e, ENTHRALLED_DRAMCRYX.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityEnthralledDramcryx.enthralledDramcryxSpawnRule(s, p) && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r));
+		register(e, FROST.get(), SpawnType.FLY, MONSTER_AGILE_UNDER_SKY);
+		register(e, GLACON.get(), SpawnType.GROUND, MONSTER);
+		register(e, HUSK.get(), SpawnType.GROUND, MOB);
+		register(e, JACK_O_MAN.get(), SpawnType.GROUND, (en, s, t, p, r) -> checkMobSpawnRules(en, s, t, p, r) && EntityJackOMan.rules(s, p));
+		register(e, JUNGLE_BAT.get(), SpawnType.FLY, MOB);
+		register(e, JUNGLE_DRAMCRYX.get(), SpawnType.GROUND, MONSTER);
+		register(e, JUNGLE_SPIDER.get(), SpawnType.AGILE, DIFFICULTY_FILTER);
+		register(e, KING_CRAB.get(), SpawnType.GROUND, MOB_UNDER_SKY);
+		register(e, KOBBLIN.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityKobblin.kobblinSpawnRule(s, p) && s.canSeeSky(p));
+		register(e, LIOPLEURODON.get(), SpawnType.OCEAN_FLOOR, MONSTER);
+		register(e, LIVESTOCK_MERCHANT.get(), SpawnType.GROUND, MOB);
+		register(e, MINER.get(), SpawnType.GROUND, CAVE_MONSTER);
+		register(e, PUMPKIN_SPIDER.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityKobblin.kobblinSpawnRule(s, p));
+		register(e, RAINBOUR.get(), SpawnType.FLY, DARKNESS_AGILE);
+		register(e, ROTATICK.get(), SpawnType.GROUND, DEEPSLATE_MONSTER);
+    	register(e, SAGUARO_WORM.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntitySaguaroWorm.saguaroWormSpawnRule(s, p));
+		register(e, SHARK.get(), SpawnType.WATER, DIFFICULTY_FILTER);
+		register(e, SMELTER.get(), SpawnType.GROUND, MOB);
+		register(e, SNAPPER.get(), SpawnType.GROUND, MOB);
+		register(e, STONE_GOLEM.get(), SpawnType.GROUND, MOB);
+		register(e, THE_EYE.get(), SpawnType.GROUND, DEEPSLATE_MONSTER);
+		register(e, THE_GRUE.get(), SpawnType.GROUND, DEEPSLATE_MONSTER);
+		register(e, WHALE.get(), SpawnType.WATER, MOB);
+		register(e, WHITE_GRIZZLE.get(), SpawnType.GROUND, MOB);
     	//Nether
-    	registerMobSpawn(e, HELL_PIG.get());
-    	registerAgileMonsterSpawn(e, HELL_SPIDER.get());
-		registerMonsterSpawn(e, SCORCHER.get());
-    	registerMonsterSpawn(e, WILDFIRE.get());
+		register(e, HELL_PIG.get(), SpawnType.GROUND, MOB);
+		register(e, HELL_SPIDER.get(), SpawnType.AGILE, MONSTER);
+		register(e, SCORCHER.get(), SpawnType.FLY, MONSTER);
+		register(e, WILDFIRE.get(), SpawnType.GROUND, MONSTER);
     	//End
-		registerDarkSpawn(e, ENDER_SPIDER.get());
-    	registerAirSpawn(e, ENDER_TRIPLETS.get(), EntityEnderTriplets::enderTripletSpawnRule);
-		registerMonsterSpawn(e, ENDER_WATCHER.get());
-		registerMonsterSpawn(e, ENDER_SCROUNGE.get());
+		register(e, ENDER_SPIDER.get(), SpawnType.AGILE, MONSTER_DARKNESS_AGILE);
+		register(e, ENDER_TRIPLETS.get(), SpawnType.FLY, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityEnderTriplets.enderTripletSpawnRule(p));
+		register(e, ENDER_WATCHER.get(), SpawnType.GROUND, MONSTER);
+		register(e, ENDER_SCROUNGE.get(), SpawnType.GROUND, MONSTER);
     	//Iceika
-    	registerWaterSpawn(e, CAULDRON_FISH.get());
-    	registerSurfaceSpawn(e, BLUBBERTUSK.get());
-    	registerAgileMobSpawn(e, ROBBIN.get());
-    	registerMobSpawn(e, WOLPERTINGER.get());
-    	registerMobSpawn(e, DOLOSSAL.get());
-    	registerMobSpawn(e, MAMOTH.get());
-    	registerAgileMobSpawn(e, SNOW_SKIPPER.get());
-    	registerWaterSpawn(e, PINK_GHOST_GLIDER.get());
-    	registerMobSpawn(e, SENG.get());
-    	registerMobSpawn(e, SABEAR.get());
-		registerAgileMonsterSpawn(e, ALICANTO.get());
-		registerAgileMonsterSpawn(e, FRACTITE.get());
-    	registerMonsterSpawn(e, PALE_ARCHER.get());
-    	registerMonsterSpawn(e, FROZEN_FLESH.get());
-    	registerMonsterSpawn(e, GLACIDE.get());
-    	registerMonsterSpawn(e, HASTREUS.get());
-    	registerMonsterSpawn(e, ROLLUM.get());
-    	registerMobSpawn(e, WORKSHOP_MERCHANT.get());
-		registerMobSpawn(e, WORKSHOP_TINKERER.get());
-		registerMobSpawn(e, GROGLIN_HUNTER.get());
-		registerMobSpawn(e, GRUZZORLUG_MINER.get());
-		registerMobSpawn(e, ROBBIN.get());
-		registerMobSpawn(e, WOLPERTINGER.get());
+		register(e, CAULDRON_FISH.get(), SpawnType.WATER, ALWAYS);
+		register(e, BLUBBERTUSK.get(), SpawnType.SURFACE, ALWAYS);
+		register(e, DOLOSSAL.get(), SpawnType.WG_SURFACE, MOB);
+		register(e, MAMOTH.get(), SpawnType.WG_SURFACE, MOB);
+		register(e, SNOW_SKIPPER.get(), SpawnType.AGILE, ALWAYS);
+		register(e, PINK_GHOST_GLIDER.get(), SpawnType.WATER, ALWAYS);
+		register(e, SENG.get(), SpawnType.WG_SURFACE, MOB);
+		register(e, SABEAR.get(), SpawnType.WG_SURFACE, MOB);
+		register(e, ALICANTO.get(), SpawnType.AGILE, MONSTER);
+		register(e, FRACTITE.get(), SpawnType.FLY, DIFFICULTY_FILTER);
+		register(e, PALE_ARCHER.get(), SpawnType.GROUND, MONSTER);
+		register(e, FROZEN_FLESH.get(), SpawnType.AGILE, MONSTER);
+		register(e, GLACIDE.get(), SpawnType.GROUND, MONSTER);
+		register(e, HASTREUS.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, ROLLUM.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, WORKSHOP_MERCHANT.get(), SpawnType.GROUND, MOB);
+		register(e, WORKSHOP_TINKERER.get(), SpawnType.GROUND, MOB);
+		register(e, GROGLIN_HUNTER.get(), SpawnType.GROUND, MOB);
+		register(e, GRUZZORLUG_MINER.get(), SpawnType.GROUND, MOB);
+		register(e, ROBBIN.get(), SpawnType.GROUND, ALWAYS);
+		register(e, WOLPERTINGER.get(), SpawnType.WG_SURFACE, MOB);
 		//Eden
-    	registerMobSpawn(e, GLINTHOP.get());
-    	registerMonsterSpawn(e, EDEN_CADILLION.get());
-    	registerMonsterSpawn(e, EDEN_TOMO.get());
-    	registerDarkSpawn(e, GREENFEET.get());
-    	registerDarkSpawn(e, MADIVEL.get());
-    	registerMonsterSpawn(e, SUN_ARCHER.get());
-    	registerAirSpawn(e, WEAK_CORI.get(), EntityWeakCori::weakCoriSpawnRule);
+		register(e, GLINTHOP.get(), SpawnType.GROUND, MOB);
+		register(e, EDEN_CADILLION.get(), SpawnType.GROUND, MONSTER);
+		register(e, EDEN_TOMO.get(), SpawnType.GROUND, MOB);
+		register(e, GREENFEET.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, MADIVEL.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, SUN_ARCHER.get(), SpawnType.GROUND, MONSTER);
+		register(e, WEAK_CORI.get(), SpawnType.FLY, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityWeakCori.weakCoriSpawnRule(p, r));
     	//Wildwood
-    	registerMonsterSpawn(e, BEHEMOTH.get());
-    	registerMobSpawn(e, EPIPHITE.get());
-    	registerMonsterSpawn(e, MAGE.get());
-    	registerMobSpawn(e, MOON_WOLF.get());
-    	registerMonsterSpawn(e, TERMID.get());
-    	registerMonsterSpawn(e, VEREK.get());
-    	registerMonsterSpawn(e, WILDWOOD_CADILLION.get());
-    	registerMonsterSpawn(e, WILDWOOD_GOLEM.get());
-    	registerMonsterSpawn(e, WILDWOOD_TOMO.get());
+		register(e, BEHEMOTH.get(), SpawnType.GROUND, MONSTER);
+		register(e, EPIPHITE.get(), SpawnType.GROUND, MOB);
+		register(e, MAGE.get(), SpawnType.GROUND, MONSTER);
+		register(e, MOON_WOLF.get(), SpawnType.GROUND, MOB);
+		register(e, TERMID.get(), SpawnType.AGILE, MONSTER);
+		register(e, VEREK.get(), SpawnType.GROUND, MONSTER);
+		register(e, WILDWOOD_CADILLION.get(), SpawnType.GROUND, MONSTER);
+		register(e, WILDWOOD_GOLEM.get(), SpawnType.GROUND, MONSTER);
+		register(e, WILDWOOD_TOMO.get(), SpawnType.GROUND, MOB);
     	//Apalachia
-    	registerMonsterSpawn(e, APALACHIA_CADILLION.get());
-    	registerMonsterSpawn(e, APALACHIA_GOLEM.get());
-    	registerMonsterSpawn(e, APALACHIA_TOMO.get());
-    	registerMonsterSpawn(e, ENCHANTED_ARCHER.get());
-    	registerMonsterSpawn(e, ENCHANTED_WARRIOR.get());
-    	registerMonsterSpawn(e, SPELLBINDER.get());
+		register(e, APALACHIA_CADILLION.get(), SpawnType.GROUND, MONSTER);
+		register(e, APALACHIA_GOLEM.get(), SpawnType.GROUND, MONSTER);
+		register(e, APALACHIA_TOMO.get(), SpawnType.GROUND, MOB);
+		register(e, ENCHANTED_ARCHER.get(), SpawnType.GROUND, MONSTER);
+		register(e, ENCHANTED_WARRIOR.get(), SpawnType.GROUND, MONSTER);
+		register(e, SPELLBINDER.get(), SpawnType.GROUND, MONSTER);
     	//Skythern
-    	registerMonsterSpawn(e, ADVANCED_CORI.get());
-    	registerMonsterSpawn(e, MEGALITH.get());
-    	registerMonsterSpawn(e, MYSTIC.get());
-    	registerMonsterSpawn(e, SAMEK.get());
-    	registerMonsterSpawn(e, SKYTHERN_ARCHER.get());
-    	registerMonsterSpawn(e, SKYTHERN_FIEND.get());
-    	registerMonsterSpawn(e, SKYTHERN_GOLEM.get());
+		register(e, ADVANCED_CORI.get(), SpawnType.FLY, DIFFICULTY_FILTER);
+		register(e, MEGALITH.get(), SpawnType.GROUND, MONSTER);
+		register(e, MYSTIC.get(), SpawnType.GROUND, MONSTER);
+		register(e, SAMEK.get(), SpawnType.GROUND, MOB);
+		register(e, SKYTHERN_ARCHER.get(), SpawnType.GROUND, MONSTER);
+		register(e, SKYTHERN_FIEND.get(), SpawnType.GROUND, MONSTER);
+		register(e, SKYTHERN_GOLEM.get(), SpawnType.GROUND, MONSTER);
     	//Mortum
-    	registerMonsterSpawn(e, ANGRY_GLINTHOP.get());
-    	registerMonsterSpawn(e, BASILISK.get());
-    	registerMonsterSpawn(e, DEMON_OF_DARKNESS.get());
-    	registerMonsterSpawn(e, MORTUM_CADILLION.get());
-    	registerMonsterSpawn(e, SORCERER.get());
-    	registerMonsterSpawn(e, SOUL_SPIDER.get());
-    	registerMonsterSpawn(e, SOUL_STEALER.get());
-    	registerMonsterSpawn(e, TWILIGHT_ARCHER.get());
+		register(e, ANGRY_GLINTHOP.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, BASILISK.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, DEMON_OF_DARKNESS.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, MORTUM_CADILLION.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, SORCERER.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, SOUL_SPIDER.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, SOUL_STEALER.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, TWILIGHT_ARCHER.get(), SpawnType.GROUND, MONSTER_DARKNESS);
     	//Arcana
-    	registerMobSpawn(e, CAPTAIN_MERIK.get());
-    	registerMobSpawn(e, DATTICON.get());
-    	registerMonsterSpawn(e, DEATHCRYX.get());
-    	registerMonsterSpawn(e, DEATH_HOUND.get());
-    	registerMonsterSpawn(e, DUNGEON_CONSTRUCTOR.get());
-    	registerMonsterSpawn(e, DUNGEON_DEMON.get());
-    	registerMonsterSpawn(e, DUNGEON_PRISONER.get());
-    	registerSpawn(e, FYRACRYX.get());
-    	registerSpawn(e, GOLEM_OF_REJUVENATION.get());
-    	registerMobSpawn(e, KAZARI.get());
-    	registerMobSpawn(e, LEORNA.get());
-    	registerMobSpawn(e, LORD_VATTICUS.get());
-    	registerMonsterSpawn(e, LIVING_STATUE.get());
-    	registerSpawn(e, PARATIKU.get());
-    	registerMonsterSpawn(e, RAZORBACK.get());
-    	registerMonsterSpawn(e, ROAMER.get());
-    	registerSpawn(e, SEIMER.get());
-    	registerMonsterSpawn(e, SKYRE.get());
-    	registerMobSpawn(e, WAR_GENERAL.get());
-    	registerSpawn(e, WRAITH.get());
-    	registerMobSpawn(e, ZELUS.get());
+		register(e, CAPTAIN_MERIK.get(), SpawnType.GROUND, MOB);
+		register(e, DATTICON.get(), SpawnType.GROUND, MOB);
+		register(e, DEATHCRYX.get(), SpawnType.GROUND, MONSTER);
+		register(e, DEATH_HOUND.get(), SpawnType.GROUND, MONSTER);
+		register(e, DUNGEON_CONSTRUCTOR.get(), SpawnType.GROUND, MONSTER);
+		register(e, DUNGEON_DEMON.get(), SpawnType.GROUND, MONSTER);
+		register(e, DUNGEON_PRISONER.get(), SpawnType.GROUND, MONSTER);
+		register(e, FYRACRYX.get(), SpawnType.FLY, ALWAYS);
+		register(e, GOLEM_OF_REJUVENATION.get(), SpawnType.AGILE, ALWAYS);
+		register(e, KAZARI.get(), SpawnType.GROUND, MOB);
+		register(e, LEORNA.get(), SpawnType.GROUND, MOB);
+		register(e, LORD_VATTICUS.get(), SpawnType.GROUND, MOB);
+		register(e, LIVING_STATUE.get(), SpawnType.GROUND, MONSTER);
+		register(e, PARATIKU.get(), SpawnType.FLY, ALWAYS);
+		register(e, RAZORBACK.get(), SpawnType.GROUND, MONSTER);
+		register(e, ROAMER.get(), SpawnType.GROUND, MONSTER);
+		register(e, SEIMER.get(), SpawnType.FLY, ALWAYS);
+		register(e, SKYRE.get(), SpawnType.GROUND, MONSTER);
+		register(e, WAR_GENERAL.get(), SpawnType.GROUND, MOB);
+		register(e, WRAITH.get(), SpawnType.FLY, ALWAYS);
+		register(e, ZELUS.get(), SpawnType.GROUND, MOB);
     	//Vethea
-    	registerMonsterSpawn(e, ACID_HAG.get());
-    	registerMonsterSpawn(e, BIPHRON.get());
-    	registerMonsterSpawn(e, BOHEMITE.get());
-    	registerMobSpawn(e, CRYPT_KEEPER.get());
-    	registerMonsterSpawn(e, CYMESOID.get());
-		registerMonsterSpawn(e, DISSIMENT.get());
-    	registerMonsterSpawn(e, DREAMWRECKER.get());
-    	registerMonsterSpawn(e, DUO.get());
-    	registerMonsterSpawn(e, ENT.get());
-    	registerMonsterSpawn(e, FAKE_VHRAAK.get());
-    	registerMonsterSpawn(e, GALROID.get());
-    	registerMonsterSpawn(e, GORGOSION.get());
-    	registerMonsterSpawn(e, HELIO.get());
-    	registerMonsterSpawn(e, HIVE_SOLDIER.get());
-    	registerDarkSpawn(e, HOVER_STINGER.get());
-    	registerMonsterSpawn(e, KAZROTIC.get());
-    	registerMonsterSpawn(e, LHEIVA.get());
-    	registerMonsterSpawn(e, LORGA.get());
-		registerMonsterSpawn(e, LORGA_FLIGHT.get());
-    	registerMonsterSpawn(e, MANDRAGORA.get());
-    	registerMobSpawn(e, MYSTERIOUS_MAN_LAYER1.get());
-    	registerMobSpawn(e, MYSTERIOUS_MAN_LAYER2.get());
-    	registerMobSpawn(e, MYSTERIOUS_MAN_LAYER3.get());
-    	registerMonsterSpawn(e, SHADAHIER.get());
-    	registerMobSpawn(e, TEMPLE_GUARDIAN.get());
-    	registerMobSpawn(e, THE_HUNGER.get());
-    	registerMonsterSpawn(e, TOCAXIN.get());
-    	registerMonsterSpawn(e, TWINS.get());
-    	registerMonsterSpawn(e, VERMENOUS.get());
-    	registerMonsterSpawn(e, VHRAAK.get());
-    	registerMonsterSpawn(e, ZONE.get());
-		registerMonsterSpawn(e, ZORAGON.get());
+		register(e, ACID_HAG.get(), SpawnType.GROUND, MONSTER);
+		register(e, BIPHRON.get(), SpawnType.AGILE, DIFFICULTY_FILTER);
+		register(e, BOHEMITE.get(), SpawnType.GROUND, MONSTER);
+		register(e, CRYPT_KEEPER.get(), SpawnType.GROUND, MOB);
+		register(e, CYMESOID.get(), SpawnType.GROUND, MONSTER);
+		register(e, DISSIMENT.get(), SpawnType.FLY, DIFFICULTY_FILTER);
+		register(e, DREAMWRECKER.get(), SpawnType.GROUND, MONSTER);
+		register(e, DUO.get(), SpawnType.GROUND, MONSTER);
+		register(e, ENT.get(), SpawnType.GROUND, MONSTER);
+		register(e, FAKE_VHRAAK.get(), SpawnType.GROUND, MONSTER);
+		register(e, GALROID.get(), SpawnType.AGILE, MONSTER);
+		register(e, GORGOSION.get(), SpawnType.AGILE, MONSTER);
+		register(e, HELIO.get(), SpawnType.GROUND, MONSTER);
+		register(e, HIVE_SOLDIER.get(), SpawnType.GROUND, MONSTER);
+		register(e, HOVER_STINGER.get(), SpawnType.FLY, MONSTER_DARKNESS_AGILE);
+		register(e, KAZROTIC.get(), SpawnType.GROUND, MONSTER);
+		register(e, LHEIVA.get(), SpawnType.GROUND, MONSTER);
+		register(e, LORGA.get(), SpawnType.GROUND, MONSTER);
+		register(e, LORGA_FLIGHT.get(), SpawnType.FLY, DIFFICULTY_FILTER);
+		register(e, MANDRAGORA.get(), SpawnType.AGILE, DIFFICULTY_FILTER);
+		register(e, MYSTERIOUS_MAN_LAYER1.get(), SpawnType.GROUND, MOB);
+		register(e, MYSTERIOUS_MAN_LAYER2.get(), SpawnType.GROUND, MOB);
+		register(e, MYSTERIOUS_MAN_LAYER3.get(), SpawnType.GROUND, MOB);
+		register(e, SHADAHIER.get(), SpawnType.GROUND, MONSTER);
+		register(e, TEMPLE_GUARDIAN.get(), SpawnType.GROUND, MOB);
+		register(e, THE_HUNGER.get(), SpawnType.GROUND, MOB);
+		register(e, TOCAXIN.get(), SpawnType.GROUND, MONSTER);
+		register(e, TWINS.get(), SpawnType.GROUND, MONSTER);
+		register(e, VERMENOUS.get(), SpawnType.GROUND, MONSTER);
+		register(e, VHRAAK.get(), SpawnType.GROUND, MONSTER);
+    	register(e, ZONE.get(), SpawnType.GROUND, MONSTER);
+		register(e, ZORAGON.get(), SpawnType.FLY, DIFFICULTY_FILTER);
 	}
-	public static void registerSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Entity> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::always, REPLACE);
-    }
-    public static <T extends Entity> void registerSpawn(RegisterSpawnPlacementsEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, predicate, REPLACE);
-    }
-    public static void registerAgileMonsterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING, Monster::checkAnyLightMonsterSpawnRules, REPLACE);
-    }
-    public static void registerAgileMobSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING, Mob::checkMobSpawnRules, REPLACE);
-    }
-	public static void registerWaterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Entity> type) {
-		e.register(type, IN_WATER, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
+	public static <T extends Entity> void register(RegisterSpawnPlacementsEvent e, EntityType<? extends Entity> t, SpawnType s, SpawnPredicate<T> p) {
+		e.register((EntityType<T>) t, s.placementType, s.heightMap, p, REPLACE);
 	}
-	public static <T extends Entity> void registerWaterSpawn(RegisterSpawnPlacementsEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
-		e.register(type, IN_WATER, MOTION_BLOCKING, predicate, REPLACE);
-	}
-	public static void registerLavaSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
-		e.register(type, IN_LAVA, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
-	}
-    public static void registerAirSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
-    	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
-    }
-    public static <T extends Mob> void registerAirSpawn(RegisterSpawnPlacementsEvent e, EntityType<T> type, SpawnPredicate<T> predicate) {
-    	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, predicate, REPLACE);
-    }
-    public static void registerDarkAirSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
-    	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::checkDarknessSpawnRules, REPLACE);
-    }
-    public static void registerPassiveAirSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
-    	e.register(type, NO_RESTRICTIONS, MOTION_BLOCKING, SpawnEvents::always, REPLACE);
-    }
-    public static void registerMobSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules, REPLACE);
-    }
-    public static void registerMonsterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules, REPLACE);
-    }
-    public static void registerDarkSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules, REPLACE);
-    }
-    public static void registerSurfaceSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Mob> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::onSurface, REPLACE);
-    }
-    public static void registerSurfaceMonsterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING_NO_LEAVES, SpawnEvents::monsterOnSurface, REPLACE);
-    }
-    public static void registerAgileSurfaceMonsterSpawn(RegisterSpawnPlacementsEvent e, EntityType<? extends Monster> type) {
-    	e.register(type, ON_GROUND, MOTION_BLOCKING, SpawnEvents::monsterOnSurface, REPLACE);
-    }
-	public static boolean always(EntityType<? extends Entity> e, ServerLevelAccessor l, MobSpawnType t, BlockPos p, RandomSource r) {
-		Difficulty difficulty = l.getDifficulty();
-		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
-				Difficulty.EASY, 6,
-				Difficulty.NORMAL, 4,
-				Difficulty.HARD, 2
-		));
-		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
+	private static final EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
+			Difficulty.PEACEFUL, 11,
+			Difficulty.EASY, 6,
+			Difficulty.NORMAL, 4,
+			Difficulty.HARD, 0
+	));
+	public static final SpawnPredicate<? extends Entity>
+		ALWAYS = (e, s, t, p, r) -> true,//AGILE
+		DIFFICULTY_FILTER = SpawnEvents::difficultyFilter,//MONSTER_AGILE
+		MOB = SpawnEvents::checkMobSpawnRules,
+		MONSTER = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && checkMobSpawnRules(e, s, t, p, r),
+		DARKNESS = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(e, s, t, p, r),
+		MONSTER_DARKNESS = (e,s,t,p,r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(e, s, t, p, r),
+		DARKNESS_AGILE = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r),
+		MONSTER_DARKNESS_AGILE = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r),
 
-		return r.nextInt(10) >= cancelChance;
-	}
-	public static boolean checkDarknessSpawnRules(EntityType<? extends Mob> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		Difficulty difficulty = s.getDifficulty();
-		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
-				Difficulty.EASY, 6,
-				Difficulty.NORMAL, 4,
-				Difficulty.HARD, 2
-		));
-		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
-		return r.nextInt(10) >= cancelChance && Monster.isDarkEnoughToSpawn(s, p, r);
-	}
-	public static boolean onSurface(EntityType<? extends Mob> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		Difficulty difficulty = s.getDifficulty();
-		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
-				Difficulty.EASY, 6,
-				Difficulty.NORMAL, 4,
-				Difficulty.HARD, 2
-		));
-		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
-		return r.nextInt(10) >= cancelChance && Mob.checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
-	}
-	public static boolean monsterOnSurface(EntityType<? extends Monster> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
-		Difficulty difficulty = s.getDifficulty();
-		EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
-				Difficulty.EASY, 6,
-				Difficulty.NORMAL, 4,
-				Difficulty.HARD, 2
-		));
-		int cancelChance = cancellationChances.getOrDefault(difficulty, 0);
-		return r.nextInt(10) >= cancelChance && Monster.checkAnyLightMonsterSpawnRules(e, s, t, p, r) && s.canSeeSky(p);
-	}
+		CAVE_MONSTER = (en, s, t, p, r) -> p.getY() < 60 && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r),
+		DEEPSLATE_MONSTER = (en, s, t, p, r) -> p.getY() < 0 && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r),
 
+		AGILE_UNDER_SKY = (e, s, t, p, r) -> s.canSeeSky(p),
+		MONSTER_AGILE_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && s.canSeeSky(p),
+		MOB_UNDER_SKY = (e, s, t, p, r) -> checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p),
+		MONSTER_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p),
+		DARKNESS_UNDER_SKY = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p),
+		MONSTER_DARKNESS_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p),
+		DARKNESS_AGILE_UNDER_SKY = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && s.canSeeSky(p),
+		MONSTER_DARKNESS_AGILE_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && s.canSeeSky(p);
+	public enum SpawnType {
+		WG_SURFACE(ON_GROUND, WORLD_SURFACE_WG),
+		SURFACE(ON_GROUND, WORLD_SURFACE),
+		GROUND(ON_GROUND, MOTION_BLOCKING_NO_LEAVES),
+		AGILE(ON_GROUND, MOTION_BLOCKING),
+		FLY(NO_RESTRICTIONS, MOTION_BLOCKING),
+		OCEAN_FLOOR(IN_WATER, Heightmap.Types.OCEAN_FLOOR),
+		WATER(IN_WATER, MOTION_BLOCKING);
+		public final SpawnPlacementType placementType;
+		public final Heightmap.Types heightMap;
+		SpawnType(SpawnPlacementType placementType, Heightmap.Types heightMap) {
+			this.placementType = placementType;
+			this.heightMap = heightMap;
+		}
+	}
+	public static boolean difficultyFilter(EntityType<? extends Entity> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
+		return t != MobSpawnType.NATURAL || r.nextInt(10) >= cancellationChances.getOrDefault(s.getDifficulty(), 0);
+	}
+	public static boolean checkMobSpawnRules(EntityType<? extends Entity> type, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+		BlockPos blockpos = pos.below();
+		return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type);
+	}
 }

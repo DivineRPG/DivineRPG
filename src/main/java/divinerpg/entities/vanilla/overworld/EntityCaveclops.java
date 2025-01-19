@@ -55,7 +55,7 @@ public class EntityCaveclops extends EntityDivineMonster implements RangedAttack
         }
     }
 
-    public static boolean caveClopsSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return Monster.checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn) && (pos.getY() < 32 || (worldIn.getBiome(pos).is(Biomes.IS_LUSH) && pos.getY() < 60));
+    public static boolean caveClopsSpawnRule(ServerLevelAccessor worldIn, BlockPos pos) {
+        return pos.getY() < 32 || (worldIn.getBiome(pos).is(Biomes.IS_LUSH) && pos.getY() < 60);
     }
 }

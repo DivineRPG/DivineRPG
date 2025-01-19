@@ -62,7 +62,7 @@ public class EntityWeakCori extends EntityDivineFlyingMob implements RangedAttac
         return SoundRegistry.CORI_HURT.get();
     }
 
-    public static boolean weakCoriSpawnRule(EntityType<? extends Mob> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
+    public static boolean weakCoriSpawnRule(BlockPos pos, RandomSource randomIn) {
         return pos.getY() > 128 && randomIn.nextBoolean();
     }
 }

@@ -13,17 +13,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
 
 public interface FactionEntity {
-	public Faction getFaction();
-	public default boolean modifyReputationOnHurt(DamageSource source, float f) {
+	Faction getFaction();
+	default void modifyReputationOnHurt(DamageSource source, float f) {
 		if(source.getDirectEntity() != null && source.getDirectEntity() instanceof Player player) {
 			getFaction().reputation.modify(player, -1);
-			return true;
-		} if(source.getEntity() != null && source.getEntity() instanceof Player player) {
+		} else if(source.getEntity() != null && source.getEntity() instanceof Player player) {
 			getFaction().reputation.modify(player, -1);
-			return true;
-		} return false;
+		}
 	}
-	public default void modifyReputationOnDeath(DamageSource source) {
+	default void modifyReputationOnDeath(DamageSource source) {
 		if(source.getDirectEntity() != null && source.getDirectEntity() instanceof Player player) {
 			getFaction().reputation.modify(player, -10);
 			for(Faction opposer : getFaction().enemies) opposer.reputation.modify(player, 2);
@@ -32,7 +30,7 @@ public interface FactionEntity {
 			for(Faction opposer : getFaction().enemies) opposer.reputation.modify(player, 2);
 		}
 	}
-	public static class Faction {
+	class Faction {
 		public static LivingEntity getNearestEnemy(LivingEntity from, AABB searchArea, TargetingConditions conditions) {
 			List<Entity> enemies = from.level().getEntities(from, searchArea, (entity) -> (entity instanceof LivingEntity ent && from instanceof FactionEntity fac && fac.getFaction().isAgressiveTowards(ent)) || (entity instanceof FactionEntity fact && fact.getFaction().isAgressiveTowards(from)));
 			double closest = -1D;
@@ -128,13 +126,19 @@ public interface FactionEntity {
 			EntityType<?> type = entity.getType();
 			if(nonFactionAllies.contains(type)) return false;
 			if(!isAutoAggressive && nonFactionEnemies.contains(type)) return true;
-			if(entity instanceof Player player && !player.isCreative() && !player.isSpectator() && reputation.get(player) < (isAutoAggressive ? 50 : -10)) return true;
+			if(entity instanceof Player player && !player.isCreative() && !player.isSpectator() && hates(player)) return true;
 			if(entity instanceof FactionEntity fac) return isAgressiveTowards(fac.getFaction());
 			return isAutoAggressive;
 		}
 		public int getReputation(LivingEntity e) {
 			if(e.level().isClientSide() && !reputation.has(e)) reputation.requestAttachment(e, null);
 			return reputation.get(e);
+		}
+		public boolean hates(LivingEntity entity) {
+			return getReputation(entity) < (isAutoAggressive ? 25 : -10);
+		}
+		public boolean likes(LivingEntity entity) {
+			return getReputation(entity) > 24;
 		}
 	}
 }

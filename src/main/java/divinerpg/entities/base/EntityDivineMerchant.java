@@ -74,9 +74,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     private void resetSpecialPrices() {
         if(level() instanceof ServerLevel) for(MerchantOffer merchantoffer : getOffers()) merchantoffer.resetSpecialPriceDiff();
     }
-    private boolean canTrade(Player player) {
-        return player.isAlive() && !player.isSleeping();
-    }
+    private boolean canTrade(Player player) {return player.isAlive() && !player.isSleeping();}
     @Override
     public void setTradingPlayer(@Nullable Player player) {
         if (this.getTradingPlayer() != player) {
@@ -86,18 +84,13 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         }
     }
     public abstract String[] getChatMessages();
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundRegistry.MERCHANT.get();
-    }
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.MERCHANT_HURT.get();
-    }
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.MERCHANT_HURT.get();
-    }
+    @Override protected SoundEvent getAmbientSound() {return SoundRegistry.MERCHANT.get();}
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.MERCHANT_HURT.get();}
+    @Override protected SoundEvent getDeathSound() {return SoundRegistry.MERCHANT_HURT.get();}
+
+    @Override protected SoundEvent getTradeUpdatedSound(boolean isYesSound) {return SoundRegistry.MERCHANT.get();}
+    @Override public SoundEvent getNotifyTradeSound() {return SoundRegistry.MERCHANT.get();}
+    @Override public void playCelebrateSound() {}
 
     public static class DivineTrades implements VillagerTrades.ItemListing {
         protected ItemStack input1, input2;

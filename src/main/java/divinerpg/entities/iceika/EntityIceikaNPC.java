@@ -19,7 +19,6 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.*;
 import net.minecraft.world.entity.monster.*;
-import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
@@ -35,7 +34,6 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
         super(type, worldIn, profession);
         setPathfindingMalus(PathType.POWDER_SNOW, -1);
     }
-	protected abstract TagKey<Structure> getRaidTargets();
 	protected abstract Holder<MobEffect> getTargetEffect();
 	@Override protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
@@ -61,7 +59,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 	}
 	@Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
-		if(getFaction().getReputation(player) > 5) return super.mobInteract(player, hand);
+		if(getFaction().likes(player)) return super.mobInteract(player, hand);
     	playSound(SoundEvents.VILLAGER_NO);
     	return InteractionResult.FAIL;
     }

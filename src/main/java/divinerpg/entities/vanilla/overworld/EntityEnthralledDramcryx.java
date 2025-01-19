@@ -47,8 +47,8 @@ public class EntityEnthralledDramcryx extends EntityDivineMonster {
         return SoundRegistry.DRAMCRYX_HURT.get();
     }
 
-    public static boolean enthralledDramcryxSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return Monster.checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn) && (pos.getY() < 0 || worldIn.getBiome(pos).is(Biomes.DRIPSTONE_CAVES));
+    public static boolean enthralledDramcryxSpawnRule(ServerLevelAccessor worldIn, BlockPos pos) {
+        return pos.getY() < 0 || worldIn.getBiome(pos).is(Biomes.DRIPSTONE_CAVES);
     }
 
     @Override public boolean isSteppingCarefully() {

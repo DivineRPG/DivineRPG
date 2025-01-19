@@ -67,7 +67,4 @@ public class EntityTheGrue extends EntityDivineMonster {
 		this.level().broadcastEntityEvent(this, (byte)4);
 		return super.doHurtTarget(p_33328_);
 	}
-	public static boolean theGrueSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-		return pos.getY() < 0 && checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn);
-	}
 }

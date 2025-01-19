@@ -31,7 +31,4 @@ public class EntityRotatick extends EntityDivineMonster {
     @Override
     protected SoundEvent getDeathSound() {return SoundRegistry.ROTATICK_HURT.get();}
     @Override public boolean isAggressive() {return true;}
-    public static boolean rotatickSpawnRule(EntityType<? extends Monster> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return Monster.checkMonsterSpawnRules(typeIn, worldIn, reason, pos, randomIn) && pos.getY() < 0;
-    }
 }

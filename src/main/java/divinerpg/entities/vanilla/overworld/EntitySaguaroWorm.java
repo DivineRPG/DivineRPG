@@ -89,8 +89,8 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
     }
 
 
-    public static boolean saguaroWormSpawnRule(EntityType<? extends Mob> typeIn, LevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {
-        return reason == MobSpawnType.SPAWNER || worldIn.getBlockState(pos.below()).is(Blocks.SANDS);
+    public static boolean saguaroWormSpawnRule(LevelAccessor worldIn, BlockPos pos) {
+        return worldIn.getBlockState(pos.below()).is(Blocks.SANDS);
     }
 
     @Override

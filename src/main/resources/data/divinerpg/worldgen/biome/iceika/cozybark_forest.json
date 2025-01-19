@@ -165,10 +165,9 @@
 			"minecraft:seagrass_warm",
 			"divinerpg:iceika/icicle"
 		],
+		[],
 		[
-			"divinerpg:iceika/cozybark_tree"
-		],
-		[
+			"divinerpg:iceika/cozybark_tree",
 			"divinerpg:iceika/cozybark_bush",
 			"divinerpg:iceika/cozybark_stump",
 			"minecraft:glow_lichen",
