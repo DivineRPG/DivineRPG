@@ -50,34 +50,37 @@ public class EntityParatiku extends EntityDivineTameable {
         super.customServerAiStep();
         BlockPos blockpos = blockPosition();
         BlockPos blockpos1 = blockpos.above();
-        if(getIsParatikuHanging()) {
-            boolean flag = isSilent();
-            if(level().getBlockState(blockpos1).isRedstoneConductor(level(), blockpos)) {
-                if(random.nextInt(200) == 0) yHeadRot = (float) random.nextInt(360);
-                if(level().getNearestPlayer(RESTING_TARGETING, this) != null) {
+        if(level().isClientSide) {
+            if (getIsParatikuHanging()) {
+                boolean flag = isSilent();
+                if (level().getBlockState(blockpos1).isRedstoneConductor(level(), blockpos)) {
+                    if (random.nextInt(200) == 0) yHeadRot = (float) random.nextInt(360);
+                    if (level().getNearestPlayer(RESTING_TARGETING, this) != null) {
+                        setIsParatikuHanging(false);
+                        if (!flag) level().levelEvent(null, 1025, blockpos, 0);
+                    }
+                } else {
                     setIsParatikuHanging(false);
-                    if(!flag) level().levelEvent(null, 1025, blockpos, 0);
+                    if (!flag) level().levelEvent(null, 1025, blockpos, 0);
                 }
             } else {
-                setIsParatikuHanging(false);
-                if(!flag) level().levelEvent(null, 1025, blockpos, 0);
-            }
-        } else {
-            if(getTarget() != null) {
-                getTarget().blockPosition();
-                if(random.nextInt(30) == 0 || getTarget().blockPosition().closerToCenterThan(position(), 2D))
-                    moveTo(getX() + random.nextInt(7) - random.nextInt(7), getY() + random.nextInt(6) - 2D, getZ() + random.nextInt(7) - random.nextInt(7));
-                double d2 = getTarget().blockPosition().getX() + .5D - getX();
-                double d0 = getTarget().blockPosition().getY() + .1D - getY();
-                double d1 = getTarget().blockPosition().getZ() + .5D - getZ();
-                Vec3 vector3d = getDeltaMovement();
-                Vec3 vector3d1 = vector3d.add((Math.signum(d2) * .5 - vector3d.x) * .1, (Math.signum(d0) * .7 - vector3d.y) * .1, (Math.signum(d1) * .5 - vector3d.z) * .1);
-                setDeltaMovement(vector3d1);
-                float f = (float) (Mth.atan2(vector3d1.z, vector3d1.x) * (180F / Math.PI)) - 90F;
-                float f1 = Mth.wrapDegrees(f - getYRot());
-                zza = .5F;
-                yHeadRot += f1;
-                if(random.nextInt(100) == 0 && level().getBlockState(blockpos1).isRedstoneConductor(level(), blockpos1)) setIsParatikuHanging(true);
+                if (getTarget() != null) {
+                    getTarget().blockPosition();
+                    if (random.nextInt(30) == 0 || getTarget().blockPosition().closerToCenterThan(position(), 2D))
+                        moveTo(getX() + random.nextInt(7) - random.nextInt(7), getY() + random.nextInt(6) - 2D, getZ() + random.nextInt(7) - random.nextInt(7));
+                    double d2 = getTarget().blockPosition().getX() + .5D - getX();
+                    double d0 = getTarget().blockPosition().getY() + .1D - getY();
+                    double d1 = getTarget().blockPosition().getZ() + .5D - getZ();
+                    Vec3 vector3d = getDeltaMovement();
+                    Vec3 vector3d1 = vector3d.add((Math.signum(d2) * .5 - vector3d.x) * .1, (Math.signum(d0) * .7 - vector3d.y) * .1, (Math.signum(d1) * .5 - vector3d.z) * .1);
+                    setDeltaMovement(vector3d1);
+                    float f = (float) (Mth.atan2(vector3d1.z, vector3d1.x) * (180F / Math.PI)) - 90F;
+                    float f1 = Mth.wrapDegrees(f - getYRot());
+                    zza = .5F;
+                    yHeadRot += f1;
+                    if (random.nextInt(100) == 0 && level().getBlockState(blockpos1).isRedstoneConductor(level(), blockpos1))
+                        setIsParatikuHanging(true);
+                }
             }
         }
     }
