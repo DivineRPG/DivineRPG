@@ -17,9 +17,11 @@ import net.minecraft.world.phys.Vec3;
 public class EntityParatiku extends EntityDivineTameable {
     private static final TargetingConditions RESTING_TARGETING = TargetingConditions.forCombat().range(4.0D)/*.allowSameTeam()*/;
     //private BlockPos spawnPosition;
-    public EntityParatiku(EntityType<? extends TamableAnimal> type, Level worldIn) {
-        super(type, worldIn, 1F);
-        setIsParatikuHanging(true);
+    public EntityParatiku(EntityType<? extends TamableAnimal> type, Level level) {
+        super(type, level, 1F);
+        if (!level.isClientSide) {
+            setIsParatikuHanging(true);
+        }
     }
     @Override public boolean isPushable() {return false;}
     @Override protected void doPush(Entity ent) {}
