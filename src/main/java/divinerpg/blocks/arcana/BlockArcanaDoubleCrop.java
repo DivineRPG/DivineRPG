@@ -3,15 +3,14 @@ package divinerpg.blocks.arcana;
 import divinerpg.blocks.base.BlockModDoubleCrop;
 import divinerpg.util.Utils;
 import net.minecraft.core.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
 
 import static divinerpg.registries.BlockRegistry.arcaniteGrass;
 
 public class BlockArcanaDoubleCrop extends BlockModDoubleCrop {
-    public BlockArcanaDoubleCrop(ResourceLocation seed) {super(seed);}
+    public BlockArcanaDoubleCrop(ItemLike seed) {super(seed);}
     @Override public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         for(Direction direction : Direction.Plane.HORIZONTAL) {
             BlockState blockstate = level.getBlockState(pos.relative(direction));

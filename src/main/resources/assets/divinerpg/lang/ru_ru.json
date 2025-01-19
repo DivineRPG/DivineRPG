@@ -492,7 +492,7 @@
   "block.divinerpg.arcanium_power": "Крепкий арканиевый источник силы",
   "block.divinerpg.arcanium_power_breakable": "Арканиевый источник силы",
   "block.divinerpg.battle_bricks": "Битвенные кирпичи",
-  "block.divinerpg.gilded_bricks": "Позолоченные кирпичи",
+  "block.divinerpg.gilded_bricks": "Золочёные кирпичи",
 
   "block.divinerpg.heat_trap": "Огненная ловушка",
   "block.divinerpg.dungeon_lamp": "Крепкий фонарь подземелья",
@@ -1151,6 +1151,9 @@
   "item.divinerpg.snowslash": "Снежный разрубатель",
   "item.divinerpg.snowstorm_bow": "Лук метели",
   "item.divinerpg.snowstorm_arrow": "Стрела метели",
+
+  "item.divinerpg.md_red_stains_on_the_bluest_snow": "Пластинка",
+  "item.divinerpg.md_destiny": "Пластинка",
 
   "item.divinerpg.sound_of_music": "Звуки музыки",
   "item.divinerpg.sound_of_carols": "Звуки кэрол",
@@ -2344,7 +2347,7 @@
   "advancement.divinerpg.arcana.evil_disease.desc": "Убейте Парасекту",
   "advancement.divinerpg.arcana.hotter_than_hell": "Жарче, чем в аду",
   "advancement.divinerpg.arcana.hotter_than_hell.desc": "Пройдитесь по огненной ловушке",
-  "advancement.divinerpg.arcana.my_little_creature": "Моё маленькое существо",
+  "advancement.divinerpg.arcana.my_little_creature": "Дружба — это чудо",
   "advancement.divinerpg.arcana.my_little_creature.desc": "Приручите питомца, купленного у Зелуса",
   "advancement.divinerpg.arcana.sky_high": "Прыжок до небес",
   "advancement.divinerpg.arcana.sky_high.desc": "Подпрыгните на взмывателе",

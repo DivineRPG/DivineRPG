@@ -15,7 +15,7 @@ import net.minecraft.world.level.material.MapColor;
 public class BlockHeatTrap extends BlockModUnbreakable {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     public BlockHeatTrap() {
-        super(Block.Properties.of().mapColor(MapColor.COLOR_BLUE).randomTicks().strength(-1, 3600000).noLootTable().instrument(NoteBlockInstrument.BASEDRUM));
+        super(Properties.of().mapColor(MapColor.COLOR_BLUE).randomTicks().noLootTable().instrument(NoteBlockInstrument.BASEDRUM));
         registerDefaultState(stateDefinition.any().setValue(ACTIVE, false));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(ACTIVE);}

@@ -33,10 +33,6 @@ import static net.minecraft.world.item.ArmorItem.Type.*;
 public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredItem<Item>
-            //Music Disks
-            md_red_stains = registerItem("md_red_stains_on_the_bluest_snow", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.MD_RED_STAINS_SONG.getKey()))),
-            md_destiny = registerItem("md_destiny", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.MD_DESTINY_SONG.getKey()))),
-
         //Misc
             cyclops_eye_shards = registerItem("cyclops_eye_shards"),
             cyclops_eye = registerItem("cyclops_eye"),
@@ -131,6 +127,10 @@ public class ItemRegistry {
             glacial_wall_totem = registerTool("glacial_wall_totem", () -> new ItemMod(new Properties().stacksTo(1))),
             teleportation_crystal = registerTool("teleportation_crystal", ItemTeleportationCrystal::new),
             teleportation_star = registerTool("teleportation_star", ItemTeleportationStar::new),
+
+            //Music Discs
+            md_red_stains = registerItem("md_red_stains_on_the_bluest_snow", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.MD_RED_STAINS_SONG.getKey()))),
+            md_destiny = registerItem("md_destiny", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.MD_DESTINY_SONG.getKey()))),
 
             //Arcana
             collector_fragments = registerItem("collector_fragments"),

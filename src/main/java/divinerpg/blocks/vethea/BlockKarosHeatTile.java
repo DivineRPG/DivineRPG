@@ -14,7 +14,7 @@ import net.minecraft.world.level.material.MapColor;
 public class BlockKarosHeatTile extends BlockModUnbreakable {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     public BlockKarosHeatTile() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD).randomTicks().strength(-1, 3600000).instrument(NoteBlockInstrument.BASEDRUM));
+        super(Properties.of().mapColor(MapColor.EMERALD).randomTicks().instrument(NoteBlockInstrument.BASEDRUM));
         registerDefaultState(stateDefinition.any().setValue(ACTIVE, false));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(ACTIVE);}

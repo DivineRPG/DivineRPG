@@ -1,13 +1,11 @@
 package divinerpg.blocks.base;
 
 import net.minecraft.core.*;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.SugarCaneBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
@@ -18,12 +16,12 @@ import static net.minecraft.tags.FluidTags.LAVA;
 import static net.minecraft.world.level.block.Blocks.WHEAT;
 
 public class BlockModDoubleCrop extends SugarCaneBlock {
-    private final ResourceLocation seed;
-    public BlockModDoubleCrop(int lightLevel, ResourceLocation seed) {
+    private final ItemLike seed;
+    public BlockModDoubleCrop(int lightLevel, ItemLike seed) {
         super(Properties.ofFullCopy(WHEAT).lightLevel((state) -> lightLevel));
         this.seed = seed;
     }
-    public BlockModDoubleCrop(ResourceLocation seed) {this(0, seed);}
+    public BlockModDoubleCrop(ItemLike seed) {this(0, seed);}
     @Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(level.isEmptyBlock(pos.above())) {
             int i;
@@ -48,6 +46,6 @@ public class BlockModDoubleCrop extends SugarCaneBlock {
         return (level.getRawBrightness(pos, 0) >= 8 || level.canSeeSky(pos)) && (belowState.is(DIRT) || belowState.is(this) && belowState.getValue(AGE) == 14);
     }
     @Override public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
-        return new ItemStack(BuiltInRegistries.ITEM.get(seed));
+        return new ItemStack(seed);
     }
 }
