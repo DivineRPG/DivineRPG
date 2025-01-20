@@ -12,10 +12,7 @@ import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
-import net.minecraft.world.item.BowItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ProjectileWeaponItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 
 public class EntityLivingStatue extends EntityDivineMonster implements RangedAttackMob {
@@ -35,7 +32,7 @@ public class EntityLivingStatue extends EntityDivineMonster implements RangedAtt
         if(isAlive() && getTarget() != null) {
             ItemStack weapon = getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, (item) -> item instanceof BowItem));
             ItemStack itemstack1 = getProjectile(weapon);
-            AbstractArrow abstractarrow = ProjectileUtil.getMobArrow(this, itemstack1, distanceFactor, weapon);
+            AbstractArrow abstractarrow = ProjectileUtil.getMobArrow(this, itemstack1.isEmpty() ? Items.ARROW.getDefaultInstance() : itemstack1, distanceFactor, weapon.isEmpty() ? Items.BOW.getDefaultInstance() : weapon);
             abstractarrow.setBaseDamage(6);
             Item var7 = weapon.getItem();
             if(var7 instanceof ProjectileWeaponItem weaponItem) abstractarrow = weaponItem.customArrow(abstractarrow, itemstack1, weapon);

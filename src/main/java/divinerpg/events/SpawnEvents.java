@@ -61,7 +61,7 @@ public class SpawnEvents {
 		register(e, JUNGLE_SPIDER.get(), SpawnType.AGILE, DIFFICULTY_FILTER);
 		register(e, KING_CRAB.get(), SpawnType.GROUND, MOB_UNDER_SKY);
 		register(e, KOBBLIN.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityKobblin.kobblinSpawnRule(s, p) && s.canSeeSky(p));
-		register(e, LIOPLEURODON.get(), SpawnType.OCEAN_FLOOR, MONSTER);
+		register(e, LIOPLEURODON.get(), SpawnType.WATER, DIFFICULTY_FILTER);
 		register(e, LIVESTOCK_MERCHANT.get(), SpawnType.GROUND, MOB);
 		register(e, MINER.get(), SpawnType.GROUND, CAVE_MONSTER);
 		register(e, PUMPKIN_SPIDER.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityKobblin.kobblinSpawnRule(s, p));
@@ -74,7 +74,7 @@ public class SpawnEvents {
 		register(e, STONE_GOLEM.get(), SpawnType.GROUND, MOB);
 		register(e, THE_EYE.get(), SpawnType.GROUND, DEEPSLATE_MONSTER);
 		register(e, THE_GRUE.get(), SpawnType.GROUND, DEEPSLATE_MONSTER);
-		register(e, WHALE.get(), SpawnType.WATER, MOB);
+		register(e, WHALE.get(), SpawnType.WATER, ALWAYS);
 		register(e, WHITE_GRIZZLE.get(), SpawnType.GROUND, MOB);
     	//Nether
 		register(e, HELL_PIG.get(), SpawnType.GROUND, MOB);
@@ -101,7 +101,7 @@ public class SpawnEvents {
 		register(e, FROZEN_FLESH.get(), SpawnType.AGILE, MONSTER);
 		register(e, GLACIDE.get(), SpawnType.GROUND, MONSTER);
 		register(e, HASTREUS.get(), SpawnType.GROUND, MONSTER_DARKNESS);
-		register(e, ROLLUM.get(), SpawnType.GROUND, MONSTER_DARKNESS);
+		register(e, ROLLUM.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && (MobSpawnType.isSpawner(t) || Monster.isDarkEnoughToSpawn(s, p, r)) && checkMobSpawnRules(en, s, t, p, r));
 		register(e, WORKSHOP_MERCHANT.get(), SpawnType.GROUND, MOB);
 		register(e, WORKSHOP_TINKERER.get(), SpawnType.GROUND, MOB);
 		register(e, GROGLIN_HUNTER.get(), SpawnType.GROUND, MOB);
@@ -134,7 +134,7 @@ public class SpawnEvents {
 		register(e, ENCHANTED_WARRIOR.get(), SpawnType.GROUND, MONSTER);
 		register(e, SPELLBINDER.get(), SpawnType.GROUND, MONSTER);
     	//Skythern
-		register(e, ADVANCED_CORI.get(), SpawnType.FLY, DIFFICULTY_FILTER);
+		register(e, ADVANCED_CORI.get(), SpawnType.FLY, MONSTER);
 		register(e, MEGALITH.get(), SpawnType.GROUND, MONSTER);
 		register(e, MYSTIC.get(), SpawnType.GROUND, MONSTER);
 		register(e, SAMEK.get(), SpawnType.GROUND, MOB);

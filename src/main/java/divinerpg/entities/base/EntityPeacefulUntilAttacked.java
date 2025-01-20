@@ -70,7 +70,7 @@ public abstract class EntityPeacefulUntilAttacked extends EntityDivineMonster {
 
     @Override
     public boolean isPreventingPlayerRest(Player player) {
-        return false;
+        return isAggressive();
     }
     @Override
     protected boolean shouldDespawnInPeaceful() {
