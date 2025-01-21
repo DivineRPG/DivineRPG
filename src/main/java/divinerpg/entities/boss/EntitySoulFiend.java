@@ -52,9 +52,4 @@ public class EntitySoulFiend extends EntityDivineBoss {
             return false;
         }
     }
-
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.YELLOW;
-    }
 }

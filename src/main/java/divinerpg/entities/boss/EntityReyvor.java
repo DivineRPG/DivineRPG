@@ -56,8 +56,4 @@ public class EntityReyvor extends EntityDivineBoss implements RangedAttackMob {
         return SoundRegistry.REYVOR_HURT.get();
     }
 
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.YELLOW;
-    }
 }

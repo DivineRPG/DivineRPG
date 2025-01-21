@@ -43,8 +43,4 @@ public class EntityDramix extends EntityDivineBoss {
         return SoundRegistry.DRAMIX_HURT.get();
     }
 
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.BLUE;
-    }
 }

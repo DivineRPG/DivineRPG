@@ -51,11 +51,6 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
     }
 
     @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.YELLOW;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.SPARKLER.get();
     }

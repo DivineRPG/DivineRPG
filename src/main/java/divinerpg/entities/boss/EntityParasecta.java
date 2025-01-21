@@ -20,10 +20,6 @@ public class EntityParasecta extends EntityDivineBoss {
     public EntityParasecta(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.YELLOW;
-    }
 
     @Override
     protected float getSoundVolume() {

@@ -29,8 +29,4 @@ public class EntityDensos extends EntityDivineBoss {
         return SoundRegistry.DENSOS_HURT.get();
     }
 
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.RED;
-    }
 }

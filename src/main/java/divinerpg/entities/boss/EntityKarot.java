@@ -63,9 +63,4 @@ public class EntityKarot extends EntityDivineBoss {
         }
         super.kill();
     }
-
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.WHITE;
-    }
 }

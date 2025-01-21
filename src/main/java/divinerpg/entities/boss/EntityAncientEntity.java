@@ -57,8 +57,4 @@ public class EntityAncientEntity extends EntityDivineBoss {
         return SoundEvents.IRON_GOLEM_DEATH;
     }
 
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.YELLOW;
-    }
 }

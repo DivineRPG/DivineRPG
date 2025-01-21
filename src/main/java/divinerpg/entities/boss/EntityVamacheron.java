@@ -10,9 +10,5 @@ public class EntityVamacheron extends EntityDivineBoss {
     public EntityVamacheron(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.RED;
-    }
 
 }

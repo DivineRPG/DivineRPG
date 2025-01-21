@@ -77,8 +77,4 @@ public class EntityTwilightDemon extends EntityDivineBoss {
         return SoundRegistry.INSECT.get();
     }
 
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.RED;
-    }
 }

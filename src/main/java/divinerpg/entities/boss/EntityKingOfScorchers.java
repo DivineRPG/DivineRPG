@@ -82,9 +82,4 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAtt
         return SoundRegistry.KING_OF_SCORCHERS_HURT.get();
     }
 
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.RED;
-    }
-    
 }

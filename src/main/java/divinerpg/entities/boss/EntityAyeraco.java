@@ -119,19 +119,19 @@ public class EntityAyeraco extends EntityDivineBoss {
             updateAbilities();
         }
     }
-	@Override
-	public BossBarColor getBarColor() {return byByte(AttachmentRegistry.VARIANT.get(this));}
-	public static BossBarColor byByte(byte i) {
-		return switch(i) {
-        case 0 -> BossBarColor.BLUE;
-		case 1 -> BossBarColor.GREEN;
-		case 2 -> BossBarColor.PINK;
-		case 3 -> BossBarColor.PURPLE;
-		case 4 -> BossBarColor.RED;
-		case 5 -> BossBarColor.YELLOW;
-		default -> BossBarColor.WHITE;
-		};
-	}
+//	@Override
+//	public BossBarColor getBarColor() {return byByte(AttachmentRegistry.VARIANT.get(this));}
+//	public static BossBarColor byByte(byte i) {
+//		return switch(i) {
+//        case 0 -> BossBarColor.BLUE;
+//		case 1 -> BossBarColor.GREEN;
+//		case 2 -> BossBarColor.PINK;
+//		case 3 -> BossBarColor.PURPLE;
+//		case 4 -> BossBarColor.RED;
+//		case 5 -> BossBarColor.YELLOW;
+//		default -> BossBarColor.WHITE;
+//		};
+//	}
 	public byte getVariant() {
 		if(AttachmentRegistry.VARIANT.get(this) == 0) {
 			BlockState block = level().getBlockState(beam);

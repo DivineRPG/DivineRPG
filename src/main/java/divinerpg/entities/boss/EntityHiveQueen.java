@@ -21,10 +21,6 @@ public class EntityHiveQueen extends EntityDivineBoss {
         super(type, worldIn);
         spawnTick=80;
     }
-    @Override
-    public BossBarColor getBarColor() {
-        return BossBarColor.YELLOW;
-    }
 
     @Override
     public void tick() {
