@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.entities.boss.EntityAyeraco;
+import divinerpg.entities.boss.EntitySunstorm;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -47,7 +48,6 @@ public class RenderBossBar implements LayeredDraw.Layer {
     private LivingEntity getBossEntity() {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null || mc.player == null) return null;
-
         return mc.level.getEntitiesOfClass(EntityDivineBoss.class, mc.player.getBoundingBox().inflate(50)).stream().findFirst().orElse(null);
     }
 
@@ -58,8 +58,9 @@ public class RenderBossBar implements LayeredDraw.Layer {
             byte variant = ((EntityAyeraco) boss).getVariant();
             String color = getAyeracoColor(variant);
             registryName = color + "_ayeraco";
+        } else if (boss instanceof EntitySunstorm) {
+            registryName = "sunstorm";
         }
-
         return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, KEY + registryName + ".png");
     }
 
@@ -77,17 +78,20 @@ public class RenderBossBar implements LayeredDraw.Layer {
 
     private void renderBossHealthBar(GuiGraphics gui, LivingEntity boss) {
         Minecraft mc = Minecraft.getInstance();
-
         int windowWidth = mc.getWindow().getGuiScaledWidth();
-        int barLength = 182;
-        int barHeight = 10;
+        int barLength = boss instanceof EntitySunstorm ? 210 : 182;
+        int barHeight = boss instanceof EntitySunstorm ? 32 : 10;
         int barDisX = (windowWidth - barLength) / 2;
         int barDisY = 12;
-
         float healthPercentage = boss.getHealth() / boss.getMaxHealth();
         int healthWidth = (int) (healthPercentage * barLength);
 
-        gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight, barLength, barHeight);
-        gui.blit(getBossTexture(boss), barDisX, barDisY, 0, 0, healthWidth, barHeight);
+        if (boss instanceof EntitySunstorm) {
+            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight+1, barLength, barHeight);
+            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, 1, healthWidth, barHeight);
+        } else {
+            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight, healthWidth, barHeight);
+            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, 0, barLength, barHeight);
+        }
     }
 }
