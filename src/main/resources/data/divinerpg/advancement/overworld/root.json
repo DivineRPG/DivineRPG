@@ -10,7 +10,8 @@
     "description": {
       "translate": "advancement.divinerpg.overworld.root.desc"
     },
-    "announce_to_chat": false
+    "announce_to_chat": false,
+    "show_toast": false
   },
   "criteria": {
     "divinerpg": {
