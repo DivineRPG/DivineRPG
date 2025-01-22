@@ -1,7 +1,6 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineBoss;
-import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;

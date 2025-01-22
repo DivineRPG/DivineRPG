@@ -3,7 +3,6 @@ package divinerpg.entities.boss;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
@@ -28,9 +27,7 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAtt
         super.registerGoals();
         this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 32.0F));
         this.goalSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (entity) -> {
-            return Math.abs(entity.getY() - this.getY()) <= 4.0D;
-        }));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (entity) -> Math.abs(entity.getY() - this.getY()) <= 4.0D));
     }
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {

@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -23,8 +24,14 @@ public class EntitySabear extends EntityDivineMonster {
     @Override
     protected void registerGoals() {
     	super.registerGoals();
-    	targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EntityMamoth.class, 10, true, true, (entity) -> entity.isBaby()));
+    	targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EntityMamoth.class, 10, true, true, LivingEntity::isBaby));
     }
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return false;
+    }
+
     @Override
     public boolean isAggressive() {
         return true;

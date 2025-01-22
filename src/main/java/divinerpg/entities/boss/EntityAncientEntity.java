@@ -2,7 +2,6 @@ package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineBoss;
 import net.minecraft.sounds.*;
-import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;

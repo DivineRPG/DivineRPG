@@ -4,7 +4,6 @@ import divinerpg.entities.base.*;
 import divinerpg.entities.projectile.bullet.EntitySoulFiendShot;
 import divinerpg.registries.*;
 import net.minecraft.util.*;
-import net.minecraft.world.BossEvent.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;

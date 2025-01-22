@@ -22,7 +22,7 @@ import java.util.List;
 public class EntityRaglok extends EntityDivineBoss {
 
     private int ability;
-    private final int DEFAULT = 0, LIGHTNING = 1, BLIND = 2, BOMBS = 3, SLOW = 4;
+    private static final int DEFAULT = 0, LIGHTNING = 1, BLIND = 2, BOMBS = 3, SLOW = 4;
     private double prevPlayerX, prevPlayerY, prevPlayerZ;
     private int abilityCooldown;
     private boolean loaded = false;
@@ -133,9 +133,8 @@ public class EntityRaglok extends EntityDivineBoss {
 
     private void message() {
         List<Entity> list = this.level().getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
-        for (int var1 = 0; var1 < list.size(); ++var1) {
-            if (list.get(var1) instanceof Player) {
-                Player player = (Player) list.get(var1);
+        for(Entity entity : list) {
+            if(entity instanceof Player player) {
                 switch (ability) {
                     case LIGHTNING:
                         this.playSound(SoundRegistry.RAGLOK_GUARDIAN.get(), 1.0F, 1.0F);

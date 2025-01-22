@@ -35,6 +35,12 @@ public class EntityBlubbertusk extends Animal {
 		lookControl = new SmoothSwimmingLookControl(this, 20);
 //		setMaxUpStep(1F);
 	}
+
+	@Override
+	public boolean checkSpawnObstruction(LevelReader level) {
+		return level.isUnobstructed(this);
+	}
+
 	@Override
 	public boolean hurt(DamageSource source, float f) {
 		if(f > .1F) energy += 500;

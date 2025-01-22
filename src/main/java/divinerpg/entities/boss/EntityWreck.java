@@ -27,11 +27,10 @@ import java.util.List;
 
 public class EntityWreck extends EntityDivineBoss {
 
-    private final int MELEE = 0, ARCANA = 1, RANGED = 2;
-    private final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
+    private static final int MELEE = 0, ARCANA = 1, RANGED = 2;
+    private static final int DEFAULT = 0, CHARGE = 1, PULL = 2, FIRE = 3, BOUNCE = 4, FREEZE = 5, SPEED = 6, EXPLOSIONS = 7, STRENGTH = 8;
 //    private int waitTick;
     private int abilityTimer;
-    private boolean dead = false;
     private boolean loaded = false;
 
     private int ability;
@@ -43,9 +42,9 @@ public class EntityWreck extends EntityDivineBoss {
 
     public void manageAbilities() {
         Player player = this.level().getNearestPlayer(this, 64.0D);
-        if (getHealth() < 1024 / 3) {
+        if (getHealth() < 1024 / 3F) {
             this.setAbilityType(RANGED);
-        } else if (getHealth() < 1024 * 2 / 3 && getHealth() > 1024 / 3) {
+        } else if (getHealth() < 1024 * 2F / 3 && getHealth() > 1024 / 3F) {
             this.setAbilityType(ARCANA);
             this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1);
             this.setSpeed((float) this.getAttribute(Attributes.MOVEMENT_SPEED).getValue());
@@ -123,9 +122,9 @@ public class EntityWreck extends EntityDivineBoss {
         if (this.getAbility() == FIRE) {
             if (player != null) {
                 for (int i = 1; i < 20; ++i) {
-                    int var2 = (int) (((this.blockPosition().getX() - player.blockPosition().getX())) * i) / 5;
-                    int var3 = (int) (((this.blockPosition().getZ() - player.blockPosition().getZ())) * i) / 5;
-                    if (this.level().getBlockState(new BlockPos((int) this.blockPosition().getX() - var2, (int) this.blockPosition().getY(), (int) this.blockPosition().getZ() - var3)) == Blocks.AIR.defaultBlockState()) this.level().setBlock(new BlockPos((int) this.blockPosition().getX() - var2, (int) this.blockPosition().getY(), (int) this.blockPosition().getZ() - var3), Blocks.FIRE.defaultBlockState(), 0);
+                    int var2 = ((this.blockPosition().getX() - player.blockPosition().getX()) * i) / 5;
+                    int var3 = ((this.blockPosition().getZ() - player.blockPosition().getZ()) * i) / 5;
+                    if (this.level().getBlockState(new BlockPos(blockPosition().getX() - var2, blockPosition().getY(), blockPosition().getZ() - var3)) == Blocks.AIR.defaultBlockState()) this.level().setBlock(new BlockPos(blockPosition().getX() - var2, blockPosition().getY(), blockPosition().getZ() - var3), Blocks.FIRE.defaultBlockState(), 0);
                 }
                 this.setAbility(DEFAULT);
             }
@@ -137,13 +136,13 @@ public class EntityWreck extends EntityDivineBoss {
                 abilityTimer = 100;
             }
         }
-        if (!level().isClientSide()) this.performRangedAttack(player);
+        if (!level().isClientSide()) this.performRangedAttack();
     }
 
     private void message() {
         List<Entity> list = level().getEntities(this, this.getBoundingBox().expandTowards(64.0D, 64.0D, 64.0D));
-        for(int var1 = 0; var1 < list.size(); ++var1) {
-            if (list.get(var1) instanceof Player player) {
+        for (Entity entity : list) {
+            if (entity instanceof Player player) {
 
                 switch (this.getAbility()) {
                     case CHARGE:
@@ -154,7 +153,7 @@ public class EntityWreck extends EntityDivineBoss {
                         if (!level().isClientSide()) {
                             player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.pull"), true);
                         }
-                            break;
+                        break;
                     case FIRE:
                         player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.fire"), true);
                         break;
@@ -167,20 +166,20 @@ public class EntityWreck extends EntityDivineBoss {
                     case SPEED:
                         this.playSound(SoundRegistry.WRECK_SPEED.get(), 1.0F, 1.0F);
                         if (!level().isClientSide()) {
-                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.speed"), true);
-                    }
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.speed"), true);
+                        }
                         break;
                     case EXPLOSIONS:
                         this.playSound(SoundRegistry.EXPLOSIONS.get(), 1.0F, 1.0F);
                         if (!level().isClientSide()) {
-                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.explosion"), true);
-                    }
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.explosion"), true);
+                        }
                         break;
                     case STRENGTH:
                         this.playSound(SoundRegistry.WRECK_STRENGTH.get(), 1.0F, 1.0F);
                         if (!level().isClientSide()) {
-                        player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.strength"), true);
-                    }
+                            player.displayClientMessage(LocalizeUtils.getClientSideTranslation("message.wreck.strength"), true);
+                        }
                         break;
                     default:
                         break;
@@ -202,9 +201,7 @@ public class EntityWreck extends EntityDivineBoss {
             loaded = true;
         }
 
-        if (dead) {
-            return;
-        } else {
+        if(isAlive())  {
             Player player = this.level().getNearestPlayer(this, 64.0D);
             if (this.getAbility() == PULL) {
                 if (player != null && !player.isCreative()) {
@@ -243,7 +240,7 @@ public class EntityWreck extends EntityDivineBoss {
         return var4;
     }
 
-    public void performRangedAttack(LivingEntity entity) {
+    public void performRangedAttack() {
         if (!isAlive() || getTarget() == null || level().isClientSide())  return;
         double x = getTarget().getX() - this.getX();
         double z = getTarget().getZ() - this.getZ();

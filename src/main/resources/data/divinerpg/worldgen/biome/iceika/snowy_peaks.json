@@ -49,12 +49,6 @@
 				"weight": 3,
 				"minCount": 1,
 				"maxCount": 2
-			},
-			{
-				"type": "divinerpg:sabear",
-				"weight": 1,
-				"minCount": 1,
-				"maxCount": 1
 			}
 		],
 		"creature": [
@@ -75,6 +69,12 @@
 				"weight": 7,
 				"minCount": 2,
 				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
 			}
 		]
 	},

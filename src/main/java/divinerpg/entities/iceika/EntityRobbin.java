@@ -132,7 +132,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         	setNoGravity(true);
         }
 	}
-    @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return getItemBySlot(EquipmentSlot.MAINHAND).isEmpty();}
+    @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return false;}
     static class RobbinMoveControl extends MoveControl {
     	private int jumpDelay;
     	RobbinMoveControl(EntityRobbin entity) {

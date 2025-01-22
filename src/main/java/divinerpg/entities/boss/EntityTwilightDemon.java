@@ -5,7 +5,6 @@ import divinerpg.entities.projectile.magic.EntityTwilightDemonShot;
 import divinerpg.registries.*;
 
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;

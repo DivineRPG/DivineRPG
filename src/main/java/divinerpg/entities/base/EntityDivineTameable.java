@@ -154,5 +154,5 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     }
 	@Override public AgeableMob getBreedOffspring(ServerLevel s, AgeableMob a) {return null;}
     @Override public boolean canMate(Animal animal) {return false;}
-    @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return !isTame();}
+    @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return false;}
 }

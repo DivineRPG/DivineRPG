@@ -3,7 +3,7 @@
 	"downfall": 0,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
-	"creature_spawn_probability": 0.07,
+	"creature_spawn_probability": 0.99,
 	"effects": {
 		"sky_color": 2267890,
 		"fog_color": 1147854,
@@ -67,12 +67,6 @@
 				"weight": 10,
 				"minCount": 3,
 				"maxCount": 6
-			},
-			{
-				"type": "divinerpg:sabear",
-				"weight": 1,
-				"minCount": 1,
-				"maxCount": 1
 			}
 		],
 		"creature": [
@@ -93,14 +87,18 @@
 				"weight": 2,
 				"minCount": 1,
 				"maxCount": 3
-			}
-		],
-		"water_creature": [
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
+			},
 			{
 				"type": "divinerpg:blubbertusk",
-				"weight": 2,
+				"weight": 9,
 				"minCount": 2,
-				"maxCount": 4
+				"maxCount": 5
 			}
 		],
 		"water_ambient": [
@@ -173,6 +171,7 @@
 			"divinerpg:iceika/globebrush"
 		],
 		[
+			"divinerpg:iceika/snow_coverage",
 			"divinerpg:iceika/hanging_icicle"
 		]
 	]

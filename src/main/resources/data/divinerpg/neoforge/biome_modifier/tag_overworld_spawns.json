@@ -16,7 +16,7 @@
 	  },
 	  {
 	    "type": "divinerpg:the_eye",
-	    "weight": 40,
+	    "weight": 50,
 	    "minCount": 1,
 	    "maxCount": 4
   	  },
@@ -28,13 +28,13 @@
   	  },
   	  {
 	    "type": "divinerpg:enthralled_dramcryx",
-	    "weight": 54,
+	    "weight": 60,
 	    "minCount": 1,
 	    "maxCount": 4
   	  },
   	  {
 	    "type": "divinerpg:the_grue",
-	    "weight": 40,
+	    "weight": 60,
 	    "minCount": 1,
 	    "maxCount": 4
   	  },

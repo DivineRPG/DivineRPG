@@ -39,7 +39,7 @@ public class EntityAridWarrior extends EntityDivineMonster implements RangedAtta
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if(isAlive() && getTarget() != null) {
             ItemStack weapon = getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, (item) -> item instanceof BowItem));
-            ItemStack itemstack1 = getProjectile(weapon);
+            ItemStack itemstack1 = ItemRegistry.shadow_arrow.toStack();
             AbstractArrow abstractarrow = ProjectileUtil.getMobArrow(this, itemstack1, distanceFactor, weapon);
             abstractarrow.setBaseDamage(1.5);
             Item var7 = weapon.getItem();

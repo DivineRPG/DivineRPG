@@ -15,10 +15,7 @@ public class FrozenSlownessEffect extends ArmorEffect {
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
         if(entity.level() instanceof ServerLevel s) {
             List<Mob> entities = s.getEntitiesOfClass(Mob.class, new AABB(entity.position().add(-6, -6, -6), entity.position().add(6, 6, 6)));
-            for(Mob e : entities) {
-                e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1, true, true, false));
-                e.setTicksFrozen(e.getTicksRequiredToFreeze() + 2);
-            }
+            for(Mob e : entities) e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1, true, true, false));
         } return true;
     }
 }

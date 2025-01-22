@@ -7,8 +7,6 @@ import divinerpg.util.WeightedRandom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.BossEvent;
-import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
@@ -21,10 +19,7 @@ import net.minecraft.world.level.Level;
 import java.util.Random;
 
 public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
-    private WeightedRandom<EntityType<? extends EntityDivineMonster>> coriTypePool = new WeightedRandom<>();
-    private ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), BossBarColor.BLUE,
-            BossEvent.BossBarOverlay.PROGRESS);
-//    private int deathTicks;
+    private final WeightedRandom<EntityType<? extends EntityDivineMonster>> coriTypePool = new WeightedRandom<>();
 
     public EntityExperiencedCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
@@ -86,29 +81,6 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
     @Override
     public boolean removeWhenFarAway(double dist) {
         return false;
-    }
-
-    public BossBarColor getBarColor() {
-        return BossBarColor.WHITE;
-    }
-
-    @Override
-    public void startSeenByPlayer(ServerPlayer player) {
-        super.startSeenByPlayer(player);
-        bossInfo.setColor(getBarColor());
-        this.bossInfo.addPlayer(player);
-    }
-
-    @Override
-    public void stopSeenByPlayer(ServerPlayer player) {
-        super.stopSeenByPlayer(player);
-        this.bossInfo.removePlayer(player);
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
     }
 
     @Override

@@ -89,7 +89,7 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
         //movement
         double speed = getAttributeValue(Attributes.FLYING_SPEED);
         setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64D * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64D * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64D * speed);
-        double distanceX = pathfindPos.x - getX(), distanceY = pathfindPos.y- getY(), distanceZ = pathfindPos.z - getZ();
+        double distanceX = pathfindPos.x - getX(), distanceZ = pathfindPos.z - getZ();
         yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
         zza = .5F;
         setYRot(getYRot() + Mth.wrapDegrees((float)(Mth.atan2(getDeltaMovement().z, getDeltaMovement().x) * 180.0 / 3.1415927410125732) - 90.0F - getYRot()));

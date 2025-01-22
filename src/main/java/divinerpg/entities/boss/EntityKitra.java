@@ -6,6 +6,8 @@ import divinerpg.registries.EntityRegistry;
 import divinerpg.registries.DamageRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.*;
@@ -23,11 +25,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
 public class EntityKitra extends EntityWhale implements RangedAttackMob {
-    private final ServerBossEvent bossInfo = new ServerBossEvent(getDisplayName(), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.PROGRESS);
+    private final ServerBossEvent bossInfo = (ServerBossEvent) new ServerBossEvent(getDisplayName(), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.PROGRESS).setCreateWorldFog(true);
     public EntityKitra(EntityType<? extends EntityWhale> type, Level worldIn) {
         super(type, worldIn);
     }
@@ -45,19 +48,25 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;
     }
-    public BossEvent.BossBarColor getBarColor() {
-        return BossEvent.BossBarColor.WHITE;
-    }
     @Override
     public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
-        bossInfo.setColor(getBarColor());
         bossInfo.addPlayer(player);
     }
     @Override
     public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         bossInfo.removePlayer(player);
+    }
+    @Override
+    public void setCustomName(@Nullable Component name) {
+        super.setCustomName(name);
+        bossInfo.setName(getDisplayName());
+    }
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        if(hasCustomName()) bossInfo.setName(getDisplayName());
     }
     @Override
     public void performRangedAttack(LivingEntity entity, float f) {
@@ -83,9 +92,12 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
         }
     }
     @Override
+    protected void customServerAiStep() {
+        bossInfo.setProgress(getHealth() / getMaxHealth());
+    }
+    @Override
     public void tick() {
         super.tick();
-        bossInfo.setProgress(getHealth() / getMaxHealth());
         //Spawn fish around it randomly
         if(!level().isClientSide() && random.nextInt(500) == 0) {
             double x = getX() + (random.nextDouble() - .5) * 8D, y = getY(), z = getZ() + (random.nextDouble() - .5) * 8D;

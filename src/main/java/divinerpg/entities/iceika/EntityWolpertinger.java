@@ -34,6 +34,12 @@ public class EntityWolpertinger extends EntityDivineMonster {
         this.moveControl = new EntityWolpertinger.WolpertingerMoveControl(this);
         this.setSpeedModifier(0.0D);
     }
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return false;
+    }
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));

@@ -4,7 +4,6 @@ import divinerpg.entities.base.*;
 import divinerpg.registries.*;
 
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;

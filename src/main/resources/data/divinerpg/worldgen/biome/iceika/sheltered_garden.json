@@ -3,7 +3,7 @@
 	"downfall": 0,
 	"has_precipitation": false,
 	"temperature_modifier": "frozen",
-	"creature_spawn_probability": 0.07,
+	"creature_spawn_probability": 0.2,
 	"effects": {
 		"sky_color": 7469030,
 		"fog_color": 1362827,

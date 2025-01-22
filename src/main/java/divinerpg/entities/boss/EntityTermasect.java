@@ -4,6 +4,8 @@ import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.entities.projectile.DivineThrownItem;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.Mth;
@@ -17,6 +19,7 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 
@@ -30,7 +33,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
 
     @Override
     protected void registerGoals() {
-        goalSelector.addGoal(2, new NearestAttackableTargetGoal<Player>(this, Player.class, false));
+        goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
         this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 64.0F));
         goalSelector.addGoal(1, new FlyToPlayer(this));
@@ -53,27 +56,25 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
         }
     }
 
-    public BossEvent.BossBarColor getBarColor() {
-        return BossEvent.BossBarColor.BLUE;
+    @Override
+    public void setCustomName(@Nullable Component name) {
+        super.setCustomName(name);
+        bossInfo.setName(getDisplayName());
     }
-
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        if(hasCustomName()) bossInfo.setName(getDisplayName());
+    }
     @Override
     public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
-        bossInfo.setColor(getBarColor());
         this.bossInfo.addPlayer(player);
     }
-
     @Override
     public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         this.bossInfo.removePlayer(player);
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
     }
 
     @Override
@@ -99,6 +100,7 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
     @Override
     public void customServerAiStep() {
         super.customServerAiStep();
+        bossInfo.setProgress(getHealth() / getMaxHealth());
         if (getTarget() != null && this.isAlive() && this.ambientSoundTime % (20 * (10 + random.nextInt(10))) == 0) {
             double tx = getTarget().getX() - this.getX();
             double ty = getTarget().getEyeY() - this.getEyeY();

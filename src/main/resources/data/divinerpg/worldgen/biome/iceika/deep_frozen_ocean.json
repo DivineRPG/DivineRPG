@@ -34,6 +34,12 @@
 		],
 		"creature": [
 			{
+				"type": "divinerpg:blubbertusk",
+				"weight": 8,
+				"minCount": 2,
+				"maxCount": 4
+			},
+			{
 				"type": "minecraft:polar_bear",
 				"weight": 7,
 				"minCount": 1,
@@ -41,12 +47,6 @@
 			}
 		],
 		"water_creature": [
-			{
-				"type": "divinerpg:blubbertusk",
-				"weight": 8,
-				"minCount": 2,
-				"maxCount": 4
-			},
 			{
 				"type": "minecraft:squid",
 				"weight": 6,

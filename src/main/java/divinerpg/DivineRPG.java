@@ -60,9 +60,7 @@ public class DivineRPG {
         bus.register(MenuTypeRegistry.class);
         container.registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, DivineRPG.MODID + "/common.toml");
         container.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC, DivineRPG.MODID + "/client.toml");
-
     }
-
     private void setup(final FMLCommonSetupEvent event) {
         ModCompat.initCommon(event);
         NeoForge.EVENT_BUS.register(new RiveHandler());
@@ -77,6 +75,7 @@ public class DivineRPG {
     private void client(final FMLClientSetupEvent event) {
         ModelPropRegistry.init();
         BlockEntityRegistry.renderTiles();
+        NeoForge.EVENT_BUS.register(new BossBarRenderer());
         NeoForge.EVENT_BUS.register(new EventClientLogin());
         NeoForge.EVENT_BUS.register(new ClientSidedExtraEvents.MusicEvent());
         Utils.loadHatInformation();

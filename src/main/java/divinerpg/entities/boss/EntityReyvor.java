@@ -1,22 +1,15 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.*;
-import divinerpg.entities.projectile.*;
 import divinerpg.entities.projectile.arrows.FuryArrow;
-import divinerpg.entities.projectile.arrows.InfernoArrow;
-import divinerpg.enums.*;
 import divinerpg.registries.*;
 
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
-import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;

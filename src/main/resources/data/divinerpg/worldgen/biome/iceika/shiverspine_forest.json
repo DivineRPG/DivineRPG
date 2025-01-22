@@ -3,7 +3,7 @@
 	"downfall": 0.25,
 	"has_precipitation": true,
 	"temperature_modifier": "frozen",
-	"creature_spawn_probability": 0.07,
+	"creature_spawn_probability": 0.2,
 	"effects": {
 		"sky_color": 8364543,
 		"fog_color": 15269119,
@@ -55,18 +55,6 @@
 				"weight": 3,
 				"minCount": 2,
 				"maxCount": 4
-			},
-			{
-				"type": "divinerpg:seng",
-				"weight": 3,
-				"minCount": 2,
-				"maxCount": 4
-			},
-			{
-				"type": "divinerpg:sabear",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 3
 			}
 		],
 		"creature": [
@@ -83,10 +71,28 @@
 				"maxCount": 3
 			},
 			{
+				"type": "divinerpg:seng",
+				"weight": 3,
+				"minCount": 2,
+				"maxCount": 4
+			},
+			{
 				"type": "divinerpg:robbin",
 				"weight": 5,
 				"minCount": 1,
 				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 1
 			}
 		],
 		"water_ambient": [

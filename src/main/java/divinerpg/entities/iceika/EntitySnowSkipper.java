@@ -24,6 +24,12 @@ public class EntitySnowSkipper extends PathfinderMob {
         setPathfindingMalus(PathType.POWDER_SNOW, 1F);
         setPathfindingMalus(PathType.DANGER_POWDER_SNOW, 1F);
     }
+
+	@Override
+	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+		return false;
+	}
+
 	@Override
 	public boolean checkSpawnObstruction(LevelReader worldIn) {
 		return true;

@@ -4,7 +4,6 @@ import divinerpg.entities.goals.SunstormAttackGoal;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.registries.*;
 import net.minecraft.sounds.*;
-import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;

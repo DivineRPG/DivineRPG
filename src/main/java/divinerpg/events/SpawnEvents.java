@@ -4,21 +4,22 @@ import divinerpg.entities.eden.EntityWeakCori;
 import divinerpg.entities.vanilla.end.EntityEnderTriplets;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.registries.AttachmentRegistry;
-import net.minecraft.core.BlockPos;
+import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.SpawnPlacements.SpawnPredicate;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
 import net.neoforged.neoforge.event.entity.living.MobSpawnEvent.SpawnPlacementCheck.Result;
 
+import javax.annotation.Nullable;
 import java.util.*;
 
 import static divinerpg.registries.EntityRegistry.*;
@@ -52,7 +53,7 @@ public class SpawnEvents {
 		register(e, DIAMOND_DAVE.get(), SpawnType.GROUND, MOB);
 		register(e, EHU.get(), SpawnType.GROUND, MOB);
 		register(e, ENTHRALLED_DRAMCRYX.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityEnthralledDramcryx.enthralledDramcryxSpawnRule(s, p) && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r));
-		register(e, FROST.get(), SpawnType.FLY, MONSTER_AGILE_UNDER_SKY);
+		register(e, FROST.get(), SpawnType.AGILE, MONSTER_AGILE_UNDER_SKY);
 		register(e, GLACON.get(), SpawnType.GROUND, MONSTER);
 		register(e, HUSK.get(), SpawnType.GROUND, MOB);
 		register(e, JACK_O_MAN.get(), SpawnType.GROUND, (en, s, t, p, r) -> checkMobSpawnRules(en, s, t, p, r) && EntityJackOMan.rules(s, p));
@@ -65,7 +66,7 @@ public class SpawnEvents {
 		register(e, LIVESTOCK_MERCHANT.get(), SpawnType.GROUND, MOB);
 		register(e, MINER.get(), SpawnType.GROUND, CAVE_MONSTER);
 		register(e, PUMPKIN_SPIDER.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityKobblin.kobblinSpawnRule(s, p));
-		register(e, RAINBOUR.get(), SpawnType.FLY, DARKNESS_AGILE);
+		register(e, RAINBOUR.get(), SpawnType.AGILE, DARKNESS_AGILE);
 		register(e, ROTATICK.get(), SpawnType.GROUND, DEEPSLATE_MONSTER);
     	register(e, SAGUARO_WORM.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntitySaguaroWorm.saguaroWormSpawnRule(s, p));
 		register(e, SHARK.get(), SpawnType.WATER, DIFFICULTY_FILTER);
@@ -85,18 +86,18 @@ public class SpawnEvents {
 		register(e, ENDER_SPIDER.get(), SpawnType.AGILE, MONSTER_DARKNESS_AGILE);
 		register(e, ENDER_TRIPLETS.get(), SpawnType.FLY, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityEnderTriplets.enderTripletSpawnRule(p));
 		register(e, ENDER_WATCHER.get(), SpawnType.GROUND, MONSTER);
-		register(e, ENDER_SCROUNGE.get(), SpawnType.GROUND, MONSTER);
+		register(e, ENDER_SCROUNGE.get(), SpawnType.GROUND, DARKNESS);
     	//Iceika
 		register(e, CAULDRON_FISH.get(), SpawnType.WATER, ALWAYS);
-		register(e, BLUBBERTUSK.get(), SpawnType.SURFACE, ALWAYS);
-		register(e, DOLOSSAL.get(), SpawnType.WG_SURFACE, MOB);
-		register(e, MAMOTH.get(), SpawnType.WG_SURFACE, MOB);
+		register(e, BLUBBERTUSK.get(), SpawnType.WG_SURFACE, ALWAYS);
+		register(e, DOLOSSAL.get(), SpawnType.WG_SURFACE, ALWAYS);
+		register(e, MAMOTH.get(), SpawnType.WG_SURFACE, ALWAYS);
 		register(e, SNOW_SKIPPER.get(), SpawnType.AGILE, ALWAYS);
 		register(e, PINK_GHOST_GLIDER.get(), SpawnType.WATER, ALWAYS);
-		register(e, SENG.get(), SpawnType.WG_SURFACE, MOB);
-		register(e, SABEAR.get(), SpawnType.WG_SURFACE, MOB);
+		register(e, SENG.get(), SpawnType.WG_SURFACE, ALWAYS);
+		register(e, SABEAR.get(), SpawnType.WG_SURFACE, ALWAYS);
 		register(e, ALICANTO.get(), SpawnType.AGILE, MONSTER);
-		register(e, FRACTITE.get(), SpawnType.FLY, DIFFICULTY_FILTER);
+		register(e, FRACTITE.get(), SpawnType.AGILE, MONSTER_AGILE_UNDER_SKY);
 		register(e, PALE_ARCHER.get(), SpawnType.GROUND, MONSTER);
 		register(e, FROZEN_FLESH.get(), SpawnType.AGILE, MONSTER);
 		register(e, GLACIDE.get(), SpawnType.GROUND, MONSTER);
@@ -106,8 +107,8 @@ public class SpawnEvents {
 		register(e, WORKSHOP_TINKERER.get(), SpawnType.GROUND, MOB);
 		register(e, GROGLIN_HUNTER.get(), SpawnType.GROUND, MOB);
 		register(e, GRUZZORLUG_MINER.get(), SpawnType.GROUND, MOB);
-		register(e, ROBBIN.get(), SpawnType.GROUND, ALWAYS);
-		register(e, WOLPERTINGER.get(), SpawnType.WG_SURFACE, MOB);
+		register(e, ROBBIN.get(), SpawnType.WG_SURFACE, ALWAYS);
+		register(e, WOLPERTINGER.get(), SpawnType.WG_SURFACE, ALWAYS);
 		//Eden
 		register(e, GLINTHOP.get(), SpawnType.GROUND, MOB);
 		register(e, EDEN_CADILLION.get(), SpawnType.GROUND, MONSTER);
@@ -209,6 +210,17 @@ public class SpawnEvents {
 	public static <T extends Entity> void register(RegisterSpawnPlacementsEvent e, EntityType<? extends Entity> t, SpawnType s, SpawnPredicate<T> p) {
 		e.register((EntityType<T>) t, s.placementType, s.heightMap, p, REPLACE);
 	}
+	public static final SpawnPlacementType ON_BLOCK = new SpawnPlacementType() {
+		public boolean isSpawnPositionOk(LevelReader level, BlockPos pos, @Nullable EntityType<?> entityType) {
+			pos = pos.below();
+			return entityType != null && level.getWorldBorder().isWithinBounds(pos) && Block.isFaceFull(level.getBlockState(pos).getCollisionShape(level, pos), Direction.UP);
+		}
+		public BlockPos adjustSpawnPosition(LevelReader level, BlockPos pos) {
+			BlockPos.MutableBlockPos mut = pos.mutable();
+			while(Block.isFaceFull(level.getBlockState(mut).getCollisionShape(level, mut), Direction.UP)) mut.move(Direction.UP);
+			return mut;
+		}
+	};
 	private static final EnumMap<Difficulty, Integer> cancellationChances = new EnumMap<>(Map.of(
 			Difficulty.PEACEFUL, 11,
 			Difficulty.EASY, 6,
@@ -237,10 +249,9 @@ public class SpawnEvents {
 		DARKNESS_AGILE_UNDER_SKY = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && s.canSeeSky(p),
 		MONSTER_DARKNESS_AGILE_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && s.canSeeSky(p);
 	public enum SpawnType {
-		WG_SURFACE(ON_GROUND, WORLD_SURFACE_WG),
-		SURFACE(ON_GROUND, WORLD_SURFACE),
+		WG_SURFACE(ON_BLOCK, WORLD_SURFACE_WG),
 		GROUND(ON_GROUND, MOTION_BLOCKING_NO_LEAVES),
-		AGILE(ON_GROUND, MOTION_BLOCKING),
+		AGILE(ON_BLOCK, MOTION_BLOCKING),
 		FLY(NO_RESTRICTIONS, MOTION_BLOCKING),
 		OCEAN_FLOOR(IN_WATER, Heightmap.Types.OCEAN_FLOOR),
 		WATER(IN_WATER, MOTION_BLOCKING);

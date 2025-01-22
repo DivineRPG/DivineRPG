@@ -1,7 +1,6 @@
 package divinerpg.entities.boss;
 
 import divinerpg.entities.base.EntityDivineBoss;
-import divinerpg.entities.projectile.arrows.InfernoArrow;
 import divinerpg.entities.projectile.arrows.PardimalArrow;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
@@ -30,17 +29,7 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
     }
 
     enum QuadroAbility {
-        RANGED_SLOW(0), RANGED_FAST(1), MELEE_SLOW(2), MELEE_FAST(3);
-
-        private int numVal;
-
-        QuadroAbility(int numVal) {
-            this.numVal = numVal;
-        }
-
-        public int value() {
-            return numVal;
-        }
+        RANGED_SLOW, RANGED_FAST, MELEE_SLOW, MELEE_FAST
     }
 
     @Override
@@ -59,57 +48,55 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
     @Override
     public void tick() {
         super.tick();
-        if (!this.level().isClientSide() && this.getTarget() != null && this.getTarget() instanceof LivingEntity)
+        if(!this.level().isClientSide() && this.getTarget() != null && this.getTarget() instanceof LivingEntity)
             this.performRangedAttack(this.getTarget(), 0);
-        if (this.abilityCooldown <= 0) {
+        if(this.abilityCooldown <= 0) {
             this.ability = getRandomAbility();
             this.abilityCooldown = 500;
             this.rangedAttackCounter = 0;
             this.dir = true;
             int s = this.random.nextInt(9);
             List<Player> players = this.level().getEntitiesOfClass(Player.class, this.getBoundingBox().expandTowards(30, 30, 30));
-            for (Player p : players) {
-
+            for(Player p : players) {
                 SoundEvent sound;
-                String chatMessage;
-                switch (s) {
-                    case 0:
+                String chatMessage = switch(s) {
+                    case 0 -> {
                         sound = SoundRegistry.QUADRO_DIE_BEFORE.get();
-                        chatMessage = "message.quadro.die";
-                        break;
-                    case 1:
+                        yield "message.quadro.die";
+                    }
+                    case 1 -> {
                         sound = SoundRegistry.QUADRO_ENOUGH.get();
-                        chatMessage = "message.quadro.enough";
-                        break;
-                    case 2:
+                        yield "message.quadro.enough";
+                    }
+                    case 2 -> {
                         sound = SoundRegistry.QUADRO_INCOMING_PUNCH.get();
-                        chatMessage = "message.quadro.punch";
-                        break;
-                    case 3:
+                        yield "message.quadro.punch";
+                    }
+                    case 3 -> {
                         sound = SoundRegistry.QUADRO_IS_NEXT.get();
-                        chatMessage = "message.quadro.next";
-                        break;
-                    case 4:
+                        yield "message.quadro.next";
+                    }
+                    case 4 -> {
                         sound = SoundRegistry.QUADRO_KILL_MINE.get();
-                        chatMessage = "message.quadro.mine";
-                        break;
-                    case 5:
+                        yield "message.quadro.mine";
+                    }
+                    case 5 -> {
                         sound = SoundRegistry.QUADRO_MY_KILL.get();
-                        chatMessage = "message.quadro.kill";
-                        break;
-                    case 6:
+                        yield "message.quadro.kill";
+                    }
+                    case 6 -> {
                         sound = SoundRegistry.QUADRO_NO_DIE.get();
-                        chatMessage = "message.quadro.no";
-                        break;
-                    case 7:
+                        yield "message.quadro.no";
+                    }
+                    case 7 -> {
                         sound = SoundRegistry.QUADRO_SIT_DOWN.get();
-                        chatMessage = "message.quadro.sit"; //deserve
-                        break;
-                    default:
+                        yield "message.quadro.sit";
+                    }
+                    default -> {
                         sound = SoundRegistry.QUADRO_TASTE_FIST.get();
-                        chatMessage = "message.quadro.taste";
-                        break;
-                }
+                        yield "message.quadro.taste";
+                    }
+                };
 
                 this.level().playSound(p, p.blockPosition(), sound, SoundSource.HOSTILE, 1.0F, 1.0F);
 
@@ -187,17 +174,12 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
     }
 
     private QuadroAbility getRandomAbility() {
-        switch (this.random.nextInt(4)) {
-            case 0:
-                return QuadroAbility.RANGED_SLOW;
-            case 1:
-                return QuadroAbility.RANGED_FAST;
-            case 2:
-                return QuadroAbility.MELEE_SLOW;
-            case 3:
-                return QuadroAbility.MELEE_FAST;
-            default:
-                return null;
-        }
+        return switch(this.random.nextInt(4)) {
+            case 0 -> QuadroAbility.RANGED_SLOW;
+            case 1 -> QuadroAbility.RANGED_FAST;
+            case 2 -> QuadroAbility.MELEE_SLOW;
+            case 3 -> QuadroAbility.MELEE_FAST;
+            default -> null;
+        };
     }
 }

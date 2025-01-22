@@ -27,12 +27,6 @@
 	"spawners": {
 		"monster": [
 			{
-				"type": "divinerpg:seng",
-				"weight": 2,
-				"minCount": 1,
-				"maxCount": 2
-			},
-			{
 				"type": "divinerpg:pale_archer",
 				"weight": 3,
 				"minCount": 1,
@@ -64,6 +58,12 @@
 			}
 		],
 		"creature": [
+			{
+				"type": "divinerpg:seng",
+				"weight": 2,
+				"minCount": 1,
+				"maxCount": 2
+			},
 			{
 				"type": "minecraft:goat",
 				"weight": 6,

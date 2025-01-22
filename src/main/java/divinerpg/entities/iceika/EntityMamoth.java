@@ -9,8 +9,10 @@ import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -26,6 +28,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -44,6 +47,19 @@ public class EntityMamoth extends Animal implements NeutralMob {
 		setPathfindingMalus(PathType.POWDER_SNOW, -1F);
 		setPathfindingMalus(PathType.DANGER_POWDER_SNOW, -1F);
 	}
+
+	@Override
+	public BlockPos adjustSpawnLocation(ServerLevel level, BlockPos pos) {
+		BlockPos.MutableBlockPos mut = pos.mutable();
+		while(level.getBlockState(mut).is(Blocks.POWDER_SNOW)) mut.move(Direction.UP);
+		return mut;
+	}
+
+	@Override
+	public boolean checkSpawnObstruction(LevelReader level) {
+		return level.isUnobstructed(this, Shapes.create(getBoundingBox().deflate(0.2)));
+	}
+
 	@Override
 	protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));

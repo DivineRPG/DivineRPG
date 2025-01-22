@@ -41,6 +41,11 @@ public class EntityEnderScrounge extends EntityDivineMonster implements NeutralM
     }
 
     @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return false;
+    }
+
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, false));

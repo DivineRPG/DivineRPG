@@ -4,6 +4,7 @@ import divinerpg.entities.base.EntityDivineFlyingMob;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
@@ -18,6 +19,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 
@@ -112,32 +114,28 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
 
     public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
-        if (compound.contains("ExplosionPower", 99)) {
-            this.explosionStrength = compound.getInt("ExplosionPower");
-        }
+        if(compound.contains("ExplosionPower", 99)) explosionStrength = compound.getInt("ExplosionPower");
+        if(hasCustomName()) bossInfo.setName(getDisplayName());
 
     }
-
-
-    public BossEvent.BossBarColor getBarColor() {
-        return BossEvent.BossBarColor.YELLOW;
+    @Override
+    public void setCustomName(@Nullable Component name) {
+        super.setCustomName(name);
+        bossInfo.setName(getDisplayName());
+    }
+    @Override
+    protected void customServerAiStep() {
+        bossInfo.setProgress(getHealth() / getMaxHealth());
     }
     @Override
     public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
-        bossInfo.setColor(getBarColor());
         this.bossInfo.addPlayer(player);
     }
-
     @Override
     public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         this.bossInfo.removePlayer(player);
-    }
-    @Override
-    public void tick() {
-        super.tick();
-        this.bossInfo.setProgress(this.getHealth() / this.getMaxHealth());
     }
     static class FireballAttackGoal extends Goal {
         private final EntityTheWatcher mob;

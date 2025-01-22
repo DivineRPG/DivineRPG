@@ -63,6 +63,6 @@ public class EntityWeakCori extends EntityDivineFlyingMob implements RangedAttac
     }
 
     public static boolean weakCoriSpawnRule(BlockPos pos, RandomSource randomIn) {
-        return pos.getY() > 128 && randomIn.nextBoolean();
+        return pos.getY() > 128;
     }
 }

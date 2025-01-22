@@ -21,13 +21,13 @@ import java.util.*;
 public class EntityKaros extends EntityDivineBoss {
 
     private int ability;
-    private final int DEFAULT = 0, CEILING = 1, CANNONS = 2, FLOOR = 3;
+    private static final int DEFAULT = 0, CEILING = 1, CANNONS = 2, FLOOR = 3;
     private int abilityCooldown;
 
     private boolean hasLoadedBlocks = false;
 
-    private List<BlockPos> ceiling = new ArrayList<BlockPos>();
-    private List<BlockPos> cannons = new ArrayList<BlockPos>();
+    private final List<BlockPos> ceiling = new ArrayList<BlockPos>();
+    private final List<BlockPos> cannons = new ArrayList<BlockPos>();
 
     public EntityKaros(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
@@ -120,7 +120,7 @@ public class EntityKaros extends EntityDivineBoss {
         }
 
 //        int var2;
-        if (ability == CEILING && this.ceiling.size() != 0) {
+        if (ability == CEILING && !ceiling.isEmpty()) {
 //            var2 = this.random.nextInt(46);
             if ((this.abilityCooldown % 8) == 0) {
                 BlockPos currentPos = ceiling.get(this.random.nextInt(ceiling.size()));
@@ -130,7 +130,7 @@ public class EntityKaros extends EntityDivineBoss {
                 }
 
             }
-        } else if (ability == CANNONS && this.cannons.size() != 0) {
+        } else if (ability == CANNONS && !cannons.isEmpty()) {
 //            var2 = this.random.nextInt(36);
             if ((this.abilityCooldown % 4) == 0) {
                 BlockPos currentPos = cannons.get(this.random.nextInt(cannons.size()));
@@ -167,29 +167,24 @@ public class EntityKaros extends EntityDivineBoss {
 //        int s = this.random.nextInt(4);
 
         String langKey;
-        SoundEvent sound;
-
-        switch (random.nextInt(4)) {
-            case 0:
+        SoundEvent sound = switch(random.nextInt(4)) {
+            case 0 -> {
                 langKey = "message.karos.laugh";
-                sound = SoundRegistry.KAROS_LAUGH.get();
-                break;
-
-            case 1:
+                yield SoundRegistry.KAROS_LAUGH.get();
+            }
+            case 1 -> {
                 langKey = "message.karos.doom";
-                sound = SoundRegistry.MEET_DOOM.get();
-                break;
-
-            case 2:
+                yield SoundRegistry.MEET_DOOM.get();
+            }
+            case 2 -> {
                 langKey = "message.karos.cmon";
-                sound = SoundRegistry.TRY_YOUR_BEST.get();
-                break;
-
-            default:
+                yield SoundRegistry.TRY_YOUR_BEST.get();
+            }
+            default -> {
                 langKey = "message.karos.weak";
-                sound = SoundRegistry.YOU_CANT_KILL_ME.get();
-                break;
-        }
+                yield SoundRegistry.YOU_CANT_KILL_ME.get();
+            }
+        };
 
         level().getEntitiesOfClass(Player.class, this.getBoundingBox()
                 .expandTowards(30, 30, 30))

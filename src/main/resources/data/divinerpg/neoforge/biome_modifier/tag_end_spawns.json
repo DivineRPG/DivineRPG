@@ -22,7 +22,7 @@
 	  },
 	  {
 		  "type": "divinerpg:ender_scrounge",
-		  "weight": 40,
+		  "weight": 20,
 		  "minCount": 1,
 		  "maxCount": 3
 	  }
