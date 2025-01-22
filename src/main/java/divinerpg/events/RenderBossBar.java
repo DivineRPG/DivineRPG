@@ -90,8 +90,8 @@ public class RenderBossBar implements LayeredDraw.Layer {
             gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight+1, barLength, barHeight);
             gui.blit(getBossTexture(boss), barDisX, barDisY, 0, 1, healthWidth, barHeight);
         } else {
-            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight, healthWidth, barHeight);
-            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, 0, barLength, barHeight);
+            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight, barLength, barHeight);
+            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, 0, healthWidth, barHeight);
         }
     }
 }
