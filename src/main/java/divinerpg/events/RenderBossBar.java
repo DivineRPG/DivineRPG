@@ -8,6 +8,7 @@ import divinerpg.entities.boss.EntitySunstorm;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.BossHealthOverlay;
 import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -31,17 +32,37 @@ public class RenderBossBar implements LayeredDraw.Layer {
     public void render(GuiGraphics gui, DeltaTracker deltaTracker) {
         Minecraft mc = Minecraft.getInstance();
         if (!mc.options.hideGui && mc.gameMode.getPlayerMode() != GameType.SPECTATOR) {
-            LivingEntity boss = getBossEntity();
-            if (boss != null) {
-                mc.getProfiler().push("boss_bar");
-                ResourceLocation bossTexture = getBossTexture(boss);
-                if (bossTexture != null) {
-                    RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
-                    RenderSystem.setShaderTexture(0, bossTexture);
-                    renderBossHealthBar(gui, boss);
+            // Check if there are any vanilla boss bars being rendered
+            BossHealthOverlay bossHealthOverlay = mc.gui.getBossOverlay();
+            if (bossHealthOverlay.events.size() > 0) {
+                // If more than one boss bar is present, do not render DivineRPG boss bar
+                if (bossHealthOverlay.events.size() > 1) {
+                    return;
                 }
-                mc.getProfiler().pop();
+                // Otherwise, render the DivineRPG boss bar below the vanilla boss bar
+                gui.pose().pushPose();
+                gui.pose().translate(0, 30, 0); // Move DivineRPG boss bar below vanilla boss bar
+                renderDivineRPGBossBar(gui);
+                gui.pose().popPose();
+            } else {
+                // If no vanilla boss bar exists, render the DivineRPG boss bar normally
+                renderDivineRPGBossBar(gui);
             }
+        }
+    }
+
+    private void renderDivineRPGBossBar(GuiGraphics gui) {
+        Minecraft mc = Minecraft.getInstance();
+        LivingEntity boss = getBossEntity();
+        if (boss != null) {
+            mc.getProfiler().push("divinerpg_boss_bar");
+            ResourceLocation bossTexture = getBossTexture(boss);
+            if (bossTexture != null) {
+                RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
+                RenderSystem.setShaderTexture(0, bossTexture);
+                renderBossHealthBar(gui, boss);
+            }
+            mc.getProfiler().pop();
         }
     }
 
@@ -87,7 +108,7 @@ public class RenderBossBar implements LayeredDraw.Layer {
         int healthWidth = (int) (healthPercentage * barLength);
 
         if (boss instanceof EntitySunstorm) {
-            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight+1, barLength, barHeight);
+            gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight + 1, barLength, barHeight);
             gui.blit(getBossTexture(boss), barDisX, barDisY, 0, 1, healthWidth, barHeight);
         } else {
             gui.blit(getBossTexture(boss), barDisX, barDisY, 0, barHeight, barLength, barHeight);
