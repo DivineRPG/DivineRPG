@@ -27,7 +27,7 @@ public class BossBarRenderer {
         Minecraft mc = Minecraft.getInstance();
         String name = event.getBossEvent().getName().getString();
         List<Entity> bosses = mc.level.getEntities(mc.player, mc.player.getBoundingBox().inflate(256, 32, 256), (e) -> e.getName().getString().equals(name));
-        if(bosses != null) for(Entity e : bosses) if(e instanceof EntityDivineBoss) {
+        if(bosses != null) for(Entity e : bosses) if(e instanceof EntityDivineBoss || e instanceof EntityTheWatcher) {
             event.setCanceled(true);
             mc.getProfiler().push("divineBossHealth");
             ResourceLocation[] bossTexture = getBossTextures(e);
