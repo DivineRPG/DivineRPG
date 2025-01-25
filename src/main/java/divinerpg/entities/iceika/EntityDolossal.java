@@ -53,11 +53,6 @@ public class EntityDolossal extends AbstractHorse {
 		getAttribute(Attributes.JUMP_STRENGTH).setBaseValue(generateJumpStrength(random::nextDouble));
 	}
 
-	@Override
-	public boolean canFreeze() {
-		return super.canFreeze();
-	}
-
 	@Override public boolean canMate(Animal animal) {
 		return animal != this && animal instanceof EntityDolossal dol && canParent() && dol.canParent();
 	}

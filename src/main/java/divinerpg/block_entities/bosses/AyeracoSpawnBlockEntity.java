@@ -23,8 +23,6 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
     /**
      * Always should be an empty ctor
      *
-     * @param p_155229_
-     * @param p_155230_
      */
     public AyeracoSpawnBlockEntity(BlockPos p_155229_, BlockState p_155230_) {
         super(BlockEntityRegistry.AYERACO_SPAWN.get(), p_155229_, p_155230_);
@@ -64,7 +62,7 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
             	break;
             case 0:
                 if (!level.isClientSide) {
-                	EntityAyeraco group[] = new EntityAyeraco[6];
+                	EntityAyeraco[] group = new EntityAyeraco[6];
                 	for(byte i = 0; i < 6; i++) group[i] = EntityRegistry.AYERACO.get().create((ServerLevel)level, null, pos, MobSpawnType.MOB_SUMMONED, true, false).setVariant(i);
                 	group[0].setBeamPos(block.blueBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[4], group[5]});
                     group[1].setBeamPos(block.greenBeam).assignGroup(new EntityAyeraco[]{group[0], group[2], group[3], group[4], group[5]});
@@ -94,12 +92,12 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
     public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         this.spawnTick = tag.getInt("spawnTick");
 
-        blueBeam = BlockPos.of(tag.getLong("blueBeam"));
-        greenBeam = BlockPos.of(tag.getLong("greenBeam"));
-        pinkBeam = BlockPos.of(tag.getLong("pinkBeam"));
-        purpleBeam = BlockPos.of(tag.getLong("purpleBeam"));
-        redBeam = BlockPos.of(tag.getLong("redBeam"));
-        yellowBeam = BlockPos.of(tag.getLong("yellowBeam"));
+        if(tag.contains("blueBeam")) blueBeam = BlockPos.of(tag.getLong("blueBeam"));
+        if(tag.contains("greenBeam"))greenBeam = BlockPos.of(tag.getLong("greenBeam"));
+        if(tag.contains("pinkBeam"))pinkBeam = BlockPos.of(tag.getLong("pinkBeam"));
+        if(tag.contains("purpleBeam"))purpleBeam = BlockPos.of(tag.getLong("purpleBeam"));
+        if(tag.contains("redBeam"))redBeam = BlockPos.of(tag.getLong("redBeam"));
+        if(tag.contains("yellowBeam"))yellowBeam = BlockPos.of(tag.getLong("yellowBeam"));
     }
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {

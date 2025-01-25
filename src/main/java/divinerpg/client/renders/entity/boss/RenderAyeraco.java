@@ -21,7 +21,7 @@ public class RenderAyeraco extends RenderDivineMob<EntityAyeraco> {
 	@Override
 	public ResourceLocation getTextureLocation(EntityAyeraco type) {
 		return switch(type.getVariant()) {
-		case 0 -> TEXTURE0;
+		case 6 -> TEXTURE0;
 		case 1 -> TEXTURE1;
 		case 2 -> TEXTURE2;
 		case 3 -> TEXTURE3;

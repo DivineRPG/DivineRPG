@@ -86,9 +86,9 @@ public class EntityRobbin extends EntityDivineFlyingMob {
     	} else {
     		List<ItemEntity> items = level().getEntitiesOfClass(ItemEntity.class, new AABB(-1, -1, -1, 1, 1, 1));
     		if(!items.isEmpty()) {
-    			setMouthPiece(items.get(0).getItem());
+    			setMouthPiece(items.getFirst().getItem());
     			level().playSound(this, targetPos, SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, .5F, 1F);
-    			items.get(0).discard();
+    			items.getFirst().discard();
     		}
     	}
     }
@@ -114,7 +114,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
 			} else {
     			List<Entity> items = level().getEntities(this, new AABB(-5, -5, -5, 5, 5, 5), (entity) -> entity instanceof ItemEntity);
             	if(!items.isEmpty()) {
-            		ItemEntity nearest = (ItemEntity) items.get(0);
+            		ItemEntity nearest = (ItemEntity) items.getFirst();
             		for(Entity e : items) if(distanceTo(e) < distanceTo(nearest)) nearest = (ItemEntity) e;
             		getNavigation().moveTo(nearest, 1D);
             	}
@@ -122,10 +122,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
 		} if(isNoGravity()) {
             tiredTicks++;
         	super.customServerAiStep();
-        	if(onGround()) {
-        		setNoGravity(false);
-        		return;
-        	}
+        	if(onGround()) setNoGravity(false);
         } else if(tiredTicks > 0) tiredTicks--;
         else if(random.nextBoolean()) {
         	setDeltaMovement(getDeltaMovement().add(0D, .2, 0D));

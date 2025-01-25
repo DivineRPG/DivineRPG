@@ -9,6 +9,7 @@ import net.minecraft.sounds.*;
 import net.minecraft.tags.*;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.control.*;
@@ -117,6 +118,10 @@ public class EntityBlubbertusk extends Animal {
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mob) {
 		return EntityRegistry.BLUBBERTUSK.get().create(level);
+	}
+	@Override
+	public boolean isInvulnerableTo(DamageSource source) {
+		return super.isInvulnerableTo(source) || source.is(DamageTypes.DROWN);
 	}
 	@Override
 	public boolean isFood(ItemStack item) {

@@ -5,8 +5,11 @@ import divinerpg.entities.projectile.DivineThrowableProjectile;
 import divinerpg.registries.*;
 import divinerpg.util.WeightedRandom;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
@@ -15,10 +18,12 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
 public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
+    private final ServerBossEvent bossEvent = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
     private final WeightedRandom<EntityType<? extends EntityDivineMonster>> coriTypePool = new WeightedRandom<>();
 
     public EntityExperiencedCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
@@ -44,6 +49,26 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
                 this.level().addFreshEntity(e);
             }
         }
+    }
+    @Override
+    public void setCustomName(@Nullable Component name) {
+        super.setCustomName(name);
+        bossEvent.setName(getDisplayName());
+    }
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        if(hasCustomName()) bossEvent.setName(getDisplayName());
+    }
+    @Override
+    public void startSeenByPlayer(ServerPlayer player) {
+        super.startSeenByPlayer(player);
+        this.bossEvent.addPlayer(player);
+    }
+    @Override
+    public void stopSeenByPlayer(ServerPlayer player) {
+        super.stopSeenByPlayer(player);
+        this.bossEvent.removePlayer(player);
     }
 
     @Override
@@ -86,6 +111,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
     @Override
     public void customServerAiStep() {
         super.customServerAiStep();
+        bossEvent.setProgress(getHealth() / getMaxHealth());
         if (this.isAlive() && this.ambientSoundTime % (20 * (10 + random.nextInt(10))) == 0) {
             BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(getX() + random.nextInt(8), getY(), getZ() + random.nextInt(8));
             EntityType<? extends EntityDivineMonster> selectedCoriType = coriTypePool.selectRandomItem(new Random());

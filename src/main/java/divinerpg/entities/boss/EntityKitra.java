@@ -37,7 +37,7 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, 0.27F, 100, 32));
+        goalSelector.addGoal(0, new RangedAttackGoal(this, 0.27F, 80, 32));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 //    @Override
@@ -78,7 +78,7 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
             e.shoot(dx, dy, dz, 1.5F, 0.8F);
             e.setPos(position().x, position().y + 1.5D, position().z);
             level().addFreshEntity(e);
-            actuallyHurt(damageSources().magic(), 10F);
+            hurt(damageSources().magic(), 10F);
             // Normalize vector
             double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
             dx /= distance;
@@ -137,14 +137,25 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
         int amplifier = random.nextInt(2); // Level 0-1
         return new MobEffectInstance(negativeEffect, duration, amplifier);
     }
+
     @Override
-    public boolean hurt(DamageSource source, float amount) {
-        //Can only be damaged via magic or arcana
-        if (source.is(DamageTypes.MAGIC) || source == level().damageSources().source(DamageRegistry.ARCANA.getKey()) || source.is(DamageTypes.FELL_OUT_OF_WORLD) || source.is(DamageTypes.EXPLOSION) || source.is(DamageTypes.LIGHTNING_BOLT) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.INDIRECT_MAGIC) || source.is(DamageTypes.WITHER)) {
-            return super.hurt(source, amount);
-        } else return false;
+    public boolean isInvulnerableTo(DamageSource source) {
+        return source.is(DamageTypes.MAGIC)
+                || source.is(DamageRegistry.ARCANA.getKey())
+                || source.is(DamageTypes.FELL_OUT_OF_WORLD)
+                || source.is(DamageTypes.EXPLOSION)
+                || source.is(DamageTypes.LIGHTNING_BOLT)
+                || source.is(DamageTypes.DRAGON_BREATH)
+                || source.is(DamageTypes.INDIRECT_MAGIC)
+                || source.is(DamageTypes.WITHER)
+                || source.is(DamageTypes.GENERIC_KILL);
     }
-//    public static class KitraNavigation extends WaterBoundPathNavigation {
+
+    @Override
+    public boolean canBeHitByProjectile() {
+        return true;
+    }
+    //    public static class KitraNavigation extends WaterBoundPathNavigation {
 //    	public KitraNavigation(Mob mob, Level level) {
 //    		super(mob, level);
 //    	}

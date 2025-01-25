@@ -46,10 +46,70 @@
 		],
 		"creature": [
 			{
-				"type": "divinerpg:mamoth",
-				"weight": 1,
+				"type": "divinerpg:blubbertusk",
+				"weight": 5,
+				"minCount": 3,
+				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:dolossal",
+				"weight": 5,
 				"minCount": 2,
-				"maxCount": 5
+				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:mamoth",
+				"weight": 5,
+				"minCount": 2,
+				"maxCount": 4
+			},
+			{
+				"type": "divinerpg:snow_skipper",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:seng",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:sabear",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "divinerpg:robbin",
+				"weight": 6,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "divinerpg:wolpertinger",
+				"weight": 6,
+				"minCount": 1,
+				"maxCount": 3
+			},
+			{
+				"type": "minecraft:goat",
+				"weight": 6,
+				"minCount": 2,
+				"maxCount": 4
+			},
+			{
+				"type": "minecraft:fox",
+				"weight": 3,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
+				"type": "minecraft:polar_bear",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
 			}
 		],
 		"ambient": [

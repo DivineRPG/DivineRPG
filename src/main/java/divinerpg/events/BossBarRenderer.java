@@ -6,11 +6,12 @@ import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.entities.boss.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.*;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent;
 
@@ -25,34 +26,33 @@ public class BossBarRenderer {
     @SubscribeEvent
     public void renderGameOverlayEvent(CustomizeGuiOverlayEvent.BossEventProgress event) {
         Minecraft mc = Minecraft.getInstance();
-        String name = event.getBossEvent().getName().getString();
-        List<Entity> bosses = mc.level.getEntities(mc.player, mc.player.getBoundingBox().inflate(256, 32, 256), (e) -> e.getName().getString().equals(name));
+        Component component = event.getBossEvent().getName();
+        String name = component.getString();
+        List<Entity> bosses = mc.level.getEntities(mc.player, mc.player.getBoundingBox().inflate(256, 64, 256), (e) -> e.getName().getString().equals(name));
         if(bosses != null) for(Entity e : bosses) if(e instanceof EntityDivineBoss || e instanceof EntityTheWatcher) {
             event.setCanceled(true);
-            mc.getProfiler().push("divineBossHealth");
-            ResourceLocation[] bossTexture = getBossTextures(e);
-            drawBar(event, bossTexture[0], bossTexture[1]);
-            mc.getProfiler().pop();
+            ResourceLocation[] bossTextures = getBossTextures(e);
+            drawBar(event, bossTextures[0], bossTextures[1]);
+            ((MutableComponent) component).setStyle(component.getStyle().withBold(true));
+            event.getGuiGraphics().drawString(mc.font, component, (event.getGuiGraphics().guiWidth() >> 1) - (mc.font.width(component) >> 1), event.getY() + 1, 16777215);
             return;
         }
     }
     private ResourceLocation[] getBossTextures(Entity boss) {
         String registryName = BuiltInRegistries.ENTITY_TYPE.getKey(boss.getType()).getPath();
-        if(boss instanceof EntityAyeraco) {
-            String color = getAyeracoColor(((EntityAyeraco) boss).getVariant());
-            registryName = color + "_ayeraco";
-        } else if(boss instanceof EntitySunstorm) return new ResourceLocation[] {SUNSTORM, SUNSTORM_BACKGROUND};
+        if(boss instanceof EntityAyeraco a) registryName = getAyeracoColor(a.getVariant());
+        else if(boss instanceof EntitySunstorm) return new ResourceLocation[] {SUNSTORM, SUNSTORM_BACKGROUND};
         return new ResourceLocation[] {ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, KEY + registryName), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, KEY + registryName + "_background")};
     }
     private String getAyeracoColor(byte variant) {
         return switch(variant) {
-            case 0 -> "blue";
-            case 1 -> "green";
-            case 2 -> "pink";
-            case 3 -> "purple";
-            case 4 -> "red";
-            case 5 -> "yellow";
-            default -> "white";
+            case 6 -> "blue_ayeraco";
+            case 1 -> "green_ayeraco";
+            case 2 -> "pink_ayeraco";
+            case 3 -> "purple_ayeraco";
+            case 4 -> "red_ayeraco";
+            case 5 -> "yellow_ayeraco";
+            default -> "white_ayeraco";
         };
     }
     private void drawBar(CustomizeGuiOverlayEvent.BossEventProgress event, ResourceLocation texture, ResourceLocation background) {

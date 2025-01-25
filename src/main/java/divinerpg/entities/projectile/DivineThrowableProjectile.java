@@ -47,9 +47,12 @@ public class DivineThrowableProjectile extends ThrowableProjectile {
             } discard();
         } else {
             entity.setRemainingFireTicks(i);
-            deflect(ProjectileDeflection.REVERSE, entity, getOwner(), false);
-            setDeltaMovement(getDeltaMovement().scale(.2));
-            if(!level().isClientSide && getDeltaMovement().lengthSqr() < 1.0E-7) discard();
+            if(entity.invulnerableTime > 0) discard();
+            else {
+                deflect(ProjectileDeflection.REVERSE, entity, getOwner(), false);
+                setDeltaMovement(getDeltaMovement().scale(.2));
+                if(!level().isClientSide && getDeltaMovement().lengthSqr() < 1.0E-7) discard();
+            }
         }
     }
     @Override

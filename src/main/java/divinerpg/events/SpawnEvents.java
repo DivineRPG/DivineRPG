@@ -1,10 +1,14 @@
 package divinerpg.events;
 
+import divinerpg.DivineRPG;
 import divinerpg.entities.eden.EntityWeakCori;
 import divinerpg.entities.vanilla.end.EntityEnderTriplets;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.registries.AttachmentRegistry;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -12,7 +16,10 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.SpawnPlacements.SpawnPredicate;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
@@ -28,6 +35,28 @@ import static net.minecraft.world.level.levelgen.Heightmap.Types.*;
 import static net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent.Operation.REPLACE;
 
 public class SpawnEvents {
+	public static final ResourceKey<Biome>
+		BONEYARD = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/boneyard")),
+		BOREALIS_STEEPS = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/borealis_steeps")),
+		CHILL_PASSAGE = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/chill_passage")),
+		CHILLY_CAVERN = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/chilly_cavern")),
+		COZYBARK_FOREST = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/cozybark_forest")),
+		DEEP_FROZEN_OCEAN = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/deep_frozen_ocean")),
+		FRACTAL_FOREST = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/fractal_forest")),
+		FROZEN_MENAGERIE = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/frozen_menagerie")),
+		FROZEN_OCEAN = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/frozen_ocean")),
+		FROZEN_PEAKS = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/frozen_peaks")),
+		GEYSER_PLATEAU = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/geyser_pateau")),
+		GLOWING_DEEP = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/glowing_deep")),
+		ICE_SHEET = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/ice_sheet")),
+		ICE_SPIKES = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/ice_spikes")),
+		MORGUE_MARSH = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/morgue_marsh")),
+		SHELTERED_GARDEN = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/sheltered_garden")),
+		SHIVERSPINE_FOREST = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/shiverspine_forest")),
+		SNOW_BOG = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/snow_bog")),
+		SNOWY_PEAKS = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/snowy_peaks")),
+		THERMAL_VENTS = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/thermal_vents")),
+		TUNDRA = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/tundra"));
 	@SubscribeEvent
 	public static void spawnPlacementCheck(MobSpawnEvent.SpawnPlacementCheck e) {
 		if(e.getLevel() instanceof ServerLevel level) {
@@ -89,13 +118,31 @@ public class SpawnEvents {
 		register(e, ENDER_SCROUNGE.get(), SpawnType.GROUND, DARKNESS);
     	//Iceika
 		register(e, CAULDRON_FISH.get(), SpawnType.WATER, ALWAYS);
-		register(e, BLUBBERTUSK.get(), SpawnType.WG_SURFACE, ALWAYS);
-		register(e, DOLOSSAL.get(), SpawnType.WG_SURFACE, ALWAYS);
-		register(e, MAMOTH.get(), SpawnType.WG_SURFACE, ALWAYS);
-		register(e, SNOW_SKIPPER.get(), SpawnType.AGILE, ALWAYS);
+		register(e, BLUBBERTUSK.get(), SpawnType.WG_SURFACE, (en, s, t, p, r) -> {
+			Holder<Biome> b = s.getBiome(p);
+			return b.is(DEEP_FROZEN_OCEAN) || b.is(FROZEN_OCEAN) || b.is(ICE_SHEET) || b.is(MORGUE_MARSH) || b.is(THERMAL_VENTS);
+		});
+		register(e, DOLOSSAL.get(), SpawnType.WG_SURFACE, (en, s, t, p, r) -> {
+			Holder<Biome> b = s.getBiome(p);
+			return b.is(BOREALIS_STEEPS) || b.is(COZYBARK_FOREST);
+		});
+		register(e, MAMOTH.get(), SpawnType.WG_SURFACE, (en, s, t, p, r) -> {
+			Holder<Biome> b = s.getBiome(p);
+			return b.is(COZYBARK_FOREST) || b.is(GLOWING_DEEP);
+		});
+		register(e, SNOW_SKIPPER.get(), SpawnType.AGILE, (en, s, t, p, r) -> {
+			Holder<Biome> b = s.getBiome(p);
+			return b.is(SNOW_BOG) || b.is(SNOWY_PEAKS);
+		});
 		register(e, PINK_GHOST_GLIDER.get(), SpawnType.WATER, ALWAYS);
-		register(e, SENG.get(), SpawnType.WG_SURFACE, ALWAYS);
-		register(e, SABEAR.get(), SpawnType.WG_SURFACE, ALWAYS);
+		register(e, SENG.get(), SpawnType.WG_SURFACE, (en, s, t, p, r) -> {
+			Holder<Biome> b = s.getBiome(p);
+			return b.is(BOREALIS_STEEPS) || b.is(COZYBARK_FOREST) || b.is(FROZEN_PEAKS) || b.is(ICE_SPIKES) || b.is(SHIVERSPINE_FOREST);
+		});
+		register(e, SABEAR.get(), SpawnType.WG_SURFACE, (en, s, t, p, r) -> {
+			Holder<Biome> b = s.getBiome(p);
+			return b.is(CHILL_PASSAGE) || b.is(FRACTAL_FOREST) || b.is(GEYSER_PLATEAU) || b.is(MORGUE_MARSH) || b.is(SHIVERSPINE_FOREST) || b.is(SNOWY_PEAKS);
+		});
 		register(e, ALICANTO.get(), SpawnType.AGILE, MONSTER);
 		register(e, FRACTITE.get(), SpawnType.AGILE, MONSTER_AGILE_UNDER_SKY);
 		register(e, PALE_ARCHER.get(), SpawnType.GROUND, MONSTER);
@@ -107,8 +154,14 @@ public class SpawnEvents {
 		register(e, WORKSHOP_TINKERER.get(), SpawnType.GROUND, MOB);
 		register(e, GROGLIN_HUNTER.get(), SpawnType.GROUND, MOB);
 		register(e, GRUZZORLUG_MINER.get(), SpawnType.GROUND, MOB);
-		register(e, ROBBIN.get(), SpawnType.WG_SURFACE, ALWAYS);
-		register(e, WOLPERTINGER.get(), SpawnType.WG_SURFACE, ALWAYS);
+		register(e, ROBBIN.get(), SpawnType.WG_SURFACE, (en, s, t, p, r) -> {
+			Holder<Biome> b = s.getBiome(p);
+			return b.is(COZYBARK_FOREST) || b.is(GEYSER_PLATEAU) || b.is(ICE_SPIKES) || b.is(MORGUE_MARSH) || b.is(SHIVERSPINE_FOREST);
+		});
+		register(e, WOLPERTINGER.get(), SpawnType.WG_SURFACE, (en, s, t, p, r) -> {
+			Holder<Biome> b = s.getBiome(p);
+			return b.is(COZYBARK_FOREST) || b.is(FRACTAL_FOREST) || b.is(GEYSER_PLATEAU) || b.is(ICE_SPIKES) || b.is(MORGUE_MARSH) || b.is(SHELTERED_GARDEN) || b.is(SHIVERSPINE_FOREST) || b.is(SNOWY_PEAKS) || b.is(TUNDRA);
+		});
 		//Eden
 		register(e, GLINTHOP.get(), SpawnType.GROUND, MOB);
 		register(e, EDEN_CADILLION.get(), SpawnType.GROUND, MONSTER);
@@ -192,7 +245,7 @@ public class SpawnEvents {
 		register(e, KAZROTIC.get(), SpawnType.GROUND, MONSTER);
 		register(e, LHEIVA.get(), SpawnType.GROUND, MONSTER);
 		register(e, LORGA.get(), SpawnType.GROUND, MONSTER);
-		register(e, LORGA_FLIGHT.get(), SpawnType.FLY, DIFFICULTY_FILTER);
+		register(e, LORGA_FLIGHT.get(), SpawnType.AGILE, DIFFICULTY_FILTER);
 		register(e, MANDRAGORA.get(), SpawnType.AGILE, DIFFICULTY_FILTER);
 		register(e, MYSTERIOUS_MAN_LAYER1.get(), SpawnType.GROUND, MOB);
 		register(e, MYSTERIOUS_MAN_LAYER2.get(), SpawnType.GROUND, MOB);
@@ -213,11 +266,13 @@ public class SpawnEvents {
 	public static final SpawnPlacementType ON_BLOCK = new SpawnPlacementType() {
 		public boolean isSpawnPositionOk(LevelReader level, BlockPos pos, @Nullable EntityType<?> entityType) {
 			pos = pos.below();
-			return entityType != null && level.getWorldBorder().isWithinBounds(pos) && Block.isFaceFull(level.getBlockState(pos).getCollisionShape(level, pos), Direction.UP);
+			BlockState state = level.getBlockState(pos);
+			return entityType != null && level.getWorldBorder().isWithinBounds(pos) && (Block.isFaceFull(state.getCollisionShape(level, pos), Direction.UP) || state.is(Blocks.SNOW)) && !state.is(Blocks.ICE);
 		}
 		public BlockPos adjustSpawnPosition(LevelReader level, BlockPos pos) {
 			BlockPos.MutableBlockPos mut = pos.mutable();
-			while(Block.isFaceFull(level.getBlockState(mut).getCollisionShape(level, mut), Direction.UP)) mut.move(Direction.UP);
+			BlockState state;
+			while(Block.isFaceFull((state = level.getBlockState(mut)).getCollisionShape(level, mut), Direction.UP) || state.is(Blocks.SNOW)) mut.move(Direction.UP);
 			return mut;
 		}
 	};
