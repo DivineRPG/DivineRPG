@@ -2,8 +2,7 @@ package divinerpg.entities.boss;
 
 import divinerpg.entities.projectile.bullet.BoneBomb;
 import divinerpg.entities.vanilla.overworld.EntityWhale;
-import divinerpg.registries.EntityRegistry;
-import divinerpg.registries.DamageRegistry;
+import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
@@ -25,6 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.*;
+import net.minecraft.world.scores.PlayerTeam;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
@@ -40,7 +40,13 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
         goalSelector.addGoal(0, new RangedAttackGoal(this, 0.27F, 80, 32));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-//    @Override
+
+    @Override
+    public Component getDisplayName() {
+        return PlayerTeam.formatNameForTeam(getTeam(), getName()).withStyle((s) -> s.withHoverEvent(createHoverEvent()).withInsertion(getStringUUID()).withBold(true).withColor(0xa4f4f9));
+    }
+
+    //    @Override
 //    protected PathNavigation createNavigation(Level level) {
 //    	return new KitraNavigation(this, level);
 //    }

@@ -30,7 +30,6 @@ public class BossBarRenderer {
             event.setCanceled(true);
             ResourceLocation[] bossTextures = getBossTextures(e);
             drawBar(event, bossTextures[0], bossTextures[1]);
-            ((MutableComponent)component).setStyle(component.getStyle().withBold(true));
             event.getGuiGraphics().drawString(mc.font, component, (event.getGuiGraphics().guiWidth() >> 1) - (mc.font.width(component) >> 1), event.getY() - 4, 16777215);
             return;
         }

@@ -8,6 +8,7 @@ import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.scores.PlayerTeam;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class EntityDivineBoss extends EntityDivineMonster {
@@ -15,6 +16,11 @@ public abstract class EntityDivineBoss extends EntityDivineMonster {
     protected ServerBossEvent bossEvent = new ServerBossEvent(getDisplayName(), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.PROGRESS);
     public EntityDivineBoss(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return PlayerTeam.formatNameForTeam(getTeam(), getName()).withStyle((s) -> s.withHoverEvent(createHoverEvent()).withInsertion(getStringUUID()).withBold(true));
     }
 
     @Override

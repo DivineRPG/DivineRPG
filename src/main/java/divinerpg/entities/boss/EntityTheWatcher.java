@@ -19,6 +19,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
+import net.minecraft.world.scores.PlayerTeam;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
@@ -32,6 +33,10 @@ public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAtt
         super(type, worldIn, 6F, 10F, 25F);
         this.xpReward = 5000;
         this.moveControl = new EntityTheWatcher.MoveHelperController(this);
+    }
+    @Override
+    public Component getDisplayName() {
+        return PlayerTeam.formatNameForTeam(getTeam(), getName()).withStyle((s) -> s.withHoverEvent(createHoverEvent()).withInsertion(getStringUUID()).withBold(true));
     }
 
     @Override
