@@ -140,7 +140,7 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
 
     @Override
     public boolean isInvulnerableTo(DamageSource source) {
-        return source.is(DamageTypes.MAGIC)
+        return super.isInvulnerableTo(source) || !(source.is(DamageTypes.MAGIC)
                 || source.is(DamageRegistry.ARCANA.getKey())
                 || source.is(DamageTypes.FELL_OUT_OF_WORLD)
                 || source.is(DamageTypes.EXPLOSION)
@@ -148,7 +148,7 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
                 || source.is(DamageTypes.DRAGON_BREATH)
                 || source.is(DamageTypes.INDIRECT_MAGIC)
                 || source.is(DamageTypes.WITHER)
-                || source.is(DamageTypes.GENERIC_KILL);
+                || source.is(DamageTypes.GENERIC_KILL));
     }
 
     @Override
