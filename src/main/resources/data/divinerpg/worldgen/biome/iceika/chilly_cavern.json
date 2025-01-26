@@ -11,7 +11,7 @@
 		"grass_color": 11992313,
 		"foliage_color": 12660455,
 		"music": {
-			"sound": "divinerpg:iceika_music",
+			"sound": "divinerpg:caved_core",
 			"min_delay": 6000,
 			"max_delay": 10000,
 			"replace_current_music": false

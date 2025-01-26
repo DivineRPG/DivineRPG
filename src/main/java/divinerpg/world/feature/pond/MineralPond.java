@@ -20,7 +20,7 @@ public class MineralPond extends GlacialPond {
 	protected void genShallow(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		if(random.nextFloat() <= .3F) {
 			boolean b = random.nextBoolean();
-			setBlock(level, pos, (b ? Blocks.AMETHYST_CLUSTER.defaultBlockState() : BlockRegistry.olivineCluster.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.UP).setValue(BlockStateProperties.WATERLOGGED, true)));
+			setBlock(level, pos, (b ? Blocks.AMETHYST_CLUSTER.defaultBlockState() : BlockRegistry.olivineCluster.get().defaultBlockState()).setValue(BlockStateProperties.FACING, Direction.UP).setValue(BlockStateProperties.WATERLOGGED, true));
 			if(random.nextBoolean()) {
 				setBlock(level, pos.below(), (b ? Blocks.AMETHYST_BLOCK.defaultBlockState() : BlockRegistry.olivineBlock.get().defaultBlockState()));
 				return;
@@ -41,7 +41,7 @@ public class MineralPond extends GlacialPond {
 	protected void genEdge(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		if(random.nextFloat() <= .25F) {
 			boolean b = random.nextBoolean();
-			setBlock(level, pos.above(), (b ? Blocks.AMETHYST_CLUSTER.defaultBlockState() : BlockRegistry.olivineCluster.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.UP)));
+			setBlock(level, pos.above(), (b ? Blocks.AMETHYST_CLUSTER.defaultBlockState() : BlockRegistry.olivineCluster.get().defaultBlockState()).setValue(BlockStateProperties.FACING, Direction.UP));
 			if(random.nextBoolean()) {
 				setBlock(level, pos, (b ? Blocks.AMETHYST_BLOCK.defaultBlockState() : BlockRegistry.olivineBlock.get().defaultBlockState()));
 				return;

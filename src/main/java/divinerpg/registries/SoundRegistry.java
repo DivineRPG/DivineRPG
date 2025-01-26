@@ -246,6 +246,7 @@ public class SoundRegistry {
         SNOWFLAKES_AFTER_BLIZZARD_SYNTH = registerSound("snowflakes_after_blizzard_synth"),
         CUP_OF_TEA = registerSound("cup_of_tea"),
         FROZEN_DISPERSION = registerSound("frozen_dispersion"),
+        CAVED_CORE = registerSound("caved_core"),
         CRYSTAL_TEARS = registerSound("crystal_tears"),
         ISOLATION = registerSound("isolation"),
         MD_DESTINY = registerSound("md_destiny"),

@@ -1303,6 +1303,13 @@
   	  "divinerpg:music/frozen_dispersion"
   	]
   },
+  "caved_core": {
+    "category": "music",
+    "stream": true,
+    "sounds": [
+      "divinerpg:music/caved_core"
+    ]
+  },
   "crystal_tears": {
     "category": "music",
     "stream": true,
