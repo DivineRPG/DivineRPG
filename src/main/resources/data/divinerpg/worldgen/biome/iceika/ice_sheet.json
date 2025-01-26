@@ -12,7 +12,7 @@
 		"grass_color": 5875193,
 		"foliage_color": 6919923,
 		"music": {
-			"sound": "divinerpg:isolation",
+			"sound": "divinerpg:frozen_dispersion",
 			"min_delay": 6000,
 			"max_delay": 10000,
 			"replace_current_music": false
