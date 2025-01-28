@@ -95,7 +95,7 @@ ModelRaglok extends EntityModel<EntityRaglok> {
 		.texOffs(195, 25).mirror().addBox(-49.5F, -74.6F, 17.0F, 24.0F, 3.0F, 3.0F, cubedef).mirror(false)
 		.texOffs(195, 25).mirror().addBox(-49.5F, -54.6F, 17.0F, 24.0F, 3.0F, 3.0F, cubedef).mirror(false), PartPose.offsetAndRotation(7.0F, 55.0F, -3.0F, 0.0F, -0.5236F, 0.0F));
 
-		PartDefinition rightarm = partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(381, 0).mirror().addBox(7.6536F, 34.6019F, -1.6029F, 7.0F, 17.0F, 9.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-21.0F, -37.6F, -6.0F, -2.9136F, 0.1298F, 2.8947F));
+		PartDefinition rightarm = partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(381, 0).mirror().addBox(7.6536F, 34.6019F, -1.6029F, 7.0F, 17.0F, 9.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-21.0F, -37.6F, -6.0F, 0, 0.1298F, 2.8947F));
 
 		rightarm.addOrReplaceChild("rightarm3_r1", CubeListBuilder.create().texOffs(126, 2).mirror().addBox(31.5F, -41.0F, -11.0F, 9.0F, 17.0F, 11.0F, cubedef).mirror(false), PartPose.offsetAndRotation(-21.3464F, 63.6019F, 8.3971F, 0.0F, 0.0F, -0.0873F));
 
@@ -110,8 +110,8 @@ ModelRaglok extends EntityModel<EntityRaglok> {
 	public void setupAnim(EntityRaglok entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.leftleg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
         this.rightleg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
-        this.rightarm.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 2.0F * limbSwingAmount * 0.5F - 0.2617994F);
-        this.leftarm.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F + -0.2617994F);
+        this.rightarm.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount - .2618F - 2.9136F);
+        this.leftarm.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount - .2618F);
         this.head.yRot = netHeadYaw / (180F / (float) Math.PI);
         this.head.xRot = headPitch / (180F / (float) Math.PI);
 	}

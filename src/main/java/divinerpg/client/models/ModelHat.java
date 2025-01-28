@@ -21,7 +21,7 @@ public class ModelHat<T extends Player> extends ListModel<T> {
         PartDefinition partdefinition = meshdefinition.getRoot();
         PartDefinition hat = partdefinition.addOrReplaceChild("hat", CubeListBuilder.create().texOffs(0, 0).addBox(-4, -18, -4, 8, 8, 8, CubeDeformation.NONE), PartPose.ZERO);
         hat.addOrReplaceChild("bottom", CubeListBuilder.create().texOffs(32, 0).addBox(-6, -10, -6, 12, 2, 12, CubeDeformation.NONE), PartPose.ZERO);
-        return LayerDefinition.create(meshdefinition, 128, 128);
+        return LayerDefinition.create(meshdefinition, 80, 16);
     }
     @Override public void setupAnim(Player entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
     	hat.yRot = netHeadYaw * Mth.DEG_TO_RAD;

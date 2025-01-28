@@ -9,7 +9,8 @@
     },
     "description": {
       "translate": "advancement.divinerpg.vethea.an_elm_on_nightmare_street.desc"
-    }
+    },
+    "hidden": true
   },
   "criteria": {
     "kill_ent": {

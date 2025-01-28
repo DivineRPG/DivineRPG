@@ -47,20 +47,20 @@ public class ModelGreenfeet extends EntityModel<EntityGreenfeet> {
 		float f = Mth.cos(limbSwing * .6662F) * limbSwingAmount;
 		float f1 = Mth.cos(limbSwing * .6662F + Mth.PI) * limbSwingAmount;
 		Body.zRot = f * .05F;
-		RightLeg.xRot = f * 1.4F;
-		LeftLeg.xRot = f1 * 1.4F;
 		RightArm.xRot = f1;
 		LeftArm.xRot = f;
 		RightArm.yRot = LeftArm.yRot = RightArm.zRot = LeftArm.zRot = 0;
 		AnimationUtils.bobModelPart(RightArm, ageInTicks, 1);
 		AnimationUtils.bobModelPart(LeftArm, ageInTicks, -1);
+		RightLeg.xRot = f * 1.4F;
+		LeftLeg.xRot = f1 * 1.4F;
 		setupAttackAnimation(entity, ageInTicks);
 	}
 	protected ModelPart getArm(HumanoidArm humanoidarm) {return RightArm;}
-	private HumanoidArm getAttackArm(EntityGreenfeet p_102857_) {return p_102857_.getMainArm();}
-	protected void setupAttackAnimation(EntityGreenfeet p_102858_, float p_102859_) {
+	private HumanoidArm getAttackArm(EntityGreenfeet entity) {return entity.getMainArm();}
+	protected void setupAttackAnimation(EntityGreenfeet entity, float ageInTicks) {
 		if(!(attackTime <= 0)) {
-			HumanoidArm humanoidarm = getAttackArm(p_102858_);
+			HumanoidArm humanoidarm = getAttackArm(entity);
 			ModelPart modelpart = getArm(humanoidarm);
 			float f = attackTime;
 			Body.yRot = Mth.sin(Mth.sqrt(f) * Mth.PI * 2) * .2F;

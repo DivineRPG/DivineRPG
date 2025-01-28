@@ -66,7 +66,7 @@ public class ModelQuadro extends EntityModel<EntityQuadro> {
 		body1.addOrReplaceChild("rotated52_r1", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-7.0F, -26.0F, -10.0F, 4.0F, 2.0F, 2.0F, cubedef).mirror(false)
 		.texOffs(40, 16).mirror().addBox(3.0F, -26.0F, -10.0F, 4.0F, 2.0F, 2.0F, cubedef).mirror(false), PartPose.offsetAndRotation(0.0F, 10.9696F, 4.3473F, 0.288F, 0.0F, 0.0F));
 
-		PartDefinition body2 = partdefinition.addOrReplaceChild("body2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.1745F, -1.5708F, 0.0F));
+		PartDefinition body2 = partdefinition.addOrReplaceChild("body2", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.1745F, 0, 0.0F));
 
 		body2.addOrReplaceChild("rotated7_r1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.0F, -37.0F, -11.0F, 8.0F, 8.0F, 8.0F, cubedef).mirror(false)
 		.texOffs(34, 0).mirror().addBox(-3.0F, -30.0F, -8.0F, 6.0F, 12.0F, 4.0F, cubedef).mirror(false)
@@ -87,7 +87,7 @@ public class ModelQuadro extends EntityModel<EntityQuadro> {
 		PartDefinition body3 = partdefinition.addOrReplaceChild("body3", CubeListBuilder.create().texOffs(40, 16).mirror().addBox(-7.0F, -15.0F, -7.7F, 4.0F, 2.0F, 2.0F, cubedef).mirror(false)
 		.texOffs(56, 1).mirror().addBox(-4.0F, -10.0F, -9.0F, 8.0F, 7.0F, 6.0F, cubedef).mirror(false)
 		.texOffs(34, 0).mirror().addBox(-3.0F, -18.0F, -8.0F, 6.0F, 12.0F, 4.0F, cubedef).mirror(false)
-		.texOffs(0, 0).mirror().addBox(-4.0F, -25.0F, -11.0F, 8.0F, 8.0F, 8.0F, cubedef).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.1745F, -3.1416F, 0.0F));
+		.texOffs(0, 0).mirror().addBox(-4.0F, -25.0F, -11.0F, 8.0F, 8.0F, 8.0F, cubedef).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.1745F, 0, 0.0F));
 
 		body3.addOrReplaceChild("rotated34_r1", CubeListBuilder.create().texOffs(61, 28).mirror().addBox(-29.0F, -13.5F, -2.0F, 6.0F, 2.0F, 2.0F, cubedef).mirror(false)
 		.texOffs(61, 28).mirror().addBox(-29.0F, -13.5F, 0.0F, 6.0F, 2.0F, 2.0F, cubedef).mirror(false)
@@ -116,7 +116,7 @@ public class ModelQuadro extends EntityModel<EntityQuadro> {
 		.texOffs(82, 16).mirror().addBox(5.4F, -13.4415F, -15.8112F, 4.0F, 12.0F, 4.0F, cubedef).mirror(false)
 		.texOffs(55, 22).mirror().addBox(-7.0F, -4.4415F, -21.8112F, 2.0F, 2.0F, 8.0F, cubedef).mirror(false)
 		.texOffs(55, 22).mirror().addBox(-7.0F, -4.4415F, -29.8112F, 2.0F, 2.0F, 8.0F, cubedef).mirror(false)
-		.texOffs(55, 22).mirror().addBox(-7.0F, -4.4415F, -37.8112F, 2.0F, 2.0F, 8.0F, cubedef).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, -0.1745F, 1.5708F, 0.0F));
+		.texOffs(55, 22).mirror().addBox(-7.0F, -4.4415F, -37.8112F, 2.0F, 2.0F, 8.0F, cubedef).mirror(false), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, -0.1745F, 0, 0.0F));
 
 		body4.addOrReplaceChild("rotated8_r1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-4.9F, -36.0F, -9.0F, 8.0F, 8.0F, 8.0F, cubedef).mirror(false)
 		.texOffs(34, 0).mirror().addBox(-3.9F, -29.0F, -6.0F, 6.0F, 12.0F, 4.0F, cubedef).mirror(false)
@@ -140,10 +140,10 @@ public class ModelQuadro extends EntityModel<EntityQuadro> {
         	rotate = 0.05F;
         }
         if(ageInSeconds % 16 == 0) {
-        	body1.yRot = 0F;
-        	body2.yRot = 0F;
-        	body3.yRot = 0F;
-        	body4.yRot = 0F;
+        	body1.yRot = 0;
+        	body2.yRot = -1.5708F;
+        	body3.yRot = -3.1416F;
+        	body4.yRot = 1.5708F;
         }else {
         	body1.yRot += rotate;
         	body2.yRot += rotate;

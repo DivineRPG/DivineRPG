@@ -12,7 +12,7 @@ import net.neoforged.api.distmarker.*;
 public class RenderRainbour extends MobRenderer<EntityRainbour, ModelRainbour> {
     private final ResourceLocation
             rainbourLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/rainbour.png"),
-            angryRainbourLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/angry_rainbour.png");
+            angryRainbourLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/rainbour_angry.png");
     public RenderRainbour(Context context) {
         super(context, new ModelRainbour(context), 0.5F);
     }

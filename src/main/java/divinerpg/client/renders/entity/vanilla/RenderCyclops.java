@@ -13,7 +13,7 @@ import static divinerpg.util.ClientUtils.layerHumanoid;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderCyclops extends RenderDivineMob<EntityCyclops> {
-    private final ResourceLocation angryCyclopsLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/angry_cyclops.png");
+    private final ResourceLocation angryCyclopsLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/cyclops_angry.png");
     public RenderCyclops(Context context) {
         super(context, "cyclops", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), 0.8F, 2F);
     }
