@@ -2,15 +2,19 @@ package divinerpg.entities.projectile;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.Fireball;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
+import org.jetbrains.annotations.Nullable;
 
 public class DivineFireball extends Fireball {
 	public byte explosionPower;
@@ -33,6 +37,12 @@ public class DivineFireball extends Fireball {
         super.tick();
         if(tickCount > 200) kill();
     }
+
+    @Override
+    public ProjectileDeflection deflection(Projectile projectile) {
+        return ProjectileDeflection.NONE;
+    }
+
     //Copying LargeFireball code
     protected void onHit(HitResult result) {
     	if(tickCount > 1) {

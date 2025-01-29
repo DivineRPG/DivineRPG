@@ -22,6 +22,10 @@ public class DivineThrowableProjectile extends ThrowableProjectile {
         super(entityType, level);
     }
     @Override
+    public ProjectileDeflection deflection(Projectile projectile) {
+        return ProjectileDeflection.NONE;
+    }
+    @Override
     public void tick() {
         super.tick();
         if(tickCount > 200) discard();
@@ -47,7 +51,7 @@ public class DivineThrowableProjectile extends ThrowableProjectile {
             } discard();
         } else {
             entity.setRemainingFireTicks(i);
-            if(entity.invulnerableTime > 0) discard();
+            if(entity.invulnerableTime > 0 || entity.deflection(this) == ProjectileDeflection.NONE) discard();
             else {
                 deflect(ProjectileDeflection.REVERSE, entity, getOwner(), false);
                 setDeltaMovement(getDeltaMovement().scale(.2));
