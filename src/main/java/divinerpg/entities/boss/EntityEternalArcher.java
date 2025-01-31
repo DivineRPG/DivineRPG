@@ -15,7 +15,7 @@ public class EntityEternalArcher extends EntityDivineBoss {
     private int armSelected;
     private int abilityTick;
 
-    public EntityEternalArcher(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityEternalArcher(EntityType<? extends EntityEternalArcher> type, Level worldIn) {
         super(type, worldIn);
         this.xpReward = 250;
     }

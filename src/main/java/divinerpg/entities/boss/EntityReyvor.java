@@ -17,7 +17,7 @@ import net.minecraft.world.level.Level;
 public class EntityReyvor extends EntityDivineBoss implements RangedAttackMob {
 
 
-    public EntityReyvor(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityReyvor(EntityType<? extends EntityReyvor> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override

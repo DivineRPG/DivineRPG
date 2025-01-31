@@ -16,10 +16,9 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 
 public class EntityLivingStatue extends EntityDivineMonster implements RangedAttackMob {
-    public EntityLivingStatue(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityLivingStatue(EntityType<? extends EntityLivingStatue> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
     @Override
     protected void registerGoals() {

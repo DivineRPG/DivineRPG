@@ -9,10 +9,9 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class EntityRazorback extends EntityDivineMonster {
-    public EntityRazorback(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityRazorback(EntityType<? extends EntityRazorback> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
     @Override
     protected SoundEvent getAmbientSound() {

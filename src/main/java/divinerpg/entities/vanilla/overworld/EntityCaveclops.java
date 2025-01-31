@@ -14,10 +14,9 @@ import net.minecraft.world.level.*;
 import net.neoforged.neoforge.common.Tags.Biomes;
 
 public class EntityCaveclops extends EntityDivineMonster implements RangedAttackMob {
-    public EntityCaveclops(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityCaveclops(EntityType<? extends EntityCaveclops> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {
     	super.registerGoals();

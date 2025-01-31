@@ -16,8 +16,7 @@ import java.util.List;
 
 public class EntityHastreus extends EntityDivineMonster {
     private int attackTick;
-    public EntityHastreus(EntityType<? extends Monster> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean isAggressive() {return true;}
+    public EntityHastreus(EntityType<? extends EntityHastreus> type, Level worldIn) {super(type, worldIn);}
     @Override public void tick() {
     	if(level().getRandom().nextInt(10) == 0) {
             List<Entity> e = level().getEntities(this, new AABB(-25, -16, -25, 25, 16, 25));

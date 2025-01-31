@@ -1,35 +1,15 @@
 package divinerpg.entities.vethea;
 
-import java.util.Random;
-
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.registries.*;
-import net.minecraft.core.BlockPos;
-
+import divinerpg.registries.SoundRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
 
 public class EntityBohemite extends EntityDivineMonster {
-
-    public EntityBohemite(EntityType<? extends Monster> type, Level worldIn) {
-    	super(type, worldIn);
-    }
-    @Override public boolean isAggressive() {return true;}
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundRegistry.BOHEMITE.get();
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.BOHEMITE_HURT.get();
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.BOHEMITE_HURT.get();
-    }
+    public EntityBohemite(EntityType<? extends EntityBohemite> type, Level worldIn) {super(type, worldIn);}
+    @Override protected SoundEvent getAmbientSound() {return SoundRegistry.BOHEMITE.get();}
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.BOHEMITE_HURT.get();}
+    @Override protected SoundEvent getDeathSound() {return SoundRegistry.BOHEMITE_HURT.get();}
 }

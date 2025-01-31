@@ -16,7 +16,7 @@ public class EntityTwilightDemon extends EntityDivineBoss {
 
     int shooting;
 
-    public EntityTwilightDemon(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityTwilightDemon(EntityType<? extends EntityTwilightDemon> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override

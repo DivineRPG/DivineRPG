@@ -10,10 +10,9 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
 public class EntityRoamer extends EntityDivineMonster {
-    public EntityRoamer(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityRoamer(EntityType<? extends EntityRoamer> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
     @Override
     protected float getSoundVolume() {

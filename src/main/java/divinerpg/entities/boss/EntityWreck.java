@@ -36,7 +36,7 @@ public class EntityWreck extends EntityDivineBoss {
     private int ability;
     private int abilityType;
 
-    public EntityWreck(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityWreck(EntityType<? extends EntityWreck> type, Level worldIn) {
         super(type, worldIn);
     }
 

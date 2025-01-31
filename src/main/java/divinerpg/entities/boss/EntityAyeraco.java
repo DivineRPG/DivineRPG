@@ -34,10 +34,10 @@ public class EntityAyeraco extends EntityDivineBoss {
 	private Vec3 moveTargetPoint = Vec3.ZERO;
 	private boolean circling = true;
 	private BlockPos anchorPoint = BlockPos.ZERO;
-	public EntityAyeraco(EntityType<? extends Monster> type, Level level) {
+	public EntityAyeraco(EntityType<? extends EntityAyeraco> type, Level level) {
 		this(type, level, BlockPos.ZERO, null);
 	}
-	public EntityAyeraco(EntityType<? extends Monster> type, Level worldIn, BlockPos beam, EntityAyeraco[] group) {
+	public EntityAyeraco(EntityType<? extends EntityAyeraco> type, Level worldIn, BlockPos beam, EntityAyeraco[] group) {
 		super(type, worldIn);
 		this.beam = beam;
 		moveControl = new AyeracoMoveControl(this);

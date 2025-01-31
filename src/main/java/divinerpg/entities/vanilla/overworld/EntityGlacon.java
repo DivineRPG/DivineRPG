@@ -11,10 +11,9 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
 public class EntityGlacon extends EntityDivineMonster {
-    public EntityGlacon(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityGlacon(EntityType<? extends EntityGlacon> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.GLACIDE.get();

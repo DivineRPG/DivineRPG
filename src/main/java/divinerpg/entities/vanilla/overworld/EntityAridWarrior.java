@@ -19,8 +19,7 @@ import net.minecraft.world.level.*;
 import javax.annotation.Nullable;
 
 public class EntityAridWarrior extends EntityDivineMonster implements RangedAttackMob {
-    public EntityAridWarrior(EntityType<? extends Monster> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean isAggressive() {return true;}
+    public EntityAridWarrior(EntityType<? extends EntityAridWarrior> type, Level worldIn) {super(type, worldIn);}
     @Override protected void registerGoals() {
     	super.registerGoals();
         goalSelector.addGoal(0, new RangedBowAttackGoal<>(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 5, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));

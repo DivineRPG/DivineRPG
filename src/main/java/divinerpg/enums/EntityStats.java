@@ -82,7 +82,7 @@ public enum EntityStats {
     BLUBBERTUSK(35, 4),
     ROBBIN(4, .5),
     SNOW_SKIPPER(6),
-    WOLPERTINGER(12, 2),
+    WOLPERTINGER(12, 3),
     DOLOSSAL(30, 1, 20, .33),
     MAMOTH(40, 8, 20, .2),
     FRACTITE(30),
@@ -163,7 +163,7 @@ public enum EntityStats {
     SKYTHERN_GOLEM(248, 25),
 
     //Mortum
-    ANGRY_GLINTHOP(96, 23),
+    ANGRY_GLINTHOP(96, 12),
     BASILISK(300, 23),
     DEMON_OF_DARKNESS(200, 24),
     MORTUM_CADILLION(165, 26),

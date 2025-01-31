@@ -97,7 +97,6 @@ public class EntitySnowSkipper extends PathfinderMob {
 	public boolean isInvulnerableTo(DamageSource source) {
 		return source.is(DamageTypes.DROWN) || (source.is(DamageTypes.IN_WALL) && level().getBlockState(blockPosition()).is(Blocks.POWDER_SNOW)) || super.isInvulnerableTo(source);
 	}
-	@Override public boolean canFreeze() {return false;}
 	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);

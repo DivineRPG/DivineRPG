@@ -27,12 +27,12 @@ public class EntityGemFin extends AbstractSchoolingFish {
         super.onAddedToLevel();
         if(level().isClientSide()) AttachmentRegistry.VARIANT.requestAttachment(this, null);
     }
-    public void addAdditionalSaveData(CompoundTag compound) {
+    @Override public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putBoolean("HasBeenFed", isFed());
     }
 
-    public void readAdditionalSaveData(CompoundTag compound) {
+    @Override public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         if(compound.contains("HasBeenFed")) setFed(compound.getBoolean("HasBeenFed"));
     }
@@ -55,44 +55,19 @@ public class EntityGemFin extends AbstractSchoolingFish {
         } else if(hasBeenFed && heldItem.getItem() == BlockRegistry.gemOfTheDunes.get().asItem()) return InteractionResult.FAIL;
         else return InteractionResult.PASS;
     }
-
-    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-        return !hasBeenFed;
-    }
-    @Override
-    public void saveToBucketTag(ItemStack stack) {
+    @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return !hasBeenFed;}
+    @Override public void saveToBucketTag(ItemStack stack) {
     	super.saveToBucketTag(stack);
     	CustomData.update(DataComponents.BUCKET_ENTITY_DATA, stack, tag -> {tag.putByte("Variant", getVariant());});
     }
-    public ItemStack getBucketItemStack() {
+    @Override public ItemStack getBucketItemStack() {
         return new ItemStack(ItemRegistry.gem_fin_bucket.get());
     }
-
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.COD_AMBIENT;
-    }
-
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.COD_DEATH;
-    }
-
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.COD_HURT;
-    }
-
-    protected SoundEvent getFlopSound() {
-        return SoundEvents.COD_FLOP;
-    }
-
-    public void setFed(boolean bool) {
-        hasBeenFed = bool;
-    }
-
-    public boolean isFed() {
-        return hasBeenFed;
-    }
-
-    public byte getVariant() {
-        return AttachmentRegistry.VARIANT.get(this);
-    }
+    public void setFed(boolean bool) {hasBeenFed = bool;}
+    public boolean isFed() {return hasBeenFed;}
+    public byte getVariant() {return AttachmentRegistry.VARIANT.get(this);}
+    @Override protected SoundEvent getAmbientSound() {return SoundEvents.COD_AMBIENT;}
+    @Override protected SoundEvent getDeathSound() {return SoundEvents.COD_DEATH;}
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundEvents.COD_HURT;}
+    @Override protected SoundEvent getFlopSound() {return SoundEvents.COD_FLOP;}
 }

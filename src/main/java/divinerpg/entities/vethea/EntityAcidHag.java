@@ -5,15 +5,13 @@ import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class EntityAcidHag extends EntityDivineMonster {
-    public EntityAcidHag(EntityType<? extends Monster> type, Level world) {super(type, world);}
-    @Override public boolean isAggressive() {return true;}
+    public EntityAcidHag(EntityType<? extends EntityAcidHag> type, Level world) {super(type, world);}
     @Override public void tick() {
         super.tick();
         BlockPos current = new BlockPos((int)getX() - 1, (int)getY(), (int)getZ() - 1);

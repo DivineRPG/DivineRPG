@@ -12,7 +12,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
 public class EntityRotatick extends EntityDivineMonster {
-	public EntityRotatick(EntityType<? extends Monster> type, Level level) {
+	public EntityRotatick(EntityType<? extends EntityRotatick> type, Level level) {
         super(type, level);
         if(!level().isClientSide() && random.nextInt(10) == 1) setData(AttachmentRegistry.SPECIAL.attachment, true);
     }
@@ -30,5 +30,4 @@ public class EntityRotatick extends EntityDivineMonster {
     protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.ROTATICK_HURT.get();}
     @Override
     protected SoundEvent getDeathSound() {return SoundRegistry.ROTATICK_HURT.get();}
-    @Override public boolean isAggressive() {return true;}
 }

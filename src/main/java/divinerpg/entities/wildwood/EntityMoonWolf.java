@@ -9,44 +9,19 @@ import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.level.*;
 
 public class EntityMoonWolf extends Wolf {
-
-    public EntityMoonWolf(EntityType<? extends Wolf> type, Level worldIn) {
-        super(type, worldIn);
-    }
-
-    @Override
-    public void setTame(boolean tamed, boolean applyTamingSideEffects) {
+    public EntityMoonWolf(EntityType<? extends EntityMoonWolf> type, Level worldIn) {super(type, worldIn);}
+    @Override public void setTame(boolean tamed, boolean applyTamingSideEffects) {
         super.setTame(tamed, applyTamingSideEffects);
-        if (tamed) {
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(EntityStats.MOON_WOLF.getHealth());
-            this.setHealth((float)EntityStats.MOON_WOLF.getHealth());
-        } else {
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(EntityStats.MOON_WOLF.getHealth());
-        }
-
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(EntityStats.MOON_WOLF.getAttackDamage());
+        if(tamed) {
+            getAttribute(Attributes.MAX_HEALTH).setBaseValue(EntityStats.MOON_WOLF.getHealth());
+            setHealth((float)EntityStats.MOON_WOLF.getHealth());
+        } else getAttribute(Attributes.MAX_HEALTH).setBaseValue(EntityStats.MOON_WOLF.getHealth());
+        getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(EntityStats.MOON_WOLF.getAttackDamage());
     }
-
-    @Override
-    public Wolf getBreedOffspring(ServerLevel level, AgeableMob mob) {
-        return null;
-    }
-
-    @Override
-    public boolean canMate(Animal animal) {
-        return false;
-    }
-
-    @Override
-    public float getWalkTargetValue(BlockPos pos, LevelReader world) {
-        return 0.0F;
-    }
-    @Override
-    public int getMaxSpawnClusterSize() {
-        return 4;
-    }
-    @Override
-    public boolean isMaxGroupSizeReached(int i) {
-        return i > 3;
-    }
+    //TODO: to maybe add baby moon wolves, and fix the issue related to them being breedable with the regular ones (or add a compat)
+    @Override public EntityMoonWolf getBreedOffspring(ServerLevel level, AgeableMob mob) {return null;}
+    @Override public boolean canMate(Animal animal) {return false;}
+    @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
+    @Override public int getMaxSpawnClusterSize() {return 4;}
+    @Override public boolean isMaxGroupSizeReached(int i) {return i > 3;}
 }

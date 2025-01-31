@@ -17,14 +17,13 @@ import static divinerpg.registries.SoundRegistry.*;
 
 public class EntityTheGrue extends EntityDivineMonster {
 	private int attackTick;
-	public EntityTheGrue(EntityType<? extends Monster> type, Level level) {super(type, level);}
+	public EntityTheGrue(EntityType<? extends EntityTheGrue> type, Level level) {super(type, level);}
 	@Override
     protected SoundEvent getAmbientSound() {return DEATHCRYX.get();}
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {return DEATHCRYX_HURT.get();}
     @Override
     protected SoundEvent getDeathSound() {return DEATHCRYX_HURT.get();}
-	@Override public boolean isAggressive() {return true;}
     @Override
 	protected void registerGoals() {
 		super.registerGoals();

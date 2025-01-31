@@ -4,7 +4,6 @@ import divinerpg.entities.goals.EscapeWaterGoal;
 import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -23,40 +22,32 @@ import javax.annotation.Nullable;
 public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
     protected @Nullable Vec3 pathfindPos;
     protected final float preferredHeight, preferredDistance, pathFindDistance;
-    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineMonster> type, Level worldIn) {
+    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
         super(type, worldIn);
-        preferredHeight = 5F;
-        preferredDistance = 8F;
-        pathFindDistance = 14F;
+        preferredHeight = 5;
+        preferredDistance = 8;
+        pathFindDistance = 14;
     }
-    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineMonster> type, Level worldIn, float pathFindDistance) {
+    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn, float pathFindDistance) {
         super(type, worldIn);
-        preferredHeight = 5F;
-        preferredDistance = 8F;
+        preferredHeight = 5;
+        preferredDistance = 8;
         this.pathFindDistance = pathFindDistance;
     }
-    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineMonster> type, Level worldIn, float preferredHeight, float preferredDistance, float pathFindDistance) {
+    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn, float preferredHeight, float preferredDistance, float pathFindDistance) {
         super(type, worldIn);
         this.preferredHeight = preferredHeight;
         this.preferredDistance = preferredDistance;
         this.pathFindDistance = pathFindDistance;
     }
-    @Override
-    protected PathNavigation createNavigation(Level level) {
-    	return new FlyingPathNavigation(this, level);
-    }
-    @Override
-    protected void registerGoals() {
-        targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        goalSelector.addGoal(1, new EscapeWaterGoal(this));
+    @Override protected void registerGoals() {
         if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));
-        if(isAggressive()) {
-            targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true, false));
-        }
+        goalSelector.addGoal(1, new EscapeWaterGoal(this));
+        targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true, false));
+        targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
-    @Override protected boolean shouldDespawnInPeaceful() {return true;}
-    @Override public boolean causeFallDamage(float f, float g, DamageSource d) {return false;}
-    @Override protected void checkFallDamage(double d, boolean b, BlockState s, BlockPos p) {}
+    @Override protected PathNavigation createNavigation(Level level) {return new FlyingPathNavigation(this, level);}
+    @Override protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {}
     @Override public boolean onClimbable() {return false;}
     public void reachTarget() {}
     @Override protected void customServerAiStep() {
@@ -75,27 +66,27 @@ public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
         } //decide where to go next
     	LivingEntity target = getTarget();
         if(pathfindPos == null || blockedPath) {
-            double findX = getX() + ((random.nextFloat() - .5F) * pathFindDistance), findY = getY() + ((random.nextFloat() - .6F) * pathFindDistance), findZ = getZ() + ((random.nextFloat() - .5F) * pathFindDistance);
+            double findX = getX() + ((random.nextFloat() - .5) * pathFindDistance), findY = getY() + ((random.nextFloat() - .6) * pathFindDistance), findZ = getZ() + ((random.nextFloat() - .5) * pathFindDistance);
             if(getNavigation().getPath() != null && !blockedPath) {
             	BlockPos destination = getNavigation().getPath().getTarget();
             	pathfindPos = new Vec3(destination.getX(), destination.getY(), destination.getZ());
             } else if(target != null && !blockedPath) {
                 if(this instanceof RangedAttackMob) {
                     boolean tooclose = distanceTo(target) < preferredDistance;
-                    pathfindPos = new Vec3(findX + (tooclose ? -1D : 1D) * (target.getX() - getX()) / 3D, findY + (target.getY() - getY() + preferredHeight), findZ + (tooclose ? -1D : 1D) * (target.getZ() - getZ()) / 3D);
-                } else pathfindPos = target.position().add(0D, .5, 0D);
+                    pathfindPos = new Vec3(findX + (tooclose ? -1 : 1) * (target.getX() - getX()) / 3, findY + (target.getY() - getY() + preferredHeight), findZ + (tooclose ? -1 : 1) * (target.getZ() - getZ()) / 3);
+                } else pathfindPos = target.position().add(0, .5, 0);
             } else pathfindPos = new Vec3(findX, findY, findZ);
-        } else if(target != null && !(this instanceof RangedAttackMob) && Math.sqrt(target.distanceToSqr(pathfindPos)) > 2D) pathfindPos = target.position().add(0D, .5, 0D);
+        } else if(target != null && !(this instanceof RangedAttackMob) && Math.sqrt(target.distanceToSqr(pathfindPos)) > 2) pathfindPos = target.position().add(0, .5, 0);
         //movement
         double speed = getAttributeValue(Attributes.FLYING_SPEED);
-        setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64D * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64D * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64D * speed);
+        setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64 * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64 * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64 * speed);
         double distanceX = pathfindPos.x - getX(), distanceZ = pathfindPos.z - getZ();
-        yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
+        yHeadRot = Utils.rotlerp(getYRot(), (float)(Mth.atan2(distanceZ, distanceX) * Mth.RAD_TO_DEG) - 90, 90);
         zza = .5F;
-        setYRot(getYRot() + Mth.wrapDegrees((float)(Mth.atan2(getDeltaMovement().z, getDeltaMovement().x) * 180.0 / 3.1415927410125732) - 90.0F - getYRot()));
-        if(Math.sqrt(distanceToSqr(pathfindPos)) < 1D) {
+        setYRot(getYRot() + Mth.wrapDegrees((float)(Mth.atan2(getDeltaMovement().z, getDeltaMovement().x) * Mth.RAD_TO_DEG) - 90 - getYRot()));
+        if(Math.sqrt(distanceToSqr(pathfindPos)) < 1) {
         	pathfindPos = null;
-        	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 1.5F) {
+        	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 1.5) {
         		reachTarget();
         		getNavigation().stop();
         	}

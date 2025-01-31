@@ -13,7 +13,7 @@ import net.minecraft.world.level.*;
 public class EntitySoulFiend extends EntityDivineBoss {
 
 
-    public EntitySoulFiend(EntityType<? extends Monster> type, Level worldIn) {
+    public EntitySoulFiend(EntityType<? extends EntitySoulFiend> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override

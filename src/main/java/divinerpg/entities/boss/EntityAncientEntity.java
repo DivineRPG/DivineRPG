@@ -13,9 +13,9 @@ import net.minecraft.world.level.Level;
 
 public class EntityAncientEntity extends EntityDivineBoss {
 
-    public EntityAncientEntity(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityAncientEntity(EntityType<? extends EntityAncientEntity> type, Level worldIn) {
         super(type, worldIn);
-        this.xpReward = 2000;
+        xpReward = 2000;
     }
 
     @Override
@@ -42,18 +42,8 @@ public class EntityAncientEntity extends EntityDivineBoss {
                 playSound(SoundEvents.IRON_GOLEM_ATTACK, 1.0F, 1.0F);
             }
             return true;
-        }
-        return false;
+        } return false;
     }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.IRON_GOLEM_HURT;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.IRON_GOLEM_DEATH;
-    }
-
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundEvents.IRON_GOLEM_HURT;}
+    @Override protected SoundEvent getDeathSound() {return SoundEvents.IRON_GOLEM_DEATH;}
 }

@@ -23,7 +23,7 @@ public class EntityQuadro extends EntityDivineBoss implements RangedAttackMob {
     private int rangedAttackCounter;
     public boolean dir;
 
-    public EntityQuadro(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityQuadro(EntityType<? extends EntityQuadro> type, Level worldIn) {
         super(type, worldIn);
         this.ability = getRandomAbility();
     }

@@ -15,7 +15,7 @@ import net.minecraft.world.level.Level;
 
 public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob {
 
-    public EntitySunstorm(EntityType<? extends Monster> type, Level worldIn) {
+    public EntitySunstorm(EntityType<? extends EntitySunstorm> type, Level worldIn) {
         super(type, worldIn);
         this.xpReward = 1000;
     }

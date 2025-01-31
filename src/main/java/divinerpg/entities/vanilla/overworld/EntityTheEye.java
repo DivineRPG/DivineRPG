@@ -19,12 +19,11 @@ import net.minecraft.world.phys.Vec3;
 import static divinerpg.registries.SoundRegistry.*;
 
 public class EntityTheEye extends EntityDivineMonster {
-	public EntityTheEye(EntityType<? extends Monster> type, Level level) {super(type, level);}
+	public EntityTheEye(EntityType<? extends EntityTheEye> type, Level level) {super(type, level);}
 	@Override protected SoundEvent getAmbientSound() {return THE_EYE.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return THE_EYE_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return THE_EYE_HURT.get();}
     @Override protected void playStepSound(BlockPos pos, BlockState state) {}
-    @Override public boolean isAggressive() {return true;}
     @Override public boolean isSteppingCarefully() {return true;}
 
     @Override

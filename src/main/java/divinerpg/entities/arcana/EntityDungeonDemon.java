@@ -13,10 +13,9 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
 public class EntityDungeonDemon extends EntityDivineMonster {
-    public EntityDungeonDemon(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityDungeonDemon(EntityType<? extends EntityDungeonDemon> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
     @Override
     protected SoundEvent getAmbientSound() {

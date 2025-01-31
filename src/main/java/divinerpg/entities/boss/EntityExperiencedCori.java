@@ -27,9 +27,9 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
     private final ServerBossEvent bossEvent = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
     private final WeightedRandom<EntityType<? extends EntityDivineMonster>> coriTypePool = new WeightedRandom<>();
 
-    public EntityExperiencedCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
+    public EntityExperiencedCori(EntityType<? extends EntityExperiencedCori> type, Level worldIn) {
         super(type, worldIn);
-        this.xpReward=2000;
+        xpReward=2000;
         coriTypePool.addItem(EntityRegistry.WEAK_CORI.get(), 4);
         coriTypePool.addItem(EntityRegistry.ADVANCED_CORI.get(), 1);
     }
@@ -74,11 +74,6 @@ public class EntityExperiencedCori extends EntityDivineFlyingMob implements Rang
     public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         this.bossEvent.removePlayer(player);
-    }
-
-    @Override
-    public boolean isAggressive() {
-        return true;
     }
 
     @Override

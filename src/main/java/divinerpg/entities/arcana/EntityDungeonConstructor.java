@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 public class EntityDungeonConstructor extends EntityDivineMonster {
 	
-	public EntityDungeonConstructor(EntityType<? extends Monster> type, Level worldIn) {
+	public EntityDungeonConstructor(EntityType<? extends EntityDungeonConstructor> type, Level worldIn) {
         super(type, worldIn);
     }
 //	@Override
@@ -20,7 +20,6 @@ public class EntityDungeonConstructor extends EntityDivineMonster {
 //		return 1F;
 //	}
     @Override public boolean fireImmune() {return true;}
-    @Override public boolean isAggressive() {return true;}
     @Override
     public void tick() {
         if (this.getTarget() != null) {

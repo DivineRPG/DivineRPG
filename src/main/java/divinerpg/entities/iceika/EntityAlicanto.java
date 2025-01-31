@@ -23,10 +23,6 @@ public class EntityAlicanto extends EntityDivineFlyingMob {
         super.setTarget(entity != null && entity instanceof EntityKitra ? null : entity);
     }
     @Override
-    public boolean isAggressive() {
-        return true;
-    }
-    @Override
     public void addAdditionalSaveData(CompoundTag p_33353_) {
         super.addAdditionalSaveData(p_33353_);
         p_33353_.putInt("AttackTick", this.attackTick);

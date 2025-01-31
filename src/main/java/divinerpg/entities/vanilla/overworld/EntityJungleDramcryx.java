@@ -11,11 +11,8 @@ import net.minecraft.world.level.*;
 
 public class EntityJungleDramcryx extends EntityDivineMonster {
 
-    public EntityJungleDramcryx(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityJungleDramcryx(EntityType<? extends EntityJungleDramcryx> type, Level worldIn) {
         super(type, worldIn);
-    }
-    @Override public boolean isAggressive() {
-        return true;
     }
 
     @Override

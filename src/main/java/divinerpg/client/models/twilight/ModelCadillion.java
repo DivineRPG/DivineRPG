@@ -1,7 +1,7 @@
 package divinerpg.client.models.twilight;
 
 import com.mojang.blaze3d.vertex.*;
-import divinerpg.entities.base.EntityCadillion;
+import divinerpg.entities.base.EntityBaseCadillion;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
@@ -10,7 +10,7 @@ import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelCadillion extends EntityModel<EntityCadillion> {
+public class ModelCadillion extends EntityModel<EntityBaseCadillion> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("cadillion");
 	public final ModelPart Body, Head, RightEar, LeftEar, FrontRightLeg, FrontLeftLeg, BackRightLeg, BackLeftLeg;
 	public ModelCadillion(EntityRendererProvider.Context context) {
@@ -44,7 +44,7 @@ public class ModelCadillion extends EntityModel<EntityCadillion> {
 		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(0, 31).addBox(-2, 0, -2, 4, 11, 4, cubeDef), PartPose.offset(3, 12.99F, 8));
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
-	@Override public void setupAnim(EntityCadillion entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	@Override public void setupAnim(EntityBaseCadillion entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		Head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
         Head.xRot = headPitch * Mth.DEG_TO_RAD;
 		float f = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;

@@ -29,7 +29,7 @@ public class EntityRaglok extends EntityDivineBoss {
     private int rangedAttackCounter;
     private boolean avengeAbilityUsed = false;
 
-    public EntityRaglok(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityRaglok(EntityType<? extends EntityRaglok> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override

@@ -6,28 +6,20 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 
-public class EntityCadillion extends EntityDivineMonster {
+public class EntityBaseCadillion extends EntityDivineMonster {
     private int chargeTime, ramCooldown;
     private boolean isCharging;
-    public EntityCadillion(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityBaseCadillion(EntityType<? extends EntityBaseCadillion> type, Level worldIn) {
         super(type, worldIn);
-        chargeTime = 0;
-        isCharging = false;
-        ramCooldown = 0;
+        chargeTime = ramCooldown = 0;
+        isCharging = followingTarget = false;
     }
-    @Override public boolean isAggressive() {return true;}
-    @Override protected SoundEvent getAmbientSound() {return SoundRegistry.CADILLION.get();}
-    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}
-    @Override protected SoundEvent getDeathSound() {return SoundRegistry.GROWL_HURT.get();}
-    @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
     @Override public void aiStep() {
         super.aiStep();
-        if(level().isClientSide()) return;
+        if(level().isClientSide) return;
         if(ramCooldown > 0) ramCooldown--;
         if(getTarget() != null) {
             if(isCharging) {
@@ -44,8 +36,7 @@ public class EntityCadillion extends EntityDivineMonster {
                         double motionX = (dx / distance) * speed;
                         double motionZ = (dz / distance) * speed;
                         setDeltaMovement(motionX, 0, motionZ);
-                    }
-                    chargeTime = 0;
+                    } chargeTime = 0;
                     isCharging = false;
                     ramCooldown = 1200;
                 }
@@ -62,8 +53,8 @@ public class EntityCadillion extends EntityDivineMonster {
             if(nearestPlayer != null && !nearestPlayer.isCreative()) getNavigation().moveTo(nearestPlayer, 1);
         }
     }
-    @Override protected void registerGoals() {
-        super.registerGoals();
-        goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
-    }
+    @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
+    @Override protected SoundEvent getAmbientSound() {return SoundRegistry.CADILLION.get();}
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}
+    @Override protected SoundEvent getDeathSound() {return SoundRegistry.GROWL_HURT.get();}
 }

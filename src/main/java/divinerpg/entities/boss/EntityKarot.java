@@ -17,7 +17,7 @@ public class EntityKarot extends EntityDivineBoss {
 
     private int spawnTick;
 
-    public EntityKarot(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityKarot(EntityType<? extends EntityKarot> type, Level worldIn) {
         super(type, worldIn);
         spawnTick=240;
     }

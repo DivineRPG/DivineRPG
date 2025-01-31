@@ -13,10 +13,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public class EntityFractite extends EntityDivineFlyingMob implements RangedAttackMob {
-    public EntityFractite(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
+    public EntityFractite(EntityType<? extends EntityFractite> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {
         super.registerGoals();

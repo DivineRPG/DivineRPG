@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAttackMob {
-    public EntityKingOfScorchers(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityKingOfScorchers(EntityType<? extends EntityKingOfScorchers> type, Level worldIn) {
         super(type, worldIn);
     }
 

@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 
 public class EntitySeng extends EntityDivineMonster {
 
-    public EntitySeng(EntityType<? extends Monster> type, Level worldIn) {
+    public EntitySeng(EntityType<? extends EntitySeng> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override
@@ -26,7 +26,6 @@ public class EntitySeng extends EntityDivineMonster {
         return false;
     }
 
-    @Override public boolean isAggressive() {return true;}
     @Override
     public int getMaxSpawnClusterSize() {
     	return 3;

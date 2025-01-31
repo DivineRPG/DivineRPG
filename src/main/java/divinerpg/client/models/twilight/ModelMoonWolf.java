@@ -17,10 +17,10 @@ public class ModelMoonWolf extends EntityModel<EntityMoonWolf> {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		Body = root.getChild("Body");
 		Head = root.getChild("Head");
-		BackRightLeg = root.getChild("BackRightLeg");
-		BackLeftLeg = root.getChild("BackLeftLeg");
 		FrontRightLeg = root.getChild("FrontRightLeg");
 		FrontLeftLeg = root.getChild("FrontLeftLeg");
+		BackRightLeg = root.getChild("BackRightLeg");
+		BackLeftLeg = root.getChild("BackLeftLeg");
 		Tail = root.getChild("Tail");
 	}
 	public static LayerDefinition createBodyLayer() {
@@ -36,10 +36,10 @@ public class ModelMoonWolf extends EntityModel<EntityMoonWolf> {
 		Head.addOrReplaceChild("Hair_r1", CubeListBuilder.create().texOffs(0, 31).addBox(-2, -20.5F, -1, 4, 4, 6, cubeDef), PartPose.offsetAndRotation(0, 14, 5, .3491F, 0, 0));
 		Body.addOrReplaceChild("BodyBase", CubeListBuilder.create().texOffs(0, 44).addBox(-3, -6, -6.01F, 6, 6, 0, cubeDef)
 		.texOffs(0, 0).addBox(-3, -6, -6, 6, 6, 12, cubeDef), zPose);
-		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
-		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(20, 18).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
 		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(24, 0).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
 		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(26, 27).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(20, 18).addBox(-1, 0, -1, 2, 9, 2, cubeDef), zPose);
 		PartDefinition Tail = partdefinition.addOrReplaceChild("Tail", CubeListBuilder.create(), zPose);
 		PartDefinition LeftTail = Tail.addOrReplaceChild("LeftTail", CubeListBuilder.create(), PartPose.offset(0, 1, 2));
 		LeftTail.addOrReplaceChild("LeftTail_r1", CubeListBuilder.create().texOffs(48, -8).addBox(1, -7, -1, 0, 8, 8, cubeDef), PartPose.rotation(.384F, .2007F, .1658F));
@@ -47,10 +47,10 @@ public class ModelMoonWolf extends EntityModel<EntityMoonWolf> {
 		RightTail.addOrReplaceChild("RightTail_r1", CubeListBuilder.create().texOffs(48, 2).addBox(-1, -7, -1, 0, 8, 8, cubeDef), PartPose.rotation(.384F, -.2007F, -.1658F));
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
-	@Override public void prepareMobModel(EntityMoonWolf entity, float limbSwing, float limbSwingAmount, float p_102617_) {
-		Head.zRot = entity.getHeadRollAngle(p_102617_) + entity.getBodyRollAngle(p_102617_, 0);
-		Body.zRot = entity.getBodyRollAngle(p_102617_, -.16F);
-		Tail.zRot = entity.getBodyRollAngle(p_102617_, -.2F);
+	@Override public void prepareMobModel(EntityMoonWolf entity, float limbSwing, float limbSwingAmount, float partialTicks) {
+		Head.zRot = entity.getHeadRollAngle(partialTicks) + entity.getBodyRollAngle(partialTicks, 0);
+		Body.zRot = entity.getBodyRollAngle(partialTicks, -.16F);
+		Tail.zRot = entity.getBodyRollAngle(partialTicks, -.2F);
 	}
 	@Override public void setupAnim(EntityMoonWolf entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		float f = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;

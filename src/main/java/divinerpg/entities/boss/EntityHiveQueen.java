@@ -16,7 +16,7 @@ public class EntityHiveQueen extends EntityDivineBoss {
     private int spawnTick;
     //private int deathTicks;
 
-    public EntityHiveQueen(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityHiveQueen(EntityType<? extends EntityHiveQueen> type, Level worldIn) {
         super(type, worldIn);
         spawnTick=80;
     }

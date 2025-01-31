@@ -20,7 +20,7 @@ import javax.annotation.*;
 public class EntityKobblin extends EntityDivineMonster {
     private static final EntityDataAccessor<Boolean> PROVOKED = SynchedEntityData.defineId(EntityKobblin.class, EntityDataSerializers.BOOLEAN);
 
-    public EntityKobblin(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityKobblin(EntityType<? extends EntityKobblin> type, Level worldIn) {
         super(type, worldIn);
     }
 

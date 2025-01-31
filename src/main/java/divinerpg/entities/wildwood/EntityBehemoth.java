@@ -2,40 +2,23 @@ package divinerpg.entities.wildwood;
 
 import divinerpg.entities.goals.EntityBehemothEatWood;
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.registries.*;
+import divinerpg.registries.SoundRegistry;
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.*;
 
 public class EntityBehemoth extends EntityDivineMonster {
-    public EntityBehemoth(EntityType<? extends Monster> type, Level worldIn) {
-        super(type, worldIn);
-    }
-    @Override public boolean isAggressive() {return true;}
-    @Override
-    protected void registerGoals() {
+    public EntityBehemoth(EntityType<? extends EntityBehemoth> type, Level worldIn) {super(type, worldIn);}
+    @Override protected void registerGoals() {
+        //TODO: this goal doesn't seem to work
+        goalSelector.addGoal(4, new EntityBehemothEatWood(this));
     	super.registerGoals();
-        goalSelector.addGoal(1, new EntityBehemothEatWood(this));
     }
-    @Override
-    protected float getSoundVolume() {
-        return 0.7F;
-    }
-
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundRegistry.ENDIKU.get();
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.ENDIKU_HURT.get();
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.ENDIKU_HURT.get();
-    }
+    @Override protected float getSoundVolume() {return .7F;}
+    @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
+    @Override protected SoundEvent getAmbientSound() {return SoundRegistry.ENDIKU.get();}
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.ENDIKU_HURT.get();}
+    @Override protected SoundEvent getDeathSound() {return SoundRegistry.ENDIKU_HURT.get();}
 }

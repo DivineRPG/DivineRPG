@@ -1,13 +1,9 @@
 package divinerpg.entities.wildwood;
 
-import divinerpg.entities.base.EntityTomo;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
+import divinerpg.entities.base.EntityBaseTomo;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
-public class EntityWildwoodTomo extends EntityTomo {
-
-    public EntityWildwoodTomo(EntityType<? extends Monster> type, Level worldIn) {
-        super(type, worldIn);
-    }
+public class EntityWildwoodTomo extends EntityBaseTomo {
+    public EntityWildwoodTomo(EntityType<? extends EntityWildwoodTomo> type, Level worldIn) {super(type, worldIn);}
 }

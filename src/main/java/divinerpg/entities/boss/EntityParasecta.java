@@ -16,7 +16,7 @@ public class EntityParasecta extends EntityDivineBoss {
 
     private BlockPos currentFlightTarget;
 
-    public EntityParasecta(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityParasecta(EntityType<? extends EntityParasecta> type, Level worldIn) {
         super(type, worldIn);
     }
 

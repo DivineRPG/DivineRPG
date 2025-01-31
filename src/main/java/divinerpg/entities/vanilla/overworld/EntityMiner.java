@@ -45,14 +45,10 @@ public class EntityMiner extends EntityDivineMonster {
     };
     private final Random random = new Random();
 
-    public EntityMiner(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityMiner(EntityType<? extends EntityMiner> type, Level worldIn) {
         super(type, worldIn);
     }
 
-    @Override
-    public boolean isAggressive() {
-        return true;
-    }
 
     @Override
     protected void registerGoals() {

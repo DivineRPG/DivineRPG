@@ -7,19 +7,18 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 import javax.annotation.Nullable;
 
 public class EntityEnchantedWarrior extends EntityDivineMonster {
-    public EntityEnchantedWarrior(EntityType<? extends Monster> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean isAggressive() {return true;}
+    public EntityEnchantedWarrior(EntityType<? extends EntityEnchantedWarrior> type, Level worldIn) {super(type, worldIn);}
     @Override public int getArmorValue() {return 10;}
     @Override protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
         setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.apalachia_blade.get()));
         super.populateDefaultEquipmentSlots(random, difficulty);
     }
+    @SuppressWarnings("deprecation")
     @Nullable
     @Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
         RandomSource random = level.getRandom();

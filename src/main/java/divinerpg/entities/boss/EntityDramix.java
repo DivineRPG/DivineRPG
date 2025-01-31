@@ -11,7 +11,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class EntityDramix extends EntityDivineBoss {
-    public EntityDramix(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityDramix(EntityType<? extends EntityDramix> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override

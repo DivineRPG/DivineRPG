@@ -6,24 +6,18 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 
 public class EntityGreenfeet extends EntityDivineMonster {
 
-    public EntityGreenfeet(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityGreenfeet(EntityType<? extends EntityGreenfeet> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
-    }
-
-    @Override
-    public boolean isAggressive() {
-        return true;
     }
 
     @Override

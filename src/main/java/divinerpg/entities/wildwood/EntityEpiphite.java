@@ -1,60 +1,30 @@
 package divinerpg.entities.wildwood;
 
-import divinerpg.entities.base.EntityPeacefulUntilAttacked;
+import divinerpg.entities.base.EntityDivineNeutral;
 import divinerpg.registries.SoundRegistry;
-import net.minecraft.world.damagesource.*;
-import net.minecraft.world.entity.LightningBolt;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 
-public class EntityEpiphite extends EntityPeacefulUntilAttacked {
+import static net.minecraft.world.damagesource.DamageTypes.LIGHTNING_BOLT;
 
-    public EntityEpiphite(EntityType<? extends Monster> type, Level worldIn) {
-        super(type, worldIn);
-    }
-    @Override
-    public boolean fireImmune() {
-        return true;
-    }
-
-    @Override
-    public boolean hurt(DamageSource source, float amount) {
-        if(source.is(DamageTypes.LIGHTNING_BOLT)) return false;
+public class EntityEpiphite extends EntityDivineNeutral {
+    public EntityEpiphite(EntityType<? extends EntityEpiphite> type, Level worldIn) {super(type, worldIn);}
+    @Override public boolean fireImmune() {return true;}
+    @Override public boolean hurt(DamageSource source, float amount) {
+        if(source.is(LIGHTNING_BOLT)) return false;
         return super.hurt(source, amount);
     }
-
-    @Override
-    public boolean doHurtTarget(Entity entity) {
-        if(random.nextInt(5) == 0) {
+    @Override public boolean doHurtTarget(Entity target) {
+        boolean attack = super.doHurtTarget(target);
+        if(attack & random.nextInt(5) == 0) {
             LightningBolt bolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level());
-            bolt.setPos(entity.getX(), entity.getY(), entity.getZ());
-            if (level().isClientSide()) {
-                level().addFreshEntity(bolt);
-            }
-        }
-        return super.doHurtTarget(entity);
+            bolt.setPos(target.getX(), target.getY(), target.getZ());
+            if(!level().isClientSide) level().addFreshEntity(bolt);
+        } return attack;
     }
-
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundRegistry.GROWL.get();
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.GROWL_HURT.get();
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.GROWL_HURT.get();
-    }
-
-    @Override
-    public float getWalkTargetValue(BlockPos pos, LevelReader world) {
-        return 0.0F;
-    }
+    @Override protected SoundEvent getAmbientSound() {return SoundRegistry.GROWL.get();}
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}
+    @Override protected SoundEvent getDeathSound() {return SoundRegistry.GROWL_HURT.get();}
 }

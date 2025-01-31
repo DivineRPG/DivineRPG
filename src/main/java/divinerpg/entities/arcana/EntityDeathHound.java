@@ -11,10 +11,9 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
 public class EntityDeathHound extends EntityDivineMonster {
-    public EntityDeathHound(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityDeathHound(EntityType<? extends EntityDeathHound> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override
     public boolean doHurtTarget(Entity entity) {
         if (super.doHurtTarget(entity)) {

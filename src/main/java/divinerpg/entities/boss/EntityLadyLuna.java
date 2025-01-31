@@ -24,7 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.*;
 
 public class EntityLadyLuna extends EntityDivineBoss {
-    public EntityLadyLuna(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityLadyLuna(EntityType<? extends EntityLadyLuna> type, Level worldIn) {
         super(type, worldIn);
         setProtectionTimer(200 + random.nextInt(200));
     }

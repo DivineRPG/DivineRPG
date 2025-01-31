@@ -25,12 +25,9 @@ public class EntityDivineWaterMob extends WaterAnimal {
         return worldIn.containsAnyLiquid(this.getBoundingBox()) && worldIn.noCollision(this);
     }
 
-    @Override
-    protected void registerGoals() {
-    addBasicAI();
-    if(isAggressive()) {
-        addAttackingAI();
-    }
+    @Override protected void registerGoals() {
+        addBasicAI();
+        if(isAggressive()) addAttackingAI();
     }
 
     public boolean isAggressive() {

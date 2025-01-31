@@ -11,10 +11,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 
 public class EntityDungeonPrisoner extends EntityDivineMonster {
-    public EntityDungeonPrisoner(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityDungeonPrisoner(EntityType<? extends EntityDungeonPrisoner> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean isAggressive() {return true;}
     @Override public boolean fireImmune() {return true;}
 
     @Override

@@ -1,6 +1,5 @@
 package divinerpg.entities.base;
 
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
@@ -9,25 +8,22 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.common.Tags;
-import org.jetbrains.annotations.NotNull;
 
 public abstract class EntityDivineMonster extends Monster {
-    public EntityDivineMonster(EntityType<? extends Monster> type, Level worldIn) {
-        super(type, worldIn);
-    }
-    @Override
-    protected void registerGoals() {
+    public boolean followingTarget = true;
+    public EntityDivineMonster(EntityType<? extends EntityDivineMonster> type, Level worldIn) {super(type, worldIn);}
+    @Override protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1D));
-        goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6F));
-        goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-        targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));
-        if(isAggressive()) targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        else if(!(this instanceof EntityPeacefulUntilAttacked)) goalSelector.addGoal(3, new PanicGoal(this, 1.25));
+        if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, followingTarget));
+        goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1));
+        goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 6));
+        goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+        if(!(this instanceof NeutralMob)) {
+            targetSelector.addGoal(0, new HurtByTargetGoal(this));
+            targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        }
     }
-    @Override
-    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
+    @Override public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
         return !(level.getBiome(blockPosition()).is(Tags.Biomes.IS_MUSHROOM) || level.getBiome(blockPosition()).is(Biomes.DEEP_DARK));
     }
 }

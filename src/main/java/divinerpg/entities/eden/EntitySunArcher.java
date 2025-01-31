@@ -15,14 +15,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 
 public class EntitySunArcher extends EntityDivineMonster implements RangedAttackMob {
-    public EntitySunArcher(EntityType<? extends Monster> type, Level worldIn) {
+    public EntitySunArcher(EntityType<? extends EntitySunArcher> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override
     public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
         return 0.0F;
     }
-    @Override public boolean isAggressive() {return true;}
     @Override
     protected void registerGoals() {
         super.registerGoals();

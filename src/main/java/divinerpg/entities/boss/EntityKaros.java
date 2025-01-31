@@ -29,7 +29,7 @@ public class EntityKaros extends EntityDivineBoss {
     private final List<BlockPos> ceiling = new ArrayList<BlockPos>();
     private final List<BlockPos> cannons = new ArrayList<BlockPos>();
 
-    public EntityKaros(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityKaros(EntityType<? extends EntityKaros> type, Level worldIn) {
         super(type, worldIn);
         ability = DEFAULT;
     }

@@ -12,7 +12,7 @@ import net.minecraft.world.level.*;
 public class EntityMadivel extends EntityDivineMonster {
     private int attackAnimationTick;
 
-    public EntityMadivel(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityMadivel(EntityType<? extends EntityMadivel> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override
@@ -20,10 +20,6 @@ public class EntityMadivel extends EntityDivineMonster {
         return 0.0F;
     }
 
-    @Override
-    public boolean isAggressive() {
-        return true;
-    }
 
     @Override
     public void aiStep() {

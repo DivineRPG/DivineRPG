@@ -10,7 +10,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class EntityDensos extends EntityDivineBoss {
-    public EntityDensos(EntityType<? extends Monster> type, Level worldIn) {
+    public EntityDensos(EntityType<? extends EntityDensos> type, Level worldIn) {
         super(type, worldIn);
     }
     @Override

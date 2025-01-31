@@ -14,12 +14,8 @@ import net.minecraft.world.level.*;
 
 public class EntityWeakCori extends EntityDivineFlyingMob implements RangedAttackMob {
 
-    public EntityWeakCori(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
+    public EntityWeakCori(EntityType<? extends EntityWeakCori> type, Level worldIn) {
         super(type, worldIn);
-    }
-    @Override
-    public boolean isAggressive() {
-        return true;
     }
 
     @Override
