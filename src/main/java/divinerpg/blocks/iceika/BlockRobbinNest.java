@@ -30,7 +30,7 @@ public class BlockRobbinNest extends BaseEntityBlock {
 	@Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {return BlockEntityRegistry.ROBBIN_NEST.get().create(pos, state);}
 	@Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 		if(state.is(this) && random.nextBoolean() && level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block && block.getItem().is(ItemRegistry.robbin_egg.get())) {
-			block.removeItem(1);
+			block.removeItem(0, 1);
 			EntityRegistry.ROBBIN.get().spawn(level, pos, MobSpawnType.BREEDING);
 		}
 	}

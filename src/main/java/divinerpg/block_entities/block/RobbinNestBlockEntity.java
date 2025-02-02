@@ -27,7 +27,7 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 	@Override
 	protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
 		super.saveAdditional(tag, registries);
-		tag.put(ITEM_TAG, getItem().save(registries));
+		if(getItem() != null && !getItem().isEmpty()) tag.put(ITEM_TAG, getItem().save(registries));
 	}
 	@Override
 	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
@@ -57,9 +57,6 @@ public class RobbinNestBlockEntity extends BlockEntity implements Container {
 		item = ItemStack.EMPTY;
 	}
 	public ItemStack getItem() {return getItem(0);}
-	public ItemStack removeItem(int amount) {
-		return removeItem(0, amount);
-	}
 	@Override public int getContainerSize() {return 1;}
 	@Override public boolean isEmpty() {return item == null || item.isEmpty();}
 	@Override public ItemStack getItem(int i) {return item == null ? ItemStack.EMPTY : item;}
