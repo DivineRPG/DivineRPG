@@ -126,6 +126,11 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
         } else if(player.isCreative()) tame(player);
         return super.mobInteract(player, hand);
     }
+    @Override
+    public void tame(Player player) {
+        super.tame(player);
+        setCollarColor(DyeColor.RED);
+    }
     @Override public boolean wantsToAttack(LivingEntity entity, LivingEntity entity1) {
         if(!(entity instanceof Creeper) && !(entity instanceof Ghast)) {
             return switch (entity) {
