@@ -2,6 +2,7 @@ package divinerpg.events;
 
 import divinerpg.attachments.Arcana;
 import divinerpg.effect.mob.armor.*;
+import divinerpg.enums.ToolStats;
 import divinerpg.enums.ToolStats.SwordSpecial;
 import divinerpg.items.base.*;
 import divinerpg.registries.MobEffectRegistry;
@@ -77,12 +78,19 @@ public class ArmorAbilitiesEvent {
         if(entity instanceof Player attacker) {
         	if(source.is(DamageTypes.PLAYER_ATTACK)) {
         		ItemStack item = attacker.getItemInHand(InteractionHand.MAIN_HAND);
-        		if(item.getItem() instanceof ItemModSword sword && sword.arcanaConsumedAttack != 0) {
-        			if(Arcana.hasArcana(attacker) && Arcana.getAmount(attacker) >= sword.arcanaConsumedAttack) {
-    					Arcana.modifyAmount(attacker, -sword.arcanaConsumedAttack);
-    					if(sword.sword.getSwordSpecial() == SwordSpecial.ARCANA_DAMAGE) event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, sword.sword.effectPower, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-    					sword.arcanicAttack(item, attacker, target);
-        			}
+        		if(item.getItem() instanceof ItemModSword sword) {
+					ToolStats s = sword.sword;
+					switch(s.getSwordSpecial()) {
+						case SLOW -> target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, s.effectSec * 20, s.effectPower));
+						case POISON -> target.addEffect(new MobEffectInstance(MobEffects.POISON, s.effectSec * 20, s.effectPower));
+						case FLAME -> target.igniteForSeconds(s.effectSec);
+					} if(sword.arcanaConsumedAttack != 0) {
+						if(Arcana.hasArcana(attacker) && Arcana.getAmount(attacker) >= sword.arcanaConsumedAttack) {
+							Arcana.modifyAmount(attacker, -sword.arcanaConsumedAttack);
+							if(sword.sword.getSwordSpecial() == SwordSpecial.ARCANA_DAMAGE) event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, sword.sword.effectPower, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+							sword.arcanicAttack(item, attacker, target);
+						}
+					}
         		}
         		if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH))
 					event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, 16, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));

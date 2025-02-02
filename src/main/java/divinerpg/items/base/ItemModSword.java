@@ -7,17 +7,14 @@ import divinerpg.util.LocalizeUtils;
 import divinerpg.util.Utils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
-import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import java.util.*;
@@ -45,14 +42,6 @@ public class ItemModSword extends SwordItem {
     public ItemModSword setAttackArcanaConsumption(int amount) {
     	arcanaConsumedAttack = amount;
     	return this;
-    }
-    //TODO: to prevent from spam clicking to inflict effects on targets that weren't hurt
-    @Override public boolean onLeftClickEntity(ItemStack itemstack, Player player, Entity entity) {
-        if(entity instanceof LivingEntity livingEntity) {
-    	    if(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW) livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, sword.effectSec * 20, sword.effectPower));
-            if(sword.getSwordSpecial() == ToolStats.SwordSpecial.POISON) livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, sword.effectSec * 20, sword.effectPower));
-            if(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME) livingEntity.igniteForSeconds(sword.effectSec);
-        } return false;
     }
     public void arcanicAttack(ItemStack stack, Player player, Entity entity) {}
     protected InteractionResultHolder<ItemStack> arcanicUse(Level level, Player player, InteractionHand hand){
