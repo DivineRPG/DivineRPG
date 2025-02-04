@@ -9,12 +9,6 @@
 		  "maxCount": 4
 	  },
 	  {
-		  "type": "divinerpg:rainbour",
-		  "weight": 20,
-		  "minCount": 1,
-		  "maxCount": 1
-	  },
-	  {
 	    "type": "divinerpg:the_eye",
 	    "weight": 50,
 	    "minCount": 1,

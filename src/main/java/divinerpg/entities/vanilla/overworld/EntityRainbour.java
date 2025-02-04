@@ -1,10 +1,15 @@
 package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.goals.EscapeWaterGoal;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.neoforged.api.distmarker.*;
 
@@ -47,5 +52,12 @@ public class EntityRainbour extends EntityDivineFlyingMob {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegistry.RAINBOUR_HURT.get();
+    }
+
+    @Override
+    protected void registerGoals() {
+        goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));
+        goalSelector.addGoal(1, new EscapeWaterGoal(this));
+        targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
 }
