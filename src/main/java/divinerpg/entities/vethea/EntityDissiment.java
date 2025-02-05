@@ -1,32 +1,36 @@
 package divinerpg.entities.vethea;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.entities.projectile.bullet.EntityDissimentShot;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 
-public class EntityDissiment extends EntityDivineFlyingMob implements RangedAttackMob {
+import static divinerpg.registries.EntityRegistry.DISSIMENT_SHOT;
+
+public class EntityDissiment extends EntityDivineFlyingMonster implements RangedAttackMob {
     public EntityDissiment(EntityType<? extends EntityDissiment> type, Level worldIn) {super(type, worldIn);}
     @Override protected void registerGoals() {
-        goalSelector.addGoal(2, new RangedAttackGoal(this, 1, 40, 20));
+        goalSelector.addGoal(1, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 40, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
         super.registerGoals();
     }
     @Override public void performRangedAttack(LivingEntity entity, float range) {
         if(isAlive() && getTarget() != null && !level().isClientSide) {
-            Projectile projectile = new EntityDissimentShot(EntityRegistry.DISSIMENT_SHOT.get(), level());
+            ThrowableProjectile projectile = new EntityDissimentShot(DISSIMENT_SHOT.get(), level());
+            projectile.setOwner(this);
+            projectile.setPos(getEyePosition());
             double d0 = getTarget().getX() - getX();
             double d1 = getTarget().getY(.3333333333333333) - projectile.getY();
             double d2 = getTarget().getZ() - getZ();
-            double d3 = Mth.sqrt((float) (d0 * d0 + d2 * d2));
+            double d3 = Math.sqrt(d0 * d0 + d2 * d2);
             projectile.shoot(d0, d1 + d3 * .2, d2, 1.6F, .8F);
-            this.level().addFreshEntity(projectile);
+            level().addFreshEntity(projectile);
         }
     }
     @Override protected float getSoundVolume() {return 2;}

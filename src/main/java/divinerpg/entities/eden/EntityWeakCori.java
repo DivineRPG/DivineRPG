@@ -1,6 +1,6 @@
 package divinerpg.entities.eden;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -12,7 +12,7 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.*;
 
-public class EntityWeakCori extends EntityDivineFlyingMob implements RangedAttackMob {
+public class EntityWeakCori extends EntityDivineFlyingMonster implements RangedAttackMob {
 
     public EntityWeakCori(EntityType<? extends EntityWeakCori> type, Level worldIn) {
         super(type, worldIn);

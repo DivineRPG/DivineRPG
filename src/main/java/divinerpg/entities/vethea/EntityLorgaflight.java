@@ -1,6 +1,6 @@
 package divinerpg.entities.vethea;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -14,11 +14,9 @@ import net.minecraft.world.phys.AABB;
 
 import java.util.List;
 
-public class EntityLorgaflight extends EntityDivineFlyingMob {
+public class EntityLorgaflight extends EntityDivineFlyingMonster {
     public boolean canSpawnMinions;
-    public EntityLorgaflight(EntityType<? extends EntityLorgaflight> type, Level worldIn) {
-        this(type, worldIn, true);
-    }
+    public EntityLorgaflight(EntityType<? extends EntityLorgaflight> type, Level worldIn) {this(type, worldIn, true);}
     public EntityLorgaflight(EntityType<? extends EntityLorgaflight> type, Level worldIn, boolean canSpawnMinions) {
         super(type, worldIn);
         this.canSpawnMinions = canSpawnMinions;
@@ -30,7 +28,7 @@ public class EntityLorgaflight extends EntityDivineFlyingMob {
                 EntityLorgaflight partner = list.get(0);
                 if(partner.pathfindPos != null) pathfindPos = partner.pathfindPos.add(position().subtract(partner.position()).multiply(.9, .9, .9));
             }
-        }  super.customServerAiStep();
+        } super.customServerAiStep();
     }
     @Override public void tick() {
         super.tick();

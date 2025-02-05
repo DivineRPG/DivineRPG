@@ -1,16 +1,12 @@
 package divinerpg.entities.base;
 
-import divinerpg.entities.goals.EscapeWaterGoal;
 import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.ai.navigation.*;
 import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -19,32 +15,26 @@ import net.minecraft.world.phys.shapes.Shapes;
 
 import javax.annotation.Nullable;
 
-public abstract class EntityDivineFlyingMob extends EntityDivineMonster {
+public abstract class EntityDivineFlyingMonster extends EntityDivineMonster {
     protected @Nullable Vec3 pathfindPos;
     protected final float preferredHeight, preferredDistance, pathFindDistance;
-    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
+    protected EntityDivineFlyingMonster(EntityType<? extends EntityDivineFlyingMonster> type, Level worldIn) {
         super(type, worldIn);
         preferredHeight = 5;
         preferredDistance = 8;
         pathFindDistance = 14;
     }
-    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn, float pathFindDistance) {
+    protected EntityDivineFlyingMonster(EntityType<? extends EntityDivineFlyingMonster> type, Level worldIn, float pathFindDistance) {
         super(type, worldIn);
         preferredHeight = 5;
         preferredDistance = 8;
         this.pathFindDistance = pathFindDistance;
     }
-    protected EntityDivineFlyingMob(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn, float preferredHeight, float preferredDistance, float pathFindDistance) {
+    protected EntityDivineFlyingMonster(EntityType<? extends EntityDivineFlyingMonster> type, Level worldIn, float preferredHeight, float preferredDistance, float pathFindDistance) {
         super(type, worldIn);
         this.preferredHeight = preferredHeight;
         this.preferredDistance = preferredDistance;
         this.pathFindDistance = pathFindDistance;
-    }
-    @Override protected void registerGoals() {
-        if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));
-        goalSelector.addGoal(1, new EscapeWaterGoal(this));
-        targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true, false));
-        targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
     @Override protected PathNavigation createNavigation(Level level) {return new FlyingPathNavigation(this, level);}
     @Override protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {}

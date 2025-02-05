@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class EntityExperiencedCori extends EntityDivineFlyingMob implements RangedAttackMob {
+public class EntityExperiencedCori extends EntityDivineFlyingMonster implements RangedAttackMob {
     private final ServerBossEvent bossEvent = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
     private final WeightedRandom<EntityType<? extends EntityDivineMonster>> coriTypePool = new WeightedRandom<>();
 

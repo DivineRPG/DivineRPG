@@ -1,6 +1,6 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.entities.projectile.DivineThrownItem;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
@@ -24,10 +24,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 
-public class EntityTermasect extends EntityDivineFlyingMob implements RangedAttackMob {
+public class EntityTermasect extends EntityDivineFlyingMonster implements RangedAttackMob {
     private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
 
-    public EntityTermasect(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
+    public EntityTermasect(EntityType<? extends EntityDivineFlyingMonster> type, Level worldIn) {
         super(type, worldIn, 25F);
         this.xpReward = 1500;
     }
@@ -136,10 +136,10 @@ public class EntityTermasect extends EntityDivineFlyingMob implements RangedAtta
         player.knockback(2.1, 2.1, 2.1);
     }
     static class FlyToPlayer extends Goal {
-        private final EntityDivineFlyingMob parentEntity;
+        private final EntityDivineFlyingMonster parentEntity;
         private final double followDistanceSq;
 
-        public FlyToPlayer(EntityDivineFlyingMob ent) {
+        public FlyToPlayer(EntityDivineFlyingMonster ent) {
             this.parentEntity = ent;
             this.followDistanceSq = ent.getAttributeValue(Attributes.FOLLOW_RANGE) * ent.getAttributeValue(Attributes.FOLLOW_RANGE);
             this.setFlags(EnumSet.of(Goal.Flag.MOVE));

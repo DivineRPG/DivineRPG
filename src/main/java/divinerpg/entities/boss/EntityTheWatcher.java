@@ -1,6 +1,6 @@
 package divinerpg.entities.boss;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.nbt.CompoundTag;
@@ -24,12 +24,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 
-public class EntityTheWatcher extends EntityDivineFlyingMob implements RangedAttackMob {
+public class EntityTheWatcher extends EntityDivineFlyingMonster implements RangedAttackMob {
     private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE,
             BossEvent.BossBarOverlay.PROGRESS);
     private int explosionStrength = 1;
 
-    public EntityTheWatcher(EntityType<? extends EntityDivineFlyingMob> type, Level worldIn) {
+    public EntityTheWatcher(EntityType<? extends EntityDivineFlyingMonster> type, Level worldIn) {
         super(type, worldIn, 6F, 10F, 25F);
         this.xpReward = 5000;
         this.moveControl = new EntityTheWatcher.MoveHelperController(this);

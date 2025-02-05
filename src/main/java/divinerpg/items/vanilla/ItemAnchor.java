@@ -33,7 +33,7 @@ public class ItemAnchor extends ItemModSword {
         if(!world.isClientSide) {
             Projectile bullet = projectileType.get().create(world);
             bullet.setOwner(player);
-            bullet.setPos(player.getEyePosition().add(0D, -0.15, 0D));
+            bullet.setPos(player.getEyePosition().add(0, -.15, 0));
             bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5F, .5F);
             world.addFreshEntity(bullet);
         }

@@ -16,10 +16,7 @@ import java.util.UUID;
 
 public abstract class EntityDivineNeutral extends EntityDivineMonster implements NeutralMob {
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
-    public EntityDivineNeutral(EntityType<? extends EntityDivineNeutral> type, Level worldIn) {
-        super(type, worldIn);
-        xpReward = XP_REWARD_MEDIUM;
-    }
+    public EntityDivineNeutral(EntityType<? extends EntityDivineNeutral> type, Level worldIn) {super(type, worldIn);}
     @Override protected void registerGoals() {
         targetSelector.addGoal(0, new HurtByTargetGoal(this).setAlertOthers());
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isAngryAt));
@@ -39,7 +36,7 @@ public abstract class EntityDivineNeutral extends EntityDivineMonster implements
         super.readAdditionalSaveData(compound);
         readPersistentAngerSaveData(level(), compound);
     }
-    @Override  public void startPersistentAngerTimer() {setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(random));}
+    @Override public void startPersistentAngerTimer() {setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(random));}
     @Override public void setRemainingPersistentAngerTime(int time) {AttachmentRegistry.ANGER_TIME.set(this, time);}
     @Override public int getRemainingPersistentAngerTime() {return AttachmentRegistry.ANGER_TIME.get(this);}
     @Override public void setPersistentAngerTarget(@Nullable UUID target) {

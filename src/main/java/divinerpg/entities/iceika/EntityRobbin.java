@@ -2,7 +2,7 @@ package divinerpg.entities.iceika;
 
 import divinerpg.block_entities.block.*;
 import divinerpg.blocks.iceika.BlockRobbinHut;
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.entities.boss.EntityKitra;
 import divinerpg.registries.*;
 import divinerpg.util.Utils;
@@ -27,10 +27,10 @@ import net.minecraft.world.phys.*;
 
 import java.util.*;
 
-public class EntityRobbin extends EntityDivineFlyingMob {
+public class EntityRobbin extends EntityDivineFlyingMonster {
     private int tiredTicks = 0;
     public boolean wantsNest = false;
-    public EntityRobbin(EntityType<? extends EntityDivineFlyingMob> entityType, Level world) {
+    public EntityRobbin(EntityType<? extends EntityRobbin> entityType, Level world) {
         super(entityType, world);
         moveControl = new RobbinMoveControl(this);
     }
@@ -45,6 +45,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         goalSelector.addGoal(6, new RobbinRandomStrollGoal(this, 1D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, EntityKitra.class, 6F));
     }
+    @Override protected boolean shouldDespawnInPeaceful() {return false;}
     @Override public boolean isMaxGroupSizeReached(int i) {return i > 6;}
     public boolean isTired() {
         return tiredTicks > 1200;
@@ -59,9 +60,7 @@ public class EntityRobbin extends EntityDivineFlyingMob {
         ItemStack item = getItemBySlot(EquipmentSlot.MAINHAND);
     	if(!item.isEmpty()) level().addFreshEntity(new ItemEntity(level(), getX(), getY(), getZ(), item));
     }
-    @Override protected float getJumpPower() {
-    	return .22F * getBlockJumpFactor() + getJumpBoostPower();
-    }
+    @Override protected float getJumpPower() {return .22F * getBlockJumpFactor() + getJumpBoostPower();}
     @Override public void reachTarget() {
     	Path path = getNavigation().getPath();
 		BlockPos targetPos = path.getTarget();

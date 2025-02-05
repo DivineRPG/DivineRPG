@@ -15,7 +15,7 @@ public abstract class EntityDivineMonster extends Monster {
     @Override protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
         if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, followingTarget));
-        goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1));
+        if(!(this instanceof EntityDivineFlyingMonster)) goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1));
         goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 6));
         goalSelector.addGoal(3, new RandomLookAroundGoal(this));
         if(!(this instanceof NeutralMob)) {

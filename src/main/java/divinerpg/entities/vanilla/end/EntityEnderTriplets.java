@@ -1,6 +1,6 @@
 package divinerpg.entities.vanilla.end;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.entities.projectile.fireball.EntityEnderTripletsFireball;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.*;
@@ -11,7 +11,7 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.Vec3;
 
-public class EntityEnderTriplets extends EntityDivineFlyingMob implements RangedAttackMob {
+public class EntityEnderTriplets extends EntityDivineFlyingMonster implements RangedAttackMob {
     public EntityEnderTriplets(EntityType<? extends EntityEnderTriplets> type, Level worldIn) {super(type, worldIn, 18);}
     @Override public boolean fireImmune() {return true;}
     @Override public int getMaxSpawnClusterSize() {return 1;}

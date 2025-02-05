@@ -1,10 +1,12 @@
 package divinerpg.entities.vethea;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
+import divinerpg.entities.projectile.Bomb;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
@@ -12,15 +14,15 @@ import net.minecraft.world.level.Level;
 
 import static divinerpg.registries.EntityRegistry.ZORAGON_BOMB;
 
-public class EntityZoragon extends EntityDivineFlyingMob implements RangedAttackMob {
+public class EntityZoragon extends EntityDivineFlyingMonster implements RangedAttackMob {
     public EntityZoragon(EntityType<? extends EntityZoragon> type, Level worldIn) {super(type, worldIn, 20);}
     @Override protected void registerGoals() {
+        goalSelector.addGoal(1, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 40, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
         super.registerGoals();
-        goalSelector.addGoal(2, new RangedAttackGoal(this, 1, 40, 20));
     }
     @Override public void performRangedAttack(LivingEntity entity, float range) {
         if(isAlive() && getTarget() != null && !level().isClientSide) {
-            ThrowableProjectile projectile = ZORAGON_BOMB.get().create(level());
+            ThrowableProjectile projectile = new Bomb(ZORAGON_BOMB.get(), level());
             projectile.setOwner(this);
             projectile.setPos(getEyePosition());
             double d0 = getTarget().getX() - getX();

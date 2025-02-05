@@ -1,6 +1,6 @@
 package divinerpg.entities.skythern;
 
-import divinerpg.entities.base.EntityDivineFlyingMob;
+import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.entities.projectile.DivineThrowableProjectile;
 import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
@@ -11,7 +11,7 @@ import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.level.Level;
 
-public class EntityAdvancedCori extends EntityDivineFlyingMob implements RangedAttackMob {
+public class EntityAdvancedCori extends EntityDivineFlyingMonster implements RangedAttackMob {
     public EntityAdvancedCori(EntityType<? extends EntityAdvancedCori> type, Level worldIn) {super(type, worldIn);}
     protected void registerGoals() {
         goalSelector.addGoal(1, new RangedAttackGoal(this, 1, 40, 20));
