@@ -5,7 +5,6 @@ import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.*;
@@ -14,13 +13,12 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.*;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap.Types;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.*;
 
 import java.util.*;
 
@@ -28,23 +26,20 @@ import static divinerpg.registries.SoundRegistry.*;
 
 public class EntityAyeraco extends EntityDivineBoss {
 	public BlockPos beam;
-	private EntityAyeraco[] group = new EntityAyeraco[5];
-	private boolean angry, empowered, projectileProtected, magicProtected, canTeleport, canHeal, fast;
 	
 	private Vec3 moveTargetPoint = Vec3.ZERO;
 	private boolean circling = true;
 	private BlockPos anchorPoint = BlockPos.ZERO;
 	public EntityAyeraco(EntityType<? extends EntityAyeraco> type, Level level) {
-		this(type, level, BlockPos.ZERO, null);
+		this(type, level, BlockPos.ZERO, (byte)0);
 	}
-	public EntityAyeraco(EntityType<? extends EntityAyeraco> type, Level worldIn, BlockPos beam, EntityAyeraco[] group) {
+	public EntityAyeraco(EntityType<? extends EntityAyeraco> type, Level worldIn, BlockPos beam, byte variant) {
 		super(type, worldIn);
 		this.beam = beam;
 		moveControl = new AyeracoMoveControl(this);
 		lookControl = new AyeracoLookControl(this);
-		assignGroup(group);
+        if(!worldIn.isClientSide()) AttachmentRegistry.VARIANT.setSilent(this, variant);
 	}
-
     @Override
     public void onAddedToLevel() {
         super.onAddedToLevel();
@@ -61,70 +56,64 @@ public class EntityAyeraco extends EntityDivineBoss {
     	goalSelector.addGoal(3, new AyeracoCircleAroundAnchorGoal());
     	targetSelector.addGoal(1, new AyeracoAttackPlayerTargetGoal());
     }
-	public void assignGroup(EntityAyeraco[] group) {
-		this.group = group == null || group.length != 5 ? new EntityAyeraco[1] : group;
-		if(this.group.length == 5) updateAbilities();
-	}
-	public void updateAbilities() {
-		updateAbilities(angry = getHealth() < getMaxHealth() / 2F);
-	}
-	public void updateAbilities(boolean angry) {
-		if(!level().isClientSide()) {
-			switch(getVariant()) {
-			case 1: for(EntityAyeraco entity : group) if(entity != null) entity.projectileProtected = angry; break;
-			case 2: for(EntityAyeraco entity : group) if(entity != null) entity.magicProtected = angry; break;
-			case 3: for(EntityAyeraco entity : group) if(entity != null) entity.canTeleport = angry; break;
-			case 4: for(EntityAyeraco entity : group) if(entity != null) entity.canHeal = angry; break;
-			case 5: for(EntityAyeraco entity : group) if(entity != null) entity.fast = angry; break;
-            case 6: for(EntityAyeraco entity : group) if(entity != null) entity.empowered = angry; break;
-			default: break; }
-			if(angry && isAlive()) {
-				boolean b = group[0] == null;
-				for(byte by = 1; b && by < 5; by++) b = group[by] == null;
-				if(b) empowered = projectileProtected = magicProtected = canTeleport = fast = true;
-			}
-			if(empowered && isAlive()) addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 255, 2, true, false, false));
-			else removeEffect(MobEffects.DAMAGE_BOOST);
-			if(fast && isAlive()) addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 255, 2, true, false, false));
-	    	else removeEffect(MobEffects.MOVEMENT_SPEED);
-			if(canTeleport && isAlive()) {
-				playSound(SoundRegistry.AYERACO_TELEPORT.get(), 2.0F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-                teleportRelative(random.nextInt(5) - 2, 3 + random.nextInt(15), random.nextInt(5) - 2);
-			}
-		}
-	}
 	@Override
 	public void die(DamageSource source) {
 		super.die(source);
-		updateAbilities(false);
         if(level().isLoaded(beam)) level().setBlock(beam, Blocks.AIR.defaultBlockState(), 3);
-        if(group != null) for(EntityAyeraco ayeraco : group) if(ayeraco != null) ayeraco.removeFromGroup(getVariant());
 	}
-	public void removeFromGroup(byte variant) {
-		for(int i = 0; i < 5; i++) {
-			EntityAyeraco ayeraco = group[i];
-			if(ayeraco != null && ayeraco.getVariant() == variant) group[i] = null;
-		}
-	}
-
     @Override
     public boolean isInvulnerableTo(DamageSource source) {
-        return super.isInvulnerableTo(source) || (projectileProtected && source.is(DamageTypes.MOB_PROJECTILE)) || (magicProtected && source.is(DamageTypes.MAGIC));
+        return super.isInvulnerableTo(source)
+                || ((source.is(DamageTypes.MOB_PROJECTILE) || source.is(DamageTypes.ARROW) || source.is(DamageTypes.TRIDENT)) && isProjectileProtected())
+                || ((source.is(DamageTypes.MAGIC) || source.is(DamageTypes.DRAGON_BREATH) || source.is(DamageTypes.INDIRECT_MAGIC)) && isMagicProtected());
     }
-
+    public static List<EntityAyeraco> getNearbyAyeracos(Level level, Vec3 pos) {
+        return level.getEntitiesOfClass(EntityAyeraco.class, new AABB(pos.x - 32, pos.y - 32, pos.z - 32, pos.x + 32, pos.y + 32, pos.z + 32));
+    }
+    public boolean isProjectileProtected() {
+        for(EntityAyeraco e : getNearbyAyeracos(level(), position())) if(e.isGreen()) return true;
+        return false;
+    }
+    public boolean isMagicProtected() {
+        for(EntityAyeraco e : getNearbyAyeracos(level(), position())) if(e.isPink()) return true;
+        return false;
+    }
+    public boolean isGreen() {
+        return AttachmentRegistry.VARIANT.get(this) == 1;
+    }
+    public boolean isPink() {
+        return AttachmentRegistry.VARIANT.get(this) == 2;
+    }
+    public boolean isPurple() {
+        return AttachmentRegistry.VARIANT.get(this) == 3;
+    }
+    public boolean isRed() {
+        return AttachmentRegistry.VARIANT.get(this) == 4;
+    }
+    public boolean isYellow() {
+        return AttachmentRegistry.VARIANT.get(this) == 5;
+    }
+    public boolean isBlue() {
+        return AttachmentRegistry.VARIANT.get(this) == 6;
+    }
     @Override
 	public boolean hurt(DamageSource source, float amount) {
 		boolean b = super.hurt(source, amount);
-        updateAbilities();
+        if(!level().isClientSide() && isAlive()) {
+            byte variant = getVariant();
+            boolean isRed = variant == 4, isYellow = variant == 5, isBlue = variant == 6;
+            for(EntityAyeraco e : getNearbyAyeracos(level(), position())) {
+                if(isRed && e != this && e.getHealth() < e.getMaxHealth()) e.setHealth(e.getMaxHealth());
+                if(isYellow) e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 255, 2, true, false, false));
+                if(isBlue) e.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 255, 2, true, false, false));
+                if(e.isPurple()) {
+                    playSound(SoundRegistry.AYERACO_TELEPORT.get(), 2.0F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+                    teleportRelative(random.nextInt(5) - 2, 3 + random.nextInt(15), random.nextInt(5) - 2);
+                }
+            }
+        }
 		return b;
 	}
-	@Override
-	public void heal(float amount) {
-        if(isAlive()) {
-            super.heal(amount);
-            updateAbilities();
-        }
-    }
 	public byte getVariant() {
         byte variant = AttachmentRegistry.VARIANT.get(this);
 		if(variant == 0 && beam != null) {
@@ -156,7 +145,7 @@ public class EntityAyeraco extends EntityDivineBoss {
         setCustomName(component);
         return this;
     }
-	public EntityAyeraco setBeamPos(BlockPos pos) {beam = pos; return this;}
+	public void setBeamPos(BlockPos pos) {beam = pos;}
 	@Override
     public boolean causeFallDamage(float p_147187_, float p_147188_, DamageSource p_147189_) {return false;}
     @Override
@@ -170,47 +159,13 @@ public class EntityAyeraco extends EntityDivineBoss {
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
     	super.addAdditionalSaveData(tag);
-    	for(int i = 0; i < 5; i++) if(group[i] != null) tag.putUUID("Group" + i, group[i].uuid);
     	tag.putLong("Beam", beam.asLong());
-        tag.putBoolean("angry", angry);
-        tag.putBoolean("empowered", empowered);
-        tag.putBoolean("projectileProt", projectileProtected);
-        tag.putBoolean("magicProt", magicProtected);
-        tag.putBoolean("teleport", canTeleport);
-        tag.putBoolean("heal", canHeal);
-        tag.putBoolean("fast", fast);
     }
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
     	super.readAdditionalSaveData(tag);
-    	loadExtra(tag);
+        beam = BlockPos.of(tag.getLong("Beam"));
     }
-    private void loadExtra(CompoundTag tag) {
-    	EntityAyeraco[] group = new EntityAyeraco[5];
-    	for(int i = 0; i < 5; i++) if(tag.contains("Group" + i)) group[i] = find(tag.getUUID("Group" + i));
-    	beam = BlockPos.of(tag.getLong("Beam"));
-    	assignGroup(group);
-        angry = tag.getBoolean("angry");
-        empowered = tag.getBoolean("empowered");
-        projectileProtected = tag.getBoolean("projectileProt");
-        magicProtected = tag.getBoolean("magicProt");
-        canTeleport = tag.getBoolean("teleport");
-        canHeal = tag.getBoolean("heal");
-        fast = tag.getBoolean("fast");
-    }
-    public EntityAyeraco find(UUID id) {
-    	if(level() != null && !level().isClientSide && id != null) {
-            Entity entity = ((ServerLevel) level()).getEntity(id);
-            if(entity instanceof EntityAyeraco) return (EntityAyeraco) entity;
-        } return null;
-    }
-
-    @Override
-    protected void customServerAiStep() {
-        if(angry && canHeal) heal(2.5F);
-        super.customServerAiStep();
-    }
-
     //Phantom mimicking part
     @Override
     public void travel(Vec3 vec) {

@@ -24,7 +24,6 @@ import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
 
 public class EntityEnderScrounge extends EntityDivineNeutral {
-    private int targetChangeTime;
     public EntityEnderScrounge(EntityType<? extends EntityEnderScrounge> type, Level worldIn) {
         super(type, worldIn);
         setPathfindingMalus(PathType.WATER, -1);
@@ -73,7 +72,7 @@ public class EntityEnderScrounge extends EntityDivineNeutral {
     }
     @Override public boolean isSensitiveToWater() {return true;}
     @Override protected void customServerAiStep() {
-        if(level().isDay() && tickCount >= targetChangeTime + 600) {
+        if(level().isDay() && tickCount >= 601) {
             @SuppressWarnings("deprecation")
 			float f = getLightLevelDependentMagicValue();
             if(f > .5 && level().canSeeSky(blockPosition()) && random.nextFloat() * 30 < (f - .4) * 2) {
@@ -90,14 +89,14 @@ public class EntityEnderScrounge extends EntityDivineNeutral {
             return teleport(d0, d1, d2);
         } else return false;
     }
-    boolean teleportTowards(Entity p_32501_) {
-        Vec3 vec3 = new Vec3(getX() - p_32501_.getX(), getY(.5) - p_32501_.getEyeY(), getZ() - p_32501_.getZ());
-        vec3 = vec3.normalize();
-        double d1 = getX() + (random.nextDouble() - .5) * 8 - vec3.x * 16;
-        double d2 = getY() + (double)(random.nextInt(16) - 8) - vec3.y * 16;
-        double d3 = getZ() + (random.nextDouble() - .5) * 8 - vec3.z * 16;
-        return teleport(d1, d2, d3);
-    }
+//    boolean teleportTowards(Entity p_32501_) {
+//        Vec3 vec3 = new Vec3(getX() - p_32501_.getX(), getY(.5) - p_32501_.getEyeY(), getZ() - p_32501_.getZ());
+//        vec3 = vec3.normalize();
+//        double d1 = getX() + (random.nextDouble() - .5) * 8 - vec3.x * 16;
+//        double d2 = getY() + (double)(random.nextInt(16) - 8) - vec3.y * 16;
+//        double d3 = getZ() + (random.nextDouble() - .5) * 8 - vec3.z * 16;
+//        return teleport(d1, d2, d3);
+//    }
     private boolean teleport(double p_32544_, double p_32545_, double p_32546_) {
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(p_32544_, p_32545_, p_32546_);
         while(blockpos$mutableblockpos.getY() > level().getMinBuildHeight() && !level().getBlockState(blockpos$mutableblockpos).isCollisionShapeFullBlock(level(), blockpos$mutableblockpos)) blockpos$mutableblockpos.move(Direction.DOWN);

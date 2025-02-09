@@ -61,22 +61,21 @@ public class AyeracoSpawnBlockEntity extends ModUpdatableBlockEntity {
             	logAyeracoSpawn(level, ChatFormatting.YELLOW, "yellow");
             	break;
             case 0:
-                if (!level.isClientSide) {
+                if(!level.isClientSide) {
                 	EntityAyeraco[] group = new EntityAyeraco[6];
                 	for(byte i = 0; i < 6; i++) group[i] = EntityRegistry.AYERACO.get().create((ServerLevel)level, null, pos, MobSpawnType.MOB_SUMMONED, true, false).setVariant(i);
-                	group[0].setBeamPos(block.blueBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[4], group[5]});
-                    group[1].setBeamPos(block.greenBeam).assignGroup(new EntityAyeraco[]{group[0], group[2], group[3], group[4], group[5]});
-                    group[2].setBeamPos(block.pinkBeam).assignGroup(new EntityAyeraco[]{group[1], group[0], group[3], group[4], group[5]});;
-                    group[3].setBeamPos(block.purpleBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[0], group[4], group[5]});
-                    group[4].setBeamPos(block.redBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[0], group[5]});
-                    group[5].setBeamPos(block.yellowBeam).assignGroup(new EntityAyeraco[]{group[1], group[2], group[3], group[4], group[0]});
+                	group[0].setBeamPos(block.blueBeam);
+                    group[1].setBeamPos(block.greenBeam);
+                    group[2].setBeamPos(block.pinkBeam);
+                    group[3].setBeamPos(block.purpleBeam);
+                    group[4].setBeamPos(block.redBeam);
+                    group[5].setBeamPos(block.yellowBeam);
                     for(byte i = 0; i < 6; i++) {
                     	group[i].moveTo(pos.getX() + level.random.nextInt(5) - 2, pos.getY() + level.random.nextInt(10, 20), pos.getZ() + level.random.nextInt(5) - 2);
                     	level.addFreshEntity(group[i]);
                     	group[i].setVariant(i);
                     }
-                }
-                level.setBlock(block.worldPosition, Blocks.AIR.defaultBlockState(), 3);
+                } level.setBlock(block.worldPosition, Blocks.AIR.defaultBlockState(), 3);
                 logAyeracoSpawn(level, ChatFormatting.AQUA, "spawn");
                 break;
         }
