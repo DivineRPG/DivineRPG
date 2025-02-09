@@ -1,9 +1,7 @@
 package divinerpg.entities.vanilla.end;
 
-import divinerpg.entities.base.EntityDivineNeutral;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
@@ -23,11 +21,10 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
 
-public class EntityEnderScrounge extends EntityDivineNeutral {
+public class EntityEnderScrounge extends PathfinderMob {
     public EntityEnderScrounge(EntityType<? extends EntityEnderScrounge> type, Level worldIn) {
         super(type, worldIn);
         setPathfindingMalus(PathType.WATER, -1);
-        followingTarget = false;
     }
     @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return false;}
     @Override protected void registerGoals() {
@@ -35,7 +32,6 @@ public class EntityEnderScrounge extends EntityDivineNeutral {
         goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8));
         targetSelector.addGoal(0, new HurtByTargetGoal(this));
         targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Endermite.class, true, false));
-        targetSelector.addGoal(3, new ResetUniversalAngerTargetGoal<>(this, true));
         super.registerGoals();
     }
     @Override public boolean doHurtTarget(Entity target) {
@@ -67,7 +63,6 @@ public class EntityEnderScrounge extends EntityDivineNeutral {
     @Override public void aiStep() {
         if(level().isClientSide()) for(int i = 0; i < 2; ++i) level().addParticle(ParticleTypes.PORTAL, getRandomX(.5), getRandomY() - .25, getRandomZ(.5), (random.nextDouble() - .5) * 2, -random.nextDouble(), (random.nextDouble() - .5) * 2);
         jumping = false;
-        if(!level().isClientSide()) updatePersistentAnger((ServerLevel)level(), true);
         super.aiStep();
     }
     @Override public boolean isSensitiveToWater() {return true;}

@@ -1,15 +1,15 @@
 package divinerpg.client.models.vanilla;
 
 import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.vanilla.end.EntityEnderScrounge;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.world.entity.monster.Monster;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelEnderScrounge extends EntityModel<Monster> {
+public class ModelEnderScrounge extends EntityModel<EntityEnderScrounge> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("ender_scrounge");
 	private final ModelPart body, head, frontleft, frontright, backleft, backright, tail;
 
@@ -64,7 +64,7 @@ public class ModelEnderScrounge extends EntityModel<Monster> {
 	}
 
 	@Override
-	public void setupAnim(Monster entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityEnderScrounge entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.head.yRot = netHeadYaw / (180F / (float) Math.PI);
         this.head.xRot = headPitch / (180F / (float) Math.PI);
 		
