@@ -21,39 +21,39 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     public final int[] amplifier;
     public Integer nameColor;
     public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability) {
-        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(slot.getDurability(durability))));
+        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1) : new Properties().durability(slot.getDurability(durability))));
         supportedEffects = null;
         amplifier = null;
     }
     public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo) {
-        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(slot.getDurability(durability))));
+        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1) : new Properties().durability(slot.getDurability(durability))));
         this.armorInfo = armorInfo;
         supportedEffects = null;
         amplifier = null;
     }
     public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, Properties properties) {
-        super(materialIn, slot, (slot.getDurability(durability) == 0 ? properties.component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties.durability(slot.getDurability(durability))));
+        super(materialIn, slot, (slot.getDurability(durability) == 0 ? properties.component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1) : properties.durability(slot.getDurability(durability))));
         this.armorInfo = armorInfo;
         supportedEffects = null;
         amplifier = null;
     }
     @SafeVarargs
 	public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, Properties properties, Holder<MobEffect> ... effects) {
-        super(materialIn, slot, (slot.getDurability(durability) == 0 ? properties.component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties.durability(slot.getDurability(durability))));
+        super(materialIn, slot, (slot.getDurability(durability) == 0 ? properties.component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1) : properties.durability(slot.getDurability(durability))));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         amplifier = null;
     }
     @SafeVarargs
 	public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, Holder<MobEffect> ... effects) {
-        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(slot.getDurability(durability))));
+        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1) : new Properties().durability(slot.getDurability(durability))));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         amplifier = null;
     }
     @SafeVarargs
 	public ItemDivineArmor(int rarity, Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, Holder<MobEffect> ... effects) {
-        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(slot.getDurability(durability))));
+        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1) : new Properties().durability(slot.getDurability(durability))));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         amplifier = null;
@@ -61,14 +61,14 @@ public class ItemDivineArmor extends ArmorItem implements IFullSetInfo {
     }
     @SafeVarargs
 	public ItemDivineArmor(Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, int[] amplifier, Holder<MobEffect> ... effects) {
-        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(slot.getDurability(durability))));
+        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1) : new Properties().durability(slot.getDurability(durability))));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         this.amplifier = amplifier;
     }
     @SafeVarargs
 	public ItemDivineArmor(int rarity, Holder<ArmorMaterial> materialIn, ArmorItem.Type slot, int durability, ArmorInfo armorInfo, int[] amplifier, Holder<MobEffect> ... effects) {
-        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(slot.getDurability(durability))));
+        super(materialIn, slot, (slot.getDurability(durability) == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1) : new Properties().durability(slot.getDurability(durability))));
         this.armorInfo = armorInfo;
         supportedEffects = effects;
         this.amplifier = amplifier;
