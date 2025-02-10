@@ -35,7 +35,7 @@ public enum EntityStats {
     CAVE_CRAWLER(30, 4),
     CAVECLOPS(60, 6),
     CRAB(45, 6),
-    CYCLOPS(35),
+    CYCLOPS(35, 4),
     DESERT_CRAWLER(40, 6),
     ENTHRALLED_DRAMCRYX(80, 7),
     FROST(25, 6),

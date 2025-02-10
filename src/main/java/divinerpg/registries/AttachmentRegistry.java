@@ -1,9 +1,7 @@
 package divinerpg.registries;
 
-import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 
-import com.mojang.serialization.*;
 import divinerpg.DivineRPG;
 import divinerpg.attachments.*;
 import divinerpg.attachments.base.*;
@@ -17,20 +15,11 @@ import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.*;
 
-import java.util.UUID;
 import java.util.function.Supplier;
 
 public class AttachmentRegistry {
 	public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, DivineRPG.MODID);
 	private AttachmentRegistry() {}
-
-	public static final UUID zero = new UUID(0, 0);
-	public static final Codec<UUID> UUID_CODEC = new Codec<>() {
-		@Override public <T> DataResult<T> encode(UUID input, DynamicOps<T> ops, T prefix) {
-			return Codec.LONG.encode(input.getLeastSignificantBits(), ops, prefix).flatMap(f -> Codec.LONG.encode(input.getMostSignificantBits(), ops, f));}
-		@Override public <T> DataResult<Pair<UUID, T>> decode(DynamicOps<T> ops, T input) {
-			return Codec.LONG.decode(ops, input).flatMap(p1 -> Codec.LONG.decode(ops, p1.getSecond()).map(p2 -> Pair.of(new UUID(p1.getFirst(), p2.getFirst()), p2.getSecond())));}
-	};
 
 	//Standard Attachment
 	public static final DeferredHolder<AttachmentType<?>, AttachmentType<Integer>> SOUL_TRAP_COUNT = ATTACHMENT_TYPES.register("soul_trap_count", () -> AttachmentType.builder(() -> 0).serialize(Codec.INT).build());
@@ -41,7 +30,6 @@ public class AttachmentRegistry {
 	The benefit of the SingleSidedAttachments is that they provide a very simple way of controlling and overseeing sided data access. Another benefit is that they can also be attached to non-divinerpg entities, just like regular attachments
 	 */
 	public static final SingleSidedAttachment<DimensionalInventory> DIMENSIONAL_INVENTORY = registerSingleSided("dimensional_inventory", DimensionalInventory::new, false);
-	public static final SingleSidedAttachment<UUID> ANGRY_AT = registerSingleSided("angry_at", () -> zero, UUID_CODEC, false);
 	public static final SingleSidedAttachment<Integer> ANGER_TIME = registerSingleSided("anger_time", () -> 0, Codec.INT, false);
 	public static final SingleSidedAttachment<Boolean> IMPORTANT = registerSingleSided("important", () -> false, Codec.BOOL, false);
 

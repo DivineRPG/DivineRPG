@@ -20,6 +20,7 @@ import java.util.UUID;
 
 public class EntityRainbour extends EntityDivineFlyingMonster implements NeutralMob {
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
+    private UUID angry_at;
     public EntityRainbour(EntityType<? extends EntityRainbour> type, Level worldIn) {
         super(type, worldIn);
         xpReward = XP_REWARD_LARGE;
@@ -37,22 +38,23 @@ public class EntityRainbour extends EntityDivineFlyingMonster implements Neutral
     }
     @Override public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-        addPersistentAngerSaveData(compound);
+        UUID angry_at = getPersistentAngerTarget();
+        if(angry_at != null) compound.putUUID("angryAt", angry_at);
     }
     @Override public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
-        readPersistentAngerSaveData(level(), compound);
+        if(compound.contains("angryAt")) angry_at = compound.getUUID("angryAt");
     }
     @Override public void startPersistentAngerTimer() {setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(random));}
     @Override public void setRemainingPersistentAngerTime(int time) {AttachmentRegistry.ANGER_TIME.set(this, time);}
     @Override public int getRemainingPersistentAngerTime() {return AttachmentRegistry.ANGER_TIME.get(this);}
     @Override public void setPersistentAngerTarget(@Nullable UUID target) {
-        AttachmentRegistry.ANGRY_AT.set(this, target == null ? AttachmentRegistry.zero : target);
+        angry_at = target;
         AttachmentRegistry.ANGRY.set(this, target != null);
     }
     @Nullable
     @Override public UUID getPersistentAngerTarget() {
-        if(AttachmentRegistry.ANGRY.get(this)) return AttachmentRegistry.ANGRY_AT.get(this);
+        if(AttachmentRegistry.ANGRY.get(this)) return angry_at;
         return null;
     }
     @OnlyIn(Dist.CLIENT)

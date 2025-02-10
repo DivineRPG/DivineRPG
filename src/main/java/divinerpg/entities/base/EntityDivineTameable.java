@@ -2,6 +2,7 @@ package divinerpg.entities.base;
 
 import divinerpg.registries.AttachmentRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.TimeUtil;
@@ -28,6 +29,7 @@ import java.util.UUID;
 public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 	protected final float healthIncrease;
+    private UUID angry_at;
     protected EntityDivineTameable(EntityType<? extends TamableAnimal> type, Level worldIn, float healthIncrease) {
         super(type, worldIn);
         this.healthIncrease = healthIncrease;
@@ -146,7 +148,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     @Override public void setRemainingPersistentAngerTime(int i) {AttachmentRegistry.ANGER_TIME.set(this, i);}
     @Override public void startPersistentAngerTimer() {setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(random));}
     @Override @Nullable public UUID getPersistentAngerTarget() {
-        if(AttachmentRegistry.ANGRY.get(this)) return AttachmentRegistry.ANGRY_AT.get(this);
+        if(AttachmentRegistry.ANGRY.get(this)) return angry_at;
         return null;
     }
     @Override
@@ -154,8 +156,19 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
         return AttachmentRegistry.ANGRY.get(this);
     }
     @Override public void setPersistentAngerTarget(@Nullable UUID id) {
-        AttachmentRegistry.ANGRY_AT.set(this, id == null ? AttachmentRegistry.zero : id);
+        angry_at = id;
         AttachmentRegistry.ANGRY.set(this, id != null);
+    }
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        if(compound.contains("angryAt")) angry_at = compound.getUUID("angryAt");
+    }
+    @Override
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        UUID angry_at = getPersistentAngerTarget();
+        if(angry_at != null) compound.putUUID("angryAt", angry_at);
     }
 	@Override public AgeableMob getBreedOffspring(ServerLevel s, AgeableMob a) {return null;}
     @Override public boolean canMate(Animal animal) {return false;}
