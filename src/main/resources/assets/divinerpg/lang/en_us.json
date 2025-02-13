@@ -2113,6 +2113,7 @@
   "entity.divinerpg.ent": "Ent",
   "entity.divinerpg.hive_soldier": "Hive Soldier",
   "entity.divinerpg.hover_stinger": "Hover Stinger",
+  "entity.divinerpg.insect_fourteen": "Insect 14",
   "entity.divinerpg.lorga": "Lorga",
   "entity.divinerpg.shadahier": "Shadahier",
 
@@ -2126,6 +2127,7 @@
   "item.divinerpg.ent_spawn_egg": "Ent Spawn Egg",
   "item.divinerpg.hive_soldier_spawn_egg": "Hive Soldier Spawn Egg",
   "item.divinerpg.hover_stinger_spawn_egg": "Hover Stinger Spawn Egg",
+  "item.divinerpg.insect_fourteen_spawn_egg": "Insect 14 Spawn Egg",
   "item.divinerpg.lorga_spawn_egg": "Lorga Spawn Egg",
   "item.divinerpg.shadahier_spawn_egg": "Shadahier Spawn Egg",
 

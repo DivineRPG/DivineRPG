@@ -563,6 +563,12 @@
       "divinerpg:to_replace/insect"
     ]
   },
+  "insect_fourteen_hurt": {
+    "category": "hostile",
+    "sounds": [
+      "divinerpg:mobs/vethea/insect_fourteen_hurt"
+    ]
+  },
   "jackoman": {
     "category": "neutral",
     "sounds": [

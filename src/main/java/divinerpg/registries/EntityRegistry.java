@@ -15,7 +15,7 @@ import divinerpg.client.renders.entity.iceika.*;
 import divinerpg.client.renders.entity.projectile.*;
 import divinerpg.client.renders.entity.twilight.*;
 import divinerpg.client.renders.entity.vanilla.*;
-import divinerpg.client.renders.entity.vethea.RenderGalroid;
+import divinerpg.client.renders.entity.vethea.*;
 import divinerpg.client.renders.tiles.RenderNightmareBed;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.arcana.*;
@@ -408,6 +408,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer2>>MYSTERIOUS_MAN_LAYER2= registerEntity(EntityMysteriousManLayer2::new,  "mysterious_man_layer_2",  .6F, 2.125F, 1.99F, 0x060000, 0x40b724, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityBiphron>>			 BIPHRON			  = registerEntity(EntityBiphron::new,				"biphron",				 1, 3.5F, 1.8F, 0xf1dc1b, 0x5e5e5e);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityGorgosion>>			 GORGOSION			  = registerEntity(EntityGorgosion::new,			"gorgosion",			     2, 1.75F, 1.2F, 0x8c13c5, 0xc98a39);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityInsectFourteen>> INSECT_FOURTEEN         = registerEntity(EntityInsectFourteen::new,        "insect_fourteen",           .65F, 1.26F, .9F, 0xebd712, 0xa88609);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityMandragora>>		 MANDRAGORA			  = registerEntity(EntityMandragora::new,			"mandragora",			     1, 2, 1.8F, 0x178b1e, 0x0b3a0d);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityTwins>>				 TWINS				  = registerEntity(EntityTwins::new, 				"twins",				     1, 2.25F, 2, 0x3ab921, 0xb3d400);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityVermenous>>			 VERMENOUS			  = registerEntity(EntityVermenous::new, 			"vermenous",			     1, 2.9375F, 2.5F, 0x581b15, 0xa55f12);
@@ -649,6 +650,7 @@ public class EntityRegistry {
         registerMobAttributes(event, MYSTERIOUS_MAN_LAYER2, EntityStats.MYSTERIOUS_MAN);
         registerMobAttributes(event, BIPHRON, EntityStats.BIPHRON);
         registerMobAttributes(event, GORGOSION, EntityStats.GORGOSION);
+        registerMobAttributes(event, INSECT_FOURTEEN, EntityStats.INSECT_FOURTEEN);
         registerMobAttributes(event, MANDRAGORA, EntityStats.MANDRAGORA);
         registerMobAttributes(event, TWINS, EntityStats.TWINS);
         registerMobAttributes(event, VERMENOUS, EntityStats.VERMENOUS);
@@ -841,6 +843,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelHelio.LAYER_LOCATION, ModelHelio::createBodyLayer);
         event.registerLayerDefinition(ModelHiveSoldier.LAYER_LOCATION, ModelHiveSoldier::createBodyLayer);
         event.registerLayerDefinition(ModelHoverStinger.LAYER_LOCATION, ModelHoverStinger::createBodyLayer);
+        event.registerLayerDefinition(ModelInsectFourteen.LAYER_LOCATION, ModelInsectFourteen::createBodyLayer);
         event.registerLayerDefinition(ModelKazrotic.LAYER_LOCATION, ModelKazrotic::createBodyLayer);
         event.registerLayerDefinition(ModelLheiva.LAYER_LOCATION, ModelLheiva::createBodyLayer);
         event.registerLayerDefinition(ModelLorga.LAYER_LOCATION, ModelLorga::createBodyLayer);
@@ -1173,11 +1176,12 @@ public class EntityRegistry {
         event.registerEntityRenderer(DUO.get(), (Context context) -> new RenderDivineMob<>(context, "duo", new ModelDuo(context)));
         event.registerEntityRenderer(ENT.get(), (Context context) -> new RenderDivineMob<>(context, "ent", new ModelEnt<>(context)));
         event.registerEntityRenderer(FAKE_VHRAAK.get(), (Context context) -> new RenderDivineMob<>(context, "vhraak", new ModelVhraak<>(context)));
-        event.registerEntityRenderer(GALROID.get(), (Context context) -> new RenderGalroid(context, "galroid", new ModelGalroid<>(context)));
+        event.registerEntityRenderer(GALROID.get(), RenderGalroid::new);
         event.registerEntityRenderer(GORGOSION.get(), (Context context) -> new RenderDivineMob<>(context, "gorgosion", new ModelGorgosion<>(context)));
         event.registerEntityRenderer(HELIO.get(), (Context context) -> new RenderDivineMob<>(context, "helio", new ModelHelio<>(context)));
         event.registerEntityRenderer(HIVE_SOLDIER.get(), (Context context) -> new RenderDivineMob<>(context, "hive_soldier", new ModelHiveSoldier<>(context)));
         event.registerEntityRenderer(HOVER_STINGER.get(), (Context context) -> new RenderDivineMob<>(context, "hover_stinger", new ModelHoverStinger<>(context)));
+        event.registerEntityRenderer(INSECT_FOURTEEN.get(), RenderInsectFourteen::new);
         event.registerEntityRenderer(KAZROTIC.get(), (Context context) -> new RenderDivineMob<>(context, "kazrotic", new ModelKazrotic<>(context)));
         event.registerEntityRenderer(LHEIVA.get(), (Context context) -> new RenderDivineMob<>(context, "lheiva", new ModelLheiva<>(context)));
         event.registerEntityRenderer(LORGA.get(), (Context context) -> new RenderDivineMob<>(context, "lorga", new ModelLorga<>(context)));

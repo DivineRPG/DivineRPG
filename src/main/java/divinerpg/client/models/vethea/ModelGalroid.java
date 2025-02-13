@@ -1,16 +1,16 @@
 package divinerpg.client.models.vethea;
 
 import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.vethea.EntityGalroid;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.Entity;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelGalroid<T extends Entity> extends EntityModel<T> {
+public class ModelGalroid extends EntityModel<EntityGalroid> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("galroid");
 	private final ModelPart horn1;
 	private final ModelPart body1;
@@ -365,7 +365,7 @@ public class ModelGalroid<T extends Entity> extends EntityModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(EntityGalroid entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.leftleg1.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 		this.leftleg2.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
 		this.leftleg3.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;

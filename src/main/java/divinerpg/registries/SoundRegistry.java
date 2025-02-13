@@ -124,6 +124,7 @@ public class SoundRegistry {
         ICEMAN = registerSound("iceman"),//TODO: implement sound
         ICEMAN_HURT = registerSound("iceman_hurt"),//TODO: implement sound
         INSECT = registerSound("insect"),
+        INSECT_FOURTEEN_HURT = registerSound("insect_fourteen_hurt"),
         JACKOMAN = registerSound("jackoman"),
         JUNGLE_SPIDER = registerSound("jungle_spider"),
         KAROS_INTRO = registerSound("karos_intro"),

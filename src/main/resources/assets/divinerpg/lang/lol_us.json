@@ -2104,6 +2104,7 @@
   "entity.divinerpg.ent": "Ententini Savarakatini",
   "entity.divinerpg.hive_soldier": "Hive Soldier",
   "entity.divinerpg.hover_stinger": "Hover Stinger",
+  "entity.divinerpg.insect_fourteen": "Walking Chandelier",
   "entity.divinerpg.lorga": "Large",
   "entity.divinerpg.shadahier": "Chess Player",
 
@@ -2117,6 +2118,7 @@
   "item.divinerpg.ent_spawn_egg": "Ententini Savarakatini Spawn Egg",
   "item.divinerpg.hive_soldier_spawn_egg": "Hive Soldier Spawn Egg",
   "item.divinerpg.hover_stinger_spawn_egg": "Hover Stinger Spawn Egg",
+  "item.divinerpg.insect_fourteen_spawn_egg": "Chandelier Spawn Egg",
   "item.divinerpg.lorga_spawn_egg": "Large Spawn Egg",
   "item.divinerpg.shadahier_spawn_egg": "Chess Player Spawn Egg",
 

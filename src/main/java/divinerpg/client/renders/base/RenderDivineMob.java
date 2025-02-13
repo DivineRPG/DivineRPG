@@ -25,7 +25,7 @@ public class RenderDivineMob<T extends Mob> extends MobRenderer<T, EntityModel<T
         TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/" + name + ".png");
     }
     @Override protected void scale(T type, PoseStack stack, float s) {
-    	if(type.isBaby()) stack.scale(scale / 2, scale / 2, this.scale / 2);
+    	if(type.isBaby()) stack.scale(scale / 2, scale / 2, scale / 2);
     	else stack.scale(scale, scale, scale);
     }
     @Override public ResourceLocation getTextureLocation(T type) {return TEXTURE;}

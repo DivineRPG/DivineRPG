@@ -189,6 +189,7 @@ public enum EntityStats {
     //Layer 2
     TEMPLE_GUARDIAN(),
     BIPHRON(40, 14),
+    INSECT_FOURTEEN(25),
     GORGOSION(60),
     MANDRAGORA(35),
     TWINS(10),
