@@ -25,6 +25,12 @@
 				"maxCount": 2
 			},
 			{
+				"type": "divinerpg:insect_fourteen",
+				"weight": 1,
+				"minCount": 1,
+				"maxCount": 2
+			},
+			{
 				"type": "divinerpg:mandragora",
 				"weight": 1,
 				"minCount": 1,

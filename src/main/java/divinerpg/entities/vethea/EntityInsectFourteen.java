@@ -1,14 +1,16 @@
 package divinerpg.entities.vethea;
 
-import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.util.UniversalPosition;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.*;
@@ -29,6 +31,7 @@ public class EntityInsectFourteen extends EntityDivineMonster {
         goalSelector.addGoal(3, new RandomLookAroundGoal(this));
         targetSelector.addGoal(0, new HurtByTargetGoal(this));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Pig.class, true));
     }
     public static class FloatEnemyGoal extends Goal {
         protected final Mob mob;
@@ -57,7 +60,7 @@ public class EntityInsectFourteen extends EntityDivineMonster {
                     } else return true;
                 } else {
                     path = mob.getNavigation().createPath(UniversalPosition.toBlockPos(livingentity.position().offsetRandom(mob.getRandom(), 3F)), 0);
-                    return path != null || mob.distanceToSqr(livingentity) < 25;
+                    return path != null || mob.distanceToSqr(livingentity) < 25D;
                 }
             }
         }
@@ -106,19 +109,21 @@ public class EntityInsectFourteen extends EntityDivineMonster {
         }
         protected void checkAndPerformAttack(LivingEntity target) {
             if(mob.isAggressive()) {
-                //TODO: Am I going crazy? Why is this not working?
-                Vec3 v = target.position().subtract(mob.position());
-                v = v.scale(9D / v.lengthSqr());
-                target.setDeltaMovement(mob.position().add(v.x, 6, v.y).subtract(target.position()).add(target.getDeltaMovement()));
-//                target.setDeltaMovement(target.getDeltaMovement().add(0,1,0));
-                if(attackTimer < 1) {
-                    DivineRPG.LOGGER.info("finished attacking");
+                if((mob.tickCount & 1) == 0) {
+                    Vec3 v = target.position().subtract(mob.position());
+                    double distancesquared = v.lengthSqr();
+                    if(distancesquared < 25D) {
+                        v = v.scale(9D / v.lengthSqr());
+                        target.setDeltaMovement(mob.position().add(v.x, 4.2, v.y).subtract(target.position()).scale(0.1).add(target.getDeltaMovement()));
+                        target.hasImpulse = true;
+                        if(target instanceof ServerPlayer serverplayer) serverplayer.connection.send(new ClientboundSetEntityMotionPacket(serverplayer));
+                    }
+                } if(attackTimer < 1) {
                     mob.setAggressive(false);
-                    ticksUntilNextAttack = adjustedTickDelay(40);
+                    ticksUntilNextAttack = adjustedTickDelay(20);
                 } else attackTimer--;
             } else if(mob.getSensing().hasLineOfSight(target)) {
                 attackTimer = 40;
-                DivineRPG.LOGGER.info("started attacking");
                 mob.setAggressive(true);
             }
         }
