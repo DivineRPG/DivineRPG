@@ -10,7 +10,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
-import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.*;
@@ -31,7 +30,6 @@ public class EntityInsectFourteen extends EntityDivineMonster {
         goalSelector.addGoal(3, new RandomLookAroundGoal(this));
         targetSelector.addGoal(0, new HurtByTargetGoal(this));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Pig.class, true));
     }
     public static class FloatEnemyGoal extends Goal {
         protected final Mob mob;

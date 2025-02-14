@@ -115,17 +115,10 @@ public class ModelBehemoth extends EntityModel<EntityBehemoth> {
 
 	@Override
 	public void setupAnim(EntityBehemoth entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.tail.xRot = (float) (Math.cos(ageInTicks * 0.1F) * Math.PI * 0.05F + 1.092891F);
+		tail.xRot = (float) (Math.cos(ageInTicks * 0.1F) * Math.PI * 0.05F + 1.092891F);
 
-        this.LegL1.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
-        this.LegL2.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
-        this.LegL3.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
-        this.LegL4.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
-
-        this.LegR1.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
-        this.LegR2.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
-        this.LegR3.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
-        this.LegR4.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * 1.4F * limbSwingAmount);
+        LegL3.xRot = LegL4.xRot = LegR1.xRot = LegR2.xRot = (float) (Math.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount);
+		LegL1.xRot = LegL2.xRot = LegR3.xRot = LegR4.xRot = -LegR2.xRot;
 	}
 
 	@Override

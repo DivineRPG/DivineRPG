@@ -344,13 +344,19 @@
   "endiku": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/endiku"
+      "divinerpg:mobs/wildwood/endiku"
     ]
   },
   "endiku_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/endiku_hurt"
+      "divinerpg:mobs/wildwood/endiku_hurt"
+    ]
+  },
+  "endiku_death": {
+    "category": "hostile",
+    "sounds": [
+      "divinerpg:mobs/wildwood/endiku_death"
     ]
   },
   "ent": {

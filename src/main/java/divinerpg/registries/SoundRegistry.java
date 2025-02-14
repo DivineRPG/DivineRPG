@@ -83,6 +83,7 @@ public class SoundRegistry {
         DUO_HURT = registerSound("duo_hurt"),
         ENDIKU = registerSound("endiku"),
         ENDIKU_HURT = registerSound("endiku_hurt"),
+        ENDIKU_DEATH = registerSound("endiku_death"),
         ENT = registerSound("ent"),
         ENT_HURT = registerSound("ent_hurt"),
         EXPLOSIONS = registerSound("explosions"),
