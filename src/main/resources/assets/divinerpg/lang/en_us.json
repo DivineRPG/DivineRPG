@@ -2113,7 +2113,6 @@
   "entity.divinerpg.ent": "Ent",
   "entity.divinerpg.hive_soldier": "Hive Soldier",
   "entity.divinerpg.hover_stinger": "Hover Stinger",
-  "entity.divinerpg.insect_fourteen": "Insect 14",
   "entity.divinerpg.lorga": "Lorga",
   "entity.divinerpg.shadahier": "Shadahier",
 
@@ -2127,7 +2126,6 @@
   "item.divinerpg.ent_spawn_egg": "Ent Spawn Egg",
   "item.divinerpg.hive_soldier_spawn_egg": "Hive Soldier Spawn Egg",
   "item.divinerpg.hover_stinger_spawn_egg": "Hover Stinger Spawn Egg",
-  "item.divinerpg.insect_fourteen_spawn_egg": "Insect 14 Spawn Egg",
   "item.divinerpg.lorga_spawn_egg": "Lorga Spawn Egg",
   "item.divinerpg.shadahier_spawn_egg": "Shadahier Spawn Egg",
 
@@ -2135,6 +2133,7 @@
   "entity.divinerpg.mysterious_man_layer_2": "Mysterious Man",
   "entity.divinerpg.biphron": "Biphron",
   "entity.divinerpg.gorgosion": "Gorgosion",
+  "entity.divinerpg.insect_fourteen": "Insect 14",
   "entity.divinerpg.mandragora": "Mandragora",
   "entity.divinerpg.mandragora_shot": "Mandragora Shot",
   "entity.divinerpg.twins": "Twins",
@@ -2144,6 +2143,7 @@
   "item.divinerpg.mysterious_man_layer_2_spawn_egg": "Mysterious Man Layer II Spawn Egg",
   "item.divinerpg.biphron_spawn_egg": "Biphron Spawn Egg",
   "item.divinerpg.gorgosion_spawn_egg": "Gorgosion Spawn Egg",
+  "item.divinerpg.insect_fourteen_spawn_egg": "Insect 14 Spawn Egg",
   "item.divinerpg.mandragora_spawn_egg": "Mandragora Spawn Egg",
   "item.divinerpg.twins_spawn_egg": "Twins Spawn Egg",
   "item.divinerpg.vermenous_spawn_egg": "Vermenous Spawn Egg",

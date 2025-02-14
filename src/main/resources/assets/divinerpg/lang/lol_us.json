@@ -2104,7 +2104,6 @@
   "entity.divinerpg.ent": "Ententini Savarakatini",
   "entity.divinerpg.hive_soldier": "Hive Soldier",
   "entity.divinerpg.hover_stinger": "Hover Stinger",
-  "entity.divinerpg.insect_fourteen": "Walking Chandelier",
   "entity.divinerpg.lorga": "Large",
   "entity.divinerpg.shadahier": "Chess Player",
 
@@ -2118,7 +2117,6 @@
   "item.divinerpg.ent_spawn_egg": "Ententini Savarakatini Spawn Egg",
   "item.divinerpg.hive_soldier_spawn_egg": "Hive Soldier Spawn Egg",
   "item.divinerpg.hover_stinger_spawn_egg": "Hover Stinger Spawn Egg",
-  "item.divinerpg.insect_fourteen_spawn_egg": "Chandelier Spawn Egg",
   "item.divinerpg.lorga_spawn_egg": "Large Spawn Egg",
   "item.divinerpg.shadahier_spawn_egg": "Chess Player Spawn Egg",
 
@@ -2126,6 +2124,7 @@
   "entity.divinerpg.mysterious_man_layer_2": "Trustworthy Man",
   "entity.divinerpg.biphron": "Banana Magnet",
   "entity.divinerpg.gorgosion": "Bulimia",
+  "entity.divinerpg.insect_fourteen": "Walking Chandelier",
   "entity.divinerpg.mandragora": "Man Dragon",
   "entity.divinerpg.mandragora_shot": "Man Dragon Shot",
   "entity.divinerpg.twins": "Twice the Ice Cream",
@@ -2135,6 +2134,7 @@
   "item.divinerpg.mysterious_man_layer_2_spawn_egg": "Trustworthy Man Layer II Spawn Egg",
   "item.divinerpg.biphron_spawn_egg": "Banana Magnet Spawn Egg",
   "item.divinerpg.gorgosion_spawn_egg": "Bulimia Spawn Egg",
+  "item.divinerpg.insect_fourteen_spawn_egg": "Chandelier Spawn Egg",
   "item.divinerpg.mandragora_spawn_egg": "Man Dragon Spawn Egg",
   "item.divinerpg.twins_spawn_egg": "Twice the Ice Cream Spawn Egg",
   "item.divinerpg.vermenous_spawn_egg": "Vermin Spotter Spawn Egg",

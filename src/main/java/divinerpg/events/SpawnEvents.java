@@ -242,6 +242,7 @@ public class SpawnEvents {
 		register(e, HELIO.get(), SpawnType.GROUND, MONSTER);
 		register(e, HIVE_SOLDIER.get(), SpawnType.GROUND, MONSTER);
 		register(e, HOVER_STINGER.get(), SpawnType.FLY, MONSTER_DARKNESS_AGILE);
+		register(e, INSECT_FOURTEEN.get(), SpawnType.GROUND, MONSTER);
 		register(e, KAZROTIC.get(), SpawnType.GROUND, MONSTER);
 		register(e, LHEIVA.get(), SpawnType.GROUND, MONSTER);
 		register(e, LORGA.get(), SpawnType.GROUND, MONSTER);
