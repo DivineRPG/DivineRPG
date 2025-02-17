@@ -22,9 +22,7 @@ public class EntityBehemoth extends EntityDivineMonster {
         });
         goalSelector.addGoal(2, new EntityBehemothEatWood(this));
         goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, followingTarget) {
-            @Override public boolean canContinueToUse() {
-                return mob.getHealth() >= mob.getMaxHealth() / 3 && super.canContinueToUse();
-            }
+            @Override public boolean canContinueToUse() {return mob.getHealth() >= mob.getMaxHealth() / 3 && super.canContinueToUse();}
         });
         goalSelector.addGoal(3, new PanicGoal(this, 1.2F));
         goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1));
