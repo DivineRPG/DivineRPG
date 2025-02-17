@@ -50,11 +50,11 @@ public interface FactionEntity {
 			GROGLIN = new Faction(true, 0, AttachmentRegistry.GROGLIN_REPUTATION) {
 			public boolean isAgressiveTowards(LivingEntity entity) {
 				return entity.hasEffect(MobEffectRegistry.GROGLIN_BOUNTY) || super.isAgressiveTowards(entity);
-			};},
+			}},
 			GRUZZORLUG = new Faction(true, 0, AttachmentRegistry.GRUZZORLUG_REPUTATION) {
 			public boolean isAgressiveTowards(LivingEntity entity) {
 				return entity.hasEffect(MobEffectRegistry.GRUZZORLUG_TARGET) || super.isAgressiveTowards(entity);
-			};},
+			}},
 			ICEIKA_MERCHANT = new Faction(false, 20, AttachmentRegistry.ICEIKA_MERCHANT_REPUTATION).addEnemy(GROGLIN).addEnemy(GRUZZORLUG);
 		static {
 			ArrayList<EntityType<?>> iceikaNature = new ArrayList<>();
@@ -126,7 +126,7 @@ public interface FactionEntity {
 			EntityType<?> type = entity.getType();
 			if(nonFactionAllies.contains(type)) return false;
 			if(!isAutoAggressive && nonFactionEnemies.contains(type)) return true;
-			if(entity instanceof Player player && !player.isCreative() && !player.isSpectator() && hates(player)) return true;
+			if(entity instanceof Player player && !player.isCreative() && !player.isSpectator()) return hates(player);
 			if(entity instanceof FactionEntity fac) return isAgressiveTowards(fac.getFaction());
 			return isAutoAggressive;
 		}

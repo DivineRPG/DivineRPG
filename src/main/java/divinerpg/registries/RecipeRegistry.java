@@ -1,6 +1,5 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
 import divinerpg.recipe.*;
 import divinerpg.recipe.brewing.*;
 import net.minecraft.core.registries.*;
@@ -29,6 +28,5 @@ public class RecipeRegistry {
         e.getBuilder().addRecipe(new PotionOfLongWarmthRecipe());
         e.getBuilder().addRecipe(new TeaRecipe());
         e.getBuilder().addRecipe(new GrogRecipe());
-        DivineRPG.LOGGER.info("Registered Brewing Recipes");
     }
 }
