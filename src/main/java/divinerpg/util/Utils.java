@@ -129,7 +129,7 @@ public class Utils {
 		if(item != null) level.addFreshEntity(new ItemEntity(level, pos.x, pos.y, pos.z, item));
 	}
 
-    public class HatsInfo {
+    public static class HatsInfo {
         public List<UUID> dev;
         public List<UUID> tester;
         public List<UUID> special;

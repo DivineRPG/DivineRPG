@@ -1,15 +1,13 @@
 package divinerpg.registries;
 
-import divinerpg.recipe.ArcaniumExtractorRecipe;
-import divinerpg.recipe.InfusionTableRecipe;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.SimpleCookingSerializer;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import divinerpg.DivineRPG;
+import divinerpg.recipe.*;
+import divinerpg.recipe.brewing.*;
+import net.minecraft.core.registries.*;
+import net.minecraft.world.item.crafting.*;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.neoforged.neoforge.registries.*;
 
 import static divinerpg.DivineRPG.MODID;
 
@@ -25,13 +23,12 @@ public class RecipeRegistry {
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_SERIALIZER = SERIALIZER.register("arcanium_extractor", () -> new SimpleCookingSerializer<>(ArcaniumExtractorRecipe::new, 100));
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<InfusionTableRecipe>> INFUSION_TABLE_SERIALIZER = SERIALIZER.register("infusion_table", InfusionTableRecipe.Serializer::new);
     }
-    public static class BrewingRecipes {
-    	public static void init() {
-    		//TODO - brewing recipes
-//            addRecipe(new PotionOfWarmthRecipe());
-//    		addRecipe(new PotionOfLongWarmthRecipe());
-//    		addRecipe(new TeaRecipe());
-//    		addRecipe(new GrogRecipe());
-    	}
+    @SubscribeEvent
+    public void registerBrewingRecipes(RegisterBrewingRecipesEvent e) {
+        e.getBuilder().addRecipe(new PotionOfWarmthRecipe());
+        e.getBuilder().addRecipe(new PotionOfLongWarmthRecipe());
+        e.getBuilder().addRecipe(new TeaRecipe());
+        e.getBuilder().addRecipe(new GrogRecipe());
+        DivineRPG.LOGGER.info("Registered Brewing Recipes");
     }
 }

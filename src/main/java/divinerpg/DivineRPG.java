@@ -65,9 +65,8 @@ public class DivineRPG {
         ModCompat.initCommon(event);
         NeoForge.EVENT_BUS.register(new RiveHandler());
         NeoForge.EVENT_BUS.register(new Ticker());
-
+        NeoForge.EVENT_BUS.register(new RecipeRegistry());
         event.enqueueWork(() -> {
-            RecipeRegistry.BrewingRecipes.init();
             LogStripper.setup(event);
             PlantPots.setup(event);
         });
