@@ -344,19 +344,28 @@
   "endiku": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/wildwood/endiku"
+      {
+        "name": "divinerpg:mobs/wildwood/endiku",
+        "volume": 1.5
+      }
     ]
   },
   "endiku_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/wildwood/endiku_hurt"
+      {
+        "name": "divinerpg:mobs/wildwood/endiku_hurt",
+        "volume": 1.5
+      }
     ]
   },
   "endiku_death": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/wildwood/endiku_death"
+      {
+        "name": "divinerpg:mobs/wildwood/endiku_death",
+        "volume": 1.5
+      }
     ]
   },
   "ent": {
