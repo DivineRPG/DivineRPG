@@ -1,136 +1,173 @@
 package divinerpg.entities.iceika;
 
-import divinerpg.util.Utils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.util.Mth;
+import com.google.common.collect.ImmutableList;
+import it.unimi.dsi.fastutil.floats.*;
+import net.minecraft.core.*;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.navigation.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.PathType;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.level.border.WorldBorder;
+import net.minecraft.world.level.pathfinder.*;
+import net.minecraft.world.phys.*;
+import net.minecraft.world.phys.shapes.*;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class EntitySnowSkipper extends PathfinderMob {
-	BlockPos pathfindPos, afraidPos;
-	boolean wantsToRest = false;
 	public EntitySnowSkipper(EntityType<? extends EntitySnowSkipper> type, Level worldIn) {
         super(type, worldIn);
-        setPathfindingMalus(PathType.POWDER_SNOW, 1F);
-        setPathfindingMalus(PathType.DANGER_POWDER_SNOW, 1F);
+		getNavigation().setCanFloat(true);
+		setPathfindingMalus(PathType.DANGER_POWDER_SNOW, 0F);
+		setPathfindingMalus(PathType.POWDER_SNOW, 0F);
     }
-
-	@Override
-	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+	@Override protected @Nullable SoundEvent getHurtSound(DamageSource damageSource) {
+		return SoundEvents.RABBIT_HURT;
+	}
+	@Override protected @Nullable SoundEvent getDeathSound() {
+		return SoundEvents.RABBIT_DEATH;
+	}
+	@Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {
 		return false;
 	}
-
-	@Override
-	public boolean checkSpawnObstruction(LevelReader worldIn) {
-		return true;
-	}
-	@Override
-	public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
-		BlockState state = level.getBlockState(blockPosition());
-		return state.is(Blocks.POWDER_SNOW) || (state.isAir() && level.getBlockState(blockPosition().below()).is(Blocks.POWDER_SNOW));
-	}
-	@Override
-	protected void registerGoals() {
+	@Override protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
-		goalSelector.addGoal(6, new SkipperStrollGoal(this, 1D));
-		goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-		goalSelector.addGoal(5, new SkipperAvoidGoal(this));
+		goalSelector.addGoal(2, new AvoidEntityGoal<>(this, Player.class, 6F, 1D, 1.2));
+		goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1D));
+		goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 	}
-	@Override protected void customServerAiStep() {
-		BlockPos p = null;
-		if(getLastHurtByMob() != null && position().distanceTo(getLastHurtByMob().position()) < 5D) p = getLastHurtByMob().blockPosition();
-		Player player = level().getNearestPlayer(this, 5D);
-		if(player != null) p = player.blockPosition();
-		afraidPos = p;
-		if(p != null) wantsToRest = false;
-		else if(random.nextInt(100) == 0) wantsToRest = !wantsToRest;
-		if(level().getBlockState(blockPosition()).is(Blocks.POWDER_SNOW)) {
-			if(!isNoGravity()) setNoGravity(true);
-			travel();
-		} else {
-			if(isNoGravity()) setNoGravity(false);
-			if(level().getBlockState(blockPosition().below()).is(Blocks.POWDER_SNOW) && !wantsToRest) travel();
+	@Override protected PathNavigation createNavigation(Level level) {
+		return new GroundPathNavigation(this, level) {
+			@Override protected PathFinder createPathFinder(int maxVisitedNodes) {
+				nodeEvaluator = new WalkNodeEvaluator() {
+					@Override public PathType getPathType(PathfindingContext context, int x, int y, int z) {
+						return isTravelMedium(level.getBlockState(new BlockPos(x, y, z))) ? PathType.WALKABLE : super.getPathType(context, x, y, z);
+					}
+				};
+				return new PathFinder(nodeEvaluator, maxVisitedNodes);
+			}
+			@Override protected boolean canUpdatePath() {
+				return super.canUpdatePath() || isTravelMedium(mob.getInBlockState());
+			}
+		};
+	}
+	public static boolean isTravelMedium(BlockState state) {
+		return state.is(Blocks.POWDER_SNOW) || state.is(Blocks.SNOW_BLOCK) || state.is(Blocks.SNOW);
+	}
+	@Override public boolean isInvulnerableTo(DamageSource source) {
+		return (source.is(DamageTypes.IN_WALL) && !isTravelMedium(getInBlockState())) || super.isInvulnerableTo(source);
+	}
+	@Override public boolean isColliding(BlockPos pos, BlockState state) {
+		return !isTravelMedium(state) && super.isColliding(pos, state);
+	}
+	@Override public boolean isInWall() {
+		return !isTravelMedium(getInBlockState()) && super.isInWall();
+	}
+	@Override public void travel(Vec3 travelVector) {
+		super.travel(travelVector);
+		if(isPathFinding()) {
+			if(isTravelMedium(getInBlockState())) addDeltaMovement(new Vec3(getDeltaMovement().x * 0.01, .15, getDeltaMovement().z * 0.01));
+			else if(isTravelMedium(getBlockStateOn())) jumpFromGround();
 		}
-	}
-	void travel() {
-        Vec3 futurePos = position().add(getDeltaMovement().x * 2D, getDeltaMovement().y * 2D, getDeltaMovement().z * 2D);
-        BlockPos pos = new BlockPos((int) futurePos.x, (int) futurePos.y, (int) futurePos.z);
-        BlockState state = level().getBlockState(pos);
-        boolean blockedPath = !state.is(Blocks.POWDER_SNOW) && (state.is(Blocks.LAVA) || !state.getCollisionShape(level(), pos).equals(Shapes.empty()));
-        //decide where to go next
-        if(pathfindPos == null || blockedPath) {
-        	int dx, dz;
-        	if(afraidPos == null) {
-        		dx = 0;
-        		dz = 0;
-        	} else {
-        		dx = afraidPos.getX() - (int) (getX() * random.nextDouble() * 1.5D);
-        		dz = afraidPos.getZ() - (int) (getZ() * random.nextDouble() * 1.5D);
-        	}
-        	pathfindPos = new BlockPos((int) (getX() + ((random.nextFloat() - .5F) * 8F)) - dx, (int) (getY() + ((random.nextFloat() - .6F) * 8F)), (int) (getZ() + ((random.nextFloat() - .5F) * 8F)) - dz);
-        }
-        if(pathfindPos != null) {
-            //movement
-            double speed = getAttributeValue(Attributes.FLYING_SPEED), distanceX = pathfindPos.getX() - getX(), distanceY = pathfindPos.getY() - getY() + (wantsToRest ? .3 : 0D), distanceZ = pathfindPos.getZ() - getZ(), distance = Math.sqrt(distanceX*distanceX+distanceY*distanceY+distanceZ*distanceZ);
-            setDeltaMovement(getDeltaMovement().x + distanceX / distance * speed, getDeltaMovement().y + distanceY / distance * speed, getDeltaMovement().z + distanceZ / distance * speed);
-            yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
-            xRotO = Utils.rotlerp(getXRot(), (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
-            if(distance < 1D) pathfindPos = null;
-        }
 	}
 	@Override
-	protected void actuallyHurt(DamageSource source, float f) {
-		wantsToRest = false;
-		super.actuallyHurt(source, f);
+	public void move(MoverType type, Vec3 dv) {
+		AABB aabb = getBoundingBox().expandTowards(dv).deflate(1E-6);
+		if(level().getBlockStatesIfLoaded(aabb).anyMatch(EntitySnowSkipper::isTravelMedium)) {
+			dv = collide(dv, aabb);
+			setPos(getX() + dv.x, getY() + dv.y, getZ() + dv.z);
+		} else super.move(type, dv);
 	}
-	@Override
-	public boolean isInvulnerableTo(DamageSource source) {
-		return source.is(DamageTypes.DROWN) || (source.is(DamageTypes.IN_WALL) && level().getBlockState(blockPosition()).is(Blocks.POWDER_SNOW)) || super.isInvulnerableTo(source);
+	public Vec3 collide(Vec3 vec, AABB expandedBox) {
+		AABB aabb = getBoundingBox();
+		List<VoxelShape> list = level().getEntityCollisions(this, expandedBox);
+		Vec3 vec3 = vec.lengthSqr() == 0D ? vec : getBlockCollisions(vec, aabb, expandedBox, list);
+		boolean xcollision = vec.x != vec3.x, ycollision = vec.y != vec3.y, zcollision = vec.z != vec3.z;
+		boolean groundcollision = ycollision && vec.y < 0D;
+		if(maxUpStep() > 0F && (groundcollision || onGround()) && (xcollision || zcollision)) {
+			AABB aabb1 = groundcollision ? aabb.move(0D, vec3.y, 0D) : aabb;
+			AABB aabb2 = aabb1.expandTowards(vec.x, maxUpStep(), vec.z);
+			if(!groundcollision) aabb2 = aabb2.expandTowards(0D, -1E-5, 0D);
+			List<VoxelShape> list1 = collectColliders(list, aabb2);
+			float[] afloat = collectCandidateStepUpHeights(aabb1, list1, maxUpStep(), (float)vec3.y);
+			for(float f1 : afloat) {
+				Vec3 vec31 = collideWithShapes(new Vec3(vec.x, f1, vec.z), aabb1, list1);
+				if(vec31.horizontalDistanceSqr() > vec3.horizontalDistanceSqr()) return vec31.add(0D, aabb1.minY - aabb.minY, 0D);
+			}
+		} return vec3;
 	}
-	@Override
-	public void addAdditionalSaveData(CompoundTag tag) {
-		super.addAdditionalSaveData(tag);
-		tag.putBoolean("wants_to_rest", wantsToRest);
+	public Vec3 getBlockCollisions(Vec3 vec, AABB collisionBox, AABB expandedBox, List<VoxelShape> potentialHits) {
+		List<VoxelShape> list = collectColliders(potentialHits, expandedBox);
+		return collideWithShapes(vec, collisionBox, list);
 	}
-	@Override
-	public void readAdditionalSaveData(CompoundTag tag) {
-		super.readAdditionalSaveData(tag);
-		if(tag.contains("wants_to_rest")) wantsToRest = tag.getBoolean("wants_to_rest");
+	public List<VoxelShape> collectColliders(List<VoxelShape> collisions, AABB boundingBox) {
+		ImmutableList.Builder<VoxelShape> builder = ImmutableList.builderWithExpectedSize(collisions.size() + 1);
+		if(!collisions.isEmpty()) builder.addAll(collisions);
+		WorldBorder worldborder = level().getWorldBorder();
+		boolean flag = worldborder.isInsideCloseToBorder(this, boundingBox);
+		if(flag) builder.add(worldborder.getCollisionShape());
+		CollisionContext context = CollisionContext.of(this);
+		VoxelShape entityShape = Shapes.create(boundingBox);
+		final BlockGetter[] cachedBlockGetter = {null};
+		final AtomicLong cachedBlockGetterPos = new AtomicLong(0L);
+		BlockPos.betweenClosedStream(boundingBox).forEach((pos) -> {
+			double x = pos.getX(), y = pos.getY(), z = pos.getZ();
+			int i = SectionPos.blockToSectionCoord(x);
+			int j = SectionPos.blockToSectionCoord(z);
+			long k = ChunkPos.asLong(i, j);
+			if(cachedBlockGetter[0] == null || cachedBlockGetterPos.get() != k) {
+				BlockGetter blockgetter = level().getChunkForCollisions(i, j);
+				cachedBlockGetter[0] = blockgetter;
+				cachedBlockGetterPos.set(k);
+			} if(cachedBlockGetter[0] == null) return;
+			BlockState state = cachedBlockGetter[0].getBlockState(pos);
+			if(!isTravelMedium(state)) {
+				VoxelShape voxelshape = state.getCollisionShape(level(), pos, context);
+				if(voxelshape == Shapes.block() && boundingBox.intersects(x, y, z, x + 1D, y + 1D, z + 1D)) builder.add(voxelshape.move(x, y, z));
+				voxelshape = voxelshape.move(x, y, z);
+				if(!voxelshape.isEmpty() && Shapes.joinIsNotEmpty(voxelshape, entityShape, BooleanOp.AND)) builder.add(voxelshape);
+			}
+		}); return builder.build();
 	}
-	static class SkipperStrollGoal extends WaterAvoidingRandomStrollGoal {
-		public SkipperStrollGoal(PathfinderMob mob, double speedModifier) {
-			super(mob, speedModifier);
-		}
-		@Override
-		public boolean canUse() {
-			return !mob.level().getBlockState(mob.blockPosition()).is(Blocks.POWDER_SNOW) && !mob.level().getBlockState(mob.blockPosition().below()).is(Blocks.POWDER_SNOW) && super.canUse();
-		}
-		@Override
-		public boolean canContinueToUse() {
-			return !mob.level().getBlockState(mob.blockPosition()).is(Blocks.POWDER_SNOW) && !mob.level().getBlockState(mob.blockPosition().below()).is(Blocks.POWDER_SNOW) && super.canContinueToUse();
-		}
+	//Copied and pasted from the private static classes in the Entity class
+	public static float[] collectCandidateStepUpHeights(AABB box, List<VoxelShape> colliders, float deltaY, float maxUpStep) {
+		FloatSet floatset = new FloatArraySet(4);
+		for(VoxelShape voxelshape : colliders) for(double d0 : voxelshape.getCoords(Direction.Axis.Y)) {
+			float f = (float) (d0 - box.minY);
+			if(!(f < 0.0F) && f != maxUpStep) {
+				if(f > deltaY) break;
+				floatset.add(f);
+			}
+		} float[] afloat = floatset.toFloatArray();
+		FloatArrays.unstableSort(afloat);
+		return afloat;
 	}
-	static class SkipperAvoidGoal extends AvoidEntityGoal<Player> {
-		public SkipperAvoidGoal(PathfinderMob mob) {
-			super(mob, Player.class, 6F, 1D, 1.2);
-		}
-		@Override
-		public boolean canUse() {
-			return !mob.level().getBlockState(mob.blockPosition()).is(Blocks.POWDER_SNOW) && !mob.level().getBlockState(mob.blockPosition().below()).is(Blocks.POWDER_SNOW) && super.canUse();
-		}
-		@Override
-		public boolean canContinueToUse() {
-			return !mob.level().getBlockState(mob.blockPosition()).is(Blocks.POWDER_SNOW) && !mob.level().getBlockState(mob.blockPosition().below()).is(Blocks.POWDER_SNOW) && super.canContinueToUse();
+	public static Vec3 collideWithShapes(Vec3 deltaMovement, AABB entityBB, List<VoxelShape> shapes) {
+		if(shapes.isEmpty()) return deltaMovement;
+		else {
+			double d0 = deltaMovement.x;
+			double d1 = deltaMovement.y;
+			double d2 = deltaMovement.z;
+			if(d1 != 0D) {
+				d1 = Shapes.collide(Direction.Axis.Y, entityBB, shapes, d1);
+				if(d1 != 0D) entityBB = entityBB.move(0D, d1, 0D);
+			} boolean flag = Math.abs(d0) < Math.abs(d2);
+			if(flag && d2 != 0D) {
+				d2 = Shapes.collide(Direction.Axis.Z, entityBB, shapes, d2);
+				if(d2 != 0D) entityBB = entityBB.move(0D, 0D, d2);
+			} if(d0 != 0D) {
+				d0 = Shapes.collide(Direction.Axis.X, entityBB, shapes, d0);
+				if(!flag && d0 != 0D) entityBB = entityBB.move(d0, 0D, 0D);
+			} if(!flag && d2 != 0D) d2 = Shapes.collide(Direction.Axis.Z, entityBB, shapes, d2);
+			return new Vec3(d0, d1, d2);
 		}
 	}
 }

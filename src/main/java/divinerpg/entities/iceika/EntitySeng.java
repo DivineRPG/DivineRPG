@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class EntitySeng extends EntityDivineMonster {
@@ -18,7 +17,7 @@ public class EntitySeng extends EntityDivineMonster {
     protected void registerGoals() {
     	super.registerGoals();
     	targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, EntityDolossal.class, true));
-    	targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EntityMamoth.class, 10, true, true, (entity) -> entity.isBaby()));
+    	targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, EntityMamoth.class, 10, true, true, LivingEntity::isBaby));
     }
 
     @Override
