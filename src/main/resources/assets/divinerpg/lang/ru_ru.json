@@ -1653,7 +1653,7 @@
 
   "entity.divinerpg.snapper": "Каймановая черепаха",
   "entity.divinerpg.ehu": "Эху",
-  "entity.divinerpg.husk": "Гадаврик",
+  "entity.divinerpg.husk": "Кадаврик",
   "entity.divinerpg.brown_grizzle": "Бурый гризли",
   "entity.divinerpg.white_grizzle": "Белый гризли",
   "entity.divinerpg.stone_golem": "Каменный голем",
@@ -1783,7 +1783,7 @@
   "item.divinerpg.whale_spawn_egg": "Яйцо призыва кита",
   "item.divinerpg.liopleurodon_spawn_egg": "Яйцо призыва лиоплевродона",
 
-  "entity.divinerpg.diamond_dave": "Алмазный Дэйв",
+  "entity.divinerpg.diamond_dave": "Дэйв Алмазец",
   "entity.divinerpg.miner": "Шахтёр",
   "entity.divinerpg.rotatick": "Ротатик",
   "entity.divinerpg.cave_crawler": "Пещерный ползун",
@@ -1792,7 +1792,7 @@
   "entity.divinerpg.enthralled_dramcryx": "Порабощённый каратель",
   "entity.divinerpg.the_grue": "Грю",
 
-  "item.divinerpg.diamond_dave_spawn_egg": "Яйцо призыва Алмазного Дэйва",
+  "item.divinerpg.diamond_dave_spawn_egg": "Яйцо призыва Дэйва Алмазца",
   "item.divinerpg.miner_spawn_egg": "Яйцо призыва шахтёра",
   "item.divinerpg.rotatick_spawn_egg": "Яйцо призыва ротатика",
   "item.divinerpg.cave_crawler_spawn_egg": "Яйцо призыва пещерного ползуна",
@@ -2138,6 +2138,31 @@
   "death.attack.divinerpg.trap.player": "%1$s попал в ловушку, спасаясь от %2$s",
   "death.attack.divinerpg.turtle": "%1$s был съеден черепахой",
 
+  "dungeon.divinerpg.diamond_dave_geode": "Жеода Дэйва Алмазца",
+  "dungeon.divinerpg.ancient_tomb": "Древняя гробница",
+  "dungeon.divinerpg.livestock_merchant_hut": "Хижина продавца",
+
+  "dungeon.divinerpg.iceika_dungeon": "Подземелье Заснежья",
+  "dungeon.divinerpg.iceika_hut": "Хижина Заснежья",
+  "dungeon.divinerpg.groglin_village": "Деревня гроглинов",
+  "dungeon.divinerpg.gruzzorlug_village": "Деревня гразорлагов",
+
+  "dungeon.divinerpg.banquet_hall": "Банкетный зал",
+  "dungeon.divinerpg.utility_hallway": "Подсобный коридор",
+
+  "dungeon.divinerpg.eden_hut": "Хижина Эдема",
+  "dungeon.divinerpg.skythern_hut": "Хижина Поднебесья",
+  "dungeon.divinerpg.wildwood_hut": "Хижина Диколесья",
+
+  "dungeon.divinerpg.crypt": "Склеп",
+  "dungeon.divinerpg.karos_madhouse": "Психушница Кароса",
+  "dungeon.divinerpg.quadrotic_post": "Пост Квадротика",
+  "dungeon.divinerpg.raglok_chamber": "Комната Раглока",
+  "dungeon.divinerpg.temple_bottom": "Основание храма",
+  "dungeon.divinerpg.temple_middle": "Середина храма",
+  "dungeon.divinerpg.temple_top": "Верхушка храма",
+  "dungeon.divinerpg.wreck_hall": "Зал Крушителя",
+
   "tag.divinerpg.ammo.aquatic_cannon": "Кактусы",
   "tag.divinerpg.ammo.corrupted_cannon": "Повреждённые пули",
   "tag.divinerpg.ammo.golden_fury": "Кусочки золота",
@@ -2299,7 +2324,7 @@
   "advancement.divinerpg.overworld.jungle_stegosaurus_slayer": "Смерть всем стегозаврам",
   "advancement.divinerpg.overworld.jungle_stegosaurus_slayer.desc": "Убейте тропического карателя",
   "advancement.divinerpg.overworld.lonely_guy": "История одинокого парня",
-  "advancement.divinerpg.overworld.lonely_guy.desc": "Поторгуйте с Алмазным Дэйвом",
+  "advancement.divinerpg.overworld.lonely_guy.desc": "Поторгуйте с Дэйвом Алмазцем",
   "advancement.divinerpg.overworld.perfectly_corrupted": "Идеальное повреждение",
   "advancement.divinerpg.overworld.perfectly_corrupted.desc": "Используйте алтарь повреждения",
   "advancement.divinerpg.overworld.when_pigs_fly": "Когда свиньи полетят",

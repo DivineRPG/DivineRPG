@@ -1,8 +1,6 @@
 package divinerpg.compat.jei;
 
-import divinerpg.DivineRPG;
 import divinerpg.registries.*;
-import divinerpg.util.LocalizeUtils;
 import jeresources.api.*;
 import jeresources.api.conditionals.Conditional;
 import jeresources.api.distributions.DistributionSquare;
@@ -11,11 +9,9 @@ import jeresources.api.restrictions.*;
 import jeresources.compatibility.api.JERAPI;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.*;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -26,30 +22,30 @@ public class JERCompat {
         IDungeonRegistry dungeonRegistry = jerApi.getDungeonRegistry();
         if(dungeonRegistry != null) {
             //Overworld
-            dungeonRegistry.registerChest(getDungeon("diamond_dave"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/overworld/amethyst")));
-            dungeonRegistry.registerChest(getDungeon("ancient_tomb"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/overworld/ancient_tomb")));
-            dungeonRegistry.registerChest(getDungeon("merchant_hut"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/overworld/livestock_chest")));
+            dungeonRegistry.registerChest(getDungeon("diamond_dave_geode"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.AMETHYST_GEODE));
+            dungeonRegistry.registerChest(getDungeon("ancient_tomb"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.ANCIENT_TOMB));
+            dungeonRegistry.registerChest(getDungeon("livestock_merchant_hut"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.LIVESTOCK_MERCHANT_HUT));
             //Iceika
-            dungeonRegistry.registerChest(getDungeon("iceika"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/iceika/iceika_chest_dungeon")));
-            dungeonRegistry.registerChest(getDungeon("iceika_hut"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/iceika/iceika_chest_hut")));
-            dungeonRegistry.registerChest(getDungeon("groglin"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/iceika/groglin_chest")));
-            dungeonRegistry.registerChest(getDungeon("gruzzorlug"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/iceika/gruzzorlug_chest")));
+            dungeonRegistry.registerChest(getDungeon("iceika_dungeon"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.ICEIKA_DUNGEON));
+            dungeonRegistry.registerChest(getDungeon("iceika_hut"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.ICEIKA_HUT));
+            dungeonRegistry.registerChest(getDungeon("groglin_village"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.GROGLIN_VILLAGE));
+            dungeonRegistry.registerChest(getDungeon("gruzzorlug_village"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.GRUZZORLUG_VILLAGE));
             //Arcana
-            dungeonRegistry.registerChest(getDungeon("banquet_hall"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/arcana/banquet_hall_loot")));
-            dungeonRegistry.registerChest(getDungeon("utility_hallway"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/arcana/utility_hallway_loot")));
+            dungeonRegistry.registerChest(getDungeon("banquet_hall"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.BANQUET_HALL));
+            dungeonRegistry.registerChest(getDungeon("utility_hallway"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.UTILITY_HALLWAY));
             //Twilight
-            dungeonRegistry.registerChest(getDungeon("eden_hut"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/twilight/eden/hut_chest")));
-            dungeonRegistry.registerChest(getDungeon("skythern_hut"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/twilight/skythern/chest")));
-            dungeonRegistry.registerChest(getDungeon("wildwood_hut"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/twilight/wildwood/chest")));
+            dungeonRegistry.registerChest(getDungeon("eden_hut"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.EDEN_HUT));
+            dungeonRegistry.registerChest(getDungeon("skythern_hut"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.SKYTHERN_HUT));
+            dungeonRegistry.registerChest(getDungeon("wildwood_hut"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.WILDWOOD_HUT));
             //Vethea
-            dungeonRegistry.registerChest(getDungeon("crypt"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/crypt_loot")));
-            dungeonRegistry.registerChest(getDungeon("karos_madhouse"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/karos_madhouse_loot")));
-            dungeonRegistry.registerChest(getDungeon("quadrotic_post"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/quadrotic_post_loot")));
-            dungeonRegistry.registerChest(getDungeon("raglok_chamber"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/raglok_chamber_loot")));
-            dungeonRegistry.registerChest(getDungeon("temple_bottom"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/temple_loot_bottom")));
-            dungeonRegistry.registerChest(getDungeon("temple_middle"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/temple_loot_middle")));
-            dungeonRegistry.registerChest(getDungeon("temple_top"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/temple_loot_top")));
-            dungeonRegistry.registerChest(getDungeon("wreck_hall"), ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/wreck_hall_loot")));
+            dungeonRegistry.registerChest(getDungeon("crypt"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.CRYPT));
+            dungeonRegistry.registerChest(getDungeon("karos_madhouse"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.KAROS_MADHOUSE));
+            dungeonRegistry.registerChest(getDungeon("quadrotic_post"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.QUADROTIC_POST));
+            dungeonRegistry.registerChest(getDungeon("raglok_chamber"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.RAGLOK_CHAMBER));
+            dungeonRegistry.registerChest(getDungeon("temple_bottom"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.TEMPLE_BOTTOM));
+            dungeonRegistry.registerChest(getDungeon("temple_middle"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.TEMPLE_MIDDLE));
+            dungeonRegistry.registerChest(getDungeon("temple_top"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.TEMPLE_TOP));
+            dungeonRegistry.registerChest(getDungeon("wreck_hall"), ResourceKey.create(Registries.LOOT_TABLE, LootTableRegistry.WRECK_HALL));
         } IWorldGenRegistry worldGenRegistry = jerApi.getWorldGenRegistry();
         if(worldGenRegistry != null) {
             //Overworld
@@ -92,14 +88,10 @@ public class JERCompat {
             plantRegistry.register(new ItemStack(ItemRegistry.sky_plant_seeds.get()), BlockRegistry.skyPlant.get().defaultBlockState(), new PlantDrop(new ItemStack(ItemRegistry.sky_flower.get()), 1, 1), new PlantDrop(new ItemStack(ItemRegistry.sky_plant_seeds.get()), 1, 4));
         }
     }
-
-    public static String getDungeon(String name){
-        return dungeonName(name).getString();
-    }
-
+    public static String getDungeon(String name){return dungeonName(name).getString();}
     public static Component dungeonName(String text, Object... args) {
         if(args == null) {args = new Object[0];}
-        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("dungeon.divinerpg.%s.chest", text), null, args));
+        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("dungeon.divinerpg.%s", text), null, args));
         return result.withStyle(ChatFormatting.GRAY);
     }
 }

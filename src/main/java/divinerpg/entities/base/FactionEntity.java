@@ -32,7 +32,7 @@ public interface FactionEntity {
 	}
 	class Faction {
 		public static LivingEntity getNearestEnemy(LivingEntity from, AABB searchArea, TargetingConditions conditions) {
-			List<Entity> enemies = from.level().getEntities(from, searchArea, (entity) -> (entity instanceof LivingEntity ent && from instanceof FactionEntity fac && fac.getFaction().isAgressiveTowards(ent)) || (entity instanceof FactionEntity fact && fact.getFaction().isAgressiveTowards(from)));
+			List<Entity> enemies = from.level().getEntities(from, searchArea, (entity) -> (entity instanceof LivingEntity ent && from instanceof FactionEntity fac && fac.getFaction().isAggressiveTowards(ent)) || (entity instanceof FactionEntity fact && fact.getFaction().isAggressiveTowards(from)));
 			double closest = -1D;
 			LivingEntity nearestEnemy = null;
 			for(Entity enemy : enemies) if(conditions.test(from, (LivingEntity) enemy)) {
@@ -44,16 +44,16 @@ public interface FactionEntity {
 			} return nearestEnemy;
 		}
 		public static boolean hasNearbyTarget(@Nullable Entity from, AABB searchArea, Faction faction) {
-			return !from.level().getEntities(from, searchArea, (entity) -> (entity instanceof LivingEntity ent && faction.isAgressiveTowards(ent) && !(entity instanceof Player player && player.isSpectator()))).isEmpty();
+			return !from.level().getEntities(from, searchArea, (entity) -> (entity instanceof LivingEntity ent && faction.isAggressiveTowards(ent) && !(entity instanceof Player player && player.isSpectator()))).isEmpty();
 		}
 		public static final Faction
 			GROGLIN = new Faction(true, 0, AttachmentRegistry.GROGLIN_REPUTATION) {
-			public boolean isAgressiveTowards(LivingEntity entity) {
-				return entity.hasEffect(MobEffectRegistry.GROGLIN_BOUNTY) || super.isAgressiveTowards(entity);
+			public boolean isAggressiveTowards(LivingEntity entity) {
+				return entity.hasEffect(MobEffectRegistry.GROGLIN_BOUNTY) || super.isAggressiveTowards(entity);
 			}},
 			GRUZZORLUG = new Faction(true, 0, AttachmentRegistry.GRUZZORLUG_REPUTATION) {
-			public boolean isAgressiveTowards(LivingEntity entity) {
-				return entity.hasEffect(MobEffectRegistry.GRUZZORLUG_TARGET) || super.isAgressiveTowards(entity);
+			public boolean isAggressiveTowards(LivingEntity entity) {
+				return entity.hasEffect(MobEffectRegistry.GRUZZORLUG_TARGET) || super.isAggressiveTowards(entity);
 			}},
 			ICEIKA_MERCHANT = new Faction(false, 20, AttachmentRegistry.ICEIKA_MERCHANT_REPUTATION).addEnemy(GROGLIN).addEnemy(GRUZZORLUG);
 		static {
@@ -88,10 +88,10 @@ public interface FactionEntity {
 		public final Reputation reputation;
 		public final boolean isAutoAggressive;
 		public final int startingReputation;
-		public Faction(boolean isAutoAgressive, int startingReputation, Reputation reputation) {
-			isAutoAggressive = isAutoAgressive;
+		public Faction(boolean isAutoAggressive, int startingReputation, Reputation reputation) {
+			this.isAutoAggressive = isAutoAggressive;
 			this.startingReputation = startingReputation;
-			nonFactionEnemies = isAutoAgressive ? null : new ArrayList<>();
+			nonFactionEnemies = isAutoAggressive ? null : new ArrayList<>();
 			this.reputation = reputation;
 		}
 		public Faction addEnemy(Faction faction) {
@@ -119,15 +119,15 @@ public interface FactionEntity {
 			EntityType<?> type = entity.getType();
 			return (entity instanceof FactionEntity e && (e.getFaction().equals(this) || allies.contains(e.getFaction()))) || nonFactionAllies.contains(type);
 		}
-		public boolean isAgressiveTowards(Faction faction) {
+		public boolean isAggressiveTowards(Faction faction) {
 			return faction != this && !allies.contains(faction) && (isAutoAggressive || enemies.contains(faction));
 		}
-		public boolean isAgressiveTowards(LivingEntity entity) {
+		public boolean isAggressiveTowards(LivingEntity entity) {
 			EntityType<?> type = entity.getType();
 			if(nonFactionAllies.contains(type)) return false;
 			if(!isAutoAggressive && nonFactionEnemies.contains(type)) return true;
 			if(entity instanceof Player player && !player.isCreative() && !player.isSpectator()) return hates(player);
-			if(entity instanceof FactionEntity fac) return isAgressiveTowards(fac.getFaction());
+			if(entity instanceof FactionEntity fac) return isAggressiveTowards(fac.getFaction());
 			return isAutoAggressive;
 		}
 		public int getReputation(LivingEntity e) {
