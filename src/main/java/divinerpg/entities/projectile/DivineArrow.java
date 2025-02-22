@@ -72,8 +72,8 @@ public abstract class DivineArrow extends AbstractArrow {
         super.onHitBlock(result);
         if(!level().isClientSide()) {
             PotionContents potionContents = getPotionContents();
-            if(potionContents.potion().isPresent()) for(MobEffectInstance instance : potionContents.potion().get().value().getEffects()) if(instance.getEffect().value() instanceof EnderAttachmentEffect e) e.hitBlock(getOwner(), this, position());
-            for(MobEffectInstance instance : potionContents.customEffects()) if(instance.getEffect().value() instanceof EnderAttachmentEffect e) e.hitBlock(getOwner(), this, position());
+            if(potionContents.potion().isPresent()) for(MobEffectInstance instance : potionContents.potion().get().value().getEffects()) if(instance.getEffect().value() instanceof EnderAttachmentEffect e) e.hitBlock(getOwner(), this);
+            for(MobEffectInstance instance : potionContents.customEffects()) if(instance.getEffect().value() instanceof EnderAttachmentEffect e) e.hitBlock(getOwner(), this);
         }
     }
 }

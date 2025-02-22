@@ -12,10 +12,10 @@ public class EnderAttachmentEffect extends InstantenousMobEffect {
     public EnderAttachmentEffect() {super(MobEffectCategory.NEUTRAL, 10494192);}
     @Override
     public void applyInstantenousEffect(@Nullable Entity source, @Nullable Entity indirectSource, LivingEntity livingEntity, int amplifier, double health) {
-       if(source != null && !livingEntity.level().isClientSide()) source.changeDimension(new DimensionTransition((ServerLevel)livingEntity.level(), livingEntity.position(), source.getDeltaMovement(), source.getYRot(), source.getXRot(), false, (entity) -> {entity.playSound(SoundEvents.PLAYER_TELEPORT);}));
+       if(source != null && indirectSource != null && !source.level().isClientSide()) source.changeDimension(new DimensionTransition((ServerLevel)indirectSource.level(), indirectSource.position(), source.getDeltaMovement(), source.getYRot(), source.getXRot(), false, (entity) -> {entity.playSound(SoundEvents.PLAYER_TELEPORT);}));
     }
-    public void hitBlock(@Nullable Entity source, @Nullable Entity indirectSource, Vec3 pos) {
-        if(source != null && !source.level().isClientSide()) source.changeDimension(new DimensionTransition((ServerLevel)source.level(), pos, source.getDeltaMovement(), source.getYRot(), source.getXRot(), false, (entity) -> {entity.playSound(SoundEvents.PLAYER_TELEPORT);}));
+    public void hitBlock(@Nullable Entity source, @Nullable Entity indirectSource) {
+        if(source != null && indirectSource != null && !source.level().isClientSide()) source.changeDimension(new DimensionTransition((ServerLevel)indirectSource.level(), indirectSource.position(), source.getDeltaMovement(), source.getYRot(), source.getXRot(), false, (entity) -> {entity.playSound(SoundEvents.PLAYER_TELEPORT);}));
     }
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {return true;}

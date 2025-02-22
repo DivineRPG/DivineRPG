@@ -35,7 +35,6 @@ public class EntityEnderTriplets extends EntityDivineFlyingMonster implements Ra
             }
         }
     }
-    public static boolean enderTripletSpawnRule(BlockPos p) {return p.getY() > 60;}
     @Override protected float getSoundVolume() {return 10;}
     @Override protected SoundEvent getAmbientSound() {return SoundEvents.PARROT_IMITATE_GHAST;}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundEvents.GHAST_SCREAM;}

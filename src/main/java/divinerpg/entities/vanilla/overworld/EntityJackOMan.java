@@ -4,7 +4,6 @@ import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
@@ -12,8 +11,6 @@ import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
-
-import java.util.List;
 
 public class EntityJackOMan extends EntityDivineMerchant {
     public EntityJackOMan(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
@@ -48,7 +45,7 @@ public class EntityJackOMan extends EntityDivineMerchant {
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Items.SKELETON_SKULL, 1), new ItemStack(ItemRegistry.wither_reaper_boots.get()), random.nextInt(7), 5),
                 new EntityDivineMerchant.DivineTrades(new ItemStack(Items.BONE, 25), new ItemStack(Items.ENDER_PEARL, 4), new ItemStack(ItemRegistry.scythe.get()), random.nextInt(7), 5)
         };
-        this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
+        addOffersFromItemListings(merchantoffers, tradetrades, 5);
     }
 
     @Override
@@ -72,7 +69,6 @@ public class EntityJackOMan extends EntityDivineMerchant {
     }
 
     public static boolean rules(ServerLevelAccessor level, BlockPos pos) {
-        List<EntityJackOMan> entityList = level.getEntitiesOfClass(EntityJackOMan.class, new AABB(pos).inflate(32));
-        return entityList.isEmpty();
+        return level.getEntitiesOfClass(EntityJackOMan.class, new AABB(pos).inflate(32)).isEmpty();
     }
 }

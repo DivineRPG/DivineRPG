@@ -54,9 +54,6 @@ public class EntityEnderScrounge extends PathfinderMob {
                         }
                     }
                 }
-            } if(level().getNearestEntity(EnderMan.class, TargetingConditions.DEFAULT, this, xo, yo, zo, getBoundingBox().inflate(8)) != null) {
-                EnderMan enderMan = level().getNearestEntity(EnderMan.class, TargetingConditions.DEFAULT, this, xo, yo, zo, getBoundingBox().inflate(8));
-                enderMan.teleportTo(xo + random.nextInt(32), yo, zo + random.nextInt(32));
             }
         }
     }
@@ -84,14 +81,6 @@ public class EntityEnderScrounge extends PathfinderMob {
             return teleport(d0, d1, d2);
         } else return false;
     }
-//    boolean teleportTowards(Entity p_32501_) {
-//        Vec3 vec3 = new Vec3(getX() - p_32501_.getX(), getY(.5) - p_32501_.getEyeY(), getZ() - p_32501_.getZ());
-//        vec3 = vec3.normalize();
-//        double d1 = getX() + (random.nextDouble() - .5) * 8 - vec3.x * 16;
-//        double d2 = getY() + (double)(random.nextInt(16) - 8) - vec3.y * 16;
-//        double d3 = getZ() + (random.nextDouble() - .5) * 8 - vec3.z * 16;
-//        return teleport(d1, d2, d3);
-//    }
     private boolean teleport(double p_32544_, double p_32545_, double p_32546_) {
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(p_32544_, p_32545_, p_32546_);
         while(blockpos$mutableblockpos.getY() > level().getMinBuildHeight() && !level().getBlockState(blockpos$mutableblockpos).isCollisionShapeFullBlock(level(), blockpos$mutableblockpos)) blockpos$mutableblockpos.move(Direction.DOWN);

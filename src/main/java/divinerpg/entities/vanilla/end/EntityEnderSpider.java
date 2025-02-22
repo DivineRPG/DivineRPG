@@ -3,12 +3,11 @@ package divinerpg.entities.vanilla.end;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.common.Tags;
 
-public class EntityEnderSpider extends EnderMan {
+public class EntityEnderSpider extends EntityEnderWatcher {
     public EntityEnderSpider(EntityType<? extends EntityEnderSpider> type, Level worldIn) {super(type, worldIn);}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.HELL_SPIDER.get();}
     @Override public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
