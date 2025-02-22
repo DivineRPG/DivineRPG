@@ -46,10 +46,8 @@ public class JERCompat {
             dungeonRegistry.registerChest("Temple Middle Chest", ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/temple_loot_middle")));
             dungeonRegistry.registerChest("Temple Top Chest", ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/temple_loot_top")));
             dungeonRegistry.registerChest("Wreck Hall Chest", ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "chests/vethea/wreck_hall_loot")));
-        }
-        IWorldGenRegistry worldGenRegistry = jerApi.getWorldGenRegistry();
+        } IWorldGenRegistry worldGenRegistry = jerApi.getWorldGenRegistry();
         if(worldGenRegistry != null) {
-            //TODO - Check ore distribution
             //Overworld
             worldGenRegistry.register(new ItemStack(BlockRegistry.realmiteOre.get()), new ItemStack(BlockRegistry.realmiteOreDeepslate.get()), new DistributionSquare(30, 8, 28, 52), new LootDrop(new ItemStack(ItemRegistry.raw_realmite.get()), 1, 4, Conditional.affectedByFortune));
             worldGenRegistry.register(new ItemStack(BlockRegistry.arlemiteOre.get()), new ItemStack(BlockRegistry.arlemiteOreDeepslate.get()), new DistributionSquare(2, 8, 5, 70), new LootDrop(new ItemStack(ItemRegistry.raw_arlemite.get()), 1, 4, Conditional.affectedByFortune));
@@ -58,17 +56,16 @@ public class JERCompat {
             worldGenRegistry.register(new ItemStack(BlockRegistry.torriditeOre.get()), new DistributionSquare(5, 4, 8, 120), new Restriction(new DimensionRestriction(Level.NETHER)), new LootDrop(new ItemStack(ItemRegistry.raw_torridite.get()), 1, 4, Conditional.affectedByFortune));
             worldGenRegistry.register(new ItemStack(BlockRegistry.bloodgemOre.get()), new DistributionSquare(5, 4, 8, 120), new Restriction(new DimensionRestriction(Level.NETHER)), new LootDrop(new ItemStack(ItemRegistry.bloodgem.get()), 1, 4, Conditional.affectedByFortune));
             //Iceika
-            worldGenRegistry.register(new ItemStack(BlockRegistry.anthraciteOre.get()), new DistributionSquare(12, 12, 45, 318), new Restriction(new DimensionRestriction(LevelRegistry.ICEIKA)), new LootDrop(new ItemStack(ItemRegistry.anthracite.get()), 1, 4, Conditional.affectedByFortune));
-            worldGenRegistry.register(new ItemStack(BlockRegistry.oxdriteOre.get()), new DistributionSquare(2, 8, 64, 128), new Restriction(new DimensionRestriction(LevelRegistry.ICEIKA)), new LootDrop(new ItemStack(ItemRegistry.raw_oxdrite.get()), 1, 4, Conditional.affectedByFortune));
-            worldGenRegistry.register(new ItemStack(BlockRegistry.oxdriteOre.get()), new DistributionSquare(8, 8, -64, 64), new Restriction(new DimensionRestriction(LevelRegistry.ICEIKA)), new LootDrop(new ItemStack(ItemRegistry.raw_oxdrite.get()), 1, 4, Conditional.affectedByFortune));
+            worldGenRegistry.register(new ItemStack(BlockRegistry.anthraciteOre.get()), new DistributionSquare(16, 12, 45, 318), new Restriction(new DimensionRestriction(LevelRegistry.ICEIKA)), new LootDrop(new ItemStack(ItemRegistry.anthracite.get()), 1, 4, Conditional.affectedByFortune));
+            worldGenRegistry.register(new ItemStack(BlockRegistry.oxdriteOre.get()), new DistributionSquare(8, 8, 64, 128), new Restriction(new DimensionRestriction(LevelRegistry.ICEIKA)), new LootDrop(new ItemStack(ItemRegistry.raw_oxdrite.get()), 1, 4, Conditional.affectedByFortune));
+            worldGenRegistry.register(new ItemStack(BlockRegistry.oxdriteOre.get()), new DistributionSquare(16, 8, -64, 64), new Restriction(new DimensionRestriction(LevelRegistry.ICEIKA)), new LootDrop(new ItemStack(ItemRegistry.raw_oxdrite.get()), 1, 4, Conditional.affectedByFortune));
             //Twilight
             worldGenRegistry.register(new ItemStack(BlockRegistry.edenOre.get()), new DistributionSquare(6, 5, -64, 256), new Restriction(new DimensionRestriction(LevelRegistry.EDEN)), new LootDrop(new ItemStack(ItemRegistry.eden_fragments.get()), 1, 4, Conditional.affectedByFortune));
             worldGenRegistry.register(new ItemStack(BlockRegistry.wildwoodOre.get()), new DistributionSquare(6, 8, -64, 256), new Restriction(new DimensionRestriction(LevelRegistry.WILDWOOD)), new LootDrop(new ItemStack(ItemRegistry.wildwood_fragments.get()), 1, 4, Conditional.affectedByFortune));
             worldGenRegistry.register(new ItemStack(BlockRegistry.apalachiaOre.get()), new DistributionSquare(12, 12, -64, 256), new Restriction(new DimensionRestriction(LevelRegistry.APALACHIA)), new LootDrop(new ItemStack(ItemRegistry.apalachia_fragments.get()), 1, 4, Conditional.affectedByFortune));
             worldGenRegistry.register(new ItemStack(BlockRegistry.skythernOre.get()), new DistributionSquare(7, 6, -64, 256), new Restriction(new DimensionRestriction(LevelRegistry.SKYTHERN)), new LootDrop(new ItemStack(ItemRegistry.skythern_fragments.get()), 1, 4, Conditional.affectedByFortune));
             worldGenRegistry.register(new ItemStack(BlockRegistry.mortumOre.get()), new DistributionSquare(5, 5, -64, 256), new Restriction(new DimensionRestriction(LevelRegistry.MORTUM)), new LootDrop(new ItemStack(ItemRegistry.mortum_fragments.get()), 1, 4, Conditional.affectedByFortune));
-        }
-        IPlantRegistry plantRegistry = jerApi.getPlantRegistry();
+        } IPlantRegistry plantRegistry = jerApi.getPlantRegistry();
         if(plantRegistry != null) {
             //Overworld
             plantRegistry.register(new ItemStack(ItemRegistry.tomato_seeds.get()), BlockRegistry.tomatoPlant.get().defaultBlockState(), new PlantDrop(new ItemStack(ItemRegistry.tomato.get()), 2, 5));
