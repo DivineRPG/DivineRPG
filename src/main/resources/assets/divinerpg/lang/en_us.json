@@ -2863,5 +2863,30 @@
   "effect.divinerpg.demonized_hood.description": "Gives the player a arcana damage reduction.",
   "effect.divinerpg.finished_hood.description": "Gives the player a arcana damage reduction.",
   "effect.divinerpg.glistening_hood.description": "Gives the player a arcana damage reduction.",
-  "effect.divinerpg.tormented_hood.description": "Gives the player a arcana damage reduction."
+  "effect.divinerpg.tormented_hood.description": "Gives the player a arcana damage reduction.",
+
+  "dungeon.divinerpg.diamond_dave.chest": "Diamond Dave's Chest",
+  "dungeon.divinerpg.ancient_tomb.chest": "Ancient Tomb Chest",
+  "dungeon.divinerpg.merchant_hut.chest": "Merchant's Hut Chest",
+
+  "dungeon.divinerpg.iceika.chest": "Iceika Chest",
+  "dungeon.divinerpg.iceika_hut.chest": "Iceika Hut Chest",
+  "dungeon.divinerpg.groglin.chest": "Groglin Chest",
+  "dungeon.divinerpg.gruzzorlug.chest": "Gruzzorlug Chest",
+
+  "dungeon.divinerpg.banquet_hall.chest": "Banquet Hall Chest",
+  "dungeon.divinerpg.utility_hallway.chest": "Utility Hallway Chest",
+
+  "dungeon.divinerpg.eden_hut.chest": "Eden Hut Chest",
+  "dungeon.divinerpg.skythern_hut.chest": "Skythern Chest",
+  "dungeon.divinerpg.wildwood_hut.chest": "Wildwood Chest",
+
+  "dungeon.divinerpg.crypt.chest": "Crypt Chest",
+  "dungeon.divinerpg.karos_madhouse.chest": "Karos Madhouse Chest",
+  "dungeon.divinerpg.quadrotic_post.chest": "Quadrotic Post Chest",
+  "dungeon.divinerpg.raglok_chamber.chest": "Raglok Chamber Chest",
+  "dungeon.divinerpg.temple_bottom.chest": "Temple Bottom Chest",
+  "dungeon.divinerpg.temple_middle.chest": "Temple Middle Chest",
+  "dungeon.divinerpg.temple_top.chest": "Temple Top Chest",
+  "dungeon.divinerpg.wreck_hall.chest": "Wreck Hall Chest"
 }
