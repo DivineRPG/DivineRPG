@@ -3,14 +3,15 @@ package divinerpg.compat;
 import divinerpg.DivineRPG;
 //import divinerpg.compat.jei.JERCompat;
 //import divinerpg.compat.projecte.ProjectECompat;
+import divinerpg.compat.jei.JERCompat;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class ModCompat {
     public static void initCommon(FMLCommonSetupEvent e){
-//        if(ModList.get().isLoaded("jeresources")){
-//            JERCompat.init();
-//        }
+        if(ModList.get().isLoaded("jeresources")){
+            JERCompat.init();
+        }
 //        if(ModList.get().isLoaded("projecte")){
 //            ProjectECompat.init();
 //        }
