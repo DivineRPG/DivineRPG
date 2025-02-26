@@ -1936,6 +1936,7 @@
   "tooltip.armor_info.fly": "Flight",
   "divinerpg.tooltip.food.pet": "Pet Food",
   "tooltip.food.heal": "Replenishes %s Health",
+  "tooltip.divinerpg.vethea_inventory_blocked": "You may only travel between Vethea and the Overworld with an empty inventory",
   "enchantment.divinerpg.rive": "Rive",
   "enchantment.divinerpg.rive.desc": "Rive when applied to a mining tool will excavate in a (enchant level x enchant level x enchant level) sized radius.",
   "enchantment.divinerpg.aftershock": "Aftershock",

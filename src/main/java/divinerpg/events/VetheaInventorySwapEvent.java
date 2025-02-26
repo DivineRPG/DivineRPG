@@ -1,61 +1,23 @@
 package divinerpg.events;
 
-import divinerpg.registries.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.nbt.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
-import net.minecraftforge.event.entity.player.*;
-import net.minecraftforge.eventbus.api.*;
+import divinerpg.registries.KeyRegistry;
+import divinerpg.util.LocalizeUtils;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class VetheaInventorySwapEvent {
-    private CompoundNBT persistentData;
-
     @SubscribeEvent(priority = EventPriority.LOWEST)
-    public void onRespawn(PlayerEvent.PlayerRespawnEvent event) {
-        if (event.isCanceled() || !(event.getEntity() instanceof PlayerEntity))
-            return;
+    public void onDimensionTravel(EntityTravelToDimensionEvent event) {
+        if (!(event.getEntity() instanceof PlayerEntity)) return;
+            PlayerEntity player = (PlayerEntity) event.getEntity();
 
-        PlayerEntity playerIn = event.getPlayer();
-        if (persistentData != null) {
-            if (!persistentData.getList("OverworldInv", 10).isEmpty()) {
-                ListNBT inv = persistentData.getList("OverworldInv", 10);
-                playerIn.inventory.load(inv);
-                playerIn.inventoryMenu.broadcastChanges();
-                persistentData.getList("OverworldInv", 10).clear();
+        if (event.getDimension().equals(KeyRegistry.VETHEA_WORLD) || player.level.dimension().equals(KeyRegistry.VETHEA_WORLD)) {
+            if (!player.inventory.isEmpty()) {
+                    player.sendMessage(LocalizeUtils.i18n("tooltip.divinerpg.vethea_inventory_blocked"), player.getUUID());
+                event.setCanceled(true);
             }
         }
     }
-
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public void onDimensionChange(PlayerEvent.PlayerChangedDimensionEvent event) {
-        if (event.isCanceled() || !(event.getEntity() instanceof PlayerEntity))
-            return;
-
-        RegistryKey<World> vetheaID = KeyRegistry.VETHEA_WORLD;
-        PlayerEntity playerIn = event.getPlayer();
-        persistentData = playerIn.getPersistentData().getCompound(PlayerEntity.PERSISTED_NBT_TAG);
-
-        if (event.getFrom() == vetheaID) {
-            persistentData.put("VetheaInv", playerIn.inventory.save(new ListNBT()));
-            playerIn.getPersistentData().put("PlayerPersisted", persistentData);
-            playerIn.inventory.clearContent();
-            ListNBT inv = persistentData.getList("OverworldInv", 10);
-            playerIn.inventory.load(inv);
-            playerIn.inventoryMenu.broadcastChanges();
-            persistentData.getList("OverworldInv", 10).clear();
-            playerIn.removeAllEffects();
-        }
-        if (event.getTo() == vetheaID) {
-            persistentData.put("OverworldInv", playerIn.inventory.save(new ListNBT()));
-            playerIn.getPersistentData().put("PlayerPersisted", persistentData);
-            playerIn.inventory.clearContent();
-            ListNBT inv = persistentData.getList("VetheaInv", 10);
-            playerIn.inventory.load(inv);
-            playerIn.inventoryMenu.broadcastChanges();
-            playerIn.removeAllEffects();
-        }
-
-    }
-
 }
