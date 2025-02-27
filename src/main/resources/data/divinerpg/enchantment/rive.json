@@ -3,7 +3,7 @@
     "translate": "enchantment.divinerpg.rive"
   },
   "supported_items": "#minecraft:enchantable/mining",
-  "weight": 10,
+  "weight": 4,
   "max_level": 3,
   "min_cost": {
     "base": 1,

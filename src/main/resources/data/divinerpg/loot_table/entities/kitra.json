@@ -24,6 +24,10 @@
         {
           "type": "minecraft:item",
           "name": "divinerpg:sound_of_whales"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:icicle_dagger"
         }
       ],
       "conditions": [
