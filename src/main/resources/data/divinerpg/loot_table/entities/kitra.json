@@ -29,11 +29,6 @@
           "type": "minecraft:item",
           "name": "divinerpg:icicle_dagger"
         }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        }
       ]
     },
     {
@@ -42,11 +37,6 @@
         {
           "type": "minecraft:item",
           "name": "divinerpg:kitra_statue"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
         }
       ]
     }
