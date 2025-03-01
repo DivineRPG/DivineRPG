@@ -1,6 +1,5 @@
 {
-  "replace": false,
   "values": [
-    "#c:tools/bow"
+    "#divinerpg:tools/bow"
   ]
 }
