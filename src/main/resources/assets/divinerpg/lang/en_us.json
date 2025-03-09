@@ -56,6 +56,7 @@
   "block.divinerpg.rupee_ore_deepslate": "Deepslate Rupee Ore",
   "block.divinerpg.raw_rupee_block": "Block of Raw Rupee",
   "block.divinerpg.rupee_block": "Block of Rupee",
+  "block.divinerpg.shadow_block": "Shadow Block",
 
   "block.divinerpg.milk_stone": "Milk Stone",
   "block.divinerpg.milk_stone_bricks": "Milk Stone Bricks",
@@ -122,6 +123,7 @@
   "block.divinerpg.asphalt_slab": "Asphalt Slab",
 
   "block.divinerpg.bleeding_obsidian": "Bleeding Obsidian",
+  "block.divinerpg.brooding_obsidian": "Brooding Obsidian",
   "block.divinerpg.shining_obsidian": "Shining Obsidian",
   "block.divinerpg.glittering_obsidian": "Glittering Obsidian",
   "block.divinerpg.seeping_obsidian": "Seeping Obsidian",
@@ -227,7 +229,7 @@
   "block.divinerpg.glaciline": "Glaciline",
   "block.divinerpg.gelidite": "Gelidite",
   "block.divinerpg.thermal_vent": "Thermal Vent",
-  "block.divinerpg.iceika_fire": "Iceika Fire",
+  "block.divinerpg.icy_fire": "Icy Fire",
   "block.divinerpg.iceika_portal": "Iceika Portal",
   "block.divinerpg.robbin_nest": "Robbin Nest",
   "block.divinerpg.robbin_hut": "Robbin Hut",
@@ -453,7 +455,6 @@
 
   "block.divinerpg.raw_arcanium": "Raw Arcanium",
   "block.divinerpg.arcanium_block": "Block of Arcanium",
-  "block.divinerpg.arcana_hard_portal_frame": "Hard Arcana Portal Frame",
   "block.divinerpg.arcana_portal_frame": "Arcana Portal Frame",
   "block.divinerpg.arcana_portal": "Arcana Portal",
 
@@ -506,7 +507,12 @@
   "block.divinerpg.star_bridge": "Star Bridge",
   "block.divinerpg.acceleron": "Acceleron",
   "block.divinerpg.elevantium": "Elevantium",
-  "block.divinerpg.blue_fire": "Blue Fire",
+  "block.divinerpg.hellfire": "Hellfire",
+  "block.divinerpg.divine_flame": "Divine Flame",
+  "block.divinerpg.wild_flame": "Wild Flame",
+  "block.divinerpg.enchanted_flame": "Enchanted Flame",
+  "block.divinerpg.sky_fire": "Sky Fire",
+  "block.divinerpg.mortum_embers": "Mortum Embers",
 
   "block.divinerpg.arcanium_extractor": "Arcanium Extractor",
   "block.divinerpg.molten_furnace": "Molten Furnace",
@@ -924,6 +930,7 @@
   "item.divinerpg.elite_realmite_boots": "Elite Realmite Boots",
   "item.divinerpg.realmite_shield": "Realmite Shield",
   "item.divinerpg.realmite_sword": "Realmite Sword",
+  "item.divinerpg.realmite_maul": "Realmite Maul",
   "item.divinerpg.realmite_shovel": "Realmite Shovel",
   "item.divinerpg.realmite_pickaxe": "Realmite Pickaxe",
   "item.divinerpg.realmite_axe": "Realmite Axe",
@@ -931,6 +938,7 @@
 
   "item.divinerpg.raw_arlemite": "Raw Arlemite",
   "item.divinerpg.arlemite_ingot": "Arlemite Ingot",
+  "item.divinerpg.arlemite_dust": "Arlemite Dust",
   "item.divinerpg.arlemite_nugget": "Arlemite Nugget",
   "item.divinerpg.arlemite_helmet": "Arlemite Helmet",
   "item.divinerpg.arlemite_chestplate": "Arlemite Chestplate",
@@ -946,6 +954,7 @@
 
   "item.divinerpg.raw_rupee": "Raw Rupee",
   "item.divinerpg.rupee_ingot": "Rupee Ingot",
+  "item.divinerpg.rupee_dust": "Rupee Dust",
   "item.divinerpg.rupee_nugget": "Rupee Nugget",
   "item.divinerpg.rupee_helmet": "Rupee Helmet",
   "item.divinerpg.rupee_chestplate": "Rupee Chestplate",
@@ -980,6 +989,7 @@
   "item.divinerpg.rupee_shickaxe": "Rupee Shickaxe",
 
   "item.divinerpg.shadow_bar": "Shadow Bar",
+  "item.divinerpg.shadow_dust": "Shadow Dust",
   "item.divinerpg.shadow_stone": "Shadow Stone",
   "item.divinerpg.shadow_coins": "Shadow Coins",
   "item.divinerpg.shadow_helmet": "Shadow Helmet",
@@ -1528,7 +1538,7 @@
   "entity.divinerpg.halite_blitz_shot": "Halite Blitz Shot",
   "item.divinerpg.halite_shickaxe": "Halite Terraformer",
 
-  "item.divinerpg.twilight_clock": "Twilight Clock",
+  "item.divinerpg.frozen_clock":  "Frozen Clock",
   "item.divinerpg.twilight_bow": "Twilight Bow",
 
   "item.divinerpg.honeysuckle": "Honeysuckle",
@@ -2393,6 +2403,7 @@
   "tooltip.divinerpg.instant_consumption": "Instant consumption",
   "tooltip.divinerpg.less_drag": "Experiences less drag",
   "tooltip.divinerpg.lightning_shot": "Shoots lightning bolts",
+  "tooltip.divinerpg.maul_use": "Use on dropped Items to grind",
   "tooltip.divinerpg.nightmare_bed": "You will have to trade with the Hunger to make a return portal",
   "tooltip.divinerpg.pull": "Pulls mobs toward the user",
   "tooltip.divinerpg.push": "Knocks mobs away",
@@ -2406,6 +2417,7 @@
   "tooltip.divinerpg.shots.homing": "Homing projectiles",
   "tooltip.divinerpg.shots.sky": "%s projectile(-s) from the sky",
   "tooltip.divinerpg.shots.split": "Projectiles split into %s on impact",
+  "tooltip.divinerpg.snow_globe": "Use on Icy Fire to create Iceika Portal",
   "tooltip.divinerpg.staff_of_enrichment": "Use on Arcanite Dirt to purify",
   "tooltip.divinerpg.summon": "Summons a friendly %s:",
   "tooltip.divinerpg.summon.damage": " %s Attack Damage",

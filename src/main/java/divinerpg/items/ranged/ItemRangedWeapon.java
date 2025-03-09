@@ -1,11 +1,9 @@
 package divinerpg.items.ranged;
 
-import divinerpg.DivineRPG;
 import divinerpg.attachments.Arcana;
 import divinerpg.entities.projectile.DivineThrownItem;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -50,18 +48,18 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
         defaultItem = Items.ARROW::getDefaultInstance;
     }
     public ItemRangedWeapon(Supplier<EntityType<? extends Projectile>> projectileType) {
-        this((String) null, Items.ARROW::getDefaultInstance, projectileType);
+        this(null, Items.ARROW::getDefaultInstance, projectileType);
     }
-    public ItemRangedWeapon(@Nullable String ammoType, Supplier<ItemStack> defaultItem, Supplier<EntityType<? extends Projectile>> projectileType) {
+    public ItemRangedWeapon(@Nullable TagKey<Item> ammoType, Supplier<ItemStack> defaultItem, Supplier<EntityType<? extends Projectile>> projectileType) {
         super(new Item.Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)).stacksTo(1));
-        this.ammoType = ammoType == null ? null : TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, ammoType));
+        this.ammoType = ammoType;
         infinite = ammoType == null;
         this.projectileType = projectileType;
         this.defaultItem = defaultItem;
     }
-    public ItemRangedWeapon(@Nullable String ammoType, Supplier<ItemStack> defaultItem, Supplier<EntityType<? extends Projectile>> projectileType, int uses) {
+    public ItemRangedWeapon(@Nullable TagKey<Item>  ammoType, Supplier<ItemStack> defaultItem, Supplier<EntityType<? extends Projectile>> projectileType, int uses) {
         super((uses == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(uses)).stacksTo(1));
-        this.ammoType = ammoType == null ? null : TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, ammoType));
+        this.ammoType = ammoType;
         infinite = ammoType == null;
         this.projectileType = projectileType;
         this.defaultItem = defaultItem;

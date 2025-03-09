@@ -1,0 +1,12 @@
+{
+  "result": {
+    "id": "divinerpg:shadow_bar"
+  },
+  "ingredient": {
+    "item": "divinerpg:shadow_dust"
+  },
+  "type": "minecraft:blasting",
+  "group": "shadow_bar",
+  "experience": 0.0,
+  "cookingtime": 100
+}

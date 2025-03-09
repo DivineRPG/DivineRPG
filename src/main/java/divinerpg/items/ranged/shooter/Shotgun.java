@@ -5,11 +5,13 @@ import divinerpg.items.ranged.ItemRangedWeapon;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -20,7 +22,7 @@ import java.util.function.Supplier;
 
 public class Shotgun extends ItemRangedWeapon {
     public final int projectileCount;
-    public Shotgun(@Nullable String ammoType, Supplier<ItemStack> defaultItem, Supplier<EntityType<? extends Projectile>> projectileType, int uses, int cooldown, int projectileCount) {
+    public Shotgun(@Nullable TagKey<Item> ammoType, Supplier<ItemStack> defaultItem, Supplier<EntityType<? extends Projectile>> projectileType, int uses, int cooldown, int projectileCount) {
         super(ammoType, defaultItem, projectileType, uses);
         this.cooldown = cooldown;
         this.projectileCount = projectileCount;

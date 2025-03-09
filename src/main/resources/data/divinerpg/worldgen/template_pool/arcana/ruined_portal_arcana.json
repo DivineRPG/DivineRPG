@@ -19,7 +19,7 @@
 									},
 									"input_predicate": {
 										"predicate_type": "minecraft:random_block_match",
-										"block": "divinerpg:arcana_hard_portal_frame",
+										"block": "divinerpg:arcana_portal_frame",
 										"probability": 0.5
 									},
 									"output_state": {

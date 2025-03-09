@@ -3,22 +3,16 @@
     "id": "divinerpg:eden_block"
   },
   "pattern": [
-    "FIF",
-    "IBI",
-    "FIF"
+    "CCC",
+    "CCC",
+    "CCC"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "group": "twilight_block",
   "key": {
-    "F": {
-      "item": "divinerpg:eden_fragments"
-    },
-    "I": {
-      "item": "divinerpg:eden_soul"
-    },
-    "B": {
-      "item": "divinerpg:eden_heart"
+    "C": {
+      "item": "divinerpg:eden_chunk"
     }
   }
 }

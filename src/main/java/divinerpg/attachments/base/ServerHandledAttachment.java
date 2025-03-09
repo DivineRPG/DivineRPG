@@ -1,20 +1,19 @@
 package divinerpg.attachments.base;
 
 import com.mojang.serialization.Codec;
+import divinerpg.DivineRPG;
 import divinerpg.registries.AttachmentRegistry;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
-import java.io.IOException;
 import java.util.function.Supplier;
 
 public class ServerHandledAttachment<T> extends SynchedAttachement<T> {
@@ -26,10 +25,12 @@ public class ServerHandledAttachment<T> extends SynchedAttachement<T> {
     }
     @Override
     public void registerPayload(PayloadRegistrar r) {
-        r.playToClient(type, streamCodec, (payload, context) -> context.enqueueWork(() ->
-            context.player().level().getEntity(payload.entityID).setData(attachment, payload.data)
+        r.playToClient(type, streamCodec, (payload, context) -> context.enqueueWork(() -> {
+            Entity e = context.player().level().getEntity(payload.entityID);
+            if(e != null) e.setData(attachment, payload.data);
+            else DivineRPG.LOGGER.warn("No entity present on client with id: " + payload.entityID);
 //            DivineRPG.LOGGER.info("Recieved entity data packet for entity[" + payload.entityID + "] and data: " + payload.data);
-        ));
+        }));
         r.playToServer(requestType, requestCodec, (payload, context) -> context.enqueueWork(() -> {
             Entity e = context.player().level().getEntity(payload.entityID);
             if(e != null) context.reply(new AttachmentPayload(e.getData(attachment), payload.entityID));

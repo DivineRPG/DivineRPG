@@ -1,0 +1,20 @@
+{
+  "result": {
+    "id": "divinerpg:realmite_maul"
+  },
+  "pattern": [
+    "III",
+    "ISI",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "I": {
+      "item": "divinerpg:realmite_ingot"
+    }
+  }
+}

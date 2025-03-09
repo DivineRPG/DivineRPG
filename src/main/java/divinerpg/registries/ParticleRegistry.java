@@ -1,18 +1,11 @@
 package divinerpg.registries;
 
 import com.mojang.serialization.MapCodec;
-import divinerpg.DivineRPG;
-import divinerpg.client.particle.*;
 import divinerpg.client.particle.options.ParticleColouredOption;
-import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.core.particles.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.neoforged.api.distmarker.*;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.registries.*;
 
 import static divinerpg.DivineRPG.MODID;
@@ -35,6 +28,10 @@ public class ParticleRegistry {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> ENDER_TRIPLET = PARTICLES.register("ender_triplets", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> TAR = PARTICLES.register("tar", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SPLASH = PARTICLES.register("splash", () -> new SimpleParticleType(false));
-    public static final DeferredHolder<ParticleType<?>, ParticleType<ParticleColouredOption>> COLORED = PARTICLES.register("colored", () -> new ParticleType<ParticleColouredOption>(false) {@Override public MapCodec<ParticleColouredOption> codec() {return null;} @Override public StreamCodec<? super RegistryFriendlyByteBuf, ParticleColouredOption> streamCodec() {return null;}});
-
+    public static final DeferredHolder<ParticleType<?>, ParticleType<ParticleColouredOption>> COLORED = PARTICLES.register("colored", () -> new ParticleType<>(false) {@Override public MapCodec<ParticleColouredOption> codec() {return null;} @Override public StreamCodec<? super RegistryFriendlyByteBuf, ParticleColouredOption> streamCodec() {return null;}});
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> EDEN_RIFT = PARTICLES.register("eden_rift", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> WILDWOOD_RIFT = PARTICLES.register("wildwood_rift", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> APALACHIA_RIFT = PARTICLES.register("apalachia_rift", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SKYTHERN_RIFT = PARTICLES.register("skythern_rift", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> MORTUM_RIFT = PARTICLES.register("mortum_rift", () -> new SimpleParticleType(false));
 }

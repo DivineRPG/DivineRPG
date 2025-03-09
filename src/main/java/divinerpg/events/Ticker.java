@@ -35,7 +35,7 @@ public class Ticker {
         Level level = player.level();
         if(!level.isClientSide()) Arcana.regen(player);
         if(level.dimension() == LevelRegistry.ICEIKA) {
-            if(!level.isClientSide() && (player.tickCount & 7) == 0) AttachmentRegistry.IN_DUNGEON.set(player, ((ServerLevel) level).structureManager().getStructureWithPieceAt(player.blockPosition(), StructureRegistry.ICEIKA_DUNGEON).isValid());
+            if(!level.isClientSide() && (player.tickCount & 7) == 0) AttachmentRegistry.IN_DUNGEON.set(player, ((ServerLevel) level).structureManager().getStructureWithPieceAt(player.blockPosition(), TagRegistry.ICEIKA_DUNGEON).isValid());
             if(!player.isCreative() && !player.isSpectator()) {
                 if(Utils.ICEIKA_WEATHER == 1 && level.isRaining() && player.getItemBySlot(EquipmentSlot.HEAD).isEmpty() && player.getRandom().nextFloat() < .1F && level.canSeeSky(player.blockPosition())) player.hurt(level.damageSources().generic(), 1F);
                 if(!level.isClientSide() && !player.hasEffect(MobEffectRegistry.WARMTH) && !player.getItemBySlot(EquipmentSlot.CHEST).getTagEnchantments().keySet().contains(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(EnchantmentRegistry.INSULATION)) && level.getLightEngine().getLayerListener(LightLayer.BLOCK).getLightValue(player.blockPosition()) < 8) {

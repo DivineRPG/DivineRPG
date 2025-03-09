@@ -1,0 +1,14 @@
+{
+  "result": {
+    "id": "divinerpg:shadow_dust"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:rupee_dust"
+    },
+    {
+      "item": "divinerpg:arlemite_dust"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

@@ -6,11 +6,13 @@ import divinerpg.items.ranged.ItemBow;
 import divinerpg.registries.ItemRegistry;
 import divinerpg.util.LocalizeUtils;
 import divinerpg.util.RarityList;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.neoforged.api.distmarker.*;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,7 +29,7 @@ public class HunterBow extends ItemBow {
             case HunterArrow h -> {
                 h.powerMultiplier = 1.2F;
                 return arrow;
-            } case Arrow a -> a.addEffect(new MobEffectInstance(MobEffects.POISON, effectSeconds * 20, 3));
+            } case Arrow a -> addEffect(a, new MobEffectInstance(MobEffects.POISON, effectSeconds * 20, 3));
             case DivineArrow a -> a.addEffect(new MobEffectInstance(MobEffects.POISON, effectSeconds * 20, 3));
             default -> {}
         } return arrow;

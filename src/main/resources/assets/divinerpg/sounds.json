@@ -410,6 +410,14 @@
       "divinerpg:to_replace/fractite_hurt"
     ]
   },
+  "freeze": {
+    "category": "blocks",
+    "sounds": [
+      "divinerpg:blocks/freeze1",
+      "divinerpg:blocks/freeze2",
+      "divinerpg:blocks/freeze3"
+    ]
+  },
   "frost": {
     "category": "hostile",
     "sounds": [
@@ -558,6 +566,12 @@
     "category": "hostile",
     "sounds": [
       "divinerpg:to_replace/hover_stinger_hurt"
+    ]
+  },
+  "iceika_portal_trigger": {
+    "category": "blocks",
+    "sounds": [
+      "divinerpg:blocks/iceika_portal_trigger"
     ]
   },
   "iceman": {
@@ -914,6 +928,51 @@
     "category": "hostile",
     "sounds": [
       "divinerpg:mobs/boss/reyvor_hurt"
+    ]
+  },
+  "rift_ambient": {
+    "category": "blocks",
+    "sounds": [
+      "divinerpg:blocks/rift_ambient"
+    ]
+  },
+  "rift_close": {
+    "category": "blocks",
+    "sounds": [
+      {
+        "name": "divinerpg:blocks/rift_close",
+        "volume": 1.7
+      }
+    ]
+  },
+  "rift_instability": {
+    "category": "blocks",
+    "sounds": [
+      "divinerpg:blocks/rift_instability"
+    ]
+  },
+  "rift_close_muffled": {
+    "category": "blocks",
+    "sounds": [
+      {
+        "name": "divinerpg:blocks/rift_close_muffled",
+        "volume": 0.8
+      }
+    ]
+  },
+  "rift_open": {
+    "category": "blocks",
+    "sounds": [
+      "divinerpg:blocks/rift_open"
+    ]
+  },
+  "rift_replenish": {
+    "category": "blocks",
+    "sounds": [
+      {
+        "name": "divinerpg:blocks/rift_replenish",
+        "volume": 3.0
+      }
     ]
   },
   "roamer": {

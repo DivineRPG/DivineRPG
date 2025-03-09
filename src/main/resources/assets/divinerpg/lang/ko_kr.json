@@ -225,7 +225,7 @@
   "block.divinerpg.glaciline": "빙하석",
   "block.divinerpg.gelidite": "젤리다이트",
   "block.divinerpg.thermal_vent": "열기 분출구",
-  "block.divinerpg.iceika_fire": "아이시카 불",
+  "block.divinerpg.icy_fire": "아이시카 불",
   "block.divinerpg.iceika_portal": "아이시카 차원문",
   "block.divinerpg.robbin_nest": "로빈 둥지",
   "block.divinerpg.robbin_hut": "로빈 오두막",
@@ -451,7 +451,6 @@
 
   "block.divinerpg.raw_arcanium": "아르카니움 원석",
   "block.divinerpg.arcanium_block": "아르카니움 블록",
-  "block.divinerpg.arcana_hard_portal_frame": "튼튼한 아르카나 차원문 프레임",
   "block.divinerpg.arcana_portal_frame": "아르카나 차원문 프레임",
   "block.divinerpg.arcana_portal": "아르카나 차원문",
 
@@ -1526,7 +1525,6 @@
   "entity.divinerpg.halite_blitz_shot": "할라이트 블리츠 발사체",
   "item.divinerpg.halite_shickaxe": "할라이트 테라포머",
 
-  "item.divinerpg.twilight_clock": "황혼의 시계",
   "item.divinerpg.twilight_bow": "황혼의 활",
 
   "item.divinerpg.honeysuckle": "허니서클",

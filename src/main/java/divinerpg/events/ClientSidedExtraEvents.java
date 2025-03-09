@@ -49,6 +49,11 @@ public class ClientSidedExtraEvents {
         event.registerSpriteSet(ParticleRegistry.TAR.get(), ParticleTar.Provider::new);
         event.registerSpriteSet(ParticleRegistry.SPLASH.get(), ParticleSplash.Provider::new);
         event.registerSpriteSet(ParticleRegistry.COLORED.get(), ParticleColored.Provider::new);
+        event.registerSprite(ParticleRegistry.EDEN_RIFT.get(), RiftParticle::createParticle);
+        event.registerSprite(ParticleRegistry.WILDWOOD_RIFT.get(), RiftParticle::createParticle);
+        event.registerSprite(ParticleRegistry.APALACHIA_RIFT.get(), RiftParticle::createParticle);
+        event.registerSprite(ParticleRegistry.SKYTHERN_RIFT.get(), RiftParticle::createParticle);
+        event.registerSprite(ParticleRegistry.MORTUM_RIFT.get(), RiftParticle::createParticle);
     }
     public static class MusicEvent {
         public static volatile boolean wantsToPlaySnowflakes = false;

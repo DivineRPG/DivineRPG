@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "eden_fragments",
+  "ingredients": [
+    {
+      "tag": "divinerpg:tools/maul"
+    },
+    {
+      "item": "divinerpg:eden_fragments"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:eden_dust"
+  }
+}

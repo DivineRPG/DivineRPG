@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "mortum_fragments",
+  "ingredients": [
+    {
+      "tag": "divinerpg:tools/maul"
+    },
+    {
+      "item": "divinerpg:mortum_fragments"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:mortum_dust"
+  }
+}

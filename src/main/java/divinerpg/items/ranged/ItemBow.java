@@ -10,12 +10,14 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.Unbreakable;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.neoforge.event.EventHooks;
@@ -93,5 +95,12 @@ public class ItemBow extends BowItem {
     @Override
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return stack.has(DataComponents.MAX_DAMAGE) || !(Utils.hasStoredEnchantment(Enchantments.MENDING, book) || Utils.hasStoredEnchantment(Enchantments.UNBREAKING, book));
+    }
+    public static void addEffect(Arrow arrow, MobEffectInstance instance) {
+        ItemStack stack = arrow.getPickupItemStackOrigin();
+        PotionContents contents = stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+        Iterable<MobEffectInstance> contentsit = contents.getAllEffects();
+        for(MobEffectInstance c : contentsit) if(c.is(instance.getEffect())) return;
+        stack.set(DataComponents.POTION_CONTENTS, contents.withEffectAdded(instance));
     }
 }

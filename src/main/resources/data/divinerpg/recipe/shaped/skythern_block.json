@@ -3,22 +3,16 @@
     "id": "divinerpg:skythern_block"
   },
   "pattern": [
-    "FIF",
-    "IBI",
-    "FIF"
+    "CCC",
+    "CCC",
+    "CCC"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "group": "twilight_block",
   "key": {
-    "F": {
-      "item": "divinerpg:skythern_fragments"
-    },
-    "I": {
-      "item": "divinerpg:skythern_soul"
-    },
-    "B": {
-      "item": "divinerpg:skythern_heart"
+    "C": {
+      "item": "divinerpg:skythern_chunk"
     }
   }
 }

@@ -3,6 +3,7 @@ package divinerpg.util;
 import com.google.gson.*;
 import divinerpg.DivineRPG;
 import divinerpg.registries.FluidRegistry;
+import divinerpg.registries.LevelRegistry;
 import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.Mode;
 import divinerpg.world.placement.Surface.Surface_Type;
@@ -135,6 +136,22 @@ public class Utils {
         public List<UUID> special;
         public List<UUID> artists;
         public List<UUID> friend;
+    }
+    public static byte determineTimeOfDay(Level level) {
+        if(level.dimension() == LevelRegistry.EDEN) return 5;//guaranteed return to overworld
+        if(level.dimension() == LevelRegistry.WILDWOOD) return 0;//guaranteed return to eden
+        if(level.dimension() == LevelRegistry.APALACHIA) return 1;//guaranteed return to wildwood
+        if(level.dimension() == LevelRegistry.SKYTHERN) return 2;//guaranteed return to apalachia
+        if(level.dimension() == LevelRegistry.MORTUM) return 5;//guaranteed return to skythern
+        float timeOfDay = level.getTimeOfDay(1F);
+        return
+            timeOfDay < .0625F ? 0 : //noon
+            timeOfDay < .14F ? (byte)1 : //afternoon
+            timeOfDay < .25 ? (byte)2 : //evening
+            timeOfDay < .37 ? (byte)3 : //night
+            timeOfDay < .6 ? (byte)4 : //midnight
+            timeOfDay < .9 ? (byte)5 : //morning
+            0;
     }
     public static Block getBlock(String registryName) {
     	return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName));

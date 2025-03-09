@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "divinerpg:apalachia_block"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:apalachia_chunk",
+    "count": 9
+  }
+}

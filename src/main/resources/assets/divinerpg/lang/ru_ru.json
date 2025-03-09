@@ -227,7 +227,7 @@
   "block.divinerpg.glaciline": "Глацилин",
   "block.divinerpg.gelidite": "Гелидит",
   "block.divinerpg.thermal_vent": "Термальный источник",
-  "block.divinerpg.iceika_fire": "Огонь Заснежья",
+  "block.divinerpg.icy_fire": "Огонь Заснежья",
   "block.divinerpg.iceika_portal": "Портал в Заснежье",
   "block.divinerpg.robbin_nest": "Гнездо ворянки",
   "block.divinerpg.robbin_hut": "Воряночник",
@@ -453,7 +453,6 @@
 
   "block.divinerpg.raw_arcanium": "Необработанный арканий",
   "block.divinerpg.arcanium_block": "Арканиевый блок",
-  "block.divinerpg.arcana_hard_portal_frame": "Упрочнённая рамка портала в Аркану",
   "block.divinerpg.arcana_portal_frame": "Рамка портала в Аркану",
   "block.divinerpg.arcana_portal": "Портал в Аркану",
 
@@ -506,7 +505,7 @@
   "block.divinerpg.star_bridge": "Звёздный мост",
   "block.divinerpg.acceleron": "Стремглав",
   "block.divinerpg.elevantium": "Взмыватель",
-  "block.divinerpg.blue_fire": "Синий огонь",
+  "block.divinerpg.hellfire": "Красный огонь",
 
   "block.divinerpg.arcanium_extractor": "Арканиевый экстрактор",
   "block.divinerpg.molten_furnace": "Расплавленная печь",
@@ -1472,7 +1471,6 @@
   "item.divinerpg.halite_blitz": "Халитовая скорострельная пушка",
   "item.divinerpg.halite_shickaxe": "Халитовый терраформер",
 
-  "item.divinerpg.twilight_clock": "Сумеречные часы",
   "item.divinerpg.twilight_bow": "Сумеречный лук",
 
   "item.divinerpg.honeysuckle": "Кусочек мёда",

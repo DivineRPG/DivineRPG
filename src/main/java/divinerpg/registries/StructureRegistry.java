@@ -2,30 +2,19 @@ package divinerpg.registries;
 
 import com.mojang.serialization.MapCodec;
 import divinerpg.DivineRPG;
-import divinerpg.world.structure.HighestCeilingType;
-import divinerpg.world.structure.HighestGroundType;
-import divinerpg.world.structure.LowestCeilingType;
-import divinerpg.world.structure.LowestGroundType;
+import divinerpg.world.structure.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructureType;
-import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraft.world.level.levelgen.structure.*;
+import net.minecraft.world.level.levelgen.structure.templatesystem.*;
+import net.neoforged.neoforge.registries.*;
 
 public class StructureRegistry {
 	public static final StructurePlaceSettings defaultSettings = new StructurePlaceSettings().setIgnoreEntities(false).setFinalizeEntities(true).setLiquidSettings(LiquidSettings.APPLY_WATERLOGGING);
     public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPE = DeferredRegister.create(Registries.STRUCTURE_TYPE, DivineRPG.MODID);
-
-	public static final TagKey<Structure> ICEIKA_DUNGEON = TagKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika_dungeon"));
 
     public static final DeferredHolder<StructureType<?>, StructureType<?>>
     	HIGHEST_GROUND = STRUCTURE_TYPE.register("highest_ground", () -> codecConv(HighestGroundType.CODEC)),

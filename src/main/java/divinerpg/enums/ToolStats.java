@@ -58,6 +58,7 @@ public enum ToolStats implements Tier {
     PALAVENCE(INCORRECT_FOR_WOODEN_TOOL, 60, -2.4F, -1, 5, realmite_ingot.get(), HEAL, 0, 0),
     POISON_SABER(INCORRECT_FOR_DIAMOND_TOOL, 1315, -2.4F, 6.5F, 15, jungle_stone.get(), POISON, 1, 5),
     REALMITE_SWORD(INCORRECT_FOR_IRON_TOOL, 325, -2.4F, 4.5F, 14, realmite_ingot.get()),
+    REALMITE_MAUL(INCORRECT_FOR_IRON_TOOL, 225, -2.7F, 5F, 14, realmite_ingot.get()),
     RUPEE_RAPIER(INCORRECT_FOR_DIAMOND_TOOL, 1634, -2.4F, 5.5F, 14, rupee_ingot.get()),
     SABEAR_SABRE(INCORRECT_FOR_IRON_TOOL, 982, -2.3F, 4.4F, 15, sabear_tooth.get()),
     SANDSLASH(INCORRECT_FOR_NETHERITE_TOOL, 100, -2.4F, 16, 15, divine_stone.get()),

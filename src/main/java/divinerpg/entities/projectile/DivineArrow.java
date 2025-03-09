@@ -47,6 +47,8 @@ public abstract class DivineArrow extends AbstractArrow {
         powerMultiplier = compound.getFloat("power_m");
     }
     public void addEffect(MobEffectInstance effectInstance) {
+        Iterable<MobEffectInstance> contents = getPotionContents().getAllEffects();
+        for(MobEffectInstance c : contents) if(c.is(effectInstance.getEffect())) return;
         setPotionContents(getPotionContents().withEffectAdded(effectInstance));
     }
     protected PotionContents getPotionContents() {

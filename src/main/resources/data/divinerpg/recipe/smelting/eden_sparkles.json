@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "divinerpg:eden_fragments"
+    "item": "divinerpg:eden_dust"
   },
   "result": {
     "id": "divinerpg:eden_sparkles"

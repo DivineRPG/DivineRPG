@@ -3,6 +3,7 @@ package divinerpg.items.arcana;
 import divinerpg.enums.ToolStats;
 import divinerpg.items.base.ItemModSword;
 import divinerpg.registries.SoundRegistry;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -15,7 +16,7 @@ public class ItemShadowSaber extends ItemModSword {
     }
     @Override
     public void arcanicAttack(ItemStack stack, Player player, Entity entity) {
-    	player.playSound(SoundRegistry.SHADOW_SABER.get(), 1, 1);
+        player.level().playSound(null, player.getX(), player.getEyeY(), player.getZ(), SoundRegistry.SHADOW_SABER.get(), SoundSource.PLAYERS, 1F, 1F);
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, sword.effectSec * 20, 1));
     }
 }

@@ -1,15 +1,11 @@
 package divinerpg.entities.iceika;
 
-import divinerpg.DivineRPG;
 import divinerpg.entities.goals.FactionTargetGoal;
 import divinerpg.entities.base.*;
 import divinerpg.registries.AttachmentRegistry;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -23,13 +19,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.pathfinder.PathType;
 
 import javax.annotation.Nullable;
 
 public abstract class EntityIceikaNPC extends EntityDivineMerchant implements FactionEntity {
-	public static final TagKey<Structure> WHALE_SKULL = TagKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "whale_skull"));
 	public EntityIceikaNPC(EntityType<? extends EntityDivineMerchant> type, Level worldIn, String profession) {
         super(type, worldIn, profession);
         setPathfindingMalus(PathType.POWDER_SNOW, -1);

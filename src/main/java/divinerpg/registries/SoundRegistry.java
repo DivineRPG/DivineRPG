@@ -93,6 +93,7 @@ public class SoundRegistry {
         FRACTITE_ATTACK = registerSound("fractite_attack"),
         FRACTITE_CANNON = registerSound("fractite_cannon"),
         FRACTITE_HURT = registerSound("fractite_hurt"),
+        FREEZE = registerSound("freeze"),
         FROST = registerSound("frost"),
         FROSTCLAW_CANNON = registerSound("frostclaw_cannon"),
         FROST_CANNON = registerSound("frost_cannon"),
@@ -122,6 +123,7 @@ public class SoundRegistry {
         HIVE_QUEEN_HURT = registerSound("hive_queen_hurt"),
         HOVER_STINGER = registerSound("hover_stinger"),
         HOVER_STINGER_HURT = registerSound("hover_stinger_hurt"),
+        ICEIKA_PORTAL_TRIGGER = registerSound("iceika_portal_trigger"),
         ICEMAN = registerSound("iceman"),//TODO: implement sound
         ICEMAN_HURT = registerSound("iceman_hurt"),//TODO: implement sound
         INSECT = registerSound("insect"),
@@ -186,6 +188,12 @@ public class SoundRegistry {
         REFLECTOR = registerSound("reflector"),
         REYVOR = registerSound("reyvor"),
         REYVOR_HURT = registerSound("reyvor_hurt"),
+        RIFT_AMBIENT = registerSound("rift_ambient"),
+        RIFT_CLOSE = registerSound("rift_close"),
+        RIFT_COLSE_MUFFLED = registerSound("rift_close_muffled"),
+        RIFT_INSTABILITY = registerSound("rift_instability"),
+        RIFT_OPEN = registerSound("rift_open"),
+        RIFT_REPLENISH = registerSound("rift_replenish"),
         ROAMER = registerSound("roamer"),
         ROAMER_HURT = registerSound("roamer_hurt"),
         ROAR = registerSound("roar"),

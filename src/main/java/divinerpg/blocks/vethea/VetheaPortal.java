@@ -1,6 +1,5 @@
 package divinerpg.blocks.vethea;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.base.PortalBlock;
 import divinerpg.registries.*;
 import divinerpg.util.UniversalPosition;
@@ -9,17 +8,14 @@ import divinerpg.world.placement.Surface.Mode;
 import divinerpg.world.placement.Surface.Surface_Type;
 import net.minecraft.core.*;
 import net.minecraft.core.Direction.Axis;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.*;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.portal.DimensionTransition;
 
 public class VetheaPortal extends PortalBlock {
 	public VetheaPortal() {
-		super(Properties.ofFullCopy(Blocks.NETHER_PORTAL), LevelRegistry.VETHEA, TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "portal_frames/vethea_portal")), null);
+		super(Properties.ofFullCopy(Blocks.NETHER_PORTAL), LevelRegistry.VETHEA, LevelRegistry.MORTUM, BlockRegistry.mortumBlock.get(), null);
 	}
 	@Override
 	public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {

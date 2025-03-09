@@ -6,8 +6,10 @@ import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.twilight.*;
 import divinerpg.blocks.vanilla.*;
+import divinerpg.blocks.vanilla.FireBlock;
 import divinerpg.blocks.vethea.*;
 import divinerpg.items.base.block.*;
+import divinerpg.items.vanilla.ShadowBlockItem;
 import divinerpg.world.ConfiguredFeatureKeys;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +17,7 @@ import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.BossEvent.BossBarColor;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
@@ -153,6 +156,7 @@ public class BlockRegistry {
             realmiteBlock	= registerBlock("realmite_block",	() -> new BlockMod(COLOR_ORANGE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
             rawRupeeBlock	= registerBlock("raw_rupee_block",	() -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6)),
             rupeeBlock		= registerBlock("rupee_block",		() -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+            shadowBlock = registerBlockAndItem("shadow_block", () -> new BlockMod(COLOR_BLACK, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP), ShadowBlockItem::new),
             bloodgemBlock	= registerBlock("bloodgem_block",	() -> new BlockMod(CRIMSON_STEM, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
             rawTorriditeBlock= registerBlock("raw_torridite_block",() -> new BlockMod(CRIMSON_NYLIUM, 5, 1200)),
             torriditeBlock  = registerFireResistantBlock("torridite_block",() -> new BlockMod(Properties.of().mapColor(CRIMSON_NYLIUM).strength(5F, 1200).requiresCorrectToolForDrops().sound(SoundType.METAL))),
@@ -161,14 +165,13 @@ public class BlockRegistry {
             arcaniumBlock = registerBlock("arcanium_block", () -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
 
             //Twilight Compressed Ore Blocks
-            edenBlock = registerBlock("eden_block", () -> new BlockMod(COLOR_ORANGE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-            wildwoodBlock = registerBlock("wildwood_block", () -> new BlockMod(LAPIS, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-            apalachiaBlock = registerBlock("apalachia_block", () -> new BlockMod(COLOR_MAGENTA, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-            skythernBlock = registerBlock("skythern_block", () -> new BlockMod(WOOL, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-            mortumBlock = registerBlock("mortum_block", () -> new BlockMod(COLOR_GRAY, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+            edenBlock = registerBlock("eden_block", () -> new TwilightPortalFrame(COLOR_ORANGE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+            wildwoodBlock = registerBlock("wildwood_block", () -> new TwilightPortalFrame(LAPIS, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+            apalachiaBlock = registerBlock("apalachia_block", () -> new TwilightPortalFrame(COLOR_MAGENTA, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+            skythernBlock = registerBlock("skythern_block", () -> new TwilightPortalFrame(WOOL, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+            mortumBlock = registerBlock("mortum_block", () -> new TwilightPortalFrame(COLOR_GRAY, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
 
             //Arcana Portal Frames
-            arcanaHardPortalFrame = registerBlock("arcana_hard_portal_frame", () -> new BlockArcanaPortalFrame(-1, 3600000)),
             arcanaPortalFrame = registerBlock("arcana_portal_frame", () -> new BlockArcanaPortalFrame(5, 6)),
 
             //Clusters etc.
@@ -428,6 +431,7 @@ public class BlockRegistry {
             //Darkstone & Crying Obsidian variants
             darkstone = registerBlock("darkstone", () -> new BlockMod(TERRACOTTA_GREEN, 4)),
             bleedingObsidian = registerBlock("bleeding_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
+            broodingObsidian = registerBlock("brooding_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
             shiningObsidian = registerBlock("shining_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
             glitteringObsidian = registerBlock("glittering_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
             seepingObsidian = registerBlock("seeping_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
@@ -825,22 +829,34 @@ public class BlockRegistry {
             lunicAcid = registerBlock("lunic_acid", BlockAcid::new),
 
             //Fire
-            iceikaFire = registerBlock("iceika_fire", () -> new BlockIceikaFire(Properties.ofFullCopy(Blocks.SOUL_FIRE))),
-            blueFire = registerBlock("blue_fire", () -> new BlockBlueFire(Properties.ofFullCopy(Blocks.FIRE))),
+            icyFire = registerBlock("icy_fire", () -> new BlockIcyFire(Properties.ofFullCopy(Blocks.SOUL_FIRE))),
+            hellFire = registerBlock("hellfire", FireBlock::new),
+            divineFlame = registerBlock("divine_flame", TwilightFire::new),//TODO curse removing
+            wildFlame = registerBlock("wild_flame", WildFlame::new),
+            enchantedFlame = registerBlock("enchanted_flame", TwilightFire::new),//TODO curse + enchanting
+            skyFire = registerBlock("sky_fire", SkyFire::new),
+            mortumEmbers = registerBlock("mortum_embers", () -> new TwilightFire(25F)),//TODO curse
 
             //Portals
             arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
-            iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, "portal_frames/iceika_portal", Blocks.SNOW_BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "frost"))),
-            edenPortal = registerBlock("eden_portal", () -> new BlockTwilightPortal(LevelRegistry.EDEN, "portal_frames/eden_portal", BlockRegistry.divineRock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_portal"))),
-            wildwoodPortal = registerBlock("wildwood_portal", () -> new BlockTwilightPortal(LevelRegistry.WILDWOOD, "portal_frames/wildwood_portal", edenBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "wildwood_portal"))),
-            apalachiaPortal = registerBlock("apalachia_portal", () -> new BlockTwilightPortal(LevelRegistry.APALACHIA, "portal_frames/apalachia_portal", wildwoodBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "apalachia_portal"))),
-            skythernPortal = registerBlock("skythern_portal", () -> new SimplePortalBlock(LevelRegistry.SKYTHERN, "portal_frames/skythern_portal", apalachiaBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "skythern_portal"))),
-            mortumPortal = registerBlock("mortum_portal", () -> new SimplePortalBlock(LevelRegistry.MORTUM, "portal_frames/mortum_portal", skythernBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "mortum_portal"))),
+            iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, Level.OVERWORLD, Blocks.SNOW_BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "frost"))),
+            edenPortal = registerBlock("eden_portal", () -> new BlockTwilightPortal(LevelRegistry.EDEN, Level.OVERWORLD, edenBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_portal"))),
+            wildwoodPortal = registerBlock("wildwood_portal", () -> new BlockTwilightPortal(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, wildwoodBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "wildwood_portal"))),
+            apalachiaPortal = registerBlock("apalachia_portal", () -> new BlockTwilightPortal(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, apalachiaBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "apalachia_portal"))),
+            skythernPortal = registerBlock("skythern_portal", SkythernPortal::new),
+            mortumPortal = registerBlock("mortum_portal", () -> new SimplePortalBlock(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, mortumBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "mortum_portal"))),
             vetheaPortal = registerBlock("vethea_portal", VetheaPortal::new),
+
+            //Rifts
+            edenRift = BLOCKS.register("eden_rift", () -> new IslandRiftBlock(LevelRegistry.EDEN, Level.OVERWORLD, TagRegistry.EDEN_RIFT_RESONATING, TagRegistry.EDEN_RIFT_REPLENISHING, (byte)1)),
+            wildwoodRift = BLOCKS.register("wildwood_rift", () -> new IslandRiftBlock(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, TagRegistry.WILDWOOD_RIFT_RESONATING, TagRegistry.WILDWOOD_RIFT_REPLENISHING, (byte)2)),
+            apalachiaRift = BLOCKS.register("apalachia_rift", () -> new IslandRiftBlock(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, TagRegistry.APALACHIA_RIFT_RESONATING, TagRegistry.APALACHIA_RIFT_REPLENISHING, (byte)3)),
+            skythernRift = BLOCKS.register("skythern_rift", () -> new BlockModRift(LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, TagRegistry.SKYTHERN_RIFT_RESONATING, TagRegistry.SKYTHERN_RIFT_REPLENISHING, (byte)4)),
+            mortumRift = BLOCKS.register("mortum_rift", () -> new BlockModRift(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, TagRegistry.MORTUM_RIFT_RESONATING, TagRegistry.MORTUM_RIFT_REPLENISHING, (byte)5)),
 
             //Air
             dungeonAir = registerBlock("dungeon_air", BlockModDungeonAir::new, Rarity.EPIC),
-            
+
             //Creative Mode Blocks
             randomItemDropper = registerBlock("random_item_dropper", BlockRandomItemDropper::new);
 
@@ -902,6 +918,11 @@ public class BlockRegistry {
     private static <T extends Block> DeferredBlock<T> registerBlock(String registryName, Supplier<T> block, Rarity rarity) {
         DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
         CreativeTabRegistry.blocks.add(BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties().rarity(rarity))));
+        return registeredBlock;
+    }
+    private static <T extends Block, U extends BlockItem> DeferredBlock<T> registerBlockAndItem(String registryName, Supplier<T> block, Supplier<U> blockItem) {
+        DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
+        CreativeTabRegistry.blocks.add(BLOCK_ITEMS.register(registryName, blockItem));
         return registeredBlock;
     }
     private static <T extends Block> DeferredBlock<T> registerFireResistantBlock(String registryName, Supplier<T> block) {

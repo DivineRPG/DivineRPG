@@ -9,9 +9,13 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -57,5 +61,9 @@ public class ItemTeleportationStar extends ItemMod {
             BlockPos pos = stack.get(DataComponentRegistry.position);
             tooltip.add(LocalizeUtils.i18n(ChatFormatting.WHITE, "teleport.block_position", pos.getX(), pos.getY(), pos.getZ()));
         } super.appendHoverText(stack, context, tooltip, flagIn);
+    }
+    @Override
+    public void onDestroyed(ItemEntity itemEntity, DamageSource damageSource) {
+        itemEntity.level().playSound(null, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), SoundEvents.ENDER_EYE_DEATH, SoundSource.NEUTRAL);
     }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "apalachia_fragments",
+  "ingredients": [
+    {
+      "tag": "divinerpg:tools/maul"
+    },
+    {
+      "item": "divinerpg:apalachia_fragments"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:apalachia_dust"
+  }
+}

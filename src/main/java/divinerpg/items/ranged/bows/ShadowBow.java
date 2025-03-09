@@ -27,7 +27,7 @@ public class ShadowBow extends ItemBow {
                 h.powerMultiplier = 1.2F;
                 h.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, effectSeconds * 20, 1));
                 return arrow;
-            } case Arrow a -> a.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, effectSeconds * 20, 1));
+            } case Arrow a -> addEffect(a, new MobEffectInstance(MobEffects.BLINDNESS, effectSeconds * 20, 1));
             case DivineArrow a -> a.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, effectSeconds * 20, 1));
             default -> {}
         } return arrow;

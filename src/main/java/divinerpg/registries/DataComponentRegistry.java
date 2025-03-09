@@ -17,4 +17,5 @@ public class DataComponentRegistry {
 	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> activated = DATA_COMPONENTS.registerComponentType("activated", builder -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
 	public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> dimension = DATA_COMPONENTS.registerComponentType("dimension", builder -> builder.persistent(ResourceLocation.CODEC).networkSynchronized(ResourceLocation.STREAM_CODEC));
 	public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockPos>> position = DATA_COMPONENTS.registerComponentType("position", builder -> builder.persistent(BlockPos.CODEC).networkSynchronized(BlockPos.STREAM_CODEC));
+	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Byte>> variant = DATA_COMPONENTS.registerComponentType("variant", builder -> builder.persistent(Codec.BYTE).networkSynchronized(ByteBufCodecs.BYTE));
 }

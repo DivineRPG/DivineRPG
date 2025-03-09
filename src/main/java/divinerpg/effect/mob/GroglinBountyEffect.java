@@ -1,9 +1,9 @@
 package divinerpg.effect.mob;
 
 import divinerpg.entities.base.FactionEntity.Faction;
-import divinerpg.entities.iceika.groglin.Groglin;
 import divinerpg.registries.AttachmentRegistry;
 import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.TagRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Difficulty;
@@ -19,7 +19,7 @@ public class GroglinBountyEffect extends MobEffect {
 	@Override public void applyInstantenousEffect(Entity entity, Entity e, LivingEntity living, int i, double d) {}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
 		if(entity.level() instanceof ServerLevel level && level.getGameTime() % 80 == 0 && level.getDifficulty() != Difficulty.PEACEFUL && !level.getGameRules().getBoolean(GameRules.RULE_DISABLE_RAIDS) && level.canSeeSky(entity.blockPosition()) && Faction.hasNearbyTarget(entity, entity.getBoundingBox().inflate(16D), Faction.GROGLIN)) {
-			BlockPos structure = level.findNearestMapStructure(Groglin.RAID_TARGETS, entity.blockPosition(), 4, false);
+			BlockPos structure = level.findNearestMapStructure(TagRegistry.RAID_TARGETS, entity.blockPosition(), 4, false);
 			if(structure != null && entity.distanceToSqr(structure.getX(), entity.getBlockY(), structure.getZ()) < 128D) {
 				BlockPos pos = getNearbySpawnPos(level, entity.getRandom(), entity.blockPosition());
 				AttachmentRegistry.IMPORTANT.set(EntityRegistry.GROGLIN_SHARLATAN.get().spawn(level, null, null, pos, MobSpawnType.REINFORCEMENT, false, false), false);

@@ -22,20 +22,6 @@
           "type": "item",
           "weight": 5,
           "name": "divinerpg:eden_blitz"
-        },
-        {
-          "type": "item",
-          "weight": 1,
-          "name": "divinerpg:teleportation_star",
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 0,
-                "max": 1
-              }
-            }
-          ]
         }
       ]
     },
@@ -50,10 +36,7 @@
           "functions": [
             {
               "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 4
-              }
+              "count": 1
             },
             {
               "count": {

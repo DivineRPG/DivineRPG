@@ -78,6 +78,7 @@ public class DivineRPG {
         NeoForge.EVENT_BUS.register(new EventClientLogin());
         NeoForge.EVENT_BUS.register(new ClientSidedExtraEvents.MusicEvent());
         Utils.loadHatInformation();
+        ItemPropertyRegistry.registerProperties();
     }
     private void post(final FMLLoadCompleteEvent event){
     }

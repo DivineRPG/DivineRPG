@@ -6,6 +6,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.DivineRPG;
 import divinerpg.block_entities.block.PortalBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
+import divinerpg.registries.TagRegistry;
 import divinerpg.util.UniversalPosition;
 import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.*;
@@ -17,7 +18,6 @@ import net.minecraft.core.registries.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -30,26 +30,25 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.portal.DimensionTransition;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.*;
 import org.jetbrains.annotations.*;
 
 public class PortalBlock extends BaseEntityBlock implements Portal {
-	public static final TagKey<Block> portalTag = TagKey.create(Registries.BLOCK, ResourceLocation.parse("c:portals"));
 	public static final VoxelShape X_AXIS_AABB = Block.box(0.0, 0.0, 6.0, 16.0, 16.0, 10.0), Z_AXIS_AABB = Block.box(6.0, 0.0, 0.0, 10.0, 16.0, 16.0);
-	public final ResourceKey<Level> rootDimension;
-	public final TagKey<Block> frameTag;
+	public final ResourceKey<Level> rootDimension, chainDimension;
+	public final Block frameBlock;
 	public final ResourceLocation particleLocation;
 	public SimpleParticleType particle;
-	public PortalBlock(Properties properties, ResourceKey<Level> rootDimension, TagKey<Block> frameTag, ResourceLocation particle) {
+	public PortalBlock(Properties properties, ResourceKey<Level> rootDimension, ResourceKey<Level> chainDimension, Block frameBlock, ResourceLocation particle) {
 		super(properties);
 		this.rootDimension = rootDimension;
-		this.frameTag = frameTag;
+		this.chainDimension = chainDimension;
+		this.frameBlock = frameBlock;
 		registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.X));
 		particleLocation = particle;
 	}
-	public PortalBlock(Properties properties, ResourceLocation rootDimension, TagKey<Block> frameTag, ResourceLocation particle) {
-		this(properties, ResourceKey.create(Registries.DIMENSION, rootDimension), frameTag, particle);
+	public PortalBlock(Properties properties, ResourceLocation rootDimension, ResourceLocation chainDimension, Block frameBlock, ResourceLocation particle) {
+		this(properties, ResourceKey.create(Registries.DIMENSION, rootDimension), ResourceKey.create(Registries.DIMENSION, chainDimension), frameBlock, particle);
 	}
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
@@ -64,9 +63,9 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 //		DivineRPG.LOGGER.info("No Connection Present. Creating new Portal.");
 		BlockState state = level.getBlockState(pos);
 		Axis axis = state.hasProperty(BlockStateProperties.HORIZONTAL_AXIS) ? state.getValue(BlockStateProperties.HORIZONTAL_AXIS) : null;
-		ResourceKey<Level> targetDimension = level.dimension() == rootDimension ? Level.OVERWORLD : rootDimension;
+		ResourceKey<Level> targetDimension = level.dimension() == rootDimension ? chainDimension : rootDimension;
 		ServerLevel targetLevel = level.getServer().getLevel(targetDimension);
-		BlockPos targetPosition = UniversalPosition.toBlockPos(scalePosition(entity.position(), level.dimensionType(), targetLevel.dimensionType()));
+		BlockPos targetPosition = scalePosition(pos, level.dimensionType(), targetLevel.dimensionType());
 		UniversalPosition origin = new UniversalPosition(level, pos);
 		pos = targetPosition;
 		for(int tries = 0; tries < 10; tries++) {
@@ -87,7 +86,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	 * @return the new preferred block position for where to place the portal
 	 */
 	public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-		return new BlockPos(pos.getX(), Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight(), level.dimensionType().logicalHeight(), 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
+		return new BlockPos(pos.getX(), Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight() + 1, level.dimensionType().logicalHeight(), 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
 	}
 	public boolean hasRoomForPortal(ServerLevel level, BlockPos pos) {
 		pos = pos.above();
@@ -158,14 +157,14 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return level.getBlockEntity(pos) instanceof PortalBlockEntity p && p.hasTargetPos() && hasPortal(level.getServer(), p.targetPosition);
 	}
 	public static boolean hasPortal(MinecraftServer server, UniversalPosition target) {
-		return target.level(server).getBlockState(target.blockPos()).is(portalTag);
+		return target.level(server).getBlockState(target.blockPos()).is(TagRegistry.PORTALS);
 	}
-	public static Vec3 scalePosition(Vec3 pos, DimensionType originDimension, DimensionType targetDimension) {
+	public static BlockPos scalePosition(BlockPos pos, DimensionType originDimension, DimensionType targetDimension) {
 		double scale = DimensionType.getTeleportationScale(originDimension, targetDimension);
-		return new Vec3(pos.x * scale, pos.y, pos.z * scale);
+		return new BlockPos((int) (pos.getX() * scale), pos.getZ(), (int) (pos.getZ() * scale));
 	}
 	public static DimensionTransition transitionTo(MinecraftServer server, Entity entity, UniversalPosition pos) {
-		return new DimensionTransition(pos.level(server), pos.pos(), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET));
+		return new DimensionTransition(pos.level(server), pos.pos().add(.5, 0, .5), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET));
 	}
 	public void linkPortals(MinecraftServer server, UniversalPosition origin, UniversalPosition target) {
 		if(!hasPortal(server, origin) || !hasPortal(server, target)) {
@@ -205,7 +204,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	}
 	public Axis checkForFrame(Level level, BlockPos pos) {
 		Direction d = null;
-		for(Direction di : Direction.values()) if(level.getBlockState(pos.relative(di)).is(frameTag)) {
+		for(Direction di : Direction.values()) if(level.getBlockState(pos.relative(di)).is(frameBlock)) {
 			d = di;
 			break;
 		} if(d == null) return null;
@@ -218,16 +217,16 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		MutableBlockPos mut = pos.mutable();
 		while((dir = dir.getClockWise(axis == Axis.X ? Axis.Z : Axis.X)) != d) {
 			state = level.getBlockState(mut.relative(dir));
-			if(state.is(frameTag)) continue;
+			if(state.is(frameBlock)) continue;
 			if(state.isAir()) break;
 			return false;
 		} if(dir == d) return true;
 		mut.move(d = dir);
 		while(mut.distManhattan(pos) < 33 && !mut.equals(pos)) {
-			if(!level.getBlockState(mut.relative(d.getCounterClockWise(axis == Axis.X ? Axis.Z : Axis.X))).is(frameTag)) return false;
+			if(!level.getBlockState(mut.relative(d.getCounterClockWise(axis == Axis.X ? Axis.Z : Axis.X))).is(frameBlock)) return false;
 			do {
 				state = level.getBlockState(mut.relative(dir));
-				if(state.is(frameTag)) continue;
+				if(state.is(frameBlock)) continue;
 				if(state.isAir()) {
 					d = dir;
 					break;
@@ -239,7 +238,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	protected Direction lookForFrameBlock(Level level, BlockPos pos, Axis axis) {
 		Direction d = axis == Axis.X ? Direction.EAST : Direction.SOUTH, dir = d;
 		do {
-			if(level.getBlockState(pos.relative(dir)).is(frameTag)) return dir;
+			if(level.getBlockState(pos.relative(dir)).is(frameBlock)) return dir;
 		} while((dir = dir.getClockWise(axis == Axis.X ? Axis.Z : Axis.X)) != d);
 		return null;
 	}
@@ -265,14 +264,14 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return supportedBy(level.getBlockState(pos.above())) && supportedBy(level.getBlockState(pos.below())) && supportedBy(level.getBlockState(pos.relative(axis, 1))) && supportedBy(level.getBlockState(pos.relative(axis, -1)));
 	}
 	public boolean supportedBy(BlockState state) {
-		return state.is(portalTag) || state.is(frameTag);
+		return state.is(TagRegistry.PORTALS) || state.is(frameBlock);
 	}
 	@Override
     public int getPortalTransitionTime(ServerLevel level, Entity entity) {
         return entity instanceof Player player ? Math.max(1, level.getGameRules().getInt(player.getAbilities().invulnerable ? GameRules.RULE_PLAYERS_NETHER_PORTAL_CREATIVE_DELAY : GameRules.RULE_PLAYERS_NETHER_PORTAL_DEFAULT_DELAY)) : 0;
     }
 	//the boring part
-	public static final MapCodec<PortalBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(propertiesCodec(), ResourceLocation.CODEC.fieldOf("target_dimension").forGetter(PortalBlock::rootDimension), TagKey.codec(Registries.BLOCK).fieldOf("supported_blocks").forGetter(PortalBlock::frameTag), ResourceLocation.CODEC.fieldOf("particle").forGetter(PortalBlock::particle)).apply(instance, PortalBlock::new));
+	public static final MapCodec<PortalBlock> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(propertiesCodec(), ResourceLocation.CODEC.fieldOf("target_dimension").forGetter(PortalBlock::rootDimension), ResourceLocation.CODEC.fieldOf("chain_dimension").forGetter(PortalBlock::chainDimension), Block.CODEC.fieldOf("frame_block").forGetter(PortalBlock::frameBlock), ResourceLocation.CODEC.fieldOf("particle").forGetter(PortalBlock::particle)).apply(instance, PortalBlock::new));
 	@Override
 	protected MapCodec<? extends BaseEntityBlock> codec() {
 		return CODEC;
@@ -280,11 +279,14 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	public ResourceLocation rootDimension() {
 		return rootDimension.location();
 	}
+	public ResourceLocation chainDimension() {
+		return chainDimension.location();
+	}
 	public ResourceLocation particle() {
 		return particleLocation;
 	}
-	public TagKey<Block> frameTag() {
-		return frameTag;
+	public Block frameBlock() {
+		return frameBlock;
 	}
 	@Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {

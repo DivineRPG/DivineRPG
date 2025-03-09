@@ -224,7 +224,7 @@
   "block.divinerpg.glaciline": "冰川线",
   "block.divinerpg.gelidite": "寒岩",
   "block.divinerpg.thermal_vent": "热液喷口",
-  "block.divinerpg.iceika_fire": "冰极火焰",
+  "block.divinerpg.icy_fire": "冰极火焰",
   "block.divinerpg.iceika_portal": "冰极传送门",
   "block.divinerpg.robbin_nest": "知掠鸟巢",
   "block.divinerpg.robbin_hut": "知掠鸟小屋",
@@ -450,7 +450,6 @@
 
   "block.divinerpg.raw_arcanium": "粗秘金",
   "block.divinerpg.arcanium_block": "秘金块",
-  "block.divinerpg.arcana_hard_portal_frame": "坚硬的秘界传送门框架",
   "block.divinerpg.arcana_portal_frame": "秘界传送门框架",
   "block.divinerpg.arcana_portal": "秘界传送门",
 
@@ -1454,7 +1453,6 @@
   "item.divinerpg.halite_blitz": "岩晶突击者",
   "item.divinerpg.halite_shickaxe": "岩晶地形改造者",
 
-  "item.divinerpg.twilight_clock": "暮光时钟",
   "item.divinerpg.twilight_bow": "暮光之弓",
 
   "item.divinerpg.honeysuckle": "金银花",

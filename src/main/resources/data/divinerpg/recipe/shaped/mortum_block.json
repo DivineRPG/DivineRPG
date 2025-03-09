@@ -3,22 +3,16 @@
     "id": "divinerpg:mortum_block"
   },
   "pattern": [
-    "FIF",
-    "IBI",
-    "FIF"
+    "CCC",
+    "CCC",
+    "CCC"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "group": "twilight_block",
   "key": {
-    "B": {
-      "item": "divinerpg:mortum_heart"
-    },
-    "F": {
-      "item": "divinerpg:mortum_fragments"
-    },
-    "I": {
-      "item": "divinerpg:mortum_soul"
+    "C": {
+      "item": "divinerpg:mortum_chunk"
     }
   }
 }

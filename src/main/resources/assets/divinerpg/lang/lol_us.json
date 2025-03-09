@@ -46,7 +46,7 @@
 
   "block.divinerpg.realmite_ore": "Real Ore",
   "block.divinerpg.realmite_ore_deepslate": "Deep Reality",
-  "block.divinerpg.raw_realmite_block": "Raw Reality",
+  "block.divinerpg.raw_realmite_block": "Real Beanz",
   "block.divinerpg.realmite_block": "Reality",
   "block.divinerpg.arlemite_ore": "Aragorn",
   "block.divinerpg.arlemite_ore_deepslate": "Aragorn drowned",
@@ -56,6 +56,7 @@
   "block.divinerpg.rupee_ore_deepslate": "Jipsie Ore",
   "block.divinerpg.raw_rupee_block": "Raw Yippie",
   "block.divinerpg.rupee_block": "Yippie",
+  "block.divinerpg.shadow_block": "Heliophobic Block",
 
   "block.divinerpg.milk_stone": "Old Milk",
   "block.divinerpg.milk_stone_bricks": "Old Milk Bricks",
@@ -122,6 +123,7 @@
   "block.divinerpg.asphalt_slab": "Country Road Block",
 
   "block.divinerpg.bleeding_obsidian": "Bleeding Obsidian",
+  "block.divinerpg.brooding_obsidian": "Brooding Obsidian",
   "block.divinerpg.shining_obsidian": "Whining Obsidian",
   "block.divinerpg.glittering_obsidian": "Glooming Obsidian",
   "block.divinerpg.seeping_obsidian": "Sleeping Obsidian",
@@ -225,7 +227,7 @@
   "block.divinerpg.glaciline": "Glad you met Celine",
   "block.divinerpg.gelidite": "Mushroom Mud",
   "block.divinerpg.thermal_vent": "Earth's Factory",
-  "block.divinerpg.iceika_fire": "Cold Fire",
+  "block.divinerpg.icy_fire": "Cold Fire",
   "block.divinerpg.iceika_portal": "Wall of not so Yellow Snow",
   "block.divinerpg.robbin_nest": "Refugee Camp",
   "block.divinerpg.robbin_hut": "Robin's Hut",
@@ -451,7 +453,6 @@
 
   "block.divinerpg.raw_arcanium": "Raw Magic",
   "block.divinerpg.arcanium_block": "Block of Magic",
-  "block.divinerpg.arcana_hard_portal_frame": "Hard Magic Portal Frame",
   "block.divinerpg.arcana_portal_frame": "Magic Portal Frame",
   "block.divinerpg.arcana_portal": "Magical Portal",
 
@@ -504,7 +505,12 @@
   "block.divinerpg.star_bridge": "Death Star Block",
   "block.divinerpg.acceleron": "Sonic Block",
   "block.divinerpg.elevantium": "Elevator Block",
-  "block.divinerpg.blue_fire": "Copper Chloride Fire",
+  "block.divinerpg.hellfire": "Hell's Anger",
+  "block.divinerpg.divine_flame": "Worship the Flame",
+  "block.divinerpg.wild_flame": "Mild Flame",
+  "block.divinerpg.enchanted_flame": "Puwpwe Fwiwa",
+  "block.divinerpg.sky_fire": "Sky Fall",
+  "block.divinerpg.mortum_embers": "Calcifer",
 
   "block.divinerpg.arcanium_extractor": "Magic Extractor",
   "block.divinerpg.molten_furnace": "Furnace no more",
@@ -922,6 +928,7 @@
   "item.divinerpg.elite_realmite_boots": "Elite Realistic Boots",
   "item.divinerpg.realmite_shield": "Realistic Shield",
   "item.divinerpg.realmite_sword": "Realistic Sword",
+  "item.divinerpg.realmite_maul": "Realistic Clubber",
   "item.divinerpg.realmite_shovel": "Realistic Shovel",
   "item.divinerpg.realmite_pickaxe": "Realistic Pickaxe",
   "item.divinerpg.realmite_axe": "Realistic Axe",
@@ -929,6 +936,7 @@
 
   "item.divinerpg.raw_arlemite": "Raw Aragorn",
   "item.divinerpg.arlemite_ingot": "Aragorn's Ingot",
+  "item.divinerpg.arlemite_dust": "Aragorn's Remains",
   "item.divinerpg.arlemite_nugget": "Aragorn's Nugget",
   "item.divinerpg.arlemite_helmet": "Aragorn's Helmet",
   "item.divinerpg.arlemite_chestplate": "Aragorn's Chestplate",
@@ -944,6 +952,7 @@
 
   "item.divinerpg.raw_rupee": "Raw Zelda Currency",
   "item.divinerpg.rupee_ingot": "Zelda Ingot",
+  "item.divinerpg.rupee_dust": "Zelda's Ashes",
   "item.divinerpg.rupee_nugget": "Zelda Nugget",
   "item.divinerpg.rupee_helmet": "Zelda Helmet",
   "item.divinerpg.rupee_chestplate": "Zelda Chestplate",
@@ -978,6 +987,7 @@
   "item.divinerpg.rupee_shickaxe": "Zelda Shickaxe",
 
   "item.divinerpg.shadow_bar": "Heliophobic Bar",
+  "item.divinerpg.shadow_dust": "Heliophobic Dust",
   "item.divinerpg.shadow_stone": "Heliophobic Stone",
   "item.divinerpg.shadow_coins": "Heliophobic Coins",
   "item.divinerpg.shadow_helmet": "Heliophobic Helmet",
@@ -1526,7 +1536,7 @@
   "entity.divinerpg.halite_blitz_shot": "Salty Blitz Shot",
   "item.divinerpg.halite_shickaxe": "Salty Terraformer",
 
-  "item.divinerpg.twilight_clock": "Twilight Timing Device",
+  "item.divinerpg.frozen_clock":  "Once a Day working Clock",
   "item.divinerpg.twilight_bow": "Twice the Bow you will ever see",
 
   "item.divinerpg.honeysuckle": "Delicious Honey",
@@ -2284,10 +2294,11 @@
   "tooltip.divinerpg.instant_consumption": "Mouth Stuffing",
   "tooltip.divinerpg.less_drag": "Aerodynamic",
   "tooltip.divinerpg.lightning_shot": "Shoots lightning bolts",
+  "tooltip.divinerpg.maul_use": "Use to grind ground stuff",
   "tooltip.divinerpg.nightmare_bed": "You will have to starve to make a return portal",
-  "tooltip.divinerpg.pull": "Pulls mobs toward the user",
-  "tooltip.divinerpg.push": "Knocks mobs away",
-  "tooltip.divinerpg.return": "Returns to the user",
+  "tooltip.divinerpg.pull": "Makes you very attractive",
+  "tooltip.divinerpg.push": "Makes you very repulsive",
+  "tooltip.divinerpg.return": "Returns to sender",
   "tooltip.divinerpg.shadow_saber": "Speeds up the user on each attack",
   "tooltip.divinerpg.shots.bounce": "Bouncing projectiles",
   "tooltip.divinerpg.shots.blind": "Blinds mobs for %s seconds",
@@ -2296,6 +2307,7 @@
   "tooltip.divinerpg.shots.homing": "Homing projectiles",
   "tooltip.divinerpg.shots.sky": "%s projectile(-s) from the sky",
   "tooltip.divinerpg.shots.split": "Projectiles split into %s on impact",
+  "tooltip.divinerpg.snow_globe": "Chill with Cold Fire to get to the cool Place",
   "tooltip.divinerpg.staff_of_enrichment": "Use on Magical Dirt to purify",
   "tooltip.divinerpg.summon": "Summons a friendly %s:",
   "tooltip.divinerpg.summon.damage": " %s Attack Damage",

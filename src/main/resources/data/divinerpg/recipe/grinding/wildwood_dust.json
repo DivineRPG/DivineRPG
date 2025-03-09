@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wildwood_fragments",
+  "ingredients": [
+    {
+      "tag": "divinerpg:tools/maul"
+    },
+    {
+      "item": "divinerpg:wildwood_fragments"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:wildwood_dust"
+  }
+}

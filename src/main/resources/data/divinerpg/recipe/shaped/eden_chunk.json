@@ -3,9 +3,7 @@
     "id": "divinerpg:eden_chunk"
   },
   "pattern": [
-    "GGG",
-    "G G",
-    "G G"
+    "GGG"
   ],
   "type": "minecraft:crafting_shaped",
   "group": "twilight_chunk",

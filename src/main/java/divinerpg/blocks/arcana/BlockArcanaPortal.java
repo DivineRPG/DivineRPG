@@ -9,12 +9,10 @@ import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.*;
 import net.minecraft.core.*;
 import net.minecraft.core.Direction.Axis;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.StructureTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
@@ -27,8 +25,8 @@ import org.jetbrains.annotations.*;
 public class BlockArcanaPortal extends PortalBlock {
     protected static final VoxelShape SHAPE = Block.box(0, 5, 0, 16, 8, 16);
     public BlockArcanaPortal() {
-        super(BlockBehaviour.Properties.ofFullCopy(Blocks.END_PORTAL), LevelRegistry.ARCANA, TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "portal_frames/arcana_portal")), null);
-        this.registerDefaultState(this.stateDefinition.any());
+        super(BlockBehaviour.Properties.ofFullCopy(Blocks.END_PORTAL), LevelRegistry.ARCANA, Level.OVERWORLD, BlockRegistry.arcanaPortalFrame.get(), null);
+        registerDefaultState(stateDefinition.any());
     }
 	@Override
 	public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {

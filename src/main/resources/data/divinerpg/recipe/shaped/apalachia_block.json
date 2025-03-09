@@ -3,22 +3,16 @@
     "id": "divinerpg:apalachia_block"
   },
   "pattern": [
-    "FIF",
-    "IBI",
-    "FIF"
+    "CCC",
+    "CCC",
+    "CCC"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "group": "twilight_block",
   "key": {
-    "B": {
-      "item": "divinerpg:apalachia_heart"
-    },
-    "F": {
-      "item": "divinerpg:apalachia_fragments"
-    },
-    "I": {
-      "item": "divinerpg:apalachia_soul"
+    "C": {
+      "item": "divinerpg:apalachia_chunk"
     }
   }
 }
