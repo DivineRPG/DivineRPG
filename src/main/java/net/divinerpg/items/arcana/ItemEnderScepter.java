@@ -82,4 +82,10 @@ public class ItemEnderScepter extends ItemMod {
 		list.add("On use: Teleports the player");
 		list.add(TooltipLocalizer.infiniteUses());
 	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean isFull3D() {
+		return true;
+	}
 }
