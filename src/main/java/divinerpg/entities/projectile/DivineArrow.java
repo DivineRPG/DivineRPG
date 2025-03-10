@@ -1,6 +1,5 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.DivineRPG;
 import divinerpg.effect.mob.EnderAttachmentEffect;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;

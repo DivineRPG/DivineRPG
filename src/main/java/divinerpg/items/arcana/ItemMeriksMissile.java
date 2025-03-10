@@ -27,6 +27,7 @@ public class ItemMeriksMissile extends ItemMod {
             return InteractionResultHolder.consume(itemstack);
         }
     }
+    //TODO: it doesn't loose durability
     @Override public void releaseUsing(ItemStack stack, Level world, LivingEntity livingEntity, int timeLeft) {
         if (stack.getItem() == ItemRegistry.meriks_missile.get() && livingEntity instanceof Player player) {
             float charge = (float)(MAX_USE_DURATION - timeLeft) / 20;

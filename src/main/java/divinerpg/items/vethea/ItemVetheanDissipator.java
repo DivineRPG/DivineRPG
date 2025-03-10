@@ -1,8 +1,6 @@
 package divinerpg.items.vethea;
 
 import divinerpg.items.ranged.ItemThrowable;
-import divinerpg.registries.BlockRegistry;
-import divinerpg.registries.EntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.*;
@@ -13,16 +11,19 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import java.util.ArrayList;
 
+import static divinerpg.registries.BlockRegistry.dungeonAir;
+import static divinerpg.registries.EntityRegistry.DISSIPATOR;
+
 public class ItemVetheanDissipator extends ItemThrowable {
 	public ItemVetheanDissipator(float damage) {
-		super(new Properties().stacksTo(1), EntityRegistry.DISSIPATOR::value, damage);
+		super(new Properties().stacksTo(1), DISSIPATOR::value, damage);
 	}
 	public static ArrayList<BlockPos> getLocalDungeonAir(Level level, BlockPos pos, float damage) {
-		int area = (int)(damage / 3F);
+		int area = (int)(damage / 3);
 		ArrayList<BlockPos> list = new ArrayList<>();
 		for(int x = pos.getX() - area; x < pos.getX() + area; x++) for(int y = pos.getY() - area; y < pos.getY() + area; y++) for(int z = pos.getZ() - area; z < pos.getZ() + area; z++) {
 			BlockPos position = new BlockPos(x, y, z);
-			if(level.getBlockState(position).is(BlockRegistry.dungeonAir.get())) list.add(position);
+			if(level.getBlockState(position).is(dungeonAir.get())) list.add(position);
 		} return list;
 	}
 	@Override public InteractionResult useOn(UseOnContext context) {

@@ -1,10 +1,7 @@
 package divinerpg.items.vethea;
 
 import divinerpg.items.ranged.ItemBow;
-import divinerpg.registries.SoundRegistry;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -13,6 +10,10 @@ import net.neoforged.neoforge.event.EventHooks;
 
 import java.util.List;
 import java.util.function.Supplier;
+
+import static divinerpg.registries.SoundRegistry.VETHEA_BOW;
+import static net.minecraft.sounds.SoundSource.PLAYERS;
+import static net.minecraft.stats.Stats.ITEM_USED;
 
 public class VetheanBow extends ItemBow {
     public VetheanBow(Properties properties, int uses, int useDuration, float speedScale, Supplier<Item> infinityArrow, Integer nameColor) {
@@ -29,8 +30,8 @@ public class VetheanBow extends ItemBow {
             if(f >= .1F) {
                 List<ItemStack> list = draw(stack, itemstack, player);
                 if(level instanceof ServerLevel serverlevel && !list.isEmpty()) shoot(serverlevel, player, player.getUsedItemHand(), stack, list, f * 3 * speedScale, 1, f == 1, null);
-                level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundRegistry.VETHEA_BOW, SoundSource.PLAYERS, 1, 1 / (level.getRandom().nextFloat() * .4F + 1.2F) + f * .5F);
-                player.awardStat(Stats.ITEM_USED.get(this));
+                level.playSound(null, player.getX(), player.getY(), player.getZ(), VETHEA_BOW, PLAYERS, 1, 1 / (level.getRandom().nextFloat() * .4F + 1.2F) + f * .5F);
+                player.awardStat(ITEM_USED.get(this));
             }
         }
     }

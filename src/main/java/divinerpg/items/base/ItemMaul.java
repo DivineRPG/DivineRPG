@@ -4,7 +4,6 @@ import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -13,8 +12,12 @@ import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
+import net.neoforged.api.distmarker.*;
 
 import java.util.List;
+
+import static net.minecraft.sounds.SoundEvents.ANVIL_LAND;
+import static net.minecraft.sounds.SoundSource.PLAYERS;
 
 public class ItemMaul extends ItemModSword {
     public ItemMaul(Tier tier, Properties properties) {
@@ -25,21 +28,17 @@ public class ItemMaul extends ItemModSword {
         super(tier);
         cooldown = 10;
     }
-    @Override public boolean hasCraftingRemainingItem(ItemStack stack) {
-        return true;
-    }
-    @Override
-    public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
+    @Override public boolean hasCraftingRemainingItem(ItemStack stack) {return true;}
+    @Override public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
         if(itemStack.isDamageableItem()) {
             int i = itemStack.getDamageValue() + 1;
             if(i == itemStack.getMaxDamage()) return ItemStack.EMPTY;
             itemStack.setDamageValue(i);
         } return itemStack.copy();
     }
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         double range = player.entityInteractionRange();
-        Vec3 eyepos = player.getEyePosition(), viewVector = player.getViewVector(1F);
+        Vec3 eyepos = player.getEyePosition(), viewVector = player.getViewVector(1);
         EntityHitResult entityhitresult = ProjectileUtil.getEntityHitResult(player, eyepos, eyepos.add(viewVector.scale(range)), player.getBoundingBox().expandTowards(viewVector.scale(range)).inflate(1D), e -> e instanceof ItemEntity, range * range);
         if(entityhitresult != null) {
             ItemEntity i = (ItemEntity) entityhitresult.getEntity();
@@ -55,16 +54,16 @@ public class ItemMaul extends ItemModSword {
             else if(targetItem.is(ItemRegistry.mortum_fragments)) i.setItem(ItemRegistry.mortum_dust.toStack(targetItem.getCount()));
             if(!i.getItem().is(targetItem.getItem())) {
                 ItemStack stack = player.getItemInHand(hand);
-                if(player instanceof ServerPlayer s) stack.hurtAndBreak(targetItem.getCount(), s.serverLevel(), s, (it) -> s.serverLevel().playSound(null, player.getX(), player.getEyeY(), player.getZ(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1F, 1F));
-                player.playSound(SoundEvents.ANVIL_LAND, .7F, 1.5F);
+                if(player instanceof ServerPlayer s) stack.hurtAndBreak(targetItem.getCount(), s.serverLevel(), s, (it) -> s.serverLevel().playSound(null, player.getX(), player.getEyeY(), player.getZ(), ANVIL_LAND, PLAYERS, 1, 1));
+                player.playSound(ANVIL_LAND, .7F, 1.5F);
                 player.getCooldowns().addCooldown(this, cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));
                 return InteractionResultHolder.success(stack);
             }
         } return super.use(level, player, hand);
     }
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.i18n("maul_use"));
         super.appendHoverText(stack, context, tooltip, flagIn);
     }

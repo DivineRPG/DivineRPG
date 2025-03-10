@@ -17,20 +17,20 @@ import java.util.function.Supplier;
 
 public class SkyDropStaff extends ItemRangedWeapon {
     public final int projectileCount;
-    public SkyDropStaff(Supplier<EntityType<? extends Projectile>> projectileType, int arcana, int count, int delay, int uses) {
+    public final int damage;
+    public SkyDropStaff(Supplier<EntityType<? extends Projectile>> projectileType, int arcana, int damage, int count, int delay, int uses) {
         super(projectileType, uses);
         sound = SoundRegistry.STARLIGHT.get();
         cooldown = delay;
         arcanaConsumedUse = arcana;
+        this.damage = damage;
         projectileCount = count;
-        tooltips.add(LocalizeUtils.skyShots(count));
+        withTooltip(LocalizeUtils.arcanaDam(damage)).withTooltip(LocalizeUtils.skyShots(count));
     }
-    @Override
-    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
+    @Override protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
         for(int i = 0; i < projectileCount; i++) super.shoot(level, shooter, hand, weapon, projectileItems, velocity, inaccuracy, isCrit, target);
     }
-    @Override
-    protected void shootProjectile(LivingEntity shooter, Projectile projectile, int i, float velocity, float inaccuracy, float angle, @Nullable LivingEntity livingEntity1) {
+    @Override protected void shootProjectile(LivingEntity shooter, Projectile projectile, int i, float velocity, float inaccuracy, float angle, @Nullable LivingEntity livingEntity1) {
         int blockReachDistance = 32;
         Vec3 vec3d = shooter.getEyePosition(1);
         Vec3 vec3d1 = shooter.getViewVector(1);

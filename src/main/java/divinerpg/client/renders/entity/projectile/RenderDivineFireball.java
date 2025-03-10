@@ -1,7 +1,6 @@
 package divinerpg.client.renders.entity.projectile;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.entities.projectile.DivineFireball;
 import net.minecraft.client.renderer.*;
@@ -28,7 +27,6 @@ public class RenderDivineFireball<T extends DivineFireball> extends EntityRender
         matrix.pushPose();
         matrix.scale(.5F, .5F, .5F);
         matrix.mulPose(entityRenderDispatcher.cameraOrientation());
-        matrix.mulPose(Axis.YP.rotationDegrees(180));
         PoseStack.Pose matrixEntry = matrix.last();
         Matrix4f matrix4f = matrixEntry.pose();
         Matrix3f normal = matrixEntry.normal();

@@ -6,6 +6,7 @@
     "#c:storage_blocks/arlemite",
     "#c:storage_blocks/raw_rupee",
     "#c:storage_blocks/rupee",
+    "#c:storage_blocks/shadow",
     "#c:storage_blocks/bloodgem",
     "#c:storage_blocks/raw_torridite",
     "#c:storage_blocks/torridite",

@@ -1,5 +1,6 @@
 package divinerpg.items.ranged;
 
+import divinerpg.items.ranged.bows.*;
 import divinerpg.util.LocalizeUtils;
 import divinerpg.util.Utils;
 import net.minecraft.ChatFormatting;
@@ -7,8 +8,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.*;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,6 +24,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.function.Supplier;
+
+import static net.minecraft.sounds.SoundEvents.ARROW_SHOOT;
+import static net.minecraft.sounds.SoundSource.PLAYERS;
+import static net.minecraft.stats.Stats.ITEM_USED;
 
 public class ItemBow extends BowItem {
     public final int useDuration;
@@ -61,39 +64,19 @@ public class ItemBow extends BowItem {
             if(f >= .1F) {
                 List<ItemStack> list = draw(stack, itemstack, player);
                 if(level instanceof ServerLevel serverlevel && !list.isEmpty()) shoot(serverlevel, player, player.getUsedItemHand(), stack, list, f * 3F * speedScale, 1, f == 1, null);
-                level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1 / (level.getRandom().nextFloat() * .4F + 1.2F) + f * .5F);
-                player.awardStat(Stats.ITEM_USED.get(this));
+                level.playSound(null, player.getX(), player.getY(), player.getZ(), ARROW_SHOOT, PLAYERS, 1, 1 / (level.getRandom().nextFloat() * .4F + 1.2F) + f * .5F);
+                player.awardStat(ITEM_USED.get(this));
             }
         }
     }
     @Override public ItemStack getDefaultCreativeAmmo(@Nullable Player player, ItemStack projectileWeaponItem) {
         return new ItemStack(infinityArrow == null ? Items.ARROW : infinityArrow.get());
     }
-    @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
-        float speed = 72000F / useDuration;
-        if(speed > 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.DARK_GREEN, "bow_speed.faster", String.format("%s", speed)));
-        if(speed < 1) tooltip.add(LocalizeUtils.i18n(ChatFormatting.RED, "bow_speed.slower", String.format("%s", 1 / speed)));
-        if(infinityArrow != null) tooltip.add(LocalizeUtils.infiniteAmmo());
-        tooltip.add(LocalizeUtils.shootingPower(speedScale));
-        super.appendHoverText(stack, context, tooltip, flagIn);
-    }
-    @Override public Component getName(ItemStack pStack) {
-        return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
-    }
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return true;
-    }
-
-    @Override
-    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+    @Override public boolean isEnchantable(ItemStack stack) {return true;}
+    @Override public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
         return super.supportsEnchantment(stack, enchantment) && (stack.has(DataComponents.MAX_DAMAGE) || !(enchantment.is(Enchantments.MENDING) || enchantment.is(Enchantments.UNBREAKING)));
     }
-
-    @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+    @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return stack.has(DataComponents.MAX_DAMAGE) || !(Utils.hasStoredEnchantment(Enchantments.MENDING, book) || Utils.hasStoredEnchantment(Enchantments.UNBREAKING, book));
     }
     public static void addEffect(Arrow arrow, MobEffectInstance instance) {
@@ -102,5 +85,19 @@ public class ItemBow extends BowItem {
         Iterable<MobEffectInstance> contentsit = contents.getAllEffects();
         for(MobEffectInstance c : contentsit) if(c.is(instance.getEffect())) return;
         stack.set(DataComponents.POTION_CONTENTS, contents.withEffectAdded(instance));
+    }
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
+        float speed = 72000F / useDuration;
+        tooltip.add(LocalizeUtils.shootingPower(speedScale));
+        if(speed > 1) tooltip.add(LocalizeUtils.bowFasterPull(speed));
+        if(speed < 1) tooltip.add(LocalizeUtils.bowSlowerPull(1 / speed));
+        if(this instanceof EnderBow) tooltip.add(LocalizeUtils.teleportAttached());
+        if(this instanceof InfernoBow) tooltip.add(LocalizeUtils.burningShots());
+        if(infinityArrow != null) tooltip.add(LocalizeUtils.infiniteAmmo());
+        super.appendHoverText(stack, context, tooltip, flagIn);
+    }
+    @Override public Component getName(ItemStack pStack) {
+        return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
     }
 }

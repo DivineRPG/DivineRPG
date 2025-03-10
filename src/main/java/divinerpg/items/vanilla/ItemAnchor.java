@@ -5,7 +5,6 @@ import divinerpg.enums.*;
 import divinerpg.items.base.ItemModSword;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
@@ -13,7 +12,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import java.util.List;
@@ -23,10 +21,11 @@ public class ItemAnchor extends ItemModSword {
     protected Supplier<EntityType<? extends DivineThrowableProjectile>> projectileType;
     int baseDamageTooltip;
     public ItemAnchor(ToolStats stats, Supplier<EntityType<? extends DivineThrowableProjectile>> projectileType, int baseDamageTooltip) {
-        super(stats, new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)));
+        super(stats);
         this.projectileType = projectileType;
         this.baseDamageTooltip = baseDamageTooltip;
     }
+    //TODO: it doesn't loose durability, for some reason
     @Override public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         player.playSound(SoundRegistry.BLITZ.get(), 1, 1);
@@ -36,8 +35,7 @@ public class ItemAnchor extends ItemModSword {
             bullet.setPos(player.getEyePosition().add(0, -.15, 0));
             bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 1.5F, .5F);
             world.addFreshEntity(bullet);
-        }
-        player.awardStat(Stats.ITEM_USED.get(this));
+        } player.awardStat(Stats.ITEM_USED.get(this));
         return InteractionResultHolder.consume(stack);
     }
     @OnlyIn(Dist.CLIENT)

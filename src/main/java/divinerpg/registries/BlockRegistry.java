@@ -156,7 +156,7 @@ public class BlockRegistry {
             realmiteBlock	= registerBlock("realmite_block",	() -> new BlockMod(COLOR_ORANGE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
             rawRupeeBlock	= registerBlock("raw_rupee_block",	() -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6)),
             rupeeBlock		= registerBlock("rupee_block",		() -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-            shadowBlock = registerBlockAndItem("shadow_block", () -> new BlockMod(COLOR_BLACK, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP), ShadowBlockItem::new),
+            shadowBlock = registerBlockAndItem("shadow_block", () -> new BlockMod(COLOR_BLACK, 5, 6, SoundType.NETHERITE_BLOCK, NoteBlockInstrument.HARP), ShadowBlockItem::new),
             bloodgemBlock	= registerBlock("bloodgem_block",	() -> new BlockMod(CRIMSON_STEM, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
             rawTorriditeBlock= registerBlock("raw_torridite_block",() -> new BlockMod(CRIMSON_NYLIUM, 5, 1200)),
             torriditeBlock  = registerFireResistantBlock("torridite_block",() -> new BlockMod(Properties.of().mapColor(CRIMSON_NYLIUM).strength(5F, 1200).requiresCorrectToolForDrops().sound(SoundType.METAL))),

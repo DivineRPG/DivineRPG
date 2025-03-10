@@ -16,13 +16,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class IcicleBow extends ItemBow {
-    int effectSeconds;
+    public final int effectSeconds;
     public IcicleBow() {
         super(new Properties(), 1456, 24000, 1, null, RarityList.ICICLE);
         effectSeconds = 4;
     }
-    @Override
-    public AbstractArrow customArrow(AbstractArrow arrow, ItemStack projectileStack, ItemStack weaponStack) {
+    @Override public AbstractArrow customArrow(AbstractArrow arrow, ItemStack projectileStack, ItemStack weaponStack) {
         switch(arrow) {
             case IcicleArrow h -> {
                 h.powerMultiplier = 1.2F;
@@ -38,7 +37,7 @@ public class IcicleBow extends ItemBow {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.slow(effectSeconds));
         super.appendHoverText(stack, context, tooltip, flagIn);
+        tooltip.add(LocalizeUtils.slow(effectSeconds));
     }
 }

@@ -1,7 +1,6 @@
 package divinerpg.client.renders.entity.projectile;
 
 import com.mojang.blaze3d.vertex.*;
-import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.items.ranged.ItemRangedWeapon;
 import net.minecraft.client.renderer.*;
@@ -34,7 +33,6 @@ public class RenderDivineProjectile<T extends Projectile> extends EntityRenderer
             matrix.pushPose();
             matrix.scale(.5F, .5F, .5F);
             matrix.mulPose(entityRenderDispatcher.cameraOrientation());
-            matrix.mulPose(Axis.YP.rotationDegrees(180));
             PoseStack.Pose matrixEntry = matrix.last();
             Matrix4f matrix4f = matrixEntry.pose();
             VertexConsumer vertexBuilder = buffer.getBuffer(renderType);

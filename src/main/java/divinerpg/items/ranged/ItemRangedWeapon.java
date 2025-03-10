@@ -17,6 +17,7 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
+import net.neoforged.api.distmarker.*;
 import net.neoforged.neoforge.common.CommonHooks;
 
 import javax.annotation.Nullable;
@@ -29,7 +30,7 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
 
     public final TagKey<Item> ammoType;
     public SoundEvent sound;
-    public float power = 3F;
+    public float power = 3;
     public int arcanaConsumedUse, cooldown;
     public final Supplier<EntityType<? extends Projectile>> projectileType;
     public Integer nameColor = null;
@@ -92,24 +93,20 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
         nameColor = c;
         return this;
     }
-    @Override
-    protected Projectile createProjectile(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo, boolean isCrit) {
+    @Override protected Projectile createProjectile(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo, boolean isCrit) {
         Projectile p = projectileType.get().create(level);
         if(p instanceof DivineThrownItem t) t.setItem(ammo);
         p.setOwner(shooter);
-        p.setPos(shooter.getEyePosition().add(0D, -0.147, 0D));
+        p.setPos(shooter.getEyePosition().add(0, -.147, 0));
         return p;
     }
-    public ItemStack getDefaultCreativeAmmo(@Nullable Player player, ItemStack projectileWeaponItem) {
-        return defaultItem.get();
-    }
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    @Override public ItemStack getDefaultCreativeAmmo(@Nullable Player player, ItemStack projectileWeaponItem) {return defaultItem.get();}
+    @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         ItemStack ammo = findAmmo(player);
         if(ammo != null && !ammo.isEmpty() && Arcana.getAmount(player) >= arcanaConsumedUse) {
             if(!level.isClientSide) {
-                shoot((ServerLevel) level, player, player.getUsedItemHand(), stack, List.of(ammo),  power, 1F, false, null);
+                shoot((ServerLevel) level, player, player.getUsedItemHand(), stack, List.of(ammo),  power, 1, false, null);
                 if(arcanaConsumedUse > 0) Arcana.modifyAmount(player, -arcanaConsumedUse);
             } ammo.consume(1, player);
             if(cooldown > 0) player.getCooldowns().addCooldown(this, cooldown);
@@ -133,30 +130,21 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
             } return CommonHooks.getProjectile(player, shootable, player.getAbilities().instabuild ? getDefaultCreativeAmmo(player, shootable) : ItemStack.EMPTY);
         }
     }
-    @Override
-    public Predicate<ItemStack> getAllSupportedProjectiles() {
-        return this::isOfTag;
-    }
-    private boolean isOfTag(ItemStack stack) {
-        return ammoType != null && stack.is(ammoType);
-    }
+    @Override public Predicate<ItemStack> getAllSupportedProjectiles() {return this::isOfTag;}
+    private boolean isOfTag(ItemStack stack) {return ammoType != null && stack.is(ammoType);}
     @Override public int getDefaultProjectileRange() {return 15;}
     @Override protected void shootProjectile(LivingEntity shooter, Projectile projectile, int i, float velocity, float inaccuracy, float angle, @Nullable LivingEntity livingEntity1) {
-        projectile.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot() + angle, 0.0F, velocity, inaccuracy);
+        projectile.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot() + angle, 0, velocity, inaccuracy);
     }
-    @Override
-    public Component getName(ItemStack pStack) {
-        return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
-    }
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        /*
-            if(bulletType.getBulletSpecial() == BulletType.BulletSpecial.RETURN) tooltip.add(LocalizeUtils.returnsToSender());
-         */
+    @OnlyIn(Dist.CLIENT)
+    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.addAll(tooltips);
-        super.appendHoverText(stack, context, tooltip, tooltipFlag);
         if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
         if(infinite) tooltip.add(LocalizeUtils.infiniteAmmo());
         else if(ammoType != null) tooltip.add(LocalizeUtils.ammo(ammoType));
+        super.appendHoverText(stack, context, tooltip, flagIn);
+    }
+    @Override public Component getName(ItemStack pStack) {
+        return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
     }
 }

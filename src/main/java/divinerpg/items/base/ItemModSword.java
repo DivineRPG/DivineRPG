@@ -3,8 +3,7 @@ package divinerpg.items.base;
 import divinerpg.attachments.Arcana;
 import divinerpg.enums.ToolStats;
 import divinerpg.registries.EnchantmentRegistry;
-import divinerpg.util.LocalizeUtils;
-import divinerpg.util.Utils;
+import divinerpg.util.*;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
@@ -56,19 +55,14 @@ public class ItemModSword extends SwordItem {
         } return super.use(level, player, hand);
     }
 
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return true;
-    }
-    @Override
-    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+    @Override public boolean isEnchantable(ItemStack stack) {return true;}
+    @Override public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
         return super.supportsEnchantment(stack, enchantment)
                 && !(stack.has(DataComponents.UNBREAKABLE) && (enchantment.is(Enchantments.MENDING) || enchantment.is(Enchantments.UNBREAKING)))
                 && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW && enchantment.is(EnchantmentRegistry.BRAIN_FREEZE))
                 && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && enchantment.is(Enchantments.FIRE_ASPECT));
     }
-    @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+    @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return !(stack.has(DataComponents.UNBREAKABLE) && (Utils.hasStoredEnchantment(Enchantments.MENDING, book) || Utils.hasStoredEnchantment(Enchantments.UNBREAKING, book)))
                 && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW && Utils.hasStoredEnchantment(EnchantmentRegistry.BRAIN_FREEZE, book))
                 && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && Utils.hasStoredEnchantment(Enchantments.FIRE_ASPECT, book));
