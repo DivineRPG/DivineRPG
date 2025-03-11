@@ -431,11 +431,11 @@ public class BlockRegistry {
             //Darkstone & Crying Obsidian variants
             darkstone = registerBlock("darkstone", () -> new BlockMod(TERRACOTTA_GREEN, 4)),
             bleedingObsidian = registerBlock("bleeding_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
-            broodingObsidian = registerBlock("brooding_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
             shiningObsidian = registerBlock("shining_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
             glitteringObsidian = registerBlock("glittering_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
             seepingObsidian = registerBlock("seeping_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
             vwoopingObsidian = registerBlock("vwooping_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
+            broodingObsidian = registerBlock("brooding_obsidian", () -> new BlockMod(COLOR_BLACK, 10)),
 
             //Bricks
             milkStoneBricks = registerBlock("milk_stone_bricks", () -> new BlockMod(WOOL, 2, 6, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),

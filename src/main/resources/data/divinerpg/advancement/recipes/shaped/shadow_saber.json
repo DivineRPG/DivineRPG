@@ -1,0 +1,34 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_arcanium": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:arcanium"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/shadow_saber"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_arcanium",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/shadow_saber"
+    ]
+  }
+}

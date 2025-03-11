@@ -1,12 +1,12 @@
 {
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "divinerpg:raw_wolpertinger_meat"
-  },
+  "type": "smelting",
+  "category": "food",
   "result": {
     "id": "divinerpg:wolpertinger_steak"
   },
-  "category": "food",
+  "ingredient": {
+    "item": "divinerpg:raw_wolpertinger_meat"
+  },
   "experience": 0.35,
   "cookingtime": 200
 }

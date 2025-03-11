@@ -1,12 +1,12 @@
 {
+  "type": "smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "pumpkin_pie"
+  },
   "result": {
     "id": "divinerpg:hot_pumpkin_pie"
   },
-  "ingredient": {
-    "item": "minecraft:pumpkin_pie"
-  },
-  "type": "minecraft:smelting",
-  "category": "food",
   "experience": 0.35,
   "cookingtime": 200
 }

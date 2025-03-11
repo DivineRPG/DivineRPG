@@ -34,42 +34,70 @@ public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredItem<Item>
         //Misc
-            cyclops_eye_shards = registerItem("cyclops_eye_shards"),
-            cyclops_eye = registerItem("cyclops_eye"),
-            crab_claw = registerItem("crab_claw"),
-            shark_fin = registerItem("shark_fin"),
-            whale_fin = registerItem("whale_fin"),
-            liopleurodon_teeth = registerItem("liopleurodon_teeth"),
-            liopleurodon_skull = registerItem("liopleurodon_skull"),
-            aquatic_pellets = registerItem("aquatic_pellets"),
-            pure_aquatic_pellets = registerItem("pure_aquatic_pellets"),
-            aquatic_ingot = registerItem("aquatic_ingot"),
-            kraken_scale = registerItem("kraken_scale"),
-            kraken_skin = registerItem("kraken_skin"),
-            aqua_ball = registerItem("aqua_ball"),
-            aquatic_blaze_rod = registerItem("aquatic_blaze_rod"),
+            //Fuels
+            anthracite = registerItem("anthracite"),
+            collector = registerItem("collector", ItemCollector::new),
+
+            //Raw
             raw_realmite = registerItem("raw_realmite"),
             raw_arlemite = registerItem("raw_arlemite"),
             raw_rupee = registerItem("raw_rupee"),
-            healing_stone = registerTool("healing_stone", ItemHealingStone::new),
+            raw_torridite = registerItem("raw_torridite"),
+            raw_oxdrite = registerItem("raw_oxdrite"),
+
+            //Powders
+            purple_blaze = registerItem("purple_blaze"),
+            fury_fire = registerItem("fury_fire"),
+            eden_sparkles = registerItem("eden_sparkles"),
+
+            //Dusts
+            arlemite_dust = registerItem("arlemite_dust"),
+            rupee_dust = registerItem("rupee_dust"),
+            shadow_dust = registerItem("shadow_dust", ItemShadowDust::new),
+            eden_dust = registerItem("eden_dust"),
+            wildwood_dust = registerItem("wildwood_dust"),
+            apalachia_dust = registerItem("apalachia_dust"),
+            skythern_dust = registerItem("skythern_dust"),
+            mortum_dust = registerItem("mortum_dust"),
+
+            //Fragments
+            collector_fragments = registerItem("collector_fragments"),
+            eden_fragments = registerItem("eden_fragments"),
+            wildwood_fragments = registerItem("wildwood_fragments"),
+            apalachia_fragments = registerItem("apalachia_fragments"),
+            skythern_fragments = registerItem("skythern_fragments"),
+            mortum_fragments = registerItem("mortum_fragments"),
+            rock_chunks = registerItemVethean("rock_chunks"),
+
+            //Nuggets
+            realmite_nugget = registerItem("realmite_nugget"),
+            arlemite_nugget = registerItem("arlemite_nugget"),
+            rupee_nugget = registerItem("rupee_nugget"),
+            torridite_nugget = registerItem("torridite_nugget"),
+            pieceOfRawArcanium = registerItem("piece_of_raw_arcanium"),
+
+            //Ingots
+            aquatic_pellets = registerItem("aquatic_pellets"),
+            pure_aquatic_pellets = registerItem("pure_aquatic_pellets"),
+            aquatic_ingot = registerItem("aquatic_ingot"),
+            realmite_ingot = registerItem("realmite_ingot"),
+            arlemite_ingot = registerItem("arlemite_ingot"),
+            rupee_ingot = registerItem("rupee_ingot"),
+            shadow_bar = registerItem("shadow_bar"),
+            torridite_ingot = registerItem("torridite_ingot"),
+            hellstone_ingot = registerItem("hellstone_ingot"),
+            oxdrite_ingot = registerItem("oxdrite_ingot"),
+
+            //Chunks
+            bedrock_chunk = registerItem("bedrock_chunk", () -> new ItemMod(new Properties().fireResistant())),
+            torridite_chunk = registerItem("torridite_chunk", ItemTorriditeChunk::new),
+
+            //Diamond Chunks
             red_diamond_chunk = registerItem("red_diamond_chunk"),
             yellow_diamond_chunk = registerItem("yellow_diamond_chunk"),
             green_diamond_chunk = registerItem("green_diamond_chunk"),
             blue_diamond_chunk = registerItem("blue_diamond_chunk"),
             gray_diamond_chunk = registerItem("gray_diamond_chunk"),
-            arlemite_dust = registerItem("arlemite_dust"),
-            rupee_dust = registerItem("rupee_dust"),
-            shadow_dust = registerItem("shadow_dust", ItemShadowDust::new),
-            realmite_nugget = registerItem("realmite_nugget"),
-            arlemite_nugget = registerItem("arlemite_nugget"),
-            rupee_nugget = registerItem("rupee_nugget"),
-            realmite_ingot = registerItem("realmite_ingot"),
-            arlemite_ingot = registerItem("arlemite_ingot"),
-            rupee_ingot = registerItem("rupee_ingot"),
-            shadow_bar = registerItem("shadow_bar"),
-            shadow_stone = registerItem("shadow_stone", () -> new ItemMod(new Properties().fireResistant())),
-            shadow_coins = registerItem("shadow_coins"),
-            bedrock_chunk = registerItem("bedrock_chunk", () -> new ItemMod(new Properties().fireResistant())),
 
             //Shards
             ice_shards = registerItem("ice_shards"),
@@ -81,120 +109,114 @@ public class ItemRegistry {
             divine_shards = registerItem("divine_shards"),
 
             //Stones
+            shadow_stone = registerItem("shadow_stone", () -> new ItemMod(new Properties().fireResistant())),
             ice_stone = registerItem("ice_stone", ItemIceStone::new),
             terran_stone = registerItem("terran_stone"),
             jungle_stone = registerItem("jungle_stone"),
             molten_stone = registerItem("molten_stone", () -> new ItemMod(new Properties().fireResistant())),
+            soulfire_stone = registerItem("soulfire_stone"),
             corrupted_stone = registerItem("corrupted_stone"),
             ender_stone = registerItem("ender_stone"),
             divine_stone = registerItem("divine_stone", ItemDivineStone::new),
 
-            //Nether
+            //Gems
             bloodgem = registerItem("bloodgem"),
-            raw_torridite = registerItem("raw_torridite"),
-            torridite_nugget = registerItem("torridite_nugget"),
-            torridite_ingot = registerItem("torridite_ingot"),
-            torridite_chunk = registerItem("torridite_chunk", ItemTorriditeChunk::new),
-            hellstone_ingot = registerItem("hellstone_ingot"),
-            purple_blaze = registerItem("purple_blaze"),
-            fury_fire = registerItem("fury_fire"),
-            soulfire_stone = registerItem("soulfire_stone"),
+            olivine = registerItem("olivine"),
+            arcanium = registerItem("arcanium"),
+            eden_gem = registerItem("eden_gem"),
+            wildwood_gem = registerItem("wildwood_gem"),
+            apalachia_gem = registerItem("apalachia_gem"),
+            skythern_gem = registerItem("skythern_gem"),
+            mortum_gem = registerItem("mortum_gem"),
 
-            //Iceika
+            //Twilight Chunks
+            eden_chunk = registerItem("eden_chunk"),
+            wildwood_chunk = registerItem("wildwood_chunk"),
+            apalachia_chunk = registerItem("apalachia_chunk"),
+            skythern_chunk = registerItem("skythern_chunk"),
+            mortum_chunk = registerItem("mortum_chunk"),
+
+            //Lumps
+            teaker_lump = registerItemVethean("teaker_lump"),
+            amthirmis_lump = registerItemVethean("amthirmis_lump"),
+            darven_lump = registerItemVethean("darven_lump"),
+            cermile_lump = registerItemVethean("cermile_lump"),
+            pardimal_lump = registerItemVethean("pardimal_lump"),
+            quadrotic_lump = registerItemVethean("quadrotic_lump"),
+            karos_lump = registerItemVethean("karos_lump"),
+            heliosis_lump = registerItemVethean("heliosis_lump"),
+            arksiane_lump = registerItemVethean("arksiane_lump"),
+
+            //Currency
+            shadow_coins = registerItem("shadow_coins"),
+            snowflake = registerItem("snowflake"),
+            dungeon_tokens = registerItem("dungeon_tokens"),
+            dirty_pearls = registerItemVethean("dirty_pearls"),
+            clean_pearls = registerItemVethean("clean_pearls"),
+            polished_pearls = registerItemVethean("polished_pearls"),
+            shiny_pearls = registerItemVethean("shiny_pearls"),
+
+            //Eyes
+            cyclops_eye_shards = registerItem("cyclops_eye_shards"),
+            cyclops_eye = registerItem("cyclops_eye"),
+            watching_eye = registerItem("watching_eye"),
+            legendary_ender_eye = registerItem("legendary_ender_eye"),
+
+            //Other Mobs Drop
+            crab_claw = registerItem("crab_claw"),
+            shark_fin = registerItem("shark_fin"),
+            whale_fin = registerItem("whale_fin"),
+            liopleurodon_teeth = registerItem("liopleurodon_teeth"),
+            liopleurodon_skull = registerItem("liopleurodon_skull"),
+            aqua_ball = registerItem("aqua_ball"),
+            aquatic_blaze_rod = registerItem("aquatic_blaze_rod"),
+            kraken_scale = registerItem("kraken_scale"),
+            kraken_skin = registerItem("kraken_skin"),
             seng_fur = registerItem("seng_fur"),
             sabear_fur = registerItem("sabear_fur"),
             sabear_tooth = registerItem("sabear_tooth"),
-            snowflake = registerItem("snowflake"),
-            anthracite = registerItem("anthracite"),
-            olivine = registerItem("olivine"),
-            raw_oxdrite = registerItem("raw_oxdrite"),
-            oxdrite_ingot = registerItem("oxdrite_ingot"),
+            acid = registerItemVethean("acid"),
 
-            //End
-            watching_eye = registerItem("watching_eye"),
-            legendary_ender_eye = registerItem("legendary_ender_eye"),
+            //Non-edible Crops
+            firestock = registerItem("firestock"),
+            marsine = registerItem("marsine"),
+            veilo = registerItem("veilo"),
+
+            //Souls
+            eden_soul = registerItem("eden_soul"),
+            wildwood_soul = registerItem("wildwood_soul"),
+            apalachia_soul = registerItem("apalachia_soul"),
+            skythern_soul = registerItem("skythern_soul"),
+            mortum_soul = registerItem("mortum_soul"),
+
+            //Hearts
+            eden_heart = registerItem("eden_heart", ItemEdenHeart::new),
+            wildwood_heart = registerItem("wildwood_heart", ItemWildwoodHeart::new),
+            apalachia_heart = registerItem("apalachia_heart", ItemApalachiaHeart::new),
+            skythern_heart = registerItem("skythern_heart", ItemSkythernHeart::new),
+            mortum_heart = registerItem("mortum_heart"),
+
+            base_spawn_crystal = registerItem("base_spawn_crystal"),
 
             //Smithing Templates
             bedrock_upgrade_template = registerItem("bedrock_upgrade_template", ItemSmithingTemplate::createBedrockUpgrade),
             aquatic_coating_template = registerItem("aquatic_coating_template", ItemSmithingTemplate::createAquaticCoating),
             color_template = registerItem("color_template", ItemSmithingTemplate::createColorTemplate),
 
-            //Some Extra Stuff
-            mysterious_clock = registerTool("mysterious_clock", () -> new ItemBossSpawner("item.overworld_only", Level.OVERWORLD, EntityRegistry.ANCIENT_ENTITY::get)),
-            call_of_the_watcher = registerTool("call_of_the_watcher", () -> new ItemBossSpawner("item.nether_only", Level.NETHER, EntityRegistry.THE_WATCHER::get)),
-            infernal_flame = registerTool("infernal_flame", () -> new ItemBossSpawner("item.nether_only", Level.NETHER, EntityRegistry.KING_OF_SCORCHERS::get)),
-            horde_horn = registerTool("horde_horn", ItemHordeHorn::new),
-            snow_globe = registerTool("snow_globe", ItemSnowGlobe::new),
-            frozen_clock = registerTool("frozen_clock", ItemFrozenClock::new),
-            heat_pack = registerTool("heat_pack", ItemHeatPack::new),
-            glacial_wall_totem = registerTool("glacial_wall_totem", () -> new ItemMod(new Properties().stacksTo(1))),
-            teleportation_crystal = registerTool("teleportation_crystal", ItemTeleportationCrystal::new),
-            teleportation_star = registerTool("teleportation_star", ItemTeleportationStar::new),
-
-            //Music Discs
-            md_red_stains = registerItem("md_red_stains_on_the_bluest_snow", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.MD_RED_STAINS_SONG.getKey()))),
-            md_destiny = registerItem("md_destiny", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.MD_DESTINY_SONG.getKey()))),
-
-            //Arcana
-            collector_fragments = registerItem("collector_fragments"),
-            collector = registerItem("collector", ItemCollector::new),
-            ancient_key = registerTool("ancient_key"),
-            degraded_key = registerTool("degraded_key"),
-            sludge_key = registerTool("sludge_key"),
-            soul_key = registerTool("soul_key"),
-            pieceOfRawArcanium = registerItem("piece_of_raw_arcanium"),
-            arcanium = registerItem("arcanium"),
-            wizards_book = registerTool("wizards_book", ItemWizardsBook::new),
-            dungeon_tokens = registerItem("dungeon_tokens"),
-            aquamarine = registerTool("aquamarine", ItemAquamarine::new),
-            firestock = registerItem("firestock"),
-            marsine = registerItem("marsine"),
-            veilo = registerItem("veilo"),
-            orb_of_light = registerTool("orb_of_light"),
-            weak_arcana_potion = registerTool("weak_arcana_potion", () -> new ItemArcanaPotion(FoodList.WEAK_ARCANA_POTION, 100)),
-            strong_arcana_potion = registerTool("strong_arcana_potion", () -> new ItemArcanaPotion(FoodList.STRONG_ARCANA_POTION, 200)),
-
-            //Twilight Dimensions
-            eden_dust = registerItem("eden_dust"),
-            eden_sparkles = registerItem("eden_sparkles"),
-            eden_soul = registerItem("eden_soul"),
-            eden_fragments = registerItem("eden_fragments"),
-            eden_gem = registerItem("eden_gem"),
-            eden_chunk = registerItem("eden_chunk"),
-            eden_heart = registerItem("eden_heart", ItemEdenHeart::new),
-            wildwood_dust = registerItem("wildwood_dust"),
-            wildwood_soul = registerItem("wildwood_soul"),
-            wildwood_fragments = registerItem("wildwood_fragments"),
-            wildwood_gem = registerItem("wildwood_gem"),
-            wildwood_chunk = registerItem("wildwood_chunk"),
-            wildwood_heart = registerItem("wildwood_heart", ItemWildwoodHeart::new),
-            apalachia_dust = registerItem("apalachia_dust"),
-            apalachia_soul = registerItem("apalachia_soul"),
-            apalachia_fragments = registerItem("apalachia_fragments"),
-            apalachia_gem = registerItem("apalachia_gem"),
-            apalachia_chunk = registerItem("apalachia_chunk"),
-            apalachia_heart = registerItem("apalachia_heart", ItemApalachiaHeart::new),
-            skythern_dust = registerItem("skythern_dust"),
-            skythern_soul = registerItem("skythern_soul"),
-            skythern_fragments = registerItem("skythern_fragments"),
-            skythern_gem = registerItem("skythern_gem"),
-            skythern_chunk = registerItem("skythern_chunk"),
-            skythern_heart = registerItem("skythern_heart", ItemSkythernHeart::new),
-            mortum_dust = registerItem("mortum_dust"),
-            mortum_soul = registerItem("mortum_soul"),
-            mortum_fragments = registerItem("mortum_fragments"),
-            mortum_gem = registerItem("mortum_gem"),
-            mortum_chunk = registerItem("mortum_chunk"),
-            mortum_heart = registerItem("mortum_heart"),
-
-            //Spawn Crystals
-            base_spawn_crystal = registerItem("base_spawn_crystal"),
-            vamacheron_crystal = registerTool("vamacheron_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.VAMACHERON::get)),
-            karot_crystal = registerTool("karot_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.KAROT::get)),
-            twilight_demon_crystal = registerTool("twilight_demon_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.TWILIGHT_DEMON::get)),
-            densos_crystal = registerTool("densos_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.DENSOS::get)),
-            reyvor_crystal = registerTool("reyvor_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.REYVOR::get)),
-            soul_fiend_crystal = registerTool("soul_fiend_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.SOUL_FIEND::get)),
+            //Infusion Templates
+            backsword_template = registerItemVethean("backsword_template"),
+            hammer_template = registerItemVethean("hammer_template"),
+            claw_template = registerItemVethean("claw_template"),
+            bow_template = registerItemVethean("bow_template"),
+            staff_template = registerItemVethean("staff_template"),
+            cannon_template = registerItemVethean("cannon_template"),
+            disk_template = registerItemVethean("disk_template"),
+            dissipator_template = registerItemVethean("dissipator_template"),
+            degraded_template = registerItemVethean("degraded_template"),
+            finished_template = registerItemVethean("finished_template"),
+            glistening_template = registerItemVethean("glistening_template"),
+            demonized_template = registerItemVethean("demonized_template"),
+            tormented_template = registerItemVethean("tormented_template"),
 
             //Food
             bacon = registerItem("bacon", () -> new ItemModFood(FoodList.BACON)),
@@ -255,40 +277,6 @@ public class ItemRegistry {
             purple_glowbone_seeds = registerItem("purple_glowbone_seeds", () -> new ItemNameBlockItem(BlockRegistry.purpleGlowbonePlant.get(), new Properties())),
             sky_plant_seeds = registerItem("sky_plant_seeds", () -> new ItemNameBlockItem(BlockRegistry.skyPlant.get(), new Properties())),
 
-            //Vethea
-            acid = registerItemVethean("acid"),
-            rock_chunks = registerItemVethean("rock_chunks"),
-            dirty_pearls = registerItemVethean("dirty_pearls"),
-            clean_pearls = registerItemVethean("clean_pearls"),
-            polished_pearls = registerItemVethean("polished_pearls"),
-            shiny_pearls = registerItemVethean("shiny_pearls"),
-            teaker_lump = registerItemVethean("teaker_lump"),
-            amthirmis_lump = registerItemVethean("amthirmis_lump"),
-            darven_lump = registerItemVethean("darven_lump"),
-            cermile_lump = registerItemVethean("cermile_lump"),
-            pardimal_lump = registerItemVethean("pardimal_lump"),
-            quadrotic_lump = registerItemVethean("quadrotic_lump"),
-            karos_lump = registerItemVethean("karos_lump"),
-            heliosis_lump = registerItemVethean("heliosis_lump"),
-            arksiane_lump = registerItemVethean("arksiane_lump"),
-            backsword_template = registerItemVethean("backsword_template"),
-            hammer_template = registerItemVethean("hammer_template"),
-            claw_template = registerItemVethean("claw_template"),
-            bow_template = registerItemVethean("bow_template"),
-            staff_template = registerItemVethean("staff_template"),
-            cannon_template = registerItemVethean("cannon_template"),
-            disk_template = registerItemVethean("disk_template"),
-            dissipator_template = registerItemVethean("dissipator_template"),
-            degraded_template = registerItemVethean("degraded_template"),
-            finished_template = registerItemVethean("finished_template"),
-            glistening_template = registerItemVethean("glistening_template"),
-            demonized_template = registerItemVethean("demonized_template"),
-            tormented_template = registerItemVethean("tormented_template"),
-            dream_flint = registerTool("dream_flint", ItemDreamFlint::new),
-            moon_clock = registerTool("moon_clock", () -> new ItemVethean(new Properties().stacksTo(1))),
-            miners_amulet = registerTool("miners_amulet", ItemMinersAmulet::new),
-            band_of_lheiva_hunting = registerTool("band_of_lheiva_hunting", () -> new ItemVethean(new Properties().stacksTo(1))),
-
             //Pets
             snapper_egg = registerItem("snapper_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SNAPPER.get())),
             ehu_egg = registerItem("ehu_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.EHU.get())),
@@ -302,8 +290,69 @@ public class ItemRegistry {
             paratiku_egg = registerItem("paratiku_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.PARATIKU.get())),
             seimer_egg = registerItem("seimer_spawn_egg", () -> new ItemPetSpawnEgg(EntityRegistry.SEIMER.get())),
 
-
     //Tools, Weapons & Armor
+            //Extra Arcana Tools
+            divine_accumulator = registerTool("divine_accumulator", ItemDivineAccumulator::new),
+            ender_scepter = registerTool("ender_scepter", ItemEnderScepter::new),
+            ghostbane = registerTool("ghostbane", ItemGhostbane::new),
+            staff_of_enrichment = registerTool("staff_of_enrichment", ItemStaffEnrichment::new),
+            arcanium_attractor = registerTool("arcanium_attractor", () -> new ItemRangedWeapon(EntityRegistry.ATTRACTOR_BEAM::value).withTooltip(LocalizeUtils.pull()).withSound(SoundRegistry.REFLECTOR.get()).arcanaUse(20).withPower(6)),
+            arcanium_reflector = registerTool("arcanium_reflector", () -> new ItemRangedWeapon(EntityRegistry.REFLECTOR_BEAM::value).withTooltip(LocalizeUtils.push()).withSound(SoundRegistry.REFLECTOR.get()).arcanaUse(20).withPower(6)),
+
+            //Buckets
+            aquamarine = registerTool("aquamarine", ItemAquamarine::new),
+            cauldron_fish_bucket = registerTool("cauldron_fish_bucket", () -> new MobBucketItem(EntityRegistry.CAULDRON_FISH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
+            gem_fin_bucket = registerTool("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
+            smoldering_tar_bucket = registerTool("smoldering_tar_bucket", () -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))),
+
+            //Igniters
+            snow_globe = registerTool("snow_globe", ItemSnowGlobe::new),
+            frozen_clock = registerTool("frozen_clock", ItemFrozenClock::new),
+
+            //Boss Summons
+            mysterious_clock = registerTool("mysterious_clock", () -> new ItemBossSpawner("item.overworld_only", Level.OVERWORLD, EntityRegistry.ANCIENT_ENTITY::get)),
+            call_of_the_watcher = registerTool("call_of_the_watcher", () -> new ItemBossSpawner("item.nether_only", Level.NETHER, EntityRegistry.THE_WATCHER::get)),
+            infernal_flame = registerTool("infernal_flame", () -> new ItemBossSpawner("item.nether_only", Level.NETHER, EntityRegistry.KING_OF_SCORCHERS::get)),
+            horde_horn = registerTool("horde_horn", ItemHordeHorn::new),
+            wizards_book = registerTool("wizards_book", ItemWizardsBook::new),
+            vamacheron_crystal = registerTool("vamacheron_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.VAMACHERON::get)),
+            karot_crystal = registerTool("karot_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.KAROT::get)),
+            twilight_demon_crystal = registerTool("twilight_demon_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.TWILIGHT_DEMON::get)),
+            densos_crystal = registerTool("densos_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.DENSOS::get)),
+            reyvor_crystal = registerTool("reyvor_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.REYVOR::get)),
+            soul_fiend_crystal = registerTool("soul_fiend_crystal", () -> new ItemBossSpawner("item.mortum_only", LevelRegistry.MORTUM, EntityRegistry.SOUL_FIEND::get)),
+            dream_flint = registerTool("dream_flint", ItemDreamFlint::new),
+            moon_clock = registerTool("moon_clock", () -> new ItemVethean(new Properties().stacksTo(1))),
+
+            //Extra
+            teleportation_crystal = registerTool("teleportation_crystal", ItemTeleportationCrystal::new),
+            teleportation_star = registerTool("teleportation_star", ItemTeleportationStar::new),
+            orb_of_light = registerTool("orb_of_light"),
+            weak_arcana_potion = registerTool("weak_arcana_potion", () -> new ItemArcanaPotion(FoodList.WEAK_ARCANA_POTION, 100)),
+            strong_arcana_potion = registerTool("strong_arcana_potion", () -> new ItemArcanaPotion(FoodList.STRONG_ARCANA_POTION, 200)),
+            heat_pack = registerTool("heat_pack", ItemHeatPack::new),
+            glacial_wall_totem = registerTool("glacial_wall_totem", () -> new ItemMod(new Properties().stacksTo(1))),
+            miners_amulet = registerTool("miners_amulet", ItemMinersAmulet::new),
+            band_of_lheiva_hunting = registerTool("band_of_lheiva_hunting", () -> new ItemVethean(new Properties().stacksTo(1))),
+
+            //Music Discs
+            md_red_stains = registerTool("md_red_stains_on_the_bluest_snow", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.MD_RED_STAINS_SONG.getKey()))),
+            md_destiny = registerTool("md_destiny", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.MD_DESTINY_SONG.getKey()))),
+
+            //Keys
+            ancient_key = registerTool("ancient_key"),
+            degraded_key = registerTool("degraded_key"),
+            sludge_key = registerTool("sludge_key"),
+            soul_key = registerTool("soul_key"),
+
+            //Armor Pouches
+            armor_pouch = registerTool("armor_pouch", () -> new ItemArmorPouch(16777215)),
+            red_armor_pouch = registerTool("red_armor_pouch", () -> new ItemArmorPouch(16733525)),
+            yellow_armor_pouch = registerTool("yellow_armor_pouch", () -> new ItemArmorPouch(16777045)),
+            green_armor_pouch = registerTool("green_armor_pouch", () -> new ItemArmorPouch(5635925)),
+            blue_armor_pouch = registerTool("blue_armor_pouch", () -> new ItemArmorPouch(5592575)),
+            gray_armor_pouch = registerTool("gray_armor_pouch", () -> new ItemArmorPouch(11184810)),
+
             //Swords
             cyclopsian_sword = registerTool("cyclopsian_sword", () -> new ItemModSword(ToolStats.CYCLOPSIAN_SWORD)),
             slime_sword = registerTool("slime_sword", () -> new ItemModSword(ToolStats.SLIME_SWORD)),
@@ -374,18 +423,47 @@ public class ItemRegistry {
             mortum_blade = registerTool("mortum_blade", () -> new ItemModSword(ToolStats.MORTUM_BLADE, RarityList.MORTUM)),
             halite_blade = registerTool("halite_blade", () -> new ItemModSword(ToolStats.HALITE_BLADE, RarityList.HALITE)),
 
+            //Vethean Swords
+            teaker_backsword = registerTool("teaker_backsword", () -> new ItemModSword(ToolStats.TEAKER_BACKSWORD)),
+            amthirmis_backsword = registerTool("amthirmis_backsword", () -> new ItemModSword(ToolStats.AMTHIRMIS_BACKSWORD)),
+            darven_backsword = registerTool("darven_backsword", () -> new ItemModSword(ToolStats.DARVEN_BACKSWORD)),
+            cermile_backsword = registerTool("cermile_backsword", () -> new ItemModSword(ToolStats.CERMILE_BACKSWORD)),
+            pardimal_backsword = registerTool("pardimal_backsword", () -> new ItemModSword(ToolStats.PARDIMAL_BACKSWORD)),
+            quadrotic_backsword = registerTool("quadrotic_backsword", () -> new ItemModSword(ToolStats.QUADROTIC_BACKSWORD)),
+            karos_backsword = registerTool("karos_backsword", () -> new ItemModSword(ToolStats.KAROS_BACKSWORD)),
+            heliosis_backsword = registerTool("heliosis_backsword", () -> new ItemModSword(ToolStats.HELIOSIS_BACKSWORD)),
+            arksiane_backsword = registerTool("arksiane_backsword", () -> new ItemModSword(ToolStats.ARKSIANE_BACKSWORD)),
+
+            //Hammers
+            teaker_hammer = registerTool("teaker_hammer", () -> new ItemModSword(ToolStats.TEAKER_HAMMER)),
+            amthirmis_hammer = registerTool("amthirmis_hammer", () -> new ItemModSword(ToolStats.AMTHIRMIS_HAMMER)),
+            darven_hammer = registerTool("darven_hammer", () -> new ItemModSword(ToolStats.DARVEN_HAMMER)),
+            cermile_hammer = registerTool("cermile_hammer", () -> new ItemModSword(ToolStats.CERMILE_HAMMER)),
+            pardimal_hammer = registerTool("pardimal_hammer", () -> new ItemModSword(ToolStats.PARDIMAL_HAMMER)),
+            quadrotic_hammer = registerTool("quadrotic_hammer", () -> new ItemModSword(ToolStats.QUADROTIC_HAMMER)),
+            karos_hammer = registerTool("karos_hammer", () -> new ItemModSword(ToolStats.KAROS_HAMMER)),
+            heliosis_hammer = registerTool("heliosis_hammer", () -> new ItemModSword(ToolStats.HELIOSIS_HAMMER)),
+            arksiane_hammer = registerTool("arksiane_hammer", () -> new ItemModSword(ToolStats.ARKSIANE_HAMMER)),
+            everlight = registerTool("everlight", () -> new ItemModSword(ToolStats.EVERLIGHT)),
+            karos_rockmaul = registerTool("karos_rockmaul", () -> new ItemModSword(ToolStats.KAROS_ROCKMAUL)),
+
+            //Claws
+            teaker_claw = registerTool("teaker_claw", () -> new ItemModSword(ToolStats.TEAKER_CLAW)),
+            amthirmis_claw = registerTool("amthirmis_claw", () -> new ItemModSword(ToolStats.AMTHIRMIS_CLAW)),
+            darven_claw = registerTool("darven_claw", () -> new ItemModSword(ToolStats.DARVEN_CLAW)),
+            cermile_claw = registerTool("cermile_claw", () -> new ItemModSword(ToolStats.CERMILE_CLAW)),
+            pardimal_claw = registerTool("pardimal_claw", () -> new ItemModSword(ToolStats.PARDIMAL_CLAW)),
+            quadrotic_claw = registerTool("quadrotic_claw", () -> new ItemModSword(ToolStats.QUADROTIC_CLAW)),
+            karos_claw = registerTool("karos_claw", () -> new ItemModSword(ToolStats.KAROS_CLAW)),
+            heliosis_claw = registerTool("heliosis_claw", () -> new ItemModSword(ToolStats.HELIOSIS_CLAW)),
+            arksiane_claw = registerTool("arksiane_claw", () -> new ItemModSword(ToolStats.ARKSIANE_CLAW)),
+            everbright = registerTool("everbright", () -> new ItemModSword(ToolStats.EVERBRIGHT)),
+
             //Healing
+            healing_stone = registerTool("healing_stone", ItemHealingStone::new),
             palavence = registerTool("palavence", () -> new ItemHealingSword(ToolStats.PALAVENCE, .5F)),
             massivence = registerTool("massivence", () -> new ItemHealingSword(ToolStats.MASSIVENCE, 1)),
             frossivence = registerTool("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1)),
-
-            //Arcana Misc.
-            divine_accumulator = registerTool("divine_accumulator", ItemDivineAccumulator::new),
-            ender_scepter = registerTool("ender_scepter", ItemEnderScepter::new),
-            ghostbane = registerTool("ghostbane", ItemGhostbane::new),
-            staff_of_enrichment = registerTool("staff_of_enrichment", ItemStaffEnrichment::new),
-            arcanium_attractor = registerTool("arcanium_attractor", () -> new ItemRangedWeapon(EntityRegistry.ATTRACTOR_BEAM::value).withTooltip(LocalizeUtils.pull()).withSound(SoundRegistry.REFLECTOR.get()).arcanaUse(20).withPower(6F)),
-            arcanium_reflector = registerTool("arcanium_reflector", () -> new ItemRangedWeapon(EntityRegistry.REFLECTOR_BEAM::value).withTooltip(LocalizeUtils.push()).withSound(SoundRegistry.REFLECTOR.get()).arcanaUse(20).withPower(6F)),
 
             //Shields
             realmite_shield = registerTool("realmite_shield", () -> new DivineShield(realmite_ingot.get(), 426, "realmite_shield")),
@@ -417,6 +495,13 @@ public class ItemRegistry {
             wildwood_arrow = registerTool("wildwood_arrow", WildwoodArrowItem::new),
             fury_arrow = registerTool("fury_arrow", FuryArrowItem::new),
 
+            //Vethean Arrows
+            teaker_arrow = registerTool("teaker_arrow", TeakerArrowItem::new),
+            darven_arrow = registerTool("darven_arrow", DarvenArrowItem::new),
+            pardimal_arrow = registerTool("pardimal_arrow", PardimalArrowItem::new),
+            karos_arrow = registerTool("karos_arrow", KarosArrowItem::new),
+            ever_arrow = registerTool("ever_arrow", EverArrowItem::new),
+
             //Bows
             hunter_bow = registerTool("hunter_bow", HunterBow::new),
             shadow_bow = registerTool("shadow_bow", ShadowBow::new),
@@ -432,6 +517,18 @@ public class ItemRegistry {
             mortum_bow = registerTool("mortum_bow", () -> new ItemBow(new Properties(), 1990, 72000, 1.7F, null, RarityList.MORTUM)),
             halite_bow = registerTool("halite_bow", () -> new ItemBow(new Properties(), 2114, 36000, 1.8F, null, RarityList.HALITE)),
             twilight_bow = registerTool("twilight_bow", () -> new ItemBow(new Properties(), 2376, 14400, 1.9F, null, RarityList.TWILIGHT)),
+
+            //Vethean Bows
+            teaker_bow = registerTool("teaker_bow", () -> new VetheanBow(new Properties(), 0, 72000, .9F, null, RarityList.TEAKER)),
+            amthirmis_bow = registerTool("amthirmis_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1, null, RarityList.AMTHIRMIS)),
+            darven_bow = registerTool("darven_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.1F, null, RarityList.DARVEN)),
+            cermile_bow = registerTool("cermile_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.2F, null, RarityList.CERMILE)),
+            pardimal_bow = registerTool("pardimal_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.3F, null, RarityList.PARDIMAL)),
+            quadrotic_bow = registerTool("quadrotic_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.4F, null, RarityList.QUADROTIC)),
+            karos_bow = registerTool("karos_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.5F, null, RarityList.KAROS)),
+            heliosis_bow = registerTool("heliosis_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.6F, null, RarityList.HELIOSIS)),
+            arksiane_bow = registerTool("arksiane_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.7F, null, RarityList.ARKSIANE)),
+            everfright = registerTool("everfright", () -> new VetheanBow(new Properties(), 0, 72000, 1.8F, null, RarityList.EVER)),
 
             //Anchors
             crab_anchor = registerTool("crab_anchor", () -> new ItemAnchor(ToolStats.CRAB_ANCHOR, EntityRegistry.CRAB_ANCHOR_SHOT::value, 3)),
@@ -457,19 +554,55 @@ public class ItemRegistry {
             mortum_slicer = registerTool("mortum_slicer", () -> new ItemThrowable(16).nameColor(RarityList.MORTUM)),
             halite_slicer = registerTool("halite_slicer", () -> new ItemThrowable(18).nameColor(RarityList.HALITE)),
 
-            //Extra
-            scythe = registerTool("scythe", ItemScythe::new),
-            cyclopsian_staff = registerTool("cyclopsian_staff", () -> new ItemRangedWeapon(EntityRegistry.EYE_SHARD::value, 126).withTooltip(LocalizeUtils.rangedDam(3)).withSound(SoundRegistry.STAFF.get())),
-            maelstrom = registerTool("maelstrom", () -> new ItemRangedWeapon(EntityRegistry.MAELSTROM_SHOT::value, 100).withTooltip(LocalizeUtils.magicDam(12)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
-            captains_sparkler = registerTool("captains_sparkler", () -> new ItemRangedWeapon(EntityRegistry.SPARKLER_SHOT::value, 1235).withTooltip(LocalizeUtils.arcanaDam(13)).withSound(SoundRegistry.SPARKLER.get()).withCooldown(15).arcanaUse(7)),
+            //Vethean Disks
+            teaker_disk = registerTool("teaker_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 4).withTooltip(LocalizeUtils.returnsToSender())),
+            amthirmis_disk = registerTool("amthirmis_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 6).withTooltip(LocalizeUtils.returnsToSender())),
+            darven_disk = registerTool("darven_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 9).withTooltip(LocalizeUtils.returnsToSender())),
+            cermile_disk = registerTool("cermile_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 13).withTooltip(LocalizeUtils.returnsToSender())),
+            pardimal_disk = registerTool("pardimal_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 16).withTooltip(LocalizeUtils.returnsToSender())),
+            quadrotic_disk = registerTool("quadrotic_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 20).withTooltip(LocalizeUtils.returnsToSender())),
+            karos_disk = registerTool("karos_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 22).withTooltip(LocalizeUtils.returnsToSender())),
+            heliosis_disk = registerTool("heliosis_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 29).withTooltip(LocalizeUtils.returnsToSender())),
+            arksiane_disk = registerTool("arksiane_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 37).withTooltip(LocalizeUtils.returnsToSender())),
+
+            //Vethean Dissipators
+            teaker_dissipator = registerTool("teaker_dissipator", () -> new ItemVetheanDissipator(4).withTooltip(LocalizeUtils.returnsToSender())),
+            amthirmis_dissipator = registerTool("amthirmis_dissipator", () -> new ItemVetheanDissipator(6).withTooltip(LocalizeUtils.returnsToSender())),
+            darven_dissipator = registerTool("darven_dissipator", () -> new ItemVetheanDissipator(9).withTooltip(LocalizeUtils.returnsToSender())),
+            cermile_dissipator = registerTool("cermile_dissipator", () -> new ItemVetheanDissipator(13).withTooltip(LocalizeUtils.returnsToSender())),
+            pardimal_dissipator = registerTool("pardimal_dissipator", () -> new ItemVetheanDissipator(16).withTooltip(LocalizeUtils.returnsToSender())),
+            quadrotic_dissipator = registerTool("quadrotic_dissipator", () -> new ItemVetheanDissipator(20).withTooltip(LocalizeUtils.returnsToSender())),
+            karos_dissipator = registerTool("karos_dissipator", () -> new ItemVetheanDissipator(22).withTooltip(LocalizeUtils.returnsToSender())),
+            heliosis_dissipator = registerTool("heliosis_dissipator", () -> new ItemVetheanDissipator(29).withTooltip(LocalizeUtils.returnsToSender())),
+            arksiane_dissipator = registerTool("arksiane_dissipator", () -> new ItemVetheanDissipator(37).withTooltip(LocalizeUtils.returnsToSender())),
+
+            //Explosive & Homing
             grenade = registerTool("grenade", () -> new ItemThrowable(EntityRegistry.GRENADE::value, 6F).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(20).withSound(SoundEvents.TRIDENT_THROW.value())),
             la_vekor = registerTool("la_vekor", () -> new ItemRangedWeapon(TagRegistry.GRENADES, ItemRegistry.grenade::toStack, EntityRegistry.GRENADE::value, 1225).withTooltip(LocalizeUtils.rangedDam(6)).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(10).withSound(SoundRegistry.LA_VEKOR.get()).arcanaUse(15)),
             firefly = registerTool("firefly", ItemFirefly::new),
             meriks_missile = registerTool("meriks_missile", ItemMeriksMissile::new),
+
+            //Magic & Staves
+            scythe = registerTool("scythe", ItemScythe::new),
+            cyclopsian_staff = registerTool("cyclopsian_staff", () -> new ItemRangedWeapon(EntityRegistry.EYE_SHARD::value, 126).withTooltip(LocalizeUtils.rangedDam(3)).withSound(SoundRegistry.STAFF.get())),
+            maelstrom = registerTool("maelstrom", () -> new ItemRangedWeapon(EntityRegistry.MAELSTROM_SHOT::value, 100).withTooltip(LocalizeUtils.magicDam(12)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
+            captains_sparkler = registerTool("captains_sparkler", () -> new ItemRangedWeapon(EntityRegistry.SPARKLER_SHOT::value, 1235).withTooltip(LocalizeUtils.arcanaDam(13)).withSound(SoundRegistry.SPARKLER.get()).withCooldown(15).arcanaUse(7)),
             generals_staff = registerTool("generals_staff", () -> new ItemRangedWeapon(EntityRegistry.GENERALS_SHOT::value, 1212).withTooltip(LocalizeUtils.arcanaDam(13)).withTooltip(LocalizeUtils.splitShots(5)).withSound(SoundRegistry.STARLIGHT.get()).withCooldown(50).arcanaUse(20)),
             starlight = registerTool("starlight", () -> new SkyDropStaff(EntityRegistry.STAR::value, 5, 13, 1, 10, 1010)),
             staff_of_starlight = registerTool("staff_of_starlight", () -> new SkyDropStaff(EntityRegistry.STAR::value, 25, 13, 8, 40, 1176)),
             meteor_mash = registerTool("meteor_mash", () -> new SkyDropStaff(EntityRegistry.METEOR::value, 35, 15, 1, 30, 1218)),
+
+            //Vethean Staves
+            teaker_staff = registerTool("teaker_staff", () -> new VetheanStaff(10, 3)),
+            amthirmis_staff = registerTool("amthirmis_staff", () -> new VetheanStaff( 10, 5)),
+            darven_staff = registerTool("darven_staff", () -> new VetheanStaff(10, 8)),
+            cermile_staff = registerTool("cermile_staff", () -> new VetheanStaff(10, 12)),
+            pardimal_staff = registerTool("pardimal_staff", () -> new VetheanStaff(10, 15)),
+            quadrotic_staff = registerTool("quadrotic_staff", () -> new VetheanStaff(10, 19)),
+            karos_staff = registerTool("karos_staff", () -> new VetheanStaff(10, 21)),
+            heliosis_staff = registerTool("heliosis_staff", () -> new VetheanStaff(10, 28)),
+            arksiane_staff = registerTool("arksiane_staff", () -> new VetheanStaff(10, 36)),
+            evernight = registerTool("evernight", Evernight::new),
 
             //Phasers
             eden_phaser = registerTool("eden_phaser", () -> new ItemRangedWeapon(EntityRegistry.EDEN_PHASER_SHOT::value, 1517).withTooltip(LocalizeUtils.magicDam(8)).withSound(SoundRegistry.PHASER.get()).withCooldown(50).nameColor(RarityList.EDEN)),
@@ -500,6 +633,18 @@ public class ItemRegistry {
             corrupted_bullet = registerTool("corrupted_bullet"),
             corrupted_cannon = registerTool("corrupted_cannon", () -> new Shotgun(TagRegistry.CORRUPTED_CANNON_AMMO, () -> new ItemStack(ItemRegistry.corrupted_bullet.get(), 4), EntityRegistry.CORRUPTED_BULLET::value, 1672, 15, 4).withTooltip(LocalizeUtils.rangedDam("4x10")).withSound(SoundRegistry.GHAST_CANNON.get())),
             arcanite_blaster = registerTool("arcanite_blaster", () -> new Shotgun(EntityRegistry.BLASTER_BULLET::value, 1127, 30, 30).withTooltip(LocalizeUtils.arcanaDam("30x13")).withSound(SoundRegistry.GHAST_CANNON.get()).arcanaUse(20)),
+
+            //Vethean Cannons
+            teaker_cannon = registerTool("teaker_cannon", () -> new VetheanCannon(3)),
+            amthirmis_cannon = registerTool("amthirmis_cannon", () -> new VetheanCannon(5)),
+            darven_cannon = registerTool("darven_cannon", () -> new VetheanCannon(8)),
+            cermile_cannon = registerTool("cermile_cannon", () -> new VetheanCannon(12)),
+            pardimal_cannon = registerTool("pardimal_cannon", () -> new VetheanCannon(15)),
+            quadrotic_cannon = registerTool("quadrotic_cannon", () -> new VetheanCannon(19)),
+            karos_cannon = registerTool("karos_cannon", () -> new VetheanCannon(21)),
+            heliosis_cannon = registerTool("heliosis_cannon", () -> new VetheanCannon(28)),
+            arksiane_cannon = registerTool("arksiane_cannon", () -> new VetheanCannon(36)),
+            eversight = registerTool("eversight", () -> new ItemRangedWeapon(TagRegistry.VETHEAN_CANNON_AMMO, ItemRegistry.acid::toStack, EntityRegistry.EVERSIGHT_SHOT::value).withTooltip(LocalizeUtils.rangedDam(42)).withSound(SoundRegistry.BLITZ.get()).arcanaUse(10)),
 
     //Tool Sets
     realmite_shovel = registerTool("realmite_shovel", () -> new ItemModShovel(ToolStats.REALMITE_SHOVEL)),
@@ -580,129 +725,14 @@ public class ItemRegistry {
             dream_pickaxe = registerTool("dream_pickaxe", () -> new ItemModPickaxe(ToolStats.DREAM_PICKAXE)),
             dream_axe = registerTool("dream_axe", () -> new ItemModAxe(ToolStats.DREAM_AXE, -3.1F)),
 
-            //Buckets
-            cauldron_fish_bucket = registerTool("cauldron_fish_bucket", () -> new MobBucketItem(EntityRegistry.CAULDRON_FISH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, new Properties().stacksTo(1))),
-            gem_fin_bucket = registerTool("gem_fin_bucket", () -> new MobBucketItem(EntityRegistry.GEM_FIN.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Properties()).stacksTo(1))),
-            smoldering_tar_bucket = registerTool("smoldering_tar_bucket", () -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))),
-
-    //Vethean Swords
-            teaker_backsword = registerTool("teaker_backsword", () -> new ItemModSword(ToolStats.TEAKER_BACKSWORD)),
-            amthirmis_backsword = registerTool("amthirmis_backsword", () -> new ItemModSword(ToolStats.AMTHIRMIS_BACKSWORD)),
-            darven_backsword = registerTool("darven_backsword", () -> new ItemModSword(ToolStats.DARVEN_BACKSWORD)),
-            cermile_backsword = registerTool("cermile_backsword", () -> new ItemModSword(ToolStats.CERMILE_BACKSWORD)),
-            pardimal_backsword = registerTool("pardimal_backsword", () -> new ItemModSword(ToolStats.PARDIMAL_BACKSWORD)),
-            quadrotic_backsword = registerTool("quadrotic_backsword", () -> new ItemModSword(ToolStats.QUADROTIC_BACKSWORD)),
-            karos_backsword = registerTool("karos_backsword", () -> new ItemModSword(ToolStats.KAROS_BACKSWORD)),
-            heliosis_backsword = registerTool("heliosis_backsword", () -> new ItemModSword(ToolStats.HELIOSIS_BACKSWORD)),
-            arksiane_backsword = registerTool("arksiane_backsword", () -> new ItemModSword(ToolStats.ARKSIANE_BACKSWORD)),
-
-            //Hammers
-            teaker_hammer = registerTool("teaker_hammer", () -> new ItemModSword(ToolStats.TEAKER_HAMMER)),
-            amthirmis_hammer = registerTool("amthirmis_hammer", () -> new ItemModSword(ToolStats.AMTHIRMIS_HAMMER)),
-            darven_hammer = registerTool("darven_hammer", () -> new ItemModSword(ToolStats.DARVEN_HAMMER)),
-            cermile_hammer = registerTool("cermile_hammer", () -> new ItemModSword(ToolStats.CERMILE_HAMMER)),
-            pardimal_hammer = registerTool("pardimal_hammer", () -> new ItemModSword(ToolStats.PARDIMAL_HAMMER)),
-            quadrotic_hammer = registerTool("quadrotic_hammer", () -> new ItemModSword(ToolStats.QUADROTIC_HAMMER)),
-            karos_hammer = registerTool("karos_hammer", () -> new ItemModSword(ToolStats.KAROS_HAMMER)),
-            heliosis_hammer = registerTool("heliosis_hammer", () -> new ItemModSword(ToolStats.HELIOSIS_HAMMER)),
-            arksiane_hammer = registerTool("arksiane_hammer", () -> new ItemModSword(ToolStats.ARKSIANE_HAMMER)),
-            everlight = registerTool("everlight", () -> new ItemModSword(ToolStats.EVERLIGHT)),
-            karos_rockmaul = registerTool("karos_rockmaul", () -> new ItemModSword(ToolStats.KAROS_ROCKMAUL)),
-
-            //Claws
-            teaker_claw = registerTool("teaker_claw", () -> new ItemModSword(ToolStats.TEAKER_CLAW)),
-            amthirmis_claw = registerTool("amthirmis_claw", () -> new ItemModSword(ToolStats.AMTHIRMIS_CLAW)),
-            darven_claw = registerTool("darven_claw", () -> new ItemModSword(ToolStats.DARVEN_CLAW)),
-            cermile_claw = registerTool("cermile_claw", () -> new ItemModSword(ToolStats.CERMILE_CLAW)),
-            pardimal_claw = registerTool("pardimal_claw", () -> new ItemModSword(ToolStats.PARDIMAL_CLAW)),
-            quadrotic_claw = registerTool("quadrotic_claw", () -> new ItemModSword(ToolStats.QUADROTIC_CLAW)),
-            karos_claw = registerTool("karos_claw", () -> new ItemModSword(ToolStats.KAROS_CLAW)),
-            heliosis_claw = registerTool("heliosis_claw", () -> new ItemModSword(ToolStats.HELIOSIS_CLAW)),
-            arksiane_claw = registerTool("arksiane_claw", () -> new ItemModSword(ToolStats.ARKSIANE_CLAW)),
-            everbright = registerTool("everbright", () -> new ItemModSword(ToolStats.EVERBRIGHT)),
-
-            //Vethean Arrows
-            teaker_arrow = registerTool("teaker_arrow", TeakerArrowItem::new),
-            darven_arrow = registerTool("darven_arrow", DarvenArrowItem::new),
-            pardimal_arrow = registerTool("pardimal_arrow", PardimalArrowItem::new),
-            karos_arrow = registerTool("karos_arrow", KarosArrowItem::new),
-            ever_arrow = registerTool("ever_arrow", EverArrowItem::new),
-
-            //Vethean Bows
-            teaker_bow = registerTool("teaker_bow", () -> new VetheanBow(new Properties(), 0, 72000, .9F, null, RarityList.TEAKER)),
-            amthirmis_bow = registerTool("amthirmis_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1, null, RarityList.AMTHIRMIS)),
-            darven_bow = registerTool("darven_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.1F, null, RarityList.DARVEN)),
-            cermile_bow = registerTool("cermile_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.2F, null, RarityList.CERMILE)),
-            pardimal_bow = registerTool("pardimal_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.3F, null, RarityList.PARDIMAL)),
-            quadrotic_bow = registerTool("quadrotic_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.4F, null, RarityList.QUADROTIC)),
-            karos_bow = registerTool("karos_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.5F, null, RarityList.KAROS)),
-            heliosis_bow = registerTool("heliosis_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.6F, null, RarityList.HELIOSIS)),
-            arksiane_bow = registerTool("arksiane_bow", () -> new VetheanBow(new Properties(), 0, 72000, 1.7F, null, RarityList.ARKSIANE)),
-            everfright = registerTool("everfright", () -> new VetheanBow(new Properties(), 0, 72000, 1.8F, null, RarityList.EVER)),
-
-            //Vethean Staffs
-            teaker_staff = registerTool("teaker_staff", () -> new VetheanStaff(10, 3)),
-            amthirmis_staff = registerTool("amthirmis_staff", () -> new VetheanStaff( 10, 5)),
-            darven_staff = registerTool("darven_staff", () -> new VetheanStaff(10, 8)),
-            cermile_staff = registerTool("cermile_staff", () -> new VetheanStaff(10, 12)),
-            pardimal_staff = registerTool("pardimal_staff", () -> new VetheanStaff(10, 15)),
-            quadrotic_staff = registerTool("quadrotic_staff", () -> new VetheanStaff(10, 19)),
-            karos_staff = registerTool("karos_staff", () -> new VetheanStaff(10, 21)),
-            heliosis_staff = registerTool("heliosis_staff", () -> new VetheanStaff(10, 28)),
-            arksiane_staff = registerTool("arksiane_staff", () -> new VetheanStaff(10, 36)),
-            evernight = registerTool("evernight", Evernight::new),
-
-            //Vethean Cannons
-            teaker_cannon = registerTool("teaker_cannon", () -> new VetheanCannon(3)),
-            amthirmis_cannon = registerTool("amthirmis_cannon", () -> new VetheanCannon(5)),
-            darven_cannon = registerTool("darven_cannon", () -> new VetheanCannon(8)),
-            cermile_cannon = registerTool("cermile_cannon", () -> new VetheanCannon(12)),
-            pardimal_cannon = registerTool("pardimal_cannon", () -> new VetheanCannon(15)),
-            quadrotic_cannon = registerTool("quadrotic_cannon", () -> new VetheanCannon(19)),
-            karos_cannon = registerTool("karos_cannon", () -> new VetheanCannon(21)),
-            heliosis_cannon = registerTool("heliosis_cannon", () -> new VetheanCannon(28)),
-            arksiane_cannon = registerTool("arksiane_cannon", () -> new VetheanCannon(36)),
-            eversight = registerTool("eversight", () -> new ItemRangedWeapon(TagRegistry.VETHEAN_CANNON_AMMO, ItemRegistry.acid::toStack, EntityRegistry.EVERSIGHT_SHOT::value).withTooltip(LocalizeUtils.rangedDam(42)).withSound(SoundRegistry.BLITZ.get()).arcanaUse(10)),
-
-            //Vethean Disks
-            teaker_disk = registerTool("teaker_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 4).withTooltip(LocalizeUtils.returnsToSender())),
-            amthirmis_disk = registerTool("amthirmis_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 6).withTooltip(LocalizeUtils.returnsToSender())),
-            darven_disk = registerTool("darven_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 9).withTooltip(LocalizeUtils.returnsToSender())),
-            cermile_disk = registerTool("cermile_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 13).withTooltip(LocalizeUtils.returnsToSender())),
-            pardimal_disk = registerTool("pardimal_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 16).withTooltip(LocalizeUtils.returnsToSender())),
-            quadrotic_disk = registerTool("quadrotic_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 20).withTooltip(LocalizeUtils.returnsToSender())),
-            karos_disk = registerTool("karos_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 22).withTooltip(LocalizeUtils.returnsToSender())),
-            heliosis_disk = registerTool("heliosis_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 29).withTooltip(LocalizeUtils.returnsToSender())),
-            arksiane_disk = registerTool("arksiane_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 37).withTooltip(LocalizeUtils.returnsToSender())),
-
-            //Vethean Dissipators
-            teaker_dissipator = registerTool("teaker_dissipator", () -> new ItemVetheanDissipator(4).withTooltip(LocalizeUtils.returnsToSender())),
-            amthirmis_dissipator = registerTool("amthirmis_dissipator", () -> new ItemVetheanDissipator(6).withTooltip(LocalizeUtils.returnsToSender())),
-            darven_dissipator = registerTool("darven_dissipator", () -> new ItemVetheanDissipator(9).withTooltip(LocalizeUtils.returnsToSender())),
-            cermile_dissipator = registerTool("cermile_dissipator", () -> new ItemVetheanDissipator(13).withTooltip(LocalizeUtils.returnsToSender())),
-            pardimal_dissipator = registerTool("pardimal_dissipator", () -> new ItemVetheanDissipator(16).withTooltip(LocalizeUtils.returnsToSender())),
-            quadrotic_dissipator = registerTool("quadrotic_dissipator", () -> new ItemVetheanDissipator(20).withTooltip(LocalizeUtils.returnsToSender())),
-            karos_dissipator = registerTool("karos_dissipator", () -> new ItemVetheanDissipator(22).withTooltip(LocalizeUtils.returnsToSender())),
-            heliosis_dissipator = registerTool("heliosis_dissipator", () -> new ItemVetheanDissipator(29).withTooltip(LocalizeUtils.returnsToSender())),
-            arksiane_dissipator = registerTool("arksiane_dissipator", () -> new ItemVetheanDissipator(37).withTooltip(LocalizeUtils.returnsToSender())),
-
-            //Armor Pouches
-            armor_pouch = registerTool("armor_pouch", () -> new ItemArmorPouch(16777215)),
-            red_armor_pouch = registerTool("red_armor_pouch", () -> new ItemArmorPouch(16733525)),
-            yellow_armor_pouch = registerTool("yellow_armor_pouch", () -> new ItemArmorPouch(16777045)),
-            green_armor_pouch = registerTool("green_armor_pouch", () -> new ItemArmorPouch(5635925)),
-            blue_armor_pouch = registerTool("blue_armor_pouch", () -> new ItemArmorPouch(5592575)),
-            gray_armor_pouch = registerTool("gray_armor_pouch", () -> new ItemArmorPouch(11184810)),
-
             //Blocks
             nightmare_bed = registerBlockItem("nightmare_bed", ItemNightmareBed::new),
             aqua_torch = registerBlockItem("aqua_torch", () -> new StandingAndWallBlockItem(BlockRegistry.aquaTorch.get(), BlockRegistry.aquaWallTorch.get(), new Properties(), Direction.DOWN)),
             skeleton_torch = registerBlockItem("skeleton_torch", () -> new StandingAndWallBlockItem(BlockRegistry.skeletonTorch.get(), BlockRegistry.skeletonWallTorch.get(), new Properties(), Direction.DOWN)),
             arcanium_torch = registerBlockItem("arcanium_torch", () -> new StandingAndWallBlockItem(BlockRegistry.arcaniumTorch.get(), BlockRegistry.arcaniumWallTorch.get(), new Properties(), Direction.DOWN)),
-            eden_torch = registerBlockItem("eden_torch", () -> new StandingAndWallBlockItem(BlockRegistry.edenTorch.get(), BlockRegistry.edenWallTorch.get(), new Properties(), Direction.DOWN));
+            eden_torch = registerBlockItem("eden_torch", () -> new StandingAndWallBlockItem(BlockRegistry.edenTorch.get(), BlockRegistry.edenWallTorch.get(), new Properties(), Direction.DOWN)),
 
-    //Armour
-    public static final DeferredItem<Item>
+    //Armor
     realmite_helmet = registerTool("realmite_helmet", () -> new ItemDivineArmor(REALMITE, HELMET, 16)),
             realmite_chestplate = registerTool("realmite_chestplate", () -> new ItemDivineArmor(REALMITE, CHESTPLATE, 16)),
             realmite_leggings = registerTool("realmite_leggings", () -> new ItemDivineArmor(REALMITE, LEGGINGS, 16)),
@@ -717,7 +747,7 @@ public class ItemRegistry {
 		    santa_chestplate = registerTool("santa_chestplate", () -> new ItemDivineArmor(SANTA, CHESTPLATE, 17, sengFurInfo)),
 		    santa_leggings = registerTool("santa_leggings", () -> new ItemDivineArmor(SANTA, LEGGINGS, 17, sengFurInfo)),
 		    santa_boots = registerTool("santa_boots", () -> new ItemDivineArmor(SANTA, BOOTS, 17, sengFurInfo)),
-            
+
     aquastrive_helmet = registerTool("aquastrive_helmet", () -> new ItemDivineArmor(AQUASTRIVE, HELMET, 18, aquastriveInfo, WATER_BREATHING)),
             aquastrive_chestplate = registerTool("aquastrive_chestplate", () -> new ItemDivineArmor(AQUASTRIVE, CHESTPLATE, 18, aquastriveInfo)),
             aquastrive_leggings = registerTool("aquastrive_leggings", () -> new ItemDivineArmor(AQUASTRIVE, LEGGINGS, 18, aquastriveInfo)),

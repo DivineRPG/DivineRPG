@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dusk_flower": {
+    "has_ice_shards": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:dusk_flower"
+              "divinerpg:ice_shards"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/apalachia_dust_from_dusk_flower"
+        "recipe": "divinerpg:shaped/icicle_arrow"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_dusk_flower",
+      "has_ice_shards",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/apalachia_dust_from_dusk_flower"
+      "divinerpg:shaped/icicle_arrow"
     ]
   }
 }

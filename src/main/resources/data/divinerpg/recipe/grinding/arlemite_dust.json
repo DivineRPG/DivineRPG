@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "arlemite_ingot",
+  "type": "crafting_shapeless",
+  "group": "arlemite_dust",
   "ingredients": [
     {
       "tag": "divinerpg:tools/maul"

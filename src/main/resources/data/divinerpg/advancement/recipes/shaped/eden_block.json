@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_heart": {
+    "has_chunk": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:eden_heart"
+              "divinerpg:eden_chunk"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_heart",
+      "has_chunk",
       "has_the_recipe"
     ]
   ],

@@ -10,8 +10,9 @@
       "item": "minecraft:snowball"
     },
     {
-      "item": "divinerpg:ice_stone"
+      "item": "divinerpg:ice_shards"
     }
   ],
+  "category": "equipment",
   "type": "minecraft:crafting_shapeless"
 }

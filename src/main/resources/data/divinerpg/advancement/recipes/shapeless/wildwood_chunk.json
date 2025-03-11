@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sun_blossom": {
+    "has_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:sun_blossom"
+              "divinerpg:wildwood_block"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/eden_dust_from_sun_blossom"
+        "recipe": "divinerpg:shapeless/wildwood_chunk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_sun_blossom",
+      "has_block",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/eden_dust_from_sun_blossom"
+      "divinerpg:shapeless/wildwood_chunk"
     ]
   }
 }

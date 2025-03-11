@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_tallgrass": {
+    "has_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:apalachia_tallgrass"
+              "divinerpg:mortum_block"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/apalachia_dust_from_tallgrass"
+        "recipe": "divinerpg:shapeless/mortum_chunk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_tallgrass",
+      "has_block",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/apalachia_dust_from_tallgrass"
+      "divinerpg:shapeless/mortum_chunk"
     ]
   }
 }

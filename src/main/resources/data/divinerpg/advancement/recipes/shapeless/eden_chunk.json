@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skythern_brush": {
+    "has_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:skythern_brush"
+              "divinerpg:eden_block"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/skythern_dust_from_brush"
+        "recipe": "divinerpg:shapeless/eden_chunk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skythern_brush",
+      "has_block",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/skythern_dust_from_brush"
+      "divinerpg:shapeless/eden_chunk"
     ]
   }
 }

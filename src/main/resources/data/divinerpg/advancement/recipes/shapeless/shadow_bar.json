@@ -1,24 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_arlemite": {
+    "has_block": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:arlemite_ingot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_rupee": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "divinerpg:rupee_ingot"
+              "divinerpg:shadow_block"
             ]
           }
         ]
@@ -34,8 +22,7 @@
   },
   "requirements": [
     [
-      "has_arlemite",
-      "has_rupee",
+      "has_block",
       "has_the_recipe"
     ]
   ],

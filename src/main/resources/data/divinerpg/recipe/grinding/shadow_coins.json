@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "shadow_bar",
+  "type": "crafting_shapeless",
+  "group": "shadow_coins",
   "ingredients": [
     {
       "tag": "divinerpg:tools/maul"

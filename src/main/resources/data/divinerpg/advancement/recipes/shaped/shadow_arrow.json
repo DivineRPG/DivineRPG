@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_moonlight_fern": {
+    "has_shadow_bar": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:moonlight_fern"
+              "divinerpg:shadow_bar"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/wildwood_dust_from_moonlight_fern"
+        "recipe": "divinerpg:shaped/shadow_arrow"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_moonlight_fern",
+      "has_shadow_bar",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/wildwood_dust_from_moonlight_fern"
+      "divinerpg:shaped/shadow_arrow"
     ]
   }
 }

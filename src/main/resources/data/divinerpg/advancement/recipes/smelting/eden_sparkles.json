@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fragments": {
+    "has_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:eden_fragments"
+              "divinerpg:eden_dust"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_fragments",
+      "has_dust",
       "has_the_recipe"
     ]
   ],

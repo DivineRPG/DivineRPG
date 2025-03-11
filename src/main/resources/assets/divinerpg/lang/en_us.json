@@ -123,11 +123,11 @@
   "block.divinerpg.asphalt_slab": "Asphalt Slab",
 
   "block.divinerpg.bleeding_obsidian": "Bleeding Obsidian",
-  "block.divinerpg.brooding_obsidian": "Brooding Obsidian",
   "block.divinerpg.shining_obsidian": "Shining Obsidian",
   "block.divinerpg.glittering_obsidian": "Glittering Obsidian",
   "block.divinerpg.seeping_obsidian": "Seeping Obsidian",
   "block.divinerpg.vwooping_obsidian": "Vwooping Obsidian",
+  "block.divinerpg.brooding_obsidian": "Brooding Obsidian",
 
   "block.divinerpg.blaze_pumpkin": "Blaze Pumpkin",
   "block.divinerpg.creeper_pumpkin": "Creeper Pumpkin",
@@ -229,7 +229,6 @@
   "block.divinerpg.glaciline": "Glaciline",
   "block.divinerpg.gelidite": "Gelidite",
   "block.divinerpg.thermal_vent": "Thermal Vent",
-  "block.divinerpg.icy_fire": "Icy Fire",
   "block.divinerpg.iceika_portal": "Iceika Portal",
   "block.divinerpg.robbin_nest": "Robbin Nest",
   "block.divinerpg.robbin_hut": "Robbin Hut",
@@ -507,7 +506,9 @@
   "block.divinerpg.star_bridge": "Star Bridge",
   "block.divinerpg.acceleron": "Acceleron",
   "block.divinerpg.elevantium": "Elevantium",
+
   "block.divinerpg.hellfire": "Hellfire",
+  "block.divinerpg.icy_fire": "Icy Fire",
   "block.divinerpg.divine_flame": "Divine Flame",
   "block.divinerpg.wild_flame": "Wild Flame",
   "block.divinerpg.enchanted_flame": "Enchanted Flame",
@@ -1150,6 +1151,7 @@
 
   "item.divinerpg.ice_shards": "Ice Shards",
   "item.divinerpg.ice_stone": "Ice Stone",
+  "item.divinerpg.frozen_clock":  "Frozen Clock",
   "item.divinerpg.frozen_helmet": "Frozen Helmet",
   "item.divinerpg.frozen_chestplate": "Frozen Chestplate",
   "item.divinerpg.frozen_leggings": "Frozen Leggings",
@@ -1538,7 +1540,6 @@
   "entity.divinerpg.halite_blitz_shot": "Halite Blitz Shot",
   "item.divinerpg.halite_shickaxe": "Halite Terraformer",
 
-  "item.divinerpg.frozen_clock":  "Frozen Clock",
   "item.divinerpg.twilight_bow": "Twilight Bow",
 
   "item.divinerpg.honeysuckle": "Honeysuckle",
@@ -2410,8 +2411,8 @@
   "tooltip.divinerpg.ranged.power": " %sx Shooting Power",
   "tooltip.divinerpg.return": "Returns to the user",
   "tooltip.divinerpg.shadow_saber": "Speeds up the user on each attack",
-  "tooltip.divinerpg.shots.bounce": "Bouncing projectiles",
   "tooltip.divinerpg.shots.blind": "Blinds mobs for %s seconds",
+  "tooltip.divinerpg.shots.bounce": "Bouncing projectiles",
   "tooltip.divinerpg.shots.burn": "Shoots flaming arrows",
   "tooltip.divinerpg.shots.explosive": "Explosive projectiles",
   "tooltip.divinerpg.shots.homing": "Homing projectiles",

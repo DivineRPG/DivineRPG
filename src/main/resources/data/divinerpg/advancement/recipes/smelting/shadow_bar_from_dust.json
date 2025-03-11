@@ -1,0 +1,34 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_shadow_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:shadow_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/shadow_bar_from_dust"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_shadow_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/shadow_bar_from_dust"
+    ]
+  }
+}

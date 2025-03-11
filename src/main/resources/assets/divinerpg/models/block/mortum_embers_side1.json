@@ -2,6 +2,6 @@
   "parent": "block/template_fire_side",
   "render_type": "cutout",
   "textures": {
-    "fire": "divinerpg:block/mortum_flame_1"
+    "fire": "divinerpg:block/mortum_embers_1"
   }
 }

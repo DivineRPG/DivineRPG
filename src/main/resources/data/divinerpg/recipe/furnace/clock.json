@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "minecraft:clock"
-  },
+  "type": "smelting",
   "ingredient": {
     "item": "divinerpg:frozen_clock"
   },
-  "type": "minecraft:smelting",
-  "category": "misc",
-  "experience": 0.0,
+  "result": {
+    "id": "clock"
+  },
+  "experience": 0,
   "cookingtime": 100
 }

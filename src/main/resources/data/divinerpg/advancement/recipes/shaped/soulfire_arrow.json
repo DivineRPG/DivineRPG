@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_mortum_brush": {
+    "has_soulfire_stone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:mortum_brush"
+              "divinerpg:soulfire_stone"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/mortum_dust_from_brush"
+        "recipe": "divinerpg:shaped/soulfire_arrow"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_mortum_brush",
+      "has_soulfire_stone",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/mortum_dust_from_brush"
+      "divinerpg:shaped/soulfire_arrow"
     ]
   }
 }

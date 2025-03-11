@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "group": "apalachia_fragments",
+  "type": "crafting_shapeless",
+  "group": "twilight_dust",
   "ingredients": [
     {
       "tag": "divinerpg:tools/maul"

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_demon_brambles": {
+    "has_jungle_shards": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:demon_brambles"
+              "divinerpg:jungle_shards"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/mortum_dust_from_demon_brambles"
+        "recipe": "divinerpg:shaped/hunter_arrow"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_demon_brambles",
+      "has_jungle_shards",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/mortum_dust_from_demon_brambles"
+      "divinerpg:shaped/hunter_arrow"
     ]
   }
 }

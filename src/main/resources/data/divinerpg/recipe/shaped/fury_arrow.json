@@ -4,9 +4,9 @@
     "count": 4
   },
   "pattern": [
-    " I ",
-    " S ",
-    " Z "
+    "I",
+    "S",
+    "Z"
   ],
   "type": "minecraft:crafting_shaped",
   "category": "equipment",

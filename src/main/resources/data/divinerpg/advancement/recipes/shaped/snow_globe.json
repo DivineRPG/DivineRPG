@@ -1,24 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_diamond": {
+    "has_shadow_stone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:diamond"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_shadow_bar": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "divinerpg:shadow_bar"
+              "divinerpg:shadow_stone"
             ]
           }
         ]
@@ -46,8 +34,7 @@
   },
   "requirements": [
     [
-      "has_diamond",
-      "has_shadow_bar",
+      "has_shadow_stone",
       "has_snow_block",
       "has_the_recipe"
     ]

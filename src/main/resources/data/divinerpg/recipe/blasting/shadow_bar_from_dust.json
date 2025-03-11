@@ -7,6 +7,6 @@
   },
   "type": "minecraft:blasting",
   "group": "shadow_bar",
-  "experience": 0.0,
+  "experience": 1,
   "cookingtime": 100
 }

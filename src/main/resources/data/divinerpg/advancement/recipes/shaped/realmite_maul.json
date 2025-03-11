@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_eden_brush": {
+    "has_realmite_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:eden_brush"
+              "divinerpg:realmite_ingot"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/eden_dust_from_brush"
+        "recipe": "divinerpg:shaped/realmite_maul"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_eden_brush",
+      "has_realmite_ingot",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/eden_dust_from_brush"
+      "divinerpg:shaped/realmite_maul"
     ]
   }
 }

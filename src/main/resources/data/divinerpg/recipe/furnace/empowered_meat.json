@@ -1,12 +1,12 @@
 {
-  "result": {
-    "id": "divinerpg:empowered_meat"
-  },
+  "type": "smelting",
+  "category": "food",
   "ingredient": {
     "item": "divinerpg:raw_empowered_meat"
   },
-  "type": "minecraft:smelting",
-  "category": "food",
+  "result": {
+    "id": "divinerpg:empowered_meat"
+  },
   "experience": 0.35,
   "cookingtime": 200
 }
