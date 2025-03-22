@@ -36,7 +36,7 @@ public class FoodList {
         PINFLY = (new FoodProperties.Builder()).nutrition(4).saturationModifier(.3F)
                 .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 30, 2), 1).build(),
         VEILO = (new FoodProperties.Builder()).nutrition(4).saturationModifier(.3F)
-                .effect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 30, 1), 1).build(),
+                .effect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 30, 0), 1).build(),
         WEAK_ARCANA_POTION = (new FoodProperties.Builder()).alwaysEdible().build(),
         STRONG_ARCANA_POTION = (new FoodProperties.Builder()).alwaysEdible().build(),
 
