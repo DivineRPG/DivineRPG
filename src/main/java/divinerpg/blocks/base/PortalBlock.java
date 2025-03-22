@@ -5,8 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import divinerpg.DivineRPG;
 import divinerpg.block_entities.block.PortalBlockEntity;
-import divinerpg.registries.BlockEntityRegistry;
-import divinerpg.registries.TagRegistry;
+import divinerpg.registries.*;
 import divinerpg.util.UniversalPosition;
 import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.*;
@@ -166,7 +165,6 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return new BlockPos((int) (pos.getX() * scale), pos.getZ(), (int) (pos.getZ() * scale));
 	}
 	public static DimensionTransition transitionTo(MinecraftServer server, Entity entity, UniversalPosition pos) {
-		DivineRPG.LOGGER.info("Dimension transition to: " + pos.pos().add(.5, 0, .5));
 		return new DimensionTransition(pos.level(server), pos.pos().add(.5, 0, .5), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET));
 	}
 	public void linkPortals(MinecraftServer server, UniversalPosition origin, UniversalPosition target) {
