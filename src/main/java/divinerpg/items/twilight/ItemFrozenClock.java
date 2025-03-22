@@ -36,34 +36,33 @@ public class ItemFrozenClock extends ItemMod {
             } return InteractionResult.SUCCESS;
         } return InteractionResult.FAIL;
     }
-    public static InteractionResult useOnFire(Level level, Player player, BlockPos pos, BlockState state, byte timeOfDay) {
+    public static void useOnFire(Level level, Player player, BlockPos pos, BlockState state, byte timeOfDay) {
         switch(timeOfDay) {
         case 0:
             if(state.is(BlockRegistry.divineFlame)) {
                 level.setBlock(pos.above(), BlockRegistry.edenRift.get().defaultBlockState(), 3);
-                return InteractionResult.SUCCESS;
+                return;
             } break;
         case 1:
             if(state.is(BlockRegistry.wildFlame)) {
                 level.setBlock(pos.above(), BlockRegistry.wildwoodRift.get().defaultBlockState(), 3);
-                return InteractionResult.SUCCESS;
+                return;
             } break;
         case 2:
             if(state.is(BlockRegistry.enchantedFlame)) {
                 level.setBlock(pos.above(), BlockRegistry.apalachiaRift.get().defaultBlockState(), 3);
-                return InteractionResult.SUCCESS;
+                return;
             } break;
         case 3:
             if(state.is(BlockRegistry.skyFire)) {
                 level.setBlock(pos.above(), BlockRegistry.skythernRift.get().defaultBlockState(), 3);
-                return InteractionResult.SUCCESS;
+                return;
             } break;
         case 4:
             if(state.is(BlockRegistry.mortumEmbers)) {
                 level.setBlock(pos.above(), BlockRegistry.mortumRift.get().defaultBlockState(), 3);
-                return InteractionResult.SUCCESS;
+                return;
             } break;
-        } level.explode(player, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 5, true, Level.ExplosionInteraction.BLOCK);
-        return InteractionResult.FAIL;
+        } level.explode(player, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 3, true, Level.ExplosionInteraction.BLOCK);
     }
 }

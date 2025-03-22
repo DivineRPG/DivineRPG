@@ -17,16 +17,14 @@ public class TwilightFire extends FireBlock {
     public TwilightFire() {
         super();
     }
-    public TwilightFire(Properties properties) {
-        super(properties);
-    }
     public TwilightFire(float fireDamage) {
         super(fireDamage);
     }
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if(stack.is(Items.CLOCK)) return ItemFrozenClock.useOnFire(level, player, pos, state, Utils.determineTimeOfDay(level)) == InteractionResult.SUCCESS ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
-        if(stack.is(ItemRegistry.frozen_clock)) return ItemFrozenClock.useOnFire(level, player, pos, state, stack.get(DataComponentRegistry.variant)) == InteractionResult.SUCCESS ? ItemInteractionResult.SUCCESS : ItemInteractionResult.FAIL;
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        if(stack.is(Items.CLOCK)) ItemFrozenClock.useOnFire(level, player, pos, state, Utils.determineTimeOfDay(level));
+        else if(stack.is(ItemRegistry.frozen_clock)) ItemFrozenClock.useOnFire(level, player, pos, state, stack.get(DataComponentRegistry.variant));
+        else return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return ItemInteractionResult.SUCCESS;
     }
 }

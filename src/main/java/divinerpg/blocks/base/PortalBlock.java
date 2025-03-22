@@ -86,7 +86,9 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	 * @return the new preferred block position for where to place the portal
 	 */
 	public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-		return new BlockPos(pos.getX(), Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight() + 1, level.dimensionType().logicalHeight(), 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
+		MutableBlockPos m = new MutableBlockPos(pos.getX(), Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight(), level.dimensionType().logicalHeight() + 2, 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
+		while(level.getBlockState(m).is(Blocks.WATER)) m.move(0, 1, 0);
+		return m.move(0, -1, 0);
 	}
 	public boolean hasRoomForPortal(ServerLevel level, BlockPos pos) {
 		pos = pos.above();
@@ -164,6 +166,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return new BlockPos((int) (pos.getX() * scale), pos.getZ(), (int) (pos.getZ() * scale));
 	}
 	public static DimensionTransition transitionTo(MinecraftServer server, Entity entity, UniversalPosition pos) {
+		DivineRPG.LOGGER.info("Dimension transition to: " + pos.pos().add(.5, 0, .5));
 		return new DimensionTransition(pos.level(server), pos.pos().add(.5, 0, .5), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET));
 	}
 	public void linkPortals(MinecraftServer server, UniversalPosition origin, UniversalPosition target) {
@@ -181,12 +184,12 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	public static void spreadBlock(Level level, BlockState newState, BlockPos pos, Block spreadTarget, Axis axis) {
 		BlockState state;
 		if((state = level.getBlockState(pos)).is(spreadTarget) && !state.is(newState.getBlock())) {
-			level.setBlock(pos, newState, UPDATE_ALL);
+			level.setBlock(pos, newState, UPDATE_KNOWN_SHAPE);
 			spreadBlock(level, newState, pos.above(), spreadTarget, axis);
 			spreadBlock(level, newState, pos.below(), spreadTarget, axis);
 			spreadBlock(level, newState, pos.relative(axis, 1), spreadTarget, axis);
 			spreadBlock(level, newState, pos.relative(axis, -1), spreadTarget, axis);
-		}
+		} level.sendBlockUpdated(pos, spreadTarget.defaultBlockState(), newState, 3);
 	}
 	public void connectTo(ServerLevel level, BlockPos pos, @NotNull UniversalPosition connection, Axis axis) {
 		BlockEntity b = level.getBlockEntity(pos);

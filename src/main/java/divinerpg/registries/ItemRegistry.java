@@ -178,9 +178,8 @@ public class ItemRegistry {
             acid = registerItemVethean("acid"),
 
             //Non-edible Crops
-            firestock = registerItem("firestock"),
+            firestock = registerItem("firestock", FireStock::new),
             marsine = registerItem("marsine"),
-            veilo = registerItem("veilo"),
 
             //Souls
             eden_soul = registerItem("eden_soul"),
@@ -243,6 +242,7 @@ public class ItemRegistry {
             hitchak = registerItem("hitchak", () -> new ItemModFood(FoodList.HITCHAK)),
             lamona = registerItem("lamona", () -> new ItemModFood(FoodList.LAMONA)),
             pinfly = registerItem("pinfly", () -> new ItemModFood(FoodList.PINFLY)),
+            veilo = registerItem("veilo", () -> new ItemModFood(FoodList.VEILO)),
             raw_empowered_meat = registerItem("raw_empowered_meat", () -> new ItemModFood(FoodList.RAW_EMPOWERED_MEAT)),
             empowered_meat = registerItem("empowered_meat", () -> new ItemModFood(FoodList.EMPOWERED_MEAT)),
             magic_meat = registerItem("magic_meat", () -> new ItemModFood(FoodList.MAGIC_MEAT, true)),

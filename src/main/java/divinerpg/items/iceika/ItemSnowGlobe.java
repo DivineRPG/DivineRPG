@@ -29,10 +29,9 @@ public class ItemSnowGlobe extends ItemMod {
         Player player = context.getPlayer();
         if(!player.mayUseItemAt(pos, facing, player.getItemInHand(context.getHand()))) return InteractionResult.FAIL;
         BlockState block = worldIn.getBlockState(pos);
-        PortalBlock portal = (PortalBlock)BlockRegistry.iceikaPortal.get();
-        if(!block.is(BlockRegistry.icyFire)) portal = null;
-        if(portal == null) return InteractionResult.FAIL;
+        if(!block.is(BlockRegistry.icyFire)) return InteractionResult.FAIL;
         if(!worldIn.isClientSide()) {
+            PortalBlock portal = (PortalBlock)BlockRegistry.iceikaPortal.get();
             worldIn.setBlock(pos, Blocks.AIR.defaultBlockState(), Block.UPDATE_NONE);
             Axis axis = portal.checkForFrame(worldIn, pos);
             if(axis != null) {

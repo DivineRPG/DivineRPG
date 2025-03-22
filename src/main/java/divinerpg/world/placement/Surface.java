@@ -15,21 +15,14 @@ import net.minecraft.world.level.levelgen.placement.*;
 import java.util.stream.Stream;
 
 public class Surface extends PlacementModifier {
-	public static enum Surface_Type {HIGHEST_CEILING, HIGHEST_GROUND, LOWEST_CEILING, LOWEST_GROUND}
-	public static enum Mode {FULL, RANDOM_SECTION, SLICE}
-	public static final MapCodec<Surface> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
-		return instance.group(Codec.STRING.fieldOf("surface").forGetter((config) -> {
-	        return config.surface;
-		}),  Codec.STRING.optionalFieldOf("mode", "full").forGetter((config) -> {
-			return config.mode;
-		}), Codec.INT.fieldOf("min_height").forGetter((config) -> {
-		   return config.minHeight;
-		}), Codec.INT.fieldOf("max_height").forGetter((config) -> {
-		   return config.maxHeight;
-		}), Codec.INT.fieldOf("bury").forGetter((config) -> {
-			   return config.maxHeight;
-		})).apply(instance, Surface::new);
-	});
+	public enum Surface_Type {HIGHEST_CEILING, HIGHEST_GROUND, LOWEST_CEILING, LOWEST_GROUND}
+	public enum Mode {FULL, RANDOM_SECTION, SLICE}
+	public static final MapCodec<Surface> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
+		Codec.STRING.fieldOf("surface").forGetter((config) -> config.surface),
+		Codec.STRING.optionalFieldOf("mode", "full").forGetter((config) -> config.mode),
+		Codec.INT.fieldOf("min_height").forGetter((config) -> config.minHeight),
+		Codec.INT.fieldOf("max_height").forGetter((config) -> config.maxHeight),
+		Codec.INT.fieldOf("bury").forGetter((config) -> config.maxHeight)).apply(instance, Surface::new));
 	public final String surface, mode;
 	public final int minHeight, maxHeight, bury;
 	public Surface(String surface, String mode, int minHeight, int maxHeight, int bury) {

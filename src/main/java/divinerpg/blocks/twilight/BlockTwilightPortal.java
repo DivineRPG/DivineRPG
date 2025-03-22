@@ -17,6 +17,6 @@ public class BlockTwilightPortal extends SimplePortalBlock {
     public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
         return level.dimension() == Level.OVERWORLD
                 ? super.applyPlacementLocationPreference(level, entity, pos)
-                : new BlockPos(pos.getX(), Surface.getSurface(Surface.Surface_Type.HIGHEST_GROUND, Surface.Mode.FULL, 127, 250, 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
+                : new BlockPos(pos.getX(), Surface.getSurface(Surface.Surface_Type.HIGHEST_GROUND, Surface.Mode.FULL, 127, 250, 1, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
     }
 }

@@ -16,7 +16,7 @@ public class SkythernPortal extends SimplePortalBlock {
     @Override
     public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
         return level.dimension() == LevelRegistry.APALACHIA
-                ? new BlockPos(pos.getX(), Surface.getSurface(Surface.Surface_Type.HIGHEST_GROUND, Surface.Mode.FULL, 127, 250, 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ())
+                ? new BlockPos(pos.getX(), Surface.getSurface(Surface.Surface_Type.HIGHEST_GROUND, Surface.Mode.FULL, 127, 250, 1, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ())
                 : super.applyPlacementLocationPreference(level, entity, pos);
     }
 }

@@ -17,6 +17,7 @@ import net.neoforged.api.distmarker.*;
 import java.util.List;
 
 import static net.minecraft.sounds.SoundEvents.ANVIL_LAND;
+import static net.minecraft.sounds.SoundEvents.ITEM_BREAK;
 import static net.minecraft.sounds.SoundSource.PLAYERS;
 
 public class ItemMaul extends ItemModSword {
@@ -54,7 +55,7 @@ public class ItemMaul extends ItemModSword {
             else if(targetItem.is(ItemRegistry.mortum_fragments)) i.setItem(ItemRegistry.mortum_dust.toStack(targetItem.getCount()));
             if(!i.getItem().is(targetItem.getItem())) {
                 ItemStack stack = player.getItemInHand(hand);
-                if(player instanceof ServerPlayer s) stack.hurtAndBreak(targetItem.getCount(), s.serverLevel(), s, (it) -> s.serverLevel().playSound(null, player.getX(), player.getEyeY(), player.getZ(), ANVIL_LAND, PLAYERS, 1, 1));
+                if(player instanceof ServerPlayer s) stack.hurtAndBreak(targetItem.getCount(), s.serverLevel(), s, (it) -> s.serverLevel().playSound(null, player.getX(), player.getEyeY(), player.getZ(), ITEM_BREAK, PLAYERS, 1, 1));
                 player.playSound(ANVIL_LAND, .7F, 1.5F);
                 player.getCooldowns().addCooldown(this, cooldown);
                 player.awardStat(Stats.ITEM_USED.get(this));

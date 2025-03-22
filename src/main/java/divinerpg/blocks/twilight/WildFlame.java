@@ -14,11 +14,10 @@ public class WildFlame extends TwilightFire {
     }
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        super.entityInside(state, level, pos, entity);
         if(entity instanceof LivingEntity e && !e.hasEffect(MobEffects.DAMAGE_RESISTANCE)) {
             level.playSound(null, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1F, .5F);
             e.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 3));
             e.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 250, 2));
-        }
+        } super.entityInside(state, level, pos, entity);
     }
 }
