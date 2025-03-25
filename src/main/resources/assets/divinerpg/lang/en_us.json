@@ -2431,6 +2431,7 @@
   "tooltip.divinerpg.tool.harvest_level": "§9Harvest level: %s",
   "tooltip.divinerpg.torridite": "Formerly Netherite",
   "tooltip.divinerpg.weakened_without_arcana": "Damage is heavily reduced if not enough arcana is present",
+  "tooltip.divinerpg.projecte.map": "Adds EMC to DivineRPG",
 
   "lore.divinerpg.red_cattle": "The fear of failure that drives you",
   "lore.divinerpg.wreck_potion": "Maybe there's a use for this somewhere...",

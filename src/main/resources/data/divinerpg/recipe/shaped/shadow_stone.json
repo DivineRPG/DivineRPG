@@ -1,0 +1,16 @@
+{
+  "result": {
+    "id": "divinerpg:shadow_stone"
+  },
+  "pattern": [
+    "II",
+    "II"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "group": "shadow_stone",
+  "key": {
+    "I": {
+      "item": "divinerpg:shadow_bar"
+    }
+  }
+}

@@ -87,6 +87,8 @@ dependencies {
     runtimeOnly("vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT") //Patchouli
     compileOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}") //Curios Continuation
     runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}") //Curios Continuation
+    compileOnly "curse.maven:projecte-226410:${projecte_version}" //ProjectE
+    runtimeOnly "curse.maven:projecte-226410:${projecte_version}" //ProjectE
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
