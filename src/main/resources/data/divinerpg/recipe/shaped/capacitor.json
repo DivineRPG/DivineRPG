@@ -1,0 +1,23 @@
+{
+  "result": {
+    "id": "divinerpg:capacitor"
+  },
+  "pattern": [
+    "srs",
+    "rbr",
+    "srs"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "b": {
+      "item": "divinerpg:blubber"
+    },
+    "s": {
+      "item": "divinerpg:oxdrite_ingot"
+    }
+  }
+}

@@ -9,5 +9,6 @@ public class ClientUtils {
     public static final ModelLayerLocation
             layerHumanoid = createLocation("humanoid"),
             layerBat = createLocation("bat"),
-            layerSpider = createLocation("spider");
+            layerSpider = createLocation("spider"),
+            layerMinecart = createLocation("minecart");
 }

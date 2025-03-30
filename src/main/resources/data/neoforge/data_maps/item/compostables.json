@@ -363,6 +363,9 @@
     "divinerpg:slowsprout_stem": {
       "chance": 0.85
     },
+    "divinerpg:gelidite": {
+        "chance": 0.85
+    },
     "divinerpg:dream_cake": {
       "chance": 1
     },

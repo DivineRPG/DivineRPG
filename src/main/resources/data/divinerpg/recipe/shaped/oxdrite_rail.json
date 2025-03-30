@@ -1,0 +1,21 @@
+{
+  "result": {
+    "id": "divinerpg:oxdrite_rail",
+    "count": 6
+  },
+  "pattern": [
+    "i i",
+    "iri",
+    "i i"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "r": {
+      "item": "minecraft:stick"
+    },
+    "i": {
+      "item": "divinerpg:oxdrite_ingot"
+    }
+  }
+}

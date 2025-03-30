@@ -21,6 +21,9 @@ public record UniversalPosition(ResourceKey<Level> dimension, Vec3 pos) {
 	public BlockPos blockPos() {
 		return new BlockPos((int)pos.x, (int)pos.y, (int)pos.z);
 	}
+	public Vec3 blockPosVec() {
+		return new Vec3(Math.floor(pos.x), Math.floor(pos.y), Math.floor(pos.z));
+	}
 	public ChunkPos chunkPos() {
 		return new ChunkPos((int)pos.x >> 4, (int)pos.z >> 4);
 	}
@@ -35,4 +38,9 @@ public record UniversalPosition(ResourceKey<Level> dimension, Vec3 pos) {
 		return new BlockPos((int)v.x, (int)v.y, (int)v.z);
 	}
 	public static Vec3 toVec3(BlockPos p) {return new Vec3(p.getX(), p.getY(), p.getZ());}
+
+	@Override
+	public String toString() {
+		return dimension.location() + ", " + pos;
+	}
 }

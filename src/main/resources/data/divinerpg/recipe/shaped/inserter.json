@@ -1,0 +1,23 @@
+{
+  "result": {
+    "id": "divinerpg:inserter"
+  },
+  "pattern": [
+    "xxx",
+    "xcx",
+    "xrx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "x": {
+      "item": "divinerpg:realmite_ingot"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "c": {
+      "item": "divinerpg:crate"
+    }
+  }
+}

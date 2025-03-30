@@ -1,0 +1,22 @@
+{
+  "result": {
+    "id": "divinerpg:limiter"
+  },
+  "pattern": [
+    "RRI",
+    "XXX"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "X": {
+      "item": "minecraft:smooth_stone_slab"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "I": {
+      "item": "divinerpg:oxdrite_ingot"
+    }
+  }
+}

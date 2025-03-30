@@ -1,0 +1,21 @@
+{
+  "result": {
+    "id": "divinerpg:oxdrite_lamp",
+    "count": 4
+  },
+  "pattern": [
+    " s ",
+    "sis",
+    " s "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "s": {
+      "item": "divinerpg:cut_oxdrite"
+    },
+    "i": {
+      "tag": "divinerpg:bulbs"
+    }
+  }
+}

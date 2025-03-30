@@ -35,6 +35,7 @@ public class TagRegistry {
 
     //Blocks
     public static final TagKey<Block>
+        GATEWAY_RECIEVER = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "gateway_reciever")),
         PORTALS = TagKey.create(Registries.BLOCK, ResourceLocation.parse("c:portals")),
         BEDROCK_GRINDING_BASE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "bedrock_grinding_base"));
 

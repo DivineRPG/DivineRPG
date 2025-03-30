@@ -23,12 +23,16 @@ public class PortalBlockEntity extends BlockEntity {
 		super.saveAdditional(tag, registries);
 		if(targetPosition != null) {
 			tag.putString("target_dim", targetPosition.dimension().location().toString());
-			tag.putLong("target_pos", targetPosition.blockPos().asLong());
+			BlockPos p = targetPosition.blockPos();
+			tag.putInt("target_x", p.getX());
+			tag.putInt("target_y", p.getY());
+			tag.putInt("target_z", p.getZ());
 		}
 	}
 	@Override
 	protected void loadAdditional(CompoundTag tag, Provider registries) {
 		super.loadAdditional(tag, registries);
-		if(tag.contains("target_pos") && tag.contains("target_dim")) targetPosition = new UniversalPosition(ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse(tag.getString("target_dim"))), BlockPos.of(tag.getLong("target_pos")));
+		if(tag.contains("target_x") && tag.contains("target_y") && tag.contains("target_z") && tag.contains("target_dim")) targetPosition = new UniversalPosition(ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse(tag.getString("target_dim"))), new BlockPos(tag.getInt("target_x"), tag.getInt("target_y"), tag.getInt("target_z")));
+		//else DivineRPG.LOGGER.info("loaded block has no target pos");
 	}
 }

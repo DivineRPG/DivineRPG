@@ -41,6 +41,7 @@ import divinerpg.entities.wildwood.*;
 import divinerpg.enums.EntityStats;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.MinecartRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.core.registries.Registries;
@@ -189,6 +190,9 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<Bomb>> RAGLOK_BOMB = registerProjectile(Bomb::new, "raglok_bomb");
     public static final DeferredHolder<EntityType<?>, EntityType<DivineThrowableProjectile>> WRECK_SHOT = registerProjectile((type, level) -> new DivineThrowableProjectile(type, level, 15), "wreck_shot");
     public static final DeferredHolder<EntityType<?>, EntityType<Bomb>> WRECK_BOMB = registerProjectile(Bomb::new, "wreck_bomb");
+
+    //Minecarts
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityInserterMinecart>> INSERTER_MINECART = registerEntity(EntityInserterMinecart::new, "inserter_minecart", .6F, .7F, .1F, MobCategory.MISC);
 
     //Bosses
     public static final DeferredHolder<EntityType<?>, EntityType<EntityAncientEntity>>       ANCIENT_ENTITY 	 = registerEntity(EntityAncientEntity::new, 	"ancient_entity", 	    4, 6.5F, 6, 0x3f1e0c, 0xc46c33);
@@ -680,6 +684,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(layerHumanoid, () -> LayerDefinition.create(HumanoidModel.createMesh(CubeDeformation.NONE, 0), 64, 32));
         event.registerLayerDefinition(layerBat, BatModel::createBodyLayer);
         event.registerLayerDefinition(layerSpider, SpiderModel::createSpiderBodyLayer);
+        event.registerLayerDefinition(layerMinecart, MinecartModel::createBodyLayer);
 
         //Boss
         event.registerLayerDefinition(ModelAncientEntity.LAYER_LOCATION, ModelAncientEntity::createBodyLayer);
@@ -984,6 +989,9 @@ public class EntityRegistry {
         event.registerEntityRenderer(PARDIMAL_ARROW.get(), (context) -> new RenderDivineArrow(context, "pardimal_arrow"));
         event.registerEntityRenderer(KAROS_ARROW.get(), (context) -> new RenderDivineArrow(context, "karos_arrow"));
         event.registerEntityRenderer(EVER_ARROW.get(), (context) -> new RenderDivineArrow(context, "ever_arrow"));
+
+        //Minecart
+        event.registerEntityRenderer(INSERTER_MINECART.get(), (context) -> new MinecartRenderer<>(context, layerMinecart));
 
         //Boss
         event.registerEntityRenderer(ANCIENT_ENTITY.get(), 	(Context context) -> new RenderDivineMob<>(context, "ancient_entity", 	new ModelAncientEntity(context), 6, 6));

@@ -46,8 +46,9 @@ public class CrateBlockEntity extends BlockEntity implements Hopper {
 			ItemStack s = stack;
 			stack = ItemStack.EMPTY;
 			return s;
-		} stack.setCount(stack.getCount() - amount);
-		return stack.copyWithCount(amount);
+		} ItemStack s = stack.copyWithCount(amount);
+		stack.setCount(stack.getCount() - amount);
+		return s;
 	}
 	@Override public ItemStack removeItemNoUpdate(int i) {
 		ItemStack s = stack;
