@@ -14,6 +14,7 @@ import java.util.*;
 public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
     private static final Map<NormalizedSimpleStack, Long> CUSTOM_EMC_VALUES = new HashMap<>();
     public static void init() {
+        //TODO: to check if there are any obvious EMC dupes around and add missing (remove redundant) entries
         //Resources
         register(NSSItem.createItem(ItemRegistry.cyclops_eye_shards.get()), 46);
         register(NSSItem.createItem(ItemRegistry.crab_claw.get()), 150);
@@ -25,6 +26,9 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(ItemRegistry.realmite_ingot.get()), 384);
         register(NSSItem.createItem(ItemRegistry.arlemite_ingot.get()), 8064);
         register(NSSItem.createItem(ItemRegistry.rupee_ingot.get()), 9216);
+        register(NSSItem.createItem(ItemRegistry.shadow_coins.get()), 17280);
+        register(NSSItem.createItem(ItemRegistry.arlemite_dust.get()), 8064);
+        register(NSSItem.createItem(ItemRegistry.rupee_dust.get()), 9216);
         register(NSSItem.createItem(ItemRegistry.healing_stone.get()), 8192);
         register(NSSItem.createItem(ItemRegistry.ice_shards.get()), 910);
         register(NSSItem.createItem(ItemRegistry.terran_shards.get()), 910);
@@ -66,6 +70,11 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(ItemRegistry.apalachia_soul.get()), 2048);
         register(NSSItem.createItem(ItemRegistry.skythern_soul.get()), 4072);
         register(NSSItem.createItem(ItemRegistry.mortum_soul.get()), 6096);
+        register(NSSItem.createItem(ItemRegistry.eden_dust.get()), 1024);
+        register(NSSItem.createItem(ItemRegistry.wildwood_dust.get()), 1536);
+        register(NSSItem.createItem(ItemRegistry.apalachia_dust.get()), 2048);
+        register(NSSItem.createItem(ItemRegistry.skythern_dust.get()), 4072);
+        register(NSSItem.createItem(ItemRegistry.mortum_dust.get()), 6096);
         register(NSSItem.createItem(ItemRegistry.eden_heart.get()), 4096);
         register(NSSItem.createItem(ItemRegistry.wildwood_heart.get()), 6144);
         register(NSSItem.createItem(ItemRegistry.apalachia_heart.get()), 8192);
@@ -76,6 +85,7 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(ItemRegistry.polished_pearls.get()), 512);
         register(NSSItem.createItem(ItemRegistry.shiny_pearls.get()), 1024);
         register(NSSItem.createItem(ItemRegistry.rock_chunks.get()), 2048);
+        register(NSSItem.createItem(ItemRegistry.blubber.get()), 64);
         register(NSSItem.createItem(ItemRegistry.acid.get()), 64);
         register(NSSItem.createItem(ItemRegistry.cannon_template.get()), 384);
         register(NSSItem.createItem(ItemRegistry.claw_template.get()), 384);
@@ -136,7 +146,6 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(ItemRegistry.icine_sword.get()), 94212);
         register(NSSItem.createItem(ItemRegistry.frozen_maul.get()), 134232);
         register(NSSItem.createItem(ItemRegistry.snowflake_shuriken.get()), 192);
-        register(NSSItem.createItem(ItemRegistry.icicle_bow.get()), 58025);
         register(NSSItem.createItem(ItemRegistry.snowstorm_bow.get()), 44676);
         register(NSSItem.createItem(ItemRegistry.sound_of_carols.get()), 21519);
         register(NSSItem.createItem(ItemRegistry.frostclaw_cannon.get()), 13651);

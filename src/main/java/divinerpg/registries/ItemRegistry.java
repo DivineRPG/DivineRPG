@@ -175,8 +175,8 @@ public class ItemRegistry {
         seng_fur = registerItem("seng_fur"),
         sabear_fur = registerItem("sabear_fur"),
         sabear_tooth = registerItem("sabear_tooth"),
-        acid = registerItemVethean("acid"),
         blubber = registerItem("blubber"),
+        acid = registerItemVethean("acid"),
 
         //Non-edible Crops
         firestock = registerItem("firestock", FireStock::new),

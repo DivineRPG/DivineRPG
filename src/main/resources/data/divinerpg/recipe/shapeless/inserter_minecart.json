@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "divinerpg:inserter"
+    },
+    {
+      "item": "minecart"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:inserter_minecart"
+  }
+}
