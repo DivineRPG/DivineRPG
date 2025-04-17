@@ -15,21 +15,24 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shapeless/divine_rock",
+      "recipe": "divinerpg:shaped/eden_block",
       "text": "book.divinerpg.entry.twilight.eden_portal.1"
     },
     {
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "_PP_" ],
-          [ "P  P" ],
-          [ "P  P" ],
-          [ "P0 P" ],
-          [ "_PP_" ]
+          [ "__0_" ],
+          [ "PPPP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PPPP" ],
+          [ "____" ]
         ],
         "mapping": {
-          "P": "divinerpg:divine_rock"
+          "P": "divinerpg:eden_block",
+          "B": "divinerpg:eden_portal[axis=z]"
         }
       },
       "name": "Eden Portal",
@@ -37,21 +40,24 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shaped/eden_block",
+      "recipe": "divinerpg:shaped/wildwood_block",
       "text": "book.divinerpg.entry.twilight.wildwood_portal.1"
     },
     {
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "_PP_" ],
-          [ "P  P" ],
-          [ "P  P" ],
-          [ "P0 P" ],
-          [ "_PP_" ]
+          [ "__0_" ],
+          [ "PPPP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PPPP" ],
+          [ "____" ]
         ],
         "mapping": {
-          "P": "divinerpg:eden_block"
+          "P": "divinerpg:wildwood_block",
+          "B": "divinerpg:wildwood_portal[axis=z]"
         }
       },
       "name": "Wildwood Portal",
@@ -59,21 +65,24 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shaped/wildwood_block",
+      "recipe": "divinerpg:shaped/apalachia_block",
       "text": "book.divinerpg.entry.twilight.apalachia_portal.1"
     },
     {
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "_PP_" ],
-          [ "P  P" ],
-          [ "P  P" ],
-          [ "P0 P" ],
-          [ "_PP_" ]
+          [ "__0_" ],
+          [ "PPPP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PPPP" ],
+          [ "____" ]
         ],
         "mapping": {
-          "P": "divinerpg:wildwood_block"
+          "P": "divinerpg:apalachia_block",
+          "B": "divinerpg:apalachia_portal[axis=z]"
         }
       },
       "name": "Apalachia Portal",
@@ -81,21 +90,24 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shaped/apalachia_block",
+      "recipe": "divinerpg:shaped/skythern_block",
       "text": "book.divinerpg.entry.twilight.skythern_portal.1"
     },
     {
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "_PP_" ],
-          [ "P  P" ],
-          [ "P  P" ],
-          [ "P0 P" ],
-          [ "_PP_" ]
+          [ "__0_" ],
+          [ "PPPP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PPPP" ],
+          [ "____" ]
         ],
         "mapping": {
-          "P": "divinerpg:apalachia_block"
+          "P": "divinerpg:skythern_block",
+          "B": "divinerpg:skythern_portal[axis=z]"
         }
       },
       "name": "Skythern Portal",
@@ -103,21 +115,24 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shaped/skythern_block",
+      "recipe": "divinerpg:shaped/mortum_block",
       "text": "book.divinerpg.entry.twilight.mortum_portal.1"
     },
     {
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "_PP_" ],
-          [ "P  P" ],
-          [ "P  P" ],
-          [ "P0 P" ],
-          [ "_PP_" ]
+          [ "__0_" ],
+          [ "PPPP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PPPP" ],
+          [ "____" ]
         ],
         "mapping": {
-          "P": "divinerpg:skythern_block"
+          "P": "divinerpg:mortum_block",
+          "B": "divinerpg:mortum_portal[axis=z]"
         }
       },
       "name": "Mortum Portal",

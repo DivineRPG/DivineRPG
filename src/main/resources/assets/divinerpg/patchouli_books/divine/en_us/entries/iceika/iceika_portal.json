@@ -14,18 +14,20 @@
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "_PP_" ],
-          [ "P  P" ],
-          [ "P  P" ],
-          [ "P 0P" ],
-          [ "_PP_" ]
+          [ "__0_" ],
+          [ "PPPP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PBBP" ],
+          [ "PPPP" ],
+          [ "____" ]
         ],
         "mapping": {
-          "P": "minecraft:snow_block"
+          "P": "minecraft:snow_block",
+          "B": "divinerpg:iceika_portal[axis=z]"
         }
       },
-      "name": "Iceika Portal",
-      "text": "book.divinerpg.entry.iceika.iceika_portal.2"
+      "name": "Iceika Portal"
     }
   ]
 }

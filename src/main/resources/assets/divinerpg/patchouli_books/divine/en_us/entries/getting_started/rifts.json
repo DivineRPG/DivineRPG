@@ -1,0 +1,152 @@
+{
+  "name": "book.entries.getting_started.rifts",
+  "category": "divinerpg:getting_started",
+  "icon": "divinerpg:frozen_clock",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.getting_started.rifts.1"
+    },
+    {
+      "type": "text",
+      "text": "book.divinerpg.entry.getting_started.rifts.2"
+    },
+
+    {
+      "type": "text",
+      "title": "book.divinerpg.entry.getting_started.rifts.eden.name",
+      "text": "book.divinerpg.entry.getting_started.rifts.eden.text"
+    },
+    {
+      "type": "multiblock",
+      "name": "book.divinerpg.entry.getting_started.rifts.eden.name",
+      "multiblock": {
+        "pattern": [
+          ["0"],
+          ["F"],
+          ["B"],
+          ["_"]
+        ],
+        "mapping": {
+          "F": "divinerpg:divine_flame",
+          "B": "divinerpg:shining_obsidian"
+        }
+      }
+    },
+
+    {
+      "type": "text",
+      "title": "book.divinerpg.entry.getting_started.rifts.wildwood.name",
+      "text": "book.divinerpg.entry.getting_started.rifts.wildwood.text"
+    },
+    {
+      "type": "multiblock",
+      "name": "book.divinerpg.entry.getting_started.rifts.wildwood.name",
+      "multiblock": {
+        "pattern": [
+          ["0"],
+          ["F"],
+          ["B"],
+          ["_"]
+        ],
+        "mapping": {
+          "F": "divinerpg:wild_flame",
+          "B": "divinerpg:seeping_obsidian"
+        }
+      }
+    },
+
+    {
+      "type": "text",
+      "title": "book.divinerpg.entry.getting_started.rifts.apalachia.name",
+      "text": "book.divinerpg.entry.getting_started.rifts.apalachia.text"
+    },
+    {
+      "type": "multiblock",
+      "name": "book.divinerpg.entry.getting_started.rifts.apalachia.name",
+      "multiblock": {
+        "pattern": [
+          ["0"],
+          ["F"],
+          ["B"],
+          ["_"]
+        ],
+        "mapping": {
+          "F": "divinerpg:enchanted_flame",
+          "B": "divinerpg:vwooping_obsidian"
+        }
+      }
+    },
+
+    {
+      "type": "text",
+      "title": "book.divinerpg.entry.getting_started.rifts.skythern.name",
+      "text": "book.divinerpg.entry.getting_started.rifts.skythern.text"
+    },
+    {
+      "type": "multiblock",
+      "name": "book.divinerpg.entry.getting_started.rifts.skythern.name",
+      "multiblock": {
+        "pattern": [
+          ["0"],
+          ["F"],
+          ["B"],
+          ["_"]
+        ],
+        "mapping": {
+          "F": "divinerpg:sky_fire",
+          "B": "divinerpg:brooding_obsidian"
+        }
+      }
+    },
+
+    {
+      "type": "text",
+      "title": "book.divinerpg.entry.getting_started.rifts.mortum.name",
+      "text": "book.divinerpg.entry.getting_started.rifts.mortum.text"
+    },
+    {
+      "type": "multiblock",
+      "name": "book.divinerpg.entry.getting_started.rifts.mortum.name",
+      "multiblock": {
+        "pattern": [
+          ["0"],
+          ["F"],
+          ["B"],
+          ["_"]
+        ],
+        "mapping": {
+          "F": "divinerpg:mortum_embers",
+          "B": "divinerpg:bleeding_obsidian"
+        }
+      }
+    },
+    {
+      "type": "link",
+      "title": "book.divinerpg.entry.getting_started.rifts.iceika.name",
+      "text": "book.divinerpg.entry.getting_started.rifts.iceika.text",
+      "link_text": "book.divinerpg.entry.getting_started.rifts.iceika.visibility",
+      "url": "https://imgur.com/a/dngLlGA"
+    },
+    {
+      "type": "multiblock",
+      "multiblock": {
+        "pattern": [
+          [ "____" ],
+          [ "OOOO" ],
+          [ "OBBO" ],
+          [ "OBBO" ],
+          [ "OBBO" ],
+          [ "OOOO" ],
+          [ "__0_" ]
+        ],
+        "mapping": {
+          "O": "minecraft:snow_block",
+          "B": "divinerpg:iceika_portal[axis=z]"
+        }
+      },
+      "name": "book.divinerpg.entry.getting_started.rifts.iceika.name"
+    }
+  ]
+}
