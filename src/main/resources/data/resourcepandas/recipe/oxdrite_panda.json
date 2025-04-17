@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#9c4a2a",
+  "ingredient": {
+    "tag": "c:storage_blocks/oxdrite"
+  },
+  "name": "Oxdrite",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:oxdrite_ingot"
+  }
+}

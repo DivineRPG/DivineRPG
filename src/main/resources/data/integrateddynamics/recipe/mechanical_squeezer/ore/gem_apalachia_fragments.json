@@ -1,0 +1,44 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "tag": "c:ores/apalachia"
+  },
+  "output_items": [
+    {
+      "tag": {
+        "tag": "c:fragments/apalachia"
+      },
+      "count": 2
+    },
+    {
+      "tag": {
+        "tag": "c:gems/apalachia"
+      },
+      "chance": 0.15
+    }
+  ],
+  "duration": 40,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ores/apalachia"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:fragments/apalachia"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:gems/apalachia"
+      }
+    }
+  ]
+}

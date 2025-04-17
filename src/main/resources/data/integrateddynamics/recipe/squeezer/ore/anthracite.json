@@ -1,0 +1,30 @@
+{
+  "type": "integrateddynamics:squeezer",
+  "input_item": {
+    "tag": "c:ores/anthracite"
+  },
+  "output_items": [
+    {
+      "item": {
+        "id": "divinerpg:anthracite",
+        "count": 3
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:anthracite",
+        "count": 2
+      },
+      "chance": 0.15
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ores/anthracite"
+      }
+    }
+  ]
+}

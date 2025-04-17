@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#ccd9db",
+  "ingredient": {
+    "tag": "c:storage_blocks/skythern"
+  },
+  "name": "Skythern",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:skythern_fragments"
+  }
+}

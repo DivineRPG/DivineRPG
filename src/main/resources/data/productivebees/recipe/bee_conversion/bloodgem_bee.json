@@ -1,0 +1,18 @@
+{
+  "type": "productivebees:bee_conversion",
+  "source": "productivebees:realmite",
+  "result": "productivebees:bloodgem",
+  "item": {
+    "item": "divinerpg:bloodgem"
+  },
+  "conditions": [
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:realmite"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:bloodgem"
+    }
+  ]
+}

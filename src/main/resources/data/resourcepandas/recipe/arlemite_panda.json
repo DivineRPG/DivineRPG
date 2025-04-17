@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#79f03a",
+  "ingredient": {
+    "tag": "c:storage_blocks/arlemite"
+  },
+  "name": "Arlemite",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:arlemite_ingot"
+  }
+}

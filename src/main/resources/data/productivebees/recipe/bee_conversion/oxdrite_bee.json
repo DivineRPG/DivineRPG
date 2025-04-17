@@ -1,0 +1,18 @@
+{
+  "type": "productivebees:bee_conversion",
+  "source": "productivebees:arlemite",
+  "result": "productivebees:oxdrite",
+  "item": {
+    "item": "divinerpg:raw_oxdrite"
+  },
+  "conditions": [
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:arlemite"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:bloodgem"
+    }
+  ]
+}

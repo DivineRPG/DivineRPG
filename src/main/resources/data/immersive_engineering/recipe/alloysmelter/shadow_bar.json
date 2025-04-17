@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/arlemite"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ingots/rupee"
+      }
+    }
+  ],
+  "type": "immersiveengineering:alloy",
+  "input0": {
+    "basePredicate": {
+      "tag": "c:ingots/arlemite"
+    },
+    "count": 1
+  },
+  "input1": {
+    "tag": "c:ingots/rupee"
+  },
+  "result": {
+    "basePredicate": {
+      "item": "divinerpg:shadow_bar"
+    },
+    "count": 4
+  }
+}

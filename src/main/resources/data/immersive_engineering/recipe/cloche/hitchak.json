@@ -1,0 +1,19 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:hitchak_seeds"
+  },
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:hitchak_plant"
+  },
+  "results": [
+    {
+      "item": "divinerpg:hitchak"
+    }
+  ],
+  "soil": {
+    "item": "minecraft:dirt"
+  },
+  "time": 320
+}

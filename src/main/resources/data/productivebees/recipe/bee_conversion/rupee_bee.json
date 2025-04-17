@@ -1,0 +1,18 @@
+{
+  "type": "productivebees:bee_conversion",
+  "source": "productivebees:realmite",
+  "result": "productivebees:rupee",
+  "item": {
+    "item": "divinerpg:raw_rupee"
+  },
+  "conditions": [
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:realmite"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:rupee"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#000000",
+  "ingredient": {
+    "item": "divinerpg:anthracite_ore"
+  },
+  "name": "Anthracite",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:anthracite"
+  }
+}

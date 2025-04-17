@@ -1,0 +1,45 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "tag": "c:ores/realmite"
+  },
+  "output_items": [
+    {
+      "tag": {
+        "tag": "c:raw_materials/realmite",
+        "count": 4
+      }
+    },
+    {
+      "tag": {
+        "tag": "c:raw_materials/realmite",
+        "count": 3
+      },
+      "chance": 0.5
+    },
+    {
+      "tag": {
+        "tag": "c:raw_materials/realmite",
+        "count": 2
+      },
+      "chance": 0.25
+    }
+  ],
+  "duration": 40,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:raw_materials/realmite"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ores/realmite"
+      }
+    }
+  ]
+}

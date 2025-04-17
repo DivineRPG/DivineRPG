@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#e09422",
+  "ingredient": {
+    "tag": "c:storage_blocks/realmite"
+  },
+  "name": "Realmite",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:realmite_ingot"
+  }
+}

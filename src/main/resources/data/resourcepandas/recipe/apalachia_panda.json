@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#b510c4",
+  "ingredient": {
+    "tag": "c:storage_blocks/apalachia"
+  },
+  "name": "Apalachia",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:apalachia_fragments"
+  }
+}

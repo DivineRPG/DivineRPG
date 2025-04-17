@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#24c7e0",
+  "ingredient": {
+    "tag": "c:storage_blocks/rupee"
+  },
+  "name": "Rupee",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:rupee_ingot"
+  }
+}

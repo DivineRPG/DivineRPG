@@ -1,0 +1,37 @@
+{
+  "type": "productivebees:centrifuge",
+  "ingredient": {
+    "type": "productivebees:component",
+    "components": {
+      "productivebees:bee_type": "productivebees:bloodgem"
+    },
+    "items": "productivebees:configurable_honeycomb"
+  },
+  "outputs": [
+    {
+      "item": {
+        "tag": "c:gems/bloodgem"
+      },
+      "min": 1,
+      "max": 4
+    },
+    {
+      "item": {
+        "item": "productivebees:wax"
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:gems/bloodgem"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "divinerpg"
+    }
+  ]
+}

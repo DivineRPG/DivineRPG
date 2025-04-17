@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#7ed3f7",
+  "ingredient": {
+    "item": "divinerpg:ice_stone"
+  },
+  "name": "Ice",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:ice_shards"
+  }
+}

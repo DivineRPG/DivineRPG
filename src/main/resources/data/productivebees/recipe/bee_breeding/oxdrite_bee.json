@@ -1,0 +1,22 @@
+{
+  "type": "productivebees:bee_breeding",
+  "parent1": "productivebees:arlemite",
+  "parent2": "productivebees:bloodgem",
+  "offspring": [
+    "productivebees:oxdrite"
+  ],
+  "conditions": [
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:oxdrite"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:bloodgem"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:arlemite"
+    }
+  ]
+}

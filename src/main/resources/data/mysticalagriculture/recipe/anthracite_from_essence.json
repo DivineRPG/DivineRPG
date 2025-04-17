@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysticalagriculture:anthracite_essence"
+    }
+  },
+  "result": {
+    "id": "divinerpg:anthracite",
+    "count": 1
+  }
+}

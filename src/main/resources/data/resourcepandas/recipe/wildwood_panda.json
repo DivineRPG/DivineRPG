@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#3583b0",
+  "ingredient": {
+    "tag": "c:storage_blocks/wildwood"
+  },
+  "name": "Wildwood",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:wildwood_fragments"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#ffff3d",
+  "ingredient": {
+    "item": "divinerpg:divine_stone"
+  },
+  "name": "Divine",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:divine_shards"
+  }
+}

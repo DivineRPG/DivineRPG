@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#2d2e2e",
+  "ingredient": {
+    "tag": "c:storage_blocks/mortum"
+  },
+  "name": "Mortum",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:mortum_fragments"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "productivebees:bee_breeding",
+  "parent1": "productivebees:iron",
+  "parent2": "productivebees:gold",
+  "offspring": [
+    "productivebees:realmite"
+  ],
+  "conditions": [
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:iron"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:realmite"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:gold"
+    }
+  ]
+}

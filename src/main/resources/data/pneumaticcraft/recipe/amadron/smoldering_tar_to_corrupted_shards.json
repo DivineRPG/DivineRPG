@@ -1,0 +1,17 @@
+{
+  "type": "pneumaticcraft:amadron",
+  "input": {
+    "resource": {
+      "amount": 4000,
+      "id": "divinerpg:smoldering_tar_still"
+    }
+  },
+  "level": 0,
+  "offer_id": "pneumaticcraft:amadron/smoldering_tar_to_corrupted_shards",
+  "output": {
+    "resource": {
+      "count": 1,
+      "id": "divinerpg:corrupted_shards"
+    }
+  }
+}

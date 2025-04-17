@@ -1,0 +1,22 @@
+{
+  "type": "productivebees:bee_breeding",
+  "parent1": "productivebees:rupee",
+  "parent2": "productivebees:arlemite",
+  "offspring": [
+    "productivebees:torridite"
+  ],
+  "conditions": [
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:rupee"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:torridite"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:arlemite"
+    }
+  ]
+}

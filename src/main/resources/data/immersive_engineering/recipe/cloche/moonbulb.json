@@ -1,0 +1,19 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:moonbulb_seeds"
+  },
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:moonbulb_plant"
+  },
+  "results": [
+    {
+      "item": "divinerpg:moonbulb"
+    }
+  ],
+  "soil": {
+    "tag": "minecraft:grass_block"
+  },
+  "time": 320
+}

@@ -1,0 +1,44 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "tag": "c:ores/skythern"
+  },
+  "output_items": [
+    {
+      "tag": {
+        "tag": "c:fragments/skythern"
+      },
+      "count": 2
+    },
+    {
+      "tag": {
+        "tag": "c:gems/skythern"
+      },
+      "chance": 0.15
+    }
+  ],
+  "duration": 40,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ores/skythern"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:fragments/skythern"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:gems/skythern"
+      }
+    }
+  ]
+}

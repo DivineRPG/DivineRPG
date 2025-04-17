@@ -1,0 +1,9 @@
+{
+  "type": "enderio:enchanting",
+  "amount": 1,
+  "cost_multiplier": 1,
+  "enchantment": "divinerpg:aftershock",
+  "input": {
+    "item": "divinerpg:crab_claw"
+  }
+}

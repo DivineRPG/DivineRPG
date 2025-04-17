@@ -1,0 +1,36 @@
+{
+  "type": "integrateddynamics:squeezer",
+  "input_item": {
+    "tag": "c:ores/bloodgem"
+  },
+  "output_items": [
+    {
+      "tag": {
+        "tag": "c:gems/bloodgem"
+      },
+      "count": 2
+    },
+    {
+      "tag": {
+        "tag": "c:gems/bloodgem"
+      },
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:gems/bloodgem"
+      }
+    },
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ores/bloodgem"
+      }
+    }
+  ]
+}

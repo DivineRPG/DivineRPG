@@ -1,0 +1,13 @@
+{
+  "type": "resourcepandas:panda_recipe",
+  "chance": 0.6,
+  "hexColor": "#bd150f",
+  "ingredient": {
+    "tag": "c:storage_blocks/torridite"
+  },
+  "name": "Torridite",
+  "result": {
+    "count": 1,
+    "id": "divinerpg:torridite_ingot"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "enderio:alloy_smelting",
+  "energy": 1600,
+  "experience": 0.3,
+  "inputs": [
+    {
+      "count": 1,
+      "tag": "c:ingots/arlemite"
+    },
+    {
+      "count": 1,
+      "tag": "c:ingots/rupee"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "id": "divinerpg:shadow_bar"
+  }
+}

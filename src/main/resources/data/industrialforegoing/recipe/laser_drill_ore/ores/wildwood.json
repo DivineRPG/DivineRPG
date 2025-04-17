@@ -1,0 +1,46 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "c:ores/wildwood"
+      }
+    }
+  ],
+  "type": "industrialforegoing:laser_drill_ore",
+  "catalyst": {
+    "item": "industrialforegoing:blue_laser_lens"
+  },
+  "output": {
+    "tag": "c:ores/wildwood"
+  },
+  "rarity": [
+    {
+      "biome_filter": {
+        "blacklist": [],
+        "whitelist": []
+      },
+      "depth_max": 255,
+      "depth_min": 0,
+      "dimension_filter": {
+        "blacklist": [],
+        "whitelist": ["divinerpg:wildwood"]
+      },
+      "weight": 1
+    },
+    {
+      "biome_filter": {
+        "blacklist": [],
+        "whitelist": []
+      },
+      "depth_max": 255,
+      "depth_min": 0,
+      "dimension_filter": {
+        "blacklist": [],
+        "whitelist": ["divinerpg:wildwood"]
+      },
+      "weight": 1
+    }
+  ]
+}

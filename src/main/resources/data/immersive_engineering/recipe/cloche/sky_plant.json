@@ -1,0 +1,19 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:sky_plant_seeds"
+  },
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:sky_plant"
+  },
+  "results": [
+    {
+      "item": "divinerpg:sky_flower"
+    }
+  ],
+  "soil": {
+    "item": "minecraft:dirt"
+  },
+  "time": 320
+}
