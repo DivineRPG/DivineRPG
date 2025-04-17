@@ -17,41 +17,7 @@
         "element_type": "minecraft:single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/eden/broken_eden_portal",
-        "processors": {
-			"processors": [
-				{
-					"processor_type": "minecraft:rule",
-					"rules": [
-						{
-							"location_predicate": {
-								"predicate_type": "minecraft:always_true"
-							},
-							"input_predicate": {
-								"predicate_type": "minecraft:random_block_match",
-								"block": "divinerpg:divine_rock",
-								"probability": 0.3
-							},
-							"output_state": {
-								"Name": "minecraft:yellow_stained_glass"
-							}
-						},
-						{
-							"location_predicate": {
-								"predicate_type": "minecraft:always_true"
-							},
-							"input_predicate": {
-								"predicate_type": "minecraft:random_block_match",
-								"block": "divinerpg:divine_rock",
-								"probability": 0.05
-							},
-							"output_state": {
-								"Name": "minecraft:air"
-							}
-						}
-					]
-				}
-			]
-		}
+        "processors": "minecraft:empty"
       }
     },
     {
