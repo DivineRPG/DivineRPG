@@ -1,15 +1,15 @@
 {
   "values": [
+    "#c:fences/divine",
+    "#c:fences/shiverspine",
+    "#c:fences/auroraoak",
+    "#c:fences/cozybark",
+    "#c:fences/streamleaf",
+    "#c:fences/eucalyptus",
     "#c:fences/eden",
     "#c:fences/wildwood",
     "#c:fences/apalachia",
     "#c:fences/skythern",
-    "#c:fences/mortum",
-    "#c:fences/divine",
-    "#c:fences/shiverspine",
-    "#c:fences/eucalyptus",
-    "#c:fences/auroraoak",
-    "#c:fences/cozybark",
-    "#c:fences/streamleaf"
+    "#c:fences/mortum"
   ]
 }

@@ -1,9 +1,9 @@
 {
   "values": [
+    "divinerpg:globebrush",
+    "divinerpg:thermoliage",
     "divinerpg:dusk_flower",
     "divinerpg:dust_brambles",
-    "divinerpg:demon_brambles",
-    "divinerpg:globebrush",
-    "divinerpg:thermoliage"
+    "divinerpg:demon_brambles"
   ]
 }

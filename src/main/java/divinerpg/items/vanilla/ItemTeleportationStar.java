@@ -9,8 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
@@ -41,7 +40,7 @@ public class ItemTeleportationStar extends ItemMod {
             	ServerLevel serverWorld = world.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, stack.get(DataComponentRegistry.dimension)));
                 if(player instanceof ServerPlayer) {
                 	BlockPos pos = stack.get(DataComponentRegistry.position);
-                    player.changeDimension(new DimensionTransition(serverWorld, new Vec3(pos.getX(), pos.getY(), pos.getZ()), player.getDeltaMovement(), player.getYRot(), player.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND));
+                    player.changeDimension(new DimensionTransition(serverWorld, new Vec3(pos.getX(), pos.getY(), pos.getZ()).add(.5, 0, .5), player.getDeltaMovement(), player.getYRot(), player.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND));
                     if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
                     player.getCooldowns().addCooldown(this, 160);
                     player.awardStat(Stats.ITEM_USED.get(this));
@@ -62,8 +61,7 @@ public class ItemTeleportationStar extends ItemMod {
             tooltip.add(LocalizeUtils.i18n(ChatFormatting.WHITE, "teleport.block_position", pos.getX(), pos.getY(), pos.getZ()));
         } super.appendHoverText(stack, context, tooltip, flagIn);
     }
-    @Override
-    public void onDestroyed(ItemEntity itemEntity, DamageSource damageSource) {
+    @Override public void onDestroyed(ItemEntity itemEntity, DamageSource damageSource) {
         itemEntity.level().playSound(null, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), SoundEvents.ENDER_EYE_DEATH, SoundSource.NEUTRAL);
     }
 }

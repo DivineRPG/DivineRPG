@@ -1,10 +1,7 @@
 {
   "values": [
     "divinerpg:tomato_plant",
-    "divinerpg:moonbulb_plant",
-    "divinerpg:pink_glowbone_plant",
-    "divinerpg:purple_glowbone_plant",
-    "divinerpg:sky_plant",
+    "divinerpg:white_mushroom_plant",
     "divinerpg:aquamarine_plant",
     "divinerpg:eucalyptus_plant",
     "divinerpg:firestock_plant",
@@ -13,6 +10,9 @@
     "divinerpg:marsine_plant",
     "divinerpg:pinfly_plant",
     "divinerpg:veilo_plant",
-    "divinerpg:white_mushroom_plant"
+    "divinerpg:moonbulb_plant",
+    "divinerpg:purple_glowbone_plant",
+    "divinerpg:pink_glowbone_plant",
+    "divinerpg:sky_plant"
   ]
 }

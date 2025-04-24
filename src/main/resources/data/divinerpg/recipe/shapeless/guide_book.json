@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:book"
+      "item": "book"
     },
     {
       "item": "divinerpg:divine_sapling"
@@ -10,7 +10,7 @@
   ],
   "result": {
     "id": "patchouli:guide_book",
-    "nbt": {
+    "components": {
       "patchouli:book": "divinerpg:divine"
     },
     "count": 1

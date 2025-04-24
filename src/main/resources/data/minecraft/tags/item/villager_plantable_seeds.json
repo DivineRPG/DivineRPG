@@ -1,13 +1,13 @@
 {
   "values": [
+    "#c:seeds/tomato",
+    "#c:seeds/white_mushroom",
     "#c:seeds/aquamarine",
     "#c:seeds/eucalyptus_root",
     "#c:seeds/hitchak",
     "#c:seeds/lamona",
     "#c:seeds/marsine",
-    "#c:seeds/sky_plant",
-    "#c:seeds/tomato",
     "#c:seeds/veilo",
-    "#c:seeds/white_mushroom"
+    "#c:seeds/sky_plant"
   ]
 }

@@ -1,8 +1,8 @@
 {
   "values": [
+    "divinerpg:skeleton_torch",
     "divinerpg:aqua_torch",
     "divinerpg:arcanium_torch",
-    "divinerpg:eden_torch",
-    "divinerpg:skeleton_torch"
+    "divinerpg:eden_torch"
   ]
 }

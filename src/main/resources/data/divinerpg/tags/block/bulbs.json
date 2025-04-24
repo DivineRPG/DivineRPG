@@ -1,10 +1,10 @@
 {
   "values": [
     "divinerpg:glowsprout_bulb",
-    "divinerpg:slowsprout_bulb",
     "divinerpg:lowsprout_bulb",
-    "minecraft:verdant_froglight",
+    "divinerpg:slowsprout_bulb",
     "minecraft:ochre_froglight",
+    "minecraft:verdant_froglight",
     "minecraft:pearlescent_froglight",
     "minecraft:shroomlight"
   ]

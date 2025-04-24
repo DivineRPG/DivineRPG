@@ -60,7 +60,7 @@ public class BlockGateway extends BaseEntityBlock implements Portal {
     public @Nullable DimensionTransition getPortalDestination(ServerLevel serverLevel, Entity entity, BlockPos blockPos) {
         if(serverLevel.getBlockEntity(blockPos) instanceof PortalBlockEntity portal && portal.hasTargetPos()) {
             ServerLevel targetLevel = portal.targetPosition.level(serverLevel.getServer());
-            if(targetLevel.getBlockState(portal.targetPosition.blockPos().below()).is(TagRegistry.GATEWAY_RECIEVER))
+            if(targetLevel.getBlockState(portal.targetPosition.blockPos().below()).is(TagRegistry.GATEWAY_RECEIVER))
                 return new DimensionTransition(targetLevel, portal.targetPosition.blockPosVec().add(.5, 0, .5), entity.getKnownMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.DO_NOTHING.then(e -> e.level().playSound(null, e.getX(), e.getY(), e.getZ(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.NEUTRAL, .7F, 1F)).then(e -> e.setPortalCooldown(40)));
             //DivineRPG.LOGGER.info("invalid target: " + portal.targetPosition);
         } return null;

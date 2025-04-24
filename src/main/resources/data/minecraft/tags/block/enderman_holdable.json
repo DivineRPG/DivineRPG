@@ -1,12 +1,12 @@
 {
   "values": [
+    "divinerpg:frozen_gravel",
     "divinerpg:arcanite_sand",
     "divinerpg:arcanic_sand",
     "divinerpg:arcanium_rich_sand",
-    "divinerpg:dreamglow",
-    "divinerpg:frozen_gravel",
     "divinerpg:glowsprout",
     "divinerpg:lowsprout",
-    "divinerpg:slowsprout"
+    "divinerpg:slowsprout",
+    "divinerpg:dreamglow"
   ]
 }
