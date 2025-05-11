@@ -2683,6 +2683,8 @@
   "advancement.divinerpg.twilight.purple_planet.desc": "Enter the Apalachia dimension",
   "advancement.divinerpg.twilight.what_have_you_done": "What Have You Done?!",
   "advancement.divinerpg.twilight.what_have_you_done.desc": "Eat a Forbidden Fruit",
+  "advancement.divinerpg.twilight.90_seconds_to_midnight": "90 Seconds To Midnight",
+  "advancement.divinerpg.twilight.90_seconds_to_midnight.desc": "The gaffs on fire, it's too far gone!",
   "advancement.divinerpg.vethea.root": "Vethea",
   "advancement.divinerpg.vethea.root.desc": "Dive into your dreams",
   "advancement.divinerpg.vethea.an_elm_on_nightmare_street": "An Elm on Nightmare Street",
@@ -2930,7 +2932,7 @@
   "book.divinerpg.entry.getting_started.livestock_merchant.1": "The Livestock Merchant offers the following pets as trades: Ehu, Husk, Stone Golem, Smelter, Snapper, White Grizzle and lastly the Brown Grizzle",
 
   "book.divinerpg.entry.twilight.portals.1": "Twilight portals are structures for traveling between the twilight dimensions and the Overworld. All twilight portals are created with at least 10 respective portal blocks in the shape of a nether portal. The four corners of the frame are not required, but portals created by the game always include them, resulting in 4 free/extra portal blocks.",
-  "book.divinerpg.entry.twilight.portals.2": "In order to ignite the portal you need to use the twilight clock on the bottom of the portal. Twilight portals can be activated only in the Overworld or their respective dimension.",
+  "book.divinerpg.entry.twilight.portals.2": "In order to ignite the portal you need to use the time-calibrated frozen clock on the bottom of the portal. Twilight portals can be activated only in the Overworld or their respective dimension.",
   "book.divinerpg.entry.twilight.portals.3": "Activate the portal with a time-calibrated Frozen Clock",
   "book.divinerpg.entry.twilight.eden_portal.1": "To open a rift to Eden, throw a Divine Stone into fire. Right-click the resulting Divine Flame with a Frozen Clock calibrated to midday. Once inside Eden, build a portal frame using Eden Blocks and activate it with the same clock",
   "book.divinerpg.entry.twilight.wildwood_portal.1": "To open a temporary rift to Wildwood, throw a Sunstorm Heart into fire. Then, use a Frozen Clock calibrated to early afternoon to activate the rift. Once inside, build a portal frame using Wildwood Blocks and activate it with the same clock. Souls and fragments can be collected while exploring Wildwood, and hearts are dropped from the $(l:divinerpg:twilight/twilight_bosses#sunstorm)Sunstorm$(/l).",
