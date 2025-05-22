@@ -133,7 +133,16 @@
     "divinerpg:spike_block",
     "divinerpg:steel_door",
     "divinerpg:thermal_vent",
+    "divinerpg:twilight_brick_pressure_plate",
+    "divinerpg:twilight_brick_slab",
+    "divinerpg:twilight_brick_stairs",
+    "divinerpg:twilight_brick_wall",
+    "divinerpg:twilight_bricks",
+    "divinerpg:twilight_pressure_plate",
+    "divinerpg:twilight_slab",
+    "divinerpg:twilight_stairs",
     "divinerpg:twilight_stone",
+    "divinerpg:twilight_wall",
     "divinerpg:workshop_bookcase"
   ]
 }

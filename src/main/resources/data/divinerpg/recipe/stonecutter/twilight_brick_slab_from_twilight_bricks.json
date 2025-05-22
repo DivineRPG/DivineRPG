@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:twilight_bricks"
+  },
+  "result": {
+    "id": "divinerpg:twilight_brick_slab",
+    "count": 2
+  }
+}
