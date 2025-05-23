@@ -1,5 +1,7 @@
 {
   "values": [
+    "divinerpg:arcanite_pressure_plate",
+    "divinerpg:arcanite_tile_pressure_plate",
     "divinerpg:frozen_pressure_plate",
     "divinerpg:cobbled_frozen_pressure_plate",
     "divinerpg:coalstone_pressure_plate",

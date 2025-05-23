@@ -1,5 +1,7 @@
 {
   "values": [
+    "divinerpg:arcanite_button",
+    "divinerpg:arcanite_tile_button",
     "divinerpg:frozen_button",
     "divinerpg:cobbled_frozen_button",
     "divinerpg:frozen_brick_button",

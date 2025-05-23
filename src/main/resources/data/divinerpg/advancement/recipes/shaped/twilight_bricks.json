@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_twilight": {
+    "has_twilight_stone": {
       "conditions": {
         "items": [
           {

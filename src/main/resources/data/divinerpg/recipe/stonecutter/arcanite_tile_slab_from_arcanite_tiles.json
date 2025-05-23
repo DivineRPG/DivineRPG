@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:arcanite_tiles"
+  },
+  "result": {
+    "id": "divinerpg:arcanite_tile_slab",
+    "count": 2
+  }
+}
