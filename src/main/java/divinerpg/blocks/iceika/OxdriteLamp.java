@@ -4,6 +4,7 @@ import divinerpg.blocks.base.BlockMod;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -32,5 +33,9 @@ public class OxdriteLamp extends BlockMod {
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         level.setBlock(pos, state.setValue(BlockStateProperties.POWER, level.getBestNeighborSignal(pos)), 3);
+    }
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return defaultBlockState().setValue(BlockStateProperties.POWER, context.getLevel().getBestNeighborSignal(context.getClickedPos()));
     }
 }
