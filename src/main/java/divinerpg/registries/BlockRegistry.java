@@ -83,6 +83,7 @@ public class BlockRegistry {
     //Moss
     brittleMoss = registerBlock("brittle_moss", BlockBrittleMoss::new),
     arcaniteMoss = registerBlock("arcanite_moss", () -> new BlockModMoss(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(COLOR_LIGHT_BLUE))),
+    snowyMoss = registerBlock("snowy_moss", () -> new GlowLichenBlock(Properties.ofFullCopy(Blocks.GLOW_LICHEN).mapColor(SNOW))),
 
     //Stone & Stuff
     milkStone = registerBlock("milk_stone", () -> new BlockMod(WOOL)),

@@ -1,0 +1,23 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:snowy_moss",
+          "conditions": [
+            {
+              "condition": "match_tool",
+              "predicate": {
+                "items": "#c:tools/shear"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

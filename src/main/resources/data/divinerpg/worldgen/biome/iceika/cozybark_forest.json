@@ -200,9 +200,9 @@
 			"divinerpg:iceika/cozybark_tree",
 			"divinerpg:iceika/cozybark_bush",
 			"divinerpg:iceika/cozybark_stump",
-			"minecraft:glow_lichen",
 			"divinerpg:iceika/cozybark_fern",
-			"divinerpg:iceika/cozybark_grass"
+			"divinerpg:iceika/cozybark_grass",
+			"divinerpg:iceika/glow_lichen"
 		],
 		[],
 		[
@@ -212,7 +212,8 @@
 			"divinerpg:iceika/roofbell",
 			"divinerpg:iceika/crimpetal",
 			"divinerpg:iceika/thermoliage",
-			"divinerpg:iceika/powder_snow"
+			"divinerpg:iceika/powder_snow",
+			"divinerpg:iceika/snowy_moss"
 		]
 	]
 }

@@ -303,6 +303,9 @@
     "divinerpg:brittle_moss": {
       "chance": 0.65
     },
+    "divinerpg:snowy_moss": {
+      "chance": 0.65
+    },
     "divinerpg:arcanite_moss": {
       "chance": 0.65
     },

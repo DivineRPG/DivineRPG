@@ -166,7 +166,7 @@
 			"divinerpg:iceika/brittle_pond",
 			"divinerpg:iceika/brittle_caves_vegetation",
 			"divinerpg:iceika/classic_vines_brittle_caves",
-			"minecraft:glow_lichen"
+			"divinerpg:iceika/glow_lichen"
 		],
 		[],
 		[],
@@ -175,7 +175,8 @@
 			"divinerpg:iceika/icicle"
 		],
 		[
-			"divinerpg:iceika/hanging_icicle"
+			"divinerpg:iceika/hanging_icicle",
+			"divinerpg:iceika/snowy_moss"
 		]
 	]
 }

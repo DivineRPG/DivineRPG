@@ -192,7 +192,7 @@
 		[
 			"minecraft:pile_snow",
 			"divinerpg:iceika/frozen_light",
-			"minecraft:glow_lichen"
+			"divinerpg:iceika/glow_lichen"
 		],
 		[
 			"minecraft:seagrass_cold",
@@ -208,7 +208,8 @@
 		],
 		[
 			"divinerpg:iceika/snow_coverage",
-			"divinerpg:iceika/hanging_icicle"
+			"divinerpg:iceika/hanging_icicle",
+			"divinerpg:iceika/snowy_moss"
 		]
 	]
 }
