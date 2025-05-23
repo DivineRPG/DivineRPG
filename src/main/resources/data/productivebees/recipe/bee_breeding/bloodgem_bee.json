@@ -2,10 +2,8 @@
   "type": "productivebees:bee_breeding",
   "parent1": "productivebees:lapis",
   "parent2": "productivebees:realmite",
-  "offspring": [
-    "productivebees:bloodgem"
-  ],
-  "conditions": [
+  "offspring": "productivebees:bloodgem",
+  "neoforge:conditions": [
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:lapis"
@@ -13,10 +11,6 @@
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:realmite"
-    },
-    {
-      "type": "productivebees:bee_exists",
-      "bee": "productivebees:bloodgem"
     }
   ]
 }

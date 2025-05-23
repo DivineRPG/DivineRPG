@@ -1,12 +1,12 @@
 {
   "type": "productivebees:advanced_beehive",
-  "ingredient": "productivebees:oxdrite",
+  "ingredient": "productivebees:arlemite",
   "results": [
     {
       "item": {
         "type": "productivebees:component",
         "components": {
-          "productivebees:bee_type": "productivebees:oxdrite"
+          "productivebees:bee_type": "productivebees:arlemite"
         },
         "items": "productivebees:configurable_honeycomb"
       }
@@ -21,7 +21,7 @@
   "neoforge:conditions": [
     {
       "type": "productivebees:bee_exists",
-      "bee": "productivebees:oxdrite"
+      "bee": "productivebees:arlemite"
     }
   ]
 }

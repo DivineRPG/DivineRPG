@@ -1,11 +1,11 @@
 {
   "type": "productivebees:bee_conversion",
-  "source": "productivebees:iron",
+  "source": "productivebees:realmite",
   "result": "productivebees:realmite",
   "item": {
-    "item": "divinerpg:realmite"
+    "item": "divinerpg:realmite_block"
   },
-  "conditions": [
+  "neoforge:conditions": [
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:realmite"

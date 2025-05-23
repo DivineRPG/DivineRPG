@@ -1,15 +1,9 @@
 {
   "type": "productivebees:bee_breeding",
-  "parent1": "productivebees:arlemite",
-  "parent2": "productivebees:bloodgem",
-  "offspring": [
-    "productivebees:oxdrite"
-  ],
-  "conditions": [
-    {
-      "type": "productivebees:bee_exists",
-      "bee": "productivebees:oxdrite"
-    },
+  "parent1": "productivebees:bloodgem",
+  "parent2": "productivebees:arlemite",
+  "offspring": "productivebees:oxdrite",
+  "neoforge:conditions": [
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:bloodgem"

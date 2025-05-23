@@ -2224,6 +2224,13 @@
   "entity.divinerpg.zoragon": "Zoragon",
   "entity.divinerpg.zoragon_bomb": "Zoragon Bomb",
 
+  "entity.productivebees.arlemite_bee": "Arlemite Bee",
+  "entity.productivebees.bloodgem_bee": "Bloodgem Bee",
+  "entity.productivebees.realmite_bee": "Realmite Bee",
+  "entity.productivebees.rupee_bee": "Rupee Bee",
+  "entity.productivebees.torridite_bee": "Torridite Bee",
+  "entity.productivebees.oxdrite_bee": "Oxdrite Bee",
+
   "item.divinerpg.dissiment_spawn_egg": "Dissiment Spawn Egg",
   "item.divinerpg.helio_spawn_egg": "Helio Spawn Egg",
   "item.divinerpg.vhraak_spawn_egg": "Vhraak Spawn Egg",

@@ -2,10 +2,8 @@
   "type": "productivebees:bee_breeding",
   "parent1": "productivebees:iron",
   "parent2": "productivebees:realmite",
-  "offspring": [
-    "productivebees:arlemite"
-  ],
-  "conditions": [
+  "offspring": "productivebees:arlemite",
+  "neoforge:conditions": [
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:iron"
@@ -13,10 +11,6 @@
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:realmite"
-    },
-    {
-      "type": "productivebees:bee_exists",
-      "bee": "productivebees:arlemite"
     }
   ]
 }
