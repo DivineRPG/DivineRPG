@@ -1,0 +1,34 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_twilight_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:twilight_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:stonecutter/twilight_brick_wall_from_twilight_bricks"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_twilight_bricks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:stonecutter/twilight_brick_wall_from_twilight_bricks"
+    ]
+  }
+}

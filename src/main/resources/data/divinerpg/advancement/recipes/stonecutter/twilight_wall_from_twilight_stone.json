@@ -1,0 +1,34 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_twilight_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:twilight_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:stonecutter/twilight_wall_from_twilight_stone"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_twilight_stone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:stonecutter/twilight_wall_from_twilight_stone"
+    ]
+  }
+}

@@ -14,13 +14,14 @@ public class ModelEnchantedWarrior extends HumanoidModel<EntityEnchantedWarrior>
 		MeshDefinition meshdefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
 		PartDefinition partdefinition = meshdefinition.getRoot();
 		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartPose zPose = PartPose.ZERO;
 		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(24, 16).addBox(-7, -13, 2, 14, 12, 0, cubeDef)
 		.texOffs(24, 0).addBox(-7, -7, -1, 14, 2, 2, cubeDef)
-		.texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, cubeDef), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("hat", CubeListBuilder.create().texOffs(32, 46).addBox(-4, -8, -4, 8, 8, 8, new CubeDeformation(.5F)), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 16).addBox(-4, -7, -2, 8, 14, 4, cubeDef), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(24, 28).addBox(-3, -2, -2, 4, 14, 4, cubeDef), PartPose.ZERO);
-		partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0, 34).addBox(-1, -2, -2, 4, 14, 4, cubeDef), PartPose.ZERO);
+		.texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("hat", CubeListBuilder.create().texOffs(32, 46).addBox(-4, -8, -4, 8, 8, 8, new CubeDeformation(.5F)), zPose);
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 16).addBox(-4, -7, -2, 8, 14, 4, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(24, 28).addBox(-3, -2, -2, 4, 14, 4, cubeDef), zPose);
+		partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0, 34).addBox(-1, -2, -2, 4, 14, 4, cubeDef), zPose);
 		partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(16, 46).addBox(-2, 0, -2, 4, 14, 4, cubeDef), PartPose.offset(-2, 0, 0));
 		partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(40, 28).addBox(-2, 0, -2, 4, 14, 4, cubeDef), PartPose.offset(2, 0, 0));
 		return LayerDefinition.create(meshdefinition, 64, 64);

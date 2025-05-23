@@ -21,11 +21,12 @@ public class ModelAridWarrior extends HumanoidModel<EntityAridWarrior> {
 		MeshDefinition meshdefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
 		PartDefinition partdefinition = meshdefinition.getRoot();
 		CubeDeformation cubeDef = CubeDeformation.NONE;
-		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, cubeDef), PartPose.ZERO);
+		PartPose zPose = PartPose.ZERO;
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, cubeDef), zPose);
 		head.addOrReplaceChild("right_ear", CubeListBuilder.create().texOffs(29, 46).addBox(0, -5, 0, 0, 6, 6, cubeDef), PartPose.offset(-4, -7, -1));
 		head.addOrReplaceChild("left_ear", CubeListBuilder.create().texOffs(41, 46).addBox(0, -5, 0, 0, 6, 6, cubeDef), PartPose.offset(4, -7, -1));
-		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 16).addBox(-5, -10, -3, 10, 10, 6, cubeDef), PartPose.ZERO);
-		body.addOrReplaceChild("hip", CubeListBuilder.create().texOffs(27, 11).addBox(-5, 0, -2, 10, 4, 5, cubeDef), PartPose.ZERO);
+		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 16).addBox(-5, -10, -3, 10, 10, 6, cubeDef), zPose);
+		body.addOrReplaceChild("hip", CubeListBuilder.create().texOffs(27, 11).addBox(-5, 0, -2, 10, 4, 5, cubeDef), zPose);
 		body.addOrReplaceChild("cloak", CubeListBuilder.create().texOffs(31, 31).addBox(-5, 0, 0, 10, 20, 1, cubeDef), PartPose.offset(0, -10, 3));
 		partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(12, 32).addBox(-2, -1, -1.5F, 3, 14, 3, cubeDef), PartPose.offset(0, 0, .5F));
 		partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0, 32).addBox(-1, -1, -1.5F, 3, 14, 3, cubeDef), PartPose.offset(0, 0, .5F));
