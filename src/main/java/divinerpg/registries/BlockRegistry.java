@@ -80,10 +80,9 @@ public class BlockRegistry {
     //Ice
     glaciline = registerBlock("glaciline", () -> new BlockMod(Properties.ofFullCopy(Blocks.BLUE_ICE).mapColor(COLOR_LIGHT_BLUE).friction(.992F))),
 
-    //Moss
+    //Moss Blocks
     brittleMoss = registerBlock("brittle_moss", BlockBrittleMoss::new),
     arcaniteMoss = registerBlock("arcanite_moss", () -> new BlockModMoss(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(COLOR_LIGHT_BLUE))),
-    snowyMoss = registerBlock("snowy_moss", () -> new GlowLichenBlock(Properties.ofFullCopy(Blocks.GLOW_LICHEN).mapColor(SNOW))),
 
     //Stone & Stuff
     milkStone = registerBlock("milk_stone", () -> new BlockMod(WOOL)),
@@ -662,6 +661,7 @@ public class BlockRegistry {
     smoothGlass = registerBlock("smooth_glass", BlockModGlass::new),
 
     //Plants & Fungi
+    snowyMoss = registerBlock("snowy_moss", () -> new GlowLichenBlock(Properties.ofFullCopy(Blocks.GLOW_LICHEN).mapColor(SNOW))),
     brittleGrass = registerBlock("brittle_grass", () -> new BlockBrittleGrass(Properties.ofFullCopy(Blocks.SEAGRASS))),
     winterberryBush = registerBlock("winterberry_bush", BlockWinterberryBush::new),
     winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
