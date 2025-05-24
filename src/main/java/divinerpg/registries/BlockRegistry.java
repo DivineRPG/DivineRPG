@@ -838,6 +838,7 @@ public class BlockRegistry {
     frostedAllure = registerBlock("frosted_allure", () -> new BlockFrostedAllure(Properties.of()), Rarity.UNCOMMON),
     soulTrap = registerBlock("soul_trap", BlockModSoulTrap::new),
     acceleron = registerBlock("acceleron", BlockAcceleron::new, Rarity.UNCOMMON),
+    graveStone = registerBlock("gravestone", BlockGraveStone::new, Rarity.UNCOMMON),
     robbinHut = registerBlock("robbin_hut", () -> new BlockRobbinHut(Properties.ofFullCopy(Blocks.SPRUCE_PLANKS))),
     robbinNest = registerBlock("robbin_nest", () -> new BlockRobbinNest(Properties.ofFullCopy(Blocks.HAY_BLOCK))),
     elevantium = registerBlock("elevantium", BlockElevantium::new, Rarity.UNCOMMON),

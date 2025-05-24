@@ -199,7 +199,9 @@
 			"minecraft:seagrass_simple"
 		],
 		[],
-		[],
+		[
+			"divinerpg:iceika/gravestone"
+		],
 		[
 			"divinerpg:iceika/icicle",
 			"divinerpg:iceika/streamleaf_tree",
