@@ -1,7 +1,5 @@
 {
   "values": [
-    "divinerpg:arcanite_wall",
-    "divinerpg:arcanite_tile_wall",
     "divinerpg:cobbled_frozen_wall",
     "divinerpg:frozen_brick_wall",
     "divinerpg:cobaltite_wall",
@@ -10,6 +8,8 @@
     "divinerpg:coalstone_brick_wall",
     "divinerpg:polished_coalstone_wall",
     "divinerpg:cut_oxdrite_wall",
+    "divinerpg:arcanite_wall",
+    "divinerpg:arcanite_tile_wall",
     "divinerpg:ancient_brick_wall",
     "divinerpg:ancient_brick_wall_breakable",
     "divinerpg:degraded_brick_wall",

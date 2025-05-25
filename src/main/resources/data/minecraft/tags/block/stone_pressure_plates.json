@@ -1,15 +1,15 @@
 {
   "values": [
-    "divinerpg:arcanite_pressure_plate",
-    "divinerpg:arcanite_tile_pressure_plate",
     "divinerpg:frozen_pressure_plate",
     "divinerpg:cobbled_frozen_pressure_plate",
-    "divinerpg:coalstone_pressure_plate",
     "divinerpg:frozen_brick_pressure_plate",
-    "divinerpg:coalstone_brick_pressure_plate",
     "divinerpg:cobaltite_pressure_plate",
-    "divinerpg:polished_coalstone_pressure_plate",
     "divinerpg:polished_cobaltite_pressure_plate",
+    "divinerpg:coalstone_pressure_plate",
+    "divinerpg:coalstone_brick_pressure_plate",
+    "divinerpg:polished_coalstone_pressure_plate",
+    "divinerpg:arcanite_pressure_plate",
+    "divinerpg:arcanite_tile_pressure_plate",
     "divinerpg:twilight_brick_pressure_plate",
     "divinerpg:twilight_pressure_plate"
   ]

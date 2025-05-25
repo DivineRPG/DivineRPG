@@ -1,7 +1,5 @@
 {
   "values": [
-    "divinerpg:arcanite_button",
-    "divinerpg:arcanite_tile_button",
     "divinerpg:frozen_button",
     "divinerpg:cobbled_frozen_button",
     "divinerpg:frozen_brick_button",
@@ -10,6 +8,8 @@
     "divinerpg:coalstone_button",
     "divinerpg:coalstone_brick_button",
     "divinerpg:polished_coalstone_button",
+    "divinerpg:arcanite_button",
+    "divinerpg:arcanite_tile_button",
     "divinerpg:twilight_button",
     "divinerpg:twilight_brick_button"
   ]

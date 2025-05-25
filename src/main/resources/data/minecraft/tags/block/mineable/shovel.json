@@ -10,11 +10,11 @@
     "#divinerpg:dirts/dream",
     "#divinerpg:dirts/flame",
     "#divinerpg:dirts/ever",
+    "divinerpg:gelidite",
+    "divinerpg:frozen_gravel",
     "divinerpg:arcanite_sand",
     "divinerpg:arcanic_sand",
     "divinerpg:arcanium_rich_sand",
-    "divinerpg:soul_sludge_breakable",
-    "divinerpg:frozen_gravel",
-    "divinerpg:gelidite"
+    "divinerpg:soul_sludge_breakable"
   ]
 }

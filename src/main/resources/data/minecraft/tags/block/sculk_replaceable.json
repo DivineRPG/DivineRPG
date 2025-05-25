@@ -1,18 +1,18 @@
 {
   "values": [
+    "divinerpg:frozen_gravel",
     "divinerpg:arcanite_sand",
     "divinerpg:arcanic_sand",
     "divinerpg:arcanium_rich_sand",
-    "divinerpg:twilight_stone",
-    "divinerpg:arcanite_stone",
-    "divinerpg:coalstone",
+    "divinerpg:soul_sludge_breakable",
+    "divinerpg:divine_rock",
     "divinerpg:frozen_stone",
     "divinerpg:cobbled_frozen_stone",
+    "divinerpg:cobaltite",
+    "divinerpg:coalstone",
+    "divinerpg:arcanite_stone",
+    "divinerpg:twilight_stone",
     "divinerpg:milk_stone",
-    "divinerpg:divine_rock",
-    "divinerpg:dream_stone",
-    "divinerpg:soul_sludge_breakable",
-    "divinerpg:frozen_gravel",
-    "divinerpg:cobaltite"
+    "divinerpg:dream_stone"
   ]
 }

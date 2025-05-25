@@ -14,10 +14,8 @@
                   "condition": "any_of",
                   "terms": [
                     {
-                      "condition": "match_tool",
-                      "predicate": {
-                        "items": "#c:tools/shear"
-                      }
+                      "ability": "shears_dig",
+                      "condition": "neoforge:can_item_perform_ability"
                     },
                     {
                       "condition": "match_tool",
@@ -72,10 +70,8 @@
             "condition": "any_of",
             "terms": [
               {
-                "condition": "match_tool",
-                "predicate": {
-                  "items": "#c:tools/shear"
-                }
+                "ability": "shears_dig",
+                "condition": "neoforge:can_item_perform_ability"
               },
               {
                 "condition": "match_tool",
@@ -140,10 +136,8 @@
             "condition": "any_of",
             "terms": [
               {
-                "condition": "match_tool",
-                "predicate": {
-                  "items": "#c:tools/shear"
-                }
+                "ability": "shears_dig",
+                "condition": "neoforge:can_item_perform_ability"
               },
               {
                 "condition": "match_tool",

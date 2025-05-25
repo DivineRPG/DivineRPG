@@ -1,7 +1,5 @@
 {
   "values": [
-    "divinerpg:red_fence",
-    "divinerpg:green_fence",
-    "divinerpg:blue_fence"
+    "#divinerpg:fences/redstone"
   ]
 }

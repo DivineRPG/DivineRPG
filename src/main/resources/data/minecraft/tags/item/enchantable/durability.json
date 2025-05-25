@@ -1,12 +1,12 @@
 {
   "values": [
-    "#divinerpg:tools/bow",
-    "#divinerpg:tools/cannon",
-    "#divinerpg:tools/phaser",
-    "#divinerpg:tools/serenade",
     "#divinerpg:tools/shield",
+    "#divinerpg:tools/serenade",
+    "#divinerpg:tools/bow",
     "#divinerpg:tools/sound",
     "#divinerpg:tools/staff",
+    "#divinerpg:tools/phaser",
+    "#divinerpg:tools/cannon",
     "divinerpg:maelstrom",
     "divinerpg:staff_of_enrichment",
     "divinerpg:captains_sparkler",

@@ -10,10 +10,8 @@
           "name": "divinerpg:dust_brambles",
           "conditions": [
             {
-              "condition": "match_tool",
-              "predicate": {
-                "items": "#c:tools/shear"
-              }
+              "ability": "shears_dig",
+              "condition": "neoforge:can_item_perform_ability"
             }
           ]
         }

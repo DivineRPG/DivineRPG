@@ -1,13 +1,13 @@
 {
   "values": [
-    "divinerpg:twilight_stone",
-    "divinerpg:arcanite_stone",
-    "divinerpg:coalstone",
+    "divinerpg:divine_rock",
     "divinerpg:frozen_stone",
     "divinerpg:cobbled_frozen_stone",
+    "divinerpg:cobaltite",
+    "divinerpg:coalstone",
+    "divinerpg:arcanite_stone",
+    "divinerpg:twilight_stone",
     "divinerpg:milk_stone",
-    "divinerpg:dream_stone",
-    "divinerpg:divine_rock",
-    "divinerpg:cobaltite"
+    "divinerpg:dream_stone"
   ]
 }

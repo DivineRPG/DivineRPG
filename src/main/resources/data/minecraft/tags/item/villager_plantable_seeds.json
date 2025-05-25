@@ -1,13 +1,13 @@
 {
   "values": [
-    "#c:seeds/tomato",
-    "#c:seeds/white_mushroom",
-    "#c:seeds/aquamarine",
-    "#c:seeds/eucalyptus_root",
-    "#c:seeds/hitchak",
-    "#c:seeds/lamona",
-    "#c:seeds/marsine",
-    "#c:seeds/veilo",
-    "#c:seeds/sky_plant"
+    "#divinerpg:seeds/tomato",
+    "#divinerpg:seeds/white_mushroom",
+    "#divinerpg:seeds/aquamarine",
+    "#divinerpg:seeds/eucalyptus_root",
+    "#divinerpg:seeds/hitchak",
+    "#divinerpg:seeds/lamona",
+    "#divinerpg:seeds/marsine",
+    "#divinerpg:seeds/veilo",
+    "#divinerpg:seeds/sky_plant"
   ]
 }

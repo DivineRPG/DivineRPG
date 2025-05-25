@@ -1,7 +1,5 @@
 {
   "values": [
-    "divinerpg:arcanite_stairs",
-    "divinerpg:arcanite_tile_stairs",
     "divinerpg:frozen_stairs",
     "divinerpg:cobbled_frozen_stairs",
     "divinerpg:frozen_brick_stairs",
@@ -11,6 +9,8 @@
     "divinerpg:coalstone_brick_stairs",
     "divinerpg:polished_coalstone_stairs",
     "divinerpg:cut_oxdrite_stairs",
+    "divinerpg:arcanite_stairs",
+    "divinerpg:arcanite_tile_stairs",
     "divinerpg:ancient_brick_stairs",
     "divinerpg:ancient_brick_stairs_breakable",
     "divinerpg:degraded_brick_stairs",

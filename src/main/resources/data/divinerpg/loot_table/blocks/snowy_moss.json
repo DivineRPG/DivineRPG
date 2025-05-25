@@ -2,22 +2,114 @@
   "type": "block",
   "pools": [
     {
-      "rolls": 1,
       "bonus_rolls": 0,
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:snowy_moss",
           "conditions": [
             {
-              "condition": "match_tool",
-              "predicate": {
-                "items": "#c:tools/shear"
-              }
+              "ability": "shears_dig",
+              "condition": "neoforge:can_item_perform_ability"
             }
-          ]
+          ],
+          "functions": [
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "divinerpg:snowy_moss",
+                  "condition": "block_state_property",
+                  "properties": {
+                    "down": "true"
+                  }
+                }
+              ],
+              "count": 1,
+              "function": "set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "divinerpg:snowy_moss",
+                  "condition": "block_state_property",
+                  "properties": {
+                    "up": "true"
+                  }
+                }
+              ],
+              "count": 1,
+              "function": "set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "divinerpg:snowy_moss",
+                  "condition": "block_state_property",
+                  "properties": {
+                    "north": "true"
+                  }
+                }
+              ],
+              "count": 1,
+              "function": "set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "divinerpg:snowy_moss",
+                  "condition": "block_state_property",
+                  "properties": {
+                    "south": "true"
+                  }
+                }
+              ],
+              "count": 1,
+              "function": "set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "divinerpg:snowy_moss",
+                  "condition": "block_state_property",
+                  "properties": {
+                    "west": "true"
+                  }
+                }
+              ],
+              "count": 1,
+              "function": "set_count"
+            },
+            {
+              "add": true,
+              "conditions": [
+                {
+                  "block": "divinerpg:snowy_moss",
+                  "condition": "block_state_property",
+                  "properties": {
+                    "east": "true"
+                  }
+                }
+              ],
+              "count": 1,
+              "function": "set_count"
+            },
+            {
+              "add": true,
+              "count": -1,
+              "function": "set_count"
+            },
+            {
+              "function": "explosion_decay"
+            }
+          ],
+          "name": "divinerpg:snowy_moss"
         }
-      ]
+      ],
+      "rolls": 1
     }
   ]
 }

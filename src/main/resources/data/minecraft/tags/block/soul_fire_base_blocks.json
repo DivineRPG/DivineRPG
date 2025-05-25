@@ -1,11 +1,11 @@
 {
   "values": [
-    "divinerpg:soul_sludge_breakable",
-    "divinerpg:soul_sludge",
-    "divinerpg:arcanite_stone",
     "divinerpg:arcanite_sand",
     "divinerpg:arcanic_sand",
     "divinerpg:arcanium_rich_sand",
+    "divinerpg:soul_sludge",
+    "divinerpg:soul_sludge_breakable",
+    "divinerpg:arcanite_stone",
     "divinerpg:raw_arcanium",
     "divinerpg:arcanium_block"
   ]

@@ -85,7 +85,6 @@ public class BlockRegistry {
     arcaniteMoss = registerBlock("arcanite_moss", () -> new BlockModMoss(Properties.ofFullCopy(Blocks.MOSS_BLOCK).mapColor(COLOR_LIGHT_BLUE))),
 
     //Stone & Stuff
-    milkStone = registerBlock("milk_stone", () -> new BlockMod(WOOL)),
     frozenStone = registerBlock("frozen_stone", () -> new BlockMod(GLOW_LICHEN)),
     frozenStairs = registerBlock("frozen_stairs", () -> new BlockModStairs(frozenStone.get())),
     frozenSlab = registerBlock("frozen_slab", () -> new BlockModSlab(frozenStone.get())),
@@ -129,6 +128,7 @@ public class BlockRegistry {
     twilightWall = registerBlock("twilight_wall", () -> new BlockModWall(twilightStone.get())),
     twilightPressurePlate = registerBlock("twilight_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, TERRACOTTA_LIGHT_BLUE, BlockSetType.STONE)),
     twilightButton = registerBlock("twilight_button", BlockModButton::new),
+    milkStone = registerBlock("milk_stone", () -> new BlockMod(WOOL)),
     divineMossStone = registerBlock("divine_moss_stone", () -> new BlockMod(STONE, 2, 6)),
     divineRock = registerBlock("divine_rock", () -> new BlockMod(TERRACOTTA_YELLOW)),
     everstone = registerBlock("everstone", () -> new BlockModUnbreakable(PLANT)),
@@ -142,10 +142,10 @@ public class BlockRegistry {
     firelight = registerBlock("firelight", () -> new BlockLightCrystal(COLOR_BLUE)),
 
     //Ores
-    arlemiteOre = registerBlock("arlemite_ore", () -> new BlockMod(STONE, 3, 3)),
-    arlemiteOreDeepslate = registerBlock("arlemite_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
     realmiteOre = registerBlock("realmite_ore", () -> new BlockMod(STONE, 3, 3)),
     realmiteOreDeepslate = registerBlock("realmite_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
+    arlemiteOre = registerBlock("arlemite_ore", () -> new BlockMod(STONE, 3, 3)),
+    arlemiteOreDeepslate = registerBlock("arlemite_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
     rupeeOre  = registerBlock("rupee_ore", () -> new BlockMod(STONE, 3, 3)),
     rupeeOreDeepslate = registerBlock("rupee_ore_deepslate", () -> new BlockMod(DEEPSLATE, 4.5F, 3, SoundType.DEEPSLATE, NoteBlockInstrument.BASEDRUM)),
     bloodgemOre	= registerBlock("bloodgem_ore", () -> new DropExperienceBlock(UniformInt.of(3, 7), Properties.ofFullCopy(Blocks.NETHER_GOLD_ORE))),
@@ -160,10 +160,10 @@ public class BlockRegistry {
     mortumOre = registerBlock("mortum_ore", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE, 3, 32)),
 
     //Compressed Ore Blocks
-    rawArlemiteBlock= registerBlock("raw_arlemite_block",() -> new BlockMod(COLOR_LIGHT_GREEN, 5, 6)),
-    arlemiteBlock	= registerBlock("arlemite_block",	() -> new BlockMod(COLOR_LIGHT_GREEN, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
     rawRealmiteBlock= registerBlock("raw_realmite_block",() -> new BlockMod(COLOR_ORANGE, 5, 6)),
     realmiteBlock	= registerBlock("realmite_block",	() -> new BlockMod(COLOR_ORANGE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+    rawArlemiteBlock= registerBlock("raw_arlemite_block",() -> new BlockMod(COLOR_LIGHT_GREEN, 5, 6)),
+    arlemiteBlock	= registerBlock("arlemite_block",	() -> new BlockMod(COLOR_LIGHT_GREEN, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
     rawRupeeBlock	= registerBlock("raw_rupee_block",	() -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6)),
     rupeeBlock		= registerBlock("rupee_block",		() -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
     shadowBlock = registerBlockAndItem("shadow_block", () -> new BlockMod(COLOR_BLACK, 5, 6, SoundType.NETHERITE_BLOCK, NoteBlockInstrument.HARP), ShadowBlockItem::new),
@@ -661,11 +661,11 @@ public class BlockRegistry {
     smoothGlass = registerBlock("smooth_glass", BlockModGlass::new),
 
     //Plants & Fungi
-    snowyMoss = registerBlock("snowy_moss", () -> new GlowLichenBlock(Properties.ofFullCopy(Blocks.GLOW_LICHEN).mapColor(SNOW))),
     brittleGrass = registerBlock("brittle_grass", () -> new BlockBrittleGrass(Properties.ofFullCopy(Blocks.SEAGRASS))),
     winterberryBush = registerBlock("winterberry_bush", BlockWinterberryBush::new),
     winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
     winterberryVinesHead = registerBlock("winterberry_vines_head", () -> new BlockWinterberryVinesHead(Properties.ofFullCopy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
+    snowyMoss = registerBlock("snowy_moss", () -> new GlowLichenBlock(Properties.ofFullCopy(Blocks.GLOW_LICHEN).mapColor(SNOW))),
     crimpetal = registerBlock("crimpetal", () -> new BlockModFlower(FIRE_RESISTANCE, 4, COLOR_MAGENTA)),
     roofbell = registerBlock("roofbell", () -> new BlockModFlower(POISON, 11, COLOR_PINK)),
     winterbloom = registerBlock("winterbloom", () -> new BlockModFlower(LEVITATION, 8, SNOW)),
