@@ -1,12 +1,12 @@
 {
   "values": [
-    "#c:dusts/arlemite",
-    "#c:dusts/rupee",
-    "#c:dusts/shadow",
-    "#c:dusts/eden",
-    "#c:dusts/wildwood",
-    "#c:dusts/apalachia",
-    "#c:dusts/skythern",
-    "#c:dusts/mortum"
+    "#divinerpg:dusts/arlemite",
+    "#divinerpg:dusts/rupee",
+    "#divinerpg:dusts/shadow",
+    "#divinerpg:dusts/eden",
+    "#divinerpg:dusts/wildwood",
+    "#divinerpg:dusts/apalachia",
+    "#divinerpg:dusts/skythern",
+    "#divinerpg:dusts/mortum"
   ]
 }

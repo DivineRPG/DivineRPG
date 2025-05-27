@@ -1,9 +1,9 @@
 {
   "values": [
-    "#c:fragments/eden",
-    "#c:fragments/wildwood",
-    "#c:fragments/apalachia",
-    "#c:fragments/skythern",
-    "#c:fragments/mortum"
+    "#divinerpg:fragments/eden",
+    "#divinerpg:fragments/wildwood",
+    "#divinerpg:fragments/apalachia",
+    "#divinerpg:fragments/skythern",
+    "#divinerpg:fragments/mortum"
   ]
 }

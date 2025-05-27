@@ -18,7 +18,7 @@
     "divinerpg:demon_brambles",
     "divinerpg:weedwood_vine",
     "divinerpg:blossomed_weedwood_vine",
-    "minecraft:snow_block",
-    "minecraft:snow"
+    "snow_block",
+    "snow"
   ]
 }

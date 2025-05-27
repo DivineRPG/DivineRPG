@@ -3,9 +3,9 @@
     "divinerpg:glowsprout_bulb",
     "divinerpg:lowsprout_bulb",
     "divinerpg:slowsprout_bulb",
-    "minecraft:ochre_froglight",
-    "minecraft:verdant_froglight",
-    "minecraft:pearlescent_froglight",
-    "minecraft:shroomlight"
+    "ochre_froglight",
+    "verdant_froglight",
+    "pearlescent_froglight",
+    "shroomlight"
   ]
 }

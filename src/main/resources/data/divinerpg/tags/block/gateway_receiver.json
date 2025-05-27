@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:lodestone",
-    "minecraft:respawn_anchor",
+    "lodestone",
+    "respawn_anchor",
     "divinerpg:arcanium_power",
     "divinerpg:arcanium_power_breakable",
     "divinerpg:gateway"

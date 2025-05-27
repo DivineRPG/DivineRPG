@@ -1,8 +1,8 @@
 {
   "values": [
-    "#c:chests/eden",
-    "#c:chests/bone",
-    "#c:chests/present",
-    "#c:chests/frosted"
+    "divinerpg:bone_chest",
+    "divinerpg:frosted_chest",
+    "divinerpg:present_box",
+    "divinerpg:eden_chest"
   ]
 }

@@ -1,6 +1,6 @@
 {
   "values": [
-    "#c:bookshelves/dungeon",
-    "#c:bookshelves/workshop"
+    "divinerpg:workshop_bookcase",
+    "divinerpg:dungeon_bookshelf"
   ]
 }

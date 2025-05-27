@@ -1,8 +1,8 @@
 {
   "values": [
-    "#c:nuggets/arlemite",
-    "#c:nuggets/realmite",
-    "#c:nuggets/rupee",
-    "#c:nuggets/torridite"
+    "#divinerpg:nuggets/realmite",
+    "#divinerpg:nuggets/arlemite",
+    "#divinerpg:nuggets/rupee",
+    "#divinerpg:nuggets/torridite"
   ]
 }

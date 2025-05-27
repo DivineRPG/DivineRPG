@@ -1,17 +1,17 @@
 {
   "values": [
-    "#c:crops/tomato",
-    "#c:crops/moonbulb",
-    "#c:crops/pink_glowbone",
-    "#c:crops/purple_glowbone",
-    "#c:crops/sky_flower",
-    "#c:crops/aquamarine",
-    "#c:crops/firestock",
-    "#c:crops/hitchak",
-    "#c:crops/lamona",
-    "#c:crops/marsine",
-    "#c:crops/pinfly",
-    "#c:crops/veilo",
-    "#c:crops/white_mushroom"
+    "#divinerpg:crops/tomato",
+    "#divinerpg:crops/white_mushroom",
+    "#divinerpg:crops/aquamarine",
+    "#divinerpg:crops/firestock",
+    "#divinerpg:crops/hitchak",
+    "#divinerpg:crops/lamona",
+    "#divinerpg:crops/marsine",
+    "#divinerpg:crops/pinfly",
+    "#divinerpg:crops/veilo",
+    "#divinerpg:crops/moonbulb",
+    "#divinerpg:crops/purple_glowbone",
+    "#divinerpg:crops/pink_glowbone",
+    "#divinerpg:crops/sky_flower"
   ]
 }
