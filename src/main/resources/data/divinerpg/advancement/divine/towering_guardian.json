@@ -1,15 +1,15 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "divinerpg:divine/devoid_of_light",
   "display": {
     "icon": {
       "id": "divinerpg:sandslash"
     },
     "frame": "goal",
     "title": {
-      "translate": "advancement.divinerpg.overworld.towering_guardian"
+      "translate": "advancement.divinerpg.divine.towering_guardian"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.towering_guardian.desc"
+      "translate": "advancement.divinerpg.divine.towering_guardian.desc"
     }
   },
   "criteria": {

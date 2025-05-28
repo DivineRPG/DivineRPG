@@ -1,15 +1,16 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "adventure/root",
   "display": {
     "icon": {
       "id": "skeleton_skull"
     },
     "title": {
-      "translate": "advancement.divinerpg.overworld.bad_idea"
+      "translate": "advancement.divinerpg.adventure.bad_idea"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.bad_idea.desc"
+      "translate": "advancement.divinerpg.adventure.bad_idea.desc"
     },
+    "hidden": true,
     "announce_to_chat": false,
     "show_toast": false
   },

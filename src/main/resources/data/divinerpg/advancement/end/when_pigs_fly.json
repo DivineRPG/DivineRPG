@@ -12,9 +12,6 @@
       "translate": "advancement.divinerpg.overworld.when_pigs_fly.desc"
     }
   },
-  "rewards": {
-    "experience": 200
-  },
   "criteria": {
     "get_angelic_armor": {
       "trigger": "inventory_changed",
@@ -35,5 +32,8 @@
         ]
       }
     }
+  },
+  "rewards": {
+    "experience": 200
   }
 }

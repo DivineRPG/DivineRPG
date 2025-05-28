@@ -16,14 +16,11 @@ public class RenderHellPig extends MobRenderer<EntityDivineTameable, EntityModel
             hellPigLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig.png"),
             madHellPigLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_mad.png"),
             tamedHellPigLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_tamed.png");
-
     public RenderHellPig(Context context) {
-        super(context, new ModelHellPig<>(context), 0.7F);
-        this.addLayer(new PetCollarLayer(this));
+        super(context, new ModelHellPig<>(context), .7F);
+        addLayer(new PetCollarLayer(this));
     }
-
-    @Override
-    public ResourceLocation getTextureLocation(EntityDivineTameable entity) {
+    @Override public ResourceLocation getTextureLocation(EntityDivineTameable entity) {
         return entity.isTame() ? tamedHellPigLoc : (entity.isAngry() ? madHellPigLoc : hellPigLoc);
     }
 }

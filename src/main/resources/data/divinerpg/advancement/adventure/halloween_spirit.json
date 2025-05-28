@@ -1,14 +1,14 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "adventure/trade",
   "display": {
     "icon": {
       "id": "divinerpg:scythe"
     },
     "title": {
-      "translate": "advancement.divinerpg.overworld.halloween_spirit"
+      "translate": "advancement.divinerpg.adventure.halloween_spirit"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.halloween_spirit.desc"
+      "translate": "advancement.divinerpg.adventure.halloween_spirit.desc"
     }
   },
   "criteria": {

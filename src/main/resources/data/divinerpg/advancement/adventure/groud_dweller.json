@@ -1,0 +1,26 @@
+{
+  "parent": "divinerpg:adventure/earthbound",
+  "display": {
+    "icon": {
+      "id": "divinerpg:terran_phaser"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.ground_dweller"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.adventure.ground_dweller.desc"
+    }
+  },
+  "criteria": {
+    "get_terran_phaser": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:terran_phaser"
+          }
+        ]
+      }
+    }
+  }
+}

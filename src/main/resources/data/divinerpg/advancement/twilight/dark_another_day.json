@@ -1,8 +1,8 @@
 {
-  "parent": "divinerpg:twilight/observer_of_the_skies",
+  "parent": "divinerpg:twilight/glowing_death",
   "display": {
     "icon": {
-      "id": "divinerpg:mortum_block"
+      "id": "divinerpg:mortum_log"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.dark_another_day"

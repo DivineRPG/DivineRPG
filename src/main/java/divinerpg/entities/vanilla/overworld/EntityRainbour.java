@@ -34,7 +34,7 @@ public class EntityRainbour extends EntityDivineFlyingMonster implements Neutral
     @Override public boolean isPreventingPlayerRest(Player player) {return this.isAngryAt(player);}
     @Override public void aiStep() {
         super.aiStep();
-        if(!level().isClientSide) updatePersistentAnger((ServerLevel)level(), true);
+        if(!level().isClientSide) updatePersistentAnger((ServerLevel) level(), true);
     }
     @Override public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);

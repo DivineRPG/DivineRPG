@@ -1,0 +1,22 @@
+{
+  "parent": "divinerpg:twilight/sky_fall",
+  "display": {
+    "icon": {
+      "id": "feather"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.yippie.sky_fall"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.yippie.sky_fall.desc"
+    }
+  },
+  "criteria": {
+    "enter_sky_fire": {
+      "trigger": "enter_block",
+      "conditions": {
+        "block": "divinerpg:sky_fire"
+      }
+    }
+  }
+}

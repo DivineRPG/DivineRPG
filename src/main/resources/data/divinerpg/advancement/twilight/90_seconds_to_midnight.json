@@ -2,7 +2,10 @@
   "parent": "divinerpg:twilight/root",
   "display": {
     "icon": {
-      "id": "divinerpg:frozen_clock"
+      "id": "divinerpg:frozen_clock",
+      "components": {
+        "divinerpg:variant": 4
+      }
     },
     "frame": "goal",
     "title": {

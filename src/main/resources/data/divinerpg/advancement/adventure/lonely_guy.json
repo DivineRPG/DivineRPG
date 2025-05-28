@@ -1,14 +1,14 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "adventure/trade",
   "display": {
     "icon": {
       "id": "divinerpg:realmite_pickaxe"
     },
     "title": {
-      "translate": "advancement.divinerpg.overworld.lonely_guy"
+      "translate": "advancement.divinerpg.adventure.lonely_guy"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.lonely_guy.desc"
+      "translate": "advancement.divinerpg.adventure.lonely_guy.desc"
     }
   },
   "criteria": {

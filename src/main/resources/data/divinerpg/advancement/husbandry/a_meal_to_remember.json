@@ -1,14 +1,14 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "husbandry/plant_seed",
   "display": {
     "icon": {
       "id": "divinerpg:chicken_dinner"
     },
     "title": {
-      "translate": "advancement.divinerpg.overworld.a_meal_to_remember"
+      "translate": "advancement.divinerpg.husbandry.a_meal_to_remember"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.a_meal_to_remember.desc"
+      "translate": "advancement.divinerpg.husbandry.a_meal_to_remember.desc"
     }
   },
   "criteria": {

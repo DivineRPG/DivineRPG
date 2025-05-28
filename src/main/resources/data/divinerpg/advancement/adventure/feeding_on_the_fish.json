@@ -1,14 +1,14 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "adventure/root",
   "display": {
     "icon": {
       "id": "divinerpg:shark_fin"
     },
     "title": {
-      "translate": "advancement.divinerpg.overworld.feeding_on_the_fish"
+      "translate": "advancement.divinerpg.adventure.feeding_on_the_fish"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.feeding_on_the_fish.desc"
+      "translate": "advancement.divinerpg.adventure.feeding_on_the_fish.desc"
     }
   },
   "criteria": {

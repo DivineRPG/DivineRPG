@@ -1,0 +1,20 @@
+{
+  "parent": "divinerpg:divine/temporal_recalibration",
+  "display": {
+    "icon": {
+      "id": "bone"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.oops"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.divine.oops.desc"
+    },
+    "hidden": true
+  },
+  "criteria": {
+    "explode_rift": {
+      "trigger": "impossible"
+    }
+  }
+}

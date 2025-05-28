@@ -12,9 +12,6 @@
       "translate": "advancement.divinerpg.iceika.explore_iceika.desc"
     }
   },
-  "rewards": {
-    "experience": 500
-  },
   "criteria": {
     "boneyard": {
       "trigger": "location",
@@ -226,5 +223,8 @@
         }
       }
     }
+  },
+  "rewards": {
+    "experience": 500
   }
 }

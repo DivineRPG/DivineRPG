@@ -1,0 +1,26 @@
+{
+  "parent": "nether/root",
+  "display": {
+    "icon": {
+      "id": "divinerpg:torridite_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.nether.the_original"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.nether.the_original.desc"
+    }
+  },
+  "criteria": {
+    "get_torridite_ingot": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:torridite_ingot"
+          }
+        ]
+      }
+    }
+  }
+}

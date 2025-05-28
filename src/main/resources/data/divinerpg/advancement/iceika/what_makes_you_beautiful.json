@@ -12,9 +12,6 @@
       "translate": "advancement.divinerpg.iceika.what_makes_you_beautiful.desc"
     }
   },
-  "rewards": {
-    "experience": 50
-  },
   "criteria": {
     "have_seng_armor": {
       "trigger": "inventory_changed",
@@ -35,5 +32,8 @@
         ]
       }
     }
+  },
+  "rewards": {
+    "experience": 50
   }
 }

@@ -1,19 +1,16 @@
 {
-  "parent": "divinerpg:overworld/a_divine_plan",
+  "parent": "divinerpg:divine/a_divine_plan",
   "display": {
     "icon": {
       "id": "divinerpg:divine_helmet"
     },
     "frame": "challenge",
     "title": {
-      "translate": "advancement.divinerpg.overworld.attempt_at_ascension"
+      "translate": "advancement.divinerpg.divine.attempt_at_ascension"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.attempt_at_ascension.desc"
+      "translate": "advancement.divinerpg.divine.attempt_at_ascension.desc"
     }
-  },
-  "rewards": {
-    "experience": 500
   },
   "criteria": {
     "divine_helmet": {
@@ -106,5 +103,8 @@
         ]
       }
     }
+  },
+  "rewards": {
+    "experience": 500
   }
 }

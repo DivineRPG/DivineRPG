@@ -2,7 +2,7 @@
   "parent": "divinerpg:twilight/root",
   "display": {
     "icon": {
-      "id": "divinerpg:eden_block"
+      "id": "divinerpg:eden_log"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.1001_possibilities"

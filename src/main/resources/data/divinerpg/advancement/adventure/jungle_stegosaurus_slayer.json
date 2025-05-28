@@ -1,14 +1,14 @@
 {
-  "parent": "divinerpg:overworld/root",
+  "parent": "adventure/root",
   "display": {
     "icon": {
       "id": "divinerpg:jungle_shards"
     },
     "title": {
-      "translate": "advancement.divinerpg.overworld.jungle_stegosaurus_slayer"
+      "translate": "advancement.divinerpg.adventure.jungle_stegosaurus_slayer"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.jungle_stegosaurus_slayer.desc"
+      "translate": "advancement.divinerpg.adventure.jungle_stegosaurus_slayer.desc"
     }
   },
   "criteria": {

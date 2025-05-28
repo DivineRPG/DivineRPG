@@ -1,8 +1,8 @@
 {
-  "parent": "divinerpg:twilight/archaic_bowman",
+  "parent": "divinerpg:twilight/sky_fall",
   "display": {
     "icon": {
-      "id": "divinerpg:skythern_block"
+      "id": "divinerpg:skythern_log"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.colourless_land"

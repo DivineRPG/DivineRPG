@@ -5,10 +5,10 @@
       "id": "divinerpg:rupee_shickaxe"
     },
     "title": {
-      "translate": "advancement.divinerpg.overworld.root"
+      "translate": "advancement.divinerpg.divine.root"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.root.desc"
+      "translate": "advancement.divinerpg.divine.root.desc"
     },
     "announce_to_chat": false,
     "show_toast": false
@@ -20,5 +20,10 @@
         "dimension": "overworld"
       }
     }
+  },
+  "rewards": {
+    "loot": [
+      "divinerpg:patchouli"
+    ]
   }
 }

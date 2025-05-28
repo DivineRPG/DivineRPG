@@ -12,9 +12,6 @@
       "translate": "advancement.divinerpg.vethea.everlasting.desc"
     }
   },
-  "rewards": {
-    "experience": 500
-  },
   "criteria": {
     "obtain_everbright": {
       "trigger": "inventory_changed",
@@ -66,5 +63,8 @@
         ]
       }
     }
+  },
+  "rewards": {
+    "experience": 500
   }
 }

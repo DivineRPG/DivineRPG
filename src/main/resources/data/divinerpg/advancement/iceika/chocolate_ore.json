@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "get_oxdrite": {
+    "get_oxdrite_ingot": {
       "trigger": "inventory_changed",
       "conditions": {
         "items": [

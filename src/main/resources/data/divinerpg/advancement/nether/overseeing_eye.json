@@ -1,5 +1,5 @@
 {
-  "parent": "nether/root",
+  "parent": "divinerpg:nether/pain_in_the_bar",
   "display": {
     "icon": {
       "id": "divinerpg:soulfire_stone"

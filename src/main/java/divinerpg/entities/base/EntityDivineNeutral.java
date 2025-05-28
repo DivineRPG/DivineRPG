@@ -32,7 +32,7 @@ public abstract class EntityDivineNeutral extends EntityDivineMonster implements
     @Override public boolean isPreventingPlayerRest(Player player) {return isAngryAt(player);}
     @Override public void aiStep() {
         super.aiStep();
-        if(!level().isClientSide) updatePersistentAnger((ServerLevel)level(), true);
+        if(!level().isClientSide) updatePersistentAnger((ServerLevel) level(), true);
     }
     @Override public void startPersistentAngerTimer() {setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(random));}
     @Override public void setRemainingPersistentAngerTime(int time) {AttachmentRegistry.ANGER_TIME.set(this, time);}

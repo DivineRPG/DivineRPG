@@ -13,7 +13,7 @@
   },
   "criteria": {
     "mammoth": {
-      "trigger": "minecraft:bred_animals",
+      "trigger": "bred_animals",
       "conditions": {
         "child": {
           "type": "divinerpg:mamoth"

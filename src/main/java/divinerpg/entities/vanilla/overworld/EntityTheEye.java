@@ -19,7 +19,7 @@ import net.minecraft.world.phys.Vec3;
 import static divinerpg.registries.SoundRegistry.*;
 
 public class EntityTheEye extends EntityDivineMonster {
-	public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "overworld/eye_of_evil");
+	public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "adventure/eye_of_evil");
     public EntityTheEye(EntityType<? extends EntityTheEye> type, Level level) {super(type, level);}
 	@Override protected SoundEvent getAmbientSound() {return THE_EYE.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return THE_EYE_HURT.get();}
@@ -27,14 +27,12 @@ public class EntityTheEye extends EntityDivineMonster {
     @Override protected void playStepSound(BlockPos pos, BlockState state) {}
     @Override public boolean isSteppingCarefully() {return true;}
 
-    @Override
-    protected void registerGoals() {
+    @Override protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64.0F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 64));
     }
 
-    @Override
-    public void tick() {
+    @Override public void tick() {
         super.tick();
         LivingEntity entity = this.getTarget();
         if(entity instanceof ServerPlayer s && (isLookingAt(this, entity) || isLookingAt(entity, this))) {

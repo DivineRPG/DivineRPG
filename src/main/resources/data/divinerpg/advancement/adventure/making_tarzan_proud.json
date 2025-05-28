@@ -1,0 +1,26 @@
+{
+  "parent": "divinerpg:adventure/jungle_stegosaurus_slayer",
+  "display": {
+    "icon": {
+      "id": "divinerpg:grappling_hook"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.making_tarzan_proud"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.adventure.making_tarzan_proud.desc"
+    }
+  },
+  "criteria": {
+    "get_grappling_hook": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:grappling_hook"
+          }
+        ]
+      }
+    }
+  }
+}

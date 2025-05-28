@@ -1,19 +1,19 @@
 {
-  "parent": "divinerpg:overworld/towering_guardian",
+  "parent": "divinerpg:divine/towering_guardian",
   "display": {
     "icon": {
       "id": "divinerpg:divine_sword"
     },
     "title": {
-      "translate": "advancement.divinerpg.overworld.a_divine_plan"
+      "translate": "advancement.divinerpg.divine.a_divine_plan"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.a_divine_plan.desc"
+      "translate": "advancement.divinerpg.divine.a_divine_plan.desc"
     }
   },
   "criteria": {
     "craft_divine_sword": {
-      "trigger": "minecraft:inventory_changed",
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {

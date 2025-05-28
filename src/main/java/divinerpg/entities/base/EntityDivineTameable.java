@@ -72,7 +72,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     }
     @Override public void aiStep() {
         super.aiStep();
-        if(!level().isClientSide()) updatePersistentAnger((ServerLevel)level(), true);
+        if(!level().isClientSide()) updatePersistentAnger((ServerLevel) level(), true);
     }
     @Override
     public void onAddedToLevel() {
