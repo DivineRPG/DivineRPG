@@ -13,7 +13,7 @@
   },
   "criteria": {
     "look_into_the_eye": {
-      "trigger": "divinerpg:eye"
+      "trigger": "minecraft:impossible"
     }
   }
 }

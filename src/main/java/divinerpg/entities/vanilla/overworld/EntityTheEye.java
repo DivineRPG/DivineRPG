@@ -1,16 +1,15 @@
 package divinerpg.entities.vanilla.overworld;
 
+import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineMonster;
-import divinerpg.registries.TriggerRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -36,9 +35,9 @@ public class EntityTheEye extends EntityDivineMonster {
     public void tick() {
         super.tick();
         LivingEntity entity = this.getTarget();
-        if(entity instanceof ServerPlayer && (isLookingAt(this, entity) || isLookingAt(entity, this))) {
+        if(entity instanceof ServerPlayer s && (isLookingAt(this, entity) || isLookingAt(entity, this))) {
             entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 0, false, true));
-            TriggerRegistry.EYE.get().trigger((ServerPlayer) entity, this);
+            s.getAdvancements().award(((ServerLevel) level()).getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "overworld/eye_of_evil")), "look_into_the_eye");
         }
     }
 

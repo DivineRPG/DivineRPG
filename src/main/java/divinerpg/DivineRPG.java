@@ -46,7 +46,6 @@ public class DivineRPG {
         CreativeTabRegistry.CREATIVE_MODE_TABS.register(bus);
         ArmorMaterialRegistry.ARMOR_MATERIALS.register(bus);
         AttachmentRegistry.ATTACHMENT_TYPES.register(bus);
-        TriggerRegistry.TRIGGERS.register(bus);
         PlacementModifierRegistry.PLACEMENT_MODIFIER.register(bus);
         EventRegistry.init();
         NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
