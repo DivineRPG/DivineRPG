@@ -2,6 +2,7 @@ package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineMonster;
+import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.*;
@@ -18,7 +19,8 @@ import net.minecraft.world.phys.Vec3;
 import static divinerpg.registries.SoundRegistry.*;
 
 public class EntityTheEye extends EntityDivineMonster {
-	public EntityTheEye(EntityType<? extends EntityTheEye> type, Level level) {super(type, level);}
+	public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "overworld/eye_of_evil");
+    public EntityTheEye(EntityType<? extends EntityTheEye> type, Level level) {super(type, level);}
 	@Override protected SoundEvent getAmbientSound() {return THE_EYE.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return THE_EYE_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return THE_EYE_HURT.get();}
@@ -37,7 +39,7 @@ public class EntityTheEye extends EntityDivineMonster {
         LivingEntity entity = this.getTarget();
         if(entity instanceof ServerPlayer s && (isLookingAt(this, entity) || isLookingAt(entity, this))) {
             entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 0, false, true));
-            s.getAdvancements().award(((ServerLevel) level()).getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "overworld/eye_of_evil")), "look_into_the_eye");
+            Utils.awardAdvancement(((ServerLevel) level()).getServer(), s, ADVANCEMENT, "look_into_the_eye");
         }
     }
 

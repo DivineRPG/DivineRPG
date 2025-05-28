@@ -17,7 +17,9 @@ import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -170,8 +172,8 @@ public class Utils {
 		MutableBlockPos pos = new MutableBlockPos(x, y, z);
 		BlockState state;
 		while((state = level.getBlockState(pos)).is(BlockTags.LEAVES) || state.is(BlockTags.SNOW)) pos.move(Direction.DOWN);
-		pos.move(Direction.UP);
-		while(level.getBlockState(pos).is(BlockTags.SNOW)) pos.move(Direction.UP);
+        do pos.move(Direction.UP);
+        while(level.getBlockState(pos).is(BlockTags.SNOW));
 		return pos;
 	}
 	public static BlockPos adjustHeight(ServerLevel level, MutableBlockPos pos) {
@@ -187,6 +189,16 @@ public class Utils {
         if(f1 < 0F) f1 += 360F;
         else if(f1 > 360F) f1 -= 360F;
         return f1;
+    }
+
+    public static void awardAdvancement(MinecraftServer server, ServerPlayer player, ResourceLocation advancement, String criterion) {
+        var adv = server.getAdvancements().get(advancement);
+        if(adv != null) {
+            var progress = player.getAdvancements().getOrStartProgress(adv);
+            if(!progress.isDone()) progress.getRemainingCriteria().forEach((c) -> {
+                if(c.equals(criterion)) player.getAdvancements().award(adv, c);
+            });
+        }
     }
 
     /**
