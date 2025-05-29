@@ -9,8 +9,7 @@
     },
     "description": {
       "translate": "advancement.divinerpg.twilight.curses.desc"
-    },
-    "hidden": true
+    }
   },
   "criteria": {
     "use_mortum_embers": {

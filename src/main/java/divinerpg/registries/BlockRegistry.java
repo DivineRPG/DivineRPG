@@ -9,7 +9,7 @@ import divinerpg.blocks.vanilla.*;
 import divinerpg.blocks.vanilla.FireBlock;
 import divinerpg.blocks.vethea.*;
 import divinerpg.items.base.block.*;
-import divinerpg.items.vanilla.ShadowBlockItem;
+import divinerpg.items.vanilla.ItemShadowBlock;
 import divinerpg.world.ConfiguredFeatureKeys;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -166,7 +166,7 @@ public class BlockRegistry {
     arlemiteBlock	= registerBlock("arlemite_block",	() -> new BlockMod(COLOR_LIGHT_GREEN, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
     rawRupeeBlock	= registerBlock("raw_rupee_block",	() -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6)),
     rupeeBlock		= registerBlock("rupee_block",		() -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-    shadowBlock = registerBlockAndItem("shadow_block", () -> new BlockMod(COLOR_BLACK, 5, 6, SoundType.NETHERITE_BLOCK, NoteBlockInstrument.HARP), ShadowBlockItem::new),
+    shadowBlock = registerBlockAndItem("shadow_block", () -> new BlockMod(COLOR_BLACK, 5, 6, SoundType.NETHERITE_BLOCK, NoteBlockInstrument.HARP), ItemShadowBlock::new),
     bloodgemBlock	= registerBlock("bloodgem_block",	() -> new BlockMod(CRIMSON_STEM, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
     rawTorriditeBlock= registerBlock("raw_torridite_block",() -> new BlockMod(CRIMSON_NYLIUM, 5, 1200)),
     torriditeBlock  = registerFireResistantBlock("torridite_block",() -> new BlockMod(Properties.of().mapColor(CRIMSON_NYLIUM).strength(5F, 1200).requiresCorrectToolForDrops().sound(SoundType.METAL))),
