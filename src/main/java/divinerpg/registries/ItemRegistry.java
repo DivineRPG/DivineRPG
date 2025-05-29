@@ -357,6 +357,12 @@ public class ItemRegistry {
         blue_armor_pouch = registerTool("blue_armor_pouch", () -> new ItemArmorPouch(5592575)),
         gray_armor_pouch = registerTool("gray_armor_pouch", () -> new ItemArmorPouch(11184810)),
 
+        //Healing
+        healing_stone = registerTool("healing_stone", ItemHealingStone::new),
+        palavence = registerTool("palavence", () -> new ItemHealingSword(ToolStats.PALAVENCE, .5F)),
+        massivence = registerTool("massivence", () -> new ItemHealingSword(ToolStats.MASSIVENCE, 1)),
+        frossivence = registerTool("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1)),
+
         //Swords
         cyclopsian_sword = registerTool("cyclopsian_sword", () -> new ItemModSword(ToolStats.CYCLOPSIAN_SWORD)),
         slime_sword = registerTool("slime_sword", () -> new ItemModSword(ToolStats.SLIME_SWORD)),
@@ -462,12 +468,6 @@ public class ItemRegistry {
         heliosis_claw = registerTool("heliosis_claw", () -> new ItemModSword(ToolStats.HELIOSIS_CLAW)),
         arksiane_claw = registerTool("arksiane_claw", () -> new ItemModSword(ToolStats.ARKSIANE_CLAW)),
         everbright = registerTool("everbright", () -> new ItemModSword(ToolStats.EVERBRIGHT)),
-
-        //Healing
-        healing_stone = registerTool("healing_stone", ItemHealingStone::new),
-        palavence = registerTool("palavence", () -> new ItemHealingSword(ToolStats.PALAVENCE, .5F)),
-        massivence = registerTool("massivence", () -> new ItemHealingSword(ToolStats.MASSIVENCE, 1)),
-        frossivence = registerTool("frossivence", () -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1)),
 
         //Shields
         realmite_shield = registerTool("realmite_shield", () -> new DivineShield(realmite_ingot.get(), 426, "realmite_shield")),

@@ -1,5 +1,5 @@
 {
-  "parent": "nether/root",
+  "parent": "divinerpg:nether/scorching",
   "display": {
     "icon": {
       "id": "divinerpg:sound_of_music"

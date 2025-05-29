@@ -1,21 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:frost_pumpkin"
-  },
-  "pattern": [
-    "MMM",
-    "MPM",
-    "MMM"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
   "group": "mob_pumpkin",
+  "pattern": [
+    "BSB",
+    "SPS",
+    "BSB"
+  ],
   "key": {
     "P": {
-      "item": "minecraft:pumpkin"
+      "item": "pumpkin"
     },
-    "M": {
-      "item": "divinerpg:ice_stone"
+    "S": {
+      "item": "divinerpg:ice_shards"
+    },
+    "B": {
+      "item": "snowball"
     }
+  },
+  "result": {
+    "id": "divinerpg:frost_pumpkin"
   }
 }

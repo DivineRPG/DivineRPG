@@ -19,9 +19,9 @@ public class ItemTorriditeChunk extends ItemMod {
         if((damageSource.is(DamageTypes.IN_FIRE) || damageSource.is(DamageTypes.ON_FIRE)) && FireBlock.convertFire(itemEntity.level(), itemEntity.blockPosition(), Blocks.SOUL_FIRE, BlockRegistry.hellFire.get().defaultBlockState()) && itemEntity.level() instanceof ServerLevel s) {
             s.sendParticles(ParticleTypes.SOUL, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 4, .2, .2, .2, 0);
             s.playSound(null, itemEntity.blockPosition(), SoundEvents.SCULK_SHRIEKER_SHRIEK, SoundSource.BLOCKS, .6F, 1.5F);
-            //TODO: wait till someone would get the crash
+            //TODO: wait till someone would get the crash for getting this advancement by creating the fire from far away (same for other creating fire instances)
             ServerPlayer player = (ServerPlayer) s.getNearestPlayer(itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), 100, false);
-            Utils.awardAdvancement(((ServerLevel) itemEntity.level()).getServer(), player, ADVANCEMENT, "look_into_the_eye");
+            Utils.awardAdvancement(((ServerLevel) itemEntity.level()).getServer(), player, ADVANCEMENT, "create_hellfire");
         }
     }
 }

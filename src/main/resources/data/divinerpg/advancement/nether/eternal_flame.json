@@ -1,5 +1,5 @@
 {
-  "parent": "nether/obtain_blaze_rod",
+  "parent": "divinerpg:nether/scorching",
   "display": {
     "icon": {
       "id": "divinerpg:fury_fire"

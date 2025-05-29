@@ -429,10 +429,6 @@ public class BlockRegistry {
     fancyWool = registerBlock("fancy_wool", () -> new BlockModWool(CRIMSON_HYPHAE)),
     workshopCarpet = registerBlock("workshop_carpet", () -> new BlockModWool(TERRACOTTA_RED)),
 
-    //Bookshelves
-    workshopBookcase = registerBlock("workshop_bookcase", () -> new BlockMod(COLOR_GRAY, 2, 6)),
-    dungeonBookshelf = registerBlock("dungeon_bookshelf", () -> new BlockMod(COLOR_BLUE, 2, 6)),
-
     //Asphalt
     asphalt = registerBlock("asphalt", () -> new BlockMod(COLOR_BLACK)),
     asphaltStairs = registerBlock("asphalt_stairs", () -> new BlockModStairs(asphalt.get())),
@@ -483,6 +479,13 @@ public class BlockRegistry {
     snowBricks = registerBlock("snow_bricks", () -> new BlockMod(SNOW)),
     icyBricks = registerBlock("icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
     runicIcyBricks = registerBlock("runic_icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
+    polishedCobaltite = registerBlock("polished_cobaltite", () -> new BlockMod(COLOR_LIGHT_BLUE)),
+    polishedCobaltiteStairs = registerBlock("polished_cobaltite_stairs", () -> new BlockModStairs(polishedCobaltite.get())),
+    polishedCobaltiteSlab = registerBlock("polished_cobaltite_slab", () -> new BlockModSlab(polishedCobaltite.get())),
+    polishedCobaltiteWall = registerBlock("polished_cobaltite_wall", () -> new BlockModWall(polishedCobaltite.get())),
+    polishedCobaltitePressurePlate = registerBlock("polished_cobaltite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_LIGHT_BLUE, BlockSetType.STONE)),
+    polishedCobaltiteButton = registerBlock("polished_cobaltite_button", BlockModButton::new),
+    workshopBookcase = registerBlock("workshop_bookcase", () -> new BlockMod(COLOR_GRAY, 2, 6)),
     coalstoneBricks = registerBlock("coalstone_bricks", () -> new BlockMod(COLOR_GRAY)),
     coalstoneBrickStairs = registerBlock("coalstone_brick_stairs", () -> new BlockModStairs(coalstoneBricks.get())),
     coalstoneBrickSlab = registerBlock("coalstone_brick_slab", () -> new BlockModSlab(coalstoneBricks.get())),
@@ -496,12 +499,6 @@ public class BlockRegistry {
     polishedCoalstoneWall = registerBlock("polished_coalstone_wall", () -> new BlockModWall(polishedCoalstone.get())),
     polishedCoalstonePressurePlate = registerBlock("polished_coalstone_pressure_plate", () -> new BlockModPressurePlate(Blocks.POLISHED_BLACKSTONE_PRESSURE_PLATE, COLOR_GRAY, BlockSetType.POLISHED_BLACKSTONE)),
     polishedCoalstoneButton = registerBlock("polished_coalstone_button", BlockModButton::new),
-    polishedCobaltite = registerBlock("polished_cobaltite", () -> new BlockMod(COLOR_LIGHT_BLUE)),
-    polishedCobaltiteStairs = registerBlock("polished_cobaltite_stairs", () -> new BlockModStairs(polishedCobaltite.get())),
-    polishedCobaltiteSlab = registerBlock("polished_cobaltite_slab", () -> new BlockModSlab(polishedCobaltite.get())),
-    polishedCobaltiteWall = registerBlock("polished_cobaltite_wall", () -> new BlockModWall(polishedCobaltite.get())),
-    polishedCobaltitePressurePlate = registerBlock("polished_cobaltite_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, COLOR_LIGHT_BLUE, BlockSetType.STONE)),
-    polishedCobaltiteButton = registerBlock("polished_cobaltite_button", BlockModButton::new),
     cutOxdrite = registerBlock("cut_oxdrite", () -> new WaterloggedTransparentBlock(Properties.ofFullCopy(oxdriteBlock.get()).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false))),
     cutOxdriteStairs = registerBlock("cut_oxdrite_stairs", () -> new BlockModStairs(cutOxdrite.get())),
     cutOxdriteSlab = registerBlock("cut_oxdrite_slab", () -> new BlockModSlab(cutOxdrite.get())),
@@ -520,12 +517,14 @@ public class BlockRegistry {
     ancientBrickStairs = registerBlock("ancient_brick_stairs", () -> new BlockModStairs(ancientBricks.get())),
     ancientBrickSlab = registerBlock("ancient_brick_slab", () -> new BlockModSlab(ancientBricks.get())),
     ancientBrickWall = registerBlock("ancient_brick_wall", () -> new BlockModWall(ancientBricks.get())),
+    ancientBrickDoor = registerBlock("ancient_brick_door", () -> new BlockArcanaDoor(WARPED_NYLIUM, ancient_key.getId())),
+    lightDegradedBrick = registerBlock("light_degraded_brick", () -> new BlockModUnbreakable(COLOR_CYAN)),
+    darkDegradedBrick = registerBlock("dark_degraded_brick", () -> new BlockModUnbreakable(COLOR_BLACK)),
     degradedBricks = registerBlock("degraded_bricks", () -> new BlockModUnbreakable(COLOR_BLUE)),
     degradedBrickStairs = registerBlock("degraded_brick_stairs", () -> new BlockModStairs(degradedBricks.get())),
     degradedBrickSlab = registerBlock("degraded_brick_slab", () -> new BlockModSlab(degradedBricks.get())),
     degradedBrickWall = registerBlock("degraded_brick_wall", () -> new BlockModWall(degradedBricks.get())),
-    lightDegradedBrick = registerBlock("light_degraded_brick", () -> new BlockModUnbreakable(COLOR_CYAN)),
-    darkDegradedBrick = registerBlock("dark_degraded_brick", () -> new BlockModUnbreakable(COLOR_BLACK)),
+    degradedBrickDoor = registerBlock("degraded_brick_door", () -> new BlockArcanaDoor(COLOR_BLUE, degraded_key.getId())),
     ancientTile = registerBlock("ancient_tile", () -> new BlockModUnbreakable(COLOR_BLUE)),
     arcaniumMetal = registerBlock("arcanium_metal", () -> new BlockModPillar(TERRACOTTA_BLUE, -1, 3600000, SoundType.METAL)),
     arcaniumPower = registerBlock("arcanium_power", () -> new BlockModUnbreakable(COLOR_GRAY)),
@@ -535,6 +534,7 @@ public class BlockRegistry {
     ancientBrickStairsBreakable = registerBlock("ancient_brick_stairs_breakable", () -> new BlockModStairs(ancientBricksBreakable.get())),
     ancientBrickSlabBreakable = registerBlock("ancient_brick_slab_breakable", () -> new BlockModSlab(ancientBricksBreakable.get())),
     ancientBrickWallBreakable = registerBlock("ancient_brick_wall_breakable", () -> new BlockModWall(ancientBricksBreakable.get())),
+    dungeonBookshelf = registerBlock("dungeon_bookshelf", () -> new BlockMod(COLOR_BLUE, 2, 6)),
     degradedBricksBreakable = registerBlock("degraded_bricks_breakable", () -> new BlockMod(COLOR_BLUE)),
     degradedBrickStairsBreakable = registerBlock("degraded_brick_stairs_breakable", () -> new BlockModStairs(degradedBricksBreakable.get())),
     degradedBrickSlabBreakable = registerBlock("degraded_brick_slab_breakable", () -> new BlockModSlab(degradedBricksBreakable.get())),
@@ -544,6 +544,8 @@ public class BlockRegistry {
     arcaniumPowerBreakable = registerBlock("arcanium_power_breakable", () -> new BlockMod(COLOR_GRAY, 2, 6)),
     arcaniteTubes = registerBlock("arcanite_tubes", BlockModLadder::new),
     arcaniteLadder = registerBlock("arcanite_ladder", BlockModLadder::new),
+    soulSludgeDoor = registerBlock("soul_sludge_door", () -> new BlockArcanaDoor(COLOR_GRAY, sludge_key.getId())),
+    soulStoneDoor = registerBlock("soul_stone_door", () -> new BlockArcanaDoor(TERRACOTTA_BLUE, soul_key.getId())),
 
     //Twilight Bricks
     twilightBricks = registerBlock("twilight_bricks", () -> new BlockMod(TERRACOTTA_LIGHT_BLUE)),
@@ -566,6 +568,7 @@ public class BlockRegistry {
     blueKarosBricks = registerBlock("blue_karos_bricks", () -> new BlockModUnbreakable(COLOR_BLUE)),
     blackKarosBricks = registerBlock("black_karos_bricks", () -> new BlockModUnbreakable(COLOR_BLACK)),
     metalCaging = registerBlock("metal_caging", () -> new BlockMod(Properties.of().mapColor(TERRACOTTA_GREEN).requiresCorrectToolForDrops().strength(5).sound(SoundType.METAL).noOcclusion())),
+    barredDoor = registerBlock("barred_door", () -> new BlockModDoor(PLANT)),
     helioticBeam = registerBlock("heliotic_beam", BlockHelioticBeam::new),
     lunaBricks = registerBlock("luna_bricks", () -> new BlockMod(COLOR_BLUE, 2, 6)),
     cryptFloor = registerBlock("crypt_floor", () -> new BlockModUnbreakable(TERRACOTTA_GREEN)),
@@ -585,6 +588,7 @@ public class BlockRegistry {
     blueSteel = registerBlock("blue_steel", () -> new BlockMod(COLOR_BLUE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
     purpleSteel = registerBlock("purple_steel", () -> new BlockMod(COLOR_PURPLE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
     magentaSteel = registerBlock("magenta_steel", () -> new BlockMod(COLOR_MAGENTA, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+    steelDoor = registerBlock("steel_door", () -> new BlockModDoor(METAL)),
 
     //Candy Canes
     redCandyCane = registerBlock("red_candy_cane", () -> new BlockCandyCane(Properties.of().mapColor(COLOR_RED))),
@@ -796,14 +800,6 @@ public class BlockRegistry {
     ayeracoBeamPurple = BLOCKS.register("ayeraco_beam_purple", () -> new BlockAyeracoBeam(BossBarColor.PURPLE)),
     ayeracoBeamPink = BLOCKS.register("ayeraco_beam_pink", () -> new BlockAyeracoBeam(BossBarColor.PINK)),
     ayeracoSpawn = BLOCKS.register("ayeraco_spawn", () -> new BlockAyeracoSpawn(Properties.of())),
-
-    //Doors
-    steelDoor = registerBlock("steel_door", () -> new BlockModDoor(METAL)),
-    ancientBrickDoor = registerBlock("ancient_brick_door", () -> new BlockArcanaDoor(WARPED_NYLIUM, ancient_key.getId())),
-    degradedBrickDoor = registerBlock("degraded_brick_door", () -> new BlockArcanaDoor(COLOR_BLUE, degraded_key.getId())),
-    soulSludgeDoor = registerBlock("soul_sludge_door", () -> new BlockArcanaDoor(COLOR_GRAY, sludge_key.getId())),
-    soulStoneDoor = registerBlock("soul_stone_door", () -> new BlockArcanaDoor(TERRACOTTA_BLUE, soul_key.getId())),
-    barredDoor = registerBlock("barred_door", () -> new BlockModDoor(PLANT)),
 
     //Crafting & Stuff
     altarOfCorruption = registerBlock("altar_of_corruption", () -> new BlockAltarOfCorruption(Properties.ofFullCopy(Blocks.ENCHANTING_TABLE)), Rarity.UNCOMMON),

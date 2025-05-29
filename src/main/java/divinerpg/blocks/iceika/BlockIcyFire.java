@@ -13,16 +13,13 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class BlockIcyFire extends BaseFireBlock {
 	public static final MapCodec<BlockIcyFire> CODEC = simpleCodec(BlockIcyFire::new);
 	@Override public MapCodec<BlockIcyFire> codec() {return CODEC;}
-	public BlockIcyFire(Properties properties) {
-		super(properties.lightLevel((state) -> 7), 1);
-	}
-	@Override
-	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+	public BlockIcyFire(Properties properties) {super(properties.lightLevel((state) -> 7), 1);}
+	@Override public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 		if(entity instanceof ItemEntity itemEntity) {
 			boolean b;
 			if(b = itemEntity.getItem().is(Items.CLOCK) && level instanceof ServerLevel) {
@@ -36,26 +33,16 @@ public class BlockIcyFire extends BaseFireBlock {
 			} if(b) {
 				level.playSound(null, itemEntity.blockPosition(), SoundRegistry.FREEZE.get(), SoundSource.BLOCKS, .8F, 1.5F);
 				return;
-			}
-		} if(entity.canFreeze()) {
+			} //TODO: to somehow prevent the interaction spam when you stay in between icy fire and a real fire
+		} if(entity.canFreeze() && !entity.isInLava()) {
 			entity.setTicksFrozen(entity.getTicksFrozen() + 4);
 			if(entity.tickCount % 15 == 0) entity.hurt(level.damageSources().freeze(), 1);
 		}
 	}
-	@Override
-	public BlockState updateShape(BlockState state, Direction dir, BlockState s, LevelAccessor level, BlockPos pos, BlockPos p) {
+	@Override public BlockState updateShape(BlockState state, Direction dir, BlockState s, LevelAccessor level, BlockPos pos, BlockPos p) {
 		return canBurn(level.getBlockState(pos.below())) ? defaultBlockState() : Blocks.AIR.defaultBlockState();
 	}
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		return defaultBlockState();
-	}
-	@Override
-	public boolean canSurvive(BlockState s, LevelReader level, BlockPos pos) {
-		return canBurn(level.getBlockState(pos.below()));
-	}
-	@Override
-	protected boolean canBurn(BlockState state) {
-		return state.is(BlockTags.SNOW) || state.is(BlockTags.ICE);
-	}
+	@Override public BlockState getStateForPlacement(BlockPlaceContext context) {return defaultBlockState();}
+	@Override public boolean canSurvive(BlockState s, LevelReader level, BlockPos pos) {return canBurn(level.getBlockState(pos.below()));}
+	@Override protected boolean canBurn(BlockState state) {return state.is(BlockTags.SNOW) || state.is(BlockTags.ICE);}
 }

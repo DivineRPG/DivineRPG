@@ -5,10 +5,10 @@
       "id": "feather"
     },
     "title": {
-      "translate": "advancement.divinerpg.yippie.sky_fall"
+      "translate": "advancement.divinerpg.twilight.yippie"
     },
     "description": {
-      "translate": "advancement.divinerpg.yippie.sky_fall.desc"
+      "translate": "advancement.divinerpg.twilight.yippie.desc"
     }
   },
   "criteria": {
