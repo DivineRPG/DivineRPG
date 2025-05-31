@@ -329,6 +329,7 @@ public class ItemRegistry {
         moon_clock = registerTool("moon_clock", () -> new ItemVethean(new Properties().stacksTo(1))),
 
         //Extra
+        jungle_hook = registerTool("jungle_hook", ItemJungleHook::new),
         teleportation_crystal = registerTool("teleportation_crystal", ItemTeleportationCrystal::new),
         teleportation_star = registerTool("teleportation_star", ItemTeleportationStar::new),
         orb_of_light = registerTool("orb_of_light"),

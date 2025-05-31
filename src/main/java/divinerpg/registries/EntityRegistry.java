@@ -93,6 +93,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<DivineThrowableProjectile>> EYE_SHARD = registerProjectile((type, level) -> new DivineThrowableProjectile(type, level, 3), "eye_shard");
     public static final DeferredHolder<EntityType<?>, EntityType<DivineMagicProjectile>> SCYTHE_SHOT = registerProjectile((type, level) -> new DivineMagicProjectile(type, level, 6), "scythe_shot");
     public static final DeferredHolder<EntityType<?>, EntityType<DivineParticleProjectile>> MAELSTROM_SHOT = registerProjectile((type, level) -> new DivineParticleProjectile(type, level, 12, ParticleRegistry.APALACHIA_PORTAL), "maelstrom_shot");
+    public static final DeferredHolder<EntityType<?>, EntityType<Hook>> HOOK = registerProjectile(Hook::new, "hook");
 
     //Cannons
     public static final DeferredHolder<EntityType<?>, EntityType<DivineThrowableProjectile>> CRAB_CLAW = registerProjectile((type, level) -> new DivineThrowableProjectile(type, level, 4), "crab_claw");
@@ -903,6 +904,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(SUNSTORM_SHOT.get(), RenderDivineProjectile::new);
         event.registerEntityRenderer(ATTRACTOR_BEAM.get(), (context) -> new RenderDivineProjectile<>(context, "arcana_shot"));
         event.registerEntityRenderer(REFLECTOR_BEAM.get(), (context) -> new RenderDivineProjectile<>(context, "arcana_shot"));
+        event.registerEntityRenderer(HOOK.get(), (context) -> new RenderDivineProjectile<>(context, "hook"));
         event.registerEntityRenderer(ICE_BULLET.get(), (context) -> new RenderDivineProjectile<>(context, "serenade_of_ice"));
         event.registerEntityRenderer(DEATH_BULLET.get(), (context) -> new RenderDivineProjectile<>(context, "serenade_of_death"));
         event.registerEntityRenderer(SOUND_OF_MUSIC.get(), (context) -> new RenderDivineProjectile<>(context, "sound_of_music"));

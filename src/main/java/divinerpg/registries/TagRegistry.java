@@ -11,6 +11,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 public class TagRegistry {
     //Ammunition
     public static final TagKey<Item>
+        ROPE = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ammo/rope")),
         GRENADES = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ammo/grenades")),
         AQUATIC_CANNON_AMMO = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ammo/aquatic_cannon")),
         CORRUPTED_CANNON_AMMO = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ammo/corrupted_cannon")),

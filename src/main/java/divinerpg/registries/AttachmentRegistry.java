@@ -46,6 +46,7 @@ public class AttachmentRegistry {
 	public static final ServerHandledAttachment<Byte> VARIANT = registerServerHandled("variant", () -> (byte)0, Codec.BYTE, ByteBufCodecs.BYTE);
 	public static final ServerHandledAttachment<Boolean> HANGING = registerServerHandled("hanging", () -> false, Codec.BOOL, ByteBufCodecs.BOOL);
 	public static final ServerHandledAttachment<Boolean> SPECIAL = registerServerHandled("special", () -> false, Codec.BOOL, ByteBufCodecs.BOOL);
+	public static final ServerHandledAttachment<Boolean> HOOKED = registerServerHandled("hooked", () -> false, Codec.BOOL, ByteBufCodecs.BOOL);
 	public static final ServerHandledAttachment<AttachedItem> ITEM = registerServerHandled("item", AttachedItem::new, AttachedItem.CODEC);
 	public static final ServerHandledAttachment<Float> RADIUS = registerServerHandled("radius", () -> 0F, Codec.FLOAT, ByteBufCodecs.FLOAT);
 
@@ -70,6 +71,7 @@ public class AttachmentRegistry {
 		VARIANT.registerPayload(r);
 		HANGING.registerPayload(r);
 		SPECIAL.registerPayload(r);
+		HOOKED.registerPayload(r);
 		ITEM.registerPayload(r);
 		RADIUS.registerPayload(r);
 

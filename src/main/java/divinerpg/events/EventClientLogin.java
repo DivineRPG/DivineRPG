@@ -25,6 +25,7 @@ public class EventClientLogin {
                 PacketDistributor.sendToPlayer(pl, new Weather(Utils.ICEIKA_WEATHER));
                 AttachmentRegistry.MAX_ARCANA.set(pl, Arcana.getMaxArcana(pl));
                 AttachmentRegistry.ARCANA.set(pl, Arcana.getAmount(pl));
+                AttachmentRegistry.HOOKED.set(pl, false);
             }
             //Send welcome messages
             if(ClientConfig.Values.WELCOME_MESSAGE) {
