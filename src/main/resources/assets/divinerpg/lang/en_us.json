@@ -1074,6 +1074,7 @@
   "item.divinerpg.jungle_chestplate": "Jungle Chestplate",
   "item.divinerpg.jungle_leggings": "Jungle Leggings",
   "item.divinerpg.jungle_boots": "Jungle Boots",
+  "item.divinerpg.jungle_hook": "Jungle Hook",
   "item.divinerpg.jungle_knife": "Jungle Knife",
   "item.divinerpg.jungle_rapier": "Jungle Rapier",
   "item.divinerpg.poison_saber": "Poison Saber",
@@ -1328,8 +1329,6 @@
   "item.divinerpg.call_of_the_watcher": "Call of the Watcher",
   "item.divinerpg.infernal_flame": "Infernal Flame",
   "item.divinerpg.horde_horn": "Horde Horn",
-
-  "item.divinerpg.jungle_hook": "Jungle Hook",
 
   "item.divinerpg.palavence": "Palavence",
   "item.divinerpg.massivence": "Massivence",
@@ -2304,6 +2303,7 @@
   "dungeon.divinerpg.wreck_hall": "Wreck Hall",
 
   "tag.divinerpg.ammo.rope": "Leads",
+  "tag.item.divinerpg.ammo.rope": "Jungle Hook Ropes",
   "tag.divinerpg.ammo.aquatic_cannon": "Cacti",
   "tag.item.divinerpg.ammo.aquatic_cannon": "Aquatic Cannon Ammo",
   "tag.divinerpg.ammo.corrupted_cannon": "Corrupted Bullets",
@@ -2672,7 +2672,7 @@
   "advancement.divinerpg.adventure.feeding_on_the_fish": "Feeding on the Fish",
   "advancement.divinerpg.adventure.feeding_on_the_fish.desc": "Kill a Shark",
   "advancement.divinerpg.adventure.ground_dweller": "Ground Dweller",
-  "advancement.divinerpg.adventure.ground_dweller.desc": "Obtain a Terran Phaser",
+  "advancement.divinerpg.adventure.ground_dweller.desc": "Obtain a Terran Shifter",
   "advancement.divinerpg.adventure.halloween_spirit": "Halloween Spirit",
   "advancement.divinerpg.adventure.halloween_spirit.desc": "Trade with a Jack o'Man",
   "advancement.divinerpg.adventure.jungle_stegosaurus_slayer": "Jungle Stegosaurus Slayer",
@@ -2680,7 +2680,7 @@
   "advancement.divinerpg.adventure.lonely_guy": "Story of a Lonely Guy",
   "advancement.divinerpg.adventure.lonely_guy.desc": "Trade with Diamond Dave",
   "advancement.divinerpg.adventure.making_tarzan_proud": "Making Tarzan Proud",
-  "advancement.divinerpg.adventure.making_tarzan_proud.desc": "Obtain a Grappling Hook",
+  "advancement.divinerpg.adventure.making_tarzan_proud.desc": "Obtain a Jungle Hook",
   "advancement.divinerpg.adventure.they_wont_bite": "They Won't Bite",
   "advancement.divinerpg.adventure.they_wont_bite.desc": "Trade with Livestock Merchant",
   "advancement.divinerpg.arcana.disgusting": "Disgusting!",

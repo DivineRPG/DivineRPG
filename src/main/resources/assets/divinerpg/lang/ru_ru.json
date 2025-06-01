@@ -1066,6 +1066,7 @@
   "item.divinerpg.terran_axe": "Земляной топор",
   "item.divinerpg.terran_hoe": "Земляная мотыга",
   "item.divinerpg.terran_shickaxe": "Земляной мультиинструмент",
+  "item.divinerpg.terran_shifter": "Земляной трансгрессор",
 
   "item.divinerpg.jungle_shards": "Тропические осколки",
   "item.divinerpg.jungle_stone": "Тропический камень",
@@ -1073,6 +1074,7 @@
   "item.divinerpg.jungle_chestplate": "Тропический нагрудник",
   "item.divinerpg.jungle_leggings": "Тропические поножи",
   "item.divinerpg.jungle_boots": "Тропические ботинки",
+  "item.divinerpg.jungle_hook": "Тропическая крюк-кошка",
   "item.divinerpg.jungle_knife": "Тропический нож",
   "item.divinerpg.jungle_rapier": "Тропическая рапира",
   "item.divinerpg.poison_saber": "Отравленная сабля",
@@ -2300,6 +2302,8 @@
   "dungeon.divinerpg.temple_top": "Верхушка храма",
   "dungeon.divinerpg.wreck_hall": "Зал Крушителя",
 
+  "tag.divinerpg.ammo.rope": "Поводки",
+  "tag.item.divinerpg.ammo.rope": "Верёвки тропической крюк-кошки",
   "tag.divinerpg.ammo.aquatic_cannon": "Кактусы",
   "tag.item.divinerpg.ammo.aquatic_cannon": "Боеприпасы водяной пушки",
   "tag.divinerpg.ammo.corrupted_cannon": "Повреждённые пули",
@@ -2676,7 +2680,7 @@
   "advancement.divinerpg.adventure.lonely_guy": "История одинокого парня",
   "advancement.divinerpg.adventure.lonely_guy.desc": "Поторгуйте с Дэйвом Алмазцем",
   "advancement.divinerpg.adventure.making_tarzan_proud": "Тарзан гордится тобой",
-  "advancement.divinerpg.adventure.making_tarzan_proud.desc": "Получите крюк-кошку",
+  "advancement.divinerpg.adventure.making_tarzan_proud.desc": "Получите тропическую крюк-кошку",
   "advancement.divinerpg.adventure.they_wont_bite": "Он не кусается",
   "advancement.divinerpg.adventure.they_wont_bite.desc": "Поторгуйте с продавцом существ",
   "advancement.divinerpg.arcana.disgusting": "Это что за муть?",
