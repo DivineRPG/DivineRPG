@@ -1,0 +1,20 @@
+{
+  "result": {
+    "id": "divinerpg:terran_shifter"
+  },
+  "pattern": [
+    "TTT",
+    "TTT",
+    " S "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "divinerpg:terran_stone"
+    }
+  }
+}

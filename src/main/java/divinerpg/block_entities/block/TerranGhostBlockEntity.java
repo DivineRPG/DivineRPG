@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class TerranGhostBlockEntity extends BlockEntity {
-    public int lifeTime = 600;
+    public int lifeTime = 300;
     public BlockState originalState;
     public TerranGhostBlockEntity(BlockPos pos, BlockState blockState) {
         super(BlockEntityRegistry.TERRAN_GHOST.get(), pos, blockState);
