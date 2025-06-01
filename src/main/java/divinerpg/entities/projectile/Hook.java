@@ -3,7 +3,6 @@ package divinerpg.entities.projectile;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.network.syncher.*;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -131,7 +130,6 @@ public class Hook extends Projectile implements Leashable {
                 leashHolder.addDeltaMovement(diff);
                 if(leashHolder.getDeltaMovement().y > -0.1) leashHolder.resetFallDistance();
                 leashHolder.hasImpulse = true;
-//                if(leashHolder instanceof ServerPlayer serverplayer) serverplayer.connection.send(new ClientboundSetEntityMotionPacket(serverplayer));
             }
         } return false;
     }

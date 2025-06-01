@@ -1,6 +1,7 @@
 package divinerpg.events;
 
 import divinerpg.attachments.Arcana;
+import divinerpg.block_entities.block.TerranGhostBlockEntity;
 import divinerpg.entities.goals.TurtleEatAequoreaGoal;
 import divinerpg.entities.vanilla.overworld.EntityAequorea;
 import divinerpg.network.payload.Weather;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.*;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.*;
 
 public class Ticker {
@@ -60,5 +62,12 @@ public class Ticker {
             turtle.goalSelector.addGoal(3, new TurtleEatAequoreaGoal(turtle, turtle.getAttributeValue(Attributes.FOLLOW_RANGE), false));
         }
     }
-
+    @SubscribeEvent
+    public void onMineBlock(BlockEvent.BreakEvent event) {
+        if(event.getPlayer().getMainHandItem().is(ItemRegistry.terran_shifter)) {
+            event.setCanceled(true);
+            event.getLevel().setBlock(event.getPos(), BlockRegistry.terranGhostBlock.get().defaultBlockState(), 3);
+            ((TerranGhostBlockEntity)event.getLevel().getBlockEntity(event.getPos())).originalState = event.getState();
+        }
+    }
 }

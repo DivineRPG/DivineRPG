@@ -1066,6 +1066,7 @@
   "item.divinerpg.terran_axe": "Terran Axe",
   "item.divinerpg.terran_hoe": "Terran Hoe",
   "item.divinerpg.terran_shickaxe": "Terran Shickaxe",
+  "item.divinerpg.terran_shifter": "Terran Shifter",
 
   "item.divinerpg.jungle_shards": "Jungle Shards",
   "item.divinerpg.jungle_stone": "Jungle Stone",
@@ -2302,6 +2303,7 @@
   "dungeon.divinerpg.temple_top": "Temple Top",
   "dungeon.divinerpg.wreck_hall": "Wreck Hall",
 
+  "tag.divinerpg.ammo.rope": "Leads",
   "tag.divinerpg.ammo.aquatic_cannon": "Cacti",
   "tag.item.divinerpg.ammo.aquatic_cannon": "Aquatic Cannon Ammo",
   "tag.divinerpg.ammo.corrupted_cannon": "Corrupted Bullets",

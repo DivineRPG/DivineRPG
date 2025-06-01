@@ -885,6 +885,7 @@ public class BlockRegistry {
 
     //Air
     dungeonAir = registerBlock("dungeon_air", BlockModDungeonAir::new, Rarity.EPIC),
+    terranGhostBlock = BLOCKS.register("terran_ghost_block", () -> new TerranGhostBlock(Properties.of().noLootTable().noOcclusion().noCollission().air())),
 
     //Creative Mode Blocks
     randomItemDropper = registerBlock("random_item_dropper", BlockRandomItemDropper::new);

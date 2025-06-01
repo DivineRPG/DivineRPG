@@ -4,8 +4,7 @@ import divinerpg.items.ranged.ItemRangedWeapon;
 import divinerpg.registries.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
 public class ItemJungleHook extends ItemRangedWeapon {

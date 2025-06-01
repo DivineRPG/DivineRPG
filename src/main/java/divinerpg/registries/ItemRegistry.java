@@ -665,6 +665,7 @@ public class ItemRegistry {
         arlemite_hoe = registerTool("arlemite_hoe", () -> new ItemModHoe(ToolStats.ARLEMITE_HOE, 0)),
         arlemite_shickaxe = registerTool("arlemite_shickaxe", () -> new ItemShickaxe(ToolStats.ARLEMITE_SHICKAXE)),
 
+    terran_shifter = registerTool("terran_shifter", () -> new ItemShickaxe(ToolStats.TERRAN_SHICKAXE)),
     terran_shovel = registerTool("terran_shovel", () -> new ItemModShovel(ToolStats.TERRAN_SHOVEL)),
         terran_pickaxe = registerTool("terran_pickaxe", () -> new ItemModPickaxe(ToolStats.TERRAN_PICKAXE)),
         terran_axe = registerTool("terran_axe", () -> new ItemModAxe(ToolStats.TERRAN_AXE, -3)),
