@@ -2,13 +2,12 @@ package divinerpg.blocks.iceika;
 
 import divinerpg.blocks.base.BlockMod;
 import divinerpg.registries.*;
-import divinerpg.world.placement.Surface;
+import divinerpg.util.Utils;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -47,20 +46,15 @@ public class BlockGraveStone extends BlockMod {
         super.playerDestroy(level, player, pos, state, blockEntity, tool);
         if(level instanceof ServerLevel s && !EnchantmentHelper.hasTag(tool, EnchantmentTags.PREVENTS_BEE_SPAWNS_WHEN_MINING)) {
             if(s.getDifficulty() != Difficulty.PEACEFUL) {
-                spawnFrozenFlesh(s, player, pos.offset(3, 0, 0));
-                spawnFrozenFlesh(s, player, pos.offset(1, 0, 2));
-                spawnFrozenFlesh(s, player, pos.offset(-1, 0, 2));
-                spawnFrozenFlesh(s, player, pos.offset(-3, 0, 0));
-                spawnFrozenFlesh(s, player, pos.offset(1, 0, -2));
-                spawnFrozenFlesh(s, player, pos.offset(-1, 0, -2));
+                var type = EntityRegistry.FROZEN_FLESH.get();
+                Utils.summonEntityAt(s, type, pos.offset(3, 0, 0), player);
+                Utils.summonEntityAt(s, type, pos.offset(1, 0, 2), player);
+                Utils.summonEntityAt(s, type, pos.offset(-1, 0, 2), player);
+                Utils.summonEntityAt(s, type, pos.offset(-3, 0, 0), player);
+                Utils.summonEntityAt(s, type, pos.offset(1, 0, -2), player);
+                Utils.summonEntityAt(s, type, pos.offset(-1, 0, -2), player);
             } level.playSound(null, pos, SoundRegistry.FREEZE.get(), SoundSource.BLOCKS, 1F, 1F);
             level.playSound(null, pos, SoundEvents.SCULK_SHRIEKER_SHRIEK, SoundSource.BLOCKS, .6F, 1.5F);
         }
-    }
-    static void spawnFrozenFlesh(ServerLevel level, Player player, BlockPos pos) {
-        int y = Surface.getSurface(Surface.Surface_Type.HIGHEST_GROUND, Surface.Mode.FULL, pos.getY() - 7, pos.getY() + 7, 0, level, player.getRandom(), pos.getX(), pos.getY());
-        pos = new BlockPos(pos.getX(), y, pos.getZ());
-        if(level.getBlockStates(EntityRegistry.FROZEN_FLESH.get().getSpawnAABB(pos.getX() + .5, pos.getY() + .1, pos.getZ() + .5)).allMatch(BlockStateBase::isAir))
-            EntityRegistry.FROZEN_FLESH.get().spawn(level, (e) -> e.setPersistentAngerTarget(player.getUUID()), pos, MobSpawnType.TRIGGERED, true, false);
     }
 }

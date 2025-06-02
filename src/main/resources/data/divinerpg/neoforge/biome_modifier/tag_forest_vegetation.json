@@ -1,6 +1,9 @@
 {
   "type": "neoforge:add_features",
   "biomes": "#is_forest",
-  "features": "divinerpg:divine_tree",
+  "features": [
+    "divinerpg:divine_tree",
+    "divinerpg:kobblin_hill"
+  ],
   "step": "top_layer_modification"
 }

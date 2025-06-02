@@ -28,6 +28,7 @@ public class FeatureRegistry {
 	
     //Overworld
     public static final DeferredHolder<Feature<?>, Feature<TreeConfig>> DIVINE_TREE = FEATURES.register("divine_tree", DivineTree::new);
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> KOBBLIN_HILL = FEATURES.register("kobblin_hill", KobblinHill::new);
     
     //Twilight
     public static final DeferredHolder<Feature<?>, Feature<TreeConfig>>

@@ -32,12 +32,6 @@
 	    "minCount": 1,
 	    "maxCount": 4
   	  },
-  	  {
-	    "type": "divinerpg:kobblin",
-	    "weight": 40,
-	    "minCount": 1,
-	    "maxCount": 3
-  	  },
 	  {
 		  "type": "divinerpg:cave_crawler",
 		  "weight": 40,

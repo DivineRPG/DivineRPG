@@ -11,17 +11,12 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 public class EllipsoidConfig implements FeatureConfiguration {
-	public static final Codec<EllipsoidConfig> CODEC = RecordCodecBuilder.create((instance) -> {
-		return instance.group(BlockStateProvider.CODEC.fieldOf("block").forGetter((config) -> {
-	           return config.block;
-        }), Codec.intRange(1, 16).fieldOf("min_size").forGetter((config) -> {
-	        return config.minSize;
-        }), Codec.intRange(1, 16).fieldOf("max_size").forGetter((config) -> {
-	        return config.maxSize;
-        }),  Codec.list(RuleTest.CODEC).fieldOf("replace").forGetter((config) -> {
-            return config.replace;
-         })).apply(instance, EllipsoidConfig::new);
-	});
+	public static final Codec<EllipsoidConfig> CODEC = RecordCodecBuilder.create((instance) ->
+		instance.group(BlockStateProvider.CODEC.fieldOf("block").forGetter((config) -> config.block),
+				Codec.intRange(1, 16).fieldOf("min_size").forGetter((config) -> config.minSize),
+				Codec.intRange(1, 16).fieldOf("max_size").forGetter((config) -> config.maxSize),
+				Codec.list(RuleTest.CODEC).fieldOf("replace").forGetter((config) -> config.replace)).apply(instance, EllipsoidConfig::new)
+	);
 	public final BlockStateProvider block;
 	public final List<RuleTest> replace;
 	public final int minSize, maxSize;

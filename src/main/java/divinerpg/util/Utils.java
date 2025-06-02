@@ -1,42 +1,34 @@
 package divinerpg.util;
 
-import blusunrize.immersiveengineering.common.util.FakePlayerUtil;
 import com.google.gson.*;
 import com.mojang.authlib.GameProfile;
 import divinerpg.DivineRPG;
-import divinerpg.registries.FluidRegistry;
-import divinerpg.registries.LevelRegistry;
+import divinerpg.entities.base.EntityDivineNeutral;
+import divinerpg.registries.*;
 import divinerpg.world.placement.Surface;
-import divinerpg.world.placement.Surface.Mode;
-import divinerpg.world.placement.Surface.Surface_Type;
+import divinerpg.world.placement.Surface.*;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
+import net.minecraft.core.*;
 import net.minecraft.core.HolderLookup.RegistryLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.*;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
+import net.minecraft.util.*;
 import net.minecraft.world.Container;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.ItemEnchantments;
+import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import org.apache.commons.io.IOUtils;
 
 import javax.annotation.Nullable;
@@ -251,4 +243,16 @@ public class Utils {
         @Override public boolean stillValid(Player player) {return true;}
     };
     public static final GameProfile FAKE_PLAYER = new GameProfile(UUID.randomUUID(), "drpgfakeplayer");
+
+    public static void summonEntityAt(ServerLevel level, EntityType<?> type, BlockPos pos, @Nullable Player player) {
+        int y = Surface.getSurface(Surface_Type.LOWEST_GROUND, Surface.Mode.FULL, pos.getY() - 2, pos.getY() + 7, 0, level, level.getRandom(), pos.getX(), pos.getZ());
+        pos = new BlockPos(pos.getX(), y, pos.getZ());
+        if(level.getBlockStates(type.getSpawnAABB(pos.getX() + .5, pos.getY() + .14, pos.getZ() + .5)).allMatch(BlockBehaviour.BlockStateBase::isAir))
+            type.spawn(level, (e) -> {
+                if(player != null) {
+                    if(e instanceof EntityDivineNeutral n) n.setPersistentAngerTarget(player.getUUID());
+                    else if(e instanceof Mob l) l.setTarget(player);
+                }
+            }, pos, MobSpawnType.TRIGGERED, true, false);
+    }
 }

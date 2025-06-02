@@ -53,6 +53,7 @@ public class BlockEntityRegistry {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RiftBlockEntity>> RIFT = register("rift", () -> BlockEntityType.Builder.of(RiftBlockEntity::new, BlockRegistry.edenRift.get(), BlockRegistry.wildwoodRift.get(), BlockRegistry.apalachiaRift.get(), BlockRegistry.skythernRift.get(), BlockRegistry.mortumRift.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TerranGhostBlockEntity>> TERRAN_GHOST = register("terran_ghost", () -> BlockEntityType.Builder.of(TerranGhostBlockEntity::new, BlockRegistry.terranGhostBlock.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<KarosDispenser>> KAROS_DISPENSER = register("karos_dispenser", () -> BlockEntityType.Builder.of(KarosDispenser::new, BlockRegistry.karosDispenser.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<KobblinBurrowBlockEntity>> KOBBLIN_BURROW = register("kobblin_burrow", () -> BlockEntityType.Builder.of(KobblinBurrowBlockEntity::new, BlockRegistry.kobblinBurrow.get()).build(null));
     
     private static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> register(String registryName, Supplier<BlockEntityType<T>> tile) {
         return BLOCK_ENTITIES.register(registryName, tile);
