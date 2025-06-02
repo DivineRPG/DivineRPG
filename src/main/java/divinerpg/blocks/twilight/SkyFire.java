@@ -17,6 +17,7 @@ public class SkyFire extends TwilightFire {
         super.entityInside(state, level, pos, entity);
         if(entity instanceof ItemEntity) return;
         entity.addDeltaMovement(new Vec3(0, 3, 0));
+        entity.hasImpulse = true;
         level.playSound(null, pos, SoundEvents.BREEZE_JUMP, SoundSource.BLOCKS);
     }
 }

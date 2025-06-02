@@ -68,6 +68,7 @@ public class Ticker {
             event.setCanceled(true);
             event.getLevel().setBlock(event.getPos(), BlockRegistry.terranGhostBlock.get().defaultBlockState(), 3);
             ((TerranGhostBlockEntity)event.getLevel().getBlockEntity(event.getPos())).originalState = event.getState();
+            event.getPlayer().getMainHandItem().hurtAndBreak(1, event.getPlayer(), EquipmentSlot.MAINHAND);
         }
     }
 }

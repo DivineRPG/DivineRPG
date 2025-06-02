@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "divinerpg:block/rupee_block",
+    "side": "divinerpg:block/miner_side",
+    "top": "divinerpg:block/miner_front"
+  }
+}

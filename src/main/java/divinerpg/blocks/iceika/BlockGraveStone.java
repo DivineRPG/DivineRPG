@@ -59,6 +59,8 @@ public class BlockGraveStone extends BlockMod {
     }
     static void spawnFrozenFlesh(ServerLevel level, Player player, BlockPos pos) {
         int y = Surface.getSurface(Surface.Surface_Type.HIGHEST_GROUND, Surface.Mode.FULL, pos.getY() - 7, pos.getY() + 7, 0, level, player.getRandom(), pos.getX(), pos.getY());
-        EntityRegistry.FROZEN_FLESH.get().spawn(level, (e) -> e.setPersistentAngerTarget(player.getUUID()), new BlockPos(pos.getX(), y, pos.getZ()), MobSpawnType.TRIGGERED, true, false);
+        pos = new BlockPos(pos.getX(), y, pos.getZ());
+        if(level.getBlockStates(EntityRegistry.FROZEN_FLESH.get().getSpawnAABB(pos.getX() + .5, pos.getY() + .1, pos.getZ() + .5)).allMatch(BlockStateBase::isAir))
+            EntityRegistry.FROZEN_FLESH.get().spawn(level, (e) -> e.setPersistentAngerTarget(player.getUUID()), pos, MobSpawnType.TRIGGERED, true, false);
     }
 }

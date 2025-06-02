@@ -197,6 +197,9 @@
   "block.divinerpg.limiter": "Power Breaker",
   "block.divinerpg.oxdrite_lamp": "Oxidized Lightly Weathered Exposed Lamp",
   "block.divinerpg.capacitor": "Redstone Reserves",
+  "block.divinerpg.miner": "World Eater",
+  "block.divinerpg.soft_miner": "Softy",
+  "block.divinerpg.placer": "Master Builder",
 
   "block.divinerpg.bloodgem_ore": "Crime Scene Generator",
   "block.divinerpg.bloodgem_block": "Block of Blood",

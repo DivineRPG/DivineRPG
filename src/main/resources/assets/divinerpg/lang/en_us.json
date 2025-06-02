@@ -194,6 +194,9 @@
   "block.divinerpg.limiter": "Limiter",
   "block.divinerpg.oxdrite_lamp": "Oxdrite Lamp",
   "block.divinerpg.capacitor": "Capacitor",
+  "block.divinerpg.miner": "Miner",
+  "block.divinerpg.soft_miner": "Soft Miner",
+  "block.divinerpg.placer": "Placer",
 
   "block.divinerpg.bloodgem_ore": "Bloodgem Ore",
   "block.divinerpg.bloodgem_block": "Block of Bloodgem",

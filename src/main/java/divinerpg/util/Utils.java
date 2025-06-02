@@ -1,6 +1,8 @@
 package divinerpg.util;
 
+import blusunrize.immersiveengineering.common.util.FakePlayerUtil;
 import com.google.gson.*;
+import com.mojang.authlib.GameProfile;
 import divinerpg.DivineRPG;
 import divinerpg.registries.FluidRegistry;
 import divinerpg.registries.LevelRegistry;
@@ -23,7 +25,9 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -32,6 +36,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import org.apache.commons.io.IOUtils;
 
 import javax.annotation.Nullable;
@@ -233,4 +238,17 @@ public class Utils {
         for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return true;
         return false;
     }
+
+    public static final Container EMPTY_CONTAINER = new Container() {
+        @Override public void clearContent() {}
+        @Override public int getContainerSize() {return 1;}
+        @Override public boolean isEmpty() {return true;}
+        @Override public ItemStack getItem(int i) {return ItemStack.EMPTY;}
+        @Override public ItemStack removeItem(int i, int i1) {return ItemStack.EMPTY;}
+        @Override public ItemStack removeItemNoUpdate(int i) {return ItemStack.EMPTY;}
+        @Override public void setItem(int i, ItemStack itemStack) {}
+        @Override public void setChanged() {}
+        @Override public boolean stillValid(Player player) {return true;}
+    };
+    public static final GameProfile FAKE_PLAYER = new GameProfile(UUID.randomUUID(), "drpgfakeplayer");
 }

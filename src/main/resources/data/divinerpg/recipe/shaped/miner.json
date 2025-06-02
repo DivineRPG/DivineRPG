@@ -1,0 +1,23 @@
+{
+  "result": {
+    "id": "divinerpg:miner"
+  },
+  "pattern": [
+    "xxx",
+    "xcx",
+    "xrx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "x": {
+      "item": "divinerpg:rupee_ingot"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "c": {
+      "item": "divinerpg:rupee_shickaxe"
+    }
+  }
+}

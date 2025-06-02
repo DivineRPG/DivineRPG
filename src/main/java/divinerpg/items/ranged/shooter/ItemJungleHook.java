@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level;
 
 public class ItemJungleHook extends ItemRangedWeapon {
     public ItemJungleHook(){
-        super(TagRegistry.ROPE, Items.LEAD::getDefaultInstance, EntityRegistry.HOOK::value, 1000);
+        super(TagRegistry.ROPE, Items.LEAD::getDefaultInstance, EntityRegistry.HOOK::value, 100);
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
@@ -21,5 +21,9 @@ public class ItemJungleHook extends ItemRangedWeapon {
             player.startUsingItem(hand);
             return InteractionResultHolder.pass(player.getItemInHand(hand));
         } return super.use(level, player, hand);
+    }
+    @Override
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.BLOCK;
     }
 }

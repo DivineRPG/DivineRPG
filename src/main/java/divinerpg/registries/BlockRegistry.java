@@ -843,6 +843,9 @@ public class BlockRegistry {
     oxdriteRail = registerBlock("oxdrite_rail", OxdriteRail::new),
     oxdriteLamp = registerBlock("oxdrite_lamp", OxdriteLamp::new),
     capacitor = registerBlock("capacitor", Capacitor::new),
+    miner = registerBlock("miner", MinerBlock::new),
+    softMiner = registerBlock("soft_miner", SoftMinerBlock::new),
+    placer = registerBlock("placer", PlacerBlock::new),
 
     //Traps
     spikeBlock = registerBlock("spike_block", () -> new BlockSpike(false, METAL)),
@@ -885,7 +888,7 @@ public class BlockRegistry {
 
     //Air
     dungeonAir = registerBlock("dungeon_air", BlockModDungeonAir::new, Rarity.EPIC),
-    terranGhostBlock = BLOCKS.register("terran_ghost_block", () -> new TerranGhostBlock(Properties.of().noLootTable().noOcclusion().noCollission().air())),
+    terranGhostBlock = BLOCKS.register("terran_ghost_block", () -> new TerranGhostBlock(Properties.of().noLootTable().noOcclusion().noCollission().air().replaceable())),
 
     //Creative Mode Blocks
     randomItemDropper = registerBlock("random_item_dropper", BlockRandomItemDropper::new);

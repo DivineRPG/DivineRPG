@@ -44,7 +44,16 @@ public class Hook extends Projectile implements Leashable {
     @Override
     public void tick() {
         super.tick();
-        Vec3 dv = getDeltaMovement();
+        Vec3 dv;
+        Entity owner = getOwner();
+        if(owner == null || !owner.isAlive()) {
+            discard();
+            return;
+        } dv = owner.position().subtract(position());
+        if(dv.lengthSqr() > 4096D) {
+            setDeltaMovement(dv = dv.normalize());
+            hasImpulse = true;
+        } else dv = getDeltaMovement();
         if(xRotO == 0F && yRotO == 0F) {
             double h = dv.horizontalDistance();
             setYRot((float)(Mth.atan2(dv.x, dv.z) * 180D / Math.PI));
@@ -88,16 +97,14 @@ public class Hook extends Projectile implements Leashable {
             setPos(newx, newy, newz);
             checkInsideBlocks();
         }
-        if(getOwner() instanceof Player p) {
+        if(owner instanceof Player p) {
             boolean shift = p.isShiftKeyDown();
             if(shift && hookDistance > 0F && !p.onGround()) {
                 hookDistance += .2F;
-                System.out.println("Extending");
-            }
-            if(p.isUsingItem() && p.getUseItem().is(ItemRegistry.jungle_hook)) {
+                if(hookDistance > 64F) hookDistance = 64F;
+            } if(p.isUsingItem() && p.getUseItem().is(ItemRegistry.jungle_hook)) {
                 if(shift) discard();
                 else if(hookDistance > 0F) {
-                    System.out.println("Reeling in");
                     hookDistance -= 1F;
                     if(hookDistance < .2F) hookDistance = .2F;
                 }
@@ -111,12 +118,10 @@ public class Hook extends Projectile implements Leashable {
             Entity owner = getOwner();
             if(owner == null) discard();
             else {
-                System.out.println("Hooked");
                 this.inGround = true;
                 hookDistance = distanceTo(owner) + 1F;
             }
         } else {
-            System.out.println("Unhooked");
             this.inGround = false;
             hookDistance = 0F;
         }

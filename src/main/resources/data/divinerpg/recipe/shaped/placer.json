@@ -1,0 +1,23 @@
+{
+  "result": {
+    "id": "divinerpg:placer"
+  },
+  "pattern": [
+    "xxx",
+    "xcx",
+    "xrx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "x": {
+      "item": "divinerpg:arlemite_ingot"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "c": {
+      "item": "minecraft:hopper"
+    }
+  }
+}
