@@ -194,6 +194,9 @@
   "block.divinerpg.limiter": "Ограничитель",
   "block.divinerpg.oxdrite_lamp": "Оксидитовый фонарь",
   "block.divinerpg.capacitor": "Конденсатор",
+  "block.divinerpg.miner": "Копатель",
+  "block.divinerpg.soft_miner": "Смягчённый копатель",
+  "block.divinerpg.placer": "Укладчик",
 
   "block.divinerpg.bloodgem_ore": "Кровокварцевая руда",
   "block.divinerpg.bloodgem_block": "Кровокварцевый блок",

@@ -92,6 +92,7 @@ public enum ToolStats implements Tier {
     RUPEE_SHICKAXE(INCORRECT_FOR_DIAMOND_TOOL, 2634, 8, 3.5F, 14, rupee_ingot.get()),
     SKYTHERN_SHICKAXE(INCORRECT_FOR_NETHERITE_TOOL, 3783, 30, 14, 22, skythern_chunk.get()),
     TERRAN_SHICKAXE(INCORRECT_FOR_DIAMOND_TOOL, 2586, 8, 3.3F, 10, terran_stone.get()),
+    TERRAN_SHIFTER(INCORRECT_FOR_DIAMOND_TOOL, 1724, 8, 3.3F, 10, terran_stone.get()),
     WILDWOOD_SHICKAXE(INCORRECT_FOR_NETHERITE_TOOL, 3342, 20, 11, 22, wildwood_chunk.get()),
 
     //Axes
