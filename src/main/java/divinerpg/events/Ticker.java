@@ -7,6 +7,7 @@ import divinerpg.entities.vanilla.overworld.EntityAequorea;
 import divinerpg.network.payload.Weather;
 import divinerpg.registries.*;
 import divinerpg.util.Utils;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,7 +15,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -64,11 +67,14 @@ public class Ticker {
     }
     @SubscribeEvent
     public void onMineBlock(BlockEvent.BreakEvent event) {
-        if(event.getPlayer().getMainHandItem().is(ItemRegistry.terran_shifter)) {
-            event.setCanceled(true);
-            event.getLevel().setBlock(event.getPos(), BlockRegistry.terranGhostBlock.get().defaultBlockState(), 3);
-            ((TerranGhostBlockEntity)event.getLevel().getBlockEntity(event.getPos())).originalState = event.getState();
-            event.getPlayer().getMainHandItem().hurtAndBreak(1, event.getPlayer(), EquipmentSlot.MAINHAND);
-        }
+        if(handleTerranShifter(event.getLevel(), event.getPlayer(), event.getPos(), event.getState(), event.getPlayer().getMainHandItem())) event.setCanceled(true);
+    }
+    public static boolean handleTerranShifter(LevelAccessor level, Player player, BlockPos pos, BlockState state, ItemStack tool) {
+        if(tool.is(ItemRegistry.terran_shifter) && !state.is(BlockRegistry.terranGhostBlock)) {
+            level.setBlock(pos, BlockRegistry.terranGhostBlock.get().defaultBlockState(), 3);
+            ((TerranGhostBlockEntity)level.getBlockEntity(pos)).originalState = state;
+            tool.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
+            return true;
+        } return false;
     }
 }

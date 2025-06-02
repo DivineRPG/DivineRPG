@@ -1,6 +1,7 @@
 package divinerpg.events.enchant;
 
 import divinerpg.blocks.base.BlockModMobCage;
+import divinerpg.events.Ticker;
 import divinerpg.registries.EnchantmentRegistry;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -30,28 +31,29 @@ public class RiveHandler {
         if(!(itemStack.getItem() instanceof DiggerItem)) return;
         if(!itemStack.getItem().isCorrectToolForDrops(itemStack, blockState)) return;
         if(level < 1) return;
+        float destroySpeed = blockState.getDestroySpeed(world, event.getPos());
         int[] dimensions = getSizeByDirection(facing, level);
         int totalBlocksBroken = 0;
-        //TODO: to make the around blocks breakable only when targeted block has the same or higher hardness value (so that you won't insta-break obsidian by breaking leaves with a shickaxe)
-        for(int x = dimensions[0]; x <= dimensions[3]; x++) {
-            for(int y = dimensions[1]; y <= dimensions[4]; y++) {
-                for(int z = dimensions[2]; z <= dimensions[5]; z++) {
-                    BlockPos pos = event.getPos().offset(x, y, z);
-                    if(tryToBreakBlock(world, player, pos, world.getBlockState(pos), itemStack)) totalBlocksBroken++;
-                }
+        for(int x = dimensions[0]; x <= dimensions[3]; x++) for(int y = dimensions[1]; y <= dimensions[4]; y++) for(int z = dimensions[2]; z <= dimensions[5]; z++) {
+            BlockPos pos = event.getPos().offset(x, y, z);
+            if(tryToBreakBlock(world, player, pos, world.getBlockState(pos), itemStack, destroySpeed)) {
+                totalBlocksBroken++;
+                event.setCanceled(true);
             }
-        } if(blockState.getDestroySpeed(world, event.getPos()) != 0 && totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, EquipmentSlot.MAINHAND);
+        } if(totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, EquipmentSlot.MAINHAND);
     }
-    private boolean tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool) {
+    private boolean tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool, float destroySpeed) {
         Block block = blockState.getBlock();
         if(!tool.getItem().isCorrectToolForDrops(tool, blockState)) return false;
         if(!(block instanceof BlockModMobCage) && blockState.hasBlockEntity()) return false;
-        if(block.defaultDestroyTime() < 0) return false;
-        //Checks if the block is a mob cage and manually trigger entity spawn logic
-        if(block instanceof BlockModMobCage mobCage) mobCage.onDestroyedByPlayer(blockState, world, pos, player, true, world.getFluidState(pos));
+        if(block.defaultDestroyTime() < 0 || blockState.getDestroySpeed(world, pos) > destroySpeed) return false;
         if(block.canHarvestBlock(blockState, world, pos, player) && world instanceof ServerLevel) {
-            if(!player.isCreative()) block.playerDestroy(world, player, pos, blockState, null, tool);
-            world.destroyBlock(pos, false);
+            var fluidState = world.getFluidState(pos);
+            var entity = blockState.hasBlockEntity() ? world.getBlockEntity(pos) : null;
+            world.destroyBlock(pos, false, player);
+            if(Ticker.handleTerranShifter(world, player, pos, blockState, tool)) return false;
+            if(!player.isCreative()) block.playerDestroy(world, player, pos, blockState, entity, tool);
+            block.onDestroyedByPlayer(blockState, world, pos, player, true, fluidState);
             return true;
         } return false;
     }
