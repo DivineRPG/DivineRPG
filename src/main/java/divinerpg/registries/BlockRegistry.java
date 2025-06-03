@@ -763,7 +763,7 @@ public class BlockRegistry {
 
     //Proximity Spawner
     proximitySpawner = registerBlock("proximity_spawner", () -> new BlockModProximitySpawner(Properties.ofFullCopy(Blocks.SPAWNER).noLootTable())),
-    kobblinBurrow = registerBlock("kobblin_burrow", () -> new KobblinBurrow(Properties.ofFullCopy(Blocks.ROOTED_DIRT).noLootTable())),
+    kobblinBurrow = registerBlock("kobblin_burrow", () -> new KobblinBurrow(Properties.ofFullCopy(Blocks.ROOTED_DIRT))),
 
     //Encaged Arcana Creatures
     encagedCaptainMerik = registerBlock("encaged_captain_merik", () -> new BlockModMobCage(EntityRegistry.CAPTAIN_MERIK.getId(), firestock.getId())),
@@ -784,11 +784,11 @@ public class BlockRegistry {
     //Boss Altars
     dramixAltar = registerWithRender("dramix_altar", () -> new BlockModAltar(CRIMSON_HYPHAE), Rarity.COMMON),
     parasectaAltar = registerWithRender("parasecta_altar", () -> new BlockModAltar(TERRACOTTA_BROWN), Rarity.COMMON),
-    karosAltar = registerBlock("karos_altar", () -> new BlockKarosAltar(WARPED_WART_BLOCK)),
-    lunicAltar = registerBlock("lunic_altar", () -> new BlockLunicAltar(COLOR_BLUE)),
-    quadroticAltar = registerBlock("quadrotic_altar", () -> new BlockQuadroticAltar(COLOR_BLUE)),
-    raglokAltar = registerBlock("raglok_altar", () -> new BlockRaglokAltar(COLOR_BROWN)),
-    wreckAltar = registerBlock("wreck_altar", () -> new BlockWreckAltar(COLOR_RED)),
+    karosAltar = registerBlock("karos_altar", BlockKarosAltar::new),
+    lunicAltar = registerBlock("lunic_altar", BlockLunicAltar::new),
+    quadroticAltar = registerBlock("quadrotic_altar", BlockQuadroticAltar::new),
+    raglokAltar = registerBlock("raglok_altar", BlockRaglokAltar::new),
+    wreckAltar = registerBlock("wreck_altar", BlockWreckAltar::new),
 
     //Hive Egg
     hiveEgg = registerBlock("hive_egg", () -> new BlockHiveEgg(Properties.ofFullCopy(Blocks.DRAGON_EGG))),

@@ -1,26 +1,17 @@
 package divinerpg.blocks.vethea;
 
 import divinerpg.entities.boss.EntityQuadro;
-import divinerpg.registries.EntityRegistry;
-import divinerpg.registries.ItemRegistry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.MapColor;
+
+import static divinerpg.registries.EntityRegistry.QUADRO;
+import static divinerpg.registries.ItemRegistry.dream_flint;
+import static net.minecraft.world.level.material.MapColor.COLOR_BLUE;
 
 public class BlockQuadroticAltar extends BlockVetheaAltar {
-    public BlockQuadroticAltar(MapColor color) {
-        super(color);
-    }
-
-    protected Item acceptedItem() {
-        return ItemRegistry.dream_flint.get();
-    }
-
-    protected LivingEntity getBoss(Level world) {
-        return new EntityQuadro(EntityRegistry.QUADRO.get(), world);
-    }
-
-    protected void onFailure() {
-    }
+    public BlockQuadroticAltar() {super(COLOR_BLUE);}
+    @Override protected Item acceptedItem() {return dream_flint.get();}
+    @Override protected LivingEntity getBoss(Level world) {return new EntityQuadro(QUADRO.get(), world);}
+    @Override protected void onFailure() {}
 }

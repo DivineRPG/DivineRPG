@@ -17,8 +17,9 @@ public abstract class BlockVetheaAltar extends BlockModUnbreakable {
     protected BlockVetheaAltar(MapColor color) {super(color);}
     @Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         if(stack.getItem() == acceptedItem()) {
-            stack.consume(1, player);
             player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
+            player.getCooldowns().addCooldown(stack.getItem(), 40);
+            stack.consume(1, player);
             spawnBoss(world, pos);
             return ItemInteractionResult.SUCCESS;
         } else onFailure();

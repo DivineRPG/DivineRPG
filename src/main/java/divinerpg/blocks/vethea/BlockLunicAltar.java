@@ -1,26 +1,17 @@
 package divinerpg.blocks.vethea;
 
 import divinerpg.entities.boss.EntityLadyLuna;
-import divinerpg.registries.EntityRegistry;
-import divinerpg.registries.ItemRegistry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.material.MapColor;
+
+import static divinerpg.registries.EntityRegistry.LADY_LUNA;
+import static divinerpg.registries.ItemRegistry.moon_clock;
+import static net.minecraft.world.level.material.MapColor.COLOR_BLUE;
 
 public class BlockLunicAltar extends BlockVetheaAltar {
-    public BlockLunicAltar(MapColor color) {
-        super(color);
-    }
-
-    protected Item acceptedItem() {
-        return ItemRegistry.moon_clock.get();
-    }
-
-    protected LivingEntity getBoss(Level world) {
-        return new EntityLadyLuna(EntityRegistry.LADY_LUNA.get(), world);
-    }
-
-    protected void onFailure() {
-    }
+    public BlockLunicAltar() {super(COLOR_BLUE);}
+    @Override protected Item acceptedItem() {return moon_clock.get();}
+    @Override protected LivingEntity getBoss(Level world) {return new EntityLadyLuna(LADY_LUNA.get(), world);}
+    @Override protected void onFailure() {}
 }

@@ -49,12 +49,12 @@ public class BlockModMobCage extends BlockMod {
 	}
 	@Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		if(!player.getCooldowns().isOnCooldown(stack.getItem()) && (spawnItem == null || stack.is(BuiltInRegistries.ITEM.get(spawnItem)))) {
-			if(spawnItem != null) stack.consume(1, player);
-			player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
-			//TODO: cooldown doesn't get applied if you use a stack that has a single item (in survival)
-			player.getCooldowns().addCooldown(stack.getItem(), 40);
 			if(!level.isClientSide) BuiltInRegistries.ENTITY_TYPE.get(type).spawn((ServerLevel) level, null, player, relativePos == null ? pos : pos.offset(relativePos), MobSpawnType.MOB_SUMMONED, true, false);
-			return ItemInteractionResult.SUCCESS;
+			if(spawnItem != null) {
+				player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
+				player.getCooldowns().addCooldown(stack.getItem(), 40);
+				stack.consume(1, player);
+			} return ItemInteractionResult.SUCCESS;
 		} return ItemInteractionResult.FAIL;
 	}
 }

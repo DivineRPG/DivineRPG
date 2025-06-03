@@ -27,7 +27,6 @@ public class ItemDreamFlint extends ItemVethean {
 		if(world.getBlockState(pos).is(mortumBlock)) {
 			boolean northSouth = world.getBlockState(pos.above().north()).is(mortumBlock);
 			if(!northSouth && !world.getBlockState(pos.above().east()).is(mortumBlock)) return InteractionResult.FAIL;
-			//TODO: to fix the portal blocks placement, you can create some unexpected shapes with it
 			while(pos.getY() < world.getMaxBuildHeight() && world.getBlockState(pos.move(Direction.UP)).isAir()) {
 				MutableBlockPos search = pos.mutable();
 				if(northSouth) {
@@ -54,6 +53,7 @@ public class ItemDreamFlint extends ItemVethean {
 						while(world.getBlockState(place.move(Direction.WEST)).isAir()) world.setBlock(place, portal, 2);
 					}
 				} Player player = context.getPlayer();
+				player.getCooldowns().addCooldown(context.getItemInHand().getItem(), 40);
 				context.getItemInHand().consume(1, player);
 				player.playSound(SoundEvents.FLINTANDSTEEL_USE, 1, 1);
 				return InteractionResult.SUCCESS;

@@ -1,0 +1,20 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rooted_dirt"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "survives_explosion"
+        }
+      ]
+    }
+  ]
+}
