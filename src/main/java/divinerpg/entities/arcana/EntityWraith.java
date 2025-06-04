@@ -29,10 +29,7 @@ public class EntityWraith extends EntityDivineTameable {
         goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 64.0F));
         goalSelector.addGoal(6, new EntityWraith.LookAroundGoal(this));
     }
-    @Override
-    protected float getSoundVolume() {
-        return .1F;
-    }
+    @Override protected float getSoundVolume() {return .1F;}
     @Override
 	public float getVoicePitch() {
         return super.getVoicePitch() * 0.95F;

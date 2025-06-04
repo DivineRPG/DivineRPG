@@ -14,10 +14,7 @@ public class EntityRoamer extends EntityDivineMonster {
         super(type, worldIn);
     }
     @Override public boolean fireImmune() {return true;}
-    @Override
-    protected float getSoundVolume() {
-        return 0.3F;
-    }
+    @Override protected float getSoundVolume() {return .3F;}
 
     @Override
     protected SoundEvent getAmbientSound() {

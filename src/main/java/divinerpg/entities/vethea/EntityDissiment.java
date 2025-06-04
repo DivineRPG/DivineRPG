@@ -33,7 +33,6 @@ public class EntityDissiment extends EntityDivineFlyingMonster implements Ranged
             level().addFreshEntity(projectile);
         }
     }
-    @Override protected float getSoundVolume() {return 2;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.DISSIMENT.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.DISSIMENT_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.DISSIMENT_HURT.get();}

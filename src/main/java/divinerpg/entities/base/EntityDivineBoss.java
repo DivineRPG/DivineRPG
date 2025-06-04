@@ -11,7 +11,10 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class EntityDivineBoss extends EntityDivineMonster {
     protected ServerBossEvent bossEvent = new ServerBossEvent(getDisplayName(), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.PROGRESS);
-    public EntityDivineBoss(EntityType<? extends EntityDivineBoss> type, Level worldIn) {super(type, worldIn);}
+    public EntityDivineBoss(EntityType<? extends EntityDivineBoss> type, Level worldIn) {
+        super(type, worldIn);
+        xpReward = XP_REWARD_BOSS;
+    }
     @Override public Component getDisplayName() {
         return PlayerTeam.formatNameForTeam(getTeam(), getName()).withStyle((s) -> s.withHoverEvent(createHoverEvent()).withInsertion(getStringUUID()).withBold(true));
     }

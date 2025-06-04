@@ -23,7 +23,6 @@ import net.neoforged.api.distmarker.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class ItemArmorPouch extends ItemMod {
 	public ItemArmorPouch(int nameColor) {

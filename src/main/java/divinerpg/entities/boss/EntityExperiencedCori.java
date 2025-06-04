@@ -29,7 +29,7 @@ public class EntityExperiencedCori extends EntityDivineFlyingMonster implements 
 
     public EntityExperiencedCori(EntityType<? extends EntityExperiencedCori> type, Level worldIn) {
         super(type, worldIn);
-        xpReward=2000;
+        xpReward = XP_REWARD_BOSS;
         coriTypePool.addItem(EntityRegistry.WEAK_CORI.get(), 4);
         coriTypePool.addItem(EntityRegistry.ADVANCED_CORI.get(), 1);
     }

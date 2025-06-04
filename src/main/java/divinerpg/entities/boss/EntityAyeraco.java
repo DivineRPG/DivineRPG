@@ -146,8 +146,6 @@ public class EntityAyeraco extends EntityDivineBoss {
         return this;
     }
 	public void setBeamPos(BlockPos pos) {beam = pos;}
-	@Override
-    public boolean causeFallDamage(float p_147187_, float p_147188_, DamageSource p_147189_) {return false;}
     @Override
     protected void checkFallDamage(double p_184231_1_, boolean p_184231_3_, BlockState p_184231_4_, BlockPos p_184231_5_) {}
     @Override

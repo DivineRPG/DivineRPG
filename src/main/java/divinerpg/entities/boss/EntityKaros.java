@@ -157,10 +157,7 @@ public class EntityKaros extends EntityDivineBoss {
         }
     }
 
-    @Override
-    protected float getSoundVolume() {
-        return 0.7F;
-    }
+    @Override protected float getSoundVolume() {return .7F;}
 
     @Override
     protected SoundEvent getAmbientSound() {

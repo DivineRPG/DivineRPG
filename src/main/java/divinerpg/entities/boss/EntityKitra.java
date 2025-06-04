@@ -3,8 +3,7 @@ package divinerpg.entities.boss;
 import divinerpg.entities.projectile.bullet.BoneBomb;
 import divinerpg.entities.vanilla.overworld.EntityWhale;
 import divinerpg.registries.*;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
+import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.*;
@@ -17,7 +16,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.RangedAttackMob;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.Level;
@@ -31,60 +30,46 @@ import java.util.*;
 
 public class EntityKitra extends EntityWhale implements RangedAttackMob {
     private final ServerBossEvent bossInfo = (ServerBossEvent) new ServerBossEvent(getDisplayName(), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.PROGRESS).setCreateWorldFog(true);
-    public EntityKitra(EntityType<? extends EntityWhale> type, Level worldIn) {
-        super(type, worldIn);
-    }
-    @Override
-    protected void registerGoals() {
+    public EntityKitra(EntityType<? extends EntityWhale> type, Level worldIn) {super(type, worldIn);}
+    @Override protected int getBaseExperienceReward() {return XP_REWARD_BOSS;}
+    @Override protected void registerGoals() {
         super.registerGoals();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, 0.27F, 80, 32));
+        goalSelector.addGoal(1, new RangedAttackGoal(this, .27F, 80, 32));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-
-    @Override
-    public Component getDisplayName() {
+    @Override public Component getDisplayName() {
         return PlayerTeam.formatNameForTeam(getTeam(), getName()).withStyle((s) -> s.withHoverEvent(createHoverEvent()).withInsertion(getStringUUID()).withBold(true).withColor(0xa4f4f9));
     }
-
-    //    @Override
-//    protected PathNavigation createNavigation(Level level) {
+//    @Override protected PathNavigation createNavigation(Level level) {
 //    	return new KitraNavigation(this, level);
 //    }
-    @Override
-    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-        return false;
-    }
-    @Override
-    public void startSeenByPlayer(ServerPlayer player) {
+    @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return false;}
+    @Override public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);
         bossInfo.addPlayer(player);
     }
-    @Override
-    public void stopSeenByPlayer(ServerPlayer player) {
+    @Override public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
         bossInfo.removePlayer(player);
     }
-    @Override
-    public void setCustomName(@Nullable Component name) {
+    @Override public void setCustomName(@Nullable Component name) {
         super.setCustomName(name);
         bossInfo.setName(getDisplayName());
     }
-    @Override
-    public void readAdditionalSaveData(CompoundTag compound) {
+    @Override public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         if(hasCustomName()) bossInfo.setName(getDisplayName());
     }
-    @Override
-    public void performRangedAttack(LivingEntity entity, float f) {
+    @Override public void performRangedAttack(LivingEntity entity, float f) {
         if(isAlive() && getTarget() != null && !level().isClientSide) {
             BoneBomb e = EntityRegistry.BONE_BOMB.get().create(level());
             // Calculate vector between whale and target
             double dx = getTarget().getX() - getX(), dy = getTarget().getY() - getY(), dz = getTarget().getZ() - getZ();
             e.setOwner(this);
-            e.shoot(dx, dy, dz, 1.5F, 0.8F);
-            e.setPos(position().x, position().y + 1.5D, position().z);
+            e.shoot(dx, dy, dz, 1.5F, .8F);
+            e.setPos(position().x, position().y + 1.5, position().z);
             level().addFreshEntity(e);
-            hurt(damageSources().magic(), 10F);
+            hurt(damageSources().magic(), 10);
             // Normalize vector
             double distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
             dx /= distance;
@@ -97,22 +82,18 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
             setDeltaMovement(getDeltaMovement().x + motionX, getDeltaMovement().y + motionY, getDeltaMovement().z + motionZ);
         }
     }
-    @Override
-    protected void customServerAiStep() {
-        bossInfo.setProgress(getHealth() / getMaxHealth());
-    }
-    @Override
-    public void tick() {
+    @Override protected void customServerAiStep() {bossInfo.setProgress(getHealth() / getMaxHealth());}
+    @Override public void tick() {
         super.tick();
         //Spawn fish around it randomly
         if(!level().isClientSide() && random.nextInt(500) == 0) {
-            double x = getX() + (random.nextDouble() - .5) * 8D, y = getY(), z = getZ() + (random.nextDouble() - .5) * 8D;
+            double x = getX() + (random.nextDouble() - .5) * 8, y = getY(), z = getZ() + (random.nextDouble() - .5) * 8;
             BlockPos pos = new BlockPos((int) x, (int) y, (int) z);
             BlockState state = level().getBlockState(pos);
             if(state.getFluidState().is(FluidTags.WATER)) {
                 List<EntityType<?>> fishEntities = Arrays.asList(EntityType.PUFFERFISH, EntityRegistry.SHARK.get(), EntityRegistry.AEQUOREA.get(), EntityType.GLOW_SQUID);
                 EntityType<?> randomFishEntity = fishEntities.get(level().getRandom().nextInt(fishEntities.size()));
-                if(level().noCollision(randomFishEntity.getSpawnAABB(x, y, z).deflate(0.0625))) randomFishEntity.spawn((ServerLevel) level(), pos, MobSpawnType.REINFORCEMENT);
+                if(level().noCollision(randomFishEntity.getSpawnAABB(x, y, z).deflate(.0625))) randomFishEntity.spawn((ServerLevel) level(), pos, MobSpawnType.REINFORCEMENT);
             } else if(state.isAir() && level().noCollision(EntityRegistry.ALICANTO.get().getSpawnAABB(x, y, z))) EntityRegistry.ALICANTO.get().spawn((ServerLevel) level(), pos, MobSpawnType.REINFORCEMENT);
         }
         //Randomly add negative effects to nearby players
@@ -131,7 +112,7 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
                 if(state.is(BlockTags.ICE)) {
                     if(blockPos.getY() == level().getSeaLevel()) level().setBlockAndUpdate(blockPos, Blocks.WATER.defaultBlockState()); // Replace ice with water
                     else level().destroyBlock(blockPos, false); // Break ice block
-                    playSound(SoundEvents.GLASS_BREAK, 1F, 1F);
+                    playSound(SoundEvents.GLASS_BREAK, 1, 1);
                 }
             });
         }
@@ -143,9 +124,7 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
         int amplifier = random.nextInt(2); // Level 0-1
         return new MobEffectInstance(negativeEffect, duration, amplifier);
     }
-
-    @Override
-    public boolean isInvulnerableTo(DamageSource source) {
+    @Override public boolean isInvulnerableTo(DamageSource source) {
         return super.isInvulnerableTo(source) || !(source.is(DamageTypes.MAGIC)
                 || source.is(DamageRegistry.ARCANA.getKey())
                 || source.is(DamageTypes.FELL_OUT_OF_WORLD)
@@ -156,11 +135,7 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
                 || source.is(DamageTypes.WITHER)
                 || source.is(DamageTypes.GENERIC_KILL));
     }
-
-    @Override
-    public boolean canBeHitByProjectile() {
-        return true;
-    }
+    @Override public boolean canBeHitByProjectile() {return true;}
     //    public static class KitraNavigation extends WaterBoundPathNavigation {
 //    	public KitraNavigation(Mob mob, Level level) {
 //    		super(mob, level);

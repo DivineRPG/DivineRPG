@@ -17,7 +17,7 @@ public class EntitySunstorm extends EntityDivineBoss implements RangedAttackMob 
 
     public EntitySunstorm(EntityType<? extends EntitySunstorm> type, Level worldIn) {
         super(type, worldIn);
-        this.xpReward = 1000;
+        xpReward = XP_REWARD_BOSS;
     }
     @Override
     public void performRangedAttack(LivingEntity target, float distanceFactor) {

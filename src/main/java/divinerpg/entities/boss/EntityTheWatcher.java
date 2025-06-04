@@ -30,8 +30,8 @@ public class EntityTheWatcher extends EntityDivineFlyingMonster implements Range
     private int explosionStrength = 1;
 
     public EntityTheWatcher(EntityType<? extends EntityDivineFlyingMonster> type, Level worldIn) {
-        super(type, worldIn, 6F, 10F, 25F);
-        this.xpReward = 5000;
+        super(type, worldIn, 6, 10, 25);
+        xpReward = XP_REWARD_BOSS;
         this.moveControl = new EntityTheWatcher.MoveHelperController(this);
     }
     @Override
@@ -107,24 +107,16 @@ public class EntityTheWatcher extends EntityDivineFlyingMonster implements Range
     protected SoundEvent getDeathSound() {
     	return SoundRegistry.GROWL_HURT.get();
     }
-
-    protected float getSoundVolume() {
-        return 5.0F;
-    }
-
-    public void addAdditionalSaveData(CompoundTag compound) {
+    @Override public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         compound.putInt("ExplosionPower", this.explosionStrength);
     }
-
-    public void readAdditionalSaveData(CompoundTag compound) {
+    @Override public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         if(compound.contains("ExplosionPower", 99)) explosionStrength = compound.getInt("ExplosionPower");
         if(hasCustomName()) bossInfo.setName(getDisplayName());
-
     }
-    @Override
-    public void setCustomName(@Nullable Component name) {
+    @Override public void setCustomName(@Nullable Component name) {
         super.setCustomName(name);
         bossInfo.setName(getDisplayName());
     }

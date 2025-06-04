@@ -24,10 +24,7 @@ public class EntityDeathcryx extends EntityDivineMonster {
         }
     }
     @Override public boolean fireImmune() {return true;}
-    @Override
-    protected float getSoundVolume() {
-        return 0.7F;
-    }
+    @Override protected float getSoundVolume() {return .7F;}
 
     @Override
     protected SoundEvent getAmbientSound() {

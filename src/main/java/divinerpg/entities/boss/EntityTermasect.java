@@ -28,8 +28,8 @@ public class EntityTermasect extends EntityDivineFlyingMonster implements Ranged
     private final ServerBossEvent bossInfo = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.BLUE, BossEvent.BossBarOverlay.PROGRESS);
 
     public EntityTermasect(EntityType<? extends EntityDivineFlyingMonster> type, Level worldIn) {
-        super(type, worldIn, 25F);
-        this.xpReward = 1500;
+        super(type, worldIn, 25);
+        xpReward = XP_REWARD_BOSS;
     }
     @Override
     public Component getDisplayName() {

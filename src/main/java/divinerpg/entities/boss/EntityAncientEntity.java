@@ -13,11 +13,7 @@ import net.minecraft.world.level.Level;
 
 public class EntityAncientEntity extends EntityDivineBoss {
 
-    public EntityAncientEntity(EntityType<? extends EntityAncientEntity> type, Level worldIn) {
-        super(type, worldIn);
-        xpReward = 2000;
-    }
-
+    public EntityAncientEntity(EntityType<? extends EntityAncientEntity> type, Level worldIn) {super(type, worldIn);}
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));

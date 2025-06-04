@@ -33,7 +33,6 @@ public class EntityZoragon extends EntityDivineFlyingMonster implements RangedAt
             level().addFreshEntity(projectile);
         }
     }
-    @Override protected float getSoundVolume() {return 2;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.ZORAGON.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.ZORAGON_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.ZORAGON_HURT.get();}

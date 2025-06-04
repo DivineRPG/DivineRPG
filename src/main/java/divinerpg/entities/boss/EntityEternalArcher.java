@@ -15,10 +15,7 @@ public class EntityEternalArcher extends EntityDivineBoss {
     private int armSelected;
     private int abilityTick;
 
-    public EntityEternalArcher(EntityType<? extends EntityEternalArcher> type, Level worldIn) {
-        super(type, worldIn);
-        this.xpReward = 250;
-    }
+    public EntityEternalArcher(EntityType<? extends EntityEternalArcher> type, Level worldIn) {super(type, worldIn);}
     @Override
     protected void registerGoals() {
         super.registerGoals();
@@ -32,7 +29,7 @@ public class EntityEternalArcher extends EntityDivineBoss {
         if (this.getTarget() != null) {
             this.getLookControl().setLookAt(this.getTarget().getX(),
                     this.getTarget().getY() + (double) this.getTarget().getEyeHeight(),
-                    this.getTarget().getZ(), 10.0F, 5);
+                    this.getTarget().getZ(), 10, 5);
         }
 
         if (this.getTarget() == null || this.random.nextInt(200) == 0) {
