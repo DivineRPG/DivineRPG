@@ -32,13 +32,19 @@
   "arid_warrior": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/arid_warrior"
+      "divinerpg:mobs/overworld/arid_warrior"
     ]
   },
   "arid_warrior_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/arid_warrior_hurt"
+      "divinerpg:mobs/overworld/arid_warrior_hurt"
+    ]
+  },
+  "arid_warrior_death": {
+    "category": "hostile",
+    "sounds": [
+      "divinerpg:mobs/overworld/arid_warrior_death"
     ]
   },
   "ayeraco": {
@@ -176,13 +182,13 @@
   "crawler": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/crawler"
+      "divinerpg:mobs/overworld/crawler"
     ]
   },
   "crawler_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/crawler_hurt"
+      "divinerpg:mobs/overworld/crawler_hurt"
     ]
   },
   "cave_crawler_step": {
@@ -200,13 +206,13 @@
   "cyclops": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:to_replace/cyclops"
+      "divinerpg:mobs/overworld/cyclops"
     ]
   },
   "cyclops_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:to_replace/cyclops_hurt"
+      "divinerpg:mobs/overworld/cyclops_hurt"
     ]
   },
   "cymesoid": {
@@ -224,13 +230,13 @@
   "deathcryx": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/deathcryx"
+      "divinerpg:mobs/arcana/deathcryx"
     ]
   },
   "deathcryx_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/deathcryx_hurt"
+      "divinerpg:mobs/arcana/deathcryx_hurt"
     ]
   },
   "death_hound": {
@@ -681,13 +687,22 @@
   "liopleurodon": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/liopleurodon"
+      "divinerpg:mobs/overworld/liopleurodon"
     ]
   },
   "liopleurodon_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:to_replace/liopleurodon_hurt"
+      {
+        "name": "divinerpg:mobs/overworld/liopleurodon_hurt",
+        "volume": 0.5
+      }
+    ]
+  },
+  "liopleurodon_death": {
+    "category": "hostile",
+    "sounds": [
+      "divinerpg:mobs/overworld/liopleurodon_death"
     ]
   },
   "livestock_merchant": {

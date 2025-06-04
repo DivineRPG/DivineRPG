@@ -40,7 +40,7 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundRegistry.LIOPLEURODON_HURT.get();
+        return SoundRegistry.LIOPLEURODON_DEATH.get();
     }
 
 	public static boolean liopleurodonSpawnRule(EntityType<? extends Mob> typeIn, ServerLevelAccessor worldIn, MobSpawnType reason, BlockPos pos, RandomSource randomIn) {

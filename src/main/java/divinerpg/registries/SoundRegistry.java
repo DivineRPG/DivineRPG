@@ -28,6 +28,7 @@ public class SoundRegistry {
         ARCHER = registerSound("archer"),
         ARID_WARRIOR = registerSound("arid_warrior"),
         ARID_WARRIOR_HURT = registerSound("arid_warrior_hurt"),
+        ARID_WARRIOR_DEATH = registerSound("arid_warrior_death"),
         AYERACO = registerSound("ayeraco"),
         AYERACO_HALF_HEALTH = registerSound("ayeraco_half_health"),//TODO: implement sound
         AYERACO_HURT = registerSound("ayeraco_hurt"),
@@ -144,6 +145,7 @@ public class SoundRegistry {
         LHEIVA_HURT = registerSound("lheiva_hurt"),
         LIOPLEURODON = registerSound("liopleurodon"),
         LIOPLEURODON_HURT = registerSound("liopleurodon_hurt"),
+        LIOPLEURODON_DEATH = registerSound("liopleurodon_death"),
         LIVESTOCK_MERCHANT = registerSound("livestock_merchant"),
         LIVESTOCK_MERCHANT_HURT = registerSound("livestock_merchant_hurt"),
         LORGA = registerSound("lorga"),

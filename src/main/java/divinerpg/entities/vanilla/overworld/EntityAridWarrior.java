@@ -51,6 +51,6 @@ public class EntityAridWarrior extends EntityDivineMonster implements RangedAtta
     }
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.ARID_WARRIOR.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.ARID_WARRIOR_HURT.get();}
-    @Override protected SoundEvent getDeathSound() {return SoundRegistry.ARID_WARRIOR_HURT.get();}
+    @Override protected SoundEvent getDeathSound() {return SoundRegistry.ARID_WARRIOR_DEATH.get();}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
 }
