@@ -245,7 +245,7 @@ public class Utils {
     public static final GameProfile FAKE_PLAYER = new GameProfile(UUID.randomUUID(), "drpgfakeplayer");
 
     public static void summonEntityAt(ServerLevel level, EntityType<?> type, BlockPos pos, @Nullable Player player) {
-        int y = Surface.getSurface(Surface_Type.LOWEST_GROUND, Surface.Mode.FULL, pos.getY() - 2, pos.getY() + 7, 0, level, level.getRandom(), pos.getX(), pos.getZ());
+        int y = Surface.getSurface(Surface_Type.LOWEST_GROUND, Surface.Mode.FULL, pos.getY() - 4, pos.getY() + 5, 0, level, level.getRandom(), pos.getX(), pos.getZ());
         pos = new BlockPos(pos.getX(), y, pos.getZ());
         if(level.getBlockStates(type.getSpawnAABB(pos.getX() + .5, pos.getY() + .14, pos.getZ() + .5)).allMatch(BlockBehaviour.BlockStateBase::isAir))
             type.spawn(level, (e) -> {
