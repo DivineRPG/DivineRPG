@@ -32,19 +32,28 @@
   "arid_warrior": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/overworld/arid_warrior"
+      {
+        "name": "divinerpg:mobs/overworld/arid_warrior",
+        "volume": 1.3
+      }
     ]
   },
   "arid_warrior_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/overworld/arid_warrior_hurt"
+      {
+        "name": "divinerpg:mobs/overworld/arid_warrior_hurt",
+        "volume": 1.3
+      }
     ]
   },
   "arid_warrior_death": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/overworld/arid_warrior_death"
+      {
+        "name": "divinerpg:mobs/overworld/arid_warrior_death",
+        "volume": 1.3
+      }
     ]
   },
   "ayeraco": {
@@ -182,13 +191,19 @@
   "crawler": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/overworld/crawler"
+      {
+        "name": "divinerpg:mobs/overworld/crawler",
+        "volume": 1.4
+      }
     ]
   },
   "crawler_hurt": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/overworld/crawler_hurt"
+      {
+        "name": "divinerpg:mobs/overworld/crawler_hurt",
+        "volume": 1.4
+      }
     ]
   },
   "cave_crawler_step": {
@@ -206,13 +221,19 @@
   "cyclops": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:mobs/overworld/cyclops"
+      {
+        "name": "divinerpg:mobs/overworld/cyclops",
+        "volume": 1.9
+      }
     ]
   },
   "cyclops_hurt": {
     "category": "neutral",
     "sounds": [
-      "divinerpg:mobs/overworld/cyclops_hurt"
+      {
+        "name": "divinerpg:mobs/overworld/cyclops_hurt",
+        "volume": 1.9
+      }
     ]
   },
   "cymesoid": {
@@ -687,7 +708,10 @@
   "liopleurodon": {
     "category": "hostile",
     "sounds": [
-      "divinerpg:mobs/overworld/liopleurodon"
+      {
+        "name": "divinerpg:mobs/overworld/liopleurodon",
+        "volume": 1.6
+      }
     ]
   },
   "liopleurodon_hurt": {
@@ -695,7 +719,7 @@
     "sounds": [
       {
         "name": "divinerpg:mobs/overworld/liopleurodon_hurt",
-        "volume": 0.5
+        "volume": 0.6
       }
     ]
   },
