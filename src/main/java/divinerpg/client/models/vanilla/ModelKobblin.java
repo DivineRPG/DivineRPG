@@ -6,74 +6,102 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Pose;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelKobblin extends EntityModel<EntityKobblin> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("kobblin");
-	private final ModelPart Pad, Neck, Body, Head, Tongue, rightarm, RLeg, leftarm, LLeg;
+	private final ModelPart Body, LeftArm, RightArm, RightLeg, LeftLeg, Head, LeftEar, RightEar, Tongue, GrassOverlay;
 
 	public ModelKobblin(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.Pad = root.getChild("Pad");
-		this.Neck = root.getChild("Neck");
-		this.Body = root.getChild("Body");
-		this.Head = root.getChild("Head");
-		this.Tongue = root.getChild("Tongue");
-		this.rightarm = root.getChild("rightarm");
-		this.RLeg = root.getChild("RLeg");
-		this.leftarm = root.getChild("leftarm");
-		this.LLeg = root.getChild("LLeg");
+		Body = root.getChild("Body");
+		LeftArm = Body.getChild("LeftArm");
+		RightArm = Body.getChild("RightArm");
+		RightLeg = Body.getChild("RightLeg");
+		LeftLeg = Body.getChild("LeftLeg");
+		Head = root.getChild("Head");
+		LeftEar = Head.getChild("LeftEar");
+		RightEar = Head.getChild("RightEar");
+		Tongue = Head.getChild("Tongue");
+		GrassOverlay = root.getChild("GrassOverlay");
 	}
-
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
+		CubeDeformation zero = new CubeDeformation(0F);
 
-		partdefinition.addOrReplaceChild("Pad", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 16.0F, 3.0F, 16.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-8.0F, 5.0F, -8.0F));
+		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(22, 18).addBox(-3.5F, -7F, -1F, 7F, 4F, 4F, zero)
+				.texOffs(22, 26).addBox(-3F, -4F, -2F, 6F, 4F, 4F, zero), PartPose.offset(0F, 22F, 1F));
 
-		partdefinition.addOrReplaceChild("Neck", CubeListBuilder.create().texOffs(40, 23).mirror().addBox(0.0F, 0.0F, 0.0F, 2.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 13.0F, -0.5F, 0.5236F, 0.0F, 0.0F));
+		PartDefinition LeftArm = Body.addOrReplaceChild("LeftArm", CubeListBuilder.create(), PartPose.offset(3.5F, -6F, 1F));
 
-		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(20, 19).mirror().addBox(0.0F, 0.0F, 0.0F, 5.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.5F, 14.0F, 0.5F));
+		LeftArm.addOrReplaceChild("leftarm_r1", CubeListBuilder.create().texOffs(0, 27).addBox(0F, -1F, -2F, 2F, 7F, 3F, zero), PartPose.offsetAndRotation(0F, 0F, 0F, 0F, 0F, -0.1309F));
 
-		partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 19).mirror().addBox(0.0F, 0.0F, 0.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.5F, 8.0F, -2.5F));
+		PartDefinition RightArm = Body.addOrReplaceChild("RightArm", CubeListBuilder.create(), PartPose.offset(-3.5F, -6F, 1F));
 
-		partdefinition.addOrReplaceChild("Tongue", CubeListBuilder.create().texOffs(40, 19).mirror().addBox(0.0F, 0.0F, 0.0F, 3.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.5F, 12.0F, -2.5F, -0.7854F, 0.0F, 0.0F));
+		RightArm.addOrReplaceChild("rightarm_r1", CubeListBuilder.create().texOffs(10, 27).addBox(-2F, -1F, -2F, 2F, 7F, 3F, zero), PartPose.offsetAndRotation(0F, 0F, 0F, 0F, 0F, 0.1309F));
 
-		PartDefinition rightarm = partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(48, 24).addBox(-1.8F, 1.3F, 2.3F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.5F, 14.0F, 2.5F, -1.5708F, -0.3665F, 0.0F));
+		Body.addOrReplaceChild("RightLeg", CubeListBuilder.create().texOffs(34, 34).addBox(-1F, 0F, -1F, 2F, 2F, 2F, zero), PartPose.offset(-2F, 0F, 0F));
 
-		rightarm.addOrReplaceChild("RArm1_r1", CubeListBuilder.create().texOffs(48, 19).mirror().addBox(7.2F, -2.0F, 7.5F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(3.5F, 10.0F, -2.5F, -0.7496F, 0.2233F, -2.4917F));
+		Body.addOrReplaceChild("LeftLeg", CubeListBuilder.create().texOffs(0, 37).addBox(-1F, 0F, -1F, 2F, 2F, 2F, zero), PartPose.offset(2F, 0F, 0F));
 
-		partdefinition.addOrReplaceChild("RLeg", CubeListBuilder.create().texOffs(48, 19).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-2.0F, 20.0F, 2.5F));
+		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 18).addBox(-3F, -4F, -3F, 6F, 4F, 5F, zero)
+				.texOffs(0, 0).addBox(-7F, -6F, -8F, 14F, 2F, 14F, zero), PartPose.offset(0F, 15F, 1F));
 
-		PartDefinition leftarm = partdefinition.addOrReplaceChild("leftarm", CubeListBuilder.create().texOffs(48, 19).mirror().addBox(1.6F, 1.0F, 2.5F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.5F, 14.0F, 2.5F, -1.5708F, 0.3665F, 0.0F));
+		PartDefinition LeftEar = Head.addOrReplaceChild("LeftEar", CubeListBuilder.create(), PartPose.offset(3F, -4F, 0F));
 
-		leftarm.addOrReplaceChild("LArm2_r1", CubeListBuilder.create().texOffs(48, 24).mirror().addBox(6.5F, -1.3F, 9.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-2.9F, 10.0F, -3.0F, 0.8759F, 0.2568F, -0.5121F));
+		LeftEar.addOrReplaceChild("leftear_r1", CubeListBuilder.create().texOffs(14, 37).addBox(0F, 0F, -1F, 1F, 3F, 2F, zero), PartPose.offsetAndRotation(0F, 0F, 0F, 0F, 0F, -0.2182F));
 
-		partdefinition.addOrReplaceChild("LLeg", CubeListBuilder.create().texOffs(48, 19).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.0F, 20.0F, 2.5F));
+		PartDefinition RightEar = Head.addOrReplaceChild("RightEar", CubeListBuilder.create(), PartPose.offset(-3F, -4F, 0F));
 
-		return LayerDefinition.create(meshdefinition, 64, 32);
+		RightEar.addOrReplaceChild("rightear_r1", CubeListBuilder.create().texOffs(8, 37).addBox(-1F, 0F, -1F, 1F, 3F, 2F, zero), PartPose.offsetAndRotation(0F, 0F, 0F, 0F, 0F, 0.2182F));
+
+		PartDefinition Tongue = Head.addOrReplaceChild("Tongue", CubeListBuilder.create(), PartPose.offset(0F, -2F, -3F));
+
+		Tongue.addOrReplaceChild("tongue_r1", CubeListBuilder.create().texOffs(20, 37).addBox(-1F, 0F, 0F, 2F, 3F, 0F, zero), PartPose.offsetAndRotation(0F, 0F, 0F, -0.0873F, 0F, 0F));
+
+		partdefinition.addOrReplaceChild("GrassOverlay", CubeListBuilder.create().texOffs(0, 43).addBox(-8F, -6.5F, -9F, 16F, 4F, 16F, zero), PartPose.offset(0F, 15F, 1F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
-
 	@Override
 	public void setupAnim(EntityKobblin entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.rightarm.xRot = (float) (-0.7853982F + (Math.cos(limbSwing * 0.6662F) * 0.8F * limbSwingAmount));
-        this.leftarm.xRot = (float) (-0.7853982F + (Math.cos(limbSwing * 0.6662F + Math.PI) * 0.8F * limbSwingAmount));
-
-        this.RLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
-        this.LLeg.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
+		if(entity.hasPose(Pose.EMERGING)) {
+			float f = Mth.sin(ageInTicks * Mth.PI / 20F);
+			Head.xRot = GrassOverlay.xRot = Body.xRot = f;
+			LeftLeg.xRot = RightLeg.xRot = LeftArm.xRot = RightArm.xRot = -f;
+		} else if(entity.hasPose(Pose.SHOOTING)) {
+			float f = Mth.sin((ageInTicks) * Mth.PI / 10F) * 0.2F;
+			Head.zRot = GrassOverlay.zRot = Body.zRot = f;
+			LeftLeg.zRot = RightLeg.zRot = -f;
+			RightArm.xRot += Mth.PI;
+		} else {
+			float f = Mth.cos(limbSwing) * limbSwingAmount, fs = f * .1F;
+			float f1 = Mth.sin(limbSwing) * limbSwingAmount, f1s = f1 * .1F;
+			GrassOverlay.yRot = Head.yRot = netHeadYaw * Mth.DEG_TO_RAD / 2 + fs;
+			GrassOverlay.xRot = Head.xRot = headPitch * Mth.DEG_TO_RAD / 2 + f1s;
+			Body.xRot = 0;
+			Tongue.xRot = Body.zRot = fs;
+			LeftEar.zRot = f1s;
+			RightEar.zRot = -f1s;
+			LeftArm.xRot = RightLeg.xRot = f;
+			RightArm.xRot = -f;
+			LeftLeg.xRot = f1;
+		}
 	}
-
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-		Pad.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		Neck.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		Tongue.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		rightarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		RLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		leftarm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		LLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		GrassOverlay.render(poseStack, vertexConsumer, packedLight, packedOverlay, tempBiomeColor);
+	}
+	int tempBiomeColor = 0xFF00;
+	@Override
+	public void prepareMobModel(EntityKobblin entity, float limbSwing, float limbSwingAmount, float partialTick) {
+		if((entity.tickCount & 0xF) == 1) entity.clientBiomeColor = entity.level().getBiome(entity.blockPosition()).value().getGrassColor(entity.getX(), entity.getZ());
+		tempBiomeColor = entity.clientBiomeColor;
 	}
 }

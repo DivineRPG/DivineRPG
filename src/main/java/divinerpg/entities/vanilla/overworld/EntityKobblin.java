@@ -1,6 +1,7 @@
 package divinerpg.entities.vanilla.overworld;
 
 import divinerpg.entities.base.*;
+import divinerpg.entities.projectile.DivineThrownItem;
 import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.*;
@@ -15,15 +16,26 @@ import net.minecraft.world.damagesource.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
+import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class EntityKobblin extends EntityDivineMonster {
+import java.util.EnumSet;
+
+public class EntityKobblin extends EntityDivineMonster implements RangedAttackMob {
+    public int clientBiomeColor = 0xFF00;
+    boolean prefersShooting;
     public EntityKobblin(EntityType<? extends EntityKobblin> type, Level worldIn) {
         super(type, worldIn);
+    }
+    @Override
+    public void onAddedToLevel() {
+        super.onAddedToLevel();
+        prefersShooting = getRandom().nextBoolean();
     }
     public static boolean kobblinSpawnRule(LevelAccessor worldIn, BlockPos pos) {
         return worldIn.getBlockState(pos.below()).is(BlockTags.DIRT);
@@ -35,8 +47,9 @@ public class EntityKobblin extends EntityDivineMonster {
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true) {@Override public boolean canUse() {return super.canUse() && !isEmerging();}});
+        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true) {@Override public boolean canUse() {return !prefersShooting && super.canUse() && !isEmerging();}});
         goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1) {@Override public boolean canUse() {return super.canUse() && !isEmerging();}});
+        goalSelector.addGoal(3, new KobblinRangedAttackGoal(1.25, 40, 60, 20F));
         goalSelector.addGoal(3, new RandomLookAroundGoal(this));
         targetSelector.addGoal(0, new HurtByTargetGoal(this) {@Override public boolean canUse() {return super.canUse() && !isEmerging();}});
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true) {@Override public boolean canUse() {return super.canUse() && !isEmerging();}});
@@ -50,11 +63,13 @@ public class EntityKobblin extends EntityDivineMonster {
         return SoundRegistry.KOBBLIN.get();
     }
     public Packet<ClientGamePacketListener> getAddEntityPacket(ServerEntity entity) {
-        return new ClientboundAddEntityPacket(this, entity, hasPose(Pose.EMERGING) ? 1 : 0);
+        return new ClientboundAddEntityPacket(this, entity, getPose().id());
     }
     public void recreateFromPacket(ClientboundAddEntityPacket packet) {
         super.recreateFromPacket(packet);
-        if(packet.getData() == 1) setPose(Pose.EMERGING);
+        if(packet.getData() == 0) setPose(Pose.STANDING);
+        else if(packet.getData() == 13) setPose(Pose.EMERGING);
+        else if(packet.getData() == 16) setPose(Pose.SHOOTING);
     }
     public boolean isInvulnerableTo(DamageSource source) {
         return isEmerging() || super.isInvulnerableTo(source);
@@ -97,5 +112,72 @@ public class EntityKobblin extends EntityDivineMonster {
     }
     public boolean isPushable() {
         return !isEmerging() && super.isPushable();
+    }
+
+    @Override
+    public void performRangedAttack(LivingEntity livingEntity, float v) {
+        if(isAlive() && getTarget() != null && !level().isClientSide) {
+            DivineThrownItem shot = EntityRegistry.THROWN_ITEM.get().create(level());
+            shot.setItem(Blocks.COARSE_DIRT.asItem().getDefaultInstance());
+            shot.setOwner(this);
+            shot.setPos(getEyePosition());
+            double d0 = getTarget().getX() - getX();
+            double d1 = getTarget().getY(0.3333333333333333) - shot.getY() - 0.25;
+            double d2 = getTarget().getZ() - getZ();
+            double d3 = Math.sqrt(d0 * d0 + d2 * d2);
+            shot.shoot(d0, d1 + d3 * 0.18, d2, 1.6F, 0.5F);
+            level().addFreshEntity(shot);
+        }
+    }
+    class KobblinRangedAttackGoal extends Goal {
+        final double speedModifier;
+        final int attackIntervalMin, attackIntervalMax;
+        final float attackRadius, attackRadiusSqr;
+        int attackTime, seeTime;
+        LivingEntity target;
+        public KobblinRangedAttackGoal(double speedModifier, int attackIntervalMin, int attackIntervalMax, float attackRadius) {
+            this.speedModifier = speedModifier;
+            this.attackIntervalMin = attackIntervalMin;
+            this.attackIntervalMax = attackIntervalMax;
+            this.attackRadius = attackRadius;
+            attackRadiusSqr = attackRadius * attackRadius;
+            setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
+        }
+        public boolean canUse() {
+            LivingEntity livingentity = getTarget();
+            if(livingentity != null && livingentity.isAlive()) {
+                target = livingentity;
+                return prefersShooting && !isEmerging();
+            } else return false;
+        }
+        public boolean canContinueToUse() {
+            return canUse() || target.isAlive() && !getNavigation().isDone();
+        }
+        public void stop() {
+            target = null;
+            seeTime = 0;
+            attackTime = -1;
+            if(hasPose(Pose.SHOOTING)) setPose(Pose.STANDING);
+        }
+        public boolean requiresUpdateEveryTick() {
+            return true;
+        }
+        public void tick() {
+            double d0 = distanceToSqr(target.getX(), target.getY(), target.getZ());
+            boolean hasSight = getSensing().hasLineOfSight(target);
+            seeTime = hasSight ? seeTime + 1 : 0;
+            if(!(d0 > attackRadiusSqr) && seeTime >= 5) getNavigation().stop();
+            else getNavigation().moveTo(target, speedModifier);
+            getLookControl().setLookAt(target, 30F, 30F);
+            attackTime--;
+            if(attackTime == 10) setPose(Pose.SHOOTING);
+            else if(attackTime == 5) {
+                if(!hasSight) return;
+                performRangedAttack(target, Mth.clamp((float)Math.sqrt(d0) / attackRadius, 0.1F, 1F));
+            } else if(attackTime == 0) {
+                setPose(Pose.STANDING);
+                attackTime = Mth.floor((float)Math.sqrt(d0) / attackRadius * (attackIntervalMax - attackIntervalMin) + attackIntervalMin);
+            } else if(attackTime < 0) attackTime = Mth.floor(Mth.lerp(Math.sqrt(d0) / attackRadius, attackIntervalMin, attackIntervalMax));
+        }
     }
 }
