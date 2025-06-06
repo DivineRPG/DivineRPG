@@ -10,6 +10,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
@@ -34,6 +35,7 @@ public class Payloads {
 			context.player().level().getBlockEntity(payload.pos(), BlockEntityRegistry.RIFT.get()).ifPresent((block) ->
 				context.reply(new RiftVariant(payload.pos(), block.variant))
 		)));
+		registrar.playToClient(AccurateSetMotionPacket.TYPE, AccurateSetMotionPacket.STREAM_CODEC, (payload, context) -> context.player().level().getEntity(payload.id()).setDeltaMovement(payload.motion()));
 	    registrar.playToClient(Weather.TYPE, Weather.STREAM_CODEC, (payload, context) -> Utils.ICEIKA_WEATHER = payload.weatherType());
 		AttachmentRegistry.registerPayloads(registrar);
 	}
@@ -45,4 +47,12 @@ public class Payloads {
             FriendlyByteBuf.writeBlockPos(buf, pos);
         }
     };
+	public static final StreamCodec<ByteBuf, Vec3> VEC3 = new StreamCodec<>() {
+		public Vec3 decode(ByteBuf byteBuf) {return new Vec3(byteBuf.readDouble(), byteBuf.readDouble(), byteBuf.readDouble());}
+		@Override public void encode(ByteBuf o, Vec3 vec3) {
+			o.writeDouble(vec3.x);
+			o.writeDouble(vec3.y);
+			o.writeDouble(vec3.z);
+		}
+	};
 }

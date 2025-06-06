@@ -2,6 +2,7 @@ package divinerpg.items.ranged;
 
 import divinerpg.attachments.Arcana;
 import divinerpg.entities.projectile.DivineThrownItem;
+import divinerpg.network.payload.AccurateSetMotionPacket;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
@@ -16,9 +17,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.neoforge.common.CommonHooks;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -106,7 +109,7 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
         ItemStack ammo = findAmmo(player);
         if(ammo != null && !ammo.isEmpty() && Arcana.getAmount(player) >= arcanaConsumedUse) {
             if(!level.isClientSide) {
-                shoot((ServerLevel) level, player, player.getUsedItemHand(), stack, List.of(ammo),  power, 1, false, null);
+                shoot((ServerLevel)level, player, player.getUsedItemHand(), stack, List.of(ammo),  power, 1, false, null);
                 if(arcanaConsumedUse > 0) Arcana.modifyAmount(player, -arcanaConsumedUse);
             } ammo.consume(1, player);
             if(cooldown > 0) player.getCooldowns().addCooldown(this, cooldown);
@@ -134,7 +137,27 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
     private boolean isOfTag(ItemStack stack) {return ammoType != null && stack.is(ammoType);}
     @Override public int getDefaultProjectileRange() {return 15;}
     @Override protected void shootProjectile(LivingEntity shooter, Projectile projectile, int i, float velocity, float inaccuracy, float angle, @Nullable LivingEntity livingEntity1) {
-        projectile.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot() + angle, 0, velocity, inaccuracy);
+        projectile.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot() + angle, 0, 1F, inaccuracy);
+    }
+    @Override
+    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
+        float f = EnchantmentHelper.processProjectileSpread(level, weapon, shooter, 0F);
+        float f1 = projectileItems.size() == 1 ? 0F : 2F * f / (projectileItems.size() - 1);
+        float f2 = ((projectileItems.size() - 1) % 2) * f1 / 2F;
+        float f3 = 1F;
+        for(int i = 0; i < projectileItems.size(); ++i) {
+            ItemStack itemstack = projectileItems.get(i);
+            if(!itemstack.isEmpty()) {
+                float f4 = f2 + f3 * ((i + 1) >> 1) * f1;
+                f3 = -f3;
+                Projectile projectile = createProjectile(level, shooter, weapon, itemstack, isCrit);
+                shootProjectile(shooter, projectile, i, velocity, inaccuracy, f4, target);
+                level.addFreshEntity(projectile);
+                PacketDistributor.sendToPlayersTrackingEntity(projectile, new AccurateSetMotionPacket(projectile.getId(), projectile.getDeltaMovement()));
+                weapon.hurtAndBreak(getDurabilityUse(itemstack), shooter, LivingEntity.getSlotForHand(hand));
+                if(weapon.isEmpty()) break;
+            }
+        }
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {

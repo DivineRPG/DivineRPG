@@ -1,18 +1,21 @@
 package divinerpg.items.ranged;
 
 import divinerpg.items.ranged.bows.*;
+import divinerpg.network.payload.AccurateSetMotionPacket;
 import divinerpg.util.LocalizeUtils;
 import divinerpg.util.Utils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.Unbreakable;
@@ -20,6 +23,7 @@ import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.neoforge.event.EventHooks;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -66,6 +70,26 @@ public class ItemBow extends BowItem {
                 if(level instanceof ServerLevel serverlevel && !list.isEmpty()) shoot(serverlevel, player, player.getUsedItemHand(), stack, list, f * 3F * speedScale, 1, f == 1, null);
                 level.playSound(null, player.getX(), player.getY(), player.getZ(), ARROW_SHOOT, PLAYERS, 1, 1 / (level.getRandom().nextFloat() * .4F + 1.2F) + f * .5F);
                 player.awardStat(ITEM_USED.get(this));
+            }
+        }
+    }
+    @Override
+    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
+        float f = EnchantmentHelper.processProjectileSpread(level, weapon, shooter, 0F);
+        float f1 = projectileItems.size() == 1 ? 0F : 2F * f / (projectileItems.size() - 1);
+        float f2 = ((projectileItems.size() - 1) % 2) * f1 / 2F;
+        float f3 = 1F;
+        for(int i = 0; i < projectileItems.size(); ++i) {
+            ItemStack itemstack = projectileItems.get(i);
+            if(!itemstack.isEmpty()) {
+                float f4 = f2 + f3 * ((i + 1) >> 1) * f1;
+                f3 = -f3;
+                Projectile projectile = createProjectile(level, shooter, weapon, itemstack, isCrit);
+                shootProjectile(shooter, projectile, i, velocity, inaccuracy, f4, target);
+                level.addFreshEntity(projectile);
+                PacketDistributor.sendToPlayersTrackingEntity(projectile, new AccurateSetMotionPacket(projectile.getId(), projectile.getDeltaMovement()));
+                weapon.hurtAndBreak(getDurabilityUse(itemstack), shooter, LivingEntity.getSlotForHand(hand));
+                if(weapon.isEmpty()) break;
             }
         }
     }
