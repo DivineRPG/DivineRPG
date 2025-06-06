@@ -29,6 +29,7 @@ public class EntityTheWatcher extends EntityDivineFlyingMonster implements Range
     public Component getDisplayName() {
         return PlayerTeam.formatNameForTeam(getTeam(), getName()).withStyle((s) -> s.withHoverEvent(createHoverEvent()).withInsertion(getStringUUID()).withBold(true));
     }
+    @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return false;}
     @Override
     public boolean fireImmune() {
         return true;

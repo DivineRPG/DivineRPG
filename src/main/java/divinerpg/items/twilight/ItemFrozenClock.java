@@ -42,34 +42,40 @@ public class ItemFrozenClock extends ItemMod {
             } return InteractionResult.SUCCESS;
         } return InteractionResult.FAIL;
     }
-    public static void useOnFire(Level level, Player player, BlockPos pos, BlockState state, byte timeOfDay) {
+    public static boolean useOnFire(Level level, Player player, BlockPos pos, BlockState state, byte timeOfDay) {
         switch(timeOfDay) {
         case 0:
             if(state.is(BlockRegistry.divineFlame)) {
+                if(level.getBlockState(pos.above()).is(BlockRegistry.edenRift)) return false;
                 level.setBlock(pos.above(), BlockRegistry.edenRift.get().defaultBlockState(), 3);
-                return;
+                return true;
             } break;
         case 1:
             if(state.is(BlockRegistry.wildFlame)) {
+                if(level.getBlockState(pos.above()).is(BlockRegistry.wildwoodRift)) return false;
                 level.setBlock(pos.above(), BlockRegistry.wildwoodRift.get().defaultBlockState(), 3);
-                return;
+                return true;
             } break;
         case 2:
             if(state.is(BlockRegistry.enchantedFlame)) {
+                if(level.getBlockState(pos.above()).is(BlockRegistry.apalachiaRift)) return false;
                 level.setBlock(pos.above(), BlockRegistry.apalachiaRift.get().defaultBlockState(), 3);
-                return;
+                return true;
             } break;
         case 3:
             if(state.is(BlockRegistry.skyFire)) {
+                if(level.getBlockState(pos.above()).is(BlockRegistry.skythernRift)) return false;
                 level.setBlock(pos.above(), BlockRegistry.skythernRift.get().defaultBlockState(), 3);
-                return;
+                return true;
             } break;
         case 4:
             if(state.is(BlockRegistry.mortumEmbers)) {
+                if(level.getBlockState(pos.above()).is(BlockRegistry.mortumRift)) return false;
                 level.setBlock(pos.above(), BlockRegistry.mortumRift.get().defaultBlockState(), 3);
-                return;
+                return true;
             } break;
         } level.explode(player, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 3, true, Level.ExplosionInteraction.BLOCK);
         if(level instanceof ServerLevel s) Utils.awardAdvancement(s.getServer(), (ServerPlayer) player, ADVANCEMENT_OOPS, "explode_rift");
+        return true;
     }
 }
