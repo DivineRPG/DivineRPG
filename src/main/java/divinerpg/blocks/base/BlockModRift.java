@@ -2,15 +2,18 @@ package divinerpg.blocks.base;
 
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import divinerpg.DivineRPG;
 import divinerpg.block_entities.block.RiftBlockEntity;
 import divinerpg.registries.*;
 import divinerpg.util.UniversalPosition;
+import divinerpg.util.Utils;
 import divinerpg.world.placement.Surface;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
@@ -34,6 +37,9 @@ import java.util.List;
 import static divinerpg.blocks.base.PortalBlock.*;
 
 public class BlockModRift extends BaseEntityBlock implements Portal {
+    public static final ResourceLocation
+            ADVANCEMENT_UNSTABLE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/an_unstable_combination"),
+            ADVANCEMENT_STABLE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/ripple_space_time");
     public final ResourceKey<Level> rootDimension, chainDimension;
     public final TagKey<Block> resonanceTag;
     public final TagKey<Item> empowerTag;
@@ -90,6 +96,13 @@ public class BlockModRift extends BaseEntityBlock implements Portal {
             BlockPos p;
             for(int i = 0; i < 15; i++) if(level.getBlockState(p = pos.offset(Mth.sign(Math.random() - .5) * (level.random.nextInt(3) + 1), Mth.sign(Math.random() - .5) * (level.random.nextInt(2) + 1) - 1, Mth.sign(Math.random() - .5) * (level.random.nextInt(3) + 1))).isAir())
                 level.setBlock(p, Blocks.FIRE.defaultBlockState(), 3);
+            if(level instanceof ServerLevel s) {
+                List<ServerPlayer> players = Utils.getNearbyPlayers(s, pos.getX(), pos.getY(), pos.getZ(), 9);
+                for(ServerPlayer player : players) Utils.awardAdvancement(s.getServer(), player, ADVANCEMENT_UNSTABLE, "create_unstable_rift");
+            }
+        } else if(level instanceof ServerLevel s) {
+            List<ServerPlayer> players = Utils.getNearbyPlayers(s, pos.getX(), pos.getY(), pos.getZ(), 9);
+            for(ServerPlayer player : players) Utils.awardAdvancement(s.getServer(), player, ADVANCEMENT_STABLE, "create_stable_rift");
         } level.playSound(null, pos, SoundRegistry.RIFT_OPEN.get(), SoundSource.BLOCKS, 1F, 1F);
         if(level instanceof ServerLevel s) s.sendParticles(switch(e.variant & 0b111) {
         case 5 -> ParticleRegistry.MORTUM_RIFT.get();

@@ -68,6 +68,6 @@ public class EntityTheHunger extends EntityDivineMerchant {
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.shiny_pearls.get(), 5), new ItemStack(ItemRegistry.tormented_template.get(), 1), random.nextInt(7), 0),
 				new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.rock_chunks.get(), 25), new ItemStack(ItemRegistry.karos_rockmaul.get(), 1), random.nextInt(7), 0),
 		};
-		this.addOffersFromItemListings(merchantoffers, tradetrades, 5);
+		this.addOffersFromItemListings(merchantoffers, tradetrades, 7);
 	}
 }

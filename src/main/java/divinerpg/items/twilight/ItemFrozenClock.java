@@ -1,11 +1,16 @@
 package divinerpg.items.twilight;
 
+import divinerpg.DivineRPG;
 import divinerpg.blocks.base.PortalBlock;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
+import divinerpg.util.Utils;
 import net.minecraft.core.*;
 import net.minecraft.core.Direction.Axis;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -15,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class ItemFrozenClock extends ItemMod {
+    public static final ResourceLocation ADVANCEMENT_OOPS = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/oops");
     public ItemFrozenClock() {
         super(new Properties().component(DataComponentRegistry.variant, (byte)0));
     }
@@ -64,5 +70,6 @@ public class ItemFrozenClock extends ItemMod {
                 return;
             } break;
         } level.explode(player, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 3, true, Level.ExplosionInteraction.BLOCK);
+        if(level instanceof ServerLevel s) Utils.awardAdvancement(s.getServer(), (ServerPlayer) player, ADVANCEMENT_OOPS, "explode_rift");
     }
 }

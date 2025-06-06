@@ -862,12 +862,12 @@ public class BlockRegistry {
 
     //Fire
     icyFire = registerBlock("icy_fire", () -> new BlockIcyFire(Properties.ofFullCopy(Blocks.SOUL_FIRE))),
-    hellFire = registerBlock("hellfire", FireBlock::new),
-    divineFlame = registerBlock("divine_flame", TwilightFire::new),//TODO curse removing
+    hellFire = registerBlock("hellfire", () -> new FireBlock(8F)),
+    divineFlame = registerBlock("divine_flame", DivineFlame::new),
     wildFlame = registerBlock("wild_flame", WildFlame::new),
-    enchantedFlame = registerBlock("enchanted_flame", TwilightFire::new),//TODO curse + enchanting
+    enchantedFlame = registerBlock("enchanted_flame", EnchantedFlame::new),
     skyFire = registerBlock("sky_fire", SkyFire::new),
-    mortumEmbers = registerBlock("mortum_embers", () -> new TwilightFire(25F)),//TODO curse
+    mortumEmbers = registerBlock("mortum_embers", MortumEmbers::new),
 
     //Portals
     gateway = registerBlock("gateway", () -> new BlockGateway(Properties.ofFullCopy(Blocks.LODESTONE))),

@@ -197,6 +197,9 @@ public class Utils {
             });
         }
     }
+    public static List<ServerPlayer> getNearbyPlayers(ServerLevel level, double x, double y, double z, double boxSize) {
+        return level.getPlayers((p) -> Math.abs(p.getX() - x) <= boxSize && Math.abs(p.getY() - y) <= boxSize && Math.abs(p.getZ() - z) <= boxSize);
+    }
 
     /**
      * use this if you do not have level registry access

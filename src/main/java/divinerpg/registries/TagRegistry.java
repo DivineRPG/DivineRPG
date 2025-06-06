@@ -46,7 +46,8 @@ public class TagRegistry {
         WILDWOOD_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/wildwood")),
         APALACHIA_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/apalachia")),
         SKYTHERN_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/skythern")),
-        MORTUM_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/mortum"));
+        MORTUM_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/mortum")),
+        RIFTS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rifts"));
 
     //Structures
     public static final TagKey<Structure>

@@ -6,10 +6,10 @@
     },
     "frame": "challenge",
     "title": {
-      "translate": "advancement.divinerpg.overworld.when_pigs_fly"
+      "translate": "advancement.divinerpg.when_pigs_fly"
     },
     "description": {
-      "translate": "advancement.divinerpg.overworld.when_pigs_fly.desc"
+      "translate": "advancement.divinerpg.when_pigs_fly.desc"
     }
   },
   "criteria": {
