@@ -68,6 +68,7 @@ public class DivineRPG {
         event.enqueueWork(() -> {
             LogStripper.setup(event);
             PlantPots.setup(event);
+            ItemPropertyRegistry.registerDispenserItems();
         });
     }
     private void client(final FMLClientSetupEvent event) {

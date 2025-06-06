@@ -18,6 +18,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.registries.*;
 
@@ -224,7 +225,7 @@ public class ItemRegistry {
         cheese = registerItem("cheese", () -> new ItemModFood(FoodList.CHEESE)),
         donut = registerItem("donut", () -> new ItemModFood(FoodList.DONUT)),
         hot_pumpkin_pie = registerItem("hot_pumpkin_pie", () -> new ItemModFood(FoodList.HOT_PUMPKIN_PIE)),
-        tomato = registerItem("tomato", ItemTomato::new),//TODO: tomato splat
+        tomato = registerThrowableItem("tomato", ItemTomato::new),
         white_mushroom = registerItem("white_mushroom", () -> new ItemModFood(FoodList.WHITE_MUSHROOM)),
         advanced_mushroom_stew = registerItem("advanced_mushroom_stew", () -> new ItemModFood(new Properties().food(FoodList.ADVANCED_MUSHROOM_STEW).stacksTo(1))),
         chicken_dinner = registerItem("chicken_dinner", () -> new ItemModFood(new Properties().food(FoodList.CHICKEN_DINNER).stacksTo(1))),
@@ -547,42 +548,42 @@ public class ItemRegistry {
         sound_of_whales = registerTool("sound_of_whales", () -> new ItemRangedWeapon(EntityRegistry.SOUND_OF_WHALES::value, 1025).withTooltip(LocalizeUtils.magicDam(13)).withSound(SoundRegistry.WHALE.get()).withCooldown(20)),
 
         //Shurikens
-        shuriken = registerTool("shuriken", () -> new ItemThrowable(4)),
+        shuriken = registerThrowableTool("shuriken", () -> new ItemThrowable(4)),
         snowflake_shuriken = registerTool("snowflake_shuriken", () -> new ItemThrowable(EntityRegistry.SNOWFLAKE_SHURIKEN::value, 7).withTooltip(LocalizeUtils.slow(2))),
-        vile_storm = registerTool("vile_storm", () -> new ItemThrowable(EntityRegistry.VILE_STORM::value, 7).withTooltip(LocalizeUtils.poison(2))),
+        vile_storm = registerThrowableTool("vile_storm", () -> new ItemThrowable(EntityRegistry.VILE_STORM::value, 7).withTooltip(LocalizeUtils.poison(2))),
 
         //Slicers
-        eden_slicer = registerTool("eden_slicer", () -> new ItemThrowable(8).nameColor(RarityList.EDEN)),
-        wildwood_slicer = registerTool("wildwood_slicer", () -> new ItemThrowable(10).nameColor(RarityList.WILDWOOD)),
-        apalachia_slicer = registerTool("apalachia_slicer", () -> new ItemThrowable(12).nameColor(RarityList.APALACHIA)),
-        skythern_slicer = registerTool("skythern_slicer", () -> new ItemThrowable(14).nameColor(RarityList.SKYTHERN)),
-        mortum_slicer = registerTool("mortum_slicer", () -> new ItemThrowable(16).nameColor(RarityList.MORTUM)),
-        halite_slicer = registerTool("halite_slicer", () -> new ItemThrowable(18).nameColor(RarityList.HALITE)),
+        eden_slicer = registerThrowableTool("eden_slicer", () -> new ItemThrowable(8).nameColor(RarityList.EDEN)),
+        wildwood_slicer = registerThrowableTool("wildwood_slicer", () -> new ItemThrowable(10).nameColor(RarityList.WILDWOOD)),
+        apalachia_slicer = registerThrowableTool("apalachia_slicer", () -> new ItemThrowable(12).nameColor(RarityList.APALACHIA)),
+        skythern_slicer = registerThrowableTool("skythern_slicer", () -> new ItemThrowable(14).nameColor(RarityList.SKYTHERN)),
+        mortum_slicer = registerThrowableTool("mortum_slicer", () -> new ItemThrowable(16).nameColor(RarityList.MORTUM)),
+        halite_slicer = registerThrowableTool("halite_slicer", () -> new ItemThrowable(18).nameColor(RarityList.HALITE)),
 
         //Vethean Disks
-        teaker_disk = registerTool("teaker_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 4).withTooltip(LocalizeUtils.returnsToSender())),
-        amthirmis_disk = registerTool("amthirmis_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 6).withTooltip(LocalizeUtils.returnsToSender())),
-        darven_disk = registerTool("darven_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 9).withTooltip(LocalizeUtils.returnsToSender())),
-        cermile_disk = registerTool("cermile_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 13).withTooltip(LocalizeUtils.returnsToSender())),
-        pardimal_disk = registerTool("pardimal_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 16).withTooltip(LocalizeUtils.returnsToSender())),
-        quadrotic_disk = registerTool("quadrotic_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 20).withTooltip(LocalizeUtils.returnsToSender())),
-        karos_disk = registerTool("karos_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 22).withTooltip(LocalizeUtils.returnsToSender())),
-        heliosis_disk = registerTool("heliosis_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 29).withTooltip(LocalizeUtils.returnsToSender())),
-        arksiane_disk = registerTool("arksiane_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 37).withTooltip(LocalizeUtils.returnsToSender())),
+        teaker_disk = registerThrowableTool("teaker_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 4).withTooltip(LocalizeUtils.returnsToSender())),
+        amthirmis_disk = registerThrowableTool("amthirmis_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 6).withTooltip(LocalizeUtils.returnsToSender())),
+        darven_disk = registerThrowableTool("darven_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 9).withTooltip(LocalizeUtils.returnsToSender())),
+        cermile_disk = registerThrowableTool("cermile_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 13).withTooltip(LocalizeUtils.returnsToSender())),
+        pardimal_disk = registerThrowableTool("pardimal_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 16).withTooltip(LocalizeUtils.returnsToSender())),
+        quadrotic_disk = registerThrowableTool("quadrotic_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 20).withTooltip(LocalizeUtils.returnsToSender())),
+        karos_disk = registerThrowableTool("karos_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 22).withTooltip(LocalizeUtils.returnsToSender())),
+        heliosis_disk = registerThrowableTool("heliosis_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 29).withTooltip(LocalizeUtils.returnsToSender())),
+        arksiane_disk = registerThrowableTool("arksiane_disk", () -> new ItemThrowable(new Properties().stacksTo(1), EntityRegistry.DISK::value, 37).withTooltip(LocalizeUtils.returnsToSender())),
 
         //Vethean Dissipators
-        teaker_dissipator = registerTool("teaker_dissipator", () -> new ItemVetheanDissipator(4).withTooltip(LocalizeUtils.returnsToSender())),
-        amthirmis_dissipator = registerTool("amthirmis_dissipator", () -> new ItemVetheanDissipator(6).withTooltip(LocalizeUtils.returnsToSender())),
-        darven_dissipator = registerTool("darven_dissipator", () -> new ItemVetheanDissipator(9).withTooltip(LocalizeUtils.returnsToSender())),
-        cermile_dissipator = registerTool("cermile_dissipator", () -> new ItemVetheanDissipator(13).withTooltip(LocalizeUtils.returnsToSender())),
-        pardimal_dissipator = registerTool("pardimal_dissipator", () -> new ItemVetheanDissipator(16).withTooltip(LocalizeUtils.returnsToSender())),
-        quadrotic_dissipator = registerTool("quadrotic_dissipator", () -> new ItemVetheanDissipator(20).withTooltip(LocalizeUtils.returnsToSender())),
-        karos_dissipator = registerTool("karos_dissipator", () -> new ItemVetheanDissipator(22).withTooltip(LocalizeUtils.returnsToSender())),
-        heliosis_dissipator = registerTool("heliosis_dissipator", () -> new ItemVetheanDissipator(29).withTooltip(LocalizeUtils.returnsToSender())),
-        arksiane_dissipator = registerTool("arksiane_dissipator", () -> new ItemVetheanDissipator(37).withTooltip(LocalizeUtils.returnsToSender())),
+        teaker_dissipator = registerThrowableTool("teaker_dissipator", () -> new ItemVetheanDissipator(4).withTooltip(LocalizeUtils.returnsToSender())),
+        amthirmis_dissipator = registerThrowableTool("amthirmis_dissipator", () -> new ItemVetheanDissipator(6).withTooltip(LocalizeUtils.returnsToSender())),
+        darven_dissipator = registerThrowableTool("darven_dissipator", () -> new ItemVetheanDissipator(9).withTooltip(LocalizeUtils.returnsToSender())),
+        cermile_dissipator = registerThrowableTool("cermile_dissipator", () -> new ItemVetheanDissipator(13).withTooltip(LocalizeUtils.returnsToSender())),
+        pardimal_dissipator = registerThrowableTool("pardimal_dissipator", () -> new ItemVetheanDissipator(16).withTooltip(LocalizeUtils.returnsToSender())),
+        quadrotic_dissipator = registerThrowableTool("quadrotic_dissipator", () -> new ItemVetheanDissipator(20).withTooltip(LocalizeUtils.returnsToSender())),
+        karos_dissipator = registerThrowableTool("karos_dissipator", () -> new ItemVetheanDissipator(22).withTooltip(LocalizeUtils.returnsToSender())),
+        heliosis_dissipator = registerThrowableTool("heliosis_dissipator", () -> new ItemVetheanDissipator(29).withTooltip(LocalizeUtils.returnsToSender())),
+        arksiane_dissipator = registerThrowableTool("arksiane_dissipator", () -> new ItemVetheanDissipator(37).withTooltip(LocalizeUtils.returnsToSender())),
 
         //Explosive & Homing
-        grenade = registerTool("grenade", () -> new ItemThrowable(EntityRegistry.GRENADE::value, 6F).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(20).withSound(SoundEvents.TRIDENT_THROW.value())),
+        grenade = registerThrowableTool("grenade", () -> new ItemThrowable(EntityRegistry.GRENADE::value, 6F).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(20).withSound(SoundEvents.TRIDENT_THROW.value())),
         la_vekor = registerTool("la_vekor", () -> new ItemRangedWeapon(TagRegistry.GRENADES, ItemRegistry.grenade::toStack, EntityRegistry.GRENADE::value, 1225).withTooltip(LocalizeUtils.rangedDam(6)).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(10).withSound(SoundRegistry.LA_VEKOR.get()).arcanaUse(15)),
         firefly = registerTool("firefly", ItemFirefly::new),
         meriks_missile = registerTool("meriks_missile", ItemMeriksMissile::new),
@@ -1007,6 +1008,18 @@ public class ItemRegistry {
     private static <T extends Item> DeferredItem<T> registerTool(String registryId, Supplier<T> item) {
         DeferredItem<T> i = ITEMS.register(registryId, item);
         CreativeTabRegistry.tools.add(i);
+        return i;
+    }
+    private static <T extends Item> DeferredItem<T> registerThrowableItem(String registryId, Supplier<T> item) {
+        DeferredItem<T> i = ITEMS.register(registryId, item);
+        CreativeTabRegistry.misc.add(i);
+        ItemPropertyRegistry.DISPENSER_ITEMS.add(i);
+        return i;
+    }
+    private static <T extends Item> DeferredItem<T> registerThrowableTool(String registryId, Supplier<T> item) {
+        DeferredItem<T> i = ITEMS.register(registryId, item);
+        CreativeTabRegistry.tools.add(i);
+        ItemPropertyRegistry.DISPENSER_ITEMS.add(i);
         return i;
     }
     private static <T extends Item> DeferredItem<T> registerBlockItem(String registryId, Supplier<T> item) {
