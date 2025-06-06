@@ -490,23 +490,23 @@ public class ItemRegistry {
         serenade_of_infusion = registerTool("serenade_of_infusion", ItemSerenadeOfInfusion::new),
 
         //Arrows
-        hunter_arrow = registerTool("hunter_arrow", HunterArrowItem::new),
-        shadow_arrow = registerTool("shadow_arrow", ShadowArrowItem::new),
-        icicle_arrow = registerTool("icicle_arrow", IcicleArrowItem::new),
-        inferno_arrow = registerTool("inferno_arrow", InfernoArrowItem::new),
-        soulfire_arrow = registerTool("soulfire_arrow", SoulfireArrowItem::new),
-        snowstorm_arrow = registerTool("snowstorm_arrow", SnowstormArrowItem::new),
-        ender_arrow = registerTool("ender_arrow", EnderArrowItem::new),
-        eden_arrow = registerTool("eden_arrow", EdenArrowItem::new),
-        wildwood_arrow = registerTool("wildwood_arrow", WildwoodArrowItem::new),
-        fury_arrow = registerTool("fury_arrow", FuryArrowItem::new),
+        hunter_arrow = registerThrowableTool("hunter_arrow", HunterArrowItem::new),
+        shadow_arrow = registerThrowableTool("shadow_arrow", ShadowArrowItem::new),
+        icicle_arrow = registerThrowableTool("icicle_arrow", IcicleArrowItem::new),
+        inferno_arrow = registerThrowableTool("inferno_arrow", InfernoArrowItem::new),
+        soulfire_arrow = registerThrowableTool("soulfire_arrow", SoulfireArrowItem::new),
+        snowstorm_arrow = registerThrowableTool("snowstorm_arrow", SnowstormArrowItem::new),
+        ender_arrow = registerThrowableTool("ender_arrow", EnderArrowItem::new),
+        eden_arrow = registerThrowableTool("eden_arrow", EdenArrowItem::new),
+        wildwood_arrow = registerThrowableTool("wildwood_arrow", WildwoodArrowItem::new),
+        fury_arrow = registerThrowableTool("fury_arrow", FuryArrowItem::new),
 
         //Vethean Arrows
-        teaker_arrow = registerTool("teaker_arrow", TeakerArrowItem::new),
-        darven_arrow = registerTool("darven_arrow", DarvenArrowItem::new),
-        pardimal_arrow = registerTool("pardimal_arrow", PardimalArrowItem::new),
-        karos_arrow = registerTool("karos_arrow", KarosArrowItem::new),
-        ever_arrow = registerTool("ever_arrow", EverArrowItem::new),
+        teaker_arrow = registerThrowableTool("teaker_arrow", TeakerArrowItem::new),
+        darven_arrow = registerThrowableTool("darven_arrow", DarvenArrowItem::new),
+        pardimal_arrow = registerThrowableTool("pardimal_arrow", PardimalArrowItem::new),
+        karos_arrow = registerThrowableTool("karos_arrow", KarosArrowItem::new),
+        ever_arrow = registerThrowableTool("ever_arrow", EverArrowItem::new),
 
         //Bows
         hunter_bow = registerTool("hunter_bow", HunterBow::new),
@@ -549,7 +549,7 @@ public class ItemRegistry {
 
         //Shurikens
         shuriken = registerThrowableTool("shuriken", () -> new ItemThrowable(4)),
-        snowflake_shuriken = registerTool("snowflake_shuriken", () -> new ItemThrowable(EntityRegistry.SNOWFLAKE_SHURIKEN::value, 7).withTooltip(LocalizeUtils.slow(2))),
+        snowflake_shuriken = registerThrowableTool("snowflake_shuriken", () -> new ItemThrowable(EntityRegistry.SNOWFLAKE_SHURIKEN::value, 7).withTooltip(LocalizeUtils.slow(2))),
         vile_storm = registerThrowableTool("vile_storm", () -> new ItemThrowable(EntityRegistry.VILE_STORM::value, 7).withTooltip(LocalizeUtils.poison(2))),
 
         //Slicers

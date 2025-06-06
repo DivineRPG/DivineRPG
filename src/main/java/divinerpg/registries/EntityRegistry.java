@@ -224,7 +224,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityLivestockMerchant>>   LIVESTOCK_MERCHANT  = registerEntity(EntityLivestockMerchant::new, "livestock_merchant", 	.8F, 2, 1.74F, 0x213c56, 0xa27d6a, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityJackOMan>>			 JACK_O_MAN 		 = registerEntity(EntityJackOMan::new, 			"jack_o_man", 			.8F, 2, 1.25F, 0x3d2322, 0xe3901d, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityCyclops>>			 CYCLOPS 			 = registerEntity(EntityCyclops::new, 			"cyclops", 				1.2F, 4, 3.5F, 0x352a1f, 0x877e47);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityKobblin>>			 KOBBLIN 			 = registerEntity(EntityKobblin::new, 			"kobblin", 				.75F,1, .9F, 0x79553a, 0x73b349);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityKobblin>>			 KOBBLIN 			 = registerEntity(EntityKobblin::new, 			"kobblin", 				.75F,1, .719F, 0x79553a, 0x73b349);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityPumpkinSpider>>		 PUMPKIN_SPIDER 	 = registerEntity(EntityPumpkinSpider::new, 	"pumpkin_spider", 		1.4F,1, .65F, 0xffffff, 0xffffff);
 
     //Jungle
