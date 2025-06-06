@@ -33,13 +33,12 @@ public class ItemFrozenClock extends ItemMod {
         else if(block.is(BlockRegistry.skythernBlock) && (timeOfDay == 3 || (timeOfDay == 2 && dim == LevelRegistry.SKYTHERN))) portal = (PortalBlock)BlockRegistry.skythernPortal.get();
         else if(block.is(BlockRegistry.mortumBlock) && (timeOfDay == 4 || (timeOfDay == 3 && dim == LevelRegistry.MORTUM))) portal = (PortalBlock)BlockRegistry.mortumPortal.get();
         if(portal != null) {
-            if(!level.isClientSide()) {
-                Axis axis = portal.checkForFrame(level, facing);
-                if(axis != null) {
-                    PortalBlock.spreadBlock(level, portal.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), facing, Blocks.AIR, axis);
-                    level.playSound(null, facing, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, player.getRandom().nextFloat() * .4F + .8F);
-                }
-            } return InteractionResult.SUCCESS;
+            Axis axis = portal.checkForFrame(level, facing);
+            if(axis != null) {
+                if(!level.isClientSide) PortalBlock.spreadBlock(level, portal.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), facing, Blocks.AIR, axis);
+                level.playSound(null, facing, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, player.getRandom().nextFloat() * .4F + .8F);
+                return InteractionResult.SUCCESS;
+            }
         } return InteractionResult.FAIL;
     }
     public static boolean useOnFire(Level level, Player player, BlockPos pos, BlockState state, byte timeOfDay) {
