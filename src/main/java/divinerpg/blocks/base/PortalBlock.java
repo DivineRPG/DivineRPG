@@ -234,7 +234,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 				} return false;
 			} while((dir = dir.getClockWise(axis == Axis.X ? Axis.Z : Axis.X)) != d);
 			mut.move(d);
-		} return mut.equals(pos);
+		} return level.getBlockState(mut.relative(d.getCounterClockWise(axis == Axis.X ? Axis.Z : Axis.X))).is(frameBlock) && mut.equals(pos);
 	}
 	protected Direction lookForFrameBlock(Level level, BlockPos pos, Axis axis) {
 		Direction d = axis == Axis.X ? Direction.EAST : Direction.SOUTH, dir = d;
