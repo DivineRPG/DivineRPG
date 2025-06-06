@@ -52,7 +52,6 @@ public class ModelKobblin extends EntityModel<EntityKobblin> {
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void prepareMobModel(EntityKobblin entity, float limbSwing, float limbSwingAmount, float partialTick) {
-		if((entity.tickCount & 0xF) == 1) entity.clientBiomeColor = entity.level().getBiome(entity.blockPosition()).value().getGrassColor(entity.getX(), entity.getZ());
 		tempBiomeColor = entity.clientBiomeColor;
 	}
 	@Override public void setupAnim(EntityKobblin entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

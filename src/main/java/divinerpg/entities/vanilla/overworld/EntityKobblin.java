@@ -36,6 +36,7 @@ public class EntityKobblin extends EntityDivineMonster implements RangedAttackMo
     public void onAddedToLevel() {
         super.onAddedToLevel();
         prefersShooting = getRandom().nextBoolean();
+        if(level().isClientSide) clientBiomeColor = level().getBiome(blockPosition()).value().getGrassColor(getX(), getZ());
     }
     public static boolean kobblinSpawnRule(LevelAccessor worldIn, BlockPos pos) {
         return worldIn.getBlockState(pos.below()).is(BlockTags.DIRT);
