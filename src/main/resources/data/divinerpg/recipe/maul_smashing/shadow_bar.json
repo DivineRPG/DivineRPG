@@ -1,0 +1,10 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "divinerpg:shadow_bar"
+  },
+  "output": {
+    "id": "divinerpg:shadow_coins",
+    "count": 2
+  }
+}

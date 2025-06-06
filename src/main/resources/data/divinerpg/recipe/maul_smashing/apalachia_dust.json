@@ -1,0 +1,10 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "divinerpg:apalachia_fragments"
+  },
+  "output": {
+    "id": "divinerpg:apalachia_dust",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "divinerpg:rupee_ingot"
+  },
+  "output": {
+    "id": "divinerpg:rupee_dust",
+    "count": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "divinerpg:wildwood_dust"
+  },
+  "output": {
+    "id": "divinerpg:wildwood_dust",
+    "count": 1
+  }
+}

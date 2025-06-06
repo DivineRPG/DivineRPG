@@ -237,7 +237,6 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(BlockRegistry.frozenStone.get()), 1);
         register(NSSItem.createItem(BlockRegistry.cobbledFrozenStone.get()), 1);
         register(NSSItem.createItem(BlockRegistry.snowBricks.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.icyStone.get()), 16);
         register(NSSItem.createItem(BlockRegistry.icyBricks.get()), 16);
         register(NSSItem.createItem(BlockRegistry.runicIcyBricks.get()), 16);
         register(NSSItem.createItem(BlockRegistry.icicle.get()), 16);
