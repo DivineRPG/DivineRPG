@@ -21,15 +21,17 @@ public class EntityLorgaflight extends EntityDivineFlyingMonster {
         super(type, worldIn);
         this.canSpawnMinions = canSpawnMinions;
     }
-    @Override protected void customServerAiStep() {
+    @Override
+    public void flyingAIStep() {
         if(getTarget() == null && random.nextBoolean()) {
             List<EntityLorgaflight> list = level().getEntitiesOfClass(EntityLorgaflight.class, new AABB(-5, -5, -5, 5, 5, 5));
             if(!list.isEmpty()) {
                 EntityLorgaflight partner = list.get(0);
                 if(partner.pathfindPos != null) pathfindPos = partner.pathfindPos.add(position().subtract(partner.position()).multiply(.9, .9, .9));
             }
-        } super.customServerAiStep();
+        } super.flyingAIStep();
     }
+
     @Override public void tick() {
         super.tick();
         if(!level().isClientSide() && canSpawnMinions && getRandom().nextInt(64) == 0 && level().getEntities(null, new AABB(-10, -3, -10, 10, 3, 10)).size() < 8) {

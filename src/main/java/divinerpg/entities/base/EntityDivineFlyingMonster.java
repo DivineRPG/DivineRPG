@@ -40,13 +40,17 @@ public abstract class EntityDivineFlyingMonster extends EntityDivineMonster {
     @Override protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {}
     @Override public boolean onClimbable() {return false;}
     public void reachTarget() {}
-    @Override protected void customServerAiStep() {
+    @Override
+    protected void customServerAiStep() {
+        flyingAIStep();
+    }
+    public void flyingAIStep() {
         if(!isNoGravity()) setNoGravity(true);
         if(isInWater()) {
-        	setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + .5, getDeltaMovement().z);
-        	pathfindPos = null;
-        	getNavigation().stop();
-        	return;
+            setDeltaMovement(getDeltaMovement().x, getDeltaMovement().y + .5, getDeltaMovement().z);
+            pathfindPos = null;
+            getNavigation().stop();
+            return;
         } boolean blockedPath = horizontalCollision || verticalCollision;
         if(!blockedPath) {
             Vec3 futurePos = position().add(getDeltaMovement().x, getDeltaMovement().y, getDeltaMovement().z);
@@ -54,12 +58,12 @@ public abstract class EntityDivineFlyingMonster extends EntityDivineMonster {
             BlockState state = level().getBlockState(pos);
             blockedPath = state.is(Blocks.POWDER_SNOW) || state.is(Blocks.LAVA) || !state.getCollisionShape(level(), pos).equals(Shapes.empty());
         } //decide where to go next
-    	LivingEntity target = getTarget();
+        LivingEntity target = getTarget();
         if(pathfindPos == null || blockedPath) {
             double findX = getX() + ((random.nextFloat() - .5) * pathFindDistance), findY = getY() + ((random.nextFloat() - .6) * pathFindDistance), findZ = getZ() + ((random.nextFloat() - .5) * pathFindDistance);
             if(getNavigation().getPath() != null && !blockedPath) {
-            	BlockPos destination = getNavigation().getPath().getTarget();
-            	pathfindPos = new Vec3(destination.getX(), destination.getY(), destination.getZ());
+                BlockPos destination = getNavigation().getPath().getTarget();
+                pathfindPos = new Vec3(destination.getX(), destination.getY(), destination.getZ());
             } else if(target != null && !blockedPath) {
                 if(this instanceof RangedAttackMob) {
                     boolean tooclose = distanceTo(target) < preferredDistance;
@@ -75,11 +79,11 @@ public abstract class EntityDivineFlyingMonster extends EntityDivineMonster {
         zza = .5F;
         setYRot(getYRot() + Mth.wrapDegrees((float)(Mth.atan2(getDeltaMovement().z, getDeltaMovement().x) * Mth.RAD_TO_DEG) - 90 - getYRot()));
         if(Math.sqrt(distanceToSqr(pathfindPos)) < 1) {
-        	pathfindPos = null;
-        	if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 1.5) {
-        		reachTarget();
-        		getNavigation().stop();
-        	}
+            pathfindPos = null;
+            if(getNavigation().getPath() != null && getNavigation().getPath().getDistToTarget() < 1.5) {
+                reachTarget();
+                getNavigation().stop();
+            }
         }
     }
 }

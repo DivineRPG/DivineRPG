@@ -1015,7 +1015,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(SOUL_FIEND.get(), 		(Context context) -> new RenderDivineMob<>(context, "soul_fiend", 		new ModelSoulFiend(context)));
         event.registerEntityRenderer(SUNSTORM.get(), 		(Context context) -> new RenderDivineMob<>(context, "sunstorm", 		new ModelSunstorm<>(context), 1.2F));
         event.registerEntityRenderer(TERMASECT.get(), 		(Context context) -> new RenderDivineMob<>(context, "termasect", 		new ModelTermasect<>(context), .5F, 5));
-        event.registerEntityRenderer(THE_WATCHER.get(), 	(Context context) -> new RenderDivineMob<>(context, "the_watcher",		new ModelWatcher(context), .5F, 6));
+        event.registerEntityRenderer(THE_WATCHER.get(), 	(Context context) -> new RenderDivineMob<>(context, "the_watcher",		new ModelWatcher(context), 2F, 6));
         event.registerEntityRenderer(TWILIGHT_DEMON.get(), 	(Context context) -> new RenderDivineMob<>(context, "twilight_demon", 	new ModelTwilightDemon(context), .5F, 2));
         event.registerEntityRenderer(VAMACHERON.get(), 		(Context context) -> new RenderDivineMob<>(context, "mortum_cadillion", new ModelVamacheron(context), .5F, 1.6F));
         event.registerEntityRenderer(WRECK.get(), 			RenderWreck::new);
