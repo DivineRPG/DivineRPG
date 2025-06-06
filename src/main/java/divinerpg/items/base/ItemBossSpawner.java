@@ -11,6 +11,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Supplier;
 
@@ -46,11 +47,14 @@ public class ItemBossSpawner extends ItemMod {
         } else if(world.getDifficulty() == Difficulty.PEACEFUL) {
             player.displayClientMessage(LocalizeUtils.clientMessage(ChatFormatting.AQUA, "boss.peaceful"), true);
             return InteractionResult.FAIL;
-        } else {
+        } else if((world.getBlockStates(ent.get().getSpawnAABB(pos.getX() + .5, pos.getY() + 1.14, pos.getZ() + .5).inflate(1D)).allMatch(BlockBehaviour.BlockStateBase::isAir))) {
         	if(!world.isClientSide && ent != null) ent.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, pos1, MobSpawnType.MOB_SUMMONED, true, false);
             player.getItemInHand(hand).consume(1, player);
             player.getCooldowns().addCooldown(this, 40);
             return InteractionResult.SUCCESS;
+        } else {
+            player.displayClientMessage(LocalizeUtils.clientMessage(ChatFormatting.AQUA, "boss.space"), true);
+            return InteractionResult.FAIL;
         }
     }
 }
