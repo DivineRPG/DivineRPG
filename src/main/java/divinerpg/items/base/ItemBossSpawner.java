@@ -47,7 +47,7 @@ public class ItemBossSpawner extends ItemMod {
         } else if(world.getDifficulty() == Difficulty.PEACEFUL) {
             player.displayClientMessage(LocalizeUtils.clientMessage(ChatFormatting.AQUA, "boss.peaceful"), true);
             return InteractionResult.FAIL;
-        } else if((world.getBlockStates(ent.get().getSpawnAABB(pos.getX() + .5, pos.getY() + 1.14, pos.getZ() + .5).inflate(1D)).allMatch(BlockBehaviour.BlockStateBase::isAir))) {
+        } else if((world.getBlockStates(ent.get().getSpawnAABB(pos.getX() + .5, pos.getY() + 2.14, pos.getZ() + .5).inflate(1D)).allMatch(BlockBehaviour.BlockStateBase::isAir))) {
         	if(!world.isClientSide && ent != null) ent.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, pos1, MobSpawnType.MOB_SUMMONED, true, false);
             player.getItemInHand(hand).consume(1, player);
             player.getCooldowns().addCooldown(this, 40);
