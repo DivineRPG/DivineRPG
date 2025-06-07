@@ -18,20 +18,9 @@ import net.minecraft.world.level.block.Block;
 import javax.annotation.Nullable;
 import java.util.Optional;
 
-public class MaulSmashingRecipe implements Recipe<RecipeInput> {
+public record MaulSmashingRecipe(Ingredient input, ItemStack output, @Nullable TagKey<Block> requiredBaseBlockTag) implements Recipe<RecipeInput> {
     public static final RecipeType<MaulSmashingRecipe> TYPE = RecipeType.simple(
             ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "maul_smashing"));
-
-    private final Ingredient input;
-    private final ItemStack output;
-    @Nullable
-    private final TagKey<Block> requiredBaseBlockTag;
-
-    public MaulSmashingRecipe(Ingredient input, ItemStack output, @Nullable TagKey<Block> requiredBaseBlockTag) {
-        this.input = input;
-        this.output = output;
-        this.requiredBaseBlockTag = requiredBaseBlockTag;
-    }
 
     public boolean matches(ItemStack stack) {
         return input.test(stack);
@@ -71,26 +60,13 @@ public class MaulSmashingRecipe implements Recipe<RecipeInput> {
         return RecipeRegistry.Types.MAUL_SMASHING.get();
     }
 
-    public Ingredient getInput() {
-        return input;
-    }
-
-    public ItemStack getOutput() {
-        return output;
-    }
-
-    @Nullable
-    public TagKey<Block> getRequiredBaseBlockTag() {
-        return requiredBaseBlockTag;
-    }
-
     public static class Serializer implements RecipeSerializer<MaulSmashingRecipe> {
         private static final MapCodec<MaulSmashingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-                Ingredient.CODEC.fieldOf("input").forGetter(MaulSmashingRecipe::getInput),
-                ItemStack.CODEC.fieldOf("output").forGetter(MaulSmashingRecipe::getOutput),
+                Ingredient.CODEC.fieldOf("input").forGetter(MaulSmashingRecipe::input),
+                ItemStack.CODEC.fieldOf("output").forGetter(MaulSmashingRecipe::output),
                 TagKey.hashedCodec(Registries.BLOCK)
                         .optionalFieldOf("required_base_block")
-                        .forGetter(r -> Optional.ofNullable(r.getRequiredBaseBlockTag()))
+                        .forGetter(r -> Optional.ofNullable(r.requiredBaseBlockTag()))
         ).apply(instance, (input, output, baseOpt) -> new MaulSmashingRecipe(input, output, baseOpt.orElse(null))));
 
         public static final StreamCodec<RegistryFriendlyByteBuf, MaulSmashingRecipe> STREAM_CODEC = StreamCodec.of(

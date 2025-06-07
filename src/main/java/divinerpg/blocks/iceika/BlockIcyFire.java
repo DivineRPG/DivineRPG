@@ -20,23 +20,14 @@ public class BlockIcyFire extends BaseFireBlock {
 	@Override public MapCodec<BlockIcyFire> codec() {return CODEC;}
 	public BlockIcyFire(Properties properties) {super(properties.lightLevel((state) -> 7), 1);}
 	@Override public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-		if(entity instanceof ItemEntity itemEntity) {
-			boolean b;
-			if(b = itemEntity.getItem().is(Items.CLOCK) && level instanceof ServerLevel) {
-				byte variant = Utils.determineTimeOfDay(level);
-				ItemStack stack = ItemRegistry.frozen_clock.toStack(itemEntity.getItem().getCount());
-				stack.set(DataComponentRegistry.variant, variant);
-				itemEntity.setItem(stack);
-			} else if(b = itemEntity.getItem().is(ItemRegistry.ender_stone) && level instanceof ServerLevel) {
-				itemEntity.setItem(ItemRegistry.teleportation_crystal.toStack());
-				level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-			} if(b) {
-				level.playSound(null, itemEntity.blockPosition(), SoundRegistry.FREEZE.get(), SoundSource.BLOCKS, .8F, 1.5F);
-				return;
-			} //TODO: to somehow prevent the interaction spam when you stay in between icy fire and a real fire
-		} if(entity.canFreeze() && !entity.isInLava()) {
+		if(!entity.isAlive()) return;
+		if(entity.isOnFire()) entity.extinguishFire();
+		if(entity.canFreeze() && !entity.isInLava()) {
 			entity.setTicksFrozen(entity.getTicksFrozen() + 4);
-			if(entity.tickCount % 15 == 0) entity.hurt(level.damageSources().freeze(), 1);
+			if(entity.tickCount % 15 == 0) {
+				entity.hurt(level.damageSources().freeze(), 1);
+				if(!entity.isAlive()) level.playSound(null, pos, SoundRegistry.FREEZE.get(), SoundSource.BLOCKS, .8F, 1.5F);
+			}
 		}
 	}
 	@Override public BlockState updateShape(BlockState state, Direction dir, BlockState s, LevelAccessor level, BlockPos pos, BlockPos p) {

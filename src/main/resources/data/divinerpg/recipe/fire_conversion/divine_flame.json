@@ -1,0 +1,18 @@
+{
+  "type": "divinerpg:fire_conversion",
+  "input_item": {
+    "item": "divinerpg:divine_stone"
+  },
+  "input_state": {
+    "predicate_type": "minecraft:block_match",
+    "block": "minecraft:fire"
+  },
+  "output_state": {
+    "type": "minecraft:simple_state_provider",
+    "state": {
+      "Name": "divinerpg:divine_flame"
+    }
+  },
+  "advancement": "divinerpg:divine/the_link",
+  "advancement_criteria": "create_divine_flame"
+}

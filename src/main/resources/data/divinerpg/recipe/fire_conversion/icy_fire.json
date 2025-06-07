@@ -1,0 +1,18 @@
+{
+  "type": "divinerpg:fire_conversion",
+  "input_item": {
+      "item": "divinerpg:ice_stone"
+  },
+  "input_state": {
+    "predicate_type": "minecraft:block_match",
+    "block": "minecraft:fire"
+  },
+  "output_state": {
+    "type": "minecraft:simple_state_provider",
+    "state": {
+      "Name": "divinerpg:icy_fire"
+    }
+  },
+  "advancement": "divinerpg:divine/freezing_fire",
+  "advancement_criteria": "create_icy_fire"
+}

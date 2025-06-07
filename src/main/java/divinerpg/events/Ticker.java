@@ -5,24 +5,32 @@ import divinerpg.block_entities.block.TerranGhostBlockEntity;
 import divinerpg.entities.goals.TurtleEatAequoreaGoal;
 import divinerpg.entities.vanilla.overworld.EntityAequorea;
 import divinerpg.network.payload.Weather;
+import divinerpg.recipe.FireConversionRecipe;
 import divinerpg.registries.*;
 import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.*;
+import net.minecraft.sounds.*;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Turtle;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.CommonHooks;
-import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.*;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.*;
+
+import java.util.List;
 
 public class Ticker {
     public static int tick;
@@ -76,5 +84,58 @@ public class Ticker {
             tool.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
             return true;
         } return false;
+    }
+    @SubscribeEvent
+    public void onEntityLeave(EntityLeaveLevelEvent event) {
+        if(!event.getLevel().isClientSide && event.getEntity() instanceof ItemEntity i && i.getAge() < i.lifespan) {
+            ItemStack stack = i.getItem();
+            if(stack.isEmpty()) return;
+            ServerLevel level = (ServerLevel) event.getLevel();
+            List<FireConversionRecipe> recipes = level.getRecipeManager().getAllRecipesFor(FireConversionRecipe.TYPE).stream().filter(r -> r.value().inputItem().test(stack)).map(RecipeHolder::value).toList();
+            if(recipes.isEmpty()) return;
+            BlockPos pos = i.blockPosition();
+            BlockState state, prevState;
+            BlockPos[] positions = new BlockPos[]{pos, pos.below(), pos.north(), pos.east(), pos.south(), pos.west(), pos.offset(1, 0, 1), pos.offset(1, 0, -1), pos.offset(-1, 0, 1), pos.offset(-1, 0, -1)};
+            for(BlockPos position : positions) {
+                prevState = state = level.getBlockState(position);
+                if(!state.isAir()) for(FireConversionRecipe recipe : recipes) if(recipe.inputState().test(state, level.random)) {
+                    if(recipe.outputState().isPresent()) level.setBlock(position, state = recipe.outputState().get().getState(level.getRandom(), position), 3);
+                    if(recipe.outputItem().isPresent()) {
+                        ItemStack output = recipe.outputItem().get().copy();
+                        if(!output.isEmpty()) {
+                            if(output.is(ItemRegistry.frozen_clock)) output.set(DataComponentRegistry.variant, Utils.determineTimeOfDay(level));
+                            output.setCount(output.getCount() * stack.getCount());
+                            ItemEntity itemEntity = new ItemEntity(level, i.getX(), i.getY(), i.getZ(), output);
+                            itemEntity.setDefaultPickUpDelay();
+                            itemEntity.setDeltaMovement(i.getDeltaMovement());
+                            level.addFreshEntity(itemEntity);
+                        }
+                    } if(recipe.advancement().isPresent()) {
+                        List<ServerPlayer> players = Utils.getNearbyPlayers(level, i.getX(), i.getY(), i.getZ(), 9);
+                        for(ServerPlayer player : players) Utils.awardAdvancement(level.getServer(), player, recipe.advancement().get(), recipe.advancementCriteria().orElse("impossible"));
+                    } if(state.isAir()) {
+                        if(prevState.is(BlockRegistry.icyFire)) level.playSound(null, position, SoundRegistry.FREEZE.get(), SoundSource.BLOCKS, .8F, 1.5F);
+                        else if(prevState.is(BlockRegistry.enchantedFlame)) {
+                            level.playSound(null, position, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 0.8F, 1.2F);
+                            level.playSound(null, position, SoundEvents.ENDERMAN_TELEPORT, SoundSource.BLOCKS, 0.8F, 1F);
+                        } else if(prevState.is(BlockTags.FIRE)) level.playSound(null, position, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS);
+                        else if(prevState.getFluidState().is(FluidRegistry.SMOLDERING_TAR_FLUID.get())) {
+                            level.playSound(null, position, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 1, 1);
+                            level.sendParticles(ParticleTypes.SMOKE, i.getX(), i.getY(), i.getZ(), 25, .5, .5, .5, .01);
+                        }
+                    } else if(state.is(BlockRegistry.icyFire)) {
+                        if(prevState.is(BlockRegistry.icyFire)) level.playSound(null, position, SoundRegistry.FREEZE.get(), SoundSource.BLOCKS, .8F, 1.5F);
+                        else level.playSound(null, position, SoundRegistry.FREEZE.get(), SoundSource.BLOCKS, 1, 1);
+                    } else if(state.is(BlockRegistry.hellFire)) {
+                        level.sendParticles(ParticleTypes.SOUL, i.getX(), i.getY(), i.getZ(), 4, .2, .2, .2, 0);
+                        level.playSound(null, position, SoundEvents.SCULK_SHRIEKER_SHRIEK, SoundSource.BLOCKS, .7F, 1.5F);
+                        level.playSound(null, position, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1, 1);
+                    } else if(state.is(BlockRegistry.divineFlame) || state.is(BlockRegistry.wildFlame) || state.is(BlockRegistry.enchantedFlame) || state.is(BlockRegistry.skyFire) || state.is(BlockRegistry.mortumEmbers)) {
+                        level.playSound(null, position, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1, 1);
+                        level.playSound(null, position, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1, 1);
+                    } return;
+                }
+            }
+        }
     }
 }

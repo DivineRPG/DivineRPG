@@ -7,6 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.*;
@@ -75,7 +76,7 @@ public class ItemMaul extends ItemModSword {
     private void applyMaulEffects(Player player, int count, InteractionHand hand) {
         ItemStack maulStack = player.getItemInHand(hand);
         if(player instanceof ServerPlayer s) maulStack.hurtAndBreak(count, s.serverLevel(), s, (it) -> s.serverLevel().playSound(null, player.getX(), player.getEyeY(), player.getZ(), ITEM_BREAK, PLAYERS, 1, 1));
-        player.playSound(ANVIL_LAND, 0.7F, 1.5F);
+        player.level().playSound(null, player.getX(), player.getEyeY(), player.getZ(), ANVIL_LAND, SoundSource.PLAYERS, .7F, 1.5F);
         player.getCooldowns().addCooldown(this, COOLDOWN_TICKS);
         player.awardStat(Stats.ITEM_USED.get(this));
     }
@@ -85,7 +86,7 @@ public class ItemMaul extends ItemModSword {
         for(var holder : recipeManager.getAllRecipesFor(MaulSmashingRecipe.TYPE)) {
             if(!(holder.value() instanceof MaulSmashingRecipe recipe)) continue;
             if(!recipe.matches(inputStack)) continue;
-            TagKey<Block> tag = recipe.getRequiredBaseBlockTag();
+            TagKey<Block> tag = recipe.requiredBaseBlockTag();
             if(tag == null) return recipe;
             MinecraftServer server = level.getServer();
             if(server == null) continue;

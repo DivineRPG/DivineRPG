@@ -1,0 +1,18 @@
+{
+  "type": "divinerpg:fire_conversion",
+  "input_item": {
+    "item": "divinerpg:eden_heart"
+  },
+  "input_state": {
+    "predicate_type": "minecraft:block_match",
+    "block": "divinerpg:divine_flame"
+  },
+  "output_state": {
+    "type": "minecraft:simple_state_provider",
+    "state": {
+      "Name": "divinerpg:wild_flame"
+    }
+  },
+  "advancement": "divinerpg:twilight/wilderness_ablaze",
+  "advancement_criteria": "create_wild_flame"
+}

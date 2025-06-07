@@ -3,8 +3,7 @@ package divinerpg.blocks.vanilla;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.sounds.*;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -12,9 +11,6 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.MapColor;
-
-import java.util.List;
-import java.util.function.Supplier;
 
 public class FireBlock extends BaseFireBlock {
 	public static final MapCodec<FireBlock> CODEC = simpleCodec(FireBlock::new);
@@ -56,16 +52,5 @@ public class FireBlock extends BaseFireBlock {
 	@Override
 	protected boolean canBurn(BlockState state) {
 		return !state.isAir();
-	}
-	public static boolean convertFire(Level level, final BlockPos pos, Block fire, BlockState result) {
-		List<Supplier<BlockPos>> positions = List.of(() -> pos, pos::below, pos::north, pos::east, pos::south, pos::west,
-			() -> pos.offset(1, 0, 1), () -> pos.offset(1, 0, -1), () -> pos.offset(-1, 0, 1), () -> pos.offset(-1, 0, -1)//,
-//			() -> pos.offset(0, -1, 1), () -> pos.offset(0, -1, -1), () -> pos.offset(-1, -1, 0), () -> pos.offset(1, -1, 0),
-//			() -> pos.offset(1, -1, 1), () -> pos.offset(1, -1, -1), () -> pos.offset(-1, -1, 1), () -> pos.offset(-1, -1, -1)
-		);
-		for(Supplier<BlockPos> p : positions) if(level.getBlockState(p.get()).is(fire)) {
-			level.setBlock(p.get(), result, 3);
-			return true;
-		} return false;
 	}
 }

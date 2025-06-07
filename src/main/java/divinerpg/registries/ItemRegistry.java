@@ -53,7 +53,7 @@ public class ItemRegistry {
         //Dusts
         arlemite_dust = registerItem("arlemite_dust"),
         rupee_dust = registerItem("rupee_dust"),
-        shadow_dust = registerItem("shadow_dust", ItemShadowDust::new),
+        shadow_dust = registerItem("shadow_dust"),
         eden_dust = registerItem("eden_dust"),
         wildwood_dust = registerItem("wildwood_dust"),
         apalachia_dust = registerItem("apalachia_dust"),
@@ -90,7 +90,7 @@ public class ItemRegistry {
 
         //Chunks
         bedrock_chunk = registerItem("bedrock_chunk", () -> new ItemMod(new Properties().fireResistant())),
-        torridite_chunk = registerItem("torridite_chunk", ItemTorriditeChunk::new),
+        torridite_chunk = registerItem("torridite_chunk"),
 
         //Diamond Chunks
         red_diamond_chunk = registerItem("red_diamond_chunk"),
@@ -110,14 +110,14 @@ public class ItemRegistry {
 
         //Stones
         shadow_stone = registerItem("shadow_stone", () -> new ItemMod(new Properties().fireResistant())),
-        ice_stone = registerItem("ice_stone", ItemIceStone::new),
+        ice_stone = registerItem("ice_stone"),
         terran_stone = registerItem("terran_stone"),
         jungle_stone = registerItem("jungle_stone"),
         molten_stone = registerItem("molten_stone", () -> new ItemMod(new Properties().fireResistant())),
         soulfire_stone = registerItem("soulfire_stone"),
         corrupted_stone = registerItem("corrupted_stone"),
         ender_stone = registerItem("ender_stone"),
-        divine_stone = registerItem("divine_stone", ItemDivineStone::new),
+        divine_stone = registerItem("divine_stone"),
 
         //Gems
         bloodgem = registerItem("bloodgem"),
@@ -190,10 +190,10 @@ public class ItemRegistry {
         mortum_soul = registerItem("mortum_soul"),
 
         //Hearts
-        eden_heart = registerItem("eden_heart", ItemEdenHeart::new),
-        wildwood_heart = registerItem("wildwood_heart", ItemWildwoodHeart::new),
-        apalachia_heart = registerItem("apalachia_heart", ItemApalachiaHeart::new),
-        skythern_heart = registerItem("skythern_heart", ItemSkythernHeart::new),
+        eden_heart = registerItem("eden_heart"),
+        wildwood_heart = registerItem("wildwood_heart"),
+        apalachia_heart = registerItem("apalachia_heart"),
+        skythern_heart = registerItem("skythern_heart"),
         mortum_heart = registerItem("mortum_heart"),
 
         base_spawn_crystal = registerItem("base_spawn_crystal"),

@@ -440,7 +440,7 @@ public class EntityRegistry {
         DivineRPG.LOGGER.info("[DivineRPG] Attached entity attributes");
 
         //Bosses
-        registerMobAttributes(event, ANCIENT_ENTITY, EntityStats.ANCIENT_ENTITY);
+        registerStepMobAttributes(event, ANCIENT_ENTITY, EntityStats.ANCIENT_ENTITY, 5D);
         registerMobAttributes(event, THE_WATCHER, EntityStats.THE_WATCHER);
         registerMobAttributes(event, KING_OF_SCORCHERS, EntityStats.KING_OF_SCORCHERS);
         registerMobAttributes(event, KITRA, EntityStats.KITRA);
@@ -1223,6 +1223,9 @@ public class EntityRegistry {
         DeferredHolder<EntityType<?>, EntityType<T>> entity = ENTITIES.register(name, () -> EntityType.Builder.of(factory, category).sized(width, height).eyeHeight(eyeHeight).build(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, name).toString()));
         CreativeTabRegistry.misc.add(ItemRegistry.ITEMS.register(name + "_spawn_egg", () -> new DeferredSpawnEggItem(entity, backgroundColor, highlightColor, new Item.Properties())));
         return entity;
+    }
+    private static <T extends Mob> void registerStepMobAttributes(EntityAttributeCreationEvent event, DeferredHolder<EntityType<?>, EntityType<T>> entity, EntityStats stats, double stepHeight) {
+        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).add(Attributes.STEP_HEIGHT, stepHeight).build());
     }
     private static <T extends Mob> void registerMobAttributes(EntityAttributeCreationEvent event, DeferredHolder<EntityType<?>, EntityType<T>> entity, EntityStats stats) {
         event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).build());
