@@ -22,11 +22,9 @@ import net.minecraft.world.phys.*;
 import net.neoforged.api.distmarker.*;
 
 import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
-import static net.minecraft.sounds.SoundEvents.ANVIL_LAND;
-import static net.minecraft.sounds.SoundEvents.ITEM_BREAK;
+import static net.minecraft.sounds.SoundEvents.*;
 import static net.minecraft.sounds.SoundSource.PLAYERS;
 
 public class ItemMaul extends ItemModSword {
@@ -95,12 +93,10 @@ public class ItemMaul extends ItemModSword {
             if(blockLookup.isEmpty()) continue;
             Optional<HolderSet.Named<Block>> tagBlocksOpt = blockLookup.get().get(tag);
             if(tagBlocksOpt.isEmpty()) continue;
-            HolderSet<Block> tagBlocks = tagBlocksOpt.get();
-            if(baseState.is(tagBlocks)) return recipe;
+            if(baseState.is(tagBlocksOpt.get())) return recipe;
         } return null;
     }
-    @OnlyIn(Dist.CLIENT)
-    @Override
+    @OnlyIn(Dist.CLIENT) @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(LocalizeUtils.i18n("maul_use"));
         super.appendHoverText(stack, context, tooltip, flag);

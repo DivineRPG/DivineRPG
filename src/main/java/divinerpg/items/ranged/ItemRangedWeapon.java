@@ -33,7 +33,7 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
 
     public final TagKey<Item> ammoType;
     public SoundEvent sound;
-    public float power = 3;
+    public float power = 3F;
     public int arcanaConsumedUse, cooldown;
     public final Supplier<EntityType<? extends Projectile>> projectileType;
     public Integer nameColor = null;
@@ -109,7 +109,7 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
         ItemStack ammo = findAmmo(player);
         if(ammo != null && !ammo.isEmpty() && Arcana.getAmount(player) >= arcanaConsumedUse) {
             if(!level.isClientSide) {
-                shoot((ServerLevel)level, player, player.getUsedItemHand(), stack, List.of(ammo),  power, 1, false, null);
+                shoot((ServerLevel)level, player, player.getUsedItemHand(), stack, List.of(ammo), power, 1, false, null);
                 if(arcanaConsumedUse > 0) Arcana.modifyAmount(player, -arcanaConsumedUse);
             } ammo.consume(1, player);
             if(cooldown > 0) player.getCooldowns().addCooldown(this, cooldown);
@@ -137,7 +137,7 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
     private boolean isOfTag(ItemStack stack) {return ammoType != null && stack.is(ammoType);}
     @Override public int getDefaultProjectileRange() {return 15;}
     @Override protected void shootProjectile(LivingEntity shooter, Projectile projectile, int i, float velocity, float inaccuracy, float angle, @Nullable LivingEntity livingEntity1) {
-        projectile.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot() + angle, 0, 1F, inaccuracy);
+        projectile.shootFromRotation(shooter, shooter.getXRot(), shooter.getYRot() + angle, 0, velocity, inaccuracy);
     }
     @Override
     protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
