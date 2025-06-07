@@ -18,6 +18,7 @@ import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -74,8 +75,7 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
         super.aiStep();
         if(!level().isClientSide()) updatePersistentAnger((ServerLevel) level(), true);
     }
-    @Override
-    public void onAddedToLevel() {
+    @Override public void onAddedToLevel() {
         super.onAddedToLevel();
         if(level().isClientSide()) {
             AttachmentRegistry.COLOR.requestAttachment(this, null);
@@ -89,47 +89,48 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         Item item = itemstack.getItem();
-        if(level().isClientSide()) return isOwnedBy(player) ? InteractionResult.CONSUME : InteractionResult.PASS;
-        if(isTame()) {
-            if(isFood(itemstack) && getHealth() < getMaxHealth()) {
-                itemstack.consume(1, player);
-                heal((float) item.getFoodProperties(itemstack, this).nutrition());
-                gameEvent(GameEvent.EAT, this);
-                return InteractionResult.SUCCESS;
-            }
-            if(item instanceof DyeItem dyeitem) {
-                if(isOwnedBy(player)) {
+        if(!level().isClientSide || isBaby() && isFood(itemstack)) {
+            if(isTame()) {
+                if(isFood(itemstack) && getHealth() < getMaxHealth()) {
+                    FoodProperties foodproperties = itemstack.getFoodProperties(this);
+                    float f = foodproperties != null ? (float)foodproperties.nutrition() : 1;
+                    heal(2 * f);
+                    itemstack.consume(1, player);
+                    gameEvent(GameEvent.EAT, this);
+                    return InteractionResult.sidedSuccess(level().isClientSide);
+                } if(item instanceof DyeItem dyeitem && isOwnedBy(player)) {
                     DyeColor dyecolor = dyeitem.getDyeColor();
                     if(dyecolor != getCollarColor()) {
                         setCollarColor(dyecolor);
                         itemstack.consume(1, player);
                         return InteractionResult.SUCCESS;
                     } return super.mobInteract(player, hand);
-                }
-            }
-            InteractionResult actionresulttype = super.mobInteract(player, hand);
-            if((!actionresulttype.consumesAction() || isBaby()) && isOwnedBy(player)) {
-                setOrderedToSit(!isOrderedToSit());
-                jumping = false;
-                navigation.stop();
-                setTarget(null);
+                } InteractionResult interactionresult = super.mobInteract(player, hand);
+                if(!interactionresult.consumesAction() && isOwnedBy(player)) {
+                    setOrderedToSit(!isOrderedToSit());
+                    jumping = false;
+                    navigation.stop();
+                    setTarget(null);
+                    return InteractionResult.SUCCESS_NO_ITEM_USED;
+                } else return interactionresult;
+            } else if(isTamingFood(itemstack) && !isAngry() && !player.isCreative()) {
+                itemstack.consume(1, player);
+                if(random.nextInt(3) == 0 && !EventHooks.onAnimalTame(this, player)) {
+                    tame(player);
+                    navigation.stop();
+                    setTarget(null);
+                    setOrderedToSit(true);
+                    level().broadcastEntityEvent(this, (byte)7);
+                } else level().broadcastEntityEvent(this, (byte)6);
                 return InteractionResult.SUCCESS;
-            }
-        } else if(isTamingFood(itemstack) && !isAngry() && !player.isCreative()) {
-            itemstack.shrink(1);
-            if(random.nextInt(3) == 0 && !EventHooks.onAnimalTame(this, player)) {
-                tame(player);
-                navigation.stop();
-                setTarget(null);
-                setOrderedToSit(true);
-                level().broadcastEntityEvent(this, (byte)7);
-            } else level().broadcastEntityEvent(this, (byte)6);
-            return InteractionResult.SUCCESS;
-        } else if(player.isCreative()) tame(player);
-        return super.mobInteract(player, hand);
+            } else if(player.isCreative()) tame(player);
+            return super.mobInteract(player, hand);
+        } else {
+            boolean flag = isOwnedBy(player) || isTame() || isTamingFood(itemstack) && !isTame() && !isAngry();
+            return flag ? InteractionResult.CONSUME : InteractionResult.PASS;
+        }
     }
-    @Override
-    public void tame(Player player) {
+    @Override public void tame(Player player) {
         super.tame(player);
         setCollarColor(DyeColor.RED);
     }
@@ -151,21 +152,16 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
         if(AttachmentRegistry.ANGRY.get(this)) return angry_at;
         return null;
     }
-    @Override
-    public boolean isAngry() {
-        return AttachmentRegistry.ANGRY.get(this);
-    }
+    @Override public boolean isAngry() {return AttachmentRegistry.ANGRY.get(this);}
     @Override public void setPersistentAngerTarget(@Nullable UUID id) {
         angry_at = id;
         AttachmentRegistry.ANGRY.set(this, id != null);
     }
-    @Override
-    public void readAdditionalSaveData(CompoundTag compound) {
+    @Override public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         if(compound.contains("angryAt")) angry_at = compound.getUUID("angryAt");
     }
-    @Override
-    public void addAdditionalSaveData(CompoundTag compound) {
+    @Override public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         UUID angry_at = getPersistentAngerTarget();
         if(angry_at != null) compound.putUUID("angryAt", angry_at);

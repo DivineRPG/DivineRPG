@@ -5,8 +5,7 @@ import divinerpg.client.models.vanilla.ModelHellPig;
 import divinerpg.client.renders.layer.PetCollarLayer;
 import divinerpg.entities.base.EntityDivineTameable;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
-import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.*;
 
@@ -16,8 +15,8 @@ public class RenderHellPig extends MobRenderer<EntityDivineTameable, EntityModel
             hellPigLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig.png"),
             madHellPigLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_mad.png"),
             tamedHellPigLoc = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/hell_pig/hell_pig_tamed.png");
-    public RenderHellPig(Context context) {
-        super(context, new ModelHellPig<>(context), .7F);
+    public RenderHellPig(EntityRendererProvider.Context context) {
+        super(context, new ModelHellPig(context), .7F);
         addLayer(new PetCollarLayer(this));
     }
     @Override public ResourceLocation getTextureLocation(EntityDivineTameable entity) {

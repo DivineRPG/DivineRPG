@@ -20,8 +20,8 @@ public class EntityCaveclops extends EntityDivineMonster implements RangedAttack
     @Override
     protected void registerGoals() {
     	super.registerGoals();
-        goalSelector.addGoal(0, new RangedAttackGoal(this, 0.27F, 30, 10));
-        goalSelector.addGoal(0, new FleeSunGoal(this, 0.27D));
+        goalSelector.addGoal(0, new FleeSunGoal(this, .27));
+        goalSelector.addGoal(1, new RangedAttackGoal(this, .27, 30, 10));
     }
 
     @Override

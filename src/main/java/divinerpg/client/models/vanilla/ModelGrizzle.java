@@ -6,13 +6,13 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelGrizzle<T extends EntityDivineTameable> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("grizzle");
 	private final ModelPart leg1, leg2, leg4, leg3, body, head, tail;
-
 	public ModelGrizzle(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
 		this.leg1 = root.getChild("leg1");
@@ -47,20 +47,15 @@ public class ModelGrizzle<T extends EntityDivineTameable> extends EntityModel<T>
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
-
-	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.leg1.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
-        this.leg3.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
-        this.leg2.xRot = (float) (Math.cos(limbSwing * 0.6662F) * limbSwingAmount);
-        this.leg4.xRot = (float) (Math.cos(limbSwing * 0.6662F + Math.PI) * limbSwingAmount);
-
-        this.head.xRot = netHeadYaw / (180F / (float) Math.PI);
-        this.head.yRot = headPitch / (180F / (float) Math.PI);
+	@Override public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		head.xRot = headPitch * Mth.DEG_TO_RAD;
+		head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
+		float f = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
+		float f1 = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
+		leg1.xRot = leg2.xRot = f;
+        leg3.xRot = leg4.xRot = f1;
 	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
 		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		leg4.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);

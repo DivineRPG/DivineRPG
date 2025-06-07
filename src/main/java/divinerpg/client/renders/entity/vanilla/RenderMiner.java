@@ -13,7 +13,7 @@ import static divinerpg.util.ClientUtils.layerHumanoid;
 public class RenderMiner extends HumanoidMobRenderer<EntityMiner, HumanoidModel<EntityMiner>> {
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/miner.png");
     public RenderMiner(EntityRendererProvider.Context context) {
-        super(context, new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .8F);
+        super(context, new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F);
     }
     @Override public ResourceLocation getTextureLocation(EntityMiner entity) {return TEXTURE;}
 }

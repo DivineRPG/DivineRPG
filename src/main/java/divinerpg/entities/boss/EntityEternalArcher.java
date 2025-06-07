@@ -6,7 +6,6 @@ import divinerpg.registries.ItemRegistry;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -19,7 +18,7 @@ public class EntityEternalArcher extends EntityDivineBoss {
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 80));
+        goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 80));
     }
 
     @Override

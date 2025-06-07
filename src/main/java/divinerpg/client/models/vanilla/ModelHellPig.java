@@ -5,80 +5,61 @@ import divinerpg.entities.base.EntityDivineTameable;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelHellPig<T extends EntityDivineTameable> extends EntityModel<T> {
+public class ModelHellPig extends EntityModel<EntityDivineTameable> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("hell_pig");
-	private final ModelPart Head, LeftEar, RightEar, BackRightLeg, FrontLeftLeg, FrontRightLeg, BackLeftLeg, Body;
-
-	public ModelHellPig(Context context) {
+	public final ModelPart Body, Head, LeftEar, RightEar, BackRightLeg, BackLeftLeg, FrontRightLeg, FrontLeftLeg;
+	public ModelHellPig(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.Head = root.getChild("Head");
-		this.LeftEar = this.Head.getChild("LeftEar");
-		this.RightEar = this.Head.getChild("RightEar");
-		this.BackRightLeg = root.getChild("BackRightLeg");
-		this.FrontLeftLeg = root.getChild("FrontLeftLeg");
-		this.FrontRightLeg = root.getChild("FrontRightLeg");
-		this.BackLeftLeg = root.getChild("BackLeftLeg");
-		this.Body = root.getChild("Body");
+		Body = root.getChild("Body");
+		Head = Body.getChild("Head");
+		LeftEar = Head.getChild("LeftEar");
+		RightEar = Head.getChild("RightEar");
+		BackRightLeg = root.getChild("BackRightLeg");
+		BackLeftLeg = root.getChild("BackLeftLeg");
+		FrontRightLeg = root.getChild("FrontRightLeg");
+		FrontLeftLeg = root.getChild("FrontLeftLeg");
 	}
-
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-
-		partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 50).addBox(-8.0F, -3.0F, 1.99F, 10.0F, 8.0F, 0.0F, new CubeDeformation(0.0F))
-			.texOffs(0, 0).addBox(-8.0F, -3.0F, 2.0F, 10.0F, 9.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 9.0F, -9.0F));
-
-		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(0, 37).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 15.0F, -5.0F));
-
-		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(28, 23).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.0F, 15.0F, 5.0F));
-
-		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(34, 0).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 15.0F, 5.0F));
-
-		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(24, 36).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(3.0F, 15.0F, -5.0F));
-
-		PartDefinition Head = partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 23).addBox(-4.0F, -5.0F, -6.0F, 8.0F, 8.0F, 6.0F, new CubeDeformation(0.0F))
-		.texOffs(12, 37).addBox(-2.5F, -1.0F, -7.0F, 5.0F, 3.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(-1, 52).addBox(0.0F, -10.0F, -7.0F, 0.0F, 5.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 9.5F, -7.0F));
-
-		PartDefinition RightEar = Head.addOrReplaceChild("RightEar", CubeListBuilder.create(), PartPose.offset(-3.9526F, -2.5952F, -3.0F));
-
-		RightEar.addOrReplaceChild("RightEar_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, 0.0F, -2.0F, 1.0F, 7.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-0.0474F, -0.4048F, 0.0F));
-
-		PartDefinition LeftEar = Head.addOrReplaceChild("LeftEar", CubeListBuilder.create(), PartPose.offset(3.9526F, -2.5952F, -3.0F));
-
-		LeftEar.addOrReplaceChild("LeftEar_r1", CubeListBuilder.create().texOffs(40, 32).addBox(0.0F, 0.0F, -2.0F, 1.0F, 7.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0474F, -0.4048F, 0.0F));
-
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartDefinition Body = partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 50).addBox(-8, -3, 1.99F, 10, 8, 0, cubeDef) //Collar
+		.texOffs(0, 0).addBox(-8, -3, 2, 10, 9, 14, cubeDef), PartPose.offset(3, 9, -9));
+		PartDefinition Head = Body.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 23).addBox(-4, -5, -6, 8, 8, 6, cubeDef)
+		.texOffs(12, 37).addBox(-2.5F, -1, -6.99F, 5, 3, 1, cubeDef) //Snout
+		.texOffs(-1, 52).addBox(0, -10, -7, 0, 5, 7, cubeDef), PartPose.offset(-3, .5F, 2.01F)); //Crest
+		Head.addOrReplaceChild("RightEar", CubeListBuilder.create().texOffs(0, 0).addBox(-1, 0, -2, 1, 7, 4, cubeDef), PartPose.offset(-4, -3, -3));
+		Head.addOrReplaceChild("LeftEar", CubeListBuilder.create().texOffs(40, 32).addBox(0, 0, -2, 1, 7, 4, cubeDef), PartPose.offset(4, -3, -3));
+		partdefinition.addOrReplaceChild("BackRightLeg", CubeListBuilder.create().texOffs(28, 23).addBox(-2, 0, -2, 4, 9, 4, cubeDef), PartPose.offset(-2.99F, 14.99F, 4.99F));
+		partdefinition.addOrReplaceChild("BackLeftLeg", CubeListBuilder.create().texOffs(34, 0).addBox(-2, 0, -2, 4, 9, 4, cubeDef), PartPose.offset(2.99F, 14.99F, 4.99F));
+		partdefinition.addOrReplaceChild("FrontRightLeg", CubeListBuilder.create().texOffs(0, 37).addBox(-2, 0, -2, 4, 9, 4, cubeDef), PartPose.offset(-2.99F, 14.99F, -4.99F));
+		partdefinition.addOrReplaceChild("FrontLeftLeg", CubeListBuilder.create().texOffs(24, 36).addBox(-2, 0, -2, 4, 9, 4, cubeDef), PartPose.offset(2.99F, 14.99F, -4.99F));
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
-
-	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.Head.xRot = headPitch * ((float)Math.PI / 180F);
-		this.Head.yRot = netHeadYaw * ((float)Math.PI / 180F);
-
-		float f1 = ageInTicks * 0.1F + limbSwing * 0.5F;
-		float f2 = 0.08F + limbSwingAmount * 0.4F;
-		this.LeftEar.zRot = (-(float)Math.PI / 12F) - Mth.cos(f1 * 1.2F) * f2;
-		this.RightEar.zRot = ((float)Math.PI / 12F) + Mth.cos(f1) * f2;
-
-		this.BackRightLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-		this.BackLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-		this.FrontRightLeg.xRot = Mth.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
-		this.FrontLeftLeg.xRot = Mth.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+	@Override public void setupAnim(EntityDivineTameable entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		//TODO: to add sitting animation
+		Head.xRot = headPitch * Mth.DEG_TO_RAD;
+		Head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
+		float f1 = ageInTicks * .1F + limbSwing * .5F;
+		float f2 = .08F + limbSwingAmount * .4F;
+		RightEar.zRot = Mth.PI / 12 + Mth.cos(f1) * f2;
+		LeftEar.zRot = -Mth.PI / 12 - Mth.cos(f1 * 1.2F) * f2;
+		float f3 = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
+		float f4 = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
+		Body.zRot = f3 * .04F;
+		BackRightLeg.xRot = FrontLeftLeg.xRot = f3;
+		BackLeftLeg.xRot = FrontRightLeg.xRot = f4;
 	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-		Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
 		Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		BackLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontRightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		FrontLeftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }
