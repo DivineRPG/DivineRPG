@@ -5,7 +5,7 @@
     "count": 11
   },
   "template": {
-    "id": "divinerpg:finished_template"
+    "item": "divinerpg:finished_template"
   },
   "output": {
     "id": "divinerpg:finished_hood"

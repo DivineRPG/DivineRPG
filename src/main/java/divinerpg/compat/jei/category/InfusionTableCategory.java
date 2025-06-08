@@ -2,60 +2,56 @@ package divinerpg.compat.jei.category;
 
 import divinerpg.DivineRPG;
 import divinerpg.recipe.InfusionTableRecipe;
-import divinerpg.registries.BlockRegistry;
+import divinerpg.registries.*;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.*;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import org.jetbrains.annotations.Nullable;
 
-public class InfusionTableCategory
-        implements IRecipeCategory<InfusionTableRecipe>
-{
-    public static final RecipeType<InfusionTableRecipe> INFUSION_TABLE_TYPE = RecipeType.create(DivineRPG.MODID, "infusion_table", InfusionTableRecipe.class);
+public class InfusionTableCategory implements IRecipeCategory<RecipeHolder<InfusionTableRecipe>> {
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/infusion_table.png");
-
-
-    private final IDrawable back, icon;
-//    private final ICraftingGridHelper craftingGridHelper;
-
+    public static final RecipeType<RecipeHolder<InfusionTableRecipe>> RECIPE_TYPE = RecipeType.createFromVanilla(RecipeRegistry.Types.INFUSIION_TABLE_RECIPE_TYPE.get());
+    private final IDrawable icon, background;
     public InfusionTableCategory(IGuiHelper helper) {
-        this.back = helper.createDrawable(TEXTURE, 1, 1, 166, 76);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.infusionTable.asItem()));
-        helper.createCraftingGridHelper();
+        background = helper.createDrawable(TEXTURE, 1, 1, 166, 76);
+        icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, BlockRegistry.infusionTable.toStack());
     }
     @Override
-    public RecipeType<InfusionTableRecipe> getRecipeType() {
-        return RecipeType.create(DivineRPG.MODID, "infusion_table", InfusionTableRecipe.class);
+    public RecipeType<RecipeHolder<InfusionTableRecipe>> getRecipeType() {
+        return RECIPE_TYPE;
     }
-
     @Override
     public Component getTitle() {
         return Component.translatable(BlockRegistry.infusionTable.get().getDescriptionId());
     }
-
     @Override
-    public IDrawable getBackground() {
-        return back;
-    }
-
-    @Override
-    public IDrawable getIcon() {
+    public @Nullable IDrawable getIcon() {
         return icon;
     }
-
-    @SuppressWarnings("resource")
-	@Override
-    public void setRecipe(IRecipeLayoutBuilder builder, InfusionTableRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 12, 34).addIngredients(Ingredient.of(recipe.input));
-        builder.addSlot(RecipeIngredientRole.CATALYST, 12, 54).addIngredients(Ingredient.of(recipe.template));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 44).addItemStack(recipe.getResultItem(Minecraft.getInstance().level.registryAccess()));
+    @Override
+    public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<InfusionTableRecipe> recipe, IFocusGroup focuses) {
+        builder.addSlot(RecipeIngredientRole.INPUT, 12, 34).addItemStack(recipe.value().input());
+        builder.addSlot(RecipeIngredientRole.CATALYST, 12, 54).addIngredients(recipe.value().template());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 44).addItemStack(recipe.value().getResultItem(null));
     }
-
+    @Override
+    public void draw(RecipeHolder<InfusionTableRecipe> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        background.draw(guiGraphics);
+    }
+    @Override
+    public int getWidth() {
+        return background.getWidth();
+    }
+    @Override
+    public int getHeight() {
+        return background.getHeight();
+    }
 }

@@ -5,7 +5,7 @@
     "count": 10
   },
   "template": {
-    "id": "divinerpg:tormented_template"
+    "item": "divinerpg:tormented_template"
   },
   "output": {
     "id": "divinerpg:tormented_helmet"

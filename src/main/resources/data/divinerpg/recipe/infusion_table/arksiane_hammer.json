@@ -5,7 +5,7 @@
     "count": 31
   },
   "template": {
-    "id": "divinerpg:hammer_template"
+    "item": "divinerpg:hammer_template"
   },
   "output": {
     "id": "divinerpg:arksiane_hammer"

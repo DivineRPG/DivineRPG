@@ -5,7 +5,7 @@
     "count": 10
   },
   "template": {
-    "id": "divinerpg:claw_template"
+    "item": "divinerpg:claw_template"
   },
   "output": {
     "id": "divinerpg:quadrotic_claw"

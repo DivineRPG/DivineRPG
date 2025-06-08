@@ -2,6 +2,7 @@ package divinerpg.client.slot;
 
 import divinerpg.client.menu.InfusionTableMenu;
 import divinerpg.recipe.InfusionTableRecipe;
+import divinerpg.registries.RecipeRegistry;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
@@ -45,9 +46,9 @@ public class InfusionTableResultSlot extends Slot {
         if(player.level() != null && !player.level().isClientSide()) {
             checkTakeAchievements(stack);
             CommonHooks.setCraftingPlayer(player);
-            Optional<RecipeHolder<InfusionTableRecipe>> recipe = player.level().getServer().getRecipeManager().getRecipeFor(InfusionTableRecipe.Type.INSTANCE, CraftingInput.of(1, 2, List.of(craftSlots.getItem(0), craftSlots.getItem(1))), player.level());
+            Optional<RecipeHolder<InfusionTableRecipe>> recipe = player.level().getServer().getRecipeManager().getRecipeFor(RecipeRegistry.Types.INFUSIION_TABLE_RECIPE_TYPE.get(), CraftingInput.of(1, 2, List.of(craftSlots.getItem(0), craftSlots.getItem(1))), player.level());
             CommonHooks.setCraftingPlayer(null);
-            if(recipe.isPresent()) craftSlots.getItem(0).shrink(recipe.get().value().input.getCount());
+            recipe.ifPresent(r -> craftSlots.getItem(0).shrink(r.value().input().getCount()));
             super.onTake(player, stack);
         }
     }

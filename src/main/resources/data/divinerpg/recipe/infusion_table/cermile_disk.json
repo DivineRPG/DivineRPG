@@ -5,7 +5,7 @@
     "count": 8
   },
   "template": {
-    "id": "divinerpg:disk_template"
+    "item": "divinerpg:disk_template"
   },
   "output": {
     "id": "divinerpg:cermile_disk"

@@ -5,7 +5,7 @@
     "count": 6
   },
   "template": {
-    "id": "divinerpg:staff_template"
+    "item": "divinerpg:staff_template"
   },
   "output": {
     "id": "divinerpg:cermile_staff"

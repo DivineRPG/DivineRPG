@@ -17,6 +17,7 @@ import net.minecraft.core.registries.*;
 import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -158,7 +159,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return level.getBlockEntity(pos) instanceof PortalBlockEntity p && p.hasTargetPos() && hasPortal(level.getServer(), p.targetPosition);
 	}
 	public static boolean hasPortal(MinecraftServer server, UniversalPosition target) {
-		return target.level(server).getBlockState(target.blockPos()).is(TagRegistry.PORTALS);
+		return target.level(server).getBlockState(target.blockPos()).is(BlockTags.PORTALS);
 	}
 	public static BlockPos scalePosition(BlockPos pos, DimensionType originDimension, DimensionType targetDimension) {
 		double scale = DimensionType.getTeleportationScale(originDimension, targetDimension);
@@ -265,7 +266,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 		return supportedBy(level.getBlockState(pos.above())) && supportedBy(level.getBlockState(pos.below())) && supportedBy(level.getBlockState(pos.relative(axis, 1))) && supportedBy(level.getBlockState(pos.relative(axis, -1)));
 	}
 	public boolean supportedBy(BlockState state) {
-		return state.is(TagRegistry.PORTALS) || state.is(frameBlock);
+		return state.is(BlockTags.PORTALS) || state.is(frameBlock);
 	}
 	@Override
     public int getPortalTransitionTime(ServerLevel level, Entity entity) {

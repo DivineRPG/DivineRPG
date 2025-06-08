@@ -5,7 +5,7 @@
     "count": 5
   },
   "template": {
-    "id": "divinerpg:disk_template"
+    "item": "divinerpg:disk_template"
   },
   "output": {
     "id": "divinerpg:amthirmis_disk"

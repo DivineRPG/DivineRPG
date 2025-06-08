@@ -5,7 +5,7 @@
     "count": 31
   },
   "template": {
-    "id": "divinerpg:cannon_template"
+    "item": "divinerpg:cannon_template"
   },
   "output": {
     "id": "divinerpg:arksiane_cannon"

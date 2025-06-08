@@ -5,7 +5,7 @@
     "count": 13
   },
   "template": {
-    "id": "divinerpg:bow_template"
+    "item": "divinerpg:bow_template"
   },
   "output": {
     "id": "divinerpg:quadrotic_bow"

@@ -5,7 +5,7 @@
     "count": 18
   },
   "template": {
-    "id": "divinerpg:dissipator_template"
+    "item": "divinerpg:dissipator_template"
   },
   "output": {
     "id": "divinerpg:karos_dissipator"

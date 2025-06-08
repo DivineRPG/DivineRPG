@@ -5,7 +5,7 @@
     "count": 7
   },
   "template": {
-    "id": "divinerpg:cannon_template"
+    "item": "divinerpg:cannon_template"
   },
   "output": {
     "id": "divinerpg:teaker_cannon"

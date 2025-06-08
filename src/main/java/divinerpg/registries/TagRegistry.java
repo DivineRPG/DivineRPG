@@ -34,11 +34,13 @@ public class TagRegistry {
         SKYTHERN_RIFT_REPLENISHING = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_replenishing/skythern")),
         MORTUM_RIFT_REPLENISHING = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_replenishing/mortum"));
 
+    //Crafting Items
+    public static final TagKey<Item>
+        MAULS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "tools/maul")),
+        FURNACES = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "furnaces"));
+
     //Blocks
-    public static final TagKey<Block>
-        GATEWAY_RECEIVER = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "gateway_receiver")),
-        PORTALS = TagKey.create(Registries.BLOCK, ResourceLocation.parse("c:portals")),
-        BEDROCK_GRINDING_BASE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "bedrock_grinding_base"));
+    public static final TagKey<Block> GATEWAY_RECEIVER = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "gateway_receiver"));
 
     //Rift related Blocks
     public static final TagKey<Block>
@@ -46,8 +48,7 @@ public class TagRegistry {
         WILDWOOD_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/wildwood")),
         APALACHIA_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/apalachia")),
         SKYTHERN_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/skythern")),
-        MORTUM_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/mortum")),
-        RIFTS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rifts"));
+        MORTUM_RIFT_RESONATING = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "rift_resonating/mortum"));
 
     //Structures
     public static final TagKey<Structure>

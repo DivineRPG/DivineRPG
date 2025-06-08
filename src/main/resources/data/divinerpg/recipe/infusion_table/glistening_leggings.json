@@ -5,7 +5,7 @@
     "count": 12
   },
   "template": {
-    "id": "divinerpg:glistening_template"
+    "item": "divinerpg:glistening_template"
   },
   "output": {
     "id": "divinerpg:glistening_leggings"

@@ -5,7 +5,7 @@
     "count": 13
   },
   "template": {
-    "id": "divinerpg:dissipator_template"
+    "item": "divinerpg:dissipator_template"
   },
   "output": {
     "id": "divinerpg:quadrotic_dissipator"

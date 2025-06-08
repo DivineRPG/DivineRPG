@@ -1,7 +1,7 @@
 {
   "type": "divinerpg:maul_smashing",
   "input": {
-    "item": "divinerpg:wildwood_dust"
+    "item": "divinerpg:wildwood_fragments"
   },
   "output": {
     "id": "divinerpg:wildwood_dust",

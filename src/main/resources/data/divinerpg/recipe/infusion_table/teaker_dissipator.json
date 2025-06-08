@@ -5,7 +5,7 @@
     "count": 4
   },
   "template": {
-    "id": "divinerpg:dissipator_template"
+    "item": "divinerpg:dissipator_template"
   },
   "output": {
     "id": "divinerpg:teaker_dissipator"

@@ -5,7 +5,7 @@
     "count": 2
   },
   "template": {
-    "id": "divinerpg:staff_template"
+    "item": "divinerpg:staff_template"
   },
   "output": {
     "id": "divinerpg:teaker_staff"

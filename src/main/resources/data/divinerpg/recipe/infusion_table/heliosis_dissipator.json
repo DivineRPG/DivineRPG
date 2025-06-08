@@ -5,7 +5,7 @@
     "count": 20
   },
   "template": {
-    "id": "divinerpg:dissipator_template"
+    "item": "divinerpg:dissipator_template"
   },
   "output": {
     "id": "divinerpg:heliosis_dissipator"

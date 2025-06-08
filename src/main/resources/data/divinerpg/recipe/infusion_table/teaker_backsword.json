@@ -5,7 +5,7 @@
     "count": 4
   },
   "template": {
-    "id": "divinerpg:backsword_template"
+    "item": "divinerpg:backsword_template"
   },
   "output": {
     "id": "divinerpg:teaker_backsword"

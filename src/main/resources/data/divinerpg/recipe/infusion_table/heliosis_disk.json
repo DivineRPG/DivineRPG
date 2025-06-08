@@ -5,7 +5,7 @@
     "count": 20
   },
   "template": {
-    "id": "divinerpg:disk_template"
+    "item": "divinerpg:disk_template"
   },
   "output": {
     "id": "divinerpg:heliosis_disk"

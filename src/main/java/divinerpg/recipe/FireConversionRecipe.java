@@ -17,16 +17,14 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import java.util.Optional;
 
 public record FireConversionRecipe(Ingredient inputItem, RuleTest inputState, Optional<ItemStack> outputItem, Optional<BlockStateProvider> outputState, Optional<ResourceLocation> advancement, Optional<String> advancementCriteria) implements Recipe<RecipeInput> {
-    public static final MapCodec<FireConversionRecipe> CODEC = RecordCodecBuilder.mapCodec((instance) ->
-            instance.group(
-                    Ingredient.CODEC.fieldOf("input_item").forGetter(FireConversionRecipe::inputItem),
-                    RuleTest.CODEC.fieldOf("input_state").forGetter(FireConversionRecipe::inputState),
-                    ItemStack.OPTIONAL_CODEC.optionalFieldOf("output_item").forGetter(FireConversionRecipe::outputItem),
-                    BlockStateProvider.CODEC.optionalFieldOf("output_state").forGetter(FireConversionRecipe::outputState),
-                    ResourceLocation.CODEC.optionalFieldOf("advancement").forGetter(FireConversionRecipe::advancement),
-                    Codec.STRING.optionalFieldOf("advancement_criteria").forGetter(FireConversionRecipe::advancementCriteria)
-            ).apply(instance, FireConversionRecipe::new)
-    );
+    public static final MapCodec<FireConversionRecipe> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
+        Ingredient.CODEC.fieldOf("input_item").forGetter(FireConversionRecipe::inputItem),
+        RuleTest.CODEC.fieldOf("input_state").forGetter(FireConversionRecipe::inputState),
+        ItemStack.OPTIONAL_CODEC.optionalFieldOf("output_item").forGetter(FireConversionRecipe::outputItem),
+        BlockStateProvider.CODEC.optionalFieldOf("output_state").forGetter(FireConversionRecipe::outputState),
+        ResourceLocation.CODEC.optionalFieldOf("advancement").forGetter(FireConversionRecipe::advancement),
+        Codec.STRING.optionalFieldOf("advancement_criteria").forGetter(FireConversionRecipe::advancementCriteria)
+    ).apply(instance, FireConversionRecipe::new));
     public static final RecipeType<FireConversionRecipe> TYPE = RecipeType.simple(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "maul_smashing"));
     @Override
     public boolean matches(RecipeInput recipeInput, Level level) {
@@ -53,9 +51,7 @@ public record FireConversionRecipe(Ingredient inputItem, RuleTest inputState, Op
         return RecipeRegistry.Types.FIRE_CONVERSION.get();
     }
     public static class Serializer implements RecipeSerializer<FireConversionRecipe> {
-        public static final StreamCodec<RegistryFriendlyByteBuf, FireConversionRecipe> STREAM_CODEC = StreamCodec.of(
-                Serializer::toNetwork, Serializer::fromNetwork
-        );
+        public static final StreamCodec<RegistryFriendlyByteBuf, FireConversionRecipe> STREAM_CODEC = StreamCodec.of(Serializer::toNetwork, Serializer::fromNetwork);
         public static FireConversionRecipe fromNetwork(RegistryFriendlyByteBuf buffer) {
             Ingredient inputItem = Ingredient.CONTENTS_STREAM_CODEC.decode(buffer);
             RuleTest inputState = buffer.readJsonWithCodec(RuleTest.CODEC);
