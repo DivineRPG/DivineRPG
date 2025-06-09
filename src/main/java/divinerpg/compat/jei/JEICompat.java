@@ -1,6 +1,7 @@
 package divinerpg.compat.jei;
 
 import divinerpg.DivineRPG;
+import divinerpg.compat.jei.brewing.PotionRecipe;
 import divinerpg.compat.jei.category.*;
 import divinerpg.compat.jei.ingredient.*;
 import divinerpg.registries.*;
@@ -11,6 +12,8 @@ import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.registration.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.block.Block;
 
@@ -42,6 +45,18 @@ public class JEICompat implements IModPlugin {
         registration.addRecipes(InfusionTableCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeRegistry.Types.INFUSIION_TABLE_RECIPE_TYPE.get()));
         registration.addRecipes(SmashingCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeRegistry.Types.MAUL_SMASHING.get()));
         registration.addRecipes(FireConversionCategory.RECIPE_TYPE, manager.getAllRecipesFor(RecipeRegistry.Types.FIRE_CONVERSION.get()));
+
+        registration.addRecipes(RecipeTypes.BREWING, List.of(
+                new PotionRecipe(Items.POTION, Potions.AWKWARD, PotionRegistry.GROG, 2, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.grog.regular"), ItemRegistry.cauldron_flesh.toStack()),
+                new PotionRecipe(Items.SPLASH_POTION, Potions.AWKWARD, PotionRegistry.GROG, 3, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.grog.splash"), ItemRegistry.cauldron_flesh.toStack()),
+                new PotionRecipe(Items.LINGERING_POTION, Potions.AWKWARD, PotionRegistry.GROG, 4, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.grog.lingering"), ItemRegistry.cauldron_flesh.toStack()),
+                new PotionRecipe(Items.POTION, PotionRegistry.TEA, PotionRegistry.WARMTH, 2, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.warmth.regular"), ItemRegistry.olivine.toStack()),
+                new PotionRecipe(Items.SPLASH_POTION, PotionRegistry.TEA, PotionRegistry.WARMTH, 3, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.warmth.splash"), ItemRegistry.olivine.toStack()),
+                new PotionRecipe(Items.LINGERING_POTION, PotionRegistry.TEA, PotionRegistry.WARMTH, 4, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.warmth.lingering"), ItemRegistry.olivine.toStack()),
+                new PotionRecipe(Items.POTION, Potions.WATER, PotionRegistry.TEA, 1, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.tea.regular"), ItemRegistry.winterberry.toStack(), Items.SWEET_BERRIES.getDefaultInstance()),
+                new PotionRecipe(Items.SPLASH_POTION, Potions.WATER, PotionRegistry.TEA, 2, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.tea.splash"), ItemRegistry.winterberry.toStack(), Items.SWEET_BERRIES.getDefaultInstance()),
+                new PotionRecipe(Items.LINGERING_POTION, Potions.WATER, PotionRegistry.TEA, 3, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.tea.lingering"), ItemRegistry.winterberry.toStack(), Items.SWEET_BERRIES.getDefaultInstance())
+        ));
     }
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
