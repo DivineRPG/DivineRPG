@@ -4,7 +4,6 @@ import divinerpg.DivineRPG;
 import divinerpg.compat.jei.JEICompat;
 import divinerpg.recipe.MaulSmashingRecipe;
 import divinerpg.registries.*;
-import divinerpg.util.LocalizeUtils;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.*;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -37,7 +36,7 @@ public class SmashingCategory implements IRecipeCategory<RecipeHolder<MaulSmashi
     }
     @Override
     public Component getTitle() {
-        return LocalizeUtils.i18n("jei.smashing");
+        return Component.translatable("tooltip.divinerpg.jei.smashing");
     }
     @Override
     public @Nullable IDrawable getIcon() {

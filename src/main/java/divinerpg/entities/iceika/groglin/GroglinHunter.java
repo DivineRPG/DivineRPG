@@ -1,19 +1,16 @@
 package divinerpg.entities.iceika.groglin;
 
 import divinerpg.entities.goals.FollowLeaderGoal;
-import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.entities.projectile.arrows.IcicleArrow;
-import divinerpg.registries.ItemRegistry;
+import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.InteractionHand;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 
 public class GroglinHunter extends Groglin implements RangedAttackMob {
@@ -40,14 +37,6 @@ public class GroglinHunter extends Groglin implements RangedAttackMob {
 	}
 	@Override
 	protected void updateTrades() {
-		MerchantOffers merchantoffers = this.getOffers();
-        DivineTrades[] tradetrades = new DivineTrades[]{
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 24), new ItemStack(ItemRegistry.seng_fur.get()), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 12), new ItemStack(ItemRegistry.raw_seng_meat.get(), 2), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 6), new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 5), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 10), new ItemStack(ItemRegistry.cauldron_flesh.get(), 5), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 1), new ItemStack(ItemRegistry.ice_stone.get(), 3), random.nextInt(7), 1)
-        };
-        addOffersFromItemListings(merchantoffers, tradetrades, 3);
+        addOffersFromItemListings(getOffers(), RecipeRegistry.Trades.GROGLIN_HUNTER.get(level(), getRandom()), 3);
 	}
 }

@@ -5,7 +5,6 @@ import divinerpg.compat.jei.JEICompat;
 import divinerpg.recipe.FireConversionRecipe;
 import divinerpg.registries.*;
 import divinerpg.registries.RecipeRegistry;
-import divinerpg.util.LocalizeUtils;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.*;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -47,7 +46,7 @@ public class FireConversionCategory implements IRecipeCategory<RecipeHolder<Fire
     }
     @Override
     public Component getTitle() {
-        return LocalizeUtils.i18n("jei.fire_conversion");
+        return Component.translatable("tooltip.divinerpg.jei.fire_conversion");
     }
     @Override
     public @Nullable IDrawable getIcon() {

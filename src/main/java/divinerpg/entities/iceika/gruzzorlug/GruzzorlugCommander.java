@@ -1,18 +1,12 @@
 package divinerpg.entities.iceika.gruzzorlug;
 
-import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.InteractionHand;
+import net.minecraft.util.*;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
 
 public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 	public GruzzorlugCommander(EntityType<? extends Gruzzorlug> type, Level worldIn) {
@@ -21,7 +15,7 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 	}
 	@Override
 	protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
-		setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ItemRegistry.fractite_cannon.get()));
+		setItemInHand(InteractionHand.MAIN_HAND, ItemRegistry.fractite_cannon.toStack());
 	}
 	@Override protected void registerGoals() {
 		super.registerGoals();
@@ -40,14 +34,6 @@ public class GruzzorlugCommander extends Gruzzorlug implements RangedAttackMob {
 	}
 	@Override
 	protected void updateTrades() {
-		MerchantOffers merchantoffers = this.getOffers();
-		DivineTrades[] tradetrades = new DivineTrades[]{
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 1), new ItemStack(ItemRegistry.ice_shards.get(), 12), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineMapTrades(new ItemStack(ItemRegistry.olivine.get(), 25), new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 5), "filled_map.whale_skull", TagRegistry.WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT, 25),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 8), new ItemStack(BlockRegistry.icyBricks.get(), 4), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 10), new ItemStack(BlockRegistry.frostedGlass.get(), 4), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 12), new ItemStack(BlockRegistry.runicIcyBricks.get(), 4), random.nextInt(7), 1)
-        };
-        addOffersFromItemListings(merchantoffers, tradetrades, 3);
+        addOffersFromItemListings(getOffers(), RecipeRegistry.Trades.GRUZZORLUG_COMMANDER.get(level(), getRandom()), 3);
 	}
 }

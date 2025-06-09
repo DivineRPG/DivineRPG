@@ -1,14 +1,10 @@
 package divinerpg.entities.iceika.groglin;
 
-import divinerpg.entities.base.EntityDivineMerchant;
 import divinerpg.registries.*;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.InteractionHand;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 
 public class GroglinRanger extends Groglin {
@@ -20,14 +16,6 @@ public class GroglinRanger extends Groglin {
 		setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ItemRegistry.sabear_sabre.get()));
 	}
 	@Override protected void updateTrades() {
-		MerchantOffers merchantoffers = getOffers();
-        DivineTrades[] tradetrades = new DivineTrades[]{
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 3), new ItemStack(BlockRegistry.glaconPumpkin.get(), 2), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 5), new ItemStack(ItemRegistry.robbin_egg.get()), random.nextInt(7), 5),
-                new EntityDivineMerchant.DivineTrades(PotionContents.createItemStack(Items.POTION, PotionRegistry.GROG), new ItemStack(ItemRegistry.olivine.get()), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.raw_wolpertinger_meat.get(), 10), new ItemStack(ItemRegistry.olivine.get()), random.nextInt(7), 1),
-                new EntityDivineMerchant.DivineTrades(new ItemStack(ItemRegistry.olivine.get(), 1), new ItemStack(ItemRegistry.ice_stone.get(), 2), random.nextInt(7), 1)
-        };
-        addOffersFromItemListings(merchantoffers, tradetrades, 3);
+        addOffersFromItemListings(getOffers(), RecipeRegistry.Trades.GROGLIN_RANGER.get(level(), getRandom()), 3);
 	}
 }
