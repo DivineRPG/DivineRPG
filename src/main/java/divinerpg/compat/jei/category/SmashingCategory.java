@@ -6,18 +6,18 @@ import divinerpg.recipe.MaulSmashingRecipe;
 import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.builder.*;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.*;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
 public class SmashingCategory implements IRecipeCategory<RecipeHolder<MaulSmashingRecipe>> {
@@ -48,8 +48,14 @@ public class SmashingCategory implements IRecipeCategory<RecipeHolder<MaulSmashi
         builder.addInputSlot(51, 12).addIngredients(recipe.value().input());
         if(recipe.value().requiredBaseBlockTag() != null) {
             BuiltInRegistries.BLOCK.getTag(recipe.value().requiredBaseBlockTag()).ifPresent(holders -> {
-                builder.addSlot(RecipeIngredientRole.CATALYST, 51, 48).addIngredients(JEICompat.BLOCK_INGREDIENT_TYPE, holders.stream().map(Holder::value).toList());
-                builder.addInvisibleIngredients(RecipeIngredientRole.CATALYST).addItemStacks(holders.stream().map(b -> b.value().asItem().getDefaultInstance()).toList());
+                IRecipeSlotBuilder slot = builder.addSlot(RecipeIngredientRole.CATALYST, 51, 48);
+                var ingredients = builder.addInvisibleIngredients(RecipeIngredientRole.CATALYST);
+                holders.forEach(block -> {
+                    Block b = block.value();
+                    if(b.defaultBlockState().getFluidState().isEmpty()) slot.addIngredient(JEICompat.BLOCK_INGREDIENT_TYPE, b);
+                    else slot.addFluidStack(b.defaultBlockState().getFluidState().getType());
+                    ingredients.addItemStack(b.asItem().getDefaultInstance());
+                });
             });
         } builder.addOutputSlot(111, 30).addItemStack(recipe.value().output());
     }

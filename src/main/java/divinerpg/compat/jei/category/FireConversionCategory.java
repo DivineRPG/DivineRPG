@@ -7,7 +7,7 @@ import divinerpg.registries.*;
 import divinerpg.registries.RecipeRegistry;
 import divinerpg.util.LocalizeUtils;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.builder.*;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -26,7 +26,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 import javax.annotation.Nullable;
-import java.util.*;
 
 public class FireConversionCategory implements IRecipeCategory<RecipeHolder<FireConversionRecipe>> {
     public static final ResourceLocation
@@ -59,20 +58,24 @@ public class FireConversionCategory implements IRecipeCategory<RecipeHolder<Fire
         builder.addInputSlot(51, 12).addIngredients(recipe.value().inputItem());
 
         RuleTest test = recipe.value().inputState();
-        List<Block> blocks = new ArrayList<>();
-        BuiltInRegistries.BLOCK.getTag(BlockTags.FIRE).ifPresent(tag -> blocks.addAll(tag.stream().filter(h -> test.test(h.value().defaultBlockState(), random)).map(Holder::value).toList()));
-        blocks.addAll(BuiltInRegistries.FLUID.stream().filter(f -> test.test(f.defaultFluidState().createLegacyBlock(), random)).map(f -> f.defaultFluidState().createLegacyBlock().getBlock()).toList());
-        if(!blocks.isEmpty()) {
-            builder.addSlot(RecipeIngredientRole.INPUT, 51, 48).addIngredients(JEICompat.BLOCK_INGREDIENT_TYPE, blocks);
-            builder.addInvisibleIngredients(RecipeIngredientRole.INPUT).addItemStacks(blocks.stream().map(b -> b.asItem().getDefaultInstance()).toList());
-        }
+        IRecipeSlotBuilder slot = builder.addSlot(RecipeIngredientRole.INPUT, 51, 48);
+        var ingredients = builder.addInvisibleIngredients(RecipeIngredientRole.INPUT);
+        BuiltInRegistries.FLUID.forEach(f -> {if(test.test(f.defaultFluidState().createLegacyBlock(), random)) slot.addFluidStack(f);});
+        BuiltInRegistries.BLOCK.getTag(BlockTags.FIRE).ifPresent(tag -> tag.forEach(block -> {
+            Block b = block.value();
+            if(test.test(b.defaultBlockState(), random)) {
+                slot.addIngredient(JEICompat.BLOCK_INGREDIENT_TYPE, b);
+                ingredients.addItemStack(b.asItem().getDefaultInstance());
+            }
+        }));
 
         recipe.value().outputItem().ifPresent(stack -> {if(!stack.isEmpty()) builder.addOutputSlot(111, 12).addItemStack(stack);});
 
         recipe.value().outputState().ifPresent(s -> {
             BlockState state = s.getState(random, BlockPos.ZERO);
             if(!state.isAir()) {
-                builder.addOutputSlot(111, 48).addIngredient(JEICompat.BLOCK_INGREDIENT_TYPE, state.getBlock());
+                if(!state.getFluidState().isEmpty()) builder.addOutputSlot(111, 48).addFluidStack(state.getFluidState().getType());
+                else builder.addOutputSlot(111, 48).addIngredient(JEICompat.BLOCK_INGREDIENT_TYPE, state.getBlock());
                 builder.addInvisibleIngredients(RecipeIngredientRole.OUTPUT).addItemStack(state.getBlock().asItem().getDefaultInstance());
             }
         });
