@@ -93,8 +93,9 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     @Override public void playCelebrateSound() {}
 
     public static class DivineTrades implements VillagerTrades.ItemListing {
-        protected ItemStack input1, input2;
-        private final ItemStack output;
+        public Component name;
+        public final ItemStack input1, input2;
+        public final ItemStack output;
         protected int xp, stock;
 
         public DivineTrades(ItemStack input1, ItemStack input2, ItemStack output, int stock, int xp) {
@@ -120,9 +121,9 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     }
 
     public static class DivineMapTrades extends DivineTrades {
-        private final String displayName;
+        public final String displayName;
         private final TagKey<Structure> destination;
-        private final Holder<MapDecorationType> destinationType;
+        public final Holder<MapDecorationType> destinationType;
 
         public DivineMapTrades(ItemStack input1, ItemStack input2, String displayName, TagKey<Structure> destination, Holder<MapDecorationType> destinationType, int xp) {
             super(input1, input2, null, 1, xp);
