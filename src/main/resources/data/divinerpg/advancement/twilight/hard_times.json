@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:twilight/1001_possibilities",
+  "display": {
+    "icon": {
+      "id": "divinerpg:demon_brambles"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.hard_times"
+    },
+    "description": {
+      "translate": "advancement.divinerpg.twilight.hard_times.desc"
+    },
+    "hidden": true
+  },
+  "criteria": {
+    "killed_by_cori": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "entity": {
+          "type": "divinerpg:weak_cori"
+        }
+      }
+    }
+  }
+}

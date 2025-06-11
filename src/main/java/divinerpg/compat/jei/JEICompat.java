@@ -1,18 +1,29 @@
 package divinerpg.compat.jei;
 
+import blusunrize.immersiveengineering.api.crafting.CokeOvenRecipe;
+import blusunrize.immersiveengineering.api.crafting.IERecipeTypes;
+import blusunrize.immersiveengineering.client.gui.*;
+import blusunrize.immersiveengineering.common.util.compat.jei.FluidSorterGhostHandler;
+import blusunrize.immersiveengineering.common.util.compat.jei.IEGhostItemHandler;
+import blusunrize.immersiveengineering.common.util.compat.jei.JEIRecipeTypes;
 import divinerpg.DivineRPG;
+import divinerpg.client.screen.ArcaniumExtractorScreen;
+import divinerpg.client.screen.InfusionTableScreen;
 import divinerpg.compat.jei.brewing.PotionRecipe;
 import divinerpg.compat.jei.category.*;
 import divinerpg.compat.jei.ingredient.*;
 import divinerpg.entities.base.EntityDivineMerchant.DivineTrades;
+import divinerpg.recipe.ArcaniumExtractorRecipe;
 import divinerpg.registries.*;
 import divinerpg.registries.RecipeRegistry.*;
 import mezz.jei.api.*;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredientType;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -106,4 +117,12 @@ public class JEICompat implements IModPlugin {
     public void registerIngredients(IModIngredientRegistration registration) {
         registration.register(BLOCK_INGREDIENT_TYPE, List.of(), new BlockIngredientHelper(), new BlockIngredientRenderer(), Block.CODEC.codec());
     }
+
+    @Override
+    public void registerGuiHandlers(IGuiHandlerRegistration registration)
+    {
+        registration.addRecipeClickArea(ArcaniumExtractorScreen.class, 79, 34, 24, 16, new RecipeType<>(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcanium_extractor"), (Class)RecipeHolder.class));
+        registration.addRecipeClickArea(InfusionTableScreen.class, 36, 47, 25, 18, new RecipeType<>(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "infusion_table"), (Class)RecipeHolder.class));
+    }
+
 }
