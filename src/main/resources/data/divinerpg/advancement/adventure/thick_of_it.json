@@ -2,25 +2,24 @@
   "parent": "adventure/root",
   "display": {
     "icon": {
-      "id": "minecraft:bone"
+      "id": "bone"
     },
+    "frame": "challenge",
     "title": {
       "translate": "advancement.divinerpg.adventure.thick_of_it"
     },
     "description": {
       "translate": "advancement.divinerpg.adventure.thick_of_it.desc"
     },
-    "frame": "challenge",
-    "show_toast": true,
-    "announce_to_chat": false,
-    "hidden": true
+    "hidden": true,
+    "announce_to_chat": false
   },
   "criteria": {
     "betrayal": {
-      "trigger": "minecraft:player_killed_entity",
+      "trigger": "player_killed_entity",
       "conditions": {
         "entity": {
-          "type": "minecraft:wolf",
+          "type": "wolf",
           "nbt": "{OwnerUUID:[!null]}"
         }
       }

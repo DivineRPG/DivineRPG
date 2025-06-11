@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "get_hellstone_ingot": {
+    "get_icy_bricks": {
       "trigger": "inventory_changed",
       "conditions": {
         "items": [

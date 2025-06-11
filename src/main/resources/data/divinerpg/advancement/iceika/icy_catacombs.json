@@ -2,7 +2,7 @@
   "parent": "divinerpg:iceika/root",
   "display": {
     "icon": {
-      "id": "divinerpg:runic_icy_bricks"
+      "id": "divinerpg:icy_bricks"
     },
     "frame": "goal",
     "title": {

@@ -14,7 +14,7 @@
   },
   "criteria": {
     "killed_by_cori": {
-      "trigger": "minecraft:player_hurt_entity",
+      "trigger": "entity_killed_player",
       "conditions": {
         "entity": {
           "type": "divinerpg:weak_cori"

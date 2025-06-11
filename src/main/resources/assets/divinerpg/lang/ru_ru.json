@@ -2688,6 +2688,8 @@
   "advancement.divinerpg.adventure.making_tarzan_proud.desc": "Получите тропическую крюк-кошку",
   "advancement.divinerpg.adventure.they_wont_bite": "Он не кусается",
   "advancement.divinerpg.adventure.they_wont_bite.desc": "Поторгуйте с продавцом существ",
+  "advancement.divinerpg.adventure.thick_of_it": "Гуща событий",
+  "advancement.divinerpg.adventure.thick_of_it.desc": "\"Похоже, что уже ничего не попишешь\" — KSI",
   "advancement.divinerpg.arcana.disgusting": "Это что за муть?",
   "advancement.divinerpg.arcana.disgusting.desc": "Купите слабое зелье арканы",
   "advancement.divinerpg.arcana.dungeon_master": "Мастер подземелий",
@@ -2772,6 +2774,8 @@
   "advancement.divinerpg.iceika.boneyard.desc": "Найдите кладбище",
   "advancement.divinerpg.iceika.chocolate_ore": "Шоколадная руда",
   "advancement.divinerpg.iceika.chocolate_ore.desc": "Выплавьте оксидитовый слиток",
+  "advancement.divinerpg.iceika.decode": "Дешифровка",
+  "advancement.divinerpg.iceika.decode.desc": "\"Как же мы здесь очутились?\" — Paramore",
   "advancement.divinerpg.iceika.explore_iceika": "Морозная прогулка",
   "advancement.divinerpg.iceika.explore_iceika.desc": "Исследуйте все биомы Заснежья",
   "advancement.divinerpg.iceika.feed_them_brittle_glass": "Скормите им §mстекла§r травы",
@@ -2844,6 +2848,8 @@
   "advancement.divinerpg.twilight.friend_or_foe.desc": "Разозлите глинтхопа",
   "advancement.divinerpg.twilight.glowing_death": "Светящаяся смерть",
   "advancement.divinerpg.twilight.glowing_death.desc": "Разожгите пекло Мёртвума",
+  "advancement.divinerpg.twilight.hard_times": "Тяжёлые времена",
+  "advancement.divinerpg.twilight.hard_times.desc": "\"Тяжёлые времена — собьют тебя с ног и посмеются в лицо\" — Paramore",
   "advancement.divinerpg.twilight.legolas": "Леголас",
   "advancement.divinerpg.twilight.legolas.desc": "Убейте Рейвора",
   "advancement.divinerpg.twilight.magical_incineration": "Магическое сожжение",
@@ -3039,6 +3045,11 @@
   "biome.divinerpg.vethea/hyrelands": "Везея: Хайровые земли",
   "biome.divinerpg.vethea/scorched_tops": "Везея: Выжженные вершины",
 
+  "tooltip.divinerpg.jei.fire_conversion": "Огневое преобразование",
+  "tooltip.divinerpg.jei.smashing": "Дробление кувалдой",
+  "tooltip.divinerpg.jei.merchant_trades": "Торговля (DivineRPG)",
+  "tooltip.divinerpg.jei.tile.raw_arcanium.information": "Арканиевая руда генерируется в измерении Арканы, получите её, создав портал туда!",
+
   "jer.dim.divinerpg:iceika": "Заснежье",
   "jer.dim.divinerpg:arcana": "Аркана",
   "jer.dim.divinerpg:eden": "Эдем",
@@ -3047,9 +3058,6 @@
   "jer.dim.divinerpg:skythern": "Поднебесье",
   "jer.dim.divinerpg:mortum": "Мёртвум",
   "jer.dim.divinerpg:vethea": "Везея",
-
-  "jeicompat.tile.raw_arcanium.information": "Арканиевая руда генерируется в измерении Арканы, получите её, создав портал туда!",
-  "category.divinerpg.arcanium_extractor": "Арканиевый экстрактор",
 
   "book.divinerpg.book_name": "Божественный альманах",
   "book.divinerpg.landing_text": "Этот путеводитель все ещё в разработке. Он будет содержать ответы на большинство часто задаваемых вопросов, а также полезную информацию о том, как играть в мод.",

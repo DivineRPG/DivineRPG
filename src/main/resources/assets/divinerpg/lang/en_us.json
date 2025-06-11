@@ -2849,7 +2849,7 @@
   "advancement.divinerpg.twilight.glowing_death": "Glowing Death",
   "advancement.divinerpg.twilight.glowing_death.desc": "Create Mortum Embers",
   "advancement.divinerpg.twilight.hard_times": "Hard Times",
-  "advancement.divinerpg.twilight.hard_times.desc": "\"Hard times, gonna take you down and laugh when you cry.\" — Paramore",
+  "advancement.divinerpg.twilight.hard_times.desc": "\"Hard times, gonna take you down and laugh when you cry\" — Paramore",
   "advancement.divinerpg.twilight.legolas": "Legolas",
   "advancement.divinerpg.twilight.legolas.desc": "Kill the Reyvor",
   "advancement.divinerpg.twilight.magical_incineration": "Magical Incineration",
@@ -3048,6 +3048,7 @@
   "tooltip.divinerpg.jei.fire_conversion": "Fire Conversion",
   "tooltip.divinerpg.jei.smashing": "Smashing",
   "tooltip.divinerpg.jei.merchant_trades": "DivineRPG Trades",
+  "tooltip.divinerpg.jei.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.",
 
   "jer.dim.divinerpg:iceika": "The Iceika",
   "jer.dim.divinerpg:arcana": "The Arcana",
@@ -3057,9 +3058,6 @@
   "jer.dim.divinerpg:skythern": "The Skythern",
   "jer.dim.divinerpg:mortum": "The Mortum",
   "jer.dim.divinerpg:vethea": "The Vethea",
-
-  "jeicompat.tile.raw_arcanium.information": "Raw Arcanium spawns in the Dungeon of Arcana, usually behind locked doors.",
-  "category.divinerpg.arcanium_extractor": "Arcanium Extractor",
 
   "book.divinerpg.book_name": "Divine Almanac",
   "book.divinerpg.landing_text": "This guide book is still WIP but will contain the most frequently asked questions as well as some general good knowledge about how to play the mod.",
