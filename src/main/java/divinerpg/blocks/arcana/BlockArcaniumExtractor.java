@@ -12,55 +12,95 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BlockArcaniumExtractor extends FurnaceBlock {
-    public static final VoxelShape BLOCK_AABB = Shapes.create(new AABB(0.0F, 0.0F, 0.0F, 1.0F, 1.5F, 1.0F));
+
+    private static VoxelShape CUSTOM_SHAPE = null;
+
+
     public BlockArcaniumExtractor() {
-        super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(-1F, 3600000F).instrument(NoteBlockInstrument.BASEDRUM).noOcclusion());
+        super(Properties.of()
+                .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                .strength(-1F, 3600000F)
+                .instrument(NoteBlockInstrument.BASEDRUM)
+                .noOcclusion()
+                .dynamicShape()
+        );
+
+
+        List<VoxelShape> parts = new ArrayList<>();
+
+        parts.add(Shapes.box(1 / 16F, 0, 1 / 16F, 15 / 16F, 2 / 16F, 15 / 16F));
+        parts.add(Shapes.box(1 / 16F, 10 / 16F, 1 / 16F, 15 / 16F, 12 / 16F, 15 / 16F));
+        parts.add(Shapes.box(1 / 16F, 20 / 16F, 1 / 16F, 15 / 16F, 22 / 16F, 15 / 16F));
+
+        parts.add(Shapes.box(11 / 16F, 12 / 16F, 11 / 16F, 13 / 16F, 20 / 16F, 13 / 16F));
+        parts.add(Shapes.box(11 / 16F, 12 / 16F, 3 / 16F, 13 / 16F, 20 / 16F, 5 / 16F));
+        parts.add(Shapes.box(3 / 16F, 12 / 16F, 3 / 16F, 5 / 16F, 20 / 16F, 5 / 16F));
+        parts.add(Shapes.box(3 / 16F, 12 / 16F, 11 / 16F, 5 / 16F, 20 / 16F, 13 / 16F));
+        parts.add(Shapes.box(10 / 16F, 2 / 16F, 10 / 16F, 12 / 16F, 10 / 16F, 12 / 16F));
+        parts.add(Shapes.box(10 / 16F, 2 / 16F, 4 / 16F, 12 / 16F, 10 / 16F, 6 / 16F));
+        parts.add(Shapes.box(4 / 16F, 2 / 16F, 4 / 16F, 6 / 16F, 10 / 16F, 6 / 16F));
+        parts.add(Shapes.box(4 / 16F, 2 / 16F, 10 / 16F, 6 / 16F, 10 / 16F, 12 / 16F));
+        CUSTOM_SHAPE = parts.stream().reduce(Shapes::or).orElse(Shapes.block());
     }
+
     @Override
-    public VoxelShape getCollisionShape(BlockState p_220071_1_, BlockGetter p_220071_2_, BlockPos p_220071_3_, CollisionContext p_220071_4_) {
-        return BLOCK_AABB;
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return CUSTOM_SHAPE;
     }
+
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.INVISIBLE;
     }
+
     @Override
     protected void openContainer(Level world, BlockPos pos, Player player) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof ArcaniumExtractorBlockEntity) player.openMenu((MenuProvider)blockEntity);
+        if (blockEntity instanceof ArcaniumExtractorBlockEntity) {
+            player.openMenu((MenuProvider) blockEntity);
+        }
     }
+
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return BlockEntityRegistry.ARCANIUM_EXTRACTOR.get().create(pos, state);
     }
+
     @Override
-    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState state1, boolean b) {
-        if (!state.is(state1.getBlock())) {
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (!state.is(newState.getBlock())) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof ArcaniumExtractorBlockEntity) {
-                Containers.dropContents(world, pos, (ArcaniumExtractorBlockEntity)blockEntity);
-                ((ArcaniumExtractorBlockEntity)blockEntity).getRecipesToAwardAndPopExperience((ServerLevel) world, Vec3.atCenterOf(pos));
+            if (blockEntity instanceof ArcaniumExtractorBlockEntity extractor) {
+                Containers.dropContents(world, pos, extractor);
+                extractor.getRecipesToAwardAndPopExperience((ServerLevel) world, Vec3.atCenterOf(pos));
                 world.updateNeighbourForOutputSignal(pos, this);
             }
-            super.onRemove(state, world, pos, state1, b);
+            super.onRemove(state, world, pos, newState, isMoving);
         }
     }
+
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-    	return createFurnaceTicker(type, level);
+        return createFurnaceTicker(type, level);
     }
-	@Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> p_151989_, Level p_151988_) {
-       return p_151988_.isClientSide ? null : createTickerHelper(p_151989_, BlockEntityRegistry.ARCANIUM_EXTRACTOR.get(), ArcaniumExtractorBlockEntity::serverTick);
+
+    @Nullable
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createFurnaceTicker(BlockEntityType<T> blockEntityType, Level level) {
+        return level.isClientSide ? null : createTickerHelper(blockEntityType, BlockEntityRegistry.ARCANIUM_EXTRACTOR.get(), ArcaniumExtractorBlockEntity::serverTick);
     }
-	@Override public void animateTick(BlockState p_221253_, Level p_221254_, BlockPos p_221255_, RandomSource p_221256_) {}
+
+    @Override
+    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
+    }
 }
