@@ -20,14 +20,12 @@ import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
 public class SmashingCategory implements IRecipeCategory<RecipeHolder<MaulSmashingRecipe>> {
-    public static final ResourceLocation
-        TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/smashing.png"),
-        PLUS = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/plus.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/smashing.png");
     public static final RecipeType<RecipeHolder<MaulSmashingRecipe>> RECIPE_TYPE = RecipeType.createFromVanilla(RecipeRegistry.Types.MAUL_SMASHING.get());
     private final IDrawable icon, background, plus;
     public SmashingCategory(IGuiHelper helper) {
-        background = helper.drawableBuilder(TEXTURE, 1, 1, 167, 78).setTextureSize(167, 78).build();
-        plus = helper.drawableBuilder(PLUS, 1, 1, 167, 78).setTextureSize(167, 78).build();
+        background = helper.drawableBuilder(TEXTURE, 0, 0, 74, 60).setTextureSize(74, 60).build();
+        plus = helper.drawableBuilder(FireConversionCategory.PLUS, 0, 0, 13, 13).setTextureSize(13, 13).build();
         icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, ItemRegistry.realmite_maul.toStack());
     }
     @Override
@@ -44,10 +42,10 @@ public class SmashingCategory implements IRecipeCategory<RecipeHolder<MaulSmashi
     }
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<MaulSmashingRecipe> recipe, IFocusGroup focuses) {
-        builder.addInputSlot(51, 12).addIngredients(recipe.value().input());
+        builder.addInputSlot(2, 2).addIngredients(recipe.value().input());
         if(recipe.value().requiredBaseBlockTag() != null) {
             BuiltInRegistries.BLOCK.getTag(recipe.value().requiredBaseBlockTag()).ifPresent(holders -> {
-                IRecipeSlotBuilder slot = builder.addSlot(RecipeIngredientRole.CATALYST, 51, 48);
+                IRecipeSlotBuilder slot = builder.addSlot(RecipeIngredientRole.CATALYST, 2, 38);
                 var ingredients = builder.addInvisibleIngredients(RecipeIngredientRole.CATALYST);
                 holders.forEach(block -> {
                     Block b = block.value();
@@ -56,12 +54,12 @@ public class SmashingCategory implements IRecipeCategory<RecipeHolder<MaulSmashi
                     ingredients.addItemStack(b.asItem().getDefaultInstance());
                 });
             });
-        } builder.addOutputSlot(111, 30).addItemStack(recipe.value().output());
+        } builder.addOutputSlot(56, 20).addItemStack(recipe.value().output());
     }
     @Override
     public void draw(RecipeHolder<MaulSmashingRecipe> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         background.draw(guiGraphics);
-        if(recipe.value().requiredBaseBlockTag() != null) plus.draw(guiGraphics);
+        if(recipe.value().requiredBaseBlockTag() != null) plus.draw(guiGraphics, 3, 22);
     }
     @Override
     public int getWidth() {

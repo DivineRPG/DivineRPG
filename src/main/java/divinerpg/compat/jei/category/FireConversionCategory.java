@@ -30,14 +30,14 @@ public class FireConversionCategory implements IRecipeCategory<RecipeHolder<Fire
     public static final ResourceLocation
         TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/conversion.png"),
         PLUS = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/plus.png"),
-        SLOT = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/slot.png");
+        SLOT = ResourceLocation.withDefaultNamespace("textures/gui/sprites/container/slot.png");
     public static final RecipeType<RecipeHolder<FireConversionRecipe>> RECIPE_TYPE = RecipeType.createFromVanilla(RecipeRegistry.Types.FIRE_CONVERSION.get());
     private static final RandomSource random = RandomSource.create();
     private final IDrawable icon, background, plus, slot;
     public FireConversionCategory(IGuiHelper helper) {
-        background = helper.drawableBuilder(TEXTURE, 1, 1, 167, 78).setTextureSize(167, 78).build();
-        plus = helper.drawableBuilder(PLUS, -60, 1, 167, 78).setTextureSize(167, 78).build();
-        slot = helper.drawableBuilder(SLOT, 1, 1, 167, 78).setTextureSize(167, 78).build();
+        background = helper.drawableBuilder(TEXTURE, 0, 0, 74, 60).setTextureSize(74, 60).build();
+        plus = helper.drawableBuilder(PLUS, 0, 0, 13, 13).setTextureSize(13, 13).build();
+        slot = helper.drawableBuilder(SLOT, 0, 0, 18, 18).setTextureSize(18, 18).build();
         icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, BlockRegistry.divineFlame.toStack());
     }
     @Override
@@ -54,10 +54,10 @@ public class FireConversionCategory implements IRecipeCategory<RecipeHolder<Fire
     }
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<FireConversionRecipe> recipe, IFocusGroup focuses) {
-        builder.addInputSlot(51, 12).addIngredients(recipe.value().inputItem());
+        builder.addInputSlot(2, 2).addIngredients(recipe.value().inputItem());
 
         RuleTest test = recipe.value().inputState();
-        IRecipeSlotBuilder slot = builder.addSlot(RecipeIngredientRole.INPUT, 51, 48);
+        IRecipeSlotBuilder slot = builder.addSlot(RecipeIngredientRole.INPUT, 2, 38);
         var ingredients = builder.addInvisibleIngredients(RecipeIngredientRole.INPUT);
         BuiltInRegistries.FLUID.forEach(f -> {if(test.test(f.defaultFluidState().createLegacyBlock(), random)) slot.addFluidStack(f);});
         BuiltInRegistries.BLOCK.getTag(BlockTags.FIRE).ifPresent(tag -> tag.forEach(block -> {
@@ -68,13 +68,13 @@ public class FireConversionCategory implements IRecipeCategory<RecipeHolder<Fire
             }
         }));
 
-        recipe.value().outputItem().ifPresent(stack -> {if(!stack.isEmpty()) builder.addOutputSlot(111, 12).addItemStack(stack);});
+        recipe.value().outputItem().ifPresent(stack -> {if(!stack.isEmpty()) builder.addOutputSlot(53, 2).addItemStack(stack);});
 
         recipe.value().outputState().ifPresent(s -> {
             BlockState state = s.getState(random, BlockPos.ZERO);
             if(!state.isAir()) {
-                if(!state.getFluidState().isEmpty()) builder.addOutputSlot(111, 48).addFluidStack(state.getFluidState().getType());
-                else builder.addOutputSlot(111, 48).addIngredient(JEICompat.BLOCK_INGREDIENT_TYPE, state.getBlock());
+                if(!state.getFluidState().isEmpty()) builder.addOutputSlot(53, 38).addFluidStack(state.getFluidState().getType());
+                else builder.addOutputSlot(53, 38).addIngredient(JEICompat.BLOCK_INGREDIENT_TYPE, state.getBlock());
                 builder.addInvisibleIngredients(RecipeIngredientRole.OUTPUT).addItemStack(state.getBlock().asItem().getDefaultInstance());
             }
         });
@@ -83,8 +83,8 @@ public class FireConversionCategory implements IRecipeCategory<RecipeHolder<Fire
     public void draw(RecipeHolder<FireConversionRecipe> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         background.draw(guiGraphics);
         if(recipe.value().outputItem().isPresent() && !recipe.value().outputItem().get().isEmpty()) {
-            slot.draw(guiGraphics);
-            if(recipe.value().outputState().isPresent() && !recipe.value().outputState().get().getState(random, BlockPos.ZERO).isAir()) plus.draw(guiGraphics);
+            slot.draw(guiGraphics, 52, 1);
+            if(recipe.value().outputState().isPresent() && !recipe.value().outputState().get().getState(random, BlockPos.ZERO).isAir()) plus.draw(guiGraphics, 54, 22);
         }
     }
     @Override
