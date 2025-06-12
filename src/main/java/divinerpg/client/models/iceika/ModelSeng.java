@@ -35,15 +35,15 @@ public class ModelSeng extends EntityModel<EntitySeng> {
 		PartDefinition TailSeg1 = Tail.addOrReplaceChild("TailSeg1", CubeListBuilder.create().texOffs(44, 26).addBox(-2, -1, -2, 4, 3, 4, cubeDef), PartPose.ZERO);
 		PartDefinition TailSeg2 = TailSeg1.addOrReplaceChild("TailSeg2", CubeListBuilder.create().texOffs(44, 33).addBox(-1, -1.5F, 0, 2, 3, 4, cubeDef), PartPose.offset(0, .5F, 2));
 		PartDefinition TailSeg3 = TailSeg2.addOrReplaceChild("TailSeg3", CubeListBuilder.create().texOffs(46, 0).addBox(-1, -1, 0, 2, 2, 4, cubeDef), PartPose.offset(0, .5F, 4));
-		TailSeg3.addOrReplaceChild("TailClub", CubeListBuilder.create().texOffs(34, 0).addBox(0, -3, 1.3333F, 0, 6, 8, cubeDef)
-		.texOffs(26, 0).addBox(-3, 0, 1.3333F, 6, 0, 8, cubeDef)
-		.texOffs(38, 40).addBox(-1, -1, 1.3333F, 2, 2, 6, cubeDef), PartPose.offset(0, 0, 2.6667F));
+		TailSeg3.addOrReplaceChild("TailClub", CubeListBuilder.create().texOffs(34, 0).addBox(0, -3, 4, 0, 6, 8, cubeDef)
+		.texOffs(26, 0).addBox(-3, 0, 4, 6, 0, 8, cubeDef)
+		.texOffs(38, 40).addBox(-1, -1, 4, 2, 2, 6, cubeDef), PartPose.ZERO);
 		Seng.addOrReplaceChild("head", CubeListBuilder.create().texOffs(50, 48).addBox(-3, -1, -6.5F, 6, 3, 1, cubeDef)
-		.texOffs(32, 46).addBox(-4, -7.01F, -3, 1, 2, 3, cubeDef)
-		.texOffs(47, 11).addBox(3, -7.01F, -3, 1, 2, 3, cubeDef)
-		.texOffs(32, 52).addBox(-4.5F, -6, -7, 9, 6, 6, cubeDef)
+		.texOffs(32, 46).addBox(-4, -7, -3, 1, 2, 3, cubeDef) //Right Ear
+		.texOffs(47, 11).addBox(3, -7, -3, 1, 2, 3, cubeDef) //Left Ear
+		.texOffs(32, 52).addBox(-4.5F, -6, -7, 9, 6, 6, cubeDef) //Mane
 		.texOffs(0, 26).addBox(-4, -5, -6, 8, 7, 6, cubeDef)
-		.texOffs(0, 59).addBox(-4, 2, -6, 8, 2, 3, cubeDef), PartPose.offset(0, 1, -9));
+		.texOffs(0, 59).addBox(-4, 2, -6, 8, 2, 3, cubeDef), PartPose.offset(0, 1.01F, -9));
 		partdefinition.addOrReplaceChild("frontRightLeg", CubeListBuilder.create().texOffs(0, 39).addBox(-2, -3, -2, 4, 16, 4, cubeDef), PartPose.offset(-3, 11, -5));
 		partdefinition.addOrReplaceChild("backRightLeg", CubeListBuilder.create().texOffs(0, 0).addBox(-2, 0, -2, 4, 12, 4, cubeDef), PartPose.offset(-3, 12, 8));
 		partdefinition.addOrReplaceChild("frontLeftLeg", CubeListBuilder.create().texOffs(28, 26).addBox(-2, -3, -2, 4, 16, 4, cubeDef), PartPose.offset(3, 11, -5));
