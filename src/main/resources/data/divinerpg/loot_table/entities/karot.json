@@ -29,10 +29,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 4
-              }
+              "count": 1
             },
             {
               "count": {
