@@ -13,7 +13,7 @@ import net.minecraft.world.phys.*;
 public class GeneralsShot extends DivineParticleProjectile {
     public boolean shouldSpray = true;
     public GeneralsShot(EntityType<? extends ThrowableProjectile> entityType, Level level) {
-        super(entityType, level, 13F, ParticleRegistry.WILDWOOD_PORTAL::value);
+        super(entityType, level, 4.3F, ParticleRegistry.WILDWOOD_PORTAL::value);
     }
     @Override
     public DamageSource getDamageSource(EntityHitResult result) {

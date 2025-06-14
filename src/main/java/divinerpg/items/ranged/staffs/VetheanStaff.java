@@ -12,21 +12,21 @@ import net.minecraft.world.level.Level;
 import java.util.function.Supplier;
 
 public class VetheanStaff extends ItemRangedWeapon {
-    int damage;
-    public VetheanStaff(int arcanaUse, int damage) {
+    float damage;
+    public VetheanStaff(int arcanaUse, float damage) {
         super(EntityRegistry.BOUNCING_PROJECTILE::value);
         arcanaConsumedUse = arcanaUse;
         this.damage = damage;
         sound = SoundRegistry.STAFF.get();
-        tooltips.add(LocalizeUtils.arcanaDam(damage));
+        tooltips.add(LocalizeUtils.arcanaDam((int)damage));
         tooltips.add(LocalizeUtils.bouncingShots());
     }
-    protected VetheanStaff(Supplier<EntityType<? extends Projectile>> projectileType, int arcanaUse, int damage) {
+    protected VetheanStaff(Supplier<EntityType<? extends Projectile>> projectileType, int arcanaUse, float damage) {
         super(projectileType);
         arcanaConsumedUse = arcanaUse;
         this.damage = damage;
         sound = SoundRegistry.STAFF.get();
-        tooltips.add(LocalizeUtils.arcanaDam(damage));
+        tooltips.add(LocalizeUtils.arcanaDam((int)damage));
         tooltips.add(LocalizeUtils.bouncingShots());
     }
     @Override protected EntityBouncingProjectile createProjectile(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo, boolean isCrit) {

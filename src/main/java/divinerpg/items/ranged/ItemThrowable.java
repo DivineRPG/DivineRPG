@@ -50,7 +50,7 @@ public class ItemThrowable extends ItemRangedWeapon implements ProjectileItem {
     }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
-        if(!(this instanceof ItemTomato)) tooltip.add(LocalizeUtils.rangedDam((int)damage));
+        if(!(this instanceof ItemTomato)) tooltip.add(LocalizeUtils.rangedDam((int)(damage * 2F)));
         super.appendHoverText(stack, context, tooltip, flagIn);
     }
     @Override

@@ -12,7 +12,7 @@ import net.minecraft.world.phys.EntityHitResult;
 public class SparklerShot extends DivineThrowableProjectile {
     public SparklerShot(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         super(entityType, level);
-        baseDamage = 13F;
+        baseDamage = 4.3F;
     }
     @Override
     public DamageSource getDamageSource(EntityHitResult result) {

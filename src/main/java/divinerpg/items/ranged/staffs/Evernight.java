@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 public class Evernight extends VetheanStaff {
     public final int onUseDam = 19;
     public Evernight() {
-        super(EntityRegistry.EVERNIGHT_SHOT::value, 80, 115);
+        super(EntityRegistry.EVERNIGHT_SHOT::value, 80, 38.3F);
         tooltips.add(LocalizeUtils.onUseDam(onUseDam));
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

@@ -8,7 +8,7 @@ import net.minecraft.world.phys.HitResult;
 
 public class MeteorProjectile extends StarProjectile {
     public MeteorProjectile(EntityType<? extends ThrowableProjectile> entityType, Level level) {
-        super(entityType, level, 15F, ParticleRegistry.MORTUM_PORTAL);
+        super(entityType, level, 7.5F, ParticleRegistry.MORTUM_PORTAL);
     }
     @Override
     protected void onHit(HitResult result) {

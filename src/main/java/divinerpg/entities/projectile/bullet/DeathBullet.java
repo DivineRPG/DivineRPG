@@ -13,7 +13,7 @@ import net.minecraft.world.phys.EntityHitResult;
 public class DeathBullet extends DivineThrowableProjectile {
     public DeathBullet(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         super(entityType, level);
-        baseDamage = 7F;
+        baseDamage = 2.3F;
     }
     @Override
     protected void doPostHurtEffects(LivingEntity living) {
