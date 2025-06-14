@@ -18,7 +18,7 @@ public class VetheanStaff extends ItemRangedWeapon {
         arcanaConsumedUse = arcanaUse;
         this.damage = damage;
         sound = SoundRegistry.STAFF.get();
-        tooltips.add(LocalizeUtils.arcanaDam((int)damage));
+        tooltips.add(LocalizeUtils.arcanaDam((int)(damage * 3F)));
         tooltips.add(LocalizeUtils.bouncingShots());
     }
     protected VetheanStaff(Supplier<EntityType<? extends Projectile>> projectileType, int arcanaUse, float damage) {
@@ -26,7 +26,7 @@ public class VetheanStaff extends ItemRangedWeapon {
         arcanaConsumedUse = arcanaUse;
         this.damage = damage;
         sound = SoundRegistry.STAFF.get();
-        tooltips.add(LocalizeUtils.arcanaDam((int)damage));
+        tooltips.add(LocalizeUtils.arcanaDam((int)(damage * 3F)));
         tooltips.add(LocalizeUtils.bouncingShots());
     }
     @Override protected EntityBouncingProjectile createProjectile(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo, boolean isCrit) {
