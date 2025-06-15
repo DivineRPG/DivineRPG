@@ -8,7 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
 public class EntitySaguaroWormShot extends DivineThrowableProjectile {
-    public EntitySaguaroWormShot(EntityType<? extends ThrowableProjectile> type, Level world) {super(type, world);}
+    public EntitySaguaroWormShot(EntityType<? extends ThrowableProjectile> type, Level world) {super(type, world, 4);}
     @Override protected void onHitEntity(EntityHitResult result) {
         if(!(result.getEntity() instanceof EntitySaguaroWorm)) super.onHitEntity(result);
     }
