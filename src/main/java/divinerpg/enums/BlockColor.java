@@ -4,12 +4,12 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 public enum BlockColor implements StringRepresentable {
-    BLUE("blue"),
-    GREEN("green"),
-	PINK("pink"),
-    PURPLE("purple"),
     RED("red"),
     YELLOW("yellow"),
+    GREEN("green"),
+    BLUE("blue"),
+    PURPLE("purple"),
+	PINK("pink"),
     WHITE("white");
 	public static final EnumProperty<BlockColor> COLOR = EnumProperty.create("color", BlockColor.class);
 	private final String name;

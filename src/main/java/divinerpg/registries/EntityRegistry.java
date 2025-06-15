@@ -478,7 +478,7 @@ public class EntityRegistry {
         registerMobAttributes(event, JUNGLE_DRAMCRYX, EntityStats.JUNGLE_DRAMCRYX);
 
         //Desert
-        registerMobAttributes(event, SAGUARO_WORM, EntityStats.SAGUARO_WORM);
+        registerMobAttributesKnockback(event, SAGUARO_WORM, EntityStats.SAGUARO_WORM, 1);
         registerMobAttributes(event, DESERT_CRAWLER, EntityStats.DESERT_CRAWLER);
         registerMobAttributes(event, ARID_WARRIOR, EntityStats.ARID_WARRIOR);
 
