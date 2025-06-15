@@ -43,7 +43,7 @@ public class BlockIngredientRenderer implements IIngredientRenderer<Block> {
                 //rendertype gui no
                 //rendertype translucent yes
                 //rendertype translucent_moving_block yes
-                minecraft.getBlockRenderer().renderSingleBlock(state, poseStack, guiGraphics.bufferSource(), 15728880, OverlayTexture.NO_OVERLAY, ModelData.EMPTY, RenderType.translucent());
+                minecraft.getBlockRenderer().renderSingleBlock(state, poseStack, guiGraphics.bufferSource(), 15728880, OverlayTexture.NO_OVERLAY, ModelData.EMPTY, RenderType.translucentMovingBlock());
 
                 guiGraphics.flush();
                 Lighting.setupFor3DItems();
