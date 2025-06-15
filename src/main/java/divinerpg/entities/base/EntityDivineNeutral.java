@@ -18,8 +18,7 @@ public abstract class EntityDivineNeutral extends EntityDivineMonster implements
     private UUID angry_at;
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
     public EntityDivineNeutral(EntityType<? extends EntityDivineNeutral> type, Level worldIn) {super(type, worldIn);}
-    @Override
-    public void onAddedToLevel() {
+    @Override public void onAddedToLevel() {
         super.onAddedToLevel();
         if(level().isClientSide()) AttachmentRegistry.ANGRY.requestAttachment(this, null);
     }
@@ -29,6 +28,7 @@ public abstract class EntityDivineNeutral extends EntityDivineMonster implements
         targetSelector.addGoal(2, new ResetUniversalAngerTargetGoal<>(this, true));
         super.registerGoals();
     }
+    @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
     @Override public boolean isPreventingPlayerRest(Player player) {return isAngryAt(player);}
     @Override public void aiStep() {
         super.aiStep();
@@ -46,19 +46,13 @@ public abstract class EntityDivineNeutral extends EntityDivineMonster implements
         if(AttachmentRegistry.ANGRY.get(this)) return angry_at;
         return null;
     }
-
-    @Override
-    public void readAdditionalSaveData(CompoundTag compound) {
+    @Override public void readAdditionalSaveData(CompoundTag compound) {
         super.readAdditionalSaveData(compound);
         if(compound.contains("angryAt")) angry_at = compound.getUUID("angryAt");
     }
-
-    @Override
-    public void addAdditionalSaveData(CompoundTag compound) {
+    @Override public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
         UUID angry_at = getPersistentAngerTarget();
         if(angry_at != null) compound.putUUID("angryAt", angry_at);
     }
-
-    @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
 }

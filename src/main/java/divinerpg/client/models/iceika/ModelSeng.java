@@ -28,17 +28,19 @@ public class ModelSeng extends EntityModel<EntitySeng> {
 		PartDefinition partdefinition = meshdefinition.getRoot();
 		CubeDeformation cubeDef = CubeDeformation.NONE;
 		PartDefinition Seng = partdefinition.addOrReplaceChild("seng", CubeListBuilder.create(), PartPose.offset(0, 14, 0));
-		Seng.addOrReplaceChild("Torso", CubeListBuilder.create().texOffs(52, 20).addBox(-4, 1, -4, 2, 2, 4, cubeDef)
+		Seng.addOrReplaceChild("torso", CubeListBuilder.create()
+		.texOffs(52, 20).addBox(-4, 1, -4, 2, 2, 4, cubeDef)
 		.texOffs(52, 20).addBox(2, 1, -4, 2, 2, 4, cubeDef)
 		.texOffs(0, 0).addBox(-4, -7, -10, 8, 8, 18, cubeDef), PartPose.offset(0, 2, 1));
-		PartDefinition Tail = Seng.addOrReplaceChild("tail", CubeListBuilder.create(), PartPose.offset(0, -4, 10));
-		PartDefinition TailSeg1 = Tail.addOrReplaceChild("TailSeg1", CubeListBuilder.create().texOffs(44, 26).addBox(-2, -1, -2, 4, 3, 4, cubeDef), PartPose.ZERO);
-		PartDefinition TailSeg2 = TailSeg1.addOrReplaceChild("TailSeg2", CubeListBuilder.create().texOffs(44, 33).addBox(-1, -1.5F, 0, 2, 3, 4, cubeDef), PartPose.offset(0, .5F, 2));
-		PartDefinition TailSeg3 = TailSeg2.addOrReplaceChild("TailSeg3", CubeListBuilder.create().texOffs(46, 0).addBox(-1, -1, 0, 2, 2, 4, cubeDef), PartPose.offset(0, .5F, 4));
-		TailSeg3.addOrReplaceChild("TailClub", CubeListBuilder.create().texOffs(34, 0).addBox(0, -3, 4, 0, 6, 8, cubeDef)
-		.texOffs(26, 0).addBox(-3, 0, 4, 6, 0, 8, cubeDef)
-		.texOffs(38, 40).addBox(-1, -1, 4, 2, 2, 6, cubeDef), PartPose.ZERO);
-		Seng.addOrReplaceChild("head", CubeListBuilder.create().texOffs(50, 48).addBox(-3, -1, -6.5F, 6, 3, 1, cubeDef)
+		Seng.addOrReplaceChild("tail", CubeListBuilder.create()
+		.texOffs(44, 26).addBox(-2, -1, -2, 4, 3, 4, cubeDef) //Tail Seg 1
+		.texOffs(44, 33).addBox(-1, -1, 2, 2, 3, 4, cubeDef) //Tail Seg 2
+		.texOffs(46, 0).addBox(-1, 0, 6, 2, 2, 4, cubeDef) //Tail Seg 3
+		.texOffs(34, 0).addBox(0, -2, 10, 0, 6, 8, cubeDef)
+		.texOffs(26, 0).addBox(-3, 1, 10, 6, 0, 8, cubeDef)
+		.texOffs(38, 40).addBox(-1, 0, 10, 2, 2, 6, cubeDef), PartPose.offset(0, -4, 10));
+		Seng.addOrReplaceChild("head", CubeListBuilder.create()
+		.texOffs(50, 48).addBox(-3, -1, -6.5F, 6, 3, 1, cubeDef)
 		.texOffs(32, 46).addBox(-4, -7, -3, 1, 2, 3, cubeDef) //Right Ear
 		.texOffs(47, 11).addBox(3, -7, -3, 1, 2, 3, cubeDef) //Left Ear
 		.texOffs(32, 52).addBox(-4.5F, -6, -7, 9, 6, 6, cubeDef) //Mane
