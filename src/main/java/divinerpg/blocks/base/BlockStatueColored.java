@@ -27,18 +27,18 @@ public class BlockStatueColored extends BlockStatue {
     @Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         colorTest: {
             BlockColor color = state.getValue(COLOR);
-            if(stack.is(Items.BLUE_DYE) && color != BlockColor.BLUE) color = BlockColor.BLUE;
-            else if(stack.is(Items.GREEN_DYE) && color != BlockColor.GREEN) color = BlockColor.GREEN;
-            else if(stack.is(Items.PINK_DYE) && color != BlockColor.PINK) color = BlockColor.PINK;
-            else if(stack.is(Items.PURPLE_DYE) && color != BlockColor.PURPLE) color = BlockColor.PURPLE;
-            else if(stack.is(Items.RED_DYE) && color != BlockColor.RED) color = BlockColor.RED;
+            if(stack.is(Items.RED_DYE) && color != BlockColor.RED) color = BlockColor.RED;
             else if(stack.is(Items.YELLOW_DYE) && color != BlockColor.YELLOW) color = BlockColor.YELLOW;
+            else if(stack.is(Items.GREEN_DYE) && color != BlockColor.GREEN) color = BlockColor.GREEN;
+            else if(stack.is(Items.BLUE_DYE) && color != BlockColor.BLUE) color = BlockColor.BLUE;
+            else if(stack.is(Items.PURPLE_DYE) && color != BlockColor.PURPLE) color = BlockColor.PURPLE;
+            else if(stack.is(Items.PINK_DYE) && color != BlockColor.PINK) color = BlockColor.PINK;
             else if(stack.is(Items.WHITE_DYE) && color != BlockColor.WHITE) color = BlockColor.WHITE;
             else break colorTest;
             stack.consume(1, player);
             player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
             player.setItemInHand(hand, stack);
-            world.setBlock(pos, defaultBlockState().setValue(COLOR, color).setValue(FACING, state.getValue(FACING)), 3);
+            world.setBlock(pos, defaultBlockState().setValue(COLOR, color).setValue(ROTATION, state.getValue(ROTATION)), 3);
             return ItemInteractionResult.SUCCESS;
         } return super.useItemOn(stack, state, world, pos, player, hand, trace);
     }

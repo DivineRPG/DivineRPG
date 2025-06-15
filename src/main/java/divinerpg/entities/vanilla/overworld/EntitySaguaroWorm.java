@@ -4,121 +4,84 @@ import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.entities.projectile.bullet.EntitySaguaroWormShot;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.world.entity.ai.navigation.*;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.neoforged.neoforge.common.Tags.Blocks;
 
 public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAttackMob {
-
-    public EntitySaguaroWorm(EntityType<? extends EntitySaguaroWorm> type, Level worldIn) {
-        super(type, worldIn);
-    }
-    @Override
-    public void onAddedToLevel() {
+    public EntitySaguaroWorm(EntityType<? extends EntitySaguaroWorm> type, Level worldIn) {super(type, worldIn);}
+    @Override public void onAddedToLevel() {
         super.onAddedToLevel();
-        if(level().isClientSide()) AttachmentRegistry.ANGRY.requestAttachment(this, null);
+        setRot(0, 0);
+        absRotateTo(0, 0);
+        setYBodyRot(0);
+        setYHeadRot(0);
     }
-    @Override
-    protected void registerGoals() {
-        this.goalSelector.addGoal(4, new RangedAttackGoal(this, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 3, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+    //TODO: to switch to melee damage when the player is really close
+    @Override protected void registerGoals() {
+        goalSelector.addGoal(0, new FloatGoal(this));
+        goalSelector.addGoal(1, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 30, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
     }
-
-    public double getMyRidingOffset() {
-        return (double) (2.5F);
-    }
-
-    protected PathNavigation createNavigation(Level worldIn) {
-        return new WallClimberNavigation(this, worldIn);
-    }
-
-    public boolean getProvoked() {
-        return AttachmentRegistry.ANGRY.get(this);
-    }
-
-    public void setProvoked(boolean provoked) {
-        AttachmentRegistry.ANGRY.set(this, provoked);
-    }
-
-    public void tick() {
+    public static boolean saguaroWormSpawnRule(LevelAccessor worldIn, BlockPos pos) {return worldIn.getBlockState(pos.below()).is(Blocks.SANDS);}
+    @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
+    @Override public void tick() {
         super.tick();
-        if (!this.level().isClientSide() && this.getHealth() > 0.0f) {
-            Player player = this.level().getNearestPlayer(this, 10.0D);
-            if (player != null && !player.isCreative() && !player.isSpectator() && this.hasLineOfSight(player)) {
-                this.setTarget(player);
-                this.setNoAi(false);
-                this.setProvoked(true);
-            } else {
-                this.setTarget(null);
-                this.setProvoked(false);
-                this.setNoAi(true);
-            }
-        }
-        if (!this.getProvoked()) {
-            this.xRotO = 0;
+        if(!level().isClientSide) {
+            //TODO: unlike pumpkin spiders they shouldn't really keep looking at the player; they're still looking at the player, but the model change says that it's no longer provoked
+            Player player = level().getNearestPlayer(this, 6);
+            if(player != null && hasLineOfSight(player)) setProvoked(player);
+            else setProvoked(getTarget());
         }
     }
-
-
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
-        setProvoked(tag.getBoolean("Provoked"));
+    @Override public boolean hurt(DamageSource source, float amount) {
+        Entity entity = source.getDirectEntity();
+        if(!(entity instanceof LivingEntity)) entity = source.getEntity();
+        if(entity instanceof LivingEntity l && !l.level().isClientSide) setProvoked(l);
+        return super.hurt(source, amount);
     }
-
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
-        tag.putBoolean("Provoked", this.getProvoked());
+    @Override public boolean isPushable() {return false;}
+    public boolean getProvoked() {return AttachmentRegistry.ANGRY.get(this);}
+    public void setProvoked(LivingEntity entity) {
+        if(entity == null || !hasLineOfSight(entity) && entity.distanceTo(this) > (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue() || !entity.isAlive()) {
+            if(getProvoked()) calmDown();
+        } else {
+            if(entity instanceof Player player && (player.isCreative() || player.isSpectator())) {
+                if(getProvoked()) calmDown();
+                return;
+            } AttachmentRegistry.ANGRY.set(this, true);
+            setTarget(entity);
+        }
     }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundRegistry.SAGUARO_WORM.get();
+    //TODO: they turn back to 0;0, but sometimes for a moment for some reason they immediately look at the player, thus getting stuck at a wrong angle
+    public void calmDown() {
+        setTarget(null);
+        AttachmentRegistry.ANGRY.set(this, false);
+        setRot(0, 0);
+        absRotateTo(0, 0);
+        setYBodyRot(0);
+        setYHeadRot(0);
     }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return SoundRegistry.SAGUARO_WORM.get();
-    }
-
-
-    public static boolean saguaroWormSpawnRule(LevelAccessor worldIn, BlockPos pos) {
-        return worldIn.getBlockState(pos.below()).is(Blocks.SANDS);
-    }
-
-    @Override
-    public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
-        return 0.0F;
-    }
-
-    @Override
-    public void performRangedAttack(LivingEntity e, float p_33318_) {
-        if (isAlive() && getTarget() != null && !level().isClientSide && this.tickCount % 30 == 0 && this.getProvoked()) {
-            double y = this.getBoundingBox().minY + 2.7D;
-            double tx = e.getX() - getX();
-            double ty = e.getBoundingBox().minY - y;
-            double tz = e.getZ() - getZ();
-            for (double h = -1.5; h < 1.5; h += 0.5) {
-                for (double r = 0; r < 1.5 - Math.abs(h); r += 0.5) {
-                    for (double theta = 0; theta < Math.PI * 2; theta += Math.PI / 2) {
-                        EntitySaguaroWormShot shot = EntityRegistry.SAGUARO_WORM_SHOT.get().create(level());
-                        shot.setOwner(this);
-                        shot.setPos(position());
-                        shot.xo = this.xo + r * Math.cos(theta);
-                        shot.yo = this.yo + 5 + h;
-                        shot.zo = this.zo + r * Math.sin(theta);
-                        shot.shoot(tx, ty, tz, 0.9f, 5);
-                        level().addFreshEntity(shot);
-                    }
-                }
-            }
+    @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
+        if(isAlive() && getTarget() != null && !level().isClientSide && target.distanceTo(this) <= (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()) {
+            for(int i = 0; i < 20; i++) {
+                EntitySaguaroWormShot shot = EntityRegistry.SAGUARO_WORM_SHOT.get().create(level());
+                shot.setOwner(this);
+                shot.setPos(getEyePosition());
+                double d0 = getTarget().getX() - getX();
+                double d1 = getTarget().getY(.3333333333333333) - shot.getY();
+                double d2 = getTarget().getZ() - getZ();
+                double d3 = Math.sqrt(d0 * d0 + d2 * d2);
+                shot.shoot(d0, d1 + d3 * .2, d2, .9F, 10);
+                level().addFreshEntity(shot);
             }
         }
+    }
+    @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.SAGUARO_WORM.get();}
+    @Override protected SoundEvent getDeathSound() {return SoundRegistry.SAGUARO_WORM.get();}
 }
