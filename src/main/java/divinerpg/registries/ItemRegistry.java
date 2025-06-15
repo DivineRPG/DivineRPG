@@ -1,5 +1,6 @@
 package divinerpg.registries;
 
+import divinerpg.DivineRPG;
 import divinerpg.enums.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
@@ -17,10 +18,13 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.registries.*;
 
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 import static divinerpg.DivineRPG.MODID;
@@ -31,6 +35,7 @@ import static net.minecraft.world.effect.MobEffects.*;
 import static net.minecraft.world.item.ArmorItem.Type.*;
 
 public class ItemRegistry {
+    public static final ArrayList<ItemLike> DISPENSER_ITEMS = new ArrayList<>();
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredItem<Item>
         //Misc
@@ -979,6 +984,10 @@ public class ItemRegistry {
         tormented_leggings = registerTool("tormented_leggings", () -> new ItemDivineArmor(TORMENTED, LEGGINGS, 45)),
         tormented_boots = registerTool("tormented_boots", () -> new ItemDivineArmor(TORMENTED, BOOTS, 45));
 
+    public static void registerDispenserItems() {
+        if(!DISPENSER_ITEMS.isEmpty()) for(ItemLike item : DISPENSER_ITEMS) DispenserBlock.registerProjectileBehavior(item);
+        else DivineRPG.LOGGER.error("No items registered for dispenser behavior");
+    }
     private static DeferredItem<Item> registerItemVethean(String registryId) {
         DeferredItem<Item> i = ITEMS.register(registryId, () -> new ItemVethean());
         CreativeTabRegistry.misc.add(i);
@@ -1012,13 +1021,13 @@ public class ItemRegistry {
     private static <T extends Item> DeferredItem<T> registerThrowableItem(String registryId, Supplier<T> item) {
         DeferredItem<T> i = ITEMS.register(registryId, item);
         CreativeTabRegistry.misc.add(i);
-        ItemPropertyRegistry.DISPENSER_ITEMS.add(i);
+        DISPENSER_ITEMS.add(i);
         return i;
     }
     private static <T extends Item> DeferredItem<T> registerThrowableTool(String registryId, Supplier<T> item) {
         DeferredItem<T> i = ITEMS.register(registryId, item);
         CreativeTabRegistry.tools.add(i);
-        ItemPropertyRegistry.DISPENSER_ITEMS.add(i);
+        DISPENSER_ITEMS.add(i);
         return i;
     }
     private static <T extends Item> DeferredItem<T> registerBlockItem(String registryId, Supplier<T> item) {
