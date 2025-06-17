@@ -43,7 +43,7 @@ public class ArmorMaterialRegistry {
         GRAY_RUPEE = register("gray_rupee", 3, 8, 6, 3, 2, .02F, 11, ARMOR_EQUIP_GOLD, rupee_ingot),
         ELITE_REALMITE = register("elite_realmite", 3, 9, 7, 3, 3, .1F, 16, ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(BlockRegistry.realmiteBlock.asItem())),
         CORRUPTED = register("corrupted", 3, 9, 7, 3, 3, .05F, 15, ARMOR_EQUIP_DIAMOND, corrupted_stone),
-        BEDROCK = register("bedrock", 4, 9, 7, 3, 3, .12F, ARMOR_EQUIP_NETHERITE),
+        BEDROCK = register("bedrock", 4, 9, 7, 3, 3, .12F, 15, ARMOR_EQUIP_NETHERITE),
         KORMA = register("korma", 4, 9, 7, 3, 3, .12F, 15, ARMOR_EQUIP_NETHERITE, arcanium),
         VEMOS = register("vemos", 4, 9, 7, 3, 3, .12F, 15, ARMOR_EQUIP_NETHERITE, arcanium),
         ENDER = register("ender", 4, 7, 9, 3, 3, .12F, ARMOR_EQUIP_DIAMOND),
