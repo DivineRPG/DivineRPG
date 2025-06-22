@@ -1,45 +1,62 @@
 package divinerpg.client.models.twilight;
 
 import com.mojang.blaze3d.vertex.*;
+import divinerpg.entities.wildwood.EntityWildwoodTomo;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
-public class ModelWildwoodTomo<T extends Entity> extends EntityModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = createLocation("tomo");
-	private final ModelPart body;
-	public ModelWildwoodTomo(Context context) {
+public class ModelWildwoodTomo extends EntityModel<EntityWildwoodTomo> {
+	public static final ModelLayerLocation LAYER_LOCATION = createLocation("wildwood_tomo");
+	public final ModelPart Torso, RightAntenna, LeftAntenna, RightArm, LeftArm, RightFoot, LeftFoot;
+	public ModelWildwoodTomo(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.body = root.getChild("body");
+		Torso = root.getChild("Torso");
+		RightAntenna = Torso.getChild("RightAntenna");
+		LeftAntenna = Torso.getChild("LeftAntenna");
+		RightArm = Torso.getChild("RightArm");
+		LeftArm = Torso.getChild("LeftArm");
+		RightFoot = root.getChild("RightFoot");
+		LeftFoot = root.getChild("LeftFoot");
 	}
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-
-		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(54, 0).mirror().addBox(-16.0F, 6.0F, -2.0F, 2.0F, 5.0F, 2.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(54, 0).mirror().addBox(-2.0F, 6.0F, -2.0F, 2.0F, 5.0F, 2.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(0, 12).mirror().addBox(-4.0F, -2.0F, 5.0F, 2.0F, 6.0F, 2.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(29, 0).mirror().addBox(0.0F, 7.0F, 2.0F, 10.0F, 2.0F, 8.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(27, 0).mirror().addBox(-26.0F, 7.0F, 2.0F, 10.0F, 2.0F, 8.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(0, 13).mirror().addBox(-14.0F, -2.0F, 5.0F, 2.0F, 6.0F, 2.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(0, 7).mirror().addBox(-16.0F, 4.0F, 0.0F, 16.0F, 9.0F, 16.0F, CubeDeformation.NONE).mirror(false), PartPose.offset(8.0F, 10.0F, -8.0F));
-
-		body.addOrReplaceChild("sensorleft_r1", CubeListBuilder.create().texOffs(0, 20).mirror().addBox(3.0F, -16.0F, 4.0F, 6.0F, 2.0F, 2.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(0, 20).mirror().addBox(3.0F, -16.0F, -6.0F, 6.0F, 2.0F, 2.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(28, 0).mirror().addBox(8.0F, -10.0F, -8.0F, 2.0F, 2.0F, 16.0F, CubeDeformation.NONE).mirror(false)
-		.texOffs(28, 0).mirror().addBox(8.0F, -3.0F, -8.0F, 2.0F, 2.0F, 16.0F, CubeDeformation.NONE).mirror(false), PartPose.offsetAndRotation(-8.0F, 14.0F, 8.0F, 0.0F, 1.5708F, 0.0F));
-
-		return LayerDefinition.create(meshdefinition, 64, 32);
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartDefinition Torso = partdefinition.addOrReplaceChild("Torso", CubeListBuilder.create()
+		.texOffs(0, 0).addBox(-6, -7, -4, 12, 8, 9, cubeDef)
+		.texOffs(0, 17).addBox(-6, -7, -5, 12, 8, 1, cubeDef), PartPose.offset(0, 20, 0));
+		Torso.addOrReplaceChild("RightAntenna", CubeListBuilder.create()
+		.texOffs(37, 19).addBox(-1.5F, -6.5F, -3, 3, 3, 3, cubeDef)
+		.texOffs(28, 32).addBox(-1.5F, -5, -1.5F, 3, 5, 3, cubeDef), PartPose.offsetAndRotation(-2.5F, -6, 0, .0873F, .1745F, 0));
+		Torso.addOrReplaceChild("LeftAntenna", CubeListBuilder.create()
+		.texOffs(0, 36).addBox(-1.5F, -6.5F, -3, 3, 3, 3, cubeDef)
+		.texOffs(16, 32).addBox(-1.5F, -5, -1.5F, 3, 5, 3, cubeDef), PartPose.offsetAndRotation(2.5F, -6, 0, .0873F, -.1745F, 0));
+		Torso.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(33, 0).addBox(-4, -1, -1.5F, 4, 2, 3, cubeDef), PartPose.offset(-6, -5, -.5F));
+		Torso.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(26, 17).addBox(0, -1, -1.5F, 4, 2, 3, cubeDef), PartPose.offset(6, -5, -.5F));
+		partdefinition.addOrReplaceChild("RightFoot", CubeListBuilder.create().texOffs(22, 22).addBox(-2, 0, -1, 4, 6, 4, cubeDef), PartPose.offset(-3, 18, -1));
+		partdefinition.addOrReplaceChild("LeftFoot", CubeListBuilder.create().texOffs(0, 26).addBox(-2, 0, -1, 4, 6, 4, cubeDef), PartPose.offset(3, 18, -1));
+		return LayerDefinition.create(meshdefinition, 49, 42);
 	}
-	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	@Override public void setupAnim(EntityWildwoodTomo entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		float f = Mth.cos(ageInTicks * .12F + limbSwing * .6F) * (.08F + limbSwingAmount * .4F);
+		float f1 = Mth.cos(ageInTicks * .1F + limbSwing * .5F) * (.08F + limbSwingAmount * .4F);
+		float f2 = Mth.cos(limbSwing * .6662F) * limbSwingAmount;
+		Torso.zRot = f2 * .8F;
+		RightAntenna.zRot = -Mth.PI / 16 - f;
+		LeftAntenna.zRot = Mth.PI / 16 + f1;
+		RightArm.zRot = Mth.PI / 6 + f1 - .48F;
+		LeftArm.zRot = -Mth.PI / 6 - f + .48F;
+		RightFoot.xRot = f2 * .7F;
+		LeftFoot.xRot = Mth.cos(limbSwing * .6662F + Mth.PI) * .7F * limbSwingAmount;
 	}
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+		Torso.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		RightFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		LeftFoot.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

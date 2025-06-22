@@ -30,10 +30,10 @@ public class ModelRobbin extends EntityModel<EntityRobbin> {
 		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-2, -4, -4, 4, 4, 4, cubeDef), PartPose.offset(0, 22, 1));
 		partdefinition.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 17).addBox(-1, -2, 0, 2, 2, 3, cubeDef), PartPose.offset(0, 18.3F, 1.6F));
 		partdefinition.addOrReplaceChild("head", CubeListBuilder.create()
-		.texOffs(11, 14).addBox(-1.5F, 6.5F, -1.5F, 3, 3, 3, cubeDef) //Head
-		.texOffs(8, 11).addBox(-1, 8, -2.5F, 2, 1, 2, cubeDef) //Beak
-		.texOffs(0, 8).addBox(-2, 5.51F, .5F, 1, 1, 2, cubeDef) //Right Horn
-		.texOffs(0, 11).addBox(1, 5.51F, .5F, 1, 1, 2, cubeDef), PartPose.offset(0, 8.5F, -2.5F)); //Left Horn
+		.texOffs(11, 14).addBox(-1.5F, -2.5F, -2, 3, 3, 3, cubeDef) //Head
+		.texOffs(8, 11).addBox(-1, -1, -3, 2, 1, 2, cubeDef) //Beak
+		.texOffs(0, 8).addBox(-2, -3.49F, 0, 1, 1, 2, cubeDef) //Right Horn
+		.texOffs(0, 11).addBox(1, -3.49F, 0, 1, 1, 2, cubeDef), PartPose.offset(0, 18, -2)); //Left Horn
 		partdefinition.addOrReplaceChild("right_wing", CubeListBuilder.create().texOffs(0, 24).addBox(-1, 0, 0, 1, 3, 5, cubeDef), PartPose.offset(-2, 18, -2));
 		partdefinition.addOrReplaceChild("left_wing", CubeListBuilder.create().texOffs(20, 24).addBox(0, 0, 0, 1, 3, 5, cubeDef), PartPose.offset(2, 18, -2));
 		partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(18, 0).addBox(-2, 0, -2, 2, 3, 2, cubeDef), PartPose.ZERO);
