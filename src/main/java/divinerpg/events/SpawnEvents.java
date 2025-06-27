@@ -112,7 +112,7 @@ public class SpawnEvents {
 		register(e, SCORCHER.get(), SpawnType.FLY, MONSTER);
 		register(e, WILDFIRE.get(), SpawnType.GROUND, MONSTER);
     	//End
-		register(e, ENDER_SPIDER.get(), SpawnType.AGILE, MONSTER_DARKNESS_AGILE);
+		register(e, ENDER_SPIDER.get(), SpawnType.AGILE, MONSTER);
 		register(e, ENDER_TRIPLETS.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && p.getY() > 60);
 		register(e, ENDER_WATCHER.get(), SpawnType.GROUND, MONSTER);
 		register(e, ENDER_SCROUNGE.get(), SpawnType.GROUND, DARKNESS);
