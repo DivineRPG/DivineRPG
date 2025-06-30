@@ -6,14 +6,15 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 
+import static net.minecraft.world.level.Level.ExplosionInteraction.MOB;
+
 public class WatcherShot extends DivineThrowableProjectile {
     public WatcherShot(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         super(entityType, level);
-        baseDamage = 4F;
+        baseDamage = 4;
     }
-    @Override
-    protected void onHit(HitResult result) {
+    @Override protected void onHit(HitResult result) {
         super.onHit(result);
-        if(!level().isClientSide()) level().explode(this, xo, yo, zo, 5, false, Level.ExplosionInteraction.MOB);
+        if(!level().isClientSide) level().explode(this, xo, yo, zo, 5, false, MOB);
     }
 }

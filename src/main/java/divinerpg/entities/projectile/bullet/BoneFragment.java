@@ -9,14 +9,12 @@ import net.minecraft.world.phys.EntityHitResult;
 public class BoneFragment extends DivineThrowableProjectile {
     public BoneFragment(EntityType<? extends DivineThrowableProjectile> entityType, Level level) {
         super(entityType, level);
-        baseDamage = 6F;
+        baseDamage = 6;
     }
-    @Override
-    public void onHitEntity(EntityHitResult result) {
+    @Override public void onHitEntity(EntityHitResult result) {
         if(!(result.getEntity() instanceof EntityKitra)) super.onHitEntity(result);
     }
-    @Override
-    public boolean isInWater() {
+    @Override public boolean isInWater() {
         noPhysics = super.isInWater();
         return false;
     }

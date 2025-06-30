@@ -13,8 +13,7 @@ public class DivineParticleProjectile extends DivineMagicProjectile {
         super(entityType, level, damage);
         this.particle = particle;
     }
-    @Override
-    public void tick() {
+    @Override public void tick() {
         super.tick();
         level().addParticle(particle.get(), getX(), getY(), getZ(), .25 * random.nextGaussian(), .25 * random.nextGaussian(), .25 * random.nextGaussian());
     }

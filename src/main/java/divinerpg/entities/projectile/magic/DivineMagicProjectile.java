@@ -8,14 +8,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
 public class DivineMagicProjectile extends DivineThrowableProjectile {
-    public DivineMagicProjectile(EntityType<? extends ThrowableProjectile> entityType, Level level, float damage) {
-        super(entityType, level, damage);
-    }
-    public DivineMagicProjectile(EntityType<? extends ThrowableProjectile> entityType, Level level) {
-        super(entityType, level);
-    }
-    @Override
-    public DamageSource getDamageSource(EntityHitResult result) {
-        return damageSources().magic();
-    }
+    public DivineMagicProjectile(EntityType<? extends ThrowableProjectile> entityType, Level level, float damage) {super(entityType, level, damage);}
+    @Override public DamageSource getDamageSource(EntityHitResult result) {return damageSources().indirectMagic(this, getOwner());}
 }

@@ -1,0 +1,13 @@
+package divinerpg.entities.projectile.bullet;
+
+import divinerpg.entities.projectile.DivineThrowableProjectile;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.level.Level;
+public class KingOfScorchersShot extends DivineThrowableProjectile {
+    public KingOfScorchersShot(EntityType<? extends ThrowableProjectile> entityType, Level level) {
+        super(entityType, level);
+        baseDamage = 14;
+    }
+    @Override protected void doPostHurtEffects(LivingEntity living) {if(!living.fireImmune()) living.igniteForSeconds(8);}
+}

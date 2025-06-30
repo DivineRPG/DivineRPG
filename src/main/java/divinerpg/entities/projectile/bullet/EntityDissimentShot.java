@@ -4,15 +4,12 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.*;
 
 public class EntityDissimentShot extends ThrowableProjectile {
 
-    public EntityDissimentShot(EntityType<? extends ThrowableProjectile> type, Level world) {
-        super(type, world);
-    }
-
+    public EntityDissimentShot(EntityType<? extends ThrowableProjectile> type, Level world) {super(type, world);}
+    //TODO: dissiment shot
 //    public EntityDissimentShot(EntityType<? extends ThrowableProjectile> type, double x, double y, double z, Level world) {
 //        super(type, x, y, z, world);
 //    }
@@ -34,27 +31,18 @@ public class EntityDissimentShot extends ThrowableProjectile {
 //                (double)(-Mth.sin((getXRot() + (float)getGravity()) / 180 * (float)Math.PI) * f));
 //        this.shoot(this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z, 1.6F, 1.0F);
 //    }
-
-    @Override
-    protected void onHitEntity(EntityHitResult result) {
+    @Override protected void onHitEntity(EntityHitResult result) {
         if(tickCount > 1) {
             if(result.getEntity() != null) {
                 byte var2 = 9;
                 Entity entity = result.getEntity();
                 entity.hurt(entity.damageSources().thrown(this, getOwner()), var2);
-            }
-            if(!level().isClientSide()) discard();
+            } if(!level().isClientSide) discard();
         }
     }
-
-    @Override
-    protected void onHitBlock(BlockHitResult result) {
+    @Override protected void onHitBlock(BlockHitResult result) {
         super.onHitBlock(result);
         discard();
     }
-
-    @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-
-    }
+    @Override protected void defineSynchedData(SynchedEntityData.Builder builder) {}
 }

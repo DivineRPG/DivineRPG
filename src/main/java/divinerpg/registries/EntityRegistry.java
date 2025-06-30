@@ -180,7 +180,7 @@ public class EntityRegistry {
 
     //Boss projectiles
     public static final DeferredHolder<EntityType<?>, EntityType<WatcherShot>> WATCHER_SHOT = registerProjectile(WatcherShot::new, "watcher_shot");
-    public static final DeferredHolder<EntityType<?>, EntityType<KingOfShorchersShot>> KING_OF_SCORCHERS_SHOT = registerProjectile(KingOfShorchersShot::new, "king_of_scorchers_shot");
+    public static final DeferredHolder<EntityType<?>, EntityType<KingOfScorchersShot>> KING_OF_SCORCHERS_SHOT = registerProjectile(KingOfScorchersShot::new, "king_of_scorchers_shot");
     public static final DeferredHolder<EntityType<?>, EntityType<Bomb>> KING_OF_SCORCHERS_METEOR = registerProjectile(Bomb::new, "king_of_scorchers_meteor");
     public static final DeferredHolder<EntityType<?>, EntityType<BoneFragment>> BONE_FRAGMENT = registerProjectile(BoneFragment::new, "bone_fragment");
     public static final DeferredHolder<EntityType<?>, EntityType<BoneBomb>> BONE_BOMB = registerProjectile(BoneBomb::new, "bone_bomb");

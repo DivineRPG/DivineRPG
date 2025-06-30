@@ -1,32 +1,24 @@
 package divinerpg.entities.projectile.magic;
 
-import divinerpg.registries.DamageRegistry;
-import divinerpg.registries.ParticleRegistry;
-
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
+import static divinerpg.registries.DamageRegistry.ARCANA;
+import static divinerpg.registries.ParticleRegistry.APALACHIA_PORTAL;
+
 public class EntityLadyLunaSparkler extends DivineParticleProjectile {
-    public EntityLadyLunaSparkler(EntityType<? extends DivineParticleProjectile> type, Level world) {
-        super(type, world, 12F, ParticleRegistry.APALACHIA_PORTAL);
-    }
-    @Override
-    public DamageSource getDamageSource(EntityHitResult result) {
-        return level().damageSources().source(DamageRegistry.SPIKE.getKey());
-    }
+    public EntityLadyLunaSparkler(EntityType<? extends DivineParticleProjectile> type, Level world) {super(type, world, 12, APALACHIA_PORTAL);}
     @Override public boolean isNoGravity() {return true;}
-    @Override
-    public void tick() {
+    @Override public void tick() {
         super.tick();
-        if (this.getOwner() != null && this.getOwner() instanceof LivingEntity && ((LivingEntity) this.getOwner()).getLastHurtByMob() != null) {
-            double tx = ((LivingEntity) this.getOwner()).getLastHurtByMob().xo - this.getOwner().xo;
-            double ty = ((LivingEntity) this.getOwner()).getLastHurtByMob().getBoundingBox().minY - this.getOwner().yo;
-            double tz = ((LivingEntity) this.getOwner()).getLastHurtByMob().zo - this.getOwner().zo;
-            if (!this.level().isClientSide() && this.tickCount > 30) this.shoot(tx, ty, tz, 0.5f, 0);
-        }
-        if (!this.level().isClientSide() && this.tickCount > 80) this.kill();
+        if(getOwner() != null && getOwner() instanceof LivingEntity entity && entity.getLastHurtByMob() != null) {
+            double tx = entity.getLastHurtByMob().xo - entity.xo;
+            double ty = entity.getLastHurtByMob().getBoundingBox().minY - entity.yo;
+            double tz = entity.getLastHurtByMob().zo - entity.zo;
+            if(!level().isClientSide && tickCount > 30) shoot(tx, ty, tz, .5F, 0);
+        } if(!level().isClientSide && tickCount > 80) discard();
     }
+    @Override public DamageSource getDamageSource(EntityHitResult result) {return level().damageSources().source(ARCANA.getKey());}
 }

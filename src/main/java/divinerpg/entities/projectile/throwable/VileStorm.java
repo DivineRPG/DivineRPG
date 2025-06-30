@@ -1,23 +1,20 @@
 package divinerpg.entities.projectile.throwable;
 
 import divinerpg.entities.projectile.DivineThrownItem;
-import divinerpg.registries.ItemRegistry;
-import net.minecraft.world.effect.*;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 
+import static divinerpg.registries.ItemRegistry.vile_storm;
+import static net.minecraft.world.effect.MobEffects.POISON;
+
 public class VileStorm extends DivineThrownItem {
-    public VileStorm(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
-        super(entityType, level);
+    public VileStorm(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {super(entityType, level);}
+    @Override protected void doPostHurtEffects(LivingEntity living) {
+        //Poison IV for 2 seconds
+        living.addEffect(new MobEffectInstance(POISON, 2 * 20, 3), getOwner());
     }
-    @Override
-    protected void doPostHurtEffects(LivingEntity living) {
-        living.addEffect(new MobEffectInstance(MobEffects.POISON, 40, 3), getOwner());
-    }
-    @Override
-    protected Item getDefaultItem() {
-        return ItemRegistry.vile_storm.get();
-    }
+    @Override protected Item getDefaultItem() {return vile_storm.get();}
 }
