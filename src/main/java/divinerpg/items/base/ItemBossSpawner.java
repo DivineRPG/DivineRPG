@@ -1,19 +1,24 @@
 package divinerpg.items.base;
 
-import divinerpg.registries.LevelRegistry;
-import divinerpg.util.*;
-import net.minecraft.ChatFormatting;
+import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.*;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Supplier;
+
+import static divinerpg.registries.LevelRegistry.MORTUM;
+import static divinerpg.util.RarityList.RED;
+import static net.minecraft.ChatFormatting.AQUA;
+import static net.minecraft.world.Difficulty.PEACEFUL;
+import static net.minecraft.world.entity.MobSpawnType.MOB_SUMMONED;
 
 public class ItemBossSpawner extends ItemMod {
     private final Supplier<EntityType<?>> ent;
@@ -24,14 +29,14 @@ public class ItemBossSpawner extends ItemMod {
         dimensionID = dimension;
         ent = entity;
         langKey = key;
-        this.nameColor = RarityList.RED;
+        this.nameColor = RED;
     }
     public ItemBossSpawner(String key, ResourceKey<Level> dimension) {
     	super(new Properties().stacksTo(1));
     	dimensionID = dimension;
     	langKey = key;
     	ent = null;
-        this.nameColor = RarityList.RED;
+        this.nameColor = RED;
 	}
 	@Override public InteractionResult useOn(UseOnContext context) {
         Level world = context.getLevel();
@@ -39,22 +44,22 @@ public class ItemBossSpawner extends ItemMod {
         if(world.getBlockState(pos).getCollisionShape(world, pos).isEmpty()) pos1 = pos;
         else pos1 = pos.relative(context.getClickedFace());
         Player player = context.getPlayer();
-        InteractionHand hand = context.getHand();
-        if(dimensionID == null) dimensionID = LevelRegistry.MORTUM;
+        if(dimensionID == null) dimensionID = MORTUM;
         if(world.dimension() != dimensionID) {
-            player.displayClientMessage(LocalizeUtils.clientMessage(ChatFormatting.AQUA, langKey), true);
+            player.displayClientMessage(LocalizeUtils.clientMessage(AQUA, langKey), true);
             return InteractionResult.FAIL;
-        } else if(world.getDifficulty() == Difficulty.PEACEFUL) {
-            player.displayClientMessage(LocalizeUtils.clientMessage(ChatFormatting.AQUA, "boss.peaceful"), true);
+        } else if(world.getDifficulty() == PEACEFUL) {
+            player.displayClientMessage(LocalizeUtils.clientMessage(AQUA, "boss.peaceful"), true);
             return InteractionResult.FAIL;
-        } else if((world.getBlockStates(ent.get().getSpawnAABB(pos.getX() + .5, pos.getY() + 2.14, pos.getZ() + .5).inflate(1D)).allMatch(BlockBehaviour.BlockStateBase::isAir))) {
-        	if(!world.isClientSide && ent != null) ent.get().spawn((ServerLevel) world, player.getItemInHand(hand), player, pos1, MobSpawnType.MOB_SUMMONED, true, false);
-            player.getItemInHand(hand).consume(1, player);
+        } else if(ent != null && !world.getBlockStates(ent.get().getSpawnAABB(pos.getX() + .5, pos.getY() + 2.14, pos.getZ() + .5).inflate(1)).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
+            player.displayClientMessage(LocalizeUtils.clientMessage(AQUA, "boss.space"), true);
+            return InteractionResult.FAIL;
+        } else {
+            ItemStack stack = player.getItemInHand(context.getHand());
+            if(!world.isClientSide && ent != null) ent.get().spawn((ServerLevel) world, stack, player, pos1, MOB_SUMMONED, true, false);
+            stack.consume(1, player);
             player.getCooldowns().addCooldown(this, 40);
             return InteractionResult.SUCCESS;
-        } else {
-            player.displayClientMessage(LocalizeUtils.clientMessage(ChatFormatting.AQUA, "boss.space"), true);
-            return InteractionResult.FAIL;
         }
     }
 }

@@ -32,7 +32,7 @@ public class ItemScythe extends ItemRangedWeapon {
     }
     @Override protected Projectile createProjectile(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo, boolean isCrit) {
         Projectile shot = super.createProjectile(level, shooter, weapon, ammo, isCrit);
-        if(shot instanceof DivineMagicProjectile d && shooter instanceof Player player && isJackoman(player)) d.baseDamage = 18;
+        if(shot instanceof DivineMagicProjectile d && shooter instanceof Player player && isJackoman(player)) d.baseDamage = 6;
         return shot;
     }
     @OnlyIn(Dist.CLIENT)

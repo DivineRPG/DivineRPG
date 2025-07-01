@@ -15,6 +15,7 @@ import org.joml.*;
 import java.lang.Math;
 
 public class RenderAyeracoBeam implements BlockEntityRenderer<AyeracoBeamBlockEntity> {
+    //TODO: to fix and improve (disappears when not looking at it, can't be blocked like vanilla beacon beam, doesn't rotate)
 	public static final ResourceLocation
 		blue_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_blue.png"),
 		green_beam = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/block/beam_green.png"),

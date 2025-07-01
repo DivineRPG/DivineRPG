@@ -1,17 +1,15 @@
 package divinerpg.block_entities.bosses;
 
-import divinerpg.registries.*;
-import divinerpg.block_entities.*;
+import divinerpg.block_entities.ModUpdatableBlockEntity;
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.BlockState;
+
+import static divinerpg.registries.BlockEntityRegistry.AYERACO_BEAM;
 
 public class AyeracoBeamBlockEntity extends ModUpdatableBlockEntity {
-	public AyeracoBeamBlockEntity(BlockPos p_155229_, BlockState p_155230_) {
-        super(BlockEntityRegistry.AYERACO_BEAM.get(), p_155229_, p_155230_);
-    }
-	@Override
-	public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+	public AyeracoBeamBlockEntity(BlockPos pos, BlockState state) {super(AYERACO_BEAM.get(), pos, state);}
+	@Override public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
 		if(level != null && !level.isClientSide) super.loadAdditional(tag, registries);
 	}
 }
