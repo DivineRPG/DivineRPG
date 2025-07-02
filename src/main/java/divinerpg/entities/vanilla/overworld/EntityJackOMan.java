@@ -26,11 +26,6 @@ public class EntityJackOMan extends EntityDivineMerchant {
     @Override protected void updateTrades() {addOffersFromItemListings(getOffers(), RecipeRegistry.Trades.JACK_O_MAN.get(level(), getRandom()), 5);}
 
     @Override
-    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
-        return true;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.JACKOMAN.get();
     }
@@ -46,6 +41,6 @@ public class EntityJackOMan extends EntityDivineMerchant {
     }
 
     public static boolean rules(ServerLevelAccessor level, BlockPos pos) {
-        return level.getEntitiesOfClass(EntityJackOMan.class, new AABB(pos).inflate(32)).isEmpty();
+        return level.getEntitiesOfClass(EntityJackOMan.class, new AABB(pos).inflate(64)).isEmpty();
     }
 }
