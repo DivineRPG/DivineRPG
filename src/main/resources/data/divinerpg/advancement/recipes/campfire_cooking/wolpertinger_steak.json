@@ -1,0 +1,34 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_raw_wolpertinger_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:raw_wolpertinger_meat"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:campfire_cooking/wolpertinger_steak"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_wolpertinger_meat",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:campfire_cooking/wolpertinger_steak"
+    ]
+  }
+}

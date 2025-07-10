@@ -1,11 +1,10 @@
 {
-  "type": "minecraft:smelting",
+  "type": "smelting",
   "ingredient": {
     "item": "divinerpg:cobbled_frozen_stone"
   },
   "result": {
     "id": "divinerpg:frozen_stone"
   },
-  "experience": 0.1,
-  "cookingtime": 200
+  "experience": 0.1
 }

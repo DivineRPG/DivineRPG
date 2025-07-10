@@ -1,0 +1,11 @@
+{
+  "type": "divinerpg:arcanium_extractor",
+  "ingredient": {
+    "item": "divinerpg:raw_arcanium"
+  },
+  "cookingtime": 100,
+  "result": {
+    "id": "divinerpg:arcanium"
+  },
+  "experience": 1
+}

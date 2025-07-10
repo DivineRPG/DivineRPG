@@ -1,0 +1,11 @@
+{
+  "type": "smelting",
+  "group": "eden_fragments",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/eden"
+  },
+  "result": {
+    "id": "divinerpg:eden_fragments"
+  },
+  "experience": 0.1
+}

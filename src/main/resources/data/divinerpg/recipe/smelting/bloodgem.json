@@ -1,11 +1,10 @@
 {
-  "result": {
-    "id": "divinerpg:bloodgem"
-  },
+  "type": "smelting",
   "ingredient": {
     "item": "divinerpg:bloodgem_ore"
   },
-  "type": "minecraft:smelting",
-  "experience": 1.2,
-  "cookingtime": 200
+  "result": {
+    "id": "divinerpg:bloodgem"
+  },
+  "experience": 1.2
 }

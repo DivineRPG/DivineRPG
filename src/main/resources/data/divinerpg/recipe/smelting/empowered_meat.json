@@ -1,0 +1,11 @@
+{
+  "type": "smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "divinerpg:raw_empowered_meat"
+  },
+  "result": {
+    "id": "divinerpg:empowered_meat"
+  },
+  "experience": 0.35
+}

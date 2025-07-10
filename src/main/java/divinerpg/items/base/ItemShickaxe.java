@@ -7,7 +7,6 @@ import divinerpg.util.LocalizeUtils;
 import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,7 +19,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,9 +31,11 @@ import java.util.stream.*;
 
 import static net.minecraft.advancements.CriteriaTriggers.ITEM_USED_ON_BLOCK;
 import static net.minecraft.core.Direction.DOWN;
+import static net.minecraft.core.component.DataComponents.UNBREAKABLE;
 import static net.minecraft.sounds.SoundSource.BLOCKS;
 import static net.minecraft.tags.BlockTags.*;
 import static net.minecraft.world.item.Items.*;
+import static net.minecraft.world.item.enchantment.Enchantments.*;
 import static net.minecraft.world.level.gameevent.GameEvent.BLOCK_CHANGE;
 import static net.neoforged.neoforge.common.ItemAbilities.*;
 
@@ -43,7 +43,7 @@ public class ItemShickaxe extends DiggerItem {
 	public Integer nameColor;
     //Base constructor
     public ItemShickaxe(Tier tier, Properties properties) {
-        super(tier, create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), (tier.getUses() == 0 ? properties.component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties).attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
+        super(tier, create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), (tier.getUses() == 0 ? properties.component(UNBREAKABLE, new Unbreakable(true)) : properties).attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
     }
     //Base shickaxes
     public ItemShickaxe(Tier tier) {this(tier, new Properties());}
@@ -113,6 +113,14 @@ public class ItemShickaxe extends DiggerItem {
             }
         } return InteractionResult.PASS;
     }
+    @Override public boolean isEnchantable(ItemStack stack) {return true;}
+    @Override public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+        //TODO: to make terran shifter unenchantable with Silk Touch
+        return super.supportsEnchantment(stack, enchantment) && !(stack.has(UNBREAKABLE) && (enchantment.is(MENDING) || enchantment.is(UNBREAKING)));
+    }
+    @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return !(stack.has(UNBREAKABLE) && (Utils.hasStoredEnchantment(MENDING, book) || Utils.hasStoredEnchantment(UNBREAKING, book)));
+    }
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency((int)getTier().getSpeed()));
@@ -122,17 +130,5 @@ public class ItemShickaxe extends DiggerItem {
     }
     @Override public Component getName(ItemStack pStack) {
     	return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
-    }
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return true;
-    }
-    @Override
-    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
-        return super.supportsEnchantment(stack, enchantment) && !(stack.has(DataComponents.UNBREAKABLE) && (enchantment.is(Enchantments.MENDING) || enchantment.is(Enchantments.UNBREAKING)));
-    }
-    @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return !(stack.has(DataComponents.UNBREAKABLE) && (Utils.hasStoredEnchantment(Enchantments.MENDING, book) || Utils.hasStoredEnchantment(Enchantments.UNBREAKING, book)));
     }
 }

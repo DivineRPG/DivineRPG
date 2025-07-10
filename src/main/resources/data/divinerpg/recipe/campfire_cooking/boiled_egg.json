@@ -1,0 +1,10 @@
+{
+  "type": "campfire_cooking",
+  "ingredient": {
+    "tag": "c:eggs"
+  },
+  "cookingtime": 600,
+  "result": {
+    "id": "divinerpg:boiled_egg"
+  }
+}

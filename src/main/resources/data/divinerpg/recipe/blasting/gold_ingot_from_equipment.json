@@ -1,0 +1,11 @@
+{
+  "type": "blasting",
+  "group": "gold_ingot",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/compressed_gold"
+  },
+  "result": {
+    "id": "gold_ingot"
+  },
+  "experience": 1
+}

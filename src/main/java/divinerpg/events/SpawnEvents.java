@@ -2,7 +2,6 @@ package divinerpg.events;
 
 import divinerpg.DivineRPG;
 import divinerpg.entities.eden.EntityWeakCori;
-import divinerpg.entities.vanilla.end.EntityEnderTriplets;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.registries.AttachmentRegistry;
 import net.minecraft.core.*;
@@ -88,7 +87,7 @@ public class SpawnEvents {
 		register(e, JACK_O_MAN.get(), SpawnType.GROUND, (en, s, t, p, r) -> checkMobSpawnRules(en, s, t, p, r) && EntityJackOMan.rules(s, p));
 		register(e, JUNGLE_BAT.get(), SpawnType.FLY, MOB);
 		register(e, JUNGLE_DRAMCRYX.get(), SpawnType.GROUND, MONSTER);
-		register(e, JUNGLE_SPIDER.get(), SpawnType.AGILE, DIFFICULTY_FILTER);
+		register(e, JUNGLE_SPIDER.get(), SpawnType.AGILE, MONSTER);
 		register(e, KING_CRAB.get(), SpawnType.GROUND, MOB_UNDER_SKY);
 		register(e, KOBBLIN.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityKobblin.kobblinSpawnRule(s, p) && s.canSeeSky(p));
 		register(e, LIOPLEURODON.get(), SpawnType.WATER, DIFFICULTY_FILTER);

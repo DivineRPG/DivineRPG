@@ -1,0 +1,11 @@
+{
+  "type": "blasting",
+  "group": "ice_shards",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/ice"
+  },
+  "result": {
+    "id": "divinerpg:ice_shards"
+  },
+  "experience": 0.1
+}

@@ -1,0 +1,11 @@
+{
+  "type": "smelting",
+  "group": "jungle_shards",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/jungle"
+  },
+  "result": {
+    "id": "divinerpg:jungle_shards"
+  },
+  "experience": 0.1
+}

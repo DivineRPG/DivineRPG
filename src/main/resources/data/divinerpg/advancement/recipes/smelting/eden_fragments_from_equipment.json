@@ -1,0 +1,32 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_eden_equipment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:smeltable_equipment/eden"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/eden_fragments_from_equipment"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_eden_equipment",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/eden_fragments_from_equipment"
+    ]
+  }
+}

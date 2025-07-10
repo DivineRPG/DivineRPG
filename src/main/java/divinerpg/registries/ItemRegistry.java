@@ -312,7 +312,7 @@ public class ItemRegistry {
         smoldering_tar_bucket = registerTool("smoldering_tar_bucket", () -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1))),
 
         //minecarts
-        inserter_minecart = registerTool("inserter_minecart", InserterMinecartItem::new),
+        inserter_minecart = registerTool("inserter_minecart", ItemInserterMinecart::new),
 
         //Igniters
         snow_globe = registerTool("snow_globe", ItemSnowGlobe::new),

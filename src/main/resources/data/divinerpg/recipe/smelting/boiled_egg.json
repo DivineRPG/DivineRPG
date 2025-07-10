@@ -1,0 +1,11 @@
+{
+  "type": "smelting",
+  "category": "food",
+  "ingredient": {
+    "tag": "c:eggs"
+  },
+  "result": {
+    "id": "divinerpg:boiled_egg"
+  },
+  "experience": 0.35
+}

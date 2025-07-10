@@ -1,0 +1,32 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_ender_equipment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:smeltable_equipment/ender"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:blasting/ender_shards"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ender_equipment",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:blasting/ender_shards"
+    ]
+  }
+}

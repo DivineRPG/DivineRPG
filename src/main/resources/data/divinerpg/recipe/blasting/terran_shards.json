@@ -1,0 +1,11 @@
+{
+  "type": "blasting",
+  "group": "terran_shards",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/terran"
+  },
+  "result": {
+    "id": "divinerpg:terran_shards"
+  },
+  "experience": 0.1
+}

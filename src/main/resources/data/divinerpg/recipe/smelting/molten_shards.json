@@ -1,0 +1,11 @@
+{
+  "type": "smelting",
+  "group": "molten_shards",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/molten"
+  },
+  "result": {
+    "id": "divinerpg:molten_shards"
+  },
+  "experience": 0.1
+}

@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:mortum_fragments"
-  },
+  "type": "smelting",
+  "group": "mortum_fragments",
   "ingredient": {
     "item": "divinerpg:mortum_ore"
   },
-  "type": "minecraft:smelting",
-  "group": "twilight_fragments",
-  "experience": 2.0,
-  "cookingtime": 200
+  "result": {
+    "id": "divinerpg:mortum_fragments"
+  },
+  "experience": 2
 }

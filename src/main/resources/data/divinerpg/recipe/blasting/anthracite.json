@@ -1,11 +1,10 @@
 {
-  "result": {
-    "id": "divinerpg:anthracite"
-  },
+  "type": "blasting",
   "ingredient": {
     "item": "divinerpg:anthracite_ore"
   },
-  "type": "minecraft:blasting",
-  "experience": 0.1,
-  "cookingtime": 100
+  "result": {
+    "id": "divinerpg:anthracite"
+  },
+  "experience": 0.1
 }

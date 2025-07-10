@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:skythern_fragments"
-  },
+  "type": "smelting",
+  "group": "skythern_fragments",
   "ingredient": {
     "item": "divinerpg:skythern_ore"
   },
-  "type": "minecraft:smelting",
-  "group": "twilight_fragments",
-  "experience": 1.7,
-  "cookingtime": 200
+  "result": {
+    "id": "divinerpg:skythern_fragments"
+  },
+  "experience": 1.7
 }

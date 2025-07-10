@@ -1,0 +1,10 @@
+{
+  "type": "smoking",
+  "ingredient": {
+    "tag": "c:eggs"
+  },
+  "result": {
+    "id": "divinerpg:boiled_egg"
+  },
+  "experience": 0.35
+}

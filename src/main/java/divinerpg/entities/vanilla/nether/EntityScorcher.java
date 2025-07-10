@@ -32,6 +32,7 @@ public class EntityScorcher extends EntityDivineFireballMob {
             for(int i = 0; i < 2; ++i) level().addParticle(ParticleTypes.LARGE_SMOKE, getRandomX(.5), getRandomY(), getRandomZ(.5), 0, 0, 0);
         }
     }
+    //TODO: to make it taking 3 damage from snowballs
     @Override public boolean isSensitiveToWater() {return true;}
     @Override public boolean fireImmune() {return true;}
     @Override public int getMaxSpawnClusterSize() {return 1;}

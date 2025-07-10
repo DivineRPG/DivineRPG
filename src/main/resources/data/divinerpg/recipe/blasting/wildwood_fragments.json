@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:wildwood_fragments"
-  },
+  "type": "blasting",
+  "group": "wildwood_fragments",
   "ingredient": {
     "item": "divinerpg:wildwood_ore"
   },
-  "type": "minecraft:blasting",
-  "group": "twilight_fragments",
-  "experience": 1.0,
-  "cookingtime": 100
+  "result": {
+    "id": "divinerpg:wildwood_fragments"
+  },
+  "experience": 1
 }

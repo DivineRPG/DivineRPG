@@ -1,11 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:bloodgem"
-  },
+  "type": "blasting",
+  "group": "bloodgem",
   "ingredient": {
     "item": "divinerpg:bloodgem_ore"
   },
-  "type": "minecraft:blasting",
-  "experience": 1.2,
-  "cookingtime": 100
+  "result": {
+    "id": "divinerpg:bloodgem"
+  },
+  "experience": 1.2
 }

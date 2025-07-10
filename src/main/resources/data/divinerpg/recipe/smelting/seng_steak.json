@@ -1,0 +1,11 @@
+{
+  "type": "smelting",
+  "category": "food",
+  "ingredient": {
+    "item": "divinerpg:raw_seng_meat"
+  },
+  "result": {
+    "id": "divinerpg:seng_steak"
+  },
+  "experience": 0.35
+}

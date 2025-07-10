@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:realmite_ingot"
-  },
+  "type": "smelting",
+  "group": "realmite_ingot",
   "ingredient": {
     "item": "divinerpg:raw_realmite"
   },
-  "type": "minecraft:smelting",
-  "group": "realmite_ingot",
-  "experience": 0.7,
-  "cookingtime": 200
+  "result": {
+    "id": "divinerpg:realmite_ingot"
+  },
+  "experience": 0.7
 }

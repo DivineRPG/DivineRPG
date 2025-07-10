@@ -1,0 +1,11 @@
+{
+  "type": "smelting",
+  "group": "arlemite_nugget",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/arlemite"
+  },
+  "result": {
+    "id": "divinerpg:arlemite_nugget"
+  },
+  "experience": 0.1
+}

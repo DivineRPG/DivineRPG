@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:oxdrite_ingot"
-  },
+  "type": "blasting",
+  "group": "oxdrite_ingot",
   "ingredient": {
     "item": "divinerpg:oxdrite_ore"
   },
-  "type": "minecraft:blasting",
-  "group": "oxdrite_ingot",
-  "experience": 0.7,
-  "cookingtime": 100
+  "result": {
+    "id": "divinerpg:oxdrite_ingot"
+  },
+  "experience": 0.7
 }

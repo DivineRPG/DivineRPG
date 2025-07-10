@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:rupee_ingot"
-  },
+  "type": "smelting",
+  "group": "rupee_ingot",
   "ingredient": {
     "item": "divinerpg:rupee_ore"
   },
-  "type": "minecraft:smelting",
-  "group": "rupee_ingot",
-  "experience": 1.0,
-  "cookingtime": 200
+  "result": {
+    "id": "divinerpg:rupee_ingot"
+  },
+  "experience": 1
 }

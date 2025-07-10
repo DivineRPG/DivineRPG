@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:mortum_fragments"
-  },
+  "type": "blasting",
+  "group": "mortum_fragments",
   "ingredient": {
     "item": "divinerpg:mortum_ore"
   },
-  "type": "minecraft:blasting",
-  "group": "twilight_fragments",
-  "experience": 2.0,
-  "cookingtime": 100
+  "result": {
+    "id": "divinerpg:mortum_fragments"
+  },
+  "experience": 2
 }

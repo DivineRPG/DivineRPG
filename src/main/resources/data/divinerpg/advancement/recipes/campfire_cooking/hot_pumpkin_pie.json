@@ -1,0 +1,34 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_pumpkin_pie": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pumpkin_pie"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:campfire_cooking/hot_pumpkin_pie"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pumpkin_pie",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:campfire_cooking/hot_pumpkin_pie"
+    ]
+  }
+}

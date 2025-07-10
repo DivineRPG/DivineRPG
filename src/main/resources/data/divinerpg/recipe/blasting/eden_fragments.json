@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:eden_fragments"
-  },
+  "type": "blasting",
+  "group": "eden_fragments",
   "ingredient": {
     "item": "divinerpg:eden_ore"
   },
-  "type": "minecraft:blasting",
-  "group": "twilight_fragments",
-  "experience": 0.7,
-  "cookingtime": 100
+  "result": {
+    "id": "divinerpg:eden_fragments"
+  },
+  "experience": 0.7
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_arcanium_rich_sand": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:arcanium_rich_sand"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:extracting/piece_of_raw_arcanium"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_arcanium_rich_sand",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:extracting/piece_of_raw_arcanium"
+    ]
+  }
+}

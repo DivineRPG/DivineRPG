@@ -1,12 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:rupee_ingot"
-  },
+  "type": "blasting",
+  "group": "rupee_ingot",
   "ingredient": {
     "item": "divinerpg:rupee_ore"
   },
-  "type": "minecraft:blasting",
-  "group": "rupee_ingot",
-  "experience": 1.0,
-  "cookingtime": 100
+  "result": {
+    "id": "divinerpg:rupee_ingot"
+  },
+  "experience": 1
 }

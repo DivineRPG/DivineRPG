@@ -1,0 +1,11 @@
+{
+  "type": "blasting",
+  "group": "rupee_nugget",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/rupee"
+  },
+  "result": {
+    "id": "divinerpg:rupee_nugget"
+  },
+  "experience": 0.1
+}

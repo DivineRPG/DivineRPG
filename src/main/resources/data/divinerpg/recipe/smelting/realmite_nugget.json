@@ -1,0 +1,11 @@
+{
+  "type": "smelting",
+  "group": "realmite_nugget",
+  "ingredient": {
+    "tag": "divinerpg:smeltable_equipment/realmite"
+  },
+  "result": {
+    "id": "divinerpg:realmite_nugget"
+  },
+  "experience": 0.1
+}

@@ -1,11 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:hellfire_sponge"
-  },
+  "type": "blasting",
   "ingredient": {
     "item": "divinerpg:cold_hellfire_sponge"
   },
-  "type": "minecraft:blasting",
-  "experience": 0.1,
-  "cookingtime": 300
+  "cookingtime": 300,
+  "result": {
+    "id": "divinerpg:hellfire_sponge"
+  },
+  "experience": 0.1
 }

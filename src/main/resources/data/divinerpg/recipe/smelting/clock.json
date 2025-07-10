@@ -1,0 +1,10 @@
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "divinerpg:frozen_clock"
+  },
+  "cookingtime": 100,
+  "result": {
+    "id": "clock"
+  }
+}
