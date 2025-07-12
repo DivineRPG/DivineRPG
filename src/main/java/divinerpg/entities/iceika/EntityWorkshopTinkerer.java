@@ -1,35 +1,29 @@
 package divinerpg.entities.iceika;
 
-import divinerpg.entities.goals.AvoidFactionGoal;
 import divinerpg.entities.base.*;
+import divinerpg.entities.goals.AvoidFactionGoal;
 import divinerpg.registries.RecipeRegistry;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 
 public class EntityWorkshopTinkerer extends EntityDivineMerchant implements FactionEntity {
     public EntityWorkshopTinkerer(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
         super(type, worldIn, "workshop_tinkerer");
     }
-    @Override
-    public Faction getFaction() {
-    	return Faction.ICEIKA_MERCHANT;
-    }
-    @Override
-    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+    @Override public Faction getFaction() {return Faction.ICEIKA_MERCHANT;}
+    @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
     	if(getFaction().reputation.get(player) > 5) return super.mobInteract(player, hand);
     	playSound(SoundEvents.VILLAGER_NO);
     	return InteractionResult.FAIL;
     }
-    @Override
-    protected void registerGoals() {
+    @Override protected void registerGoals() {
     	super.registerGoals();
-		goalSelector.addGoal(4, new AvoidFactionGoal(this, getFaction(), (float)getAttributeValue(Attributes.FOLLOW_RANGE), 1.1, 1.1));
+		goalSelector.addGoal(1, new AvoidFactionGoal(this, getFaction(), 15, .5, .5));
     }
-    public String[] getChatMessages() {
+    @Override public String[] getChatMessages() {
         return new String[] {
                 "message.merchant.burr",
                 "message.merchant.ho",
@@ -37,8 +31,7 @@ public class EntityWorkshopTinkerer extends EntityDivineMerchant implements Fact
                 "message.merchant.out"
         };
     }
-    @Override
-    protected void updateTrades() {
+    @Override protected void updateTrades() {
         addOffersFromItemListings(getOffers(), RecipeRegistry.Trades.WORKSHOP_TINKERER.get(level(), getRandom()), 5);
     }
 }

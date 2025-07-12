@@ -60,6 +60,7 @@ public class BlockModGrassBlock extends GrassBlock {
 		place(level, random, pos.south(), myState);
 		place(level, random, pos.west(), myState);
     }
+    //TODO: to force grass blocks turn into dirt when a tree grows on top of them
     private static boolean canBeGrass(BlockState state, LevelReader levelReader, BlockPos pos) {
         BlockPos blockpos = pos.above();
         BlockState blockstate = levelReader.getBlockState(blockpos);

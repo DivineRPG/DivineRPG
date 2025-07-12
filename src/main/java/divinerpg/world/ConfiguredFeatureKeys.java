@@ -80,6 +80,7 @@ public final class ConfiguredFeatureKeys {
 	}
 	
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+		//TODO: to force DivineRPG trees to turn the grass blocks under them into dirt (just like vanilla trees)
 		//Overworld
 		register(context, DIVINE_TREE, FeatureRegistry.DIVINE_TREE.get(), new TreeConfig(getBlockState("divine_log"), getBlockState("divine_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, TAR_LAKE, Feature.LAKE, new Configuration(BlockStateProvider.simple(getBlock("smoldering_tar")), BlockStateProvider.simple(Blocks.STONE)));

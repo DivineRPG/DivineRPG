@@ -440,7 +440,7 @@ public class EntityRegistry {
         DivineRPG.LOGGER.info("[DivineRPG] Attached entity attributes");
 
         //Bosses
-        registerStepMobAttributes(event, ANCIENT_ENTITY, EntityStats.ANCIENT_ENTITY, 5D);
+        registerStepMobAttributes(event, ANCIENT_ENTITY, EntityStats.ANCIENT_ENTITY, 5);
         registerMobAttributes(event, THE_WATCHER, EntityStats.THE_WATCHER);
         registerMobAttributes(event, KING_OF_SCORCHERS, EntityStats.KING_OF_SCORCHERS);
         registerMobAttributes(event, KITRA, EntityStats.KITRA);
@@ -465,8 +465,8 @@ public class EntityRegistry {
         registerMobAttributes(event, WRECK, EntityStats.WRECK);
 
         //Overworld
-        registerDefaultMobAttributes(event, LIVESTOCK_MERCHANT);
-        registerDefaultMobAttributes(event, JACK_O_MAN);
+        registerMerchantAttributes(event, LIVESTOCK_MERCHANT);
+        registerMerchantAttributes(event, JACK_O_MAN);
         registerMobAttributes(event, CYCLOPS, EntityStats.CYCLOPS);
         registerMobAttributes(event, KOBBLIN, EntityStats.KOBBLIN);
         registerMobAttributes(event, PUMPKIN_SPIDER, EntityStats.PUMPKIN_SPIDER);
@@ -497,7 +497,7 @@ public class EntityRegistry {
         registerMobAttributes(event, LIOPLEURODON, EntityStats.LIOPLEURODON);
 
         //Cave
-        registerDefaultMobAttributes(event, DIAMOND_DAVE);
+        registerMerchantAttributes(event, DIAMOND_DAVE);
         registerMobAttributesArmour(event, MINER, EntityStats.MINER, 10);
         registerMobAttributes(event, ROTATICK, EntityStats.ROTATICK);
         registerMobAttributes(event, CAVE_CRAWLER, EntityStats.CAVE_CRAWLER);
@@ -536,8 +536,8 @@ public class EntityRegistry {
         registerMobAttributes(event, PINK_GHOST_GLIDER, EntityStats.GHOST_GLIDER);
         registerMobAttributes(event, ROBBIN, EntityStats.ROBBIN);
         registerMobAttributes(event, WOLPERTINGER, EntityStats.WOLPERTINGER);
-        registerDefaultMobAttributes(event, WORKSHOP_MERCHANT);
-        registerDefaultMobAttributes(event, WORKSHOP_TINKERER);
+        registerMerchantAttributes(event, WORKSHOP_MERCHANT);
+        registerMerchantAttributes(event, WORKSHOP_TINKERER);
         registerMobAttributes(event, PALE_ARCHER, EntityStats.PALE_ARCHER);
         registerMobAttributes(event, FROZEN_FLESH, EntityStats.FROZEN_FLESH);
         registerMobAttributes(event, ROLLUM, EntityStats.ROLLUM);
@@ -563,13 +563,13 @@ public class EntityRegistry {
         registerMobAttributes(event, GRUZZORLUG_SWORDSMAN, EntityStats.GRUZZORLUG_SWORDSMAN);
 
         //Arcana
-        registerDefaultMobAttributes(event, CAPTAIN_MERIK);
-        registerDefaultMobAttributes(event, DATTICON);
-        registerDefaultMobAttributes(event, KAZARI);
-        registerDefaultMobAttributes(event, LEORNA);
-        registerDefaultMobAttributes(event, LORD_VATTICUS);
-        registerDefaultMobAttributes(event, WAR_GENERAL);
-        registerDefaultMobAttributes(event, ZELUS);
+        registerMerchantAttributes(event, CAPTAIN_MERIK);
+        registerMerchantAttributes(event, DATTICON);
+        registerMerchantAttributes(event, KAZARI);
+        registerMerchantAttributes(event, LEORNA);
+        registerMerchantAttributes(event, LORD_VATTICUS);
+        registerMerchantAttributes(event, WAR_GENERAL);
+        registerMerchantAttributes(event, ZELUS);
         registerMobAttributes(event, SKYRE, EntityStats.SKYRE);
         registerMobAttributes(event, RAZORBACK, EntityStats.RAZORBACK);
         registerMobAttributes(event, DEATH_HOUND, EntityStats.DEATH_HOUND);
@@ -637,7 +637,7 @@ public class EntityRegistry {
 
         //Vethea
         //Layer 1
-        registerDefaultMobAttributes(event, THE_HUNGER);
+        registerMerchantAttributes(event, THE_HUNGER);
         registerMobAttributes(event, CRYPT_KEEPER, EntityStats.CRYPT_KEEPER);
         registerMobAttributes(event, MYSTERIOUS_MAN_LAYER1, EntityStats.MYSTERIOUS_MAN);
         registerMobAttributes(event, ACID_HAG, EntityStats.ACID_HAG);
@@ -1236,8 +1236,8 @@ public class EntityRegistry {
     private static <T extends Mob> void registerMobAttributesArmour(EntityAttributeCreationEvent event, DeferredHolder<EntityType<?>, EntityType<T>> entity, EntityStats stats, double armour) {
         event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, stats.getHealth()).add(Attributes.ATTACK_DAMAGE, stats.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, stats.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, stats.getFollowRange()).add(Attributes.FLYING_SPEED, stats.getMovementSpeed()).add(Attributes.ARMOR, armour).build());
     }
-    private static <T extends Mob> void registerDefaultMobAttributes(EntityAttributeCreationEvent event, DeferredHolder<EntityType<?>, EntityType<T>> entity) {
-        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.DEFAULT.getHealth()).add(Attributes.ATTACK_DAMAGE, EntityStats.DEFAULT.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, EntityStats.DEFAULT.getMovementSpeed()).add(Attributes.FOLLOW_RANGE, EntityStats.DEFAULT.getFollowRange()).add(Attributes.FLYING_SPEED, EntityStats.DEFAULT.getMovementSpeed()).build());
+    private static <T extends Mob> void registerMerchantAttributes(EntityAttributeCreationEvent event, DeferredHolder<EntityType<?>, EntityType<T>> entity) {
+        event.put(entity.get(), Mob.createMobAttributes().add(Attributes.MAX_HEALTH, EntityStats.DEFAULT.getHealth()).add(Attributes.ATTACK_DAMAGE, EntityStats.DEFAULT.getAttackDamage()).add(Attributes.MOVEMENT_SPEED, .7).add(Attributes.FOLLOW_RANGE, EntityStats.DEFAULT.getFollowRange()).add(Attributes.FLYING_SPEED, EntityStats.DEFAULT.getMovementSpeed()).build());
     }
     private static <T extends Projectile> DeferredHolder<EntityType<?>, EntityType<T>> registerProjectile(EntityType.EntityFactory<T> factory, String entityName, float width, float length) {
         return ENTITIES.register(entityName, () -> EntityType.Builder.of(factory, MobCategory.MISC).sized(width, length).setTrackingRange(120).setUpdateInterval(20).build(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, entityName).getPath()));
