@@ -74,17 +74,17 @@ public class SpawnEvents {
 		register(e, ARID_WARRIOR.get(), SpawnType.GROUND, MONSTER_DARKNESS_UNDER_SKY);
 		register(e, BROWN_GRIZZLE.get(), SpawnType.GROUND, MOB);
 		register(e, CAVE_CRAWLER.get(), SpawnType.GROUND, CAVE_MONSTER);
-		register(e, CAVECLOPS.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityCaveclops.caveClopsSpawnRule(s, p) && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r));
+		register(e, CAVECLOPS.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityCaveclops.caveClopsSpawnRule(s, p) && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkValidSpawnBlock(en, s, t, p, r));
 		register(e, CRAB.get(), SpawnType.GROUND, MOB_UNDER_SKY);
 		register(e, CYCLOPS.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityKobblin.kobblinSpawnRule(s, p));
 		register(e, DESERT_CRAWLER.get(), SpawnType.GROUND, MONSTER_DARKNESS_UNDER_SKY);
 		register(e, DIAMOND_DAVE.get(), SpawnType.GROUND, MOB);
 		register(e, EHU.get(), SpawnType.GROUND, MOB);
-		register(e, ENTHRALLED_DRAMCRYX.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityEnthralledDramcryx.enthralledDramcryxSpawnRule(s, p) && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r));
+		register(e, ENTHRALLED_DRAMCRYX.get(), SpawnType.GROUND, (en, s, t, p, r) -> EntityEnthralledDramcryx.enthralledDramcryxSpawnRule(s, p) && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkValidSpawnBlock(en, s, t, p, r));
 		register(e, FROST.get(), SpawnType.AGILE, MONSTER_AGILE_UNDER_SKY);
 		register(e, GLACON.get(), SpawnType.GROUND, MONSTER);
 		register(e, HUSK.get(), SpawnType.GROUND, MOB);
-		register(e, JACK_O_MAN.get(), SpawnType.GROUND, (en, s, t, p, r) -> checkMobSpawnRules(en, s, t, p, r) && EntityJackOMan.rules(s, p));
+		register(e, JACK_O_MAN.get(), SpawnType.GROUND, (en, s, t, p, r) -> checkValidSpawnBlock(en, s, t, p, r) && EntityJackOMan.rules(s, p));
 		register(e, JUNGLE_BAT.get(), SpawnType.FLY, MOB);
 		register(e, JUNGLE_DRAMCRYX.get(), SpawnType.GROUND, MONSTER);
 		register(e, JUNGLE_SPIDER.get(), SpawnType.AGILE, MONSTER);
@@ -148,7 +148,7 @@ public class SpawnEvents {
 		register(e, FROZEN_FLESH.get(), SpawnType.AGILE, MONSTER);
 		register(e, GLACIDE.get(), SpawnType.GROUND, MONSTER);
 		register(e, HASTREUS.get(), SpawnType.GROUND, MONSTER_DARKNESS);
-		register(e, ROLLUM.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && (MobSpawnType.isSpawner(t) || Monster.isDarkEnoughToSpawn(s, p, r)) && checkMobSpawnRules(en, s, t, p, r));
+		register(e, ROLLUM.get(), SpawnType.GROUND, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && (MobSpawnType.isSpawner(t) || Monster.isDarkEnoughToSpawn(s, p, r)) && checkValidSpawnBlock(en, s, t, p, r));
 		register(e, WORKSHOP_MERCHANT.get(), SpawnType.GROUND, MOB);
 		register(e, WORKSHOP_TINKERER.get(), SpawnType.GROUND, MOB);
 		register(e, GROGLIN_HUNTER.get(), SpawnType.GROUND, MOB);
@@ -285,22 +285,22 @@ public class SpawnEvents {
 	public static final SpawnPredicate<? extends Entity>
 		ALWAYS = (e, s, t, p, r) -> true,//AGILE
 		DIFFICULTY_FILTER = SpawnEvents::difficultyFilter,//MONSTER_AGILE
-		MOB = SpawnEvents::checkMobSpawnRules,
-		MONSTER = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && checkMobSpawnRules(e, s, t, p, r),
-		DARKNESS = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(e, s, t, p, r),
-		MONSTER_DARKNESS = (e,s,t,p,r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(e, s, t, p, r),
+		MOB = SpawnEvents::checkValidSpawnBlock,
+		MONSTER = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && checkValidSpawnBlock(e, s, t, p, r),
+		DARKNESS = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && checkValidSpawnBlock(e, s, t, p, r),
+		MONSTER_DARKNESS = (e,s,t,p,r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkValidSpawnBlock(e, s, t, p, r),
 		DARKNESS_AGILE = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r),
 		MONSTER_DARKNESS_AGILE = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r),
 
-		CAVE_MONSTER = (en, s, t, p, r) -> p.getY() < 60 && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r),
-		DEEPSLATE_MONSTER = (en, s, t, p, r) -> p.getY() < 0 && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(en, s, t, p, r),
+		CAVE_MONSTER = (en, s, t, p, r) -> p.getY() < 60 && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkValidSpawnBlock(en, s, t, p, r),
+		DEEPSLATE_MONSTER = (en, s, t, p, r) -> p.getY() < 0 && difficultyFilter(en, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkValidSpawnBlock(en, s, t, p, r),
 
 		AGILE_UNDER_SKY = (e, s, t, p, r) -> s.canSeeSky(p),
 		MONSTER_AGILE_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && s.canSeeSky(p),
-		MOB_UNDER_SKY = (e, s, t, p, r) -> checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p),
-		MONSTER_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p),
-		DARKNESS_UNDER_SKY = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p),
-		MONSTER_DARKNESS_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkMobSpawnRules(e, s, t, p, r) && s.canSeeSky(p),
+		MOB_UNDER_SKY = (e, s, t, p, r) -> checkValidSpawnBlock(e, s, t, p, r) && s.canSeeSky(p),
+		MONSTER_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && checkValidSpawnBlock(e, s, t, p, r) && s.canSeeSky(p),
+		DARKNESS_UNDER_SKY = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && checkValidSpawnBlock(e, s, t, p, r) && s.canSeeSky(p),
+		MONSTER_DARKNESS_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && checkValidSpawnBlock(e, s, t, p, r) && s.canSeeSky(p),
 		DARKNESS_AGILE_UNDER_SKY = (e, s, t, p, r) -> Monster.isDarkEnoughToSpawn(s, p, r) && s.canSeeSky(p),
 		MONSTER_DARKNESS_AGILE_UNDER_SKY = (e, s, t, p, r) -> difficultyFilter(e, s, t, p, r) && Monster.isDarkEnoughToSpawn(s, p, r) && s.canSeeSky(p);
 	public enum SpawnType {
@@ -320,7 +320,7 @@ public class SpawnEvents {
 	public static boolean difficultyFilter(EntityType<? extends Entity> e, ServerLevelAccessor s, MobSpawnType t, BlockPos p, RandomSource r) {
 		return t != MobSpawnType.NATURAL || r.nextInt(10) >= cancellationChances.getOrDefault(s.getDifficulty(), 0);
 	}
-	public static boolean checkMobSpawnRules(EntityType<? extends Entity> type, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+	public static boolean checkValidSpawnBlock(EntityType<? extends Entity> type, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
 		BlockPos blockpos = pos.below();
 		return spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type);
 	}
