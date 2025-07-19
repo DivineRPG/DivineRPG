@@ -28,7 +28,7 @@
   	  },
 	  {
 		  "type": "divinerpg:aequorea",
-		  "weight": 116,
+		  "weight": 16,
 		  "minCount": 1,
 		  "maxCount": 4
 	  },

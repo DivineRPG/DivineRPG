@@ -53,8 +53,7 @@ public class EntityScorcherShot extends DivineFireball {
                 getY() + .5 + (random.nextDouble() - random.nextDouble()) / 5,
                 getZ() + (random.nextDouble() - random.nextDouble()) / 5, 0, 0, 0);
     }
-    @Override
-    public boolean deflect(@NotNull ProjectileDeflection deflection, @Nullable Entity entity, @Nullable Entity owner, boolean deflectedByPlayer) {
+    @Override public boolean deflect(@NotNull ProjectileDeflection deflection, @Nullable Entity entity, @Nullable Entity owner, boolean deflectedByPlayer) {
         return false;
     }
 }
