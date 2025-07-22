@@ -110,6 +110,7 @@ dependencies {
     runtimeOnly("curse.maven:pneumaticcraft-repressurized-281849:${pneumaticcraft_id}") // Pneumaticcraft
     compileOnly("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
     runtimeOnly("curse.maven:just-enough-resources-jer-240630:${jer_id}") //Just Enough Resources
+    runtimeOnly "curse.maven:not-enough-crashes-forge-442354:${not_enough_crashes_id}" //Not Enough Crashes
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

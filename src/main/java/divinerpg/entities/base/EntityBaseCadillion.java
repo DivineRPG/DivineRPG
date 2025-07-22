@@ -1,28 +1,25 @@
 package divinerpg.entities.base;
 
+import divinerpg.registries.AttachmentRegistry;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 
 public class EntityBaseCadillion extends EntityDivineMonster {
     private int chargeTime, ramCooldown;
-    private boolean isCharging;
     public EntityBaseCadillion(EntityType<? extends EntityBaseCadillion> type, Level worldIn) {
         super(type, worldIn);
         chargeTime = ramCooldown = 0;
-        isCharging = followingTarget = false;
     }
     @Override public void aiStep() {
         super.aiStep();
-        if(level().isClientSide) return;
+        if(level().isClientSide || !isAlive()) return;
         if(ramCooldown > 0) ramCooldown--;
         if(getTarget() != null) {
-            if(isCharging) {
+            if(AttachmentRegistry.ANGRY.get(this)) {
                 chargeTime++;
                 if(chargeTime >= 20) {
                     Entity target = getTarget();
@@ -32,25 +29,22 @@ public class EntityBaseCadillion extends EntityDivineMonster {
                     double dz = targetZ - getZ();
                     double distance = Math.sqrt(dx * dx + dz * dz);
                     if(distance > 0) {
-                        double speed = 2.5;
+                        double speed = 3;
                         double motionX = (dx / distance) * speed;
                         double motionZ = (dz / distance) * speed;
-                        setDeltaMovement(motionX, 0, motionZ);
+                        setDeltaMovement(motionX, 0.1, motionZ);
                     } chargeTime = 0;
-                    isCharging = false;
+                    AttachmentRegistry.ANGRY.set(this, false);
                     ramCooldown = 1200;
                 }
             } else if(ramCooldown == 0) {
                 getNavigation().stop();
                 chargeTime++;
                 if(chargeTime >= 40) {
-                    isCharging = true;
+                    AttachmentRegistry.ANGRY.set(this, true);
                     chargeTime = 0;
                 }
             }
-        } else {
-            Player nearestPlayer = level().getNearestPlayer(this, getAttributeValue(Attributes.FOLLOW_RANGE));
-            if(nearestPlayer != null && !nearestPlayer.isCreative()) getNavigation().moveTo(nearestPlayer, 1);
         }
     }
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
