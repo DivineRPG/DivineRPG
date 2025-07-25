@@ -1,6 +1,6 @@
 {
   "type": "divinerpg:highest_ground",
-  "biomes": "divinerpg:eden",
+  "biomes": "#divinerpg:is_eden",
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",

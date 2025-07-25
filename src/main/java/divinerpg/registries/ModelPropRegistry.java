@@ -63,9 +63,9 @@ public class ModelPropRegistry {
                     return entity.getUseItem() != stack ? 0.0F : (float)(stack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
                 }
             });
-            ItemProperties.register(bow, ResourceLocation.withDefaultNamespace("pulling"), (stack, level, entity, i) -> {
-                return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
-            });
+            ItemProperties.register(bow, ResourceLocation.withDefaultNamespace("pulling"), (stack, level, entity, i) ->
+                entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+            );
         }
     }
 
@@ -78,9 +78,9 @@ public class ModelPropRegistry {
                     return entity.getUseItem() != stack ? 0.0F : (float)(stack.getUseDuration(entity) - entity.getUseItemRemainingTicks()) / 20.0F;
                 }
             });
-            ItemProperties.register(missile, ResourceLocation.withDefaultNamespace("pulling"), (stack, level, entity, i) -> {
-                return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
-            });
+            ItemProperties.register(missile, ResourceLocation.withDefaultNamespace("pulling"), (stack, level, entity, i) ->
+                entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+            );
         }
     }
 

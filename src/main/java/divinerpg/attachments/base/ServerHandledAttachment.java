@@ -28,8 +28,6 @@ public class ServerHandledAttachment<T> extends SynchedAttachement<T> {
         r.playToClient(type, streamCodec, (payload, context) -> context.enqueueWork(() -> {
             Entity e = context.player().level().getEntity(payload.entityID);
             if(e != null) e.setData(attachment, payload.data);
-            else DivineRPG.LOGGER.warn("No entity present on client with id: " + payload.entityID);
-//            DivineRPG.LOGGER.info("Recieved entity data packet for entity[" + payload.entityID + "] and data: " + payload.data);
         }));
         r.playToServer(requestType, requestCodec, (payload, context) -> context.enqueueWork(() -> {
             Entity e = context.player().level().getEntity(payload.entityID);

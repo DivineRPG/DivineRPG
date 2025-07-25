@@ -4,8 +4,45 @@
 		"type": "minecraft:noise",
 		"settings": "divinerpg:eden",
 		"biome_source": {
-			"type": "minecraft:fixed",
-			"biome": "divinerpg:eden"
+			"type": "minecraft:multi_noise",
+			"biomes": [
+				{
+					"biome": "divinerpg:eden/plains",
+					"parameters": {
+						"temperature": 0.6,
+						"humidity":	 0,
+						"continentalness": 0,
+						"erosion": 0,
+						"weirdness": 0,
+						"depth": 0,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "divinerpg:eden/magnetic_isles",
+					"parameters": {
+						"temperature": 0.6,
+						"humidity":	 0,
+						"continentalness": 0,
+						"erosion": 0,
+						"weirdness": 0.1,
+						"depth": 0,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "divinerpg:eden/forest",
+					"parameters": {
+						"temperature": 0.6,
+						"humidity":	 1,
+						"continentalness": 0,
+						"erosion": 0,
+						"weirdness": 0,
+						"depth": 0,
+						"offset": 0
+					}
+				}
+			]
 		}
 	}
 }

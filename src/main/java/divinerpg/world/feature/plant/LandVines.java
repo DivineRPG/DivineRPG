@@ -1,0 +1,87 @@
+package divinerpg.world.feature.plant;
+
+import divinerpg.registries.BlockRegistry;
+import divinerpg.world.feature.config.DensityFunctionConfig;
+import net.minecraft.core.*;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.*;
+import net.minecraft.world.level.levelgen.feature.*;
+import net.minecraft.world.level.levelgen.synth.NormalNoise;
+
+import java.util.*;
+
+public class LandVines extends Feature<DensityFunctionConfig> {
+    public LandVines() {super(DensityFunctionConfig.CODEC);}
+    @Override
+    public boolean place(FeaturePlaceContext<DensityFunctionConfig> context) {
+        return place(context.config(), context.level(), null, null, context.origin());
+    }
+    @Override
+    public boolean place(DensityFunctionConfig c, WorldGenLevel level, ChunkGenerator gen, RandomSource random, BlockPos pos) {
+        pos = new BlockPos(pos.getX() & 0xFFFF_FFF0, 0, pos.getZ() & 0xFFFF_FFF0);
+        BlockPos.MutableBlockPos m = pos.mutable();
+        DensityFunction df = getWorkingDensityFunction(level.getLevel().getChunkSource().randomState(), c.function());
+        for(int y = level.getMaxBuildHeight(); y >= level.getMinBuildHeight(); y--) for(int x = 0; x < 16; x++) for(int z = 0; z < 16; z++) if(0 <= df.compute(new DensityFunction.SinglePointContext(pos.getX() | x, y, pos.getZ() | z))) {
+            setBlock(level, m.set(pos.getX() | x, y, pos.getZ() | z), BlockRegistry.divineMossStone.get().defaultBlockState());
+            switch((x + z) & 3) {
+            case 0:
+                setVine(level, m.offset(1, -1, 0));
+                setVine(level, m.offset(2, 0, 0));
+                break;
+            case 1:
+                setVine(level, m.offset(1, 2, 0));
+                setVine(level, m.offset(2, 1, 0));
+                break;
+            case 2:
+                setVine(level, m.offset(0, 2, 0));
+                setVine(level, m.offset(-1, 1, 0));
+                break;
+            default:
+                setVine(level, m.offset(0, -1, 0));
+                setVine(level, m.offset(-1, 0, 0));
+                break;
+            }
+        } return true;
+    }
+    public static DensityFunction getWorkingDensityFunction(RandomState random, DensityFunction f) {
+        return f.mapAll(new DensityFunction.Visitor() {
+            private final Map<DensityFunction, DensityFunction> wrapped = new HashMap<>();
+            public DensityFunction apply(DensityFunction fc) {
+                return wrapped.computeIfAbsent(fc, function -> function instanceof DensityFunctions.HolderHolder(Holder<DensityFunction> function1) ? function1.value() : (function instanceof DensityFunctions.MarkerOrMarked marker ? marker.wrapped() : function));
+            }
+            @Override
+            public DensityFunction.NoiseHolder visitNoise(DensityFunction.NoiseHolder noiseHolder) {
+                Holder<NormalNoise.NoiseParameters> holder = noiseHolder.noiseData();
+                NormalNoise normalnoise = random.getOrCreateNoise(holder.unwrapKey().orElseThrow());
+                return new DensityFunction.NoiseHolder(holder, normalnoise);
+            }
+        });
+    }
+
+    static BlockState vine = BlockRegistry.landVine.get().defaultBlockState(),
+        northVine = Blocks.VINE.defaultBlockState().setValue(PipeBlock.SOUTH, true),
+        southVine = Blocks.VINE.defaultBlockState().setValue(PipeBlock.NORTH, true),
+        eastVine = Blocks.VINE.defaultBlockState().setValue(PipeBlock.WEST, true),
+        westVine = Blocks.VINE.defaultBlockState().setValue(PipeBlock.EAST, true);
+    void setVine(WorldGenLevel level, BlockPos pos) {
+        setBlock(level, pos, vine);
+        growVine(level, pos.north(), northVine);
+        growVine(level, pos.south(), southVine);
+        growVine(level, pos.east(), eastVine);
+        growVine(level, pos.west(), westVine);
+    }
+    void growVine(WorldGenLevel level, BlockPos pos, BlockState state) {
+        BlockPos.MutableBlockPos m = pos.mutable();
+        for(int i = 0, max = 1 + level.getRandom().nextInt(5); i < max && setBlock(level, m, state); i++) m.move(Direction.DOWN);
+    }
+    boolean setBlock(WorldGenLevel level, BlockPos pos, BlockState state) {
+        if(level.getBlockState(pos).isAir()) {
+            level.setBlock(pos, state, 2);
+            return true;
+        } return false;
+    }
+}

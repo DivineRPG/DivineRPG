@@ -26,63 +26,38 @@
 		"lava": 0,
 		"temperature": 0.6,
 		"vegetation": {
-			"type": "minecraft:shifted_noise",
-			"noise": "minecraft:vegetation_large",
-			"xz_scale": 0.25,
-			"y_scale": 0,
-			"shift_x": "minecraft:shift_x",
-			"shift_y": 0,
-			"shift_z": "minecraft:shift_z"
+			"type": "minecraft:shift",
+			"argument": "minecraft:vegetation"
 		},
-		"continents": "minecraft:overworld/continents",
+		"continents": {
+			"type": "minecraft:add",
+			"argument1": "divinerpg:eden/terrain_magnetic",
+			"argument2": 0.15
+		},
 		"erosion": "minecraft:overworld/erosion",
-		"depth": "minecraft:overworld/depth",
-		"ridges": "minecraft:overworld/ridges",
-		"initial_density_without_jaggedness": "minecraft:overworld/base_3d_noise",
-		"final_density": {
-			"type": "minecraft:interpolated",
-			"argument": {
-				"type": "minecraft:add",
-				"argument1": {
-					"type": "minecraft:y_clamped_gradient",
-					"from_y": 0,
-					"to_y": 128,
-					"from_value": -1,
-					"to_value": 0
-				},
-				"argument2": {
+		"depth": {
+			"type": "minecraft:add",
+			"argument1": {
+				"type": "minecraft:y_clamped_gradient",
+				"from_y": 0,
+				"to_y": 255,
+				"from_value": 1,
+				"to_value": -1
+			},
+			"argument2": {
+				"type": "minecraft:clamp",
+				"input": {
 					"type": "minecraft:add",
-					"argument1": {
-						"type": "minecraft:add",
-						"argument1": {
-							"type": "minecraft:y_clamped_gradient",
-							"from_y": 128,
-							"to_y": 256,
-							"from_value": -0.1,
-							"to_value": -1.34
-						},
-						"argument2": {
-							"type": "minecraft:add",
-							"argument1": {
-								"type": "minecraft:y_clamped_gradient",
-								"from_y": 112,
-								"to_y": 128,
-								"from_value": 0,
-								"to_value": 0.1
-							},
-							"argument2": {
-								"type": "minecraft:y_clamped_gradient",
-								"from_y": 128,
-								"to_y": 132,
-								"from_value": 0,
-								"to_value": -0.1
-							}
-						}
-					},
-					"argument2": "minecraft:overworld/base_3d_noise"
-				}
+					"argument1": "divinerpg:eden/terrain_magnetic",
+					"argument2": -0.02
+				},
+				"min": 0,
+				"max": 999
 			}
 		},
+		"ridges": "divinerpg:eden/magnetic_biome_toggle",
+		"initial_density_without_jaggedness": "minecraft:overworld/base_3d_noise",
+		"final_density": "divinerpg:eden/terrain_magnetic",
 		"vein_toggle": 0,
 		"vein_ridged": 0,
 		"vein_gap": 0

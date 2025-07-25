@@ -1,0 +1,9 @@
+{
+  "feature": "divinerpg:eden/land_vines",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 1
+    }
+  ]
+}

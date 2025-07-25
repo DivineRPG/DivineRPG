@@ -1,0 +1,9 @@
+{
+  "feature": "divinerpg:noise_remover",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 1
+    }
+  ]
+}

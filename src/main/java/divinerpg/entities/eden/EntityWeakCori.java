@@ -58,7 +58,7 @@ public class EntityWeakCori extends EntityDivineFlyingMonster implements RangedA
         return SoundRegistry.CORI_HURT.get();
     }
 
-    public static boolean weakCoriSpawnRule(BlockPos pos, RandomSource randomIn) {
+    public static boolean weakCoriSpawnRule(BlockPos pos) {
         return pos.getY() > 128;
     }
 }

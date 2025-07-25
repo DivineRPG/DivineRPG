@@ -709,6 +709,7 @@ public class BlockRegistry {
     purpleGemtop = registerBlock("purple_gemtop", () -> new BlockModFlower(DIG_SPEED, 6, COLOR_CYAN)),
     weedwoodVine = registerBlock("weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),
     blossomedWeedwoodVine = registerBlock("blossomed_weedwood_vine", () -> new BlockModVine(COLOR_BLUE)),
+    landVine = registerBlock("land_vine", () -> new BlockMod(Properties.ofFullCopy(Blocks.MUSHROOM_STEM).mapColor(TERRACOTTA_GREEN))),
 
     //Crops
     tomatoPlant = BLOCKS.register("tomato_plant", () -> new BlockModCrop(tomato_seeds)),

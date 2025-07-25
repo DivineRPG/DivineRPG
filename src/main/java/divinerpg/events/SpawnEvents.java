@@ -168,7 +168,7 @@ public class SpawnEvents {
 		register(e, GREENFEET.get(), SpawnType.GROUND, MONSTER_DARKNESS);
 		register(e, MADIVEL.get(), SpawnType.GROUND, MONSTER_DARKNESS);
 		register(e, SUN_ARCHER.get(), SpawnType.GROUND, MONSTER);
-		register(e, WEAK_CORI.get(), SpawnType.FLY, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityWeakCori.weakCoriSpawnRule(p, r));
+		register(e, WEAK_CORI.get(), SpawnType.FLY, (en, s, t, p, r) -> difficultyFilter(en, s, t, p, r) && EntityWeakCori.weakCoriSpawnRule(p));
     	//Wildwood
 		register(e, BEHEMOTH.get(), SpawnType.GROUND, MONSTER);
 		register(e, EPIPHITE.get(), SpawnType.GROUND, MOB);

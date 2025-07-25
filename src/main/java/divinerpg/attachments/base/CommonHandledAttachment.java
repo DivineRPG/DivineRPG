@@ -27,8 +27,11 @@ public class CommonHandledAttachment<T> extends SynchedAttachement<T> {
     public void registerPayload(PayloadRegistrar r) {
         r.playBidirectional(type, streamCodec, (payload, context) -> context.enqueueWork(() -> {
             Player p = context.player();
-            p.level().getEntity(payload.entityID).setData(attachment, payload.data);
-            if(!p.level().isClientSide()) PacketDistributor.sendToPlayersTrackingEntity(p, new AttachmentPayload(payload.data, p.getId()));
+            Entity e = p.level().getEntity(payload.entityID);
+            if(e != null) {
+                e.setData(attachment, payload.data);
+                if(!p.level().isClientSide()) PacketDistributor.sendToPlayersTrackingEntity(e, new AttachmentPayload(payload.data, payload.entityID));
+            }
         }));
         r.playBidirectional(requestType, requestCodec, (payload, context) -> context.enqueueWork(() -> {
             Entity e = context.player().level().getEntity(payload.entityID);
