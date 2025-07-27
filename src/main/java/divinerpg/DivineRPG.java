@@ -73,13 +73,15 @@ public class DivineRPG {
         });
     }
     private void client(final FMLClientSetupEvent event) {
-        ModelPropRegistry.init();
-        BlockEntityRegistry.renderTiles();
-        NeoForge.EVENT_BUS.register(new BossBarRenderer());
-        NeoForge.EVENT_BUS.register(new EventClientLogin());
-        NeoForge.EVENT_BUS.register(new ClientSidedExtraEvents.MusicEvent());
-        Utils.loadHatInformation();
-        ItemPropertyRegistry.registerProperties();
+        event.enqueueWork(() -> {
+            ModelPropRegistry.init();
+            BlockEntityRegistry.renderTiles();
+            NeoForge.EVENT_BUS.register(new BossBarRenderer());
+            NeoForge.EVENT_BUS.register(new EventClientLogin());
+            NeoForge.EVENT_BUS.register(new ClientSidedExtraEvents.MusicEvent());
+            Utils.loadHatInformation();
+            ItemPropertyRegistry.registerProperties();
+        });
     }
     private void post(final FMLLoadCompleteEvent event){
     }
