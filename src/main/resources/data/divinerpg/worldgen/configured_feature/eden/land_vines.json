@@ -4,13 +4,9 @@
     "argument": {
       "type": "minecraft:add",
       "argument1": {
-        "type": "minecraft:mul",
-        "argument1": 0.16,
-        "argument2": {
-          "type": "minecraft:add",
-          "argument1": -1,
-          "argument2": "divinerpg:eden/magnetic_biome_toggle"
-        }
+        "type": "minecraft:add",
+        "argument1": -1,
+        "argument2": "divinerpg:eden/magnetic_biome_toggle"
       },
       "argument2": {
         "type": "minecraft:add",

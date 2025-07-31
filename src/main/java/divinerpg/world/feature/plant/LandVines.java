@@ -31,18 +31,22 @@ public class LandVines extends Feature<DensityFunctionConfig> {
             case 0:
                 setVine(level, m.offset(1, -1, 0));
                 setVine(level, m.offset(2, 0, 0));
+                setVine(level, m.offset(1, 1, 1));
                 break;
             case 1:
                 setVine(level, m.offset(1, 2, 0));
                 setVine(level, m.offset(2, 1, 0));
+                setVine(level, m.offset(0, 1, 1));
                 break;
             case 2:
                 setVine(level, m.offset(0, 2, 0));
                 setVine(level, m.offset(-1, 1, 0));
+                setVine(level, m.offset(-1, 0, 1));
                 break;
             default:
                 setVine(level, m.offset(0, -1, 0));
                 setVine(level, m.offset(-1, 0, 0));
+                setVine(level, m.offset(1, 1, 1));
                 break;
             }
         } return true;

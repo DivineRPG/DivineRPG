@@ -1,14 +1,7 @@
 package divinerpg.registries;
 
-import com.mojang.blaze3d.shaders.FogShape;
-import com.mojang.blaze3d.systems.RenderSystem;
-import divinerpg.DivineRPG;
-import net.minecraft.client.Camera;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.*;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
@@ -19,14 +12,9 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.common.*;
 import net.neoforged.neoforge.fluids.*;
 import net.neoforged.neoforge.registries.*;
-import org.jetbrains.annotations.NotNull;
-import org.joml.Vector3f;
-
-import java.util.function.Consumer;
 
 import static divinerpg.DivineRPG.MODID;
 
@@ -37,34 +25,7 @@ public class FluidRegistry {
         return new BaseFlowingFluid.Properties(SMOLDERING_TAR, SMOLDERING_TAR_FLUID, SMOLDERING_TAR_FLUID_FLOWING).block(SMOLDERING_TAR_BLOCK).bucket(ItemRegistry.smoldering_tar_bucket);
     }
     public static final DeferredHolder<FluidType, FluidType> SMOLDERING_TAR = FLUID_TYPES.register("smoldering_tar_fluid_type", () ->
-            new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)) {
-                @Override public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
-                    consumer.accept(new IClientFluidTypeExtensions() {
-                        private static final ResourceLocation
-                                STILL = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "block/liquid_tar_still"),
-                                FLOW = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "block/liquid_tar_flow");
-                        @Override public ResourceLocation getStillTexture() {return STILL;}
-                        @Override public ResourceLocation getFlowingTexture() {return FLOW;}
-                        @Override public int getTintColor() {return 0xAF7FFFD4;}
-                        @Override public @NotNull Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor) {
-                            int color = getTintColor();
-                            return new Vector3f((color >> 16 & 0xFF) / 255F, (color >> 8 & 0xFF) / 255F, (color & 0xFF) / 255F);
-                        }
-                        @Override public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape) {
-                            //TODO: fix the red fog issue that comes with the lava fluid tag
-                            //TODO: configure different fog distances based on if you have fire res. or spectator mode
-                            nearDistance = -8;
-                            farDistance = 4;
-                            if(farDistance > renderDistance) {
-                                farDistance = renderDistance;
-                                shape = FogShape.CYLINDER;
-                            } RenderSystem.setShaderFogStart(nearDistance);
-                            RenderSystem.setShaderFogEnd(farDistance);
-                            RenderSystem.setShaderFogShape(shape);
-                        }
-                    });
-                }
-            });
+            new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)));
     public static final DeferredHolder<Fluid, BaseFlowingFluid> SMOLDERING_TAR_FLUID = FLUIDS.register("smoldering_tar_still", () ->
             new BaseFlowingFluid.Source(fluidProperties()) {
                 @Override public int getSlopeFindDistance(LevelReader level) {return level.dimensionType().ultraWarm() ? 4 : 2;}
