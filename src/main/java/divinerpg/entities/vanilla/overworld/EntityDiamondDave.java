@@ -18,7 +18,8 @@ public class EntityDiamondDave extends EntityDivineMerchant {
                 "message.diamond_dave.dream",
                 "message.diamond_dave.creative",
                 "message.diamond_dave.exploit",
-                "message.diamond_dave.mysterious"
+                "message.diamond_dave.mysterious",
+                "message.diamond_dave.asthenia"
         };
     }
     @Override protected void updateTrades() {

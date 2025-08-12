@@ -64,6 +64,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
                     if(hasOffers && canTrade(player)) { //Check if trading can start
                         setTradingPlayer(player); //Set the trading player
                         openTradingScreen(player, Component.translatable("entity.divinerpg." + profession), 0); //Open the trading screen
+                        player.displayClientMessage(Component.translatable(getChatMessages()[random.nextInt(getChatMessages().length)]), false);
                     }
                 }
             } return InteractionResult.sidedSuccess(level().isClientSide); //Return success based on the client side
