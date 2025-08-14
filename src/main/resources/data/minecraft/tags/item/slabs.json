@@ -17,6 +17,11 @@
     "divinerpg:degraded_brick_slab",
     "divinerpg:degraded_brick_slab_breakable",
     "divinerpg:twilight_slab",
-    "divinerpg:twilight_brick_slab"
+    "divinerpg:twilight_brick_slab",
+    "divinerpg:scorchalt_slab",
+    "divinerpg:cobbled_scorchalt_slab",
+    "divinerpg:polished_scorchalt_slab",
+    "divinerpg:ray_stone_slab",
+    "divinerpg:polished_ray_stone_slab"
   ]
 }

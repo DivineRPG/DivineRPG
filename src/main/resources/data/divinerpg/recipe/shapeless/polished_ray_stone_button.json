@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "divinerpg_button",
+  "ingredients": [
+    {
+      "item": "divinerpg:polished_ray_stone"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:polished_ray_stone_button"
+  }
+}

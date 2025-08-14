@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "side": "divinerpg:block/polished_scorchalt",
+    "top": "divinerpg:block/polished_scorchalt",
+    "bottom": "divinerpg:block/polished_scorchalt"
+  }
+}

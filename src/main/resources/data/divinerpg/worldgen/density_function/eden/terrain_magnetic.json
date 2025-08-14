@@ -2,9 +2,12 @@
   "type": "minecraft:max",
   "argument1": "divinerpg:eden/terrain",
   "argument2": {
-    "type": "minecraft:mul",
-    "argument1": "divinerpg:eden/magnetic_biome_toggle",
-    "argument2": {
+    "type": "minecraft:range_choice",
+    "min_inclusive": 1,
+    "max_exclusive": 2,
+    "input": "divinerpg:eden/magnetic_biome_toggle",
+    "when_out_of_range": -1,
+    "when_in_range":  {
       "type": "minecraft:interpolated",
       "argument": {
         "type": "minecraft:add",

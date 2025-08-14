@@ -16,6 +16,11 @@
     "divinerpg:degraded_brick_stairs",
     "divinerpg:degraded_brick_stairs_breakable",
     "divinerpg:twilight_stairs",
-    "divinerpg:twilight_brick_stairs"
+    "divinerpg:twilight_brick_stairs",
+    "divinerpg:scorchalt_stairs",
+    "divinerpg:cobbled_scorchalt_stairs",
+    "divinerpg:polished_scorchalt_stairs",
+    "divinerpg:ray_stone_stairs",
+    "divinerpg:polished_ray_stone_stairs"
   ]
 }

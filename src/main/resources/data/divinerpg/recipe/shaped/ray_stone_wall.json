@@ -1,0 +1,16 @@
+{
+  "result": {
+    "id": "divinerpg:ray_stone_wall",
+    "count": 6
+  },
+  "pattern": [
+    "sss",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "divinerpg:ray_stone"
+    }
+  }
+}

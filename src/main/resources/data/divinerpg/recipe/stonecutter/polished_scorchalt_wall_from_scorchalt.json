@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:scorchalt"
+  },
+  "result": {
+    "id": "divinerpg:polishec_scorchalt_wall"
+  }
+}

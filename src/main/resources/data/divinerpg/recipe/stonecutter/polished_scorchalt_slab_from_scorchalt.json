@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:scorchalt"
+  },
+  "result": {
+    "id": "divinerpg:polished_scorchalt_slab",
+    "count": 2
+  }
+}

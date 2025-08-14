@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "divinerpg_button",
+  "ingredients": [
+    {
+      "item": "divinerpg:cobbled_scorchalt"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:cobbled_scorchalt_button"
+  }
+}

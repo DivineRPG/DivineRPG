@@ -4,6 +4,10 @@
     "divinerpg:frozen_stone",
     "divinerpg:cobbled_frozen_stone",
     "divinerpg:twilight_stone",
+    "divinerpg:draught_stone",
+    "divinerpg:scorchalt",
+    "divinerpg:exposed_ray_stone",
+    "divinerpg:ray_stone",
     "packed_ice"
   ]
 }

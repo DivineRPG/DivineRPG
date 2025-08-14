@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:ray_stone"
+  },
+  "result": {
+    "id": "divinerpg:polished_ray_stone_wall"
+  }
+}

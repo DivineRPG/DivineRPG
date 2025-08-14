@@ -19,6 +19,18 @@
 					}
 				},
 				{
+					"biome": "divinerpg:eden/dravite_hills",
+					"parameters": {
+						"temperature": 0.6,
+						"humidity":	 0,
+						"continentalness": 0.5,
+						"erosion": -1,
+						"weirdness": [-1, 0],
+						"depth": -0.7,
+						"offset": 0
+					}
+				},
+				{
 					"biome": "divinerpg:eden/magnetic_isles",
 					"parameters": {
 						"temperature": 0.6,

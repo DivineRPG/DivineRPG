@@ -11,6 +11,11 @@
     "divinerpg:arcanite_button",
     "divinerpg:arcanite_tile_button",
     "divinerpg:twilight_button",
-    "divinerpg:twilight_brick_button"
+    "divinerpg:twilight_brick_button",
+    "divinerpg:scorchalt_button",
+    "divinerpg:cobbled_scorchalt_button",
+    "divinerpg:polished_scorchalt_button",
+    "divinerpg:ray_stone_button",
+    "divinerpg:polished_ray_stone_button"
   ]
 }

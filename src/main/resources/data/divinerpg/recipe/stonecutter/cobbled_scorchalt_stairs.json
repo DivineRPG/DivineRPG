@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "divinerpg:cobbled_scorchalt"
+  },
+  "result": {
+    "id": "divinerpg:cobbled_scorchalt_stairs"
+  }
+}

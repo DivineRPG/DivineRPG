@@ -11,6 +11,11 @@
     "divinerpg:arcanite_pressure_plate",
     "divinerpg:arcanite_tile_pressure_plate",
     "divinerpg:twilight_brick_pressure_plate",
-    "divinerpg:twilight_pressure_plate"
+    "divinerpg:twilight_pressure_plate",
+    "divinerpg:scorchalt_pressure_plate",
+    "divinerpg:cobbled_scorchalt_pressure_plate",
+    "divinerpg:polished_scorchalt_pressure_plate",
+    "divinerpg:ray_stone_pressure_plate",
+    "divinerpg:polished_ray_stone_pressure_plate"
   ]
 }

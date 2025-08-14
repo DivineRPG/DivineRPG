@@ -15,6 +15,11 @@
     "divinerpg:degraded_brick_wall",
     "divinerpg:degraded_brick_wall_breakable",
     "divinerpg:twilight_wall",
-    "divinerpg:twilight_brick_wall"
+    "divinerpg:twilight_brick_wall",
+    "divinerpg:scorchalt_wall",
+    "divinerpg:cobbled_scorchalt_wall",
+    "divinerpg:polished_scorchalt_wall",
+    "divinerpg:ray_stone_wall",
+    "divinerpg:polished_ray_stone_wall"
   ]
 }

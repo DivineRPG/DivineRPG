@@ -85,7 +85,7 @@
 				1
 			],
 			"depth": [
-				0,
+				-1,
 				1
 			],
 			"offset": 0.1
@@ -97,17 +97,58 @@
 			{
 				"type": "minecraft:condition",
 				"if_true": {
-					"type": "minecraft:stone_depth",
-					"offset": 0,
-					"surface_type": "floor",
-					"add_surface_depth": false,
-					"secondary_depth_range": 0
+					"type": "minecraft:biome",
+					"biome_is": [
+						"divinerpg:eden/dravite_hills"
+					]
 				},
 				"then_run": {
-					"type": "minecraft:block",
-					"result_state": {
-						"Name": "divinerpg:eden_grass"
-					}
+					"type": "minecraft:sequence",
+					"sequence": [
+						{
+							"type": "minecraft:condition",
+							"if_true": {
+								"type": "minecraft:stone_depth",
+								"offset": 2,
+								"surface_type": "floor",
+								"add_surface_depth": true,
+								"secondary_depth_range": 0
+							},
+							"then_run": {
+								"type": "minecraft:sequence",
+								"sequence": [
+									{
+										"type": "minecraft:condition",
+										"if_true": {
+											"type": "minecraft:stone_depth",
+											"offset": 1,
+											"surface_type": "floor",
+											"add_surface_depth": true,
+											"secondary_depth_range": 0
+										},
+										"then_run": {
+											"type": "minecraft:block",
+											"result_state": {
+												"Name": "divinerpg:ray_stone"
+											}
+										}
+									},
+									{
+										"type": "minecraft:block",
+										"result_state": {
+											"Name": "divinerpg:exposed_scorchalt"
+										}
+									}
+								]
+							}
+						},
+						{
+							"type": "minecraft:block",
+							"result_state": {
+								"Name": "divinerpg:scorchalt"
+							}
+						}
+					]
 				}
 			},
 			{
@@ -120,10 +161,31 @@
 					"secondary_depth_range": 0
 				},
 				"then_run": {
-					"type": "minecraft:block",
-					"result_state": {
-						"Name": "divinerpg:eden_dirt"
-					}
+					"type": "minecraft:sequence",
+					"sequence": [
+						{
+							"type": "minecraft:condition",
+							"if_true": {
+								"type": "minecraft:stone_depth",
+								"offset": 0,
+								"surface_type": "floor",
+								"add_surface_depth": false,
+								"secondary_depth_range": 0
+							},
+							"then_run": {
+								"type": "minecraft:block",
+								"result_state": {
+									"Name": "divinerpg:eden_grass"
+								}
+							}
+						},
+						{
+							"type": "minecraft:block",
+							"result_state": {
+								"Name": "divinerpg:eden_dirt"
+							}
+						}
+					]
 				}
 			}
 		]
