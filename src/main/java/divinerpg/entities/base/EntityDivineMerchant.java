@@ -49,12 +49,14 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, .35));
         goalSelector.addGoal(9, new InteractGoal(this, Player.class, 3, 1));
         goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 8));
+        goalSelector.addGoal(11, new RandomLookAroundGoal(this));
         super.registerGoals();
     }
     @Override protected void rewardTradeXp(MerchantOffer offer) {
         int i = 3 + random.nextInt(4);
         if(offer.shouldRewardExp()) level().addFreshEntity(new ExperienceOrb(level(), getX(), getY() + .5, getZ(), i));
     }
+    //TODO: something went wrong. They keep looking at the player after getting interacted with once.
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
         if(!(player.getItemInHand(hand).getItem() instanceof SpawnEggItem) && isAlive() && !isSleeping() && !player.isSecondaryUseActive()) {
             if(!level().isClientSide) {
@@ -64,9 +66,8 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
                     if(hasOffers && canTrade(player)) { //Check if trading can start
                         setTradingPlayer(player); //Set the trading player
                         openTradingScreen(player, Component.translatable("entity.divinerpg." + profession), 0); //Open the trading screen
-                        if (getChatMessages().length != 0) {
-                            player.displayClientMessage(Component.translatable(getChatMessages()[random.nextInt(getChatMessages().length)]), false);
-                        }
+                        if(getChatMessages().length != 0 && random.nextInt(5) == 1) player.displayClientMessage(Component.literal(getName().getString() + ": ")
+                                .append(Component.translatable(getChatMessages()[random.nextInt(getChatMessages().length)])), false);
                     }
                 }
             } return InteractionResult.sidedSuccess(level().isClientSide); //Return success based on the client side
@@ -80,9 +81,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         super.stopTrading();
         resetSpecialPrices();
     }
-    private void resetSpecialPrices() {
-        if(level() instanceof ServerLevel) for(MerchantOffer merchantoffer : getOffers()) merchantoffer.resetSpecialPriceDiff();
-    }
+    private void resetSpecialPrices() {if(level() instanceof ServerLevel) for(MerchantOffer merchantoffer : getOffers()) merchantoffer.resetSpecialPriceDiff();}
     private boolean canTrade(Player player) {return player.isAlive() && !player.isSleeping();}
     @Override public void setTradingPlayer(@Nullable Player player) {
         if(getTradingPlayer() != player) {

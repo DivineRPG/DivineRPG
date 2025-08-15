@@ -8,48 +8,29 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 
-import java.util.ArrayList;
-
 public abstract class EntityGifterNPC extends PathfinderMob {
-
     public EntityGifterNPC(EntityType<? extends PathfinderMob> type, Level worldIn) {
     	super(type, worldIn);
     }
-    @Override
-    protected void registerGoals() {
-        this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(3, new PanicGoal(this, 1.25D));
-        this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+    @Override protected void registerGoals() {
+        goalSelector.addGoal(0, new FloatGoal(this));
+        goalSelector.addGoal(1, new PanicGoal(this, .5));
+        goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, .35));
+        goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, .35));
+        goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 8));
+        goalSelector.addGoal(11, new RandomLookAroundGoal(this));
     }
-    @Override
-    public boolean checkSpawnRules(LevelAccessor p_21686_, MobSpawnType p_21687_) {
-    	return true;
+    @Override public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {return true;}
+    @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if(isAlive()) {
+            if(!level().isClientSide) {
+                player.getInventory().add(getGift());
+                if(getChatMessages().length != 0 && random.nextInt(5) == 1) player.displayClientMessage(Component.literal(getName().getString() + ": ")
+                        .append(Component.translatable(getChatMessages()[random.nextInt(getChatMessages().length)])), false);
+                remove(Entity.RemovalReason.DISCARDED);
+            } return InteractionResult.PASS;
+        } else return super.mobInteract(player, hand);
     }
-    @Override
-    public InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if(this.isAlive()) {
-            if(!this.level().isClientSide()) {
-                player.getInventory().add(this.getGift());
-                sendRandomChatMessage(player);
-                this.remove(Entity.RemovalReason.DISCARDED);
-            }
-            return InteractionResult.PASS;
-        } else {
-        	return super.mobInteract(player, hand);
-        }
-    }
-
-    protected void sendRandomChatMessage(Player player) {
-        ArrayList<String> messages = getMessages();
-        String name = Component.translatable(getTranslationName()).getString();
-        String messageToTranslate = Component.translatable(messages.get(random.nextInt(messages.size()))).getString();
-        Component message = Component.translatable(name + ": " + messageToTranslate);
-        player.displayClientMessage(message, true);
-    }
-
     protected abstract ItemStack getGift();
-    protected abstract ArrayList<String> getMessages();
-    protected abstract String getTranslationName();
+    public abstract String[] getChatMessages();
 }

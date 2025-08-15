@@ -11,13 +11,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
+import static divinerpg.registries.RecipeRegistry.Trades.WORKSHOP_MERCHANT;
+
 public class EntityWorkshopMerchant extends EntityDivineMerchant implements FactionEntity {
-    public EntityWorkshopMerchant(EntityType<? extends EntityWorkshopMerchant> type, Level worldIn) {
-        super(type, worldIn, "workshop_merchant");
-    }
-    @Override public Faction getFaction() {
-    	return Faction.ICEIKA_MERCHANT;
-    }
+    public EntityWorkshopMerchant(EntityType<? extends EntityWorkshopMerchant> type, Level worldIn) {super(type, worldIn, "workshop_merchant");}
+    @Override public Faction getFaction() {return Faction.ICEIKA_MERCHANT;}
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
     	if(getFaction().reputation.get(player) > 5) return super.mobInteract(player, hand);
     	playSound(SoundEvents.VILLAGER_NO);
@@ -29,15 +27,13 @@ public class EntityWorkshopMerchant extends EntityDivineMerchant implements Fact
     }
     @Override public String[] getChatMessages() {
         return new String[] {
-                "message.merchant.burr",
-                "message.merchant.ho",
-                "message.merchant.in",
-                "message.merchant.out"
+            "message.merchant.burr",
+            "message.merchant.ho",
+            "message.merchant.in",
+            "message.merchant.out"
         };
     }
-    @Override protected void updateTrades() {
-        addOffersFromItemListings(getOffers(), RecipeRegistry.Trades.WORKSHOP_MERCHANT.get(level(), getRandom()), 5);
-    }
+    @Override protected void updateTrades() {addOffersFromItemListings(getOffers(), WORKSHOP_MERCHANT.get(level(), getRandom()), 5);}
     @Override public void die(DamageSource cause) {
         if(level() instanceof ServerLevel) modifyReputationOnDeath(cause);
         super.die(cause);

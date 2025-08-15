@@ -11,7 +11,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
 public class GlacialWallTotemEvent {
-
+//TODO: the upper and lower parts made of icicles look weird and dangerous.
+//TODO: it doesn't get activated properly, something is off with the conditions (or it might be just that the hp requirement is pretty low and you rather die or trap yourself with the enemy inside).
+//TODO: only works when in off-hand.
     @SubscribeEvent
     public void onPlayerHurt(LivingDamageEvent.Pre event) {
         if (event.getEntity() instanceof Player) {

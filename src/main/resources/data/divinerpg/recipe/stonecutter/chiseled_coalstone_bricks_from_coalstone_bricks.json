@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:stonecutting",
+  "type": "stonecutting",
   "ingredient": {
     "item": "divinerpg:coalstone_bricks"
   },
@@ -7,4 +7,3 @@
     "id": "divinerpg:chiseled_coalstone_bricks"
   }
 }
-

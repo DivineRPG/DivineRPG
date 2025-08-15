@@ -116,7 +116,7 @@ public enum EntityStats {
     DUNGEON_PRISONER(85, 17),
     LIVING_STATUE(60),
     RAZORBACK(35, 9),
-    ROAMER(),
+    ROAMER(40, 11),
     SKYRE(35, 8, 16),
     FYRACRYX(60, 5),
     GOLEM_OF_REJUVENATION(30, 2),
@@ -174,8 +174,6 @@ public enum EntityStats {
 
     //Vethea
     //Layer 1
-    CRYPT_KEEPER(200, 1, 25, .32),
-    MYSTERIOUS_MAN(20, 1, 35, .32),
     ACID_HAG(25),
     CYMESOID(25, 8),
     DREAMWRECKER(60, 8),
@@ -187,7 +185,6 @@ public enum EntityStats {
     SHADAHIER(10, 7),
 
     //Layer 2
-    TEMPLE_GUARDIAN(),
     BIPHRON(40, 14),
     INSECT_FOURTEEN(25),
     GORGOSION(60),

@@ -1,5 +1,6 @@
 {
   "block.divinerpg.chiseled_coalstone_bricks": "Chiselled Coalstone Bricks",
+  "block.divinerpg.chiseled_scorchalt": "Chiselled Scorchalt",
 
   "item.divinerpg.smithing_template.aquatic_coating.applies_to": "Aquastrive Armour",
   "item.divinerpg.smithing_template.aquatic_coating.base_slot_description": "Add aquastrive armour",
@@ -42,7 +43,9 @@
 
   "item.divinerpg.dream_sweets": "Dream Sweets",
 
-  "advancement.divinerpg.overworld.attempt_at_ascension.desc": "Craft all Divine armour and tools",
-  "advancement.divinerpg.overworld.when_pigs_fly.desc": "Get a full suit of Angelic armour",
-  "advancement.divinerpg.iceika.what_makes_you_beautiful.desc": "Get a full suit of Seng Fur armour"
+  "advancement.divinerpg.divine.attempt_at_ascension.desc": "Craft all Divine armour and tools",
+  "advancement.divinerpg.end.when_pigs_fly.desc": "Get a full suit of Angelic armour",
+  "advancement.divinerpg.iceika.what_makes_you_beautiful.desc": "Get a full suit of Seng Fur armour",
+
+  "message.livestock.travel": "When travelling, I met a merchant named Zelus, who sold me the eggs that grew into the pets I breed now."
 }

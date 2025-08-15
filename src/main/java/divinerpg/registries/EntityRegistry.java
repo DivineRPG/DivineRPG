@@ -397,7 +397,7 @@ public class EntityRegistry {
     //Layer 1
     public static final DeferredHolder<EntityType<?>, EntityType<EntityTheHunger>>			 THE_HUNGER			  = registerEntity(EntityTheHunger::new,			"the_hunger",			     .8F, 2, 1.8125F, 0x1e1e1e, 0xaa7d66, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityCryptKeeper>>		 CRYPT_KEEPER		  = registerEntity(EntityCryptKeeper::new,			"crypt_keeper",			 .6F, 2.0625F, 1.9275F, 0x202f05, 0x4c6e08, MobCategory.CREATURE);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer1>>MYSTERIOUS_MAN_LAYER1= registerEntity(EntityMysteriousManLayer1::new,  "mysterious_man_layer_1",  .6F, 2.125F, 1.99F, 0x060000, 0xb11d1d, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer1>> MYSTERIOUS_MAN_LAYER1= registerEntity(EntityMysteriousManLayer1::new,  "mysterious_man_layer_1",  .6F, 2.125F, 1.99F, 0x060000, 0xb11d1d, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityAcidHag>>			 ACID_HAG			  = registerEntity(EntityAcidHag::new,				"acid_hag",				 .9F, 1.7F, 1.525F, 0x657b17, 0x7e4f19);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityCymesoid>>			 CYMESOID			  = registerEntity(EntityCymesoid::new,				"cymesoid",				 .8F, 2, 1.7F, 0x6dd4fa, 0x469afc);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDreamwrecker>>		 DREAMWRECKER		  = registerEntity(EntityDreamwrecker::new,			"dreamwrecker",			 1, 4.5625F, 4.375F, 0xd7d7d7, 0x92dd91);
@@ -638,8 +638,8 @@ public class EntityRegistry {
         //Vethea
         //Layer 1
         registerMerchantAttributes(event, THE_HUNGER);
-        registerMobAttributes(event, CRYPT_KEEPER, EntityStats.CRYPT_KEEPER);
-        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER1, EntityStats.MYSTERIOUS_MAN);
+        registerMerchantAttributes(event, CRYPT_KEEPER);
+        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER1);
         registerMobAttributes(event, ACID_HAG, EntityStats.ACID_HAG);
         registerMobAttributes(event, CYMESOID, EntityStats.CYMESOID);
         registerMobAttributes(event, DREAMWRECKER, EntityStats.DREAMWRECKER);
@@ -651,8 +651,8 @@ public class EntityRegistry {
         registerMobAttributes(event, SHADAHIER, EntityStats.SHADAHIER);
 
         //Layer 2
-        registerMobAttributes(event, TEMPLE_GUARDIAN, EntityStats.TEMPLE_GUARDIAN);
-        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER2, EntityStats.MYSTERIOUS_MAN);
+        registerMerchantAttributes(event, TEMPLE_GUARDIAN);
+        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER2);
         registerMobAttributes(event, BIPHRON, EntityStats.BIPHRON);
         registerMobAttributes(event, GORGOSION, EntityStats.GORGOSION);
         registerMobAttributes(event, INSECT_FOURTEEN, EntityStats.INSECT_FOURTEEN);
@@ -661,7 +661,7 @@ public class EntityRegistry {
         registerMobAttributes(event, VERMENOUS, EntityStats.VERMENOUS);
 
         //Layer 3
-        registerMobAttributes(event, MYSTERIOUS_MAN_LAYER3, EntityStats.MYSTERIOUS_MAN);
+        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER3);
         registerMobAttributes(event, BOHEMITE, EntityStats.BOHEMITE);
         registerMobAttributes(event, GALROID, EntityStats.GALROID);
         registerMobAttributes(event, KAZROTIC, EntityStats.KAZROTIC);
@@ -1153,25 +1153,25 @@ public class EntityRegistry {
         event.registerEntityRenderer(TWILIGHT_ARCHER.get(),  RenderTwilightArcher::new);
 
         //Arcana
-        event.registerEntityRenderer(CAPTAIN_MERIK.get(),	  (Context context) -> new RenderDivineMob<>(context, "captain_merik", new ModelSamek<>(context)));
-        event.registerEntityRenderer(DATTICON.get(),		  (Context context) -> new RenderDivineMob<>(context, "datticon", new ModelSamek<>(context)));
+        event.registerEntityRenderer(CAPTAIN_MERIK.get(),	  (Context context) -> new RenderDivineMob<>(context, "captain_merik", new ModelSamek<>(context), .5F));
+        event.registerEntityRenderer(DATTICON.get(),		  (Context context) -> new RenderDivineMob<>(context, "datticon", new ModelSamek<>(context), .5F));
         event.registerEntityRenderer(DEATHCRYX.get(),		  (Context context) -> new RenderDivineMob<>(context, "deathcryx", new ModelDeathcryx<>(context), .8F,  1.1F));
-        event.registerEntityRenderer(DEATH_HOUND.get(),		  (Context context) -> new RenderDivineMob<>(context, "death_hound", new ModelDeathHound(context), .7F));
+        event.registerEntityRenderer(DEATH_HOUND.get(),		  (Context context) -> new RenderDivineMob<>(context, "death_hound", new ModelDeathHound(context), .55F));
         event.registerEntityRenderer(DUNGEON_CONSTRUCTOR.get(),(Context context) -> new RenderDivineMob<>(context, "dungeon_constructor", new ModelDungeonConstructor<>(context), .4F, .4F));
-        event.registerEntityRenderer(DUNGEON_DEMON.get(),	  (Context context) -> new RenderDivineMob<>(context, "dungeon_demon", new ModelDungeonDemon<>(context)));
-        event.registerEntityRenderer(DUNGEON_PRISONER.get(),  (Context context) -> new RenderDivineMob<>(context, "dungeon_prisoner", new ModelDungeonPrisoner(context), .9F));
+        event.registerEntityRenderer(DUNGEON_DEMON.get(),	  (Context context) -> new RenderDivineMob<>(context, "dungeon_demon", new ModelDungeonDemon<>(context), .6F));
+        event.registerEntityRenderer(DUNGEON_PRISONER.get(),  (Context context) -> new RenderDivineMob<>(context, "dungeon_prisoner", new ModelDungeonPrisoner(context), .6F));
         event.registerEntityRenderer(FYRACRYX.get(),		  (Context context) -> new RenderDivineMob<>(context, "fyracryx", new ModelDeathcryx<>(context)));
         event.registerEntityRenderer(GOLEM_OF_REJUVENATION.get(),(Context context) -> new RenderDivineMob<>(context, "golem_of_rejuvenation", new ModelRejuvGolem<>(context)));
-        event.registerEntityRenderer(KAZARI.get(),			  (Context context) -> new RenderDivineMob<>(context, "kazari", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .8F));
-        event.registerEntityRenderer(LEORNA.get(),			  (Context context) -> new RenderDivineMob<>(context, "leorna", new ModelLeorna<>(context)));
-        event.registerEntityRenderer(LORD_VATTICUS.get(),	  (Context context) -> new RenderDivineMob<>(context, "lord_vatticus", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .8F));
+        event.registerEntityRenderer(KAZARI.get(),			  (Context context) -> new RenderDivineMob<>(context, "kazari", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
+        event.registerEntityRenderer(LEORNA.get(),			  (Context context) -> new RenderDivineMob<>(context, "leorna", new ModelLeorna<>(context), .5F));
+        event.registerEntityRenderer(LORD_VATTICUS.get(),	  (Context context) -> new RenderDivineMob<>(context, "lord_vatticus", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
         event.registerEntityRenderer(LIVING_STATUE.get(),	  (Context context) -> new RenderDivineMob<>(context, "living_statue", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
         event.registerEntityRenderer(PARATIKU.get(),		  (Context context) -> new RenderDivineMob<>(context, "paratiku", new ModelParatiku<>(context)));
         event.registerEntityRenderer(RAZORBACK.get(),		  (Context context) -> new RenderDivineMob<>(context, "razorback", new ModelRazorback(context), .4F));
-        event.registerEntityRenderer(ROAMER.get(),			  (Context context) -> new RenderDivineMob<>(context, "roamer", new ModelRoamer(context)));
+        event.registerEntityRenderer(ROAMER.get(),			  (Context context) -> new RenderDivineMob<>(context, "roamer", new ModelRoamer(context), .6F));
         event.registerEntityRenderer(SEIMER.get(),			  (Context context) -> new RenderDivineMob<>(context, "seimer", new ModelSeimer<>(context)));
         event.registerEntityRenderer(SKYRE.get(),			  (Context context) -> new RenderDivineMob<>(context, "skyre", new ModelSkyre<>(context), .25F, .5F));
-        event.registerEntityRenderer(WAR_GENERAL.get(),		  (Context context) -> new RenderDivineMob<>(context, "war_general", new ModelSamek<>(context)));
+        event.registerEntityRenderer(WAR_GENERAL.get(),		  (Context context) -> new RenderDivineMob<>(context, "war_general", new ModelSamek<>(context), .5F));
         event.registerEntityRenderer(WRAITH.get(),			  (Context context) -> new RenderDivineMob<>(context, "wraith", new ModelWraith<>(context)));
         event.registerEntityRenderer(ZELUS.get(),			  (Context context) -> new RenderDivineMob<>(context, "zelus", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
 
@@ -1179,7 +1179,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(ACID_HAG.get(), (Context context) -> new RenderDivineMob<>(context, "acid_hag", new ModelAcidHag<>(context)));
         event.registerEntityRenderer(BIPHRON.get(), (Context context) -> new RenderDivineMob<>(context, "biphron", new ModelBiphron<>(context)));
         event.registerEntityRenderer(BOHEMITE.get(), (Context context) -> new RenderDivineMob<>(context, "bohemite", new ModelBohemite<>(context)));
-        event.registerEntityRenderer(CRYPT_KEEPER.get(), (Context context) -> new RenderDivineMob<>(context, "crypt_keeper", new ModelCryptKeeper<>(context)));
+        event.registerEntityRenderer(CRYPT_KEEPER.get(), (Context context) -> new RenderDivineMob<>(context, "crypt_keeper", new ModelCryptKeeper<>(context), .5F));
         event.registerEntityRenderer(CYMESOID.get(), (Context context) -> new RenderDivineMob<>(context, "cymesoid", new ModelCymesoid<>(context)));
         event.registerEntityRenderer(DISSIMENT.get(), (Context context) -> new RenderDivineMob<>(context, "dissiment", new ModelDissiment<>(context)));
         event.registerEntityRenderer(DREAMWRECKER.get(), (Context context) -> new RenderDivineMob<>(context, "dreamwrecker", new ModelDreamwrecker<>(context)));
@@ -1197,12 +1197,12 @@ public class EntityRegistry {
         event.registerEntityRenderer(LORGA.get(), (Context context) -> new RenderDivineMob<>(context, "lorga", new ModelLorga<>(context)));
         event.registerEntityRenderer(LORGA_FLIGHT.get(), (Context context) -> new RenderDivineMob<>(context, "lorgaflight", new ModelLorgaFlight<>(context)));
         event.registerEntityRenderer(MANDRAGORA.get(), (Context context) -> new RenderDivineMob<>(context, "mandragora", new ModelMandragora<>(context)));
-        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER1.get(), (Context context) -> new RenderDivineMob<>(context, "mysterious_man_layer_1", new ModelMysteriousMan<>(context)));
-        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER2.get(), (Context context) -> new RenderDivineMob<>(context, "mysterious_man_layer_2", new ModelMysteriousMan<>(context)));
-        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER3.get(), (Context context) -> new RenderDivineMob<>(context, "mysterious_man_layer_3", new ModelMysteriousMan<>(context)));
+        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER1.get(), (Context context) -> new RenderDivineMob<>(context, "mysterious_man_layer_1", new ModelMysteriousMan<>(context), .5F));
+        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER2.get(), (Context context) -> new RenderDivineMob<>(context, "mysterious_man_layer_2", new ModelMysteriousMan<>(context), .5F));
+        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER3.get(), (Context context) -> new RenderDivineMob<>(context, "mysterious_man_layer_3", new ModelMysteriousMan<>(context), .5F));
         event.registerEntityRenderer(SHADAHIER.get(), (Context context) -> new RenderDivineMob<>(context, "shadahier", new ModelShadahier<>(context)));
         event.registerEntityRenderer(TEMPLE_GUARDIAN.get(), (Context context) -> new RenderDivineMob<>(context, "temple_guardian", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
-        event.registerEntityRenderer(THE_HUNGER.get(), (Context context) -> new RenderDivineMob<>(context, "the_hunger", new ModelTheHunger<>(context)));
+        event.registerEntityRenderer(THE_HUNGER.get(), (Context context) -> new RenderDivineMob<>(context, "the_hunger", new ModelTheHunger<>(context), .5F));
         event.registerEntityRenderer(TOCAXIN.get(), (Context context) -> new RenderDivineMob<>(context, "tocaxin", new ModelTocaxin<>(context)));
         event.registerEntityRenderer(TWINS.get(), (Context context) -> new RenderDivineMob<>(context, "twins", new ModelTwins(context)));
         event.registerEntityRenderer(VERMENOUS.get(), (Context context) -> new RenderDivineMob<>(context, "vermenous", new ModelVermenous<>(context)));

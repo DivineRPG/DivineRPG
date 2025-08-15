@@ -1,24 +1,20 @@
 package divinerpg.entities.vethea;
 
 import divinerpg.entities.base.EntityDivineMerchant;
-import divinerpg.registries.*;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.level.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
+
+import static divinerpg.registries.RecipeRegistry.Trades.THE_HUNGER;
 
 public class EntityTheHunger extends EntityDivineMerchant {
-    public EntityTheHunger(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-        super(type, worldIn, "the_hunger");
-    }
-    public String[] getChatMessages() {
+    public EntityTheHunger(EntityType<? extends EntityTheHunger> type, Level worldIn) {super(type, worldIn, "the_hunger");}
+    @Override public String[] getChatMessages() {
         return new String[] {
-                "message.hunger.closer",
-                "message.hunger.dinner",
-                "message.hunger.fatten",
-                "message.hunger.hungry"
+            "message.hunger.closer",
+            "message.hunger.dinner",
+            "message.hunger.fatten",
+            "message.hunger.hungry"
         };
     }
-    @Override
-	protected void updateTrades() {
-		addOffersFromItemListings(getOffers(), RecipeRegistry.Trades.THE_HUNGER.get(level(), getRandom()), 7);
-	}
+    @Override protected void updateTrades() {addOffersFromItemListings(getOffers(), THE_HUNGER.get(level(), getRandom()), 7);}
 }

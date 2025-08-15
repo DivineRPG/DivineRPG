@@ -3,6 +3,9 @@
     "divinerpg:crate": {
       "burn_time": 300
     },
+    "divinerpg:land_vine": {
+      "burn_time": 300
+    },
     "divinerpg:anthracite": {
       "burn_time": 3200
     },

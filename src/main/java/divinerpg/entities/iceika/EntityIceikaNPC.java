@@ -24,7 +24,7 @@ import net.minecraft.world.level.pathfinder.PathType;
 import javax.annotation.Nullable;
 
 public abstract class EntityIceikaNPC extends EntityDivineMerchant implements FactionEntity {
-	public EntityIceikaNPC(EntityType<? extends EntityDivineMerchant> type, Level worldIn, String profession) {
+	public EntityIceikaNPC(EntityType<? extends EntityIceikaNPC> type, Level worldIn, String profession) {
         super(type, worldIn, profession);
         setPathfindingMalus(PathType.POWDER_SNOW, -1);
     }
@@ -51,8 +51,7 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 		populateDefaultEquipmentEnchantments(level, random, difficulty);
 		return data;
 	}
-	@Override
-    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+	@Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
 		if(getFaction().likes(player)) return super.mobInteract(player, hand);
     	playSound(SoundEvents.VILLAGER_NO);
     	return InteractionResult.FAIL;
@@ -69,20 +68,14 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 				entity.addEffect(new MobEffectInstance(getTargetEffect(), -1, 0, false, false, true));
 		} FactionEntity.super.modifyReputationOnDeath(source);
 	}
-	public boolean isImportant() {
-		return AttachmentRegistry.IMPORTANT.get(this);
-	}
+	public boolean isImportant() {return AttachmentRegistry.IMPORTANT.get(this);}
 	@Override public boolean hurt(DamageSource source, float f) {
 		if(level() instanceof ServerLevel) modifyReputationOnHurt(source, f);
 		return super.hurt(source, f);
 	}
 	@Override protected boolean shouldDespawnInPeaceful() {return false;}
-	@Override
-	public String[] getChatMessages() {
-		return new String[0];
-	}
-	@Override
-	protected void rewardTradeXp(MerchantOffer offer) {
+	@Override public String[] getChatMessages() {return new String[0];}
+	@Override protected void rewardTradeXp(MerchantOffer offer) {
 		super.rewardTradeXp(offer);
 		Player player = getTradingPlayer();
 		if(player != null && offer.shouldRewardExp()) getFaction().reputation.modify(player, 1);

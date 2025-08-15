@@ -1,0 +1,10 @@
+{
+  "type": "smelting",
+  "ingredient": {
+    "item": "divinerpg:cobbled_scorchalt"
+  },
+  "result": {
+    "id": "divinerpg:scorchalt"
+  },
+  "experience": 0.1
+}

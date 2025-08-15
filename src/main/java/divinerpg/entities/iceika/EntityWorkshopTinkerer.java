@@ -2,17 +2,16 @@ package divinerpg.entities.iceika;
 
 import divinerpg.entities.base.*;
 import divinerpg.entities.goals.AvoidFactionGoal;
-import divinerpg.registries.RecipeRegistry;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
+import static divinerpg.registries.RecipeRegistry.Trades.WORKSHOP_TINKERER;
+
 public class EntityWorkshopTinkerer extends EntityDivineMerchant implements FactionEntity {
-    public EntityWorkshopTinkerer(EntityType<? extends EntityDivineMerchant> type, Level worldIn) {
-        super(type, worldIn, "workshop_tinkerer");
-    }
+    public EntityWorkshopTinkerer(EntityType<? extends EntityWorkshopTinkerer> type, Level worldIn) {super(type, worldIn, "workshop_tinkerer");}
     @Override public Faction getFaction() {return Faction.ICEIKA_MERCHANT;}
     @Override public InteractionResult mobInteract(Player player, InteractionHand hand) {
     	if(getFaction().reputation.get(player) > 5) return super.mobInteract(player, hand);
@@ -25,13 +24,11 @@ public class EntityWorkshopTinkerer extends EntityDivineMerchant implements Fact
     }
     @Override public String[] getChatMessages() {
         return new String[] {
-                "message.merchant.burr",
-                "message.merchant.ho",
-                "message.merchant.in",
-                "message.merchant.out"
+            "message.merchant.burr",
+            "message.merchant.ho",
+            "message.merchant.in",
+            "message.merchant.out"
         };
     }
-    @Override protected void updateTrades() {
-        addOffersFromItemListings(getOffers(), RecipeRegistry.Trades.WORKSHOP_TINKERER.get(level(), getRandom()), 5);
-    }
+    @Override protected void updateTrades() {addOffersFromItemListings(getOffers(), WORKSHOP_TINKERER.get(level(), getRandom()), 5);}
 }

@@ -119,10 +119,10 @@
     "divinerpg:moonbulb_seeds": {
       "chance": 0.3
     },
-    "divinerpg:pink_glowbone_seeds": {
+    "divinerpg:purple_glowbone_seeds": {
       "chance": 0.3
     },
-    "divinerpg:purple_glowbone_seeds": {
+    "divinerpg:pink_glowbone_seeds": {
       "chance": 0.3
     },
     "divinerpg:sky_plant_seeds": {
@@ -154,6 +154,9 @@
       "chance": 0.5
     },
     "divinerpg:arcanite_vines_head": {
+      "chance": 0.5
+    },
+    "divinerpg:land_vine": {
       "chance": 0.5
     },
     "divinerpg:wildwood_vine": {
