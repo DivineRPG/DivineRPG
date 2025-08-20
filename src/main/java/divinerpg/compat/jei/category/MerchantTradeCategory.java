@@ -3,7 +3,6 @@ package divinerpg.compat.jei.category;
 import divinerpg.DivineRPG;
 import divinerpg.entities.base.EntityDivineMerchant.*;
 import divinerpg.registries.ItemRegistry;
-import jeresources.util.Font;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -11,6 +10,7 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.*;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -56,7 +56,7 @@ public class MerchantTradeCategory implements IRecipeCategory<DivineTrades> {
     public void draw(DivineTrades recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         background.draw(guiGraphics, OFFSET, 0);
         TextColor c = recipe.name.getStyle().getColor();
-        guiGraphics.drawCenteredString(Font.getMCFont(), recipe.name, 44 + OFFSET, 1, c == null ? 0xFFFFFF : c.getValue());
+        guiGraphics.drawCenteredString(Minecraft.getInstance().font, recipe.name, 44 + OFFSET, 1, c == null ? 0xFFFFFF : c.getValue());
     }
     @Override
     public int getWidth() {
