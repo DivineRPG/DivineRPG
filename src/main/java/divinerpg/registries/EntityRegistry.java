@@ -781,7 +781,7 @@ public class EntityRegistry {
         //Eden
         event.registerLayerDefinition(ModelGlinthop.LAYER_LOCATION, ModelGlinthop::createBodyLayer);
         event.registerLayerDefinition(ModelCadillion.LAYER_LOCATION, ModelCadillion::createBodyLayer);
-        event.registerLayerDefinition(ModelEdenTomo.LAYER_LOCATION, ModelEdenTomo::createBodyLayer);
+        event.registerLayerDefinition(ModelTomo.LAYER_LOCATION, ModelTomo::createBodyLayer);
         event.registerLayerDefinition(ModelGemFin.LAYER_LOCATION, ModelGemFin::createBodyLayer);
         event.registerLayerDefinition(ModelGreenfeet.LAYER_LOCATION, ModelGreenfeet::createBodyLayer);
         event.registerLayerDefinition(ModelMadivel.LAYER_LOCATION, ModelMadivel::createBodyLayer);
@@ -790,7 +790,7 @@ public class EntityRegistry {
 
         //Wildwood
         event.registerLayerDefinition(ModelBehemoth.LAYER_LOCATION, ModelBehemoth::createBodyLayer);
-        event.registerLayerDefinition(ModelWildwoodTomo.LAYER_LOCATION, ModelWildwoodTomo::createBodyLayer);
+        event.registerLayerDefinition(ModelTomo.LAYER_LOCATION, ModelTomo::createBodyLayer);
         event.registerLayerDefinition(ModelEpiphite.LAYER_LOCATION, ModelEpiphite::createBodyLayer);
         event.registerLayerDefinition(ModelMage.LAYER_LOCATION, ModelMage::createBodyLayer);
         event.registerLayerDefinition(ModelMoonWolf.LAYER_LOCATION, ModelMoonWolf::createBodyLayer);
@@ -799,7 +799,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelTwilightGolem.LAYER_LOCATION,ModelTwilightGolem::createBodyLayer);
 
         //Apalachia
-        event.registerLayerDefinition(ModelApalachiaTomo.LAYER_LOCATION, ModelApalachiaTomo::createBodyLayer);
+        event.registerLayerDefinition(ModelTomo.LAYER_LOCATION, ModelTomo::createBodyLayer);
         event.registerLayerDefinition(ModelEnchantedArcher.LAYER_LOCATION, ModelEnchantedArcher::createBodyLayer);
         event.registerLayerDefinition(ModelEnchantedWarrior.LAYER_LOCATION, ModelEnchantedWarrior::createBodyLayer);
         event.registerLayerDefinition(ModelMystic.LAYER_LOCATION, ModelMystic::createBodyLayer);
@@ -1107,7 +1107,7 @@ public class EntityRegistry {
         //Eden
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);
         event.registerEntityRenderer(EDEN_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "eden_cadillion",  new ModelCadillion(context), .7F));
-        event.registerEntityRenderer(EDEN_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "eden_tomo",  new ModelEdenTomo(context), .65F, 1.2F));
+        event.registerEntityRenderer(EDEN_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "eden_tomo",  new ModelTomo(context), .65F, 1.2F));
         event.registerEntityRenderer(GEM_FIN.get(),	        RenderGemFin::new);
         event.registerEntityRenderer(GREENFEET.get(),	  (Context context) -> new RenderDivineMob<>(context, "greenfeet",  new ModelGreenfeet(context), .6F));
         event.registerEntityRenderer(MADIVEL.get(),		  (Context context) -> new RenderDivineMob<>(context, "madivel",  new ModelMadivel(context), .85F));
@@ -1123,12 +1123,12 @@ public class EntityRegistry {
         event.registerEntityRenderer(VEREK.get(),	 (Context context) -> new RenderDivineMob<>(context, "verek",  new ModelSamek<>(context)));
         event.registerEntityRenderer(WILDWOOD_CADILLION.get(),(Context context) -> new RenderDivineMob<>(context, "wildwood_cadillion",  new ModelCadillion(context), .7F));
         event.registerEntityRenderer(WILDWOOD_GOLEM.get(),	  (Context context) -> new RenderDivineMob<>(context, "wildwood_golem",  new ModelTwilightGolem<>(context)));
-        event.registerEntityRenderer(WILDWOOD_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "wildwood_tomo",  new ModelWildwoodTomo(context), .65F, 1.2F));
+        event.registerEntityRenderer(WILDWOOD_TOMO.get(),	  (Context context) -> new RenderDivineMob<>(context, "wildwood_tomo",  new ModelTomo(context), .65F, 1.2F));
 
         //Apalachia
         event.registerEntityRenderer(APALACHIA_CADILLION.get(), (Context context) -> new RenderDivineMob<>(context, "apalachia_cadillion",  new ModelCadillion(context), .7F));
         event.registerEntityRenderer(APALACHIA_GOLEM.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_golem",  new ModelTwilightGolem<>(context)));
-        event.registerEntityRenderer(APALACHIA_TOMO.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_tomo",  new ModelApalachiaTomo(context), .65F, 1.2F));
+        event.registerEntityRenderer(APALACHIA_TOMO.get(),		(Context context) -> new RenderDivineMob<>(context, "apalachia_tomo",  new ModelTomo(context), .65F, 1.2F));
         event.registerEntityRenderer(ENCHANTED_ARCHER.get(),	RenderEnchantedArcher::new);
         event.registerEntityRenderer(ENCHANTED_WARRIOR.get(),	RenderEnchantedWarrior::new);
         event.registerEntityRenderer(SPELLBINDER.get(),			(Context context) -> new RenderDivineMob<>(context, "spellbinder",  new ModelMystic<>(context)));

@@ -2,7 +2,6 @@ package divinerpg.entities.vanilla.end;
 
 import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.entities.projectile.fireball.EntityEnderTripletsFireball;
-import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
