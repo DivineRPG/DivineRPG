@@ -1,6 +1,6 @@
 package divinerpg.entities.vanilla.end;
 
-import net.minecraft.core.*;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.*;
 import net.minecraft.tags.FluidTags;
@@ -8,9 +8,8 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.Endermite;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -20,6 +19,9 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
+
+import static net.minecraft.core.Direction.DOWN;
+import static net.minecraft.world.entity.EquipmentSlot.FEET;
 
 public class EntityEnderScrounge extends PathfinderMob {
     public EntityEnderScrounge(EntityType<? extends EntityEnderScrounge> type, Level worldIn) {
@@ -46,11 +48,11 @@ public class EntityEnderScrounge extends PathfinderMob {
                 Player player = level().getNearestPlayer(this, 3);
                 if(!player.isCreative() && !player.isSpectator()) {
                     if(random.nextInt(50) == 0) {
-                        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+                        ItemStack boots = player.getItemBySlot(FEET);
                         if(boots != null && !boots.isEmpty()) {
                             ItemEntity item = new ItemEntity(level(), getX(), getY(), getZ(), boots);
                             level().addFreshEntity(item);
-                            player.setItemSlot(EquipmentSlot.FEET, new ItemStack(Items.AIR));
+                            player.setItemSlot(FEET, new ItemStack(Items.AIR));
                         }
                     }
                 }
@@ -83,7 +85,7 @@ public class EntityEnderScrounge extends PathfinderMob {
     }
     private boolean teleport(double p_32544_, double p_32545_, double p_32546_) {
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos(p_32544_, p_32545_, p_32546_);
-        while(blockpos$mutableblockpos.getY() > level().getMinBuildHeight() && !level().getBlockState(blockpos$mutableblockpos).isCollisionShapeFullBlock(level(), blockpos$mutableblockpos)) blockpos$mutableblockpos.move(Direction.DOWN);
+        while(blockpos$mutableblockpos.getY() > level().getMinBuildHeight() && !level().getBlockState(blockpos$mutableblockpos).isCollisionShapeFullBlock(level(), blockpos$mutableblockpos)) blockpos$mutableblockpos.move(DOWN);
         BlockState blockstate = level().getBlockState(blockpos$mutableblockpos);
         boolean flag = blockstate.isCollisionShapeFullBlock(level(), blockpos$mutableblockpos);
         boolean flag1 = blockstate.getFluidState().is(FluidTags.WATER);

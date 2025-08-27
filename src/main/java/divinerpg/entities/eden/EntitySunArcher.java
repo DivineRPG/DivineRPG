@@ -2,7 +2,6 @@ package divinerpg.entities.eden;
 
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.entities.projectile.arrows.EdenArrow;
-import divinerpg.entities.projectile.arrows.InfernoArrow;
 import divinerpg.registries.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.*;

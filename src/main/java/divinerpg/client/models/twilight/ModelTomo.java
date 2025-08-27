@@ -49,11 +49,13 @@ public class ModelTomo extends EntityModel<EntityBaseTomo> {
 		return LayerDefinition.create(meshdefinition, 50, 43);
 	}
 	@Override public void setupAnim(EntityBaseTomo entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		float f = Mth.cos(ageInTicks * .12F + limbSwing * .6F) * (.08F + limbSwingAmount * .4F);
-		float f1 = Mth.cos(ageInTicks * .1F + limbSwing * .5F) * (.08F + limbSwingAmount * .4F);
+		float g = ageInTicks * .1F + limbSwing * .5F;
+		float g2 = .08F + limbSwingAmount * .4F;
+		float f = -Mth.cos(g * 1.2F) * g2;
+		float f1 = Mth.cos(g) * g2;
 		float f2 = Mth.cos(limbSwing * .6662F) * limbSwingAmount;
 		body.zRot = f2 * .8F;
-		rightAntenna.zRot = leftArm.zRot = -f;
+		rightAntenna.zRot = leftArm.zRot = f;
 		leftAntenna.zRot = rightArm.zRot = f1;
 		rightLeg.xRot = f2 * .7F;
 		leftLeg.xRot = -rightLeg.xRot;
