@@ -21,12 +21,13 @@ public class EntityWeakCori extends EntityDivineFlyingMonster implements RangedA
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
+        goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
     }
 
     @Override
     public void performRangedAttack(LivingEntity entity, float range) {
-        if (isAlive() && getTarget() != null && !level().isClientSide) {
+        if(isAlive() && getTarget() != null && !level().isClientSide) {
+            playSound(SoundRegistry.CORI_SHOOT.get());
             ThrowableProjectile projectile = EntityRegistry.CORI_SHOT.get().create(level());
             projectile.setOwner(this);
             projectile.setPos(getEyePosition());
@@ -40,8 +41,7 @@ public class EntityWeakCori extends EntityDivineFlyingMonster implements RangedA
     }
 
     @Override
-    public int getMaxSpawnClusterSize() {return 1;
-    }
+    public int getMaxSpawnClusterSize() {return 1;}
 
     @Override
     protected SoundEvent getAmbientSound() {

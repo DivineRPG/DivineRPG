@@ -50,7 +50,7 @@ public class SoundRegistry {
         CORI = registerSound("cori"),
         CORI_HURT = registerSound("cori_hurt"),
         CORI_IDLE = registerSound("cori_idle"),
-        CORI_SHOOT = registerSound("cori_shoot"),//TODO: implement sound
+        CORI_SHOOT = registerSound("cori_shoot"),
         CRAB = registerSound("crab"),
         CRAB_HURT = registerSound("crab_hurt"),
         CRAWLER = registerSound("crawler"),
@@ -127,6 +127,8 @@ public class SoundRegistry {
         ICEIKA_PORTAL_TRIGGER = registerSound("iceika_portal_trigger"),
         ICEMAN = registerSound("iceman"),//TODO: implement sound
         ICEMAN_HURT = registerSound("iceman_hurt"),//TODO: implement sound
+        INFERNO_BOW_CHARGE = registerSound("inferno_bow_charge"),
+        INFERNO_BOW_SHOOT = registerSound("inferno_bow_shoot"),
         INSECT = registerSound("insect"),
         INSECT_FOURTEEN_HURT = registerSound("insect_fourteen_hurt"),
         JACKOMAN = registerSound("jackoman"),
@@ -259,6 +261,7 @@ public class SoundRegistry {
         CUP_OF_TEA = registerSound("cup_of_tea"),
         FROZEN_DISPERSION = registerSound("frozen_dispersion"),
         CAVED_CORE = registerSound("caved_core"),
+        COLD_WATERS = registerSound("cold_waters"),
         CRYSTAL_TEARS = registerSound("crystal_tears"),
         ISOLATION = registerSound("isolation"),
         MD_DESTINY = registerSound("md_destiny"),

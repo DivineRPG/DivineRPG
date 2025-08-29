@@ -47,8 +47,7 @@ public class AttachmentRegistry {
 	public static final ServerHandledAttachment<Boolean> HANGING = registerServerHandled("hanging", () -> false, Codec.BOOL, ByteBufCodecs.BOOL);
 	public static final ServerHandledAttachment<Boolean> SPECIAL = registerServerHandled("special", () -> false, Codec.BOOL, ByteBufCodecs.BOOL);
 	public static final ServerHandledAttachment<Boolean> HOOKED = registerServerHandled("hooked", () -> false, Codec.BOOL, ByteBufCodecs.BOOL);
-	public static final ServerHandledAttachment<AttachedItem> ITEM = registerServerHandled("item", AttachedItem::new, AttachedItem.CODEC);
-	public static final ServerHandledAttachment<Float> RADIUS = registerServerHandled("radius", () -> 0F, Codec.FLOAT, ByteBufCodecs.FLOAT);
+//	public static final ServerHandledAttachment<AttachedItem> ITEM = registerServerHandled("item", AttachedItem::new, AttachedItem.CODEC);
 
 	/*
 	Allowing clients to modify data is very hackable.
@@ -72,8 +71,7 @@ public class AttachmentRegistry {
 		HANGING.registerPayload(r);
 		SPECIAL.registerPayload(r);
 		HOOKED.registerPayload(r);
-		ITEM.registerPayload(r);
-		RADIUS.registerPayload(r);
+//		ITEM.registerPayload(r);
 
 		COLOR.registerPayload(r);
 	}

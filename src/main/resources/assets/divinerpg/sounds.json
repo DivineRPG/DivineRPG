@@ -1229,6 +1229,18 @@
       "divinerpg:items/arcanium_saber"
     ]
   },
+  "inferno_bow_charge": {
+    "category": "neutral",
+    "sounds": [
+      "divinerpg:items/inferno_bow_charge"
+    ]
+  },
+  "inferno_bow_shoot": {
+    "category": "neutral",
+    "sounds": [
+      "divinerpg:items/inferno_bow_shoot"
+    ]
+  },
   "blitz": {
     "category": "neutral",
     "sounds": [
@@ -1388,6 +1400,13 @@
     "stream": true,
     "sounds": [
       "divinerpg:music/caved_core"
+    ]
+  },
+  "cold_waters": {
+    "category": "music",
+    "stream": true,
+    "sounds": [
+      "divinerpg:music/cold_waters"
     ]
   },
   "crystal_tears": {
