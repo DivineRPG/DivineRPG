@@ -526,7 +526,7 @@
   "block.divinerpg.parasecta_statue": "奥金寄生虫雕像",
 
   "block.divinerpg.twilight_stone": "暮光石",
-  "block.divinerpg.eden_ore": "伊甸矿石",
+  "block.divinerpg.twilight_eden_ore": "伊甸矿石",
   "block.divinerpg.eden_block": "伊甸块",
   "block.divinerpg.eden_portal": "伊甸传送门",
   "block.divinerpg.eden_bricks": "伊甸砖",
@@ -2621,7 +2621,7 @@
   "book.divinerpg.entry.twilight.soul_fiend": "嗜魂魔会给你带来多种负面效果，并且使用近战攻击。它有550颗心的生命值，每次攻击造成34点伤害。",
   "book.divinerpg.entry.twilight.twilight_demon": "暮光恶魔既有近战攻击，也有远程攻击，它的远程攻击会给你带来负面效果。它有800颗心的生命值。",
   "book.divinerpg.entry.twilight.vamacheron": "冥鬼冲撞兽是一个速度很快的使用近战攻击的Boss，拥有675颗心的生命值。由于它的速度很快，它能像卡车一样冲撞！",
-  "book.divinerpg.entry.twilight.eden_ore": "伊甸矿石在伊甸维度的任何高度都会生成，但是它非常稀有。",
+  "book.divinerpg.entry.twilight_eden_ore": "伊甸矿石在伊甸维度的任何高度都会生成，但是它非常稀有。",
   "book.divinerpg.entry.twilight.wildwood_ore": "原始森林矿石在原始森林维度的任何高度都会生成，但是它非常稀有。",
   "book.divinerpg.entry.twilight.apalachia_ore": "魔咒山脉矿石在魔咒山脉维度的任何高度都会生成，但是它非常稀有。",
   "book.divinerpg.entry.twilight.skythern_ore": "昏域矿石在昏域维度的任何高度都会生成，但是它非常稀有。",

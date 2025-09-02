@@ -6,11 +6,20 @@
     "targets": [
       {
         "target": {
-          "predicate_type": "minecraft:tag_match",
-          "tag": "c:stones"
+          "predicate_type": "minecraft:block_match",
+          "block": "divinerpg:twilight_stone"
         },
         "state": {
-          "Name": "divinerpg:eden_ore"
+          "Name": "divinerpg:twilight_eden_ore"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "divinerpg:scorchalt"
+        },
+        "state": {
+          "Name": "divinerpg:scorchalt_eden_ore"
         }
       }
     ]

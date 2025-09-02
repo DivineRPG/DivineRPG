@@ -35,6 +35,7 @@ public class PlantPots {
             addPlant(gemOfTheDunes, gemOfTheDunesPot);
             addPlant(sunBlossom, sunBlossomPot);
             addPlant(sunbloom, sunbloomPot);
+            addPlant(lushroom, lushroomPot);
             addPlant(moonlightFern, moonlightFernPot);
             addPlant(moonBud, moonBudPot);
             addPlant(duskBloom, duskBloomPot);

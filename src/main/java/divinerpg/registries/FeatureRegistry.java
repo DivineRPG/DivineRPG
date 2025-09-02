@@ -37,10 +37,10 @@ public class FeatureRegistry {
     	APALACHIA_TREE = FEATURES.register("apalachia_tree", ApalachiaTree::new),
     	SKYTHERN_TREE = FEATURES.register("skythern_tree", SkythernTree::new),
     	MORTUM_TREE = FEATURES.register("mortum_tree", MortumTree::new);
-	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> NOISE_REMOVER = FEATURES.register("noise_remover", NoiseRemover::new);
 
 	//Eden
 	public static final DeferredHolder<Feature<?>, Feature<DensityFunctionConfig>> LAND_VINES = FEATURES.register("land_vines", LandVines::new);
+    public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> EXPOSURE = FEATURES.register("exposure", Exposure::new);
 
     //Iceika
     public static final DeferredHolder<Feature<?>, Feature<TreeConfig>>

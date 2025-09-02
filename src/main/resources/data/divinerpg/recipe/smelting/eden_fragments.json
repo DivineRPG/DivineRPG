@@ -2,7 +2,7 @@
   "type": "smelting",
   "group": "eden_fragments",
   "ingredient": {
-    "item": "divinerpg:eden_ore"
+    "tag": "#divinerpg:ores/eden"
   },
   "result": {
     "id": "divinerpg:eden_fragments"

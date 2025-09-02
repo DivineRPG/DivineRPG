@@ -3,30 +3,22 @@
   "config": {
     "argument": {
       "type": "minecraft:add",
-      "argument1": {
-        "type": "minecraft:add",
-        "argument1": -1,
-        "argument2": "divinerpg:eden/magnetic_biome_toggle"
-      },
+      "argument1": "divinerpg:eden/magnetic_strings",
       "argument2": {
         "type": "minecraft:add",
-        "argument1": "divinerpg:eden/magnetic_strings",
+        "argument1": {
+          "type": "minecraft:y_clamped_gradient",
+          "from_y": 128,
+          "to_y": 135,
+          "from_value": -0.1,
+          "to_value": 0.154
+        },
         "argument2": {
-          "type": "minecraft:add",
-          "argument1": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_y": 128,
-            "to_y": 135,
-            "from_value": -0.1,
-            "to_value": 0.154
-          },
-          "argument2": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_y": 232,
-            "to_y": 260,
-            "from_value": 0,
-            "to_value": -10
-          }
+          "type": "minecraft:y_clamped_gradient",
+          "from_y": 232,
+          "to_y": 260,
+          "from_value": 0,
+          "to_value": -10
         }
       }
     }

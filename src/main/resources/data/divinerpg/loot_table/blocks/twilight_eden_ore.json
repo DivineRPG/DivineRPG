@@ -10,7 +10,7 @@
           "children": [
             {
               "type": "item",
-              "name": "divinerpg:eden_ore",
+              "name": "divinerpg:twilight_eden_ore",
               "conditions": [
                 {
                   "condition": "match_tool",

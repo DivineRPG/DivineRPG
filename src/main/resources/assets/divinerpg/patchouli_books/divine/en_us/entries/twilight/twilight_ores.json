@@ -1,14 +1,14 @@
 {
   "name": "book.entries.twilight.twilight_ore",
   "category": "divinerpg:twilight",
-  "icon": "divinerpg:eden_ore",
+  "icon": "divinerpg:twilight_eden_ore",
   "sortnum": 3,
   "pages": [
     {
       "type": "spotlight",
-      "item": "divinerpg:eden_ore",
-      "title": "block.divinerpg.eden_ore",
-      "text": "book.divinerpg.entry.twilight.eden_ore"
+      "item": "divinerpg:twilight_eden_ore",
+      "title": "block.divinerpg.twilight_eden_ore",
+      "text": "book.divinerpg.entry.twilight_eden_ore"
     },
     {
       "type": "spotlight",

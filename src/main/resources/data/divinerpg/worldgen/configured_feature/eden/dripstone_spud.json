@@ -1,0 +1,14 @@
+{
+  "type": "divinerpg:spud",
+  "config": {
+    "center": {
+      "Name": "minecraft:dripstone_block"
+    },
+    "rules": [
+      {
+        "predicate_type": "minecraft:block_match",
+        "block": "divinerpg:scorchalt"
+      }
+    ]
+  }
+}

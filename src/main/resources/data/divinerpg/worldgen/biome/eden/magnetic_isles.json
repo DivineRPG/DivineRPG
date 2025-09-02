@@ -68,22 +68,24 @@
   "spawn_costs": {},
   "carvers": {},
   "features": [
-    [
-      "divinerpg:noise_remover"
-    ],
+    [],
     [
       "divinerpg:eden/land_vines"
     ],
     [],
     [],
     [],
-    [],
+    [
+      "divinerpg:eden/twilight_stone_blob"
+    ],
     [
       "divinerpg:eden/ore",
       "divinerpg:twilight_tar_lake"
     ],
     [
-      "divinerpg:eden/divine_moss_stone"
+      "divinerpg:eden/divine_moss_stone",
+      "divinerpg:eden/hanging_dripstone",
+      "divinerpg:eden/dripstone_spud"
     ],
     [
       "divinerpg:eden/tree_common",

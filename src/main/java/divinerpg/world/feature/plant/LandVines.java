@@ -1,10 +1,14 @@
 package divinerpg.world.feature.plant;
 
+import divinerpg.DivineRPG;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.DensityFunctionConfig;
 import net.minecraft.core.*;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.*;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -15,6 +19,7 @@ import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import java.util.*;
 
 public class LandVines extends Feature<DensityFunctionConfig> {
+    public static final ResourceKey<Biome> MAGNETIC_ISLES = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden/magnetic_isles"));
     public LandVines() {super(DensityFunctionConfig.CODEC);}
     @Override
     public boolean place(FeaturePlaceContext<DensityFunctionConfig> context) {
@@ -83,7 +88,7 @@ public class LandVines extends Feature<DensityFunctionConfig> {
         for(int i = 0, max = 1 + level.getRandom().nextInt(5); i < max && setBlock(level, m, state); i++) m.move(Direction.DOWN);
     }
     boolean setBlock(WorldGenLevel level, BlockPos pos, BlockState state) {
-        if(level.getBlockState(pos).isAir()) {
+        if(level.getBlockState(pos).isAir() && level.getBiome(pos).is(MAGNETIC_ISLES)) {
             level.setBlock(pos, state, 2);
             return true;
         } return false;

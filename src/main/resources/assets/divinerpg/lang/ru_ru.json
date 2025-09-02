@@ -615,7 +615,7 @@
   "block.divinerpg.polished_ray_stone_pressure_plate": "Нажимная плита из полированного лучезита",
   "block.divinerpg.polished_ray_stone_button": "Кнопка из полированного лучезита",
 
-  "block.divinerpg.eden_ore": "Руда Эдема",
+  "block.divinerpg.twilight_eden_ore": "Руда Эдема",
   "block.divinerpg.eden_block": "Блок Эдема",
   "block.divinerpg.eden_portal": "Портал в Эдем",
   "block.divinerpg.eden_bricks": "Кирпичи Эдема",
@@ -3182,7 +3182,7 @@
   "book.divinerpg.entry.twilight.soul_fiend": "Демон душ накладывает на вас множество негативных эффектов и атакует в ближнем бою. Он имеет 550 здоровья и наносит 34 единицы урона.",
   "book.divinerpg.entry.twilight.twilight_demon": "Сумеречный демон обладает атаками ближнего и дальнего боя, его дальняя атака накладывает на вас негативные эффекты. У него 800 здоровья.",
   "book.divinerpg.entry.twilight.vamacheron": "Вамашерон - быстрый босс ближнего боя, у него 675 здоровья. Благодаря своей скорости он бьет как грузовик!",
-  "book.divinerpg.entry.twilight.eden_ore": "Руда Эдема встречается на всех высотах внутри измерения Эдем, но очень редко.",
+  "book.divinerpg.entry.twilight_eden_ore": "Руда Эдема встречается на всех высотах внутри измерения Эдем, но очень редко.",
   "book.divinerpg.entry.twilight.wildwood_ore": "Руда Дикого леса встречается на всех высотах внутри измерения Дикий лес, но очень редко.",
   "book.divinerpg.entry.twilight.apalachia_ore": "Руда Апалачии встречается на всех высотах внутри измерения Апалачия, но очень редко.",
   "book.divinerpg.entry.twilight.skythern_ore": "Руда Поднебесья встречается на всех высотах внутри измерения Поднебесье, но очень редко.",

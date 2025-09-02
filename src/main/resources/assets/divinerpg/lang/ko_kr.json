@@ -527,7 +527,7 @@
   "block.divinerpg.parasecta_statue": "파라섹타 조각상",
 
   "block.divinerpg.twilight_stone": "황혼의 돌",
-  "block.divinerpg.eden_ore": "에덴 광석",
+  "block.divinerpg.twilight_eden_ore": "에덴 광석",
   "block.divinerpg.eden_block": "에덴 블록",
   "block.divinerpg.eden_portal": "에덴 차원문",
   "block.divinerpg.eden_bricks": "에덴 벽돌",
@@ -2739,7 +2739,7 @@
   "book.divinerpg.entry.twilight.soul_fiend": "영혼의 마물은 여러 가지 상태이상과 근접으로 공격해옵니다. 체력이 550이고 34의 피해를 입힙니다.",
   "book.divinerpg.entry.twilight.twilight_demon": "황혼의 악마는 근접 공격과 원거리 공격을 모두 할 수 있으며, 원거리 공격에는 상태이상을 가지고있습니다. 체력은 총 800 입니다.",
   "book.divinerpg.entry.twilight.vamacheron": "바마케론은 빠른 근접 보스이며 생명력이 675 입니다. 빠른 속도 덕분에 트럭처럼 공격합니다!",
-  "book.divinerpg.entry.twilight.eden_ore": "에덴 광석은 에덴 차원 내 모든 높이에서 생성되지만, 매우 희귀합니다.",
+  "book.divinerpg.entry.twilight_eden_ore": "에덴 광석은 에덴 차원 내 모든 높이에서 생성되지만, 매우 희귀합니다.",
   "book.divinerpg.entry.twilight.wildwood_ore": "와일드우드 광석은 와일드우드 차원 내 모든 높이에서 생성되지만, 매우 희귀합니다.",
   "book.divinerpg.entry.twilight.apalachia_ore": "애팔래치아 광석은 애팔래치아 차원 내 모든 높이에서 생성되지만, 매우 희귀합니다.",
   "book.divinerpg.entry.twilight.skythern_ore": "창공의 광석은 창공의 차원 내 모든 높이에서 생성되지만 매우 희귀합니다.",
