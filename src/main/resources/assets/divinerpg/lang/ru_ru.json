@@ -566,6 +566,7 @@
   "block.divinerpg.parasecta_altar": "Алтарь Парасекты",
   "block.divinerpg.parasecta_statue": "Статуя Парасекты",
 
+  "block.divinerpg.twilight_eden_ore": "Сумеречная руда Эдема",
   "block.divinerpg.twilight_stone": "Сумеречный камень",
   "block.divinerpg.twilight_stairs": "Ступеньки из сумеречного камня",
   "block.divinerpg.twilight_slab": "Плита из сумеречного камня",
@@ -579,6 +580,7 @@
   "block.divinerpg.twilight_brick_pressure_plate": "Нажимная плита из сумеречного кирпича",
   "block.divinerpg.twilight_brick_button": "Кнопка из сумеречного кирпича",
 
+  "block.divinerpg.scorchalt_eden_ore": "Агоритовая руда Эдема",
   "block.divinerpg.scorchalt": "Агорит",
   "block.divinerpg.scorchalt_stairs": "Агоритовые ступеньки",
   "block.divinerpg.scorchalt_slab": "Агоритовая плита",
@@ -615,7 +617,6 @@
   "block.divinerpg.polished_ray_stone_pressure_plate": "Нажимная плита из полированного лучезита",
   "block.divinerpg.polished_ray_stone_button": "Кнопка из полированного лучезита",
 
-  "block.divinerpg.twilight_eden_ore": "Руда Эдема",
   "block.divinerpg.eden_block": "Блок Эдема",
   "block.divinerpg.eden_portal": "Портал в Эдем",
   "block.divinerpg.eden_bricks": "Кирпичи Эдема",
@@ -627,6 +628,8 @@
   "block.divinerpg.sun_blossom_pot": "Солнечный цветок в горшке",
   "block.divinerpg.sunbloom": "Солнцецвет",
   "block.divinerpg.sunbloom_pot": "Солнцецвет в горшке",
+  "block.divinerpg.lushroom": "Пышный гриб",
+  "block.divinerpg.lushroom_pot": "Пышный гриб в горшке",
   "block.divinerpg.eden_sapling": "Саженец дерева Эдема",
   "block.divinerpg.eden_sapling_pot": "Саженец дерева Эдема в горшке",
   "block.divinerpg.eden_leaves": "Листья дерева Эдема",
@@ -2638,7 +2641,7 @@
   "tooltip.divinerpg.shadow_saber": "Ускоряет пользователя при каждой атаке",
   "tooltip.divinerpg.shots.blind": "Ослепляет мобов на %s секунды",
   "tooltip.divinerpg.shots.bounce": "Отскакивающие снаряды",
-  "tooltip.divinerpg.shots.burn": "Стреляет огненными стрелами",
+  "tooltip.divinerpg.shots.burn": "Очередью выпускает горящие стрелы",
   "tooltip.divinerpg.shots.explosive": "Взрывные снаряды",
   "tooltip.divinerpg.shots.homing": "Самонаводящиеся снаряды",
   "tooltip.divinerpg.shots.sky": "%s снарядов с неба",

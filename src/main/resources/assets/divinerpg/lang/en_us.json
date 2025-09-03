@@ -566,6 +566,7 @@
   "block.divinerpg.parasecta_altar": "Parasecta Altar",
   "block.divinerpg.parasecta_statue": "Parasecta Statue",
 
+  "block.divinerpg.twilight_eden_ore": "Twilight Eden Ore",
   "block.divinerpg.twilight_stone": "Twilight Stone",
   "block.divinerpg.twilight_stairs": "Twilight Stairs",
   "block.divinerpg.twilight_slab": "Twilight Slab",
@@ -579,6 +580,7 @@
   "block.divinerpg.twilight_brick_pressure_plate": "Twilight Brick Pressure Plate",
   "block.divinerpg.twilight_brick_button": "Twilight Brick Button",
 
+  "block.divinerpg.scorchalt_eden_ore": "Scorchalt Eden Ore",
   "block.divinerpg.scorchalt": "Scorchalt",
   "block.divinerpg.scorchalt_stairs": "Scorchalt Stairs",
   "block.divinerpg.scorchalt_slab": "Scorchalt Slab",
@@ -615,8 +617,6 @@
   "block.divinerpg.polished_ray_stone_pressure_plate": "Polished Ray Stone Pressure Plate",
   "block.divinerpg.polished_ray_stone_button": "Polished Ray Stone Button",
 
-  "block.divinerpg.scorchalt_eden_ore": "Scorchalt Eden Ore",
-  "block.divinerpg.twilight_eden_ore": "Twilight Eden Ore",
   "block.divinerpg.eden_block": "Eden Block",
   "block.divinerpg.eden_portal": "Eden Portal",
   "block.divinerpg.eden_bricks": "Eden Bricks",
@@ -2641,7 +2641,7 @@
   "tooltip.divinerpg.shadow_saber": "Speeds up the user on each attack",
   "tooltip.divinerpg.shots.blind": "Blinds mobs for %s seconds",
   "tooltip.divinerpg.shots.bounce": "Bouncing projectiles",
-  "tooltip.divinerpg.shots.burn": "Rapid fires flaming arrows",
+  "tooltip.divinerpg.shots.burn": "Rapid-fires flaming arrows",
   "tooltip.divinerpg.shots.explosive": "Explosive projectiles",
   "tooltip.divinerpg.shots.homing": "Homing projectiles",
   "tooltip.divinerpg.shots.sky": "%s projectile(-s) from the sky",

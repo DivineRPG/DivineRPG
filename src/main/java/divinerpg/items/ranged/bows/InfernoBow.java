@@ -39,8 +39,7 @@ public class InfernoBow extends ItemBow {
     @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return super.isBookEnchantable(stack, book) && !Utils.hasStoredEnchantment(FLAME, book);
     }
-    @Override
-    public void releaseUsing(ItemStack stack, Level level, LivingEntity living, int timeLeft) {
+    @Override public void releaseUsing(ItemStack stack, Level level, LivingEntity living, int timeLeft) {
         int i;
         if(living instanceof Player player) {
             ItemStack itemstack = player.getProjectile(stack);
@@ -56,8 +55,7 @@ public class InfernoBow extends ItemBow {
             stack.set(DataComponentRegistry.weaponPower, f);
         }
     }
-    @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+    @Override public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if(isSelected && (level.getGameTime() & 1L) == 0 && level instanceof ServerLevel server) {
             int cooldown = stack.get(DataComponentRegistry.weaponAbility);
             if(cooldown > 0) {
@@ -78,8 +76,7 @@ public class InfernoBow extends ItemBow {
             }
         }
     }
-    @Override
-    public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int remainingUseDuration) {
+    @Override public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int remainingUseDuration) {
         if(remainingUseDuration == useDuration) {
             level.playSound(null, entity.getX(), entity.getEyeY(), entity.getZ(), CAMPFIRE_CRACKLE, entity.getSoundSource(), 1, 1);
             level.playSound(null, entity.getX(), entity.getEyeY(), entity.getZ(), SoundRegistry.INFERNO_BOW_CHARGE.get(), entity.getSoundSource(), 1, 1);

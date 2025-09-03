@@ -44,7 +44,7 @@ public class EntityAridWarrior extends EntityDivineMonster implements RangedAtta
             Item var7 = weapon.getItem();
             if(var7 instanceof ProjectileWeaponItem weaponItem) abstractarrow = weaponItem.customArrow(abstractarrow, itemstack1, weapon);
             double d0 = target.getX() - getX(), d1 = target.getY(.3333333333333333) - abstractarrow.getY(), d2 = target.getZ() - getZ(), d3 = Math.sqrt(d0 * d0 + d2 * d2);
-            abstractarrow.shoot(d0, d1 + d3 * 0.2, d2, 1.6F, 14F - (level().getDifficulty().getId() << 2));
+            abstractarrow.shoot(d0, d1 + d3 * .2, d2, 1.6F, 14 - (level().getDifficulty().getId() << 2));
             playSound(SKELETON_SHOOT, 1, 1 / (getRandom().nextFloat() * .4F + .8F));
             level().addFreshEntity(abstractarrow);
         }

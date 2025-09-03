@@ -1,6 +1,6 @@
 {
   "parent": "item/shield_blocking",
   "textures": {
-    "particle": "divinerpg:shield/rupee_shield"
+    "particle": "divinerpg:block/rupee_block"
   }
 }

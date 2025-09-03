@@ -24,7 +24,7 @@ public class EntityWildfire extends EntityDivineMonster implements RangedAttackM
     public EntityWildfire(EntityType<? extends EntityWildfire> type, Level worldIn) {super(type, worldIn);}
     @Override protected void registerGoals() {
         super.registerGoals();
-        goalSelector.addGoal(1, new RangedBowAttackGoal<>(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 40, 32F));
+        goalSelector.addGoal(1, new RangedBowAttackGoal<>(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 40, 32));
     }
     @Override protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
         super.populateDefaultEquipmentSlots(random, difficulty);
@@ -39,14 +39,13 @@ public class EntityWildfire extends EntityDivineMonster implements RangedAttackM
         populateDefaultEquipmentEnchantments(level, random, difficulty);
         return data;
     }
-    @Override
-    public void tick() {
+    @Override public void tick() {
         super.tick();
         getItemBySlot(MAINHAND).inventoryTick(level(), this, 0, true);
     }
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if(isAlive() && getTarget() != null) {
-            float f = getPowerForTime((int) (72000F * distanceFactor));
+            float f = getPowerForTime((int)(72000 * distanceFactor));
             if(f >= .1F) {
                 ItemStack stack = getItemBySlot(MAINHAND);
                 stack.set(DataComponentRegistry.weaponAbility, 9);

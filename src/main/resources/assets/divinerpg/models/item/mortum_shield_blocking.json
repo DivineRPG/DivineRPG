@@ -1,6 +1,6 @@
 {
   "parent": "item/shield_blocking",
   "textures": {
-    "particle": "divinerpg:shield/mortum_shield"
+    "particle": "divinerpg:block/mortum_planks"
   }
 }

@@ -1,7 +1,7 @@
 {
   "parent": "item/shield",
   "textures": {
-    "particle": "divinerpg:shield/realmite_shield"
+    "particle": "divinerpg:block/realmite_block"
   },
   "overrides": [
     {

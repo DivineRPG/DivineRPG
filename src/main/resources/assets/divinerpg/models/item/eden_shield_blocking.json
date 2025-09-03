@@ -1,6 +1,6 @@
 {
   "parent": "item/shield_blocking",
   "textures": {
-    "particle": "divinerpg:shield/eden_shield"
+    "particle": "divinerpg:block/eden_planks"
   }
 }

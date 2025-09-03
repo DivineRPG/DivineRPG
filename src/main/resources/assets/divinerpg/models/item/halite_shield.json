@@ -1,7 +1,7 @@
 {
   "parent": "item/shield",
   "textures": {
-    "particle": "divinerpg:shield/halite_shield"
+    "particle": "divinerpg:block/shadow_block"
   },
   "overrides": [
     {

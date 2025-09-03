@@ -1,7 +1,7 @@
 {
   "parent": "item/shield",
   "textures": {
-    "particle": "divinerpg:shield/eden_shield"
+    "particle": "divinerpg:block/eden_planks"
   },
   "overrides": [
     {

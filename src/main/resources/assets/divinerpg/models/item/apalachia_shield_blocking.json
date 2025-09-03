@@ -1,6 +1,6 @@
 {
   "parent": "item/shield_blocking",
   "textures": {
-    "particle": "divinerpg:shield/apalachia_shield"
+    "particle": "divinerpg:block/apalachia_planks"
   }
 }

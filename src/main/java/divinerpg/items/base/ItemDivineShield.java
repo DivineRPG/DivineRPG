@@ -28,14 +28,14 @@ public class ItemDivineShield extends ShieldItem {
         super((damage == 0 ? new Properties().component(UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(damage)));
         this.repairMaterial = Ingredient.of(repairMaterial);
         DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
-        resource = ResourceLocation.fromNamespaceAndPath(MODID, "textures/shield/" + name + ".png");
+        resource = ResourceLocation.fromNamespaceAndPath(MODID, "entity/shield/" + name + "_shield");
         this.nameColor = nameColor;
     }
     public ItemDivineShield(Item repairMaterial, int damage, String name) {
         super((damage == 0 ? new Properties().component(UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(damage)));
         this.repairMaterial = Ingredient.of(repairMaterial);
         DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
-        resource = ResourceLocation.fromNamespaceAndPath(MODID, "textures/shield/" + name + ".png");
+        resource = ResourceLocation.fromNamespaceAndPath(MODID, "entity/shield/" + name + "_shield");
     }
     @Override public boolean isValidRepairItem(ItemStack shield, ItemStack repairItem) {
         if(repairMaterial != null) return repairMaterial.test(repairItem);

@@ -37,10 +37,10 @@ public class ModelWildfire extends HumanoidModel<EntityWildfire> {
 		head.addOrReplaceChild("left_mandible", CubeListBuilder.create().texOffs(36, 0).addBox(-1.5F, -2.75F, -2, 2, 4, 3, cubeDef), PartPose.offset(3, 2, -2.5F));
 		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 13).addBox(-5, -7, -3, 10, 7, 5, cubeDef), zPose);
 		PartDefinition rightArm = partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create(), zPose);
-		PartDefinition rightArmRot = rightArm.addOrReplaceChild("right_arm_rot", CubeListBuilder.create().texOffs(10, 38).addBox(-2, -3, -1.5F, 2, 14, 3, cubeDef), PartPose.rotation(0, 0, .1309F));
+		PartDefinition rightArmRot = rightArm.addOrReplaceChild("right_arm_rot", CubeListBuilder.create().texOffs(10, 38).addBox(-2, -3, -1.5F, 2, 14, 3, cubeDef), PartPose.rotation(0, 0, Mth.PI / 24));
 		rightArmRot.addOrReplaceChild("right_claw", CubeListBuilder.create().texOffs(36, 7).addBox(0, 0, -1.5F, 3, 2, 3, cubeDef), PartPose.offset(-2, 11, 0));
 		PartDefinition leftArm = partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create(), zPose);
-		PartDefinition leftArmRot = leftArm.addOrReplaceChild("left_arm_rot", CubeListBuilder.create().texOffs(0, 38).addBox(0, -3, -1.5F, 2, 14, 3, cubeDef), PartPose.rotation(0, 0, -.1309F));
+		PartDefinition leftArmRot = leftArm.addOrReplaceChild("left_arm_rot", CubeListBuilder.create().texOffs(0, 38).addBox(0, -3, -1.5F, 2, 14, 3, cubeDef), PartPose.rotation(0, 0, -Mth.PI / 24));
 		leftArmRot.addOrReplaceChild("left_claw", CubeListBuilder.create().texOffs(48, 7).addBox(-3, 0, -1.5F, 3, 2, 3, cubeDef), PartPose.offset(2, 11, 0));
 		PartDefinition hip = body.addOrReplaceChild("hip", CubeListBuilder.create().texOffs(24, 25).addBox(-4, 0, -2, 8, 7, 4, cubeDef), zPose);
 		PartDefinition thorax = hip.addOrReplaceChild("thorax", CubeListBuilder.create(), PartPose.offset(0, 5, 1));

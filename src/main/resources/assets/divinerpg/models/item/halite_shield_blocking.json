@@ -1,6 +1,6 @@
 {
   "parent": "item/shield_blocking",
   "textures": {
-    "particle": "divinerpg:shield/halite_shield"
+    "particle": "divinerpg:block/shadow_block"
   }
 }
