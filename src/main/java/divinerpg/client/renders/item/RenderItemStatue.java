@@ -28,7 +28,7 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
         this.block = block;
         context = set;
     }
-    @Override public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack matrixStack, MultiBufferSource renderType, int combinedLight, int combinedOverlay) {
+    @Override public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         if(stack.getItem() instanceof BlockItem){
             Block block = ((BlockItem) stack.getItem()).getBlock();
             if(block instanceof BlockStatue){
@@ -38,11 +38,11 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
                 matrixStack.mulPose(Axis.YP.rotationDegrees(-90));
                 matrixStack.mulPose(Axis.XP.rotationDegrees(180));
                 matrixStack.scale(.6F, .6F, .6F);
-                if(stack.is(kitraStatue.get().asItem())){
-                    matrixStack.scale(.25F, .25F, .25F);
-                    matrixStack.translate(0, 3, 0);
-                } if(texture(stack) != null) {
-                    VertexConsumer builder = renderType.getBuffer(RenderType.entityCutout(texture(stack)));
+                if(stack.is(kitraStatue.get().asItem())) matrixStack.scale(.4F, .4F, .4F);
+                if(texture(stack) != null) {
+                    VertexConsumer builder;
+                    if(stack.is(kitraStatue.get().asItem())) builder = buffer.getBuffer(RenderType.entityTranslucent(texture(stack)));
+                    else builder = buffer.getBuffer(RenderType.entityCutout(texture(stack)));
                     model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay);
                 } matrixStack.popPose();
             }
@@ -100,7 +100,7 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
         if(item == eternalArcherStatue.asItem()) return location("eternal_archer");
         if(item == experiencedCoriStatue.asItem()) return location("experienced_cori");
         //Mortum
-        if(item == vamacheronStatue.asItem()) return location("mortum_cadillion");
+        if(item == vamacheronStatue.asItem()) return location("vamacheron");
         if(item == karotStatue.asItem()) return location("karot");
         if(item == twilightDemonStatue.asItem()) return location("twilight_demon");
         if(item == densosStatue.asItem()) return location("densos");

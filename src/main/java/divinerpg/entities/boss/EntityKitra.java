@@ -29,6 +29,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 
 public class EntityKitra extends EntityWhale implements RangedAttackMob {
+    //TODO: the fog appears/ends abruptly when getting close to or leaving the boss behind
     private final ServerBossEvent bossInfo = (ServerBossEvent) new ServerBossEvent(getDisplayName(), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.PROGRESS).setCreateWorldFog(true);
     public EntityKitra(EntityType<? extends EntityWhale> type, Level worldIn) {super(type, worldIn);}
     @Override protected int getBaseExperienceReward() {return XP_REWARD_BOSS;}
@@ -118,6 +119,8 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
         }
     }
     private MobEffectInstance getRandomNegativeEffect() {
+        //TODO: blindness and slow digging has some sync issue when drinking milk (they don't seem to be cleared, but after reloading the world they are)
+        //TODO: also getting blindness for 1 minute is quite evil
         List<Holder<MobEffect>> negativeEffects = Arrays.asList(MobEffects.BLINDNESS, MobEffects.HUNGER, MobEffects.POISON, MobEffects.WITHER, MobEffects.BAD_OMEN, MobEffects.CONFUSION, MobEffects.DIG_SLOWDOWN, MobEffects.WEAKNESS, MobEffects.UNLUCK);
         Holder<MobEffect> negativeEffect = negativeEffects.get(random.nextInt(negativeEffects.size()));
         int duration = 20 * (random.nextInt(60) + 30); // 30-90 seconds

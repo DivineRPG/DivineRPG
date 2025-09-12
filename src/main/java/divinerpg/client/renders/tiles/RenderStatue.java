@@ -25,7 +25,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
     @Override public void render(StatueBlockEntity te, float partialTicks, PoseStack matrixStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
         Model model = getModel(te);
         matrixStack.pushPose();
-        if(te.getBlockState().is(kitraStatue.get()) || te.getBlockState().is(sunstormStatue.get())) {
+        if(te.getBlockState().is(sunstormStatue.get())) {
             matrixStack.translate(.5, .375, .5);
             matrixStack.scale(.25F, .25F, .25F);
         } else if(te.getBlockState().is(karotStatue.get()) || te.getBlockState().is(theWatcherStatue.get()) || te.getBlockState().is(experiencedCoriStatue.get())) {
@@ -33,10 +33,13 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
             matrixStack.scale(.6F, .6F, .6F);
         } else {
             matrixStack.translate(.5, .6, .5);
-            matrixStack.scale(.4F, .4F, .4F);
+            if(te.getBlockState().is(kitraStatue.get())) matrixStack.scale(.25F, .25F, .25F);
+            else matrixStack.scale(.4F, .4F, .4F);
         } matrixStack.mulPose(Axis.YP.rotationDegrees(180 - RotationSegment.convertToDegrees(te.getBlockState().getValue(BlockStatue.ROTATION))));
         matrixStack.mulPose(Axis.XP.rotationDegrees(180));
-        VertexConsumer builder = buffer.getBuffer(RenderType.entityCutout(texture(te)));
+        VertexConsumer builder;
+        if(te.getBlockState().is(kitraStatue.get())) builder = buffer.getBuffer(RenderType.entityTranslucent(texture(te)));
+        else builder = buffer.getBuffer(RenderType.entityCutout(texture(te)));
         model.renderToBuffer(matrixStack, builder, combinedLight, combinedOverlay);
         matrixStack.popPose();
     }
