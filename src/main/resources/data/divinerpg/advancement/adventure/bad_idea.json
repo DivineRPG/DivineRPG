@@ -11,18 +11,13 @@
       "translate": "advancement.divinerpg.adventure.bad_idea.desc"
     },
     "hidden": true,
-    "announce_to_chat": false,
-    "show_toast": false
+    "announce_to_chat": false
   },
   "criteria": {
-    "tomb": {
-      "trigger": "location",
+    "open_tomb_chest": {
+      "trigger": "minecraft:player_generates_container_loot",
       "conditions": {
-        "player": {
-          "location": {
-            "structures": "divinerpg:ancient_tomb"
-          }
-        }
+        "loot_table": "divinerpg:chests/overworld/ancient_tomb"
       }
     }
   }
