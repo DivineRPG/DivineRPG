@@ -228,8 +228,8 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityPumpkinSpider>>		 PUMPKIN_SPIDER 	 = registerEntity(EntityPumpkinSpider::new, 	"pumpkin_spider", 		1.4F,1, .65F, 0xffffff, 0xffffff);
 
     //Jungle
-    public static final DeferredHolder<EntityType<?>, EntityType<Bat>>      			     JUNGLE_BAT 		 = registerEntity(Bat::new, 		            "jungle_bat", 			.28F, .4F, .2F, 0xffffff, 0xffffff, MobCategory.AMBIENT);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityJungleSpider>>		 JUNGLE_SPIDER 		 = registerEntity(EntityJungleSpider::new, 		"jungle_spider", 		    1.4F, .9F, .65F, 0x176b07, 0x0026ff);
+    public static final DeferredHolder<EntityType<?>, EntityType<Bat>>      			     JUNGLE_BAT 		 = registerEntity(Bat::new, 		            "jungle_bat", 			.3F, .36F, .18F, 0xffffff, 0xffffff, MobCategory.AMBIENT);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityJungleSpider>>		 JUNGLE_SPIDER 		 = registerEntity(EntityJungleSpider::new, 		"jungle_spider", 		    1.4F, .9F, .65F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityJungleDramcryx>>	     JUNGLE_DRAMCRYX 	 = registerEntity(EntityJungleDramcryx::new, 	"jungle_dramcryx", 		1, 1.4375F, 1.0625F, 0xffffff, 0xffffff);
 
     //Desert
@@ -1059,7 +1059,7 @@ public class EntityRegistry {
 
         //Nether
         event.registerEntityRenderer(HELL_PIG.get(),	RenderHellPig::new);
-        event.registerEntityRenderer(HELL_SPIDER.get(), (Context context) -> new RenderDivineMob<>(context, "hell_spider", new ModelHellSpider(context), .2F));
+        event.registerEntityRenderer(HELL_SPIDER.get(), (Context context) -> new RenderDivineMob<>(context, "hell_spider", new ModelHellSpider(context), .8F));
         event.registerEntityRenderer(SCORCHER.get(),	(Context context) -> new RenderDivineMob<>(context, "scorcher", new ModelScorcher(context), .72F, 1.5F));
         event.registerEntityRenderer(WILDFIRE.get(),	RenderWildfire::new);
 

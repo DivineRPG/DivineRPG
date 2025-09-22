@@ -44,6 +44,7 @@ public class EntityWildfire extends EntityDivineMonster implements RangedAttackM
         getItemBySlot(MAINHAND).inventoryTick(level(), this, 0, true);
     }
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
+        //TODO: they shoot in a straight line. You can easily dodge arrows by simply towering 2 blocks above and bridging towards them.
         if(isAlive() && getTarget() != null) {
             float f = getPowerForTime((int)(72000 * distanceFactor));
             if(f >= .1F) {
