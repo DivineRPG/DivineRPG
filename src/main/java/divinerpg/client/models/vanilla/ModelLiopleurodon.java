@@ -5,72 +5,78 @@ import divinerpg.entities.vanilla.overworld.EntityLiopleurodon;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.util.Mth;
 
 import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelLiopleurodon extends EntityModel<EntityLiopleurodon> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("liopleurodon");
-	private final ModelPart body, fin3B, fin4B, fin1A, fin2A;
-
-	public ModelLiopleurodon(Context context) {
+	public final ModelPart body, head, upperJaw, lowerJaw, rightFinFront, leftFinFront, rightFinHind, leftFinHind, tailFront, tailHind, tailFin;
+	public ModelLiopleurodon(EntityRendererProvider.Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.body = root.getChild("body");
-		this.fin3B = root.getChild("fin3B");
-		this.fin4B = root.getChild("fin4B");
-		this.fin1A = root.getChild("fin1A");
-		this.fin2A = root.getChild("fin2A");
+		body = root.getChild("body");
+		head = body.getChild("head");
+		upperJaw = head.getChild("upper_jaw");
+		lowerJaw = head.getChild("lower_jaw");
+		rightFinFront = body.getChild("right_fin_front");
+		leftFinFront = body.getChild("left_fin_front");
+		rightFinHind = body.getChild("right_fin_hind");
+		leftFinHind = body.getChild("left_fin_hind");
+		tailFront = body.getChild("tail_front");
+		tailHind = tailFront.getChild("tail_hind");
+		tailFin = tailHind.getChild("tail_fin");
 	}
-
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
-
-		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(5, 6).mirror().addBox(-7.0F, -17.0F, -12.0F, 16.0F, 28.0F, 15.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-1.0F, 11.0F, 3.0F, 1.5708F, 0.0F, 0.0F));
-
-		body.addOrReplaceChild("tooth3_r1", CubeListBuilder.create().texOffs(0, 77).mirror().addBox(3.0F, 1.6F, 39.0F, 1.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 77).mirror().addBox(3.0F, 1.6F, 36.0F, 1.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 77).mirror().addBox(3.0F, 1.6F, 33.0F, 1.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 77).mirror().addBox(-4.0F, 1.6F, 33.0F, 1.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 77).mirror().addBox(-4.0F, 1.6F, 39.0F, 1.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 77).mirror().addBox(-4.0F, 1.6F, 36.0F, 1.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 0).mirror().addBox(-5.0F, 2.6F, 29.0F, 10.0F, 2.0F, 13.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 0).mirror().addBox(-5.0F, -1.4F, 29.2667F, 10.0F, 2.0F, 13.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(8, 39).mirror().addBox(-6.0F, -3.4F, 18.0F, 12.0F, 9.0F, 13.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(21, 7).mirror().addBox(-5.0F, -2.4F, 8.0F, 10.0F, 7.0F, 13.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(6, 22).mirror().addBox(-6.0F, -3.4F, -2.0F, 12.0F, 10.0F, 14.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(8, 30).mirror().addBox(-2.0F, 0.0F, -65.0F, 4.0F, 4.0F, 7.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(31, 9).mirror().addBox(-4.0F, -2.0F, -51.0F, 8.0F, 8.0F, 11.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(17, 14).mirror().addBox(-6.0F, -4.0F, -44.0F, 12.0F, 11.0F, 14.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(5, 33).mirror().addBox(-3.0F, -1.0F, -59.0F, 6.0F, 6.0F, 9.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(1.0F, 13.0F, -3.0F, -1.5708F, 0.0F, 0.0F));
-
-		partdefinition.addOrReplaceChild("fin3B", CubeListBuilder.create().texOffs(5, 6).mirror().addBox(-18.0F, -5.0F, -1.0F, 18.0F, 10.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(5, 6).mirror().addBox(-22.0F, -4.0F, -1.0F, 8.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-5.0F, 18.0F, 11.0F, 1.5708F, 0.0F, 0.0F));
-
-		partdefinition.addOrReplaceChild("fin4B", CubeListBuilder.create().texOffs(5, 6).mirror().addBox(-18.0F, -5.0F, -1.0F, 18.0F, 10.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(5, 6).mirror().addBox(-22.0F, -4.0F, -1.0F, 8.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-5.0F, 18.0F, -10.0F, 1.5708F, 0.0F, 0.0F));
-
-		partdefinition.addOrReplaceChild("fin1A", CubeListBuilder.create().texOffs(5, 6).mirror().addBox(14.0F, -4.0F, -1.0F, 8.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(5, 6).mirror().addBox(0.0F, -5.0F, -1.0F, 18.0F, 10.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(5.0F, 18.0F, 11.0F, 1.5708F, 0.0F, 0.0F));
-
-		partdefinition.addOrReplaceChild("fin2A", CubeListBuilder.create().texOffs(5, 6).mirror().addBox(14.0F, -4.0F, -1.0F, 8.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(5, 6).mirror().addBox(0.0F, -5.0F, -1.0F, 18.0F, 10.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(5.0F, 18.0F, -10.0F, 1.5708F, 0.0F, 0.0F));
-
-		return LayerDefinition.create(meshdefinition, 80, 80);
+		CubeDeformation cubeDef = CubeDeformation.NONE;
+		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-4.5F, -4, -8, 9, 9, 20, cubeDef), PartPose.offset(0, 19, -2));
+		PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 58).addBox(-4.5F, -4, -7, 9, 7, 7, new CubeDeformation(.01F)), PartPose.offset(0, 1, -8));
+		PartDefinition upperJaw = head.addOrReplaceChild("upper_jaw", CubeListBuilder.create().texOffs(25, 50).addBox(-1.5F, -1.5F, -12, 4, 2, 12, new CubeDeformation(.01F)), PartPose.offset(-.5F, .5F, -7));
+		upperJaw.addOrReplaceChild("upper_teeth_right", CubeListBuilder.create().texOffs(60, 0).addBox(0, 0, -12, 2, 0, 12, cubeDef), PartPose.offsetAndRotation(-1.5F, -.5F, 0, 0, 0, Mth.PI / 1.6F));
+		upperJaw.addOrReplaceChild("upper_teeth_left", CubeListBuilder.create().texOffs(60, 0).mirror().addBox(-2, 0, -12, 2, 0, 12, cubeDef), PartPose.offsetAndRotation(2.5F, -.5F, 0, 0, 0, -Mth.PI / 1.6F));
+		PartDefinition lowerJaw = head.addOrReplaceChild("lower_jaw", CubeListBuilder.create().texOffs(0, 29).addBox(-2, -.49F, -14, 4, 2, 19, new CubeDeformation(.01F)), PartPose.offset(0, 1.5F, -5));
+		lowerJaw.addOrReplaceChild("lower_teeth_right", CubeListBuilder.create().texOffs(64, 0).addBox(0, 0, -12, 1, 0, 12, cubeDef), PartPose.offsetAndRotation(-2, .5F, -2, 0, 0, -Mth.PI / 1.6F));
+		lowerJaw.addOrReplaceChild("lower_teeth_left", CubeListBuilder.create().texOffs(64, 0).mirror().addBox(-1, 0, -12, 1, 0, 12, cubeDef), PartPose.offsetAndRotation(2, .5F, -2, 0, 0, Mth.PI / 1.6F));
+		PartDefinition rightFinFront = body.addOrReplaceChild("right_fin_front", CubeListBuilder.create(), PartPose.offset(-3, 3, -4));
+		rightFinFront.addOrReplaceChild("right_fin_front_rot", CubeListBuilder.create().texOffs(22, 64).addBox(-1, -3.18F, -1.93F, 2, 6, 10, cubeDef), PartPose.rotation(.9599F, 0, -1.8675F));
+		PartDefinition leftFinFront = body.addOrReplaceChild("left_fin_front", CubeListBuilder.create(), PartPose.offset(3, 3, -4));
+		leftFinFront.addOrReplaceChild("left_fin_front_rot", CubeListBuilder.create().texOffs(22, 64).mirror().addBox(-1, -3.18F, -1.93F, 2, 6, 10, cubeDef), PartPose.rotation(.9599F, 0, 1.8675F));
+		PartDefinition rightFinHind = body.addOrReplaceChild("right_fin_hind", CubeListBuilder.create(), PartPose.offset(-3, 3, 11));
+		rightFinHind.addOrReplaceChild("right_fin_hind_rot", CubeListBuilder.create().texOffs(0, 72).mirror().addBox(-.9F, -2.16F, -.95F, 1, 5, 8, cubeDef), PartPose.rotation(.9599F, 0, -1.8675F));
+		PartDefinition leftFinHind = body.addOrReplaceChild("left_fin_hind", CubeListBuilder.create(), PartPose.offset(3, 3, 11));
+		leftFinHind.addOrReplaceChild("left_fin_hind_rot", CubeListBuilder.create().texOffs(0, 72).addBox(-.1F, -2.16F, -.95F, 1, 5, 8, cubeDef), PartPose.rotation(.9599F, 0, 1.8675F));
+		PartDefinition tailFront = body.addOrReplaceChild("tail_front", CubeListBuilder.create().texOffs(38, 0).addBox(-3, -3, -1, 6, 6, 11, cubeDef), PartPose.offset(0, 1, 12));
+		PartDefinition tailHind = tailFront.addOrReplaceChild("tail_hind", CubeListBuilder.create().texOffs(27, 29).addBox(-2, -2, 0, 4, 4, 12, new CubeDeformation(.01F)), PartPose.offset(0, 0, 10));
+		PartDefinition tailFin = tailHind.addOrReplaceChild("tail_fin", CubeListBuilder.create(), PartPose.offset(0, .5F, 9));
+		tailFin.addOrReplaceChild("tail_fin_down", CubeListBuilder.create().texOffs(0, 0).addBox(0, -2, 0, 1, 3, 8, cubeDef), PartPose.offsetAndRotation(-.5F, .35F, 1, -Mth.PI / 8, 0, 0));
+		tailFin.addOrReplaceChild("tail_fin_up", CubeListBuilder.create().texOffs(6, 73).addBox(-1, -3, 0, 2, 4, 12, cubeDef), PartPose.offsetAndRotation(0, .35F, 1, Mth.PI / 8, 0, 0));
+		return LayerDefinition.create(meshdefinition, 78, 89);
 	}
-
-	@Override
-	public void setupAnim(EntityLiopleurodon entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.fin1A.zRot = this.fin4B.zRot = (float) (Math.sin((10 * ageInTicks / (180f / Math.PI))) * 0.3f);
-        this.fin2A.zRot = this.fin3B.zRot = (float) (-Math.sin((10 * ageInTicks / (180f / Math.PI))) * 0.3f);
+	@Override public void prepareMobModel(EntityLiopleurodon entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
+		super.prepareMobModel(entity, limbSwing, limbSwingAmount, ageInTicks);
+		int l = entity.getAttackTick();
+		float f = l - ageInTicks;
+		if(l > 0) {
+			if(l > 5) lowerJaw.xRot = Mth.sin(f / 4 - 1) * Mth.PI * .4F;
+			else lowerJaw.xRot = Mth.PI / 20 * Mth.sin(Mth.PI * f / 10);
+			upperJaw.xRot = -lowerJaw.xRot;
+		} else lowerJaw.xRot = upperJaw.xRot = 0;
 	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+	@Override public void setupAnim(EntityLiopleurodon entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		body.xRot = headPitch * Mth.DEG_TO_RAD / 2;
+		body.yRot = netHeadYaw * Mth.DEG_TO_RAD;
+		rightFinFront.zRot = leftFinHind.zRot = -Mth.sin(10 * ageInTicks / Mth.RAD_TO_DEG) * .3F;
+		leftFinFront.zRot = rightFinHind.zRot = -rightFinFront.zRot;
+		if(entity.getDeltaMovement().horizontalDistanceSqr() > 1E-7) {
+			head.xRot = Mth.cos(limbSwing * .2F) * limbSwingAmount / 8;
+			body.xRot += -.05F - .05F * Mth.cos(ageInTicks * .3F);
+			tailFront.xRot = tailHind.xRot = -.1F * Mth.cos(ageInTicks * .3F);
+			tailFin.xRot = -.2F * Mth.cos(ageInTicks * .3F);
+		}
+	}
+	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
 		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		fin3B.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		fin4B.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		fin1A.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		fin2A.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

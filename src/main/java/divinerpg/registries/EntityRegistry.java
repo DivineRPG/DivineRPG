@@ -249,7 +249,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityAequorea>>			 AEQUOREA 			 = registerEntity(EntityAequorea::new, 			"aequorea", 			    .3F, .3125F, .25F, 0x79ab82, 0x7ae174, MobCategory.WATER_AMBIENT);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityShark>>				 SHARK 				 = registerEntity(EntityShark::new, 			"shark", 				    1, .75F, .59375F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWhale>>				 WHALE 				 = registerEntity(EntityWhale::new, 			"whale", 				    3, 1.875F, 1.125F, 0x638bb3, 0x273649, MobCategory.WATER_CREATURE);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		 = registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		    3, 1, .40625F, 0x253a73, 0x6273a5, MobCategory.WATER_CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		 = registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		    1.2F, .8475F, .32F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
 
     //Cave
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDiamondDave>>         DIAMOND_DAVE        = registerEntity(EntityDiamondDave::new, 	    "diamond_dave", 		    .8F, 2, 1.74F, .7F, 0xffffff, 0xffffff, MobCategory.CREATURE);
@@ -528,7 +528,7 @@ public class EntityRegistry {
         registerMobAttributes(event, ENDER_TRIPLETS, EntityStats.ENDER_TRIPLETS);
 
         //Iceika
-        registerMobAttributes(event, BLUBBERTUSK, EntityStats.BLUBBERTUSK);
+        registerStepMobAttributes(event, BLUBBERTUSK, EntityStats.BLUBBERTUSK, 1);
         registerMobAttributes(event, CAULDRON_FISH, EntityStats.CAULDRON_FISH);
         EntityDolossal.registerDolossalAttributes(event, DOLOSSAL);
         registerMobAttributes(event, MAMOTH, EntityStats.MAMOTH);
@@ -1041,7 +1041,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(JUNGLE_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "jungle_spider", new ModelJungleSpider(context), .8F));
         event.registerEntityRenderer(KING_CRAB.get(),		 (Context context) -> new RenderDivineMob<>(context, "king_crab", new ModelKingCrab(context), 1.3F, 1.2F));
         event.registerEntityRenderer(KOBBLIN.get(),			 RenderKobblin::new);
-        event.registerEntityRenderer(LIOPLEURODON.get(),	 RenderLiopleurodon::new);
+        event.registerEntityRenderer(LIOPLEURODON.get(),	 (Context context) -> new RenderDivineMob<>(context, "liopleurodon", new ModelLiopleurodon(context), 1.1F, 1.5F));
         event.registerEntityRenderer(LIVESTOCK_MERCHANT.get(),(Context context) -> new RenderDivineMob<>(context, "livestock_merchant", new ModelLivestockMerchant(context), .4F));
         event.registerEntityRenderer(MINER.get(),			 RenderMiner::new);
         event.registerEntityRenderer(PUMPKIN_SPIDER.get(),	 (Context context) -> new RenderDivineMob<>(context, "pumpkin_spider", new ModelPumpkinSpider(context), .5F));

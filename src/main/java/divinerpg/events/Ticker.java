@@ -38,8 +38,8 @@ public class Ticker {
     public void tickServer(ServerTickEvent.Pre evt) {
         if(evt.hasTime()) {
             tick++;
-            if(tick>100000) tick = 0;
-            if(Math.random() < .0001D) Utils.ICEIKA_WEATHER = Weather.newWeather(evt.getServer().getLevel(LevelRegistry.ICEIKA));
+            if(tick > 100000) tick = 0;
+            if(Math.random() < .0001) Utils.ICEIKA_WEATHER = Weather.newWeather(evt.getServer().getLevel(LevelRegistry.ICEIKA));
         }
     }
 	@SubscribeEvent
@@ -59,18 +59,16 @@ public class Ticker {
                     } else player.setTicksFrozen(player.getTicksFrozen() + 2 + player.getRandom().nextInt(2) + (Utils.ICEIKA_WEATHER == 2 ? player.getRandom().nextInt(2) : 0));
                 }
             }
-        }
-        if(player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments(CommonHooks.resolveLookup(Registries.ENCHANTMENT)).keySet().contains(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(EnchantmentRegistry.INSULATION))) {
+        } if(player.getItemBySlot(EquipmentSlot.CHEST).getAllEnchantments(CommonHooks.resolveLookup(Registries.ENCHANTMENT)).keySet().contains(level.registryAccess().registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(EnchantmentRegistry.INSULATION))) {
     		int f = player.getTicksFrozen();
     		if(f > 0) player.setTicksFrozen(f - 2);
         }
     }
-
     @SubscribeEvent
     public void addVanillaMobGoals(EntityJoinLevelEvent event) {
         if(event.getEntity() instanceof Turtle turtle) {
             turtle.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(turtle, EntityAequorea.class, false));
-            turtle.goalSelector.addGoal(3, new TurtleEatAequoreaGoal(turtle, turtle.getAttributeValue(Attributes.FOLLOW_RANGE), false));
+            turtle.goalSelector.addGoal(3, new TurtleEatAequoreaGoal(turtle, turtle.getAttributeValue(Attributes.MOVEMENT_SPEED) * 4, false));
         }
     }
     @SubscribeEvent

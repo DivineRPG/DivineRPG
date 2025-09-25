@@ -14,7 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import static divinerpg.registries.ItemRegistry.shark_fin;
+import static net.minecraft.world.item.Items.BONE;
 
 public class EntityShark extends EntityDivineWaterMob {
     private int attackTick;
@@ -26,7 +26,7 @@ public class EntityShark extends EntityDivineWaterMob {
     @Override protected void registerGoals() {
         super.registerGoals();
         goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, true));
-        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player .class, true));
+        targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
     @Override public ItemEntity spawnAtLocation(ItemStack stack) {
         ItemEntity itementity = spawnAtLocation(stack, 0);
@@ -53,10 +53,9 @@ public class EntityShark extends EntityDivineWaterMob {
     @Override public boolean doHurtTarget(Entity target) {
         attackTick = 10;
         level().broadcastEntityEvent(this, (byte)4);
-        if(!level().isClientSide() && level().getRandom().nextInt(12) == 2) {
-            //TODO: there is no such thing as shark tooth, so I've put fin as a placeholder
-            spawnAtLocation(shark_fin.get());
-        } return super.doHurtTarget(target);
+        //TODO: there is no such thing as shark tooth (edit: bone), so I've put fin as a placeholder
+        if(!level().isClientSide && level().getRandom().nextInt(12) == 2) spawnAtLocation(BONE);
+        return super.doHurtTarget(target);
     }
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.SHARK.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.SHARK_HURT.get();}

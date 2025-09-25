@@ -1,14 +1,16 @@
 package divinerpg.entities.goals;
 
 import divinerpg.entities.vanilla.overworld.EntityAequorea;
-import divinerpg.registries.DamageRegistry;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.animal.Turtle;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.pathfinder.*;
 
 import java.util.EnumSet;
+
+import static divinerpg.registries.DamageRegistry.TURTLE;
+import static net.minecraft.world.entity.EntitySelector.NO_CREATIVE_OR_SPECTATOR;
 
 public class TurtleEatAequoreaGoal extends Goal {
     Turtle turtle;
@@ -23,104 +25,65 @@ public class TurtleEatAequoreaGoal extends Goal {
 //    private final int attackInterval = 20;
 //    private long lastCanUseCheck;
     private int failedPathFindingPenalty = 0;
-    private boolean canPenalize = false;
-
+    //TODO: to add a hunting cooldown I guess
     public TurtleEatAequoreaGoal(Turtle turtle, double speed, boolean followAtAllCosts) {
-    this.turtle = turtle;
-        this.speedModifier = speed;
-        this.followingTargetEvenIfNotSeen = followAtAllCosts;
-        this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+        this.turtle = turtle;
+        speedModifier = speed;
+        followingTargetEvenIfNotSeen = followAtAllCosts;
+        setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
     }
-
-
-    public boolean canUse() {
-        return turtle.getTarget() instanceof EntityAequorea;
+    @Override public boolean canUse() {return turtle.getTarget() instanceof EntityAequorea;}
+    @Override public boolean canContinueToUse() {
+        LivingEntity livingentity = turtle.getTarget();
+        if(livingentity == null) return false;
+        else if(!livingentity.isAlive()) return false;
+        else if(!followingTargetEvenIfNotSeen) return !turtle.getNavigation().isDone();
+        else if(!turtle.isWithinRestriction(livingentity.blockPosition())) return false;
+        else return !(livingentity instanceof Player) || !livingentity.isSpectator() && !((Player)livingentity).isCreative();
     }
-
-    public boolean canContinueToUse() {
-        LivingEntity livingentity = this.turtle.getTarget();
-        if (livingentity == null) {
-            return false;
-        } else if (!livingentity.isAlive()) {
-            return false;
-        } else if (!this.followingTargetEvenIfNotSeen) {
-            return !this.turtle.getNavigation().isDone();
-        } else if (!this.turtle.isWithinRestriction(livingentity.blockPosition())) {
-            return false;
-        } else {
-            return !(livingentity instanceof Player) || !livingentity.isSpectator() && !((Player)livingentity).isCreative();
-        }
+    @Override public void start() {
+        turtle.getNavigation().moveTo(path, speedModifier);
+        turtle.setAggressive(true);
+        ticksUntilNextPathRecalculation = 0;
+        ticksUntilNextAttack = 0;
     }
-
-    public void start() {
-        this.turtle.getNavigation().moveTo(this.path, this.speedModifier);
-        this.turtle.setAggressive(true);
-        this.ticksUntilNextPathRecalculation = 0;
-        this.ticksUntilNextAttack = 0;
+    @Override public void stop() {
+        LivingEntity livingentity = turtle.getTarget();
+        if(!NO_CREATIVE_OR_SPECTATOR.test(livingentity)) turtle.setTarget(null);
+        turtle.setAggressive(false);
+        turtle.getNavigation().stop();
     }
-
-    public void stop() {
-        LivingEntity livingentity = this.turtle.getTarget();
-        if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) {
-            this.turtle.setTarget((LivingEntity)null);
-        }
-
-        this.turtle.setAggressive(false);
-        this.turtle.getNavigation().stop();
+    @Override public void tick() {
+        LivingEntity livingentity = turtle.getTarget();
+        turtle.getLookControl().setLookAt(livingentity, 30, 30);
+        double d0 = turtle.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
+        ticksUntilNextPathRecalculation = Math.max(ticksUntilNextPathRecalculation - 1, 0);
+        if((followingTargetEvenIfNotSeen || turtle.getSensing().hasLineOfSight(livingentity)) && ticksUntilNextPathRecalculation <= 0 && (pathedTargetX == 0 && pathedTargetY == 0 && pathedTargetZ == 0 || livingentity.distanceToSqr(pathedTargetX, pathedTargetY, pathedTargetZ) >= 1 || turtle.getRandom().nextFloat() < .05F)) {
+            pathedTargetX = livingentity.getX();
+            pathedTargetY = livingentity.getY();
+            pathedTargetZ = livingentity.getZ();
+            ticksUntilNextPathRecalculation = 4 + turtle.getRandom().nextInt(7);
+            boolean canPenalize = false;
+            if(canPenalize) {
+                ticksUntilNextPathRecalculation += failedPathFindingPenalty;
+                if(turtle.getNavigation().getPath() != null) {
+                    Node finalPathPoint = turtle.getNavigation().getPath().getEndNode();
+                    if(finalPathPoint != null && livingentity.distanceToSqr(finalPathPoint.x, finalPathPoint.y, finalPathPoint.z) < 1) failedPathFindingPenalty = 0;
+                    else failedPathFindingPenalty += 10;
+                } else failedPathFindingPenalty += 10;
+            } if(d0 > 1024) ticksUntilNextPathRecalculation += 10;
+            else if (d0 > 256) ticksUntilNextPathRecalculation += 5;
+            if(!turtle.getNavigation().moveTo(livingentity, speedModifier)) ticksUntilNextPathRecalculation += 15;
+        } ticksUntilNextAttack = Math.max(ticksUntilNextAttack - 1, 0);
+        checkAndPerformAttack(livingentity, d0);
     }
-
-    public void tick() {
-        LivingEntity livingentity = this.turtle.getTarget();
-        this.turtle.getLookControl().setLookAt(livingentity, 30.0F, 30.0F);
-        double d0 = this.turtle.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
-        this.ticksUntilNextPathRecalculation = Math.max(this.ticksUntilNextPathRecalculation - 1, 0);
-        if ((this.followingTargetEvenIfNotSeen || this.turtle.getSensing().hasLineOfSight(livingentity)) && this.ticksUntilNextPathRecalculation <= 0 && (this.pathedTargetX == 0.0D && this.pathedTargetY == 0.0D && this.pathedTargetZ == 0.0D || livingentity.distanceToSqr(this.pathedTargetX, this.pathedTargetY, this.pathedTargetZ) >= 1.0D || this.turtle.getRandom().nextFloat() < 0.05F)) {
-            this.pathedTargetX = livingentity.getX();
-            this.pathedTargetY = livingentity.getY();
-            this.pathedTargetZ = livingentity.getZ();
-            this.ticksUntilNextPathRecalculation = 4 + this.turtle.getRandom().nextInt(7);
-            if (this.canPenalize) {
-                this.ticksUntilNextPathRecalculation += failedPathFindingPenalty;
-                if (this.turtle.getNavigation().getPath() != null) {
-                    Node finalPathPoint = this.turtle.getNavigation().getPath().getEndNode();
-                    if (finalPathPoint != null && livingentity.distanceToSqr(finalPathPoint.x, finalPathPoint.y, finalPathPoint.z) < 1)
-                        failedPathFindingPenalty = 0;
-                    else
-                        failedPathFindingPenalty += 10;
-                } else {
-                    failedPathFindingPenalty += 10;
-                }
-            }
-            if (d0 > 1024.0D) {
-                this.ticksUntilNextPathRecalculation += 10;
-            } else if (d0 > 256.0D) {
-                this.ticksUntilNextPathRecalculation += 5;
-            }
-
-            if (!this.turtle.getNavigation().moveTo(livingentity, this.speedModifier)) {
-                this.ticksUntilNextPathRecalculation += 15;
-            }
-        }
-
-        this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
-        this.checkAndPerformAttack(livingentity, d0);
-    }
-
     protected void checkAndPerformAttack(LivingEntity entity, double range) {
-        double d0 = this.getAttackReachSqr(entity);
-        if (range <= d0 && this.ticksUntilNextAttack <= 0) {
-            this.resetAttackCooldown();
-            entity.hurt(entity.level().damageSources().source(DamageRegistry.TURTLE.getKey()), entity.getHealth());
+        double d0 = getAttackReachSqr(entity);
+        if(range <= d0 && ticksUntilNextAttack <= 0) {
+            resetAttackCooldown();
+            entity.hurt(entity.level().damageSources().source(TURTLE.getKey()), entity.getHealth());
         }
-
     }
-
-    protected void resetAttackCooldown() {
-        this.ticksUntilNextAttack = 20;
-    }
-
-
-    protected double getAttackReachSqr(LivingEntity p_179512_1_) {
-        return (double)(this.turtle.getBbWidth() * 2.0F * this.turtle.getBbWidth() * 2.0F + p_179512_1_.getBbWidth());
-    }
+    protected void resetAttackCooldown() {ticksUntilNextAttack = 20;}
+    protected double getAttackReachSqr(LivingEntity entity) {return turtle.getBbWidth() * 2 * turtle.getBbWidth() * 2 + entity.getBbWidth();}
 }

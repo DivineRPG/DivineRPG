@@ -1,13 +1,10 @@
 package divinerpg.entities.vanilla.overworld;
 
-import divinerpg.registries.AttachmentRegistry;
-import net.minecraft.core.particles.*;
-import net.minecraft.util.Mth;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.effect.*;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.attributes.*;
-import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.animal.Squid;
 import net.minecraft.world.entity.player.Player;
@@ -16,58 +13,29 @@ import net.minecraft.world.level.pathfinder.Path;
 
 import java.util.EnumSet;
 
+import static divinerpg.registries.AttachmentRegistry.VARIANT;
+import static net.minecraft.core.particles.ParticleTypes.SPLASH;
+import static net.minecraft.world.effect.MobEffects.POISON;
+import static net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED;
+
 public class EntityAequorea extends Squid {
-	public EntityAequorea(EntityType<EntityAequorea> type, Level level) {
+	public EntityAequorea(EntityType<? extends EntityAequorea> type, Level level) {
 		super(type, level);
-        if(!level.isClientSide()) setData(AttachmentRegistry.VARIANT.attachment, (byte) getRandom().nextInt(6));
+        if(!level.isClientSide) setData(VARIANT.attachment, (byte)getRandom().nextInt(6));
 	}
-
-    @Override
-    public void onAddedToLevel() {
+    @Override public void onAddedToLevel() {
         super.onAddedToLevel();
-        if(level().isClientSide()) AttachmentRegistry.VARIANT.requestAttachment(this, null);
+        if(level().isClientSide) VARIANT.requestAttachment(this, null);
     }
-
-    @Override
-	protected void registerGoals() {
-		goalSelector.addGoal(1, new RandomMovementGoal(this));
-		goalSelector.addGoal(2, new StingAttack(this, getAttributeBaseValue(Attributes.MOVEMENT_SPEED), false));
-	    goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 8.0F));
+    @Override protected void registerGoals() {
+	    super.registerGoals();
+	    goalSelector.addGoal(1, new StingAttack(this, getAttributeBaseValue(MOVEMENT_SPEED), false));
 	    targetSelector.addGoal(1, new HurtByTargetGoal(this));
 	    targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
 	}
-	public byte getColor() {
-        return AttachmentRegistry.VARIANT.get(this);
-	}
-	@Override
-	protected ParticleOptions getInkParticle() {
-		return ParticleTypes.SPLASH;
-	}
-	static class RandomMovementGoal extends Goal {
-	      private final EntityAequorea aequorea;
-
-	      public RandomMovementGoal(EntityAequorea entity) {
-	         this.aequorea = entity;
-	      }
-
-	      public boolean canUse() {
-	         return true;
-	      }
-
-	      public void tick() {
-	         int i = this.aequorea.getNoActionTime();
-	         if (i > 100) {
-	            this.aequorea.setMovementVector(0.0F, 0.0F, 0.0F);
-	         } else if (this.aequorea.getRandom().nextInt(reducedTickDelay(50)) == 0 || !this.aequorea.wasTouchingWater || !this.aequorea.hasMovementVector()) {
-	            float f = this.aequorea.getRandom().nextFloat() * ((float)Math.PI * 2F);
-	            float f1 = Mth.cos(f) * 0.2F;
-	            float f2 = -0.1F + this.aequorea.getRandom().nextFloat() * 0.2F;
-	            float f3 = Mth.sin(f) * 0.2F;
-	            this.aequorea.setMovementVector(f1, f2, f3);
-	         }
-	      }
-	 }
-     static class StingAttack extends Goal {
+	public byte getColor() {return VARIANT.get(this);}
+	@Override protected ParticleOptions getInkParticle() {return SPLASH;}
+    static class StingAttack extends Goal {
         protected final PathfinderMob mob;
         private final double speedModifier;
         private final boolean followingTargetEvenIfNotSeen;
@@ -77,135 +45,75 @@ public class EntityAequorea extends Squid {
         private double pathedTargetZ;
         private int ticksUntilNextPathRecalculation;
         private int ticksUntilNextAttack;
-//        private final int attackInterval = 20;
         private long lastCanUseCheck;
-
         public StingAttack(PathfinderMob aequorea, double speed, boolean followAtAllCosts) {
-            this.mob = aequorea;
-            this.speedModifier = speed;
-            this.followingTargetEvenIfNotSeen = followAtAllCosts;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
+            mob = aequorea;
+            speedModifier = speed;
+            followingTargetEvenIfNotSeen = followAtAllCosts;
+            setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
         }
-
-        public boolean canUse() {
-            long i = this.mob.level().getGameTime();
-            if (i - this.lastCanUseCheck < 20L) {
-                return false;
-            } else {
-                this.lastCanUseCheck = i;
-                LivingEntity livingentity = this.mob.getTarget();
-                if (livingentity == null) {
-                    return false;
-                } else if (!livingentity.isAlive()) {
-                    return false;
-                } else {
-//                    if (canPenalize) {
-//                        if (--this.ticksUntilNextPathRecalculation <= 0) {
-//                            this.path = this.mob.getNavigation().createPath(livingentity, 0);
-//                            this.ticksUntilNextPathRecalculation = 4 + this.mob.getRandom().nextInt(7);
-//                            return this.path != null;
-//                        } else {
-//                            return true;
-//                        }
-//                    }
-                    this.path = this.mob.getNavigation().createPath(livingentity, 0);
-                    if (this.path != null) {
-                        return true;
-                    } else {
-                        return this.getAttackReachSqr(livingentity) >= this.mob.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
-                    }
+        @Override public boolean canUse() {
+            long i = mob.level().getGameTime();
+            if(i - lastCanUseCheck < 20) return false;
+            else {
+                lastCanUseCheck = i;
+                LivingEntity livingentity = mob.getTarget();
+                if(livingentity == null) return false;
+                else if(!livingentity.isAlive()) return false;
+                else {
+                    path = mob.getNavigation().createPath(livingentity, 0);
+                    if(path != null) return true;
+                    else return getAttackReachSqr(livingentity) >= mob.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
                 }
             }
         }
-
-        public boolean canContinueToUse() {
-            LivingEntity livingentity = this.mob.getTarget();
-            if (livingentity == null) {
-                return false;
-            } else if (!livingentity.isAlive()) {
-                return false;
-            } else if (!this.followingTargetEvenIfNotSeen) {
-                return !this.mob.getNavigation().isDone();
-            } else if (!this.mob.isWithinRestriction(livingentity.blockPosition())) {
-                return false;
-            } else {
-                return !(livingentity instanceof Player) || !livingentity.isSpectator() && !((Player)livingentity).isCreative();
-            }
+        @Override public boolean canContinueToUse() {
+            LivingEntity livingentity = mob.getTarget();
+            if(livingentity == null) return false;
+            else if(!livingentity.isAlive()) return false;
+            else if(!followingTargetEvenIfNotSeen) return !mob.getNavigation().isDone();
+            else if(!mob.isWithinRestriction(livingentity.blockPosition())) return false;
+            else return !(livingentity instanceof Player) || !livingentity.isSpectator() && !((Player)livingentity).isCreative();
         }
-
-        public void start() {
-            this.mob.getNavigation().moveTo(this.path, this.speedModifier);
-            this.mob.setAggressive(true);
-            this.ticksUntilNextPathRecalculation = 0;
-            this.ticksUntilNextAttack = 0;
+        @Override public void start() {
+            mob.getNavigation().moveTo(path, speedModifier);
+            mob.setAggressive(true);
+            ticksUntilNextPathRecalculation = 0;
+            ticksUntilNextAttack = 0;
         }
-
-        public void stop() {
-            LivingEntity livingentity = this.mob.getTarget();
-            if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) {
-                this.mob.setTarget(null);
-            }
-
-            this.mob.setAggressive(false);
-            this.mob.getNavigation().stop();
+        @Override public void stop() {
+            LivingEntity livingentity = mob.getTarget();
+            if(!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) mob.setTarget(null);
+            mob.setAggressive(false);
+            mob.getNavigation().stop();
         }
-
-        public void tick() {
-            LivingEntity livingentity = this.mob.getTarget();
-            this.mob.getLookControl().setLookAt(livingentity, 30.0F, 30.0F);
-            double d0 = this.mob.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
-            this.ticksUntilNextPathRecalculation = Math.max(this.ticksUntilNextPathRecalculation - 1, 0);
-            if ((this.followingTargetEvenIfNotSeen || this.mob.getSensing().hasLineOfSight(livingentity)) && this.ticksUntilNextPathRecalculation <= 0 && (this.pathedTargetX == 0.0D && this.pathedTargetY == 0.0D && this.pathedTargetZ == 0.0D || livingentity.distanceToSqr(this.pathedTargetX, this.pathedTargetY, this.pathedTargetZ) >= 1.0D || this.mob.getRandom().nextFloat() < 0.05F)) {
-                this.pathedTargetX = livingentity.getX();
-                this.pathedTargetY = livingentity.getY();
-                this.pathedTargetZ = livingentity.getZ();
-                this.ticksUntilNextPathRecalculation = 4 + this.mob.getRandom().nextInt(7);
-//                if (this.canPenalize) {
-//                    this.ticksUntilNextPathRecalculation += failedPathFindingPenalty;
-//                    if (this.mob.getNavigation().getPath() != null) {
-//                        net.minecraft.world.level.pathfinder.Node finalPathPoint = this.mob.getNavigation().getPath().getEndNode();
-//                        if (finalPathPoint != null && livingentity.distanceToSqr(finalPathPoint.x, finalPathPoint.y, finalPathPoint.z) < 1)
-//                            failedPathFindingPenalty = 0;
-//                        else
-//                            failedPathFindingPenalty += 10;
-//                    } else {
-//                        failedPathFindingPenalty += 10;
-//                    }
-//                }
-                if (d0 > 1024.0D) {
-                    this.ticksUntilNextPathRecalculation += 10;
-                } else if (d0 > 256.0D) {
-                    this.ticksUntilNextPathRecalculation += 5;
-                }
-
-                if (!this.mob.getNavigation().moveTo(livingentity, this.speedModifier)) {
-                    this.ticksUntilNextPathRecalculation += 15;
-                }
-            }
-
-            this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
-            this.checkAndPerformAttack(livingentity, d0);
+        @Override public void tick() {
+            LivingEntity livingentity = mob.getTarget();
+            mob.getLookControl().setLookAt(livingentity, 30, 30);
+            double d0 = mob.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
+            ticksUntilNextPathRecalculation = Math.max(ticksUntilNextPathRecalculation - 1, 0);
+            if((followingTargetEvenIfNotSeen || mob.getSensing().hasLineOfSight(livingentity)) && ticksUntilNextPathRecalculation <= 0 && (pathedTargetX == 0 && pathedTargetY == 0 && pathedTargetZ == 0 || livingentity.distanceToSqr(pathedTargetX, pathedTargetY, pathedTargetZ) >= 1 || mob.getRandom().nextFloat() < .05)) {
+                pathedTargetX = livingentity.getX();
+                pathedTargetY = livingentity.getY();
+                pathedTargetZ = livingentity.getZ();
+                ticksUntilNextPathRecalculation = 4 + mob.getRandom().nextInt(7);
+                if(d0 > 1024) ticksUntilNextPathRecalculation += 10;
+                else if(d0 > 256) ticksUntilNextPathRecalculation += 5;
+                if(!mob.getNavigation().moveTo(livingentity, speedModifier)) ticksUntilNextPathRecalculation += 15;
+            } ticksUntilNextAttack = Math.max(ticksUntilNextAttack - 1, 0);
+            checkAndPerformAttack(livingentity, d0);
         }
-
         protected void checkAndPerformAttack(LivingEntity entity, double range) {
-            double d0 = this.getAttackReachSqr(entity);
-            if (range <= d0 && this.ticksUntilNextAttack <= 0) {
-                this.resetAttackCooldown();
-                this.mob.swing(InteractionHand.MAIN_HAND);
-                this.mob.doHurtTarget(entity);
-                entity.addEffect(new MobEffectInstance(MobEffects.POISON, 3));
+            double d0 = getAttackReachSqr(entity);
+            if(range <= d0 && ticksUntilNextAttack <= 0) {
+                resetAttackCooldown();
+                mob.swing(InteractionHand.MAIN_HAND);
+                mob.doHurtTarget(entity);
+                entity.addEffect(new MobEffectInstance(POISON, 3 * 20));
             }
-
         }
-
-        protected void resetAttackCooldown() {
-            this.ticksUntilNextAttack = 20;
-        }
-
-
-        protected double getAttackReachSqr(LivingEntity p_179512_1_) {
-            return this.mob.getBbWidth() * 2.0F * this.mob.getBbWidth() * 2.0F + p_179512_1_.getBbWidth();
+        protected void resetAttackCooldown() {ticksUntilNextAttack = 20;}
+        protected double getAttackReachSqr(LivingEntity entity) { return mob.getBbWidth() * 2 * mob.getBbWidth() * 2 + entity.getBbWidth();
         }
     }
-
 }
