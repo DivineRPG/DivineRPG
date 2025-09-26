@@ -48,7 +48,7 @@ public class ModelWildfire extends HumanoidModel<EntityWildfire> {
 		.texOffs(0, 0).addBox(-5, -3, 0, 10, 5, 8, cubeDef), PartPose.rotation(-.6109F, 0, 0));
 		partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(24, 36).addBox(-2, 0, -1, 3, 12, 3, cubeDef), PartPose.offset(-2, 0, 0));
 		partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(36, 36).addBox(-1, 0, -1, 3, 12, 3, cubeDef), PartPose.offset(2, 0, 0));
-		return LayerDefinition.create(meshdefinition, 60, 55);
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void prepareMobModel(EntityWildfire entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
 		rightArmPose = leftArmPose = HumanoidModel.ArmPose.EMPTY;

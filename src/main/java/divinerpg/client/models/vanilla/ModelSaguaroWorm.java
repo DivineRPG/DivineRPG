@@ -31,7 +31,7 @@ public class ModelSaguaroWorm extends EntityModel<EntitySaguaroWorm> {
 		partdefinition.addOrReplaceChild("inactive", CubeListBuilder.create()
 		.texOffs(0, 0).addBox(1, -32, 1, 14, 16, 14, cubeDef) //Upper Cactus
 		.texOffs(0, 30).addBox(1, -16, 1, 14, 16, 14, cubeDef), PartPose.offset(-8, 8, -8)); //Middle Cactus
-		return LayerDefinition.create(meshdefinition, 96, 60);
+		return LayerDefinition.create(meshdefinition, 128, 64);
 	}
 	@Override public void prepareMobModel(EntitySaguaroWorm entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
 		active.visible = entity.getProvoked();

@@ -128,7 +128,7 @@ public class ModelTheHunger<T extends Entity> extends EntityModel<T> {
 
 		partdefinition.addOrReplaceChild("Shape17", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-3.0F, 7.4F, -8.0F));
 
-		return LayerDefinition.create(meshdefinition, 56, 64);
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
 	@Override

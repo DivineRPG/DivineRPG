@@ -63,7 +63,7 @@ public class RenderItemStatue extends BlockEntityWithoutLevelRenderer {
         if(item == dramixStatue.asItem()) return new ModelDramix<>(context.bakeLayer(ModelDramix.LAYER_LOCATION));
         if(item == parasectaStatue.asItem()) return new ModelParasecta(context.bakeLayer(ModelParasecta.LAYER_LOCATION));
         //Eden-Skythern
-        if(item == sunstormStatue.asItem()) return new ModelSunstorm<>(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
+        if(item == sunstormStatue.asItem()) return new ModelSunstorm(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
         if(item == termasectStatue.asItem()) return new ModelTermasect<>(context.bakeLayer(ModelTermasect.LAYER_LOCATION));
         if(item == eternalArcherStatue.asItem()) return new ModelEternalArcher<>(context.bakeLayer(ModelEternalArcher.LAYER_LOCATION));
         if(item == experiencedCoriStatue.asItem()) return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));

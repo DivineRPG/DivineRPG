@@ -60,7 +60,7 @@ public class ModelKitra extends EntityModel<EntityKitra> {
 		.texOffs(103, 166).addBox(-11, -1.5F, 0, 22, 12, 11, cubeDef)
 		.texOffs(172, 35).addBox(-2, -8.5F, 1, 4, 8, 11, cubeDef), PartPose.offset(0, 0, 10.5F));
 		tailSegment3.addOrReplaceChild("tail_tip", CubeListBuilder.create().texOffs(90, 189).addBox(0, -4.5F, .5F, 0, 13, 31, cubeDef), PartPose.offset(0, -6, 11.5F));
-		return LayerDefinition.create(meshdefinition, 202, 238);
+		return LayerDefinition.create(meshdefinition, 256, 256);
 	}
 	@Override public void setupAnim(EntityKitra entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		head.xRot = Mth.cos(limbSwing * .2F) * limbSwingAmount / 8;

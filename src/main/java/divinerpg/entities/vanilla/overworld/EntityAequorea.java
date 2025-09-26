@@ -1,6 +1,7 @@
 package divinerpg.entities.vanilla.overworld;
 
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
@@ -28,13 +29,30 @@ public class EntityAequorea extends Squid {
         if(level().isClientSide) VARIANT.requestAttachment(this, null);
     }
     @Override protected void registerGoals() {
-	    super.registerGoals();
+        goalSelector.addGoal(0, new RandomMovementGoal(this));
 	    goalSelector.addGoal(1, new StingAttack(this, getAttributeBaseValue(MOVEMENT_SPEED), false));
 	    targetSelector.addGoal(1, new HurtByTargetGoal(this));
 	    targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
 	}
 	public byte getColor() {return VARIANT.get(this);}
 	@Override protected ParticleOptions getInkParticle() {return SPLASH;}
+    static class RandomMovementGoal extends Goal {
+        private final EntityAequorea aequorea;
+        public RandomMovementGoal(EntityAequorea entity) {aequorea = entity;}
+        public boolean canUse() {return true;}
+        public void tick() {
+            int i = aequorea.getNoActionTime();
+            if (i > 100) {
+                aequorea.setMovementVector(0, 0, 0);
+            } else if (aequorea.getRandom().nextInt(reducedTickDelay(50)) == 0 || !aequorea.wasTouchingWater || !aequorea.hasMovementVector()) {
+                float f = aequorea.getRandom().nextFloat() * Mth.TWO_PI;
+                float f1 = Mth.cos(f) * .2F;
+                float f2 = -.1F + aequorea.getRandom().nextFloat() * .2F;
+                float f3 = Mth.sin(f) * .2F;
+                aequorea.setMovementVector(f1, f2, f3);
+            }
+        }
+    }
     static class StingAttack extends Goal {
         protected final PathfinderMob mob;
         private final double speedModifier;

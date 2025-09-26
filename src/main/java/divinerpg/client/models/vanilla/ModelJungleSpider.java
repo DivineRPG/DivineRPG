@@ -68,7 +68,7 @@ public class ModelJungleSpider extends HierarchicalModel<EntityJungleSpider> {
 		PartDefinition leftHindLeg = body.addOrReplaceChild("left_hind_leg", CubeListBuilder.create(), PartPose.offset(4, 0, 2));
 		leftHindLeg.addOrReplaceChild("left_hind_leg_rot", CubeListBuilder.create().texOffs(0, 35).mirror().addBox(-1, -1, -1, 12, 2, 2, cubeDef)
 		.texOffs(38, 7).mirror().addBox(11, -3, -1, 2, 10, 2, cubeDef), PartPose.rotation(0, -Mth.PI / 4, Mth.PI / 8));
-		return LayerDefinition.create(meshdefinition, 60, 49);
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public ModelPart root() {return body;}
 	@Override public void setupAnim(EntityJungleSpider entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

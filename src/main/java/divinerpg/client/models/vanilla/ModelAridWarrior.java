@@ -40,7 +40,7 @@ public class ModelAridWarrior extends HumanoidModel<EntityAridWarrior> {
 		rightLeg.addOrReplaceChild("right_foot", CubeListBuilder.create().texOffs(32, 20).addBox(-2, 0, -2, 4, 7, 4, cubeDef), PartPose.offset(-1, 4.99F, 1));
 		PartDefinition leftLeg = partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(48, 20).addBox(-1.5F, 0, -2, 4, 5, 4, cubeDef), PartPose.offset(2, 0, 0));
 		leftLeg.addOrReplaceChild("left_foot", CubeListBuilder.create().texOffs(32, 0).addBox(-2, 0, -2, 4, 7, 4, cubeDef), PartPose.offset(1, 4.99F, 1));
-		return LayerDefinition.create(meshdefinition, 64, 58);
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 	@Override public void prepareMobModel(EntityAridWarrior entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
 		rightArmPose = leftArmPose = HumanoidModel.ArmPose.EMPTY;
@@ -69,11 +69,11 @@ public class ModelAridWarrior extends HumanoidModel<EntityAridWarrior> {
 		modelpart.x -= f;
 	}
 	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		rightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		leftArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
+		leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

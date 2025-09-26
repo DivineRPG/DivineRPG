@@ -46,7 +46,7 @@ public class ModelTomo extends EntityModel<EntityBaseTomo> {
 		leftArm.addOrReplaceChild("left_arm_rot", CubeListBuilder.create().texOffs(26, 17).addBox(0, -1, -1.5F, 4, 2, 3, cubeDef), PartPose.rotation(0, 0, .5F - Mth.PI / 6));
 		partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(22, 22).addBox(-2, 0, -1, 4, 6, 4, cubeDef), PartPose.offset(-3, 18, -1));
 		partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(0, 26).addBox(-2, 0, -1, 4, 6, 4, cubeDef), PartPose.offset(3, 18, -1));
-		return LayerDefinition.create(meshdefinition, 50, 43);
+		return LayerDefinition.create(meshdefinition, 64, 48);
 	}
 	@Override public void setupAnim(EntityBaseTomo entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		float g = ageInTicks * .1F + limbSwing * .5F;

@@ -58,7 +58,7 @@ public class RenderStatue implements BlockEntityRenderer<StatueBlockEntity> {
         if(block == dramixStatue.get()) return new ModelDramix<>(context.bakeLayer(ModelDramix.LAYER_LOCATION));
         if(block == parasectaStatue.get()) return new ModelParasecta(context.bakeLayer(ModelParasecta.LAYER_LOCATION));
         //Eden-Skythern
-        if(block == sunstormStatue.get()) return new ModelSunstorm<>(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
+        if(block == sunstormStatue.get()) return new ModelSunstorm(context.bakeLayer(ModelSunstorm.LAYER_LOCATION));
         if(block == termasectStatue.get()) return new ModelTermasect<>(context.bakeLayer(ModelTermasect.LAYER_LOCATION));
         if(block == eternalArcherStatue.get()) return new ModelEternalArcher<>(context.bakeLayer(ModelEternalArcher.LAYER_LOCATION));
         if(block == experiencedCoriStatue.get()) return new ModelExperiencedCori(context.bakeLayer(ModelExperiencedCori.LAYER_LOCATION));

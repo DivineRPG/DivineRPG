@@ -246,7 +246,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityKingCrab>>			 KING_CRAB 			 = registerEntity(EntityKingCrab::new, 			"king_crab", 			    1.8F, 1.4375F, 1.125F, 0xffffff, 0xffffff);
 
     //Water
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityAequorea>>			 AEQUOREA 			 = registerEntity(EntityAequorea::new, 			"aequorea", 			    .3F, .3125F, .25F, 0x79ab82, 0x7ae174, MobCategory.WATER_AMBIENT);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityAequorea>>			 AEQUOREA 			 = registerEntity(EntityAequorea::new, 			"aequorea", 			    .5F, .5F, .25F, 0x79ab82, 0x7ae174, MobCategory.WATER_AMBIENT);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityShark>>				 SHARK 				 = registerEntity(EntityShark::new, 			"shark", 				    1, .75F, .59375F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWhale>>				 WHALE 				 = registerEntity(EntityWhale::new, 			"whale", 				    3, 1.875F, 1.125F, 0x638bb3, 0x273649, MobCategory.WATER_CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityLiopleurodon>>		 LIOPLEURODON 		 = registerEntity(EntityLiopleurodon::new, 		"liopleurodon", 		    1.2F, .8475F, .32F, 0xffffff, 0xffffff, MobCategory.WATER_CREATURE);
@@ -352,7 +352,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityEdenCadillion>>       EDEN_CADILLION      = registerEntity(EntityEdenCadillion::new,     "eden_cadillion",         .875F, 1.4F, 1.3625F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityGreenfeet>> 	         GREENFEET 		     = registerEntity(EntityGreenfeet::new, 		"greenfeet", 	            .8F, 1.9375F, 1.625F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityMadivel>> 		     MADIVEL 		     = registerEntity(EntityMadivel::new, 		    "madivel", 		        1.6F, 3, 2.6F, 0xffffff, 0xffffff);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntitySunArcher>> 	         SUN_ARCHER 		 = registerEntity(EntitySunArcher::new, 		"sun_archer", 	        .8F, 2.2F, 2, 0xeaab42, 0xfdf182);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntitySunArcher>> 	         SUN_ARCHER 		 = registerEntity(EntitySunArcher::new, 		"sun_archer", 	        .75F, 2.063F, 1.9375F, 0xeaab42, 0xfdf182);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWeakCori>> 		     WEAK_CORI 		     = registerEntity(EntityWeakCori::new, 		    "weak_cori", 	            .7F, 1.125F, .97F, 0xffffff, 0xffffff);
 
     //Wildwood
@@ -1013,7 +1013,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(RAGLOK.get(), 			(Context context) -> new RenderDivineMob<>(context, "raglok", 			new ModelRaglok(context)));
         event.registerEntityRenderer(REYVOR.get(), 			(Context context) -> new RenderDivineMob<>(context, "reyvor", 			new ModelReyvor<>(context), .8F));
         event.registerEntityRenderer(SOUL_FIEND.get(), 		(Context context) -> new RenderDivineMob<>(context, "soul_fiend", 		new ModelSoulFiend(context)));
-        event.registerEntityRenderer(SUNSTORM.get(), 		(Context context) -> new RenderDivineMob<>(context, "sunstorm", 		new ModelSunstorm<>(context), 1.2F));
+        event.registerEntityRenderer(SUNSTORM.get(), 		(Context context) -> new RenderDivineMob<>(context, "sunstorm", 		new ModelSunstorm(context.bakeLayer(ModelSunstorm.LAYER_LOCATION)), 1.2F));
         event.registerEntityRenderer(TERMASECT.get(), 		(Context context) -> new RenderDivineMob<>(context, "termasect", 		new ModelTermasect<>(context), .5F, 5));
         event.registerEntityRenderer(THE_WATCHER.get(), 	(Context context) -> new RenderDivineMob<>(context, "the_watcher",		new ModelWatcher(context), 2F, 6));
         event.registerEntityRenderer(TWILIGHT_DEMON.get(), 	(Context context) -> new RenderDivineMob<>(context, "twilight_demon", 	new ModelTwilightDemon(context), .5F, 2));

@@ -34,19 +34,19 @@ public class ModelInsectFourteen extends EntityModel<EntityInsectFourteen> {
         partdefinition.addOrReplaceChild("LegPair2", CubeListBuilder.create().texOffs(34, 25).addBox(0.5F, 0F, -2F, 4F, 9F, 4F, zero)
                 .texOffs(34, 25).addBox(-9.25F, 0F, -2F, 4F, 9F, 4F, zero), PartPose.offset(0F, 15F, 0F));
         partdefinition.addOrReplaceChild("LegPair1", CubeListBuilder.create().texOffs(34, 25).addBox(5.5F, 0F, -3F, 4F, 9F, 4F, zero)
-                .texOffs(34, 25).addBox(-4.5F, 0F, -3F, 4F, 9F, 4F, zero), PartPose.offset(0F, 15F, 1.0F));
+                .texOffs(34, 25).addBox(-4.5F, 0F, -3F, 4F, 9F, 4F, zero), PartPose.offset(0F, 15F, 1));
         partdefinition.addOrReplaceChild("Head", CubeListBuilder.create().texOffs(0, 0).addBox(-6.5F, -12.5F, -6F, 13F, 13F, 12F, zero)
-                .texOffs(0, 25).addBox(-8.5F, -13.5F, -1.0F, 17.0F, 2F, 2F, zero)
-                .texOffs(0, 0).addBox(-8.5F, -19.5F, -1.0F, 2F, 6F, 2F, zero)
-                .texOffs(0, 0).addBox(-5.5F, -19.5F, -1.0F, 2F, 6F, 2F, zero)
-                .texOffs(0, 0).addBox(0.5F, -19.5F, -1.0F, 2F, 6F, 2F, zero)
-                .texOffs(0, 0).addBox(6.5F, -19.5F, -1.0F, 2F, 6F, 2F, zero)
-                .texOffs(0, 0).addBox(3.5F, -19.5F, -1.0F, 2F, 6F, 2F, zero)
-                .texOffs(0, 0).addBox(-2.5F, -19.5F, -1.0F, 2F, 6F, 2F, zero), PartPose.offset(0F, 9.5F, 0F));
+                .texOffs(0, 25).addBox(-8.5F, -13.5F, -1, 17, 2F, 2F, zero)
+                .texOffs(0, 0).addBox(-8.5F, -19.5F, -1, 2F, 6F, 2F, zero)
+                .texOffs(0, 0).addBox(-5.5F, -19.5F, -1, 2F, 6F, 2F, zero)
+                .texOffs(0, 0).addBox(0.5F, -19.5F, -1, 2F, 6F, 2F, zero)
+                .texOffs(0, 0).addBox(6.5F, -19.5F, -1, 2F, 6F, 2F, zero)
+                .texOffs(0, 0).addBox(3.5F, -19.5F, -1, 2F, 6F, 2F, zero)
+                .texOffs(0, 0).addBox(-2.5F, -19.5F, -1, 2F, 6F, 2F, zero), PartPose.offset(0F, 9.5F, 0F));
         partdefinition.addOrReplaceChild("LeftArm", CubeListBuilder.create().texOffs(38, 0).addBox(-2F, -9F, -1.5F, 3F, 9F, 3F, zero), PartPose.offset(9.75F, 11F, 0F));
-        partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(38, 0).addBox(-1.0F, -9F, -1.5F, 3F, 9F, 3F, zero), PartPose.offset(-9.75F, 11F, 0F));
+        partdefinition.addOrReplaceChild("RightArm", CubeListBuilder.create().texOffs(38, 0).addBox(-1, -9F, -1.5F, 3F, 9F, 3F, zero), PartPose.offset(-9.75F, 11F, 0F));
         partdefinition.addOrReplaceChild("Body", CubeListBuilder.create().texOffs(0, 29).addBox(-10F, -15F, -3F, 20F, 6F, 6F, zero), PartPose.offset(0F, 24F, 0F));
-        return LayerDefinition.create(meshdefinition, 52, 41);
+        return LayerDefinition.create(meshdefinition, 64, 64);
     }
     @Override
     public void setupAnim(EntityInsectFourteen entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

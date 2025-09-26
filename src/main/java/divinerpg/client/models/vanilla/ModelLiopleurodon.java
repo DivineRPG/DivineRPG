@@ -52,7 +52,7 @@ public class ModelLiopleurodon extends EntityModel<EntityLiopleurodon> {
 		PartDefinition tailFin = tailHind.addOrReplaceChild("tail_fin", CubeListBuilder.create(), PartPose.offset(0, .5F, 9));
 		tailFin.addOrReplaceChild("tail_fin_down", CubeListBuilder.create().texOffs(0, 0).addBox(0, -2, 0, 1, 3, 8, cubeDef), PartPose.offsetAndRotation(-.5F, .35F, 1, -Mth.PI / 8, 0, 0));
 		tailFin.addOrReplaceChild("tail_fin_up", CubeListBuilder.create().texOffs(6, 73).addBox(-1, -3, 0, 2, 4, 12, cubeDef), PartPose.offsetAndRotation(0, .35F, 1, Mth.PI / 8, 0, 0));
-		return LayerDefinition.create(meshdefinition, 78, 89);
+		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 	@Override public void prepareMobModel(EntityLiopleurodon entity, float limbSwing, float limbSwingAmount, float ageInTicks) {
 		super.prepareMobModel(entity, limbSwing, limbSwingAmount, ageInTicks);
