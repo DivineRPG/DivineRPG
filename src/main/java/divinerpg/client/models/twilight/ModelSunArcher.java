@@ -23,15 +23,15 @@ public class ModelSunArcher extends HumanoidModel<EntitySunArcher> {
 		MeshDefinition meshdefinition = HumanoidModel.createMesh(cubeDef, 0);
 		PartDefinition partdefinition = meshdefinition.getRoot();
 		PartPose zPose = PartPose.ZERO;
-		PartDefinition hat = partdefinition.addOrReplaceChild("hat", CubeListBuilder.create().texOffs(50, 35).addBox(-4, -4, -3.9F, 8, 7, 1, cubeDef)
-		.texOffs(28, 13).addBox(-3, 3, -3.9F, 6, 2, 1, cubeDef)
-		.texOffs(26, 62).addBox(-2, 5, -3.9F, 4, 6, 0, cubeDef)
-		.texOffs(18, 17).addBox(-3.5F, -1, -3.5F, 7, 3, 7, cubeDef), zPose);
-		hat.addOrReplaceChild("lower_left_ray", CubeListBuilder.create().texOffs(46, 24).addBox(-.42F, -1, 0, 6, 3, 0, cubeDef), PartPose.offsetAndRotation(3, -1, -3.05F, 0, -Mth.PI / 9, 0));
-		hat.addOrReplaceChild("upper_left_ray", CubeListBuilder.create().texOffs(58, 24).addBox(-.42F, -3, 0, 6, 3, 0, cubeDef), PartPose.offsetAndRotation(3, -1, -2.05F, .3368F, -.5198F, -.614F));
-		hat.addOrReplaceChild("middle_ray", CubeListBuilder.create().texOffs(34, 62).addBox(-1, -6, 0, 3, 6, 0, cubeDef), PartPose.offsetAndRotation(-.5F, -3, -2.9F, -.5236F, 0, 0));
-		hat.addOrReplaceChild("upper_right_ray", CubeListBuilder.create().texOffs(0, 60).addBox(-5.58F, -3, 0, 6, 3, 0, cubeDef), PartPose.offsetAndRotation(-3, -1, -2.05F, .3368F, .5198F, .614F));
-		hat.addOrReplaceChild("lower_right_ray", CubeListBuilder.create().texOffs(52, 59).addBox(-5.58F, -1, 0, 6, 3, 0, cubeDef), PartPose.offsetAndRotation(-3, -1, -3.05F, 0, Mth.PI / 9, 0));
+		PartDefinition hat = partdefinition.addOrReplaceChild("hat", CubeListBuilder.create().texOffs(50, 35).addBox(-4, -6.99F, -3.9F, 8, 7, 1, cubeDef)
+		.texOffs(28, 13).addBox(-3, .01F, -3.9F, 6, 2, 1, cubeDef)
+		.texOffs(26, 62).addBox(-2, 2.01F, -3.9F, 4, 6, 0, cubeDef)
+		.texOffs(18, 17).addBox(-3.5F, -3.99F, -3.5F, 7, 3, 7, cubeDef), zPose);
+		hat.addOrReplaceChild("lower_left_ray", CubeListBuilder.create().texOffs(46, 24).addBox(-.42F, -1, 0, 6, 3, 0, cubeDef), PartPose.offsetAndRotation(3, -4, -3.15F, 0, -Mth.PI / 9, 0));
+		hat.addOrReplaceChild("upper_left_ray", CubeListBuilder.create().texOffs(58, 24).addBox(-.42F, -3, 0, 6, 3, 0, cubeDef), PartPose.offsetAndRotation(3, -4, -2.15F, .3368F, -.5198F, -.614F));
+		hat.addOrReplaceChild("middle_ray", CubeListBuilder.create().texOffs(34, 62).addBox(-1, -6, 0, 3, 6, 0, cubeDef), PartPose.offsetAndRotation(-.5F, -6, -3, -.5236F, 0, 0));
+		hat.addOrReplaceChild("upper_right_ray", CubeListBuilder.create().texOffs(0, 60).addBox(-5.58F, -3, 0, 6, 3, 0, cubeDef), PartPose.offsetAndRotation(-3, -4, -2.15F, .3368F, .5198F, .614F));
+		hat.addOrReplaceChild("lower_right_ray", CubeListBuilder.create().texOffs(52, 59).addBox(-5.58F, -1, 0, 6, 3, 0, cubeDef), PartPose.offsetAndRotation(-3, -4, -3.15F, 0, Mth.PI / 9, 0));
 		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(18, 27).addBox(-3, -5.99F, -3, 6, 6, 6, cubeDef), zPose);
 		PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-5, 0, -3, 10, 13, 4, cubeDef), PartPose.offset(0, 0, 1));
 		body.addOrReplaceChild("right_cloak_pad", CubeListBuilder.create().texOffs(42, 27).addBox(-6, -2, -2, 6, 3, 5, cubeDef), PartPose.offsetAndRotation(-3.58F, 1.38F, -1.5F, 0, 0, .2182F));
@@ -63,8 +63,7 @@ public class ModelSunArcher extends HumanoidModel<EntitySunArcher> {
 	@Override public void setupAnim(EntitySunArcher entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 		cloak.xRot = Mth.sqrt((float)Math.atan(200 * limbSwing)) * limbSwingAmount;
-		hat.y = -6;
-		head.y = body.y = -3;
+		head.y = hat.y = body.y = -3;
 		rightArm.y = leftArm.y = -1.5F;
 		rightLeg.y = leftLeg.y = 10;
 	}
