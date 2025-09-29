@@ -702,7 +702,7 @@ public class BlockRegistry {
     winterberryBush = registerBlock("winterberry_bush", BlockWinterberryBush::new),
     winterberryVinesBody = BLOCKS.register("winterberry_vines_body", () -> new BlockWinterberryVinesBody(Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES))),
     winterberryVinesHead = registerBlock("winterberry_vines_head", () -> new BlockWinterberryVinesHead(Properties.ofFullCopy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES))),
-    snowyMoss = registerBlock("snowy_moss", () -> new GlowLichenBlock(Properties.ofFullCopy(Blocks.GLOW_LICHEN).mapColor(SNOW))),
+    snowyMoss = registerBlock("snowy_moss", BlockSnowyMoss::new),
     crimpetal = registerBlock("crimpetal", () -> new BlockModFlower(FIRE_RESISTANCE, 4, COLOR_MAGENTA)),
     roofbell = registerBlock("roofbell", () -> new BlockModFlower(POISON, 11, COLOR_PINK)),
     winterbloom = registerBlock("winterbloom", () -> new BlockModFlower(LEVITATION, 8, SNOW)),
