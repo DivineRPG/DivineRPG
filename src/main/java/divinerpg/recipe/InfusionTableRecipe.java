@@ -46,11 +46,11 @@ public record InfusionTableRecipe(ItemStack input, Ingredient template, ItemStac
     }
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return RecipeRegistry.Serailizers.INFUSION_TABLE_SERIALIZER.get();
+        return RecipeRegistry.Serializers.INFUSION_TABLE_SERIALIZER.get();
     }
     @Override
     public RecipeType<?> getType() {
-        return RecipeRegistry.Types.INFUSIION_TABLE_RECIPE_TYPE.get();
+        return RecipeRegistry.Types.INFUSION_TABLE_RECIPE_TYPE.get();
     }
     public static class Serializer implements RecipeSerializer<InfusionTableRecipe> {
         public static final StreamCodec<RegistryFriendlyByteBuf, InfusionTableRecipe> STREAM_CODEC = StreamCodec.of(Serializer::toNetwork, Serializer::fromNetwork);

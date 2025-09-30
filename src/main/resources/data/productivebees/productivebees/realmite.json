@@ -1,16 +1,12 @@
 {
   "primaryColor": "#ff6600",
   "secondaryColor": "#ff9966",
-  "flowerTag": "c:storage_blocks/realmite",
+  "flowerTag": "divinerpg:storage_blocks/realmite",
   "name": "Realmite",
   "conditions": [
     {
       "type": "neoforge:mod_loaded",
       "modid": "productivebees"
-    },
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "divinerpg"
     }
   ]
 }

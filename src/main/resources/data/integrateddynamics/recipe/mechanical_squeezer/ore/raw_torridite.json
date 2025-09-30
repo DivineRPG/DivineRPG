@@ -1,25 +1,25 @@
 {
   "type": "integrateddynamics:mechanical_squeezer",
   "input_item": {
-    "tag": "c:ores/torridite"
+    "tag": "divinerpg:ores/torridite"
   },
   "output_items": [
     {
       "tag": {
-        "tag": "c:raw_materials/torridite",
+        "tag": "divinerpg:raw_materials/torridite",
         "count": 3
       }
     },
     {
       "tag": {
-        "tag": "c:raw_materials/torridite",
+        "tag": "divinerpg:raw_materials/torridite",
         "count": 2
       },
       "chance": 0.5
     },
     {
       "tag": {
-        "tag": "c:raw_materials/torridite",
+        "tag": "divinerpg:raw_materials/torridite",
         "count": 2
       },
       "chance": 0.5
@@ -31,15 +31,19 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:raw_materials/torridite"
+        "tag": "divinerpg:raw_materials/torridite"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:ores/torridite"
+        "tag": "divinerpg:ores/torridite"
       }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
     }
   ]
 }

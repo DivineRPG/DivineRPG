@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#003796",
-  "ingredient": {
-    "tag": "c:storage_blocks/arcanium"
-  },
   "name": "Arcanium",
+  "hexColor": "#43e0e9",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/arcanium"
+  },
   "result": {
     "count": 1,
     "id": "divinerpg:piece_of_raw_arcanium"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/arcanium"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

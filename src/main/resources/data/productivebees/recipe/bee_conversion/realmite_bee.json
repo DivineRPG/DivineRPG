@@ -5,7 +5,7 @@
   "item": {
     "item": "divinerpg:realmite_block"
   },
-  "neoforge:conditions": [
+  "conditions": [
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:realmite"
@@ -13,6 +13,12 @@
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:iron"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "productivebees"
     }
   ]
 }

@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#b510c4",
-  "ingredient": {
-    "tag": "c:storage_blocks/apalachia"
-  },
   "name": "Apalachia",
+  "hexColor": "#cb39d6",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/apalachia"
+  },
   "result": {
     "count": 1,
     "id": "divinerpg:apalachia_fragments"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/apalachia"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

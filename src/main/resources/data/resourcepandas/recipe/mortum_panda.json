@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#2d2e2e",
-  "ingredient": {
-    "tag": "c:storage_blocks/mortum"
-  },
   "name": "Mortum",
+  "hexColor": "#6f6d78",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/mortum"
+  },
   "result": {
     "count": 1,
     "id": "divinerpg:mortum_fragments"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/mortum"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

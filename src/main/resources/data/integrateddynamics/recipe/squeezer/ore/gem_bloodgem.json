@@ -1,18 +1,18 @@
 {
   "type": "integrateddynamics:squeezer",
   "input_item": {
-    "tag": "c:ores/bloodgem"
+    "tag": "divinerpg:ores/bloodgem"
   },
   "output_items": [
     {
       "tag": {
-        "tag": "c:gems/bloodgem"
+        "tag": "divinerpg:gems/bloodgem"
       },
       "count": 2
     },
     {
       "tag": {
-        "tag": "c:gems/bloodgem"
+        "tag": "divinerpg:gems/bloodgem"
       },
       "chance": 0.5
     }
@@ -22,15 +22,19 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:gems/bloodgem"
+        "tag": "divinerpg:gems/bloodgem"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:ores/bloodgem"
+        "tag": "divinerpg:ores/bloodgem"
       }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
     }
   ]
 }

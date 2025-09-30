@@ -1,13 +1,18 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#3d9c14",
+  "name": "Terran",
+  "hexColor": "#71924b",
   "ingredient": {
     "item": "divinerpg:terran_stone"
   },
-  "name": "Terran",
   "result": {
     "count": 1,
     "id": "divinerpg:terran_shards"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

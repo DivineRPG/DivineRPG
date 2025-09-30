@@ -43,10 +43,11 @@ public class JEICompat implements IModPlugin {
     @Override public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager manager = Minecraft.getInstance().level.getRecipeManager();
         registration.addRecipes(ArcaniumExtractorCategory.RECIPE_TYPE, manager.getAllRecipesFor(ARCANIUM_EXTRACTOR_RECIPE_TYPE.get()));
-        registration.addRecipes(InfusionTableCategory.RECIPE_TYPE, manager.getAllRecipesFor(INFUSIION_TABLE_RECIPE_TYPE.get()));
+        registration.addRecipes(InfusionTableCategory.RECIPE_TYPE, manager.getAllRecipesFor(INFUSION_TABLE_RECIPE_TYPE.get()));
         registration.addRecipes(SmashingCategory.RECIPE_TYPE, manager.getAllRecipesFor(MAUL_SMASHING.get()));
         registration.addRecipes(FireConversionCategory.RECIPE_TYPE, manager.getAllRecipesFor(FIRE_CONVERSION.get()));
         registration.addRecipes(RecipeTypes.BREWING, List.of(
+                //TODO: some potion recipe variants display "?" as steps count (those that are added automatically)
                 new PotionRecipe(Items.POTION, Potions.AWKWARD, GROG, 2, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.grog.regular"), ItemRegistry.cauldron_flesh.toStack()),
                 new PotionRecipe(Items.SPLASH_POTION, Potions.AWKWARD, GROG, 3, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.grog.splash"), ItemRegistry.cauldron_flesh.toStack()),
                 new PotionRecipe(Items.LINGERING_POTION, Potions.AWKWARD, GROG, 4, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "brewing.grog.lingering"), ItemRegistry.cauldron_flesh.toStack()),

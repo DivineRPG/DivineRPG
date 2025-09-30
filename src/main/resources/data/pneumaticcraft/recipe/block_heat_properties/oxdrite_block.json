@@ -1,16 +1,16 @@
 {
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "divinerpg"
-    }
-  ],
+  "type" : "pneumaticcraft:heat_properties",
   "transforms" : {
-    "cold" : "minecraft:iron_block"
+    "cold" : "iron_block"
   },
   "heatCapacity" : 50000,
   "block" : "divinerpg:oxdrite_block",
   "temperature" : 440,
   "thermalResistance" : 520,
-  "type" : "pneumaticcraft:heat_properties"
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
 }

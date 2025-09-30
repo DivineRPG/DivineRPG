@@ -44,7 +44,7 @@ public record FireConversionRecipe(Ingredient inputItem, RuleTest inputState, Op
     }
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return RecipeRegistry.Serailizers.FIRE_CONVERSION_SERIALIZER.get();
+        return RecipeRegistry.Serializers.FIRE_CONVERSION_SERIALIZER.get();
     }
     @Override
     public RecipeType<?> getType() {

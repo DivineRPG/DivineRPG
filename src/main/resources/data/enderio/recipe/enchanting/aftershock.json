@@ -5,5 +5,11 @@
   "enchantment": "divinerpg:aftershock",
   "input": {
     "item": "divinerpg:crab_claw"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
 }

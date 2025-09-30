@@ -1,13 +1,18 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#ffff3d",
+  "name": "Divine",
+  "hexColor": "#fbdd67",
   "ingredient": {
     "item": "divinerpg:divine_stone"
   },
-  "name": "Divine",
   "result": {
     "count": 1,
     "id": "divinerpg:divine_shards"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

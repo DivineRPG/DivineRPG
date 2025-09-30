@@ -3,7 +3,7 @@
   "parent1": "productivebees:iron",
   "parent2": "productivebees:gold",
   "offspring": "productivebees:realmite",
-  "neoforge:conditions": [
+  "conditions": [
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:iron"
@@ -11,6 +11,12 @@
     {
       "type": "productivebees:bee_exists",
       "bee": "productivebees:gold"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "productivebees"
     }
   ]
 }

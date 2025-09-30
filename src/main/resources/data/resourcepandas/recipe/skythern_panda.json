@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#ccd9db",
-  "ingredient": {
-    "tag": "c:storage_blocks/skythern"
-  },
   "name": "Skythern",
+  "hexColor": "#aea6b9",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/skythern"
+  },
   "result": {
     "count": 1,
     "id": "divinerpg:skythern_fragments"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/skythern"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

@@ -10,7 +10,7 @@
   "outputs": [
     {
       "item": {
-        "tag": "c:nuggets/oxdrite"
+        "tag": "divinerpg:nuggets/oxdrite"
       },
       "min": 1,
       "max": 4
@@ -26,12 +26,12 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:nuggets/oxdrite"
+        "tag": "divinerpg:nuggets/oxdrite"
       }
     },
     {
       "type": "neoforge:mod_loaded",
-      "modid": "divinerpg"
+      "modid": "productivebees"
     }
   ]
 }

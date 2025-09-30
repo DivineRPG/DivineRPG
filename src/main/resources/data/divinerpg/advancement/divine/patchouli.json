@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "first_world_load": {
+      "trigger": "tick"
+    }
+  },
+  "rewards": {
+    "loot": [
+      "divinerpg:patchouli"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "patchouli"
+    }
+  ]
+}

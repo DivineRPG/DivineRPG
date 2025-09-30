@@ -1,18 +1,18 @@
 {
   "type": "integrateddynamics:mechanical_squeezer",
   "input_item": {
-    "tag": "c:ores/apalachia"
+    "tag": "divinerpg:ores/apalachia"
   },
   "output_items": [
     {
       "tag": {
-        "tag": "c:fragments/apalachia"
+        "tag": "divinerpg:fragments/apalachia"
       },
       "count": 2
     },
     {
       "tag": {
-        "tag": "c:gems/apalachia"
+        "tag": "divinerpg:gems/apalachia"
       },
       "chance": 0.15
     }
@@ -23,22 +23,26 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:ores/apalachia"
+        "tag": "divinerpg:ores/apalachia"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:fragments/apalachia"
+        "tag": "divinerpg:fragments/apalachia"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:gems/apalachia"
+        "tag": "divinerpg:gems/apalachia"
       }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
     }
   ]
 }

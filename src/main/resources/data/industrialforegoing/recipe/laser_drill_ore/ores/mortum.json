@@ -1,13 +1,4 @@
 {
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:not",
-      "value": {
-        "type": "neoforge:tag_empty",
-        "tag": "c:ores/mortum"
-      }
-    }
-  ],
   "type": "industrialforegoing:laser_drill_ore",
   "catalyst": {
     "item": "industrialforegoing:black_laser_lens"
@@ -41,6 +32,19 @@
         "whitelist": ["divinerpg:mortum"]
       },
       "weight": 1
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:ores/mortum"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "industrialforegoing"
     }
   ]
 }

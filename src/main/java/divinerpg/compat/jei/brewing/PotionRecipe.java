@@ -10,24 +10,9 @@ import org.jetbrains.annotations.*;
 import java.util.List;
 
 public record PotionRecipe(Item bottle, Holder<Potion> input, Holder<Potion> output, int brewingSteps, ResourceLocation id, ItemStack... ingredients) implements IJeiBrewingRecipe {
-    @Override
-    public @Unmodifiable List<ItemStack> getPotionInputs() {
-        return List.of(PotionContents.createItemStack(bottle, input));
-    }
-    @Override
-    public @Unmodifiable List<ItemStack> getIngredients() {
-        return List.of(ingredients);
-    }
-    @Override
-    public ItemStack getPotionOutput() {
-        return PotionContents.createItemStack(bottle, output);
-    }
-    @Override
-    public int getBrewingSteps() {
-        return brewingSteps;
-    }
-    @Override
-    public @Nullable ResourceLocation getUid() {
-        return id;
-    }
+    @Override public @Unmodifiable List<ItemStack> getPotionInputs() {return List.of(PotionContents.createItemStack(bottle, input));}
+    @Override public @Unmodifiable List<ItemStack> getIngredients() {return List.of(ingredients);}
+    @Override public ItemStack getPotionOutput() {return PotionContents.createItemStack(bottle, output);}
+    @Override public int getBrewingSteps() {return brewingSteps;}
+    @Override public @Nullable ResourceLocation getUid() {return id;}
 }

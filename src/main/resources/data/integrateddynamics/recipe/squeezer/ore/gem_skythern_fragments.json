@@ -1,18 +1,18 @@
 {
   "type": "integrateddynamics:squeezer",
   "input_item": {
-    "tag": "c:ores/skythern"
+    "tag": "divinerpg:ores/skythern"
   },
   "output_items": [
     {
       "tag": {
-        "tag": "c:fragments/skythern"
+        "tag": "divinerpg:fragments/skythern"
       },
       "count": 2
     },
     {
       "tag": {
-        "tag": "c:gems/skythern"
+        "tag": "divinerpg:gems/skythern"
       },
       "chance": 0.15
     }
@@ -22,22 +22,26 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:ores/skythern"
+        "tag": "divinerpg:ores/skythern"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:fragments/skythern"
+        "tag": "divinerpg:fragments/skythern"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:gems/skythern"
+        "tag": "divinerpg:gems/skythern"
       }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
     }
   ]
 }

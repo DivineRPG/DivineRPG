@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#3583b0",
-  "ingredient": {
-    "tag": "c:storage_blocks/wildwood"
-  },
   "name": "Wildwood",
+  "hexColor": "#16a7e5",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/wildwood"
+  },
   "result": {
     "count": 1,
     "id": "divinerpg:wildwood_fragments"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/wildwood"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

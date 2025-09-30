@@ -15,5 +15,11 @@
   "soil": {
     "item": "divinerpg:arcanite_grass"
   },
-  "time": 320
+  "time": 320,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
 }

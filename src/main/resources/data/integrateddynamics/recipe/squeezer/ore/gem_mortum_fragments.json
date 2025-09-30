@@ -1,18 +1,18 @@
 {
   "type": "integrateddynamics:squeezer",
   "input_item": {
-    "tag": "c:ores/mortum"
+    "tag": "divinerpg:ores/mortum"
   },
   "output_items": [
     {
       "tag": {
-        "tag": "c:fragments/mortum"
+        "tag": "divinerpg:fragments/mortum"
       },
       "count": 2
     },
     {
       "tag": {
-        "tag": "c:gems/mortum"
+        "tag": "divinerpg:gems/mortum"
       },
       "chance": 0.15
     }
@@ -22,13 +22,13 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:ores/mortum"
+        "tag": "divinerpg:ores/mortum"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
-        "tag": "c:fragments/mortum",
+        "tag": "divinerpg:fragments/mortum",
         "type": "neoforge:tag_empty"
       }
     },
@@ -36,8 +36,12 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:gems/mortum"
+        "tag": "divinerpg:gems/mortum"
       }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
     }
   ]
 }

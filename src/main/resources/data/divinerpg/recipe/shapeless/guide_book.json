@@ -14,5 +14,11 @@
       "patchouli:book": "divinerpg:divine"
     },
     "count": 1
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "patchouli"
+    }
+  ]
 }

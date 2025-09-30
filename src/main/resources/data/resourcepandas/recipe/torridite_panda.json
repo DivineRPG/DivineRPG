@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#bd150f",
-  "ingredient": {
-    "tag": "c:storage_blocks/torridite"
-  },
   "name": "Torridite",
+  "hexColor": "#cf2a19",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/torridite"
+  },
   "result": {
     "count": 1,
-    "id": "divinerpg:torridite_ingot"
-  }
+    "id": "divinerpg:torridite_nugget"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/torridite"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

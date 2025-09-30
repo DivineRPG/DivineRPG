@@ -1,16 +1,12 @@
 {
   "primaryColor": "#ff0000",
   "secondaryColor": "#ff9999",
-  "flowerTag": "c:storage_blocks/torridite",
+  "flowerTag": "divinerpg:storage_blocks/torridite",
   "name": "Torridite",
   "conditions": [
     {
       "type": "neoforge:mod_loaded",
       "modid": "productivebees"
-    },
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "divinerpg"
     }
   ]
 }

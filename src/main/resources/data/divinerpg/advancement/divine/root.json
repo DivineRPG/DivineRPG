@@ -14,16 +14,8 @@
     "show_toast": false
   },
   "criteria": {
-    "divinerpg": {
-      "trigger": "location",
-      "conditions": {
-        "dimension": "overworld"
-      }
+    "first_world_load": {
+      "trigger": "tick"
     }
-  },
-  "rewards": {
-    "loot": [
-      "divinerpg:patchouli"
-    ]
   }
 }

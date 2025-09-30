@@ -1,19 +1,10 @@
 {
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:not",
-      "value": {
-        "type": "neoforge:tag_empty",
-        "tag": "c:ores/bloodgem"
-      }
-    }
-  ],
   "type": "industrialforegoing:laser_drill_ore",
   "catalyst": {
     "item": "industrialforegoing:magenta_laser_lens"
   },
   "output": {
-    "tag": "c:ores/bloodgem"
+    "tag": "divinerpg:ores/bloodgem"
   },
   "rarity": [
     {
@@ -41,6 +32,19 @@
         "whitelist": ["minecraft:the_nether"]
       },
       "weight": 1
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:ores/bloodgem"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "industrialforegoing"
     }
   ]
 }

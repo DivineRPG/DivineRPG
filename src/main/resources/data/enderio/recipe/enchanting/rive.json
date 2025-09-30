@@ -5,5 +5,11 @@
   "enchantment": "divinerpg:rive",
   "input": {
     "item": "divinerpg:grenade"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
 }

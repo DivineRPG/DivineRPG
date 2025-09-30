@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#9c4a2a",
-  "ingredient": {
-    "tag": "c:storage_blocks/oxdrite"
-  },
   "name": "Oxdrite",
+  "hexColor": "#a4725d",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/oxdrite"
+  },
   "result": {
     "count": 1,
     "id": "divinerpg:oxdrite_ingot"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/oxdrite"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

@@ -10,331 +10,380 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import javax.annotation.Nonnull;
 import java.util.*;
 
+import static divinerpg.registries.BlockRegistry.*;
+import static divinerpg.registries.ItemRegistry.*;
+
 @EMCMapper
 public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
     private static final Map<NormalizedSimpleStack, Long> CUSTOM_EMC_VALUES = new HashMap<>();
     public static void init() {
-        //TODO: to check if there are any obvious EMC dupes around and add missing (remove redundant) entries
-        //Resources
-        register(NSSItem.createItem(ItemRegistry.cyclops_eye_shards.get()), 46);
-        register(NSSItem.createItem(ItemRegistry.crab_claw.get()), 150);
-        register(NSSItem.createItem(ItemRegistry.aquatic_pellets.get()), 800);
-        register(NSSItem.createItem(ItemRegistry.shark_fin.get()), 1020);
-        register(NSSItem.createItem(ItemRegistry.whale_fin.get()), 1280);
-        register(NSSItem.createItem(ItemRegistry.liopleurodon_teeth.get()), 2242);
-        register(NSSItem.createItem(ItemRegistry.liopleurodon_skull.get()), 4942);
-        register(NSSItem.createItem(ItemRegistry.realmite_ingot.get()), 384);
-        register(NSSItem.createItem(ItemRegistry.arlemite_ingot.get()), 8064);
-        register(NSSItem.createItem(ItemRegistry.rupee_ingot.get()), 9216);
-        register(NSSItem.createItem(ItemRegistry.shadow_coins.get()), 17280);
-        register(NSSItem.createItem(ItemRegistry.arlemite_dust.get()), 8064);
-        register(NSSItem.createItem(ItemRegistry.rupee_dust.get()), 9216);
-        register(NSSItem.createItem(ItemRegistry.healing_stone.get()), 8192);
-        register(NSSItem.createItem(ItemRegistry.ice_shards.get()), 910);
-        register(NSSItem.createItem(ItemRegistry.terran_shards.get()), 910);
-        register(NSSItem.createItem(ItemRegistry.jungle_shards.get()), 910);
-        register(NSSItem.createItem(ItemRegistry.molten_shards.get()), 910);
-        register(NSSItem.createItem(ItemRegistry.corrupted_shards.get()), 1420);
-        register(NSSItem.createItem(ItemRegistry.ender_shards.get()), 1820);
-        register(NSSItem.createItem(ItemRegistry.divine_shards.get()), 2048);
-        register(NSSItem.createItem(ItemRegistry.torridite_ingot.get()), 1024);
-        register(NSSItem.createItem(ItemRegistry.bloodgem.get()), 8256);
-        register(NSSItem.createItem(ItemRegistry.purple_blaze.get()), 1536);
-        register(NSSItem.createItem(ItemRegistry.fury_fire.get()), 6144);
-        register(NSSItem.createItem(ItemRegistry.soulfire_stone.get()), 8092);
-        register(NSSItem.createItem(ItemRegistry.anthracite.get()), 256);
-        register(NSSItem.createItem(ItemRegistry.olivine.get()), 32);
-        register(NSSItem.createItem(ItemRegistry.oxdrite_ingot.get()), 512);
-        register(NSSItem.createItem(ItemRegistry.snowflake.get()), 512);
-        register(NSSItem.createItem(ItemRegistry.seng_fur.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.sabear_fur.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.sabear_tooth.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.watching_eye.get()), 4096);
-        register(NSSItem.createItem(ItemRegistry.color_template.get()), 20121);
-        register(NSSItem.createItem(ItemRegistry.aquatic_coating_template.get()), 12192);
-        register(NSSItem.createItem(ItemRegistry.aquamarine.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.firestock.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.lamona.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.marsine.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.veilo.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.eucalyptus_root_seeds.get()), 32);
-        register(NSSItem.createItem(ItemRegistry.dungeon_tokens.get()), 17109);
-        register(NSSItem.createItem(ItemRegistry.collector_fragments.get()), 1820);
-        register(NSSItem.createItem(ItemRegistry.arcanium.get()), 17109);
-        register(NSSItem.createItem(ItemRegistry.ancient_key.get()), 49140);
-        register(NSSItem.createItem(ItemRegistry.degraded_key.get()), 49140);
-        register(NSSItem.createItem(ItemRegistry.sludge_key.get()), 49140);
-        register(NSSItem.createItem(ItemRegistry.soul_key.get()), 49140);
-        register(NSSItem.createItem(ItemRegistry.eden_soul.get()), 1024);
-        register(NSSItem.createItem(ItemRegistry.wildwood_soul.get()), 1536);
-        register(NSSItem.createItem(ItemRegistry.apalachia_soul.get()), 2048);
-        register(NSSItem.createItem(ItemRegistry.skythern_soul.get()), 4072);
-        register(NSSItem.createItem(ItemRegistry.mortum_soul.get()), 6096);
-        register(NSSItem.createItem(ItemRegistry.eden_dust.get()), 1024);
-        register(NSSItem.createItem(ItemRegistry.wildwood_dust.get()), 1536);
-        register(NSSItem.createItem(ItemRegistry.apalachia_dust.get()), 2048);
-        register(NSSItem.createItem(ItemRegistry.skythern_dust.get()), 4072);
-        register(NSSItem.createItem(ItemRegistry.mortum_dust.get()), 6096);
-        register(NSSItem.createItem(ItemRegistry.eden_heart.get()), 4096);
-        register(NSSItem.createItem(ItemRegistry.wildwood_heart.get()), 6144);
-        register(NSSItem.createItem(ItemRegistry.apalachia_heart.get()), 8192);
-        register(NSSItem.createItem(ItemRegistry.skythern_heart.get()), 16288);
-        register(NSSItem.createItem(ItemRegistry.mortum_heart.get()), 24384);
-        register(NSSItem.createItem(ItemRegistry.dirty_pearls.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.clean_pearls.get()), 256);
-        register(NSSItem.createItem(ItemRegistry.polished_pearls.get()), 512);
-        register(NSSItem.createItem(ItemRegistry.shiny_pearls.get()), 1024);
-        register(NSSItem.createItem(ItemRegistry.rock_chunks.get()), 2048);
-        register(NSSItem.createItem(ItemRegistry.blubber.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.acid.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.cannon_template.get()), 384);
-        register(NSSItem.createItem(ItemRegistry.claw_template.get()), 384);
-        register(NSSItem.createItem(ItemRegistry.backsword_template.get()), 384);
-        register(NSSItem.createItem(ItemRegistry.bow_template.get()), 384);
-        register(NSSItem.createItem(ItemRegistry.disk_template.get()), 384);
-        register(NSSItem.createItem(ItemRegistry.dissipator_template.get()), 640);
-        register(NSSItem.createItem(ItemRegistry.hammer_template.get()), 384);
-        register(NSSItem.createItem(ItemRegistry.staff_template.get()), 384);
-        register(NSSItem.createItem(ItemRegistry.degraded_template.get()), 640);
-        register(NSSItem.createItem(ItemRegistry.finished_template.get()), 1280);
-        register(NSSItem.createItem(ItemRegistry.glistening_template.get()), 2560);
-        register(NSSItem.createItem(ItemRegistry.demonized_template.get()), 2560);
-        register(NSSItem.createItem(ItemRegistry.tormented_template.get()), 5120);
-
+        //Items
+        //Fuels
+        register(NSSItem.createItem(anthracite.get()), 256);
+        //Nuggets
+        register(NSSItem.createItem(realmite_nugget.get()), 42);
+        register(NSSItem.createItem(arlemite_nugget.get()), 896);
+        register(NSSItem.createItem(rupee_nugget.get()), 1024);
+        register(NSSItem.createItem(torridite_nugget.get()), 912);
+        //Ingots
+        register(NSSItem.createItem(shadow_bar.get()), 17280);
+        register(NSSItem.createItem(hellstone_ingot.get()), 58320);
+        register(NSSItem.createItem(oxdrite_ingot.get()), 512);
+        //Dust & Powders
+        register(NSSItem.createItem(purple_blaze.get()), 1536);
+        register(NSSItem.createItem(fury_fire.get()), 6144);
+        register(NSSItem.createItem(arlemite_dust.get()), 8064);
+        register(NSSItem.createItem(rupee_dust.get()), 9216);
+        register(NSSItem.createItem(eden_dust.get()), 1024);
+        register(NSSItem.createItem(wildwood_dust.get()), 1536);
+        register(NSSItem.createItem(apalachia_dust.get()), 2048);
+        register(NSSItem.createItem(skythern_dust.get()), 4072);
+        register(NSSItem.createItem(mortum_dust.get()), 6096);
+        //Souls
+        register(NSSItem.createItem(eden_soul.get()), 1024);
+        register(NSSItem.createItem(wildwood_soul.get()), 1536);
+        register(NSSItem.createItem(apalachia_soul.get()), 2048);
+        register(NSSItem.createItem(skythern_soul.get()), 4072);
+        register(NSSItem.createItem(mortum_soul.get()), 6096);
+        //Hearts
+        register(NSSItem.createItem(eden_heart.get()), 4096);
+        register(NSSItem.createItem(wildwood_heart.get()), 6144);
+        register(NSSItem.createItem(apalachia_heart.get()), 8192);
+        register(NSSItem.createItem(skythern_heart.get()), 16288);
+        register(NSSItem.createItem(mortum_heart.get()), 24384);
+        //Shards & Fragments
+        register(NSSItem.createItem(ice_shards.get()), 910);
+        register(NSSItem.createItem(terran_shards.get()), 910);
+        register(NSSItem.createItem(jungle_shards.get()), 910);
+        register(NSSItem.createItem(molten_shards.get()), 910);
+        register(NSSItem.createItem(corrupted_shards.get()), 1420);
+        register(NSSItem.createItem(ender_shards.get()), 1820);
+        register(NSSItem.createItem(divine_shards.get()), 2048);
+        register(NSSItem.createItem(collector_fragments.get()), 1820);
+        register(NSSItem.createItem(bedrock_chunk.get()), 155520);
+        //Gems
+        register(NSSItem.createItem(shadow_stone.get()), 155520);
+        register(NSSItem.createItem(bloodgem.get()), 8256);
+        register(NSSItem.createItem(soulfire_stone.get()), 10128);
+        register(NSSItem.createItem(olivine.get()), 32);
+        register(NSSItem.createItem(arcanium.get()), 17109);
+        register(NSSItem.createItem(dirty_pearls.get()), 128);
+        register(NSSItem.createItem(clean_pearls.get()), 256);
+        register(NSSItem.createItem(polished_pearls.get()), 512);
+        register(NSSItem.createItem(shiny_pearls.get()), 1024);
+        //Currency
+        register(NSSItem.createItem(shadow_coins.get()), 8640);
+        register(NSSItem.createItem(snowflake.get()), 512);
+        register(NSSItem.createItem(dungeon_tokens.get()), 17109);
+        register(NSSItem.createItem(rock_chunks.get()), 2048);
+        //Mob Loot
+        register(NSSItem.createItem(cyclops_eye_shards.get()), 46);
+        register(NSSItem.createItem(crab_claw.get()), 150);
+        register(NSSItem.createItem(aquatic_pellets.get()), 800);
+        register(NSSItem.createItem(shark_fin.get()), 1020);
+        register(NSSItem.createItem(whale_fin.get()), 1280);
+        register(NSSItem.createItem(liopleurodon_teeth.get()), 2242);
+        register(NSSItem.createItem(liopleurodon_skull.get()), 4942);
+        register(NSSItem.createItem(blubber.get()), 64);
+        register(NSSItem.createItem(seng_fur.get()), 128);
+        register(NSSItem.createItem(sabear_fur.get()), 128);
+        register(NSSItem.createItem(sabear_tooth.get()), 128);
+        register(NSSItem.createItem(watching_eye.get()), 4096);
+        register(NSSItem.createItem(acid.get()), 64);
+        //Plants & Seeds
+        register(NSSItem.createItem(aquamarine.get()), 128);
+        register(NSSItem.createItem(firestock.get()), 64);
+        register(NSSItem.createItem(marsine.get()), 64);
+        register(NSSItem.createItem(eucalyptus_root_seeds.get()), 32);
         //Food & Drinks
-        register(NSSItem.createItem(ItemRegistry.tomato.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.white_mushroom.get()), 32);
-        register(NSSItem.createItem(ItemRegistry.winterberry.get()), 16);
-        register(NSSItem.createItem(ItemRegistry.peppermints.get()), 14);
-        register(NSSItem.createItem(ItemRegistry.robbin_egg.get()), 32);
-        register(NSSItem.createItem(ItemRegistry.cauldron_flesh.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.raw_seng_meat.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.raw_wolpertinger_meat.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.snow_cones.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.chocolate_log.get()), 122);
-        register(NSSItem.createItem(ItemRegistry.fruit_cake.get()), 182);
-        register(NSSItem.createItem(ItemRegistry.egg_nog.get()), 800);
-        register(NSSItem.createItem(ItemRegistry.weak_arcana_potion.get()), 5460);
-        register(NSSItem.createItem(ItemRegistry.strong_arcana_potion.get()), 8190);
-        register(NSSItem.createItem(ItemRegistry.hitchak.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.pinfly.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.raw_empowered_meat.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.forbidden_fruit.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.magic_meat.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.moonbulb.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.pink_glowbone.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.purple_glowbone.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.enriched_magic_meat.get()), 256);
-        register(NSSItem.createItem(ItemRegistry.sky_flower.get()), 32);
-        register(NSSItem.createItem(ItemRegistry.dream_carrot.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.dream_sweets.get()), 64);
-        register(NSSItem.createItem(ItemRegistry.dream_sours.get()), 256);
-        register(NSSItem.createItem(ItemRegistry.dream_cake.get()), 160);
-        register(NSSItem.createItem(ItemRegistry.dream_pie.get()), 130);
-        register(NSSItem.createItem(ItemRegistry.dream_melon.get()), 96);
-        register(NSSItem.createItem(ItemRegistry.honeysuckle.get()), 1);
-        register(NSSItem.createItem(ItemRegistry.honeychunk.get()), 1);
+        register(NSSItem.createItem(tomato.get()), 64);
+        register(NSSItem.createItem(white_mushroom.get()), 32);
+        register(NSSItem.createItem(winterberry.get()), 16);
+        register(NSSItem.createItem(peppermints.get()), 14);
+        register(NSSItem.createItem(robbin_egg.get()), 32);
+        register(NSSItem.createItem(cauldron_flesh.get()), 64);
+        register(NSSItem.createItem(raw_seng_meat.get()), 64);
+        register(NSSItem.createItem(raw_wolpertinger_meat.get()), 64);
+        register(NSSItem.createItem(snow_cones.get()), 64);
+        register(NSSItem.createItem(chocolate_log.get()), 122);
+        register(NSSItem.createItem(fruit_cake.get()), 182);
+        register(NSSItem.createItem(egg_nog.get()), 800);
+        register(NSSItem.createItem(weak_arcana_potion.get()), 5460);
+        register(NSSItem.createItem(strong_arcana_potion.get()), 8190);
+        register(NSSItem.createItem(hitchak.get()), 128);
+        register(NSSItem.createItem(lamona.get()), 64);
+        register(NSSItem.createItem(pinfly.get()), 128);
+        register(NSSItem.createItem(veilo.get()), 64);
+        register(NSSItem.createItem(raw_empowered_meat.get()), 64);
+        register(NSSItem.createItem(forbidden_fruit.get()), 128);
+        register(NSSItem.createItem(magic_meat.get()), 128);
+        register(NSSItem.createItem(moonbulb.get()), 64);
+        register(NSSItem.createItem(pink_glowbone.get()), 64);
+        register(NSSItem.createItem(purple_glowbone.get()), 64);
+        register(NSSItem.createItem(enriched_magic_meat.get()), 256);
+        register(NSSItem.createItem(sky_flower.get()), 32);
+        register(NSSItem.createItem(dream_sweets.get()), 64);
+        register(NSSItem.createItem(dream_sours.get()), 256);
+        register(NSSItem.createItem(dream_cake.get()), 160);
+        register(NSSItem.createItem(dream_pie.get()), 130);
+        register(NSSItem.createItem(dream_melon.get()), 96);
+        register(NSSItem.createItem(honeysuckle.get()), 1);
+        register(NSSItem.createItem(honeychunk.get()), 1);
+        //Templates
+        register(NSSItem.createItem(color_template.get()), 20121);
+        register(NSSItem.createItem(aquatic_coating_template.get()), 12192);
+        register(NSSItem.createItem(cannon_template.get()), 384);
+        register(NSSItem.createItem(claw_template.get()), 384);
+        register(NSSItem.createItem(backsword_template.get()), 384);
+        register(NSSItem.createItem(bow_template.get()), 384);
+        register(NSSItem.createItem(disk_template.get()), 384);
+        register(NSSItem.createItem(dissipator_template.get()), 640);
+        register(NSSItem.createItem(hammer_template.get()), 384);
+        register(NSSItem.createItem(staff_template.get()), 384);
+        register(NSSItem.createItem(degraded_template.get()), 640);
+        register(NSSItem.createItem(finished_template.get()), 1280);
+        register(NSSItem.createItem(glistening_template.get()), 2560);
+        register(NSSItem.createItem(demonized_template.get()), 2560);
+        register(NSSItem.createItem(tormented_template.get()), 5120);
+        //Keys
+        register(NSSItem.createItem(ancient_key.get()), 49140);
+        register(NSSItem.createItem(degraded_key.get()), 49140);
+        register(NSSItem.createItem(sludge_key.get()), 49140);
+        register(NSSItem.createItem(soul_key.get()), 49140);
+        //Music Discs
+        register(NSSItem.createItem(md_red_stains.get()), 8192);
+        register(NSSItem.createItem(md_destiny.get()), 8192);
+        //Buckets
+        register(NSSItem.createItem(smoldering_tar_bucket.get()), 832);
+        register(NSSItem.createItem(gem_fin_bucket.get()), 832);
+        register(NSSItem.createItem(cauldron_fish_bucket.get()), 832);
+        //Extra Equipment & Stuff
+        register(NSSItem.createItem(frozen_clock.get()), 8256);
+        register(NSSItem.createItem(inferno_sword.get()), 4868);
+        register(NSSItem.createItem(fury_maul.get()), 171753);
+        register(NSSItem.createItem(teleportation_crystal.get()), 24570);
+        register(NSSItem.createItem(teleportation_star.get()), 53242);
+        register(NSSItem.createItem(wizards_book.get()), 34218);
+        //Workshop Merchant Equipment Trades
+        register(NSSItem.createItem(icicle_bane.get()), 10240);
+        //Workshop Tinkerer Trades
+        register(NSSItem.createItem(snowflake_shuriken.get()), 192);
+        register(NSSItem.createItem(serenade_of_ice.get()), 43008);
+        register(NSSItem.createItem(frossivence.get()), 52416);
+        register(NSSItem.createItem(glacier_sword.get()), 53006);
+        register(NSSItem.createItem(frostking_sword.get()), 24077);
+        register(NSSItem.createItem(enderice.get()), 202080);
+        register(NSSItem.createItem(icine_sword.get()), 94212);
+        register(NSSItem.createItem(frozen_maul.get()), 645124);
+        register(NSSItem.createItem(snowstorm_bow.get()), 44676);
+        register(NSSItem.createItem(sound_of_carols.get()), 21519);
+        register(NSSItem.createItem(frostclaw_cannon.get()), 13651);
+        register(NSSItem.createItem(fractite_cannon.get()), 99840);
+        //Captain Merik Trades
+        register(NSSItem.createItem(korma_helmet.get()), 102654);
+        register(NSSItem.createItem(korma_chestplate.get()), 171090);
+        register(NSSItem.createItem(korma_leggings.get()), 171090);
+        register(NSSItem.createItem(korma_boots.get()), 102654);
+        register(NSSItem.createItem(ender_scepter.get()), 205308);
+        register(NSSItem.createItem(ghostbane.get()), 342180);
+        register(NSSItem.createItem(storm_sword.get()), 85545);
+        register(NSSItem.createItem(arcanium_saber.get()), 136872);
+        register(NSSItem.createItem(livicia_sword.get()), 513111);
+        register(NSSItem.createItem(grenade.get()), 1710);
+        register(NSSItem.createItem(la_vekor.get()), 102654);
+        register(NSSItem.createItem(meriks_missile.get()), 256635);
+        register(NSSItem.createItem(firefly.get()), 205308);
+        register(NSSItem.createItem(captains_sparkler.get()), 342180);
+        //War General
+        register(NSSItem.createItem(vemos_helmet.get()), 102654);
+        register(NSSItem.createItem(vemos_chestplate.get()), 171090);
+        register(NSSItem.createItem(vemos_leggings.get()), 171090);
+        register(NSSItem.createItem(vemos_boots.get()), 102654);
+        register(NSSItem.createItem(arcanite_blade.get()), 513270);
+        register(NSSItem.createItem(divine_accumulator.get()), 102654);
+        register(NSSItem.createItem(arcanite_blaster.get()), 307962);
+        register(NSSItem.createItem(generals_staff.get()), 307962);
+        register(NSSItem.createItem(starlight.get()), 68436);
+        register(NSSItem.createItem(staff_of_starlight.get()), 342180);
+        register(NSSItem.createItem(meteor_mash.get()), 290853);
+        register(NSSItem.createItem(arcanium_attractor.get()), 119763);
+        register(NSSItem.createItem(arcanium_reflector.get()), 119763);
+        //Jack O'Man Trades
+        register(NSSItem.createItem(wither_reaper_helmet.get()), 256);
+        register(NSSItem.createItem(wither_reaper_chestplate.get()), 256);
+        register(NSSItem.createItem(wither_reaper_leggings.get()), 256);
+        register(NSSItem.createItem(wither_reaper_boots.get()), 256);
+        register(NSSItem.createItem(skeleman_helmet.get()), 2800);
+        register(NSSItem.createItem(skeleman_chestplate.get()), 4160);
+        register(NSSItem.createItem(skeleman_leggings.get()), 4160);
+        register(NSSItem.createItem(skeleman_boots.get()), 2800);
+        register(NSSItem.createItem(jack_o_man_helmet.get()), 2464);
+        register(NSSItem.createItem(jack_o_man_chestplate.get()), 4208);
+        register(NSSItem.createItem(jack_o_man_leggings.get()), 4208);
+        register(NSSItem.createItem(jack_o_man_boots.get()), 2464);
+        register(NSSItem.createItem(scythe.get()), 7696);
+        //Leorna Trades
+        register(NSSItem.createItem(staff_of_enrichment.get()), 98280);
+        register(NSSItem.createItem(serenade_of_infusion.get()), 131040);
+        //Vethea Extras
+        register(NSSItem.createItem(miners_amulet.get()), 3840);
+        register(NSSItem.createItem(band_of_lheiva_hunting.get()), 25600);
+        register(NSSItem.createItem(dream_flint.get()), 10240);
+        register(NSSItem.createItem(moon_clock.get()), 40960);
+        //Vethea Arrows
+        register(NSSItem.createItem(teaker_arrow.get()), 8);
+        register(NSSItem.createItem(darven_arrow.get()), 16);
+        register(NSSItem.createItem(pardimal_arrow.get()), 32);
+        register(NSSItem.createItem(karos_arrow.get()), 48);
+        register(NSSItem.createItem(ever_arrow.get()), 128);
+        //Vethea Tools
+        register(NSSItem.createItem(dream_axe.get()), 1278);
+        register(NSSItem.createItem(dream_pickaxe.get()), 1278);
+        register(NSSItem.createItem(dream_shovel.get()), 1278);
+        register(NSSItem.createItem(karos_rockmaul.get()), 51200);
 
-        //Equipment & Stuff
-        register(NSSItem.createItem(ItemRegistry.frossivence.get()), 24023);
-        register(NSSItem.createItem(ItemRegistry.inferno_sword.get()), 4868);
-        register(NSSItem.createItem(ItemRegistry.fury_maul.get()), 171753);
-        register(NSSItem.createItem(ItemRegistry.icicle_bane.get()), 10240);
-        register(NSSItem.createItem(ItemRegistry.glacier_sword.get()), 53006);
-        register(NSSItem.createItem(ItemRegistry.frostking_sword.get()), 24077);
-        register(NSSItem.createItem(ItemRegistry.enderice.get()), 202080);
-        register(NSSItem.createItem(ItemRegistry.icine_sword.get()), 94212);
-        register(NSSItem.createItem(ItemRegistry.frozen_maul.get()), 134232);
-        register(NSSItem.createItem(ItemRegistry.snowflake_shuriken.get()), 192);
-        register(NSSItem.createItem(ItemRegistry.snowstorm_bow.get()), 44676);
-        register(NSSItem.createItem(ItemRegistry.sound_of_carols.get()), 21519);
-        register(NSSItem.createItem(ItemRegistry.frostclaw_cannon.get()), 13651);
-        register(NSSItem.createItem(ItemRegistry.fractite_cannon.get()), 99840);
-        register(NSSItem.createItem(ItemRegistry.arcanite_blaster.get()), 307962);
-        register(NSSItem.createItem(ItemRegistry.generals_staff.get()), 307962);
-        register(NSSItem.createItem(ItemRegistry.meteor_mash.get()), 290853);
-        register(NSSItem.createItem(ItemRegistry.starlight.get()), 68436);
-        register(NSSItem.createItem(ItemRegistry.staff_of_starlight.get()), 342180);
-        register(NSSItem.createItem(ItemRegistry.ghostbane.get()), 342180);
-        register(NSSItem.createItem(ItemRegistry.captains_sparkler.get()), 342180);
-        register(NSSItem.createItem(ItemRegistry.firefly.get()), 205308);
-        register(NSSItem.createItem(ItemRegistry.meriks_missile.get()), 256635);
-        register(NSSItem.createItem(ItemRegistry.grenade.get()), 1710);
-        register(NSSItem.createItem(ItemRegistry.la_vekor.get()), 102654);
-        register(NSSItem.createItem(ItemRegistry.storm_sword.get()), 85545);
-        register(NSSItem.createItem(ItemRegistry.arcanite_blade.get()), 513270);
-        register(NSSItem.createItem(ItemRegistry.arcanium_saber.get()), 136872);
-        register(NSSItem.createItem(ItemRegistry.shadow_saber.get()), 136872);
-        register(NSSItem.createItem(ItemRegistry.livicia_sword.get()), 513111);
-        register(NSSItem.createItem(ItemRegistry.vemos_helmet.get()), 102654);
-        register(NSSItem.createItem(ItemRegistry.vemos_chestplate.get()), 171090);
-        register(NSSItem.createItem(ItemRegistry.vemos_leggings.get()), 171090);
-        register(NSSItem.createItem(ItemRegistry.vemos_boots.get()), 102654);
-        register(NSSItem.createItem(ItemRegistry.korma_helmet.get()), 102654);
-        register(NSSItem.createItem(ItemRegistry.korma_chestplate.get()), 171090);
-        register(NSSItem.createItem(ItemRegistry.korma_leggings.get()), 171090);
-        register(NSSItem.createItem(ItemRegistry.korma_boots.get()), 102654);
-        register(NSSItem.createItem(ItemRegistry.angelic_chestplate.get()), 381784);
-        register(NSSItem.createItem(ItemRegistry.wizards_book.get()), 34218);
-        register(NSSItem.createItem(ItemRegistry.wither_reaper_helmet.get()), 256);
-        register(NSSItem.createItem(ItemRegistry.wither_reaper_chestplate.get()), 256);
-        register(NSSItem.createItem(ItemRegistry.wither_reaper_leggings.get()), 256);
-        register(NSSItem.createItem(ItemRegistry.wither_reaper_boots.get()), 256);
-        register(NSSItem.createItem(ItemRegistry.skeleman_helmet.get()), 2800);
-        register(NSSItem.createItem(ItemRegistry.skeleman_chestplate.get()), 4160);
-        register(NSSItem.createItem(ItemRegistry.skeleman_leggings.get()), 4160);
-        register(NSSItem.createItem(ItemRegistry.skeleman_boots.get()), 2800);
-        register(NSSItem.createItem(ItemRegistry.jack_o_man_helmet.get()), 2464);
-        register(NSSItem.createItem(ItemRegistry.jack_o_man_chestplate.get()), 4208);
-        register(NSSItem.createItem(ItemRegistry.jack_o_man_leggings.get()), 4208);
-        register(NSSItem.createItem(ItemRegistry.jack_o_man_boots.get()), 2464);
-        register(NSSItem.createItem(ItemRegistry.scythe.get()), 7696);
-        register(NSSItem.createItem(ItemRegistry.smoldering_tar_bucket.get()), 832);
-        register(NSSItem.createItem(ItemRegistry.gem_fin_bucket.get()), 832);
-        register(NSSItem.createItem(ItemRegistry.cauldron_fish_bucket.get()), 832);
-        register(NSSItem.createItem(ItemRegistry.miners_amulet.get()), 3840);
-        register(NSSItem.createItem(ItemRegistry.band_of_lheiva_hunting.get()), 25600);
-        register(NSSItem.createItem(ItemRegistry.dream_flint.get()), 10240);
-        register(NSSItem.createItem(ItemRegistry.moon_clock.get()), 40960);
-        register(NSSItem.createItem(ItemRegistry.teaker_arrow.get()), 8);
-        register(NSSItem.createItem(ItemRegistry.darven_arrow.get()), 16);
-        register(NSSItem.createItem(ItemRegistry.pardimal_arrow.get()), 32);
-        register(NSSItem.createItem(ItemRegistry.karos_arrow.get()), 48);
-        register(NSSItem.createItem(ItemRegistry.ever_arrow.get()), 128);
-        register(NSSItem.createItem(ItemRegistry.dream_axe.get()), 1278);
-        register(NSSItem.createItem(ItemRegistry.dream_pickaxe.get()), 1278);
-        register(NSSItem.createItem(ItemRegistry.dream_shovel.get()), 1278);
-        register(NSSItem.createItem(ItemRegistry.karos_rockmaul.get()), 51200);
-
-        //Dirt, Grass, Sand, etc.
-        register(NSSItem.createItem(BlockRegistry.frozenDirt.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.arcaniteDirt.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.edenDirt.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.wildwoodDirt.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.apalachiaDirt.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.skythernDirt.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.mortumDirt.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.dreamDirt.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.frozenGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.arcaniteGrass.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.edenGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.wildwoodGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.apalachiaGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.skythernGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.mortumGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.flameGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.dreamGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.evergrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.scorchedGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.gelidite.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.frozenGravel.get()), 4);
-        register(NSSItem.createItem(BlockRegistry.soulSludgeBreakable.get()), 49);
-        register(NSSItem.createItem(BlockRegistry.hiveWall.get()), 1);
-
-        //Stone & Bricks
-        register(NSSItem.createItem(BlockRegistry.asphalt.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.milkStone.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.frozenStone.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.cobbledFrozenStone.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.snowBricks.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.icyBricks.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.runicIcyBricks.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.icicle.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.thermalVent.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.icyStone.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.coalstone.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.cobaltite.get()), 32);
-        register(NSSItem.createItem(BlockRegistry.arcaniteStone.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.soulStoneBreakable.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.ancientStoneBreakable.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.ancientBricksBreakable.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.degradedBricksBreakable.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.ancientTileBreakable.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.arcaniumMetalBreakable.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.arcaniumPowerBreakable.get()), 256);
-        register(NSSItem.createItem(BlockRegistry.twilightStone.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.divineMossStone.get()), 9);
-        register(NSSItem.createItem(BlockRegistry.dreamStone.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.lunaStone.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.lunaBricks.get()), 64);
-        register(NSSItem.createItem(BlockRegistry.redDreamBricks.get()), 8);
-        register(NSSItem.createItem(BlockRegistry.darkDreamBricks.get()), 8);
-        register(NSSItem.createItem(BlockRegistry.lightDreamBricks.get()), 8);
-
-        //Plants & Fungi
-        register(NSSItem.createItem(BlockRegistry.brittleGrass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.brittleMoss.get()), 12);
-        register(NSSItem.createItem(BlockRegistry.winterberryBush.get()), 32);
-        register(NSSItem.createItem(BlockRegistry.winterberryVinesHead.get()), 32);
-        register(NSSItem.createItem(BlockRegistry.arcanaBrush.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.arcanaBush.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.arcaniteMoss.get()), 12);
-        register(NSSItem.createItem(BlockRegistry.arcaniteVinesHead.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.weedwoodVine.get()), 8);
-        register(NSSItem.createItem(BlockRegistry.blossomedWeedwoodVine.get()), 8);
-        register(NSSItem.createItem(BlockRegistry.edenBrush.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.wildwoodVine.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.moonlightFern.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.wildwoodTallgrass.get()), 16);
-        register(NSSItem.createItem(BlockRegistry.truffle.get()), 144);
-        register(NSSItem.createItem(BlockRegistry.apalachiaTallgrass.get()), 32);
-        register(NSSItem.createItem(BlockRegistry.skythernBrush.get()), 32);
-        register(NSSItem.createItem(BlockRegistry.mortumBrush.get()), 32);
-        register(NSSItem.createItem(BlockRegistry.dreamglow.get()), 16);
-
-        //Misc Blocks
-        register(NSSItem.createItem(BlockRegistry.coldHellfireSponge.get()), 122488);
-        register(NSSItem.createItem(BlockRegistry.coalstoneFurnace.get()), 128);
-        register(NSSItem.createItem(BlockRegistry.frostedChest.get()), 1024);
-        register(NSSItem.createItem(BlockRegistry.presentBox.get()), 2048);
-        register(NSSItem.createItem(BlockRegistry.steelDoor.get()), 512);
-        register(NSSItem.createItem(BlockRegistry.redCandyCane.get()), 126);
-        register(NSSItem.createItem(BlockRegistry.yellowCandyCane.get()), 126);
-        register(NSSItem.createItem(BlockRegistry.greenCandyCane.get()), 126);
-        register(NSSItem.createItem(BlockRegistry.blueCandyCane.get()), 126);
-        register(NSSItem.createItem(BlockRegistry.pinkCandyCane.get()), 126);
-        register(NSSItem.createItem(BlockRegistry.redFairyLights.get()), 14);
-        register(NSSItem.createItem(BlockRegistry.yellowFairyLights.get()), 14);
-        register(NSSItem.createItem(BlockRegistry.greenFairyLights.get()), 14);
-        register(NSSItem.createItem(BlockRegistry.blueFairyLights.get()), 14);
-        register(NSSItem.createItem(BlockRegistry.purpleFairyLights.get()), 14);
-        register(NSSItem.createItem(BlockRegistry.frostedGlass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.workshopLamp.get()), 256);
-        register(NSSItem.createItem(BlockRegistry.arcaniteTubes.get()), 14);
-        register(NSSItem.createItem(BlockRegistry.arcaniteLadder.get()), 14);
-        register(NSSItem.createItem(BlockRegistry.dungeonLampBreakable.get()), 256);
-        register(NSSItem.createItem(BlockRegistry.demonFurnace.get()), 153981);
-        register(NSSItem.createItem(BlockRegistry.greenlightFurnace.get()), 51327);
-        register(NSSItem.createItem(BlockRegistry.moltenFurnace.get()), 34218);
-        register(NSSItem.createItem(BlockRegistry.moonlightFurnace.get()), 85545);
-        register(NSSItem.createItem(BlockRegistry.oceanfireFurnace.get()), 68436);
-        register(NSSItem.createItem(BlockRegistry.whitefireFurnace.get()), 119763);
-        register(NSSItem.createItem(BlockRegistry.starBridge.get()), 8554);
-        register(NSSItem.createItem(BlockRegistry.slimeLight.get()), 1920);
-        register(NSSItem.createItem(BlockRegistry.elevantium.get()), 5703);
-        register(NSSItem.createItem(BlockRegistry.acceleron.get()), 17109);
-        register(NSSItem.createItem(BlockRegistry.barredDoor.get()), 512);
-        register(NSSItem.createItem(BlockRegistry.smoothGlass.get()), 1);
-        register(NSSItem.createItem(BlockRegistry.hiveEgg.get()), 16384);
-        register(NSSItem.createItem(BlockRegistry.firelight.get()), 512);
-        register(NSSItem.createItem(BlockRegistry.fireCrystal.get()), 512);
-        register(NSSItem.createItem(BlockRegistry.dreamLamp.get()), 1792);
-        register(NSSItem.createItem(BlockRegistry.cellLamp.get()), 256);
-        register(NSSItem.createItem(BlockRegistry.villageLamp.get()), 256);
-        register(NSSItem.createItem(BlockRegistry.metalCaging.get()), 64);
+        //Blocks
+        //Dirt
+        register(NSSItem.createItem(frozenDirt.get()), 1);
+        register(NSSItem.createItem(arcaniteDirt.get()), 16);
+        register(NSSItem.createItem(edenDirt.get()), 1);
+        register(NSSItem.createItem(wildwoodDirt.get()), 1);
+        register(NSSItem.createItem(apalachiaDirt.get()), 1);
+        register(NSSItem.createItem(skythernDirt.get()), 1);
+        register(NSSItem.createItem(mortumDirt.get()), 1);
+        register(NSSItem.createItem(dreamDirt.get()), 1);
+        //Grass
+        register(NSSItem.createItem(frozenGrass.get()), 1);
+        register(NSSItem.createItem(arcaniteGrass.get()), 16);
+        register(NSSItem.createItem(edenGrass.get()), 1);
+        register(NSSItem.createItem(wildwoodGrass.get()), 1);
+        register(NSSItem.createItem(apalachiaGrass.get()), 1);
+        register(NSSItem.createItem(skythernGrass.get()), 1);
+        register(NSSItem.createItem(mortumGrass.get()), 1);
+        register(NSSItem.createItem(flameGrass.get()), 1);
+        register(NSSItem.createItem(dreamGrass.get()), 1);
+        register(NSSItem.createItem(evergrass.get()), 1);
+        register(NSSItem.createItem(scorchedGrass.get()), 1);
+        //Mud, Sand, Gravel, etc.
+        register(NSSItem.createItem(gelidite.get()), 1);
+        register(NSSItem.createItem(frozenGravel.get()), 4);
+        register(NSSItem.createItem(soulSludgeBreakable.get()), 49);
+        register(NSSItem.createItem(hiveWall.get()), 1);
+        //Stone
+        register(NSSItem.createItem(asphalt.get()), 16);
+        register(NSSItem.createItem(frozenStone.get()), 1);
+        register(NSSItem.createItem(cobbledFrozenStone.get()), 1);
+        register(NSSItem.createItem(icyStone.get()), 16);
+        register(NSSItem.createItem(cobaltite.get()), 32);
+        register(NSSItem.createItem(arcaniteStone.get()), 1);
+        register(NSSItem.createItem(soulStoneBreakable.get()), 16);
+        register(NSSItem.createItem(ancientStoneBreakable.get()), 16);
+        register(NSSItem.createItem(twilightStone.get()), 1);
+        register(NSSItem.createItem(scorchalt.get()), 1);
+        register(NSSItem.createItem(cobbledScorchalt.get()), 1);
+        register(NSSItem.createItem(exposedScorchalt.get()), 1);
+        register(NSSItem.createItem(rayStone.get()), 1);
+        register(NSSItem.createItem(draughtStone.get()), 16);
+        register(NSSItem.createItem(divineMossStone.get()), 9);
+        register(NSSItem.createItem(dreamStone.get()), 1);
+        register(NSSItem.createItem(lunaStone.get()), 16);
+        //Decorative Features
+        register(NSSItem.createItem(icicle.get()), 16);
+        register(NSSItem.createItem(thermalVent.get()), 16);
+        //Bricks
+        register(NSSItem.createItem(snowBricks.get()), 16);
+        register(NSSItem.createItem(icyBricks.get()), 16);
+        register(NSSItem.createItem(runicIcyBricks.get()), 16);
+        register(NSSItem.createItem(ancientBricksBreakable.get()), 16);
+        register(NSSItem.createItem(degradedBricksBreakable.get()), 16);
+        register(NSSItem.createItem(ancientTileBreakable.get()), 16);
+        register(NSSItem.createItem(arcaniumMetalBreakable.get()), 16);
+        register(NSSItem.createItem(arcaniumPowerBreakable.get()), 256);
+        register(NSSItem.createItem(lunaBricks.get()), 64);
+        register(NSSItem.createItem(redDreamBricks.get()), 8);
+        register(NSSItem.createItem(darkDreamBricks.get()), 8);
+        register(NSSItem.createItem(lightDreamBricks.get()), 8);
+        //Plants
+        register(NSSItem.createItem(brittleGrass.get()), 1);
+        register(NSSItem.createItem(brittleMoss.get()), 12);
+        register(NSSItem.createItem(snowyMoss.get()), 8);
+        register(NSSItem.createItem(winterberryBush.get()), 32);
+        register(NSSItem.createItem(winterberryVinesHead.get()), 16);
+        register(NSSItem.createItem(arcanaBrush.get()), 1);
+        register(NSSItem.createItem(arcanaBush.get()), 1);
+        register(NSSItem.createItem(arcaniteMoss.get()), 12);
+        register(NSSItem.createItem(arcaniteVinesHead.get()), 16);
+        register(NSSItem.createItem(edenBrush.get()), 1);
+        register(NSSItem.createItem(landVine.get()), 4);
+        register(NSSItem.createItem(wildwoodVine.get()), 8);
+        register(NSSItem.createItem(moonlightFern.get()), 1);
+        register(NSSItem.createItem(wildwoodTallgrass.get()), 1);
+        register(NSSItem.createItem(truffle.get()), 144);
+        register(NSSItem.createItem(apalachiaTallgrass.get()), 1);
+        register(NSSItem.createItem(skythernBrush.get()), 1);
+        register(NSSItem.createItem(mortumBrush.get()), 1);
+        register(NSSItem.createItem(weedwoodVine.get()), 8);
+        register(NSSItem.createItem(blossomedWeedwoodVine.get()), 8);
+        //Fungi
+        register(NSSItem.createItem(glowsprout.get()), 32);
+        register(NSSItem.createItem(lowsprout.get()), 32);
+        register(NSSItem.createItem(slowsprout.get()), 32);
+        register(NSSItem.createItem(lushroom.get()), 32);
+        register(NSSItem.createItem(dreamglow.get()), 32);
+        //Candy Cane
+        register(NSSItem.createItem(redCandyCane.get()), 126);
+        register(NSSItem.createItem(yellowCandyCane.get()), 126);
+        register(NSSItem.createItem(greenCandyCane.get()), 126);
+        register(NSSItem.createItem(blueCandyCane.get()), 126);
+        register(NSSItem.createItem(pinkCandyCane.get()), 126);
+        //Fairy Lights
+        register(NSSItem.createItem(redFairyLights.get()), 14);
+        register(NSSItem.createItem(yellowFairyLights.get()), 14);
+        register(NSSItem.createItem(greenFairyLights.get()), 14);
+        register(NSSItem.createItem(blueFairyLights.get()), 14);
+        register(NSSItem.createItem(purpleFairyLights.get()), 14);
+        //Glass
+        register(NSSItem.createItem(frostedGlass.get()), 1);
+        register(NSSItem.createItem(smoothGlass.get()), 1);
+        //Lights
+        register(NSSItem.createItem(workshopLamp.get()), 256);
+        register(NSSItem.createItem(dungeonLampBreakable.get()), 256);
+        register(NSSItem.createItem(slimeLight.get()), 1920);
+        register(NSSItem.createItem(firelight.get()), 512);
+        register(NSSItem.createItem(fireCrystal.get()), 512);
+        register(NSSItem.createItem(dreamLamp.get()), 1792);
+        register(NSSItem.createItem(cellLamp.get()), 256);
+        register(NSSItem.createItem(villageLamp.get()), 256);
+        //Furnaces
+        register(NSSItem.createItem(coalstoneFurnace.get()), 2304);
+        register(NSSItem.createItem(moltenFurnace.get()), 34218);
+        register(NSSItem.createItem(greenlightFurnace.get()), 51327);
+        register(NSSItem.createItem(oceanfireFurnace.get()), 68436);
+        register(NSSItem.createItem(moonlightFurnace.get()), 85545);
+        register(NSSItem.createItem(whitefireFurnace.get()), 119763);
+        register(NSSItem.createItem(demonFurnace.get()), 153981);
+        //Chests
+        register(NSSItem.createItem(frostedChest.get()), 1024);
+        register(NSSItem.createItem(presentBox.get()), 2048);
+        //Doors
+        register(NSSItem.createItem(steelDoor.get()), 512);
+        register(NSSItem.createItem(barredDoor.get()), 512);
+        //Ladders
+        register(NSSItem.createItem(arcaniteTubes.get()), 14);
+        register(NSSItem.createItem(arcaniteLadder.get()), 14);
+        //Misc
+        register(NSSItem.createItem(coldHellfireSponge.get()), 122488);
+        register(NSSItem.createItem(starBridge.get()), 8554);
+        register(NSSItem.createItem(elevantium.get()), 5703);
+        register(NSSItem.createItem(acceleron.get()), 17109);
+        register(NSSItem.createItem(metalCaging.get()), 64);
+        register(NSSItem.createItem(hiveEgg.get()), 16384);
     }
     public static void register(@Nonnull NormalizedSimpleStack stack, long emcValue) {CUSTOM_EMC_VALUES.put(stack, emcValue);}
     @Override public String getName() {return "DivineRPGMapper";}
-
-    @Override
-    public String getTranslationKey() {
-        return "tooltip.divinerpg.projecte.map";
-    }
-
+    @Override public String getTranslationKey() {return "tooltip.divinerpg.projecte.map";}
     @Override public String getDescription() {return "Adds EMC to DivineRPG";}
-
-    @Override
-    public void addMappings(IMappingCollector<NormalizedSimpleStack, Long> iMappingCollector, ReloadableServerResources reloadableServerResources, RegistryAccess registryAccess, ResourceManager resourceManager) {
+    @Override public void addMappings(IMappingCollector<NormalizedSimpleStack, Long> iMappingCollector, ReloadableServerResources reloadableServerResources, RegistryAccess registryAccess, ResourceManager resourceManager) {
         for(Map.Entry<NormalizedSimpleStack, Long> entry : CUSTOM_EMC_VALUES.entrySet()) {
             NormalizedSimpleStack normStack = entry.getKey();
             long value = entry.getValue();

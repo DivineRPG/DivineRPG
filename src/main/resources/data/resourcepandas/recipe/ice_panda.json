@@ -1,13 +1,18 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#7ed3f7",
+  "name": "Ice",
+  "hexColor": "#69bbc3",
   "ingredient": {
     "item": "divinerpg:ice_stone"
   },
-  "name": "Ice",
   "result": {
     "count": 1,
     "id": "divinerpg:ice_shards"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

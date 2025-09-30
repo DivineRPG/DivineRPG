@@ -26,11 +26,11 @@ public class RecipeRegistry {
         public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(BuiltInRegistries.RECIPE_TYPE, MODID);
 
         public static final DeferredHolder<RecipeType<?>, RecipeType<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_RECIPE_TYPE = RECIPE_TYPES.register("arcanium_extractor", () -> ArcaniumExtractorRecipe.TYPE);
-        public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionTableRecipe>> INFUSIION_TABLE_RECIPE_TYPE = RECIPE_TYPES.register("infusion_table", () -> InfusionTableRecipe.TYPE);
+        public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionTableRecipe>> INFUSION_TABLE_RECIPE_TYPE = RECIPE_TYPES.register("infusion_table", () -> InfusionTableRecipe.TYPE);
         public static final DeferredHolder<RecipeType<?>, RecipeType<MaulSmashingRecipe>> MAUL_SMASHING = RECIPE_TYPES.register("maul_smashing", () -> MaulSmashingRecipe.TYPE);
         public static final DeferredHolder<RecipeType<?>, RecipeType<FireConversionRecipe>> FIRE_CONVERSION = RECIPE_TYPES.register("fire_conversion", () -> FireConversionRecipe.TYPE);
     }
-    public static class Serailizers {
+    public static class Serializers {
         public static final DeferredRegister<RecipeSerializer<?>> SERIALIZER = DeferredRegister.create(Registries.RECIPE_SERIALIZER, MODID);
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_SERIALIZER = SERIALIZER.register("arcanium_extractor", () -> new SimpleCookingSerializer<>(ArcaniumExtractorRecipe::new, 100));
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<InfusionTableRecipe>> INFUSION_TABLE_SERIALIZER = SERIALIZER.register("infusion_table", InfusionTableRecipe.Serializer::new);
@@ -47,6 +47,7 @@ public class RecipeRegistry {
     public static class Trades {
         @FunctionalInterface
         public interface TradeGetter {DivineTrades[] get(Level level, RandomSource random);}
+        //TODO: to make trade costs vary (and increase when NPCs are hit) + more trades appear if you keep trading
         public static final TradeGetter
             LIVESTOCK_MERCHANT = (level, random) -> new DivineTrades[] {
                 new DivineTrades(divineLog.toStack(16), shadow_coins.toStack(4), ehu_egg.toStack(2), random.nextInt(7), 5),
@@ -57,6 +58,7 @@ public class RecipeRegistry {
                 new DivineTrades(new ItemStack(Items.LEATHER, 10), shadow_coins.toStack(8), white_grizzle_egg.toStack(2), random.nextInt(7), 5),
                 new DivineTrades(new ItemStack(Items.LEATHER, 10), shadow_coins.toStack(8), brown_grizzle_egg.toStack(2), random.nextInt(7), 5)
             },
+            //TODO: to make them trade armor pieces of the same type + scythe at all times (instead of random items)
             JACK_O_MAN = (level, random) -> new DivineTrades[] {
                 new DivineTrades(new ItemStack(Items.BONE, 15), new ItemStack(Items.SPIDER_EYE, 5), skeleman_helmet.toStack(), random.nextInt(7), 5),
                 new DivineTrades(new ItemStack(Items.BONE, 20), new ItemStack(Items.SPIDER_EYE, 10), skeleman_chestplate.toStack(), random.nextInt(7), 5),
@@ -106,6 +108,7 @@ public class RecipeRegistry {
                 new DivineTrades(snowflake.toStack(), shuriken.toStack(16), snowflake_shuriken.toStack(16), random.nextInt(7), 5),
                 new DivineTrades(snowflake.toStack(4), serenade_striker.toStack(), serenade_of_ice.toStack(), random.nextInt(7), 5),
                 new DivineTrades(snowflake.toStack(7), slime_sword.toStack(), glacier_sword.toStack(), random.nextInt(7), 5),
+                //TODO: redundant trade
                 new DivineTrades(snowflake.toStack(12), shadow_bow.toStack(), icicle_bow.toStack(), random.nextInt(7), 5),
                 new DivineTrades(snowflake.toStack(6), massivence.toStack(), frossivence.toStack(), random.nextInt(7), 5),
                 new DivineTrades(snowflake.toStack(12), crabclaw_cannon.toStack(), frostclaw_cannon.toStack(), random.nextInt(7), 5),
@@ -264,7 +267,9 @@ public class RecipeRegistry {
                 new DivineTrades(arcanium.toStack(7), veilo_seeds.toStack(), random.nextInt(7), 5),
                 new DivineTrades(arcanium.toStack(9), lamona_seeds.toStack(), random.nextInt(7), 5),
                 new DivineTrades(collector.toStack(2), arcaniteDirt.toStack(16), random.nextInt(7), 5),
-                new DivineTrades(collector.toStack(2), arcaniteGrass.toStack(16), random.nextInt(7), 5)
+                new DivineTrades(collector.toStack(2), arcaniteGrass.toStack(16), random.nextInt(7), 5),
+                new DivineTrades(collector.toStack(6), staff_of_enrichment.toStack(), random.nextInt(7), 5),
+                new DivineTrades(collector.toStack(8), serenade_of_infusion.toStack(), random.nextInt(7), 5)
             },
             LORD_VATTICUS = (level, random) -> new DivineTrades[]{
                 new DivineTrades(collector.toStack(), new ItemStack(Items.BLUE_DYE, 8), random.nextInt(7), 5),

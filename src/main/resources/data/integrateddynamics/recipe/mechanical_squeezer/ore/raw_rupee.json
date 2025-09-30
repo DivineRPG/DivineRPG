@@ -1,25 +1,25 @@
 {
   "type": "integrateddynamics:mechanical_squeezer",
   "input_item": {
-    "tag": "c:ores/rupee"
+    "tag": "divinerpg:ores/rupee"
   },
   "output_items": [
     {
       "tag": {
-        "tag": "c:raw_materials/rupee",
+        "tag": "divinerpg:raw_materials/rupee",
         "count": 3
       }
     },
     {
       "tag": {
-        "tag": "c:raw_materials/rupee",
+        "tag": "divinerpg:raw_materials/rupee",
         "count": 2
       },
       "chance": 0.5
     },
     {
       "tag": {
-        "tag": "c:raw_materials/rupee",
+        "tag": "divinerpg:raw_materials/rupee",
         "count": 2
       },
       "chance": 0.5
@@ -31,15 +31,19 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:raw_materials/rupee"
+        "tag": "divinerpg:raw_materials/rupee"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:ores/rupee"
+        "tag": "divinerpg:ores/rupee"
       }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
     }
   ]
 }

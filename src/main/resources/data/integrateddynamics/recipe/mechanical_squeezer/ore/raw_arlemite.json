@@ -1,25 +1,25 @@
 {
   "type": "integrateddynamics:mechanical_squeezer",
   "input_item": {
-    "tag": "c:ores/arlemite"
+    "tag": "divinerpg:ores/arlemite"
   },
   "output_items": [
     {
       "tag": {
-        "tag": "c:raw_materials/arlemite",
+        "tag": "divinerpg:raw_materials/arlemite",
         "count": 3
       }
     },
     {
       "tag": {
-        "tag": "c:raw_materials/arlemite",
+        "tag": "divinerpg:raw_materials/arlemite",
         "count": 2
       },
       "chance": 0.5
     },
     {
       "tag": {
-        "tag": "c:raw_materials/arlemite",
+        "tag": "divinerpg:raw_materials/arlemite",
         "count": 2
       },
       "chance": 0.5
@@ -31,15 +31,19 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:raw_materials/arlemite"
+        "tag": "divinerpg:raw_materials/arlemite"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:ores/arlemite"
+        "tag": "divinerpg:ores/arlemite"
       }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
     }
   ]
 }

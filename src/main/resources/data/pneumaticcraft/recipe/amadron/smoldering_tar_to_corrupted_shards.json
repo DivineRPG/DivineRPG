@@ -13,5 +13,11 @@
       "count": 1,
       "id": "divinerpg:corrupted_shards"
     }
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
 }

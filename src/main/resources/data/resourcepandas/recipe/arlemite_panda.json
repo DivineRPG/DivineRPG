@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#79f03a",
-  "ingredient": {
-    "tag": "c:storage_blocks/arlemite"
-  },
   "name": "Arlemite",
+  "hexColor": "#6ab24b",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/arlemite"
+  },
   "result": {
     "count": 1,
-    "id": "divinerpg:arlemite_ingot"
-  }
+    "id": "divinerpg:arlemite_nugget"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/arlemite"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

@@ -1,16 +1,12 @@
 {
   "primaryColor": "#00ff00",
   "secondaryColor": "#66ff99",
-  "flowerTag": "c:storage_blocks/arlemite",
+  "flowerTag": "divinerpg:storage_blocks/arlemite",
   "name": "Arlemite",
   "conditions": [
     {
       "type": "neoforge:mod_loaded",
       "modid": "productivebees"
-    },
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "divinerpg"
     }
   ]
 }

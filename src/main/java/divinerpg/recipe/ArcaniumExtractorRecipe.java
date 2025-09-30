@@ -12,7 +12,7 @@ public class ArcaniumExtractorRecipe extends AbstractCookingRecipe {
         super(RecipeRegistry.Types.ARCANIUM_EXTRACTOR_RECIPE_TYPE.get(), group, category, ingredient, stack, xp, time);
     }
     @Override public ItemStack getToastSymbol() {return BlockRegistry.arcaniumExtractor.toStack();}
-    @Override public RecipeSerializer<?> getSerializer() {return RecipeRegistry.Serailizers.ARCANIUM_EXTRACTOR_SERIALIZER.get();}
+    @Override public RecipeSerializer<?> getSerializer() {return RecipeRegistry.Serializers.ARCANIUM_EXTRACTOR_SERIALIZER.get();}
     @Override public String toString() {return "arcanium_extractor";}
     public static final RecipeType<ArcaniumExtractorRecipe> TYPE = RecipeType.simple(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcanium_extractor"));
 }

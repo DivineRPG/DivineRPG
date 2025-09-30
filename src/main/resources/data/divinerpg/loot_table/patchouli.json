@@ -9,7 +9,7 @@
           "name": "patchouli:guide_book",
           "functions": [
             {
-              "function": "minecraft:set_components",
+              "function": "set_components",
               "components": {
                 "patchouli:book": "divinerpg:divine"
               }
@@ -17,6 +17,12 @@
           ]
         }
       ]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "patchouli"
     }
   ]
 }

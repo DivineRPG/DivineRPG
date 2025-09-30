@@ -5,15 +5,21 @@
   "inputs": [
     {
       "count": 1,
-      "tag": "c:ingots/arlemite"
+      "tag": "divinerpg:ingots/arlemite"
     },
     {
       "count": 1,
-      "tag": "c:ingots/rupee"
+      "tag": "divinerpg:ingots/rupee"
     }
   ],
   "output": {
     "count": 2,
     "id": "divinerpg:shadow_bar"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
 }

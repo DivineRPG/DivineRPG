@@ -1,13 +1,18 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#ffa621",
+  "name": "Molten",
+  "hexColor": "#dd8f1c",
   "ingredient": {
     "item": "divinerpg:molten_stone"
   },
-  "name": "Molten",
   "result": {
     "count": 1,
     "id": "divinerpg:molten_shards"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

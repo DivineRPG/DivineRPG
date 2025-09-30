@@ -15,5 +15,11 @@
   "soil": {
     "item": "minecraft:dirt"
   },
-  "time": 600
+  "time": 600,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
 }

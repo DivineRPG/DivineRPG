@@ -1,13 +1,25 @@
 {
   "type": "resourcepandas:panda_recipe",
-  "chance": 0.6,
-  "hexColor": "#e09422",
-  "ingredient": {
-    "tag": "c:storage_blocks/realmite"
-  },
   "name": "Realmite",
+  "hexColor": "#c37923",
+  "ingredient": {
+    "tag": "divinerpg:storage_blocks/realmite"
+  },
   "result": {
     "count": 1,
-    "id": "divinerpg:realmite_ingot"
-  }
+    "id": "divinerpg:realmite_nugget"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:storage_blocks/realmite"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "resourcepandas"
+    }
+  ]
 }

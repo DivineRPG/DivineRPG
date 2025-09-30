@@ -1,1 +1,21 @@
-{"type":"mekanism:combining","extra_input":{"count":1,"tag":"divinerpg:ingots/arlemite"},"main_input":{"count":1,"tag":"divinerpg:ingots/rupee"},"output":{"count":3,"id":"divinerpg:shadow_bar"}}
+{
+  "type": "mekanism:combining",
+  "extra_input": {
+    "count": 1,
+    "tag": "divinerpg:ingots/arlemite"
+  },
+  "main_input": {
+    "count": 1,
+    "tag": "divinerpg:ingots/rupee"
+  },
+  "output": {
+    "count": 3,
+    "id": "divinerpg:shadow_bar"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

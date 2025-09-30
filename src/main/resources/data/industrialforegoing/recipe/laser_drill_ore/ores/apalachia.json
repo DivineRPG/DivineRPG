@@ -1,19 +1,10 @@
 {
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:not",
-      "value": {
-        "type": "neoforge:tag_empty",
-        "tag": "c:ores/apalachia"
-      }
-    }
-  ],
   "type": "industrialforegoing:laser_drill_ore",
   "catalyst": {
     "item": "industrialforegoing:purple_laser_lens"
   },
   "output": {
-    "tag": "c:ores/apalachia"
+    "tag": "divinerpg:ores/apalachia"
   },
   "rarity": [
     {
@@ -41,6 +32,19 @@
         "whitelist": ["divinerpg:apalachia"]
       },
       "weight": 1
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:tag_empty",
+        "tag": "divinerpg:ores/apalachia"
+      }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "industrialforegoing"
     }
   ]
 }

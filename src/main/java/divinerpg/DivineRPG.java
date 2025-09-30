@@ -32,7 +32,7 @@ public class DivineRPG {
         MenuTypeRegistry.MENU_TYPE.register(bus);
         EntityRegistry.ENTITIES.register(bus);
         ParticleRegistry.PARTICLES.register(bus);
-        RecipeRegistry.Serailizers.SERIALIZER.register(bus);
+        RecipeRegistry.Serializers.SERIALIZER.register(bus);
         SoundRegistry.SOUNDS.register(bus);
         SoundRegistry.SONGS.register(bus);
         DamageRegistry.DAMAGE_TYPE.register(bus);

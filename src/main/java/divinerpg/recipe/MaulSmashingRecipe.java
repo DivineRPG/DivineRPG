@@ -52,7 +52,7 @@ public record MaulSmashingRecipe(Ingredient input, ItemStack output, @Nullable T
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return RecipeRegistry.Serailizers.MAUL_SMASHING_SERIALIZER.get();
+        return RecipeRegistry.Serializers.MAUL_SMASHING_SERIALIZER.get();
     }
 
     @Override

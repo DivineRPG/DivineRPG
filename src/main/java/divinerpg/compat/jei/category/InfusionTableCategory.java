@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class InfusionTableCategory implements IRecipeCategory<RecipeHolder<InfusionTableRecipe>> {
     public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/jei/infusion_table.png");
-    public static final RecipeType<RecipeHolder<InfusionTableRecipe>> RECIPE_TYPE = RecipeType.createFromVanilla(RecipeRegistry.Types.INFUSIION_TABLE_RECIPE_TYPE.get());
+    public static final RecipeType<RecipeHolder<InfusionTableRecipe>> RECIPE_TYPE = RecipeType.createFromVanilla(RecipeRegistry.Types.INFUSION_TABLE_RECIPE_TYPE.get());
     private final IDrawable icon, background;
     public InfusionTableCategory(IGuiHelper helper) {
         background = helper.createDrawable(TEXTURE, 1, 1, 166, 76);

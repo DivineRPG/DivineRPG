@@ -1,25 +1,25 @@
 {
   "type": "integrateddynamics:mechanical_squeezer",
   "input_item": {
-    "tag": "c:ores/oxdrite"
+    "tag": "divinerpg:ores/oxdrite"
   },
   "output_items": [
     {
       "tag": {
-        "tag": "c:raw_materials/oxdrite",
+        "tag": "divinerpg:raw_materials/oxdrite",
         "count": 3
       }
     },
     {
       "tag": {
-        "tag": "c:raw_materials/oxdrite",
+        "tag": "divinerpg:raw_materials/oxdrite",
         "count": 2
       },
       "chance": 0.5
     },
     {
       "tag": {
-        "tag": "c:raw_materials/oxdrite",
+        "tag": "divinerpg:raw_materials/oxdrite",
         "count": 2
       },
       "chance": 0.5
@@ -31,15 +31,19 @@
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:raw_materials/oxdrite"
+        "tag": "divinerpg:raw_materials/oxdrite"
       }
     },
     {
       "type": "neoforge:not",
       "value": {
         "type": "neoforge:tag_empty",
-        "tag": "c:ores/oxdrite"
+        "tag": "divinerpg:ores/oxdrite"
       }
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
     }
   ]
 }
