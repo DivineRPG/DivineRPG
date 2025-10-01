@@ -32,6 +32,7 @@ public class RecipeRegistry {
     }
     public static class Serializers {
         public static final DeferredRegister<RecipeSerializer<?>> SERIALIZER = DeferredRegister.create(Registries.RECIPE_SERIALIZER, MODID);
+        //TODO: Unknown recipe category 'divinerpg:arcanium_extractor/divinerpg:extracting/arcanium', etc.
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_SERIALIZER = SERIALIZER.register("arcanium_extractor", () -> new SimpleCookingSerializer<>(ArcaniumExtractorRecipe::new, 100));
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<InfusionTableRecipe>> INFUSION_TABLE_SERIALIZER = SERIALIZER.register("infusion_table", InfusionTableRecipe.Serializer::new);
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MaulSmashingRecipe>> MAUL_SMASHING_SERIALIZER = SERIALIZER.register("maul_smashing", MaulSmashingRecipe.Serializer::new);

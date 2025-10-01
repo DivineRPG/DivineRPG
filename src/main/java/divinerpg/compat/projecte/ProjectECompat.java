@@ -1,6 +1,5 @@
 package divinerpg.compat.projecte;
 
-import divinerpg.registries.*;
 import moze_intel.projecte.api.mapper.*;
 import moze_intel.projecte.api.mapper.collector.IMappingCollector;
 import moze_intel.projecte.api.nss.*;

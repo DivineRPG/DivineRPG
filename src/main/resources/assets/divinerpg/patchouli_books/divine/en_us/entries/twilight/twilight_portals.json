@@ -10,7 +10,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "divinerpg:shaped/twilight_clock",
+      "recipe": "clock",
       "text": "book.divinerpg.entry.twilight.portals.2"
     },
     {
