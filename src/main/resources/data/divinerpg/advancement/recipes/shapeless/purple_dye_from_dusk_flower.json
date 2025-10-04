@@ -1,0 +1,34 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_dusk_flower": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:dusk_flower"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shapeless/purple_dye_from_dusk_flower"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dusk_flower",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shapeless/purple_dye_from_dusk_flower"
+    ]
+  }
+}
