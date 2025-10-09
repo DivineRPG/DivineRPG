@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "candy_cane",
+  "pattern": [
+    "PPP",
+    "PDP",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "divinerpg:peppermints"
+    },
+    "D": {
+      "tag": "c:dyes/pink"
+    }
+  },
+  "result": {
+    "id": "divinerpg:pink_candy_cane",
+    "count": 2
+  }
+}

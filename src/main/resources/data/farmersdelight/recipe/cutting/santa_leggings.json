@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "divinerpg:santa_leggings"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "divinerpg:fancy_wool"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/shear"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

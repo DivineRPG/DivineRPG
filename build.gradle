@@ -104,6 +104,7 @@ dependencies {
     runtimeOnly("curse.maven:productivebees-377897:${productivebees_id}") // Productive Bees
     runtimeOnly("curse.maven:common_capabilities-247007:${common_capabilities_id}") // Common Capabilities
     runtimeOnly("curse.maven:cyclops_core-232758:${cyclops_core_id}") // Cyclops Core
+    runtimeOnly("curse.maven:farmers-delight-398521:${farmers_delight_id}") // Farmer's Delight
     runtimeOnly("curse.maven:integrated_dynamics-236307:${integrated_dynamics_id}") // Integrated Dynamics
     runtimeOnly("curse.maven:titanium-287342:${titanium_id}") // Titanium
     runtimeOnly("curse.maven:industrial-foregoing-266515:${industrial_foregoing_id}") // Industrial Foregoing

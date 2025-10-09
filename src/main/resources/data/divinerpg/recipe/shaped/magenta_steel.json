@@ -1,22 +1,22 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "steel_block",
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "divinerpg:steel"
+    },
+    "D": {
+      "tag": "c:dyes/magenta"
+    }
+  },
   "result": {
     "id": "divinerpg:magenta_steel",
     "count": 8
-  },
-  "pattern": [
-    "xxx",
-    "xyx",
-    "xxx"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "steel_block",
-  "key": {
-    "x": {
-      "item": "divinerpg:steel"
-    },
-    "y": {
-      "item": "minecraft:magenta_dye"
-    }
   }
 }

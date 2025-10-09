@@ -1,24 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:milky_lamp"
-  },
-  "pattern": [
-    "xzx",
-    "zyz",
-    "xzx"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
   "group": "colored_lamps",
+  "pattern": [
+    "IGI",
+    "GMG",
+    "IGI"
+  ],
   "key": {
-    "x": {
-      "item": "minecraft:iron_ingot"
+    "I": {
+      "item": "iron_ingot"
     },
-    "y": {
-      "item": "minecraft:milk_bucket"
+    "M": {
+      "tag": "c:drinks/milk"
     },
-    "z": {
-      "item": "minecraft:glowstone_dust"
+    "G": {
+      "item": "glowstone_dust"
     }
+  },
+  "result": {
+    "id": "divinerpg:milky_lamp"
   }
 }

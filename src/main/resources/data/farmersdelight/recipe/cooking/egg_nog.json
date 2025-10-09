@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cooking",
+  "recipe_book_tab": "drinks",
+  "container": {
+    "id": "bucket"
+  },
+  "ingredients": [
+    {
+      "tag": "c:drinks/milk"
+    },
+    {
+      "tag": "c:seeds"
+    },
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "item": "sugar"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:egg_nog"
+  },
+  "experience": 1,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

@@ -98,17 +98,15 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(tomato.get()), 64);
         register(NSSItem.createItem(white_mushroom.get()), 32);
         register(NSSItem.createItem(winterberry.get()), 16);
-        register(NSSItem.createItem(peppermints.get()), 14);
+        register(NSSItem.createItem(peppermints.get()), 5);
         register(NSSItem.createItem(robbin_egg.get()), 32);
         register(NSSItem.createItem(cauldron_flesh.get()), 64);
         register(NSSItem.createItem(raw_seng_meat.get()), 64);
         register(NSSItem.createItem(raw_wolpertinger_meat.get()), 64);
-        register(NSSItem.createItem(snow_cones.get()), 64);
-        register(NSSItem.createItem(chocolate_log.get()), 122);
         register(NSSItem.createItem(fruit_cake.get()), 182);
-        register(NSSItem.createItem(egg_nog.get()), 800);
-        register(NSSItem.createItem(weak_arcana_potion.get()), 5460);
-        register(NSSItem.createItem(strong_arcana_potion.get()), 8190);
+        register(NSSItem.createItem(egg_nog.get()), 847);
+        register(NSSItem.createItem(weak_arcana_potion.get()), 460);
+        register(NSSItem.createItem(strong_arcana_potion.get()), 1380);
         register(NSSItem.createItem(hitchak.get()), 128);
         register(NSSItem.createItem(lamona.get()), 64);
         register(NSSItem.createItem(pinfly.get()), 128);
@@ -329,12 +327,6 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(slowsprout.get()), 32);
         register(NSSItem.createItem(lushroom.get()), 32);
         register(NSSItem.createItem(dreamglow.get()), 32);
-        //Candy Cane
-        register(NSSItem.createItem(redCandyCane.get()), 126);
-        register(NSSItem.createItem(yellowCandyCane.get()), 126);
-        register(NSSItem.createItem(greenCandyCane.get()), 126);
-        register(NSSItem.createItem(blueCandyCane.get()), 126);
-        register(NSSItem.createItem(pinkCandyCane.get()), 126);
         //Fairy Lights
         register(NSSItem.createItem(redFairyLights.get()), 14);
         register(NSSItem.createItem(yellowFairyLights.get()), 14);

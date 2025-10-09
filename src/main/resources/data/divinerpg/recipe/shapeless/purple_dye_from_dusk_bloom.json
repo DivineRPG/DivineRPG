@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "group": "purple_dye",
   "ingredients": [
     {
@@ -7,6 +7,6 @@
     }
   ],
   "result": {
-    "id": "minecraft:purple_dye"
+    "id": "purple_dye"
   }
 }

@@ -738,7 +738,7 @@ public class ItemRegistry {
 
         //Blocks
         nightmare_bed = registerBlockItem("nightmare_bed", ItemNightmareBed::new),
-        aqua_torch = registerBlockItem("aqua_torch", () -> new StandingAndWallBlockItem(BlockRegistry.aquaTorch.get(), BlockRegistry.aquaWallTorch.get(), new Properties(), Direction.DOWN)),
+        aqua_torch = registerBlockItem("aqua_torch", AquaTorch::new),
         skeleton_torch = registerBlockItem("skeleton_torch", () -> new StandingAndWallBlockItem(BlockRegistry.skeletonTorch.get(), BlockRegistry.skeletonWallTorch.get(), new Properties(), Direction.DOWN)),
         arcanium_torch = registerBlockItem("arcanium_torch", () -> new StandingAndWallBlockItem(BlockRegistry.arcaniumTorch.get(), BlockRegistry.arcaniumWallTorch.get(), new Properties(), Direction.DOWN)),
         eden_torch = registerBlockItem("eden_torch", () -> new StandingAndWallBlockItem(BlockRegistry.edenTorch.get(), BlockRegistry.edenWallTorch.get(), new Properties(), Direction.DOWN)),

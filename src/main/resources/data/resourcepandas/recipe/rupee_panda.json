@@ -6,7 +6,6 @@
     "tag": "divinerpg:storage_blocks/rupee"
   },
   "result": {
-    "count": 1,
     "id": "divinerpg:rupee_nugget"
   },
   "neoforge:conditions": [

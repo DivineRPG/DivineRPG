@@ -1,0 +1,28 @@
+{
+  "type": "farmersdelight:cooking",
+  "recipe_book_tab": "meals",
+  "container": {
+    "id": "bowl"
+  },
+  "ingredients": [
+    {
+      "item": "divinerpg:white_mushroom"
+    },
+    {
+      "item": "brown_mushroom"
+    },
+    {
+      "item": "red_mushroom"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:advanced_mushroom_stew"
+  },
+  "experience": 1,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

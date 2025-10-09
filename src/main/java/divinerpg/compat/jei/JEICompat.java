@@ -6,7 +6,6 @@ import divinerpg.compat.jei.category.*;
 import divinerpg.compat.jei.ingredient.*;
 import divinerpg.entities.base.EntityDivineMerchant.DivineTrades;
 import divinerpg.registries.*;
-import divinerpg.registries.RecipeRegistry.*;
 import mezz.jei.api.*;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -17,7 +16,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.*;
@@ -27,6 +26,7 @@ import java.util.List;
 
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.PotionRegistry.*;
+import static divinerpg.registries.RecipeRegistry.Trades.*;
 import static divinerpg.registries.RecipeRegistry.Types.*;
 
 @JeiPlugin
@@ -58,40 +58,41 @@ public class JEICompat implements IModPlugin {
                 new PotionRecipe(Items.SPLASH_POTION, Potions.WATER, TEA, 2, ResourceLocation.fromNamespaceAndPath(MODID, "brewing.tea.splash"), ItemRegistry.winterberry.toStack(), Items.SWEET_BERRIES.getDefaultInstance()),
                 new PotionRecipe(Items.LINGERING_POTION, Potions.WATER, TEA, 3, ResourceLocation.fromNamespaceAndPath(MODID, "brewing.tea.lingering"), ItemRegistry.winterberry.toStack(), Items.SWEET_BERRIES.getDefaultInstance())
         ));
-        registerMerchantTrade(registration, Trades.LIVESTOCK_MERCHANT, "livestock_merchant");
-        registerMerchantTrade(registration, Trades.JACK_O_MAN, "jack_o_man");
-        registerMerchantTrade(registration, Trades.DIAMOND_DAVE, "diamond_dave");
-        registerMerchantTrade(registration, Trades.WORKSHOP_MERCHANT, "workshop_merchant");
-        registerMerchantTrade(registration, Trades.WORKSHOP_TINKERER, "workshop_tinkerer");
-        registerMerchantTrade(registration, Trades.GROGLIN_CHIEFTAIN, "groglin_chieftain");
-        registerMerchantTrade(registration, Trades.GROGLIN_HUNTER, "groglin_hunter");
-        registerMerchantTrade(registration, Trades.GROGLIN_MERCHANT, "groglin_merchant");
-        registerMerchantTrade(registration, Trades.GROGLIN_RANGER, "groglin_ranger");
-        registerMerchantTrade(registration, Trades.GROGLIN_SHARLATAN, "groglin_sharlatan");
-        registerMerchantTrade(registration, Trades.GROGLIN_WARRIOR, "groglin_warrior");
-        registerMerchantTrade(registration, Trades.GRUZZORLUG_CANNONEER, "gruzzorlug_cannoneer");
-        registerMerchantTrade(registration, Trades.GRUZZORLUG_COMMANDER, "gruzzorlug_commander");
-        registerMerchantTrade(registration, Trades.GRUZZORLUG_GENERAL, "gruzzorlug_general");
-        registerMerchantTrade(registration, Trades.GRUZZORLUG_KNIGHT, "gruzzorlug_knight");
-        registerMerchantTrade(registration, Trades.GRUZZORLUG_MINER, "gruzzorlug_miner");
-        registerMerchantTrade(registration, Trades.GRUZZORLUG_SWORDSMAN, "gruzzorlug_swordsman");
-        registerMerchantTrade(registration, Trades.CAPTAIN_MERIK, "captain_merik");
-        registerMerchantTrade(registration, Trades.DATTICON, "datticon");
-        registerMerchantTrade(registration, Trades.KAZARI, "kazari");
-        registerMerchantTrade(registration, Trades.LEORNA, "leorna");
-        registerMerchantTrade(registration, Trades.LORD_VATTICUS, "lord_vatticus");
-        registerMerchantTrade(registration, Trades.WAR_GENERAL, "war_general");
-        registerMerchantTrade(registration, Trades.ZELUS, "zelus");
-        registerMerchantTrade(registration, Trades.THE_HUNGER, "the_hunger");
+        registerMerchantTrade(registration, LIVESTOCK_MERCHANT, "livestock_merchant");
+        registerMerchantTrade(registration, JACK_O_MAN, "jack_o_man");
+        registerMerchantTrade(registration, DIAMOND_DAVE, "diamond_dave");
+        registerMerchantTrade(registration, WORKSHOP_MERCHANT, "workshop_merchant");
+        registerMerchantTrade(registration, WORKSHOP_TINKERER, "workshop_tinkerer");
+        registerMerchantTrade(registration, GROGLIN_CHIEFTAIN, "groglin_chieftain");
+        registerMerchantTrade(registration, GROGLIN_HUNTER, "groglin_hunter");
+        registerMerchantTrade(registration, GROGLIN_MERCHANT, "groglin_merchant");
+        registerMerchantTrade(registration, GROGLIN_RANGER, "groglin_ranger");
+        registerMerchantTrade(registration, GROGLIN_SHARLATAN, "groglin_sharlatan");
+        registerMerchantTrade(registration, GROGLIN_WARRIOR, "groglin_warrior");
+        registerMerchantTrade(registration, GRUZZORLUG_CANNONEER, "gruzzorlug_cannoneer");
+        registerMerchantTrade(registration, GRUZZORLUG_COMMANDER, "gruzzorlug_commander");
+        registerMerchantTrade(registration, GRUZZORLUG_GENERAL, "gruzzorlug_general");
+        registerMerchantTrade(registration, GRUZZORLUG_KNIGHT, "gruzzorlug_knight");
+        registerMerchantTrade(registration, GRUZZORLUG_MINER, "gruzzorlug_miner");
+        registerMerchantTrade(registration, GRUZZORLUG_SWORDSMAN, "gruzzorlug_swordsman");
+        registerMerchantTrade(registration, CAPTAIN_MERIK, "captain_merik");
+        registerMerchantTrade(registration, DATTICON, "datticon");
+        registerMerchantTrade(registration, KAZARI, "kazari");
+        registerMerchantTrade(registration, LEORNA, "leorna");
+        registerMerchantTrade(registration, LORD_VATTICUS, "lord_vatticus");
+        registerMerchantTrade(registration, WAR_GENERAL, "war_general");
+        registerMerchantTrade(registration, ZELUS, "zelus");
+        registerMerchantTrade(registration, THE_HUNGER, "the_hunger");
         //Information
+        registerIngredientInfo(registration, List.of(ItemRegistry.armor_pouch.toStack(),
+                ItemRegistry.red_armor_pouch.toStack(),
+                ItemRegistry.yellow_armor_pouch.toStack(),
+                ItemRegistry.green_armor_pouch.toStack(),
+                ItemRegistry.blue_armor_pouch.toStack(),
+                ItemRegistry.gray_armor_pouch.toStack()), ItemRegistry.armor_pouch.getId().getPath());
         //TODO: to add lang keys for commented out ones
-        String pouch = ItemRegistry.armor_pouch.getId().getPath();
-        registerIngredientInfo(registration, ItemRegistry.armor_pouch, pouch);
-        registerIngredientInfo(registration, ItemRegistry.red_armor_pouch, pouch);
-        registerIngredientInfo(registration, ItemRegistry.yellow_armor_pouch, pouch);
-        registerIngredientInfo(registration, ItemRegistry.green_armor_pouch, pouch);
-        registerIngredientInfo(registration, ItemRegistry.blue_armor_pouch, pouch);
-        registerIngredientInfo(registration, ItemRegistry.gray_armor_pouch, pouch);
+//        registerIngredientInfo(registration, ItemRegistry.terran_shifter, ItemRegistry.terran_shifter.getId().getPath());
+//        registerIngredientInfo(registration, ItemRegistry.jungle_hook, ItemRegistry.jungle_hook.getId().getPath());
         registerIngredientInfo(registration, ItemRegistry.frozen_clock, ItemRegistry.frozen_clock.getId().getPath());
 //        registerIngredientInfo(registration, ItemRegistry.mysterious_clock, ItemRegistry.mysterious_clock.getId().getPath());
 //        registerIngredientInfo(registration, ItemRegistry.call_of_the_watcher, ItemRegistry.call_of_the_watcher.getId().getPath());
@@ -101,6 +102,8 @@ public class JEICompat implements IModPlugin {
 //        registerIngredientInfo(registration, ItemRegistry.dream_flint, ItemRegistry.dream_flint.getId().getPath());
 //        registerIngredientInfo(registration, ItemRegistry.moon_clock, ItemRegistry.moon_clock.getId().getPath());
 //        registerIngredientInfo(registration, ItemRegistry.liopleurodon_skull, ItemRegistry.liopleurodon_skull.getId().getPath());
+//        registerIngredientInfo(registration, ItemRegistry.aquatic_coating_template, ItemRegistry.aquatic_coating_template.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.collector, ItemRegistry.collector.getId().getPath());
 //        registerIngredientInfo(registration, ItemRegistry.aquamarine, ItemRegistry.aquamarine.getId().getPath());
         registerIngredientInfo(registration, ItemRegistry.firestock, ItemRegistry.firestock.getId().getPath());
 //        registerIngredientInfo(registration, ItemRegistry.hitchak, ItemRegistry.hitchak.getId().getPath());
@@ -114,7 +117,6 @@ public class JEICompat implements IModPlugin {
 //        registerIngredientInfo(registration, ItemRegistry.apalachia_chunk, ItemRegistry.apalachia_chunk.getId().getPath());
 //        registerIngredientInfo(registration, ItemRegistry.skythern_chunk, ItemRegistry.skythern_chunk.getId().getPath());
         registerIngredientInfo(registration, ItemRegistry.acid, ItemRegistry.acid.getId().getPath());
-        //TODO: rather add this as an item tooltip: "Can be waterlogged" or "Can be placed underwater", or "Burns underwater"
 //        registerIngredientInfo(registration, BlockRegistry.aquaTorch, BlockRegistry.aquaTorch.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.icyFire, BlockRegistry.icyFire.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.hellFire, BlockRegistry.hellFire.getId().getPath());
@@ -137,9 +139,9 @@ public class JEICompat implements IModPlugin {
         registerIngredientInfo(registration, BlockRegistry.encagedLordVatticus, BlockRegistry.encagedLordVatticus.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.encagedWarGeneral, BlockRegistry.encagedWarGeneral.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.encagedZelus, BlockRegistry.encagedZelus.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.dramixAltar, BlockRegistry.dramixAltar.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.parasectaAltar, BlockRegistry.parasectaAltar.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.hiveEgg, BlockRegistry.hiveEgg.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.dramixAltar, BlockRegistry.dramixAltar.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.parasectaAltar, BlockRegistry.parasectaAltar.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.hiveEgg, BlockRegistry.hiveEgg.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.karosAltar, BlockRegistry.karosAltar.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.lunicAltar, BlockRegistry.lunicAltar.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.quadroticAltar, BlockRegistry.quadroticAltar.getId().getPath());
@@ -159,12 +161,12 @@ public class JEICompat implements IModPlugin {
 //        registerIngredientInfo(registration, BlockRegistry.softMiner, BlockRegistry.softMiner.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.placer, BlockRegistry.placer.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.acceleron, BlockRegistry.acceleron.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.elevantium, BlockRegistry.elevantium.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.elevantium, BlockRegistry.elevantium.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.soulTrap, BlockRegistry.soulTrap.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.nightmareBed, BlockRegistry.nightmareBed.getId().getPath());
     }
     static final RandomSource random = RandomSource.create();
-    static void registerMerchantTrade(IRecipeRegistration registration, Trades.TradeGetter getter, String profession) {
+    static void registerMerchantTrade(IRecipeRegistration registration, TradeGetter getter, String profession) {
         Level level = Minecraft.getInstance().level;
         Component name = Component.translatable("entity.divinerpg." + profession);
         DivineTrades[] trades = getter.get(level, random);
@@ -174,6 +176,10 @@ public class JEICompat implements IModPlugin {
     static void registerIngredientInfo(IRecipeRegistration registration, ItemLike item, String description) {
         Component name = Component.translatable("info.divinerpg.jei." + description);
         registration.addIngredientInfo(item, name);
+    }
+    static void registerIngredientInfo(IRecipeRegistration registration, List<ItemStack> item, String description) {
+        Component name = Component.translatable("info.divinerpg.jei." + description);
+        registration.addItemStackInfo(item, name);
     }
     @Override public void registerCategories(IRecipeCategoryRegistration registration) {
         IGuiHelper helper = registration.getJeiHelpers().getGuiHelper();

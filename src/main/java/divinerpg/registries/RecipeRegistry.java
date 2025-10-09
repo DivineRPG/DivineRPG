@@ -90,7 +90,7 @@ public class RecipeRegistry {
                 new DivineTrades(snowflake.toStack(6), seng_fur_boots.toStack(), random.nextInt(7), 5),
                 new DivineTrades(ice_stone.toStack(3), egg_nog.toStack(), random.nextInt(7), 5),
                 new DivineTrades(ice_stone.toStack(3), chocolate_log.toStack(5), random.nextInt(7), 5),
-                new DivineTrades(ice_stone.toStack(3), peppermints.toStack(15), random.nextInt(7), 5),
+                new DivineTrades(ice_stone.toStack(3), peppermints.toStack(16), random.nextInt(7), 5),
                 new DivineTrades(ice_stone.toStack(3), fruit_cake.toStack(3), random.nextInt(7), 5),
                 new DivineTrades(snowflake.toStack(20), icicle_bane.toStack(), random.nextInt(7), 5),
                 new DivineTrades(ice_stone.toStack(3), greenFairyLights.toStack(16), random.nextInt(7), 5),

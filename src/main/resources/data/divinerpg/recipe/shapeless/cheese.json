@@ -1,11 +1,11 @@
 {
-  "result": {
-    "id": "divinerpg:cheese"
-  },
+  "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:milk_bucket"
+      "tag": "c:drinks/milk"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:cheese"
+  }
 }

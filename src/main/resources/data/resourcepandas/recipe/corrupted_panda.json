@@ -3,11 +3,10 @@
   "name": "Corrupted",
   "hexColor": "#5b26cc",
   "ingredient": {
-    "item": "corruptedrpg:corrupted_stone"
+    "item": "divinerpg:corrupted_stone"
   },
   "result": {
-    "count": 1,
-    "id": "corruptedrpg:corrupted_shards"
+    "id": "divinerpg:corrupted_shards"
   },
   "neoforge:conditions": [
     {
