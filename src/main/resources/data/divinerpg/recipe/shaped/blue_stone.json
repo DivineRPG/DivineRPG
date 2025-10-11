@@ -1,21 +1,21 @@
 {
-  "result": {
-    "id": "divinerpg:blue_stone",
-    "count": 8
-  },
+  "type": "crafting_shaped",
+  "category": "building",
   "pattern": [
     "GGG",
     "GLG",
     "GGG"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
   "key": {
     "G": {
-      "item": "minecraft:glowstone"
+      "tag": "c:dusts/glowstone"
     },
     "L": {
-      "item": "minecraft:lapis_lazuli"
+      "tag": "c:gems/lapis"
     }
+  },
+  "result": {
+    "id": "divinerpg:blue_stone",
+    "count": 8
   }
 }

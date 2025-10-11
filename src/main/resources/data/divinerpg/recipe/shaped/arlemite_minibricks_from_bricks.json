@@ -1,18 +1,18 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "colored_minibricks",
+  "pattern": [
+    "BB",
+    "BB"
+  ],
+  "key": {
+    "B": {
+      "item": "divinerpg:arlemite_bricks"
+    }
+  },
   "result": {
     "id": "divinerpg:arlemite_minibricks",
     "count": 4
-  },
-  "pattern": [
-    "ss",
-    "ss"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "colored_minibricks",
-  "key": {
-    "s": {
-      "item": "divinerpg:arlemite_bricks"
-    }
   }
 }

@@ -1,23 +1,24 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_water": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:water_bucket"
+              "#c:buckets/water",
+              "#c:drinks/watery"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger": "inventory_changed"
     },
     "has_the_recipe": {
       "conditions": {
         "recipe": "divinerpg:shaped/aqua_lamp"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger": "recipe_unlocked"
     }
   },
   "requirements": [

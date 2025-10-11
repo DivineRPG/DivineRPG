@@ -1,26 +1,26 @@
 {
+  "type": "crafting_shapeless",
+  "category": "building",
+  "group": "crying_obsidian",
+  "ingredients": [
+    {
+      "tag": "c:obsidians/normal"
+    },
+    {
+      "tag": "c:obsidians/normal"
+    },
+    {
+      "tag": "c:obsidians/normal"
+    },
+    {
+      "tag": "c:obsidians/normal"
+    },
+    {
+      "tag": "divinerpg:ingots/torridite"
+    }
+  ],
   "result": {
     "id": "divinerpg:bleeding_obsidian",
     "count": 4
-  },
-  "ingredients": [
-    {
-      "item": "minecraft:obsidian"
-    },
-    {
-      "item": "minecraft:obsidian"
-    },
-    {
-      "item": "minecraft:obsidian"
-    },
-    {
-      "item": "minecraft:obsidian"
-    },
-    {
-      "item": "divinerpg:torridite_ingot"
-    }
-  ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "building",
-  "group": "crying_obsidian"
+  }
 }

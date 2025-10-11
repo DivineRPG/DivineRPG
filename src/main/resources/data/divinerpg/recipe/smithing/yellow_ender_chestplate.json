@@ -1,15 +1,29 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "divinerpg:yellow_diamond_chunk"
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:color_template"
   },
-  "base": {
-    "item": "divinerpg:ender_chestplate"
+  "base": [
+    {
+      "item": "divinerpg:ender_chestplate"
+    },
+    {
+      "item": "divinerpg:red_ender_chestplate"
+    },
+    {
+      "item": "divinerpg:green_ender_chestplate"
+    },
+    {
+      "item": "divinerpg:blue_ender_chestplate"
+    },
+    {
+      "item": "divinerpg:gray_ender_chestplate"
+    }
+  ],
+  "addition": {
+    "tag": "divinerpg:chunks/yellow_diamond"
   },
   "result": {
     "id": "divinerpg:yellow_ender_chestplate"
-  },
-  "template": {
-	"item": "divinerpg:color_template"
   }
 }

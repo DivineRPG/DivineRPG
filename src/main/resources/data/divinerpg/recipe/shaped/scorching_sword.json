@@ -1,20 +1,20 @@
 {
+  "type": "crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "P",
+    "P",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "tag": "divinerpg:ingots/torridite"
+    },
+    "P": {
+      "tag": "divinerpg:powders/purple_blaze"
+    }
+  },
   "result": {
     "id": "divinerpg:scorching_sword"
-  },
-  "pattern": [
-    " I ",
-    " I ",
-    " S "
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "S": {
-      "item": "divinerpg:torridite_ingot"
-    },
-    "I": {
-      "item": "divinerpg:purple_blaze"
-    }
   }
 }

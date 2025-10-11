@@ -1,15 +1,29 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "divinerpg:blue_diamond_chunk"
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:color_template"
   },
-  "base": {
-    "item": "divinerpg:ender_boots"
+  "base": [
+    {
+      "item": "divinerpg:ender_boots"
+    },
+    {
+      "item": "divinerpg:red_ender_boots"
+    },
+    {
+      "item": "divinerpg:yellow_ender_boots"
+    },
+    {
+      "item": "divinerpg:green_ender_boots"
+    },
+    {
+      "item": "divinerpg:gray_ender_boots"
+    }
+  ],
+  "addition": {
+    "tag": "divinerpg:chunks/blue_diamond"
   },
   "result": {
     "id": "divinerpg:blue_ender_boots"
-  },
-  "template": {
-	"item": "divinerpg:color_template"
   }
 }

@@ -26,12 +26,56 @@ public class TagRegistry {
         HALITE_BLITZ_AMMO = item("ammo/halite_blitz"),
         VETHEAN_CANNON_AMMO = item("ammo/vethean_cannon"),
 
-    //Rift related Items
+    //Rift-related Items
         EDEN_RIFT_REPLENISHING = item("rift_replenishing/eden"),
         WILDWOOD_RIFT_REPLENISHING = item("rift_replenishing/wildwood"),
         APALACHIA_RIFT_REPLENISHING = item("rift_replenishing/apalachia"),
         SKYTHERN_RIFT_REPLENISHING = item("rift_replenishing/skythern"),
         MORTUM_RIFT_REPLENISHING = item("rift_replenishing/mortum"),
+
+    //Mob Loot
+        EYES_CYCLOPS = item("eyes/cyclops"),
+        CLAWS_CRAB = item("claws/crab"),
+        TEETH_LIOPLEURODON = item("teeth/liopleurodon"),
+        TEETH_SABEAR = item("teeth/sabear"),
+        FINS_SHARK = item("fins/shark"),
+        FINS_WHALE = item("fins/whale"),
+        POWDERS_PURPLE_BLAZE = item("powders/purple_blaze"),
+        SNOWFLAKES = item("snowflakes"),
+
+    //Ingots
+        INGOTS_AQUATIC = item("ingots/aquatic"),
+        INGOTS_REALMITE = item("ingots/realmite"),
+        INGOTS_ARLEMITE = item("ingots/arlemite"),
+        INGOTS_RUPEE = item("ingots/rupee"),
+        INGOTS_TORRIDITE = item("ingots/torridite"),
+        INGOTS_OXDRITE = item("ingots/oxdrite"),
+
+    //Gems
+        GEMS_SHADOW = item("gems/shadow"),
+        GEMS_ICE = item("gems/ice"),
+        GEMS_TERRAN = item("gems/terran"),
+        GEMS_JUNGLE = item("gems/jungle"),
+        GEMS_MOLTEN = item("gems/molten"),
+        GEMS_SOULFIRE = item("gems/soulfire"),
+        GEMS_CORRUPTED = item("gems/corrupted"),
+        GEMS_ENDER = item("gems/ender"),
+        GEMS_DIVINE = item("gems/divine"),
+        GEMS_BLOODGEM = item("gems/bloodgem"),
+        GEMS_ARCANIUM = item("gems/arcanium"),
+        GEMS_EDEN = item("gems/eden"),
+        GEMS_WILDWOOD = item("gems/wildwood"),
+        GEMS_APALACHIA = item("gems/apalachia"),
+        GEMS_SKYTHERN = item("gems/skythern"),
+        GEMS_MORTUM = item("gems/mortum"),
+
+    //Chunks
+        CHUNKS_BEDROCK = item("chunks/bedrock"),
+        CHUNKS_EDEN = item("chunks/eden"),
+        CHUNKS_WILDWOOD = item("chunks/wildwood"),
+        CHUNKS_APALACHIA = item("chunks/apalachia"),
+        CHUNKS_SKYTHERN = item("chunks/skythern"),
+        CHUNKS_MORTUM = item("chunks/mortum"),
 
     //Crafting Items
         MAULS = item("tools/maul"),

@@ -4,18 +4,18 @@
   "group": "colored_lamps",
   "pattern": [
     "IGI",
-    "GMG",
+    "GCG",
     "IGI"
   ],
   "key": {
     "I": {
-      "item": "iron_ingot"
-    },
-    "M": {
-      "tag": "c:drinks/milk"
+      "tag": "c:ingots/iron"
     },
     "G": {
-      "item": "glowstone_dust"
+      "tag": "c:dusts/glowstone"
+    },
+    "C": {
+      "tag": "c:drinks/milk"
     }
   },
   "result": {

@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "group": "white_dye",
   "ingredients": [
     {
@@ -7,7 +7,7 @@
     }
   ],
   "result": {
-    "id": "minecraft:white_dye",
+    "id": "white_dye",
     "count": 2
   }
 }

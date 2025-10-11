@@ -1,15 +1,15 @@
 {
-  "result": {
-    "id": "divinerpg:darkstone"
-  },
+  "type": "crafting_shapeless",
+  "category": "building",
   "ingredients": [
     {
-      "item": "minecraft:glowstone_dust"
+      "tag": "c:dusts/glowstone"
     },
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "building"
+  "result": {
+    "id": "divinerpg:darkstone"
+  }
 }

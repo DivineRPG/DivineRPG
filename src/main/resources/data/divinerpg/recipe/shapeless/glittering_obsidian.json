@@ -1,26 +1,26 @@
 {
-  "result": {
-    "id": "divinerpg:glittering_obsidian",
-    "count": 4
-  },
+  "type": "crafting_shapeless",
+  "category": "building",
+  "group": "crying_obsidian",
   "ingredients": [
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     },
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     },
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     },
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     },
     {
       "item": "divinerpg:kraken_skin"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "building",
-  "group": "crying_obsidian"
+  "result": {
+    "id": "divinerpg:glittering_obsidian",
+    "count": 4
+  }
 }

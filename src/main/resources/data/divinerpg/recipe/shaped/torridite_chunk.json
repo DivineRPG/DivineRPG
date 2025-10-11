@@ -1,16 +1,16 @@
 {
-  "result": {
-    "id": "divinerpg:torridite_chunk"
-  },
+  "type": "crafting_shaped",
   "pattern": [
     " I ",
     "III",
     " I "
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "I": {
       "item": "divinerpg:torridite_ingot"
     }
+  },
+  "result": {
+    "id": "divinerpg:torridite_chunk"
   }
 }

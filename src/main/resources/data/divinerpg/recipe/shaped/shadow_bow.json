@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:shadow_bow"
-  },
-  "pattern": [
-    " IX",
-    "I X",
-    " IX"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "equipment",
+  "pattern": [
+    " IS",
+    "I S",
+    " IS"
+  ],
   "key": {
-    "X": {
-      "item": "minecraft:string"
+    "S": {
+      "tag": "c:strings"
     },
     "I": {
-      "item": "divinerpg:shadow_bar"
+      "tag": "divinerpg:ingots/shadow"
     }
+  },
+  "result": {
+    "id": "divinerpg:shadow_bow"
   }
 }

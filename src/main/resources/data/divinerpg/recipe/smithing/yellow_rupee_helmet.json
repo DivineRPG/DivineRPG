@@ -1,15 +1,29 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "divinerpg:yellow_diamond_chunk"
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:color_template"
   },
-  "base": {
-    "item": "divinerpg:rupee_helmet"
+  "base": [
+    {
+      "item": "divinerpg:rupee_helmet"
+    },
+    {
+      "item": "divinerpg:red_rupee_helmet"
+    },
+    {
+      "item": "divinerpg:green_rupee_helmet"
+    },
+    {
+      "item": "divinerpg:blue_rupee_helmet"
+    },
+    {
+      "item": "divinerpg:gray_rupee_helmet"
+    }
+  ],
+  "addition": {
+    "tag": "divinerpg:chunks/yellow_diamond"
   },
   "result": {
     "id": "divinerpg:yellow_rupee_helmet"
-  },
-  "template": {
-	"item": "divinerpg:color_template"
   }
 }

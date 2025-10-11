@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:massivence"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
-    "X X",
+    "B B",
     "III",
     " I "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
-    "X": {
-      "item": "divinerpg:bloodgem"
+    "B": {
+      "tag": "divinerpg:gems/bloodgem"
     },
     "I": {
-      "item": "divinerpg:torridite_ingot"
+      "tag": "divinerpg:ingots/torridite"
     }
+  },
+  "result": {
+    "id": "divinerpg:massivence"
   }
 }

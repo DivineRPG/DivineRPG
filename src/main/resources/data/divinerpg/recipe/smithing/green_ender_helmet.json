@@ -1,15 +1,29 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "divinerpg:green_diamond_chunk"
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:color_template"
   },
-  "base": {
-    "item": "divinerpg:ender_helmet"
+  "base": [
+    {
+      "item": "divinerpg:ender_helmet"
+    },
+    {
+      "item": "divinerpg:red_ender_helmet"
+    },
+    {
+      "item": "divinerpg:yellow_ender_helmet"
+    },
+    {
+      "item": "divinerpg:blue_ender_helmet"
+    },
+    {
+      "item": "divinerpg:gray_ender_helmet"
+    }
+  ],
+  "addition": {
+    "tag": "divinerpg:chunks/green_diamond"
   },
   "result": {
     "id": "divinerpg:green_ender_helmet"
-  },
-  "template": {
-	"item": "divinerpg:color_template"
   }
 }

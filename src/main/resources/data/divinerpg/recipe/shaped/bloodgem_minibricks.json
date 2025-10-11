@@ -1,22 +1,22 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "colored_minibricks",
+  "pattern": [
+    "MMM",
+    "MCM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "divinerpg:minibricks"
+    },
+    "C": {
+      "tag": "divinerpg:gems/bloodgem"
+    }
+  },
   "result": {
     "id": "divinerpg:bloodgem_minibricks",
     "count": 8
-  },
-  "pattern": [
-    "XXX",
-    "XCX",
-    "XXX"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "colored_minibricks",
-  "key": {
-    "C": {
-      "item": "divinerpg:bloodgem"
-    },
-    "X": {
-      "item": "divinerpg:minibricks"
-    }
   }
 }

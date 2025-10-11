@@ -78,8 +78,8 @@ public class InfernoBow extends ItemBow {
     }
     @Override public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int remainingUseDuration) {
         if(remainingUseDuration == useDuration) {
-            level.playSound(null, entity.getX(), entity.getEyeY(), entity.getZ(), CAMPFIRE_CRACKLE, entity.getSoundSource(), 1, 1);
-            level.playSound(null, entity.getX(), entity.getEyeY(), entity.getZ(), SoundRegistry.INFERNO_BOW_CHARGE.get(), entity.getSoundSource(), 1, 1);
+            level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), CAMPFIRE_CRACKLE, entity.getSoundSource(), 1, 1);
+            level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), SoundRegistry.INFERNO_BOW_CHARGE.get(), entity.getSoundSource(), 1, 1);
         }
     }
 }

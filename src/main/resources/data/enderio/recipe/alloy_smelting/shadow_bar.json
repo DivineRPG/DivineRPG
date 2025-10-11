@@ -1,21 +1,19 @@
 {
   "type": "enderio:alloy_smelting",
-  "energy": 1600,
-  "experience": 0.3,
   "inputs": [
     {
-      "count": 1,
       "tag": "divinerpg:ingots/arlemite"
     },
     {
-      "count": 1,
       "tag": "divinerpg:ingots/rupee"
     }
   ],
   "output": {
-    "count": 2,
-    "id": "divinerpg:shadow_bar"
+    "id": "divinerpg:shadow_bar",
+    "count": 2
   },
+  "energy": 1600,
+  "experience": 0.3,
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

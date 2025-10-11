@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "category": "equipment",
   "group": "colored_pouch",
   "ingredients": [
@@ -21,7 +21,7 @@
       }
     ],
     {
-      "item": "divinerpg:yellow_diamond_chunk"
+      "tag": "divinerpg:chunks/yellow_diamond"
     }
   ],
   "result": {

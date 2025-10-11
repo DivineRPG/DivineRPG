@@ -1,16 +1,14 @@
 {
   "type": "mekanism:combining",
   "extra_input": {
-    "count": 1,
     "tag": "divinerpg:ingots/arlemite"
   },
   "main_input": {
-    "count": 1,
     "tag": "divinerpg:ingots/rupee"
   },
   "output": {
-    "count": 3,
-    "id": "divinerpg:shadow_bar"
+    "id": "divinerpg:shadow_bar",
+    "count": 3
   },
   "neoforge:conditions": [
     {

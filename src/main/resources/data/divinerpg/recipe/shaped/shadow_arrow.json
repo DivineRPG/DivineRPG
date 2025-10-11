@@ -1,24 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:shadow_arrow",
-    "count": 8
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "X",
     "I",
     "F"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "divinerpg:shadow_bar"
+      "tag": "divinerpg:ingots/shadow"
     },
     "I": {
-      "item": "minecraft:stick"
+      "item": "stick"
     },
     "F": {
-      "item": "minecraft:feather"
+      "tag": "c:feathers"
     }
+  },
+  "result": {
+    "id": "divinerpg:shadow_arrow",
+    "count": 8
   }
 }

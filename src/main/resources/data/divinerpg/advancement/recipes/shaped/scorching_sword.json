@@ -1,35 +1,31 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_blaze": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:purple_blaze"
-            ]
+            "items": "#divinerpg:powders/purple_blaze"
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger": "inventory_changed"
     },
     "has_ingot": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:torridite_ingot"
-            ]
+            "items": "#divinerpg:ingots/torridite"
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger": "inventory_changed"
     },
     "has_the_recipe": {
       "conditions": {
         "recipe": "divinerpg:shaped/scorching_sword"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger": "recipe_unlocked"
     }
   },
   "requirements": [

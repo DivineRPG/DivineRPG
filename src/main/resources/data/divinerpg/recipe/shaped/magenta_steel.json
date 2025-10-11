@@ -1,16 +1,42 @@
 {
   "type": "crafting_shaped",
   "category": "building",
-  "group": "steel_block",
+  "group": "divinerpg_steel_block",
   "pattern": [
     "SSS",
     "SDS",
     "SSS"
   ],
   "key": {
-    "S": {
-      "item": "divinerpg:steel"
-    },
+    "S": [
+      {
+        "item": "divinerpg:steel"
+      },
+      {
+        "item": "divinerpg:black_steel"
+      },
+      {
+        "item": "divinerpg:red_steel"
+      },
+      {
+        "item": "divinerpg:orange_steel"
+      },
+      {
+        "item": "divinerpg:yellow_steel"
+      },
+      {
+        "item": "divinerpg:green_steel"
+      },
+      {
+        "item": "divinerpg:cyan_steel"
+      },
+      {
+        "item": "divinerpg:blue_steel"
+      },
+      {
+        "item": "divinerpg:purple_steel"
+      }
+    ],
     "D": {
       "tag": "c:dyes/magenta"
     }

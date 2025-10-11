@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "group": "light_gray_dye",
   "ingredients": [
     {
@@ -7,6 +7,6 @@
     }
   ],
   "result": {
-    "id": "minecraft:light_gray_dye"
+    "id": "light_gray_dye"
   }
 }

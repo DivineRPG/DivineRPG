@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -24,15 +25,15 @@ public class ItemDivineShield extends ShieldItem {
     public ResourceLocation resource;
     public Integer nameColor;
     private final Ingredient repairMaterial;
-    public ItemDivineShield(int nameColor, Item repairMaterial, int damage, String name) {
-        super((damage == 0 ? new Properties().component(UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(damage)));
+    public ItemDivineShield(int nameColor, TagKey<Item> repairMaterial, int durability, String name) {
+        super((durability == 0 ? new Properties().component(UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(durability)));
         this.repairMaterial = Ingredient.of(repairMaterial);
         DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
         resource = ResourceLocation.fromNamespaceAndPath(MODID, "entity/shield/" + name + "_shield");
         this.nameColor = nameColor;
     }
-    public ItemDivineShield(Item repairMaterial, int damage, String name) {
-        super((damage == 0 ? new Properties().component(UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(damage)));
+    public ItemDivineShield(TagKey<Item> repairMaterial, int durability, String name) {
+        super((durability == 0 ? new Properties().component(UNBREAKABLE, new Unbreakable(true)) : new Properties().durability(durability)));
         this.repairMaterial = Ingredient.of(repairMaterial);
         DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);
         resource = ResourceLocation.fromNamespaceAndPath(MODID, "entity/shield/" + name + "_shield");

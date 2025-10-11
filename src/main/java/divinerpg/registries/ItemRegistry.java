@@ -30,6 +30,7 @@ import java.util.function.Supplier;
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.ArmorMaterialRegistry.*;
 import static divinerpg.registries.MobEffectRegistry.*;
+import static divinerpg.registries.TagRegistry.*;
 import static divinerpg.util.ArmorInfo.*;
 import static net.minecraft.world.effect.MobEffects.*;
 import static net.minecraft.world.item.ArmorItem.Type.*;
@@ -476,15 +477,15 @@ public class ItemRegistry {
         everbright = registerTool("everbright", () -> new ItemModSword(ToolStats.EVERBRIGHT)),
 
         //Shields
-        realmite_shield = registerTool("realmite_shield", () -> new ItemDivineShield(realmite_ingot.get(), 426, "realmite")),
-        arlemite_shield = registerTool("arlemite_shield", () -> new ItemDivineShield(arlemite_ingot.get(), 734, "arlemite")),
-        rupee_shield = registerTool("rupee_shield", () -> new ItemDivineShield(rupee_ingot.get(), 823, "rupee")),
-        eden_shield = registerTool("eden_shield", () -> new ItemDivineShield(RarityList.EDEN, eden_gem.get(), 978, "eden")),
-        wildwood_shield = registerTool("wildwood_shield", () -> new ItemDivineShield(RarityList.WILDWOOD, wildwood_gem.get(), 1125, "wildwood")),
-        apalachia_shield = registerTool("apalachia_shield", () -> new ItemDivineShield(RarityList.APALACHIA, apalachia_gem.get(), 1256, "apalachia")),
-        skythern_shield = registerTool("skythern_shield", () -> new ItemDivineShield(RarityList.SKYTHERN, skythern_gem.get(), 1485, "skythern")),
-        mortum_shield = registerTool("mortum_shield", () -> new ItemDivineShield(RarityList.MORTUM, mortum_gem.get(), 1627, "mortum")),
-        halite_shield = registerTool("halite_shield", () -> new ItemDivineShield(RarityList.HALITE, Items.AIR, 0, "halite")),
+        realmite_shield = registerTool("realmite_shield", () -> new ItemDivineShield(INGOTS_REALMITE, 426, "realmite")),
+        arlemite_shield = registerTool("arlemite_shield", () -> new ItemDivineShield(INGOTS_ARLEMITE, 734, "arlemite")),
+        rupee_shield = registerTool("rupee_shield", () -> new ItemDivineShield(INGOTS_RUPEE, 823, "rupee")),
+        eden_shield = registerTool("eden_shield", () -> new ItemDivineShield(RarityList.EDEN, GEMS_EDEN, 978, "eden")),
+        wildwood_shield = registerTool("wildwood_shield", () -> new ItemDivineShield(RarityList.WILDWOOD, GEMS_WILDWOOD, 1125, "wildwood")),
+        apalachia_shield = registerTool("apalachia_shield", () -> new ItemDivineShield(RarityList.APALACHIA, GEMS_APALACHIA, 1256, "apalachia")),
+        skythern_shield = registerTool("skythern_shield", () -> new ItemDivineShield(RarityList.SKYTHERN, GEMS_SKYTHERN, 1485, "skythern")),
+        mortum_shield = registerTool("mortum_shield", () -> new ItemDivineShield(RarityList.MORTUM, GEMS_MORTUM, 1627, "mortum")),
+        halite_shield = registerTool("halite_shield", () -> new ItemDivineShield(RarityList.HALITE, null, 0, "halite")),
 
         //Serenades
         serenade_striker = registerTool("serenade_striker", ItemSerenadeStriker::new),

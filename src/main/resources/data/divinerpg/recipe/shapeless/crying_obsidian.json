@@ -1,26 +1,26 @@
 {
-  "result": {
-    "id": "minecraft:crying_obsidian",
-    "count": 4
-  },
+  "type": "crafting_shapeless",
+  "category": "building",
+  "group": "crying_obsidian",
   "ingredients": [
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     },
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     },
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     },
     {
-      "item": "minecraft:obsidian"
+      "tag": "c:obsidians/normal"
     },
     {
-      "item": "divinerpg:corrupted_stone"
+      "tag": "divinerpg:gems/corrupted"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "building",
-  "group": "crying_obsidian"
+  "result": {
+    "id": "crying_obsidian",
+    "count": 4
+  }
 }

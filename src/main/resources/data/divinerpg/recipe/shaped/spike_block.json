@@ -1,18 +1,18 @@
 {
-  "result": {
-    "id": "divinerpg:spike_block"
-  },
-  "pattern": [
-    "x x",
-    " x ",
-    "x x"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
   "group": "spike_block",
+  "pattern": [
+    "I I",
+    " I ",
+    "I I"
+  ],
   "key": {
-    "x": {
-      "item": "minecraft:iron_ingot"
+    "I": {
+      "tag": "c:ingots/iron"
     }
+  },
+  "result": {
+    "id": "divinerpg:spike_block"
   }
 }

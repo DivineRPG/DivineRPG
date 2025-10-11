@@ -1,15 +1,29 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "divinerpg:blue_diamond_chunk"
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:color_template"
   },
-  "base": {
-    "item": "divinerpg:divine_sword"
+  "base": [
+    {
+      "item": "divinerpg:divine_sword"
+    },
+    {
+      "item": "divinerpg:red_divine_sword"
+    },
+    {
+      "item": "divinerpg:yellow_divine_sword"
+    },
+    {
+      "item": "divinerpg:green_divine_sword"
+    },
+    {
+      "item": "divinerpg:gray_divine_sword"
+    }
+  ],
+  "addition": {
+    "tag": "divinerpg:chunks/blue_diamond"
   },
   "result": {
     "id": "divinerpg:blue_divine_sword"
-  },
-  "template": {
-	"item": "divinerpg:color_template"
   }
 }

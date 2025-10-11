@@ -1,18 +1,18 @@
 {
-  "result": {
-    "id": "divinerpg:hot_spike_block"
-  },
-  "pattern": [
-    "x x",
-    " x ",
-    "x x"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
   "group": "spike_block",
+  "pattern": [
+    "I I",
+    " I ",
+    "I I"
+  ],
   "key": {
-    "x": {
-      "item": "divinerpg:torridite_ingot"
+    "I": {
+      "tag": "divinerpg:ingots/torridite"
     }
+  },
+  "result": {
+    "id": "divinerpg:hot_spike_block"
   }
 }

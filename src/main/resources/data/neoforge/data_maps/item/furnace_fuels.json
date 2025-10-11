@@ -3,11 +3,80 @@
     "divinerpg:crate": {
       "burn_time": 300
     },
-    "divinerpg:land_vine": {
-      "burn_time": 300
+    "divinerpg:smoldering_tar_bucket": {
+      "burn_time": 24000
+    },
+    "divinerpg:blubber": {
+      "burn_time": 800
     },
     "divinerpg:anthracite": {
       "burn_time": 3200
+    },
+    "divinerpg:coalstone": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_stairs": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_slab": {
+      "burn_time": 2400
+    },
+    "divinerpg:coalstone_wall": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_pressure_plate": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_button": {
+      "burn_time": 1600
+    },
+    "divinerpg:coalstone_furnace": {
+      "burn_time": 4800
+    },
+    "divinerpg:workshop_bookcase": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_bricks": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_brick_stairs": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_brick_slab": {
+      "burn_time": 2400
+    },
+    "divinerpg:coalstone_brick_wall": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_brick_pressure_plate": {
+      "burn_time": 4800
+    },
+    "divinerpg:coalstone_brick_button": {
+      "burn_time": 1600
+    },
+    "divinerpg:chiseled_coalstone_bricks": {
+      "burn_time": 4800
+    },
+    "divinerpg:polished_coalstone": {
+      "burn_time": 4800
+    },
+    "divinerpg:polished_coalstone_stairs": {
+      "burn_time": 4800
+    },
+    "divinerpg:polished_coalstone_slab": {
+      "burn_time": 2400
+    },
+    "divinerpg:polished_coalstone_wall": {
+      "burn_time": 4800
+    },
+    "divinerpg:polished_coalstone_pressure_plate": {
+      "burn_time": 4800
+    },
+    "divinerpg:polished_coalstone_button": {
+      "burn_time": 1600
+    },
+    "divinerpg:land_vine": {
+      "burn_time": 300
     },
     "divinerpg:collector": {
       "burn_time": 100

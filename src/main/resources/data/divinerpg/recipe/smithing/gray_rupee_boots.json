@@ -1,15 +1,29 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "divinerpg:gray_diamond_chunk"
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:color_template"
   },
-  "base": {
-    "item": "divinerpg:rupee_boots"
+  "base": [
+    {
+      "item": "divinerpg:rupee_boots"
+    },
+    {
+      "item": "divinerpg:red_rupee_boots"
+    },
+    {
+      "item": "divinerpg:yellow_rupee_boots"
+    },
+    {
+      "item": "divinerpg:green_rupee_boots"
+    },
+    {
+      "item": "divinerpg:blue_rupee_boots"
+    }
+  ],
+  "addition": {
+    "tag": "divinerpg:chunks/gray_diamond"
   },
   "result": {
     "id": "divinerpg:gray_rupee_boots"
-  },
-  "template": {
-	"item": "divinerpg:color_template"
   }
 }

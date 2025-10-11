@@ -1,7 +1,7 @@
 {
   "type": "divinerpg:maul_smashing",
   "input": {
-    "item": "divinerpg:shadow_bar"
+    "tag": "divinerpg:ingots/shadow"
   },
   "output": {
     "id": "divinerpg:shadow_coins",

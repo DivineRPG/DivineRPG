@@ -1,15 +1,15 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "divinerpg:kraken_skin"
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:aquatic_coating_template"
   },
   "base": {
     "item": "divinerpg:aquastrive_leggings"
   },
+  "addition": {
+    "item": "divinerpg:kraken_skin"
+  },
   "result": {
     "id": "divinerpg:kraken_leggings"
-  },
-  "template": {
-	"item": "divinerpg:aquatic_coating_template"
   }
 }

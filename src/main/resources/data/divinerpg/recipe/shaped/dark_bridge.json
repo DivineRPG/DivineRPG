@@ -1,21 +1,21 @@
 {
-  "result": {
-    "id": "divinerpg:dark_bridge",
-    "count": 2
-  },
+  "type": "crafting_shaped",
+  "category": "building",
   "pattern": [
     "GGG",
     "GRG",
     "GGG"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
   "key": {
     "G": {
-      "item": "minecraft:glowstone_dust"
+      "tag": "c:dusts/glowstone"
     },
     "R": {
-      "item": "minecraft:redstone"
+      "tag": "c:dusts/redstone"
     }
+  },
+  "result": {
+    "id": "divinerpg:dark_bridge",
+    "count": 2
   }
 }

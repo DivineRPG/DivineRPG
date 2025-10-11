@@ -1,15 +1,29 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "divinerpg:blue_diamond_chunk"
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:color_template"
   },
-  "base": {
-    "item": "divinerpg:ender_leggings"
+  "base": [
+    {
+      "item": "divinerpg:ender_leggings"
+    },
+    {
+      "item": "divinerpg:red_ender_leggings"
+    },
+    {
+      "item": "divinerpg:yellow_ender_leggings"
+    },
+    {
+      "item": "divinerpg:green_ender_leggings"
+    },
+    {
+      "item": "divinerpg:gray_ender_leggings"
+    }
+  ],
+  "addition": {
+    "tag": "divinerpg:chunks/blue_diamond"
   },
   "result": {
     "id": "divinerpg:blue_ender_leggings"
-  },
-  "template": {
-	"item": "divinerpg:color_template"
   }
 }

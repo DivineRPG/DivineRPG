@@ -1,19 +1,19 @@
 {
-  "result": {
-    "id": "divinerpg:torridite_boots"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "S S",
     "I I"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
-      "item": "divinerpg:shadow_bar"
+      "tag": "divinerpg:ingots/shadow"
     },
     "I": {
-      "item": "divinerpg:torridite_block"
+      "tag": "divinerpg:storage_blocks/torridite"
     }
+  },
+  "result": {
+    "id": "divinerpg:torridite_boots"
   }
 }

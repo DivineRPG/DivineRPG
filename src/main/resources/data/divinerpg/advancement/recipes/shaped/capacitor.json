@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": "divinerpg:oxdrite_ingot"
+            "items": "#divinerpg:ingots/oxdrite"
           }
         ]
       },

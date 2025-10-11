@@ -1,23 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:poison_saber"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     " R ",
     "BRB",
     "BSB"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "R": {
-      "item": "divinerpg:jungle_stone"
+      "tag": "divinerpg:gems/jungle"
     },
     "B": {
-      "item": "divinerpg:shadow_bar"
+      "tag": "divinerpg:ingots/shadow"
     },
     "S": {
-      "item": "minecraft:stick"
+      "item": "stick"
     }
+  },
+  "result": {
+    "id": "divinerpg:poison_saber"
   }
 }

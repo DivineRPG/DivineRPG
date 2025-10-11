@@ -1,22 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:bedrock_upgrade_template"
-  },
+  "type": "crafting_shaped",
+  "group": "divinerpg_template",
   "pattern": [
     "GGG",
     "GTG",
     "GHG"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "G": {
-      "item": "divinerpg:bloodgem"
+      "tag": "divinerpg:gems/bloodgem"
     },
     "T": {
-      "item": "minecraft:netherite_upgrade_smithing_template"
+      "item": "netherite_upgrade_smithing_template"
     },
     "H": {
-      "item": "divinerpg:hellstone_ingot"
+      "tag": "divinerpg:ingots/hellstone"
     }
+  },
+  "result": {
+    "id": "divinerpg:bedrock_upgrade_template"
   }
 }

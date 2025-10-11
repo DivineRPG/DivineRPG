@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:rupee_pickaxe"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "III",
     " S ",
     " S "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
-      "item": "minecraft:stick"
+      "item": "stick"
     },
     "I": {
-      "item": "divinerpg:rupee_ingot"
+      "tag": "divinerpg:ingots/rupee"
     }
+  },
+  "result": {
+    "id": "divinerpg:rupee_pickaxe"
   }
 }

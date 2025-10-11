@@ -4,7 +4,6 @@
     "item": "divinerpg:rupee_ingot"
   },
   "output": {
-    "id": "divinerpg:rupee_dust",
-    "count": 1
+    "id": "divinerpg:rupee_dust"
   }
 }

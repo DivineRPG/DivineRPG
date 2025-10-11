@@ -1,17 +1,14 @@
 {
-  "result": {
-    "id": "divinerpg:aquatic_coating_template",
-    "count": 2
-  },
+  "type": "crafting_shaped",
+  "group": "divinerpg_template",
   "pattern": [
     "DTD",
     "DAD",
     "DDD"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "D": {
-      "item": "minecraft:diamond"
+      "tag": "c:gems/diamond"
     },
     "T": {
       "item": "divinerpg:aquatic_coating_template"
@@ -19,5 +16,9 @@
     "A": {
       "item": "divinerpg:aqua_ball"
     }
+  },
+  "result": {
+    "id": "divinerpg:aquatic_coating_template",
+    "count": 2
   }
 }

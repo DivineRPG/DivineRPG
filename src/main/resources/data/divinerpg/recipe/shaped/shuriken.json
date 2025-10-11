@@ -1,18 +1,19 @@
 {
-  "result": {
-    "id": "divinerpg:shuriken",
-    "count": 8
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
+  "group": "shuriken",
   "pattern": [
     " I ",
     "III",
     " I "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "I": {
-      "item": "minecraft:iron_ingot"
+      "tag": "c:ingots/iron"
     }
+  },
+  "result": {
+    "id": "divinerpg:shuriken",
+    "count": 8
   }
 }

@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:healing_stone"
-  },
+  "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "divinerpg:bloodgem"
+      "tag": "divinerpg:gems/bloodgem"
     },
     {
-      "item": "divinerpg:purple_blaze"
+      "tag": "divinerpg:powders/purple_blaze"
     },
     {
-      "item": "minecraft:magma_cream"
+      "item": "magma_cream"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:healing_stone"
+  }
 }

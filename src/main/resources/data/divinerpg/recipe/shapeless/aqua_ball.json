@@ -1,14 +1,14 @@
 {
-  "result": {
-    "id": "divinerpg:aqua_ball"
-  },
+  "type": "crafting_shapeless",
   "ingredients": [
     {
       "item": "divinerpg:kraken_scale"
     },
     {
-      "item": "minecraft:slime_ball"
+      "tag": "c:slime_balls"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:aqua_ball"
+  }
 }

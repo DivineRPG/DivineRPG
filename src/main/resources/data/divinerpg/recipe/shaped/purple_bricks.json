@@ -1,22 +1,22 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "divinerpg_colored_bricks",
+  "pattern": [
+    "BBB",
+    "BCB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "stone_bricks"
+    },
+    "C": {
+      "tag": "c:dyes/purple"
+    }
+  },
   "result": {
     "id": "divinerpg:purple_bricks",
     "count": 8
-  },
-  "pattern": [
-    "sss",
-    "sis",
-    "sss"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "divinerpg_colored_bricks",
-  "key": {
-    "s": {
-      "item": "minecraft:stone_bricks"
-    },
-    "i": {
-      "item": "minecraft:purple_dye"
-    }
   }
 }

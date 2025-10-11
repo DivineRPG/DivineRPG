@@ -1,23 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:flaming_fury"
-  },
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "XIX",
     "XIX",
     "XOX"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
       "item": "divinerpg:inferno_sword"
     },
     "I": {
-      "item": "divinerpg:fury_fire"
+      "tag": "divinerpg:powders/fury_fire"
     },
     "O": {
-      "item": "divinerpg:shadow_bar"
+      "tag": "divinerpg:ingots/shadow"
     }
+  },
+  "result": {
+    "id": "divinerpg:flaming_fury"
   }
 }

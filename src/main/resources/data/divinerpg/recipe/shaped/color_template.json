@@ -1,23 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:color_template",
-    "count": 2
-  },
+  "type": "crafting_shaped",
+  "group": "divinerpg_template",
   "pattern": [
     "DTD",
     "DSD",
     "DDD"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "D": {
-      "item": "minecraft:diamond"
+      "tag": "c:gems/diamond"
     },
     "T": {
       "item": "divinerpg:color_template"
     },
     "S": {
-      "item": "divinerpg:shadow_bar"
+      "tag": "divinerpg:ingots/shadow"
     }
+  },
+  "result": {
+    "id": "divinerpg:color_template",
+    "count": 2
   }
 }

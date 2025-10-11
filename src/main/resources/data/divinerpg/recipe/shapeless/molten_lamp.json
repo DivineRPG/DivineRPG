@@ -1,17 +1,17 @@
 {
+  "type": "crafting_shapeless",
+  "category": "building",
+  "group": "stone_lamps",
+  "ingredients": [
+    {
+      "item": "glowstone"
+    },
+    {
+      "tag": "divinerpg:gems/molten"
+    }
+  ],
   "result": {
     "id": "divinerpg:molten_lamp",
     "count": 2
-  },
-  "ingredients": [
-    {
-      "item": "minecraft:glowstone"
-    },
-    {
-      "item": "divinerpg:molten_stone"
-    }
-  ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "building",
-  "group": "stone_lamps"
+  }
 }

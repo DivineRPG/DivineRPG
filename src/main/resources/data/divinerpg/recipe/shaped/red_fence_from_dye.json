@@ -1,0 +1,27 @@
+{
+  "type": "crafting_shaped",
+  "category": "redstone",
+  "group": "redstone_fence",
+  "pattern": [
+    "RRR",
+    "RDR",
+    "RRR"
+  ],
+  "key": {
+    "R": [
+      {
+        "item": "divinerpg:green_fence"
+      },
+      {
+        "item": "divinerpg:blue_fence"
+      }
+    ],
+    "D": {
+      "tag": "c:dyes/red"
+    }
+  },
+  "result": {
+    "id": "divinerpg:red_fence",
+    "count": 8
+  }
+}

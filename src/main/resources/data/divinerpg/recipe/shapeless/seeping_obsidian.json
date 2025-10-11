@@ -1,26 +1,26 @@
 {
+  "type": "crafting_shapeless",
+  "category": "building",
+  "group": "crying_obsidian",
+  "ingredients": [
+    {
+      "tag": "c:obsidians/normal"
+    },
+    {
+      "tag": "c:obsidians/normal"
+    },
+    {
+      "tag": "c:obsidians/normal"
+    },
+    {
+      "tag": "c:obsidians/normal"
+    },
+    {
+      "tag": "divinerpg:ingots/aquatic"
+    }
+  ],
   "result": {
     "id": "divinerpg:seeping_obsidian",
     "count": 4
-  },
-  "ingredients": [
-    {
-      "item": "minecraft:obsidian"
-    },
-    {
-      "item": "minecraft:obsidian"
-    },
-    {
-      "item": "minecraft:obsidian"
-    },
-    {
-      "item": "minecraft:obsidian"
-    },
-    {
-      "item": "divinerpg:aquatic_ingot"
-    }
-  ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "building",
-  "group": "crying_obsidian"
+  }
 }

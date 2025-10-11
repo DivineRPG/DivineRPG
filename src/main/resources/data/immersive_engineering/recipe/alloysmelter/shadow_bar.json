@@ -1,10 +1,7 @@
 {
   "type": "immersiveengineering:alloy",
   "input0": {
-    "basePredicate": {
-      "tag": "divinerpg:ingots/arlemite"
-    },
-    "count": 1
+    "tag": "divinerpg:ingots/arlemite"
   },
   "input1": {
     "tag": "divinerpg:ingots/rupee"
@@ -16,20 +13,6 @@
     "count": 4
   },
   "neoforge:conditions": [
-    {
-      "type": "neoforge:not",
-      "value": {
-        "type": "neoforge:tag_empty",
-        "tag": "divinerpg:ingots/arlemite"
-      }
-    },
-    {
-      "type": "neoforge:not",
-      "value": {
-        "type": "neoforge:tag_empty",
-        "tag": "divinerpg:ingots/rupee"
-      }
-    },
     {
       "type": "neoforge:mod_loaded",
       "modid": "immersiveengineering"

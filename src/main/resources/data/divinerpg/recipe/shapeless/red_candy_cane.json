@@ -1,0 +1,42 @@
+{
+  "type": "crafting_shapeless",
+  "category": "building",
+  "group": "candy_cane",
+  "ingredients": [
+    [
+      {
+        "item": "divinerpg:yellow_candy_cane"
+      },
+      {
+        "item": "divinerpg:green_candy_cane"
+      },
+      {
+        "item": "divinerpg:blue_candy_cane"
+      },
+      {
+        "item": "divinerpg:pink_candy_cane"
+      }
+    ],
+    [
+      {
+        "item": "divinerpg:yellow_candy_cane"
+      },
+      {
+        "item": "divinerpg:green_candy_cane"
+      },
+      {
+        "item": "divinerpg:blue_candy_cane"
+      },
+      {
+        "item": "divinerpg:pink_candy_cane"
+      }
+    ],
+    {
+      "tag": "c:dyes/red"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:red_candy_cane",
+    "count": 2
+  }
+}

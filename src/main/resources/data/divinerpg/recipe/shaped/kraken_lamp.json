@@ -1,24 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:kraken_lamp"
-  },
-  "pattern": [
-    "xzx",
-    "zyz",
-    "xzx"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
   "group": "colored_lamps",
+  "pattern": [
+    "IGI",
+    "GCG",
+    "IGI"
+  ],
   "key": {
-    "x": {
-      "item": "minecraft:iron_ingot"
+    "I": {
+      "tag": "c:ingots/iron"
     },
-    "y": {
+    "G": {
+      "tag": "c:dusts/glowstone"
+    },
+    "C": {
       "item": "divinerpg:kraken_skin"
-    },
-    "z": {
-      "item": "minecraft:glowstone_dust"
     }
+  },
+  "result": {
+    "id": "divinerpg:kraken_lamp"
   }
 }

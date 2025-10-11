@@ -1,9 +1,8 @@
 {
   "values": [
-    "divinerpg:eden_chunk",
-    "divinerpg:wildwood_chunk",
-    "divinerpg:apalachia_chunk",
-    "divinerpg:skythern_chunk",
-    "divinerpg:mortum_chunk"
+    "#divinerpg:chunks/diamond",
+    "#divinerpg:chunks/torridite",
+    "#divinerpg:chunks/bedrock",
+    "#divinerpg:chunks/twilight"
   ]
 }

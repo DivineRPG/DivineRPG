@@ -1,24 +1,29 @@
 {
-  "result": {
-    "id": "divinerpg:eden_lamp"
-  },
-  "pattern": [
-    "xzx",
-    "zyz",
-    "xzx"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
   "group": "colored_lamps",
+  "pattern": [
+    "IGI",
+    "GCG",
+    "IGI"
+  ],
   "key": {
-    "x": {
-      "item": "minecraft:iron_ingot"
+    "I": {
+      "tag": "c:ingots/iron"
     },
-    "y": {
-      "item": "divinerpg:eden_fragments"
+    "G": {
+      "tag": "c:dusts/glowstone"
     },
-    "z": {
-      "item": "minecraft:glowstone_dust"
-    }
+    "C": [
+      {
+        "tag": "divinerpg:fragments/eden"
+      },
+      {
+        "tag": "divinerpg:souls/eden"
+      }
+    ]
+  },
+  "result": {
+    "id": "divinerpg:eden_lamp"
   }
 }

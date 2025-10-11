@@ -315,7 +315,6 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(wildwoodVine.get()), 8);
         register(NSSItem.createItem(moonlightFern.get()), 1);
         register(NSSItem.createItem(wildwoodTallgrass.get()), 1);
-        register(NSSItem.createItem(truffle.get()), 144);
         register(NSSItem.createItem(apalachiaTallgrass.get()), 1);
         register(NSSItem.createItem(skythernBrush.get()), 1);
         register(NSSItem.createItem(mortumBrush.get()), 1);

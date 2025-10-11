@@ -216,6 +216,12 @@
     "divinerpg:slowsprout": {
       "chance": 0.65
     },
+    "divinerpg:lushroom": {
+      "chance": 0.65
+    },
+    "divinerpg:duncap": {
+      "chance": 0.65
+    },
     "divinerpg:truffle": {
       "chance": 0.65
     },
@@ -241,9 +247,6 @@
       "chance": 0.65
     },
     "divinerpg:sunbloom": {
-      "chance": 0.65
-    },
-    "divinerpg:lushroom": {
       "chance": 0.65
     },
     "divinerpg:moonlight_fern": {

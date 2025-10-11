@@ -1,12 +1,12 @@
 {
-  "result": {
-    "id": "divinerpg:torridite_nugget",
-    "count": 9
-  },
+  "type": "crafting_shapeless",
   "ingredients": [
     {
       "item": "divinerpg:torridite_ingot"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:torridite_nugget",
+    "count": 9
+  }
 }
