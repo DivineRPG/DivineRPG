@@ -208,6 +208,7 @@ public class BlockRegistry {
     olivineBlock = registerBlock("olivine_block", () -> new AmethystBlock(Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(COLOR_GREEN).lightLevel((state) -> 1))),
     buddingOlivine = registerBlock("budding_olivine", () -> new BlockBuddingOlivine(Properties.ofFullCopy(Blocks.BUDDING_AMETHYST).mapColor(COLOR_GREEN).lightLevel((state) -> 2))),
     olivineCluster = registerBlock("olivine_cluster", () -> new AmethystClusterBlock(7, 3, Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER).mapColor(COLOR_GREEN).lightLevel((state) -> 3))),
+    buddingDravite = registerBlock("budding_dravite", () -> new BlockMod(Properties.ofFullCopy(Blocks.BUDDING_AMETHYST).mapColor(COLOR_BROWN).lightLevel((state) -> 2))),
 
     //Extra Wood Blocks
     plankDesign = registerBlock("plank_design", () -> new BlockModPlanks(WOOD, SoundType.WOOD)),
@@ -717,7 +718,8 @@ public class BlockRegistry {
     edenBrush = registerBlock("eden_brush", () -> new BlockModGrass(COLOR_YELLOW)),
     sunBlossom = registerBlock("sun_blossom", () -> new BlockModFlower(FIRE_RESISTANCE, 6, PLANT)),
     sunbloom = registerBlock("sunbloom", () -> new BlockModFlower(GLOWING, 6, TERRACOTTA_YELLOW)),
-    lushroom = registerBlock("lushroom", () -> new BlockModFlower(ABSORPTION, 5, TERRACOTTA_ORANGE, true)),
+    lushroom = registerBlock("lushroom", Lushroom::new),
+    duncap = registerBlock("duncap", Duncap::new),
     landVine = registerBlock("land_vine", () -> new BlockMod(Properties.ofFullCopy(Blocks.MUSHROOM_STEM).mapColor(TERRACOTTA_GREEN))),
     moonlightFern = registerBlock("moonlight_fern", () -> new BlockModGrass(ICE)),
     moonBud = registerBlock("moon_bud", () -> new BlockModFlower(WATER_BREATHING, 4, QUARTZ)),

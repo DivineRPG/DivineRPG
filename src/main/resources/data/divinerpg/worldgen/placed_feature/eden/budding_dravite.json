@@ -1,5 +1,5 @@
 {
-  "feature": "divinerpg:eden/dripstone_spud",
+  "feature": "divinerpg:eden/budding_dravite",
   "placement": [
     {
       "type": "minecraft:count",
@@ -19,6 +19,9 @@
           "absolute": 200
         }
       }
+    },
+    {
+      "type": "minecraft:biome"
     }
   ]
 }

@@ -32,12 +32,12 @@ public class BlockModInfiniFurnace extends BaseEntityBlock {
 	public BlockModInfiniFurnace(Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity, MapColor color) {
         super(Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(3.5F).instrument(NoteBlockInstrument.BASEDRUM));
         this.blockEntityType = blockEntity;
-        this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(false)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, false));
     }
 	protected BlockModInfiniFurnace(Properties properties, Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity) {
 		super(properties);
         this.blockEntityType = blockEntity;
-		this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, Boolean.valueOf(false)));
+		this.registerDefaultState(this.stateDefinition.any().setValue(AbstractFurnaceBlock.FACING, Direction.NORTH).setValue(AbstractFurnaceBlock.LIT, false));
 	}
 	@Override
 	public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {

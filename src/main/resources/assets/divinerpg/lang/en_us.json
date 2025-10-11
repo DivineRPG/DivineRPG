@@ -255,6 +255,7 @@
   "block.divinerpg.olivine_block": "Block of Olivine",
   "block.divinerpg.budding_olivine": "Budding Olivine",
   "block.divinerpg.olivine_cluster": "Olivine Cluster",
+  "block.divinerpg.budding_dravite": "Budding Dravite",
 
   "block.divinerpg.cobaltite": "Cobaltite",
   "block.divinerpg.cobaltite_stairs": "Cobaltite Stairs",
@@ -630,6 +631,7 @@
   "block.divinerpg.sunbloom_pot": "Potted Sunbloom",
   "block.divinerpg.lushroom": "Lushroom",
   "block.divinerpg.lushroom_pot": "Potted Lushroom",
+  "block.divinerpg.duncap": "Duncap",
   "block.divinerpg.eden_sapling": "Eden Sapling",
   "block.divinerpg.eden_sapling_pot": "Potted Eden Sapling",
   "block.divinerpg.eden_leaves": "Eden Leaves",

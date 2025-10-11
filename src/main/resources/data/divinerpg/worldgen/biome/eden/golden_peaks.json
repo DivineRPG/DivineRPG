@@ -90,11 +90,9 @@
       "divinerpg:eden/hanging_dripstone"
     ],
     [
-      "divinerpg:eden/tree",
       "divinerpg:eden/bush",
       "divinerpg:eden/duncap",
-      "divinerpg:eden/plants",
-      "divinerpg:eden/lushroom"
+      "divinerpg:eden/plants"
     ],
     []]
 }

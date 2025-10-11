@@ -28,14 +28,17 @@ public final class ConfiguredFeatureKeys {
 
 	//Twilight
 		TWILIGHT_TAR_LAKE = registerKey("twilight_tar_lake"),
-		EDEN_TREE = registerKey("eden_tree"),
-		EDEN_BUSH = registerKey("eden_bush"),
 		WILDWOOD_TREE = registerKey("wildwood_tree"),
 		APALACHIA_TREE = registerKey("apalachia_tree"),
 		SKYTHERN_TREE = registerKey("skythern_tree"),
 		SKYTHERN_BUSH = registerKey("skythern_bush"),
 		MORTUM_TREE = registerKey("mortum_tree"),
 		MORTUM_BUSH = registerKey("mortum_bush"),
+
+    //Eden
+        EDEN_TREE = registerKey("eden_tree"),
+        EDEN_BUSH = registerKey("eden_bush"),
+        DUNCAP = registerKey("duncap"),
 
 	//Iceika
 		SHIVERSPINE_TREE = registerKey("shiverspine_tree"),
@@ -87,14 +90,17 @@ public final class ConfiguredFeatureKeys {
 
 		//Twilight
 		register(context, TWILIGHT_TAR_LAKE, Feature.LAKE, new Configuration(BlockStateProvider.simple(getBlock("smoldering_tar")), BlockStateProvider.simple(getBlock("twilight_stone"))));
-		register(context, EDEN_TREE, FeatureRegistry.EDEN_TREE.get(), new TreeConfig(getBlockState("eden_log"), getBlockState("eden_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
-		register(context, EDEN_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(getBlockState("eden_log"), getBlockState("eden_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, WILDWOOD_TREE, FeatureRegistry.WILDWOOD_TREE.get(), new TreeConfig(getBlockState("wildwood_log"), getBlockState("wildwood_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, APALACHIA_TREE, FeatureRegistry.APALACHIA_TREE.get(), new TreeConfig(getBlockState("apalachia_log"), getBlockState("apalachia_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, SKYTHERN_TREE, FeatureRegistry.SKYTHERN_TREE.get(), new TreeConfig(getBlockState("skythern_log"), getBlockState("skythern_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, SKYTHERN_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(getBlockState("skythern_log"), getBlockState("skythern_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, MORTUM_TREE, FeatureRegistry.MORTUM_TREE.get(), new TreeConfig(getBlockState("mortum_log"), getBlockState("mortum_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
 		register(context, MORTUM_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(getBlockState("mortum_log"), getBlockState("mortum_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
+
+        //Eden
+        register(context, EDEN_TREE, FeatureRegistry.EDEN_TREE.get(), new TreeConfig(getBlockState("eden_log"), getBlockState("eden_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
+        register(context, EDEN_BUSH, FeatureRegistry.BUSH.get(), new TreeConfig(getBlockState("eden_log"), getBlockState("eden_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));
+        register(context, DUNCAP, FeatureRegistry.DUNCAP.get(), NoneFeatureConfiguration.INSTANCE);
 
 		//Iceika
 		register(context, SHIVERSPINE_TREE, FeatureRegistry.SHIVERSPINE_TREE.get(), new TreeConfig(getBlockState("shiverspine_log"), getBlockState("brittle_leaves").setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of()));

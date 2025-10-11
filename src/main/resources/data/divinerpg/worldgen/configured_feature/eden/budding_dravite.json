@@ -2,7 +2,7 @@
   "type": "divinerpg:spud",
   "config": {
     "center": {
-      "Name": "minecraft:dripstone_block"
+      "Name": "divinerpg:budding_dravite"
     },
     "rules": [
       {

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "y": 90,
+      "model": "divinerpg:block/duncap"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "divinerpg:block/duncap"
+    },
+    "facing=north": {
+      "model": "divinerpg:block/duncap"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "divinerpg:block/duncap"
+    }
+  }
+}

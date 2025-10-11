@@ -66,11 +66,11 @@ public class InfernoBow extends ItemBow {
                     if(infinityArrow != null && (itemstack.isEmpty() || itemstack.is(infinityArrow.get()))) itemstack = new ItemStack(infinityArrow.get());
                     if(itemstack.isEmpty()) return;
                     List<ItemStack> list = draw(stack, itemstack, player);
-                    if(!list.isEmpty()) shoot(server, player, player.getUsedItemHand(), stack, list, f * 3F * speedScale, 1, f == 1, null);
+                    if(!list.isEmpty()) shoot(server, player, player.getUsedItemHand(), stack, list, f * 3F * speedScale, 2, f == 1, null);
                     level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundRegistry.INFERNO_BOW_SHOOT.get(), PLAYERS, 1, 1 / (level.getRandom().nextFloat() * .4F + 1.2F) + f * .5F);
                     player.awardStat(ITEM_USED.get(this));
                 } else if(entity instanceof LivingEntity living) {
-                    shoot(server, living, living.getUsedItemHand(), stack, List.of(new ItemStack(inferno_arrow.get())), f * 3F * speedScale, 1, f == 1, living instanceof Mob mob ? mob.getTarget() : null);
+                    shoot(server, living, living.getUsedItemHand(), stack, List.of(new ItemStack(inferno_arrow.get())), f * 3F * speedScale, 2, f == 1, living instanceof Mob mob ? mob.getTarget() : null);
                     living.playSound(SoundRegistry.INFERNO_BOW_SHOOT.get(), 1, 1 / (level.getRandom().nextFloat() * .4F + .8F));
                 }
             }

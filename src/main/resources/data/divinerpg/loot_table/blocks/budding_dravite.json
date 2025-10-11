@@ -1,0 +1,60 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:eden_fragments",
+          "functions": [
+            {
+              "function": "apply_bonus",
+              "enchantment": "fortune",
+              "formula": "ore_drops"
+            },
+            {
+              "function": "explosion_decay"
+            },
+            {
+              "function": "set_count",
+              "count": 3,
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "equipment": {
+                      "head": {
+                        "items": [
+                          "divinerpg:eden_helmet"
+                        ]
+                      },
+                      "chest": {
+                        "items": [
+                          "divinerpg:eden_chestplate"
+                        ]
+                      },
+                      "legs": {
+                        "items": [
+                          "divinerpg:eden_leggings"
+                        ]
+                      },
+                      "feet": {
+                        "items": [
+                          "divinerpg:eden_boots"
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

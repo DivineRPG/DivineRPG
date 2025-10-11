@@ -25,6 +25,8 @@ public class FeatureRegistry {
     public static final DeferredHolder<Feature<?>, Feature<NBTFeatureConfig>> NBT_FEATURE = FEATURES.register("nbt_feature", NBTFeature::new);
     public static final DeferredHolder<Feature<?>, Feature<OreVeinConfig>> ORE_VEIN = FEATURES.register("ore_vein", OreVein::new);
     public static final DeferredHolder<Feature<?>, Feature<TreeConfig>> BUSH = FEATURES.register("bush", Bush::new);
+    public static final DeferredHolder<Feature<?>, Feature<SpudConfig>> SPUD = FEATURES.register("spud", Spud::new);
+    public static final DeferredHolder<Feature<?>, Feature<SpudConfig>> HORIZONTAL_SPUD = FEATURES.register("horizontal_spud", HorizontalSpud::new);
 	
     //Overworld
     public static final DeferredHolder<Feature<?>, Feature<TreeConfig>> DIVINE_TREE = FEATURES.register("divine_tree", DivineTree::new);
@@ -40,7 +42,9 @@ public class FeatureRegistry {
 
 	//Eden
 	public static final DeferredHolder<Feature<?>, Feature<DensityFunctionConfig>> LAND_VINES = FEATURES.register("land_vines", LandVines::new);
-    public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> EXPOSURE = FEATURES.register("exposure", Exposure::new);
+    public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>>
+        EXPOSURE = FEATURES.register("exposure", Exposure::new),
+        DUNCAP = FEATURES.register("duncap", Duncap::new);
 
     //Iceika
     public static final DeferredHolder<Feature<?>, Feature<TreeConfig>>
@@ -64,7 +68,6 @@ public class FeatureRegistry {
     	SNOW_SPREADER = FEATURES.register("snow_spreader", SnowSpreader::new);
 	public static final DeferredHolder<Feature<?>, Feature<PointedDripstoneConfiguration>> ICICLE = FEATURES.register("icicle", Icicle::new);
 	public static final DeferredHolder<Feature<?>, Feature<GemClusterConfig>> GEM_CLUSTER = FEATURES.register("gem_cluster", GemCluster::new);
-	public static final DeferredHolder<Feature<?>, Feature<SpudConfig>> SPUD = FEATURES.register("spud", Spud::new);
     public static final DeferredHolder<Feature<?>, Feature<RuleTestConfig>>
     	GEOTHERMAL_POND = FEATURES.register("geothermal_pond", GeothermalPond::new),
     	GLACIAL_POND = FEATURES.register("glacial_pond", GlacialPond::new),
