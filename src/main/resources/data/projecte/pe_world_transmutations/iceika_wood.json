@@ -1,0 +1,290 @@
+{
+  "transmutations": [
+    {
+      "origin": "divinerpg:shiverspine_log",
+      "result": "divinerpg:auroraoak_log",
+      "alt_result": "divinerpg:streamleaf_log"
+    },
+    {
+      "origin": "divinerpg:auroraoak_log",
+      "result": "divinerpg:cozybark_log",
+      "alt_result": "divinerpg:shiverspine_log"
+    },
+    {
+      "origin": "divinerpg:cozybark_log",
+      "result": "divinerpg:streamleaf_log",
+      "alt_result": "divinerpg:auroraoak_log"
+    },
+    {
+      "origin": "divinerpg:streamleaf_log",
+      "result": "divinerpg:shiverspine_log",
+      "alt_result": "divinerpg:cozybark_log"
+    },
+    {
+      "origin": "divinerpg:stripped_shiverspine_log",
+      "result": "divinerpg:stripped_auroraoak_log",
+      "alt_result": "divinerpg:stripped_streamleaf_log"
+    },
+    {
+      "origin": "divinerpg:stripped_auroraoak_log",
+      "result": "divinerpg:stripped_cozybark_log",
+      "alt_result": "divinerpg:stripped_shiverspine_log"
+    },
+    {
+      "origin": "divinerpg:stripped_cozybark_log",
+      "result": "divinerpg:stripped_streamleaf_log",
+      "alt_result": "divinerpg:stripped_auroraoak_log"
+    },
+    {
+      "origin": "divinerpg:stripped_streamleaf_log",
+      "result": "divinerpg:stripped_shiverspine_log",
+      "alt_result": "divinerpg:stripped_cozybark_log"
+    },
+    {
+      "origin": "divinerpg:shiverspine_wood",
+      "result": "divinerpg:auroraoak_wood",
+      "alt_result": "divinerpg:streamleaf_wood"
+    },
+    {
+      "origin": "divinerpg:auroraoak_wood",
+      "result": "divinerpg:cozybark_wood",
+      "alt_result": "divinerpg:shiverspine_wood"
+    },
+    {
+      "origin": "divinerpg:cozybark_wood",
+      "result": "divinerpg:streamleaf_wood",
+      "alt_result": "divinerpg:auroraoak_wood"
+    },
+    {
+      "origin": "divinerpg:streamleaf_wood",
+      "result": "divinerpg:shiverspine_wood",
+      "alt_result": "divinerpg:cozybark_wood"
+    },
+    {
+      "origin": "divinerpg:stripped_shiverspine_wood",
+      "result": "divinerpg:stripped_auroraoak_wood",
+      "alt_result": "divinerpg:stripped_streamleaf_wood"
+    },
+    {
+      "origin": "divinerpg:stripped_auroraoak_wood",
+      "result": "divinerpg:stripped_cozybark_wood",
+      "alt_result": "divinerpg:stripped_shiverspine_wood"
+    },
+    {
+      "origin": "divinerpg:stripped_cozybark_wood",
+      "result": "divinerpg:stripped_streamleaf_wood",
+      "alt_result": "divinerpg:stripped_auroraoak_wood"
+    },
+    {
+      "origin": "divinerpg:stripped_streamleaf_wood",
+      "result": "divinerpg:stripped_shiverspine_wood",
+      "alt_result": "divinerpg:stripped_cozybark_wood"
+    },
+    {
+      "origin": "divinerpg:brittle_leaves",
+      "result": "divinerpg:auroraoak_leaves",
+      "alt_result": "divinerpg:streamleaf_leaves"
+    },
+    {
+      "origin": "divinerpg:auroraoak_leaves",
+      "result": "divinerpg:cozybark_leaves",
+      "alt_result": "divinerpg:brittle_leaves"
+    },
+    {
+      "origin": "divinerpg:cozybark_leaves",
+      "result": "divinerpg:streamleaf_leaves",
+      "alt_result": "divinerpg:auroraoak_leaves"
+    },
+    {
+      "origin": "divinerpg:streamleaf_leaves",
+      "result": "divinerpg:brittle_leaves",
+      "alt_result": "divinerpg:cozybark_leaves"
+    },
+    {
+      "origin": "divinerpg:shiverspine_sapling",
+      "result": "divinerpg:auroraoak_sapling",
+      "alt_result": "divinerpg:streamleaf_sapling"
+    },
+    {
+      "origin": "divinerpg:auroraoak_sapling",
+      "result": "divinerpg:cozybark_sapling",
+      "alt_result": "divinerpg:shiverspine_sapling"
+    },
+    {
+      "origin": "divinerpg:cozybark_sapling",
+      "result": "divinerpg:streamleaf_sapling",
+      "alt_result": "divinerpg:auroraoak_sapling"
+    },
+    {
+      "origin": "divinerpg:streamleaf_sapling",
+      "result": "divinerpg:shiverspine_sapling",
+      "alt_result": "divinerpg:cozybark_sapling"
+    },
+    {
+      "origin": "divinerpg:shiverspine_planks",
+      "result": "divinerpg:auroraoak_planks",
+      "alt_result": "divinerpg:streamleaf_planks"
+    },
+    {
+      "origin": "divinerpg:auroraoak_planks",
+      "result": "divinerpg:cozybark_planks",
+      "alt_result": "divinerpg:shiverspine_planks"
+    },
+    {
+      "origin": "divinerpg:cozybark_planks",
+      "result": "divinerpg:streamleaf_planks",
+      "alt_result": "divinerpg:auroraoak_planks"
+    },
+    {
+      "origin": "divinerpg:streamleaf_planks",
+      "result": "divinerpg:shiverspine_planks",
+      "alt_result": "divinerpg:cozybark_planks"
+    },
+    {
+      "origin": "divinerpg:shiverspine_slab",
+      "result": "divinerpg:auroraoak_slab",
+      "alt_result": "divinerpg:streamleaf_slab"
+    },
+    {
+      "origin": "divinerpg:auroraoak_slab",
+      "result": "divinerpg:cozybark_slab",
+      "alt_result": "divinerpg:shiverspine_slab"
+    },
+    {
+      "origin": "divinerpg:cozybark_slab",
+      "result": "divinerpg:streamleaf_slab",
+      "alt_result": "divinerpg:auroraoak_slab"
+    },
+    {
+      "origin": "divinerpg:streamleaf_slab",
+      "result": "divinerpg:shiverspine_slab",
+      "alt_result": "divinerpg:cozybark_slab"
+    },
+    {
+      "origin": "divinerpg:shiverspine_stairs",
+      "result": "divinerpg:auroraoak_stairs",
+      "alt_result": "divinerpg:streamleaf_stairs"
+    },
+    {
+      "origin": "divinerpg:auroraoak_stairs",
+      "result": "divinerpg:cozybark_stairs",
+      "alt_result": "divinerpg:shiverspine_stairs"
+    },
+    {
+      "origin": "divinerpg:cozybark_stairs",
+      "result": "divinerpg:streamleaf_stairs",
+      "alt_result": "divinerpg:auroraoak_stairs"
+    },
+    {
+      "origin": "divinerpg:streamleaf_stairs",
+      "result": "divinerpg:shiverspine_stairs",
+      "alt_result": "divinerpg:cozybark_stairs"
+    },
+    {
+      "origin": "divinerpg:shiverspine_fence",
+      "result": "divinerpg:auroraoak_fence",
+      "alt_result": "divinerpg:streamleaf_fence"
+    },
+    {
+      "origin": "divinerpg:auroraoak_fence",
+      "result": "divinerpg:cozybark_fence",
+      "alt_result": "divinerpg:shiverspine_fence"
+    },
+    {
+      "origin": "divinerpg:cozybark_fence",
+      "result": "divinerpg:streamleaf_fence",
+      "alt_result": "divinerpg:auroraoak_fence"
+    },
+    {
+      "origin": "divinerpg:streamleaf_fence",
+      "result": "divinerpg:shiverspine_fence",
+      "alt_result": "divinerpg:cozybark_fence"
+    },
+    {
+      "origin": "divinerpg:shiverspine_pressure_plate",
+      "result": "divinerpg:auroraoak_pressure_plate",
+      "alt_result": "divinerpg:streamleaf_pressure_plate"
+    },
+    {
+      "origin": "divinerpg:auroraoak_pressure_plate",
+      "result": "divinerpg:cozybark_pressure_plate",
+      "alt_result": "divinerpg:shiverspine_pressure_plate"
+    },
+    {
+      "origin": "divinerpg:cozybark_pressure_plate",
+      "result": "divinerpg:streamleaf_pressure_plate",
+      "alt_result": "divinerpg:auroraoak_pressure_plate"
+    },
+    {
+      "origin": "divinerpg:streamleaf_pressure_plate",
+      "result": "divinerpg:shiverspine_pressure_plate",
+      "alt_result": "divinerpg:cozybark_pressure_plate"
+    },
+    {
+      "origin": "divinerpg:shiverspine_button",
+      "result": "divinerpg:auroraoak_button",
+      "alt_result": "divinerpg:streamleaf_button"
+    },
+    {
+      "origin": "divinerpg:auroraoak_button",
+      "result": "divinerpg:cozybark_button",
+      "alt_result": "divinerpg:shiverspine_button"
+    },
+    {
+      "origin": "divinerpg:cozybark_button",
+      "result": "divinerpg:streamleaf_button",
+      "alt_result": "divinerpg:auroraoak_button"
+    },
+    {
+      "origin": "divinerpg:streamleaf_button",
+      "result": "divinerpg:shiverspine_button",
+      "alt_result": "divinerpg:cozybark_button"
+    },
+    {
+      "origin": "divinerpg:shiverspine_trapdoor",
+      "result": "divinerpg:auroraoak_trapdoor",
+      "alt_result": "divinerpg:streamleaf_trapdoor"
+    },
+    {
+      "origin": "divinerpg:auroraoak_trapdoor",
+      "result": "divinerpg:cozybark_trapdoor",
+      "alt_result": "divinerpg:shiverspine_trapdoor"
+    },
+    {
+      "origin": "divinerpg:cozybark_trapdoor",
+      "result": "divinerpg:streamleaf_trapdoor",
+      "alt_result": "divinerpg:auroraoak_trapdoor"
+    },
+    {
+      "origin": "divinerpg:streamleaf_trapdoor",
+      "result": "divinerpg:shiverspine_trapdoor",
+      "alt_result": "divinerpg:cozybark_trapdoor"
+    },
+    {
+      "origin": "divinerpg:shiverspine_door",
+      "result": "divinerpg:auroraoak_door",
+      "alt_result": "divinerpg:streamleaf_door"
+    },
+    {
+      "origin": "divinerpg:auroraoak_door",
+      "result": "divinerpg:cozybark_door",
+      "alt_result": "divinerpg:shiverspine_door"
+    },
+    {
+      "origin": "divinerpg:cozybark_door",
+      "result": "divinerpg:streamleaf_door",
+      "alt_result": "divinerpg:auroraoak_door"
+    },
+    {
+      "origin": "divinerpg:streamleaf_door",
+      "result": "divinerpg:shiverspine_door",
+      "alt_result": "divinerpg:cozybark_door"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "projecte"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 {
-  "parent": "block/cube_all",
   "textures": {
-    "all": "divinerpg:block/liquid_tar_still"
+    "particle": "divinerpg:block/liquid_tar_still"
   }
 }

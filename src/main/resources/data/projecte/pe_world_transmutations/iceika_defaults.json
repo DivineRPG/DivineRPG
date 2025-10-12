@@ -1,0 +1,76 @@
+{
+  "transmutations": [
+    {
+      "origin": "divinerpg:frozen_stone",
+      "result": "divinerpg:cobbled_frozen_stone",
+      "alt_result": "divinerpg:frozen_grass"
+    },
+    {
+      "origin": "divinerpg:cobbled_frozen_stone",
+      "result": "divinerpg:frozen_stone",
+      "alt_result": "divinerpg:frozen_grass"
+    },
+    {
+      "origin": "divinerpg:frozen_grass",
+      "result": "divinerpg:gelidite",
+      "alt_result": "divinerpg:cobbled_frozen_stone"
+    },
+    {
+      "origin": "divinerpg:gelidite",
+      "result": "divinerpg:frozen_grass",
+      "alt_result": "divinerpg:cobbled_frozen_stone"
+    },
+    {
+      "origin": "divinerpg:frozen_dirt",
+      "result": "divinerpg:gelidite",
+      "alt_result": "divinerpg:cobbled_frozen_stone"
+    },
+    {
+      "origin": "divinerpg:icy_bricks",
+      "result": "divinerpg:runic_icy_bricks"
+    },
+    {
+      "origin": "divinerpg:runic_icy_bricks",
+      "result": "divinerpg:icy_bricks"
+    },
+    {
+      "origin": "divinerpg:coalstone",
+      "result": "divinerpg:coalstone_bricks",
+      "alt_result": "divinerpg:polished_coalstone"
+    },
+    {
+      "origin": "divinerpg:coalstone_bricks",
+      "result": "divinerpg:polished_coalstone",
+      "alt_result": "divinerpg:coalstone"
+    },
+    {
+      "origin": "divinerpg:polished_coalstone",
+      "result": "divinerpg:coalstone",
+      "alt_result": "divinerpg:coalstone_bricks"
+    },
+    {
+      "origin": "divinerpg:asphalt",
+      "result": {
+        "Name": "divinerpg:smoldering_tar",
+        "Properties": {
+          "level": 0
+        }
+      }
+    },
+    {
+      "origin": {
+        "Name": "divinerpg:smoldering_tar",
+        "Properties": {
+          "level": 0
+        }
+      },
+      "result": "divinerpg:asphalt"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "projecte"
+    }
+  ]
+}

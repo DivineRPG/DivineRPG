@@ -1,0 +1,24 @@
+{
+  "type": "crafting_shapeless",
+  "group": "divinerpg_anthracite",
+  "ingredients": [
+    {
+      "item": "projecte:philosophers_stone"
+    },
+    {
+      "item": "coal"
+    },
+    {
+      "item": "coal"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:anthracite"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "projecte"
+    }
+  ]
+}

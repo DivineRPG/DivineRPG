@@ -6,8 +6,6 @@ import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import divinerpg.DivineRPG;
 import divinerpg.events.ClientSidedExtraEvents;
-import divinerpg.events.Ticker;
-import divinerpg.registries.SoundRegistry;
 import divinerpg.util.Utils;
 import net.minecraft.client.*;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -15,7 +13,6 @@ import net.minecraft.client.renderer.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.*;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -63,9 +60,7 @@ public class IceikaSky extends DimensionSpecialEffects {
 	    skyBuffer.upload(bufferbuilder$renderedbuffer);
 	    VertexBuffer.unbind();
 	}
-	@SuppressWarnings("resource")
-	@Override
-	public boolean renderSnowAndRain(ClientLevel level, int ticks, float partialTick, LightTexture lightTexture, double camX, double camY, double camZ) {
+	@Override public boolean renderSnowAndRain(ClientLevel level, int ticks, float partialTick, LightTexture lightTexture, double camX, double camY, double camZ) {
 		float f = level.getRainLevel(partialTick);
 		if(f > 0F) {
     	  lightTexture.turnOnLightLayer();
@@ -141,35 +136,30 @@ public class IceikaSky extends DimensionSpecialEffects {
                  }
                }
             }
-          }
-          if(i1 >= 0) BufferUploader.drawWithShader(bufferbuilder.build());
+          } if(i1 >= 0) BufferUploader.drawWithShader(bufferbuilder.build());
           RenderSystem.enableCull();
           RenderSystem.disableBlend();
           lightTexture.turnOffLightLayer();
-		}
-		lastTick = ticks;
+		} lastTick = ticks;
 		return true;
 	}
 	public static void uv2(VertexConsumer c, int j) {
 		c.setUv2(j & '\uffff', j >> 16 & '\uffff');
 	}
-	@Override
-	public boolean tickRain(ClientLevel level, int ticks, Camera camera) {
+	@Override public boolean tickRain(ClientLevel level, int ticks, Camera camera) {
 		return true;
 	}
-	public Vec3 getBrightnessDependentFogColor(Vec3 vec, float f) {
+	@Override public Vec3 getBrightnessDependentFogColor(Vec3 vec, float f) {
 		return vec.multiply(f * .94 + .06, f * .94 + .06, f * .91 + .09);
 	}
-	public boolean isFoggyAt(int x, int y) {return (y < 128 && isRaining) || isBoneyard;}
-	@Override @Nullable
-	public float[] getSunriseColor(float f, float ff) {
+	@Override public boolean isFoggyAt(int x, int y) {return (y < 128 && isRaining) || isBoneyard;}
+	@Nullable
+	@Override public float[] getSunriseColor(float f, float ff) {
 		float color[] = super.getSunriseColor(f, ff);
 		if(color == null) return null;
 		return new float[] {color[0] * .2F, color[1] * .9F, color[2], color[3]};
 	}
-
-	@Override
-	public boolean renderSky(ClientLevel level, int ticks, float partialTick, Matrix4f modelViewMatrix, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
+	@Override public boolean renderSky(ClientLevel level, int ticks, float partialTick, Matrix4f modelViewMatrix, Camera camera, Matrix4f projectionMatrix, boolean isFoggy, Runnable setupFog) {
         if(isBlizzard && Utils.ICEIKA_WEATHER != 2 && level.canSeeSky(camera.getBlockPosition())) {
 			isBlizzard = false;
 			ClientSidedExtraEvents.MusicEvent.wantsToPlaySnowflakes = true;
@@ -253,7 +243,6 @@ public class IceikaSky extends DimensionSpecialEffects {
 				RenderSystem.defaultBlendFunc();
 				RenderSystem.depthMask(true);
 			}
-		}
-		return true;
+		} return true;
 	}
 }

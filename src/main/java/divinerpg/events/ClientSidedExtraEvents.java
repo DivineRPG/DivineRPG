@@ -11,6 +11,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -18,6 +19,9 @@ import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.extensions.common.*;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
+
+import static divinerpg.registries.ParticleRegistry.*;
+import static net.minecraft.world.effect.MobEffects.FIRE_RESISTANCE;
 
 @EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSidedExtraEvents {
@@ -29,17 +33,24 @@ public class ClientSidedExtraEvents {
                     FLOW = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "block/liquid_tar_flow");
             @Override public ResourceLocation getStillTexture() {return STILL;}
             @Override public ResourceLocation getFlowingTexture() {return FLOW;}
-            @Override public int getTintColor() {return 0xAF7FFFD4;}
+            @Override public int getTintColor() {return 0xFF7FFFD4;}
             @Override public @NotNull Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level, int renderDistance, float darkenWorldAmount, Vector3f fluidFogColor) {
-                int color = getTintColor();
+                int color = 0xFF101916;
                 return new Vector3f((color >> 16 & 0xFF) / 255F, (color >> 8 & 0xFF) / 255F, (color & 0xFF) / 255F);
             }
             @Override public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape) {
-                //TODO: fix the red fog issue that comes with the lava fluid tag
-                //TODO: configure different fog distances based on if you have fire res. or spectator mode
-                nearDistance = -8;
-                farDistance = 4;
-                if(farDistance > renderDistance) {
+                //TODO: fix the red fog issue that comes with the lava fluid tag (or exclude tar from it and implement all those little things that come with it ourselves)
+                LivingEntity entity = (LivingEntity)camera.getEntity();
+                if(entity.isSpectator()) {
+                    nearDistance = -8;
+                    farDistance = renderDistance * .25F;
+                } else if(entity.hasEffect(FIRE_RESISTANCE)) {
+                    nearDistance = 0;
+                    farDistance = 4;
+                } else {
+                    nearDistance = .25F;
+                    farDistance = 1;
+                } if(farDistance > renderDistance) {
                     farDistance = renderDistance;
                     shape = FogShape.CYLINDER;
                 } RenderSystem.setShaderFogStart(nearDistance);
@@ -57,28 +68,28 @@ public class ClientSidedExtraEvents {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerFactories(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(ParticleRegistry.EDEN_PORTAL.get(), ParticlePortal.EdenProvider::new);
-        event.registerSpriteSet(ParticleRegistry.WILDWOOD_PORTAL.get(), ParticlePortal.WildwoodProvider::new);
-        event.registerSpriteSet(ParticleRegistry.APALACHIA_PORTAL.get(), ParticlePortal.ApalachiaProvider::new);
-        event.registerSpriteSet(ParticleRegistry.SKYTHERN_PORTAL.get(),ParticlePortal.SkythernProvider::new);
-        event.registerSpriteSet(ParticleRegistry.MORTUM_PORTAL.get(), ParticlePortal.MortumProvider::new);
-        event.registerSpriteSet(ParticleRegistry.HALITE_PORTAL.get(), ParticlePortal.HaliteProvider::new);
-        event.registerSpriteSet(ParticleRegistry.TWILIGHT_PORTAL.get(), ParticlePortal.TwilightProvider::new);
-        event.registerSpriteSet(ParticleRegistry.BLACK_FLAME.get(), FlameParticle.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.BLUE_FLAME.get(), FlameParticle.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.GREEN_FLAME.get(), FlameParticle.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.PURPLE_FLAME.get(), FlameParticle.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.FROST.get(), ParticleFrost.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.SPARKLER.get(), ParticleSparkler.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.ENDER_TRIPLET.get(), ParticleEnderTriplet.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.TAR.get(), ParticleTar.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.SPLASH.get(), ParticleSplash.Provider::new);
-        event.registerSpriteSet(ParticleRegistry.COLORED.get(), ParticleColored.Provider::new);
-        event.registerSprite(ParticleRegistry.EDEN_RIFT.get(), RiftParticle::createParticle);
-        event.registerSprite(ParticleRegistry.WILDWOOD_RIFT.get(), RiftParticle::createParticle);
-        event.registerSprite(ParticleRegistry.APALACHIA_RIFT.get(), RiftParticle::createParticle);
-        event.registerSprite(ParticleRegistry.SKYTHERN_RIFT.get(), RiftParticle::createParticle);
-        event.registerSprite(ParticleRegistry.MORTUM_RIFT.get(), RiftParticle::createParticle);
+        event.registerSpriteSet(EDEN_PORTAL.get(), ParticlePortal.EdenProvider::new);
+        event.registerSpriteSet(WILDWOOD_PORTAL.get(), ParticlePortal.WildwoodProvider::new);
+        event.registerSpriteSet(APALACHIA_PORTAL.get(), ParticlePortal.ApalachiaProvider::new);
+        event.registerSpriteSet(SKYTHERN_PORTAL.get(),ParticlePortal.SkythernProvider::new);
+        event.registerSpriteSet(MORTUM_PORTAL.get(), ParticlePortal.MortumProvider::new);
+        event.registerSpriteSet(HALITE_PORTAL.get(), ParticlePortal.HaliteProvider::new);
+        event.registerSpriteSet(TWILIGHT_PORTAL.get(), ParticlePortal.TwilightProvider::new);
+        event.registerSpriteSet(BLACK_FLAME.get(), FlameParticle.Provider::new);
+        event.registerSpriteSet(BLUE_FLAME.get(), FlameParticle.Provider::new);
+        event.registerSpriteSet(GREEN_FLAME.get(), FlameParticle.Provider::new);
+        event.registerSpriteSet(PURPLE_FLAME.get(), FlameParticle.Provider::new);
+        event.registerSpriteSet(FROST.get(), ParticleFrost.Provider::new);
+        event.registerSpriteSet(SPARKLER.get(), ParticleSparkler.Provider::new);
+        event.registerSpriteSet(ENDER_TRIPLET.get(), ParticleEnderTriplet.Provider::new);
+        event.registerSpriteSet(TAR.get(), ParticleTar.Provider::new);
+        event.registerSpriteSet(SPLASH.get(), ParticleSplash.Provider::new);
+        event.registerSpriteSet(COLORED.get(), ParticleColored.Provider::new);
+        event.registerSprite(EDEN_RIFT.get(), RiftParticle::createParticle);
+        event.registerSprite(WILDWOOD_RIFT.get(), RiftParticle::createParticle);
+        event.registerSprite(APALACHIA_RIFT.get(), RiftParticle::createParticle);
+        event.registerSprite(SKYTHERN_RIFT.get(), RiftParticle::createParticle);
+        event.registerSprite(MORTUM_RIFT.get(), RiftParticle::createParticle);
     }
     public static class MusicEvent {
         public static volatile boolean wantsToPlaySnowflakes = false;

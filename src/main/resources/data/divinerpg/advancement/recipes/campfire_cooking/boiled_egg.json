@@ -28,5 +28,14 @@
     "recipes": [
       "divinerpg:campfire_cooking/boiled_egg"
     ]
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    }
+  ]
 }

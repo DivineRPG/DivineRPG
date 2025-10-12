@@ -17,8 +17,6 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
     private static final Map<NormalizedSimpleStack, Long> CUSTOM_EMC_VALUES = new HashMap<>();
     public static void init() {
         //Items
-        //Fuels
-        register(NSSItem.createItem(anthracite.get()), 256);
         //Nuggets
         register(NSSItem.createItem(realmite_nugget.get()), 42);
         register(NSSItem.createItem(arlemite_nugget.get()), 896);
@@ -26,8 +24,6 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(torridite_nugget.get()), 912);
         //Ingots
         register(NSSItem.createItem(shadow_bar.get()), 17280);
-        register(NSSItem.createItem(hellstone_ingot.get()), 58320);
-        register(NSSItem.createItem(oxdrite_ingot.get()), 512);
         //Dust & Powders
         register(NSSItem.createItem(purple_blaze.get()), 1536);
         register(NSSItem.createItem(fury_fire.get()), 6144);
@@ -38,12 +34,6 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(apalachia_dust.get()), 2048);
         register(NSSItem.createItem(skythern_dust.get()), 4072);
         register(NSSItem.createItem(mortum_dust.get()), 6096);
-        //Souls
-        register(NSSItem.createItem(eden_soul.get()), 1024);
-        register(NSSItem.createItem(wildwood_soul.get()), 1536);
-        register(NSSItem.createItem(apalachia_soul.get()), 2048);
-        register(NSSItem.createItem(skythern_soul.get()), 4072);
-        register(NSSItem.createItem(mortum_soul.get()), 6096);
         //Hearts
         register(NSSItem.createItem(eden_heart.get()), 4096);
         register(NSSItem.createItem(wildwood_heart.get()), 6144);
@@ -61,7 +51,11 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(collector_fragments.get()), 1820);
         register(NSSItem.createItem(bedrock_chunk.get()), 155520);
         //Gems
-        register(NSSItem.createItem(shadow_stone.get()), 155520);
+        register(NSSItem.createItem(red_diamond_chunk.get()), 16400);
+        register(NSSItem.createItem(yellow_diamond_chunk.get()), 8570);
+        register(NSSItem.createItem(green_diamond_chunk.get()), 16256);
+        register(NSSItem.createItem(blue_diamond_chunk.get()), 17408);
+        register(NSSItem.createItem(gray_diamond_chunk.get()), 25472);
         register(NSSItem.createItem(bloodgem.get()), 8256);
         register(NSSItem.createItem(soulfire_stone.get()), 10128);
         register(NSSItem.createItem(olivine.get()), 32);
@@ -97,6 +91,7 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         //Food & Drinks
         register(NSSItem.createItem(tomato.get()), 64);
         register(NSSItem.createItem(white_mushroom.get()), 32);
+        register(NSSItem.createItem(boiled_egg.get()), 32);
         register(NSSItem.createItem(winterberry.get()), 16);
         register(NSSItem.createItem(peppermints.get()), 5);
         register(NSSItem.createItem(robbin_egg.get()), 32);
@@ -321,11 +316,7 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(weedwoodVine.get()), 8);
         register(NSSItem.createItem(blossomedWeedwoodVine.get()), 8);
         //Fungi
-        register(NSSItem.createItem(glowsprout.get()), 32);
-        register(NSSItem.createItem(lowsprout.get()), 32);
-        register(NSSItem.createItem(slowsprout.get()), 32);
-        register(NSSItem.createItem(lushroom.get()), 32);
-        register(NSSItem.createItem(dreamglow.get()), 32);
+        register(NSSItem.createItem(truffle.get()), 144);
         //Fairy Lights
         register(NSSItem.createItem(redFairyLights.get()), 14);
         register(NSSItem.createItem(yellowFairyLights.get()), 14);

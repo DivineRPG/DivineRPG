@@ -1,0 +1,24 @@
+{
+  "type": "crafting_shapeless",
+  "group": "hellstone_ingot",
+  "ingredients": [
+    {
+      "item": "projecte:philosophers_stone"
+    },
+    {
+      "tag": "divinerpg:chunks/torridite"
+    },
+    {
+      "tag": "divinerpg:dusts/shadow"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:hellstone_ingot"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "projecte"
+    }
+  ]
+}

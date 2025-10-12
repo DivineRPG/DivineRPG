@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shapeless",
+  "group": "shadow_bar",
+  "ingredients": [
+    {
+      "item": "projecte:philosophers_stone"
+    },
+    {
+      "item": "divinerpg:shadow_stone"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:shadow_bar",
+    "count": 9
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "projecte"
+    }
+  ]
+}
