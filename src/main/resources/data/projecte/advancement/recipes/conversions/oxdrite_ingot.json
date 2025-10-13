@@ -5,6 +5,9 @@
       "conditions": {
         "items": [
           {
+            "items": "projecte:philosophers_stone"
+          },
+          {
             "items": "#c:ingots/iron"
           }
         ]
@@ -14,6 +17,9 @@
     "has_copper": {
       "conditions": {
         "items": [
+          {
+            "items": "projecte:philosophers_stone"
+          },
           {
             "items": "#c:ingots/copper"
           }

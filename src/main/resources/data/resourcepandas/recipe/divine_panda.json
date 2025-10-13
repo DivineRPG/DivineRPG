@@ -3,7 +3,7 @@
   "name": "Divine",
   "hexColor": "#fbdd67",
   "ingredient": {
-    "item": "divinerpg:divine_stone"
+    "tag": "divinerpg:gems/divine"
   },
   "result": {
     "id": "divinerpg:divine_shards"

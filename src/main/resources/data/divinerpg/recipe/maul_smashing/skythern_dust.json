@@ -1,10 +1,9 @@
 {
   "type": "divinerpg:maul_smashing",
   "input": {
-    "item": "divinerpg:skythern_fragments"
+    "tag": "divinerpg:fragments/skythern"
   },
   "output": {
-    "id": "divinerpg:skythern_dust",
-    "count": 1
+    "id": "divinerpg:skythern_dust"
   }
 }

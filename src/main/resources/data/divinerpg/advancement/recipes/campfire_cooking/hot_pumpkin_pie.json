@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "pumpkin_pie"
-            ]
+            "items": "pumpkin_pie"
           }
         ]
       },

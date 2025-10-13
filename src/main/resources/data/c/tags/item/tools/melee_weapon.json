@@ -1,13 +1,13 @@
 {
   "values": [
-    "#divinerpg:tools/anchor",
-    "#divinerpg:tools/axes",
-    "#divinerpg:tools/claw",
     "#divinerpg:tools/dagger",
-    "#divinerpg:tools/hammer",
     "#divinerpg:tools/knife",
-    "#divinerpg:tools/maul",
+    "#divinerpg:tools/sword",
+    "#divinerpg:tools/axe",
     "#divinerpg:tools/spear",
-    "#divinerpg:tools/swords"
+    "#divinerpg:tools/claw",
+    "#divinerpg:tools/hammer",
+    "#divinerpg:tools/maul",
+    "#divinerpg:tools/anchor"
   ]
 }

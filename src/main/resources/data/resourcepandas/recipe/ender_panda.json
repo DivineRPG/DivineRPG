@@ -3,7 +3,7 @@
   "name": "Ender",
   "hexColor": "#ac55ea",
   "ingredient": {
-    "item": "divinerpg:ender_stone"
+    "tag": "divinerpg:gems/ender"
   },
   "result": {
     "id": "divinerpg:ender_shards"

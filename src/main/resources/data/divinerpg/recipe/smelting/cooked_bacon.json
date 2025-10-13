@@ -1,0 +1,12 @@
+{
+  "type": "smelting",
+  "category": "food",
+  "group": "cooked_bacon",
+  "ingredient": {
+    "item": "divinerpg:bacon"
+  },
+  "result": {
+    "id": "divinerpg:cooked_bacon"
+  },
+  "experience": 0.35
+}

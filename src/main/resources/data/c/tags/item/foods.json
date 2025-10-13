@@ -1,19 +1,18 @@
 {
   "values": [
-    "divinerpg:boiled_egg",
-    "divinerpg:cheese",
-    "divinerpg:hot_pumpkin_pie",
-    "divinerpg:white_mushroom",
+    "#divinerpg:foods/cooked_egg",
+    "#divinerpg:foods/cheese",
+    "#divinerpg:foods/honey",
+    "#divinerpg:foods/white_mushroom",
+    "#divinerpg:foods/purple_glowbone",
+    "#divinerpg:foods/pink_glowbone",
+    "#divinerpg:foods/sky_flower",
     "divinerpg:chocolate_log",
     "divinerpg:egg_nog",
-    "divinerpg:fruit_cake",
     "divinerpg:snow_cones",
-    "divinerpg:purple_glowbone",
-    "divinerpg:pink_glowbone",
-    "divinerpg:sky_flower",
-    "divinerpg:honeysuckle",
-    "divinerpg:honeychunk",
-    "divinerpg:dream_pie",
-    "divinerpg:dream_cake"
+    "divinerpg:weak_arcana_potion",
+    "divinerpg:strong_arcana_potion",
+    "divinerpg:magic_meat",
+    "divinerpg:enriched_magic_meat"
   ]
 }

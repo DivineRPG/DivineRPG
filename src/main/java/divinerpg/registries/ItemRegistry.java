@@ -226,6 +226,7 @@ public class ItemRegistry {
 
         //Food
         bacon = registerItem("bacon", () -> new ItemModFood(FoodList.BACON)),
+        cooked_bacon = registerItem("cooked_bacon", () -> new ItemModFood(FoodList.COOKED_BACON)),
         boiled_egg = registerItem("boiled_egg", () -> new ItemModFood(FoodList.BOILED_EGG)),
         cheese = registerItem("cheese", () -> new ItemModFood(FoodList.CHEESE)),
         donut = registerItem("donut", () -> new ItemModFood(FoodList.DONUT)),
@@ -237,9 +238,9 @@ public class ItemRegistry {
         robbin_egg = registerItem("robbin_egg"),
         cauldron_flesh = registerItem("cauldron_flesh", () -> new ItemModFood(FoodList.CAULDRON_FLESH)),
         raw_seng_meat = registerItem("raw_seng_meat", () -> new ItemModFood(FoodList.RAW_SENG_MEAT)),
-        seng_steak = registerItem("seng_steak", () -> new ItemModFood(FoodList.COOKED_SENG_STEAK)),
+        seng_steak = registerItem("seng_steak", () -> new ItemModFood(FoodList.COOKED_SENG_MEAT)),
         raw_wolpertinger_meat = registerItem("raw_wolpertinger_meat", () -> new ItemModFood(FoodList.RAW_WOLPERTINGER_MEAT)),
-        wolpertinger_steak = registerItem("wolpertinger_steak", () -> new ItemModFood(FoodList.COOKED_WOLPERTINGER_STEAK)),
+        wolpertinger_steak = registerItem("wolpertinger_steak", () -> new ItemModFood(FoodList.COOKED_WOLPERTINGER_MEAT)),
         chocolate_log = registerItem("chocolate_log", () -> new ItemModFood(FoodList.CHOCOLATE_LOG)),
         egg_nog = registerItem("egg_nog", ItemEggNog::new),
         fruit_cake = registerItem("fruit_cake", () -> new ItemModFood(FoodList.FRUIT_CAKE)),

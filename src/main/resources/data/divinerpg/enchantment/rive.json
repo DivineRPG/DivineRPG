@@ -2,7 +2,10 @@
   "description": {
     "translate": "enchantment.divinerpg.rive"
   },
-  "supported_items": "#minecraft:enchantable/mining",
+  "supported_items": "#enchantable/mining",
+  "slots": [
+    "mainhand"
+  ],
   "weight": 4,
   "max_level": 3,
   "min_cost": {
@@ -13,8 +16,5 @@
     "base": 50,
     "per_level_above_first": 10
   },
-  "anvil_cost": 1,
-  "slots": [
-    "mainhand"
-  ]
+  "anvil_cost": 1
 }

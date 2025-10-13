@@ -1,10 +1,9 @@
 {
   "type": "divinerpg:maul_smashing",
   "input": {
-    "item": "divinerpg:mortum_fragments"
+    "tag": "divinerpg:fragments/mortum"
   },
   "output": {
-    "id": "divinerpg:mortum_dust",
-    "count": 1
+    "id": "divinerpg:mortum_dust"
   }
 }

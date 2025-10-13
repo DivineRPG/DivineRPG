@@ -5,6 +5,9 @@
       "conditions": {
         "items": [
           {
+            "items": "projecte:philosophers_stone"
+          },
+          {
             "items": "coal"
           }
         ]

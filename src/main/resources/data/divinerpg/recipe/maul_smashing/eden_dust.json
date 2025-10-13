@@ -1,10 +1,9 @@
 {
   "type": "divinerpg:maul_smashing",
   "input": {
-    "item": "divinerpg:eden_fragments"
+    "tag": "divinerpg:fragments/eden"
   },
   "output": {
-    "id": "divinerpg:eden_dust",
-    "count": 1
+    "id": "divinerpg:eden_dust"
   }
 }

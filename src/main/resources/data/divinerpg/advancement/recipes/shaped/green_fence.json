@@ -1,28 +1,29 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_red_fence": {
+    "has_redstone_fence": {
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:red_fence"
+              "divinerpg:red_fence",
+              "divinerpg:blue_fence"
             ]
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger": "inventory_changed"
     },
     "has_the_recipe": {
       "conditions": {
         "recipe": "divinerpg:shaped/green_fence"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger": "recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_red_fence",
+      "has_redstone_fence",
       "has_the_recipe"
     ]
   ],

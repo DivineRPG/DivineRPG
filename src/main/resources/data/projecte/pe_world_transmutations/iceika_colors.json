@@ -1,104 +1,104 @@
 {
   "transmutations": [
     {
-      "origin":"divinerpg:steel",
-      "result":"divinerpg:black_steel",
-      "alt_result":"divinerpg:magenta_steel"
-    },
-    {
-      "origin":"divinerpg:black_steel",
-      "result":"divinerpg:red_steel",
-      "alt_result":"divinerpg:steel"
-    },
-    {
-      "origin":"divinerpg:red_steel",
-      "result":"divinerpg:orange_steel",
+      "origin":"divinerpg:orange_steel",
+      "result":"divinerpg:magenta_steel",
       "alt_result":"divinerpg:black_steel"
     },
     {
-      "origin":"divinerpg:orange_steel",
+      "origin":"divinerpg:magenta_steel",
       "result":"divinerpg:yellow_steel",
-      "alt_result":"divinerpg:red_steel"
-    },
-    {
-      "origin":"divinerpg:yellow_steel",
-      "result":"divinerpg:green_steel",
       "alt_result":"divinerpg:orange_steel"
     },
     {
-      "origin":"divinerpg:green_steel",
+      "origin":"divinerpg:yellow_steel",
+      "result":"divinerpg:steel",
+      "alt_result":"divinerpg:magenta_steel"
+    },
+    {
+      "origin":"divinerpg:steel",
       "result":"divinerpg:cyan_steel",
       "alt_result":"divinerpg:yellow_steel"
     },
     {
       "origin":"divinerpg:cyan_steel",
-      "result":"divinerpg:blue_steel",
-      "alt_result":"divinerpg:green_steel"
-    },
-    {
-      "origin":"divinerpg:blue_steel",
       "result":"divinerpg:purple_steel",
-      "alt_result":"divinerpg:cyan_steel"
+      "alt_result":"divinerpg:steel"
     },
     {
       "origin":"divinerpg:purple_steel",
-      "result":"divinerpg:magenta_steel",
-      "alt_result":"divinerpg:blue_steel"
+      "result":"divinerpg:blue_steel",
+      "alt_result":"divinerpg:cyan_steel"
     },
     {
-      "origin":"divinerpg:magenta_steel",
-      "result":"divinerpg:steel",
+      "origin":"divinerpg:blue_steel",
+      "result":"divinerpg:green_steel",
       "alt_result":"divinerpg:purple_steel"
     },
     {
-      "origin":"divinerpg:red_candy_cane",
-      "result":"divinerpg:yellow_candy_cane",
-      "alt_result":"divinerpg:pink_candy_cane"
+      "origin":"divinerpg:green_steel",
+      "result":"divinerpg:red_steel",
+      "alt_result":"divinerpg:blue_steel"
+    },
+    {
+      "origin":"divinerpg:red_steel",
+      "result":"divinerpg:black_steel",
+      "alt_result":"divinerpg:green_steel"
+    },
+    {
+      "origin":"divinerpg:black_steel",
+      "result":"divinerpg:orange_steel",
+      "alt_result":"divinerpg:red_steel"
     },
     {
       "origin":"divinerpg:yellow_candy_cane",
-      "result":"divinerpg:green_candy_cane",
+      "result":"divinerpg:pink_candy_cane",
       "alt_result":"divinerpg:red_candy_cane"
     },
     {
-      "origin":"divinerpg:green_candy_cane",
+      "origin":"divinerpg:pink_candy_cane",
       "result":"divinerpg:blue_candy_cane",
       "alt_result":"divinerpg:yellow_candy_cane"
     },
     {
       "origin":"divinerpg:blue_candy_cane",
-      "result":"divinerpg:pink_candy_cane",
-      "alt_result":"divinerpg:green_candy_cane"
+      "result":"divinerpg:green_candy_cane",
+      "alt_result":"divinerpg:pink_candy_cane"
     },
     {
-      "origin":"divinerpg:pink_candy_cane",
+      "origin":"divinerpg:green_candy_cane",
       "result":"divinerpg:red_candy_cane",
       "alt_result":"divinerpg:blue_candy_cane"
     },
     {
-      "origin":"divinerpg:red_fairy_lights",
-      "result":"divinerpg:yellow_fairy_lights",
-      "alt_result":"divinerpg:purple_fairy_lights"
+      "origin":"divinerpg:red_candy_cane",
+      "result":"divinerpg:yellow_candy_cane",
+      "alt_result":"divinerpg:green_candy_cane"
     },
     {
       "origin":"divinerpg:yellow_fairy_lights",
-      "result":"divinerpg:green_fairy_lights",
+      "result":"divinerpg:purple_fairy_lights",
       "alt_result":"divinerpg:red_fairy_lights"
     },
     {
-      "origin":"divinerpg:green_fairy_lights",
+      "origin":"divinerpg:purple_fairy_lights",
       "result":"divinerpg:blue_fairy_lights",
       "alt_result":"divinerpg:yellow_fairy_lights"
     },
     {
       "origin":"divinerpg:blue_fairy_lights",
-      "result":"divinerpg:purple_fairy_lights",
-      "alt_result":"divinerpg:green_fairy_lights"
+      "result":"divinerpg:green_fairy_lights",
+      "alt_result":"divinerpg:purple_fairy_lights"
     },
     {
-      "origin":"divinerpg:purple_fairy_lights",
+      "origin":"divinerpg:green_fairy_lights",
       "result":"divinerpg:red_fairy_lights",
       "alt_result":"divinerpg:blue_fairy_lights"
+    },
+    {
+      "origin":"divinerpg:red_fairy_lights",
+      "result":"divinerpg:yellow_fairy_lights",
+      "alt_result":"divinerpg:green_fairy_lights"
     }
   ],
   "neoforge:conditions": [

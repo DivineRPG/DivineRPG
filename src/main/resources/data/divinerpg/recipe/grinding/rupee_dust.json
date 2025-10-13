@@ -3,7 +3,7 @@
   "group": "rupee_dust",
   "ingredients": [
     {
-      "tag": "divinerpg:tools/maul"
+      "tag": "c:tools/maul"
     },
     {
       "item": "divinerpg:rupee_ingot"

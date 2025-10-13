@@ -5,9 +5,23 @@
     {
       "tag": "divinerpg:ingots/arlemite"
     },
-    {
-      "tag": "c:gems/diamond"
-    }
+    [
+      {
+        "tag": "divinerpg:no_itself/diamond_no_chunks"
+      },
+      {
+        "item": "divinerpg:red_diamond_chunk"
+      },
+      {
+        "item": "divinerpg:yellow_diamond_chunk"
+      },
+      {
+        "item": "divinerpg:blue_diamond_chunk"
+      },
+      {
+        "item": "divinerpg:gray_diamond_chunk"
+      }
+    ]
   ],
   "result": {
     "id": "divinerpg:green_diamond_chunk"

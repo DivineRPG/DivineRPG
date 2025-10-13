@@ -3,7 +3,7 @@
   "name": "Terran",
   "hexColor": "#71924b",
   "ingredient": {
-    "item": "divinerpg:terran_stone"
+    "tag": "divinerpg:gems/terran"
   },
   "result": {
     "id": "divinerpg:terran_shards"

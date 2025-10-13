@@ -3,7 +3,7 @@
   "name": "Corrupted",
   "hexColor": "#5b26cc",
   "ingredient": {
-    "item": "divinerpg:corrupted_stone"
+    "tag": "divinerpg:gems/corrupted"
   },
   "result": {
     "id": "divinerpg:corrupted_shards"

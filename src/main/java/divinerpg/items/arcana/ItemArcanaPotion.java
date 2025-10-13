@@ -29,7 +29,6 @@ public class ItemArcanaPotion extends ItemModFood {
     	} return stack;
     }
     @Override public UseAnim getUseAnimation(ItemStack stack) {return UseAnim.DRINK;}
-    @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return 20;}
     @Override public boolean isFoil(ItemStack stack) {return true;}
     @OnlyIn(Dist.CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {

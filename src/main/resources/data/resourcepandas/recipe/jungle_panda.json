@@ -3,7 +3,7 @@
   "name": "Jungle",
   "hexColor": "#6aa813",
   "ingredient": {
-    "item": "divinerpg:jungle_stone"
+    "tag": "divinerpg:gems/jungle"
   },
   "result": {
     "id": "divinerpg:jungle_shards"

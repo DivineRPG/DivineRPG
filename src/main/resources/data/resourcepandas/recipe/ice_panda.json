@@ -3,7 +3,7 @@
   "name": "Ice",
   "hexColor": "#69bbc3",
   "ingredient": {
-    "item": "divinerpg:ice_stone"
+    "tag": "divinerpg:gems/ice"
   },
   "result": {
     "id": "divinerpg:ice_shards"

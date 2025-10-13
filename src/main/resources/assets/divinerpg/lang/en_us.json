@@ -913,7 +913,8 @@
   "item.divinerpg.white_mushroom": "White Mushroom",
   "item.divinerpg.white_mushroom_seeds": "White Mushroom Pieces",
 
-  "item.divinerpg.bacon": "Bacon",
+  "item.divinerpg.bacon": "Raw Bacon",
+  "item.divinerpg.cooked_bacon": "Cooked Bacon",
   "item.divinerpg.boiled_egg": "Boiled Egg",
   "item.divinerpg.cheese": "Cheese",
   "item.divinerpg.donut": "Donut",
@@ -2703,13 +2704,13 @@
   "message.divinerpg.teleport.no_respawn": "You don't have a respawn point",
 
   "enchantment.divinerpg.aftershock": "Aftershock",
-  "enchantment.divinerpg.aftershock.desc": "Aftershock has a chance to double the damage done by melee weapons.",
+  "enchantment.divinerpg.aftershock.desc": "Gives a chance to double the damage.",
   "enchantment.divinerpg.brain_freeze": "Brain Freeze",
-  "enchantment.divinerpg.brain_freeze.desc": "Brain Freeze has a chance to temporarily freeze mobs where they stand.",
+  "enchantment.divinerpg.brain_freeze.desc": "Gives a chance to temporarily freeze mobs.",
   "enchantment.divinerpg.insulation": "Insulation",
-  "enchantment.divinerpg.insulation.desc": "Insulation prevents freezing when applied to the chestplate.",
+  "enchantment.divinerpg.insulation.desc": "Prevents freezing.",
   "enchantment.divinerpg.rive": "Rive",
-  "enchantment.divinerpg.rive.desc": "Rive when applied to a mining tool will excavate in a (3 x 3 x enchant level) sized radius.",
+  "enchantment.divinerpg.rive.desc": "Allows excavating in a 3 by 3 by enchant level sized volume.",
 
   "advancement.divinerpg.adventure.bad_idea": "bad idea right?",
   "advancement.divinerpg.adventure.bad_idea.desc": "Visit an ancient tomb",

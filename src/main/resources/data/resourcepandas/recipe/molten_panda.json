@@ -3,7 +3,7 @@
   "name": "Molten",
   "hexColor": "#dd8f1c",
   "ingredient": {
-    "item": "divinerpg:molten_stone"
+    "tag": "divinerpg:gems/molten"
   },
   "result": {
     "id": "divinerpg:molten_shards"

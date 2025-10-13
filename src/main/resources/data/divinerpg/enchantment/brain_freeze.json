@@ -2,7 +2,10 @@
   "description": {
     "translate": "enchantment.divinerpg.brain_freeze"
   },
-  "supported_items": "#minecraft:enchantable/sharp_weapon",
+  "supported_items": "#enchantable/sharp_weapon",
+  "slots": [
+    "mainhand"
+  ],
   "weight": 1,
   "max_level": 3,
   "min_cost": {
@@ -13,8 +16,5 @@
     "base": 21,
     "per_level_above_first": 11
   },
-  "anvil_cost": 1,
-  "slots": [
-    "mainhand"
-  ]
+  "anvil_cost": 1
 }

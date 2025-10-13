@@ -3,10 +3,10 @@
   "group": "twilight_dust",
   "ingredients": [
     {
-      "tag": "divinerpg:tools/maul"
+      "tag": "c:tools/maul"
     },
     {
-      "item": "divinerpg:mortum_fragments"
+      "tag": "divinerpg:fragments/mortum"
     }
   ],
   "result": {

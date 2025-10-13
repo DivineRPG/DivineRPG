@@ -1,0 +1,10 @@
+{
+  "type": "smoking",
+  "ingredient": {
+    "item": "divinerpg:bacon"
+  },
+  "result": {
+    "id": "divinerpg:cooked_bacon"
+  },
+  "experience": 0.35
+}

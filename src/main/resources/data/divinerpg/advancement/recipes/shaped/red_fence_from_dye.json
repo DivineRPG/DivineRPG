@@ -1,0 +1,35 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_redstone_fence": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:green_fence",
+              "divinerpg:blue_fence"
+            ]
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:shaped/red_fence_from_dye"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_redstone_fence",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shaped/red_fence_from_dye"
+    ]
+  }
+}

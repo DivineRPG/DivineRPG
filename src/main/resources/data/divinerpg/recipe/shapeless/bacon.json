@@ -1,12 +1,12 @@
 {
-  "result": {
-    "id": "divinerpg:bacon",
-    "count": 6
-  },
+  "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:porkchop"
+      "item": "porkchop"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:bacon",
+    "count": 4
+  }
 }

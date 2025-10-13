@@ -2,7 +2,10 @@
   "description": {
     "translate": "enchantment.divinerpg.aftershock"
   },
-  "supported_items": "#minecraft:enchantable/sharp_weapon",
+  "supported_items": "#enchantable/sharp_weapon",
+  "slots": [
+    "mainhand"
+  ],
   "weight": 1,
   "max_level": 2,
   "min_cost": {
@@ -13,8 +16,5 @@
     "base": 50,
     "per_level_above_first": 10
   },
-  "anvil_cost": 1,
-  "slots": [
-    "mainhand"
-  ]
+  "anvil_cost": 1
 }

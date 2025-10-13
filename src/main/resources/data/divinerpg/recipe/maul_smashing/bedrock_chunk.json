@@ -1,11 +1,10 @@
 {
   "type": "divinerpg:maul_smashing",
   "input": {
-    "item": "divinerpg:shadow_stone"
+    "tag": "divinerpg:gems/shadow"
   },
   "output": {
-    "id": "divinerpg:bedrock_chunk",
-    "count": 1
+    "id": "divinerpg:bedrock_chunk"
   },
   "required_base_block": "#divinerpg:bedrock_grinding_base"
 }

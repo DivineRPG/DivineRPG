@@ -5,7 +5,13 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:gems/diamond"
+            "items": [
+              "#divinerpg:no_itself/diamond_no_chunks",
+              "divinerpg:red_diamond_chunk",
+              "divinerpg:green_diamond_chunk",
+              "divinerpg:blue_diamond_chunk",
+              "divinerpg:gray_diamond_chunk"
+            ]
           }
         ]
       },

@@ -7,7 +7,8 @@ import net.minecraft.world.item.Items;
 public class FoodList {
     public static final FoodProperties
         ADVANCED_MUSHROOM_STEW = new FoodProperties.Builder().usingConvertsTo(Items.BOWL).nutrition(10).saturationModifier(.6F).build(),
-        BACON = new FoodProperties.Builder().nutrition(1).saturationModifier(.2F).build(),
+        BACON = new FoodProperties.Builder().nutrition(1).saturationModifier(.2F).fast().build(),
+        COOKED_BACON = new FoodProperties.Builder().nutrition(3).saturationModifier(.6F).fast().build(),
         BOILED_EGG = new FoodProperties.Builder().nutrition(4).saturationModifier(.1F).build(),
         CHEESE = new FoodProperties.Builder().nutrition(4).saturationModifier(.4F).build(),
         CHICKEN_DINNER = new FoodProperties.Builder().usingConvertsTo(Items.BOWL).nutrition(20).saturationModifier(.5F).build(),
@@ -24,28 +25,28 @@ public class FoodList {
                 .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 15 * 20, 0), .8F).build(),
         CHOCOLATE_LOG = new FoodProperties.Builder().nutrition(5).saturationModifier(.7F).build(),
         FRUIT_CAKE = new FoodProperties.Builder().nutrition(8).saturationModifier(.3F).build(),
-        PEPPERMINTS = new FoodProperties.Builder().nutrition(1).saturationModifier(.4F).build(),
+        PEPPERMINTS = new FoodProperties.Builder().nutrition(1).saturationModifier(.4F).fast().build(),
         RAW_SENG_MEAT = new FoodProperties.Builder().nutrition(2).saturationModifier(.3F).build(),
-        COOKED_SENG_STEAK = new FoodProperties.Builder().nutrition(5).saturationModifier(.6F).build(),
+        COOKED_SENG_MEAT = new FoodProperties.Builder().nutrition(5).saturationModifier(.6F).build(),
         SNOW_CONES = new FoodProperties.Builder().nutrition(3).saturationModifier(.4F).build(),
         WINTERBERRY = new FoodProperties.Builder().nutrition(3).saturationModifier(.1F).build(),
         RAW_WOLPERTINGER_MEAT = new FoodProperties.Builder().nutrition(3).saturationModifier(.3F).build(),
-        COOKED_WOLPERTINGER_STEAK = new FoodProperties.Builder().nutrition(6).saturationModifier(.6F).build(),
+        COOKED_WOLPERTINGER_MEAT = new FoodProperties.Builder().nutrition(6).saturationModifier(.6F).build(),
 
     //Arcana
         HITCHAK = new FoodProperties.Builder().nutrition(4).saturationModifier(.4F).build(),
         LAMONA = new FoodProperties.Builder().nutrition(4).saturationModifier(.4F).build(),
-        PINFLY = new FoodProperties.Builder().nutrition(4).saturationModifier(.3F)
+        PINFLY = new FoodProperties.Builder().nutrition(4).saturationModifier(.3F).fast()
                 .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 3 * 20, 2), 1).build(),
         VEILO = new FoodProperties.Builder().nutrition(4).saturationModifier(.3F)
                 .effect(() -> new MobEffectInstance(MobEffects.INVISIBILITY, 3 * 20, 0), 1).build(),
-        WEAK_ARCANA_POTION = new FoodProperties.Builder().alwaysEdible().build(),
-        STRONG_ARCANA_POTION = new FoodProperties.Builder().alwaysEdible().build(),
+        WEAK_ARCANA_POTION = new FoodProperties.Builder().alwaysEdible().fast().build(),
+        STRONG_ARCANA_POTION = new FoodProperties.Builder().alwaysEdible().fast().build(),
 
     //Eden
         RAW_EMPOWERED_MEAT = new FoodProperties.Builder().nutrition(3).saturationModifier(.4F).build(),
         EMPOWERED_MEAT = new FoodProperties.Builder().nutrition(7).saturationModifier(1).build(),
-        FORBIDDEN_FRUIT = new FoodProperties.Builder().nutrition(4).saturationModifier(.3F)
+        FORBIDDEN_FRUIT = new FoodProperties.Builder().nutrition(4).saturationModifier(.3F).alwaysEdible()
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 5 * 20, 3), 1)
             .effect(() -> new MobEffectInstance(MobEffects.WITHER, 6 * 20, 1), 1)
             .effect(() -> new MobEffectInstance(MobEffects.POISON, 15 * 20, 1), 1).build(),
@@ -69,8 +70,8 @@ public class FoodList {
         DREAM_CARROT = new FoodProperties.Builder().nutrition(3).saturationModifier(.6F).build(),
         DREAM_MELON = new FoodProperties.Builder().nutrition(6).saturationModifier(.8F).build(),
         DREAM_PIE = new FoodProperties.Builder().nutrition(8).saturationModifier(.3F).build(),
-        DREAM_SWEETS = new FoodProperties.Builder().nutrition(2).saturationModifier(0).build(),
-        DREAM_SOURS = new FoodProperties.Builder().nutrition(8).saturationModifier(0).build(),
-        HONEYCHUNK = new FoodProperties.Builder().nutrition(1).saturationModifier(.3F).build(),
-        HONEYSUCKLE = new FoodProperties.Builder().nutrition(1).saturationModifier(.3F).build();
+        DREAM_SWEETS = new FoodProperties.Builder().nutrition(2).saturationModifier(0).alwaysEdible().fast().build(),
+        DREAM_SOURS = new FoodProperties.Builder().nutrition(8).saturationModifier(0).alwaysEdible().fast().build(),
+        HONEYCHUNK = new FoodProperties.Builder().nutrition(1).saturationModifier(.3F).fast().build(),
+        HONEYSUCKLE = new FoodProperties.Builder().nutrition(1).saturationModifier(.3F).fast().build();
 }

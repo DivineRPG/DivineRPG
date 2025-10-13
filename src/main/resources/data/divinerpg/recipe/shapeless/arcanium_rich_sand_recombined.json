@@ -1,16 +1,16 @@
 {
-	"type": "minecraft:crafting_shapeless",
-        "category": "building",
-	"group": "arcanium_rich_sand",
-	"ingredients": [
-		{
-			"tag": "c:sands"
-		},
-		{
-			"item": "divinerpg:piece_of_raw_arcanium"
-		}
-	],
-	"result": {
-		"id": "divinerpg:arcanium_rich_sand"
-	}
+  "type": "crafting_shapeless",
+  "category": "building",
+  "group": "arcanium_rich_sand",
+  "ingredients": [
+    {
+      "tag": "divinerpg:no_itself/sands_no_rich"
+    },
+    {
+      "item": "divinerpg:piece_of_raw_arcanium"
+    }
+  ],
+  "result": {
+      "id": "divinerpg:arcanium_rich_sand"
+  }
 }

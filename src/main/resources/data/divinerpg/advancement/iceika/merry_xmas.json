@@ -40,7 +40,11 @@
           }
         ],
         "item": {
-          "potion": "divinerpg:grog"
+          "components": {
+            "potion_contents": {
+              "potion": "divinerpg:grog"
+            }
+          }
         }
       }
     }

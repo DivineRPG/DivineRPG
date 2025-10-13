@@ -4,7 +4,6 @@
     "item": "divinerpg:arlemite_ingot"
   },
   "output": {
-    "id": "divinerpg:arlemite_dust",
-    "count": 1
+    "id": "divinerpg:arlemite_dust"
   }
 }

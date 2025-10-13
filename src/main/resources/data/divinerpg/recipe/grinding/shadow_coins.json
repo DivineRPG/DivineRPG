@@ -3,7 +3,7 @@
   "group": "shadow_coins",
   "ingredients": [
     {
-      "tag": "divinerpg:tools/maul"
+      "tag": "c:tools/maul"
     },
     {
       "tag": "divinerpg:ingots/shadow"

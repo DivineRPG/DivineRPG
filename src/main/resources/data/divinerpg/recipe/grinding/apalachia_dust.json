@@ -3,10 +3,10 @@
   "group": "twilight_dust",
   "ingredients": [
     {
-      "tag": "divinerpg:tools/maul"
+      "tag": "c:tools/maul"
     },
     {
-      "item": "divinerpg:apalachia_fragments"
+      "tag": "divinerpg:fragments/apalachia"
     }
   ],
   "result": {
