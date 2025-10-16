@@ -69,10 +69,10 @@ public class RecipeRegistry {
                 new DivineTrades(new ItemStack(Blocks.PUMPKIN, 15), new ItemStack(Items.ENDER_PEARL, 2), jack_o_man_chestplate.toStack(), random.nextInt(7), 5),
                 new DivineTrades(new ItemStack(Blocks.PUMPKIN, 15), new ItemStack(Items.ENDER_PEARL, 2), jack_o_man_leggings.toStack(), random.nextInt(7), 5),
                 new DivineTrades(new ItemStack(Blocks.PUMPKIN, 10), new ItemStack(Items.ENDER_PEARL, 1), jack_o_man_boots.toStack(), random.nextInt(7), 5),
-                new DivineTrades(new ItemStack(Items.SKELETON_SKULL, 1), wither_reaper_helmet.toStack(), random.nextInt(7), 5),
-                new DivineTrades(new ItemStack(Items.SKELETON_SKULL, 1), wither_reaper_chestplate.toStack(), random.nextInt(7), 5),
-                new DivineTrades(new ItemStack(Items.SKELETON_SKULL, 1), wither_reaper_leggings.toStack(), random.nextInt(7), 5),
-                new DivineTrades(new ItemStack(Items.SKELETON_SKULL, 1), wither_reaper_boots.toStack(), random.nextInt(7), 5),
+                new DivineTrades(new ItemStack(Items.WITHER_SKELETON_SKULL, 1), wither_reaper_helmet.toStack(), random.nextInt(7), 5),
+                new DivineTrades(new ItemStack(Items.WITHER_SKELETON_SKULL, 1), wither_reaper_chestplate.toStack(), random.nextInt(7), 5),
+                new DivineTrades(new ItemStack(Items.WITHER_SKELETON_SKULL, 1), wither_reaper_leggings.toStack(), random.nextInt(7), 5),
+                new DivineTrades(new ItemStack(Items.WITHER_SKELETON_SKULL, 1), wither_reaper_boots.toStack(), random.nextInt(7), 5),
                 new DivineTrades(new ItemStack(Items.BONE, 25), new ItemStack(Items.ENDER_PEARL, 4), scythe.toStack(), random.nextInt(7), 5)
             },
             DIAMOND_DAVE = (level, random) -> new DivineTrades[] {

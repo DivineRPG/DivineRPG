@@ -7,7 +7,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 
 public class AngelicFlightEffect extends ArmorEffect implements UpdatableArmorEffect {
-	public AngelicFlightEffect() {super(10991286);}
+	public AngelicFlightEffect() {super(4088791);}
 	@SuppressWarnings("deprecation")
 	@Override public void onEffectAdded(LivingEntity entity, int amplifier) {
 		super.onEffectAdded(entity, amplifier);
@@ -16,7 +16,6 @@ public class AngelicFlightEffect extends ArmorEffect implements UpdatableArmorEf
 			player.onUpdateAbilities();
 		}
 	}
-
 	@SuppressWarnings("deprecation")
 	@Override public void onMobRemoved(LivingEntity entity, int amplifier, Entity.RemovalReason reason) {
 		super.onMobRemoved(entity, amplifier, reason);

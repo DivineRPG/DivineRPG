@@ -41,6 +41,7 @@ public class EntityCauldronFish extends Squid implements Bucketable {
 		super.addAdditionalSaveData(tag);
 		tag.putBoolean("FromBucket", fromBucket);
 	}
+	//TODO: doesn't seem to work
 	@Override public void tick() {
     	if(level().getRandom().nextInt(10) == 0) {
             List<Entity> e = level().getEntities(this, new AABB(-25, -16, -25, 25, 16, 25));

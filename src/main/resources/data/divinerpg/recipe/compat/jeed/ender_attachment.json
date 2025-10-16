@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "divinerpg:ender_attachment",
+  "providers": [
+    {
+      "item": "divinerpg:ender_bow"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

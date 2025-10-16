@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "divinerpg:finished_helmet",
+  "providers": [
+    {
+      "item": "divinerpg:finished_helmet"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

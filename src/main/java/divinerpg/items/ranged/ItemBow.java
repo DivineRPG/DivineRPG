@@ -4,11 +4,9 @@ import divinerpg.items.ranged.bows.*;
 import divinerpg.network.payload.AccurateSetMotionPacket;
 import divinerpg.util.LocalizeUtils;
 import divinerpg.util.Utils;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
-import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -21,7 +19,7 @@ import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
-import net.neoforged.api.distmarker.*;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.Nullable;
@@ -32,6 +30,7 @@ import java.util.function.Supplier;
 import static net.minecraft.sounds.SoundEvents.ARROW_SHOOT;
 import static net.minecraft.sounds.SoundSource.PLAYERS;
 import static net.minecraft.stats.Stats.ITEM_USED;
+import static net.neoforged.api.distmarker.Dist.CLIENT;
 
 public class ItemBow extends BowItem {
     public final int useDuration;
@@ -73,8 +72,7 @@ public class ItemBow extends BowItem {
             }
         }
     }
-    @Override
-    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
+    @Override protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
         float f = EnchantmentHelper.processProjectileSpread(level, weapon, shooter, 0F);
         float f1 = projectileItems.size() == 1 ? 0F : 2F * f / (projectileItems.size() - 1);
         float f2 = ((projectileItems.size() - 1) % 2) * f1 / 2F;
@@ -110,7 +108,7 @@ public class ItemBow extends BowItem {
         for(MobEffectInstance c : contentsit) if(c.is(instance.getEffect())) return;
         stack.set(DataComponents.POTION_CONTENTS, contents.withEffectAdded(instance));
     }
-    @OnlyIn(Dist.CLIENT)
+    @OnlyIn(CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         float speed = 72000F / useDuration;
         tooltip.add(LocalizeUtils.shootingPower(speedScale));
@@ -118,6 +116,8 @@ public class ItemBow extends BowItem {
         if(speed < 1) tooltip.add(LocalizeUtils.bowSlowerPull(1 / speed));
         if(this instanceof EnderBow) tooltip.add(LocalizeUtils.teleportAttached());
         if(this instanceof InfernoBow) tooltip.add(LocalizeUtils.burningShots());
+        PotionContents potioncontents = stack.get(DataComponents.POTION_CONTENTS);
+        if(!(this instanceof ShadowBow) && potioncontents != null) potioncontents.addPotionTooltip(tooltip::add, 1, context.tickRate());
         if(infinityArrow != null) tooltip.add(LocalizeUtils.infiniteAmmo());
         super.appendHoverText(stack, context, tooltip, flagIn);
     }

@@ -15,8 +15,10 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
-import net.neoforged.api.distmarker.*;
+import net.neoforged.api.distmarker.OnlyIn;
 import java.util.*;
+
+import static net.neoforged.api.distmarker.Dist.CLIENT;
 
 public class ItemModSword extends SwordItem {
 	public Integer nameColor;
@@ -24,7 +26,7 @@ public class ItemModSword extends SwordItem {
     public ToolStats sword;
     //Base constructor
     public ItemModSword(Tier tier, Properties properties) {
-        super(tier, (tier.getUses() == 0 ? properties.component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties).attributes(ShovelItem.createAttributes(tier, 1, tier.getSpeed())));
+        super(tier, (tier.getUses() == 0 ? properties.component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties).attributes(SwordItem.createAttributes(tier, 1, tier.getSpeed())));
         sword = (ToolStats)tier;
     }
     //Have rarity
@@ -35,7 +37,12 @@ public class ItemModSword extends SwordItem {
     }
     //No rarity
     public ItemModSword(Tier tier) {
-        super(tier, (tier.getUses() == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties()).attributes(ShovelItem.createAttributes(tier, 1, tier.getSpeed())));
+        super(tier, (tier.getUses() == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties()).attributes(SwordItem.createAttributes(tier, 1, tier.getSpeed())));
+        sword = (ToolStats)tier;
+    }
+    //Potential tools (with efficiency in stats, instead of attack speed)
+    public ItemModSword(Tier tier, float speed) {
+        super(tier, (tier.getUses() == 0 ? new Properties().component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : new Properties()).attributes(SwordItem.createAttributes(tier, 1, speed)));
         sword = (ToolStats)tier;
     }
     public ItemModSword setAttackArcanaConsumption(int amount) {
@@ -67,7 +74,7 @@ public class ItemModSword extends SwordItem {
                 && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW && Utils.hasStoredEnchantment(EnchantmentRegistry.BRAIN_FREEZE, book))
                 && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && Utils.hasStoredEnchantment(Enchantments.FIRE_ASPECT, book));
     }
-    @OnlyIn(Dist.CLIENT)
+    @OnlyIn(CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, context, tooltip, flagIn);
         if(sword.getSwordSpecial() == ToolStats.SwordSpecial.ARCANA_DAMAGE) tooltip.add(LocalizeUtils.weakenedWithoutArcana());
@@ -80,6 +87,6 @@ public class ItemModSword extends SwordItem {
         if(arcanaConsumedAttack > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedAttack));
     }
     @Override public Component getName(ItemStack pStack) {
-    	return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
+    	return nameColor != null ? ((MutableComponent)super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
     }
 }

@@ -5,7 +5,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 
 public class SkelemanFeedEffect extends ArmorEffect {
-	public SkelemanFeedEffect() {super(10991286);}
+	public SkelemanFeedEffect() {super(14926705);}
 	@Override public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {return true;}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
 		if(entity instanceof ServerPlayer player && player.getFoodData().needsFood()) player.getFoodData().eat(1, 0);

@@ -1,0 +1,39 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "blindness",
+  "providers": [
+    {
+      "item": "divinerpg:arid_warrior_spawn_egg"
+    },
+    {
+      "item": "divinerpg:the_eye_spawn_egg"
+    },
+    {
+      "item": "divinerpg:death_hound_spawn_egg"
+    },
+    {
+      "item": "divinerpg:soul_stealer_spawn_egg"
+    },
+    {
+      "item": "divinerpg:shadahier_spawn_egg"
+    },
+    {
+      "item": "divinerpg:kitra_statue"
+    },
+    {
+      "item": "divinerpg:soul_fiend_statue"
+    },
+    {
+      "item": "divinerpg:raglok_spawn_egg"
+    },
+    {
+      "item": "divinerpg:shadow_bow"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

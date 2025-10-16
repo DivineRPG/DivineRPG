@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "wither",
+  "providers": [
+    {
+      "item": "divinerpg:kitra_statue"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

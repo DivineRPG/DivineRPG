@@ -819,8 +819,8 @@ public class BlockRegistry {
     experiencedCoriSpawner = registerBlock("experienced_cori_spawner", () -> new BlockModMobCage(EntityRegistry.EXPERIENCED_CORI.getId(), skythern_chunk.getId(), COLOR_LIGHT_GRAY, new BlockPos(0, 11, 0))),
 
     //Boss Altars
-    dramixAltar = registerWithRender("dramix_altar", () -> new BlockModAltar(CRIMSON_HYPHAE), Rarity.COMMON),
-    parasectaAltar = registerWithRender("parasecta_altar", () -> new BlockModAltar(TERRACOTTA_BROWN), Rarity.COMMON),
+    dramixAltar = registerWithRender("dramix_altar", () -> new BlockArcanaAltar(CRIMSON_HYPHAE), Rarity.COMMON),
+    parasectaAltar = registerWithRender("parasecta_altar", () -> new BlockArcanaAltar(TERRACOTTA_BROWN), Rarity.COMMON),
     karosAltar = registerBlock("karos_altar", BlockKarosAltar::new),
     lunicAltar = registerBlock("lunic_altar", BlockLunicAltar::new),
     quadroticAltar = registerBlock("quadrotic_altar", BlockQuadroticAltar::new),
@@ -918,11 +918,11 @@ public class BlockRegistry {
     vetheaPortal = registerBlock("vethea_portal", VetheaPortal::new),
 
     //Rifts
-    edenRift = BLOCKS.register("eden_rift", () -> new IslandRiftBlock(LevelRegistry.EDEN, Level.OVERWORLD, TagRegistry.EDEN_RIFT_RESONATING, TagRegistry.EDEN_RIFT_REPLENISHING, (byte)1)),
-    wildwoodRift = BLOCKS.register("wildwood_rift", () -> new IslandRiftBlock(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, TagRegistry.WILDWOOD_RIFT_RESONATING, TagRegistry.WILDWOOD_RIFT_REPLENISHING, (byte)2)),
-    apalachiaRift = BLOCKS.register("apalachia_rift", () -> new IslandRiftBlock(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, TagRegistry.APALACHIA_RIFT_RESONATING, TagRegistry.APALACHIA_RIFT_REPLENISHING, (byte)3)),
-    skythernRift = BLOCKS.register("skythern_rift", () -> new BlockModRift(LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, TagRegistry.SKYTHERN_RIFT_RESONATING, TagRegistry.SKYTHERN_RIFT_REPLENISHING, (byte)4)),
-    mortumRift = BLOCKS.register("mortum_rift", () -> new BlockModRift(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, TagRegistry.MORTUM_RIFT_RESONATING, TagRegistry.MORTUM_RIFT_REPLENISHING, (byte)5)),
+    edenRift = BLOCKS.register("eden_rift", () -> new IslandRiftBlock(LevelRegistry.EDEN, Level.OVERWORLD, TagRegistry.RIFT_RESONATING_EDEN, TagRegistry.RIFT_REPLENISHING_EDEN, (byte)1)),
+    wildwoodRift = BLOCKS.register("wildwood_rift", () -> new IslandRiftBlock(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, TagRegistry.RIFT_RESONATING_WILDWOOD, TagRegistry.RIFT_REPLENISHING_WILDWOOD, (byte)2)),
+    apalachiaRift = BLOCKS.register("apalachia_rift", () -> new IslandRiftBlock(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, TagRegistry.RIFT_RESONATING_APALACHIA, TagRegistry.RIFT_REPLENISHING_APALACHIA, (byte)3)),
+    skythernRift = BLOCKS.register("skythern_rift", () -> new BlockModRift(LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, TagRegistry.RIFT_RESONATING_SKYTHERN, TagRegistry.RIFT_REPLENISHING_SKYTHERN, (byte)4)),
+    mortumRift = BLOCKS.register("mortum_rift", () -> new BlockModRift(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, TagRegistry.RIFT_RESONATING_MORTUM, TagRegistry.RIFT_REPLENISHING_MORTUM, (byte)5)),
 
     //Air
     dungeonAir = registerBlock("dungeon_air", BlockModDungeonAir::new, Rarity.EPIC),

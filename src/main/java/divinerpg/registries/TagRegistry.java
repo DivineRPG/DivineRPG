@@ -12,29 +12,30 @@ import net.minecraft.world.level.material.Fluid;
 public class TagRegistry {
     public static final TagKey<Item>
     //Ammunition
-        ROPE = item("ammo/rope"),
-        GRENADES = item("ammo/grenades"),
-        AQUATIC_CANNON_AMMO = item("ammo/aquatic_cannon"),
-        CORRUPTED_CANNON_AMMO = item("ammo/corrupted_cannon"),
-        FROST_CANNON_AMMO = item("ammo/frost_cannon"),
-        FRACTITE_CANNON_AMMO = item("ammo/fractite_cannon"),
-        GOLDEN_FURY_AMMO = item("ammo/golden_fury"),
-        EDEN_BLITZ_AMMO = item("ammo/eden_blitz"),
-        WILDWOOD_BLITZ_AMMO = item("ammo/wildwood_blitz"),
-        APALACHIA_BLITZ_AMMO = item("ammo/apalachia_blitz"),
-        SKYTHERN_BLITZ_AMMO = item("ammo/skythern_blitz"),
-        MORTUM_BLITZ_AMMO = item("ammo/mortum_blitz"),
-        HALITE_BLITZ_AMMO = item("ammo/halite_blitz"),
-        VETHEAN_CANNON_AMMO = item("ammo/vethean_cannon"),
+        AMMO_ROPE = item("ammo/rope"),
+        AMMO_GRENADE = item("ammo/grenade"),
+        AMMO_AQUATIC_CANNON = item("ammo/aquatic_cannon"),
+        AMMO_CORRUPTED_CANNON = item("ammo/corrupted_cannon"),
+        AMMO_FROST_CANNON = item("ammo/frost_cannon"),
+        AMMO_FRACTITE_CANNON = item("ammo/fractite_cannon"),
+        AMMO_GOLDEN_FURY = item("ammo/golden_fury"),
+        AMMO_EDEN_BLITZ = item("ammo/eden_blitz"),
+        AMMO_WILDWOOD_BLITZ = item("ammo/wildwood_blitz"),
+        AMMO_APALACHIA_BLITZ = item("ammo/apalachia_blitz"),
+        AMMO_SKYTHERN_BLITZ = item("ammo/skythern_blitz"),
+        AMMO_MORTUM_BLITZ = item("ammo/mortum_blitz"),
+        AMMO_HALITE_BLITZ = item("ammo/halite_blitz"),
+        AMMO_VETHEAN_CANNON = item("ammo/vethean_cannon"),
 
     //Rift-related Items
-        EDEN_RIFT_REPLENISHING = item("rift_replenishing/eden"),
-        WILDWOOD_RIFT_REPLENISHING = item("rift_replenishing/wildwood"),
-        APALACHIA_RIFT_REPLENISHING = item("rift_replenishing/apalachia"),
-        SKYTHERN_RIFT_REPLENISHING = item("rift_replenishing/skythern"),
-        MORTUM_RIFT_REPLENISHING = item("rift_replenishing/mortum"),
+        RIFT_REPLENISHING_EDEN = item("rift_replenishing/eden"),
+        RIFT_REPLENISHING_WILDWOOD = item("rift_replenishing/wildwood"),
+        RIFT_REPLENISHING_APALACHIA = item("rift_replenishing/apalachia"),
+        RIFT_REPLENISHING_SKYTHERN = item("rift_replenishing/skythern"),
+        RIFT_REPLENISHING_MORTUM = item("rift_replenishing/mortum"),
 
     //Mob Loot
+    //TODO: to use c: tags for some of these instead
         EYES_CYCLOPS = item("eyes/cyclops"),
         CLAWS_CRAB = item("claws/crab"),
         TEETH_LIOPLEURODON = item("teeth/liopleurodon"),
@@ -79,7 +80,7 @@ public class TagRegistry {
         CHUNKS_MORTUM = item("chunks/mortum"),
 
     //Crafting Items
-        MAULS = item("tools/maul"),
+        TOOLS_MAUL = item("tools/maul"),
         FURNACES = item("furnaces");
 
     public static final TagKey<Block>
@@ -88,11 +89,11 @@ public class TagRegistry {
         GATEWAY_RECEIVER = block("gateway_receiver"),
 
     //Rift related Blocks
-        EDEN_RIFT_RESONATING = block("rift_resonating/eden"),
-        WILDWOOD_RIFT_RESONATING = block("rift_resonating/wildwood"),
-        APALACHIA_RIFT_RESONATING = block("rift_resonating/apalachia"),
-        SKYTHERN_RIFT_RESONATING = block("rift_resonating/skythern"),
-        MORTUM_RIFT_RESONATING = block("rift_resonating/mortum");
+        RIFT_RESONATING_EDEN = block("rift_resonating/eden"),
+        RIFT_RESONATING_WILDWOOD = block("rift_resonating/wildwood"),
+        RIFT_RESONATING_APALACHIA = block("rift_resonating/apalachia"),
+        RIFT_RESONATING_SKYTHERN = block("rift_resonating/skythern"),
+        RIFT_RESONATING_MORTUM = block("rift_resonating/mortum");
 
     public static final TagKey<Fluid>
         SMOLDERING_TAR = fluid("smoldering_tar");

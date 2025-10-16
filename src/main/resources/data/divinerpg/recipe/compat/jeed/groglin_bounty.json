@@ -1,0 +1,30 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "divinerpg:groglin_bounty",
+  "providers": [
+    {
+      "item": "divinerpg:groglin_merchant_spawn_egg"
+    },
+    {
+      "item": "divinerpg:groglin_sharlatan_spawn_egg"
+    },
+    {
+      "item": "divinerpg:groglin_hunter_spawn_egg"
+    },
+    {
+      "item": "divinerpg:groglin_ranger_spawn_egg"
+    },
+    {
+      "item": "divinerpg:groglin_warrior_spawn_egg"
+    },
+    {
+      "item": "divinerpg:groglin_chieftain_spawn_egg"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

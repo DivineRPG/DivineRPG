@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "divinerpg:angelic_flight",
+  "providers": [
+    {
+      "item": "divinerpg:angelic_helmet"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

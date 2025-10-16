@@ -7,7 +7,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.*;
@@ -17,6 +16,7 @@ import java.util.List;
 public class EntityHastreus extends EntityDivineMonster {
     private int attackTick;
     public EntityHastreus(EntityType<? extends EntityHastreus> type, Level worldIn) {super(type, worldIn);}
+    //TODO: does not work
     @Override public void tick() {
     	if(level().getRandom().nextInt(10) == 0) {
             List<Entity> e = level().getEntities(this, new AABB(-25, -16, -25, 25, 16, 25));
@@ -52,6 +52,7 @@ public class EntityHastreus extends EntityDivineMonster {
         super.handleEntityEvent(p_33335_);
     }
     public int getAttackTick() {return attackTick;}
+    //TODO: very weird knockback
     @Override public boolean doHurtTarget(Entity p_33328_) {
         attackTick = 10;
         level().broadcastEntityEvent(this, (byte)4);

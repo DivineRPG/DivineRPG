@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "regeneration",
+  "providers": [
+    {
+      "item": "divinerpg:serenade_of_infusion"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

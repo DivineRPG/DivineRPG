@@ -1,7 +1,5 @@
 package divinerpg.util;
 
-import net.minecraft.ChatFormatting;
-
 public class RarityList {
     /** Use these 3 Rarities for yellow, aqua, and light purple colors instead of custom ones:
      * COMMON(ChatFormatting.WHITE),

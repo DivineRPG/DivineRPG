@@ -1,0 +1,41 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_shadow_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projecte:philosophers_stone"
+          },
+          {
+            "items": "divinerpg:shadow_block"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:compat/projecte/conversions/shadow_stone"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_shadow_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/projecte/conversions/shadow_stone"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "projecte"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "slowness",
+  "providers": [
+    {
+      "item": "divinerpg:cauldron_fish_spawn_egg"
+    },
+    {
+      "item": "divinerpg:groglin_sharlatan_spawn_egg"
+    },
+    {
+      "item": "divinerpg:frozen_flesh_spawn_egg"
+    },
+    {
+      "item": "divinerpg:hastreus_spawn_egg"
+    },
+    {
+      "item": "divinerpg:deathcryx_spawn_egg"
+    },
+    {
+      "item": "divinerpg:megalith_spawn_egg"
+    },
+    {
+      "item": "divinerpg:ancient_entity_statue"
+    },
+    {
+      "item": "divinerpg:raglok_spawn_egg"
+    },
+    {
+      "item": "divinerpg:wreck_spawn_egg"
+    },
+    {
+      "item": "divinerpg:glacier_sword"
+    },
+    {
+      "item": "divinerpg:frozen_maul"
+    },
+    {
+      "item": "divinerpg:frost_sword"
+    },
+    {
+      "item": "divinerpg:icicle_bane"
+    },
+    {
+      "item": "divinerpg:glacial_blade"
+    },
+    {
+      "item": "divinerpg:enderice"
+    },
+    {
+      "item": "divinerpg:icine_sword"
+    },
+    {
+      "item": "divinerpg:snowslash"
+    },
+    {
+      "item": "divinerpg:serenade_of_ice"
+    },
+    {
+      "item": "divinerpg:icicle_bow"
+    },
+    {
+      "item": "divinerpg:snowflake_shuriken"
+    },
+    {
+      "item": "divinerpg:wild_flame"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

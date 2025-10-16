@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "divinerpg:block_protection",
+  "providers": [
+    {
+      "item": "divinerpg:apalachia_helmet"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

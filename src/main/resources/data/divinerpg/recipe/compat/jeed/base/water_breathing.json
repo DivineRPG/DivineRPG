@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "water_breathing",
+  "providers": [
+    {
+      "item": "divinerpg:aquastrive_helmet"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

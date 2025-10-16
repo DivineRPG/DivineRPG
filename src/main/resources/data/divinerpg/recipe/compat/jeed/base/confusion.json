@@ -1,0 +1,24 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "confusion",
+  "providers": [
+    {
+      "item": "divinerpg:soul_stealer_spawn_egg"
+    },
+    {
+      "item": "divinerpg:kitra_statue"
+    },
+    {
+      "item": "divinerpg:soul_fiend_statue"
+    },
+    {
+      "item": "divinerpg:twilight_demon_statue"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

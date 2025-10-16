@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "divinerpg:melee_protection",
+  "providers": [
+    {
+      "tag": "divinerpg:armor/head/rupee"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

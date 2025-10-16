@@ -8,7 +8,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import static divinerpg.DivineRPG.LOGGER;
 
 public class ModCompat {
-    public static void initCommon(FMLCommonSetupEvent e){
+    public static void initCommon(FMLCommonSetupEvent e) {
         if(ModList.get().isLoaded("jeresources")) JERCompat.init();
         if(ModList.get().isLoaded("projecte")) ProjectECompat.init();
         if(ModList.get().isLoaded("aztech")) LOGGER.info("Together we thrive!");

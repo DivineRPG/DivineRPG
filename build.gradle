@@ -104,17 +104,19 @@ dependencies {
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     runtimeOnly "curse.maven:common_capabilities-247007:${common_capabilities_id}" //Common Capabilities
     runtimeOnly "curse.maven:cyclops_core-232758:${cyclops_core_id}" //Cyclops Core
-    runtimeOnly "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
+    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
     runtimeOnly "curse.maven:integrated_dynamics-236307:${integrated_dynamics_id}" //Integrated Dynamics
     runtimeOnly "curse.maven:titanium-287342:${titanium_id}" //Titanium
     runtimeOnly "curse.maven:industrial-foregoing-266515:${industrial_foregoing_id}" //Industrial Foregoing
     runtimeOnly "curse.maven:pneumaticcraft-repressurized-281849:${pneumaticcraft_id}" //Pneumaticcraft
+    runtimeOnly "curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}" //Just Enough Effect Descriptions
     compileOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
     runtimeOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
     runtimeOnly "curse.maven:not-enough-crashes-forge-442354:${not_enough_crashes_id}" //Not Enough Crashes
     runtimeOnly "curse.maven:bookshelf-228525:${bookshelf_id}" //Bookshelf
     runtimeOnly "curse.maven:prickle-1023259:${prickle_id}" //Prickle
     runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
+    //Traveler's Titles don't have NeoForge version up until 1.21.4
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

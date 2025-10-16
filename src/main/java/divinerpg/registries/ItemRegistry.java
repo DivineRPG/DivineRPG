@@ -1,6 +1,7 @@
 package divinerpg.registries;
 
 import divinerpg.DivineRPG;
+import divinerpg.compat.farmersdelight.KnifeLoader;
 import divinerpg.enums.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.material.Fluids;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.*;
 
 import java.util.ArrayList;
@@ -381,7 +383,7 @@ public class ItemRegistry {
         aquatooth_sword = registerTool("aquatooth_sword", () -> new ItemModSword(ToolStats.AQUATOOTH_SWORD)),
         aquatooth_maul = registerTool("aquatooth_maul", () -> new ItemMaul(ToolStats.AQUATOOTH_MAUL)),
         aquatic_dagger = registerTool("aquatic_dagger", () -> new ItemModSword(ToolStats.AQUA_DAGGER)),
-        ocean_knife = registerTool("ocean_knife", () -> new ItemModSword(ToolStats.OCEAN_KNIFE)),
+        ocean_knife = registerTool("ocean_knife", () -> ModList.get().isLoaded("farmersdelight") ? KnifeLoader.create(ToolStats.OCEAN_KNIFE) : new Knife(ToolStats.OCEAN_KNIFE)),
         aquatic_trident = registerTool("aquatic_trident", () -> new ItemModSword(ToolStats.AQUA_TRIDENT)),
         aquaton = registerTool("aquaton", () -> new ItemModSword(ToolStats.AQUATON)),
         aquatic_maul = registerTool("aquatic_maul", () -> new ItemMaul(ToolStats.AQUA_MAUL)),
@@ -396,9 +398,9 @@ public class ItemRegistry {
         death_bringer = registerTool("death_bringer", () -> new ItemModSword(ToolStats.DEATH_BRINGER)),
         corrupted_maul = registerTool("corrupted_maul", () -> new ItemMaul(ToolStats.CORRUPTED_MAUL)),
         terran_dagger = registerTool("terran_dagger", () -> new ItemModSword(ToolStats.TERRAN_DAGGER)),
-        terran_knife = registerTool("terran_knife", () -> new ItemModSword(ToolStats.TERRAN_KNIFE)),
+        terran_knife = registerTool("terran_knife", () -> ModList.get().isLoaded("farmersdelight") ? KnifeLoader.create(ToolStats.TERRAN_KNIFE) : new Knife(ToolStats.TERRAN_KNIFE)),
         terran_maul = registerTool("terran_maul", () -> new ItemMaul(ToolStats.TERRAN_MAUL)),
-        jungle_knife = registerTool("jungle_knife", () -> new ItemModSword(ToolStats.JUNGLE_KNIFE)),
+        jungle_knife = registerTool("jungle_knife", () -> ModList.get().isLoaded("farmersdelight") ? KnifeLoader.create(ToolStats.JUNGLE_KNIFE) : new Knife(ToolStats.JUNGLE_KNIFE)),
         jungle_rapier = registerTool("jungle_rapier", () -> new ItemModSword(ToolStats.JUNGLE_RAPIER)),
         poison_saber = registerTool("poison_saber", () -> new ItemModSword(ToolStats.POISON_SABER)),
         bloodgem_sword = registerTool("bloodgem_sword", () -> new ItemModSword(ToolStats.BLOODGEM_SWORD)),
@@ -590,7 +592,7 @@ public class ItemRegistry {
 
         //Explosive & Homing
         grenade = registerThrowableTool("grenade", () -> new ItemThrowable(EntityRegistry.GRENADE::value, 3F).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(20).withSound(SoundEvents.TRIDENT_THROW.value())),
-        la_vekor = registerTool("la_vekor", () -> new ItemRangedWeapon(TagRegistry.GRENADES, ItemRegistry.grenade::toStack, EntityRegistry.GRENADE::value, 1225).withTooltip(LocalizeUtils.rangedDam(6)).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(10).withSound(SoundRegistry.LA_VEKOR.get()).arcanaUse(15)),
+        la_vekor = registerTool("la_vekor", () -> new ItemRangedWeapon(TagRegistry.AMMO_GRENADE, ItemRegistry.grenade::toStack, EntityRegistry.GRENADE::value, 1225).withTooltip(LocalizeUtils.rangedDam(6)).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(10).withSound(SoundRegistry.LA_VEKOR.get()).arcanaUse(15)),
         firefly = registerTool("firefly", ItemFirefly::new),
         meriks_missile = registerTool("meriks_missile", ItemMeriksMissile::new),
 
@@ -625,25 +627,25 @@ public class ItemRegistry {
         halite_phaser = registerTool("halite_phaser", () -> new ItemRangedWeapon(EntityRegistry.HALITE_PHASER_SHOT::value, 2114).withTooltip(LocalizeUtils.magicDam(18)).withSound(SoundRegistry.PHASER.get()).withCooldown(50).nameColor(RarityList.HALITE)),
 
         //Cannons
-        crabclaw_cannon = registerTool("crabclaw_cannon", () -> new ItemRangedWeapon(TagRegistry.AQUATIC_CANNON_AMMO, Items.CACTUS::getDefaultInstance, EntityRegistry.CRAB_CLAW::value, 246).withTooltip(LocalizeUtils.rangedDam(4)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
-        frostclaw_cannon = registerTool("frostclaw_cannon", () -> new ItemRangedWeapon(TagRegistry.AQUATIC_CANNON_AMMO, Items.CACTUS::getDefaultInstance, EntityRegistry.FROST_CLAW::value, 612).withTooltip(LocalizeUtils.rangedDam(7)).withSound(SoundRegistry.FROSTCLAW_CANNON.get())),
-        bowhead_cannon = registerTool("bowhead_cannon", () -> new ItemRangedWeapon(TagRegistry.AQUATIC_CANNON_AMMO, Items.CACTUS::getDefaultInstance, EntityRegistry.BOWHEAD_SHOT::value, 592).withTooltip(LocalizeUtils.rangedDam(6)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
-        frost_cannon = registerTool("frost_cannon", () -> new ItemRangedWeapon(TagRegistry.FROST_CANNON_AMMO, Items.SNOWBALL::getDefaultInstance, EntityRegistry.FROST_CANNON_SHOT::value, 1126).withTooltip(LocalizeUtils.rangedDam(6)).withSound(SoundRegistry.FROST_CANNON.get())),
-        fractite_cannon = registerTool("fractite_cannon", () -> new ItemRangedWeapon(TagRegistry.FRACTITE_CANNON_AMMO, ItemRegistry.ice_shards::toStack, EntityRegistry.FRACTITE_CANNON_SHOT::value, 1442).withTooltip(LocalizeUtils.rangedDam(8)).withSound(SoundRegistry.FRACTITE_CANNON.get())),
+        crabclaw_cannon = registerTool("crabclaw_cannon", () -> new ItemRangedWeapon(TagRegistry.AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.CRAB_CLAW::value, 246).withTooltip(LocalizeUtils.rangedDam(4)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
+        frostclaw_cannon = registerTool("frostclaw_cannon", () -> new ItemRangedWeapon(TagRegistry.AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.FROST_CLAW::value, 612).withTooltip(LocalizeUtils.rangedDam(7)).withSound(SoundRegistry.FROSTCLAW_CANNON.get())),
+        bowhead_cannon = registerTool("bowhead_cannon", () -> new ItemRangedWeapon(TagRegistry.AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.BOWHEAD_SHOT::value, 592).withTooltip(LocalizeUtils.rangedDam(6)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
+        frost_cannon = registerTool("frost_cannon", () -> new ItemRangedWeapon(TagRegistry.AMMO_FROST_CANNON, Items.SNOWBALL::getDefaultInstance, EntityRegistry.FROST_CANNON_SHOT::value, 1126).withTooltip(LocalizeUtils.rangedDam(6)).withSound(SoundRegistry.FROST_CANNON.get())),
+        fractite_cannon = registerTool("fractite_cannon", () -> new ItemRangedWeapon(TagRegistry.AMMO_FRACTITE_CANNON, ItemRegistry.ice_shards::toStack, EntityRegistry.FRACTITE_CANNON_SHOT::value, 1442).withTooltip(LocalizeUtils.rangedDam(8)).withSound(SoundRegistry.FRACTITE_CANNON.get())),
         ghast_cannon = registerTool("ghast_cannon", () -> new ItemRangedWeapon(EntityRegistry.GHAST_CANNON_SHOT::value, 726).withTooltip(LocalizeUtils.magicDam(11)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
-        golden_fury = registerTool("golden_fury", () -> new ItemRangedWeapon(TagRegistry.GOLDEN_FURY_AMMO, Items.GOLD_NUGGET::getDefaultInstance, EntityRegistry.GOLDEN_FURY_SHOT::value, 2417).withTooltip(LocalizeUtils.rangedDam(17)).withSound(SoundRegistry.BLITZ.get())),
+        golden_fury = registerTool("golden_fury", () -> new ItemRangedWeapon(TagRegistry.AMMO_GOLDEN_FURY, Items.GOLD_NUGGET::getDefaultInstance, EntityRegistry.GOLDEN_FURY_SHOT::value, 2417).withTooltip(LocalizeUtils.rangedDam(17)).withSound(SoundRegistry.BLITZ.get())),
 
         //Blitz
-        eden_blitz = registerTool("eden_blitz", () -> new ItemRangedWeapon(TagRegistry.EDEN_BLITZ_AMMO, ItemRegistry.eden_dust::toStack, EntityRegistry.EDEN_BLITZ_SHOT::value, 1517).withTooltip(LocalizeUtils.rangedDam(10)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.EDEN)),
-        wildwood_blitz = registerTool("wildwood_blitz", () -> new ItemRangedWeapon(TagRegistry.WILDWOOD_BLITZ_AMMO, ItemRegistry.wildwood_dust::toStack, EntityRegistry.WILDWOOD_BLITZ_SHOT::value, 1624).withTooltip(LocalizeUtils.rangedDam(12)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.WILDWOOD)),
-        apalachia_blitz = registerTool("apalachia_blitz", () -> new ItemRangedWeapon(TagRegistry.APALACHIA_BLITZ_AMMO, ItemRegistry.apalachia_dust::toStack, EntityRegistry.APALACHIA_BLITZ_SHOT::value, 1778).withTooltip(LocalizeUtils.rangedDam(14)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.APALACHIA)),
-        skythern_blitz = registerTool("skythern_blitz", () -> new ItemRangedWeapon(TagRegistry.SKYTHERN_BLITZ_AMMO, ItemRegistry.skythern_dust::toStack, EntityRegistry.SKYTHERN_BLITZ_SHOT::value, 1879).withTooltip(LocalizeUtils.rangedDam(16)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.SKYTHERN)),
-        mortum_blitz = registerTool("mortum_blitz", () -> new ItemRangedWeapon(TagRegistry.MORTUM_BLITZ_AMMO, ItemRegistry.mortum_dust::toStack, EntityRegistry.MORTUM_BLITZ_SHOT::value, 1990).withTooltip(LocalizeUtils.rangedDam(18)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.MORTUM)),
-        halite_blitz = registerTool("halite_blitz", () -> new ItemRangedWeapon(TagRegistry.HALITE_BLITZ_AMMO, ItemRegistry.mortum_dust::toStack, EntityRegistry.HALITE_BLITZ_SHOT::value, 2114).withTooltip(LocalizeUtils.rangedDam(20)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.HALITE)),
+        eden_blitz = registerTool("eden_blitz", () -> new ItemRangedWeapon(TagRegistry.AMMO_EDEN_BLITZ, ItemRegistry.eden_dust::toStack, EntityRegistry.EDEN_BLITZ_SHOT::value, 1517).withTooltip(LocalizeUtils.rangedDam(10)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.EDEN)),
+        wildwood_blitz = registerTool("wildwood_blitz", () -> new ItemRangedWeapon(TagRegistry.AMMO_WILDWOOD_BLITZ, ItemRegistry.wildwood_dust::toStack, EntityRegistry.WILDWOOD_BLITZ_SHOT::value, 1624).withTooltip(LocalizeUtils.rangedDam(12)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.WILDWOOD)),
+        apalachia_blitz = registerTool("apalachia_blitz", () -> new ItemRangedWeapon(TagRegistry.AMMO_APALACHIA_BLITZ, ItemRegistry.apalachia_dust::toStack, EntityRegistry.APALACHIA_BLITZ_SHOT::value, 1778).withTooltip(LocalizeUtils.rangedDam(14)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.APALACHIA)),
+        skythern_blitz = registerTool("skythern_blitz", () -> new ItemRangedWeapon(TagRegistry.AMMO_SKYTHERN_BLITZ, ItemRegistry.skythern_dust::toStack, EntityRegistry.SKYTHERN_BLITZ_SHOT::value, 1879).withTooltip(LocalizeUtils.rangedDam(16)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.SKYTHERN)),
+        mortum_blitz = registerTool("mortum_blitz", () -> new ItemRangedWeapon(TagRegistry.AMMO_MORTUM_BLITZ, ItemRegistry.mortum_dust::toStack, EntityRegistry.MORTUM_BLITZ_SHOT::value, 1990).withTooltip(LocalizeUtils.rangedDam(18)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.MORTUM)),
+        halite_blitz = registerTool("halite_blitz", () -> new ItemRangedWeapon(TagRegistry.AMMO_HALITE_BLITZ, ItemRegistry.mortum_dust::toStack, EntityRegistry.HALITE_BLITZ_SHOT::value, 2114).withTooltip(LocalizeUtils.rangedDam(20)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.HALITE)),
 
         //Shotguns
         corrupted_bullet = registerTool("corrupted_bullet"),
-        corrupted_cannon = registerTool("corrupted_cannon", () -> new Shotgun(TagRegistry.CORRUPTED_CANNON_AMMO, () -> new ItemStack(ItemRegistry.corrupted_bullet.get(), 4), EntityRegistry.CORRUPTED_BULLET::value, 1672, 15, 4).withTooltip(LocalizeUtils.rangedDam("4x10")).withSound(SoundRegistry.GHAST_CANNON.get())),
+        corrupted_cannon = registerTool("corrupted_cannon", () -> new Shotgun(TagRegistry.AMMO_CORRUPTED_CANNON, () -> new ItemStack(ItemRegistry.corrupted_bullet.get(), 4), EntityRegistry.CORRUPTED_BULLET::value, 1672, 15, 4).withTooltip(LocalizeUtils.rangedDam("4x10")).withSound(SoundRegistry.GHAST_CANNON.get())),
         arcanite_blaster = registerTool("arcanite_blaster", () -> new Shotgun(EntityRegistry.BLASTER_BULLET::value, 1127, 30, 30).withTooltip(LocalizeUtils.arcanaDam("30x13")).withSound(SoundRegistry.GHAST_CANNON.get()).arcanaUse(20)),
 
         //Vethean Cannons
@@ -656,7 +658,7 @@ public class ItemRegistry {
         karos_cannon = registerTool("karos_cannon", () -> new VetheanCannon(7)),
         heliosis_cannon = registerTool("heliosis_cannon", () -> new VetheanCannon(9.3F)),
         arksiane_cannon = registerTool("arksiane_cannon", () -> new VetheanCannon(12)),
-        eversight = registerTool("eversight", () -> new ItemRangedWeapon(TagRegistry.VETHEAN_CANNON_AMMO, ItemRegistry.acid::toStack, EntityRegistry.EVERSIGHT_SHOT::value).withTooltip(LocalizeUtils.rangedDam(42)).withSound(SoundRegistry.BLITZ.get()).arcanaUse(10)),
+        eversight = registerTool("eversight", () -> new ItemRangedWeapon(TagRegistry.AMMO_VETHEAN_CANNON, ItemRegistry.acid::toStack, EntityRegistry.EVERSIGHT_SHOT::value).withTooltip(LocalizeUtils.rangedDam(42)).withSound(SoundRegistry.BLITZ.get()).arcanaUse(10)),
 
     //Tool Sets
     realmite_shovel = registerTool("realmite_shovel", () -> new ItemModShovel(ToolStats.REALMITE_SHOVEL)),

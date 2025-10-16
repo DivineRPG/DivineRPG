@@ -1,0 +1,30 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "speed",
+  "providers": [
+    {
+      "item": "divinerpg:shadow_saber"
+    },
+    {
+      "item": "divinerpg:shadow_helmet"
+    },
+    {
+      "tag": "divinerpg:armor/head/seng_fur"
+    },
+    {
+      "item": "divinerpg:glistening_mask"
+    },
+    {
+      "item": "divinerpg:demonized_mask"
+    },
+    {
+      "item": "divinerpg:tormented_mask"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

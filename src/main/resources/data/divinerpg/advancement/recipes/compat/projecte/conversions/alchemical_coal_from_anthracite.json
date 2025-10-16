@@ -1,0 +1,41 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_anthracite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projecte:philosophers_stone"
+          },
+          {
+            "items": "divinerpg:anthracite"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:compat/projecte/conversions/alchemical_coal_from_anthracite"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_anthracite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/projecte/conversions/alchemical_coal_from_anthracite"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "projecte"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 
 public class StepAssistEffect extends ArmorEffect implements UpdatableArmorEffect {
 	public static final AttributeModifier STEP_MOD = new AttributeModifier(Attributes.STEP_HEIGHT.getKey().location(), .6, AttributeModifier.Operation.ADD_VALUE);
-	public StepAssistEffect() {super(10991286);}
+	public StepAssistEffect() {super(12540582);}
 	@Override public void addAttributeModifiers(AttributeMap map, int i) {
 		super.addAttributeModifiers(map, i);
 		AttributeInstance stepHeight = map.getInstance(Attributes.STEP_HEIGHT);

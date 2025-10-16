@@ -36,7 +36,7 @@ public class JEICompat implements IModPlugin {
     @Override public ResourceLocation getPluginUid() {return UID;}
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalysts(RecipeTypes.SMELTING, Ingredient.of(TagRegistry.FURNACES).getItems());
-        registration.addRecipeCatalysts(SmashingCategory.RECIPE_TYPE, Ingredient.of(TagRegistry.MAULS).getItems());
+        registration.addRecipeCatalysts(SmashingCategory.RECIPE_TYPE, Ingredient.of(TagRegistry.TOOLS_MAUL).getItems());
         registration.addRecipeCatalyst(BlockRegistry.arcaniumExtractor, ArcaniumExtractorCategory.RECIPE_TYPE);
         registration.addRecipeCatalyst(BlockRegistry.infusionTable, InfusionTableCategory.RECIPE_TYPE);
     }

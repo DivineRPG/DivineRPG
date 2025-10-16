@@ -1,37 +1,40 @@
 package divinerpg.effect.mob;
 
 import divinerpg.entities.base.FactionEntity.Faction;
-import divinerpg.registries.AttachmentRegistry;
 import divinerpg.registries.EntityRegistry;
-import divinerpg.registries.TagRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.effect.*;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.level.GameRules;
 
+import static divinerpg.entities.base.FactionEntity.Faction.GRUZZORLUG;
+import static divinerpg.registries.AttachmentRegistry.IMPORTANT;
+import static divinerpg.registries.TagRegistry.GRUZZORLUG_RAID_TARGETS;
 import static divinerpg.util.Utils.*;
+import static net.minecraft.world.Difficulty.PEACEFUL;
+import static net.minecraft.world.effect.MobEffectCategory.HARMFUL;
+import static net.minecraft.world.entity.MobSpawnType.REINFORCEMENT;
+import static net.minecraft.world.level.GameRules.RULE_DISABLE_RAIDS;
 
 public class GruzzorlugTargetEffect extends MobEffect {
-	public GruzzorlugTargetEffect() {super(MobEffectCategory.HARMFUL, 10991286);}
+	public GruzzorlugTargetEffect() {super(HARMFUL, 7035783);}
 	@Override public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {return true;}
 	@Override public void applyInstantenousEffect(Entity entity, Entity e, LivingEntity living, int i, double d) {}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
-		if(entity.level() instanceof ServerLevel level && level.getGameTime() % 80 == 0 && level.getDifficulty() != Difficulty.PEACEFUL && !level.getGameRules().getBoolean(GameRules.RULE_DISABLE_RAIDS) && level.canSeeSky(entity.blockPosition()) && Faction.hasNearbyTarget(entity, entity.getBoundingBox().inflate(16D), Faction.GRUZZORLUG)) {
-			BlockPos structure = level.findNearestMapStructure(TagRegistry.GRUZZORLUG_RAID_TARGETS, entity.blockPosition(), 4, false);
-			if(structure != null && entity.distanceToSqr(structure.getX(), entity.getBlockY(), structure.getZ()) < 128D) {
+		if(entity.level() instanceof ServerLevel level && level.getGameTime() % 80 == 0 && level.getDifficulty() != PEACEFUL && !level.getGameRules().getBoolean(RULE_DISABLE_RAIDS) && level.canSeeSky(entity.blockPosition()) && Faction.hasNearbyTarget(entity, entity.getBoundingBox().inflate(16), GRUZZORLUG)) {
+			BlockPos structure = level.findNearestMapStructure(GRUZZORLUG_RAID_TARGETS, entity.blockPosition(), 4, false);
+			if(structure != null && entity.distanceToSqr(structure.getX(), entity.getBlockY(), structure.getZ()) < 128) {
 				BlockPos pos = getNearbySpawnPos(level, entity.getRandom(), entity.blockPosition());
-				AttachmentRegistry.IMPORTANT.set(EntityRegistry.GRUZZORLUG_COMMANDER.get().spawn(level, null, null, pos, MobSpawnType.REINFORCEMENT, false, false), false);
+				IMPORTANT.set(EntityRegistry.GRUZZORLUG_COMMANDER.get().spawn(level, null, null, pos, REINFORCEMENT, false, false), false);
 				EntityType<?> ent = EntityRegistry.GRUZZORLUG_CANNONEER.get();
-				ent.spawn(level, adjustHeight(level, pos.offset(3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
-				ent.spawn(level, adjustHeight(level, pos.offset(0, 0, 3).mutable()), MobSpawnType.REINFORCEMENT);
-				ent.spawn(level, adjustHeight(level, pos.offset(0, 0, -3).mutable()), MobSpawnType.REINFORCEMENT);
-				AttachmentRegistry.IMPORTANT.set(EntityRegistry.GRUZZORLUG_GENERAL.get().spawn(level, null, null, adjustHeight(level, pos.offset(-3, 0, 0).mutable()), MobSpawnType.REINFORCEMENT, false, false), false);
-				EntityRegistry.GRUZZORLUG_KNIGHT.get().spawn(level, adjustHeight(level, pos.offset(-6, 0, 0).mutable()), MobSpawnType.REINFORCEMENT);
+				ent.spawn(level, adjustHeight(level, pos.offset(3, 0, 0).mutable()), REINFORCEMENT);
+				ent.spawn(level, adjustHeight(level, pos.offset(0, 0, 3).mutable()), REINFORCEMENT);
+				ent.spawn(level, adjustHeight(level, pos.offset(0, 0, -3).mutable()), REINFORCEMENT);
+				IMPORTANT.set(EntityRegistry.GRUZZORLUG_GENERAL.get().spawn(level, null, null, adjustHeight(level, pos.offset(-3, 0, 0).mutable()), REINFORCEMENT, false, false), false);
+				EntityRegistry.GRUZZORLUG_KNIGHT.get().spawn(level, adjustHeight(level, pos.offset(-6, 0, 0).mutable()), REINFORCEMENT);
 				ent = EntityRegistry.GRUZZORLUG_SWORDSMAN.get();
-				ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, 3).mutable()), MobSpawnType.REINFORCEMENT);
-				ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, -3).mutable()), MobSpawnType.REINFORCEMENT);
+				ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, 3).mutable()), REINFORCEMENT);
+				ent.spawn(level, adjustHeight(level, pos.offset(-3, 0, -3).mutable()), REINFORCEMENT);
 				return false;
 			}
 		} return true;

@@ -1,0 +1,15 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "conduit_power",
+  "providers": [
+    {
+      "item": "divinerpg:kraken_helmet"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

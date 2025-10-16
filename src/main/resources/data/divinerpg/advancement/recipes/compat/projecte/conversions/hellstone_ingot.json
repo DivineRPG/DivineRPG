@@ -1,0 +1,41 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_torridite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "projecte:philosophers_stone"
+          },
+          {
+            "items": "#divinerpg:chunks/torridite"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:compat/projecte/conversions/hellstone_ingot"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_torridite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/projecte/conversions/hellstone_ingot"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "projecte"
+    }
+  ]
+}

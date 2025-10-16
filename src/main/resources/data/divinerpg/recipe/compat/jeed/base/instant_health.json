@@ -1,0 +1,21 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "instant_health",
+  "providers": [
+    {
+      "item": "divinerpg:healing_stone"
+    },
+    {
+      "item": "divinerpg:serenade_of_health"
+    },
+    {
+      "tag": "divinerpg:tools/healing_sword"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

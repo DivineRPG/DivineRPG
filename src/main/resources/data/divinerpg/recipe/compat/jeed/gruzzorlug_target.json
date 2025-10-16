@@ -1,0 +1,30 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "divinerpg:gruzzorlug_target",
+  "providers": [
+    {
+      "item": "divinerpg:gruzzorlug_miner_spawn_egg"
+    },
+    {
+      "item": "divinerpg:gruzzorlug_cannoneer_spawn_egg"
+    },
+    {
+      "item": "divinerpg:gruzzorlug_commander_spawn_egg"
+    },
+    {
+      "item": "divinerpg:gruzzorlug_swordsman_spawn_egg"
+    },
+    {
+      "item": "divinerpg:gruzzorlug_knight_spawn_egg"
+    },
+    {
+      "item": "divinerpg:gruzzorlug_general_spawn_egg"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

@@ -2,17 +2,21 @@ package divinerpg.items.ranged.shooter;
 
 import divinerpg.entities.projectile.DivineThrowableProjectile;
 import divinerpg.items.ranged.ItemRangedWeapon;
-import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
+import static divinerpg.registries.EntityRegistry.CANNON_SHOT;
+import static divinerpg.registries.ItemRegistry.acid;
+import static divinerpg.registries.SoundRegistry.BLITZ;
+import static divinerpg.registries.TagRegistry.AMMO_VETHEAN_CANNON;
+
 public class VetheanCannon extends ItemRangedWeapon {
     final float damage;
     public VetheanCannon(float damage) {
-        super(TagRegistry.VETHEAN_CANNON_AMMO, ItemRegistry.acid::toStack, EntityRegistry.CANNON_SHOT::value);
-        sound = SoundRegistry.BLITZ.get();
+        super(AMMO_VETHEAN_CANNON, acid::toStack, CANNON_SHOT::value);
+        sound = BLITZ.get();
         arcanaConsumedUse = 10;
         this.damage = damage;
         tooltips.add(LocalizeUtils.rangedDam((int)(damage * 3.3F)));

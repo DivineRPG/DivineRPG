@@ -1,0 +1,39 @@
+{
+  "type": "jeed:effect_provider",
+  "effect": "poison",
+  "providers": [
+    {
+      "item": "divinerpg:aequorea_spawn_egg"
+    },
+    {
+      "item": "divinerpg:jungle_spider_spawn_egg"
+    },
+    {
+      "item": "divinerpg:kitra_statue"
+    },
+    {
+      "item": "divinerpg:jungle_rapier"
+    },
+    {
+      "item": "divinerpg:poison_saber"
+    },
+    {
+      "item": "divinerpg:vile_storm"
+    },
+    {
+      "item": "divinerpg:hunter_bow"
+    },
+    {
+      "item": "divinerpg:hunter_arrow"
+    },
+    {
+      "item": "divinerpg:serenade_of_death"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "jeed"
+    }
+  ]
+}

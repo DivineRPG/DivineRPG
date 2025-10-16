@@ -4,11 +4,11 @@ import divinerpg.effect.mob.armor.ArmorEffect;
 import net.minecraft.world.entity.LivingEntity;
 
 public class VemosHealEffect extends ArmorEffect {
-	public VemosHealEffect() {super(10991286);}
+	public VemosHealEffect() {super(4980840);}
     @Override public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {return true;}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {
 		float current = entity.getHealth();
-        if((current > 0.0F) && (current < 20.0F)) entity.heal(.1F);
+        if((current > 0) && (current < 20)) entity.heal(.1F);
         return true;
     }
 }
