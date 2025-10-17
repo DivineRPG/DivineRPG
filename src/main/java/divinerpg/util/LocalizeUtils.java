@@ -27,6 +27,7 @@ public class LocalizeUtils {
             HealthRegen = "health.regen",
             HitEnder = "hit_ender",
             InfiniteAmmo = "ammo.infinite",
+            Inflict = "inflict",
             InstantConsumption = "instant_consumption",
             LessDrag = "less_drag",
             LightningShot = "lightning_shot",
@@ -38,7 +39,7 @@ public class LocalizeUtils {
             RangedDamage = "damage.ranged",
             ReturnsToSender = "return",
             ShootingPower = "ranged.power",
-            ShotsBlinding = "shots.blind",
+            ShotsBlinding = "effect.blind",
             ShotsBouncing = "shots.bounce",
             ShotsBurning = "shots.burn",
             ShotsExplosive = "shots.explosive",
@@ -131,6 +132,10 @@ public class LocalizeUtils {
      * Indicates that no ammo is required.
      */
     public static Component infiniteAmmo() {return i18n(BLUE, InfiniteAmmo);}
+    /**
+     * Header for what the weapon inflicts upon using it.
+     */
+    public static Component inflict() {return i18n(GRAY, Inflict);}
     /**
      * Indicates that the bowstring pull is faster than usual.
      *

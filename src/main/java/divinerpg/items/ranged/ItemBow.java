@@ -4,16 +4,16 @@ import divinerpg.items.ranged.bows.*;
 import divinerpg.network.payload.AccurateSetMotionPacket;
 import divinerpg.util.LocalizeUtils;
 import divinerpg.util.Utils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
-import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Arrow;
-import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.Unbreakable;
@@ -117,8 +117,18 @@ public class ItemBow extends BowItem {
         if(this instanceof EnderBow) tooltip.add(LocalizeUtils.teleportAttached());
         if(this instanceof InfernoBow) tooltip.add(LocalizeUtils.burningShots());
         PotionContents potioncontents = stack.get(DataComponents.POTION_CONTENTS);
-        if(!(this instanceof ShadowBow) && potioncontents != null) potioncontents.addPotionTooltip(tooltip::add, 1, context.tickRate());
-        if(infinityArrow != null) tooltip.add(LocalizeUtils.infiniteAmmo());
+        if(potioncontents != null) {
+            tooltip.add(LocalizeUtils.inflict());
+            potioncontents.addPotionTooltip(component -> {
+                for(MobEffectInstance effect : potioncontents.customEffects()) {
+                    //TODO: to make it changing color of the effect part only, not the whole potion tooltip
+                    if(effect.getEffect() == MobEffects.BLINDNESS) tooltip.add(component.copy().withStyle(ChatFormatting.BLACK));
+                    else if(effect.getEffect() == MobEffects.MOVEMENT_SLOWDOWN) tooltip.add(component.copy().withStyle(ChatFormatting.DARK_AQUA));
+                    else if(effect.getEffect() == MobEffects.POISON) tooltip.add(component.copy().withStyle(ChatFormatting.DARK_GREEN));
+                    else tooltip.add(component.copy());
+                }
+            }, 1, context.tickRate());
+        } if(infinityArrow != null) tooltip.add(LocalizeUtils.infiniteAmmo());
         super.appendHoverText(stack, context, tooltip, flagIn);
     }
     @Override public Component getName(ItemStack pStack) {

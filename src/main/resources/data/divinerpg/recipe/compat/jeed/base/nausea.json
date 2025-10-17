@@ -1,6 +1,6 @@
 {
   "type": "jeed:effect_provider",
-  "effect": "confusion",
+  "effect": "nausea",
   "providers": [
     {
       "item": "divinerpg:soul_stealer_spawn_egg"

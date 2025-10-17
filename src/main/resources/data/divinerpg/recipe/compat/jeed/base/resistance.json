@@ -1,6 +1,6 @@
 {
   "type": "jeed:effect_provider",
-  "effect": "damage_resistance",
+  "effect": "resistance",
   "providers": [
     {
       "item": "divinerpg:wild_flame"

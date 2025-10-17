@@ -43,6 +43,7 @@ public class EntityPumpkinSpider extends Spider {
 		if(entity instanceof LivingEntity l && !l.level().isClientSide) setProvoked(l);
 		return super.hurt(source, amount);
 	}
+	@Override public void playAmbientSound() {if(getProvoked()) super.playAmbientSound();}
 	@Nullable
 	@Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
 		return data;

@@ -5,24 +5,36 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.neoforged.api.distmarker.*;
+import net.neoforged.api.distmarker.OnlyIn;
+
 import java.util.List;
 
+import static net.neoforged.api.distmarker.Dist.CLIENT;
+
 public class ItemModFood extends ItemMod {
-    FoodProperties food;
-    boolean fastFood;
-    public ItemModFood(Properties properties) {super(properties);}
+    protected boolean fastFood;
+    //Base constructor
+    public ItemModFood(Properties properties, FoodProperties food) {super(properties.food(food));}
+    //Stacks to 64
     public ItemModFood(FoodProperties food) {
-        super(new Properties().food(food));
-        this.food = food;
+        this(new Properties(), food);
     }
-    public ItemModFood(FoodProperties food, boolean fastFood) {
-        super(new Properties().food(food));
-        this.food = food;
-        this.fastFood = fastFood;
+    //Stacks to 1 or 16
+    public ItemModFood(boolean stacksToOne, FoodProperties food) {
+        this(new Properties().stacksTo(stacksToOne ? 1 : 16), food);
+    }
+    //Stacks to 64, instant consumption
+    public ItemModFood(FoodProperties food, boolean instantConsumption) {
+        this(new Properties(), food);
+        fastFood = instantConsumption;
+    }
+    //Stacks to 1 or 16, instant consumption
+    public ItemModFood(boolean stacksToOne, FoodProperties food, boolean instantConsumption) {
+        this(new Properties().stacksTo(stacksToOne ? 1 : 16), food);
+        fastFood = instantConsumption;
     }
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return fastFood ? 1 : super.getUseDuration(stack, entity);}
-    @OnlyIn(Dist.CLIENT)
+    @OnlyIn(CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         if(fastFood) tooltip.add(LocalizeUtils.instantConsumption());
         super.appendHoverText(stack, context, tooltip, flagIn);

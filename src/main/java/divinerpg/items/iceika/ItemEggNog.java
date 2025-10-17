@@ -8,7 +8,7 @@ import static divinerpg.util.FoodList.EGG_NOG;
 import static net.minecraft.sounds.SoundEvents.HONEY_DRINK;
 
 public class ItemEggNog extends ItemModFood {
-    public ItemEggNog() {super(new Properties().food(EGG_NOG).stacksTo(1));}
+    public ItemEggNog() {super(true, EGG_NOG);}
     @Override public UseAnim getUseAnimation(ItemStack stack) {return UseAnim.DRINK;}
     @Override public SoundEvent getEatingSound() {return HONEY_DRINK;}
 }
