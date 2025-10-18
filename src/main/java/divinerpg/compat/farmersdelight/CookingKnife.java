@@ -14,9 +14,9 @@ import java.util.List;
 import static net.minecraft.tags.BlockTags.*;
 import static net.neoforged.api.distmarker.Dist.CLIENT;
 
-public class ToolKnife extends KnifeItem {
+public class CookingKnife extends KnifeItem {
     public ToolStats sword;
-    public ToolKnife(Tier tier) {
+    public CookingKnife(Tier tier) {
         super(tier, new Properties().attributes(SwordItem.createAttributes(tier, 1, -2.4F)));
         sword = (ToolStats)tier;
     }

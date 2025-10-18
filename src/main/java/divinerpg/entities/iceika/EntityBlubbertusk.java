@@ -80,6 +80,7 @@ public class EntityBlubbertusk extends Animal {
 	@Override public int getMaxAirSupply() {return 4000;}
 	@Override protected int increaseAirSupply(int i) {return 4000;}
 	@Override protected void playSwimSound(float f) {super.playSwimSound(f * 1.5F);}
+	//TODO: to add sounds
 	@Override protected SoundEvent getSwimSound() {return SoundEvents.DOLPHIN_SWIM;}
 	@Override protected SoundEvent getSwimSplashSound() {return SoundEvents.DOLPHIN_SPLASH;}
 	@Override public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mob) {return BLUBBERTUSK.get().create(level);}

@@ -1,7 +1,7 @@
 package divinerpg.registries;
 
 import divinerpg.DivineRPG;
-import divinerpg.compat.farmersdelight.KnifeLoader;
+import divinerpg.compat.farmersdelight.DelightLoader;
 import divinerpg.enums.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
@@ -383,7 +383,7 @@ public class ItemRegistry {
         aquatooth_sword = registerTool("aquatooth_sword", () -> new ItemModSword(ToolStats.AQUATOOTH_SWORD)),
         aquatooth_maul = registerTool("aquatooth_maul", () -> new ItemMaul(ToolStats.AQUATOOTH_MAUL)),
         aquatic_dagger = registerTool("aquatic_dagger", () -> new ItemModSword(ToolStats.AQUA_DAGGER)),
-        ocean_knife = registerTool("ocean_knife", () -> ModList.get().isLoaded("farmersdelight") ? KnifeLoader.create(ToolStats.OCEAN_KNIFE) : new Knife(ToolStats.OCEAN_KNIFE)),
+        ocean_knife = registerTool("ocean_knife", () -> ModList.get().isLoaded("farmersdelight") ? DelightLoader.create(ToolStats.OCEAN_KNIFE) : new Knife(ToolStats.OCEAN_KNIFE)),
         aquatic_trident = registerTool("aquatic_trident", () -> new ItemModSword(ToolStats.AQUA_TRIDENT)),
         aquaton = registerTool("aquaton", () -> new ItemModSword(ToolStats.AQUATON)),
         aquatic_maul = registerTool("aquatic_maul", () -> new ItemMaul(ToolStats.AQUA_MAUL)),
@@ -398,9 +398,9 @@ public class ItemRegistry {
         death_bringer = registerTool("death_bringer", () -> new ItemModSword(ToolStats.DEATH_BRINGER)),
         corrupted_maul = registerTool("corrupted_maul", () -> new ItemMaul(ToolStats.CORRUPTED_MAUL)),
         terran_dagger = registerTool("terran_dagger", () -> new ItemModSword(ToolStats.TERRAN_DAGGER)),
-        terran_knife = registerTool("terran_knife", () -> ModList.get().isLoaded("farmersdelight") ? KnifeLoader.create(ToolStats.TERRAN_KNIFE) : new Knife(ToolStats.TERRAN_KNIFE)),
+        terran_knife = registerTool("terran_knife", () -> ModList.get().isLoaded("farmersdelight") ? DelightLoader.create(ToolStats.TERRAN_KNIFE) : new Knife(ToolStats.TERRAN_KNIFE)),
         terran_maul = registerTool("terran_maul", () -> new ItemMaul(ToolStats.TERRAN_MAUL)),
-        jungle_knife = registerTool("jungle_knife", () -> ModList.get().isLoaded("farmersdelight") ? KnifeLoader.create(ToolStats.JUNGLE_KNIFE) : new Knife(ToolStats.JUNGLE_KNIFE)),
+        jungle_knife = registerTool("jungle_knife", () -> ModList.get().isLoaded("farmersdelight") ? DelightLoader.create(ToolStats.JUNGLE_KNIFE) : new Knife(ToolStats.JUNGLE_KNIFE)),
         jungle_rapier = registerTool("jungle_rapier", () -> new ItemModSword(ToolStats.JUNGLE_RAPIER)),
         poison_saber = registerTool("poison_saber", () -> new ItemModSword(ToolStats.POISON_SABER)),
         bloodgem_sword = registerTool("bloodgem_sword", () -> new ItemModSword(ToolStats.BLOODGEM_SWORD)),

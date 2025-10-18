@@ -20,6 +20,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.*;
 import java.util.ArrayList;
 
+import static divinerpg.registries.DamageRegistry.SPIKE;
+
 public class ArmorAbilitiesEvent {
 	@SubscribeEvent
 	public void onEquipmentChanged(LivingEquipmentChangeEvent event) {
@@ -135,6 +137,9 @@ public class ArmorAbilitiesEvent {
             		|| (target.hasEffect(MobEffectRegistry.TORMENTED_MASK) && source.is(DamageTypes.MOB_PROJECTILE) && !source.is(DamageTypes.MAGIC))) {
                 event.setNewDamage(amount * .348F);
             } else if(target.hasEffect(MobEffectRegistry.BLOCK_PROTECTION) && (source.is(DamageTypes.CACTUS)
+					//TODO: to make it reduce the fall damage on stalagmites (making it like falling on any other block)
+					//TODO: for some reason it decreases the fall damage when falling onto spike blocks
+					|| source.is(SPIKE.getKey())
 					|| source.is(DamageTypes.FALLING_BLOCK)
 					|| source.is(DamageTypes.FALLING_ANVIL)
 					|| source.is(DamageTypes.FALLING_STALACTITE)

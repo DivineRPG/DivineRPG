@@ -291,7 +291,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntitySnowSkipper>>		SNOW_SKIPPER		= registerEntity(EntitySnowSkipper::new,		"snow_skipper",			.43F, .41F, .37F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWolpertinger>>       WOLPERTINGER        = registerEntity(EntityWolpertinger::new,       "wolpertinger",           .6F, .875F, .75F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDolossal>>			DOLOSSAL			= registerEntity(EntityDolossal::new,			"dolossal",				1.3F, 2, 1.8F, 0x462630, 0x422742, MobCategory.CREATURE);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityMamoth>>			    MAMOTH				= registerEntity(EntityMamoth::new,				"mamoth",				    1.4F, 2, 1.8F, 0x49302f, 0x87ffd3, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityMamoth>>			    MAMOTH				= registerEntity(EntityMamoth::new,				"mamoth",				    1.4F, 1.625F, .97F, 0x49302f, 0x87ffd3, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWorkshopMerchant>>   WORKSHOP_MERCHANT   = registerEntity(EntityWorkshopMerchant::new,   "workshop_merchant",      .9F, 1.8125F, 1.65125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWorkshopTinkerer>>   WORKSHOP_TINKERER   = registerEntity(EntityWorkshopTinkerer::new,   "workshop_tinkerer",      .9F, 1.8125F, 1.65125F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityRollum>>		        ROLLUM 				= registerEntity(EntityRollum::new, 		    "rollum",				    1.2F, 2, 1.6125F, 0xffffff, 0xffffff);
@@ -531,7 +531,7 @@ public class EntityRegistry {
         registerStepMobAttributes(event, BLUBBERTUSK, EntityStats.BLUBBERTUSK, 1);
         registerMobAttributes(event, CAULDRON_FISH, EntityStats.CAULDRON_FISH);
         EntityDolossal.registerDolossalAttributes(event, DOLOSSAL);
-        registerMobAttributes(event, MAMOTH, EntityStats.MAMOTH);
+        registerMobAttributesKnockback(event, MAMOTH, EntityStats.MAMOTH, .2F);
         registerMobAttributes(event, SNOW_SKIPPER, EntityStats.SNOW_SKIPPER);
         registerMobAttributes(event, PINK_GHOST_GLIDER, EntityStats.GHOST_GLIDER);
         registerMobAttributes(event, ROBBIN, EntityStats.ROBBIN);
@@ -540,11 +540,11 @@ public class EntityRegistry {
         registerMerchantAttributes(event, WORKSHOP_TINKERER);
         registerMobAttributes(event, PALE_ARCHER, EntityStats.PALE_ARCHER);
         registerMobAttributes(event, FROZEN_FLESH, EntityStats.FROZEN_FLESH);
-        registerMobAttributes(event, ROLLUM, EntityStats.ROLLUM);
+        registerMobAttributesKnockback(event, ROLLUM, EntityStats.ROLLUM, .2F);
         registerMobAttributes(event, ALICANTO, EntityStats.ALICANTO);
         registerMobAttributes(event, SENG, EntityStats.SENG);
-        registerMobAttributes(event, SABEAR, EntityStats.SABEAR);
-        registerMobAttributes(event, HASTREUS, EntityStats.HASTREUS);
+        registerMobAttributesKnockback(event, SABEAR, EntityStats.SABEAR, .25F);
+        registerMobAttributesKnockback(event, HASTREUS, EntityStats.HASTREUS, .6F);
         registerMobAttributes(event, GLACIDE, EntityStats.GLACIDE);
         registerMobAttributes(event, FRACTITE, EntityStats.FRACTITE);
         //Groglin

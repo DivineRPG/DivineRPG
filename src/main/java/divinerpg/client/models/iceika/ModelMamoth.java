@@ -69,6 +69,7 @@ public class ModelMamoth extends EntityModel<EntityMamoth> {
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
+	//TODO: to adjust flying model
 	@Override
 	public void setupAnim(EntityMamoth entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		if(entity.onGround() || entity.isInWater() || !entity.isBaby()) {

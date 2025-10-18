@@ -1,13 +1,11 @@
 package divinerpg.util;
 
-import divinerpg.compat.farmersdelight.EffectLoader;
+import divinerpg.compat.farmersdelight.DelightLoader;
 import divinerpg.registries.MobEffectRegistry;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Items;
 import net.neoforged.fml.ModList;
-
-import java.util.Optional;
 
 public class FoodList {
     public static final FoodProperties
@@ -23,13 +21,13 @@ public class FoodList {
         WHITE_MUSHROOM = food(2, .1F),
         ADVANCED_MUSHROOM_STEW = foodBuilder(10, .6F).usingConvertsTo(Items.BOWL)
             .effect(() -> {
-                if(ModList.get().isLoaded("farmersdelight")) return EffectLoader.getComfortEffect(3 * 60);
+                if(ModList.get().isLoaded("farmersdelight")) return DelightLoader.getComfortEffect(3 * 60);
                 return new MobEffectInstance(MobEffects.REGENERATION, 5 * 20, 2);
             }, 1)
             .effect(() -> new MobEffectInstance(MobEffectRegistry.WARMTH, 20 * 20, 0), 1).build(),
         CHICKEN_DINNER = foodBuilder(16, .6F).usingConvertsTo(Items.BOWL)
             .effect(() -> {
-                if(ModList.get().isLoaded("farmersdelight")) return EffectLoader.getNourishmentEffect(5 * 60);
+                if(ModList.get().isLoaded("farmersdelight")) return DelightLoader.getNourishmentEffect(5 * 60);
                 return new MobEffectInstance(MobEffects.REGENERATION, 10 * 20, 2);
             }, 1)
             .effect(() -> new MobEffectInstance(MobEffectRegistry.WARMTH, 40 * 20, 0), 1).build(),

@@ -8,7 +8,6 @@ import static net.minecraft.world.effect.MobEffects.REGENERATION;
 
 public class WildwoodHealEffect extends ArmorEffect {
 	public WildwoodHealEffect() {super(1484773);}
-
 	@Override public void onMobRemoved(LivingEntity entity, int amplifier, Entity.RemovalReason reason) {
 		MobEffectInstance effect = entity.getEffect(REGENERATION);
 		if(effect != null && effect.isInfiniteDuration()) entity.removeEffect(REGENERATION);

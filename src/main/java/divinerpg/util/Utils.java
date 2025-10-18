@@ -39,48 +39,27 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class Utils {
-	public static volatile byte ICEIKA_WEATHER = (byte) (Math.random() * 4);//0 = snow, 1 = hail, 2 = blizzard, 3 = fog
+	public static volatile byte ICEIKA_WEATHER = (byte)(Math.random() * 4);//0 = snow, 1 = hail, 2 = blizzard, 3 = fog
     private static final Set<UUID> DEV_LIST = ConcurrentHashMap.newKeySet();
     private static final Set<UUID> TESTER_LIST = ConcurrentHashMap.newKeySet();
     private static final Set<UUID> SPECIAL_LIST = ConcurrentHashMap.newKeySet();
     private static final Set<UUID> ARTIST_LIST = ConcurrentHashMap.newKeySet();
     private static final Set<UUID> FRIEND_LIST = ConcurrentHashMap.newKeySet();
-
-    public static boolean isDeveloperName(UUID name) {
-        return DEV_LIST.contains(name);
-    }
-
-    public static boolean isTesterName(UUID name) {
-        return TESTER_LIST.contains(name);
-    }
-
-    public static boolean isSpecial(UUID name) {
-        return SPECIAL_LIST.contains(name);
-    }
-
-    public static boolean isArtist(UUID name) {
-        return ARTIST_LIST.contains(name);
-    }
-
-    public static boolean isFriend(UUID name) {
-        return FRIEND_LIST.contains(name);
-    }
-
+    public static boolean isDeveloperName(UUID name) {return DEV_LIST.contains(name);}
+    public static boolean isTesterName(UUID name) {return TESTER_LIST.contains(name);}
+    public static boolean isSpecial(UUID name) {return SPECIAL_LIST.contains(name);}
+    public static boolean isArtist(UUID name) {return ARTIST_LIST.contains(name);}
+    public static boolean isFriend(UUID name) {return FRIEND_LIST.contains(name);}
     public static void loadHatInformation() {
-
         CompletableFuture.supplyAsync(() -> {
             String urlString = "https://raw.githubusercontent.com/DivineRPG/DivineRPG-Assets/main/hats.json";
-
             try {
-                @SuppressWarnings("deprecation")
 				HttpURLConnection con = (HttpURLConnection) new URL(urlString).openConnection();
                 con.setConnectTimeout(1000);
                 InputStream in2 = con.getInputStream();
                 List<String> lines = IOUtils.readLines(in2, Charset.defaultCharset());
-
                 return String.join("\n", lines);
-
-            } catch (Exception e) {
+            } catch(Exception e) {
                 e.printStackTrace();
                 return "";
             }
@@ -90,45 +69,34 @@ public class Utils {
             SPECIAL_LIST.clear();
             ARTIST_LIST.clear();
             FRIEND_LIST.clear();
-
-            if (rawJson != null) {
+            if(rawJson != null) {
                 try {
                     HatsInfo info = new Gson().fromJson(rawJson, HatsInfo.class);
-                    if (info != null) {
-
+                    if(info != null) {
                         DEV_LIST.addAll(info.dev);
                         TESTER_LIST.addAll(info.tester);
                         SPECIAL_LIST.addAll(info.special);
                         ARTIST_LIST.addAll(info.artists);
                         FRIEND_LIST.addAll(info.friend);
                     }
-                } catch (Exception e) {
+                } catch(Exception e) {
                     e.printStackTrace();
                 }
-            }
-
-            return rawJson;
+            } return rawJson;
         });
     }
-
     public static boolean bordersTar(BlockGetter world, int x, int y, int z) {
-        for (int i = x - 4; i <= x + 4; ++i) {
-            for (int j = y; j <= y + 1; ++j) {
-                for (int k = z - 4; k <= z + 4; ++k) {
-                    if (world.getBlockState(new BlockPos(i, j, k)).getBlock() == FluidRegistry.SMOLDERING_TAR_BLOCK.get()) {
-                        return true;
-                    }
+        for(int i = x - 4; i <= x + 4; ++i) {
+            for(int j = y; j <= y + 1; ++j) {
+                for(int k = z - 4; k <= z + 4; ++k) {
+                    if(world.getBlockState(new BlockPos(i, j, k)).getBlock() == FluidRegistry.SMOLDERING_TAR_BLOCK.get()) return true;
                 }
             }
-        }
-
-        return false;
+        } return false;
     }
-
     public static void drop(Level level, Vec3 pos, @Nullable ItemStack item) {
 		if(item != null) level.addFreshEntity(new ItemEntity(level, pos.x, pos.y, pos.z, item));
 	}
-
     public static class HatsInfo {
         public List<UUID> dev;
         public List<UUID> tester;
@@ -187,7 +155,6 @@ public class Utils {
         else if(f1 > 360F) f1 -= 360F;
         return f1;
     }
-
     public static void awardAdvancement(MinecraftServer server, ServerPlayer player, ResourceLocation advancement, String criterion) {
         var adv = server.getAdvancements().get(advancement);
         if(adv != null) {
@@ -200,9 +167,8 @@ public class Utils {
     public static List<ServerPlayer> getNearbyPlayers(ServerLevel level, double x, double y, double z, double boxSize) {
         return level.getPlayers((p) -> Math.abs(p.getX() - x) <= boxSize && Math.abs(p.getY() - y) <= boxSize && Math.abs(p.getZ() - z) <= boxSize);
     }
-
     /**
-     * use this if you do not have level registry access
+     * Use this if you do not have level registry access
      */
     public static int getEnchantmentLevel(ResourceKey<Enchantment> enchantment, ItemStack stack) {
         ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
@@ -210,7 +176,7 @@ public class Utils {
         return 0;
     }
     /**
-     * use this if you do not have level registry access
+     * Use this if you do not have level registry access
      */
     public static int getStoredEnchantmentLevel(ResourceKey<Enchantment> enchantment, ItemStack stack) {
         ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY);
@@ -218,7 +184,7 @@ public class Utils {
         return 0;
     }
     /**
-     * use this if you do not have level registry access
+     * Use this if you do not have level registry access
      */
     public static boolean hasEnchantment(ResourceKey<Enchantment> enchantment, ItemStack stack) {
         ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY);
@@ -226,14 +192,13 @@ public class Utils {
         return false;
     }
     /**
-     * use this if you do not have level registry access
+     * Use this if you do not have level registry access
      */
     public static boolean hasStoredEnchantment(ResourceKey<Enchantment> enchantment, ItemStack stack) {
         ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY);
         for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return true;
         return false;
     }
-
     public static final Container EMPTY_CONTAINER = new Container() {
         @Override public void clearContent() {}
         @Override public int getContainerSize() {return 1;}
@@ -246,7 +211,6 @@ public class Utils {
         @Override public boolean stillValid(Player player) {return true;}
     };
     public static final GameProfile FAKE_PLAYER = new GameProfile(UUID.randomUUID(), "drpgfakeplayer");
-
     public static void summonEntityAt(ServerLevel level, EntityType<?> type, BlockPos pos, @Nullable Player player) {
         int y = Surface.getSurface(Surface_Type.LOWEST_GROUND, Surface.Mode.FULL, pos.getY() - 4, pos.getY() + 5, 0, level, level.getRandom(), pos.getX(), pos.getZ());
         pos = new BlockPos(pos.getX(), y, pos.getZ());

@@ -34,6 +34,7 @@ public class ItemHealingStone extends ItemMod {
         } return super.use(level, player, hand);
     }
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
+        //TODO: for all healing things to prevent from healing angered entities
         if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
             stack.consume(1, player);
             entity.heal(healAmount);

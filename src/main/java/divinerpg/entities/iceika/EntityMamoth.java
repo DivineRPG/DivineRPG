@@ -12,7 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.TimeUtil;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -28,7 +27,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -44,24 +42,18 @@ public class EntityMamoth extends Animal implements NeutralMob {
 	private int remainingPersistentAngerTime;
 	public EntityMamoth(EntityType<? extends EntityMamoth> type, Level level) {
 		super(type, level);
-		setPathfindingMalus(PathType.POWDER_SNOW, -1F);
-		setPathfindingMalus(PathType.DANGER_POWDER_SNOW, -1F);
+		setPathfindingMalus(PathType.POWDER_SNOW, -1);
+		setPathfindingMalus(PathType.DANGER_POWDER_SNOW, -1);
 	}
-
-	@Override
-	public BlockPos adjustSpawnLocation(ServerLevel level, BlockPos pos) {
+	@Override public BlockPos adjustSpawnLocation(ServerLevel level, BlockPos pos) {
 		BlockPos.MutableBlockPos mut = pos.mutable();
 		while(level.getBlockState(mut).is(Blocks.POWDER_SNOW)) mut.move(Direction.UP);
 		return mut;
 	}
-
-	@Override
-	public boolean checkSpawnObstruction(LevelReader level) {
+	@Override public boolean checkSpawnObstruction(LevelReader level) {
 		return level.isUnobstructed(this, Shapes.create(getBoundingBox().deflate(0.2)));
 	}
-
-	@Override
-	protected void registerGoals() {
+	@Override protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
 		goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.25, true));
 		goalSelector.addGoal(1, new PanicGoal(this, 2D) {@Override protected boolean shouldPanic() {return mob.getLastHurtByMob() != null && mob.isBaby() || mob.isOnFire();}});
@@ -80,16 +72,15 @@ public class EntityMamoth extends Animal implements NeutralMob {
 		targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, EntitySabear.class, 10, true, true, null));
 		targetSelector.addGoal(5, new ResetUniversalAngerTargetGoal<>(this, false));
 	}
-	@Override
-	public void tick() {
+	@Override public void tick() {
 		super.tick();
 		if(level() instanceof ServerLevel level) {
 			updatePersistentAnger(level, true);
 			if(isBaby()) {
 				if(getLastHurtByMob() != null || wantsToFly) {
 					if(onGround()) {
-						setDeltaMovement(getDeltaMovement().multiply(1.1, 1D, 1.1));
-						if(Math.pow(getDeltaMovement().x, 2) + Math.pow(getDeltaMovement().z, 2) > 8D) setDeltaMovement(getDeltaMovement().add(0D, .5, 0D));
+						setDeltaMovement(getDeltaMovement().multiply(1.1, 1, 1.1));
+						if(Math.pow(getDeltaMovement().x, 2) + Math.pow(getDeltaMovement().z, 2) > 8) setDeltaMovement(getDeltaMovement().add(0, .5, 0));
 					} else if(!isInWater()) {
 						if(!isNoGravity()) setNoGravity(true);
 						if(getNavigation().isInProgress()) getNavigation().stop();
@@ -99,15 +90,14 @@ public class EntityMamoth extends Animal implements NeutralMob {
 				            BlockPos pos = new BlockPos((int) futurePos.x, (int) futurePos.y, (int) futurePos.z);
 				            BlockState state = level().getBlockState(pos);
 				            blockedPath = state.is(Blocks.LAVA) || !state.getCollisionShape(level(), pos).equals(Shapes.empty());
-				        }
-				        if(pathfindPos == null || blockedPath) pathfindPos = new Vec3(getX() + ((random.nextFloat() - .5F) * 14F), getY() + ((random.nextFloat() - .6F) * 14F), getZ() + ((random.nextFloat() - .5F) * 14F));
+				        } if(pathfindPos == null || blockedPath) pathfindPos = new Vec3(getX() + ((random.nextFloat() - .5F) * 14), getY() + ((random.nextFloat() - .6F) * 14), getZ() + ((random.nextFloat() - .5F) * 14));
 				        double speed = getAttributeValue(Attributes.FLYING_SPEED);
-				        setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64D * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64D * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64D * speed);
+				        setDeltaMovement(getDeltaMovement().x + (pathfindPos.x - getX()) / 64 * speed, getDeltaMovement().y + (pathfindPos.y- getY()) / 64 * speed, getDeltaMovement().z + (pathfindPos.z - getZ()) / 64 * speed);
 				        double distanceX = pathfindPos.x - getX(), distanceY = pathfindPos.y- getY(), distanceZ = pathfindPos.z - getZ();
-				        yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180D / Math.PI) - 90F, 90F);
-				        xRotO = Utils.rotlerp(getXRot(), (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180D / Math.PI), 20F);
+				        yHeadRot = Utils.rotlerp(getYRot(), (float) (Mth.atan2(distanceZ, distanceX) * 180 / Math.PI) - 90, 90);
+				        xRotO = Utils.rotlerp(getXRot(), (float) -(Mth.atan2(distanceY, Math.sqrt(distanceX * distanceX + distanceZ * distanceZ)) * 180 / Math.PI), 20);
 				        if(Math.sqrt(distanceToSqr(pathfindPos)) < 2D) pathfindPos = null;
-				        fallDistance = 0F;
+				        fallDistance = 0;
 					}
 				} else {
 					if(isNoGravity()) setNoGravity(false);
@@ -115,16 +105,14 @@ public class EntityMamoth extends Animal implements NeutralMob {
 						setDeltaMovement(getDeltaMovement().multiply(1D, .6, 1D));
 						fallDistance = 0F;
 					}
-				}
-				if(random.nextInt(100) == 0) {
+				} if(random.nextInt(100) == 0) {
 					wantsToFly = !wantsToFly;
 					setLastHurtByMob(null);
 				}
 			} else if(isNoGravity()) setNoGravity(false);
 		}
 	}
-	@Override
-	public boolean doHurtTarget(Entity entity) {
+	@Override public boolean doHurtTarget(Entity entity) {
 		DamageSource source = damageSources().mobAttack(this);
 		boolean hurt = entity.hurt(source, (int)getAttributeValue(Attributes.ATTACK_DAMAGE));
 		if(hurt && entity.level() instanceof ServerLevel level) EnchantmentHelper.doPostAttackEffects(level, entity, source);
@@ -135,18 +123,10 @@ public class EntityMamoth extends Animal implements NeutralMob {
 		if(data == null) data = new AgeableMob.AgeableMobGroupData(1);
 		return super.finalizeSpawn(level, instance, type, data);
 	}
-	@Override
-	public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mob) {
+	@Override public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mob) {
 		return EntityRegistry.MAMOTH.get().create(level);
 	}
-	@Override
-	public float getScale() {
-		return isBaby() ? .3F : 1F;
-	}
-	@Override
-	public boolean isFood(ItemStack stack) {
-		return FOOD.test(stack);
-	}
+	@Override public boolean isFood(ItemStack stack) {return FOOD.test(stack);}
 	@Override public int getRemainingPersistentAngerTime() {return remainingPersistentAngerTime;}
 	@Override public void setRemainingPersistentAngerTime(int i) {remainingPersistentAngerTime = i;}
 	@Override public UUID getPersistentAngerTarget() {return persistentAngerTarget;}
@@ -154,16 +134,15 @@ public class EntityMamoth extends Animal implements NeutralMob {
 	@Override public void startPersistentAngerTimer() {
 		setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(random));
 	}
-	@Override
-	public void readAdditionalSaveData(CompoundTag tag) {
+	@Override public void readAdditionalSaveData(CompoundTag tag) {
 		super.readAdditionalSaveData(tag);
 		readPersistentAngerSaveData(level(), tag);
 		if(tag.contains("wants_to_fly")) wantsToFly = tag.getBoolean("wants_to_fly");
 	}
-	@Override
-	public void addAdditionalSaveData(CompoundTag tag) {
+	@Override public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
 		addPersistentAngerSaveData(tag);
 		if(isBaby()) tag.putBoolean("wants_to_fly", wantsToFly);
 	}
+	//TODO: to add sounds
 }

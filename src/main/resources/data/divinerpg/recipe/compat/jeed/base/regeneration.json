@@ -4,6 +4,9 @@
   "providers": [
     {
       "item": "divinerpg:serenade_of_infusion"
+    },
+    {
+      "item": "divinerpg:wildwood_helmet"
     }
   ],
   "neoforge:conditions": [
