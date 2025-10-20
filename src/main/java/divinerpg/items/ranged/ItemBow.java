@@ -38,7 +38,7 @@ public class ItemBow extends BowItem {
     public final Supplier<Item> infinityArrow;
     public final float speedScale;
     public ItemBow(Properties properties, int uses, int useDuration, float speedScale, Supplier<Item> infinityArrow, Integer nameColor) {
-        super((uses == 0 ? properties.stacksTo(1).component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties.durability(uses)));
+        super(uses == 0 ? properties.stacksTo(1).component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties.durability(uses));
         this.useDuration = useDuration;
         this.nameColor = nameColor;
         this.infinityArrow = infinityArrow;

@@ -29,9 +29,7 @@ public class ItemMinersAmulet extends ItemMod {
     }
     @OnlyIn(CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
-        super.appendHoverText(stack, context, tooltip, flagIn);
         tooltip.add(Component.translatable("item.modifiers.hand").withStyle(ChatFormatting.GRAY));
-        PotionContents potioncontents = stack.get(POTION_CONTENTS);
-        if(potioncontents != null) potioncontents.addPotionTooltip(tooltip::add, 1, context.tickRate());
+        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

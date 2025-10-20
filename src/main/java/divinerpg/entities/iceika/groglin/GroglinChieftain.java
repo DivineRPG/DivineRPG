@@ -14,7 +14,7 @@ import static net.minecraft.world.InteractionHand.MAIN_HAND;
 public class GroglinChieftain extends Groglin {
 	public GroglinChieftain(EntityType<? extends GroglinChieftain> type, Level worldIn) {
 		super(type, worldIn);
-		if(!worldIn.isClientSide()) setData(IMPORTANT.attachment, true);
+		if(!worldIn.isClientSide) setData(IMPORTANT.attachment, true);
 	}
 	@Override protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {setItemInHand(MAIN_HAND, new ItemStack(glacier_sword.get()));}
 	@Override protected void updateTrades() {addOffersFromItemListings(getOffers(), GROGLIN_CHIEFTAIN.get(level(), getRandom()), 3);}

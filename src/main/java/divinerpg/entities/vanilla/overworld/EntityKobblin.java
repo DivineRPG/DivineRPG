@@ -83,6 +83,7 @@ public class EntityKobblin extends EntityDivineMonster implements RangedAttackMo
         }
     }
     @Override public boolean ignoreExplosion(Explosion explosion) {return isEmerging();}
+    @SuppressWarnings("deprecation")
     @Override public @Nullable SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
         if(spawnType == MobSpawnType.TRIGGERED && level.getBlockState(getOnPos()).is(BlockTags.DIRT)) setPose(Pose.EMERGING);
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);

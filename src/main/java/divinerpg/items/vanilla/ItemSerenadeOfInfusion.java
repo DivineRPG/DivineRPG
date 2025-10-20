@@ -1,28 +1,26 @@
 package divinerpg.items.vanilla;
 
 import divinerpg.items.base.ItemMod;
-import divinerpg.util.LocalizeUtils;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
-import net.neoforged.api.distmarker.*;
-import java.util.List;
 
 import static divinerpg.registries.SoundRegistry.HEAL;
+import static net.minecraft.core.component.DataComponents.POTION_CONTENTS;
 import static net.minecraft.core.particles.ParticleTypes.HEART;
 import static net.minecraft.stats.Stats.ITEM_USED;
 import static net.minecraft.world.effect.MobEffects.REGENERATION;
 
 public class ItemSerenadeOfInfusion extends ItemMod {
-	int effectSec;
+	protected int effectSec;
     public ItemSerenadeOfInfusion() {
-        super(new Properties().durability(15));
+        super(new Properties().durability(15).component(POTION_CONTENTS, PotionContents.EMPTY.withEffectAdded(new MobEffectInstance(REGENERATION, 4 * 20, 2))));
         cooldown = 20;
         effectSec = 4;
     }
@@ -30,7 +28,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
         if(player.getHealth() < player.getMaxHealth()) {
             ItemStack stack = player.getItemInHand(hand);
             if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
-            player.addEffect(new MobEffectInstance(REGENERATION, 80, 2, true, false));
+            player.addEffect(new MobEffectInstance(REGENERATION, effectSec * 20, 2, true, false));
             player.playSound(HEAL.get(), 1, 1);
             player.awardStat(ITEM_USED.get(this));
             player.getCooldowns().addCooldown(this, cooldown);
@@ -38,7 +36,7 @@ public class ItemSerenadeOfInfusion extends ItemMod {
         } return super.use(level, player, hand);
     }
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
-        if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
+        if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && !(entity instanceof NeutralMob mob && mob.isAngry()) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
             if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             entity.addEffect(new MobEffectInstance(REGENERATION, effectSec * 20, 2, true, false));
             entity.playSound(HEAL.get(), 1, 1);
@@ -51,10 +49,5 @@ public class ItemSerenadeOfInfusion extends ItemMod {
             player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResult.SUCCESS;
         } return super.interactLivingEntity(stack, player, entity, hand);
-    }
-    @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.healthRegen(effectSec));
-        super.appendHoverText(stack, context, tooltip, flagIn);
     }
 }

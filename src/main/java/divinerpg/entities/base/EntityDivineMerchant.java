@@ -32,11 +32,12 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
     String profession;
     public EntityDivineMerchant(EntityType<? extends EntityDivineMerchant> type, Level level, String profession) {
         super(type, level);
-        ((GroundPathNavigation) getNavigation()).setCanOpenDoors(true);
+        ((GroundPathNavigation)getNavigation()).setCanOpenDoors(true);
         this.profession = profession;
     }
     @Override protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
+        goalSelector.addGoal(0, new OpenDoorGoal(this, true));
         goalSelector.addGoal(1, new TradeWithPlayerGoal(this));
         goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Zombie.class, 8, .5, .5));
         goalSelector.addGoal(1, new AvoidEntityGoal<>(this, AbstractIllager.class, 15, .5, .5));

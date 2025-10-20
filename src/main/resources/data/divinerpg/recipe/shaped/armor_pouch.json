@@ -1,26 +1,26 @@
 {
-  "result": {
-    "id": "divinerpg:armor_pouch"
-  },
-  "pattern": [
-    " s ",
-    "lal",
-    "dld"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "equipment",
+  "pattern": [
+    " S ",
+    "LAL",
+    "DLD"
+  ],
   "key": {
-    "s": {
-      "item": "minecraft:string"
+    "S": {
+      "tag": "c:strings"
     },
-    "l": {
+    "L": {
       "tag": "c:leathers"
     },
-    "a": {
-      "item": "minecraft:armor_stand"
+    "A": {
+      "item": "armor_stand"
     },
-    "d": {
+    "D": {
       "tag": "divinerpg:wood_types/divine"
     }
+  },
+  "result": {
+    "id": "divinerpg:armor_pouch"
   }
 }

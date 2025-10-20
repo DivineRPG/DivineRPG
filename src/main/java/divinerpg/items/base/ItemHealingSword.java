@@ -1,21 +1,24 @@
 package divinerpg.items.base;
 
-import java.util.List;
-
-import divinerpg.registries.*;
 import divinerpg.util.LocalizeUtils;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.neoforged.api.distmarker.*;
+import net.neoforged.api.distmarker.OnlyIn;
+
+import java.util.List;
+
+import static divinerpg.registries.ItemRegistry.frossivence;
+import static divinerpg.registries.SoundRegistry.HEAL;
+import static net.minecraft.core.particles.ParticleTypes.HEART;
+import static net.minecraft.sounds.SoundSource.PLAYERS;
+import static net.minecraft.stats.Stats.ITEM_USED;
+import static net.neoforged.api.distmarker.Dist.CLIENT;
 
 public class ItemHealingSword extends ItemModSword {
 	public float healAmount;
@@ -27,7 +30,7 @@ public class ItemHealingSword extends ItemModSword {
     @Override public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if(attacker.getHealth() < attacker.getMaxHealth()) {
             attacker.heal(healAmount);
-            attacker.level().playSound(null, attacker.blockPosition(), SoundRegistry.HEAL.get(), SoundSource.PLAYERS, 1, 1);
+            attacker.level().playSound(null, attacker.blockPosition(), HEAL.get(), PLAYERS, 1, 1);
         } return super.hurtEnemy(stack, target, attacker);
     }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
@@ -35,30 +38,32 @@ public class ItemHealingSword extends ItemModSword {
             ItemStack stack = player.getItemInHand(hand);
             if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             player.heal(healAmount);
-            if(player.isOnFire() && this == ItemRegistry.frossivence.get()) player.clearFire();
-            player.playSound(SoundRegistry.HEAL.get(), 1, 1);
-            player.awardStat(Stats.ITEM_USED.get(this));
+            if(player.isOnFire() && this == frossivence.get()) player.clearFire();
+            player.playSound(HEAL.get(), 1, 1);
+            player.awardStat(ITEM_USED.get(this));
             player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResultHolder.success(stack);
         } return super.use(level, player, hand);
     }
     @Override public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
-        if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
+        if(!(entity instanceof ServerPlayer) && !(entity instanceof Monster) && !(entity instanceof NeutralMob mob && mob.isAngry()) && entity.getHealth() < entity.getMaxHealth() && !player.getCooldowns().isOnCooldown(this)) {
             if(!player.isCreative()) stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             entity.heal(healAmount);
-            if(entity.isOnFire() && this == ItemRegistry.frossivence.get()) entity.extinguishFire();
-            entity.playSound(SoundRegistry.HEAL.get(), 1, 1);
+            if(entity.isOnFire() && this == frossivence.get()) entity.extinguishFire();
+            entity.playSound(HEAL.get(), 1, 1);
             for(int i = 0; i < 7; ++i) {
                 double d0 = entity.getRandom().nextGaussian() * .02;
                 double d1 = entity.getRandom().nextGaussian() * .02;
                 double d2 = entity.getRandom().nextGaussian() * .02;
-                entity.level().addParticle(ParticleTypes.HEART, entity.getRandomX(1), entity.getRandomY() + .5, entity.getRandomZ(1), d0, d1, d2);
-            } player.awardStat(Stats.ITEM_USED.get(this));
+                entity.level().addParticle(HEART, entity.getRandomX(1), entity.getRandomY() + .5, entity.getRandomZ(1), d0, d1, d2);
+            } player.awardStat(ITEM_USED.get(this));
             player.getCooldowns().addCooldown(this, cooldown);
             return InteractionResult.SUCCESS;
         } return super.interactLivingEntity(stack, player, entity, hand);
     }
-    @OnlyIn(Dist.CLIENT)
+    //TODO: to use the old sword blocking animation after switching to newer version
+//    @Override public UseAnim getUseAnimation(ItemStack stack) {return UseAnim.BLOCK;}
+    @OnlyIn(CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.healthHeal(healAmount / 2));
     	super.appendHoverText(stack, context, tooltip, flagIn);
