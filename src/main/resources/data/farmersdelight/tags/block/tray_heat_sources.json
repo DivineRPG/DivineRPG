@@ -1,5 +1,8 @@
 {
   "values": [
     "divinerpg:smoldering_tar"
+  ],
+  "remove": [
+    "divinerpg:icy_fire"
   ]
 }

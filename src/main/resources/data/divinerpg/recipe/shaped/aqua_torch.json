@@ -1,19 +1,19 @@
 {
+  "type": "crafting_shaped",
+  "pattern": [
+    "X",
+    "T"
+  ],
+  "key": {
+    "X": {
+      "tag": "divinerpg:rods/aquatic_blaze"
+    },
+    "T": {
+      "item": "prismarine_shard"
+    }
+  },
   "result": {
     "id": "divinerpg:aqua_torch",
     "count": 4
-  },
-  "pattern": [
-    "x",
-    "y"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "x": {
-      "item": "divinerpg:aquatic_blaze_rod"
-    },
-    "y": {
-      "item": "minecraft:prismarine_shard"
-    }
   }
 }

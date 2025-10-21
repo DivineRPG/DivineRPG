@@ -5,6 +5,8 @@ import divinerpg.compat.farmersdelight.DelightLoader;
 import divinerpg.enums.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
+import divinerpg.items.base.block.DivineSign;
+import divinerpg.items.base.block.DivineSignHanging;
 import divinerpg.items.iceika.*;
 import divinerpg.items.ranged.*;
 import divinerpg.items.ranged.shooter.*;
@@ -742,6 +744,30 @@ public class ItemRegistry {
 
         //Blocks
         nightmare_bed = ITEMS.register("nightmare_bed", ItemNightmareBed::new),
+        //Signs
+        divine_sign = ITEMS.register("divine_sign", () -> new DivineSign(BlockRegistry.divineSign.get(), BlockRegistry.divineWallSign.get())),
+        divine_hanging_sign = ITEMS.register("divine_hanging_sign", () -> new DivineSignHanging(BlockRegistry.divineHangingSign.get(), BlockRegistry.divineHangingWallSign.get())),
+        shiverspine_sign = ITEMS.register("shiverspine_sign", () -> new DivineSign(BlockRegistry.shiverspineSign.get(), BlockRegistry.shiverspineWallSign.get())),
+        shiverspine_hanging_sign = ITEMS.register("shiverspine_hanging_sign", () -> new DivineSignHanging(BlockRegistry.shiverspineHangingSign.get(), BlockRegistry.shiverspineHangingWallSign.get())),
+        auroraoak_sign = ITEMS.register("auroraoak_sign", () -> new DivineSign(BlockRegistry.auroraoakSign.get(), BlockRegistry.auroraoakWallSign.get())),
+        auroraoak_hanging_sign = ITEMS.register("auroraoak_hanging_sign", () -> new DivineSignHanging(BlockRegistry.auroraoakHangingSign.get(), BlockRegistry.auroraoakHangingWallSign.get())),
+        cozybark_sign = ITEMS.register("cozybark_sign", () -> new DivineSign(BlockRegistry.cozybarkSign.get(), BlockRegistry.cozybarkWallSign.get())),
+        cozybark_hanging_sign = ITEMS.register("cozybark_hanging_sign", () -> new DivineSignHanging(BlockRegistry.cozybarkHangingSign.get(), BlockRegistry.cozybarkHangingWallSign.get())),
+        streamleaf_sign = ITEMS.register("streamleaf_sign", () -> new DivineSign(BlockRegistry.streamleafSign.get(), BlockRegistry.streamleafWallSign.get())),
+        streamleaf_hanging_sign = ITEMS.register("streamleaf_hanging_sign", () -> new DivineSignHanging(BlockRegistry.streamleafHangingSign.get(), BlockRegistry.streamleafHangingWallSign.get())),
+        eucalyptus_sign = ITEMS.register("eucalyptus_sign", () -> new DivineSign(BlockRegistry.eucalyptusSign.get(), BlockRegistry.eucalyptusWallSign.get())),
+        eucalyptus_hanging_sign = ITEMS.register("eucalyptus_hanging_sign", () -> new DivineSignHanging(BlockRegistry.eucalyptusHangingSign.get(), BlockRegistry.eucalyptusHangingWallSign.get())),
+        eden_sign = ITEMS.register("eden_sign", () -> new DivineSign(BlockRegistry.edenSign.get(), BlockRegistry.edenWallSign.get())),
+        eden_hanging_sign = ITEMS.register("eden_hanging_sign", () -> new DivineSignHanging(BlockRegistry.edenHangingSign.get(), BlockRegistry.edenHangingWallSign.get())),
+        wildwood_sign = ITEMS.register("wildwood_sign", () -> new DivineSign(BlockRegistry.wildwoodSign.get(), BlockRegistry.wildwoodWallSign.get())),
+        wildwood_hanging_sign = ITEMS.register("wildwood_hanging_sign", () -> new DivineSignHanging(BlockRegistry.wildwoodHangingSign.get(), BlockRegistry.wildwoodHangingWallSign.get())),
+        apalachia_sign = ITEMS.register("apalachia_sign", () -> new DivineSign(BlockRegistry.apalachiaSign.get(), BlockRegistry.apalachiaWallSign.get())),
+        apalachia_hanging_sign = ITEMS.register("apalachia_hanging_sign", () -> new DivineSignHanging(BlockRegistry.apalachiaHangingSign.get(), BlockRegistry.apalachiaHangingWallSign.get())),
+        skythern_sign = ITEMS.register("skythern_sign", () -> new DivineSign(BlockRegistry.skythernSign.get(), BlockRegistry.skythernWallSign.get())),
+        skythern_hanging_sign = ITEMS.register("skythern_hanging_sign", () -> new DivineSignHanging(BlockRegistry.skythernHangingSign.get(), BlockRegistry.skythernHangingWallSign.get())),
+        mortum_sign = ITEMS.register("mortum_sign", () -> new DivineSign(BlockRegistry.mortumSign.get(), BlockRegistry.mortumWallSign.get())),
+        mortum_hanging_sign = ITEMS.register("mortum_hanging_sign", () -> new DivineSignHanging(BlockRegistry.mortumHangingSign.get(), BlockRegistry.mortumHangingWallSign.get())),
+        //Torches
         aqua_torch = ITEMS.register("aqua_torch", AquaTorch::new),
         skeleton_torch = ITEMS.register("skeleton_torch", () -> new StandingAndWallBlockItem(BlockRegistry.skeletonTorch.get(), BlockRegistry.skeletonWallTorch.get(), new Properties(), Direction.DOWN)),
         arcanium_torch = ITEMS.register("arcanium_torch", () -> new StandingAndWallBlockItem(BlockRegistry.arcaniumTorch.get(), BlockRegistry.arcaniumWallTorch.get(), new Properties(), Direction.DOWN)),

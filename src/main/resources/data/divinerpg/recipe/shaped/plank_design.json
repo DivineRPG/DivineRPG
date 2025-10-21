@@ -1,22 +1,22 @@
 {
-  "result": {
-    "id": "divinerpg:plank_design",
-    "count": 7
-  },
-  "pattern": [
-    "xyx",
-    "yxy",
-    "xyx"
-  ],
   "type": "crafting_shaped",
   "category": "building",
   "group": "divinerpg_planks",
+  "pattern": [
+    "XYX",
+    "YXY",
+    "XYX"
+  ],
   "key": {
-    "x": {
-      "tag": "planks"
+    "X": {
+      "tag": "divinerpg:no_itself/planks_no_plank_design"
     },
-    "y": {
-      "tag": "wooden_slabs"
+    "Y": {
+      "tag": "divinerpg:no_itself/wooden_slabs_no_plank_design_slab"
     }
+  },
+  "result": {
+    "id": "divinerpg:plank_design",
+    "count": 7
   }
 }

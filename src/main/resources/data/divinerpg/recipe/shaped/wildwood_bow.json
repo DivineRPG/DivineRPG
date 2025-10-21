@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:wildwood_bow"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     " IX",
     "I X",
     " IX"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "minecraft:string"
+      "tag": "c:strings"
     },
     "I": {
-      "item": "divinerpg:wildwood_chunk"
+      "tag": "divinerpg:chunks/wildwood"
     }
+  },
+  "result": {
+    "id": "divinerpg:wildwood_bow"
   }
 }

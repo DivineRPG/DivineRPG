@@ -13,9 +13,7 @@
     "divinerpg:kobblin_burrow",
     "divinerpg:gelidite",
     "divinerpg:frozen_gravel",
-    "divinerpg:arcanite_sand",
-    "divinerpg:arcanic_sand",
-    "divinerpg:arcanium_rich_sand",
+    "#divinerpg:sands",
     "divinerpg:soul_sludge_breakable"
   ]
 }

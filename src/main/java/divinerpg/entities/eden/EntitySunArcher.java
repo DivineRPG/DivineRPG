@@ -36,6 +36,7 @@ public class EntitySunArcher extends EntityDivineMonster implements RangedAttack
         populateDefaultEquipmentEnchantments(level, random, difficulty);
         return data;
     }
+    //TODO: To make play break sound when mask breaks due to low hp (check model to see what I mean)
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if(isAlive() && getTarget() != null) {
             ItemStack weapon = getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, (item) -> item instanceof BowItem));

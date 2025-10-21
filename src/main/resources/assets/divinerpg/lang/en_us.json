@@ -123,6 +123,8 @@
   "block.divinerpg.divine_trapdoor": "Divine Trapdoor",
   "block.divinerpg.divine_pressure_plate": "Divine Pressure Plate",
   "block.divinerpg.divine_button": "Divine Button",
+  "block.divinerpg.divine_sign": "Divine Sign",
+  "block.divinerpg.divine_hanging_sign": "Divine Hanging Sign",
 
   "block.divinerpg.tomato_plant": "Tomato Plant",
   "block.divinerpg.white_mushroom_plant": "White Mushroom",
@@ -340,6 +342,8 @@
   "block.divinerpg.shiverspine_trapdoor": "Shiverspine Trapdoor",
   "block.divinerpg.shiverspine_pressure_plate": "Shiverspine Pressure Plate",
   "block.divinerpg.shiverspine_button": "Shiverspine Button",
+  "block.divinerpg.shiverspine_sign": "Shiverspine Sign",
+  "block.divinerpg.shiverspine_hanging_sign": "Shiverspine Hanging Sign",
 
   "block.divinerpg.auroraoak_sapling": "Auroraoak Sapling",
   "block.divinerpg.auroraoak_sapling_pot": "Potted Auroraoak Sapling",
@@ -357,6 +361,8 @@
   "block.divinerpg.auroraoak_trapdoor": "Auroraoak Trapdoor",
   "block.divinerpg.auroraoak_pressure_plate": "Auroraoak Pressure Plate",
   "block.divinerpg.auroraoak_button": "Auroraoak Button",
+  "block.divinerpg.auroraoak_sign": "Auroraoak Sign",
+  "block.divinerpg.auroraoak_hanging_sign": "Auroraoak Hanging Sign",
 
   "block.divinerpg.cozybark_sapling": "Cozybark Sapling",
   "block.divinerpg.cozybark_sapling_pot": "Potted Cozybark Sapling",
@@ -374,6 +380,8 @@
   "block.divinerpg.cozybark_trapdoor": "Cozybark Trapdoor",
   "block.divinerpg.cozybark_pressure_plate": "Cozybark Pressure Plate",
   "block.divinerpg.cozybark_button": "Cozybark Button",
+  "block.divinerpg.cozybark_sign": "Cozybark Sign",
+  "block.divinerpg.cozybark_hanging_sign": "Cozybark Hanging Sign",
 
   "block.divinerpg.streamleaf_sapling": "Streamleaf Sapling",
   "block.divinerpg.streamleaf_sapling_pot": "Potted Streamleaf Sapling",
@@ -391,6 +399,8 @@
   "block.divinerpg.streamleaf_trapdoor": "Streamleaf Trapdoor",
   "block.divinerpg.streamleaf_pressure_plate": "Streamleaf Pressure Plate",
   "block.divinerpg.streamleaf_button": "Streamleaf Button",
+  "block.divinerpg.streamleaf_sign": "Streamleaf Sign",
+  "block.divinerpg.streamleaf_hanging_sign": "Streamleaf Hanging Sign",
 
   "block.divinerpg.arcanite_dirt": "Arcanite Dirt",
   "block.divinerpg.arcanite_grass": "Arcanite Grass",
@@ -444,6 +454,8 @@
   "block.divinerpg.eucalyptus_trapdoor": "Eucalyptus Trapdoor",
   "block.divinerpg.eucalyptus_pressure_plate": "Eucalyptus Pressure Plate",
   "block.divinerpg.eucalyptus_button": "Eucalyptus Button",
+  "block.divinerpg.eucalyptus_sign": "Eucalyptus Sign",
+  "block.divinerpg.eucalyptus_hanging_sign": "Eucalyptus Hanging Sign",
 
   "block.divinerpg.raw_arcanium": "Raw Arcanium",
   "block.divinerpg.arcanium_block": "Block of Arcanium",
@@ -610,6 +622,8 @@
   "block.divinerpg.eden_trapdoor": "Eden Trapdoor",
   "block.divinerpg.eden_pressure_plate": "Eden Pressure Plate",
   "block.divinerpg.eden_button": "Eden Button",
+  "block.divinerpg.eden_sign": "Eden Sign",
+  "block.divinerpg.eden_hanging_sign": "Eden Hanging Sign",
   "block.divinerpg.eden_torch": "Eden Torch",
   "block.divinerpg.sunstorm_spawner": "Sunstorm Spawner",
   "block.divinerpg.sunstorm_statue": "Sunstorm Statue",
@@ -644,6 +658,8 @@
   "block.divinerpg.wildwood_trapdoor": "Wildwood Trapdoor",
   "block.divinerpg.wildwood_pressure_plate": "Wildwood Pressure Plate",
   "block.divinerpg.wildwood_button": "Wildwood Button",
+  "block.divinerpg.wildwood_sign": "Wildwood Sign",
+  "block.divinerpg.wildwood_hanging_sign": "Wildwood Hanging Sign",
   "block.divinerpg.termasect_spawner": "Termasect Spawner",
   "block.divinerpg.termasect_statue": "Termasect Statue",
 
@@ -676,6 +692,8 @@
   "block.divinerpg.apalachia_trapdoor": "Apalachia Trapdoor",
   "block.divinerpg.apalachia_pressure_plate": "Apalachia Pressure Plate",
   "block.divinerpg.apalachia_button": "Apalachia Button",
+  "block.divinerpg.apalachia_sign": "Apalachia Sign",
+  "block.divinerpg.apalachia_hanging_sign": "Apalachia Hanging Sign",
   "block.divinerpg.eternal_archer_spawner": "Eternal Archer Spawner",
   "block.divinerpg.eternal_archer_statue": "Eternal Archer Statue",
 
@@ -707,6 +725,8 @@
   "block.divinerpg.skythern_trapdoor": "Skythern Trapdoor",
   "block.divinerpg.skythern_pressure_plate": "Skythern Pressure Plate",
   "block.divinerpg.skythern_button": "Skythern Button",
+  "block.divinerpg.skythern_sign": "Skythern Sign",
+  "block.divinerpg.skythern_hanging_sign": "Skythern Hanging Sign",
   "block.divinerpg.experienced_cori_spawner": "Experienced Cori Spawner",
   "block.divinerpg.experienced_cori_statue": "Experienced Cori Statue",
 
@@ -737,6 +757,8 @@
   "block.divinerpg.mortum_trapdoor": "Mortum Trapdoor",
   "block.divinerpg.mortum_pressure_plate": "Mortum Pressure Plate",
   "block.divinerpg.mortum_button": "Mortum Button",
+  "block.divinerpg.mortum_sign": "Mortum Sign",
+  "block.divinerpg.mortum_hanging_sign": "Mortum Hanging Sign",
 
   "block.divinerpg.vamacheron_statue": "Vamacheron Statue",
   "block.divinerpg.karot_statue": "Karot Statue",

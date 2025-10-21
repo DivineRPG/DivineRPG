@@ -20,7 +20,6 @@ import org.apache.logging.log4j.*;
 public class DivineRPG {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "divinerpg";
-
     public DivineRPG(IEventBus bus, ModContainer container) {
         BlockRegistry.BLOCKS.register(bus);
         DataComponentRegistry.DATA_COMPONENTS.register(bus);
@@ -83,6 +82,5 @@ public class DivineRPG {
             ItemPropertyRegistry.registerProperties();
         });
     }
-    private void post(final FMLLoadCompleteEvent event){
-    }
+    private void post(final FMLLoadCompleteEvent event){}
 }

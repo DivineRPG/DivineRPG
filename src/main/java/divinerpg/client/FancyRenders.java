@@ -7,14 +7,14 @@ import divinerpg.registries.*;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.world.level.GrassColor;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
 
 import static net.minecraft.client.resources.PlayerSkin.Model.*;
+import static net.neoforged.api.distmarker.Dist.CLIENT;
 
-@EventBusSubscriber(value = Dist.CLIENT, modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(value = CLIENT, modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class FancyRenders {
     @SubscribeEvent
     public static void onAddLayer(EntityRenderersEvent.AddLayers event) {
@@ -22,22 +22,23 @@ public class FancyRenders {
         render.addLayer(new PlayerHatRender<>(render, event.getEntityModels()));
         render = event.getSkin(SLIM);
         render.addLayer(new PlayerHatRender<>(render, event.getEntityModels()));
-
     }
     @SubscribeEvent
     public static void registerRenders(EntityRenderersEvent.RegisterRenderers event){
-        event.registerBlockEntityRenderer(BlockEntityRegistry.ALTAR_OF_CORRUPTION.get(), RenderAltarOfCorruption::new);
-        event.registerBlockEntityRenderer(BlockEntityRegistry.NIGHTMARE_BED.get(), RenderNightmareBed::new);
         event.registerBlockEntityRenderer(BlockEntityRegistry.STATUE.get(), RenderStatue::new);
-        event.registerBlockEntityRenderer(BlockEntityRegistry.BONE_CHEST.get(), RenderBoneChest::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.ALTAR_OF_CORRUPTION.get(), RenderAltarOfCorruption::new);
         event.registerBlockEntityRenderer(BlockEntityRegistry.DEMON_FURNACE.get(), RenderDemonFurnace::new);
         event.registerBlockEntityRenderer(BlockEntityRegistry.ARCANIUM_EXTRACTOR.get(), RenderArcaniumExtractor::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.NIGHTMARE_BED.get(), RenderNightmareBed::new);
+        //Chests
+        event.registerBlockEntityRenderer(BlockEntityRegistry.BONE_CHEST.get(), RenderBoneChest::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.PRESENT_BOX.get(), RenderPresentBox::new);
+        event.registerBlockEntityRenderer(BlockEntityRegistry.FROSTED_CHEST.get(), RenderFrostedChest::new);
         event.registerBlockEntityRenderer(BlockEntityRegistry.EDEN_CHEST.get(), RenderEdenChest::new);
+        //Altars
         event.registerBlockEntityRenderer(BlockEntityRegistry.DRAMIX_ALTAR.get(), RenderDramixAltar::new);
         event.registerBlockEntityRenderer(BlockEntityRegistry.PARASECTA_ALTAR.get(), RenderParasectaAltar::new);
         event.registerBlockEntityRenderer(BlockEntityRegistry.AYERACO_BEAM.get(), RenderAyeracoBeam::new);
-        event.registerBlockEntityRenderer(BlockEntityRegistry.PRESENT_BOX.get(), RenderPresentBox::new);
-        event.registerBlockEntityRenderer(BlockEntityRegistry.FROSTED_CHEST.get(), RenderFrostedChest::new);
     }
     @SubscribeEvent
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
