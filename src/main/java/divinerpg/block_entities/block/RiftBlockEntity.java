@@ -43,7 +43,7 @@ public class RiftBlockEntity extends BlockEntity {
     }
     public static void serverTick(Level level, BlockPos pos, BlockState state, RiftBlockEntity entity) {
         entity.lifeTime -= (entity.variant & 0b10000) | 1;
-        int lightLevel = (int)((15F * entity.lifeTime) / entity.maxLifeTime);
+        int lightLevel = Math.clamp((int)((15F * entity.lifeTime) / entity.maxLifeTime), 0, 15);
         if(state.getValue(BlockStateProperties.LEVEL) != lightLevel) level.setBlock(pos, state.setValue(BlockStateProperties.LEVEL, lightLevel), Block.UPDATE_CLIENTS);
         if(entity.lifeTime < 0) level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
     }
