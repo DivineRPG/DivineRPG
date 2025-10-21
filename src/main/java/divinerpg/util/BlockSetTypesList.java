@@ -4,27 +4,29 @@ import net.minecraft.sounds.*;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 
+import static divinerpg.DivineRPG.MODID;
+
 public class BlockSetTypesList {
     public static final BlockSetType
-        ARCANA = arcanaBlockSetType("arcana"),
-        STEEL = steelBlockSetType("steel"),
-        DIVINE = cherryWoodSetType("divine"),
-        SHIVERSPINE = regularWoodSetType("shiverspine"),
-        AURORAOAK = cherryWoodSetType("auroraoak"),
-        COZYBARK = cherryWoodSetType("cozybark"),
-        STREAMLEAF = netherWoodSetType("streamleaf"),
-        EUCALYPTUS = regularWoodSetType("eucalyptus"),
-        EDEN = regularWoodSetType("eden"),
-        WILDWOOD = regularWoodSetType("wildwood"),
-        APALACHIA = regularWoodSetType("apalachia"),
-        SKYTHERN = netherWoodSetType("skythern"),
-        MORTUM = regularWoodSetType("mortum"),
-        FIREWOOD = regularWoodSetType("firewood"),
-        DREAMWOOD = regularWoodSetType("dreamwood"),
-        HYREWOOD = regularWoodSetType("hyrewood"),
-        MINTWOOD = netherWoodSetType("mintwood");
+        ARCANA = BlockSetType.register(arcanaBlockSetType("arcana")),
+        STEEL = BlockSetType.register(steelBlockSetType("steel")),
+        DIVINE = BlockSetType.register(cherryWoodSetType("divine")),
+        SHIVERSPINE = BlockSetType.register(regularWoodSetType("shiverspine")),
+        AURORAOAK = BlockSetType.register(cherryWoodSetType("auroraoak")),
+        COZYBARK = BlockSetType.register(cherryWoodSetType("cozybark")),
+        STREAMLEAF = BlockSetType.register(netherWoodSetType("streamleaf")),
+        EUCALYPTUS = BlockSetType.register(regularWoodSetType("eucalyptus")),
+        EDEN = BlockSetType.register(regularWoodSetType("eden")),
+        WILDWOOD = BlockSetType.register(regularWoodSetType("wildwood")),
+        APALACHIA = BlockSetType.register(regularWoodSetType("apalachia")),
+        SKYTHERN = BlockSetType.register(netherWoodSetType("skythern")),
+        MORTUM = BlockSetType.register(regularWoodSetType("mortum")),
+        FIREWOOD = BlockSetType.register(regularWoodSetType("firewood")),
+        DREAMWOOD = BlockSetType.register(regularWoodSetType("dreamwood")),
+        HYREWOOD = BlockSetType.register(regularWoodSetType("hyrewood")),
+        MINTWOOD = BlockSetType.register(netherWoodSetType("mintwood"));
     private static BlockSetType baseBlockSetType(String name, boolean canOpenByHand, boolean canOpenByWindCharge, boolean canButtonBeActivatedByArrows, BlockSetType.PressurePlateSensitivity pressurePlateSensitivity, SoundType soundType, SoundEvent doorClose, SoundEvent doorOpen, SoundEvent trapdoorClose, SoundEvent trapdoorOpen, SoundEvent pressurePlateClickOff, SoundEvent pressurePlateClickOn, SoundEvent buttonClickOff, SoundEvent buttonClickOn) {
-        return new BlockSetType(name, canOpenByHand, canOpenByWindCharge, canButtonBeActivatedByArrows, pressurePlateSensitivity, soundType, doorClose, doorOpen, trapdoorClose, trapdoorOpen, pressurePlateClickOff, pressurePlateClickOn, buttonClickOff, buttonClickOn);
+        return new BlockSetType(MODID + ":" + name, canOpenByHand, canOpenByWindCharge, canButtonBeActivatedByArrows, pressurePlateSensitivity, soundType, doorClose, doorOpen, trapdoorClose, trapdoorOpen, pressurePlateClickOff, pressurePlateClickOn, buttonClickOff, buttonClickOn);
     }
     private static BlockSetType regularWoodSetType(String name) {return new BlockSetType(name);}
     private static BlockSetType customWoodSetType(String name, SoundType soundType, SoundEvent doorClose, SoundEvent doorOpen, SoundEvent trapdoorClose, SoundEvent trapdoorOpen, SoundEvent pressurePlateClickOff, SoundEvent pressurePlateClickOn, SoundEvent buttonClickOff, SoundEvent buttonClickOn) {
