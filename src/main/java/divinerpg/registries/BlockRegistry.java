@@ -46,7 +46,8 @@ public class BlockRegistry {
     //Dirt & Dream Stone
     frozenDirt = registerBlock("frozen_dirt", () -> new BlockModDirt(ICE)),
     arcaniteDirt = registerBlock("arcanite_dirt", () -> new BlockModDirt(TERRACOTTA_BLUE)),
-    edenDirt = registerBlock("eden_dirt", () -> new BlockModDirt(TERRACOTTA_YELLOW)),
+    scorchdirt = registerBlock("scorchdirt", Scorchdirt::new),
+    rayDirt = registerBlock("ray_dirt", () -> new BlockModDirt(TERRACOTTA_YELLOW)),
     wildwoodDirt = registerBlock("wildwood_dirt", () -> new BlockModDirt(LAPIS)),
     apalachiaDirt = registerBlock("apalachia_dirt", () -> new BlockModDirt(TERRACOTTA_BLUE)),
     skythernDirt = registerBlock("skythern_dirt", () -> new BlockModDirt(COLOR_LIGHT_GRAY)),
@@ -57,7 +58,8 @@ public class BlockRegistry {
     //Grass Blocks
     frozenGrass = registerBlock("frozen_grass", () -> new BlockModGrassBlock(frozenDirt, DIAMOND)),
     arcaniteGrass = registerBlock("arcanite_grass", () -> new BlockModGrassBlock(arcaniteDirt, TERRACOTTA_LIGHT_BLUE)),
-    edenGrass = registerBlock("eden_grass", () -> new BlockModGrassBlock(edenDirt, COLOR_YELLOW)),
+    scorchgrass = registerBlock("scorchgrass", Scorchgrass::new),
+    rayGrass = registerBlock("ray_grass", () -> new BlockModGrassBlock(rayDirt, COLOR_YELLOW)),
     wildwoodGrass = registerBlock("wildwood_grass", () -> new BlockModGrassBlock(wildwoodDirt, WATER)),
     apalachiaGrass = registerBlock("apalachia_grass", () -> new BlockModGrassBlock(apalachiaDirt, COLOR_PURPLE)),
     skythernGrass = registerBlock("skythern_grass", () -> new BlockModGrassBlock(skythernDirt, WOOL, false)),

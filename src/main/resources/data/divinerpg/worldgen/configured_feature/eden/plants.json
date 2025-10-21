@@ -16,7 +16,7 @@
     "ground_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "divinerpg:eden_grass"
+        "Name": "divinerpg:scorchgrass"
       }
     },
     "vegetation_feature": {
