@@ -11,6 +11,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.*;
 import net.minecraft.world.level.levelgen.feature.*;
@@ -71,11 +72,11 @@ public class LandVines extends Feature<DensityFunctionConfig> {
         });
     }
 
-    static BlockState vine = BlockRegistry.landVine.get().defaultBlockState(),
-        northVine = Blocks.VINE.defaultBlockState().setValue(PipeBlock.SOUTH, true),
-        southVine = Blocks.VINE.defaultBlockState().setValue(PipeBlock.NORTH, true),
-        eastVine = Blocks.VINE.defaultBlockState().setValue(PipeBlock.WEST, true),
-        westVine = Blocks.VINE.defaultBlockState().setValue(PipeBlock.EAST, true);
+    static BlockState vine = BlockRegistry.landVineStem.get().defaultBlockState(),
+        northVine = BlockRegistry.landVine.get().defaultBlockState().setValue(BlockStateProperties.SOUTH, true),
+        southVine = BlockRegistry.landVine.get().defaultBlockState().setValue(BlockStateProperties.NORTH, true),
+        eastVine = BlockRegistry.landVine.get().defaultBlockState().setValue(BlockStateProperties.WEST, true),
+        westVine = BlockRegistry.landVine.get().defaultBlockState().setValue(BlockStateProperties.EAST, true);
     void setVine(WorldGenLevel level, BlockPos pos) {
         setBlock(level, pos, vine);
         growVine(level, pos.north(), northVine);
@@ -86,6 +87,7 @@ public class LandVines extends Feature<DensityFunctionConfig> {
     void growVine(WorldGenLevel level, BlockPos pos, BlockState state) {
         BlockPos.MutableBlockPos m = pos.mutable();
         for(int i = 0, max = 1 + level.getRandom().nextInt(5); i < max && setBlock(level, m, state); i++) m.move(Direction.DOWN);
+        setBlock(level, m, state.setValue(BlockStateProperties.BOTTOM, true));
     }
     boolean setBlock(WorldGenLevel level, BlockPos pos, BlockState state) {
         if(level.getBlockState(pos).isAir() && level.getBiome(pos).is(MAGNETIC_ISLES)) {

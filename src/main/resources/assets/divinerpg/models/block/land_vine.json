@@ -1,6 +1,8 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/vine",
+  "render_type": "cutout",
   "textures": {
-    "all": "divinerpg:block/land_vine"
+    "vine": "divinerpg:block/land_vine",
+    "particle": "divinerpg:block/land_vine"
   }
 }

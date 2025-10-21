@@ -1,3 +1,6 @@
 {
-  "parent": "divinerpg:block/land_vine"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "divinerpg:block/land_vine_bottom"
+  }
 }

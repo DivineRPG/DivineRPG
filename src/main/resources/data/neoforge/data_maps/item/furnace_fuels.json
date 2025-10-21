@@ -75,8 +75,11 @@
     "divinerpg:polished_coalstone_button": {
       "burn_time": 1600
     },
-    "divinerpg:land_vine": {
+    "divinerpg:land_vine_stem": {
       "burn_time": 300
+    },
+    "divinerpg:land_vine": {
+      "burn_time": 30
     },
     "divinerpg:collector": {
       "burn_time": 100

@@ -156,8 +156,11 @@
     "divinerpg:arcanite_vines_head": {
       "chance": 0.5
     },
-    "divinerpg:land_vine": {
+    "divinerpg:land_vine_stem": {
       "chance": 0.5
+    },
+    "divinerpg:land_vine": {
+      "chance": 0.4
     },
     "divinerpg:wildwood_vine": {
       "chance": 0.5

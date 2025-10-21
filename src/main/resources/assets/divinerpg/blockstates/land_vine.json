@@ -1,7 +1,196 @@
 {
-  "variants": {
-    "": {
-      "model": "divinerpg:block/land_vine"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine"
+      },
+      "when": {
+        "north": "true",
+        "bottom": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine"
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false",
+        "bottom": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine_bottom"
+      },
+      "when": {
+        "north": "true",
+        "bottom": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine_bottom"
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false",
+        "bottom": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "bottom": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false",
+        "bottom": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine_bottom",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "bottom": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine_bottom",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false",
+        "bottom": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true",
+        "bottom": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false",
+        "bottom": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine_bottom",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true",
+        "bottom": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine_bottom",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false",
+        "bottom": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "true",
+        "bottom": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false",
+        "bottom": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine_bottom",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "true",
+        "bottom": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "divinerpg:block/land_vine_bottom",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "west": "false",
+        "bottom": "true"
+      }
     }
-  }
+  ]
 }
