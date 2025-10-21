@@ -741,11 +741,11 @@ public class ItemRegistry {
         dream_axe = registerTool("dream_axe", () -> new ItemModAxe(ToolStats.DREAM_AXE, -3.1F)),
 
         //Blocks
-        nightmare_bed = registerBlockItem("nightmare_bed", ItemNightmareBed::new),
-        aqua_torch = registerBlockItem("aqua_torch", AquaTorch::new),
-        skeleton_torch = registerBlockItem("skeleton_torch", () -> new StandingAndWallBlockItem(BlockRegistry.skeletonTorch.get(), BlockRegistry.skeletonWallTorch.get(), new Properties(), Direction.DOWN)),
-        arcanium_torch = registerBlockItem("arcanium_torch", () -> new StandingAndWallBlockItem(BlockRegistry.arcaniumTorch.get(), BlockRegistry.arcaniumWallTorch.get(), new Properties(), Direction.DOWN)),
-        eden_torch = registerBlockItem("eden_torch", () -> new StandingAndWallBlockItem(BlockRegistry.edenTorch.get(), BlockRegistry.edenWallTorch.get(), new Properties(), Direction.DOWN)),
+        nightmare_bed = ITEMS.register("nightmare_bed", ItemNightmareBed::new),
+        aqua_torch = ITEMS.register("aqua_torch", AquaTorch::new),
+        skeleton_torch = ITEMS.register("skeleton_torch", () -> new StandingAndWallBlockItem(BlockRegistry.skeletonTorch.get(), BlockRegistry.skeletonWallTorch.get(), new Properties(), Direction.DOWN)),
+        arcanium_torch = ITEMS.register("arcanium_torch", () -> new StandingAndWallBlockItem(BlockRegistry.arcaniumTorch.get(), BlockRegistry.arcaniumWallTorch.get(), new Properties(), Direction.DOWN)),
+        eden_torch = ITEMS.register("eden_torch", () -> new StandingAndWallBlockItem(BlockRegistry.edenTorch.get(), BlockRegistry.edenWallTorch.get(), new Properties(), Direction.DOWN)),
 
     //Armor
     realmite_helmet = registerTool("realmite_helmet", () -> new ItemDivineArmor(REALMITE, HELMET, 16)),
@@ -1032,11 +1032,6 @@ public class ItemRegistry {
         DeferredItem<T> i = ITEMS.register(registryId, item);
         CreativeTabRegistry.tools.add(i);
         DISPENSER_ITEMS.add(i);
-        return i;
-    }
-    private static <T extends Item> DeferredItem<T> registerBlockItem(String registryId, Supplier<T> item) {
-        DeferredItem<T> i = ITEMS.register(registryId, item);
-        CreativeTabRegistry.blocks.add(i);
         return i;
     }
 }

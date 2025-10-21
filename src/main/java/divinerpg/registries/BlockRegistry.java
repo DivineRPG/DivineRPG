@@ -640,13 +640,13 @@ public class BlockRegistry {
     purpleFairyLights = registerBlock("purple_fairy_lights", BlockLights::new),
 
     //Torches
-    aquaTorch = BLOCKS.register("aqua_torch", BlockAquaTorch::new),
+    aquaTorch = registerBlockWithSpecialItem("aqua_torch", BlockAquaTorch::new),
     aquaWallTorch = BLOCKS.register("aqua_wall_torch", BlockAquaWallTorch::new),
-    arcaniumTorch = BLOCKS.register("arcanium_torch", BlockModTorch::new),
+    arcaniumTorch = registerBlockWithSpecialItem("arcanium_torch", BlockModTorch::new),
     arcaniumWallTorch = BLOCKS.register("arcanium_wall_torch", BlockModWallTorch::new),
-    edenTorch = BLOCKS.register("eden_torch", BlockModTorch::new),
+    edenTorch = registerBlockWithSpecialItem("eden_torch", BlockModTorch::new),
     edenWallTorch = BLOCKS.register("eden_wall_torch", BlockModWallTorch::new),
-    skeletonTorch = BLOCKS.register("skeleton_torch", () -> new TorchBlock(FLAME, Properties.ofFullCopy(Blocks.TORCH).sound(SoundType.BONE_BLOCK))),
+    skeletonTorch = registerBlockWithSpecialItem("skeleton_torch", () -> new TorchBlock(FLAME, Properties.ofFullCopy(Blocks.TORCH).sound(SoundType.BONE_BLOCK))),
     skeletonWallTorch = BLOCKS.register("skeleton_wall_torch", () -> new WallTorchBlock(FLAME, Properties.ofFullCopy(Blocks.WALL_TORCH).sound(SoundType.BONE_BLOCK))),
 
     //Stone Lamps
@@ -866,7 +866,7 @@ public class BlockRegistry {
     distributor = registerBlock("distributor", BlockDistributor::new),
 
     //Nightmare Bed
-    nightmareBed = BLOCKS.register("nightmare_bed", BlockNightmareBed::new),
+    nightmareBed = registerBlockWithSpecialItem("nightmare_bed", BlockNightmareBed::new),
 
     //Other Utility Blocks
     hellfireSponge = registerBlock("hellfire_sponge", BlockHellfireSponge::new),
@@ -983,6 +983,11 @@ public class BlockRegistry {
     //Bushes
     arcanaBushPot = registerFlowerPot("arcana_bush_pot", arcanaBush);
 
+    private static <T extends Block> DeferredBlock<T> registerBlockWithSpecialItem(String name, Supplier<T> block) {
+        DeferredBlock<T> registeredBlock;
+        CreativeTabRegistry.blocks.add(registeredBlock = BLOCKS.register(name, block));
+        return registeredBlock;
+    }
     private static DeferredBlock<FlowerPotBlock> registerFlowerPot(String name, Supplier<? extends Block> flower) {
         return BLOCKS.register(name, () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, flower, Properties.ofFullCopy(Blocks.FLOWER_POT)));
     }
@@ -990,18 +995,21 @@ public class BlockRegistry {
         return registerBlock(name, block, Rarity.COMMON);
     }
     private static <T extends Block> DeferredBlock<T> registerBlock(String registryName, Supplier<T> block, Rarity rarity) {
-        DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
-        CreativeTabRegistry.blocks.add(BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties().rarity(rarity))));
+        DeferredBlock<T> registeredBlock;
+        CreativeTabRegistry.blocks.add(registeredBlock = BLOCKS.register(registryName, block));
+        BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties().rarity(rarity)));
         return registeredBlock;
     }
     private static <T extends Block> DeferredBlock<T> registerFireResistantBlock(String registryName, Supplier<T> block) {
-        DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
-        CreativeTabRegistry.blocks.add(BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties().fireResistant())));
+        DeferredBlock<T> registeredBlock;
+        CreativeTabRegistry.blocks.add(registeredBlock = BLOCKS.register(registryName, block));
+        BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties().fireResistant()));
         return registeredBlock;
     }
     private static <T extends Block> DeferredBlock<T> registerWithRender(String registryName, Supplier<T> block, Rarity rarity) {
-        DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
-        CreativeTabRegistry.blocks.add(switch(registryName) {
+        DeferredBlock<T> registeredBlock;
+        CreativeTabRegistry.blocks.add(registeredBlock = BLOCKS.register(registryName, block));
+        switch(registryName) {
             case "arcanium_extractor" -> BLOCK_ITEMS.register(registryName, () -> new ItemArcaniumExtractor(registeredBlock.get(), new Item.Properties().rarity(rarity)));
             case "bone_chest" -> BLOCK_ITEMS.register(registryName, () -> new ItemBoneChest(registeredBlock.get(), new Item.Properties().rarity(rarity)));
             case "demon_furnace" -> BLOCK_ITEMS.register(registryName, () -> new ItemDemonFurnace(registeredBlock.get(), new Item.Properties().rarity(rarity)));
@@ -1011,7 +1019,7 @@ public class BlockRegistry {
             case "parasecta_altar" -> BLOCK_ITEMS.register(registryName, () -> new ItemParasectaAltar(registeredBlock.get(), new Item.Properties().rarity(rarity)));
             case "dramix_altar" -> BLOCK_ITEMS.register(registryName, () -> new ItemDramixAltar(registeredBlock.get(), new Item.Properties().rarity(rarity)));
             default -> BLOCK_ITEMS.register(registryName, () -> new ItemStatueBlock(registeredBlock::get, new Item.Properties().rarity(rarity).fireResistant()));
-        });
+        }
         return registeredBlock;
     }
 }
