@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "divinerpg:block/ray_grass"
+      },
+      {
+        "model": "divinerpg:block/ray_grass_rotated",
+        "y": 90
+      },
+      {
+        "model": "divinerpg:block/ray_grass",
+        "y": 180
+      },
+      {
+        "model": "divinerpg:block/ray_grass_rotated",
+        "y": 270
+      }
+    ]
+  }
+}

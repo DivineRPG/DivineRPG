@@ -86,7 +86,7 @@ public class PortalBlock extends BaseEntityBlock implements Portal {
 	 * @return the new preferred block position for where to place the portal
 	 */
 	public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-		MutableBlockPos m = new MutableBlockPos(pos.getX(), Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight(), level.dimensionType().logicalHeight() + 2, 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
+		MutableBlockPos m = new MutableBlockPos(pos.getX(), Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight() + 5, level.dimensionType().logicalHeight() + 2, 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
 		while(level.getBlockState(m).is(Blocks.WATER)) m.move(0, 1, 0);
 		return m.move(0, -1, 0);
 	}

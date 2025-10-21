@@ -1,5 +1,5 @@
 {
-  "parent": "divinerpg:block/eden_grass",
+  "parent": "divinerpg:block/scorchgrass",
   "elements": [
     {
       "from": [0, 0, 0],

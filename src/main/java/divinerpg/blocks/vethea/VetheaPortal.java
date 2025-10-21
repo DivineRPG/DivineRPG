@@ -19,7 +19,7 @@ public class VetheaPortal extends PortalBlock {
 	}
 	@Override
 	public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-		if(level.dimension() == rootDimension) return new BlockPos(pos.getX(), Surface.getSurface(Surface_Type.LOWEST_GROUND, Mode.FULL, level.getMinBuildHeight(), 32, 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
+		if(level.dimension() == rootDimension) return new BlockPos(pos.getX(), Surface.getSurface(Surface_Type.LOWEST_GROUND, Mode.FULL, level.getMinBuildHeight() + 5, 32, 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
 		if(entity instanceof ServerPlayer p && p.getRespawnDimension() == level.dimension()) {
 			DimensionTransition d = p.findRespawnPositionAndUseSpawnBlock(true, DimensionTransition.DO_NOTHING);
 			if(d != null) return UniversalPosition.toBlockPos(d.pos());

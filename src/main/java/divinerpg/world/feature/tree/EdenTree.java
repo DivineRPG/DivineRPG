@@ -11,7 +11,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 public class EdenTree extends DivineTree {
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockRegistry.edenDirt.get()) || state.is(BlockRegistry.edenGrass.get());
+		return state.is(BlockRegistry.scorchdirt.get()) || state.is(BlockRegistry.scorchgrass.get());
 	}
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {

@@ -1,0 +1,46 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "match_tool",
+                  "predicate": {
+                    "predicates": {
+                      "enchantments": [
+                        {
+                          "enchantments": "silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "name": "divinerpg:scorchgrass"
+            },
+            {
+              "type": "item",
+              "conditions": [
+                {
+                  "condition": "survives_explosion"
+                }
+              ],
+              "name": "divinerpg:scorchdirt"
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

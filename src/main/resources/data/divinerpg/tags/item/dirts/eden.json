@@ -1,6 +1,8 @@
 {
   "values": [
-    "divinerpg:eden_dirt",
-    "divinerpg:eden_grass"
+    "divinerpg:scorchdirt",
+    "divinerpg:scorchgrass",
+    "divinerpg:ray_dirt",
+    "divinerpg:ray_grass"
   ]
 }

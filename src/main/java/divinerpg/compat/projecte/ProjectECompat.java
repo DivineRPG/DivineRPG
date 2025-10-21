@@ -238,7 +238,8 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         //Dirt
         register(NSSItem.createItem(frozenDirt.get()), 1);
         register(NSSItem.createItem(arcaniteDirt.get()), 16);
-        register(NSSItem.createItem(edenDirt.get()), 1);
+        register(NSSItem.createItem(scorchdirt.get()), 1);
+        register(NSSItem.createItem(rayDirt.get()), 1);
         register(NSSItem.createItem(wildwoodDirt.get()), 1);
         register(NSSItem.createItem(apalachiaDirt.get()), 1);
         register(NSSItem.createItem(skythernDirt.get()), 1);
@@ -247,7 +248,8 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         //Grass
         register(NSSItem.createItem(frozenGrass.get()), 1);
         register(NSSItem.createItem(arcaniteGrass.get()), 16);
-        register(NSSItem.createItem(edenGrass.get()), 1);
+        register(NSSItem.createItem(scorchgrass.get()), 1);
+        register(NSSItem.createItem(rayGrass.get()), 1);
         register(NSSItem.createItem(wildwoodGrass.get()), 1);
         register(NSSItem.createItem(apalachiaGrass.get()), 1);
         register(NSSItem.createItem(skythernGrass.get()), 1);

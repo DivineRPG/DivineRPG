@@ -32,7 +32,7 @@ public class BlockModGrassBlock extends GrassBlock {
         requiresLightToRegrow = false;
     }
     public BlockState grass() {
-        if(this == edenGrass.get()) return edenBrush.get().defaultBlockState();
+        if(this == rayGrass.get()) return edenBrush.get().defaultBlockState();
         if(this == wildwoodGrass.get()) return moonlightFern.get().defaultBlockState();
         if(this == apalachiaGrass.get()) return apalachiaTallgrass.get().defaultBlockState();
         if(this == skythernGrass.get()) return skythernBrush.get().defaultBlockState();

@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "divinerpg:eden_grass"
+              "name": "divinerpg:ray_grass"
             },
             {
               "type": "item",
@@ -35,7 +35,7 @@
                   "condition": "survives_explosion"
                 }
               ],
-              "name": "divinerpg:eden_dirt"
+              "name": "divinerpg:ray_dirt"
             }
           ]
         }
