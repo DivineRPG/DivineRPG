@@ -9,7 +9,8 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -24,7 +25,7 @@ public class EntityWildfire extends EntityDivineMonster implements RangedAttackM
     public EntityWildfire(EntityType<? extends EntityWildfire> type, Level worldIn) {super(type, worldIn);}
     @Override protected void registerGoals() {
         super.registerGoals();
-        goalSelector.addGoal(1, new RangedBowAttackGoal<>(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 40, 32));
+        goalSelector.addGoal(1, new LookingRangedBowAttackGoal<>(this));
     }
     @Override protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
         super.populateDefaultEquipmentSlots(random, difficulty);
@@ -59,4 +60,19 @@ public class EntityWildfire extends EntityDivineMonster implements RangedAttackM
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.WILDFIRE.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.WILDFIRE_HURT.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.WILDFIRE_HURT.get();}
+    public static class LookingRangedBowAttackGoal<T extends Mob & RangedAttackMob> extends RangedBowAttackGoal<T> {
+        protected final TargetingConditions lookAtContext;
+        protected T mob;
+        public LookingRangedBowAttackGoal(T mob) {
+            super(mob, mob.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 40, 32);
+            this.mob = mob;
+            lookAtContext = TargetingConditions.forNonCombat().range(32).selector(e -> EntitySelector.notRiding(mob).test(e));
+        }
+        @Override
+        public void tick() {
+            super.tick();
+            LivingEntity target = mob.getTarget();
+            if(target != null) mob.getLookControl().setLookAt(target);
+        }
+    }
 }
