@@ -1,0 +1,15 @@
+{
+  "type": "corail_woodcutter:woodcutting",
+  "ingredient": {
+    "item": "divinerpg:eden_planks"
+  },
+  "result": {
+    "id": "divinerpg:eden_sign"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "corail_woodcutter"
+    }
+  ]
+}

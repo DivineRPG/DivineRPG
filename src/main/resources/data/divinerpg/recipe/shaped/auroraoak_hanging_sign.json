@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shaped",
+  "group": "divinerpg_hanging_sign",
+  "pattern": [
+    "X X",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "divinerpg:stripped_auroraoak_log"
+    },
+    "X": {
+      "item": "chain"
+    }
+  },
+  "result": {
+    "id": "divinerpg:auroraoak_hanging_sign",
+    "count": 6
+  }
+}

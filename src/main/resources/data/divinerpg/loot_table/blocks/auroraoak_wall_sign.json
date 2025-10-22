@@ -1,0 +1,19 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:auroraoak_sign"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

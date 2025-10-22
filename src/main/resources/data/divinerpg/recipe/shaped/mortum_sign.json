@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shaped",
+  "group": "divinerpg_sign",
+  "pattern": [
+    "###",
+    "###",
+    " X "
+  ],
+  "key": {
+    "#": {
+      "item": "divinerpg:mortum_planks"
+    },
+    "X": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "result": {
+    "id": "divinerpg:mortum_sign",
+    "count": 3
+  }
+}

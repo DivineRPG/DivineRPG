@@ -1,0 +1,16 @@
+{
+  "type": "corail_woodcutter:woodcutting",
+  "ingredient": {
+    "tag": "divinerpg:wood_types/skythern"
+  },
+  "result": {
+    "id": "divinerpg:skythern_slab",
+    "count": 8
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "corail_woodcutter"
+    }
+  ]
+}

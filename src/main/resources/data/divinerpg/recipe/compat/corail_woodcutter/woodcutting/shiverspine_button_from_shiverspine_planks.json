@@ -1,0 +1,15 @@
+{
+  "type": "corail_woodcutter:woodcutting",
+  "ingredient": {
+    "item": "divinerpg:shiverspine_planks"
+  },
+  "result": {
+    "id": "divinerpg:shiverspine_button"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "corail_woodcutter"
+    }
+  ]
+}

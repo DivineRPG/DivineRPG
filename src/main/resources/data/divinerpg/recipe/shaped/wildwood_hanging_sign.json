@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shaped",
+  "group": "divinerpg_hanging_sign",
+  "pattern": [
+    "X X",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "divinerpg:stripped_wildwood_log"
+    },
+    "X": {
+      "item": "chain"
+    }
+  },
+  "result": {
+    "id": "divinerpg:wildwood_hanging_sign",
+    "count": 6
+  }
+}

@@ -555,6 +555,8 @@
   "block.divinerpg.twilight_brick_pressure_plate": "Twilight Brick Pressure Plate",
   "block.divinerpg.twilight_brick_button": "Twilight Brick Button",
 
+  "block.divinerpg.scorchdirt": "Scorchdirt",
+  "block.divinerpg.scorchgrass": "Scorchgrass",
   "block.divinerpg.scorchalt_eden_ore": "Scorchalt Eden Ore",
   "block.divinerpg.scorchalt": "Scorchalt",
   "block.divinerpg.scorchalt_stairs": "Scorchalt Stairs",
@@ -579,6 +581,8 @@
 
   "block.divinerpg.draught_stone": "Draught Stone",
 
+  "block.divinerpg.ray_dirt": "Ray Dirt",
+  "block.divinerpg.ray_grass": "Ray Grass",
   "block.divinerpg.ray_stone": "Ray Stone",
   "block.divinerpg.ray_stone_stairs": "Ray Stone Stairs",
   "block.divinerpg.ray_stone_slab": "Ray Stone Slab",
@@ -596,10 +600,6 @@
   "block.divinerpg.eden_portal": "Eden Portal",
   "block.divinerpg.eden_bricks": "Eden Bricks",
   "block.divinerpg.eden_chest": "Eden Chest",
-  "block.divinerpg.scorchdirt": "Scorchdirt",
-  "block.divinerpg.ray_dirt": "Ray Dirt",
-  "block.divinerpg.scorchgrass": "Scorchgrass",
-  "block.divinerpg.ray_grass": "Ray Grass",
   "block.divinerpg.eden_brush": "Eden Brush",
   "block.divinerpg.sun_blossom": "Sun Blossom",
   "block.divinerpg.sun_blossom_pot": "Potted Sun Blossom",

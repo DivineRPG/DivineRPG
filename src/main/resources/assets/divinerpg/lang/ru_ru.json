@@ -555,6 +555,8 @@
   "block.divinerpg.twilight_brick_pressure_plate": "Нажимная плита из сумеречного кирпича",
   "block.divinerpg.twilight_brick_button": "Кнопка из сумеречного кирпича",
 
+  "block.divinerpg.scorchdirt": "Агоритовая земля",
+  "block.divinerpg.scorchgrass": "Агоритовый дёрн",
   "block.divinerpg.scorchalt_eden_ore": "Агоритовая руда Эдема",
   "block.divinerpg.scorchalt": "Агорит",
   "block.divinerpg.scorchalt_stairs": "Агоритовые ступеньки",
@@ -579,6 +581,8 @@
 
   "block.divinerpg.draught_stone": "Засушливый камень",
 
+  "block.divinerpg.ray_dirt": "Лучезитовая земля",
+  "block.divinerpg.ray_grass": "Лучезитовый дёрн",
   "block.divinerpg.ray_stone": "Лучезит",
   "block.divinerpg.ray_stone_stairs": "Лучезитовые ступеньки",
   "block.divinerpg.ray_stone_slab": "Лучезитовая плита",
