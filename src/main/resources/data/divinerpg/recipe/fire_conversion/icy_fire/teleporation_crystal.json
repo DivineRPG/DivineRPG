@@ -4,17 +4,16 @@
     "item": "divinerpg:ender_stone"
   },
   "input_state": {
-    "predicate_type": "minecraft:block_match",
+    "predicate_type": "block_match",
     "block": "divinerpg:icy_fire"
   },
   "output_item": {
-    "id": "divinerpg:teleportation_crystal",
-    "count": 1
+    "id": "divinerpg:teleportation_crystal"
   },
   "output_state": {
-    "type": "minecraft:simple_state_provider",
+    "type": "simple_state_provider",
     "state": {
-      "Name": "minecraft:air"
+      "Name": "air"
     }
   }
 }

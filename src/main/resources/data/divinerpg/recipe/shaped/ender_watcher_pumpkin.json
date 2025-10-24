@@ -1,21 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:ender_watcher_pumpkin"
-  },
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "mob_pumpkin",
   "pattern": [
     "MMM",
     "MPM",
-    "MMM"
+    "MEM"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "mob_pumpkin",
   "key": {
     "P": {
-      "item": "minecraft:pumpkin"
+      "tag": "c:pumpkins/normal"
     },
     "M": {
       "item": "divinerpg:ender_shards"
+    },
+    "E": {
+      "item": "divinerpg:watching_eye"
     }
+  },
+  "result": {
+    "id": "divinerpg:ender_watcher_pumpkin"
   }
 }

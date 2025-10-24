@@ -1,12 +1,11 @@
 {
   "type": "neoforge:add_spawns",
   "biomes": [
-  	"lukewarm_ocean",
-  	"warm_ocean",
-  	"deep_lukewarm_ocean"
+    "lukewarm_ocean",
+    "warm_ocean",
+    "deep_lukewarm_ocean"
   ],
-  "spawners":
-  {
+  "spawners": {
     "type": "divinerpg:shark",
     "weight": 3,
     "minCount": 1,

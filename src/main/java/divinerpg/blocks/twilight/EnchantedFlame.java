@@ -1,14 +1,10 @@
 package divinerpg.blocks.twilight;
 
-import divinerpg.DivineRPG;
 import divinerpg.util.Utils;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.*;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.entity.*;
@@ -22,13 +18,17 @@ import net.neoforged.neoforge.common.CommonHooks;
 
 import java.util.List;
 
+import static divinerpg.DivineRPG.MODID;
+import static net.minecraft.advancements.CriteriaTriggers.ENCHANTED_ITEM;
+import static net.minecraft.core.registries.Registries.ENCHANTMENT;
+import static net.minecraft.sounds.SoundEvents.ENCHANTMENT_TABLE_USE;
+
 public class EnchantedFlame extends TwilightFire {
-    public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight/burning_enchanter");
-    @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(MODID, "twilight/burning_enchanter");
+    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
         if(entity instanceof Player p) {
-            var lookup = level.registryAccess().registryOrThrow(Registries.ENCHANTMENT);
+            var lookup = level.registryAccess().registryOrThrow(ENCHANTMENT);
             int enchanted = 0, maxEnchantments = p.experienceLevel / 15;
             if(enchanted < maxEnchantments) enchanted += enchant(lookup, p, EquipmentSlot.MAINHAND);
             if(enchanted < maxEnchantments) enchanted += enchant(lookup, p, EquipmentSlot.OFFHAND);
@@ -37,7 +37,7 @@ public class EnchantedFlame extends TwilightFire {
             if(enchanted < maxEnchantments) enchanted += enchant(lookup, p, EquipmentSlot.LEGS);
             if(enchanted < maxEnchantments) enchanted += enchant(lookup, p, EquipmentSlot.FEET);
             if(enchanted > 0) {
-                p.playSound(SoundEvents.ENCHANTMENT_TABLE_USE, 1F, 0.7F);
+                p.playSound(ENCHANTMENT_TABLE_USE, 1F, 0.7F);
                 if(level instanceof ServerLevel s) {
                     s.sendParticles(ParticleTypes.LARGE_SMOKE, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 5 * enchanted, .5, .5, .5, 0);
                     s.sendParticles(ParticleTypes.SOUL, p.getX(), p.getEyeY(), p.getZ(), 3 * enchanted, .25, .25, .25, 0);
@@ -66,7 +66,7 @@ public class EnchantedFlame extends TwilightFire {
                             }
                         }
                     } p.awardStat(Stats.ENCHANT_ITEM);
-                    if(p instanceof ServerPlayer s) CriteriaTriggers.ENCHANTED_ITEM.trigger(s, stack, 15);
+                    if(p instanceof ServerPlayer s) ENCHANTED_ITEM.trigger(s, stack, 15);
                     p.setItemSlot(slot, stack);
                     return 1;
                 }

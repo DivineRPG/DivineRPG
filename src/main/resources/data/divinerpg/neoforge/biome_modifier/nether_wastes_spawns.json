@@ -2,17 +2,17 @@
   "type": "neoforge:add_spawns",
   "biomes": "nether_wastes",
   "spawners": [
-	  {
-	    "type": "divinerpg:hell_spider",
-	    "weight": 36,
-	    "minCount": 1,
-	    "maxCount": 2
-  	  },
-  	  {
-	    "type": "divinerpg:wildfire",
-	    "weight": 60,
-	    "minCount": 1,
-	    "maxCount": 2
-  	  }
+    {
+      "type": "divinerpg:hell_spider",
+      "weight": 36,
+      "minCount": 1,
+      "maxCount": 2
+    },
+    {
+      "type": "divinerpg:wildfire",
+      "weight": 60,
+      "minCount": 1,
+      "maxCount": 2
+    }
   ]
 }

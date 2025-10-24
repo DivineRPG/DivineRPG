@@ -2,23 +2,23 @@
   "type": "neoforge:add_spawns",
   "biomes": "#c:is_desert",
   "spawners": [
-	  {
-	    "type": "divinerpg:arid_warrior",
-	    "weight": 40,
-	    "minCount": 1,
-	    "maxCount": 4
-	  },
-	  {
-	    "type": "divinerpg:desert_crawler",
-	    "weight": 40,
-	    "minCount": 1,
-	    "maxCount": 4
-  	  },
-	  {
-	    "type": "divinerpg:saguaro_worm",
-	    "weight": 32,
-	    "minCount": 1,
-	    "maxCount": 4
-  	  }
+    {
+      "type": "divinerpg:arid_warrior",
+      "weight": 40,
+      "minCount": 1,
+      "maxCount": 4
+    },
+    {
+      "type": "divinerpg:desert_crawler",
+      "weight": 40,
+      "minCount": 1,
+      "maxCount": 4
+    },
+    {
+      "type": "divinerpg:saguaro_worm",
+      "weight": 32,
+      "minCount": 1,
+      "maxCount": 4
+    }
   ]
 }

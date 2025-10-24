@@ -13,6 +13,7 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.neoforged.neoforge.common.Tags.Blocks;
+import net.neoforged.neoforge.fluids.FluidType;
 
 public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAttackMob {
     public EntitySaguaroWorm(EntityType<? extends EntitySaguaroWorm> type, Level worldIn) {super(type, worldIn);}
@@ -25,7 +26,6 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
     }
     //TODO: to switch to melee damage when the player is really close
     @Override protected void registerGoals() {
-        goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 30, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
     }
     public static boolean saguaroWormSpawnRule(LevelAccessor worldIn, BlockPos pos) {return worldIn.getBlockState(pos.below()).is(Blocks.SANDS);}
@@ -45,6 +45,7 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
         if(entity instanceof LivingEntity l && !l.level().isClientSide) setProvoked(l);
         return super.hurt(source, amount);
     }
+    @Override public boolean isPushedByFluid(FluidType type) {return false;}
     @Override public boolean isPushable() {return false;}
     public boolean getProvoked() {return AttachmentRegistry.ANGRY.get(this);}
     public void setProvoked(LivingEntity entity) {

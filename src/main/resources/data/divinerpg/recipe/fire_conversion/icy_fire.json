@@ -4,11 +4,11 @@
       "item": "divinerpg:ice_stone"
   },
   "input_state": {
-    "predicate_type": "minecraft:block_match",
-    "block": "minecraft:fire"
+    "predicate_type": "block_match",
+    "block": "fire"
   },
   "output_state": {
-    "type": "minecraft:simple_state_provider",
+    "type": "simple_state_provider",
     "state": {
       "Name": "divinerpg:icy_fire"
     }

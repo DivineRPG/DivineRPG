@@ -9,7 +9,7 @@
   ],
   "key": {
     "P": {
-      "item": "pumpkin"
+      "tag": "c:pumpkins/normal"
     },
     "S": {
       "item": "divinerpg:ice_shards"

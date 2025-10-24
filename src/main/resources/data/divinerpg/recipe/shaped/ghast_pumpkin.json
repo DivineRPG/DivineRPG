@@ -1,24 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:ghast_pumpkin"
-  },
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "mob_pumpkin",
   "pattern": [
     "SSS",
     "SPS",
     "SMS"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "mob_pumpkin",
   "key": {
-    "S": {
-      "item": "minecraft:gunpowder"
-    },
     "P": {
-      "item": "minecraft:pumpkin"
+      "tag": "c:pumpkins/normal"
+    },
+    "S": {
+      "item": "gunpowder"
     },
     "M": {
-      "item": "minecraft:ghast_tear"
+      "item": "ghast_tear"
     }
+  },
+  "result": {
+    "id": "divinerpg:ghast_pumpkin"
   }
 }

@@ -1,21 +1,27 @@
 {
-  "result": {
-    "id": "divinerpg:jungle_spider_pumpkin"
-  },
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "mob_pumpkin",
   "pattern": [
     "MMM",
     "MPM",
-    "MMM"
+    "ESE"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "mob_pumpkin",
   "key": {
     "P": {
-      "item": "minecraft:pumpkin"
+      "tag": "c:pumpkins/normal"
     },
     "M": {
       "item": "divinerpg:jungle_shards"
+    },
+    "E": {
+      "item": "spider_eye"
+    },
+    "S": {
+      "item": "string"
     }
+  },
+  "result": {
+    "id": "divinerpg:jungle_spider_pumpkin"
   }
 }
