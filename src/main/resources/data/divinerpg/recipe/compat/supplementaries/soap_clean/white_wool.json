@@ -1,22 +1,17 @@
 {
   "type": "crafting_shapeless",
-  "category": "redstone",
-  "group": "redstone_fence",
+  "category": "building",
+  "group": "wool",
   "ingredients": [
-    [
-      {
-        "item": "divinerpg:green_fence"
-      },
-      {
-        "item": "divinerpg:blue_fence"
-      }
-    ],
+    {
+      "item": "divinerpg:rainbow_wool"
+    },
     {
       "item": "supplementaries:soap"
     }
   ],
   "result": {
-    "id": "divinerpg:red_fence"
+    "id": "white_wool"
   },
   "neoforge:conditions": [
     {

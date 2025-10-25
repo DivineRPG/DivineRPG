@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "ingredients": [
     {
       "item": "divinerpg:kraken_scale"
@@ -9,7 +9,6 @@
     }
   ],
   "result": {
-    "id": "divinerpg:kraken_skin",
-    "count": 1
+    "id": "divinerpg:kraken_skin"
   }
 }

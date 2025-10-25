@@ -101,16 +101,16 @@ dependencies {
     //Compat
     //Advanced Mining Dimension isn't ported to 1.21.1
 //    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether
-    //TODO: to add woodcutter variations
+    //TODO: to add woodcutter variants
     implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
     runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
-    //TODO: to add cabinet variations
+    //TODO: to add cabinet variants
     implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
     runtimeOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
     runtimeOnly "curse.maven:resource-pandas-410681:${resource_pandas_id}" //Resource Pandas
-    //TODO: to add raked frozen gravel
+    //TODO: to add raked frozen gravel, cannon boat variants
     runtimeOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries
     //Traveler's Titles don't have NeoForge version up until 1.21.4
     //Tech mods compat

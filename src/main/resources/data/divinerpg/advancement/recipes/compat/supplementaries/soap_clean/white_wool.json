@@ -1,11 +1,11 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_white_mushroom": {
+    "has_soap": {
       "conditions": {
         "items": [
           {
-            "items": "#c:foods/white_mushroom"
+            "items": "supplementaries:soap"
           }
         ]
       },
@@ -13,20 +13,26 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:shapeless/advanced_mushroom_stew"
+        "recipe": "divinerpg:compat/supplementaries/soap_clean/white_wool"
       },
       "trigger": "recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_white_mushroom",
+      "has_soap",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/advanced_mushroom_stew"
+      "divinerpg:compat/supplementaries/soap_clean/white_wool"
     ]
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
 }

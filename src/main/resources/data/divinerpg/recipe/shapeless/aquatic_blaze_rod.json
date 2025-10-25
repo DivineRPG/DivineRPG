@@ -1,14 +1,14 @@
 {
-  "result": {
-    "id": "divinerpg:aquatic_blaze_rod"
-  },
+  "type": "crafting_shapeless",
   "ingredients": [
     {
       "item": "divinerpg:aqua_ball"
     },
     {
-      "item": "minecraft:blaze_rod"
+      "tag": "c:rods/blaze"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:aquatic_blaze_rod"
+  }
 }

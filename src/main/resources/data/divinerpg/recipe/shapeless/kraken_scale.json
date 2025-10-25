@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:glow_ink_sac"
+      "item": "glow_ink_sac"
     },
     {
-      "item": "minecraft:ink_sac"
+      "item": "ink_sac"
     },
     {
-      "item": "minecraft:ink_sac"
+      "item": "ink_sac"
     },
     {
-      "item": "minecraft:prismarine_shard"
+      "item": "prismarine_shard"
     },
     {
-      "item": "minecraft:prismarine_shard"
+      "item": "prismarine_shard"
     }
   ],
   "result": {

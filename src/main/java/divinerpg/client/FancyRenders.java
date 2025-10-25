@@ -14,6 +14,7 @@ import net.neoforged.neoforge.client.event.*;
 import static net.minecraft.client.resources.PlayerSkin.Model.*;
 import static net.neoforged.api.distmarker.Dist.CLIENT;
 
+@SuppressWarnings("removal")
 @EventBusSubscriber(value = CLIENT, modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class FancyRenders {
     @SubscribeEvent

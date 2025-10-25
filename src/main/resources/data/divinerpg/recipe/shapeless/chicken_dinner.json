@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:chicken_dinner"
-  },
+  "type": "crafting_shapeless",
   "ingredients": [
     {
       "item": "divinerpg:advanced_mushroom_stew"
     },
     {
-      "item": "minecraft:cooked_chicken"
+      "item": "cooked_chicken"
     },
     {
-      "item": "minecraft:bread"
+      "tag": "c:foods/bread"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:chicken_dinner"
+  }
 }

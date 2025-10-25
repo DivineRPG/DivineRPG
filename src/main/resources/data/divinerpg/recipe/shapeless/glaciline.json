@@ -1,21 +1,21 @@
 {
-  "result": {
-    "id": "divinerpg:glaciline"
-  },
+  "type": "crafting_shapeless",
+  "category": "building",
   "ingredients": [
     {
       "item": "divinerpg:frozen_stone"
     },
     {
-      "item": "minecraft:blue_ice"
+      "item": "blue_ice"
     },
     {
-      "item": "minecraft:blue_ice"
+      "item": "blue_ice"
     },
     {
-      "item": "minecraft:blue_ice"
+      "item": "blue_ice"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "building"
+  "result": {
+    "id": "divinerpg:glaciline"
+  }
 }

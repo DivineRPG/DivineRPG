@@ -1,7 +1,6 @@
 {
-  "result": {
-    "id": "divinerpg:wildwood_shickaxe"
-  },
+  "type": "crafting_shapeless",
+  "category": "equipment",
   "ingredients": [
     {
       "item": "divinerpg:wildwood_pickaxe"
@@ -16,6 +15,7 @@
       "item": "divinerpg:wildwood_hoe"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "equipment"
+  "result": {
+    "id": "divinerpg:wildwood_shickaxe"
+  }
 }

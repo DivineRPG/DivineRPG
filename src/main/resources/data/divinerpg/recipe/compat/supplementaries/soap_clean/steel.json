@@ -1,5 +1,6 @@
 {
   "type": "crafting_shapeless",
+  "category": "building",
   "group": "divinerpg_steel_block",
   "ingredients": [
     [

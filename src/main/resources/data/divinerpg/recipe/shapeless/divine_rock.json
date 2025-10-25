@@ -1,15 +1,15 @@
 {
-  "result": {
-    "id": "divinerpg:divine_rock"
-  },
+  "type": "crafting_shapeless",
+   "category": "building",
   "ingredients": [
     {
-      "item": "divinerpg:divine_shards"
+      "tag": "divinerpg:shards/divine"
     },
     {
-      "item": "minecraft:stone"
+      "item": "stone"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-   "category": "building"
+  "result": {
+    "id": "divinerpg:divine_rock"
+  }
 }

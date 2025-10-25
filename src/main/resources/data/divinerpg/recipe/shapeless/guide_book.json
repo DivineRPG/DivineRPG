@@ -12,8 +12,7 @@
     "id": "patchouli:guide_book",
     "components": {
       "patchouli:book": "divinerpg:divine"
-    },
-    "count": 1
+    }
   },
   "neoforge:conditions": [
     {

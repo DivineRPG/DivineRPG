@@ -9,7 +9,6 @@ import divinerpg.blocks.vanilla.*;
 import divinerpg.blocks.vanilla.FireBlock;
 import divinerpg.blocks.vethea.*;
 import divinerpg.items.base.block.*;
-import divinerpg.items.vanilla.AquaTorch;
 import divinerpg.util.*;
 import divinerpg.world.ConfiguredFeatureKeys;
 import net.minecraft.core.BlockPos;
@@ -25,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.*;
+
 import java.util.*;
 import java.util.function.Supplier;
 
@@ -32,7 +32,6 @@ import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.ItemRegistry.*;
 import static divinerpg.registries.SoundRegistry.*;
 import static divinerpg.util.WoodTypesList.*;
-import static net.minecraft.core.Direction.DOWN;
 import static net.minecraft.core.particles.ParticleTypes.FLAME;
 import static net.minecraft.sounds.SoundEvents.*;
 import static net.minecraft.world.effect.MobEffects.*;

@@ -1,6 +1,7 @@
 {
   "type": "crafting_shaped",
   "category": "equipment",
+  "group": "armor_pouch",
   "pattern": [
     " S ",
     "LAL",

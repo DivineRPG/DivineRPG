@@ -1,15 +1,15 @@
 {
-  "result": {
-    "id": "divinerpg:shiverspine_ladder"
-  },
+  "type": "crafting_shapeless",
+  "group": "shiverspine_ladder",
   "ingredients": [
     {
-      "item": "minecraft:ladder"
+      "item": "ladder"
     },
     {
-      "item": "divinerpg:ice_shards"
+      "tag": "divinerpg:shards/ice"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "group": "shiverspine_ladder"
+  "result": {
+    "id": "divinerpg:shiverspine_ladder"
+  }
 }

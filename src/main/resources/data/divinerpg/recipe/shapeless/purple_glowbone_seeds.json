@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "divinerpg:purple_glowbone"
+      "tag": "divinerpg:crops/purple_glowbone"
     }
   ],
   "result": {

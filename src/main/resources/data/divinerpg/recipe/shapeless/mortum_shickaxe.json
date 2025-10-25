@@ -1,7 +1,6 @@
 {
-  "result": {
-    "id": "divinerpg:mortum_shickaxe"
-  },
+  "type": "crafting_shapeless",
+  "category": "equipment",
   "ingredients": [
     {
       "item": "divinerpg:mortum_pickaxe"
@@ -16,6 +15,7 @@
       "item": "divinerpg:mortum_hoe"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "equipment"
+  "result": {
+    "id": "divinerpg:mortum_shickaxe"
+  }
 }
