@@ -1,9 +1,0 @@
-{
-  "values": [
-    "#has_structure/mineshaft"
-  ],
-  "remove": [
-    "#c:is_mushroom",
-    "deep_dark"
-  ]
-}

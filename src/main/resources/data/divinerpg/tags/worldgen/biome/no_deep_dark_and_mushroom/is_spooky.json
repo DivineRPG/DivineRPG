@@ -1,9 +1,0 @@
-{
-  "values": [
-    "#c:is_spooky"
-  ],
-  "remove": [
-    "#c:is_mushroom",
-    "deep_dark"
-  ]
-}

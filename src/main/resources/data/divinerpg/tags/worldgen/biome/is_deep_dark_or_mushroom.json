@@ -1,8 +1,5 @@
 {
   "values": [
-    "#stronghold_biased_to"
-  ],
-  "remove": [
     "#c:is_mushroom",
     "deep_dark"
   ]

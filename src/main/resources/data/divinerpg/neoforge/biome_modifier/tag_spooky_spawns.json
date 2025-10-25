@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#divinerpg:no_deep_dark_and_mushroom/is_spooky",
+  "biomes": "#c:is_spooky",
   "spawners": [
     {
       "type": "divinerpg:jack_o_man",

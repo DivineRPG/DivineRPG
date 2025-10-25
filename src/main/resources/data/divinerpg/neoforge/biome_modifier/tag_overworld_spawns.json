@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#divinerpg:no_deep_dark_and_mushroom/is_overworld",
+  "biomes": "#c:is_overworld",
   "spawners": [
     {
       "type": "divinerpg:rotatick",

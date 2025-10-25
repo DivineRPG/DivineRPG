@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#divinerpg:no_deep_dark_and_mushroom/stronghold_biased_to",
+  "biomes": "#stronghold_biased_to",
   "spawners": {
     "type": "divinerpg:ender_spider",
     "weight": 16,
