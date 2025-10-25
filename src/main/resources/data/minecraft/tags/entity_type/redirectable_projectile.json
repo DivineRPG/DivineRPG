@@ -1,18 +1,5 @@
 {
   "values": [
-    "divinerpg:cave_rock",
-    "divinerpg:scorcher_shot",
-    "divinerpg:frost_shot",
-    "divinerpg:fractite_shot",
-    "divinerpg:ender_triplets_fireball",
-    "divinerpg:fyracryx_fireball",
-    "divinerpg:skyre_bullet",
-    "divinerpg:dissiment_shot",
-    "divinerpg:zoragon_bomb",
-    "divinerpg:watcher_shot",
-    "divinerpg:king_of_scorchers_shot",
-    "divinerpg:king_of_scorchers_meteor",
-    "divinerpg:raglok_bomb",
-    "divinerpg:wreck_bomb"
+    "divinerpg:fyracryx_fireball"
   ]
 }

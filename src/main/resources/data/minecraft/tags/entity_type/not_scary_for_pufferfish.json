@@ -1,13 +1,11 @@
 {
   "values": [
-    "divinerpg:aequorea",
-    "divinerpg:whale",
-    "divinerpg:shark",
-    "divinerpg:liopleurodon",
+    "#divinerpg:jellyfish",
+    "#divinerpg:sharks",
+    "#divinerpg:whales",
     "divinerpg:cauldron_fish",
     "divinerpg:pink_ghost_glider",
     "divinerpg:blubbertusk",
-    "divinerpg:kitra",
     "divinerpg:gem_fin"
   ]
 }

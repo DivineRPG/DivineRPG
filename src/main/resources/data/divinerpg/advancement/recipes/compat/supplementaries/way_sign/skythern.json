@@ -1,0 +1,38 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_sign": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:skythern_sign"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:compat/supplementaries/way_sign/skythern"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sign",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/supplementaries/way_sign/skythern"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

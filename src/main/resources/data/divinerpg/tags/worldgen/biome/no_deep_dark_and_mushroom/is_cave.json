@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#c:is_cave"
+  ],
+  "remove": [
+    "#c:is_mushroom",
+    "deep_dark"
+  ]
+}

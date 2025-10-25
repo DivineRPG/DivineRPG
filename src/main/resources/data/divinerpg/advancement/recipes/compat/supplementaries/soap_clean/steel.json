@@ -1,0 +1,38 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_soap": {
+      "conditions": {
+        "items": [
+          {
+            "items": "supplementaries:soap"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:compat/supplementaries/soap_clean/steel"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_soap",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/supplementaries/soap_clean/steel"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

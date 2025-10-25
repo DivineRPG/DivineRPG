@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#is_overworld"
+  ],
+  "remove": [
+    "#c:is_mushroom",
+    "deep_dark"
+  ]
+}

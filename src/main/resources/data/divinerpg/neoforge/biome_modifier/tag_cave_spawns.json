@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#c:is_cave",
+  "biomes": "#divinerpg:no_deep_dark_and_mushroom/is_cave",
   "spawners": {
     "type": "divinerpg:rainbour",
     "weight": 30,

@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawn_costs",
+  "biomes": "soul_sand_valley",
+  "entity_types": [
+    "divinerpg:wildfire",
+    "divinerpg:scorcher"
+  ],
+  "spawn_cost": {
+    "charge": 0.7,
+    "energy_budget": 0.15
+  }
+}

@@ -5,9 +5,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.biome.Biomes;
-import net.neoforged.neoforge.common.Tags;
+import net.minecraft.world.level.Level;
 
 public abstract class EntityDivineMonster extends Monster {
     public boolean followingTarget = true;
@@ -22,8 +20,5 @@ public abstract class EntityDivineMonster extends Monster {
             targetSelector.addGoal(0, new HurtByTargetGoal(this));
             targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         }
-    }
-    @Override public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
-        return !(level.getBiome(blockPosition()).is(Tags.Biomes.IS_MUSHROOM) || level.getBiome(blockPosition()).is(Biomes.DEEP_DARK));
     }
 }

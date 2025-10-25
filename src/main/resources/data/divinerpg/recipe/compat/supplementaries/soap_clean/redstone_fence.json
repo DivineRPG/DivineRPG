@@ -1,0 +1,30 @@
+{
+  "type": "crafting_shapeless",
+  "group": "divinerpg_steel_block",
+  "ingredients": [
+    [
+      {
+        "item": "divinerpg:green_fence"
+      },
+      {
+        "item": "divinerpg:blue_fence"
+      }
+    ],
+    {
+      "item": "supplementaries:soap"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:red_fence"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "soap"
+    }
+  ]
+}

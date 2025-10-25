@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#has_structure/mineshaft",
+  "biomes": "#divinerpg:no_deep_dark_and_mushroom/has_structure/mineshaft",
   "spawners": {
     "type": "divinerpg:miner",
     "weight": 60,
