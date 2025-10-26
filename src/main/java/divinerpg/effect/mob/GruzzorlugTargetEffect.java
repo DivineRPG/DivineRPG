@@ -12,12 +12,12 @@ import static divinerpg.registries.AttachmentRegistry.IMPORTANT;
 import static divinerpg.registries.TagRegistry.GRUZZORLUG_RAID_TARGETS;
 import static divinerpg.util.Utils.*;
 import static net.minecraft.world.Difficulty.PEACEFUL;
-import static net.minecraft.world.effect.MobEffectCategory.HARMFUL;
+import static net.minecraft.world.effect.MobEffectCategory.NEUTRAL;
 import static net.minecraft.world.entity.MobSpawnType.REINFORCEMENT;
 import static net.minecraft.world.level.GameRules.RULE_DISABLE_RAIDS;
 
 public class GruzzorlugTargetEffect extends MobEffect {
-	public GruzzorlugTargetEffect() {super(HARMFUL, 7035783);}
+	public GruzzorlugTargetEffect() {super(NEUTRAL, 7035783);}
 	@Override public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {return true;}
 	@Override public void applyInstantenousEffect(Entity entity, Entity e, LivingEntity living, int i, double d) {}
 	@Override public boolean applyEffectTick(LivingEntity entity, int i) {

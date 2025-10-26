@@ -34,6 +34,20 @@ public class TagRegistry {
         RIFT_REPLENISHING_SKYTHERN = item("rift_replenishing/skythern"),
         RIFT_REPLENISHING_MORTUM = item("rift_replenishing/mortum"),
 
+    //Summoning Items
+        SUMMONING_KITRA = item("summoning/kitra"),
+        SUMMONING_CAPTAIN_MERIK = item("summoning/captain_merik"),
+        SUMMONING_DATTICON = item("summoning/datticon"),
+        SUMMONING_KAZARI = item("summoning/kazari"),
+        SUMMONING_LEORNA = item("summoning/leorna"),
+        SUMMONING_LORD_VATTICUS = item("summoning/lord_vatticus"),
+        SUMMONING_WAR_GENERAL = item("summoning/war_general"),
+        SUMMONING_ZELUS = item("summoning/zelus"),
+        SUMMONING_SUNSTORM = item("summoning/sunstorm"),
+        SUMMONING_TERMASECT = item("summoning/termasect"),
+        SUMMONING_ETERNAL_ARCHER = item("summoning/eternal_archer"),
+        SUMMONING_EXPERIENCED_CORI = item("summoning/experienced_cori"),
+
     //Mob Loot
     //TODO: to use c: tags for some of these instead
         EYES_CYCLOPS = item("eyes/cyclops"),
@@ -42,6 +56,7 @@ public class TagRegistry {
         TEETH_SABEAR = item("teeth/sabear"),
         FINS_SHARK = item("fins/shark"),
         FINS_WHALE = item("fins/whale"),
+        SKULLS_LIOPLEURODON = item("skulls/liopleurodon"),
         POWDERS_PURPLE_BLAZE = item("powders/purple_blaze"),
         SNOWFLAKES = item("snowflakes"),
 
