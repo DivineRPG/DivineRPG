@@ -5,6 +5,7 @@ import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -50,7 +51,7 @@ public class LandVine extends Block implements BonemealableBlock {
         return player.getMainHandItem().canPerformAction(SHEARS_DIG) ? baseProgress * 2 : baseProgress;
     }
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
-        if(player.getMainHandItem().canPerformAction(SHEARS_DIG)) player.awardStat(ITEM_USED.get(player.getMainHandItem().getItem()));
+        if(player.getMainHandItem().getItem() instanceof ShearsItem) player.awardStat(ITEM_USED.get(player.getMainHandItem().getItem()));
         return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
     boolean canSupportAtFace(BlockGetter level, BlockPos pos, Direction direction) {

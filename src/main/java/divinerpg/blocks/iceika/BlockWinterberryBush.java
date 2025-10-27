@@ -35,7 +35,7 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
         return player.getMainHandItem().canPerformAction(SHEARS_DIG) ? baseProgress * 2 : baseProgress;
     }
     @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
-        if(player.getMainHandItem().canPerformAction(SHEARS_DIG)) player.awardStat(ITEM_USED.get(player.getMainHandItem().getItem()));
+        if(player.getMainHandItem().getItem() instanceof ShearsItem) player.awardStat(ITEM_USED.get(player.getMainHandItem().getItem()));
         return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
     @Override public boolean isRandomlyTicking(BlockState state) {return !state.getValue(RIPE);}
