@@ -8,27 +8,25 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.feature.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
+import static divinerpg.registries.TagRegistry.REPLACEABLE_BY_TREES_ICEIKA;
+
 public class DivineTree extends Feature<TreeConfig> {
-	public DivineTree() {
-		super(TreeConfig.CODEC);
-	}
+	public DivineTree() {super(TreeConfig.CODEC);}
 	public boolean hasSpace(WorldGenLevel level, BlockPos pos) {
 		BlockState state = level.getBlockState(pos);
 		return hasSpace(state);
 	}
 	public boolean hasSpace(BlockState state) {
-		return state.isAir() || state.is(BlockTags.LEAVES) || state.is(BlockTags.FLOWERS) || state.is(BlockTags.REPLACEABLE_BY_TREES) && !state.is(Blocks.WATER);
+		return state.isAir() || state.is(BlockTags.LEAVES) || state.is(BlockTags.FLOWERS) || state.is(REPLACEABLE_BY_TREES_ICEIKA) && !state.is(Blocks.WATER);
 	}
 	public final boolean heightCheck(WorldGenLevel level, BlockPos pos, int maxHeight, int width) {
 		for(int y = 0; y < maxHeight; y++) {
 			if(level.isOutsideBuildHeight(pos.offset(0, y, 0))) return false;
 			for(int x = 0; x < width; x++) for(int z = 0; z < width; z++) if(!hasSpace(level, pos.offset(x, y, z))) return false;
-		}
-		return true;
+		} return true;
 	}
 	public boolean canBeHere(WorldGenLevel level, RandomSource random, BlockPos pos, TreeConfig config) {
 		if(hasSpace(level, pos)) {
@@ -36,8 +34,7 @@ public class DivineTree extends Feature<TreeConfig> {
 			if(config.growableOn.isEmpty() && defaultGrowOn(state)) return true;
 			for(RuleTest test : config.growableOn) if(test.test(state, random)) return true;
 			return false;
-		}
-		return false;
+		} return false;
 	}
 	/**
 	 * Only called when config.growableOn is empty.
@@ -45,9 +42,7 @@ public class DivineTree extends Feature<TreeConfig> {
 	 * @param state the BlockState below origin
 	 * @return if state is a default block the tree can grow on
 	 */
-	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockTags.DIRT);
-	}
+	protected boolean defaultGrowOn(BlockState state) {return state.is(BlockTags.DIRT);}
 	protected void setBlock(WorldGenLevel level, BlockPos pos, BlockState state, boolean replace) {
 		BlockState block = level.getBlockState(pos);
 		if(hasSpace(block) || (replace && !block.is(Blocks.BEDROCK))) setBlock(level, pos, state);
@@ -122,12 +117,10 @@ public class DivineTree extends Feature<TreeConfig> {
     		chanceSetBlock(world, random, pos.offset(-offset, minY, width), state, chance, replace);
     	}
     }
-	@Override
-	public boolean place(FeaturePlaceContext<TreeConfig> context) {
+	@Override public boolean place(FeaturePlaceContext<TreeConfig> context) {
 		return place(context.config(), context.level(), context.chunkGenerator(), context.random(), context.origin());
 	}
-	@Override
-	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
+	@Override public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
 			int treeHeight = 3 + random.nextInt(3), extraHeight = treeHeight + 1;
 			if(heightCheck(level, pos, extraHeight, 1)) {
@@ -142,7 +135,6 @@ public class DivineTree extends Feature<TreeConfig> {
             	grow(level, random, pos.offset(0, treeHeight, 0), leaves, 1, 1, 0.5F);
             	return true;
 			}
-		}
-		return false;
+		} return false;
 	}
 }

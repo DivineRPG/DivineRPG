@@ -4,6 +4,7 @@ import com.google.common.collect.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -16,8 +17,10 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static net.minecraft.stats.Stats.ITEM_USED;
 import static net.minecraft.world.level.block.VineBlock.isAcceptableNeighbour;
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
+import static net.neoforged.neoforge.common.ItemAbilities.SHEARS_DIG;
 
 public class LandVine extends Block implements BonemealableBlock {
     public static final VoxelShape WEST_AABB = Block.box(0, 0, 0, 1, 16, 16),
@@ -27,13 +30,11 @@ public class LandVine extends Block implements BonemealableBlock {
     public static final BooleanProperty[] PROPERTIES = {NORTH, SOUTH, WEST, EAST};
     final Map<BlockState, VoxelShape> shapesCache;
     public LandVine() {
-        super(Properties.of().mapColor(MapColor.PLANT).replaceable().noCollission().randomTicks().strength(.2F).sound(SoundType.VINE).ignitedByLava().pushReaction(PushReaction.DESTROY));
+        super(Properties.ofFullCopy(Blocks.VINE));
         registerDefaultState((stateDefinition.any()).setValue(NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(BOTTOM, false));
         shapesCache = ImmutableMap.copyOf(stateDefinition.getPossibleStates().stream().collect(Collectors.toMap(Function.identity(), LandVine::calculateShape)));
     }
-    public static BooleanProperty byDirection(Direction d) {
-        return PROPERTIES[d.ordinal() - 2];
-    }
+    public static BooleanProperty byDirection(Direction d) {return PROPERTIES[d.ordinal() - 2];}
     static VoxelShape calculateShape(BlockState state) {
         VoxelShape voxelshape = Shapes.empty();
         if(state.getValue(NORTH)) voxelshape = NORTH_AABB;
@@ -42,13 +43,15 @@ public class LandVine extends Block implements BonemealableBlock {
         if(state.getValue(BlockStateProperties.WEST)) voxelshape = Shapes.or(voxelshape, WEST_AABB);
         return voxelshape.isEmpty() ? Shapes.block() : voxelshape;
     }
-    @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return shapesCache.get(state);
+    @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {return shapesCache.get(state);}
+    @Override protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {return true;}
+    @Override protected float getDestroyProgress(BlockState state, Player player, BlockGetter level, BlockPos pos) {
+        float baseProgress = super.getDestroyProgress(state, player, level, pos);
+        return player.getMainHandItem().canPerformAction(SHEARS_DIG) ? baseProgress * 2 : baseProgress;
     }
-    @Override
-    protected boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
-        return true;
+    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+        if(player.getMainHandItem().canPerformAction(SHEARS_DIG)) player.awardStat(ITEM_USED.get(player.getMainHandItem().getItem()));
+        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
     boolean canSupportAtFace(BlockGetter level, BlockPos pos, Direction direction) {
         if(direction.getAxis() == Direction.Axis.Y) return false;
@@ -64,8 +67,7 @@ public class LandVine extends Block implements BonemealableBlock {
         for(Direction direction : Direction.Plane.HORIZONTAL) state = state.setValue(byDirection(direction), canSupportAtFace(level, pos, direction));
         return state;
     }
-    @Override
-    protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
+    @Override protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
         BlockState blockstate = getUpdatedState(state, level, currentPos);
         return hasFaces(blockstate) ? blockstate : state;
     }
@@ -96,29 +98,21 @@ public class LandVine extends Block implements BonemealableBlock {
             }
         }
     }
-    @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    @Override protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(level.getGameRules().getBoolean(GameRules.RULE_DO_VINES_SPREAD) && level.random.nextInt(4) == 0 && level.isAreaLoaded(pos, 4)) spread(state, level, pos, random);
     }
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos());
         boolean sameBlock = blockstate.is(this);
         BlockState state = sameBlock ? blockstate : defaultBlockState();
         for(Direction direction : context.getNearestLookingDirections()) if(direction.getAxis() != Direction.Axis.Y) {
             BooleanProperty booleanproperty = byDirection(direction);
             boolean flag1 = sameBlock && blockstate.getValue(booleanproperty);
-            if(!flag1 && canSupportAtFace(context.getLevel(), context.getClickedPos(), direction)) {
-                return state.setValue(booleanproperty, true);
-            }
+            if(!flag1 && canSupportAtFace(context.getLevel(), context.getClickedPos(), direction)) return state.setValue(booleanproperty, true);
         } return sameBlock ? state : null;
     }
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(NORTH, EAST, SOUTH, WEST, BOTTOM);
-    }
-    @Override
-    protected BlockState rotate(BlockState state, Rotation rotation) {
+    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(NORTH, EAST, SOUTH, WEST, BOTTOM);}
+    @Override protected BlockState rotate(BlockState state, Rotation rotation) {
         return switch(rotation) {
             case CLOCKWISE_180 -> state.setValue(NORTH, state.getValue(SOUTH)).setValue(EAST, state.getValue(WEST)).setValue(SOUTH, state.getValue(NORTH)).setValue(WEST, state.getValue(EAST));
             case COUNTERCLOCKWISE_90 -> state.setValue(NORTH, state.getValue(EAST)).setValue(EAST, state.getValue(SOUTH)).setValue(SOUTH, state.getValue(WEST)).setValue(WEST, state.getValue(NORTH));
@@ -126,26 +120,20 @@ public class LandVine extends Block implements BonemealableBlock {
             default -> state;
         };
     }
-    @Override
-    protected BlockState mirror(BlockState state, Mirror mirror) {
+    @Override protected BlockState mirror(BlockState state, Mirror mirror) {
         return switch(mirror) {
             case LEFT_RIGHT -> state.setValue(NORTH, state.getValue(SOUTH)).setValue(SOUTH, state.getValue(NORTH));
             case FRONT_BACK -> state.setValue(EAST, state.getValue(WEST)).setValue(WEST, state.getValue(EAST));
             default -> super.mirror(state, mirror);
         };
     }
-    @Override
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
-        return true;
-    }
-    @Override
-    public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
-        return true;
-    }
-    @Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+    @Override public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {return true;}
+    @Override public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {return true;}
+    @Override public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
         blockState = getUpdatedState(blockState, serverLevel, blockPos);
         serverLevel.setBlock(blockPos, blockState, 3);
         spread(blockState, serverLevel, blockPos, randomSource);
     }
+    @Override public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {return 100;}
+    @Override public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {return 15;}
 }

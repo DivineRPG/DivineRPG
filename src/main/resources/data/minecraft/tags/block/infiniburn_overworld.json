@@ -1,10 +1,11 @@
 {
   "values": [
-    "#divinerpg:infiniburn_iceika",
-    "#divinerpg:sands",
+    "#divinerpg:infiniburn/iceika",
+    "#divinerpg:sands/arcanic",
     "divinerpg:soul_sludge",
     "divinerpg:soul_sludge_breakable",
     "divinerpg:arcanite_stone",
+    "divinerpg:arcanite_tiles",
     "divinerpg:raw_arcanium",
     "divinerpg:arcanium_block"
   ]

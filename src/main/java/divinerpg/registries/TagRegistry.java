@@ -99,6 +99,7 @@ public class TagRegistry {
         FURNACES = item("furnaces");
 
     public static final TagKey<Block>
+        REPLACEABLE_BY_TREES_ICEIKA = block("replaceable_by_trees/iceika"),
     //General Blocks
         FIRE_BLOCK = block("fire"),
         GATEWAY_RECEIVER = block("gateway_receiver"),

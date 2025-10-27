@@ -104,7 +104,7 @@ dependencies {
     //TODO: to add woodcutter variants
     implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
     runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
-    //TODO: to add cabinet variants
+    //TODO: to add cabinet variants (and maybe crop blocks)
     implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
