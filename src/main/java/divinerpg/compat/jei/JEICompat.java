@@ -125,7 +125,7 @@ public class JEICompat implements IModPlugin {
 //        registerIngredientInfo(registration, BlockRegistry.enchantedFlame, BlockRegistry.enchantedFlame.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.skyFire, BlockRegistry.skyFire.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.mortumEmbers, BlockRegistry.mortumEmbers.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.asphalt, BlockRegistry.asphalt.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.asphalt, BlockRegistry.asphalt.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.rawArcanium, BlockRegistry.rawArcanium.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.proximitySpawner, BlockRegistry.proximitySpawner.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.calcifiedBrain, BlockRegistry.calcifiedBrain.getId().getPath());

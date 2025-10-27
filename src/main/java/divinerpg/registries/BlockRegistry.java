@@ -503,7 +503,7 @@ public class BlockRegistry {
     workshopCarpet = registerBlock("workshop_carpet", () -> new BlockModWool(TERRACOTTA_RED)),
 
     //Asphalt
-    asphalt = registerBlock("asphalt", () -> new BlockMod(COLOR_BLACK)),
+    asphalt = registerBlock("asphalt", Asphalt::new),
     asphaltStairs = registerBlock("asphalt_stairs", () -> new BlockModStairs(asphalt.get())),
     asphaltSlab = registerBlock("asphalt_slab", () -> new BlockModSlab(asphalt.get())),
 
