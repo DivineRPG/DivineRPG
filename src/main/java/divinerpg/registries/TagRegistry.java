@@ -57,6 +57,8 @@ public class TagRegistry {
         FINS_SHARK = item("fins/shark"),
         FINS_WHALE = item("fins/whale"),
         SKULLS_LIOPLEURODON = item("skulls/liopleurodon"),
+        SKIN_KRAKEN = item("skin/kraken"),
+        FUR_SENG = item("fur/seng"),
         POWDERS_PURPLE_BLAZE = item("powders/purple_blaze"),
         SNOWFLAKES = item("snowflakes"),
 
@@ -87,6 +89,7 @@ public class TagRegistry {
         GEMS_MORTUM = item("gems/mortum"),
 
     //Chunks
+        CHUNKS_TORRIDITE = item("chunks/torridite"),
         CHUNKS_BEDROCK = item("chunks/bedrock"),
         CHUNKS_EDEN = item("chunks/eden"),
         CHUNKS_WILDWOOD = item("chunks/wildwood"),
@@ -94,13 +97,19 @@ public class TagRegistry {
         CHUNKS_SKYTHERN = item("chunks/skythern"),
         CHUNKS_MORTUM = item("chunks/mortum"),
 
-    //Crafting Items
+    //Storage Blocks
+        STORAGE_BLOCKS_REALMITE = item("storage_blocks/realmite"),
+
+    //Tools
         TOOLS_MAUL = item("tools/maul"),
+        TOOLS_UNBREAKABLE = item("tools/unbreakable"),
+
+    //Misc
         FURNACES = item("furnaces");
 
     public static final TagKey<Block>
+        SHICKAXE_EFFECTIVE = block("shickaxe_effective"),
         REPLACEABLE_BY_TREES_ICEIKA = block("replaceable_by_trees/iceika"),
-    //General Blocks
         FIRE_BLOCK = block("fire"),
         GATEWAY_RECEIVER = block("gateway_receiver"),
 

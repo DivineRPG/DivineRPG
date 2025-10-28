@@ -12,7 +12,7 @@
   "group": "shiverspine_ladder",
   "key": {
     "i": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "w": {
       "item": "divinerpg:shiverspine_planks"

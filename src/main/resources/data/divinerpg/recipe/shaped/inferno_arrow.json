@@ -15,7 +15,7 @@
       "item": "divinerpg:molten_shards"
     },
     "I": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "F": {
       "item": "minecraft:feather"

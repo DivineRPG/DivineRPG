@@ -1,21 +1,21 @@
 {
+  "type": "crafting_shaped",
+  "group": "divinerpg_crate",
+  "pattern": [
+    "XYX",
+    "Y Y",
+    "XYX"
+  ],
+  "key": {
+    "X": {
+      "tag": "planks"
+    },
+    "Y": {
+      "tag": "logs"
+    }
+  },
   "result": {
     "id": "divinerpg:crate",
-    "count": 4
-  },
-  "pattern": [
-    "xxx",
-    "y y",
-    "xxx"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "x": {
-      "tag": "minecraft:planks"
-    },
-    "y": {
-      "tag": "minecraft:logs"
-    }
+    "count": 5
   }
 }

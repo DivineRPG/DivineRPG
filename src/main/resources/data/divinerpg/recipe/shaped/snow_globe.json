@@ -8,7 +8,7 @@
   ],
   "key": {
     "G": {
-      "tag": "c:glass_blocks"
+      "tag": "c:glass_blocks/colorless"
     },
     "S": {
       "item": "snow_block"

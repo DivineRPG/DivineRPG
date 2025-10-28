@@ -10,7 +10,7 @@
   "category": "equipment",
   "key": {
     "S": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "T": {
       "item": "divinerpg:terran_stone"

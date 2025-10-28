@@ -1,16 +1,17 @@
 {
-  "result": {
-    "id": "minecraft:chest"
-  },
-  "pattern": [
-    "bb",
-    "bb"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "group": "chest",
+  "pattern": [
+    "CC",
+    "CC"
+  ],
   "key": {
-    "b": {
-      "tag": "divinerpg:vethea_logs"
+    "C": {
+      "tag": "divinerpg:wood_types/vethea"
     }
+  },
+  "result": {
+    "id": "chest",
+    "count": 2
   }
 }

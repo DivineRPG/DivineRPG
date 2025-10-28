@@ -14,7 +14,7 @@
       "item": "minecraft:blaze_powder"
     },
     "S": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "O": {
       "tag": "minecraft:redstone_ores"

@@ -5,5 +5,9 @@
     "#divinerpg:tools/hammer",
     "#divinerpg:tools/maul",
     "#divinerpg:tools/anchor"
+  ],
+  "remove": [
+    "#divinerpg:tools/effect/fire",
+    "#divinerpg:tools/effect/slowness"
   ]
 }

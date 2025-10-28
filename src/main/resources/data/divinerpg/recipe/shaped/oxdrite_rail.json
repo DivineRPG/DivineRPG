@@ -12,7 +12,7 @@
   "category": "redstone",
   "key": {
     "r": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "i": {
       "item": "divinerpg:oxdrite_ingot"

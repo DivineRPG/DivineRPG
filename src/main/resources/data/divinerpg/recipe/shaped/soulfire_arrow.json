@@ -15,7 +15,7 @@
       "item": "divinerpg:soulfire_stone"
     },
     "I": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "F": {
       "item": "minecraft:feather"

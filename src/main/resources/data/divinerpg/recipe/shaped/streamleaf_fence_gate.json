@@ -14,7 +14,7 @@
       "item": "divinerpg:streamleaf_planks"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   }
 }

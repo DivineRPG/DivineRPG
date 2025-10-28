@@ -2,13 +2,9 @@ package divinerpg.items.base;
 
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Pair;
-import divinerpg.DivineRPG;
 import divinerpg.util.LocalizeUtils;
-import divinerpg.util.Utils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.network.chat.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.*;
@@ -18,32 +14,33 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.neoforged.api.distmarker.*;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.common.ItemAbility;
+
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
 
+import static divinerpg.registries.TagRegistry.SHICKAXE_EFFECTIVE;
 import static net.minecraft.advancements.CriteriaTriggers.ITEM_USED_ON_BLOCK;
 import static net.minecraft.core.Direction.DOWN;
 import static net.minecraft.core.component.DataComponents.UNBREAKABLE;
 import static net.minecraft.sounds.SoundSource.BLOCKS;
 import static net.minecraft.tags.BlockTags.*;
 import static net.minecraft.world.item.Items.*;
-import static net.minecraft.world.item.enchantment.Enchantments.*;
 import static net.minecraft.world.level.gameevent.GameEvent.BLOCK_CHANGE;
+import static net.neoforged.api.distmarker.Dist.CLIENT;
 import static net.neoforged.neoforge.common.ItemAbilities.*;
 
 public class ItemShickaxe extends DiggerItem {
 	public Integer nameColor;
     //Base constructor
     public ItemShickaxe(Tier tier, Properties properties) {
-        super(tier, create(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "shickaxe_effective")), (tier.getUses() == 0 ? properties.component(UNBREAKABLE, new Unbreakable(true)) : properties).attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
+        super(tier, SHICKAXE_EFFECTIVE, (tier.getUses() == 0 ? properties.component(UNBREAKABLE, new Unbreakable(true)) : properties).attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
     }
     //Base shickaxes
     public ItemShickaxe(Tier tier) {this(tier, new Properties());}
@@ -113,15 +110,7 @@ public class ItemShickaxe extends DiggerItem {
             }
         } return InteractionResult.PASS;
     }
-    @Override public boolean isEnchantable(ItemStack stack) {return true;}
-    @Override public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
-        //TODO: to make terran shifter unenchantable with Silk Touch
-        return super.supportsEnchantment(stack, enchantment) && !(stack.has(UNBREAKABLE) && (enchantment.is(MENDING) || enchantment.is(UNBREAKING)));
-    }
-    @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return !(stack.has(UNBREAKABLE) && (Utils.hasStoredEnchantment(MENDING, book) || Utils.hasStoredEnchantment(UNBREAKING, book)));
-    }
-    @OnlyIn(Dist.CLIENT)
+    @OnlyIn(CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency((int)getTier().getSpeed()));
         TagKey<Block> tagKey = getTier().getIncorrectBlocksForDrops();

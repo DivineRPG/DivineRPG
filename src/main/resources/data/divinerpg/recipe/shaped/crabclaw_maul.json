@@ -11,7 +11,7 @@
   "category": "equipment",
   "key": {
     "S": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "I": {
       "item": "divinerpg:crab_claw"

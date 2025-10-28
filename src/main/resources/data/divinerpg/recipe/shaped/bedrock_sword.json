@@ -14,7 +14,7 @@
       "item": "divinerpg:bedrock_chunk"
     },
     "S": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   }
 }

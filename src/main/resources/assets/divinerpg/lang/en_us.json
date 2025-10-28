@@ -2417,6 +2417,7 @@
   "tag.item.divinerpg.wood_types.hyrewood": "Hyrewood Logs",
   "tag.block.divinerpg.wood_types.mintwood": "Mintwood Logs",
   "tag.item.divinerpg.wood_types.mintwood": "Mintwood Logs",
+  "tag.item.divinerpg.wood_types.vethea": "Vethea Logs",
 
   "tag.block.divinerpg.fences.divine": "Divine Fences",
   "tag.item.divinerpg.fences.divine": "Divine Fences",
@@ -2541,7 +2542,6 @@
   "tag.item.divinerpg.chunks": "DivineRPG Chunks",
   "tag.block.divinerpg.furnaces": "DivineRPG Furnaces",
   "tag.item.divinerpg.furnaces": "DivineRPG Furnaces",
-  "tag.item.divinerpg.vethea_logs": "Vethea Logs",
 
   "tag.item.divinerpg.seeds": "DivineRPG Seeds",
   "tag.item.divinerpg.seeds.tomato": "DivineRPG Tomato Seeds",
@@ -2713,7 +2713,7 @@
   "enchantment.divinerpg.aftershock": "Aftershock",
   "enchantment.divinerpg.aftershock.desc": "Gives a chance to double the damage.",
   "enchantment.divinerpg.brain_freeze": "Brain Freeze",
-  "enchantment.divinerpg.brain_freeze.desc": "Gives a chance to temporarily freeze mobs.",
+  "enchantment.divinerpg.brain_freeze.desc": "Gives a chance to temporarily paralyze targets.",
   "enchantment.divinerpg.insulation": "Insulation",
   "enchantment.divinerpg.insulation.desc": "Prevents freezing.",
   "enchantment.divinerpg.rive": "Rive",

@@ -1,21 +1,19 @@
 package divinerpg.items.base;
 
 import divinerpg.util.LocalizeUtils;
-import divinerpg.util.Utils;
-import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.api.distmarker.*;
-import java.util.*;
+import net.neoforged.api.distmarker.OnlyIn;
+
+import java.util.List;
 
 import static net.minecraft.tags.BlockTags.*;
 import static net.minecraft.world.item.Items.*;
+import static net.neoforged.api.distmarker.Dist.CLIENT;
 
 public class ItemModPickaxe extends PickaxeItem {
 	public Integer nameColor;
@@ -30,7 +28,7 @@ public class ItemModPickaxe extends PickaxeItem {
         this(tier, new Properties());
         nameColor = rarity;
     }
-	@OnlyIn(Dist.CLIENT)
+	@OnlyIn(CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         tooltip.add(LocalizeUtils.efficiency((int)getTier().getSpeed()));
         TagKey<Block> tagKey = getTier().getIncorrectBlocksForDrops();
@@ -39,17 +37,5 @@ public class ItemModPickaxe extends PickaxeItem {
     }
 	@Override public Component getName(ItemStack pStack) {
     	return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
-    }
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return true;
-    }
-    @Override
-    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
-        return super.supportsEnchantment(stack, enchantment) && !(stack.has(DataComponents.UNBREAKABLE) && (enchantment.is(Enchantments.MENDING) || enchantment.is(Enchantments.UNBREAKING)));
-    }
-    @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return !(stack.has(DataComponents.UNBREAKABLE) && (Utils.hasStoredEnchantment(Enchantments.MENDING, book) || Utils.hasStoredEnchantment(Enchantments.UNBREAKING, book)));
     }
 }
