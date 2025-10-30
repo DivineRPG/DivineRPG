@@ -108,7 +108,7 @@ public class TagRegistry {
         FURNACES = item("furnaces");
 
     public static final TagKey<Block>
-        SHICKAXE_EFFECTIVE = block("shickaxe_effective"),
+        MINEABLE_SHICKAXE = block("mineable/shickaxe"),
         REPLACEABLE_BY_TREES_ICEIKA = block("replaceable_by_trees/iceika"),
         FIRE_BLOCK = block("fire"),
         GATEWAY_RECEIVER = block("gateway_receiver"),

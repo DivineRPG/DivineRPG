@@ -1,16 +1,5 @@
 {
   "values": [
-    "divinerpg:plank_design",
-    "divinerpg:divine_planks",
-    "divinerpg:shiverspine_planks",
-    "divinerpg:auroraoak_planks",
-    "divinerpg:cozybark_planks",
-    "divinerpg:streamleaf_planks",
-    "divinerpg:eucalyptus_planks",
-    "divinerpg:eden_planks",
-    "divinerpg:wildwood_planks",
-    "divinerpg:apalachia_planks",
-    "divinerpg:skythern_planks",
-    "divinerpg:mortum_planks"
+    "#divinerpg:planks"
   ]
 }
