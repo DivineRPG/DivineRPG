@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:realmite_maul"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "III",
     "ISI",
     " S "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
       "tag": "c:rods/wooden"
     },
     "I": {
-      "item": "divinerpg:realmite_ingot"
+      "tag": "divinerpg:ingots/realmite"
     }
+  },
+  "result": {
+    "id": "divinerpg:realmite_maul"
   }
 }

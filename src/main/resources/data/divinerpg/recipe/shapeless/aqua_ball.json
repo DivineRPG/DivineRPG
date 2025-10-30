@@ -1,14 +1,32 @@
 {
   "type": "crafting_shapeless",
   "ingredients": [
+    [
+      {
+        "tag": "c:buckets/water"
+      },
+      {
+        "tag": "c:drinks/watery"
+      }
+    ],
     {
-      "item": "divinerpg:kraken_scale"
+      "tag": "divinerpg:no_itself/slime_balls_no_aqua"
     },
     {
       "tag": "divinerpg:no_itself/slime_balls_no_aqua"
+    },
+    {
+      "tag": "divinerpg:no_itself/slime_balls_no_aqua"
+    },
+    {
+      "tag": "divinerpg:no_itself/slime_balls_no_aqua"
+    },
+    {
+      "item": "divinerpg:kraken_scale"
     }
   ],
   "result": {
-    "id": "divinerpg:aqua_ball"
+    "id": "divinerpg:aqua_ball",
+    "count": 4
   }
 }

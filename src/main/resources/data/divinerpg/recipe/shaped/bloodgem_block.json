@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:bloodgem_block"
-  },
+  "type": "crafting_shaped",
+  "category": "building",
   "pattern": [
     "III",
     "III",
     "III"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
   "key": {
     "I": {
       "item": "divinerpg:bloodgem"
     }
+  },
+  "result": {
+    "id": "divinerpg:bloodgem_block"
   }
 }

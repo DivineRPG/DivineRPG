@@ -1,23 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:aquatooth_sword"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     " T ",
     "TKT",
     " S "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
       "tag": "c:rods/wooden"
     },
     "T": {
-      "item": "divinerpg:liopleurodon_teeth"
+      "tag": "divinerpg:teeth/liopleurodon"
     },
     "K": {
-      "item": "divinerpg:liopleurodon_skull"
+      "tag": "divinerpg:skulls/liopleurodon"
     }
+  },
+  "result": {
+    "id": "divinerpg:aquatooth_sword"
   }
 }

@@ -112,7 +112,7 @@ dependencies {
     runtimeOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
     runtimeOnly "curse.maven:resource-pandas-410681:${resource_pandas_id}" //Resource Pandas
 //    runtimeOnly "curse.maven:sawmill-964817:${sawmill_id}" //Sawmill
-    //TODO: to add raked frozen gravel, cannon boat variants
+    //TODO: to add raked frozen gravel, cannon boat variants, soup fluids for jars support, way posts in Iceika
     runtimeOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries
     //Traveler's Titles don't have NeoForge version up until 1.21.4
     //Tech mods compat

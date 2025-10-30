@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shaped",
+  "group": "twilight_gem",
+  "pattern": [
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "divinerpg:mortum_fragments"
+    }
+  },
+  "result": {
+    "id": "divinerpg:mortum_gem"
+  }
+}
