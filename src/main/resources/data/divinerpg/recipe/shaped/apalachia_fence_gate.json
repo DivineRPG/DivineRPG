@@ -14,7 +14,7 @@
       "item": "divinerpg:apalachia_planks"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   }
 }

@@ -1,12 +1,12 @@
 {
-  "result": {
-    "id": "divinerpg:eden_fragments"
-  },
+  "type": "crafting_shapeless",
+  "group": "twilight_fragments",
   "ingredients": [
     {
-      "item": "divinerpg:eden_soul"
+      "tag": "divinerpg:souls/eden"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "group": "twilight_fragments"
+  "result": {
+    "id": "divinerpg:eden_fragments"
+  }
 }

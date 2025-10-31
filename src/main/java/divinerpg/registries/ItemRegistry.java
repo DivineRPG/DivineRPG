@@ -485,11 +485,11 @@ public class ItemRegistry {
         realmite_shield = registerTool("realmite_shield", () -> new ItemDivineShield(INGOTS_REALMITE, 426, "realmite")),
         arlemite_shield = registerTool("arlemite_shield", () -> new ItemDivineShield(INGOTS_ARLEMITE, 734, "arlemite")),
         rupee_shield = registerTool("rupee_shield", () -> new ItemDivineShield(INGOTS_RUPEE, 823, "rupee")),
-        eden_shield = registerTool("eden_shield", () -> new ItemDivineShield(RarityList.EDEN, GEMS_EDEN, 978, "eden")),
-        wildwood_shield = registerTool("wildwood_shield", () -> new ItemDivineShield(RarityList.WILDWOOD, GEMS_WILDWOOD, 1125, "wildwood")),
-        apalachia_shield = registerTool("apalachia_shield", () -> new ItemDivineShield(RarityList.APALACHIA, GEMS_APALACHIA, 1256, "apalachia")),
-        skythern_shield = registerTool("skythern_shield", () -> new ItemDivineShield(RarityList.SKYTHERN, GEMS_SKYTHERN, 1485, "skythern")),
-        mortum_shield = registerTool("mortum_shield", () -> new ItemDivineShield(RarityList.MORTUM, GEMS_MORTUM, 1627, "mortum")),
+        eden_shield = registerTool("eden_shield", () -> new ItemDivineShield(RarityList.EDEN, CHUNKS_EDEN, 978, "eden")),
+        wildwood_shield = registerTool("wildwood_shield", () -> new ItemDivineShield(RarityList.WILDWOOD, CHUNKS_WILDWOOD, 1125, "wildwood")),
+        apalachia_shield = registerTool("apalachia_shield", () -> new ItemDivineShield(RarityList.APALACHIA, CHUNKS_APALACHIA, 1256, "apalachia")),
+        skythern_shield = registerTool("skythern_shield", () -> new ItemDivineShield(RarityList.SKYTHERN, CHUNKS_SKYTHERN, 1485, "skythern")),
+        mortum_shield = registerTool("mortum_shield", () -> new ItemDivineShield(RarityList.MORTUM, CHUNKS_MORTUM, 1627, "mortum")),
         halite_shield = registerTool("halite_shield", () -> new ItemDivineShield(RarityList.HALITE, null, 0, "halite")),
 
         //Serenades

@@ -1,30 +1,27 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "name": "divinerpg:dungeon_constructor",
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:ancient_key",
-          "weight": 1
+          "name": "divinerpg:ancient_key"
         },
         {
           "type": "item",
-          "name": "divinerpg:degraded_key",
-          "weight": 1
+          "name": "divinerpg:degraded_key"
         },
         {
           "type": "item",
-          "name": "divinerpg:sludge_key",
-          "weight": 1
+          "name": "divinerpg:sludge_key"
         },
         {
           "type": "item",
-          "name": "divinerpg:soul_key",
-          "weight": 1
+          "name": "divinerpg:soul_key"
         }
-      ]
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/dungeon_constructor"
 }

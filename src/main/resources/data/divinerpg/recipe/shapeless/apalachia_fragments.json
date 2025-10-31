@@ -1,12 +1,12 @@
 {
-  "result": {
-    "id": "divinerpg:apalachia_fragments"
-  },
+  "type": "crafting_shapeless",
+  "group": "twilight_fragments",
   "ingredients": [
     {
-      "item": "divinerpg:apalachia_soul"
+      "tag": "divinerpg:souls/apalachia"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "group": "twilight_fragments"
+  "result": {
+    "id": "divinerpg:apalachia_fragments"
+  }
 }

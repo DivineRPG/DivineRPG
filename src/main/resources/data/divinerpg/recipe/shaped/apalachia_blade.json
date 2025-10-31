@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:apalachia_blade"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "I",
     "I",
     "S"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "I": {
-      "item": "divinerpg:apalachia_chunk"
+      "tag": "divinerpg:chunks/apalachia"
     }
+  },
+  "result": {
+    "id": "divinerpg:apalachia_blade"
   }
 }

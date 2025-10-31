@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:golden_fury"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "GGG",
     "GFG",
     "FFF"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "F": {
-      "item": "divinerpg:fury_fire"
+      "tag": "divinerpg:powders/fury_fire"
     },
     "G": {
-      "item": "minecraft:gold_block"
+      "tag": "c:storage_blocks/gold"
     }
+  },
+  "result": {
+    "id": "divinerpg:golden_fury"
   }
 }

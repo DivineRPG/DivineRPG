@@ -3,9 +3,7 @@ package divinerpg.items.ranged;
 import divinerpg.items.ranged.bows.*;
 import divinerpg.network.payload.AccurateSetMotionPacket;
 import divinerpg.util.LocalizeUtils;
-import divinerpg.util.Utils;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
 import net.minecraft.server.level.ServerLevel;
@@ -17,7 +15,7 @@ import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.Unbreakable;
-import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.event.EventHooks;
@@ -73,10 +71,10 @@ public class ItemBow extends BowItem {
         }
     }
     @Override protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit, @Nullable LivingEntity target) {
-        float f = EnchantmentHelper.processProjectileSpread(level, weapon, shooter, 0F);
-        float f1 = projectileItems.size() == 1 ? 0F : 2F * f / (projectileItems.size() - 1);
-        float f2 = ((projectileItems.size() - 1) % 2) * f1 / 2F;
-        float f3 = 1F;
+        float f = EnchantmentHelper.processProjectileSpread(level, weapon, shooter, 0);
+        float f1 = projectileItems.size() == 1 ? 0 : 2 * f / (projectileItems.size() - 1);
+        float f2 = ((projectileItems.size() - 1) % 2) * f1 / 2;
+        float f3 = 1;
         for(int i = 0; i < projectileItems.size(); ++i) {
             ItemStack itemstack = projectileItems.get(i);
             if(!itemstack.isEmpty()) {
@@ -95,12 +93,6 @@ public class ItemBow extends BowItem {
         return new ItemStack(infinityArrow == null ? Items.ARROW : infinityArrow.get());
     }
     @Override public boolean isEnchantable(ItemStack stack) {return true;}
-    @Override public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
-        return super.supportsEnchantment(stack, enchantment) && (stack.has(DataComponents.MAX_DAMAGE) || !(enchantment.is(Enchantments.MENDING) || enchantment.is(Enchantments.UNBREAKING)));
-    }
-    @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return stack.has(DataComponents.MAX_DAMAGE) || !(Utils.hasStoredEnchantment(Enchantments.MENDING, book) || Utils.hasStoredEnchantment(Enchantments.UNBREAKING, book));
-    }
     public static void addEffect(Arrow arrow, MobEffectInstance instance) {
         ItemStack stack = arrow.getPickupItemStackOrigin();
         PotionContents contents = stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);

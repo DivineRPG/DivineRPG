@@ -15,7 +15,7 @@
       "item": "divinerpg:jungle_shards"
     },
     "I": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     },
     "F": {
       "item": "minecraft:feather"

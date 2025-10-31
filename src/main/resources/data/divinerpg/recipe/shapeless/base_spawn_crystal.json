@@ -1,23 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:base_spawn_crystal"
-  },
+  "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "divinerpg:skythern_soul"
+      "tag": "divinerpg:souls/skythern"
     },
     {
-      "item": "divinerpg:skythern_soul"
+      "tag": "divinerpg:souls/skythern"
     },
     {
-      "item": "divinerpg:skythern_soul"
+      "tag": "divinerpg:souls/skythern"
     },
     {
-      "item": "divinerpg:skythern_soul"
+      "tag": "divinerpg:souls/skythern"
     },
     {
-      "item": "divinerpg:skythern_soul"
+      "tag": "divinerpg:souls/skythern"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:base_spawn_crystal"
+  }
 }

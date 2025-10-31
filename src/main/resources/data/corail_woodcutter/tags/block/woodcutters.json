@@ -1,0 +1,52 @@
+{
+  "values": [
+    {
+      "id": "corail_woodcutter:plank_design_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:divine_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:shiverspine_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:auroraoak_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:cozybark_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:streamleaf_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:eucalyptus_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:eden_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:wildwood_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:apalachia_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:skythern_woodcutter",
+      "required": false
+    },
+    {
+      "id": "corail_woodcutter:mortum_woodcutter",
+      "required": false
+    }
+  ]
+}

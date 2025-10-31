@@ -1,8 +1,7 @@
 {
   "type": "neoforge:add_spawns",
   "biomes": "#stronghold_biased_to",
-  "spawners":
-  {
+  "spawners": {
     "type": "divinerpg:ender_spider",
     "weight": 16,
     "minCount": 1,

@@ -1,18 +1,18 @@
 {
-  "result": {
-    "id": "divinerpg:snowstorm_arrow"
-  },
+  "type": "crafting_shapeless",
+  "category": "equipment",
   "ingredients": [
     {
       "item": "divinerpg:soulfire_arrow"
     },
     {
-      "item": "minecraft:snowball"
+      "item": "snowball"
     },
     {
-      "item": "divinerpg:ice_shards"
+      "tag": "divinerpg:shards/ice"
     }
   ],
-  "category": "equipment",
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:snowstorm_arrow"
+  }
 }

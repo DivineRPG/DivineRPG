@@ -1,65 +1,58 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "name": "divinerpg:twilight_demon",
-      "conditions": [
-        {
-          "condition": "killed_by_player"
-        }
-      ],
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:halite_boots",
-          "weight": 1
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:halite_helmet",
-          "weight": 1
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
           "name": "divinerpg:mortum_heart",
           "functions": [
             {
-              "function": "minecraft:set_count",
-              "count": 1
-            },
-            {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "name": "divinerpg:twilight_demon_statue_drop",
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:halite_boots"
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:halite_helmet"
+        }
+      ],
       "conditions": [
         {
           "condition": "killed_by_player"
         }
       ],
-      "rolls": 1,
+      "rolls": 1
+    },
+    {
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:twilight_demon_statue",
-          "weight": 1
+          "name": "divinerpg:twilight_demon_statue"
         }
-      ]
+      ],
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/twilight_demon"
 }

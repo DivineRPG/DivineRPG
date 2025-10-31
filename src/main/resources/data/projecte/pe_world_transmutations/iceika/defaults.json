@@ -47,24 +47,6 @@
       "origin": "divinerpg:polished_coalstone",
       "result": "divinerpg:coalstone",
       "alt_result": "divinerpg:coalstone_bricks"
-    },
-    {
-      "origin": "divinerpg:asphalt",
-      "result": {
-        "Name": "divinerpg:smoldering_tar",
-        "Properties": {
-          "level": 0
-        }
-      }
-    },
-    {
-      "origin": {
-        "Name": "divinerpg:smoldering_tar",
-        "Properties": {
-          "level": 0
-        }
-      },
-      "result": "divinerpg:asphalt"
     }
   ],
   "neoforge:conditions": [

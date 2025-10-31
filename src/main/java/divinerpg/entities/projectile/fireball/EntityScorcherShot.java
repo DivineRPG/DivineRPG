@@ -4,13 +4,9 @@ import divinerpg.entities.projectile.DivineFireball;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
-import org.jetbrains.annotations.NotNull;
-
-import javax.annotation.Nullable;
 
 import static divinerpg.registries.EntityRegistry.SCORCHER_SHOT;
 import static net.minecraft.core.particles.ParticleTypes.PORTAL;
@@ -52,8 +48,5 @@ public class EntityScorcherShot extends DivineFireball {
                 getX() + (random.nextDouble() - random.nextDouble()) / 5,
                 getY() + .5 + (random.nextDouble() - random.nextDouble()) / 5,
                 getZ() + (random.nextDouble() - random.nextDouble()) / 5, 0, 0, 0);
-    }
-    @Override public boolean deflect(@NotNull ProjectileDeflection deflection, @Nullable Entity entity, @Nullable Entity owner, boolean deflectedByPlayer) {
-        return false;
     }
 }

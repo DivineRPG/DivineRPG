@@ -1,65 +1,62 @@
 {
-  "type": "minecraft:entity",
+  "type": "entity",
   "pools": [
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "divinerpg:blubber",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 2.0
-              },
-              "add": false
+                "type": "uniform",
+                "min": 1,
+                "max": 2
+              }
             },
             {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "bone",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
-                "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "type": "uniform",
+                "min": 0,
+                "max": 2
+              }
             },
             {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
-          ],
-          "name": "divinerpg:blubber"
+          ]
         }
-      ]
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/blubbertusk"
 }

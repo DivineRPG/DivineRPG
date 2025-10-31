@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:soulfire_bow"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     " IX",
     "I X",
     " IX"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "divinerpg:soulfire_stone"
+      "tag": "divinerpg:gems/soulfire"
     },
     "I": {
-      "item": "divinerpg:aquatic_blaze_rod"
+      "tag": "divinerpg:rods/aquatic_blaze"
     }
+  },
+  "result": {
+    "id": "divinerpg:soulfire_bow"
   }
 }

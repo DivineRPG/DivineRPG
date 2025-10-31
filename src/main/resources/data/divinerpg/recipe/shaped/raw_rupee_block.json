@@ -1,18 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
-  "key": {
-    "I": {
-      "item": "divinerpg:raw_rupee"
-    }
-  },
   "pattern": [
     "III",
     "III",
     "III"
   ],
+  "key": {
+    "I": {
+      "item": "divinerpg:raw_rupee"
+    }
+  },
   "result": {
-    "id": "divinerpg:raw_rupee_block",
-    "count": 1
+    "id": "divinerpg:raw_rupee_block"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "type": "corail_woodcutter:woodcutting",
+  "ingredient": {
+    "tag": "divinerpg:wood_types/streamleaf"
+  },
+  "result": {
+    "id": "divinerpg:streamleaf_stairs",
+    "count": 4
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "corail_woodcutter"
+    }
+  ]
+}

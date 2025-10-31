@@ -1,109 +1,104 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "name": "divinerpg:pumpkin_spider",
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:terran_shards",
-          "weight": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 0,
                 "max": 2
               }
             },
             {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "name": "divinerpg:pumpkin_spider",
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "minecraft:pumpkin",
-          "weight": 1
+          "name": "pumpkin"
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:string",
+          "type": "item",
+          "name": "string",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
-                "type": "minecraft:uniform",
+                "type": "uniform",
                 "min": 0,
                 "max": 2
-              },
-              "add": false
+              }
             },
             {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:spider_eye",
+          "type": "item",
+          "name": "spider_eye",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
-                "type": "minecraft:uniform",
+                "type": "uniform",
                 "min": -1,
                 "max": 1
-              },
-              "add": false
+              }
             },
             {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
           ]
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:killed_by_player"
+          "condition": "killed_by_player"
         }
-      ]
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/pumpkin_spider"
 }

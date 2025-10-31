@@ -1,0 +1,15 @@
+{
+  "type": "corail_woodcutter:woodcutting",
+  "ingredient": {
+    "item": "divinerpg:apalachia_planks"
+  },
+  "result": {
+    "id": "divinerpg:apalachia_trapdoor"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "corail_woodcutter"
+    }
+  ]
+}

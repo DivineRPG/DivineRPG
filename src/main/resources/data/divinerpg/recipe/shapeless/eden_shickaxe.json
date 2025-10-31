@@ -1,7 +1,6 @@
 {
-  "result": {
-    "id": "divinerpg:eden_shickaxe"
-  },
+  "type": "crafting_shapeless",
+  "category": "equipment",
   "ingredients": [
     {
       "item": "divinerpg:eden_pickaxe"
@@ -16,6 +15,7 @@
       "item": "divinerpg:eden_hoe"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "category": "equipment"
+  "result": {
+    "id": "divinerpg:eden_shickaxe"
+  }
 }

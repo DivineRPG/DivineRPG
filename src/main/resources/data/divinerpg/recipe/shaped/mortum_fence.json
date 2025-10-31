@@ -14,7 +14,7 @@
       "item": "divinerpg:mortum_planks"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   }
 }

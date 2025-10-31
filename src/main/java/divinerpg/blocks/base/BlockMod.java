@@ -15,6 +15,10 @@ public class BlockMod extends Block {
     public BlockMod(MapColor color, float hardness, float resistance) {
         super(Properties.ofFullCopy(Blocks.STONE).mapColor(color).strength(hardness, resistance));
     }
+    //Regular stone-like properties, but custom hardness/resistance and friction
+    public BlockMod(MapColor color, float hardness, float resistance, float friction) {
+        super(Properties.ofFullCopy(Blocks.STONE).mapColor(color).strength(hardness, resistance).friction(friction));
+    }
     //Custom hardness/resistance + instrument and sound
     public BlockMod(MapColor color, float hardness, float resistance, SoundType sound, NoteBlockInstrument instrument) {
         super(Properties.of().mapColor(color).requiresCorrectToolForDrops().strength(hardness, resistance).sound(sound).instrument(instrument));

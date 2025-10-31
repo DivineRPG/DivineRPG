@@ -2,22 +2,20 @@ package divinerpg.items.base;
 
 import divinerpg.attachments.Arcana;
 import divinerpg.enums.ToolStats;
-import divinerpg.registries.EnchantmentRegistry;
 import divinerpg.util.*;
-import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
-import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.OnlyIn;
-import java.util.*;
 
+import java.util.List;
+
+import static net.minecraft.stats.Stats.ITEM_USED;
 import static net.neoforged.api.distmarker.Dist.CLIENT;
 
 public class ItemModSword extends SwordItem {
@@ -57,22 +55,9 @@ public class ItemModSword extends SwordItem {
         if(arcanaConsumedUse != 0 && Arcana.getAmount(player) >= arcanaConsumedUse) {
             if(!level.isClientSide()) Arcana.modifyAmount(player, -arcanaConsumedUse);
             player.getCooldowns().addCooldown(this, cooldown);
-            player.awardStat(Stats.ITEM_USED.get(this));
+            player.awardStat(ITEM_USED.get(this));
             return arcanicUse(level, player, hand);
         } return super.use(level, player, hand);
-    }
-
-    @Override public boolean isEnchantable(ItemStack stack) {return true;}
-    @Override public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
-        return super.supportsEnchantment(stack, enchantment)
-                && !(stack.has(DataComponents.UNBREAKABLE) && (enchantment.is(Enchantments.MENDING) || enchantment.is(Enchantments.UNBREAKING)))
-                && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW && enchantment.is(EnchantmentRegistry.BRAIN_FREEZE))
-                && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && enchantment.is(Enchantments.FIRE_ASPECT));
-    }
-    @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return !(stack.has(DataComponents.UNBREAKABLE) && (Utils.hasStoredEnchantment(Enchantments.MENDING, book) || Utils.hasStoredEnchantment(Enchantments.UNBREAKING, book)))
-                && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.SLOW && Utils.hasStoredEnchantment(EnchantmentRegistry.BRAIN_FREEZE, book))
-                && !(sword.getSwordSpecial() == ToolStats.SwordSpecial.FLAME && Utils.hasStoredEnchantment(Enchantments.FIRE_ASPECT, book));
     }
     @OnlyIn(CLIENT)
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {

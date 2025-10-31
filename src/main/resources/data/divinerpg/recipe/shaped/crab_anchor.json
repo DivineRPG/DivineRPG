@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:crab_anchor"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "III",
     "IXI",
     " X "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "divinerpg:aquatic_ingot"
+      "tag": "divinerpg:ingots/aquatic"
     },
     "I": {
-      "item": "divinerpg:crab_claw"
+      "tag": "c:claws/crab"
     }
+  },
+  "result": {
+    "id": "divinerpg:crab_anchor"
   }
 }

@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "divinerpg:tomato"
+      "tag": "divinerpg:crops/tomato"
     }
   ],
   "result": {

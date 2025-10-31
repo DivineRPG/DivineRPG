@@ -19,11 +19,9 @@ import net.minecraft.world.entity.npc.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.trading.*;
-import net.minecraft.world.level.*;
-import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.*;
-import net.neoforged.neoforge.common.Tags;
 
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -142,8 +140,5 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
                 }
             } return null;
         }
-    }
-    @Override public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
-        return !(level.getBiome(blockPosition()).is(Tags.Biomes.IS_MUSHROOM) || level.getBiome(blockPosition()).is(Biomes.DEEP_DARK));
     }
 }

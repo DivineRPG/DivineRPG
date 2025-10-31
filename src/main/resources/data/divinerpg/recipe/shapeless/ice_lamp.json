@@ -4,7 +4,7 @@
   "group": "stone_lamps",
   "ingredients": [
     {
-      "item": "glowstone"
+      "tag": "c:storage_blocks/glowstone"
     },
     {
       "tag": "divinerpg:gems/ice"

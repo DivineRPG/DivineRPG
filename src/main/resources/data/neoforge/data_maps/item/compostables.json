@@ -15,6 +15,9 @@
     "divinerpg:streamleaf_leaves": {
       "chance": 0.3
     },
+    "divinerpg:land_vine_stem": {
+      "chance": 0.3
+    },
     "divinerpg:eden_leaves": {
       "chance": 0.3
     },
@@ -156,11 +159,8 @@
     "divinerpg:arcanite_vines_head": {
       "chance": 0.5
     },
-    "divinerpg:land_vine_stem": {
-      "chance": 0.5
-    },
     "divinerpg:land_vine": {
-      "chance": 0.4
+      "chance": 0.5
     },
     "divinerpg:wildwood_vine": {
       "chance": 0.5
@@ -321,6 +321,15 @@
     "divinerpg:arcanite_moss": {
       "chance": 0.65
     },
+    "divinerpg:glowsprout_stem": {
+      "chance": 0.65
+    },
+    "divinerpg:lowsprout_stem": {
+      "chance": 0.65
+    },
+    "divinerpg:slowsprout_stem": {
+      "chance": 0.65
+    },
     "divinerpg:tomato": {
       "chance": 0.65
     },
@@ -330,13 +339,22 @@
     "divinerpg:aquamarine": {
       "chance": 0.65
     },
+    "divinerpg:firestock": {
+      "chance": 0.65
+    },
     "divinerpg:hitchak": {
       "chance": 0.65
     },
     "divinerpg:lamona": {
       "chance": 0.65
     },
+    "divinerpg:marsine": {
+      "chance": 0.65
+    },
     "divinerpg:pinfly": {
+      "chance": 0.65
+    },
+    "divinerpg:veilo": {
       "chance": 0.65
     },
     "divinerpg:moonbulb": {
@@ -363,19 +381,10 @@
     "divinerpg:glowsprout_bulb": {
       "chance": 0.85
     },
-    "divinerpg:glowsprout_stem": {
-      "chance": 0.85
-    },
     "divinerpg:lowsprout_bulb": {
       "chance": 0.85
     },
-    "divinerpg:lowsprout_stem": {
-      "chance": 0.85
-    },
     "divinerpg:slowsprout_bulb": {
-      "chance": 0.85
-    },
-    "divinerpg:slowsprout_stem": {
       "chance": 0.85
     },
     "divinerpg:gelidite": {

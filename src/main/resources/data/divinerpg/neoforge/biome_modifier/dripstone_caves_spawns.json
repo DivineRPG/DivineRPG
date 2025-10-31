@@ -2,23 +2,23 @@
   "type": "neoforge:add_spawns",
   "biomes": "dripstone_caves",
   "spawners": [
-	  {
-		  "type": "divinerpg:jack_o_man",
-		  "weight": 24,
-		  "minCount": 1,
-		  "maxCount": 1
-	  },
-	  {
-	    "type": "divinerpg:enthralled_dramcryx",
-	    "weight": 60,
-	    "minCount": 2,
-	    "maxCount": 4
-  	  },
-	  {
-		  "type": "divinerpg:rainbour",
-		  "weight": 50,
-		  "minCount": 1,
-		  "maxCount": 2
-	  }
+    {
+      "type": "divinerpg:jack_o_man",
+      "weight": 12,
+      "minCount": 1,
+      "maxCount": 1
+    },
+    {
+      "type": "divinerpg:enthralled_dramcryx",
+      "weight": 60,
+      "minCount": 2,
+      "maxCount": 4
+    },
+    {
+      "type": "divinerpg:rainbour",
+      "weight": 50,
+      "minCount": 1,
+      "maxCount": 2
+    }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "type": "corail_woodcutter:woodcutting",
+  "ingredient": {
+    "item": "divinerpg:wildwood_planks"
+  },
+  "result": {
+    "id": "divinerpg:wildwood_door"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "corail_woodcutter"
+    }
+  ]
+}

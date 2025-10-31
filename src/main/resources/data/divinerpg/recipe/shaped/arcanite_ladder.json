@@ -14,7 +14,7 @@
       "item": "divinerpg:arcanium"
     },
     "x": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   }
 }

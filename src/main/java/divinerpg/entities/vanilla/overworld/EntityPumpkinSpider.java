@@ -9,8 +9,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.biome.Biomes;
-import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.fluids.FluidType;
 
 import javax.annotation.Nullable;
 
@@ -40,7 +39,7 @@ public class EntityPumpkinSpider extends Spider {
 	@Override public boolean hurt(DamageSource source, float amount) {
 		Entity entity = source.getDirectEntity();
 		if(!(entity instanceof LivingEntity)) entity = source.getEntity();
-		if(entity instanceof LivingEntity l && !l.level().isClientSide) setProvoked(l);
+		if(entity instanceof LivingEntity living && !living.level().isClientSide) setProvoked(living);
 		return super.hurt(source, amount);
 	}
 	@Override public void playAmbientSound() {if(getProvoked()) super.playAmbientSound();}
@@ -48,6 +47,13 @@ public class EntityPumpkinSpider extends Spider {
 	@Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {
 		return data;
 	}
+	//TODO: to make it angry when something pushes it
+//	@Override public void push(Entity entity) {
+//		super.push(entity);
+//		if(entity instanceof LivingEntity living && !(entity instanceof EntityPumpkinSpider)) setProvoked(living);
+//	}
+	@Override public boolean onClimbable() {return getProvoked() && super.onClimbable();}
+	@Override public boolean isPushedByFluid(FluidType type) {return getProvoked() && super.isPushedByFluid(type);}
 	public boolean getProvoked() {return AttachmentRegistry.ANGRY.get(this);}
 	public void setProvoked(LivingEntity entity) {
 		if(entity == null || (!hasLineOfSight(entity) && entity.distanceTo(this) > (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()) || !entity.isAlive()) {
@@ -69,8 +75,5 @@ public class EntityPumpkinSpider extends Spider {
 		absRotateTo(0, 0);
 		setYBodyRot(0);
 		setYHeadRot(0);
-	}
-	@Override public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
-		return !(level.getBiome(blockPosition()).is(Tags.Biomes.IS_MUSHROOM) || level.getBiome(blockPosition()).is(Biomes.DEEP_DARK));
 	}
 }

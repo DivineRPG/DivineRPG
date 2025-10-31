@@ -2,7 +2,8 @@
   "description": {
     "translate": "enchantment.divinerpg.brain_freeze"
   },
-  "supported_items": "#enchantable/sharp_weapon",
+  "exclusive_set": "#divinerpg:exclusive_set/effect",
+  "supported_items": "#divinerpg:enchantable/brain_freeze",
   "slots": [
     "mainhand"
   ],

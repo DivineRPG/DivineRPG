@@ -1,9 +1,9 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "category": "equipment",
   "ingredients": [
     {
-      "item": "divinerpg:corrupted_shards"
+      "tag": "divinerpg:shards/corrupted"
     }
   ],
   "result": {

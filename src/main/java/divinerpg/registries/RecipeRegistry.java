@@ -176,7 +176,7 @@ public class RecipeRegistry {
                 new DivineTrades(olivine.toStack(), ice_shards.toStack(12), random.nextInt(7), 1),
                 new DivineMapTrades(olivine.toStack(25), raw_wolpertinger_meat.toStack(5), "filled_map.whale_skull", TagRegistry.WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT, 25),
                 new DivineTrades(olivine.toStack(8), icyBricks.toStack(4), random.nextInt(7), 1),
-                new DivineTrades(olivine.toStack(10), frostedGlass.toStack(4), random.nextInt(7), 1),
+                new DivineTrades(olivine.toStack(10), icyStone.toStack(4), random.nextInt(7), 1),
                 new DivineTrades(olivine.toStack(12), runicIcyBricks.toStack(4), random.nextInt(7), 1)
             },
             GRUZZORLUG_GENERAL = (level, random) -> new DivineTrades[]{

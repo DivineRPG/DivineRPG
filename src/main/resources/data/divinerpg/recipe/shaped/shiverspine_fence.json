@@ -14,7 +14,7 @@
       "item": "divinerpg:shiverspine_planks"
     },
     "s": {
-      "item": "minecraft:stick"
+      "tag": "c:rods/wooden"
     }
   }
 }

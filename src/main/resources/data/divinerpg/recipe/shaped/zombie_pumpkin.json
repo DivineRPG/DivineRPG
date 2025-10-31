@@ -1,21 +1,21 @@
 {
-  "result": {
-    "id": "divinerpg:zombie_pumpkin"
-  },
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "mob_pumpkin",
   "pattern": [
     "MMM",
     "MPM",
     "MMM"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "mob_pumpkin",
   "key": {
     "P": {
-      "item": "minecraft:pumpkin"
+      "tag": "c:pumpkins/normal"
     },
     "M": {
-      "item": "minecraft:rotten_flesh"
+      "item": "rotten_flesh"
     }
+  },
+  "result": {
+    "id": "divinerpg:zombie_pumpkin"
   }
 }

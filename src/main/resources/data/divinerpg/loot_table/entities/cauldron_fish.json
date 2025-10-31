@@ -1,31 +1,30 @@
 {
-  "type": "minecraft:entity",
+  "type": "entity",
   "pools": [
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
           "name": "divinerpg:cauldron_flesh"
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:bone_meal"
+          "type": "item",
+          "name": "bone_meal"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:random_chance",
+          "condition": "random_chance",
           "chance": 0.05
         }
-      ]
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/cauldron_fish"
 }

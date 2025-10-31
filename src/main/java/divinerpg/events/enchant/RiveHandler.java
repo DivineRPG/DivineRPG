@@ -17,6 +17,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 public class RiveHandler {
+    //TODO: block breaking sound plays twice for the block that gets broken directly by the player
     @SubscribeEvent
     public void handleWorldBreak(BlockEvent.BreakEvent event) {
         Level world = (Level) event.getLevel();

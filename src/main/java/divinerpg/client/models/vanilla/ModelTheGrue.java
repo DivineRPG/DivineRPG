@@ -50,6 +50,7 @@ public class ModelTheGrue extends EntityModel<EntityTheGrue> {
 			else LeftJaw.xRot = RightJaw.xRot = RightJaw.yRot = .1571F * Mth.sin(Mth.PI * (l - partialTick) / 10);
 		} else LeftJaw.xRot = RightJaw.xRot = RightJaw.yRot = Mth.sqrt((float)Math.atan(200 * limbSwing) / 3) * limbSwingAmount + .1309F;
 	}
+	//TODO: leg angle change when jumping
 	@Override public void setupAnim(EntityTheGrue entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		Head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
 		Head.xRot = headPitch * Mth.DEG_TO_RAD;

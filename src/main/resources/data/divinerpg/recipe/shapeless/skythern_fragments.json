@@ -1,12 +1,12 @@
 {
-  "result": {
-    "id": "divinerpg:skythern_fragments"
-  },
+  "type": "crafting_shapeless",
+  "group": "twilight_fragments",
   "ingredients": [
     {
-      "item": "divinerpg:skythern_soul"
+      "tag": "divinerpg:souls/skythern"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "group": "twilight_fragments"
+  "result": {
+    "id": "divinerpg:skythern_fragments"
+  }
 }

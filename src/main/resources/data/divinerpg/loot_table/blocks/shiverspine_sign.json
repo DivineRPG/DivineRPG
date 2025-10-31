@@ -1,0 +1,19 @@
+{
+  "type": "block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:shiverspine_sign"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

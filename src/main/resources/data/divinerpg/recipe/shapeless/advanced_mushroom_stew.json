@@ -1,14 +1,14 @@
 {
-  "result": {
-    "id": "divinerpg:advanced_mushroom_stew"
-  },
+  "type": "crafting_shapeless",
   "ingredients": [
     {
-      "item": "divinerpg:white_mushroom"
+      "tag": "c:foods/white_mushroom"
     },
     {
-      "item": "minecraft:mushroom_stew"
+      "item": "mushroom_stew"
     }
   ],
-  "type": "minecraft:crafting_shapeless"
+  "result": {
+    "id": "divinerpg:advanced_mushroom_stew"
+  }
 }

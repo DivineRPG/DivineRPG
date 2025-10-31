@@ -1,16 +1,16 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:arksiane_lump",
-          "weight": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 20,
                 "max": 25
               }
@@ -26,19 +26,14 @@
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1,
       "entries": [
-        {
-          "type": "empty",
-          "weight": 1
-        },
         {
           "type": "item",
           "name": "potion",
-          "weight": 1,
           "functions": [
             {
               "function": "set_name",
@@ -71,7 +66,24 @@
             }
           ]
         }
-      ]
+      ],
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance_with_enchanted_bonus",
+          "enchantment": "looting",
+          "enchanted_chance": {
+            "type": "linear",
+            "base": 0.54,
+            "per_level_above_first": 0.04
+          },
+          "unenchanted_chance": 0.5
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/wreck"
 }

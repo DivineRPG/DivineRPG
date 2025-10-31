@@ -1,0 +1,38 @@
+{
+  "type": "crafting_shapeless",
+  "group": "soap",
+  "ingredients": [
+    {
+      "tag": "c:buckets/water"
+    },
+    {
+      "tag": "c:ash"
+    },
+    {
+      "tag": "c:ash"
+    },
+    {
+      "tag": "c:ash"
+    },
+    {
+      "tag": "c:ash"
+    },
+    {
+      "item": "divinerpg:blubber"
+    }
+  ],
+  "result": {
+    "id": "supplementaries:soap",
+    "count": 6
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "soap"
+    }
+  ]
+}

@@ -1,21 +1,21 @@
 {
-  "result": {
-    "id": "divinerpg:blaze_pumpkin"
-  },
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "mob_pumpkin",
   "pattern": [
     "MMM",
     "MPM",
     "MMM"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "mob_pumpkin",
   "key": {
     "P": {
-      "item": "minecraft:pumpkin"
+      "tag": "c:pumpkins/normal"
     },
     "M": {
-      "item": "minecraft:blaze_powder"
+      "item": "blaze_powder"
     }
+  },
+  "result": {
+    "id": "divinerpg:blaze_pumpkin"
   }
 }

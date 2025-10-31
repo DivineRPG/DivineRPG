@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "crafting_shapeless",
   "category": "redstone",
   "group": "divinerpg_wooden_button",
   "ingredients": [
@@ -8,7 +8,6 @@
     }
   ],
   "result": {
-    "id": "divinerpg:mortum_button",
-    "count": 1
+    "id": "divinerpg:mortum_button"
   }
 }

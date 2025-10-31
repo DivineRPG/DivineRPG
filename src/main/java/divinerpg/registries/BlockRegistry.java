@@ -9,7 +9,6 @@ import divinerpg.blocks.vanilla.*;
 import divinerpg.blocks.vanilla.FireBlock;
 import divinerpg.blocks.vethea.*;
 import divinerpg.items.base.block.*;
-import divinerpg.items.vanilla.AquaTorch;
 import divinerpg.util.*;
 import divinerpg.world.ConfiguredFeatureKeys;
 import net.minecraft.core.BlockPos;
@@ -25,14 +24,15 @@ import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.*;
+
 import java.util.*;
 import java.util.function.Supplier;
 
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.ItemRegistry.*;
 import static divinerpg.registries.SoundRegistry.*;
+import static divinerpg.registries.TagRegistry.*;
 import static divinerpg.util.WoodTypesList.*;
-import static net.minecraft.core.Direction.DOWN;
 import static net.minecraft.core.particles.ParticleTypes.FLAME;
 import static net.minecraft.sounds.SoundEvents.*;
 import static net.minecraft.world.effect.MobEffects.*;
@@ -503,7 +503,7 @@ public class BlockRegistry {
     workshopCarpet = registerBlock("workshop_carpet", () -> new BlockModWool(TERRACOTTA_RED)),
 
     //Asphalt
-    asphalt = registerBlock("asphalt", () -> new BlockMod(COLOR_BLACK)),
+    asphalt = registerBlock("asphalt", Asphalt::new),
     asphaltStairs = registerBlock("asphalt_stairs", () -> new BlockModStairs(asphalt.get())),
     asphaltSlab = registerBlock("asphalt_slab", () -> new BlockModSlab(asphalt.get())),
 
@@ -550,8 +550,8 @@ public class BlockRegistry {
     frozenBrickPressurePlate = registerBlock("frozen_brick_pressure_plate", () -> new BlockModPressurePlate(Blocks.STONE_PRESSURE_PLATE, GLOW_LICHEN, BlockSetType.STONE)),
     frozenBrickButton = registerBlock("frozen_brick_button", BlockModButton::new),
     snowBricks = registerBlock("snow_bricks", () -> new BlockMod(SNOW)),
-    icyBricks = registerBlock("icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
-    runicIcyBricks = registerBlock("runic_icy_bricks", () -> new BlockMod(ICE, 50, 1200)),
+    icyBricks = registerBlock("icy_bricks", () -> new BlockMod(ICE, 50, 1200, .98F)),
+    runicIcyBricks = registerBlock("runic_icy_bricks", () -> new BlockMod(ICE, 50, 1200, .98F)),
     polishedCobaltite = registerBlock("polished_cobaltite", () -> new BlockMod(COLOR_LIGHT_BLUE)),
     polishedCobaltiteStairs = registerBlock("polished_cobaltite_stairs", () -> new BlockModStairs(polishedCobaltite.get())),
     polishedCobaltiteSlab = registerBlock("polished_cobaltite_slab", () -> new BlockModSlab(polishedCobaltite.get())),
@@ -856,20 +856,20 @@ public class BlockRegistry {
     kobblinBurrow = registerBlock("kobblin_burrow", () -> new KobblinBurrow(Properties.ofFullCopy(Blocks.ROOTED_DIRT))),
 
     //Encaged Arcana Creatures
-    encagedCaptainMerik = registerBlock("encaged_captain_merik", () -> new BlockModMobCage(EntityRegistry.CAPTAIN_MERIK.getId(), firestock.getId())),
-    encagedDatticon = registerBlock("encaged_datticon", () -> new BlockModMobCage(EntityRegistry.DATTICON.getId(), aquamarine.getId())),
-    encagedKazari = registerBlock("encaged_kazari", () -> new BlockModMobCage(EntityRegistry.KAZARI.getId(), lamona.getId())),
-    encagedLeorna = registerBlock("encaged_leorna", () -> new BlockModMobCage(EntityRegistry.LEORNA.getId(), hitchak.getId())),
-    encagedLordVatticus = registerBlock("encaged_lord_vatticus", () -> new BlockModMobCage(EntityRegistry.LORD_VATTICUS.getId(), marsine.getId())),
-    encagedWarGeneral = registerBlock("encaged_war_general", () -> new BlockModMobCage(EntityRegistry.WAR_GENERAL.getId(), pinfly.getId())),
-    encagedZelus = registerBlock("encaged_zelus", () -> new BlockModMobCage(EntityRegistry.ZELUS.getId(), veilo.getId())),
+    encagedCaptainMerik = registerBlock("encaged_captain_merik", () -> new BlockModMobCage(EntityRegistry.CAPTAIN_MERIK.getId(), SUMMONING_CAPTAIN_MERIK)),
+    encagedDatticon = registerBlock("encaged_datticon", () -> new BlockModMobCage(EntityRegistry.DATTICON.getId(), SUMMONING_DATTICON)),
+    encagedKazari = registerBlock("encaged_kazari", () -> new BlockModMobCage(EntityRegistry.KAZARI.getId(), SUMMONING_KAZARI)),
+    encagedLeorna = registerBlock("encaged_leorna", () -> new BlockModMobCage(EntityRegistry.LEORNA.getId(), SUMMONING_LEORNA)),
+    encagedLordVatticus = registerBlock("encaged_lord_vatticus", () -> new BlockModMobCage(EntityRegistry.LORD_VATTICUS.getId(), SUMMONING_LORD_VATTICUS)),
+    encagedWarGeneral = registerBlock("encaged_war_general", () -> new BlockModMobCage(EntityRegistry.WAR_GENERAL.getId(), SUMMONING_WAR_GENERAL)),
+    encagedZelus = registerBlock("encaged_zelus", () -> new BlockModMobCage(EntityRegistry.ZELUS.getId(), SUMMONING_ZELUS)),
 
     //Boss Spawners
-    calcifiedBrain = registerBlock("calcified_brain", () -> new BlockModMobCage(Properties.ofFullCopy(Blocks.BONE_BLOCK), EntityRegistry.KITRA.getId(), liopleurodon_skull.getId(), new BlockPos(0, 5, 0))),
-    sunstormSpawner = registerBlock("sunstorm_spawner", () -> new BlockModMobCage(EntityRegistry.SUNSTORM.getId(), eden_chunk.getId(), COLOR_YELLOW)),
-    termasectSpawner = registerBlock("termasect_spawner", () -> new BlockModMobCage(EntityRegistry.TERMASECT.getId(), wildwood_chunk.getId(), COLOR_LIGHT_BLUE, new BlockPos(0, 11, 0))),
-    eternalArcherSpawner = registerBlock("eternal_archer_spawner", () -> new BlockModMobCage(EntityRegistry.ETERNAL_ARCHER.getId(), apalachia_chunk.getId(), COLOR_MAGENTA)),
-    experiencedCoriSpawner = registerBlock("experienced_cori_spawner", () -> new BlockModMobCage(EntityRegistry.EXPERIENCED_CORI.getId(), skythern_chunk.getId(), COLOR_LIGHT_GRAY, new BlockPos(0, 11, 0))),
+    calcifiedBrain = registerBlock("calcified_brain", () -> new BlockModMobCage(Properties.ofFullCopy(Blocks.BONE_BLOCK), EntityRegistry.KITRA.getId(), SUMMONING_KITRA, new BlockPos(0, 5, 0))),
+    sunstormSpawner = registerBlock("sunstorm_spawner", () -> new BlockModMobCage(EntityRegistry.SUNSTORM.getId(), SUMMONING_SUNSTORM, COLOR_YELLOW)),
+    termasectSpawner = registerBlock("termasect_spawner", () -> new BlockModMobCage(EntityRegistry.TERMASECT.getId(), SUMMONING_TERMASECT, COLOR_LIGHT_BLUE, new BlockPos(0, 11, 0))),
+    eternalArcherSpawner = registerBlock("eternal_archer_spawner", () -> new BlockModMobCage(EntityRegistry.ETERNAL_ARCHER.getId(), SUMMONING_ETERNAL_ARCHER, COLOR_MAGENTA)),
+    experiencedCoriSpawner = registerBlock("experienced_cori_spawner", () -> new BlockModMobCage(EntityRegistry.EXPERIENCED_CORI.getId(), SUMMONING_EXPERIENCED_CORI, COLOR_LIGHT_GRAY, new BlockPos(0, 11, 0))),
 
     //Boss Altars
     dramixAltar = registerWithRender("dramix_altar", () -> new BlockArcanaAltar(CRIMSON_HYPHAE), Rarity.COMMON),
@@ -971,11 +971,11 @@ public class BlockRegistry {
     vetheaPortal = registerBlock("vethea_portal", VetheaPortal::new),
 
     //Rifts
-    edenRift = BLOCKS.register("eden_rift", () -> new IslandRiftBlock(LevelRegistry.EDEN, Level.OVERWORLD, TagRegistry.RIFT_RESONATING_EDEN, TagRegistry.RIFT_REPLENISHING_EDEN, (byte)1)),
-    wildwoodRift = BLOCKS.register("wildwood_rift", () -> new IslandRiftBlock(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, TagRegistry.RIFT_RESONATING_WILDWOOD, TagRegistry.RIFT_REPLENISHING_WILDWOOD, (byte)2)),
-    apalachiaRift = BLOCKS.register("apalachia_rift", () -> new IslandRiftBlock(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, TagRegistry.RIFT_RESONATING_APALACHIA, TagRegistry.RIFT_REPLENISHING_APALACHIA, (byte)3)),
-    skythernRift = BLOCKS.register("skythern_rift", () -> new BlockModRift(LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, TagRegistry.RIFT_RESONATING_SKYTHERN, TagRegistry.RIFT_REPLENISHING_SKYTHERN, (byte)4)),
-    mortumRift = BLOCKS.register("mortum_rift", () -> new BlockModRift(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, TagRegistry.RIFT_RESONATING_MORTUM, TagRegistry.RIFT_REPLENISHING_MORTUM, (byte)5)),
+    edenRift = BLOCKS.register("eden_rift", () -> new IslandRiftBlock(LevelRegistry.EDEN, Level.OVERWORLD, RIFT_RESONATING_EDEN, RIFT_REPLENISHING_EDEN, (byte)1)),
+    wildwoodRift = BLOCKS.register("wildwood_rift", () -> new IslandRiftBlock(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, RIFT_RESONATING_WILDWOOD, RIFT_REPLENISHING_WILDWOOD, (byte)2)),
+    apalachiaRift = BLOCKS.register("apalachia_rift", () -> new IslandRiftBlock(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, RIFT_RESONATING_APALACHIA, RIFT_REPLENISHING_APALACHIA, (byte)3)),
+    skythernRift = BLOCKS.register("skythern_rift", () -> new BlockModRift(LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, RIFT_RESONATING_SKYTHERN, RIFT_REPLENISHING_SKYTHERN, (byte)4)),
+    mortumRift = BLOCKS.register("mortum_rift", () -> new BlockModRift(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, RIFT_RESONATING_MORTUM, RIFT_REPLENISHING_MORTUM, (byte)5)),
 
     //Air
     dungeonAir = registerBlock("dungeon_air", BlockModDungeonAir::new, Rarity.EPIC),

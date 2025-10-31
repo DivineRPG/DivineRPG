@@ -1,24 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:vamacheron_crystal"
-  },
+  "type": "crafting_shapeless",
+  "group": "boss_crystal",
   "ingredients": [
     {
       "item": "divinerpg:base_spawn_crystal"
     },
     {
-      "item": "divinerpg:mortum_soul"
+      "tag": "divinerpg:souls/mortum"
     },
     {
-      "item": "divinerpg:mortum_soul"
+      "tag": "divinerpg:souls/mortum"
     },
     {
-      "item": "divinerpg:mortum_soul"
+      "tag": "divinerpg:souls/mortum"
     },
     {
-      "item": "divinerpg:mortum_soul"
+      "tag": "divinerpg:souls/mortum"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "group": "boss_crystal"
+  "result": {
+    "id": "divinerpg:vamacheron_crystal"
+  }
 }

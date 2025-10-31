@@ -3,8 +3,8 @@
   "biomes": "warped_forest",
   "spawners": {
     "type": "divinerpg:ender_scrounge",
-    "weight": 10,
-    "minCount": 1,
+    "weight": 60,
+    "minCount": 2,
     "maxCount": 3
   }
 }

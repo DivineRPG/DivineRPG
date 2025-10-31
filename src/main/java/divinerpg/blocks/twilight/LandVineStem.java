@@ -4,6 +4,8 @@ import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
@@ -11,12 +13,21 @@ import net.minecraft.world.level.material.*;
 
 import java.util.*;
 
+import static net.minecraft.stats.Stats.ITEM_USED;
+import static net.neoforged.neoforge.common.ItemAbilities.SHEARS_DIG;
+
 public class LandVineStem extends Block implements BonemealableBlock {
-    public LandVineStem() {
-        super(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().strength(.6F).sound(SoundType.VINE).ignitedByLava());
+    public LandVineStem() {super(Properties.ofFullCopy(Blocks.GRASS_BLOCK).mapColor(MapColor.PLANT).sound(SoundType.VINE).ignitedByLava());}
+    //TODO: this is not affected by shears' efficiency enchantment level [to do for every plant that has this]
+    @Override protected float getDestroyProgress(BlockState state, Player player, BlockGetter level, BlockPos pos) {
+        float baseProgress = super.getDestroyProgress(state, player, level, pos);
+        return player.getMainHandItem().canPerformAction(SHEARS_DIG) ? baseProgress * 5 : baseProgress;
     }
-    @Override
-    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+        if(player.getMainHandItem().getItem() instanceof ShearsItem) player.awardStat(ITEM_USED.get(player.getMainHandItem().getItem()));
+        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
+    }
+    @Override protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(level.getGameRules().getBoolean(GameRules.RULE_DO_VINES_SPREAD) && level.isAreaLoaded(pos, 4)) spread(level, pos, random);
     }
     void spread(ServerLevel level, BlockPos pos, RandomSource random) {
@@ -39,16 +50,11 @@ public class LandVineStem extends Block implements BonemealableBlock {
             return;
         }
     }
-    @Override
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
-        return true;
-    }
-    @Override
-    public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
-        return true;
-    }
-    @Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+    @Override public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {return true;}
+    @Override public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {return true;}
+    @Override public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
         spread(serverLevel, blockPos, randomSource);
     }
+    @Override public int getFlammability(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {return 60;}
+    @Override public int getFireSpreadSpeed(BlockState state, BlockGetter getter, BlockPos pos, Direction face) {return 30;}
 }

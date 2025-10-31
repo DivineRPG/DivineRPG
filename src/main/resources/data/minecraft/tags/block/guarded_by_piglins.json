@@ -1,12 +1,9 @@
 {
   "values": [
+    "#divinerpg:chests",
     "divinerpg:gold_bricks",
     "divinerpg:gold_lamp",
     "divinerpg:shining_obsidian",
-    "divinerpg:gilded_bricks",
-    "divinerpg:bone_chest",
-    "divinerpg:present_box",
-    "divinerpg:frosted_chest",
-    "divinerpg:eden_chest"
+    "divinerpg:gilded_bricks"
   ]
 }

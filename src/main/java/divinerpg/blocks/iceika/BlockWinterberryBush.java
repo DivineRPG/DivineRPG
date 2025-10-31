@@ -11,15 +11,18 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 
 import static divinerpg.registries.ItemRegistry.winterberry;
 import static net.minecraft.sounds.SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES;
 import static net.minecraft.sounds.SoundSource.BLOCKS;
+import static net.minecraft.stats.Stats.ITEM_USED;
 import static net.minecraft.world.level.block.SoundType.SWEET_BERRY_BUSH;
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.BLOOM;
 import static net.minecraft.world.level.material.MapColor.PLANT;
 import static net.minecraft.world.level.material.PushReaction.DESTROY;
+import static net.neoforged.neoforge.common.ItemAbilities.SHEARS_DIG;
 
 public class BlockWinterberryBush extends BlockMod implements BonemealableBlock {
 	public static final BooleanProperty RIPE = BLOOM;
@@ -27,10 +30,13 @@ public class BlockWinterberryBush extends BlockMod implements BonemealableBlock 
         super(Properties.of().mapColor(PLANT).noCollission().randomTicks().strength(.2F).sound(SWEET_BERRY_BUSH).lightLevel((state) -> state.getValue(RIPE) ? 5 : 1).pushReaction(DESTROY));
 		registerDefaultState(stateDefinition.any().setValue(RIPE, false));
     }
-    @Override public float getDestroyProgress(BlockState state, Player player, BlockGetter level, BlockPos pos) {
-        float f = state.getDestroySpeed(level, pos);
-        if(player.getMainHandItem().getItem() instanceof ShearsItem) return player.getDigSpeed(state, pos) / f / 15;
-        else return super.getDestroyProgress(state, player, level, pos);
+    @Override protected float getDestroyProgress(BlockState state, Player player, BlockGetter level, BlockPos pos) {
+        float baseProgress = super.getDestroyProgress(state, player, level, pos);
+        return player.getMainHandItem().canPerformAction(SHEARS_DIG) ? baseProgress * 2 : baseProgress;
+    }
+    @Override public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
+        if(player.getMainHandItem().getItem() instanceof ShearsItem) player.awardStat(ITEM_USED.get(player.getMainHandItem().getItem()));
+        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
     @Override public boolean isRandomlyTicking(BlockState state) {return !state.getValue(RIPE);}
     @Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {

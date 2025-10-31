@@ -1,24 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:donut",
-    "count": 2
-  },
+  "type": "crafting_shaped",
   "pattern": [
     " W ",
     "E S",
     " W "
   ],
-
-  "type": "minecraft:crafting_shaped",
   "key": {
     "W": {
-      "item": "minecraft:wheat"
+      "item": "wheat"
     },
     "S": {
-      "item": "minecraft:sugar"
+      "item": "sugar"
     },
     "E": {
-      "item": "minecraft:egg"
+      "tag": "c:eggs"
     }
+  },
+  "result": {
+    "id": "divinerpg:donut",
+    "count": 2
   }
 }

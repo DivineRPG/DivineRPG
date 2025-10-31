@@ -1,12 +1,12 @@
 {
-  "result": {
-    "id": "divinerpg:mortum_fragments"
-  },
+  "type": "crafting_shapeless",
+  "group": "twilight_fragments",
   "ingredients": [
     {
-      "item": "divinerpg:mortum_soul"
+      "tag": "divinerpg:souls/mortum"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "group": "twilight_fragments"
+  "result": {
+    "id": "divinerpg:mortum_fragments"
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "entity",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "bone_meal"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "random_chance",
+          "chance": 0.05
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "divinerpg:entities/gem_fin"
+}

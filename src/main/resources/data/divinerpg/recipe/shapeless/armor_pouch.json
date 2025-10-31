@@ -1,0 +1,30 @@
+{
+  "type": "crafting_shapeless",
+  "category": "equipment",
+  "group": "armor_pouch",
+  "ingredients": [
+    [
+      {
+        "item": "divinerpg:red_armor_pouch"
+      },
+      {
+        "item": "divinerpg:yellow_armor_pouch"
+      },
+      {
+        "item": "divinerpg:green_armor_pouch"
+      },
+      {
+        "item": "divinerpg:blue_armor_pouch"
+      },
+      {
+        "item": "divinerpg:gray_armor_pouch"
+      }
+    ],
+    {
+      "tag": "c:leathers"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:armor_pouch"
+  }
+}

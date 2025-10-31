@@ -1,17 +1,17 @@
 {
-	"type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
-  "key": {
-    "I": {
-      "item": "divinerpg:piece_of_raw_arcanium"
-    }
-  },
   "pattern": [
     "III",
     "III",
     "III"
   ],
-	"result": {
-		"id": "divinerpg:raw_arcanium"
-	}
+  "key": {
+    "I": {
+      "item": "divinerpg:piece_of_raw_arcanium"
+    }
+  },
+  "result": {
+    "id": "divinerpg:raw_arcanium"
+  }
 }

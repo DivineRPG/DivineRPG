@@ -4,11 +4,9 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.armadillo.Armadillo;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.Level;
 
 import static divinerpg.registries.SoundRegistry.HELL_SPIDER;
-import static net.minecraft.world.level.biome.Biomes.DEEP_DARK;
-import static net.neoforged.neoforge.common.Tags.Biomes.IS_MUSHROOM;
 
 public class EntityEnderSpider extends EntityEnderWatcher {
     public EntityEnderSpider(EntityType<? extends EntityEnderSpider> type, Level worldIn) {super(type, worldIn);}
@@ -18,7 +16,4 @@ public class EntityEnderSpider extends EntityEnderWatcher {
         super.registerGoals();
     }
     @Override protected SoundEvent getAmbientSound() {return HELL_SPIDER.get();}
-    @Override public boolean checkSpawnRules(LevelAccessor level, MobSpawnType type) {
-        return !(level.getBiome(blockPosition()).is(IS_MUSHROOM) || level.getBiome(blockPosition()).is(DEEP_DARK));
-    }
 }

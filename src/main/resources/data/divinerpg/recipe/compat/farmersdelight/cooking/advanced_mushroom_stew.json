@@ -6,7 +6,7 @@
   },
   "ingredients": [
     {
-      "item": "divinerpg:white_mushroom"
+      "tag": "c:foods/white_mushroom"
     },
     {
       "item": "brown_mushroom"

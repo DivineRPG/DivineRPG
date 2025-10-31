@@ -1,94 +1,122 @@
 {
-  "type": "minecraft:entity",
+  "type": "entity",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "rabbit_hide",
           "functions": [
             {
-              "add": false,
+              "function": "set_count",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             },
             {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
-          ],
-          "name": "minecraft:rabbit_hide"
+          ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "divinerpg:raw_wolpertinger_meat",
           "functions": [
             {
-              "add": false,
+              "function": "set_count",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
+                "type": "uniform",
+                "min": 1,
+                "max": 2
+              }
             },
             {
+              "function": "furnace_smelt",
               "conditions": [
                 {
-                  "condition": "minecraft:entity_properties",
-                  "entity": "this",
-                  "predicate": {
-                    "flags": {
-                      "is_on_fire": true
+                  "condition": "any_of",
+                  "terms": [
+                    {
+                      "condition": "entity_properties",
+                      "entity": "this",
+                      "predicate": {
+                        "flags": {
+                          "is_on_fire": true
+                        }
+                      }
+                    },
+                    {
+                      "condition": "entity_properties",
+                      "entity": "direct_attacker",
+                      "predicate": {
+                        "equipment": {
+                          "mainhand": {
+                            "predicates": {
+                              "enchantments": [
+                                {
+                                  "enchantments": "#smelts_loot"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
                     }
-                  }
+                  ]
                 }
-              ],
-              "function": "minecraft:furnace_smelt"
+              ]
             },
             {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
-          ],
-          "name": "divinerpg:raw_wolpertinger_meat"
+          ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        }
-      ],
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:rabbit_foot"
+          "type": "item",
+          "name": "rabbit_foot"
         }
       ],
-      "rolls": 1.0
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance_with_enchanted_bonus",
+          "enchantment": "looting",
+          "enchanted_chance": {
+            "type": "linear",
+            "base": 0.13,
+            "per_level_above_first": 0.03
+          },
+          "unenchanted_chance": 0.1
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/wolpertinger"
 }

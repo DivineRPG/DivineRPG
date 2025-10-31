@@ -1,20 +1,20 @@
 {
+  "type": "crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "C",
+    "R"
+  ],
+  "key": {
+    "R": {
+      "tag": "divinerpg:storage_blocks/realmite"
+    },
+    "C": {
+      "item": "divinerpg:crate"
+    }
+  },
   "result": {
     "id": "divinerpg:distributor",
     "count": 2
-  },
-  "pattern": [
-    "c",
-    "r"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "redstone",
-  "key": {
-    "r": {
-      "item": "divinerpg:realmite_block"
-    },
-    "c": {
-      "item": "divinerpg:crate"
-    }
   }
 }

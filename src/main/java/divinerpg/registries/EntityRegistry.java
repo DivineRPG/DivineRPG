@@ -1025,7 +1025,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(ARID_WARRIOR.get(),	 RenderAridWarrior::new);
         event.registerEntityRenderer(CAVE_CRAWLER.get(),	 (Context context) -> new RenderDivineMob<>(context, "cave_crawler", new ModelCaveCrawler(context), .5F));
         event.registerEntityRenderer(BROWN_GRIZZLE.get(),	 (Context context) -> new RenderDivineMob<>(context, "brown_grizzle", new ModelGrizzle<>(context)));
-        event.registerEntityRenderer(CAVECLOPS.get(),		 (Context context) -> new RenderDivineMob<>(context,"caveclops",new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .8F, 2));
+        event.registerEntityRenderer(CAVECLOPS.get(),		 RenderCaveclops::new);
         event.registerEntityRenderer(CRAB.get(),			 (Context context) -> new RenderDivineMob<>(context, "crab", new ModelCrab(context), .6F));
         event.registerEntityRenderer(CYCLOPS.get(),			 RenderCyclops::new);
         event.registerEntityRenderer(DESERT_CRAWLER.get(),	 (Context context) -> new RenderDivineMob<>(context, "desert_crawler", new ModelDesertCrawler(context), .7F));
