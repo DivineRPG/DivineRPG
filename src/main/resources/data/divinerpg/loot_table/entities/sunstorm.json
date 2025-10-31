@@ -1,71 +1,87 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "name": "divinerpg:sunstorm",
-      "rolls": 2,
       "entries": [
         {
           "type": "item",
-          "weight": 10,
+          "name": "divinerpg:eden_heart",
+          "functions": [
+            {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
+              "count": {
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
           "name": "divinerpg:eden_fragments",
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 3,
                 "max": 6
               }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "weight": 5,
-          "name": "divinerpg:eden_blitz"
-        }
-      ]
-    },
-    {
-      "name": "divinerpg:sunstorm_heart_drop",
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "item",
-          "weight": 1,
-          "name": "divinerpg:eden_heart",
-          "functions": [
-            {
-              "function": "set_count",
-              "count": 1
             },
             {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
             }
           ]
         }
-      ]
-    },
-    {
-      "name": "divinerpg:sunstorm_statue_drop",
+      ],
       "conditions": [
         {
           "condition": "killed_by_player"
         }
       ],
-      "rolls": 1,
+      "rolls": 1
+    },
+    {
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:sunstorm_statue",
-          "weight": 1
+          "name": "divinerpg:eden_blitz"
         }
-      ]
+      ],
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:sunstorm_statue"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/sunstorm"
 }

@@ -1,181 +1,310 @@
 {
-  "type": "minecraft:entity",
+  "type": "entity",
   "pools": [
     {
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:glass",
+          "type": "item",
+          "name": "sandstone",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
-                "min": 16,
-                "max": 48
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "flags": {
-                  "is_on_fire": true
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:sandstone",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 16,
-                "max": 48
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "attacker",
-              "predicate": {
-                "equipment": {
-                  "mainhand": {
-                    "items": "#minecraft:pickaxes"
-                  }
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:sand",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 16,
-                "max": 48
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "attacker",
-              "predicate": {
-                "equipment": {
-                  "mainhand": {
-                    "items": "#minecraft:shovels"
-                  }
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "divinerpg:lava_lamp",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 8
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "flags": {
-                  "is_on_fire": true
-                }
+                "type": "uniform",
+                "min": 1,
+                "max": 3
               }
             },
             {
-              "condition": "minecraft:entity_properties",
-              "entity": "attacker",
-              "predicate": {
-                "equipment": {
-                  "mainhand": {
-                    "items": "#minecraft:pickaxes"
-                  }
+              "function": "furnace_smelt",
+              "conditions": [
+                {
+                  "condition": "any_of",
+                  "terms": [
+                    {
+                      "condition": "entity_properties",
+                      "entity": "this",
+                      "predicate": {
+                        "flags": {
+                          "is_on_fire": true
+                        }
+                      }
+                    },
+                    {
+                      "condition": "entity_properties",
+                      "entity": "direct_attacker",
+                      "predicate": {
+                        "equipment": {
+                          "mainhand": {
+                            "predicates": {
+                              "enchantments": [
+                                {
+                                  "enchantments": "#smelts_loot"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
                 }
-              }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:sandstone",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 16
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "flags": {
-                  "is_swimming": false
-                }
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:empty"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
+          "condition": "entity_properties",
+          "entity": "attacker",
           "predicate": {
-            "stepping_on": {
-              "fluid": {
-                "fluids": [
-                  "minecraft:flowing_water",
-                  "minecraft:water"
-                ]
+            "equipment": {
+              "mainhand": {
+                "items": "#pickaxes"
               }
             }
           }
         }
-      ]
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "chiseled_sandstone",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "any_of",
+          "terms": [
+            {
+              "condition": "entity_properties",
+              "entity": "attacker",
+              "predicate": {
+                "equipment": {
+                  "mainhand": {
+                    "items": "#c:tools/paxel"
+                  }
+                }
+              }
+            },
+            {
+              "condition": "entity_properties",
+              "entity": "attacker",
+              "predicate": {
+                "equipment": {
+                  "mainhand": {
+                    "items": "#c:tools/shickaxe"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "sand",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            },
+            {
+              "function": "furnace_smelt",
+              "conditions": [
+                {
+                  "condition": "any_of",
+                  "terms": [
+                    {
+                      "condition": "entity_properties",
+                      "entity": "this",
+                      "predicate": {
+                        "flags": {
+                          "is_on_fire": true
+                        }
+                      }
+                    },
+                    {
+                      "condition": "entity_properties",
+                      "entity": "direct_attacker",
+                      "predicate": {
+                        "equipment": {
+                          "mainhand": {
+                            "predicates": {
+                              "enchantments": [
+                                {
+                                  "enchantments": "#smelts_loot"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "inverted",
+          "term": {
+            "condition": "entity_properties",
+            "entity": "this",
+            "predicate": {
+              "stepping_on": {
+                "fluid": {
+                  "fluids": "#c:water"
+                }
+              }
+            }
+          }
+        },
+        {
+          "condition": "entity_properties",
+          "entity": "attacker",
+          "predicate": {
+            "equipment": {
+              "mainhand": {
+                "items": "#shovels"
+              }
+            }
+          }
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "sandstone",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "entity_properties",
+          "entity": "attacker",
+          "predicate": {
+            "equipment": {
+              "mainhand": {
+                "items": "#shovels"
+              }
+            }
+          }
+        },
+        {
+          "condition": "entity_properties",
+          "entity": "this",
+          "predicate": {
+            "stepping_on": {
+              "fluid": {
+                "fluids": "#c:water"
+              }
+            }
+          }
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:lava_lamp",
+          "conditions": [
+            {
+              "condition": "any_of",
+              "terms": [
+                {
+                  "condition": "entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "flags": {
+                      "is_on_fire": true
+                    }
+                  }
+                },
+                {
+                  "condition": "entity_properties",
+                  "entity": "direct_attacker",
+                  "predicate": {
+                    "equipment": {
+                      "mainhand": {
+                        "predicates": {
+                          "enchantments": [
+                            {
+                              "enchantments": "#smelts_loot"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "condition": "random_chance_with_enchanted_bonus",
+              "enchantment": "looting",
+              "enchanted_chance": {
+                "type": "linear",
+                "base": 0.45,
+                "per_level_above_first": 0.05
+              },
+              "unenchanted_chance": 0.4
+            },
+            {
+              "condition": "entity_properties",
+              "entity": "attacker",
+              "predicate": {
+                "equipment": {
+                  "mainhand": {
+                    "items": "#c:tools/mining_tool"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/desert_crawler"
 }

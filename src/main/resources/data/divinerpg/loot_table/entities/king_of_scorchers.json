@@ -1,34 +1,25 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "name": "divinerpg:king_of_scorchers",
-      "conditions": [
-        {
-          "condition": "killed_by_player"
-        }
-      ],
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:fury_fire",
-          "weight": 1
+          "name": "divinerpg:fury_fire"
         }
-      ]
-    },
-    {
-      "name": "divinerpg:king_of_scorchers",
+      ],
       "conditions": [
         {
           "condition": "killed_by_player"
         }
       ],
-      "rolls": 1,
+      "rolls": 1
+    },
+    {
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:soulfire_stone",
-          "weight": 1,
           "functions": [
             {
               "function": "set_count",
@@ -36,23 +27,28 @@
             }
           ]
         }
-      ]
-    },
-    {
-      "name": "divinerpg:king_of_scorchers_statue_drop",
+      ],
       "conditions": [
         {
           "condition": "killed_by_player"
         }
       ],
-      "rolls": 1,
+      "rolls": 1
+    },
+    {
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:king_of_scorchers_statue",
-          "weight": 1
+          "name": "divinerpg:king_of_scorchers_statue"
         }
-      ]
+      ],
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/king_of_scorchers"
 }

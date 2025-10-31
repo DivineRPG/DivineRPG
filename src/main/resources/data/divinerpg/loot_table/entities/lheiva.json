@@ -1,33 +1,31 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "name": "divinerpg:lheiva",
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:polished_pearls",
-          "weight": 1,
           "functions": [
             {
-              "function": "set_count",
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
               "count": {
-                "min": 1,
+                "type": "uniform",
+                "min": 0,
                 "max": 1
               }
-            },
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
             }
           ]
         }
-      ]
+      ],
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/lheiva"
 }

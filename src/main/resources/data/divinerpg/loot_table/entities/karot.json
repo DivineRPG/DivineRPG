@@ -1,62 +1,58 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "weight": 1,
+          "type": "item",
+          "name": "divinerpg:mortum_heart",
+          "functions": [
+            {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
+              "count": {
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
           "name": "divinerpg:halite_shickaxe"
         },
         {
-          "type": "minecraft:item",
-          "weight": 1,
+          "type": "item",
           "name": "divinerpg:halite_phaser"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:killed_by_player"
+          "condition": "killed_by_player"
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "divinerpg:mortum_heart",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            },
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "function": "minecraft:enchanted_count_increase"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
+          "type": "item",
           "name": "divinerpg:karot_statue"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:killed_by_player"
+          "condition": "killed_by_player"
         }
-      ]
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/karot"
 }

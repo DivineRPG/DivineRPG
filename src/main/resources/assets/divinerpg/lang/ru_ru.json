@@ -2006,7 +2006,7 @@
   "entity.divinerpg.pink_ghost_glider": "Розовый призрачный планер",
   "entity.divinerpg.blubbertusk": "Бивнежир",
   "entity.divinerpg.robbin": "Ворянка",
-  "entity.divinerpg.snow_skipper": "Снежный шкипер",
+  "entity.divinerpg.snow_skipper": "Снежный мигунёк",
   "entity.divinerpg.wolpertinger": "Вольпертингер",
   "entity.divinerpg.dolossal": "Долосс",
   "entity.divinerpg.mamoth": "Мамонтылёк",
@@ -2028,7 +2028,7 @@
   "item.divinerpg.pink_ghost_glider_spawn_egg": "Яйцо призыва розового призрачного планера",
   "item.divinerpg.blubbertusk_spawn_egg": "Яйцо призыва бивнежира",
   "item.divinerpg.robbin_spawn_egg": "Яйцо призыва ворянки",
-  "item.divinerpg.snow_skipper_spawn_egg": "Яйцо призыва снежного шкипера",
+  "item.divinerpg.snow_skipper_spawn_egg": "Яйцо призыва снежного мигунька",
   "item.divinerpg.wolpertinger_spawn_egg": "Яйцо призыва вольпертингера",
   "item.divinerpg.dolossal_spawn_egg": "Яйцо призыва долосса",
   "item.divinerpg.mamoth_spawn_egg": "Яйцо призыва мамонтылька",
@@ -2664,7 +2664,7 @@
   "tooltip.divinerpg.projecte.map": "Добавляет EMC в DivineRPG",
 
   "lore.divinerpg.red_cattle": "Страх неудачи, который движет вами",
-  "lore.divinerpg.wreck_potion": "Может быть, для этого найдется применение...",
+  "lore.divinerpg.wreck_potion": "Быть может, для этого найдется применение...",
 
   "jukebox_song.divinerpg.destiny": "3DA - Destiny",
   "jukebox_song.divinerpg.red_stains_on_the_bluest_snow": "3DA - Red Stains on the Bluest Snow",

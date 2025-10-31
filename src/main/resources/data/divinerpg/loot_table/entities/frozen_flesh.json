@@ -1,44 +1,82 @@
 {
+  "type": "entity",
   "pools": [
     {
-      "name": "divinerpg:frozen_flesh",
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "item",
-          "name": "divinerpg:peppermints",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 0,
-                "max": 2
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "divinerpg:frozen_flesh",
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:ice_shards",
-          "weight": 1,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 0,
                 "max": 3
+              }
+            },
+            {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
+              "count": {
+                "type": "uniform",
+                "min": 0,
+                "max": 1
               }
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "snowball",
+          "weight": 9,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:peppermints",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 0,
+                "max": 2
+              }
+            },
+            {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
+              "count": {
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:entities/frozen_flesh"
 }
