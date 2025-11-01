@@ -8,7 +8,7 @@
 			{
 				"target": {
 					"predicate_type": "minecraft:tag_match",
-					"tag": "minecraft:stone_ore_replaceables"
+					"tag": "divinerpg:ore_replaceables/frozen_stone"
 				},
 				"state": {
 					"Name": "divinerpg:oxdrite_ore"
@@ -19,7 +19,7 @@
 			{
 				"target": {
 					"predicate_type": "minecraft:tag_match",
-					"tag": "minecraft:stone_ore_replaceables"
+					"tag": "divinerpg:ore_replaceables/frozen_stone"
 				},
 				"state": {
 					"Name": "divinerpg:raw_oxdrite_block"
@@ -30,7 +30,7 @@
 			{
 				"target": {
 					"predicate_type": "minecraft:tag_match",
-					"tag": "minecraft:stone_ore_replaceables"
+					"tag": "divinerpg:ore_replaceables/frozen_stone"
 				},
 				"state": {
 					"Name": "divinerpg:cobbled_frozen_stone"

@@ -10,7 +10,7 @@
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
-          "tag": "minecraft:stone_ore_replaceables"
+          "tag": "divinerpg:ore_replaceables/frozen_stone"
         }
       }
     ]

@@ -2,15 +2,15 @@
   "values": [
     "divinerpg:cobbled_frozen_stone",
     "divinerpg:cobaltite",
-    "divinerpg:coalstone",
-    "divinerpg:divine_rock",
     "divinerpg:arcanite_stone",
     "divinerpg:ancient_stone_breakable",
     "divinerpg:soul_stone_breakable",
+    "divinerpg:divine_rock",
     "divinerpg:twilight_stone",
-    "divinerpg:cobbled_scorchalt",
-    "divinerpg:draught_stone",
     "divinerpg:milk_stone",
+    "divinerpg:cobbled_scorchalt",
+    "divinerpg:ray_stone",
+    "divinerpg:draught_stone",
     "divinerpg:dream_stone",
     "divinerpg:luna_stone"
   ]

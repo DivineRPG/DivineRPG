@@ -7,12 +7,11 @@
     "#divinerpg:foods/purple_glowbone",
     "#divinerpg:foods/pink_glowbone",
     "#divinerpg:foods/sky_flower",
+    "#divinerpg:foods/magic_meat",
     "divinerpg:chocolate_log",
     "divinerpg:egg_nog",
     "divinerpg:snow_cones",
     "divinerpg:weak_arcana_potion",
-    "divinerpg:strong_arcana_potion",
-    "divinerpg:magic_meat",
-    "divinerpg:enriched_magic_meat"
+    "divinerpg:strong_arcana_potion"
   ]
 }

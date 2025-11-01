@@ -1,18 +1,13 @@
 package divinerpg.entities.vanilla.overworld;
 
-import net.minecraft.world.entity.TamableAnimal;
-import net.minecraft.world.entity.player.Player;
+import divinerpg.entities.base.Grizzle;
+import divinerpg.registries.TagRegistry;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import net.minecraft.world.entity.EntityType;
-
-public class EntityWhiteGrizzle extends EntityBrownGrizzle {
-    public EntityWhiteGrizzle(EntityType<? extends TamableAnimal> type, Level worldIn) {
-        super(type, worldIn);
-    }
-    protected EntityWhiteGrizzle(EntityType<? extends TamableAnimal> type, Level worldIn, Player player) {
-        super(type, worldIn);
-        setHealth(getMaxHealth());
-        tame(player);
-    }
+public class EntityWhiteGrizzle extends Grizzle {
+    public EntityWhiteGrizzle(EntityType<? extends EntityWhiteGrizzle> type, Level worldIn) {super(type, worldIn);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_WHITE_GRIZZLE);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_WHITE_GRIZZLE);}
 }

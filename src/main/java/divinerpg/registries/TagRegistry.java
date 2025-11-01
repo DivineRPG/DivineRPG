@@ -48,6 +48,39 @@ public class TagRegistry {
         SUMMONING_ETERNAL_ARCHER = item("summoning/eternal_archer"),
         SUMMONING_EXPERIENCED_CORI = item("summoning/experienced_cori"),
 
+    //Pet Foods
+        PET_FOODS_SNAPPER = item("pet_foods/snapper"),
+        PET_FOODS_EHU = item("pet_foods/ehu"),
+        PET_FOODS_HUSK = item("pet_foods/husk"),
+        PET_FOODS_BROWN_GRIZZLE = item("pet_foods/brown_grizzle"),
+        PET_FOODS_WHITE_GRIZZLE = item("pet_foods/white_grizzle"),
+        PET_FOODS_STONE_GOLEM = item("pet_foods/stone_golem"),
+        PET_FOODS_SMELTER = item("pet_foods/smelter"),
+        PET_FOODS_HELL_PIG = item("pet_foods/hell_pig"),
+        PET_FOODS_FYRACRYX = item("pet_foods/fyracryx"),
+        PET_FOODS_GOLEM_OF_REJUVENATION = item("pet_foods/golem_of_rejuvenation"),
+        PET_FOODS_PARATIKU = item("pet_foods/paratiku"),
+        PET_FOODS_SEIMER = item("pet_foods/seimer"),
+        PET_FOODS_GLINTHOP = item("pet_foods/glinthop"),
+        PET_FOODS_MOON_WOLF = item("pet_foods/moon_wolf"),
+
+    //Pet Taming Foods
+        PET_TAMING_FOODS_SNAPPER = item("pet_taming_foods/snapper"),
+        PET_TAMING_FOODS_EHU = item("pet_taming_foods/ehu"),
+        PET_TAMING_FOODS_HUSK = item("pet_taming_foods/husk"),
+        PET_TAMING_FOODS_BROWN_GRIZZLE = item("pet_taming_foods/brown_grizzle"),
+        PET_TAMING_FOODS_WHITE_GRIZZLE = item("pet_taming_foods/white_grizzle"),
+        PET_TAMING_FOODS_STONE_GOLEM = item("pet_taming_foods/stone_golem"),
+        PET_TAMING_FOODS_SMELTER = item("pet_taming_foods/smelter"),
+        PET_TAMING_FOODS_HELL_PIG = item("pet_taming_foods/hell_pig"),
+        PET_TAMING_FOODS_FYRACRYX = item("pet_taming_foods/fyracryx"),
+        PET_TAMING_FOODS_GOLEM_OF_REJUVENATION = item("pet_taming_foods/golem_of_rejuvenation"),
+        PET_TAMING_FOODS_PARATIKU = item("pet_taming_foods/paratiku"),
+        PET_TAMING_FOODS_SEIMER = item("pet_taming_foods/seimer"),
+        PET_TAMING_FOODS_GLINTHOP = item("pet_taming_foods/glinthop"),
+        //Yet unused, because it uses vanilla wolves behaviour of chewing bones
+        PET_TAMING_FOODS_MOON_WOLF = item("pet_taming_foods/moon_wolf"),
+
     //Mob Loot
     //TODO: to use c: tags for some of these instead
         EYES_CYCLOPS = item("eyes/cyclops"),

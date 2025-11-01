@@ -1,13 +1,13 @@
 {
-  "type": "minecraft:ore",
+  "type": "ore",
   "config": {
     "size": 5,
     "discard_chance_on_air_exposure": 0.15,
     "targets": [
       {
         "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "divinerpg:twilight_stone"
+          "predicate_type": "tag_match",
+          "tag": "divinerpg:ore_replaceables/twilight_stone"
         },
         "state": {
           "Name": "divinerpg:twilight_eden_ore"
@@ -15,8 +15,8 @@
       },
       {
         "target": {
-          "predicate_type": "minecraft:block_match",
-          "block": "divinerpg:scorchalt"
+          "predicate_type": "tag_match",
+          "tag": "divinerpg:ore_replaceables/scorchalt"
         },
         "state": {
           "Name": "divinerpg:scorchalt_eden_ore"

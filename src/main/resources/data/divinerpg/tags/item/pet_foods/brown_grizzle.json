@@ -1,0 +1,11 @@
+{
+  "values": [
+    "#c:foods/berry",
+    "#c:foods/raw_fish",
+    "#c:foods/raw_meat",
+    "#divinerpg:foods/magic_meat"
+  ],
+  "remove": [
+    "#c:foods/food_poisoning"
+  ]
+}
