@@ -3210,7 +3210,7 @@
   "info.divinerpg.jei.collector": "Used as as a fuel for Arcanium Extractors and occasionally as a trading currency. Summons Dungeon Constructors when used on the Dramix Altar.",
   "info.divinerpg.jei.firestock": "Has a chance to spread the fire it was burned in. Used for releasing Captain Merik from their cage without destroying the latter.",
   "info.divinerpg.jei.acid": "Used as a fuel for Dream Lamps and ammo for Cannons.",
-  "info.divinerpg.jei.icy_fire": "Freezes upon contact. Burns exclusively on top of Ice (#minecraft:ice) or Snow (#minecraft:snow) blocks.",
+  "info.divinerpg.jei.icy_fire": "Freezes upon contact. Burns exclusively on top of Ice or Snow blocks.",
   "info.divinerpg.jei.asphalt": "Increases movement speed; formed by cooling Smoldering Tar with Water.",
   "info.divinerpg.jei.raw_arcanium": "Generates in the Dungeon of Arcana; usually behind locked doors.",
   "info.divinerpg.jei.encaged_captain_merik": "Spawns Captain Merik either by breaking it once or by supplying it with the Firestock unlimited times.",

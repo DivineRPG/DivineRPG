@@ -1,19 +1,16 @@
 package divinerpg.blocks.iceika;
 
 import com.mojang.serialization.MapCodec;
-import divinerpg.registries.*;
-import divinerpg.util.Utils;
 import net.minecraft.core.*;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+
+import static divinerpg.registries.SoundRegistry.FREEZE;
+import static divinerpg.registries.TagRegistry.BASE_BLOCKS_ICY_FIRE;
+import static net.minecraft.sounds.SoundSource.BLOCKS;
 
 public class BlockIcyFire extends BaseFireBlock {
 	public static final MapCodec<BlockIcyFire> CODEC = simpleCodec(BlockIcyFire::new);
@@ -26,7 +23,7 @@ public class BlockIcyFire extends BaseFireBlock {
 			entity.setTicksFrozen(entity.getTicksFrozen() + 4);
 			if(entity.tickCount % 15 == 0) {
 				entity.hurt(level.damageSources().freeze(), 1);
-				if(!entity.isAlive()) level.playSound(null, pos, SoundRegistry.FREEZE.get(), SoundSource.BLOCKS, .8F, 1.5F);
+				if(!entity.isAlive()) level.playSound(null, pos, FREEZE.get(), BLOCKS, .8F, 1.5F);
 			}
 		}
 	}
@@ -34,6 +31,10 @@ public class BlockIcyFire extends BaseFireBlock {
 		return canBurn(level.getBlockState(pos.below())) ? defaultBlockState() : Blocks.AIR.defaultBlockState();
 	}
 	@Override public BlockState getStateForPlacement(BlockPlaceContext context) {return defaultBlockState();}
-	@Override public boolean canSurvive(BlockState s, LevelReader level, BlockPos pos) {return canBurn(level.getBlockState(pos.below()));}
-	@Override protected boolean canBurn(BlockState state) {return state.is(BlockTags.SNOW) || state.is(BlockTags.ICE);}
+	@Override public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+		BlockPos posBelow = pos.below();
+		BlockState stateBelow = level.getBlockState(posBelow);
+		return canBurn(stateBelow) && !stateBelow.isAir() && stateBelow.isFaceSturdy(level, posBelow, Direction.UP);
+	}
+	@Override protected boolean canBurn(BlockState state) {return state.is(BASE_BLOCKS_ICY_FIRE);}
 }
