@@ -146,6 +146,9 @@ public class TagRegistry {
         FIRE_BLOCK = block("fire"),
         GATEWAY_RECEIVER = block("gateway_receiver"),
 
+    //Base Blocks
+        BASE_BLOCKS_ICY_FIRE = block("base_blocks/icy_fire"),
+
     //Rift related Blocks
         RIFT_RESONATING_EDEN = block("rift_resonating/eden"),
         RIFT_RESONATING_WILDWOOD = block("rift_resonating/wildwood"),
