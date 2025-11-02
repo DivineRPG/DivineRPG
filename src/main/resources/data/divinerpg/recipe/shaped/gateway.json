@@ -1,19 +1,16 @@
 {
-  "result": {
-    "id": "divinerpg:gateway"
-  },
+  "type": "crafting_shaped",
   "pattern": [
     "PLP",
     "MSM",
     "PMP"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "S": {
       "item": "divinerpg:teleportation_star"
     },
     "L": {
-      "item": "minecraft:lodestone"
+      "item": "lodestone"
     },
     "P": {
       "item": "divinerpg:arcanium_power_breakable"
@@ -21,5 +18,8 @@
     "M": {
       "item": "divinerpg:arcanium_metal_breakable"
     }
+  },
+  "result": {
+    "id": "divinerpg:gateway"
   }
 }

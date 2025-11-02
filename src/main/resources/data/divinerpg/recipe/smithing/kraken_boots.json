@@ -7,7 +7,7 @@
     "item": "divinerpg:aquastrive_boots"
   },
   "addition": {
-    "item": "divinerpg:kraken_skin"
+    "tag": "divinerpg:skin/kraken"
   },
   "result": {
     "id": "divinerpg:kraken_boots"

@@ -1,19 +1,19 @@
 {
-  "result": {
-    "id": "divinerpg:corrupted_cannon"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "III",
     "S S"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
       "tag": "c:rods/wooden"
     },
     "I": {
-      "item": "divinerpg:corrupted_stone"
+      "tag": "divinerpg:gems/corrupted"
     }
+  },
+  "result": {
+    "id": "divinerpg:corrupted_cannon"
   }
 }

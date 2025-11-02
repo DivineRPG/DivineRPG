@@ -2,12 +2,12 @@
   "type": "crafting_shaped",
   "category": "building",
   "pattern": [
-    "c  ",
-    "cc ",
-    "ccc"
+    "C  ",
+    "CC ",
+    "CCC"
   ],
   "key": {
-    "c": {
+    "C": {
       "item": "divinerpg:polished_scorchalt"
     }
   },

@@ -1,16 +1,16 @@
 {
+  "type": "crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "divinerpg:arcanite_stone"
+    }
+  },
   "result": {
     "id": "divinerpg:arcanite_wall",
     "count": 6
-  },
-  "pattern": [
-    "sss",
-    "sss"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "s": {
-      "item": "divinerpg:arcanite_stone"
-    }
   }
 }

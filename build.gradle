@@ -134,6 +134,7 @@ dependencies {
     runtimeOnly "curse.maven:appleskin-248787:${apple_skin_id}" //Apple Skin
     runtimeOnly "curse.maven:not-enough-crashes-forge-442354:${not_enough_crashes_id}" //Not Enough Crashes
     runtimeOnly "curse.maven:mmmmmmmmmmmm-225738:${target_dummy_id}" //Target Dummy
+    runtimeOnly "curse.maven:tslatentitystatus-tes-830420:${tes_id}" //TslatEntityStatus
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

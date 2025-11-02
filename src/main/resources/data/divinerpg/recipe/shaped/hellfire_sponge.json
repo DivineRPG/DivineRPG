@@ -1,23 +1,23 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ZXZ",
+    "XYX",
+    "ZXZ"
+  ],
+  "key": {
+    "X": {
+      "tag": "divinerpg:ingots/hellstone"
+    },
+    "Y": {
+      "item": "sponge"
+    },
+    "Z": {
+      "tag": "divinerpg:gems/molten"
+    }
+  },
   "result": {
     "id": "divinerpg:hellfire_sponge"
-  },
-  "pattern": [
-    "zxz",
-    "xyx",
-    "zxz"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "x": {
-      "item": "divinerpg:hellstone_ingot"
-    },
-    "y": {
-      "item": "minecraft:sponge"
-    },
-    "z": {
-      "item": "divinerpg:molten_stone"
-    }
   }
 }

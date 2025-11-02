@@ -1,23 +1,23 @@
 {
+  "type": "crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XXX",
+    "XCX",
+    "XRX"
+  ],
+  "key": {
+    "X": {
+      "tag": "divinerpg:ingots/arlemite"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    },
+    "C": {
+      "item": "hopper"
+    }
+  },
   "result": {
     "id": "divinerpg:placer"
-  },
-  "pattern": [
-    "xxx",
-    "xcx",
-    "xrx"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "redstone",
-  "key": {
-    "x": {
-      "item": "divinerpg:arlemite_ingot"
-    },
-    "r": {
-      "item": "minecraft:redstone"
-    },
-    "c": {
-      "item": "minecraft:hopper"
-    }
   }
 }

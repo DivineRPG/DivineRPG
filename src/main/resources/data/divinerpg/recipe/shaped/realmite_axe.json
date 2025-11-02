@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:realmite_axe"
-  },
-  "pattern": [
-    "II ",
-    "IS ",
-    " S "
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "equipment",
+  "pattern": [
+    "II",
+    "IS",
+    " S"
+  ],
   "key": {
     "S": {
       "tag": "c:rods/wooden"
     },
     "I": {
-      "item": "divinerpg:realmite_ingot"
+      "tag": "divinerpg:ingots/realmite"
     }
+  },
+  "result": {
+    "id": "divinerpg:realmite_axe"
   }
 }

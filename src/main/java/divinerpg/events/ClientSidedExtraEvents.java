@@ -2,7 +2,6 @@ package divinerpg.events;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
-import divinerpg.DivineRPG;
 import divinerpg.client.particle.*;
 import divinerpg.effect.dimension.*;
 import divinerpg.registries.*;
@@ -20,17 +19,19 @@ import net.neoforged.neoforge.client.extensions.common.*;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
+import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.ParticleRegistry.*;
 import static net.minecraft.world.effect.MobEffects.FIRE_RESISTANCE;
 
-@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@SuppressWarnings("removal")
+@EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSidedExtraEvents {
     @SubscribeEvent
     public static void registerClientExtensions(RegisterClientExtensionsEvent event) {
         event.registerFluidType(new IClientFluidTypeExtensions() {
             private static final ResourceLocation
-                    STILL = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "block/liquid_tar_still"),
-                    FLOW = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "block/liquid_tar_flow");
+                    STILL = ResourceLocation.fromNamespaceAndPath(MODID, "block/liquid_tar_still"),
+                    FLOW = ResourceLocation.fromNamespaceAndPath(MODID, "block/liquid_tar_flow");
             @Override public ResourceLocation getStillTexture() {return STILL;}
             @Override public ResourceLocation getFlowingTexture() {return FLOW;}
             @Override public int getTintColor() {return 0xFF7FFFD4;}
@@ -61,9 +62,9 @@ public class ClientSidedExtraEvents {
     }
     @SubscribeEvent
     public static void registerDimensionSpecialEffects(RegisterDimensionSpecialEffectsEvent event) {
-        event.register(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika_sky"), new IceikaSky());
-        event.register(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight_sky"), new TwilightSky());
-        event.register(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "vethea_sky"), new VetheaSky());
+        event.register(ResourceLocation.fromNamespaceAndPath(MODID, "iceika_sky"), new IceikaSky());
+        event.register(ResourceLocation.fromNamespaceAndPath(MODID, "twilight_sky"), new TwilightSky());
+        event.register(ResourceLocation.fromNamespaceAndPath(MODID, "vethea_sky"), new VetheaSky());
     }
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent

@@ -1,23 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:shadow_saber"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     " I ",
     "IAI",
     " S "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
       "tag": "c:rods/wooden"
     },
     "I": {
-      "item": "divinerpg:shadow_stone"
+      "tag": "divinerpg:gems/shadow"
     },
     "A": {
-      "item": "divinerpg:arcanium"
+      "tag": "divinerpg:gems/arcanium"
     }
+  },
+  "result": {
+    "id": "divinerpg:shadow_saber"
   }
 }

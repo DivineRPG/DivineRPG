@@ -88,31 +88,15 @@
       ],
       "conditions": [
         {
-          "condition": "any_of",
-          "terms": [
-            {
-              "condition": "entity_properties",
-              "entity": "attacker",
-              "predicate": {
-                "equipment": {
-                  "mainhand": {
-                    "items": "#c:tools/paxel"
-                  }
-                }
-              }
-            },
-            {
-              "condition": "entity_properties",
-              "entity": "attacker",
-              "predicate": {
-                "equipment": {
-                  "mainhand": {
-                    "items": "#c:tools/shickaxe"
-                  }
-                }
+          "condition": "entity_properties",
+          "entity": "attacker",
+          "predicate": {
+            "equipment": {
+              "mainhand": {
+                "items": "#c:tools/multipurpose"
               }
             }
-          ]
+          }
         }
       ],
       "rolls": 1

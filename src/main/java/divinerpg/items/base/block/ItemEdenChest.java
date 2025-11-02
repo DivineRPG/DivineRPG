@@ -10,22 +10,12 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import java.util.function.Consumer;
 
 public class ItemEdenChest extends BlockItem {
-    public ItemEdenChest(Block block, Properties properties) {
-        super(block, properties);
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(RenderEdenChest.INSTANCE);
-    }
-
+    public ItemEdenChest(Block block, Properties properties) {super(block, properties);}
+    @SuppressWarnings("removal")
+    @Override public void initializeClient(Consumer<IClientItemExtensions> consumer) {consumer.accept(RenderEdenChest.INSTANCE);}
     static class RenderEdenChest implements IClientItemExtensions {
-
         public static RenderEdenChest INSTANCE = new RenderEdenChest();
-
-        @Override
-        public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-
+        @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {
             return new RenderEdenChestItem(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
         }
     }

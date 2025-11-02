@@ -1,13 +1,10 @@
 {
-  "result": {
-    "id": "divinerpg:robbin_hut"
-  },
+  "type": "crafting_shaped",
   "pattern": [
     " B ",
     "B B",
     "PPP"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "B": [
       {
@@ -20,5 +17,8 @@
     "P": {
       "item": "divinerpg:shiverspine_planks"
     }
+  },
+  "result": {
+    "id": "divinerpg:robbin_hut"
   }
 }

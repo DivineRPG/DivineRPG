@@ -1,13 +1,10 @@
 package divinerpg.events;
 
-import divinerpg.DivineRPG;
 import divinerpg.entities.eden.EntityWeakCori;
 import divinerpg.entities.vanilla.overworld.*;
 import divinerpg.registries.AttachmentRegistry;
 import net.minecraft.core.*;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -28,34 +25,38 @@ import net.neoforged.neoforge.event.entity.living.MobSpawnEvent.SpawnPlacementCh
 import javax.annotation.Nullable;
 import java.util.*;
 
+import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.EntityRegistry.*;
+import static net.minecraft.core.registries.Registries.BIOME;
+import static net.minecraft.resources.ResourceLocation.fromNamespaceAndPath;
+import static net.minecraft.resources.ResourceKey.create;
 import static net.minecraft.world.entity.SpawnPlacementTypes.*;
 import static net.minecraft.world.level.levelgen.Heightmap.Types.*;
 import static net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent.Operation.REPLACE;
 
 public class SpawnEvents {
 	public static final ResourceKey<Biome>
-		BONEYARD = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/boneyard")),
-		BOREALIS_STEEPS = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/borealis_steeps")),
-		CHILL_PASSAGE = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/chill_passage")),
-		CHILLY_CAVERN = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/chilly_cavern")),
-		COZYBARK_FOREST = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/cozybark_forest")),
-		DEEP_FROZEN_OCEAN = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/deep_frozen_ocean")),
-		FRACTAL_FOREST = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/fractal_forest")),
-		FROZEN_MENAGERIE = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/frozen_menagerie")),
-		FROZEN_OCEAN = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/frozen_ocean")),
-		FROZEN_PEAKS = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/frozen_peaks")),
-		GEYSER_PLATEAU = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/geyser_pateau")),
-		GLOWING_DEEP = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/glowing_deep")),
-		ICE_SHEET = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/ice_sheet")),
-		ICE_SPIKES = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/ice_spikes")),
-		MORGUE_MARSH = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/morgue_marsh")),
-		SHELTERED_GARDEN = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/sheltered_garden")),
-		SHIVERSPINE_FOREST = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/shiverspine_forest")),
-		SNOW_BOG = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/snow_bog")),
-		SNOWY_PEAKS = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/snowy_peaks")),
-		THERMAL_VENTS = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/thermal_vents")),
-		TUNDRA = ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika/tundra"));
+		BONEYARD = create(BIOME, fromNamespaceAndPath(MODID, "iceika/boneyard")),
+		BOREALIS_STEEPS = create(BIOME, fromNamespaceAndPath(MODID, "iceika/borealis_steeps")),
+		CHILL_PASSAGE = create(BIOME, fromNamespaceAndPath(MODID, "iceika/chill_passage")),
+		CHILLY_CAVERN = create(BIOME, fromNamespaceAndPath(MODID, "iceika/chilly_cavern")),
+		COZYBARK_FOREST = create(BIOME, fromNamespaceAndPath(MODID, "iceika/cozybark_forest")),
+		DEEP_FROZEN_OCEAN = create(BIOME, fromNamespaceAndPath(MODID, "iceika/deep_frozen_ocean")),
+		FRACTAL_FOREST = create(BIOME, fromNamespaceAndPath(MODID, "iceika/fractal_forest")),
+		FROZEN_MENAGERIE = create(BIOME, fromNamespaceAndPath(MODID, "iceika/frozen_menagerie")),
+		FROZEN_OCEAN = create(BIOME, fromNamespaceAndPath(MODID, "iceika/frozen_ocean")),
+		FROZEN_PEAKS = create(BIOME, fromNamespaceAndPath(MODID, "iceika/frozen_peaks")),
+		GEYSER_PLATEAU = create(BIOME, fromNamespaceAndPath(MODID, "iceika/geyser_plateau")),
+		GLOWING_DEEP = create(BIOME, fromNamespaceAndPath(MODID, "iceika/glowing_deep")),
+		ICE_SHEET = create(BIOME, fromNamespaceAndPath(MODID, "iceika/ice_sheet")),
+		ICE_SPIKES = create(BIOME, fromNamespaceAndPath(MODID, "iceika/ice_spikes")),
+		MORGUE_MARSH = create(BIOME, fromNamespaceAndPath(MODID, "iceika/morgue_marsh")),
+		SHELTERED_GARDEN = create(BIOME, fromNamespaceAndPath(MODID, "iceika/sheltered_garden")),
+		SHIVERSPINE_FOREST = create(BIOME, fromNamespaceAndPath(MODID, "iceika/shiverspine_forest")),
+		SNOW_BOG = create(BIOME, fromNamespaceAndPath(MODID, "iceika/snow_bog")),
+		SNOWY_PEAKS = create(BIOME, fromNamespaceAndPath(MODID, "iceika/snowy_peaks")),
+		THERMAL_VENTS = create(BIOME, fromNamespaceAndPath(MODID, "iceika/thermal_vents")),
+		TUNDRA = create(BIOME, fromNamespaceAndPath(MODID, "iceika/tundra"));
 	@SubscribeEvent
 	public static void spawnPlacementCheck(MobSpawnEvent.SpawnPlacementCheck e) {
 		if(e.getLevel() instanceof ServerLevel level) {

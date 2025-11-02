@@ -1,23 +1,23 @@
 {
+  "type": "crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "PPP",
+    "PRP",
+    " Z "
+  ],
+  "key": {
+    "P": {
+      "tag": "divinerpg:planks/mortum"
+    },
+    "R": {
+      "tag": "divinerpg:chunks/torridite"
+    },
+    "Z": {
+      "tag": "divinerpg:chunks/mortum"
+    }
+  },
   "result": {
     "id": "divinerpg:mortum_shield"
-  },
-  "pattern": [
-    "ppp",
-    "prp",
-    " z "
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "p": {
-      "item": "divinerpg:mortum_planks"
-    },
-    "r": {
-      "item": "divinerpg:torridite_chunk"
-    },
-    "z": {
-      "item": "divinerpg:mortum_chunk"
-    }
   }
 }

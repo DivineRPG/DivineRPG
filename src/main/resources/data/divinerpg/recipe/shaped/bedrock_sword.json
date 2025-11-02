@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:bedrock_sword"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "B",
     "B",
     "S"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "B": {
-      "item": "divinerpg:bedrock_chunk"
+      "tag": "divinerpg:chunks/bedrock"
     },
     "S": {
       "tag": "c:rods/wooden"
     }
+  },
+  "result": {
+    "id": "divinerpg:bedrock_sword"
   }
 }

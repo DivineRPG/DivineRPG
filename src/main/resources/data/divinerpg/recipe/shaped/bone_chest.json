@@ -1,19 +1,19 @@
 {
+  "type": "crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BCB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "tag": "c:bones"
+    },
+    "C": {
+      "item": "chest"
+    }
+  },
   "result": {
     "id": "divinerpg:bone_chest"
-  },
-  "pattern": [
-    "bbb",
-    "bcb",
-    "bbb"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "b": {
-      "item": "minecraft:bone"
-    },
-    "c": {
-      "item": "minecraft:chest"
-    }
   }
 }

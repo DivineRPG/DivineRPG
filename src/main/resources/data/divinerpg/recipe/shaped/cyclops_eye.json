@@ -1,16 +1,16 @@
 {
-  "result": {
-    "id": "divinerpg:cyclops_eye"
-  },
+  "type": "crafting_shaped",
   "pattern": [
     "III",
     "III",
     "III"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "I": {
       "item": "divinerpg:cyclops_eye_shards"
     }
+  },
+  "result": {
+    "id": "divinerpg:cyclops_eye"
   }
 }

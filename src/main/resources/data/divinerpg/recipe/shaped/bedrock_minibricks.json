@@ -12,7 +12,7 @@
       "item": "divinerpg:minibricks"
     },
     "C": {
-      "item": "divinerpg:bedrock_chunk"
+      "tag": "divinerpg:chunks/bedrock"
     }
   },
   "result": {

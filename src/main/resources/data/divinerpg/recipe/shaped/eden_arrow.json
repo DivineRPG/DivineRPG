@@ -1,24 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:eden_arrow",
-    "count": 4
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "I",
     "S",
     "Z"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
       "tag": "c:rods/wooden"
     },
     "I": {
-      "item": "divinerpg:eden_fragments"
+      "tag": "divinerpg:fragments/eden"
     },
     "Z": {
-      "item": "minecraft:feather"
+      "tag": "c:feathers"
     }
+  },
+  "result": {
+    "id": "divinerpg:eden_arrow",
+    "count": 4
   }
 }

@@ -1,16 +1,16 @@
 {
+  "type": "crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "divinerpg:polished_scorchalt"
+    }
+  },
   "result": {
     "id": "divinerpg:polished_scorchalt_wall",
     "count": 6
-  },
-  "pattern": [
-    "sss",
-    "sss"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "s": {
-      "item": "divinerpg:polished_scorchalt"
-    }
   }
 }

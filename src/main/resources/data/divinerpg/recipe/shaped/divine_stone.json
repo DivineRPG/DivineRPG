@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:divine_stone"
-  },
+  "type": "crafting_shaped",
+  "group": "divinerpg_stone",
   "pattern": [
     "III",
     "III",
     "III"
   ],
-  "type": "minecraft:crafting_shaped",
-  "group": "divinerpg_stone",
   "key": {
     "I": {
       "item": "divinerpg:divine_shards"
     }
+  },
+  "result": {
+    "id": "divinerpg:divine_stone"
   }
 }

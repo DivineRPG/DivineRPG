@@ -1,15 +1,15 @@
 {
-  "result": {
-    "id": "divinerpg:apalachia_chunk"
-  },
+  "type": "crafting_shaped",
+  "group": "twilight_chunk",
   "pattern": [
     "GGG"
   ],
-  "type": "minecraft:crafting_shaped",
-  "group": "twilight_chunk",
   "key": {
     "G": {
       "item": "divinerpg:apalachia_gem"
     }
+  },
+  "result": {
+    "id": "divinerpg:apalachia_chunk"
   }
 }

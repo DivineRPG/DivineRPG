@@ -11,22 +11,12 @@ import java.util.function.*;
 
 public class ItemStatueBlock extends BlockItem {
     static Supplier<Block> block;
-    public ItemStatueBlock(Supplier<Block> block, Properties properties) {
-        super(block.get(), properties);
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(RenderStatueBlock.INSTANCE);
-    }
-
+    public ItemStatueBlock(Supplier<Block> block, Properties properties) {super(block.get(), properties);}
+    @SuppressWarnings("removal")
+    @Override public void initializeClient(Consumer<IClientItemExtensions> consumer) {consumer.accept(RenderStatueBlock.INSTANCE);}
     static class RenderStatueBlock implements IClientItemExtensions {
-
         public static RenderStatueBlock INSTANCE = new RenderStatueBlock();
-
-        @Override
-        public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-
+        @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {
             return new RenderItemStatue(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels(), block);
         }
     }

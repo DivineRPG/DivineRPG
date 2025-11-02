@@ -1,24 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:hunter_arrow",
-    "count": 2
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "X",
     "I",
     "F"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "divinerpg:jungle_shards"
+      "tag": "divinerpg:shards/jungle"
     },
     "I": {
       "tag": "c:rods/wooden"
     },
     "F": {
-      "item": "minecraft:feather"
+      "tag": "c:feathers"
     }
+  },
+  "result": {
+    "id": "divinerpg:hunter_arrow",
+    "count": 2
   }
 }

@@ -1,22 +1,22 @@
 {
-  "result": {
-    "id": "divinerpg:booster"
-  },
+  "type": "crafting_shaped",
+  "category": "redstone",
   "pattern": [
     "RIR",
     "XXX"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "redstone",
   "key": {
     "X": {
-      "item": "minecraft:smooth_stone_slab"
+      "item": "smooth_stone_slab"
     },
     "R": {
-      "item": "minecraft:redstone"
+      "tag": "c:dusts/redstone"
     },
     "I": {
-      "item": "divinerpg:oxdrite_ingot"
+      "tag": "divinerpg:ingots/oxdrite"
     }
+  },
+  "result": {
+    "id": "divinerpg:booster"
   }
 }

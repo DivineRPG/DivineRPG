@@ -1,24 +1,24 @@
 {
+  "type": "crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "S",
+    "I",
+    "Z"
+  ],
+  "key": {
+    "S": {
+      "tag": "divinerpg:fragments/wildwood"
+    },
+    "I": {
+      "tag": "c:rods/wooden"
+    },
+    "Z": {
+      "tag": "c:feathers"
+    }
+  },
   "result": {
     "id": "divinerpg:wildwood_arrow",
     "count": 4
-  },
-  "pattern": [
-    "I",
-    "S",
-    "Z"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "S": {
-      "tag": "c:rods/wooden"
-    },
-    "I": {
-      "item": "divinerpg:wildwood_fragments"
-    },
-    "Z": {
-      "item": "minecraft:feather"
-    }
   }
 }

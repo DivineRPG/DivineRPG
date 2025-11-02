@@ -1,19 +1,19 @@
 {
+  "type": "crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BCB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "tag": "divinerpg:fragments/eden"
+    },
+    "C": {
+      "item": "chest"
+    }
+  },
   "result": {
     "id": "divinerpg:eden_chest"
-  },
-  "pattern": [
-    "bbb",
-    "bcb",
-    "bbb"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "b": {
-      "item": "divinerpg:eden_fragments"
-    },
-    "c": {
-      "item": "minecraft:chest"
-    }
   }
 }

@@ -1,16 +1,16 @@
 {
-  "result": {
-    "id": "divinerpg:corrupted_boots"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "I I",
     "I I"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "I": {
-      "item": "divinerpg:corrupted_stone"
+      "tag": "divinerpg:gems/corrupted"
     }
+  },
+  "result": {
+    "id": "divinerpg:corrupted_boots"
   }
 }

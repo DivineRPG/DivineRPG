@@ -1,28 +1,29 @@
 {
+  "type": "crafting_shaped",
+  "group": "arcanium_torch",
+  "pattern": [
+    "X",
+    "Y",
+    "Z"
+  ],
+  "key": {
+    "X": [
+      {
+        "item": "coal"
+      },
+      {
+        "item": "charcoal"
+      }
+    ],
+    "Y": {
+      "tag": "c:rods/wooden"
+    },
+    "Z": {
+      "tag": "divinerpg:gems/arcanium"
+    }
+  },
   "result": {
     "id": "divinerpg:arcanium_torch",
     "count": 4
-  },
-  "pattern": [
-    "z",
-    "y",
-    "x"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "x": {
-      "item": "divinerpg:arcanium"
-    },
-    "y": {
-      "tag": "c:rods/wooden"
-    },
-    "z": [
-      {
-        "item": "minecraft:coal"
-      },
-      {
-        "item": "minecraft:charcoal"
-      }
-    ]
   }
 }

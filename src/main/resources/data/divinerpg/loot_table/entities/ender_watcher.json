@@ -42,17 +42,13 @@
                 "min": 0,
                 "max": 1
               }
-            },
-            {
-              "function": "enchanted_count_increase",
-              "enchantment": "looting",
-              "count": {
-                "type": "uniform",
-                "min": 0,
-                "max": 1
-              }
             }
           ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "killed_by_player"
         }
       ],
       "rolls": 1

@@ -2,7 +2,7 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "tag": "divinerpg:steel"
+      "tag": "divinerpg:storage_blocks/steel"
     }
   ],
   "result": [

@@ -1,20 +1,20 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "YX",
+    "XY"
+  ],
+  "key": {
+    "X": {
+      "item": "white_wool"
+    },
+    "Y": {
+      "item": "black_wool"
+    }
+  },
   "result": {
     "id": "divinerpg:checker",
     "count": 4
-  },
-  "pattern": [
-    "yx",
-    "xy"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "x": {
-      "item": "minecraft:white_wool"
-    },
-    "y": {
-      "item": "minecraft:black_wool"
-    }
   }
 }

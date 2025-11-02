@@ -1,19 +1,19 @@
 {
-  "result": {
-    "id": "divinerpg:legendary_ender_eye"
-  },
+  "type": "crafting_shaped",
   "pattern": [
     "EIE",
     "IEI",
     "EIE"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "I": {
-      "item": "divinerpg:ender_stone"
+      "tag": "divinerpg:gems/ender"
     },
     "E": {
-      "item": "divinerpg:watching_eye"
+      "tag": "divinerpg:eyes/ender_watcher"
     }
+  },
+  "result": {
+    "id": "divinerpg:legendary_ender_eye"
   }
 }

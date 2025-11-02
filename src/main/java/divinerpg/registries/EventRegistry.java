@@ -1,16 +1,18 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
 import divinerpg.events.*;
 import divinerpg.events.enchant.RiveHandler;
-import net.neoforged.neoforge.common.NeoForge;
+
+import static divinerpg.DivineRPG.LOGGER;
+import static net.neoforged.neoforge.common.NeoForge.EVENT_BUS;
 
 public class EventRegistry {
     public static void init(){
-        DivineRPG.LOGGER.info("[DivineRPG] Registered events");
-        NeoForge.EVENT_BUS.register(new ArmorAbilitiesEvent());
-        NeoForge.EVENT_BUS.register(new RiveHandler());
-        NeoForge.EVENT_BUS.register(new VetheaInventorySwapEvent());
-        NeoForge.EVENT_BUS.register(new GlacialWallTotemEvent());
+        LOGGER.info("[DivineRPG] Registered events");
+        EVENT_BUS.register(new ArmorAbilitiesEvent());
+        EVENT_BUS.register(new GlacialWallTotemEvent());
+        EVENT_BUS.register(new RiveHandler());
+        EVENT_BUS.register(new SnowballDamage());
+        EVENT_BUS.register(new VetheaInventorySwapEvent());
     }
 }

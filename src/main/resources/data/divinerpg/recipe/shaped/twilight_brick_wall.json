@@ -1,16 +1,16 @@
 {
+  "type": "crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "divinerpg:twilight_bricks"
+    }
+  },
   "result": {
     "id": "divinerpg:twilight_brick_wall",
     "count": 6
-  },
-  "pattern": [
-    "sss",
-    "sss"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "s": {
-      "item": "divinerpg:twilight_bricks"
-    }
   }
 }

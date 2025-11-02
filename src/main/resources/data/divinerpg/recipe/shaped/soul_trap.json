@@ -1,25 +1,25 @@
 {
-  "result": {
-    "id": "divinerpg:soul_trap"
-  },
+  "type": "crafting_shaped",
   "pattern": [
     " S ",
     "MCM",
     " B "
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "B": {
       "item": "divinerpg:polished_coalstone"
     },
     "S": {
-      "item": "minecraft:sculk_shrieker"
+      "item": "sculk_shrieker"
     },
     "M": {
-      "item": "minecraft:iron_bars"
+      "item": "iron_bars"
     },
     "C": {
       "item": "divinerpg:soul_sludge_breakable"
     }
+  },
+  "result": {
+    "id": "divinerpg:soul_trap"
   }
 }

@@ -7,7 +7,7 @@
     "item": "divinerpg:aquastrive_chestplate"
   },
   "addition": {
-    "item": "divinerpg:kraken_skin"
+    "tag": "divinerpg:skin/kraken"
   },
   "result": {
     "id": "divinerpg:kraken_chestplate"

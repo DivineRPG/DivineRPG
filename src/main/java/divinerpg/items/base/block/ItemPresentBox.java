@@ -10,22 +10,12 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import java.util.function.Consumer;
 
 public class ItemPresentBox extends BlockItem {
-    public ItemPresentBox(Block block, Properties properties) {
-        super(block, properties);
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(RenderPresentBox.INSTANCE);
-    }
-
+    public ItemPresentBox(Block block, Properties properties) {super(block, properties);}
+    @SuppressWarnings("removal")
+    @Override public void initializeClient(Consumer<IClientItemExtensions> consumer) {consumer.accept(RenderPresentBox.INSTANCE);}
     static class RenderPresentBox implements IClientItemExtensions {
-
         public static RenderPresentBox INSTANCE = new RenderPresentBox();
-
-        @Override
-        public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-
+        @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {
             return new RenderPresentBoxItem(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
         }
     }

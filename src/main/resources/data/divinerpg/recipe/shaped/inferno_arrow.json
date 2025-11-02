@@ -1,24 +1,24 @@
 {
-  "result": {
-    "id": "divinerpg:inferno_arrow",
-    "count": 2
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "X",
     "I",
     "F"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "divinerpg:molten_shards"
+      "tag": "divinerpg:shards/molten"
     },
     "I": {
       "tag": "c:rods/wooden"
     },
     "F": {
-      "item": "minecraft:feather"
+      "tag": "c:feathers"
     }
+  },
+  "result": {
+    "id": "divinerpg:inferno_arrow",
+    "count": 2
   }
 }

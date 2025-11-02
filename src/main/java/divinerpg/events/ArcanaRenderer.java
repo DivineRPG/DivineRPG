@@ -2,7 +2,6 @@ package divinerpg.events;
 
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import divinerpg.DivineRPG;
 import divinerpg.attachments.Arcana;
 import divinerpg.config.ClientConfig;
 import net.minecraft.client.DeltaTracker;
@@ -15,9 +14,12 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 
-@EventBusSubscriber(modid = DivineRPG.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+import static divinerpg.DivineRPG.MODID;
+
+@SuppressWarnings("removal")
+@EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ArcanaRenderer implements LayeredDraw.Layer {
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/arcana_bar.png"), LOC = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana_bar");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(MODID, "textures/gui/arcana_bar.png"), LOC = ResourceLocation.fromNamespaceAndPath(MODID, "arcana_bar");
 	static long counter = 180;
     static float previousAmount = 0F;
     @SubscribeEvent

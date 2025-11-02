@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:rupee_ingot"
-  },
+  "type": "crafting_shaped",
+  "group": "rupee_ingot",
   "pattern": [
     "III",
     "III",
     "III"
   ],
-  "type": "minecraft:crafting_shaped",
-  "group": "rupee_ingot",
   "key": {
     "I": {
       "item": "divinerpg:rupee_nugget"
     }
+  },
+  "result": {
+    "id": "divinerpg:rupee_ingot"
   }
 }

@@ -13,7 +13,7 @@
     }
   ],
   "soil": {
-    "tag": "minecraft:grass_block"
+    "item": "minecraft:grass_block"
   },
   "time": 320,
   "neoforge:conditions": [

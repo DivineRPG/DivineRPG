@@ -8,7 +8,7 @@
   ],
   "key": {
     "S": {
-      "item": "stick"
+      "tag": "c:rods/wooden"
     },
     "I": {
       "tag": "divinerpg:ingots/rupee"

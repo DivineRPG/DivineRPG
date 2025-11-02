@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:soft_miner"
-  },
-  "pattern": [
-    " x ",
-    "xcx",
-    " x "
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "redstone",
+  "pattern": [
+    " X ",
+    "XCX",
+    " X "
+  ],
   "key": {
-    "x": {
+    "X": {
       "item": "divinerpg:fancy_wool"
     },
-    "c": {
+    "C": {
       "item": "divinerpg:miner"
     }
+  },
+  "result": {
+    "id": "divinerpg:soft_miner"
   }
 }

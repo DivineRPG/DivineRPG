@@ -10,22 +10,12 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import java.util.function.Consumer;
 
 public class ItemDramixAltar extends BlockItem {
-    public ItemDramixAltar(Block block, Properties properties) {
-        super(block, properties);
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(RenderDramixAltar.INSTANCE);
-    }
-
+    public ItemDramixAltar(Block block, Properties properties) {super(block, properties);}
+    @SuppressWarnings("removal")
+    @Override public void initializeClient(Consumer<IClientItemExtensions> consumer) {consumer.accept(RenderDramixAltar.INSTANCE);}
     static class RenderDramixAltar implements IClientItemExtensions {
-
         public static RenderDramixAltar INSTANCE = new RenderDramixAltar();
-
-        @Override
-        public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-
+        @Override public BlockEntityWithoutLevelRenderer getCustomRenderer() {
             return new RenderDramixAltarItem(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels());
         }
     }

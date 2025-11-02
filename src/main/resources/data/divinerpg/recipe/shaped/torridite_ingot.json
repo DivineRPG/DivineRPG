@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:torridite_ingot"
-  },
+  "type": "crafting_shaped",
+  "group": "torridite_ingot",
   "pattern": [
     "III",
     "III",
     "III"
   ],
-  "type": "minecraft:crafting_shaped",
-  "group": "torridite_ingot",
   "key": {
     "I": {
       "item": "divinerpg:torridite_nugget"
     }
+  },
+  "result": {
+    "id": "divinerpg:torridite_ingot"
   }
 }

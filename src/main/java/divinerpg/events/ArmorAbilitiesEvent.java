@@ -89,12 +89,11 @@ public class ArmorAbilitiesEvent {
 					} if(sword.arcanaConsumedAttack != 0) {
 						if(Arcana.hasArcana(attacker) && Arcana.getAmount(attacker) >= sword.arcanaConsumedAttack) {
 							Arcana.modifyAmount(attacker, -sword.arcanaConsumedAttack);
-							if(sword.sword.getSwordSpecial() == SwordSpecial.ARCANA_DAMAGE) event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, sword.sword.effectPower, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
+							if(s.getSwordSpecial() == SwordSpecial.ARCANA_DAMAGE) event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, s.effectPower, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
 							sword.arcanicAttack(item, attacker, target);
 						}
 					}
-        		}
-        		if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH))
+        		} if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH))
 					event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, 16, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
         		else if(attacker.hasEffect(MobEffectRegistry.DIVINE_STRENGTH) || attacker.hasEffect(MobEffectRegistry.DEMONIZED_HELMET))
 					event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, 6, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));

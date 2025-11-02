@@ -1,16 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
-  "key": {
-    "I": {
-      "item": "divinerpg:anthracite"
-    }
-  },
   "pattern": [
     "III",
     "III",
     "III"
   ],
+  "key": {
+    "I": {
+      "item": "divinerpg:anthracite"
+    }
+  },
   "result": {
     "id": "divinerpg:coalstone",
     "count": 3

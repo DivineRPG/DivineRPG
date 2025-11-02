@@ -12,7 +12,7 @@
       "item": "divinerpg:shuriken"
     },
     "J": {
-      "item": "divinerpg:jungle_shards"
+      "tag": "divinerpg:shards/jungle"
     }
   },
   "result": {

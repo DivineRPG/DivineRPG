@@ -1,23 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:inferno_sword"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "BOB",
     "BOB",
     "BSB"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "B": {
-      "item": "minecraft:blaze_powder"
+      "item": "blaze_powder"
     },
     "S": {
       "tag": "c:rods/wooden"
     },
     "O": {
-      "tag": "minecraft:redstone_ores"
+      "tag": "c:ores/redstone"
     }
+  },
+  "result": {
+    "id": "divinerpg:inferno_sword"
   }
 }

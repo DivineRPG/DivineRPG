@@ -15,6 +15,7 @@ import net.minecraft.world.level.pathfinder.PathType;
 public class EntityScorcher extends EntityDivineFireballMob {
     public EntityScorcher(EntityType<? extends EntityScorcher> type, Level world) {
         super(type, world);
+        setPathfindingMalus(PathType.WATER, -1);
         setPathfindingMalus(PathType.LAVA, 8);
         setPathfindingMalus(PathType.DANGER_FIRE, 0);
         setPathfindingMalus(PathType.DAMAGE_FIRE, 0);

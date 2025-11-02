@@ -126,6 +126,8 @@ public class JEICompat implements IModPlugin {
 //        registerIngredientInfo(registration, BlockRegistry.skyFire, BlockRegistry.skyFire.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.mortumEmbers, BlockRegistry.mortumEmbers.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.asphalt, BlockRegistry.asphalt.getId().getPath());
+//        registerIngredientInfo(registration, List.of(BlockRegistry.hellfireSponge.toStack(),
+//                BlockRegistry.coldHellfireSponge.toStack()), BlockRegistry.hellfireSponge.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.rawArcanium, BlockRegistry.rawArcanium.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.proximitySpawner, BlockRegistry.proximitySpawner.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.calcifiedBrain, BlockRegistry.calcifiedBrain.getId().getPath());
@@ -158,8 +160,8 @@ public class JEICompat implements IModPlugin {
 //        registerIngredientInfo(registration, BlockRegistry.oxdriteLamp, BlockRegistry.oxdriteLamp.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.capacitor, BlockRegistry.capacitor.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.gateway, BlockRegistry.gateway.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.miner, BlockRegistry.miner.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.softMiner, BlockRegistry.softMiner.getId().getPath());
+        registerIngredientInfo(registration, List.of(BlockRegistry.miner.toStack(),
+                BlockRegistry.softMiner.toStack()), BlockRegistry.miner.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.placer, BlockRegistry.placer.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.acceleron, BlockRegistry.acceleron.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.elevantium, BlockRegistry.elevantium.getId().getPath());

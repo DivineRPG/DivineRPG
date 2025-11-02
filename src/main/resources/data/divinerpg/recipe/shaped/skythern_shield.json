@@ -1,23 +1,23 @@
 {
+  "type": "crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "PPP",
+    "PRP",
+    " Z "
+  ],
+  "key": {
+    "P": {
+      "tag": "divinerpg:planks/skythern"
+    },
+    "R": {
+      "tag": "divinerpg:chunks/torridite"
+    },
+    "Z": {
+      "tag": "divinerpg:chunks/skythern"
+    }
+  },
   "result": {
     "id": "divinerpg:skythern_shield"
-  },
-  "pattern": [
-    "ppp",
-    "prp",
-    " z "
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "key": {
-    "p": {
-      "item": "divinerpg:skythern_planks"
-    },
-    "r": {
-      "item": "divinerpg:torridite_chunk"
-    },
-    "z": {
-      "item": "divinerpg:skythern_chunk"
-    }
   }
 }

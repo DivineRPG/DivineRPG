@@ -277,12 +277,6 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWildfire>>	        WILDFIRE 	         = registerEntity(EntityWildfire::new, 	        "wildfire", 	            .75F, 1.875F, 1.75F, .7F, 0xaa0b01, 0x9c6d11);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityScorcher>>	        SCORCHER 	         = registerEntity(EntityScorcher::new, 	        "scorcher", 	            1.2F, 1.875F, 1.625F, 0xffffff, 0xffffff);
 
-    //End
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderScrounge>>      ENDER_SCROUNGE      = registerEntity(EntityEnderScrounge::new,     "ender_scrounge",         .2F, .15F, .1F, 0x162916, 0xfc1b11, MobCategory.CREATURE);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderSpider>>        ENDER_SPIDER        = registerEntity(EntityEnderSpider::new,       "ender_spider",           .5F, .55F, .36875F,0x0a0a0a, 0x260125);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderWatcher>>       ENDER_WATCHER       = registerEntity(EntityEnderWatcher::new,      "ender_watcher",          .7F, .8125F, .5F, 0x161616, 0xca1ae1);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderTriplets>>      ENDER_TRIPLETS      = registerEntity(EntityEnderTriplets::new,     "ender_triplets",         2, 2, 1, 0x161616, 0xfc1b28);
-
     //Iceika
     public static final DeferredHolder<EntityType<?>, EntityType<EntityCauldronFish>>		CAULDRON_FISH		= registerEntity(EntityCauldronFish::new,		"cauldron_fish",		    .5625F, .8125F, .6875F, 0xffffff, 0xffffff, MobCategory.WATER_AMBIENT);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDivineWaterMob>>	    PINK_GHOST_GLIDER	= registerEntity(EntityDivineWaterMob::new,		"pink_ghost_glider",	    .5F, .5F, .3F, 0xbb94cf, 0xfafafa, MobCategory.WATER_AMBIENT);
@@ -319,6 +313,12 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<GruzzorlugSwordsman>>    	GRUZZORLUG_SWORDSMAN= registerEntity(GruzzorlugSwordsman::new,     	"gruzzorlug_swordsman",   .5F, 1.2F, 1.03F, .3F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<GruzzorlugKnight>>    	    GRUZZORLUG_KNIGHT	= registerEntity(GruzzorlugKnight::new,     	"gruzzorlug_knight",   	.5F, 1.2F, 1.03F, .3F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<GruzzorlugGeneral>>    	GRUZZORLUG_GENERAL	= registerEntity(GruzzorlugGeneral::new,     	"gruzzorlug_general",     .5F, 1.2F, 1.03F, .5F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+
+    //End
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderScrounge>>      ENDER_SCROUNGE      = registerEntity(EntityEnderScrounge::new,     "ender_scrounge",         .2F, .15F, .1F, 0x162916, 0xfc1b11, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderSpider>>        ENDER_SPIDER        = registerEntity(EntityEnderSpider::new,       "ender_spider",           .5F, .55F, .36875F,0x0a0a0a, 0x260125);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderWatcher>>       ENDER_WATCHER       = registerEntity(EntityEnderWatcher::new,      "ender_watcher",          .7F, .8125F, .5F, 0x161616, 0xca1ae1);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderTriplets>>      ENDER_TRIPLETS      = registerEntity(EntityEnderTriplets::new,     "ender_triplets",         2, 2, 1, 0x161616, 0xfc1b28);
 
     //Arcana
     public static final DeferredHolder<EntityType<?>, EntityType<EntityCaptainMerik>>		CAPTAIN_MERIK 		  = registerEntity(EntityCaptainMerik::new, 	  "captain_merik", 		  .8F, 2, 1.75F, 0xd8473f, 0x403331, MobCategory.CREATURE);
@@ -521,12 +521,6 @@ public class EntityRegistry {
         registerMobAttributes(event, WILDFIRE, EntityStats.WILDFIRE);
         registerMobAttributes(event, SCORCHER, EntityStats.SCORCHER);
 
-        //End
-        registerMobAttributes(event, ENDER_SCROUNGE, EntityStats.ENDER_SCROUNGE);
-        registerMobAttributes(event, ENDER_SPIDER, EntityStats.END_SPIDER);
-        registerMobAttributes(event, ENDER_WATCHER, EntityStats.ENDER_WATCHER);
-        registerMobAttributes(event, ENDER_TRIPLETS, EntityStats.ENDER_TRIPLETS);
-
         //Iceika
         registerStepMobAttributes(event, BLUBBERTUSK, EntityStats.BLUBBERTUSK, 1);
         registerMobAttributes(event, CAULDRON_FISH, EntityStats.CAULDRON_FISH);
@@ -561,6 +555,12 @@ public class EntityRegistry {
         registerMobAttributes(event, GRUZZORLUG_KNIGHT, EntityStats.GRUZZORLUG_KNIGHT);
         registerMobAttributes(event, GRUZZORLUG_MINER, EntityStats.GRUZZORLUG);
         registerMobAttributes(event, GRUZZORLUG_SWORDSMAN, EntityStats.GRUZZORLUG_SWORDSMAN);
+
+        //End
+        registerMobAttributes(event, ENDER_SCROUNGE, EntityStats.ENDER_SCROUNGE);
+        registerMobAttributes(event, ENDER_SPIDER, EntityStats.END_SPIDER);
+        registerMobAttributes(event, ENDER_WATCHER, EntityStats.ENDER_WATCHER);
+        registerMobAttributes(event, ENDER_TRIPLETS, EntityStats.ENDER_TRIPLETS);
 
         //Arcana
         registerMerchantAttributes(event, CAPTAIN_MERIK);
@@ -751,10 +751,6 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelScorcher.LAYER_LOCATION, ModelScorcher::createBodyLayer);
         event.registerLayerDefinition(ModelWildfire.LAYER_LOCATION, ModelWildfire::createBodyLayer);
 
-        //End
-        event.registerLayerDefinition(ModelEnderTriplets.LAYER_LOCATION, ModelEnderTriplets::createBodyLayer);
-        event.registerLayerDefinition(ModelEnderScrounge.LAYER_LOCATION, ModelEnderScrounge::createBodyLayer);
-
         //Iceika
         event.registerLayerDefinition(ModelBlubbertusk.LAYER_LOCATION, ModelBlubbertusk::createBodyLayer);
         event.registerLayerDefinition(ModelCauldronFish.LAYER_LOCATION, ModelCauldronFish::createBodyLayer);
@@ -777,6 +773,25 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelSabear.LAYER_LOCATION, ModelSabear::createBodyLayer);
         event.registerLayerDefinition(ModelWolpertinger.LAYER_LOCATION, ModelWolpertinger::createBodyLayer);
         event.registerLayerDefinition(ModelRobbin.LAYER_LOCATION, ModelRobbin::createBodyLayer);
+
+        //End
+        event.registerLayerDefinition(ModelEnderTriplets.LAYER_LOCATION, ModelEnderTriplets::createBodyLayer);
+        event.registerLayerDefinition(ModelEnderScrounge.LAYER_LOCATION, ModelEnderScrounge::createBodyLayer);
+
+        //Arcana
+        event.registerLayerDefinition(ModelDeathcryx.LAYER_LOCATION, ModelDeathcryx::createBodyLayer);
+        event.registerLayerDefinition(ModelDeathHound.LAYER_LOCATION, ModelDeathHound::createBodyLayer);
+        event.registerLayerDefinition(ModelDungeonConstructor.LAYER_LOCATION, ModelDungeonConstructor::createBodyLayer);
+        event.registerLayerDefinition(ModelDungeonDemon.LAYER_LOCATION, ModelDungeonDemon::createBodyLayer);
+        event.registerLayerDefinition(ModelDungeonPrisoner.LAYER_LOCATION, ModelDungeonPrisoner::createBodyLayer);
+        event.registerLayerDefinition(ModelRejuvGolem.LAYER_LOCATION, ModelRejuvGolem::createBodyLayer);
+        event.registerLayerDefinition(ModelLeorna.LAYER_LOCATION, ModelLeorna::createBodyLayer);
+        event.registerLayerDefinition(ModelParatiku.LAYER_LOCATION, ModelParatiku::createBodyLayer);
+        event.registerLayerDefinition(ModelRazorback.LAYER_LOCATION, ModelRazorback::createBodyLayer);
+        event.registerLayerDefinition(ModelRoamer.LAYER_LOCATION, ModelRoamer::createBodyLayer);
+        event.registerLayerDefinition(ModelSeimer.LAYER_LOCATION, ModelSeimer::createBodyLayer);
+        event.registerLayerDefinition(ModelSkyre.LAYER_LOCATION, ModelSkyre::createBodyLayer);
+        event.registerLayerDefinition(ModelWraith.LAYER_LOCATION, ModelWraith::createBodyLayer);
 
         //Eden
         event.registerLayerDefinition(ModelGlinthop.LAYER_LOCATION, ModelGlinthop::createBodyLayer);
@@ -817,21 +832,6 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelSoulSpider.LAYER_LOCATION, ModelSoulSpider::createBodyLayer);
         event.registerLayerDefinition(ModelSoulStealer.LAYER_LOCATION, ModelSoulStealer::createBodyLayer);
         event.registerLayerDefinition(ModelTwilightArcher.LAYER_LOCATION, ModelTwilightArcher::createBodyLayer);
-
-        //Arcana
-        event.registerLayerDefinition(ModelDeathcryx.LAYER_LOCATION, ModelDeathcryx::createBodyLayer);
-        event.registerLayerDefinition(ModelDeathHound.LAYER_LOCATION, ModelDeathHound::createBodyLayer);
-        event.registerLayerDefinition(ModelDungeonConstructor.LAYER_LOCATION, ModelDungeonConstructor::createBodyLayer);
-        event.registerLayerDefinition(ModelDungeonDemon.LAYER_LOCATION, ModelDungeonDemon::createBodyLayer);
-        event.registerLayerDefinition(ModelDungeonPrisoner.LAYER_LOCATION, ModelDungeonPrisoner::createBodyLayer);
-        event.registerLayerDefinition(ModelRejuvGolem.LAYER_LOCATION, ModelRejuvGolem::createBodyLayer);
-        event.registerLayerDefinition(ModelLeorna.LAYER_LOCATION, ModelLeorna::createBodyLayer);
-        event.registerLayerDefinition(ModelParatiku.LAYER_LOCATION, ModelParatiku::createBodyLayer);
-        event.registerLayerDefinition(ModelRazorback.LAYER_LOCATION, ModelRazorback::createBodyLayer);
-        event.registerLayerDefinition(ModelRoamer.LAYER_LOCATION, ModelRoamer::createBodyLayer);
-        event.registerLayerDefinition(ModelSeimer.LAYER_LOCATION, ModelSeimer::createBodyLayer);
-        event.registerLayerDefinition(ModelSkyre.LAYER_LOCATION, ModelSkyre::createBodyLayer);
-        event.registerLayerDefinition(ModelWraith.LAYER_LOCATION, ModelWraith::createBodyLayer);
 
         //Vethea
         event.registerLayerDefinition(ModelAcidHag.LAYER_LOCATION,  ModelAcidHag::createBodyLayer);
@@ -1063,12 +1063,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(SCORCHER.get(),	(Context context) -> new RenderDivineMob<>(context, "scorcher", new ModelScorcher(context), .72F, 1.5F));
         event.registerEntityRenderer(WILDFIRE.get(),	RenderWildfire::new);
 
-        //End
-        event.registerEntityRenderer(ENDER_SPIDER.get(),  (Context context) -> new RenderDivineMob<>(context, "ender_spider", new SpiderModel<>(context.bakeLayer(layerSpider)), .5F, .6F));
-        event.registerEntityRenderer(ENDER_SCROUNGE.get(),     (Context context) -> new RenderDivineMob<>(context, "ender_scrounge", new ModelEnderScrounge(context), .1F, .5F));
-        event.registerEntityRenderer(ENDER_TRIPLETS.get(),(Context context) -> new RenderDivineMob<>(context, "ender_triplets", new ModelEnderTriplets(context), .4F));
-        event.registerEntityRenderer(ENDER_WATCHER.get(), (Context context) -> new RenderDivineMob<>(context, "ender_watcher", new ModelWatcher(context), .4F));
-
         //Iceika
         event.registerEntityRenderer(BLUBBERTUSK.get(),		(Context context) -> new RenderDivineMob<>(context, "blubbertusk", new ModelBlubbertusk(context), .7F));
         event.registerEntityRenderer(CAULDRON_FISH.get(),	(Context context) -> new RenderDivineMob<>(context, "cauldron_fish", new ModelCauldronFish(context), .3F));
@@ -1103,6 +1097,35 @@ public class EntityRegistry {
         event.registerEntityRenderer(GRUZZORLUG_KNIGHT.get(),	RenderGruzzorlug::new);
         event.registerEntityRenderer(GRUZZORLUG_MINER.get(),	RenderGruzzorlug::new);
         event.registerEntityRenderer(GRUZZORLUG_SWORDSMAN.get(),RenderGruzzorlug::new);
+
+        //End
+        event.registerEntityRenderer(ENDER_SPIDER.get(),  (Context context) -> new RenderDivineMob<>(context, "ender_spider", new SpiderModel<>(context.bakeLayer(layerSpider)), .5F, .6F));
+        event.registerEntityRenderer(ENDER_SCROUNGE.get(),     (Context context) -> new RenderDivineMob<>(context, "ender_scrounge", new ModelEnderScrounge(context), .1F, .5F));
+        event.registerEntityRenderer(ENDER_TRIPLETS.get(),(Context context) -> new RenderDivineMob<>(context, "ender_triplets", new ModelEnderTriplets(context), .4F));
+        event.registerEntityRenderer(ENDER_WATCHER.get(), (Context context) -> new RenderDivineMob<>(context, "ender_watcher", new ModelWatcher(context), .4F));
+
+        //Arcana
+        event.registerEntityRenderer(CAPTAIN_MERIK.get(),	  (Context context) -> new RenderDivineMob<>(context, "captain_merik", new ModelSamek<>(context), .5F));
+        event.registerEntityRenderer(DATTICON.get(),		  (Context context) -> new RenderDivineMob<>(context, "datticon", new ModelSamek<>(context), .5F));
+        event.registerEntityRenderer(DEATHCRYX.get(),		  (Context context) -> new RenderDivineMob<>(context, "deathcryx", new ModelDeathcryx<>(context), .8F,  1.1F));
+        event.registerEntityRenderer(DEATH_HOUND.get(),		  (Context context) -> new RenderDivineMob<>(context, "death_hound", new ModelDeathHound(context), .55F));
+        event.registerEntityRenderer(DUNGEON_CONSTRUCTOR.get(),(Context context) -> new RenderDivineMob<>(context, "dungeon_constructor", new ModelDungeonConstructor<>(context), .4F, .4F));
+        event.registerEntityRenderer(DUNGEON_DEMON.get(),	  (Context context) -> new RenderDivineMob<>(context, "dungeon_demon", new ModelDungeonDemon<>(context), .6F));
+        event.registerEntityRenderer(DUNGEON_PRISONER.get(),  (Context context) -> new RenderDivineMob<>(context, "dungeon_prisoner", new ModelDungeonPrisoner(context), .6F));
+        event.registerEntityRenderer(FYRACRYX.get(),		  (Context context) -> new RenderDivineMob<>(context, "fyracryx", new ModelDeathcryx<>(context)));
+        event.registerEntityRenderer(GOLEM_OF_REJUVENATION.get(),(Context context) -> new RenderDivineMob<>(context, "golem_of_rejuvenation", new ModelRejuvGolem<>(context)));
+        event.registerEntityRenderer(KAZARI.get(),			  (Context context) -> new RenderDivineMob<>(context, "kazari", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
+        event.registerEntityRenderer(LEORNA.get(),			  (Context context) -> new RenderDivineMob<>(context, "leorna", new ModelLeorna<>(context), .5F));
+        event.registerEntityRenderer(LORD_VATTICUS.get(),	  (Context context) -> new RenderDivineMob<>(context, "lord_vatticus", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
+        event.registerEntityRenderer(LIVING_STATUE.get(),	  (Context context) -> new RenderDivineMob<>(context, "living_statue", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
+        event.registerEntityRenderer(PARATIKU.get(),		  (Context context) -> new RenderDivineMob<>(context, "paratiku", new ModelParatiku<>(context)));
+        event.registerEntityRenderer(RAZORBACK.get(),		  (Context context) -> new RenderDivineMob<>(context, "razorback", new ModelRazorback(context), .4F));
+        event.registerEntityRenderer(ROAMER.get(),			  (Context context) -> new RenderDivineMob<>(context, "roamer", new ModelRoamer(context), .6F));
+        event.registerEntityRenderer(SEIMER.get(),			  (Context context) -> new RenderDivineMob<>(context, "seimer", new ModelSeimer<>(context)));
+        event.registerEntityRenderer(SKYRE.get(),			  (Context context) -> new RenderDivineMob<>(context, "skyre", new ModelSkyre<>(context), .25F, .5F));
+        event.registerEntityRenderer(WAR_GENERAL.get(),		  (Context context) -> new RenderDivineMob<>(context, "war_general", new ModelSamek<>(context), .5F));
+        event.registerEntityRenderer(WRAITH.get(),			  (Context context) -> new RenderDivineMob<>(context, "wraith", new ModelWraith<>(context)));
+        event.registerEntityRenderer(ZELUS.get(),			  (Context context) -> new RenderDivineMob<>(context, "zelus", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
 
         //Eden
         event.registerEntityRenderer(GLINTHOP.get(),	    RenderGlinthop::new);
@@ -1151,29 +1174,6 @@ public class EntityRegistry {
         event.registerEntityRenderer(SOUL_SPIDER.get(),		 (Context context) -> new RenderDivineMob<>(context, "soul_spider", new ModelSoulSpider<>(context), .3F));
         event.registerEntityRenderer(SOUL_STEALER.get(),	 (Context context) -> new RenderDivineMob<>(context, "soul_stealer", new ModelSoulStealer(context)));
         event.registerEntityRenderer(TWILIGHT_ARCHER.get(),  RenderTwilightArcher::new);
-
-        //Arcana
-        event.registerEntityRenderer(CAPTAIN_MERIK.get(),	  (Context context) -> new RenderDivineMob<>(context, "captain_merik", new ModelSamek<>(context), .5F));
-        event.registerEntityRenderer(DATTICON.get(),		  (Context context) -> new RenderDivineMob<>(context, "datticon", new ModelSamek<>(context), .5F));
-        event.registerEntityRenderer(DEATHCRYX.get(),		  (Context context) -> new RenderDivineMob<>(context, "deathcryx", new ModelDeathcryx<>(context), .8F,  1.1F));
-        event.registerEntityRenderer(DEATH_HOUND.get(),		  (Context context) -> new RenderDivineMob<>(context, "death_hound", new ModelDeathHound(context), .55F));
-        event.registerEntityRenderer(DUNGEON_CONSTRUCTOR.get(),(Context context) -> new RenderDivineMob<>(context, "dungeon_constructor", new ModelDungeonConstructor<>(context), .4F, .4F));
-        event.registerEntityRenderer(DUNGEON_DEMON.get(),	  (Context context) -> new RenderDivineMob<>(context, "dungeon_demon", new ModelDungeonDemon<>(context), .6F));
-        event.registerEntityRenderer(DUNGEON_PRISONER.get(),  (Context context) -> new RenderDivineMob<>(context, "dungeon_prisoner", new ModelDungeonPrisoner(context), .6F));
-        event.registerEntityRenderer(FYRACRYX.get(),		  (Context context) -> new RenderDivineMob<>(context, "fyracryx", new ModelDeathcryx<>(context)));
-        event.registerEntityRenderer(GOLEM_OF_REJUVENATION.get(),(Context context) -> new RenderDivineMob<>(context, "golem_of_rejuvenation", new ModelRejuvGolem<>(context)));
-        event.registerEntityRenderer(KAZARI.get(),			  (Context context) -> new RenderDivineMob<>(context, "kazari", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
-        event.registerEntityRenderer(LEORNA.get(),			  (Context context) -> new RenderDivineMob<>(context, "leorna", new ModelLeorna<>(context), .5F));
-        event.registerEntityRenderer(LORD_VATTICUS.get(),	  (Context context) -> new RenderDivineMob<>(context, "lord_vatticus", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
-        event.registerEntityRenderer(LIVING_STATUE.get(),	  (Context context) -> new RenderDivineMob<>(context, "living_statue", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
-        event.registerEntityRenderer(PARATIKU.get(),		  (Context context) -> new RenderDivineMob<>(context, "paratiku", new ModelParatiku<>(context)));
-        event.registerEntityRenderer(RAZORBACK.get(),		  (Context context) -> new RenderDivineMob<>(context, "razorback", new ModelRazorback(context), .4F));
-        event.registerEntityRenderer(ROAMER.get(),			  (Context context) -> new RenderDivineMob<>(context, "roamer", new ModelRoamer(context), .6F));
-        event.registerEntityRenderer(SEIMER.get(),			  (Context context) -> new RenderDivineMob<>(context, "seimer", new ModelSeimer<>(context)));
-        event.registerEntityRenderer(SKYRE.get(),			  (Context context) -> new RenderDivineMob<>(context, "skyre", new ModelSkyre<>(context), .25F, .5F));
-        event.registerEntityRenderer(WAR_GENERAL.get(),		  (Context context) -> new RenderDivineMob<>(context, "war_general", new ModelSamek<>(context), .5F));
-        event.registerEntityRenderer(WRAITH.get(),			  (Context context) -> new RenderDivineMob<>(context, "wraith", new ModelWraith<>(context)));
-        event.registerEntityRenderer(ZELUS.get(),			  (Context context) -> new RenderDivineMob<>(context, "zelus", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
 
         //Vethea
         event.registerEntityRenderer(ACID_HAG.get(), (Context context) -> new RenderDivineMob<>(context, "acid_hag", new ModelAcidHag<>(context)));

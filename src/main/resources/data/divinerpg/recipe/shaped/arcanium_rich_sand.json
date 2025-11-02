@@ -1,18 +1,18 @@
 {
-	"type": "minecraft:crafting_shaped",
-	"category": "building",
-	"group": "arcanium_rich_sand",
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "arcanium_rich_sand",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
   "key": {
     "#": {
       "item": "divinerpg:arcanic_sand"
     }
   },
-	"pattern": [
-	  "###",
-	  "###",
-	  "###"
-	],
-	"result": {
-		"id": "divinerpg:arcanium_rich_sand"
-	}
+  "result": {
+    "id": "divinerpg:arcanium_rich_sand"
+  }
 }

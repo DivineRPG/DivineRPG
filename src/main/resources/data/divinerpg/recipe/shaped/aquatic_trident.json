@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:aquatic_trident"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     " I ",
     "III",
     " S "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
       "tag": "c:rods/wooden"
     },
     "I": {
-      "item": "divinerpg:aquatic_ingot"
+      "tag": "divinerpg:ingots/aquatic"
     }
+  },
+  "result": {
+    "id": "divinerpg:aquatic_trident"
   }
 }

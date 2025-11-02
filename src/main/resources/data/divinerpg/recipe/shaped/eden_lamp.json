@@ -14,14 +14,9 @@
     "G": {
       "tag": "c:dusts/glowstone"
     },
-    "C": [
-      {
-        "tag": "divinerpg:fragments/eden"
-      },
-      {
-        "tag": "divinerpg:souls/eden"
-      }
-    ]
+    "C": {
+      "tag": "divinerpg:fragments/eden"
+    }
   },
   "result": {
     "id": "divinerpg:eden_lamp"

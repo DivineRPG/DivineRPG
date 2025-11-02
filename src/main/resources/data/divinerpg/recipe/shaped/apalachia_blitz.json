@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:apalachia_blitz"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "X X",
     "X X",
     "XXX"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "divinerpg:apalachia_chunk"
+      "tag": "divinerpg:chunks/apalachia"
     }
+  },
+  "result": {
+    "id": "divinerpg:apalachia_blitz"
   }
 }
