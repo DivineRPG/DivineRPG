@@ -1,6 +1,5 @@
 {
   "type": "crafting_shapeless",
-  "category": "redstone",
   "ingredients": [
     {
       "item": "divinerpg:inserter"

@@ -1,16 +1,16 @@
 {
-  "result": {
-    "id": "divinerpg:seng_fur_boots"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "I I",
     "I I"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "I": {
-      "item": "divinerpg:seng_fur"
+      "tag": "divinerpg:fur/seng"
     }
+  },
+  "result": {
+    "id": "divinerpg:seng_fur_boots"
   }
 }

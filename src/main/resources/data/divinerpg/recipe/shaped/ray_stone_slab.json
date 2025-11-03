@@ -1,16 +1,16 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "divinerpg:ray_stone"
+    }
+  },
   "result": {
     "id": "divinerpg:ray_stone_slab",
     "count": 6
-  },
-  "pattern": [
-    "sss"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "s": {
-      "item": "divinerpg:ray_stone"
-    }
   }
 }

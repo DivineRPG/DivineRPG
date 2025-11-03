@@ -1,13 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
   "pattern": [
-    "s  ",
-    "ss ",
-    "sss"
+    "S  ",
+    "SS ",
+    "SSS"
   ],
   "key": {
-    "s": {
+    "S": {
       "item": "divinerpg:asphalt"
     }
   },

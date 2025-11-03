@@ -8,10 +8,10 @@
   ],
   "key": {
     "B": {
-      "item": "divinerpg:bedrock_chunk"
+      "tag": "divinerpg:chunks/bedrock"
     },
     "O": {
-      "tag": "diamond_ores"
+      "tag": "c:ores/diamond"
     }
   },
   "result": {

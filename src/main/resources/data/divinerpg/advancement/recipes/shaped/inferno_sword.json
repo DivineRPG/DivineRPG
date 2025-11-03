@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-              "items": "#redstone_ores"
+              "items": "#c:ores/redstone"
           }
         ]
       },

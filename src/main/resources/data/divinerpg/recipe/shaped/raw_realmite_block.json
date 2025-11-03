@@ -1,18 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
-  "key": {
-    "I": {
-      "item": "divinerpg:raw_realmite"
-    }
-  },
   "pattern": [
     "III",
     "III",
     "III"
   ],
+  "key": {
+    "I": {
+      "item": "divinerpg:raw_realmite"
+    }
+  },
   "result": {
-    "id": "divinerpg:raw_realmite_block",
-    "count": 1
+    "id": "divinerpg:raw_realmite_block"
   }
 }

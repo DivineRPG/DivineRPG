@@ -1,18 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "building",
   "group": "divinerpg_bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
   "key": {
     "#": {
       "item": "divinerpg:eden_log"
     }
   },
-  "pattern": [
-    "##",
-    "##"
-  ],
   "result": {
-    "count": 3,
-    "id": "divinerpg:eden_wood"
+    "id": "divinerpg:eden_wood",
+    "count": 3
   }
 }

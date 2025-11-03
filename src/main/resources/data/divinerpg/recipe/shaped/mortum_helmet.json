@@ -1,16 +1,16 @@
 {
-  "result": {
-    "id": "divinerpg:mortum_helmet"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "III",
     "I I"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "I": {
-      "item": "divinerpg:mortum_chunk"
+      "tag": "divinerpg:chunks/mortum"
     }
+  },
+  "result": {
+    "id": "divinerpg:mortum_helmet"
   }
 }

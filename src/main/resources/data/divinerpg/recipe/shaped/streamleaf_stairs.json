@@ -1,19 +1,19 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "divinerpg_wooden_stairs",
+  "pattern": [
+    "C  ",
+    "CC ",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "divinerpg:streamleaf_planks"
+    }
+  },
   "result": {
     "id": "divinerpg:streamleaf_stairs",
     "count": 4
-  },
-  "pattern": [
-    "c  ",
-    "cc ",
-    "ccc"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "divinerpg_wooden_stairs",
-  "key": {
-    "c": {
-      "item": "divinerpg:streamleaf_planks"
-    }
   }
 }

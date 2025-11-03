@@ -1,19 +1,19 @@
 {
-  "result": {
-    "id": "divinerpg:arlemite_boots"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "X X",
     "I I"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "minecraft:iron_ingot"
+      "tag": "c:ingots/iron"
     },
     "I": {
-      "item": "divinerpg:arlemite_ingot"
+      "tag": "divinerpg:ingots/arlemite"
     }
+  },
+  "result": {
+    "id": "divinerpg:arlemite_boots"
   }
 }

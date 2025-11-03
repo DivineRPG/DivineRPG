@@ -1,6 +1,5 @@
 {
   "values": [
-    "divinerpg:crate",
-    "divinerpg:oxcrate"
+    "#divinerpg:crates"
   ]
 }

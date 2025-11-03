@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:eden_blitz"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "X X",
     "X X",
     "XXX"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "divinerpg:eden_chunk"
+      "tag": "divinerpg:chunks/eden"
     }
+  },
+  "result": {
+    "id": "divinerpg:eden_blitz"
   }
 }

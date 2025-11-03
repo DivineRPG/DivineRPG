@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:wildwood_blitz"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "X X",
     "X X",
     "XXX"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "X": {
-      "item": "divinerpg:wildwood_chunk"
+      "tag": "divinerpg:chunks/wildwood"
     }
+  },
+  "result": {
+    "id": "divinerpg:wildwood_blitz"
   }
 }

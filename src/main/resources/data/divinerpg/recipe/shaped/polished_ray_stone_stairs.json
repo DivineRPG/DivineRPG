@@ -1,18 +1,18 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "C  ",
+    "CC ",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "divinerpg:polished_ray_stone"
+    }
+  },
   "result": {
     "id": "divinerpg:polished_ray_stone_stairs",
     "count": 4
-  },
-  "pattern": [
-    "c  ",
-    "cc ",
-    "ccc"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "c": {
-      "item": "divinerpg:polished_ray_stone"
-    }
   }
 }

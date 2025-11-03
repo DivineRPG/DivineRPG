@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "equipment",
   "pattern": [
     "#  ",
@@ -8,14 +8,13 @@
   ],
   "key": {
     "#": {
-      "item": "divinerpg:healing_stone"
+      "tag": "divinerpg:gems/healing"
     },
     "T": {
-      "item": "minecraft:totem_of_undying"
+      "item": "totem_of_undying"
     }
   },
   "result": {
-    "id": "divinerpg:serenade_of_health",
-    "count": 1
+    "id": "divinerpg:serenade_of_health"
   }
 }

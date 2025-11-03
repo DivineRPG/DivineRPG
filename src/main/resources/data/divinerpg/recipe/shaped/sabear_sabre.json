@@ -1,19 +1,19 @@
 {
-  "result": {
-    "id": "divinerpg:sabear_sabre"
-  },
-  "pattern": [
-    " I ",
-    " S "
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "equipment",
+  "pattern": [
+    "I",
+    "S"
+  ],
   "key": {
     "S": {
       "tag": "c:rods/wooden"
     },
     "I": {
-      "item": "divinerpg:sabear_tooth"
+      "tag": "divinerpg:teeth/sabear"
     }
+  },
+  "result": {
+    "id": "divinerpg:sabear_sabre"
   }
 }

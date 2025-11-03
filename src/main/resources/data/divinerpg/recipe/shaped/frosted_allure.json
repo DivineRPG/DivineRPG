@@ -1,22 +1,22 @@
 {
-  "result": {
-    "id": "divinerpg:frosted_allure"
-  },
+  "type": "crafting_shaped",
   "pattern": [
     "XYX",
     "YZY",
     "XYX"
   ],
-  "type": "minecraft:crafting_shaped",
   "key": {
     "X": {
-      "item": "divinerpg:ice_shards"
+      "tag": "divinerpg:shards/ice"
     },
     "Y": {
-      "item": "divinerpg:ice_stone"
+      "tag": "divinerpg:gems/ice"
     },
     "Z": {
-      "item": "divinerpg:aquatic_ingot"
+      "tag": "divinerpg:ingots/aquatic"
     }
+  },
+  "result": {
+    "id": "divinerpg:frosted_allure"
   }
 }

@@ -1,23 +1,21 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_ingot": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:realmite_ingot"
-            ]
+            "items": "divinerpg:realmite_ingot"
           }
         ]
       },
-      "trigger": "minecraft:inventory_changed"
+      "trigger": "inventory_changed"
     },
     "has_the_recipe": {
       "conditions": {
         "recipe": "divinerpg:shaped/realmite_block"
       },
-      "trigger": "minecraft:recipe_unlocked"
+      "trigger": "recipe_unlocked"
     }
   },
   "requirements": [

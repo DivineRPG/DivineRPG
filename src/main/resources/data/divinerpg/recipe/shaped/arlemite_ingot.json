@@ -1,17 +1,17 @@
 {
-  "result": {
-    "id": "divinerpg:arlemite_ingot"
-  },
+  "type": "crafting_shaped",
+  "group": "arlemite_ingot",
   "pattern": [
     "III",
     "III",
     "III"
   ],
-  "type": "minecraft:crafting_shaped",
-  "group": "arlemite_ingot",
   "key": {
     "I": {
       "item": "divinerpg:arlemite_nugget"
     }
+  },
+  "result": {
+    "id": "divinerpg:arlemite_ingot"
   }
 }

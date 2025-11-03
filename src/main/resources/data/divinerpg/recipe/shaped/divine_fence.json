@@ -1,20 +1,20 @@
 {
+  "type": "crafting_shaped",
+  "group": "divinerpg_wooden_fence",
+  "pattern": [
+    "PSP",
+    "PSP"
+  ],
+  "key": {
+    "P": {
+      "item": "divinerpg:divine_planks"
+    },
+    "S": {
+      "tag": "c:rods/wooden"
+    }
+  },
   "result": {
     "id": "divinerpg:divine_fence",
     "count": 3
-  },
-  "pattern": [
-    "psp",
-    "psp"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "group": "divinerpg_wooden_fence",
-  "key": {
-    "p": {
-      "item": "divinerpg:divine_planks"
-    },
-    "s": {
-      "tag": "c:rods/wooden"
-    }
   }
 }

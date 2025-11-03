@@ -1,19 +1,19 @@
 {
-  "result": {
-    "id": "divinerpg:eucalyptus_door",
-    "count": 3
-  },
+  "type": "crafting_shaped",
+  "category": "redstone",
+  "group": "divinerpg_wooden_door",
   "pattern": [
     "WW",
     "WW",
     "WW"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "redstone",
-  "group": "divinerpg_wooden_door",
   "key": {
     "W": {
       "item": "divinerpg:eucalyptus_planks"
     }
+  },
+  "result": {
+    "id": "divinerpg:eucalyptus_door",
+    "count": 3
   }
 }

@@ -1,18 +1,18 @@
 {
-  "result": {
-    "id": "divinerpg:wildwood_block"
-  },
+  "type": "crafting_shaped",
+  "category": "building",
+  "group": "twilight_block",
   "pattern": [
     "CCC",
     "CCC",
     "CCC"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "group": "twilight_block",
   "key": {
     "C": {
       "item": "divinerpg:wildwood_chunk"
     }
+  },
+  "result": {
+    "id": "divinerpg:wildwood_block"
   }
 }

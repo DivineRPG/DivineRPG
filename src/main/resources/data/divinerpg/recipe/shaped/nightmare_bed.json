@@ -6,10 +6,10 @@
   ],
   "key": {
     "B": {
-      "item": "divinerpg:mortum_heart"
+      "tag": "divinerpg:hearts/mortum"
     },
     "W": {
-      "item": "divinerpg:mortum_block"
+      "tag": "divinerpg:storage_blocks/mortum"
     }
   },
   "result": {

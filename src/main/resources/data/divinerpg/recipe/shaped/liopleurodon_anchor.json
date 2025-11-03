@@ -1,23 +1,23 @@
 {
-  "result": {
-    "id": "divinerpg:liopleurodon_anchor"
-  },
+  "type": "crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "SIS",
     "IXI",
     " X "
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "S": {
-      "item": "divinerpg:liopleurodon_skull"
+      "tag": "divinerpg:skulls/liopleurodon"
     },
     "X": {
-      "item": "divinerpg:aquatic_ingot"
+      "tag": "divinerpg:ingots/aquatic"
     },
     "I": {
-      "item": "divinerpg:liopleurodon_teeth"
+      "tag": "divinerpg:teeth/liopleurodon"
     }
+  },
+  "result": {
+    "id": "divinerpg:liopleurodon_anchor"
   }
 }

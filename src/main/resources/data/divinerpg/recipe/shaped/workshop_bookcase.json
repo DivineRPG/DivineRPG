@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:workshop_bookcase"
-  },
+  "type": "crafting_shaped",
+  "category": "building",
   "pattern": [
     "CCC",
     "BBB",
     "CCC"
   ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
   "key": {
     "B": {
-      "item": "minecraft:book"
+      "item": "book"
     },
     "C": {
       "item": "divinerpg:coalstone"
     }
+  },
+  "result": {
+    "id": "divinerpg:workshop_bookcase"
   }
 }

@@ -1,20 +1,20 @@
 {
-  "result": {
-    "id": "divinerpg:eucalyptus_fence_gate"
-  },
-  "pattern": [
-    "sps",
-    "sps"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "redstone",
   "group": "divinerpg_wooden_fence_gate",
+  "pattern": [
+    "SPS",
+    "SPS"
+  ],
   "key": {
-    "p": {
+    "P": {
       "item": "divinerpg:eucalyptus_planks"
     },
-    "s": {
+    "S": {
       "tag": "c:rods/wooden"
     }
+  },
+  "result": {
+    "id": "divinerpg:eucalyptus_fence_gate"
   }
 }

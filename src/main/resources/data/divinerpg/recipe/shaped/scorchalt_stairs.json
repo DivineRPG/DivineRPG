@@ -1,18 +1,18 @@
 {
+  "type": "crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "C  ",
+    "CC ",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "divinerpg:scorchalt"
+    }
+  },
   "result": {
     "id": "divinerpg:scorchalt_stairs",
     "count": 4
-  },
-  "pattern": [
-    "c  ",
-    "cc ",
-    "ccc"
-  ],
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "c": {
-      "item": "divinerpg:scorchalt"
-    }
   }
 }

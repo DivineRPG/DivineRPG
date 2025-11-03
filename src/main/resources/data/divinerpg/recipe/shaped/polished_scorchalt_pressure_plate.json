@@ -1,16 +1,16 @@
 {
-  "result": {
-    "id": "divinerpg:polished_scorchalt_pressure_plate"
-  },
-  "pattern": [
-    "ss"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "redstone",
   "group": "divinerpg_pressure_plate",
+  "pattern": [
+    "SS"
+  ],
   "key": {
-    "s": {
+    "S": {
       "item": "divinerpg:polished_scorchalt"
     }
+  },
+  "result": {
+    "id": "divinerpg:polished_scorchalt_pressure_plate"
   }
 }

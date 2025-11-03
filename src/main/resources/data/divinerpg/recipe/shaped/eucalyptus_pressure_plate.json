@@ -1,16 +1,16 @@
 {
-  "result": {
-    "id": "divinerpg:eucalyptus_pressure_plate"
-  },
-  "pattern": [
-    "ss"
-  ],
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "category": "redstone",
   "group": "divinerpg_wooden_pressure_plate",
+  "pattern": [
+    "SS"
+  ],
   "key": {
-    "s": {
+    "S": {
       "item": "divinerpg:eucalyptus_planks"
     }
+  },
+  "result": {
+    "id": "divinerpg:eucalyptus_pressure_plate"
   }
 }
