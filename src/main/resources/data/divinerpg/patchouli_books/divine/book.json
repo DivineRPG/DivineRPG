@@ -6,7 +6,7 @@
   "model": "patchouli:book_cyan",
   "open_sound": "divinerpg:patchouli_open",
   "flip_sound": "divinerpg:patchouli_flip",
-  "creative_tab": "divinerpg_utility",
+  "creative_tab": "divinerpg:tools",
   "show_progress": false,
   "show_toasts": false,
   "i18n": true,

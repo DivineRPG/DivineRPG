@@ -2,8 +2,8 @@
   "type": "divinerpg:jungle_temple_modifier",
   "conditions": [
     {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/jungle_temple"
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "chests/jungle_temple"
     }
   ],
   "min": 1,

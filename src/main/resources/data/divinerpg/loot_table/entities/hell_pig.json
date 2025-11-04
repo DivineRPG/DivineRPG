@@ -16,42 +16,6 @@
               }
             },
             {
-              "function": "furnace_smelt",
-              "conditions": [
-                {
-                  "condition": "any_of",
-                  "terms": [
-                    {
-                      "condition": "entity_properties",
-                      "entity": "this",
-                      "predicate": {
-                        "flags": {
-                          "is_on_fire": true
-                        }
-                      }
-                    },
-                    {
-                      "condition": "entity_properties",
-                      "entity": "direct_attacker",
-                      "predicate": {
-                        "equipment": {
-                          "mainhand": {
-                            "predicates": {
-                              "enchantments": [
-                                {
-                                  "enchantments": "#smelts_loot"
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "function": "enchanted_count_increase",
               "enchantment": "looting",
               "count": {

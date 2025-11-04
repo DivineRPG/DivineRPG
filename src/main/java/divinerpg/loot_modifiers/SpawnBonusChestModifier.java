@@ -13,15 +13,15 @@ import org.jetbrains.annotations.NotNull;
 public class SpawnBonusChestModifier extends LootModifier {
     public static final MapCodec<SpawnBonusChestModifier> CODEC = RecordCodecBuilder.mapCodec(builder -> codecStart(builder).apply(builder, SpawnBonusChestModifier::new));
     protected SpawnBonusChestModifier(LootItemCondition[] conditionsIn) {super(conditionsIn);}
-    @Override @NotNull
-    protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if(context.getRandom().nextFloat() <= .2){
+    @NotNull
+    @Override protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+        if(context.getRandom().nextFloat() <= .2) {
             ItemStack toAdd = new ItemStack(BlockRegistry.divineLog.asItem(), 1 + context.getRandom().nextInt(3));
             generatedLoot.add(toAdd);
-        } if(context.getRandom().nextFloat() <= .1){
+        } if(context.getRandom().nextFloat() <= .1) {
             ItemStack toAdd = new ItemStack(ItemRegistry.tomato.get(), 1 + context.getRandom().nextInt(3));
             generatedLoot.add(toAdd);
-        } if(context.getRandom().nextFloat() <= .4){
+        } if(context.getRandom().nextFloat() <= .4) {
             ItemStack toAdd = new ItemStack(ItemRegistry.chicken_dinner.get(), 1);
             generatedLoot.add(toAdd);
         } return generatedLoot;

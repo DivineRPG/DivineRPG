@@ -1,6 +1,5 @@
 package divinerpg.registries;
 
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -10,9 +9,10 @@ import net.neoforged.neoforge.registries.*;
 import java.util.ArrayList;
 
 import static divinerpg.DivineRPG.MODID;
+import static net.minecraft.core.registries.Registries.CREATIVE_MODE_TAB;
 
 public class CreativeTabRegistry {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(CREATIVE_MODE_TAB, MODID);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BLOCKS = CREATIVE_MODE_TABS.register("blocks", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.blocks")).icon(() -> new ItemStack(BlockRegistry.edenLamp.get())).build());
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TOOLS = CREATIVE_MODE_TABS.register("tools", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.tools")).icon(() -> new ItemStack(ItemRegistry.halite_blade.get())).build());
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MISC = CREATIVE_MODE_TABS.register("misc", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.misc")).icon(() -> new ItemStack(ItemRegistry.divine_shards.get())).build());

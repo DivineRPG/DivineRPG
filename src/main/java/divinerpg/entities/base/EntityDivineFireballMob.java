@@ -45,7 +45,7 @@ public abstract class EntityDivineFireballMob extends EntityDivineMonster implem
     	} else if(getBlockY() < preferredY) setDeltaMovement(getDeltaMovement().add(0, (preferredY - getY()) / 12 * getAttributeValue(Attributes.FLYING_SPEED), 0));
     }
 	@Override public void performRangedAttack(LivingEntity entity, float f) {
-		if(!level().isClientSide()) {
+		if(!level().isClientSide) {
 	    	LivingEntity target = getTarget();
 	        if(isAlive() && target != null) {
 	        	Fireball projectile = getProjectile();

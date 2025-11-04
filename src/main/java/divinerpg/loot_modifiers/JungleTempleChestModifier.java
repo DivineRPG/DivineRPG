@@ -12,20 +12,16 @@ import org.jetbrains.annotations.NotNull;
 
 public class JungleTempleChestModifier extends LootModifier {
     public static final MapCodec<JungleTempleChestModifier> CODEC = RecordCodecBuilder.mapCodec(builder -> codecStart(builder).apply(builder, JungleTempleChestModifier::new));
-    protected JungleTempleChestModifier(LootItemCondition[] conditionsIn) {
-        super(conditionsIn);
-    }
-    @Override @NotNull
-    protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if(context.getRandom().nextFloat() <= .3){
+    protected JungleTempleChestModifier(LootItemCondition[] conditionsIn) {super(conditionsIn);}
+    @NotNull
+    @Override protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+        if(context.getRandom().nextFloat() <= .3) {
             ItemStack toAdd = new ItemStack(ItemRegistry.jungle_shards.get(), 1 + context.getRandom().nextInt(3));
             generatedLoot.add(toAdd);
-        } if(context.getRandom().nextFloat() <= .5){
+        } if(context.getRandom().nextFloat() <= .5) {
             ItemStack toAdd = new ItemStack(BlockRegistry.jungleSpiderPumpkin.asItem(), 1 + context.getRandom().nextInt(1));
             generatedLoot.add(toAdd);
         } return generatedLoot;
     }
-    @Override public MapCodec<? extends IGlobalLootModifier> codec() {
-        return CODEC;
-    }
+    @Override public MapCodec<? extends IGlobalLootModifier> codec() {return CODEC;}
 }

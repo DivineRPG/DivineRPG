@@ -13,12 +13,12 @@ import org.jetbrains.annotations.NotNull;
 public class AbandonedMineshaftChestModifier extends LootModifier {
     public static final MapCodec<AbandonedMineshaftChestModifier> CODEC = RecordCodecBuilder.mapCodec(builder -> codecStart(builder).apply(builder, AbandonedMineshaftChestModifier::new));
     protected AbandonedMineshaftChestModifier(LootItemCondition[] conditionsIn) {super(conditionsIn);}
-    @Override @NotNull
-    protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if(context.getRandom().nextFloat() <= .5){
+    @NotNull
+    @Override protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+        if(context.getRandom().nextFloat() <= .5) {
             ItemStack toAdd = new ItemStack(ItemRegistry.realmite_pickaxe.get(), 1);
             generatedLoot.add(toAdd);
-        } if(context.getRandom().nextFloat() <= .3){
+        } if(context.getRandom().nextFloat() <= .3) {
             ItemStack toAdd = new ItemStack(ItemRegistry.skeleton_torch.get(), 4 + context.getRandom().nextInt(4));
             generatedLoot.add(toAdd);
         } return generatedLoot;
