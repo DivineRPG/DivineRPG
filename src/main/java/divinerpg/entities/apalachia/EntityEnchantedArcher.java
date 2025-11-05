@@ -23,7 +23,6 @@ public class EntityEnchantedArcher extends EntityDivineMonster implements Ranged
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 0, true, false, null));
         super.registerGoals();
     }
-    @Override public int getArmorValue() {return 10;}
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if(isAlive() && getTarget() != null) {
             WildwoodArrow abstractarrow = new WildwoodArrow(level(), this, new ItemStack(ItemRegistry.wildwood_arrow.get()), new ItemStack(ItemRegistry.apalachia_bow.get()));

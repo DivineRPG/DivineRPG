@@ -3,20 +3,15 @@ package divinerpg.entities.arcana;
 import divinerpg.entities.base.EntityDivineMonster;
 import divinerpg.registries.*;
 
-import java.util.*;
-
-import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.*;
 
 public class EntityDungeonDemon extends EntityDivineMonster {
     public EntityDungeonDemon(EntityType<? extends EntityDungeonDemon> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean fireImmune() {return true;}
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.DUNGEON_PRISONER.get();

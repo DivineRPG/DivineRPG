@@ -18,13 +18,11 @@ import net.minecraft.world.level.*;
 public class EntityTwilightArcher extends EntityDivineMonster implements RangedAttackMob {
 
     public EntityTwilightArcher(EntityType<? extends EntityTwilightArcher> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean fireImmune() {return true;}
     @Override protected void registerGoals() {
         goalSelector.addGoal(1, new RangedAttackGoal(this, 1, 15, 60, 15));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 0, true, false, null));
         super.registerGoals();
     }
-    @Override public int getArmorValue() {return 10;}
     @Override public void performRangedAttack(LivingEntity target, float distanceFactor) {
         if(isAlive() && getTarget() != null) {
             FuryArrow abstractarrow = new FuryArrow(level(), this, new ItemStack(ItemRegistry.fury_arrow.get()), new ItemStack(ItemRegistry.mortum_bow.get()));

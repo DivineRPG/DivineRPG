@@ -19,7 +19,6 @@ public class EntityLivingStatue extends EntityDivineMonster implements RangedAtt
     public EntityLivingStatue(EntityType<? extends EntityLivingStatue> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean fireImmune() {return true;}
     @Override
     protected void registerGoals() {
         super.registerGoals();

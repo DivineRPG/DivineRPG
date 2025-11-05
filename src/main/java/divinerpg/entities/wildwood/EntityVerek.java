@@ -10,7 +10,6 @@ import net.minecraft.world.level.*;
 
 public class EntityVerek extends EntityDivineMonster {
     public EntityVerek(EntityType<? extends EntityVerek> type, Level worldIn) {super(type, worldIn);}
-    @Override public int getArmorValue() {return 6;}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.VEREK.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.VEREK_HURT.get();}

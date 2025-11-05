@@ -12,10 +12,8 @@ import net.minecraft.world.level.pathfinder.PathType;
 public class EntityBasilisk extends EntityDivineMonster {
     public EntityBasilisk(EntityType<? extends EntityBasilisk> type, Level worldIn) {
         super(type, worldIn);
-        this.setPathfindingMalus(PathType.WATER, -1);
+        setPathfindingMalus(PathType.WATER, -1);
     }
-    @Override public boolean fireImmune() {return true;}
-    @Override public int getArmorValue() {return 10;}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.MUCKY.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}

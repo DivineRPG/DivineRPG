@@ -6,7 +6,6 @@ import divinerpg.registries.*;
 import net.minecraft.util.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.level.*;
 
@@ -16,11 +15,6 @@ public class EntitySoulFiend extends EntityDivineBoss {
     public EntitySoulFiend(EntityType<? extends EntitySoulFiend> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override
-    public int getArmorValue() {
-        return 10;
-    }
-
     @Override
     public void tick() {
         super.tick();

@@ -12,7 +12,6 @@ import net.minecraft.world.level.*;
 public class EntitySoulStealer extends EntityDivineMonster {
     private int attackAnimationTick;
     public EntitySoulStealer(EntityType<? extends EntitySoulStealer> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean fireImmune() {return true;}
     @Override public void aiStep() {
         super.aiStep();
         if(attackAnimationTick > 0) --attackAnimationTick;
@@ -31,7 +30,6 @@ public class EntitySoulStealer extends EntityDivineMonster {
         super.handleEntityEvent(id);
     }
     public int getAttackAnimationTick() {return this.attackAnimationTick;}
-    @Override public int getArmorValue() {return 10;}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.INSECT.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.INSECT.get();}

@@ -17,7 +17,6 @@ public class EntityFractiteShot extends DivineFireball {
     public EntityFractiteShot(Level world, LivingEntity shooter, double accelX, double accelY, double accelZ) {
         super(FRACTITE_SHOT.get(), world, shooter, accelX, accelY, accelZ, (byte)1);
     }
-    @Override public boolean fireImmune() {return true;}
     @Override public boolean hurt(DamageSource source, float amount) {return false;}
     @Override public boolean canBeCollidedWith() {return false;}
     @Override public boolean isOnFire() {return false;}

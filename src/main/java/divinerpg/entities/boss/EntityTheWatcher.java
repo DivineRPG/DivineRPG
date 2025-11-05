@@ -29,7 +29,6 @@ public class EntityTheWatcher extends EntityDivineFlyingMonster implements Range
         return PlayerTeam.formatNameForTeam(getTeam(), getName()).withStyle((s) -> s.withHoverEvent(createHoverEvent()).withInsertion(getStringUUID()).withBold(true));
     }
     @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return false;}
-    @Override public boolean fireImmune() {return true;}
     @Override protected void registerGoals() {
         super.registerGoals();
         goalSelector.addGoal(2, new RangedAttackGoal(this, 1, 40, 40));

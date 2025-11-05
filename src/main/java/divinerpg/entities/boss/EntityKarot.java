@@ -21,10 +21,6 @@ public class EntityKarot extends EntityDivineBoss {
         super(type, worldIn);
         spawnTick=240;
     }
-    @Override
-    public int getArmorValue() {
-        return 10;
-    }
 
     @Override
     public void tick() {

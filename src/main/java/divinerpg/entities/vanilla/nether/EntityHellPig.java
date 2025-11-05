@@ -10,7 +10,6 @@ import net.minecraft.world.level.Level;
 
 public class EntityHellPig extends EntityDivineTameable {
     public EntityHellPig(EntityType<? extends EntityHellPig> type, Level worldIn) {super(type, worldIn, 2);}
-    @Override public boolean fireImmune() {return true;}
     @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_HELL_PIG);}
     @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_HELL_PIG);}
     @Override public SoundEvent getAmbientSound() {return SoundEvents.PIG_AMBIENT;}

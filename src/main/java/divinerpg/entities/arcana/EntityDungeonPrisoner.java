@@ -6,7 +6,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 
@@ -14,8 +13,6 @@ public class EntityDungeonPrisoner extends EntityDivineMonster {
     public EntityDungeonPrisoner(EntityType<? extends EntityDungeonPrisoner> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean fireImmune() {return true;}
-
     @Override
     public boolean doHurtTarget(Entity entity) {
         if (!level().isClientSide()) {

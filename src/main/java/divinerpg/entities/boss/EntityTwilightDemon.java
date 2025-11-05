@@ -14,7 +14,6 @@ import static divinerpg.registries.SoundRegistry.INSECT;
 public class EntityTwilightDemon extends EntityDivineBoss {
     int shooting;
     public EntityTwilightDemon(EntityType<? extends EntityTwilightDemon> type, Level worldIn) {super(type, worldIn);}
-    @Override public int getArmorValue() {return 10;}
     @Override public void tick() {
         super.tick();
         if(!level().isClientSide) {

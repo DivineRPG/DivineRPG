@@ -11,19 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.*;
 
 public class EntityGreenfeet extends EntityDivineMonster {
-
-    public EntityGreenfeet(EntityType<? extends EntityGreenfeet> type, Level worldIn) {
-        super(type, worldIn);
-    }
-    @Override
-    public float getWalkTargetValue(BlockPos pos, LevelReader reader) {
-        return 0.0F;
-    }
-
-    @Override
-    public int getArmorValue() {
-        return 10;
-    }
+    public EntityGreenfeet(EntityType<? extends EntityGreenfeet> type, Level worldIn) {super(type, worldIn);}
+    @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
     @Override public void aiStep() {
         if(this.isAlive()) {
             boolean flag = isSunBurnTick();

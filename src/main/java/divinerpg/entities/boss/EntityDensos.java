@@ -6,16 +6,11 @@ import divinerpg.registries.*;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
 public class EntityDensos extends EntityDivineBoss {
     public EntityDensos(EntityType<? extends EntityDensos> type, Level worldIn) {
         super(type, worldIn);
-    }
-    @Override
-    public int getArmorValue() {
-        return 10;
     }
 
     @Override

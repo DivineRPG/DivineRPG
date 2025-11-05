@@ -6,6 +6,4 @@ import net.minecraft.world.level.Level;
 
 public class EntityMortumCadillion extends EntityBaseCadillion {
     public EntityMortumCadillion(EntityType<? extends EntityMortumCadillion> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean fireImmune() {return true;}
-    @Override public int getArmorValue() {return 10;}
 }

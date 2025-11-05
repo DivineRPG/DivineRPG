@@ -23,7 +23,6 @@ public class EntityDeathcryx extends EntityDivineMonster {
             return false;
         }
     }
-    @Override public boolean fireImmune() {return true;}
     @Override protected float getSoundVolume() {return .7F;}
 
     @Override

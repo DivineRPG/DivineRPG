@@ -15,11 +15,6 @@ public class EntityDungeonConstructor extends EntityDivineMonster {
 	public EntityDungeonConstructor(EntityType<? extends EntityDungeonConstructor> type, Level worldIn) {
         super(type, worldIn);
     }
-//	@Override
-//	public float getStepHeight() {
-//		return 1F;
-//	}
-    @Override public boolean fireImmune() {return true;}
     @Override
     public void tick() {
         if (this.getTarget() != null) {

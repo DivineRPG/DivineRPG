@@ -15,10 +15,9 @@ public class EntitySkyre extends EntityDivineNeutral {
     public EntitySkyre(EntityType<? extends EntitySkyre> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean fireImmune() {return true;}
     @Override public void tick() {
         super.tick();
-        if(!level().isClientSide()) {
+        if(!level().isClientSide) {
             ServerPlayer player = (ServerPlayer) level().getNearestPlayer(this, 8);
             if(player != null && (!player.isCreative() || !player.isSpectator())) {
             	Arcana.modifyAmount(player, -1);

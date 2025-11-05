@@ -10,7 +10,6 @@ import static divinerpg.registries.SoundRegistry.HELL_SPIDER;
 
 public class EntityHellSpider extends Spider {
     public EntityHellSpider(EntityType<? extends EntityHellSpider> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean fireImmune() {return true;}
     @Override public boolean doHurtTarget(Entity target) {
         boolean attack = super.doHurtTarget(target);
         if(attack) target.setRemainingFireTicks(3 * 20);

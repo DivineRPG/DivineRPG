@@ -11,7 +11,6 @@ import static net.minecraft.world.damagesource.DamageTypes.LIGHTNING_BOLT;
 
 public class EntityEpiphite extends EntityDivineNeutral {
     public EntityEpiphite(EntityType<? extends EntityEpiphite> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean fireImmune() {return true;}
     @Override public boolean hurt(DamageSource source, float amount) {
         if(source.is(LIGHTNING_BOLT)) return false;
         return super.hurt(source, amount);

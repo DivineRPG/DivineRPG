@@ -12,7 +12,6 @@ public class EntityRazorback extends EntityDivineMonster {
     public EntityRazorback(EntityType<? extends EntityRazorback> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean fireImmune() {return true;}
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.RAZORBACK.get();

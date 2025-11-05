@@ -9,7 +9,6 @@ import net.minecraft.world.level.*;
 
 public class EntityBaseGolem extends EntityDivineMonster {
     public EntityBaseGolem(EntityType<? extends EntityBaseGolem> type, Level worldIn) {super(type, worldIn);}
-    @Override public int getArmorValue() {return 10;}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.GROWL_HURT.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}

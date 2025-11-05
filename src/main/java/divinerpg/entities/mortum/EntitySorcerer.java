@@ -7,5 +7,4 @@ import net.minecraft.world.level.Level;
 
 public class EntitySorcerer extends EntityBaseMage {
     public EntitySorcerer(EntityType<? extends EntitySorcerer> type, Level worldIn) {super(type, worldIn, EntityRegistry.SORCERER_SHOT::value);}
-    @Override public boolean fireImmune() {return true;}
 }

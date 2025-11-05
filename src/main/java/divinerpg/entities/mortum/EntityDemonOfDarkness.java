@@ -10,8 +10,6 @@ import net.minecraft.world.level.*;
 
 public class EntityDemonOfDarkness extends EntityDivineMonster {
     public EntityDemonOfDarkness(EntityType<? extends EntityDemonOfDarkness> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean fireImmune() {return true;}
-    @Override public int getArmorValue() {return 10;}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.DEMON_OF_DARKNESS.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}

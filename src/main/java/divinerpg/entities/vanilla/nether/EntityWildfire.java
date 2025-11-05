@@ -55,7 +55,6 @@ public class EntityWildfire extends EntityDivineMonster implements RangedAttackM
             }
         }
     }
-    @Override public boolean fireImmune() {return true;}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.WILDFIRE.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.WILDFIRE_HURT.get();}

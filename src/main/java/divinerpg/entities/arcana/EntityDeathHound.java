@@ -17,7 +17,6 @@ public class EntityDeathHound extends EntityDivineMonster {
         if(entity instanceof LivingEntity livingEntity) livingEntity.addEffect(new MobEffectInstance(BLINDNESS, 4 * 20, 0, false, false));
         return super.doHurtTarget(entity);
     }
-    @Override public boolean fireImmune() {return true;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.DEATH_HOUND.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.DEATH_HOUND_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.DEATH_HOUND_HURT.get();}

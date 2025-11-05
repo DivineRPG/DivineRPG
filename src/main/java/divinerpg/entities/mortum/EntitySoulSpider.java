@@ -10,7 +10,6 @@ import net.minecraft.world.level.*;
 
 public class EntitySoulSpider extends EntityDivineMonster {
     public EntitySoulSpider(EntityType<? extends EntitySoulSpider> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean fireImmune() {return true;}
     @Override public void tick() {
         super.tick();
         if(tickCount > 600 && !level().isClientSide) kill();

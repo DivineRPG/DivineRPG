@@ -12,7 +12,6 @@ import net.minecraft.world.phys.Vec3;
 
 public class EntityEnderTriplets extends EntityDivineFlyingMonster implements RangedAttackMob {
     public EntityEnderTriplets(EntityType<? extends EntityEnderTriplets> type, Level worldIn) {super(type, worldIn, 18);}
-    @Override public boolean fireImmune() {return true;}
     @Override public int getMaxSpawnClusterSize() {return 1;}
     @Override public boolean isMaxGroupSizeReached(int i) {return i > 1;}
     @Override protected void registerGoals() {

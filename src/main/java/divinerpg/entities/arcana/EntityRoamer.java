@@ -13,7 +13,6 @@ public class EntityRoamer extends EntityDivineMonster {
     public EntityRoamer(EntityType<? extends EntityRoamer> type, Level worldIn) {
         super(type, worldIn);
     }
-    @Override public boolean fireImmune() {return true;}
     @Override protected float getSoundVolume() {return .3F;}
 
     @Override

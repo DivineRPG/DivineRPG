@@ -10,7 +10,6 @@ import net.minecraft.world.level.*;
 
 public class EntityAngryGlinthop extends EntityDivineMonster {
     public EntityAngryGlinthop(EntityType<? extends EntityAngryGlinthop> type, Level worldIn) {super(type, worldIn);}
-    @Override public boolean fireImmune() {return true;}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.HISS.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}

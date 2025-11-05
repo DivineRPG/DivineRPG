@@ -13,7 +13,6 @@ import javax.annotation.Nullable;
 
 public class EntityEnchantedWarrior extends EntityDivineMonster {
     public EntityEnchantedWarrior(EntityType<? extends EntityEnchantedWarrior> type, Level worldIn) {super(type, worldIn);}
-    @Override public int getArmorValue() {return 10;}
     @Override protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {
         setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.apalachia_blade.get()));
         super.populateDefaultEquipmentSlots(random, difficulty);
