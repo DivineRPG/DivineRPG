@@ -1,11 +1,11 @@
 {
-	"type": "divinerpg:skythern",
-	"generator": {
-		"type": "minecraft:noise",
-		"settings": "divinerpg:skythern",
-		"biome_source": {
-			"type": "minecraft:fixed",
-			"biome": "divinerpg:skythern"
-		}
-	}
+  "type": "divinerpg:skythern",
+  "generator": {
+    "type": "noise",
+    "settings": "divinerpg:skythern",
+    "biome_source": {
+      "type": "fixed",
+      "biome": "divinerpg:skythern"
+    }
+  }
 }

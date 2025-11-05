@@ -4,7 +4,11 @@
     "divinerpg:soul_sludge",
     "divinerpg:soul_sludge_breakable",
     "divinerpg:arcanite_stone",
+    "divinerpg:arcanite_stairs",
+    "divinerpg:arcanite_slab",
     "divinerpg:arcanite_tiles",
+    "divinerpg:arcanite_tile_stairs",
+    "divinerpg:arcanite_tile_slab",
     "divinerpg:raw_arcanium",
     "divinerpg:arcanium_block"
   ]

@@ -1,11 +1,11 @@
 {
-	"type": "divinerpg:wildwood",
-	"generator": {
-		"type": "minecraft:noise",
-		"settings": "divinerpg:wildwood",
-		"biome_source": {
-			"type": "minecraft:fixed",
-			"biome": "divinerpg:wildwood"
-		}
-	}
+  "type": "divinerpg:wildwood",
+  "generator": {
+    "type": "noise",
+    "settings": "divinerpg:wildwood",
+    "biome_source": {
+      "type": "fixed",
+      "biome": "divinerpg:wildwood"
+    }
+  }
 }

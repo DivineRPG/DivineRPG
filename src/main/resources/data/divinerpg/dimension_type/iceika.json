@@ -1,23 +1,23 @@
 {
-	"ultrawarm": false,
-	"natural": false,
-	"piglin_safe": false,
-	"respawn_anchor_works": false,
-	"bed_works": true,
-	"has_raids": false,
-	"has_skylight": true,
-	"has_ceiling": false,
-	"coordinate_scale": 0.125,
-	"ambient_light": 0,
-	"logical_height": 244,
-	"effects": "divinerpg:iceika_sky",
-	"infiniburn": "#divinerpg:infiniburn/iceika",
-	"min_y": -64,
-	"height": 384,
-	"monster_spawn_light_level": {
-		"type": "minecraft:uniform",
-		"min_inclusive": 0,
-		"max_inclusive": 7
-	},
-	"monster_spawn_block_light_limit": 0
+  "ultrawarm": false,
+  "natural": false,
+  "piglin_safe": false,
+  "respawn_anchor_works": false,
+  "bed_works": true,
+  "has_raids": false,
+  "has_skylight": true,
+  "has_ceiling": false,
+  "coordinate_scale": 0.125,
+  "ambient_light": 0,
+  "logical_height": 244,
+  "effects": "divinerpg:iceika_sky",
+  "infiniburn": "#divinerpg:infiniburn/iceika",
+  "min_y": -64,
+  "height": 384,
+  "monster_spawn_light_level": {
+    "type": "uniform",
+    "min_inclusive": 0,
+    "max_inclusive": 7
+  },
+  "monster_spawn_block_light_limit": 0
 }

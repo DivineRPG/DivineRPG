@@ -1,12 +1,16 @@
 {
   "values": [
-    "#divinerpg:infiniburn/iceika",
-    "#divinerpg:sands/arcanic",
-    "divinerpg:soul_sludge",
-    "divinerpg:soul_sludge_breakable",
-    "divinerpg:arcanite_stone",
-    "divinerpg:arcanite_tiles",
-    "divinerpg:raw_arcanium",
-    "divinerpg:arcanium_block"
+    "divinerpg:coalstone",
+    "divinerpg:coalstone_stairs",
+    "divinerpg:coalstone_slab",
+    "divinerpg:coalstone_bricks",
+    "divinerpg:coalstone_brick_stairs",
+    "divinerpg:coalstone_brick_slab",
+    "divinerpg:chiseled_coalstone_bricks",
+    "divinerpg:polished_coalstone",
+    "divinerpg:polished_coalstone_stairs",
+    "divinerpg:polished_coalstone_slab",
+    "divinerpg:coalstone_furnace",
+    "divinerpg:workshop_bookcase"
   ]
 }

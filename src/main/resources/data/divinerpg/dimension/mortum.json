@@ -1,11 +1,11 @@
 {
-	"type": "divinerpg:mortum",
-	"generator": {
-		"type": "minecraft:noise",
-		"settings": "divinerpg:mortum",
-		"biome_source": {
-			"type": "minecraft:fixed",
-			"biome": "divinerpg:mortum"
-		}
-	}
+  "type": "divinerpg:mortum",
+  "generator": {
+    "type": "noise",
+    "settings": "divinerpg:mortum",
+    "biome_source": {
+      "type": "fixed",
+      "biome": "divinerpg:mortum"
+    }
+  }
 }

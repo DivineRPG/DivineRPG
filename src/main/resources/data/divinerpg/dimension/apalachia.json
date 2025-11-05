@@ -1,11 +1,11 @@
 {
-	"type": "divinerpg:apalachia",
-	"generator": {
-		"type": "minecraft:noise",
-		"settings": "divinerpg:apalachia",
-		"biome_source": {
-			"type": "minecraft:fixed",
-			"biome": "divinerpg:apalachia"
-		}
-	}
+  "type": "divinerpg:apalachia",
+  "generator": {
+    "type": "noise",
+    "settings": "divinerpg:apalachia",
+    "biome_source": {
+      "type": "fixed",
+      "biome": "divinerpg:apalachia"
+    }
+  }
 }
