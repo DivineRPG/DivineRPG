@@ -2,7 +2,6 @@
   "type": "advancement_reward",
   "pools": [
     {
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
@@ -16,9 +15,11 @@
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     }
   ],
+  "random_sequence": "divinerpg:patchouli",
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

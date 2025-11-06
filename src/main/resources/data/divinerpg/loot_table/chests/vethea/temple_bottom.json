@@ -1,34 +1,17 @@
 {
+  "type": "chest",
   "pools": [
     {
-      "name": "divinerpg:wreck_hall_loot",
-      "rolls": {
-        "min": 4,
-        "max": 6
-      },
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:shiny_pearls",
-          "weight": 12,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:arksiane_lump",
+          "name": "divinerpg:clean_pearls",
           "weight": 10,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -37,12 +20,13 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_cake",
+          "name": "divinerpg:cermile_lump",
           "weight": 8,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -51,12 +35,28 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:polished_pearls",
+          "name": "divinerpg:dirty_pearls",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:dream_melon",
           "weight": 6,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -65,12 +65,28 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_sours",
+          "name": "divinerpg:dream_pie",
+          "weight": 6,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:darven_lump",
           "weight": 5,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -79,12 +95,13 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:rock_chunks",
-          "weight": 2,
+          "name": "divinerpg:amthirmis_lump",
+          "weight": 5,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -93,89 +110,26 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:arksiane_disk",
+          "name": "divinerpg:acid",
           "weight": 2,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:tormented_helmet",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:tormented_chestplate",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:tormented_leggings",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:tormented_boots",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:dream_flint",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
+                "max": 4
               }
             }
           ]
         }
-      ]
+      ],
+      "rolls": {
+        "type": "uniform",
+        "min": 4,
+        "max": 6
+      }
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:chests/vethea/temple_bottom"
 }

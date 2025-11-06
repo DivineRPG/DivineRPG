@@ -15,30 +15,30 @@ public class LootTableRegistry {
     public static final ResourceLocation
         //Chests
         //Overworld
-            AMETHYST_GEODE = registerTable("chests/overworld/amethyst"),
+            AMETHYST_GEODE = registerTable("chests/overworld/amethyst_geode"),
             ANCIENT_TOMB = registerTable("chests/overworld/ancient_tomb"),
-            LIVESTOCK_MERCHANT_HUT = registerTable("chests/overworld/livestock_chest"),
+            LIVESTOCK_MERCHANT_HUT = registerTable("chests/overworld/livestock_merchant_hut"),
         //Iceika
-            ICEIKA_DUNGEON = registerTable("chests/iceika/iceika_chest_dungeon"),
-            ICEIKA_HUT = registerTable("chests/iceika/iceika_chest_hut"),
-            GROGLIN_VILLAGE = registerTable("chests/iceika/groglin_chest"),
-            GRUZZORLUG_VILLAGE = registerTable("chests/iceika/gruzzorlug_chest"),
+            ICEIKA_DUNGEON = registerTable("chests/iceika/dungeon"),
+            ICEIKA_HUT = registerTable("chests/iceika/hut"),
+            GROGLIN_VILLAGE = registerTable("chests/iceika/groglin_village"),
+            GRUZZORLUG_VILLAGE = registerTable("chests/iceika/gruzzorlug_village"),
         //Arcana
-            BANQUET_HALL = registerTable("chests/arcana/banquet_hall_loot"),
-            UTILITY_HALLWAY = registerTable("chests/arcana/utility_hallway_loot"),
+            BANQUET_HALL = registerTable("chests/arcana/banquet_hall"),
+            UTILITY_HALLWAY = registerTable("chests/arcana/utility_hallway"),
         //Twilight
-            EDEN_HUT = registerTable("chests/twilight/eden/hut_chest"),
-            SKYTHERN_HUT = registerTable("chests/twilight/skythern/chest"),
-            WILDWOOD_HUT = registerTable("chests/twilight/wildwood/chest"),
+            EDEN_HUT = registerTable("chests/twilight/eden/hut"),
+            SKYTHERN_HUT = registerTable("chests/twilight/skythern/hut"),
+            WILDWOOD_HUT = registerTable("chests/twilight/wildwood/hut"),
         //Vethea
-            CRYPT = registerTable("chests/vethea/crypt_loot"),
-            KAROS_MADHOUSE = registerTable("chests/vethea/karos_madhouse_loot"),
-            QUADROTIC_POST = registerTable("chests/vethea/quadrotic_post_loot"),
-            RAGLOK_CHAMBER = registerTable("chests/vethea/raglok_chamber_loot"),
-            TEMPLE_BOTTOM = registerTable("chests/vethea/temple_loot_bottom"),
-            TEMPLE_MIDDLE = registerTable("chests/vethea/temple_loot_middle"),
-            TEMPLE_TOP = registerTable("chests/vethea/temple_loot_top"),
-            WRECK_HALL = registerTable("chests/vethea/wreck_hall_loot"),
+            CRYPT = registerTable("chests/vethea/crypt"),
+            KAROS_MADHOUSE = registerTable("chests/vethea/karos_madhouse"),
+            QUADROTIC_POST = registerTable("chests/vethea/quadrotic_post"),
+            RAGLOK_CHAMBER = registerTable("chests/vethea/raglok_chamber"),
+            TEMPLE_BOTTOM = registerTable("chests/vethea/temple_bottom"),
+            TEMPLE_MIDDLE = registerTable("chests/vethea/temple_middle"),
+            TEMPLE_TOP = registerTable("chests/vethea/temple_top"),
+            WRECK_HALL = registerTable("chests/vethea/wreck_hall"),
         //Entities
         //Bosses
             ANCIENT_ENTITY = registerTable("entities/ancient_entity"),

@@ -1,20 +1,47 @@
 {
+  "type": "chest",
   "pools": [
     {
-      "name": "divinerpg:karos_madhouse_loot",
-      "rolls": {
-        "min": 4,
-        "max": 6
-      },
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:polished_pearls",
-          "weight": 12,
+          "name": "divinerpg:arcanite_sand",
+          "weight": 25,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:arcanite_stone",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:arcana_bush",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -23,89 +50,81 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:karos_lump",
-          "weight": 8,
+          "name": "divinerpg:arcanite_vines_head",
+          "weight": 15,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
-                "max": 4
+                "max": 3
               }
             }
           ]
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_cake",
-          "weight": 6,
+          "name": "divinerpg:arcanite_ladder",
+          "weight": 10,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
-                "max": 4
+                "max": 2
               }
             }
           ]
         },
         {
           "type": "item",
-          "name": "divinerpg:karos_arrow",
-          "weight": 5,
+          "name": "divinerpg:arcanite_tubes",
+          "weight": 10,
           "functions": [
             {
               "function": "set_count",
               "count": {
-                "min": 8,
-                "max": 16
+                "type": "uniform",
+                "min": 1,
+                "max": 3
               }
             }
           ]
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_sours",
-          "weight": 4,
+          "name": "divinerpg:collector_fragments",
+          "weight": 9,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
-                "max": 4
+                "max": 8
               }
             }
           ]
         },
         {
           "type": "item",
-          "name": "divinerpg:rock_chunks",
-          "weight": 4,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 4
-              }
-            }
-          ]
+          "name": "divinerpg:arcanic_sand",
+          "weight": 4
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_flint",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "divinerpg:collector",
+          "weight": 5
         }
-      ]
+      ],
+      "rolls": {
+        "type": "uniform",
+        "min": 3,
+        "max": 5
+      }
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:chests/arcana/banquet_hall"
 }

@@ -1,11 +1,7 @@
 {
+  "type": "chest",
   "pools": [
     {
-      "name": "divinerpg:temple_loot_middle",
-      "rolls": {
-        "min": 4,
-        "max": 6
-      },
       "entries": [
         {
           "type": "item",
@@ -15,6 +11,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -29,6 +26,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -43,6 +41,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -57,6 +56,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -71,6 +71,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -85,6 +86,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -99,13 +101,20 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
             }
           ]
         }
-      ]
+      ],
+      "rolls": {
+        "type": "uniform",
+        "min": 4,
+        "max": 6
+      }
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:chests/vethea/temple_middle"
 }

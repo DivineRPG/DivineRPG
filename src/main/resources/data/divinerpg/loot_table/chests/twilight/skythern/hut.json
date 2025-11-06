@@ -1,0 +1,57 @@
+{
+  "type": "chest",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:skythern_sapling",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:skythern_slicer"
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:skythern_axe"
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:skythern_pickaxe"
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:skythern_shovel"
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:skeleton_torch",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 48
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": 8
+    }
+  ],
+  "random_sequence": "divinerpg:chests/twilight/skythern/hut"
+}

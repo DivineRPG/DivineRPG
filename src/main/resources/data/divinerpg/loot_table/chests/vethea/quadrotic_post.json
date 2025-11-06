@@ -1,11 +1,7 @@
 {
+  "type": "chest",
   "pools": [
     {
-      "name": "divinerpg:quadrotic_post_loot",
-      "rolls": {
-        "min": 4,
-        "max": 6
-      },
       "entries": [
         {
           "type": "item",
@@ -15,6 +11,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -29,6 +26,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -43,6 +41,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -57,6 +56,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 8,
                 "max": 16
               }
@@ -71,6 +71,7 @@
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -79,19 +80,15 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_flint",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "divinerpg:dream_flint"
         }
-      ]
+      ],
+      "rolls": {
+        "type": "uniform",
+        "min": 4,
+        "max": 6
+      }
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:chests/vethea/quadrotic_post"
 }

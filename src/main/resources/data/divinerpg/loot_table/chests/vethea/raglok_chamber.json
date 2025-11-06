@@ -1,0 +1,94 @@
+{
+  "type": "chest",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:shiny_pearls",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:dream_cake",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:polished_pearls",
+          "weight": 6,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:dream_sours",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:heliosis_lump",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:dream_flint"
+        }
+      ],
+      "rolls": {
+        "type": "uniform",
+        "min": 4,
+        "max": 6
+      }
+    }
+  ],
+  "random_sequence": "divinerpg:chests/vethea/raglok_chamber"
+}

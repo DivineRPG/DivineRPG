@@ -1,20 +1,17 @@
 {
+  "type": "chest",
   "pools": [
     {
-      "name": "divinerpg:crypt_loot",
-      "rolls": {
-        "min": 4,
-        "max": 6
-      },
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:dirty_pearls",
+          "name": "divinerpg:cermile_lump",
           "weight": 10,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -23,12 +20,13 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:amthirmis_lump",
+          "name": "divinerpg:clean_pearls",
           "weight": 8,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -37,12 +35,13 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_carrot",
+          "name": "divinerpg:polished_pearls",
           "weight": 6,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -51,26 +50,13 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_melon",
-          "weight": 6,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:dream_pie",
+          "name": "divinerpg:dream_cake",
           "weight": 5,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -79,19 +65,55 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:acid",
-          "weight": 3,
+          "name": "divinerpg:dream_sweets",
+          "weight": 5,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:shiny_pearls",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:dream_sours",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
             }
           ]
         }
-      ]
+      ],
+      "rolls": {
+        "type": "uniform",
+        "min": 4,
+        "max": 6
+      }
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:chests/vethea/temple_top"
 }

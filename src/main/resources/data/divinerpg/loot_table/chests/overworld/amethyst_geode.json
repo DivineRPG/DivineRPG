@@ -1,18 +1,17 @@
 {
-  "type": "minecraft:chest",
+  "type": "chest",
   "pools": [
     {
-      "rolls": 4,
-      "bonus_rolls": 6,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "deepslate",
           "weight": 10,
-          "name": "minecraft:deepslate",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 48,
                 "max": 64
               }
@@ -20,13 +19,14 @@
           ]
         },
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "glow_berries",
           "weight": 5,
-          "name": "minecraft:glow_berries",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 4,
                 "max": 16
               }
@@ -34,25 +34,27 @@
           ]
         },
         {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:diamond"
+          "type": "item",
+          "name": "diamond"
         },
         {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "minecraft:amethyst_shard",
+          "type": "item",
+          "name": "amethyst_shard",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 16,
                 "max": 24
               }
             }
           ]
         }
-      ]
+      ],
+      "rolls": 4,
+      "bonus_rolls": 6
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:chests/overworld/amethyst_geode"
 }

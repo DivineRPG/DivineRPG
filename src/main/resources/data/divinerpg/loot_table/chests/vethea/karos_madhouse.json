@@ -1,20 +1,17 @@
 {
+  "type": "chest",
   "pools": [
     {
-      "name": "divinerpg:temple_loot_top",
-      "rolls": {
-        "min": 4,
-        "max": 6
-      },
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:cermile_lump",
-          "weight": 10,
+          "name": "divinerpg:polished_pearls",
+          "weight": 12,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -23,26 +20,13 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:clean_pearls",
+          "name": "divinerpg:karos_lump",
           "weight": 8,
           "functions": [
             {
               "function": "set_count",
               "count": {
-                "min": 1,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:polished_pearls",
-          "weight": 6,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -52,11 +36,12 @@
         {
           "type": "item",
           "name": "divinerpg:dream_cake",
-          "weight": 5,
+          "weight": 6,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
@@ -65,28 +50,15 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:dream_sweets",
+          "name": "divinerpg:karos_arrow",
           "weight": 5,
           "functions": [
             {
               "function": "set_count",
               "count": {
-                "min": 1,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "divinerpg:shiny_pearls",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 4
+                "type": "uniform",
+                "min": 8,
+                "max": 16
               }
             }
           ]
@@ -94,18 +66,44 @@
         {
           "type": "item",
           "name": "divinerpg:dream_sours",
-          "weight": 1,
+          "weight": 4,
           "functions": [
             {
               "function": "set_count",
               "count": {
+                "type": "uniform",
                 "min": 1,
                 "max": 4
               }
             }
           ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:rock_chunks",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "divinerpg:dream_flint"
         }
-      ]
+      ],
+      "rolls": {
+        "type": "uniform",
+        "min": 4,
+        "max": 6
+      }
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:chests/vethea/karos_madhouse"
 }
