@@ -1,0 +1,16 @@
+{
+  "type": "sawmill:woodcutting",
+  "ingredient": {
+    "tag": "logs"
+  },
+  "result": {
+    "id": "divinerpg:plank_design",
+    "count": 4
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "sawmill"
+    }
+  ]
+}

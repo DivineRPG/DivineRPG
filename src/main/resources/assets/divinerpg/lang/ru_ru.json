@@ -126,6 +126,7 @@
   "block.divinerpg.divine_sign": "Табличка из божественного дерева",
   "block.divinerpg.divine_hanging_sign": "Подвесная табличка из божественного дерева",
   "item.supplementaries.divinerpg.way_sign_divine": "Указатель из божественного дерева",
+  "block.everycomp.fd.divinerpg.divine_cabinet": "Кладовая из божественного дерева",
 
   "block.divinerpg.tomato_plant": "Томат",
   "block.divinerpg.white_mushroom_plant": "Белый гриб",
@@ -346,6 +347,7 @@
   "block.divinerpg.shiverspine_sign": "Табличка из мураспина",
   "block.divinerpg.shiverspine_hanging_sign": "Подвесная табличка из мураспина",
   "item.supplementaries.divinerpg.way_sign_shiverspine": "Указатель из мураспина",
+  "block.everycomp.fd.divinerpg.shiverspine_cabinet": "Кладовая из мураспина",
 
   "block.divinerpg.auroraoak_sapling": "Саженец заревня",
   "block.divinerpg.auroraoak_sapling_pot": "Саженец заревня в горшке",
@@ -366,6 +368,7 @@
   "block.divinerpg.auroraoak_sign": "Табличка из заревня",
   "block.divinerpg.auroraoak_hanging_sign": "Подвесная табличка из заревня",
   "item.supplementaries.divinerpg.way_sign_auroraoak": "Указатель из заревня",
+  "block.everycomp.fd.divinerpg.auroraoak_cabinet": "Кладовая из заревня",
 
   "block.divinerpg.cozybark_sapling": "Саженец благоры",
   "block.divinerpg.cozybark_sapling_pot": "Саженец благоры в горшке",
@@ -386,6 +389,7 @@
   "block.divinerpg.cozybark_sign": "Табличка из благоры",
   "block.divinerpg.cozybark_hanging_sign": "Подвесная табличка из благоры",
   "item.supplementaries.divinerpg.way_sign_cozybark": "Указатель из благоры",
+  "block.everycomp.fd.divinerpg.cozybark_cabinet": "Кладовая из благоры",
 
   "block.divinerpg.streamleaf_sapling": "Саженец ручейника",
   "block.divinerpg.streamleaf_sapling_pot": "Саженец ручейника в горшке",
@@ -406,6 +410,7 @@
   "block.divinerpg.streamleaf_sign": "Табличка из ручейника",
   "block.divinerpg.streamleaf_hanging_sign": "Подвесная табличка из ручейника",
   "item.supplementaries.divinerpg.way_sign_streamleaf": "Указатель из ручейника",
+  "block.everycomp.fd.divinerpg.streamleaf_cabinet": "Кладовая из ручейника",
 
   "block.divinerpg.arcanite_dirt": "Арканитовая земля",
   "block.divinerpg.arcanite_grass": "Арканитовый дёрн",
@@ -462,6 +467,7 @@
   "block.divinerpg.eucalyptus_sign": "Эвкалиптовая табличка",
   "block.divinerpg.eucalyptus_hanging_sign": "Эвкалиптовая подвесная табличка",
   "item.supplementaries.divinerpg.way_sign_eucalyptus": "Эвкалиптовый указатель",
+  "block.everycomp.fd.divinerpg.eucalyptus_cabinet": "Эвкалиптовая кладовая",
 
   "block.divinerpg.raw_arcanium": "Необработанный арканий",
   "block.divinerpg.arcanium_block": "Арканиевый блок",
@@ -633,6 +639,7 @@
   "block.divinerpg.eden_sign": "Табличка из дерева Эдема",
   "block.divinerpg.eden_hanging_sign": "Подвесная табличка из дерева Эдема",
   "item.supplementaries.divinerpg.way_sign_eden": "Указатель из дерева Эдема",
+  "block.everycomp.fd.divinerpg.eden_cabinet": "Кладовая из дерева Эдема",
   "block.divinerpg.eden_torch": "Факел Эдема",
   "block.divinerpg.sunstorm_spawner": "Рассадник солнцешторма",
   "block.divinerpg.sunstorm_statue": "Статуя солнцешторма",
@@ -670,6 +677,7 @@
   "block.divinerpg.wildwood_sign": "Табличка из дерева Диколесья",
   "block.divinerpg.wildwood_hanging_sign": "Подвесная табличка из дерева Диколесья",
   "item.supplementaries.divinerpg.way_sign_wildwood": "Указатель из дерева Диколесья",
+  "block.everycomp.fd.divinerpg.wildwood_cabinet": "Кладовая из дерева Диколесья",
   "block.divinerpg.termasect_spawner": "Рассадник термасекта",
   "block.divinerpg.termasect_statue": "Статуя термасекта",
 
@@ -705,6 +713,7 @@
   "block.divinerpg.apalachia_sign": "Табличка из дерева Апалачии",
   "block.divinerpg.apalachia_hanging_sign": "Подвесная табличка из дерева Апалачии",
   "item.supplementaries.divinerpg.way_sign_apalachia": "Указатель из дерева Апалачии",
+  "block.everycomp.fd.divinerpg.apalachia_cabinet": "Кладовая из дерева Апалачии",
   "block.divinerpg.eternal_archer_spawner": "Рассадник неистощимого лучника",
   "block.divinerpg.eternal_archer_statue": "Статуя неистощимого лучника",
 
@@ -739,6 +748,7 @@
   "block.divinerpg.skythern_sign": "Табличка из дерева Поднебесья",
   "block.divinerpg.skythern_hanging_sign": "Подвесная табличка из дерева Поднебесья",
   "item.supplementaries.divinerpg.way_sign_skythern": "Указатель из дерева Поднебесья",
+  "block.everycomp.fd.divinerpg.skythern_cabinet": "Кладовая из дерева Поднебесья",
   "block.divinerpg.experienced_cori_spawner": "Рассадник королевской кори",
   "block.divinerpg.experienced_cori_statue": "Статуя королевской кори",
 
@@ -772,6 +782,7 @@
   "block.divinerpg.mortum_sign": "Табличка из дерева Мёртвума",
   "block.divinerpg.mortum_hanging_sign": "Подвесная табличка из дерева Мёртвума",
   "item.supplementaries.divinerpg.way_sign_mortum": "Указатель из дерева Мёртвума",
+  "block.everycomp.fd.divinerpg.mortum_cabinet": "Кладовая из дерева Мёртвума",
 
   "block.divinerpg.vamacheron_statue": "Статуя вамашерона",
   "block.divinerpg.karot_statue": "Статуя морквута",

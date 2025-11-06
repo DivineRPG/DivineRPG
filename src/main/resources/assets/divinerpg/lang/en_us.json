@@ -125,6 +125,8 @@
   "block.divinerpg.divine_button": "Divine Button",
   "block.divinerpg.divine_sign": "Divine Sign",
   "block.divinerpg.divine_hanging_sign": "Divine Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_divine": "Divine Way Sign",
+  "block.everycomp.fd.divinerpg.divine_cabinet": "Divine Cabinet",
 
   "block.divinerpg.tomato_plant": "Tomato Plant",
   "block.divinerpg.white_mushroom_plant": "White Mushroom",
@@ -344,6 +346,8 @@
   "block.divinerpg.shiverspine_button": "Shiverspine Button",
   "block.divinerpg.shiverspine_sign": "Shiverspine Sign",
   "block.divinerpg.shiverspine_hanging_sign": "Shiverspine Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_shiverspine": "Shiverspine Way Sign",
+  "block.everycomp.fd.divinerpg.shiverspine_cabinet": "Shiverspine Cabinet",
 
   "block.divinerpg.auroraoak_sapling": "Auroraoak Sapling",
   "block.divinerpg.auroraoak_sapling_pot": "Potted Auroraoak Sapling",
@@ -363,6 +367,8 @@
   "block.divinerpg.auroraoak_button": "Auroraoak Button",
   "block.divinerpg.auroraoak_sign": "Auroraoak Sign",
   "block.divinerpg.auroraoak_hanging_sign": "Auroraoak Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_auroraoak": "Auroraoak Way Sign",
+  "block.everycomp.fd.divinerpg.auroraoak_cabinet": "Auroraoak Cabinet",
 
   "block.divinerpg.cozybark_sapling": "Cozybark Sapling",
   "block.divinerpg.cozybark_sapling_pot": "Potted Cozybark Sapling",
@@ -382,6 +388,8 @@
   "block.divinerpg.cozybark_button": "Cozybark Button",
   "block.divinerpg.cozybark_sign": "Cozybark Sign",
   "block.divinerpg.cozybark_hanging_sign": "Cozybark Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_cozybark": "Cozybark Way Sign",
+  "block.everycomp.fd.divinerpg.cozybark_cabinet": "Cozybark Cabinet",
 
   "block.divinerpg.streamleaf_sapling": "Streamleaf Sapling",
   "block.divinerpg.streamleaf_sapling_pot": "Potted Streamleaf Sapling",
@@ -401,6 +409,8 @@
   "block.divinerpg.streamleaf_button": "Streamleaf Button",
   "block.divinerpg.streamleaf_sign": "Streamleaf Sign",
   "block.divinerpg.streamleaf_hanging_sign": "Streamleaf Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_streamleaf": "Streamleaf Way Sign",
+  "block.everycomp.fd.divinerpg.streamleaf_cabinet": "Streamleaf Cabinet",
 
   "block.divinerpg.arcanite_dirt": "Arcanite Dirt",
   "block.divinerpg.arcanite_grass": "Arcanite Grass",
@@ -456,6 +466,8 @@
   "block.divinerpg.eucalyptus_button": "Eucalyptus Button",
   "block.divinerpg.eucalyptus_sign": "Eucalyptus Sign",
   "block.divinerpg.eucalyptus_hanging_sign": "Eucalyptus Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_eucalyptus": "Eucalyptus Way Sign",
+  "block.everycomp.fd.divinerpg.eucalyptus_cabinet": "Eucalyptus Cabinet",
 
   "block.divinerpg.raw_arcanium": "Raw Arcanium",
   "block.divinerpg.arcanium_block": "Block of Arcanium",
@@ -626,6 +638,8 @@
   "block.divinerpg.eden_button": "Eden Button",
   "block.divinerpg.eden_sign": "Eden Sign",
   "block.divinerpg.eden_hanging_sign": "Eden Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_eden": "Eden Way Sign",
+  "block.everycomp.fd.divinerpg.eden_cabinet": "Eden Cabinet",
   "block.divinerpg.eden_torch": "Eden Torch",
   "block.divinerpg.sunstorm_spawner": "Sunstorm Spawner",
   "block.divinerpg.sunstorm_statue": "Sunstorm Statue",
@@ -662,6 +676,8 @@
   "block.divinerpg.wildwood_button": "Wildwood Button",
   "block.divinerpg.wildwood_sign": "Wildwood Sign",
   "block.divinerpg.wildwood_hanging_sign": "Wildwood Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_wildwood": "Wildwood Way Sign",
+  "block.everycomp.fd.divinerpg.wildwood_cabinet": "Wildwood Cabinet",
   "block.divinerpg.termasect_spawner": "Termasect Spawner",
   "block.divinerpg.termasect_statue": "Termasect Statue",
 
@@ -696,6 +712,8 @@
   "block.divinerpg.apalachia_button": "Apalachia Button",
   "block.divinerpg.apalachia_sign": "Apalachia Sign",
   "block.divinerpg.apalachia_hanging_sign": "Apalachia Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_apalachia": "Apalachia Way Sign",
+  "block.everycomp.fd.divinerpg.apalachia_cabinet": "Apalachia Cabinet",
   "block.divinerpg.eternal_archer_spawner": "Eternal Archer Spawner",
   "block.divinerpg.eternal_archer_statue": "Eternal Archer Statue",
 
@@ -729,6 +747,8 @@
   "block.divinerpg.skythern_button": "Skythern Button",
   "block.divinerpg.skythern_sign": "Skythern Sign",
   "block.divinerpg.skythern_hanging_sign": "Skythern Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_skythern": "Skythern Way Sign",
+  "block.everycomp.fd.divinerpg.skythern_cabinet": "Skythern Cabinet",
   "block.divinerpg.experienced_cori_spawner": "Experienced Cori Spawner",
   "block.divinerpg.experienced_cori_statue": "Experienced Cori Statue",
 
@@ -761,6 +781,8 @@
   "block.divinerpg.mortum_button": "Mortum Button",
   "block.divinerpg.mortum_sign": "Mortum Sign",
   "block.divinerpg.mortum_hanging_sign": "Mortum Hanging Sign",
+  "item.supplementaries.divinerpg.way_sign_mortum": "Mortum Way Sign",
+  "block.everycomp.fd.divinerpg.mortum_cabinet": "Mortum Cabinet",
 
   "block.divinerpg.vamacheron_statue": "Vamacheron Statue",
   "block.divinerpg.karot_statue": "Karot Statue",

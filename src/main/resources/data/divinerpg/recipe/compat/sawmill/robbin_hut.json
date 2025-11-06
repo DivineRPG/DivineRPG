@@ -1,0 +1,21 @@
+{
+  "type": "sawmill:woodcutting",
+  "ingredient": [
+    {
+      "item": "divinerpg:shiverspine_log"
+    },
+    {
+      "item": "divinerpg:shiverspine_wood"
+    }
+  ],
+  "ingredient_count": 3,
+  "result": {
+    "id": "divinerpg:robbin_hut"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "sawmill"
+    }
+  ]
+}

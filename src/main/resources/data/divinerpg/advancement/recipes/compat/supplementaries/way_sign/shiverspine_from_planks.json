@@ -1,0 +1,38 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:shiverspine_planks"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:compat/supplementaries/way_sign/shiverspine_from_planks"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_planks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/supplementaries/way_sign/shiverspine_from_planks"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

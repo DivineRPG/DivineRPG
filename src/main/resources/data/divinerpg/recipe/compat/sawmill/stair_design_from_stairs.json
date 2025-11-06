@@ -1,0 +1,15 @@
+{
+  "type": "sawmill:woodcutting",
+  "ingredient": {
+    "tag": "divinerpg:no_itself/wooden_stairs_no_stair_design"
+  },
+  "result": {
+    "id": "divinerpg:stair_design"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "sawmill"
+    }
+  ]
+}

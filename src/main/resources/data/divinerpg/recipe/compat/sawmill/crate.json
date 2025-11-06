@@ -1,0 +1,15 @@
+{
+  "type": "sawmill:woodcutting",
+  "ingredient": {
+    "tag": "logs"
+   },
+  "result": {
+    "id": "divinerpg:crate"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "sawmill"
+    }
+  ]
+}

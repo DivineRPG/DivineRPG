@@ -1,0 +1,30 @@
+{
+  "type": "crafting_shaped",
+  "group": "divinerpg_way_sign_shaped",
+  "pattern": [
+    "###",
+    " X "
+  ],
+  "key": {
+    "#": {
+      "item": "divinerpg:skythern_planks"
+    },
+    "X": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "result": {
+    "id": "supplementaries:divinerpg/way_sign_skythern",
+    "count": 3
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "way_sign"
+    }
+  ]
+}

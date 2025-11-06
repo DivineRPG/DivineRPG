@@ -16,12 +16,14 @@ public class ItemModFood extends ItemMod {
     //Base constructor
     public ItemModFood(Properties properties, FoodProperties food) {super(properties.food(food));}
     //Stacks to 64
-    public ItemModFood(FoodProperties food) {
-        this(new Properties(), food);
-    }
+    public ItemModFood(FoodProperties food) {this(new Properties(), food);}
     //Stacks to 1 or 16
     public ItemModFood(boolean stacksToOne, FoodProperties food) {
         this(new Properties().stacksTo(stacksToOne ? 1 : 16), food);
+    }
+    //Stacks to 1 or 16, custom craft remainder
+    public ItemModFood(boolean stacksToOne, Item craftRemainder, FoodProperties food) {
+        this(new Properties().craftRemainder(craftRemainder).stacksTo(stacksToOne ? 1 : 16), food);
     }
     //Stacks to 64, instant consumption
     public ItemModFood(FoodProperties food, boolean instantConsumption) {

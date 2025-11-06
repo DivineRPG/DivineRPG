@@ -1,14 +1,10 @@
 package divinerpg.events;
 
-import divinerpg.attachments.Arcana;
 import divinerpg.effect.mob.armor.*;
-import divinerpg.enums.ToolStats;
-import divinerpg.enums.ToolStats.SwordSpecial;
-import divinerpg.items.base.*;
+import divinerpg.items.base.ItemDivineArmor;
 import divinerpg.registries.MobEffectRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.*;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.*;
@@ -18,6 +14,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.*;
+
 import java.util.ArrayList;
 
 import static divinerpg.registries.DamageRegistry.SPIKE;
@@ -29,7 +26,7 @@ public class ArmorAbilitiesEvent {
 		if(!entity.level().isClientSide()) {
 			EquipmentSlot slot = event.getSlot();
 			if(slot.isArmor()) {
-				ItemStack s = event.getFrom();//remove armor effects of the previous armor piece
+				ItemStack s = event.getFrom(); //remove armor effects of the previous armor piece
 				if(s.getItem() instanceof ItemDivineArmor armor && !s.is(event.getTo().getItem()) && armor.supportedEffects != null) for(Holder<MobEffect> effect : armor.supportedEffects) entity.removeEffect(effect);
 				updateAbilities(entity.level().dimension(), entity);
 			} else updateEffects(entity.level().dimension(), entity);
@@ -79,21 +76,7 @@ public class ArmorAbilitiesEvent {
         DamageSource source = event.getSource();
         if(entity instanceof Player attacker) {
         	if(source.is(DamageTypes.PLAYER_ATTACK)) {
-        		ItemStack item = attacker.getItemInHand(InteractionHand.MAIN_HAND);
-        		if(item.getItem() instanceof ItemModSword sword) {
-					ToolStats s = sword.sword;
-					switch(s.getSwordSpecial()) {
-						case SLOW -> target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, s.effectSec * 20, s.effectPower));
-						case POISON -> target.addEffect(new MobEffectInstance(MobEffects.POISON, s.effectSec * 20, s.effectPower));
-						case FLAME -> target.igniteForSeconds(s.effectSec);
-					} if(sword.arcanaConsumedAttack != 0) {
-						if(Arcana.hasArcana(attacker) && Arcana.getAmount(attacker) >= sword.arcanaConsumedAttack) {
-							Arcana.modifyAmount(attacker, -sword.arcanaConsumedAttack);
-							if(s.getSwordSpecial() == SwordSpecial.ARCANA_DAMAGE) event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, s.effectPower, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
-							sword.arcanicAttack(item, attacker, target);
-						}
-					}
-        		} if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH))
+				if(attacker.hasEffect(MobEffectRegistry.HALITE_STRENGTH))
 					event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, 16, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));
         		else if(attacker.hasEffect(MobEffectRegistry.DIVINE_STRENGTH) || attacker.hasEffect(MobEffectRegistry.DEMONIZED_HELMET))
 					event.setNewDamage(amount + CombatRules.getDamageAfterAbsorb(target, 6, source, target.getArmorValue(), (float)target.getAttributeValue(Attributes.ARMOR_TOUGHNESS)));

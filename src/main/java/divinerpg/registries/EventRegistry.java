@@ -13,6 +13,7 @@ public class EventRegistry {
         EVENT_BUS.register(new GlacialWallTotemEvent());
         EVENT_BUS.register(new RiveHandler());
         EVENT_BUS.register(new SnowballDamage());
+        EVENT_BUS.register(new ToolAbilities());
         EVENT_BUS.register(new VetheaInventorySwapEvent());
     }
 }
