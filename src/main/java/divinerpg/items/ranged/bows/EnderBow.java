@@ -9,12 +9,13 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
+import static divinerpg.enums.ToolStats.ENDER_BOW;
 import static divinerpg.registries.ItemRegistry.ender_arrow;
 import static divinerpg.registries.MobEffectRegistry.ENDER_ATTACHMENT;
 import static divinerpg.util.RarityList.ENDER;
 
 public class EnderBow extends ItemBow {
-    public EnderBow() {super(new Properties(), 0, 72000, 1.2F, ender_arrow, ENDER);}
+    public EnderBow() {super(ENDER_BOW, new Properties(), ender_arrow, ENDER);}
     @Override public AbstractArrow customArrow(AbstractArrow arrow, ItemStack projectileStack, ItemStack weaponStack) {
         if(arrow instanceof DivineArrow a) {
             a.addEffect(new MobEffectInstance(ENDER_ATTACHMENT, 1));

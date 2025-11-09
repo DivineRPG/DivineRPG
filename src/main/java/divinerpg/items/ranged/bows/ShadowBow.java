@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
 import org.jetbrains.annotations.Nullable;
 
+import static divinerpg.enums.ToolStats.SHADOW_BOW;
 import static divinerpg.registries.ItemRegistry.shadow_arrow;
 import static divinerpg.util.RarityList.DARK_GRAY;
 import static net.minecraft.core.component.DataComponents.POTION_CONTENTS;
@@ -18,7 +19,7 @@ import static net.minecraft.world.effect.MobEffects.BLINDNESS;
 public class ShadowBow extends ItemBow {
     public final int effectSeconds;
     public ShadowBow() {
-        super(new Properties().component(POTION_CONTENTS, PotionContents.EMPTY.withEffectAdded(new MobEffectInstance(BLINDNESS, 4 * 20, 0))), 1225, 36000, 1, null, DARK_GRAY);
+        super(SHADOW_BOW, new Properties().component(POTION_CONTENTS, PotionContents.EMPTY.withEffectAdded(new MobEffectInstance(BLINDNESS, 4 * 20, 0))), null, DARK_GRAY);
         effectSeconds = 4;
     }
     @Override public AbstractArrow customArrow(AbstractArrow arrow, ItemStack projectileStack, ItemStack weaponStack) {

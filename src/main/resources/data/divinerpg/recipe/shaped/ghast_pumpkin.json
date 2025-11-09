@@ -8,9 +8,14 @@
     "SMS"
   ],
   "key": {
-    "P": {
-      "tag": "c:pumpkins/normal"
-    },
+    "P": [
+      {
+        "tag": "c:pumpkins/normal"
+      },
+      {
+        "tag": "c:pumpkins/carved"
+      }
+    ],
     "S": {
       "item": "gunpowder"
     },

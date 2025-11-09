@@ -5,7 +5,18 @@
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:fury_fire"
+          "name": "divinerpg:fury_fire",
+          "functions": [
+            {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
+              "count": {
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
         }
       ],
       "conditions": [

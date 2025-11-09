@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import static divinerpg.enums.ToolStats.INFERNO_BOW;
 import static divinerpg.registries.ItemRegistry.inferno_arrow;
 import static divinerpg.util.RarityList.INFERNO;
 import static java.lang.Integer.MAX_VALUE;
@@ -25,7 +26,7 @@ import static net.minecraft.stats.Stats.ITEM_USED;
 import static net.minecraft.world.item.enchantment.Enchantments.FLAME;
 
 public class InfernoBow extends ItemBow {
-    public InfernoBow() {super(new Properties().fireResistant().component(DataComponentRegistry.weaponAbility, 0).component(DataComponentRegistry.weaponPower, 1F), 0, 72000, 1, inferno_arrow, INFERNO);}
+    public InfernoBow() {super(INFERNO_BOW, new Properties().fireResistant().component(DataComponentRegistry.weaponAbility, 0).component(DataComponentRegistry.weaponPower, 1F), inferno_arrow, INFERNO);}
     @Override public AbstractArrow customArrow(AbstractArrow arrow, ItemStack projectileStack, ItemStack weaponStack) {
         arrow.igniteForTicks(MAX_VALUE >> 1);
         return arrow;

@@ -8,9 +8,14 @@
     "MMM"
   ],
   "key": {
-    "P": {
-      "tag": "c:pumpkins/normal"
-    },
+    "P": [
+      {
+        "tag": "c:pumpkins/normal"
+      },
+      {
+        "tag": "c:pumpkins/carved"
+      }
+    ],
     "M": {
       "item": "divinerpg:cyclops_eye_shards"
     }

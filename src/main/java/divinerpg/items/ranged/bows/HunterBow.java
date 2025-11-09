@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
 import org.jetbrains.annotations.Nullable;
 
+import static divinerpg.enums.ToolStats.HUNTER_BOW;
 import static divinerpg.registries.ItemRegistry.hunter_arrow;
 import static divinerpg.util.RarityList.GREEN;
 import static net.minecraft.core.component.DataComponents.POTION_CONTENTS;
@@ -18,7 +19,7 @@ import static net.minecraft.world.effect.MobEffects.POISON;
 public class HunterBow extends ItemBow {
     public final int effectSeconds;
     public HunterBow() {
-        super(new Properties().component(POTION_CONTENTS, PotionContents.EMPTY.withEffectAdded(new MobEffectInstance(POISON, 2 * 20, 3))), 1125, 72000, 1.2F, null, GREEN);
+        super(HUNTER_BOW, new Properties().component(POTION_CONTENTS, PotionContents.EMPTY.withEffectAdded(new MobEffectInstance(POISON, 2 * 20, 3))), null, GREEN);
         effectSeconds = 2;
     }
     @Override public AbstractArrow customArrow(AbstractArrow arrow, ItemStack projectileStack, ItemStack weaponStack) {

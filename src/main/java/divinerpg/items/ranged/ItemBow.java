@@ -1,5 +1,6 @@
 package divinerpg.items.ranged;
 
+import divinerpg.enums.ToolStats;
 import divinerpg.items.ranged.bows.*;
 import divinerpg.network.payload.AccurateSetMotionPacket;
 import divinerpg.util.LocalizeUtils;
@@ -35,13 +36,20 @@ public class ItemBow extends BowItem {
     public final Integer nameColor;
     public final Supplier<Item> infinityArrow;
     public final float speedScale;
-    public ItemBow(Properties properties, int uses, int useDuration, float speedScale, Supplier<Item> infinityArrow, Integer nameColor) {
-        super(uses == 0 ? properties.stacksTo(1).component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties.durability(uses));
-        this.useDuration = useDuration;
+    private final ToolStats stats;
+    public ItemBow(ToolStats tier, Properties properties, Supplier<Item> infinityArrow, Integer nameColor) {
+        super(tier.getUses() == 0 ? properties.stacksTo(1).component(DataComponents.UNBREAKABLE, new Unbreakable(true)) : properties.durability(tier.getUses()));
+        useDuration = (int)tier.getUseDuration();
         this.nameColor = nameColor;
         this.infinityArrow = infinityArrow;
-        this.speedScale = speedScale;
+        speedScale = tier.getSpeed();
+        stats = tier;
     }
+    @Override public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
+        return stats.getRepairIngredient().test(repair) || super.isValidRepairItem(toRepair, repair);
+    }
+    @Override public int getEnchantmentValue() {return stats.getEnchantmentValue();}
+    @Override public boolean isEnchantable(ItemStack stack) {return true;}
     @Override public int getUseDuration(ItemStack stack, LivingEntity entity) {return useDuration;}
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
@@ -92,7 +100,6 @@ public class ItemBow extends BowItem {
     @Override public ItemStack getDefaultCreativeAmmo(@Nullable Player player, ItemStack projectileWeaponItem) {
         return new ItemStack(infinityArrow == null ? Items.ARROW : infinityArrow.get());
     }
-    @Override public boolean isEnchantable(ItemStack stack) {return true;}
     public static void addEffect(Arrow arrow, MobEffectInstance instance) {
         ItemStack stack = arrow.getPickupItemStackOrigin();
         PotionContents contents = stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);

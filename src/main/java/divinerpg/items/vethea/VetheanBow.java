@@ -1,5 +1,6 @@
 package divinerpg.items.vethea;
 
+import divinerpg.enums.ToolStats;
 import divinerpg.items.ranged.ItemBow;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,8 +17,8 @@ import static net.minecraft.sounds.SoundSource.PLAYERS;
 import static net.minecraft.stats.Stats.ITEM_USED;
 
 public class VetheanBow extends ItemBow {
-    public VetheanBow(Properties properties, int uses, int useDuration, float speedScale, Supplier<Item> infinityArrow, Integer nameColor) {
-        super(properties, uses, useDuration, speedScale, infinityArrow, nameColor);
+    public VetheanBow(ToolStats tier, Supplier<Item> infinityArrow, Integer nameColor) {
+        super(tier, new Properties(), infinityArrow, nameColor);
     }
     @Override public void releaseUsing(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft) {
         if(entityLiving instanceof Player player) {
