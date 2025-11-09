@@ -115,7 +115,7 @@ public class LocalizeUtils {
      *
      * @param lvl - harvest level
      */
-    public static Component harvestLevel(Component lvl) {return i18n(WHITE, HarvestLevel, lvl);}
+    public static Component harvestLevel(String lvl) {return i18n(WHITE, HarvestLevel, lvl);}
     /**
      * Indicates how much health is restored when used.
      */

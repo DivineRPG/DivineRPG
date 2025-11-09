@@ -2,7 +2,7 @@
   "type": "smelting",
   "group": "realmite_ingot",
   "ingredient": {
-    "tag": "divinerpg:smeltable_equipment/compressed_realmite"
+    "tag": "divinerpg:smeltable_equipment/compressed/realmite"
   },
   "result": {
     "id": "divinerpg:realmite_ingot"

@@ -34,6 +34,18 @@ public class TagRegistry {
         RIFT_REPLENISHING_SKYTHERN = item("rift_replenishing/skythern"),
         RIFT_REPLENISHING_MORTUM = item("rift_replenishing/mortum"),
 
+    //Repairs
+        REPAIRS_EQUIPMENT_EXPENSIVE_GOLD = item("repairs/equipment/expensive/gold"),
+        REPAIRS_EQUIPMENT_EXPENSIVE_REALMITE = item("repairs/equipment/expensive/realmite"),
+        REPAIRS_EQUIPMENT_EXPENSIVE_SHADOW = item("repairs/equipment/expensive/shadow"),
+        REPAIRS_EQUIPMENT_EXPENSIVE_TORRIDITE = item("repairs/equipment/expensive/torridite"),
+        REPAIRS_EQUIPMENT_REALMITE = item("repairs/equipment/realmite"),
+        REPAIRS_EQUIPMENT_ARLEMITE = item("repairs/equipment/arlemite"),
+        REPAIRS_EQUIPMENT_TORRIDITE = item("repairs/equipment/torridite"),
+        REPAIRS_EQUIPMENT_ANGELIC = item("repairs/equipment/angelic"),
+        REPAIRS_EQUIPMENT_SHADOW = item("repairs/equipment/shadow"),
+        REPAIRS_EQUIPMENT_RUPEE = item("repairs/equipment/rupee"),
+
     //Summoning Items
         SUMMONING_KITRA = item("summoning/kitra"),
         SUMMONING_CAPTAIN_MERIK = item("summoning/captain_merik"),
@@ -100,6 +112,7 @@ public class TagRegistry {
         INGOTS_REALMITE = item("ingots/realmite"),
         INGOTS_ARLEMITE = item("ingots/arlemite"),
         INGOTS_RUPEE = item("ingots/rupee"),
+        INGOTS_SHADOW = item("ingots/shadow"),
         INGOTS_TORRIDITE = item("ingots/torridite"),
         INGOTS_OXDRITE = item("ingots/oxdrite"),
 
@@ -129,6 +142,10 @@ public class TagRegistry {
         CHUNKS_APALACHIA = item("chunks/apalachia"),
         CHUNKS_SKYTHERN = item("chunks/skythern"),
         CHUNKS_MORTUM = item("chunks/mortum"),
+        CHUNKS_TWILIGHT = item("chunks/twilight"),
+
+    //Fuels
+        FUELS_COLLECTOR = item("fuels/collector"),
 
     //Storage Blocks
         STORAGE_BLOCKS_REALMITE = item("storage_blocks/realmite"),
@@ -136,6 +153,11 @@ public class TagRegistry {
     //Tools
         TOOLS_MAUL = item("tools/maul"),
         TOOLS_UNBREAKABLE = item("tools/unbreakable"),
+        TOOLS_SHOVEL = item("tools/shovel"),
+        TOOLS_PICKAXE = item("tools/pickaxe"),
+        TOOLS_AXE = item("tools/axe"),
+        TOOLS_HOE = item("tools/hoe"),
+        TOOLS_SHICKAXE = item("tools/shickaxe"),
 
     //Misc
         FURNACES = item("furnaces");

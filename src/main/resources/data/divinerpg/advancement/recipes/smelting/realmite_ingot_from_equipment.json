@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#divinerpg:smeltable_equipment/compressed_realmite"
+            "items": "#divinerpg:smeltable_equipment/compressed/realmite"
           }
         ]
       },

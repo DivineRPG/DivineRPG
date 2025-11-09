@@ -4,13 +4,6 @@
     "divinerpg:terran_shickaxe",
     "divinerpg:terran_shifter",
     "divinerpg:rupee_shickaxe",
-    "divinerpg:corrupted_shickaxe",
-    "divinerpg:divine_shickaxe",
-    "divinerpg:eden_shickaxe",
-    "divinerpg:wildwood_shickaxe",
-    "divinerpg:apalachia_shickaxe",
-    "divinerpg:skythern_shickaxe",
-    "divinerpg:mortum_shickaxe",
-    "divinerpg:halite_shickaxe"
+    "#divinerpg:tools/level/netherite/shickaxe"
   ]
 }

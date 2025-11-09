@@ -2,7 +2,7 @@
   "type": "smelting",
   "group": "gold_ingot",
   "ingredient": {
-    "tag": "divinerpg:smeltable_equipment/compressed_gold"
+    "tag": "divinerpg:smeltable_equipment/compressed/gold"
   },
   "result": {
     "id": "gold_ingot"

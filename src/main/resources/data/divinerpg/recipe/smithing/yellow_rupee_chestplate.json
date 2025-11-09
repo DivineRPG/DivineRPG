@@ -21,7 +21,7 @@
     }
   ],
   "addition": {
-    "tag": "divinerpg:chunks/yellow_diamond"
+    "tag": "divinerpg:chunks/diamond/yellow"
   },
   "result": {
     "id": "divinerpg:yellow_rupee_chestplate"

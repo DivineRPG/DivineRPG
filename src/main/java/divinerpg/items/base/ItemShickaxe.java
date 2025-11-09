@@ -2,12 +2,10 @@ package divinerpg.items.base;
 
 import com.google.common.collect.Sets;
 import com.mojang.datafixers.util.Pair;
-import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.*;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -18,7 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.common.ItemAbility;
 
 import java.util.*;
@@ -30,10 +27,7 @@ import static net.minecraft.advancements.CriteriaTriggers.ITEM_USED_ON_BLOCK;
 import static net.minecraft.core.Direction.DOWN;
 import static net.minecraft.core.component.DataComponents.UNBREAKABLE;
 import static net.minecraft.sounds.SoundSource.BLOCKS;
-import static net.minecraft.tags.BlockTags.*;
-import static net.minecraft.world.item.Items.*;
 import static net.minecraft.world.level.gameevent.GameEvent.BLOCK_CHANGE;
-import static net.neoforged.api.distmarker.Dist.CLIENT;
 import static net.neoforged.neoforge.common.ItemAbilities.*;
 
 public class ItemShickaxe extends DiggerItem {
@@ -109,13 +103,6 @@ public class ItemShickaxe extends DiggerItem {
                 } return InteractionResult.sidedSuccess(level.isClientSide);
             }
         } return InteractionResult.PASS;
-    }
-    @OnlyIn(CLIENT)
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.efficiency((int)getTier().getSpeed()));
-        TagKey<Block> tagKey = getTier().getIncorrectBlocksForDrops();
-        if(tagKey == INCORRECT_FOR_DIAMOND_TOOL || tagKey == INCORRECT_FOR_NETHERITE_TOOL) tooltip.add(LocalizeUtils.harvestLevel(OBSIDIAN.asItem().getName(stack)));
-        else if(tagKey == INCORRECT_FOR_IRON_TOOL) tooltip.add(LocalizeUtils.harvestLevel(DIAMOND.getName(stack)));
     }
     @Override public Component getName(ItemStack pStack) {
     	return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);

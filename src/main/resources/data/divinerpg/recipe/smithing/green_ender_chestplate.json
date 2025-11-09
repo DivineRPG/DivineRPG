@@ -21,7 +21,7 @@
     }
   ],
   "addition": {
-    "tag": "divinerpg:chunks/green_diamond"
+    "tag": "divinerpg:chunks/diamond/green"
   },
   "result": {
     "id": "divinerpg:green_ender_chestplate"

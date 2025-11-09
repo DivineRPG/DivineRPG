@@ -118,6 +118,8 @@ dependencies {
     runtimeOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries
     //Traveler's Titles don't have NeoForge version up until 1.21.4
     //Tech mods compat
+    //TODO: to make window+pane variant textures for Every Compat
+    runtimeOnly "curse.maven:create-328085:${create_id}" //Create
     runtimeOnly "com.enderio:enderio-base:${ender_io_version}" //EnderIO
     runtimeOnly "com.enderio:enderio-conduits:${ender_io_version}" //EnderIO Conduits
     runtimeOnly "com.enderio:enderio-machines:${ender_io_version}" //EnderIO Machines

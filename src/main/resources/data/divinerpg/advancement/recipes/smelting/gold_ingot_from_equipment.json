@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#divinerpg:smeltable_equipment/compressed_gold"
+            "items": "#divinerpg:smeltable_equipment/compressed/gold"
           }
         ]
       },

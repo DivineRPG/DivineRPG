@@ -1,9 +1,9 @@
 {
   "values": [
-    "#divinerpg:chunks/red_diamond",
-    "#divinerpg:chunks/yellow_diamond",
-    "#divinerpg:chunks/green_diamond",
-    "#divinerpg:chunks/blue_diamond",
-    "#divinerpg:chunks/gray_diamond"
+    "#divinerpg:chunks/diamond/red",
+    "#divinerpg:chunks/diamond/yellow",
+    "#divinerpg:chunks/diamond/green",
+    "#divinerpg:chunks/diamond/blue",
+    "#divinerpg:chunks/diamond/gray"
   ]
 }
