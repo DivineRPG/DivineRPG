@@ -467,7 +467,7 @@ public class ItemRegistry {
         heliosis_hammer = registerTool("heliosis_hammer", () -> new ItemModSword(ToolStats.HELIOSIS_HAMMER)),
         arksiane_hammer = registerTool("arksiane_hammer", () -> new ItemModSword(ToolStats.ARKSIANE_HAMMER)),
         everlight = registerTool("everlight", () -> new ItemModSword(ToolStats.EVERLIGHT)),
-        karos_rockmaul = registerTool("karos_rockmaul", () -> new ItemModSword(ToolStats.KAROS_ROCKMAUL)),
+        karos_rockmaul = registerTool("karos_rockmaul", () -> new ItemMaul(ToolStats.KAROS_ROCKMAUL)),
 
         //Claws
         teaker_claw = registerTool("teaker_claw", () -> new ItemModSword(ToolStats.TEAKER_CLAW)),

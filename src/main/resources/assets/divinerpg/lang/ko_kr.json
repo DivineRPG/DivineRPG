@@ -2271,7 +2271,6 @@
   "tooltip.divinerpg.ender_scepter": "사용자를 텔레포트시킵니다",
   "tooltip.divinerpg.frosted_allure": "몹을 지형의 윗면에 스폰시킵니다. 얼음 스톤을 사용하여 몹 카테고리가 전환되며, 더 세부적인 몹 스폰이 가능합니다.",
   "tooltip.divinerpg.heals": "%s 하트를 회복함",
-  "tooltip.divinerpg.health.regen": "%s초 동안 재생 효과를 부여함",
   "tooltip.divinerpg.hit_ender": "엔더 생명체를 공격할 수 있습니다",
   "tooltip.divinerpg.instant_consumption": "즉시 사용됨",
   "tooltip.divinerpg.less_drag": "저항/마찰이 덜 발생시킴",
@@ -2296,8 +2295,8 @@
   "tooltip.divinerpg.teleport.block_position": "§9블록 위치: §fx=%s, y=%s, z=%s",
   "tooltip.divinerpg.teleport.dimension": "§9차원: %s",
   "tooltip.divinerpg.teleport.respawn_point": "리스폰 지점으로 순간 이동",
-  "tooltip.divinerpg.tool.efficiency": "§9효율: %s",
-  "tooltip.divinerpg.tool.harvest_level": "§9채굴 수준: %s",
+  "tooltip.divinerpg.tool.efficiency": "효율: %s",
+  "tooltip.divinerpg.tool.harvest_level": "채굴 수준: %s",
   "tooltip.divinerpg.torridite": "과거의 네더라이트",
   "tooltip.divinerpg.weakened_without_arcana": "아르카나가 충분하지 않으면 피해가 크게 감소함",
 

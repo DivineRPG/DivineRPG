@@ -8,6 +8,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 
+import java.util.Arrays;
+
 import static net.minecraft.ChatFormatting.*;
 
 public class LocalizeUtils {
@@ -24,7 +26,6 @@ public class LocalizeUtils {
             Efficiency = "tool.efficiency",
             HarvestLevel = "tool.harvest_level",
             HealthHeal = "heals",
-            HealthRegen = "health.regen",
             HitEnder = "hit_ender",
             InfiniteAmmo = "ammo.infinite",
             Inflict = "inflict",
@@ -99,7 +100,7 @@ public class LocalizeUtils {
      *
      * @param eff - efficiency
      */
-    public static Component efficiency(int eff) {return i18n(WHITE, Efficiency, eff);}
+    public static Component efficiency(Object eff) {return i18n(BLUE, Efficiency, Component.literal(String.valueOf(eff)).withStyle(WHITE));}
     /**
      * Indicates that the projectiles are explosive.
      */
@@ -109,21 +110,18 @@ public class LocalizeUtils {
      *
      * @param string - lang key
      */
+    //TODO: to use clientMessage()
     public static Component getClientSideTranslation(String string, final Object... argument) {return Component.translatable(string, argument);}
     /**
      * Indicates the harvest level of the tools.
      *
      * @param lvl - harvest level
      */
-    public static Component harvestLevel(String lvl) {return i18n(WHITE, HarvestLevel, lvl);}
+    public static Component harvestLevel(Component lvl) {return i18n(BLUE, HarvestLevel, lvl);}
     /**
      * Indicates how much health is restored when used.
      */
     public static Component healthHeal(Object health) {return i18n(RED, HealthHeal, health);}
-    /**
-     * Indicates how much health is restored when used.
-     */
-    public static Component healthRegen(Object health) {return i18n(RED, HealthRegen, health);}
     /**
      * Indicates that the projectiles are homing.
      */
@@ -273,24 +271,24 @@ public class LocalizeUtils {
      * @param text - lang key
      * @param args - string format arguments
      */
+    //Colored tooltips
     public static Component i18n(ChatFormatting color, String text, Object... args) {
-        if(args == null) {args = new Object[0];}
-        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("tooltip.divinerpg.%s", text), null, args));
-        return result.withStyle(color);
+        if(args == null) args = new Object[0];
+        return Component.translatable("tooltip.divinerpg." + text, args).withStyle(color);
     }
+    //Gray tooltips
     public static Component i18n(String text, Object... args) {
-        if(args == null) {args = new Object[0];}
-        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("tooltip.divinerpg.%s", text), null, args));
-        return result.withStyle(GRAY);
+        if(args == null) args = new Object[0];
+        return i18n(GRAY, text, args);
     }
+    //Colored client messages
     public static Component clientMessage(ChatFormatting color, String text, Object... args) {
-        if(args == null) {args = new Object[0];}
-        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("message.divinerpg.%s", text), null, args));
-        return result.withStyle(color);
+        if(args == null) args = new Object[0];
+        return Component.translatable("message.divinerpg." + text, args).withStyle(color);
     }
+    //White client messages
     public static Component clientMessage(String text, Object... args) {
-        if(args == null) {args = new Object[0];}
-        MutableComponent result = MutableComponent.create(new TranslatableContents(String.format("message.divinerpg.%s", text), null, args));
-        return result.withStyle(WHITE);
+        if(args == null) args = new Object[0];
+        return clientMessage(WHITE, text, args);
     }
 }

@@ -101,10 +101,13 @@ dependencies {
     runtimeOnly "vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
     //Compat
     //Advanced Mining Dimension isn't ported to 1.21.1
+//    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension
 //    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether
     //TODO: to add woodcutter variants
     implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
     runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
+    //TODO: mob animations, fix hat placement, capabilities
+//    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fights_id}" //Epic Fights
     implementation "curse.maven:every-compat-628539:${every_compat_id}" //Every Compat
     //TODO: to make cabinet variant textures for Every Compat (and maybe crop blocks)
     implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight

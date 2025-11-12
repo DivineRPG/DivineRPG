@@ -2163,7 +2163,6 @@
   "tooltip.divinerpg.ender_scepter": "传送使用者",
   "tooltip.divinerpg.frosted_allure": "在地表生成生物。使用寒冰石循环浏览生物类别，以获得更有针对性的生物生成",
   "tooltip.divinerpg.heals": "恢复%s颗心",
-  "tooltip.divinerpg.health.regen": "给予%s秒生命恢复",
   "tooltip.divinerpg.instant_consumption": "瞬间消耗",
   "tooltip.divinerpg.lightning_shot": "射出闪电",
   "tooltip.divinerpg.nightmare_bed": "你将必须与饥饿者进行交易以建造返回传送门",
@@ -2184,8 +2183,8 @@
   "tooltip.divinerpg.teleport.block_position": "§9方块位置§fx=%s, y=%s, z=%s",
   "tooltip.divinerpg.teleport.dimension": "§9维度：%s",
   "tooltip.divinerpg.teleport.respawn_point": "传送到重生点",
-  "tooltip.divinerpg.tool.efficiency": "§9效率：%s",
-  "tooltip.divinerpg.tool.harvest_level": "§9挖掘等级：%s",
+  "tooltip.divinerpg.tool.efficiency": "效率：%s",
+  "tooltip.divinerpg.tool.harvest_level": "挖掘等级：%s",
   "tooltip.divinerpg.torridite": "旧称熔岩矿石",
   "tooltip.divinerpg.weakened_without_arcana": "如果所需的奥术值不足，伤害会大大降低",
 

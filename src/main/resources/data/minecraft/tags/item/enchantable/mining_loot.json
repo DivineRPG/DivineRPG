@@ -1,8 +1,5 @@
 {
   "values": [
     "#divinerpg:tools/shickaxe"
-  ],
-  "remove": [
-    "divinerpg:terran_shifter"
   ]
 }

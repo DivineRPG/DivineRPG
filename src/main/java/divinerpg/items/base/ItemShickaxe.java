@@ -22,7 +22,7 @@ import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
 
-import static divinerpg.registries.TagRegistry.MINEABLE_SHICKAXE;
+import static divinerpg.registries.TagRegistry.MINEABLE_WITH_SHICKAXE;
 import static net.minecraft.advancements.CriteriaTriggers.ITEM_USED_ON_BLOCK;
 import static net.minecraft.core.Direction.DOWN;
 import static net.minecraft.core.component.DataComponents.UNBREAKABLE;
@@ -34,7 +34,7 @@ public class ItemShickaxe extends DiggerItem {
 	public Integer nameColor;
     //Base constructor
     public ItemShickaxe(Tier tier, Properties properties) {
-        super(tier, MINEABLE_SHICKAXE, (tier.getUses() == 0 ? properties.component(UNBREAKABLE, new Unbreakable(true)) : properties).attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
+        super(tier, MINEABLE_WITH_SHICKAXE, (tier.getUses() == 0 ? properties.component(UNBREAKABLE, new Unbreakable(true)) : properties).attributes(ShovelItem.createAttributes(tier, 1, -2.4F)));
     }
     //Base shickaxes
     public ItemShickaxe(Tier tier) {this(tier, new Properties());}

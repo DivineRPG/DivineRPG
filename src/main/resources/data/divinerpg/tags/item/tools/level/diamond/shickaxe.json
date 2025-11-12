@@ -2,8 +2,6 @@
   "values": [
     "divinerpg:arlemite_shickaxe",
     "divinerpg:terran_shickaxe",
-    "divinerpg:terran_shifter",
-    "divinerpg:rupee_shickaxe",
-    "#divinerpg:tools/level/netherite/shickaxe"
+    "divinerpg:rupee_shickaxe"
   ]
 }
