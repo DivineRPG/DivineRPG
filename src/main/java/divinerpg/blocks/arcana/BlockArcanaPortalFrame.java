@@ -20,8 +20,8 @@ public class BlockArcanaPortalFrame extends BlockMod {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     protected static final VoxelShape BASE_SHAPE = Block.box(0, 0, 0, 16, 13, 16);
     private static BlockPattern portalShape;
-    public BlockArcanaPortalFrame(float hardness, float resistance) {
-        super(Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).strength(hardness, resistance).sound(SoundType.METAL));
+    public BlockArcanaPortalFrame() {
+        super(Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().pushReaction(PushReaction.BLOCK).strength(5, 6).sound(SoundType.METAL));
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
     @Override public boolean useShapeForLightOcclusion(BlockState state) {return true;}

@@ -1,3 +1,4 @@
 {
-  "type": "minecraft:block"
+  "type": "block",
+  "random_sequence": "divinerpg:blocks/budding_olivine"
 }

@@ -1,50 +1,48 @@
 {
-	"type": "block",
-	"pools": [
-		{
-			"rolls": 1,
-			"bonus_rolls": 0,
-			"entries": [
-				{
-					"type": "alternatives",
-					"children": [
-						{
-							"type": "item",
-							"name": "divinerpg:winterberry_vines_head",
-							"conditions": [
-								{
-									"ability": "shears_dig",
-									"condition": "neoforge:can_item_perform_ability"
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"rolls": 1,
-			"bonus_rolls": 0,
-			"entries": [
-				{
-					"type": "alternatives",
-					"children": [
-						{
-							"type": "item",
-							"name": "divinerpg:winterberry",
-							"conditions": [
-								{
-									"condition": "block_state_property",
-									"block": "divinerpg:winterberry_vines_body",
-									"properties": {
-										"bloom": "true"
-									}
-								}
-							]
-						}
-					]
-				}
-			]
-		}
-	]
+  "type": "block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "divinerpg:winterberry_vines_head",
+              "conditions": [
+                {
+                  "ability": "shears_dig",
+                  "condition": "neoforge:can_item_perform_ability"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "divinerpg:winterberry",
+              "conditions": [
+                {
+                  "condition": "block_state_property",
+                  "block": "divinerpg:winterberry_vines_body",
+                  "properties": {
+                    "bloom": "true"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

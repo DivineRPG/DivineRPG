@@ -2,13 +2,13 @@
   "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "alternatives",
           "children": [
             {
               "type": "item",
+              "name": "divinerpg:exposed_scorchalt",
               "conditions": [
                 {
                   "condition": "match_tool",
@@ -25,22 +25,22 @@
                     }
                   }
                 }
-              ],
-              "name": "divinerpg:exposed_scorchalt"
+              ]
             },
             {
               "type": "item",
+              "name": "divinerpg:cobbled_scorchalt",
               "conditions": [
                 {
                   "condition": "survives_explosion"
                 }
-              ],
-              "name": "divinerpg:cobbled_scorchalt"
+              ]
             }
           ]
         }
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/exposed_scorchalt"
 }

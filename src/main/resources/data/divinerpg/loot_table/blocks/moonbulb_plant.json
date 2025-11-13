@@ -1,18 +1,17 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:alternatives",
+          "type": "alternatives",
           "children": [
             {
-              "type": "minecraft:item",
+              "type": "item",
               "name": "divinerpg:moonbulb",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
+                  "condition": "block_state_property",
                   "block": "divinerpg:moonbulb_plant",
                   "properties": {
                     "age": "14"
@@ -21,24 +20,24 @@
               ]
             },
             {
-              "type": "minecraft:item",
+              "type": "item",
               "name": "divinerpg:moonbulb_seeds"
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
           "name": "divinerpg:moonbulb",
           "functions": [
             {
-              "function": "minecraft:apply_bonus",
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:binomial_with_bonus_count",
+              "function": "apply_bonus",
+              "enchantment": "fortune",
+              "formula": "binomial_with_bonus_count",
               "parameters": {
                 "extra": 3,
                 "probability": 0.5714286
@@ -49,18 +48,19 @@
       ],
       "conditions": [
         {
-          "condition": "minecraft:block_state_property",
+          "condition": "block_state_property",
           "block": "divinerpg:moonbulb_plant",
           "properties": {
             "age": "14"
           }
         }
-      ]
+      ],
+      "rolls": 1
     }
   ],
   "functions": [
     {
-      "function": "minecraft:explosion_decay"
+      "function": "explosion_decay"
     }
   ]
 }

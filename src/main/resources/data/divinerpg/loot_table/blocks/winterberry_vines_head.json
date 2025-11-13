@@ -1,21 +1,20 @@
 {
-	"type": "block",
-	"pools": [
-		{
-			"rolls": 1,
-			"bonus_rolls": 0,
-			"entries": [
-				{
-					"type": "item",
-					"name": "divinerpg:winterberry_vines_head",
-					"conditions": [
-						{
-							"ability": "shears_dig",
-							"condition": "neoforge:can_item_perform_ability"
-						}
-					]
-				}
-			]
-		}
-	]
+  "type": "block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "item",
+          "name": "divinerpg:winterberry_vines_head",
+          "conditions": [
+            {
+              "condition": "neoforge:can_item_perform_ability",
+              "ability": "shears_dig"
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

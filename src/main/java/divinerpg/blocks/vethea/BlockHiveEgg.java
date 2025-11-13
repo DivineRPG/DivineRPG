@@ -2,6 +2,7 @@ package divinerpg.blocks.vethea;
 
 import com.mojang.serialization.MapCodec;
 import divinerpg.registries.EntityRegistry;
+import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
@@ -15,6 +16,8 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.*;
 
+import static net.minecraft.ChatFormatting.AQUA;
+import static net.minecraft.world.Difficulty.PEACEFUL;
 import static net.minecraft.world.level.block.Blocks.AIR;
 
 public class BlockHiveEgg extends FallingBlock {
@@ -25,7 +28,10 @@ public class BlockHiveEgg extends FallingBlock {
     @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return SHAPE;}
     @Override public boolean isPathfindable(BlockState state, PathComputationType type) {return false;}
     @Override public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult result) {
-        if(!world.isClientSide){
+        if(world.getDifficulty() == PEACEFUL) {
+            player.displayClientMessage(LocalizeUtils.clientMessage(AQUA, "boss.peaceful"), true);
+            return InteractionResult.CONSUME;
+        } else if(!world.isClientSide){
             EntityRegistry.HIVE_QUEEN.get().spawn((ServerLevel)world, null, player, pos, MobSpawnType.MOB_SUMMONED, true, false);
             world.setBlock(pos, AIR.defaultBlockState(), 0);
         } return InteractionResult.SUCCESS;

@@ -208,7 +208,7 @@ public class BlockRegistry {
     mortumBlock = registerBlock("mortum_block", () -> new TwilightPortalFrame(COLOR_GRAY, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
 
     //Arcana Portal Frames
-    arcanaPortalFrame = registerBlock("arcana_portal_frame", () -> new BlockArcanaPortalFrame(5, 6)),
+    arcanaPortalFrame = registerBlock("arcana_portal_frame", BlockArcanaPortalFrame::new),
 
     //Clusters etc.
     olivineBlock = registerBlock("olivine_block", () -> new AmethystBlock(Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(COLOR_GREEN).lightLevel((state) -> 1))),
@@ -599,7 +599,7 @@ public class BlockRegistry {
     degradedBrickWall = registerBlock("degraded_brick_wall", () -> new BlockModWall(degradedBricks.get())),
     degradedBrickDoor = registerBlock("degraded_brick_door", () -> new BlockArcanaDoor(COLOR_BLUE, degraded_key.getId())),
     ancientTile = registerBlock("ancient_tile", () -> new BlockModUnbreakable(COLOR_BLUE)),
-    arcaniumMetal = registerBlock("arcanium_metal", () -> new BlockModPillar(TERRACOTTA_BLUE, -1, 3600000, SoundType.METAL)),
+    arcaniumMetal = registerBlock("arcanium_metal", () -> new BlockModPillar(TERRACOTTA_BLUE, SoundType.METAL)),
     arcaniumPower = registerBlock("arcanium_power", () -> new BlockModUnbreakable(COLOR_GRAY)),
     battleBricks = registerBlock("battle_bricks", () -> new BlockModUnbreakable(CRIMSON_HYPHAE)),
     gildedBricks = registerBlock("gilded_bricks", () -> new BlockModUnbreakable(Properties.ofFullCopy(Blocks.GILDED_BLACKSTONE).mapColor(TERRACOTTA_YELLOW))),

@@ -2,13 +2,13 @@
   "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "alternatives",
           "children": [
             {
               "type": "item",
+              "name": "divinerpg:arcanite_grass",
               "conditions": [
                 {
                   "condition": "match_tool",
@@ -25,22 +25,22 @@
                     }
                   }
                 }
-              ],
-              "name": "divinerpg:arcanite_grass"
+              ]
             },
             {
               "type": "item",
+              "name": "divinerpg:arcanite_dirt",
               "conditions": [
                 {
                   "condition": "survives_explosion"
                 }
-              ],
-              "name": "divinerpg:arcanite_dirt"
+              ]
             }
           ]
         }
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/arcanite_grass"
 }

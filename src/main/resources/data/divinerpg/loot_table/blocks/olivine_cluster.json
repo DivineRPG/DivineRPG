@@ -2,14 +2,13 @@
   "type": "block",
   "pools": [
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "alternatives",
           "children": [
             {
               "type": "item",
+              "name": "divinerpg:olivine_cluster",
               "conditions": [
                 {
                   "condition": "match_tool",
@@ -26,27 +25,18 @@
                     }
                   }
                 }
-              ],
-              "name": "divinerpg:olivine_cluster"
+              ]
             },
             {
               "type": "alternatives",
               "children": [
                 {
                   "type": "item",
-                  "conditions": [
-                    {
-                      "condition": "match_tool",
-                      "predicate": {
-                        "items": "#cluster_max_harvestables"
-                      }
-                    }
-                  ],
+                  "name": "divinerpg:olivine",
                   "functions": [
                     {
                       "function": "set_count",
-                      "count": 4,
-                      "add": false
+                      "count": 4
                     },
                     {
                       "function": "apply_bonus",
@@ -54,27 +44,34 @@
                       "formula": "ore_drops"
                     }
                   ],
-                  "name": "divinerpg:olivine"
+                  "conditions": [
+                    {
+                      "condition": "match_tool",
+                      "predicate": {
+                        "items": "#cluster_max_harvestables"
+                      }
+                    }
+                  ]
                 },
                 {
                   "type": "item",
+                  "name": "divinerpg:olivine",
                   "functions": [
                     {
                       "function": "set_count",
-                      "count": 2,
-                      "add": false
+                      "count": 2
                     },
                     {
                       "function": "explosion_decay"
                     }
-                  ],
-                  "name": "divinerpg:olivine"
+                  ]
                 }
               ]
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     }
   ]
 }

@@ -2,111 +2,110 @@
   "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "item",
+          "name": "divinerpg:snowy_moss",
           "conditions": [
             {
-              "ability": "shears_dig",
-              "condition": "neoforge:can_item_perform_ability"
+              "condition": "neoforge:can_item_perform_ability",
+              "ability": "shears_dig"
             }
           ],
           "functions": [
             {
+              "function": "set_count",
+              "count": 1,
               "add": true,
               "conditions": [
                 {
-                  "block": "divinerpg:snowy_moss",
                   "condition": "block_state_property",
+                  "block": "divinerpg:snowy_moss",
                   "properties": {
                     "down": "true"
                   }
                 }
-              ],
-              "count": 1,
-              "function": "set_count"
+              ]
             },
             {
+              "function": "set_count",
+              "count": 1,
               "add": true,
               "conditions": [
                 {
-                  "block": "divinerpg:snowy_moss",
                   "condition": "block_state_property",
+                  "block": "divinerpg:snowy_moss",
                   "properties": {
                     "up": "true"
                   }
                 }
-              ],
-              "count": 1,
-              "function": "set_count"
+              ]
             },
             {
+              "function": "set_count",
+              "count": 1,
               "add": true,
               "conditions": [
                 {
-                  "block": "divinerpg:snowy_moss",
                   "condition": "block_state_property",
+                  "block": "divinerpg:snowy_moss",
                   "properties": {
                     "north": "true"
                   }
                 }
-              ],
-              "count": 1,
-              "function": "set_count"
+              ]
             },
             {
+              "function": "set_count",
+              "count": 1,
               "add": true,
               "conditions": [
                 {
-                  "block": "divinerpg:snowy_moss",
                   "condition": "block_state_property",
+                  "block": "divinerpg:snowy_moss",
                   "properties": {
                     "south": "true"
                   }
                 }
-              ],
-              "count": 1,
-              "function": "set_count"
+              ]
             },
             {
+              "function": "set_count",
+              "count": 1,
               "add": true,
               "conditions": [
                 {
-                  "block": "divinerpg:snowy_moss",
                   "condition": "block_state_property",
+                  "block": "divinerpg:snowy_moss",
                   "properties": {
                     "west": "true"
                   }
                 }
-              ],
-              "count": 1,
-              "function": "set_count"
+              ]
             },
             {
+              "function": "set_count",
+              "count": 1,
               "add": true,
               "conditions": [
                 {
-                  "block": "divinerpg:snowy_moss",
                   "condition": "block_state_property",
+                  "block": "divinerpg:snowy_moss",
                   "properties": {
                     "east": "true"
                   }
                 }
-              ],
-              "count": 1,
-              "function": "set_count"
+              ]
             },
             {
-              "add": true,
+              "function": "set_count",
               "count": -1,
-              "function": "set_count"
+              "add": true
             },
             {
               "function": "explosion_decay"
             }
-          ],
-          "name": "divinerpg:snowy_moss"
+          ]
         }
       ],
       "rolls": 1

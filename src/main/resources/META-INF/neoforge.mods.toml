@@ -13,8 +13,8 @@ logoFile = "logo.png"
 credits = "https://github.com/DivineRPG/DivineRPG-Assets/blob/main/credits.md"
 
 [[dependencies.divinerpg]]
-modId="neoforge"
-required=true
-versionRange="${neo_version_range}"
-ordering="NONE"
-side="BOTH"
+modId = "neoforge"
+required = true
+versionRange = "${neo_version_range}"
+ordering = "NONE"
+side = "BOTH"

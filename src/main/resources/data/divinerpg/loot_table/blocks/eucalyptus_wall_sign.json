@@ -2,18 +2,19 @@
   "type": "block",
   "pools": [
     {
-      "conditions": [
-        {
-          "condition": "survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:eucalyptus_sign"
         }
       ],
+      "conditions": [
+        {
+          "condition": "survives_explosion"
+        }
+      ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/eucalyptus_sign"
 }

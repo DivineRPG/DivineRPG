@@ -1,29 +1,29 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "divinerpg:globebrush",
           "conditions": [
             {
               "block": "divinerpg:globebrush",
-              "condition": "minecraft:block_state_property",
+              "condition": "block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
-          ],
-          "name": "divinerpg:globebrush"
+          ]
         }
       ],
-      "rolls": 1.0
+      "conditions": [
+        {
+          "condition": "survives_explosion"
+        }
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/globebrush"
 }

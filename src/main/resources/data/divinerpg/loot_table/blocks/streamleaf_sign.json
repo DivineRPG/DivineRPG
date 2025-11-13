@@ -2,15 +2,15 @@
   "type": "block",
   "pools": [
     {
-      "conditions": [
-        {
-          "condition": "survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:streamleaf_sign"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "survives_explosion"
         }
       ],
       "rolls": 1

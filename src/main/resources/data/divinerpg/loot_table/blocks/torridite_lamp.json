@@ -1,20 +1,19 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "name": "main",
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
           "name": "divinerpg:torridite_lamp"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "condition": "survives_explosion"
         }
-      ]
+      ],
+      "rolls": 1
     }
   ]
 }

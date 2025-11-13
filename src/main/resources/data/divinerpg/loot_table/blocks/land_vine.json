@@ -1,24 +1,21 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:match_tool",
-          "predicate": {
-            "items": "minecraft:shears"
-          }
-        }
-      ],
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
           "name": "divinerpg:land_vine"
         }
       ],
-      "rolls": 1.0
+      "conditions": [
+        {
+          "condition": "neoforge:can_item_perform_ability",
+          "ability": "shears_dig"
+        }
+      ],
+      "rolls": 1
     }
   ],
-  "random_sequence": "minecraft:blocks/vine"
+  "random_sequence": "divinerpg:blocks/land_vine"
 }

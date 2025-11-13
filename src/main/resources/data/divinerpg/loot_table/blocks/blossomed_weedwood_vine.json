@@ -2,20 +2,20 @@
   "type": "block",
   "pools": [
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "item",
           "name": "divinerpg:blossomed_weedwood_vine",
           "conditions": [
             {
-              "ability": "shears_dig",
-              "condition": "neoforge:can_item_perform_ability"
+              "condition": "neoforge:can_item_perform_ability",
+              "ability": "shears_dig"
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/blossomed_weedwood_vine"
 }

@@ -1,6 +1,7 @@
 package divinerpg.blocks.vethea;
 
 import divinerpg.blocks.base.BlockModUnbreakable;
+import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
@@ -13,15 +14,23 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
+import static net.minecraft.ChatFormatting.AQUA;
+import static net.minecraft.world.Difficulty.PEACEFUL;
+
 public abstract class BlockVetheaAltar extends BlockModUnbreakable {
     protected BlockVetheaAltar(MapColor color) {super(color);}
     @Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         if(stack.getItem() == acceptedItem()) {
-            player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
-            player.getCooldowns().addCooldown(stack.getItem(), 40);
-            stack.consume(1, player);
-            spawnBoss(world, pos);
-            return ItemInteractionResult.SUCCESS;
+            if(world.getDifficulty() == PEACEFUL) {
+                player.displayClientMessage(LocalizeUtils.clientMessage(AQUA, "boss.peaceful"), true);
+                return ItemInteractionResult.CONSUME;
+            } else {
+                player.awardStat(Stats.ITEM_USED.get(stack.getItem()));
+                player.getCooldowns().addCooldown(stack.getItem(), 40);
+                stack.consume(1, player);
+                spawnBoss(world, pos);
+                return ItemInteractionResult.SUCCESS;
+            }
         } else onFailure();
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }

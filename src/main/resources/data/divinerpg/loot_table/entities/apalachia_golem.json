@@ -52,7 +52,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "divinerpg:pink_glowbone_seeds",
+          "name": "divinerpg:purple_glowbone_seeds",
           "functions": [
             {
               "function": "set_count",
@@ -75,7 +75,7 @@
         },
         {
           "type": "item",
-          "name": "divinerpg:purple_glowbone_seeds",
+          "name": "divinerpg:pink_glowbone_seeds",
           "functions": [
             {
               "function": "set_count",

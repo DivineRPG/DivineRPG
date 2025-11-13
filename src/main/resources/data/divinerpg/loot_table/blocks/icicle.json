@@ -2,8 +2,6 @@
   "type": "block",
   "pools": [
     {
-      "name": "main",
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
@@ -29,7 +27,8 @@
             }
           }
         }
-      ]
+      ],
+      "rolls": 1
     }
   ]
 }

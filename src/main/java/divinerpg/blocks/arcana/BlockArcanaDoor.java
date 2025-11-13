@@ -23,13 +23,8 @@ public class BlockArcanaDoor extends DoorBlock {
         super(ARCANA, Properties.ofFullCopy(Blocks.BEDROCK).mapColor(color).noOcclusion());
         keyItem = key;
     }
-    private void updateAdjacentDoors(Level world, BlockPos pos, Player player, BlockState state) {
-        BlockPos[] adjacent = {
-                pos.north(),
-                pos.east(),
-                pos.south(),
-                pos.west()
-        };
+    private void updateAdjacentDoors(Level world, BlockPos pos, Player player) {
+        BlockPos[] adjacent = {pos.north(), pos.east(), pos.south(), pos.west()};
         for(BlockPos adjacentPos : adjacent) {
             BlockState adjacentState = world.getBlockState(adjacentPos);
             if(adjacentState.getBlock() instanceof BlockArcanaDoor) {
@@ -52,7 +47,7 @@ public class BlockArcanaDoor extends DoorBlock {
             level.levelEvent(player, state.getValue(OPEN) ? 1005 : 1011, pos, 0);
             if(state.getValue(OPEN)) level.playSound(player, pos, SoundEvents.IRON_DOOR_CLOSE, BLOCKS, 1, .8F);
             else level.playSound(player, pos, SoundEvents.IRON_DOOR_OPEN, BLOCKS, 1, .8F);
-            updateAdjacentDoors(level, pos, player, state);
+            updateAdjacentDoors(level, pos, player);
             return ItemInteractionResult.SUCCESS;
         }
     }

@@ -1,66 +1,67 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:alternatives",
+          "type": "alternatives",
           "children": [
             {
-              "type": "minecraft:item",
+              "type": "item",
+              "name": "divinerpg:hitchak",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
+                  "condition": "block_state_property",
                   "block": "divinerpg:hitchak_plant",
                   "properties": {
                     "age": "7"
                   }
                 }
-              ],
-              "name": "divinerpg:hitchak"
+              ]
             },
             {
-              "type": "minecraft:item",
+              "type": "item",
               "name": "divinerpg:hitchak_seeds"
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "divinerpg:hitchak",
           "functions": [
             {
-              "function": "minecraft:apply_bonus",
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:binomial_with_bonus_count",
+              "function": "apply_bonus",
+              "enchantment": "fortune",
+              "formula": "binomial_with_bonus_count",
               "parameters": {
                 "extra": 3,
                 "probability": 0.5714286
               }
             }
-          ],
-          "name": "divinerpg:hitchak"
+          ]
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:block_state_property",
+          "condition": "block_state_property",
           "block": "divinerpg:hitchak_plant",
           "properties": {
             "age": "7"
           }
         }
-      ]
+      ],
+      "rolls": 1
     }
   ],
   "functions": [
     {
-      "function": "minecraft:explosion_decay"
+      "function": "explosion_decay"
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/hitchak_plant"
 }

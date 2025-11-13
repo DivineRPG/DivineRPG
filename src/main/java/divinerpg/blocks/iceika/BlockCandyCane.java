@@ -11,7 +11,7 @@ public class BlockCandyCane extends HorizontalDirectionalBlock {
 	public static final MapCodec<BlockCandyCane> CODEC = simpleCodec(BlockCandyCane::new);
 	@Override public MapCodec<BlockCandyCane> codec() {return CODEC;}
 	public BlockCandyCane(Properties properties) {
-		super(properties.instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(.75F).pushReaction(PushReaction.PUSH_ONLY));
+		super(properties.strength(.75F).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).pushReaction(PushReaction.PUSH_ONLY));
 	}
 	@Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_53681_) {p_53681_.add(FACING);}
 	@Override public BlockState getStateForPlacement(BlockPlaceContext p_53679_) {return this.defaultBlockState().setValue(FACING, p_53679_.getHorizontalDirection().getOpposite());}

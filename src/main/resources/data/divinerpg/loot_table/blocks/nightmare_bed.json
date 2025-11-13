@@ -1,29 +1,28 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "divinerpg:nightmare_bed",
           "conditions": [
             {
               "block": "divinerpg:nightmare_bed",
-              "condition": "minecraft:block_state_property",
+              "condition": "block_state_property",
               "properties": {
                 "part": "head"
               }
             }
-          ],
-          "name": "divinerpg:nightmare_bed"
+          ]
         }
       ],
-      "rolls": 1.0
+      "conditions": [
+        {
+          "condition": "survives_explosion"
+        }
+      ],
+      "rolls": 1
     }
   ]
 }

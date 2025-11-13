@@ -1,20 +1,69 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "name": "main",
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "divinerpg:blue_candy_cane"
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "divinerpg:blue_candy_cane",
+              "conditions": [
+                {
+                  "condition": "match_tool",
+                  "predicate": {
+                    "predicates": {
+                      "enchantments": [
+                        {
+                          "enchantments": "silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "divinerpg:peppermints",
+              "functions": [
+                {
+                  "function": "set_count",
+                  "count": {
+                    "type": "uniform",
+                    "min": 2,
+                    "max": 4
+                  }
+                },
+                {
+                  "function": "apply_bonus",
+                  "enchantment": "fortune",
+                  "formula": "uniform_bonus_count",
+                  "parameters": {
+                    "bonusMultiplier": 1
+                  }
+                },
+                {
+                  "function": "limit_count",
+                  "limit": {
+                    "min": 1,
+                    "max": 4
+                  }
+                },
+                {
+                  "function": "explosion_decay"
+                }
+              ]
+            }
+          ]
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ]
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/blue_candy_cane"
 }

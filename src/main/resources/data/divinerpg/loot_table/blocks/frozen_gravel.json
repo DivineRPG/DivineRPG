@@ -2,14 +2,13 @@
   "type": "block",
   "pools": [
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "alternatives",
           "children": [
             {
               "type": "item",
+              "name": "divinerpg:frozen_gravel",
               "conditions": [
                 {
                   "condition": "match_tool",
@@ -26,19 +25,14 @@
                     }
                   }
                 }
-              ],
-              "name": "divinerpg:frozen_gravel"
+              ]
             },
             {
               "type": "alternatives",
-              "conditions": [
-                {
-                  "condition": "survives_explosion"
-                }
-              ],
               "children": [
                 {
                   "type": "item",
+                  "name": "flint",
                   "conditions": [
                     {
                       "condition": "table_bonus",
@@ -50,18 +44,24 @@
                         1
                       ]
                     }
-                  ],
-                  "name": "flint"
+                  ]
                 },
                 {
                   "type": "item",
                   "name": "divinerpg:frozen_gravel"
                 }
+              ],
+              "conditions": [
+                {
+                  "condition": "survives_explosion"
+                }
               ]
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/frozen_gravel"
 }

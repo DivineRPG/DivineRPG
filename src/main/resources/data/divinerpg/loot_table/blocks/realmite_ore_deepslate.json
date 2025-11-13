@@ -1,51 +1,50 @@
 {
-	"type": "block",
-	"pools": [
-		{
-			"rolls": 1,
-			"bonus_rolls": 0,
-			"entries": [
-				{
-					"type": "alternatives",
-					"children": [
-						{
-							"type": "item",
-							"name": "divinerpg:realmite_ore_deepslate",
-							"conditions": [
-								{
-									"condition": "match_tool",
-									"predicate": {
-										"predicates": {
-											"enchantments": [
-												{
-													"enchantments": "silk_touch",
-													"levels": {
-														"min": 1
-													}
-												}
-											]
-										}
-									}
-								}
-							]
-						},
-						{
-							"type": "item",
-							"name": "divinerpg:raw_realmite",
-							"functions": [
-								{
-									"function": "apply_bonus",
-									"enchantment": "fortune",
-									"formula": "ore_drops"
-								},
-								{
-									"function": "explosion_decay"
-								}
-							]
-						}
-					]
-				}
-			]
-		}
-	]
+  "type": "block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "divinerpg:realmite_ore_deepslate",
+              "conditions": [
+                {
+                  "condition": "match_tool",
+                  "predicate": {
+                    "predicates": {
+                      "enchantments": [
+                        {
+                          "enchantments": "silk_touch",
+                          "levels": {
+                            "min": 1
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "divinerpg:raw_realmite",
+              "functions": [
+                {
+                  "function": "apply_bonus",
+                  "enchantment": "fortune",
+                  "formula": "ore_drops"
+                },
+                {
+                  "function": "explosion_decay"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

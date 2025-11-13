@@ -1,22 +1,22 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
+          "type": "alternatives",
           "children": [
             {
-              "type": "minecraft:item",
+              "type": "item",
+              "name": "divinerpg:gravestone",
               "conditions": [
                 {
-                  "condition": "minecraft:match_tool",
+                  "condition": "match_tool",
                   "predicate": {
                     "predicates": {
-                      "minecraft:enchantments": [
+                      "enchantments": [
                         {
-                          "enchantments": "minecraft:silk_touch",
+                          "enchantments": "silk_touch",
                           "levels": {
                             "min": 1
                           }
@@ -25,19 +25,18 @@
                     }
                   }
                 }
-              ],
-              "name": "divinerpg:gravestone"
+              ]
             },
             {
-              "type": "minecraft:group",
+              "type": "group",
               "children": [
                 {
-                  "type": "minecraft:item",
+                  "type": "item",
                   "weight": 50,
                   "name": "divinerpg:ice_shards",
                   "functions": [
                     {
-                      "function": "minecraft:set_count",
+                      "function": "set_count",
                       "count": {
                         "min": 1,
                         "max": 6
@@ -46,45 +45,26 @@
                   ]
                 },
                 {
-                  "type": "minecraft:item",
+                  "type": "item",
                   "weight": 20,
-                  "name": "divinerpg:peppermints",
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": 1
-                    }
-                  ]
+                  "name": "divinerpg:peppermints"
                 },
                 {
-                  "type": "minecraft:item",
-                  "weight": 1,
-                  "name": "divinerpg:md_red_stains_on_the_bluest_snow",
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": 1
-                    }
-                  ]
+                  "type": "item",
+                  "name": "divinerpg:md_red_stains_on_the_bluest_snow"
                 },
                 {
-                  "type": "minecraft:item",
+                  "type": "item",
                   "weight": 14,
-                  "name": "divinerpg:snowflake",
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": 1
-                    }
-                  ]
+                  "name": "divinerpg:snowflake"
                 },
                 {
-                  "type": "minecraft:item",
+                  "type": "item",
                   "weight": 8,
                   "name": "divinerpg:ice_stone",
                   "functions": [
                     {
-                      "function": "minecraft:set_count",
+                      "function": "set_count",
                       "count": {
                         "min": 1,
                         "max": 3
@@ -93,28 +73,20 @@
                   ]
                 },
                 {
-                  "type": "minecraft:item",
-                  "weight": 1,
-                  "name": "divinerpg:glacial_blade",
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": 1
-                    }
-                  ]
+                  "type": "item",
+                  "name": "divinerpg:glacial_blade"
                 },
                 {
-                  "type": "minecraft:item",
-                  "name": "minecraft:enchanted_book",
+                  "type": "item",
+                  "name": "enchanted_book",
                   "weight": 3,
                   "functions": [
                     {
-                      "function": "minecraft:enchant_with_levels",
-                      "levels": 25,
-                      "treasure": true
+                      "function": "enchant_with_levels",
+                      "levels": 25
                     },
                     {
-                      "function": "minecraft:set_enchantments",
+                      "function": "set_enchantments",
                       "enchantments": {
                         "divinerpg:brain_freeze": {
                           "min": 1,
@@ -126,22 +98,18 @@
                   ]
                 },
                 {
-                  "type": "minecraft:item",
-                  "name": "minecraft:enchanted_book",
+                  "type": "item",
+                  "name": "enchanted_book",
                   "weight": 2,
                   "functions": [
                     {
-                      "function": "minecraft:enchant_with_levels",
-                      "levels": 25,
-                      "treasure": true
+                      "function": "enchant_with_levels",
+                      "levels": 25
                     },
                     {
-                      "function": "minecraft:set_enchantments",
+                      "function": "set_enchantments",
                       "enchantments": {
-                        "divinerpg:insulation": {
-                          "min": 1,
-                          "max": 1
-                        }
+                        "divinerpg:insulation": 1
                       },
                       "add": true
                     }
@@ -152,7 +120,7 @@
           ]
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "divinerpg:blocks/gravestone"

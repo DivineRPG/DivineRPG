@@ -1,70 +1,68 @@
 {
-	"type": "block",
-	"pools": [
-		{
-			"rolls": 1,
-			"bonus_rolls": 0,
-			"entries": [
-				{
-					"type": "alternatives",
-					"children": [
-						{
-							"type": "item",
-							"name": "divinerpg:winterberry_bush",
-							"conditions": [
-								{
-									"condition": "any_of",
-									"terms": [
-										{
-											"ability": "shears_dig",
-											"condition": "neoforge:can_item_perform_ability"
-										},
-										{
-											"condition": "match_tool",
-											"predicate": {
-												"predicates": {
-													"enchantments": [
-														{
-															"enchantments": "silk_touch",
-															"levels": {
-																"min": 1
-															}
-														}
-													]
-												}
-											}
-										}
-									]
-								}
-							]
-						}
-					]
-				}
-			]
-		},
-		{
-			"rolls": 1,
-			"bonus_rolls": 0,
-			"entries": [
-				{
-					"type": "alternatives",
-					"children": [
-						{
-							"type": "item",
-							"name": "divinerpg:winterberry",
-							"conditions": [
-								{
-									"condition": "block_state_property",
-									"block": "divinerpg:winterberry_bush",
-									"properties": {
-										"bloom": "true"
-									}
-								}
-							]
-						}
-					]
-				}
-			]
-		}
-	]
+  "type": "block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "divinerpg:winterberry_bush",
+              "conditions": [
+                {
+                  "condition": "any_of",
+                  "terms": [
+                    {
+                      "condition": "neoforge:can_item_perform_ability",
+                      "ability": "shears_dig"
+                    },
+                    {
+                      "condition": "match_tool",
+                      "predicate": {
+                        "predicates": {
+                          "enchantments": [
+                            {
+                              "enchantments": "silk_touch",
+                              "levels": {
+                                "min": 1
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "divinerpg:winterberry",
+              "conditions": [
+                {
+                  "condition": "block_state_property",
+                  "block": "divinerpg:winterberry_bush",
+                  "properties": {
+                    "bloom": "true"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

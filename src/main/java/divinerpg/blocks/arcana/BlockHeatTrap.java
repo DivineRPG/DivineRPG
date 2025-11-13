@@ -1,7 +1,6 @@
 package divinerpg.blocks.arcana;
 
 import divinerpg.blocks.base.BlockModUnbreakable;
-import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -9,13 +8,16 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+
+import static divinerpg.registries.BlockRegistry.heatTrap;
+import static net.minecraft.world.level.block.state.properties.NoteBlockInstrument.BASEDRUM;
+import static net.minecraft.world.level.material.MapColor.COLOR_BLUE;
 
 public class BlockHeatTrap extends BlockModUnbreakable {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     public BlockHeatTrap() {
-        super(Properties.of().mapColor(MapColor.COLOR_BLUE).randomTicks().noLootTable().instrument(NoteBlockInstrument.BASEDRUM));
+        super(Properties.of().mapColor(COLOR_BLUE).randomTicks().noLootTable().instrument(BASEDRUM));
         registerDefaultState(stateDefinition.any().setValue(ACTIVE, false));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(ACTIVE);}
@@ -24,7 +26,7 @@ public class BlockHeatTrap extends BlockModUnbreakable {
     }
     @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
     	if(state.is(this) && entity instanceof LivingEntity) {
-            if(!state.getValue(ACTIVE)) level.setBlock(pos, BlockRegistry.heatTrap.get().defaultBlockState().setValue(ACTIVE, true), 2);
+            if(!state.getValue(ACTIVE)) level.setBlock(pos, heatTrap.get().defaultBlockState().setValue(ACTIVE, true), 2);
             entity.hurt(entity.damageSources().hotFloor(), 4);
             entity.igniteForSeconds(7);
     	}

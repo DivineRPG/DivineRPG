@@ -1,32 +1,26 @@
 {
-  "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
+  "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
-          "type": "minecraft:alternatives",
+          "type": "alternatives",
           "children": [
             {
-              "type": "minecraft:item",
+              "type": "item",
+              "name": "divinerpg:eucalyptus_log",
               "conditions": [
                 {
+                  "condition": "block_state_property",
                   "block": "divinerpg:eucalyptus_plant",
-                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "7"
                   }
                 }
-              ],
-              "name": "divinerpg:eucalyptus_log"
+              ]
             },
             {
-              "type": "minecraft:item",
+              "type": "item",
               "name": "divinerpg:eucalyptus_root_seeds"
             }
           ]
@@ -35,11 +29,10 @@
       "rolls": 1
     },
     {
-      "bonus_rolls": 0,
       "conditions": [
         {
+          "condition": "block_state_property",
           "block": "divinerpg:eucalyptus_plant",
-          "condition": "minecraft:block_state_property",
           "properties": {
             "age": "7"
           }
@@ -47,22 +40,28 @@
       ],
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
+          "name": "divinerpg:eucalyptus_root_seeds",
           "functions": [
             {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:binomial_with_bonus_count",
-              "function": "minecraft:apply_bonus",
+              "function": "apply_bonus",
+              "enchantment": "fortune",
+              "formula": "binomial_with_bonus_count",
               "parameters": {
                 "extra": 3,
                 "probability": 0.5714286
               }
             }
-          ],
-          "name": "divinerpg:eucalyptus_root_seeds"
+          ]
         }
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "functions": [
+    {
+      "function": "explosion_decay"
+    }
+  ],
+  "random_sequence": "divinerpg:blocks/eucalyptus_plant"
 }

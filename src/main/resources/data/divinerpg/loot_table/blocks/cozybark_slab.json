@@ -1,40 +1,33 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "name": "main",
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:survives_explosion"
-            }
-          ],
+          "type": "item",
+          "name": "divinerpg:cozybark_slab",
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "function": "set_count",
+              "count": 2,
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
+                  "condition": "block_state_property",
                   "block": "divinerpg:cozybark_slab",
                   "properties": {
                     "type": "double"
                   }
                 }
-              ],
-              "count": 2
+              ]
+            },
+            {
+              "function": "explosion_decay"
             }
-          ],
-          "name": "divinerpg:cozybark_slab"
+          ]
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ]
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/cozybark_slab"
 }

@@ -44,6 +44,7 @@ public class EntityKitra extends EntityWhale implements RangedAttackMob {
 //    @Override protected PathNavigation createNavigation(Level level) {
 //    	return new KitraNavigation(this, level);
 //    }
+    @Override protected boolean shouldDespawnInPeaceful() {return true;}
     @Override public boolean removeWhenFarAway(double distanceToClosestPlayer) {return false;}
     @Override public void startSeenByPlayer(ServerPlayer player) {
         super.startSeenByPlayer(player);

@@ -41,7 +41,7 @@ public class RiveHandler {
                 totalBlocksBroken++;
                 event.setCanceled(true);
             }
-        } if(totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken - 1, player, EquipmentSlot.MAINHAND);
+        } if(totalBlocksBroken > 0) itemStack.hurtAndBreak(totalBlocksBroken, player, EquipmentSlot.MAINHAND);
     }
     private boolean tryToBreakBlock(Level world, Player player, BlockPos pos, BlockState blockState, ItemStack tool, float destroySpeed) {
         Block block = blockState.getBlock();

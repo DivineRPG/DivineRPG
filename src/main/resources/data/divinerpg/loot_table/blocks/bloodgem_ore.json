@@ -2,13 +2,13 @@
   "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "alternatives",
           "children": [
             {
               "type": "item",
+              "name": "divinerpg:bloodgem_ore",
               "conditions": [
                 {
                   "condition": "match_tool",
@@ -25,11 +25,11 @@
                     }
                   }
                 }
-              ],
-              "name": "divinerpg:bloodgem_ore"
+              ]
             },
             {
               "type": "item",
+              "name": "divinerpg:bloodgem",
               "functions": [
                 {
                   "enchantment": "fortune",
@@ -39,13 +39,13 @@
                 {
                   "function": "explosion_decay"
                 }
-              ],
-              "name": "divinerpg:bloodgem"
+              ]
             }
           ]
         }
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/bloodgem_ore"
 }

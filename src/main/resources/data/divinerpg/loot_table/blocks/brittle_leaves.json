@@ -2,20 +2,20 @@
   "type": "block",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "alternatives",
           "children": [
             {
               "type": "item",
+              "name": "divinerpg:brittle_leaves",
               "conditions": [
                 {
                   "condition": "any_of",
                   "terms": [
                     {
-                      "ability": "shears_dig",
-                      "condition": "neoforge:can_item_perform_ability"
+                      "condition": "neoforge:can_item_perform_ability",
+                      "ability": "shears_dig"
                     },
                     {
                       "condition": "match_tool",
@@ -34,27 +34,26 @@
                     }
                   ]
                 }
-              ],
-              "name": "divinerpg:brittle_leaves"
+              ]
             },
             {
               "type": "item",
+              "name": "divinerpg:shiverspine_sapling",
               "conditions": [
                 {
                   "condition": "survives_explosion"
                 },
                 {
+                  "condition": "table_bonus",
+                  "enchantment": "fortune",
                   "chances": [
                     0.05,
                     0.0625,
                     0.083333336,
                     0.1
-                  ],
-                  "condition": "table_bonus",
-                  "enchantment": "fortune"
+                  ]
                 }
-              ],
-              "name": "divinerpg:shiverspine_sapling"
+              ]
             }
           ]
         }
@@ -62,7 +61,6 @@
       "rolls": 1
     },
     {
-      "bonus_rolls": 0,
       "conditions": [
         {
           "condition": "inverted",
@@ -70,8 +68,8 @@
             "condition": "any_of",
             "terms": [
               {
-                "ability": "shears_dig",
-                "condition": "neoforge:can_item_perform_ability"
+                "condition": "neoforge:can_item_perform_ability",
+                "ability": "shears_dig"
               },
               {
                 "condition": "match_tool",
@@ -95,37 +93,37 @@
       "entries": [
         {
           "type": "item",
+          "name": "stick",
           "conditions": [
             {
+              "condition": "table_bonus",
+              "enchantment": "fortune",
               "chances": [
                 0.02,
                 0.022222223,
                 0.025,
                 0.033333335,
                 0.1
-              ],
-              "condition": "table_bonus",
-              "enchantment": "fortune"
+              ]
             }
           ],
           "functions": [
             {
-              "add": false,
+              "function": "set_count",
               "count": {
                 "type": "uniform",
-                "max": 2,
-                "min": 1
-              },
-              "function": "set_count"
+                "min": 1,
+                "max": 2
+              }
             },
             {
               "function": "explosion_decay"
             }
-          ],
-          "name": "stick"
+          ]
         }
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/brittle_leaves"
 }

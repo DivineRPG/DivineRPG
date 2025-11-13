@@ -1,20 +1,33 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "name": "main",
-      "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "divinerpg:polished_ray_stone_slab"
+          "type": "item",
+          "name": "divinerpg:polished_ray_stone_slab",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2,
+              "conditions": [
+                {
+                  "condition": "block_state_property",
+                  "block": "divinerpg:polished_ray_stone_slab",
+                  "properties": {
+                    "type": "double"
+                  }
+                }
+              ]
+            },
+            {
+              "function": "explosion_decay"
+            }
+          ]
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ]
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/polished_ray_stone_slab"
 }

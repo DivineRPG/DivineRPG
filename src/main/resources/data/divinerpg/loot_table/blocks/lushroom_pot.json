@@ -1,35 +1,33 @@
 {
-  "type": "minecraft:block",
+  "type": "block",
   "pools": [
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:flower_pot"
+          "type": "item",
+          "name": "flower_pot"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "condition": "survives_explosion"
         }
-      ]
+      ],
+      "rolls": 1
     },
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
           "name": "divinerpg:lushroom"
         }
       ],
       "conditions": [
         {
-          "condition": "minecraft:survives_explosion"
+          "condition": "survives_explosion"
         }
-      ]
+      ],
+      "rolls": 1
     }
   ]
 }

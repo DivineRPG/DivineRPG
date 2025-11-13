@@ -2,8 +2,6 @@
   "type": "block",
   "pools": [
     {
-      "name": "main",
-      "rolls": 1,
       "entries": [
         {
           "type": "item",
@@ -14,7 +12,8 @@
         {
           "condition": "survives_explosion"
         }
-      ]
+      ],
+      "rolls": 1
     }
   ]
 }

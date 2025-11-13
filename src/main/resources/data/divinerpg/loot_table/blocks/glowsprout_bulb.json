@@ -2,14 +2,13 @@
   "type": "block",
   "pools": [
     {
-      "rolls": 1,
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "alternatives",
           "children": [
             {
               "type": "item",
+              "name": "divinerpg:glowsprout_bulb",
               "conditions": [
                 {
                   "condition": "match_tool",
@@ -26,11 +25,11 @@
                     }
                   }
                 }
-              ],
-              "name": "divinerpg:glowsprout_bulb"
+              ]
             },
             {
               "type": "item",
+              "name": "divinerpg:glowsprout",
               "functions": [
                 {
                   "function": "set_count",
@@ -38,8 +37,7 @@
                     "type": "uniform",
                     "min": -6,
                     "max": 2
-                  },
-                  "add": false
+                  }
                 },
                 {
                   "function": "limit_count",
@@ -50,12 +48,13 @@
                 {
                   "function": "explosion_decay"
                 }
-              ],
-              "name": "divinerpg:glowsprout"
+              ]
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/glowsprout_bulb"
 }

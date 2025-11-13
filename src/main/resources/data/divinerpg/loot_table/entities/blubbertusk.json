@@ -5,6 +5,34 @@
       "entries": [
         {
           "type": "item",
+          "name": "leather",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "type": "uniform",
+                "min": 0,
+                "max": 2
+              }
+            },
+            {
+              "function": "enchanted_count_increase",
+              "enchantment": "looting",
+              "count": {
+                "type": "uniform",
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "item",
           "name": "divinerpg:blubber",
           "functions": [
             {
