@@ -204,7 +204,6 @@ public class TagRegistry {
         STORAGE_BLOCKS_REALMITE = item("storage_blocks/realmite"),
 
     //Tools
-    //TODO: to use c:tools/maul instead
         TOOLS_MAUL = item("tools/maul"),
 
     //Misc
@@ -215,6 +214,44 @@ public class TagRegistry {
         REPLACEABLE_BY_TREES_ICEIKA = block("replaceable_by_trees/iceika"),
         FIRE_BLOCK = block("fire"),
         GATEWAY_RECEIVER = block("gateway_receiver"),
+
+    //Incorrect for Tools
+        INCORRECT_FOR_AQUATIC_TOOL = block("incorrect_for_tool/aquatic"),
+        INCORRECT_FOR_REALMITE_TOOL = block("incorrect_for_tool/realmite"),
+        INCORRECT_FOR_OXDRITE_TOOL = block("incorrect_for_tool/oxdrite"),
+        INCORRECT_FOR_ARLEMITE_TOOL = block("incorrect_for_tool/arlemite"),
+        INCORRECT_FOR_TERRAN_TOOL = block("incorrect_for_tool/terran"),
+        INCORRECT_FOR_JUNGLE_TOOL = block("incorrect_for_tool/jungle"),
+        INCORRECT_FOR_RUPEE_TOOL = block("incorrect_for_tool/rupee"),
+        INCORRECT_FOR_TORRIDITE_TOOL = block("incorrect_for_tool/torridite"),
+        INCORRECT_FOR_BLOODGEM_TOOL = block("incorrect_for_tool/bloodgem"),
+        INCORRECT_FOR_MOLTEN_TOOL = block("incorrect_for_tool/molten"),
+        INCORRECT_FOR_SOULFIRE_TOOL = block("incorrect_for_tool/soulfire"),
+        INCORRECT_FOR_ICE_TOOL = block("incorrect_for_tool/ice"),
+        INCORRECT_FOR_SHADOW_TOOL = block("incorrect_for_tool/shadow"),
+        INCORRECT_FOR_SHADOW_GEM_TOOL = block("incorrect_for_tool/shadow_gem"),
+        INCORRECT_FOR_BEDROCK_TOOL = block("incorrect_for_tool/bedrock"),
+        INCORRECT_FOR_CORRUPTED_TOOL = block("incorrect_for_tool/corrupted"),
+        INCORRECT_FOR_ENDER_TOOL = block("incorrect_for_tool/ender"),
+        INCORRECT_FOR_DIVINE_TOOL = block("incorrect_for_tool/divine"),
+        INCORRECT_FOR_ARCANIUM_TOOL = block("incorrect_for_tool/arcanium"),
+        INCORRECT_FOR_EDEN_TOOL = block("incorrect_for_tool/eden"),
+        INCORRECT_FOR_WILDWOOD_TOOL = block("incorrect_for_tool/wildwood"),
+        INCORRECT_FOR_APALACHIA_TOOL = block("incorrect_for_tool/apalachia"),
+        INCORRECT_FOR_SKYTHERN_TOOL = block("incorrect_for_tool/skythern"),
+        INCORRECT_FOR_MORTUM_TOOL = block("incorrect_for_tool/mortum"),
+        INCORRECT_FOR_HALITE_TOOL = block("incorrect_for_tool/halite"),
+        INCORRECT_FOR_DREAM_TOOL = block("incorrect_for_tool/dream"),
+        INCORRECT_FOR_TEAKER_TOOL = block("incorrect_for_tool/teaker"),
+        INCORRECT_FOR_AMTHIRMIS_TOOL = block("incorrect_for_tool/amthirmis"),
+        INCORRECT_FOR_DARVEN_TOOL = block("incorrect_for_tool/darven"),
+        INCORRECT_FOR_CERMILE_TOOL = block("incorrect_for_tool/cermile"),
+        INCORRECT_FOR_PARDIMAL_TOOL = block("incorrect_for_tool/pardimal"),
+        INCORRECT_FOR_QUADROTIC_TOOL = block("incorrect_for_tool/quadrotic"),
+        INCORRECT_FOR_KAROS_TOOL = block("incorrect_for_tool/karos"),
+        INCORRECT_FOR_HELIOSIS_TOOL = block("incorrect_for_tool/heliosis"),
+        INCORRECT_FOR_ARKSIANE_TOOL = block("incorrect_for_tool/arksiane"),
+        INCORRECT_FOR_EVER_TOOL = block("incorrect_for_tool/ever"),
 
     //Base Blocks
         BASE_BLOCKS_ICY_FIRE = block("base_blocks/icy_fire"),

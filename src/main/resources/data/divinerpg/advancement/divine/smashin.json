@@ -17,7 +17,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:tools/maul"
+            "items": "#divinerpg:tools/maul"
           }
         ]
       }
