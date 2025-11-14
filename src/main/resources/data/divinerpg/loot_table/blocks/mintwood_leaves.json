@@ -105,5 +105,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/mintwood_leaves"
 }

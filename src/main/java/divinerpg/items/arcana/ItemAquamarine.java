@@ -13,7 +13,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.*;
 
 public class ItemAquamarine extends BucketItem {
-    public ItemAquamarine() {super(Fluids.WATER, new Properties().durability(10));}
+    public ItemAquamarine() {super(Fluids.WATER, new Properties().durability(3));}
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
     	ItemStack itemstack = player.getItemInHand(hand);
     	BlockHitResult blockhitresult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.NONE);

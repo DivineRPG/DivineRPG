@@ -81,5 +81,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/twilight_eden_ore"
 }

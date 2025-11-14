@@ -24,5 +24,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/mortum_door"
 }

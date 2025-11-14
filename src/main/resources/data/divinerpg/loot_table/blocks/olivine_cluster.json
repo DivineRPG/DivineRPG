@@ -73,5 +73,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/olivine_cluster"
 }

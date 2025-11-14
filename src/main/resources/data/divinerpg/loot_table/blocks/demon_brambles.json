@@ -4,14 +4,107 @@
     {
       "entries": [
         {
-          "type": "item",
-          "name": "divinerpg:demon_brambles",
-          "conditions": [
+          "type": "alternatives",
+          "children": [
             {
-              "condition": "neoforge:can_item_perform_ability",
-              "ability": "shears_dig"
+              "type": "item",
+              "name": "divinerpg:demon_brambles",
+              "conditions": [
+                {
+                  "condition": "neoforge:can_item_perform_ability",
+                  "ability": "shears_dig"
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "divinerpg:mortum_dust",
+              "conditions": [
+                {
+                  "condition": "survives_explosion"
+                },
+                {
+                  "condition": "random_chance",
+                  "chance": 0.125
+                }
+              ]
             }
           ]
+        }
+      ],
+      "conditions": [
+        {
+          "block": "divinerpg:demon_brambles",
+          "condition": "block_state_property",
+          "properties": {
+            "half": "lower"
+          }
+        },
+        {
+          "condition": "location_check",
+          "offsetY": 1,
+          "predicate": {
+            "block": {
+              "blocks": "divinerpg:demon_brambles",
+              "state": {
+                "half": "upper"
+              }
+            }
+          }
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "divinerpg:demon_brambles",
+              "conditions": [
+                {
+                  "condition": "neoforge:can_item_perform_ability",
+                  "ability": "shears_dig"
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "divinerpg:mortum_dust",
+              "conditions": [
+                {
+                  "condition": "survives_explosion"
+                },
+                {
+                  "condition": "random_chance",
+                  "chance": 0.125
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "block": "divinerpg:demon_brambles",
+          "condition": "block_state_property",
+          "properties": {
+            "half": "upper"
+          }
+        },
+        {
+          "condition": "location_check",
+          "offsetY": -1,
+          "predicate": {
+            "block": {
+              "blocks": "divinerpg:demon_brambles",
+              "state": {
+                "half": "lower"
+              }
+            }
+          }
         }
       ],
       "rolls": 1

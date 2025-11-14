@@ -55,5 +55,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/lowsprout_bulb"
 }

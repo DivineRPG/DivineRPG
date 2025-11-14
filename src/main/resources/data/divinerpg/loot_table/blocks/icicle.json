@@ -10,9 +10,6 @@
       ],
       "conditions": [
         {
-          "condition": "survives_explosion"
-        },
-        {
           "condition": "match_tool",
           "predicate": {
             "predicates": {
@@ -30,5 +27,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/icicle"
 }

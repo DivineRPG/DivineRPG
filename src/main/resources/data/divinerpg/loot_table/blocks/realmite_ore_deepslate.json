@@ -46,5 +46,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/realmite_ore_deepslate"
 }

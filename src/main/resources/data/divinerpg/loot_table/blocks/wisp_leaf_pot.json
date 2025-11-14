@@ -29,5 +29,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/wisp_leaf_pot"
 }

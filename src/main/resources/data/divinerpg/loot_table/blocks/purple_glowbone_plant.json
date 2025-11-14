@@ -62,5 +62,6 @@
     {
       "function": "explosion_decay"
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/purple_glowbone_plant"
 }

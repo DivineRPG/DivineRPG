@@ -4,17 +4,133 @@
     {
       "entries": [
         {
-          "type": "item",
-          "name": "divinerpg:wildwood_tallgrass",
-          "conditions": [
+          "type": "alternatives",
+          "children": [
             {
-              "condition": "neoforge:can_item_perform_ability",
-              "ability": "shears_dig"
+              "type": "item",
+              "name": "divinerpg:wildwood_tallgrass",
+              "conditions": [
+                {
+                  "condition": "neoforge:can_item_perform_ability",
+                  "ability": "shears_dig"
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "children": [
+                {
+                  "type": "item",
+                  "name": "divinerpg:moonbulb_seeds",
+                  "weight": 2
+                },
+                {
+                  "type": "item",
+                  "name": "divinerpg:wildwood_dust",
+                  "weight": 18
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "survives_explosion"
+                },
+                {
+                  "condition": "random_chance",
+                  "chance": 0.125
+                }
+              ]
             }
           ]
         }
       ],
+      "conditions": [
+        {
+          "block": "divinerpg:wildwood_tallgrass",
+          "condition": "block_state_property",
+          "properties": {
+            "half": "lower"
+          }
+        },
+        {
+          "condition": "location_check",
+          "offsetY": 1,
+          "predicate": {
+            "block": {
+              "blocks": "divinerpg:wildwood_tallgrass",
+              "state": {
+                "half": "upper"
+              }
+            }
+          }
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "divinerpg:wildwood_tallgrass",
+              "conditions": [
+                {
+                  "condition": "neoforge:can_item_perform_ability",
+                  "ability": "shears_dig"
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "children": [
+                {
+                  "type": "item",
+                  "name": "divinerpg:moonbulb_seeds",
+                  "weight": 2
+                },
+                {
+                  "type": "item",
+                  "name": "divinerpg:wildwood_dust",
+                  "weight": 18
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "survives_explosion"
+                },
+                {
+                  "condition": "random_chance",
+                  "chance": 0.125
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "block": "divinerpg:wildwood_tallgrass",
+          "condition": "block_state_property",
+          "properties": {
+            "half": "upper"
+          }
+        },
+        {
+          "condition": "location_check",
+          "offsetY": -1,
+          "predicate": {
+            "block": {
+              "blocks": "divinerpg:wildwood_tallgrass",
+              "state": {
+                "half": "lower"
+              }
+            }
+          }
+        }
+      ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/wildwood_tallgrass"
 }

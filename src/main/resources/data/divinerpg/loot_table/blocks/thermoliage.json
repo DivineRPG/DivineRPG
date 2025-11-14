@@ -8,8 +8,8 @@
           "name": "divinerpg:thermoliage",
           "conditions": [
             {
-              "block": "divinerpg:thermoliage",
               "condition": "block_state_property",
+              "block": "divinerpg:thermoliage",
               "properties": {
                 "half": "lower"
               }
@@ -24,5 +24,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/thermoliage"
 }

@@ -8,8 +8,8 @@
           "name": "divinerpg:nightmare_bed",
           "conditions": [
             {
-              "block": "divinerpg:nightmare_bed",
               "condition": "block_state_property",
+              "block": "divinerpg:nightmare_bed",
               "properties": {
                 "part": "head"
               }
@@ -24,5 +24,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/nightmare_bed"
 }

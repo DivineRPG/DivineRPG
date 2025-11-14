@@ -8,8 +8,8 @@
           "name": "divinerpg:globebrush",
           "conditions": [
             {
-              "block": "divinerpg:globebrush",
               "condition": "block_state_property",
+              "block": "divinerpg:globebrush",
               "properties": {
                 "half": "lower"
               }

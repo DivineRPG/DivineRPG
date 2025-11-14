@@ -8,8 +8,8 @@
           "name": "divinerpg:dusk_flower",
           "conditions": [
             {
-              "block": "divinerpg:dusk_flower",
               "condition": "block_state_property",
+              "block": "divinerpg:dusk_flower",
               "properties": {
                 "half": "lower"
               }

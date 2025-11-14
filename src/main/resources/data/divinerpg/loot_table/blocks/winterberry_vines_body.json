@@ -11,8 +11,8 @@
               "name": "divinerpg:winterberry_vines_head",
               "conditions": [
                 {
-                  "ability": "shears_dig",
-                  "condition": "neoforge:can_item_perform_ability"
+                  "condition": "neoforge:can_item_perform_ability",
+                  "ability": "shears_dig"
                 }
               ]
             }
@@ -44,5 +44,6 @@
       ],
       "rolls": 1
     }
-  ]
+  ],
+  "random_sequence": "divinerpg:blocks/winterberry_vines_body"
 }
