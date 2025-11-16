@@ -1,5 +1,6 @@
 package divinerpg.items.base;
 
+import divinerpg.compat.farmersdelight.DelightLoader;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -38,11 +39,13 @@ public class ItemModFoodEffect extends ItemModFood {
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, context, tooltip, flagIn);
         boolean tooltipAdded = false;
-        for(FoodProperties.PossibleEffect effect : food.effects()) {
-            float chance = effect.probability();
-            //Only shows the chance of the first effect
-            if(chance < 1 && !tooltipAdded) tooltip.add(LocalizeUtils.i18n(ChatFormatting.GRAY, "chance", (int)(chance * 100)));
-            tooltipAdded = true;
-        } PotionContents.addPotionTooltip(food.effects().stream().map(FoodProperties.PossibleEffect::effect).toList(), tooltip::add, 1, context.tickRate());
+        if(DelightLoader.foodEffectTooltipEnabled()) {
+            for(FoodProperties.PossibleEffect effect : food.effects()) {
+                float chance = effect.probability();
+                //Only shows the chance of the first effect
+                if(chance < 1 && !tooltipAdded) tooltip.add(LocalizeUtils.i18n(ChatFormatting.GRAY, "chance", (int)(chance * 100)));
+                tooltipAdded = true;
+            } PotionContents.addPotionTooltip(food.effects().stream().map(FoodProperties.PossibleEffect::effect).toList(), tooltip::add, 1, context.tickRate());
+        }
     }
 }

@@ -1,0 +1,24 @@
+{
+  "food": {
+    "item": "divinerpg:advanced_mushroom_stew",
+    "divider": "BOWL"
+  },
+  "containers": [
+    {
+      "filled": [
+        "divinerpg:advanced_mushroom_stew"
+      ],
+      "empty": "bowl",
+      "capacity": "BOWL"
+    }
+  ],
+  "still_texture": "moonlight:block/soft_fluids/soup_liquid",
+  "flowing_texture": "moonlight:block/soft_fluids/potion_flow",
+  "color": "#dabfb0",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

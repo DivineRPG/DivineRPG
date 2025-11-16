@@ -1,0 +1,16 @@
+{
+  "item": "divinerpg:maelstrom",
+  "book_visuals": "supplementaries:normal_book",
+  "horizontal": true,
+  "enchant_power": 0.3,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "placeable_books"
+    }
+  ]
+}

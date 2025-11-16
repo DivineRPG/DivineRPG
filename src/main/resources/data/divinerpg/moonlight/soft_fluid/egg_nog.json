@@ -1,0 +1,26 @@
+{
+  "food": {
+    "item": "divinerpg:egg_nog",
+    "divider": "BUCKET"
+  },
+  "containers": [
+    {
+      "filled": [
+        "divinerpg:egg_nog"
+      ],
+      "empty": "bucket",
+      "capacity": "BUCKET",
+      "fill_sound": "item.bucket.fill",
+      "empty_sound": "item.bucket.empty"
+    }
+  ],
+  "still_texture": "moonlight:block/soft_fluids/milk_liquid",
+  "flowing_texture": "moonlight:block/soft_fluids/milk_liquid",
+  "color": "#fff2cb",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

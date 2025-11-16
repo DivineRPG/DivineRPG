@@ -31,6 +31,6 @@ public class ItemWizardsBook extends ItemMod {
             stack.consume(1, player);
             player.getCooldowns().addCooldown(this, 40);
             return InteractionResult.SUCCESS;
-        } return InteractionResult.FAIL;
+        } return super.useOn(context);
     }
 }

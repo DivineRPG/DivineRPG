@@ -1,0 +1,24 @@
+{
+  "food": {
+    "item": "divinerpg:chicken_dinner",
+    "divider": "BOWL"
+  },
+  "containers": [
+    {
+      "filled": [
+        "divinerpg:chicken_dinner"
+      ],
+      "empty": "bowl",
+      "capacity": "BOWL"
+    }
+  ],
+  "still_texture": "moonlight:block/soft_fluids/soup_liquid",
+  "flowing_texture": "moonlight:block/soft_fluids/potion_flow",
+  "color": "#cea690",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

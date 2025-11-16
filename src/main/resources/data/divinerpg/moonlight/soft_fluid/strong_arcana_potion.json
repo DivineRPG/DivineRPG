@@ -1,0 +1,24 @@
+{
+  "food": {
+    "item": "divinerpg:strong_arcana_potion",
+    "divider": "BOTTLE"
+  },
+  "containers": [
+    {
+      "filled": [
+        "divinerpg:strong_arcana_potion"
+      ],
+      "empty": "glass_bottle",
+      "capacity": "BOTTLE"
+    }
+  ],
+  "still_texture": "moonlight:block/soft_fluids/potion_still",
+  "flowing_texture": "moonlight:block/soft_fluids/potion_flow",
+  "color": "#744fd7",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}
