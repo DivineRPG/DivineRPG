@@ -8,6 +8,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.fml.ModList;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class ItemModFoodEffect extends ItemModFood {
     @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, context, tooltip, flagIn);
         boolean tooltipAdded = false;
-        if(DelightLoader.foodEffectTooltipEnabled()) {
+        if(!ModList.get().isLoaded("farmersdelight") || DelightLoader.foodEffectTooltipEnabled()) {
             for(FoodProperties.PossibleEffect effect : food.effects()) {
                 float chance = effect.probability();
                 //Only shows the chance of the first effect

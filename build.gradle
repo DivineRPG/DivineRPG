@@ -85,7 +85,6 @@ dependencies {
     runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}" //Curios Continuation
     runtimeOnly "curse.maven:cyclops_core-232758:${cyclops_core_id}" //Cyclops Core
 //    runtimeOnly "curse.maven:cucumber-272335:${cucumber_id}" //Cucumber
-//    runtimeOnly "curse.maven:lodestone-616457:${lodestone_id}" //Lodestone
     runtimeOnly "curse.maven:selene-499980:${moonlight_id}" //Moonlight
 //    runtimeOnly "curse.maven:owo-lib-532610:${owo_id}" //oωo
     runtimeOnly "curse.maven:prickle-1023259:${prickle_id}" //Prickle
@@ -112,7 +111,6 @@ dependencies {
     implementation "curse.maven:every-compat-628539:${every_compat_id}" //Every Compat
     //TODO: to make cabinet variant textures for Every Compat (and maybe crop blocks)
     implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
-//    runtimeOnly "curse.maven:miners-delight-plus-689630:${miners_delight_id}" //Miner's Delight +
 //    runtimeOnly "curse.maven:mystical-agriculture-246640:${mystical_agriculture_id}" //Mystical Agriculture
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
