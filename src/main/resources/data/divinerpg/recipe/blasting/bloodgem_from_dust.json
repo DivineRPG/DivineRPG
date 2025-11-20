@@ -1,0 +1,10 @@
+{
+  "type": "blasting",
+  "group": "bloodgem",
+  "ingredient": {
+    "item": "divinerpg:bloodgem_dust"
+  },
+  "result": {
+    "id": "divinerpg:bloodgem"
+  }
+}

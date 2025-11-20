@@ -1,0 +1,15 @@
+{
+  "type": "crafting_shapeless",
+  "group": "bloodgem_dust",
+  "ingredients": [
+    {
+      "tag": "divinerpg:tools/maul"
+    },
+    {
+      "tag": "divinerpg:gems/bloodgem"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:bloodgem_dust"
+  }
+}

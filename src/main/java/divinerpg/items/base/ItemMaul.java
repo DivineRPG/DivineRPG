@@ -3,6 +3,7 @@ package divinerpg.items.base;
 import divinerpg.recipe.MaulSmashingRecipe;
 import divinerpg.util.LocalizeUtils;
 import net.minecraft.core.*;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
@@ -50,14 +51,21 @@ public class ItemMaul extends ItemModSword {
                 e -> e instanceof ItemEntity, range * range
         );
         if(hitResult != null) {
-            ItemEntity itemEntity = (ItemEntity) hitResult.getEntity();
+            ItemEntity itemEntity = (ItemEntity)hitResult.getEntity();
             ItemStack targetStack = itemEntity.getItem();
             MaulSmashingRecipe matchingRecipe = findMatchingRecipe(level.getRecipeManager(), targetStack, level, itemEntity.blockPosition());
             if(matchingRecipe != null) {
                 ItemStack resultStack = matchingRecipe.getResult();
-                resultStack.setCount(resultStack.getCount() * targetStack.getCount());
-                itemEntity.setItem(resultStack);
-                applyMaulEffects(player, targetStack.getCount(), hand);
+                ItemStack maulStack = player.getItemInHand(hand);
+                int itemsToSmashCount;
+                if(maulStack.has(DataComponents.UNBREAKABLE)) itemsToSmashCount = targetStack.getCount();
+                else itemsToSmashCount = Math.min(targetStack.getCount(), maulStack.getMaxDamage() - maulStack.getDamageValue());
+                resultStack.setCount(resultStack.getCount() * itemsToSmashCount);
+                targetStack.shrink(itemsToSmashCount);
+                ItemEntity convertedEntity = new ItemEntity(level, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), resultStack);
+                level.addFreshEntity(convertedEntity);
+                convertedEntity.setItem(resultStack);
+                applyMaulEffects(player, itemsToSmashCount, hand);
                 return InteractionResultHolder.success(player.getItemInHand(hand));
             }
         } return super.use(level, player, hand);

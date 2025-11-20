@@ -29,6 +29,7 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(fury_fire.get()), 6144);
         register(NSSItem.createItem(arlemite_dust.get()), 8064);
         register(NSSItem.createItem(rupee_dust.get()), 9216);
+        register(NSSItem.createItem(bloodgem_dust.get()), 8256);
         register(NSSItem.createItem(eden_dust.get()), 1024);
         register(NSSItem.createItem(wildwood_dust.get()), 1536);
         register(NSSItem.createItem(apalachia_dust.get()), 2048);
