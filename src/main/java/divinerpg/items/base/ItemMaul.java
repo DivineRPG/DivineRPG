@@ -33,14 +33,6 @@ public class ItemMaul extends ItemModSword {
     private static final int COOLDOWN_TICKS = 10;
     public ItemMaul(Tier tier, Properties properties) {super(tier, properties);}
     public ItemMaul(Tier tier) {super(tier);}
-    @Override public boolean hasCraftingRemainingItem(ItemStack stack) {return true;}
-    @Override public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
-        if(itemStack.isDamageableItem()) {
-            int damage = itemStack.getDamageValue() + 1;
-            if(damage >= itemStack.getMaxDamage()) return ItemStack.EMPTY;
-            itemStack.setDamageValue(damage);
-        } return itemStack.copy();
-    }
     @Override public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if(level.isClientSide) return super.use(level, player, hand);
         double range = player.entityInteractionRange();

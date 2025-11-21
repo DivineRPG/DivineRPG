@@ -88,6 +88,7 @@ dependencies {
     runtimeOnly "curse.maven:selene-499980:${moonlight_id}" //Moonlight
 //    runtimeOnly "curse.maven:owo-lib-532610:${owo_id}" //oωo
     runtimeOnly "curse.maven:prickle-1023259:${prickle_id}" //Prickle
+    runtimeOnly "curse.maven:titanium-287342:${titanium_id}" //Titanium
     //JEI, JER and addons
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}" //Just Enough Items
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}" //Just Enough Items
@@ -97,8 +98,8 @@ dependencies {
     runtimeOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
     runtimeOnly "curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}" //Just Enough Effect Descriptions
     //Guide book
-    compileOnly "vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
-    runtimeOnly "vazkii.patchouli:Patchouli:1.21-${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
+    compileOnly "vazkii.patchouli:Patchouli:1.21.1-${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
+    runtimeOnly "vazkii.patchouli:Patchouli:1.21.1-${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
     //Compat
     //Advanced Mining Dimension isn't ported to 1.21.1
 //    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension
@@ -137,7 +138,6 @@ dependencies {
     runtimeOnly "mekanism:Mekanism:${mekanism_version}:generators" //Mekanism: Generators
     runtimeOnly "mekanism:Mekanism:${mekanism_version}:tools" //Mekanism: Tools
     runtimeOnly "curse.maven:pneumaticcraft-repressurized-281849:${pneumaticcraft_id}" //Pneumaticcraft
-    runtimeOnly "curse.maven:titanium-287342:${titanium_id}" //Titanium
     //Helpful
     runtimeOnly "curse.maven:appleskin-248787:${apple_skin_id}" //Apple Skin
     runtimeOnly "curse.maven:not-enough-crashes-forge-442354:${not_enough_crashes_id}" //Not Enough Crashes

@@ -12,6 +12,7 @@
       "capacity": "BOWL"
     }
   ],
+  "translation_key": "item.divinerpg.chicken_dinner",
   "still_texture": "moonlight:block/soft_fluids/soup_liquid",
   "flowing_texture": "moonlight:block/soft_fluids/potion_flow",
   "color": "#cea690",

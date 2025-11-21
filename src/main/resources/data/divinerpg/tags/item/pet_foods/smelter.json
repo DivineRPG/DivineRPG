@@ -6,6 +6,10 @@
       "id": "#c:storage_blocks/charcoal",
       "required": false
     },
+    {
+      "id": "#c:storage_blocks/coal_coke",
+      "required": false
+    },
     "magma_block"
   ]
 }
