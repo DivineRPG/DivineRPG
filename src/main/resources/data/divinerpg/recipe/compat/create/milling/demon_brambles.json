@@ -1,0 +1,25 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "divinerpg:demon_brambles"
+    }
+  ],
+  "processing_time": 50,
+  "results": [
+    {
+      "id": "black_dye",
+      "count": 2
+    },
+    {
+      "id": "divinerpg:mortum_dust",
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

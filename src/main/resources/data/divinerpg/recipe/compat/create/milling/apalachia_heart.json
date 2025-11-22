@@ -1,0 +1,29 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "divinerpg:apalachia_heart"
+    }
+  ],
+  "processing_time": 100,
+  "results": [
+    {
+      "id": "divinerpg:apalachia_fragments",
+      "count": 3
+    },
+    {
+      "id": "divinerpg:apalachia_fragments",
+      "chance": 0.75
+    },
+    {
+      "id": "divinerpg:apalachia_dust",
+      "chance": 0.45
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

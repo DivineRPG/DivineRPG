@@ -110,8 +110,6 @@ dependencies {
     //TODO: mob animations, fix hat placement, capabilities
 //    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fights_id}" //Epic Fights
     implementation "curse.maven:every-compat-628539:${every_compat_id}" //Every Compat
-    //TODO: to make cabinet variant textures for Every Compat (and maybe crop blocks)
-    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
 //    runtimeOnly "curse.maven:mystical-agriculture-246640:${mystical_agriculture_id}" //Mystical Agriculture
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
@@ -121,8 +119,13 @@ dependencies {
     //TODO: to add raked frozen gravel, cannon boat variants, way posts in Iceika, map markers, hourglass dusts
     runtimeOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries
     //Traveler's Titles don't have NeoForge version up until 1.21.4
+    //Farmer's Delight Collection
+    //TODO: to make cabinet variant textures for Every Compat (and maybe crop blocks)
+    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
+    //TODO: fermenting recipes
+    runtimeOnly "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewing and Chewing
     //Tech mods compat
-    //TODO: to make window+pane variant textures for Every Compat
+    //TODO: to make window+pane variant textures for Every Compat, crushed ores (+recipes), potato projectiles, potion mixing, liquids, to remove weird twilight block cutting recipes
     runtimeOnly "curse.maven:create-328085:${create_id}" //Create
     runtimeOnly "com.enderio:enderio-base:${ender_io_version}" //EnderIO
     runtimeOnly "com.enderio:enderio-conduits:${ender_io_version}" //EnderIO Conduits

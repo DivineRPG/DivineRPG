@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:compat/supplementaries/soap_clean/white_wool"
+        "recipe": "divinerpg:compat/supplementaries/soap_clean/white_wool_from_rainbow_wool"
       },
       "trigger": "recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:compat/supplementaries/soap_clean/white_wool"
+      "divinerpg:compat/supplementaries/soap_clean/white_wool_from_rainbow_wool"
     ]
   },
   "neoforge:conditions": [

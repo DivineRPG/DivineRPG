@@ -1,0 +1,24 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "divinerpg:divine_rock"
+    }
+  ],
+  "processing_time": 250,
+  "results": [
+    {
+      "id": "cobblestone"
+    },
+    {
+      "id": "divinerpg:divine_shards",
+      "chance": 0.05
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

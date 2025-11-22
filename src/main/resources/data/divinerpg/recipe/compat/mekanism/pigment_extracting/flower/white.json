@@ -1,0 +1,21 @@
+{
+  "type": "mekanism:pigment_extracting",
+  "input": {
+    "type": "neoforge:compound",
+    "children": [
+      {
+        "item": "divinerpg:winterbloom"
+      }
+    ]
+  },
+  "output": {
+    "id":"mekanism:white",
+    "amount":768
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "divinerpg:scorchdirt"
+    },
+    {
+      "type": "neoforge:single",
+      "fluid": "water",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "id": "divinerpg:scorchgrass"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

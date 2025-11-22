@@ -1,0 +1,24 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "divinerpg:skythern_dirt"
+    },
+    {
+      "type": "neoforge:single",
+      "fluid": "water",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "id": "divinerpg:skythern_grass"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

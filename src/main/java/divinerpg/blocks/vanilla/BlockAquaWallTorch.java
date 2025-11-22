@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 
 public class BlockAquaWallTorch extends BlockModWallTorch implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public BlockAquaWallTorch() {registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE));}
+    public BlockAquaWallTorch() {registerDefaultState(stateDefinition.any().setValue(WATERLOGGED, false));}
     @Nullable
     @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());

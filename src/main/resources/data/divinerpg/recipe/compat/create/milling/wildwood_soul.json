@@ -1,0 +1,25 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "divinerpg:wildwood_soul"
+    }
+  ],
+  "processing_time": 100,
+  "results": [
+    {
+      "id": "divinerpg:wildwood_fragments",
+      "count": 2
+    },
+    {
+      "id": "divinerpg:wildwood_dust",
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

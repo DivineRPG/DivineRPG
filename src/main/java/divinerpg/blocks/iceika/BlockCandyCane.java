@@ -4,15 +4,16 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.*;
+
+import static net.minecraft.world.level.block.state.properties.NoteBlockInstrument.BASEDRUM;
+import static net.minecraft.world.level.material.PushReaction.PUSH_ONLY;
 
 public class BlockCandyCane extends HorizontalDirectionalBlock {
 	public static final MapCodec<BlockCandyCane> CODEC = simpleCodec(BlockCandyCane::new);
 	@Override public MapCodec<BlockCandyCane> codec() {return CODEC;}
 	public BlockCandyCane(Properties properties) {
-		super(properties.strength(.75F).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.CALCITE).pushReaction(PushReaction.PUSH_ONLY));
+		super(properties.strength(.75F).instrument(BASEDRUM).sound(SoundType.CALCITE).pushReaction(PUSH_ONLY));
 	}
-	@Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_53681_) {p_53681_.add(FACING);}
-	@Override public BlockState getStateForPlacement(BlockPlaceContext p_53679_) {return this.defaultBlockState().setValue(FACING, p_53679_.getHorizontalDirection().getOpposite());}
+	@Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(FACING);}
+	@Override public BlockState getStateForPlacement(BlockPlaceContext context) {return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());}
 }

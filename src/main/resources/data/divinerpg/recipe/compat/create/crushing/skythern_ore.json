@@ -1,0 +1,34 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "divinerpg:skythern_ore"
+    }
+  ],
+  "processing_time": 350,
+  "results": [
+    {
+      "id": "divinerpg:skythern_fragments",
+      "count": 5
+    },
+    {
+      "id": "divinerpg:skythern_fragments",
+      "count": 2,
+      "chance": 0.5
+    },
+    {
+      "id": "create:experience_nugget",
+      "chance": 0.75
+    },
+    {
+      "id": "divinerpg:twilight_stone",
+      "chance": 0.125
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

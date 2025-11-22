@@ -1,0 +1,28 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "tag": "divinerpg:sands/arcanic"
+    }
+  ],
+  "results": [
+    {
+      "id": "clay_ball",
+      "chance": 0.25
+    },
+    {
+      "id": "lapis_lazuli",
+      "chance": 0.05
+    },
+    {
+      "id": "divinerpg:arcana_bush",
+      "chance": 0.05
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

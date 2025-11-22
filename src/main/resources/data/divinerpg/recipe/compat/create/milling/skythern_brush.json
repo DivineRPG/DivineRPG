@@ -1,0 +1,25 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "divinerpg:skythern_brush"
+    }
+  ],
+  "processing_time": 50,
+  "results": [
+    {
+      "id": "divinerpg:skythern_dust",
+      "chance": 0.1
+    },
+    {
+      "id": "divinerpg:sky_plant_seeds",
+      "chance": 0.01
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

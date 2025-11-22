@@ -17,8 +17,19 @@
               ]
             },
             {
-              "type": "item",
-              "name": "divinerpg:skythern_dust",
+              "type": "group",
+              "children": [
+                {
+                  "type": "item",
+                  "name": "divinerpg:sky_plant_seeds",
+                  "weight": 2
+                },
+                {
+                  "type": "item",
+                  "name": "divinerpg:skythern_dust",
+                  "weight": 18
+                }
+              ],
               "conditions": [
                 {
                   "condition": "survives_explosion"
@@ -71,8 +82,19 @@
               ]
             },
             {
-              "type": "item",
-              "name": "divinerpg:skythern_dust",
+              "type": "group",
+              "children": [
+                {
+                  "type": "item",
+                  "name": "divinerpg:sky_plant_seeds",
+                  "weight": 2
+                },
+                {
+                  "type": "item",
+                  "name": "divinerpg:skythern_dust",
+                  "weight": 18
+                }
+              ],
               "conditions": [
                 {
                   "condition": "survives_explosion"

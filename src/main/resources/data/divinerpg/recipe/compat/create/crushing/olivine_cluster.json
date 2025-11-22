@@ -1,0 +1,25 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "divinerpg:olivine_cluster"
+    }
+  ],
+  "processing_time": 150,
+  "results": [
+    {
+      "id": "divinerpg:olivine",
+      "count": 7
+    },
+    {
+      "id": "divinerpg:olivine",
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

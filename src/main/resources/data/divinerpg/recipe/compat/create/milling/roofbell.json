@@ -1,0 +1,25 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "divinerpg:roofbell"
+    }
+  ],
+  "processing_time": 50,
+  "results": [
+    {
+      "id": "pink_dye",
+      "count": 2
+    },
+    {
+      "id": "magenta_dye",
+      "chance": 0.1
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "divinerpg:storage_blocks/steel"
+    }
+  ],
+  "processing_time": 400,
+  "results": [
+    {
+      "id": "iron_ingot",
+      "count": 4
+    },
+    {
+      "id": "iron_ingot",
+      "count": 2,
+      "chance": 0.6
+    },
+    {
+      "id": "iron_ingot",
+      "chance": 0.125
+    },
+    {
+      "id": "divinerpg:anthracite",
+      "chance": 0.35
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

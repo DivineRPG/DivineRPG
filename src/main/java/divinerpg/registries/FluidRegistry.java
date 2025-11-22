@@ -26,7 +26,7 @@ public class FluidRegistry {
     }
     public static final DeferredHolder<FluidType, FluidType> SMOLDERING_TAR = FLUID_TYPES.register("smoldering_tar_fluid_type", () ->
             new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)));
-    public static final DeferredHolder<Fluid, BaseFlowingFluid> SMOLDERING_TAR_FLUID = FLUIDS.register("smoldering_tar_still", () ->
+    public static final DeferredHolder<Fluid, BaseFlowingFluid> SMOLDERING_TAR_FLUID = FLUIDS.register("smoldering_tar", () ->
             new BaseFlowingFluid.Source(fluidProperties()) {
                 @Override public int getSlopeFindDistance(LevelReader level) {return level.dimensionType().ultraWarm() ? 4 : 2;}
                 @Override public int getDropOff(LevelReader level) {return level.dimensionType().ultraWarm() ? 1 : 2;}
@@ -53,7 +53,7 @@ public class FluidRegistry {
                 private void fizz(LevelAccessor level, BlockPos pos) {level.levelEvent(1501, pos, 0);}
                 @Override protected void beforeDestroyingBlock(LevelAccessor level, BlockPos pos, BlockState state) {this.fizz(level, pos);}
                 });
-    public static final DeferredHolder<Fluid, Fluid> SMOLDERING_TAR_FLUID_FLOWING = FLUIDS.register("smoldering_tar_flowing", () ->
+    public static final DeferredHolder<Fluid, Fluid> SMOLDERING_TAR_FLUID_FLOWING = FLUIDS.register("flowing_smoldering_tar", () ->
             new BaseFlowingFluid.Flowing(fluidProperties()) {
                 private void fizz(LevelAccessor level, BlockPos pos) {level.levelEvent(1501, pos, 0);}
                 @Override protected void beforeDestroyingBlock(LevelAccessor level, BlockPos pos, BlockState state) {this.fizz(level, pos);}

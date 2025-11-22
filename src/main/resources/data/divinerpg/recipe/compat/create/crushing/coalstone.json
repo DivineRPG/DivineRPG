@@ -1,0 +1,25 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "divinerpg:storage_blocks/anthracite"
+    }
+  ],
+  "processing_time": 200,
+  "results": [
+    {
+      "id": "divinerpg:anthracite",
+      "count": 2
+    },
+    {
+      "id": "divinerpg:anthracite",
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

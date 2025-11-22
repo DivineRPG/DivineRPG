@@ -1,0 +1,25 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "divinerpg:moon_bud"
+    }
+  ],
+  "processing_time": 50,
+  "results": [
+    {
+      "id": "light_blue_dye",
+      "count": 2
+    },
+    {
+      "id": "white_dye",
+      "chance": 0.1
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

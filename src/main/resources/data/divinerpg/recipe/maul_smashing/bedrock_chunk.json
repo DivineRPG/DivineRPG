@@ -3,8 +3,8 @@
   "input": {
     "tag": "divinerpg:gems/shadow"
   },
+  "required_base_block": "#divinerpg:bedrock_grinding_base",
   "output": {
     "id": "divinerpg:bedrock_chunk"
-  },
-  "required_base_block": "#divinerpg:bedrock_grinding_base"
+  }
 }

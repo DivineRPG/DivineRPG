@@ -1,0 +1,21 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "type": "neoforge:single",
+      "fluid": "divinerpg:smoldering_tar",
+      "amount": 50
+    }
+  ],
+  "results": [
+    {
+      "id": "divinerpg:asphalt"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

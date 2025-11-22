@@ -94,7 +94,7 @@ public class ItemShickaxe extends DiggerItem {
         } else if(state.getBlock() instanceof CampfireBlock && state.getValue(CampfireBlock.LIT)) {
             if(!level.isClientSide) level.levelEvent(null, 1009, blockpos, 0);
             CampfireBlock.dowse(context.getPlayer(), level, blockpos, state);
-            blockstate2 = state.setValue(CampfireBlock.LIT, Boolean.FALSE);
+            blockstate2 = state.setValue(CampfireBlock.LIT, false);
         } if(blockstate2 != null) {
                 if(!level.isClientSide) {
                     level.setBlock(blockpos, blockstate2, 11);

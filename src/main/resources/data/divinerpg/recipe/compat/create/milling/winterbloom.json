@@ -1,0 +1,29 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "divinerpg:winterbloom"
+    }
+  ],
+  "processing_time": 50,
+  "results": [
+    {
+      "id": "white_dye",
+      "count": 2
+    },
+    {
+      "id": "light_blue_dye",
+      "chance": 0.1
+    },
+    {
+      "id": "cyan_dye",
+      "chance": 0.1
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

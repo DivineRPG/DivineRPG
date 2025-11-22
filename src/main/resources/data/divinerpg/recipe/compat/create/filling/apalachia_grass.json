@@ -1,0 +1,24 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "divinerpg:apalachia_dirt"
+    },
+    {
+      "type": "neoforge:single",
+      "fluid": "water",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "id": "divinerpg:apalachia_grass"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

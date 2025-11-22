@@ -1,0 +1,28 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "divinerpg:gelidite"
+    }
+  ],
+  "results": [
+    {
+      "id": "clay_ball",
+      "chance": 0.45
+    },
+    {
+      "id": "bone_meal",
+      "chance": 0.15
+    },
+    {
+      "id": "divinerpg:white_mushroom_seeds",
+      "chance": 0.015
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

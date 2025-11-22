@@ -1,0 +1,24 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "divinerpg:arcanite_dirt"
+    },
+    {
+      "type": "neoforge:single",
+      "fluid": "divinerpg:smoldering_tar",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "id": "divinerpg:arcanite_grass"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

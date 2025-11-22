@@ -15,7 +15,10 @@
     "step_on_elevantium": {
       "trigger": "enter_block",
       "conditions": {
-        "block": "divinerpg:elevantium"
+        "block": "divinerpg:elevantium",
+        "state": {
+          "powered": "true"
+        }
       }
     }
   }

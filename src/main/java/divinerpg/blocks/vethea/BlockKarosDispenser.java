@@ -41,7 +41,7 @@ public class BlockKarosDispenser extends BaseEntityBlock {
 
     public BlockKarosDispenser(Properties properties) {
         super(properties.mapColor(MapColor.PLANT).strength(-1, 3600000).instrument(NoteBlockInstrument.BASEDRUM).noLootTable());
-        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TRIGGERED, Boolean.FALSE));
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TRIGGERED, false));
     }
 
     public InteractionResult use(BlockState p_225533_1_, Level p_225533_2_, BlockPos p_225533_3_, Player p_225533_4_, InteractionHand p_225533_5_, BlockHitResult p_225533_6_) {

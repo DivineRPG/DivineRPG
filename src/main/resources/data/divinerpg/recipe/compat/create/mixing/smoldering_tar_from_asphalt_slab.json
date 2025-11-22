@@ -1,0 +1,21 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "divinerpg:asphalt_slab"
+    }
+  ],
+  "heat_requirement": "superheated",
+  "results": [
+    {
+      "id": "divinerpg:smoldering_tar",
+      "amount": 25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

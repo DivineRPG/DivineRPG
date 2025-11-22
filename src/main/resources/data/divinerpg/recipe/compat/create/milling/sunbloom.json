@@ -1,0 +1,25 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "divinerpg:sunbloom"
+    }
+  ],
+  "processing_time": 50,
+  "results": [
+    {
+      "id": "orange_dye",
+      "count": 2
+    },
+    {
+      "id": "yellow_dye",
+      "chance": 0.1
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}
