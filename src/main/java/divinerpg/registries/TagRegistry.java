@@ -207,6 +207,7 @@ public class TagRegistry {
         TOOLS_MAUL = item("tools/maul"),
 
     //Misc
+        FROSTED_ALLURE_CYCLE_ITEMS = item("frosted_allure_cycle_items"),
         FURNACES = item("furnaces");
 
     public static final TagKey<Block>

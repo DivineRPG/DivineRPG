@@ -3,9 +3,13 @@
     "divinerpg:cobbled_frozen_stone",
     "divinerpg:icy_stone",
     "divinerpg:cobaltite",
+    "divinerpg:ancient_stone",
     "divinerpg:ancient_stone_breakable",
+    "divinerpg:soul_stone",
     "divinerpg:soul_stone_breakable",
     "divinerpg:cobbled_scorchalt",
-    "divinerpg:luna_stone"
+    "divinerpg:luna_stone",
+    "divinerpg:black_hungerstone",
+    "divinerpg:green_hungerstone"
   ]
 }

@@ -1,21 +1,21 @@
 {
   "type": "immersiveengineering:cloche",
   "input": {
-    "item": "divinerpg:moonbulb_seeds"
+    "item": "divinerpg:veilo_seeds"
   },
+  "soil": {
+    "item": "divinerpg:arcanite_dirt"
+  },
+  "time": 800,
   "render": {
     "type": "immersiveengineering:generic",
-    "block": "divinerpg:moonbulb_plant"
+    "block": "divinerpg:veilo_plant"
   },
   "results": [
     {
-      "item": "divinerpg:moonbulb"
+      "item": "divinerpg:veilo"
     }
   ],
-  "soil": {
-    "item": "minecraft:grass_block"
-  },
-  "time": 320,
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

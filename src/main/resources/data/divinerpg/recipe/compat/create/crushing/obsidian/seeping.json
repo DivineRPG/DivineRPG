@@ -1,0 +1,25 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "divinerpg:seeping_obsidian"
+    }
+  ],
+  "processing_time": 500,
+  "results": [
+    {
+      "id": "obsidian",
+      "chance": 0.85
+    },
+    {
+      "id": "divinerpg:aquatic_pellets",
+      "chance": 0.15
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

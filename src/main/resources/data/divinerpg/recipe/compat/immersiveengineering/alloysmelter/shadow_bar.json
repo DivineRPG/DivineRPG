@@ -1,16 +1,16 @@
 {
   "type": "immersiveengineering:alloy",
   "input0": {
-    "tag": "divinerpg:ingots/arlemite"
+    "tag": "divinerpg:alloy_base/arlemite"
   },
   "input1": {
-    "tag": "divinerpg:ingots/rupee"
+    "tag": "divinerpg:alloy_base/rupee"
   },
   "result": {
     "basePredicate": {
       "item": "divinerpg:shadow_bar"
     },
-    "count": 4
+    "count": 2
   },
   "neoforge:conditions": [
     {

@@ -1,0 +1,25 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "divinerpg:vwooping_obsidian"
+    }
+  ],
+  "processing_time": 500,
+  "results": [
+    {
+      "id": "obsidian",
+      "chance": 0.85
+    },
+    {
+      "id": "divinerpg:ender_shards",
+      "chance": 0.05
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

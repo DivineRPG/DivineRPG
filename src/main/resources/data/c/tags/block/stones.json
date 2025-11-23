@@ -8,6 +8,9 @@
     "divinerpg:scorchalt",
     "divinerpg:ray_stone",
     "divinerpg:draught_stone",
-    "divinerpg:dream_stone"
+    "divinerpg:dream_stone",
+    "divinerpg:everstone",
+    "divinerpg:white_everstone",
+    "divinerpg:dark_everstone"
   ]
 }

@@ -1,21 +1,21 @@
 {
   "type": "immersiveengineering:cloche",
   "input": {
-    "item": "divinerpg:lamona_seeds"
+    "item": "divinerpg:tomato_seeds"
   },
+  "soil": {
+    "item": "dirt"
+  },
+  "time": 800,
   "render": {
     "type": "immersiveengineering:generic",
-    "block": "divinerpg:lamona_plant"
+    "block": "divinerpg:tomato_plant"
   },
   "results": [
     {
-      "item": "divinerpg:lamona"
+      "item": "divinerpg:tomato"
     }
   ],
-  "soil": {
-    "item": "minecraft:dirt"
-  },
-  "time": 320,
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

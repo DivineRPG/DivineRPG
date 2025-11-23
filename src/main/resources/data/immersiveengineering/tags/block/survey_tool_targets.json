@@ -1,0 +1,10 @@
+{
+  "values": [
+    "divinerpg:cobaltite",
+    "divinerpg:soul_sludge_breakable"
+  ],
+  "remove": [
+    "divinerpg:brittle_moss",
+    "divinerpg:arcanite_moss"
+  ]
+}

@@ -1,21 +1,21 @@
 {
   "type": "immersiveengineering:cloche",
   "input": {
-    "item": "divinerpg:eucalyptus_root_seeds"
+    "item": "divinerpg:marsine_seeds"
   },
+  "soil": {
+    "item": "divinerpg:arcanite_dirt"
+  },
+  "time": 800,
   "render": {
     "type": "immersiveengineering:generic",
-    "block": "divinerpg:eucalyptus_plant"
+    "block": "divinerpg:marsine_plant"
   },
   "results": [
     {
-      "item": "divinerpg:eucalyptus_log"
+      "item": "divinerpg:marsine"
     }
   ],
-  "soil": {
-    "item": "minecraft:dirt"
-  },
-  "time": 600,
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

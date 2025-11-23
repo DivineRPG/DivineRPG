@@ -1,21 +1,21 @@
 {
   "type": "immersiveengineering:cloche",
   "input": {
-    "item": "divinerpg:pink_glowbone_seeds"
+    "item": "divinerpg:pinfly_seeds"
   },
-  "render": {
-    "type": "immersiveengineering:generic",
-    "block": "divinerpg:pink_glowbone_plant"
-  },
-  "results": [
-    {
-      "item": "divinerpg:pink_glowbone"
-    }
-  ],
   "soil": {
     "item": "divinerpg:arcanite_grass"
   },
-  "time": 320,
+  "time": 560,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:pinfly_plant"
+  },
+  "results": [
+    {
+      "item": "divinerpg:pinfly"
+    }
+  ],
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

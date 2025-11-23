@@ -1,21 +1,21 @@
 {
   "type": "immersiveengineering:cloche",
   "input": {
-    "item": "divinerpg:marsine_seeds"
+    "item": "divinerpg:pink_glowbone_seeds"
   },
+  "soil": {
+    "item": "divinerpg:apalachia_grass"
+  },
+  "time": 560,
   "render": {
     "type": "immersiveengineering:generic",
-    "block": "divinerpg:marsine_plant"
+    "block": "divinerpg:pink_glowbone_plant"
   },
   "results": [
     {
-      "item": "divinerpg:marsine"
+      "item": "divinerpg:pink_glowbone"
     }
   ],
-  "soil": {
-    "item": "minecraft:dirt"
-  },
-  "time": 320,
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",
