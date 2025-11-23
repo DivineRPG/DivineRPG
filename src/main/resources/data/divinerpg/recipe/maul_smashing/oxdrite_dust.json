@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "tag": "divinerpg:ingots/oxdrite"
+  },
+  "output": {
+    "id": "divinerpg:oxdrite_dust"
+  }
+}

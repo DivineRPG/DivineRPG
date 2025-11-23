@@ -14,15 +14,15 @@
     {
       "id": "iron_ingot",
       "count": 2,
-      "chance": 0.6
-    },
-    {
-      "id": "iron_ingot",
-      "chance": 0.125
+      "chance": 0.5
     },
     {
       "id": "divinerpg:anthracite",
       "chance": 0.35
+    },
+    {
+      "id": "iron_ingot",
+      "chance": 0.125
     }
   ],
   "neoforge:conditions": [

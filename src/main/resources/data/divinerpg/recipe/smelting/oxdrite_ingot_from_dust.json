@@ -1,0 +1,10 @@
+{
+  "type": "smelting",
+  "group": "oxdrite_ingot",
+  "ingredient": {
+    "item": "divinerpg:oxdrite_dust"
+  },
+  "result": {
+    "id": "divinerpg:oxdrite_ingot"
+  }
+}

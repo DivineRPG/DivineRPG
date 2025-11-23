@@ -2,21 +2,17 @@
   "type": "create:splashing",
   "ingredients": [
     {
-      "tag": "divinerpg:sands/arcanic"
+      "item": "divinerpg:frozen_gravel"
     }
   ],
   "results": [
     {
-      "id": "clay_ball",
+      "id": "flint",
       "chance": 0.25
     },
     {
-      "id": "lapis_lazuli",
-      "chance": 0.05
-    },
-    {
-      "id": "divinerpg:arcana_bush",
-      "chance": 0.05
+      "id": "divinerpg:oxdrite_nugget",
+      "chance": 0.125
     }
   ],
   "neoforge:conditions": [

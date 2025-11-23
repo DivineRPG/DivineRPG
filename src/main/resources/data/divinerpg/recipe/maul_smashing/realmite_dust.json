@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "tag": "divinerpg:ingots/realmite"
+  },
+  "output": {
+    "id": "divinerpg:realmite_dust"
+  }
+}

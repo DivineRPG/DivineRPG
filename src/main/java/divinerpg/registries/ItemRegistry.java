@@ -61,10 +61,13 @@ public class ItemRegistry {
         eden_sparkles = registerItem("eden_sparkles"),
 
         //Dusts
+        realmite_dust = registerItem("realmite_dust"),
         arlemite_dust = registerItem("arlemite_dust"),
         rupee_dust = registerItem("rupee_dust"),
         shadow_dust = registerItem("shadow_dust"),
         bloodgem_dust = registerItem("bloodgem_dust"),
+        torridite_dust = registerItem("torridite_dust"),
+        oxdrite_dust = registerItem("oxdrite_dust"),
         eden_dust = registerItem("eden_dust"),
         wildwood_dust = registerItem("wildwood_dust"),
         apalachia_dust = registerItem("apalachia_dust"),
@@ -85,6 +88,7 @@ public class ItemRegistry {
         arlemite_nugget = registerItem("arlemite_nugget"),
         rupee_nugget = registerItem("rupee_nugget"),
         torridite_nugget = registerItem("torridite_nugget"),
+        oxdrite_nugget = registerItem("oxdrite_nugget"),
         pieceOfRawArcanium = registerItem("piece_of_raw_arcanium"),
 
         //Ingots

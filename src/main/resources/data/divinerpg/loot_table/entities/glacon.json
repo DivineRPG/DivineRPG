@@ -11,8 +11,8 @@
               "function": "set_count",
               "count": {
                 "type": "uniform",
-                "min": 3,
-                "max": 5
+                "min": 0,
+                "max": 3
               }
             },
             {
@@ -58,6 +58,16 @@
       "conditions": [
         {
           "condition": "killed_by_player"
+        },
+        {
+          "condition": "random_chance_with_enchanted_bonus",
+          "enchantment": "looting",
+          "unenchanted_chance": 0.5,
+          "enchanted_chance": {
+            "type": "linear",
+            "base": 0.51,
+            "per_level_above_first": 0.01
+          }
         }
       ],
       "rolls": 1

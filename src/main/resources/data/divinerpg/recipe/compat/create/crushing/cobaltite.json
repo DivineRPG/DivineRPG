@@ -12,7 +12,15 @@
       "chance": 0.25
     },
     {
+      "id": "create:copper_nugget",
+      "chance": 0.1
+    },
+    {
       "id": "iron_nugget",
+      "chance": 0.1
+    },
+    {
+      "id": "divinerpg:oxdrite_nugget",
       "chance": 0.1
     },
     {

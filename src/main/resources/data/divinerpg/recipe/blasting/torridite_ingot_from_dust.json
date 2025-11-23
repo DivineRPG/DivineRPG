@@ -1,0 +1,10 @@
+{
+  "type": "blasting",
+  "group": "torridite_ingot",
+  "ingredient": {
+    "item": "divinerpg:torridite_dust"
+  },
+  "result": {
+    "id": "divinerpg:torridite_ingot"
+  }
+}

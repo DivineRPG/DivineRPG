@@ -964,6 +964,7 @@
 
   "item.divinerpg.raw_realmite": "Raw Reality",
   "item.divinerpg.realmite_ingot": "Realistic Ingot",
+  "item.divinerpg.realmite_dust": "Realistic Dust",
   "item.divinerpg.realmite_nugget": "Realistic Nugget",
   "item.divinerpg.realmite_helmet": "Realistic Helmet",
   "item.divinerpg.realmite_chestplate": "Realistic Chestplate",
@@ -1092,6 +1093,7 @@
 
   "item.divinerpg.raw_torridite": "Raw Netherite",
   "item.divinerpg.torridite_ingot": "Netherite Ingot",
+  "item.divinerpg.torridite_dust": "Netherite Dust",
   "item.divinerpg.torridite_nugget": "Netherite Nugget",
   "item.divinerpg.torridite_chunk": "Netherite Chunk",
   "item.divinerpg.torridite_helmet": "Netherite Helmet",
@@ -1194,6 +1196,8 @@
   "trim_material.divinerpg.olivine": "Crystalized Olive Material",
   "item.divinerpg.raw_oxdrite": "Raw Lightly Weathered Exposed Oxides",
   "item.divinerpg.oxdrite_ingot": "Oxidized Lightly Weathered Exposed Ingot",
+  "item.divinerpg.oxdrite_dust": "Cocoa Powder",
+  "item.divinerpg.oxdrite_nugget": "Chocolate Chip",
   "item.divinerpg.oxdrite_pickaxe": "Oxidized Lightly Weathered Exposed Pickaxe",
 
   "item.divinerpg.ice_shards": "Broken Icicle",

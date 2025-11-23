@@ -1,0 +1,34 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "divinerpg:soul_sludge_breakable"
+    }
+  ],
+  "results": [
+    {
+      "id": "iron_nugget",
+      "chance": 0.225
+    },
+    {
+      "id": "iron_nugget",
+      "count": 2,
+      "chance": 0.125
+    },
+    {
+      "id": "divinerpg:collector_fragments",
+      "count": 3,
+      "chance": 0.045
+    },
+    {
+      "id": "divinerpg:piece_of_raw_arcanium",
+      "chance": 0.005
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

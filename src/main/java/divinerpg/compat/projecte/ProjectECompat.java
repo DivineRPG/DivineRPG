@@ -22,14 +22,18 @@ public class ProjectECompat implements IEMCMapper<NormalizedSimpleStack, Long> {
         register(NSSItem.createItem(arlemite_nugget.get()), 896);
         register(NSSItem.createItem(rupee_nugget.get()), 1024);
         register(NSSItem.createItem(torridite_nugget.get()), 912);
+        register(NSSItem.createItem(oxdrite_nugget.get()), 57);
         //Ingots
         register(NSSItem.createItem(shadow_bar.get()), 17280);
         //Dust & Powders
         register(NSSItem.createItem(purple_blaze.get()), 1536);
         register(NSSItem.createItem(fury_fire.get()), 6144);
+        register(NSSItem.createItem(realmite_dust.get()), 378);
         register(NSSItem.createItem(arlemite_dust.get()), 8064);
         register(NSSItem.createItem(rupee_dust.get()), 9216);
+        register(NSSItem.createItem(torridite_dust.get()), 8208);
         register(NSSItem.createItem(bloodgem_dust.get()), 8256);
+        register(NSSItem.createItem(oxdrite_dust.get()), 513);
         register(NSSItem.createItem(eden_dust.get()), 1024);
         register(NSSItem.createItem(wildwood_dust.get()), 1536);
         register(NSSItem.createItem(apalachia_dust.get()), 2048);

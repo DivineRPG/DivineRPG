@@ -1038,6 +1038,7 @@
 
   "item.divinerpg.raw_realmite": "Raw Realmite",
   "item.divinerpg.realmite_ingot": "Realmite Ingot",
+  "item.divinerpg.realmite_dust": "Realmite Dust",
   "item.divinerpg.realmite_nugget": "Realmite Nugget",
   "item.divinerpg.realmite_helmet": "Realmite Helmet",
   "item.divinerpg.realmite_chestplate": "Realmite Chestplate",
@@ -1167,6 +1168,7 @@
 
   "item.divinerpg.raw_torridite": "Raw Torridite",
   "item.divinerpg.torridite_ingot": "Torridite Ingot",
+  "item.divinerpg.torridite_dust": "Torridite Dust",
   "item.divinerpg.torridite_nugget": "Torridite Nugget",
   "item.divinerpg.torridite_chunk": "Torridite Chunk",
   "item.divinerpg.torridite_helmet": "Torridite Helmet",
@@ -1269,6 +1271,8 @@
   "trim_material.divinerpg.olivine": "Olivine Material",
   "item.divinerpg.raw_oxdrite": "Raw Oxdrite",
   "item.divinerpg.oxdrite_ingot": "Oxdrite Ingot",
+  "item.divinerpg.oxdrite_dust": "Oxdrite Dust",
+  "item.divinerpg.oxdrite_nugget": "Oxdrite Nugget",
   "item.divinerpg.oxdrite_pickaxe": "Oxdrite Pickaxe",
 
   "item.divinerpg.ice_shards": "Ice Shards",

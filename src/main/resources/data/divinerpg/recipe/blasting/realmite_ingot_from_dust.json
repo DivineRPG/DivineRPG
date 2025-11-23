@@ -1,0 +1,10 @@
+{
+  "type": "blasting",
+  "group": "realmite_ingot",
+  "ingredient": {
+    "item": "divinerpg:realmite_dust"
+  },
+  "result": {
+    "id": "divinerpg:realmite_ingot"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "tag": "divinerpg:ingots/torridite"
+  },
+  "output": {
+    "id": "divinerpg:torridite_dust"
+  }
+}
