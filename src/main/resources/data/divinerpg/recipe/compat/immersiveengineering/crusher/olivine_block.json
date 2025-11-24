@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "item": "divinerpg:olivine_block"
+  },
+  "energy": 3200,
+  "result": {
+    "id": "divinerpg:olivine",
+    "count": 4
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

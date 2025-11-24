@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "item": "divinerpg:blue_stone"
+  },
+  "energy": 3200,
+  "result": {
+    "id": "glowstone_dust",
+    "count": 4
+  },
+  "secondaries": [
+    {
+      "output": {
+        "id": "lapis_lazuli"
+      },
+      "chance": 0.05
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

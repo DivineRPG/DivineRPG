@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "tag": "divinerpg:ores/bloodgem"
+  },
+  "energy": 6000,
+  "result": {
+    "item": "divinerpg:bloodgem_dust",
+    "count": 2
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

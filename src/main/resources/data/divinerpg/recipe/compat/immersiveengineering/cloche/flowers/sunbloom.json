@@ -1,0 +1,30 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:sunbloom"
+  },
+  "soil": [
+    {
+      "item": "divinerpg:ray_dirt"
+    },
+    {
+      "item": "divinerpg:scorchdirt"
+    }
+  ],
+  "time": 480,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:sunbloom"
+  },
+  "results": [
+    {
+      "id": "divinerpg:sunbloom"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

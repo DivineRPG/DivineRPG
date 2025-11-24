@@ -1,0 +1,22 @@
+{
+  "type": "immersiveengineering:sawmill",
+  "input": {
+    "item": "divinerpg:apalachia_stairs"
+  },
+  "energy": 1600,
+  "strippingSecondaries": [
+    {
+      "tag": "c:dusts/wood"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:apalachia_planks"
+  },
+  "secondaryOutputs": [],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

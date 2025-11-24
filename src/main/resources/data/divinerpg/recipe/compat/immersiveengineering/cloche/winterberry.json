@@ -1,0 +1,26 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:winterberry"
+  },
+  "soil": {
+    "item": "divinerpg:brittle_moss"
+  },
+  "time": 560,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:winterberry_bush"
+  },
+  "results": [
+    {
+      "id": "divinerpg:winterberry",
+      "count": 2
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

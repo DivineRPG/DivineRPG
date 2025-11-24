@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:green_gemtop"
+  },
+  "soil": {
+    "item": "divinerpg:dream_dirt"
+  },
+  "time": 480,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:green_gemtop"
+  },
+  "results": [
+    {
+      "id": "divinerpg:green_gemtop"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

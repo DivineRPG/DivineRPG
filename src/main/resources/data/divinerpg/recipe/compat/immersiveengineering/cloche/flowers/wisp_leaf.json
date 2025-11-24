@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:wisp_leaf"
+  },
+  "soil": {
+    "item": "divinerpg:frozen_dirt"
+  },
+  "time": 480,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:wisp_leaf"
+  },
+  "results": [
+    {
+      "id": "divinerpg:wisp_leaf"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

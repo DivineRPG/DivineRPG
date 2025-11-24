@@ -1,0 +1,24 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "input": {
+    "tag": "divinerpg:ores/oxdrite"
+  },
+  "additives": [],
+  "energy": 102400,
+  "time": 200,
+  "results": [
+    {
+      "item": "divinerpg:oxdrite_ingot",
+      "count": 2
+    }
+  ],
+  "slag": {
+    "tag": "c:slag"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

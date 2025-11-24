@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:squeezer",
+  "input": {
+    "tag": "divinerpg:seeds/firestock"
+  },
+  "energy": 6400,
+  "fluid": {
+    "id": "immersiveengineering:plantoil",
+    "amount": 30
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

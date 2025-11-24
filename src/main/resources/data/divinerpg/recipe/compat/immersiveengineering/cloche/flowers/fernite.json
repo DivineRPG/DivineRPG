@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:fernite"
+  },
+  "soil": {
+    "item": "divinerpg:dream_dirt"
+  },
+  "time": 480,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:fernite"
+  },
+  "results": [
+    {
+      "id": "divinerpg:fernite"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

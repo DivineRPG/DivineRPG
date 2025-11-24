@@ -1,0 +1,30 @@
+{
+  "type": "immersiveengineering:sawmill",
+  "input": {
+    "item": "divinerpg:mortum_log"
+  },
+  "energy": 1600,
+  "stripped": {
+    "id": "divinerpg:stripped_mortum_log"
+  },
+  "strippingSecondaries": [
+    {
+      "tag": "c:dusts/wood"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:mortum_planks",
+    "count": 6
+  },
+  "secondaryOutputs": [
+    {
+      "tag": "c:dusts/wood"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

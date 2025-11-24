@@ -1,0 +1,11 @@
+{
+  "type": "immersiveengineering:thermoelectric_source",
+  "singleBlock": "divinerpg:glaciline",
+  "tempKelvin": 160,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

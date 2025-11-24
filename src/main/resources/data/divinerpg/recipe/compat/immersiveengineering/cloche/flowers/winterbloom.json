@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:winterbloom"
+  },
+  "soil": {
+    "item": "divinerpg:frozen_dirt"
+  },
+  "time": 480,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:winterbloom"
+  },
+  "results": [
+    {
+      "id": "divinerpg:winterbloom"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

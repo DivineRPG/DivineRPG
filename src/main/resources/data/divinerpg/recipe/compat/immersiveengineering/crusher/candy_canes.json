@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "tag": "divinerpg:candy_canes"
+  },
+  "energy": 1600,
+  "result": {
+    "id": "divinerpg:peppermints",
+    "count": 4
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

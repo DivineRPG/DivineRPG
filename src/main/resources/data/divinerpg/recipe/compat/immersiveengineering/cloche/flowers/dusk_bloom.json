@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:dusk_bloom"
+  },
+  "soil": {
+    "item": "divinerpg:apalachia_dirt"
+  },
+  "time": 480,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:dusk_bloom"
+  },
+  "results": [
+    {
+      "id": "divinerpg:dusk_bloom"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

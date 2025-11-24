@@ -1,0 +1,23 @@
+{
+  "type": "immersiveengineering:sawmill",
+  "input": {
+    "item": "divinerpg:divine_planks"
+  },
+  "energy": 800,
+  "strippingSecondaries": [
+    {
+      "tag": "c:dusts/wood"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:divine_slab",
+    "count": 2
+  },
+  "secondaryOutputs": [],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

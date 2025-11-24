@@ -1,0 +1,29 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "input": {
+    "tag": "divinerpg:storage_blocks/raw_arlemite"
+  },
+  "additives": [],
+  "energy": 230400,
+  "time": 900,
+  "results": [
+    {
+      "item": "divinerpg:arlemite_ingot",
+      "count": 13
+    }
+  ],
+  "secondaries": [
+    {
+      "output": {
+        "id": "divinerpg:arlemite_ingot"
+      },
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "immersiveengineering:sawmill",
+  "input": {
+    "item": "divinerpg:wildwood_wood"
+  },
+  "energy": 1600,
+  "stripped": {
+    "id": "divinerpg:stripped_wildwood_wood"
+  },
+  "strippingSecondaries": [
+    {
+      "tag": "c:dusts/wood"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:wildwood_planks",
+    "count": 6
+  },
+  "secondaryOutputs": [
+    {
+      "tag": "c:dusts/wood"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

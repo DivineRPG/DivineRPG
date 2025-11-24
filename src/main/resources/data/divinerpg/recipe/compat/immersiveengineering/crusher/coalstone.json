@@ -1,0 +1,30 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "tag": "divinerpg:storage_blocks/anthracite"
+  },
+  "energy": 4800,
+  "result": {
+    "id": "divinerpg:anthracite"
+  },
+  "secondaries": [
+    {
+      "output": {
+        "id": "divinerpg:anthracite"
+      },
+      "chance": 0.4
+    },
+    {
+      "output": {
+        "id": "divinerpg:anthracite"
+      },
+      "chance": 0.15
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:wildwood_tallgrass"
+  },
+  "soil": {
+    "item": "divinerpg:wildwood_grass"
+  },
+  "time": 480,
+  "render": {
+    "type": "immersiveengineering:doubleflower",
+    "block": "divinerpg:wildwood_tallgrass"
+  },
+  "results": [
+    {
+      "id": "divinerpg:wildwood_tallgrass"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

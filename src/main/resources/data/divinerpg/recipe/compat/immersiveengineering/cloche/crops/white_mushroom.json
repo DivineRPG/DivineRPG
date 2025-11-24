@@ -1,0 +1,34 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:white_mushroom_seeds"
+  },
+  "soil": [
+    {
+      "item": "mycelium"
+    },
+    {
+      "item": "podzol"
+    },
+    {
+      "item": "divinerpg:gelidite"
+    }
+  ],
+  "time": 800,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:white_mushroom_plant"
+  },
+  "results": [
+    {
+      "id": "divinerpg:white_mushroom",
+      "count": 2
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

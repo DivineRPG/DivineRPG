@@ -1,0 +1,28 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "input": {
+    "tag": "divinerpg:raw_materials/torridite"
+  },
+  "additives": [],
+  "energy": 25600,
+  "time": 100,
+  "results": [
+    {
+      "item": "divinerpg:torridite_ingot"
+    }
+  ],
+  "secondaries": [
+    {
+      "output": {
+        "id": "divinerpg:torridite_ingot"
+      },
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

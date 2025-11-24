@@ -1,0 +1,24 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "tag": "divinerpg:raw_materials/oxdrite"
+  },
+  "energy": 6000,
+  "result": {
+    "id": "divinerpg:oxdrite_dust"
+  },
+  "secondaries": [
+    {
+      "output": {
+        "id": "divinerpg:oxdrite_dust"
+      },
+      "chance": 0.33333334
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

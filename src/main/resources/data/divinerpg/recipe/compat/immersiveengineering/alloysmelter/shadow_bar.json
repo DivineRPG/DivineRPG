@@ -7,9 +7,7 @@
     "tag": "divinerpg:alloy_base/rupee"
   },
   "result": {
-    "basePredicate": {
-      "item": "divinerpg:shadow_bar"
-    },
+    "id": "divinerpg:shadow_bar",
     "count": 2
   },
   "neoforge:conditions": [

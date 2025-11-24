@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:fermenter",
+  "input": {
+    "tag": "divinerpg:crops/moonbulb"
+  },
+  "energy": 6400,
+  "fluid": {
+    "id": "immersiveengineering:ethanol",
+    "amount": 60
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

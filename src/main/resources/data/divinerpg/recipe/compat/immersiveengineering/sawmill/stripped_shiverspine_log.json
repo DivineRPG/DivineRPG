@@ -1,0 +1,28 @@
+{
+  "type": "immersiveengineering:sawmill",
+  "input": [
+    {
+      "item": "divinerpg:stripped_shiverspine_log"
+    },
+    {
+      "item": "divinerpg:stripped_shiverspine_wood"
+    }
+  ],
+  "energy": 800,
+  "strippingSecondaries": [],
+  "result": {
+    "id": "divinerpg:shiverspine_planks",
+    "count": 6
+  },
+  "secondaryOutputs": [
+    {
+      "tag": "c:dusts/wood"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

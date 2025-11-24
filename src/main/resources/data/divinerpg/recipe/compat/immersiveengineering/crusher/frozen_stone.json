@@ -1,0 +1,16 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "item": "divinerpg:frozen_stone"
+  },
+  "energy": 1600,
+  "result": {
+    "id": "divinerpg:cobbled_frozen_stone"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

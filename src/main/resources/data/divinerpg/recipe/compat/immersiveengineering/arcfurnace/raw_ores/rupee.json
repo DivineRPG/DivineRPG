@@ -1,0 +1,28 @@
+{
+  "type": "immersiveengineering:arc_furnace",
+  "input": {
+    "tag": "divinerpg:raw_materials/rupee"
+  },
+  "additives": [],
+  "energy": 25600,
+  "time": 100,
+  "results": [
+    {
+      "item": "divinerpg:rupee_ingot"
+    }
+  ],
+  "secondaries": [
+    {
+      "output": {
+        "id": "divinerpg:rupee_ingot"
+      },
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

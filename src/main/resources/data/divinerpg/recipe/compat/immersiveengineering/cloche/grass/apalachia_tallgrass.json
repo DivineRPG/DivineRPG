@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:apalachia_tallgrass"
+  },
+  "soil": {
+    "item": "divinerpg:apalachia_grass"
+  },
+  "time": 480,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:apalachia_tallgrass"
+  },
+  "results": [
+    {
+      "id": "divinerpg:apalachia_tallgrass"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

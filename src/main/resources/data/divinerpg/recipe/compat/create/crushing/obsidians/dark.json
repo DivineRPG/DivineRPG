@@ -1,0 +1,25 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "divinerpg:obsidians/dark"
+    }
+  ],
+  "processing_time": 500,
+  "results": [
+    {
+      "id": "obsidian",
+      "chance": 0.55
+    },
+    {
+      "id": "dlowstone_dust",
+      "chance": 0.15
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

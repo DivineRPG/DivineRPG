@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:squeezer",
+  "input": {
+    "tag": "divinerpg:seeds/purple_glowbone"
+  },
+  "energy": 6400,
+  "fluid": {
+    "id": "immersiveengineering:plantoil",
+    "amount": 40
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

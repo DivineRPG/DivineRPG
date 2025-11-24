@@ -1,0 +1,26 @@
+{
+  "type": "immersiveengineering:cloche",
+  "input": {
+    "item": "divinerpg:lamona_seeds"
+  },
+  "soil": {
+    "item": "divinerpg:arcanite_dirt"
+  },
+  "time": 800,
+  "render": {
+    "type": "immersiveengineering:generic",
+    "block": "divinerpg:lamona_plant"
+  },
+  "results": [
+    {
+      "id": "divinerpg:lamona",
+      "count": 2
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

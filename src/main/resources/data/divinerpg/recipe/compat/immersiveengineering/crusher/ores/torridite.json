@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "tag": "divinerpg:ores/torridite"
+  },
+  "energy": 6000,
+  "result": {
+    "id": "divinerpg:torridite_dust",
+    "count": 2
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

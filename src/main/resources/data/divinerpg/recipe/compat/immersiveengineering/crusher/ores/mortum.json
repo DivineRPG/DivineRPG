@@ -1,0 +1,31 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "tag": "divinerpg:ores/mortum"
+  },
+  "energy": 6000,
+  "result": {
+    "id": "divinerpg:mortum_fragments",
+    "count": 5
+  },
+  "secondaries": [
+    {
+      "output": {
+        "id": "divinerpg:mortum_fragments"
+      },
+      "chance": 0.5
+    },
+    {
+      "output": {
+        "id": "divinerpg:mortum_fragments"
+      },
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

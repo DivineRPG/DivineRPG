@@ -1,0 +1,28 @@
+{
+  "type": "immersiveengineering:sawmill",
+  "input": [
+    {
+      "item": "divinerpg:stripped_skythern_log"
+    },
+    {
+      "item": "divinerpg:stripped_skythern_wood"
+    }
+  ],
+  "energy": 800,
+  "strippingSecondaries": [],
+  "result": {
+    "id": "divinerpg:skythern_planks",
+    "count": 6
+  },
+  "secondaryOutputs": [
+    {
+      "tag": "c:dusts/wood"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

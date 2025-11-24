@@ -1,0 +1,17 @@
+{
+  "type": "immersiveengineering:fermenter",
+  "input": {
+    "tag": "divinerpg:crops/tomato"
+  },
+  "energy": 6400,
+  "fluid": {
+    "id": "immersiveengineering:ethanol",
+    "amount": 80
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}
