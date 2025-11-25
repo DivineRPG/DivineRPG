@@ -1,0 +1,40 @@
+{
+  "values": {
+    "divinerpg:purple_blaze": {
+      "#enderio:blaze_powder": 1.1
+    },
+    "divinerpg:fury_fire": {
+      "#enderio:blaze_powder": 1.2
+    },
+    "divinerpg:icy_stone": {
+      "#enderio:cloud_cold": 9
+    },
+    "divinerpg:ice_stone": {
+      "#enderio:cloud_cold": 9
+    },
+    "divinerpg:icy_bricks": {
+      "#enderio:cloud_cold": 81
+    },
+    "divinerpg:runic_icy_bricks": {
+      "#enderio:cloud_cold": 81
+    },
+    "divinerpg:glaciline": {
+      "#enderio:cloud_cold": 243
+    },
+    "divinerpg:winterberry": {
+      "#enderio:natural_lights": 0.15
+    },
+    "divinerpg:snowy_moss": {
+      "#enderio:natural_lights": 0.2
+    },
+    "divinerpg:sunbloom": {
+      "#enderio:sunflower": 1.3
+    },
+    "divinerpg:kraken_scale": {
+      "#enderio:prismarine": 2
+    },
+    "divinerpg:kraken_skin": {
+      "#enderio:prismarine": 4
+    }
+  }
+}

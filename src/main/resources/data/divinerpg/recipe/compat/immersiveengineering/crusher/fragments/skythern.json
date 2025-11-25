@@ -1,0 +1,16 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "item": "divinerpg:skythern_fragments"
+  },
+  "energy": 3200,
+  "result": {
+    "id": "divinerpg:skythern_dust"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

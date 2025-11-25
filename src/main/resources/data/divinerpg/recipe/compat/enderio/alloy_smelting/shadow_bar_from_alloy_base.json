@@ -1,0 +1,23 @@
+{
+  "type": "enderio:alloy_smelting",
+  "inputs": [
+    {
+      "tag": "divinerpg:alloy_base/arlemite"
+    },
+    {
+      "tag": "divinerpg:alloy_base/rupee"
+    }
+  ],
+  "energy": 6400,
+  "output": {
+    "id": "divinerpg:shadow_bar",
+    "count": 2
+  },
+  "experience": 0.3,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

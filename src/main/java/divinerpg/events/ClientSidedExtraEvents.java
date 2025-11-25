@@ -40,7 +40,7 @@ public class ClientSidedExtraEvents {
                 return new Vector3f((color >> 16 & 0xFF) / 255F, (color >> 8 & 0xFF) / 255F, (color & 0xFF) / 255F);
             }
             @Override public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick, float nearDistance, float farDistance, FogShape shape) {
-                //TODO: fix the red fog issue that comes with the lava fluid tag (or exclude tar from it and implement all those little things that come with it ourselves)
+                //TODO: fix the red fog issue that comes with the lava fluid tag (or preferably exclude tar from it and implement all those little things that come with it ourselves)
                 LivingEntity entity = (LivingEntity)camera.getEntity();
                 if(entity.isSpectator()) {
                     nearDistance = -8;

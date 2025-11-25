@@ -1,0 +1,26 @@
+{
+  "type": "enderio:sag_milling",
+  "input": {
+    "item": "divinerpg:oxdrite_ingot"
+  },
+  "energy": 2400,
+  "outputs": [
+    {
+      "item": {
+        "id": "divinerpg:oxdrite_dust"
+      }
+    },
+    {
+      "item": {
+        "id": "brown_dye"
+      },
+      "chance": 0.05
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

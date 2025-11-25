@@ -1,0 +1,15 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "enderio:pulsating_crystal"
+  },
+  "output": {
+    "id": "enderio:pulsating_powder"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

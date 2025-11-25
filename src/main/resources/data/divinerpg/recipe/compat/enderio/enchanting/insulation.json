@@ -1,0 +1,14 @@
+{
+  "type": "enderio:enchanting",
+  "enchantment": "divinerpg:insulation",
+  "input": {
+    "item": "divinerpg:olivine"
+  },
+  "cost_multiplier": 1,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

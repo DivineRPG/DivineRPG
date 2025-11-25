@@ -1,0 +1,11 @@
+{
+  "type": "immersiveengineering:windmill_biome",
+  "biomeTag": "divinerpg:is_iceika_ocean",
+  "modifier": 1.15,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

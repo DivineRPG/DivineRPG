@@ -1,0 +1,22 @@
+{
+  "type": "enderio:alloy_smelting",
+  "inputs": [
+    {
+      "tag": "divinerpg:alloy_base/realmite"
+    },
+    {
+      "tag": "c:ender_pearls"
+    }
+  ],
+  "energy": 4800,
+  "output": {
+    "id": "enderio:pulsating_alloy_ingot"
+  },
+  "experience": 0.3,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

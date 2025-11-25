@@ -1,0 +1,41 @@
+{
+  "type": "enderio:sag_milling",
+  "input": {
+    "item": "divinerpg:dust_brambles"
+  },
+  "energy": 2400,
+  "outputs": [
+    {
+      "item": {
+        "id": "enderio:plant_matter_green",
+        "count": 2
+      },
+      "chance": 0.6
+    },
+    {
+      "item": {
+        "id": "enderio:plant_matter_green"
+      },
+      "chance": 0.3
+    },
+    {
+      "item": {
+        "id": "enderio:plant_matter_green",
+        "count": 2
+      },
+      "chance": 0.1
+    },
+    {
+      "item": {
+        "id": "enderio:plant_matter_brown"
+      },
+      "chance": 0.15
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

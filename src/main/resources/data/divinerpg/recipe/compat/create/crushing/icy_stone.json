@@ -13,7 +13,11 @@
     },
     {
       "id": "divinerpg:ice_stone",
-      "chance": 0.005
+      "chance": 0.01
+    },
+    {
+      "id": "divinerpg:cobbled_frozen_stone",
+      "chance": 0.125
     }
   ],
   "neoforge:conditions": [

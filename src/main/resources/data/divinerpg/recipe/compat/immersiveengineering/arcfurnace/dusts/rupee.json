@@ -8,7 +8,7 @@
   "time": 100,
   "results": [
     {
-      "item": "divinerpg:rupee_ingot"
+      "id": "divinerpg:rupee_ingot"
     }
   ],
   "neoforge:conditions": [

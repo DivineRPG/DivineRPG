@@ -1,0 +1,34 @@
+{
+  "type": "enderio:sag_milling",
+  "input": {
+    "item": "divinerpg:blue_stone"
+  },
+  "energy": 2400,
+  "outputs": [
+    {
+      "item": {
+        "id": "glowstone_dust",
+        "count": 3
+      }
+    },
+    {
+      "item": {
+        "id": "glowstone_dust"
+      },
+      "chance": 0.8
+    },
+    {
+      "item": {
+        "id": "lapis_lazuli"
+      },
+      "chance": 0.05
+    }
+  ],
+  "bonus": "chance_only",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

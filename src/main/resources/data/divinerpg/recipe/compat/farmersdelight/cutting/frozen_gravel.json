@@ -12,10 +12,10 @@
       }
     },
     {
-      "chance": 0.1,
       "item": {
         "id": "flint"
-      }
+      },
+      "chance": 0.1
     }
   ],
   "tool": {

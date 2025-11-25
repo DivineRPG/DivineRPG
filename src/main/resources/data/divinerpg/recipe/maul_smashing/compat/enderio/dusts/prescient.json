@@ -1,0 +1,15 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "enderio:prescient_crystal"
+  },
+  "output": {
+    "id": "enderio:prescient_powder"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

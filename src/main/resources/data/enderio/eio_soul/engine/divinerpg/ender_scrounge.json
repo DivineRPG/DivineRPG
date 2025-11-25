@@ -1,0 +1,6 @@
+{
+  "entity": "divinerpg:ender_scrounge",
+  "fluid": "enderio:fluid_dew_of_the_void_still",
+  "power/mb": 400,
+  "tick/mb": 20
+}

@@ -46,6 +46,7 @@ public class ItemRegistry {
         //Misc
         //Fuels
         anthracite = registerItem("anthracite"),
+        collector_fragments = registerItem("collector_fragments"),
         collector = registerItem("collector", ItemCollector::new),
 
         //Raw
@@ -74,15 +75,6 @@ public class ItemRegistry {
         skythern_dust = registerItem("skythern_dust"),
         mortum_dust = registerItem("mortum_dust"),
 
-        //Fragments
-        collector_fragments = registerItem("collector_fragments"),
-        eden_fragments = registerItem("eden_fragments"),
-        wildwood_fragments = registerItem("wildwood_fragments"),
-        apalachia_fragments = registerItem("apalachia_fragments"),
-        skythern_fragments = registerItem("skythern_fragments"),
-        mortum_fragments = registerItem("mortum_fragments"),
-        rock_chunks = registerItemVethean("rock_chunks"),
-
         //Nuggets
         realmite_nugget = registerItem("realmite_nugget"),
         arlemite_nugget = registerItem("arlemite_nugget"),
@@ -104,6 +96,7 @@ public class ItemRegistry {
         oxdrite_ingot = registerItem("oxdrite_ingot"),
 
         //Chunks
+        rock_chunks = registerItemVethean("rock_chunks"),
         bedrock_chunk = registerItem("bedrock_chunk", () -> new ItemMod(new Properties().fireResistant())),
         torridite_chunk = registerItem("torridite_chunk"),
 
@@ -138,6 +131,15 @@ public class ItemRegistry {
         bloodgem = registerItem("bloodgem"),
         olivine = registerItem("olivine"),
         arcanium = registerItem("arcanium"),
+
+        //Twilight Fragments
+        eden_fragments = registerItem("eden_fragments"),
+        wildwood_fragments = registerItem("wildwood_fragments"),
+        apalachia_fragments = registerItem("apalachia_fragments"),
+        skythern_fragments = registerItem("skythern_fragments"),
+        mortum_fragments = registerItem("mortum_fragments"),
+
+        //Twilight Gems
         eden_gem = registerItem("eden_gem"),
         wildwood_gem = registerItem("wildwood_gem"),
         apalachia_gem = registerItem("apalachia_gem"),

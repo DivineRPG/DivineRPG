@@ -1,0 +1,20 @@
+{
+  "values": [
+    "divinerpg:slime_light",
+    "divinerpg:dark_bridge",
+    "divinerpg:star_bridge",
+    "divinerpg:red_fence",
+    "divinerpg:blue_fence",
+    "divinerpg:green_fence",
+    "divinerpg:oxcrate",
+    "divinerpg:inserter",
+    "divinerpg:distributor",
+    "divinerpg:elevantium",
+    "divinerpg:oxdrite_rail",
+    "divinerpg:oxdrite_lamp",
+    "divinerpg:capacitor",
+    "divinerpg:miner",
+    "divinerpg:soft_miner",
+    "divinerpg:placer"
+  ]
+}

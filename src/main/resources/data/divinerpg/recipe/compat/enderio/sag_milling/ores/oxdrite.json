@@ -1,0 +1,32 @@
+{
+  "type": "enderio:sag_milling",
+  "input": {
+    "item": "divinerpg:oxdrite_ore"
+  },
+  "energy": 2400,
+  "outputs": [
+    {
+      "item": {
+        "id": "divinerpg:raw_oxdrite"
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:raw_oxdrite"
+      },
+      "chance": 0.33
+    },
+    {
+      "item": {
+        "id": "divinerpg:cobbled_frozen_stone"
+      },
+      "chance": 0.15
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

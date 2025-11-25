@@ -1,0 +1,35 @@
+{
+  "type": "enderio:sag_milling",
+  "input": {
+    "item": "divinerpg:anthracite"
+  },
+  "energy": 2400,
+  "outputs": [
+    {
+      "item": {
+        "id": "enderio:powdered_coal",
+        "count": 2
+      }
+    },
+    {
+      "item": {
+        "id": "enderio:powdered_coal"
+      },
+      "chance": 0.1
+    },
+    {
+      "item": {
+        "tag": "c:dusts/sulfur",
+        "count": 1
+      },
+      "chance": 0.1,
+      "optional": true
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

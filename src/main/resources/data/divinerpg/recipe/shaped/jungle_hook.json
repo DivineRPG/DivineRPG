@@ -15,5 +15,11 @@
   },
   "result": {
     "id": "divinerpg:jungle_hook"
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:tag_empty",
+      "tag": "c:ropes"
+    }
+  ]
 }

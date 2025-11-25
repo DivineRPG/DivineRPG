@@ -1,0 +1,25 @@
+{
+  "type": "enderio:alloy_smelting",
+  "inputs": [
+    {
+      "tag": "c:end_stones"
+    },
+    {
+      "tag": "divinerpg:alloy_base/shadow"
+    },
+    {
+      "tag": "c:obsidians"
+    }
+  ],
+  "energy": 6400,
+  "output": {
+    "id": "enderio:end_steel_ingot"
+  },
+  "experience": 0.3,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "ender_pearl"
+  },
+  "output": {
+    "id": "enderio:powdered_ender_pearl",
+    "count": 7
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

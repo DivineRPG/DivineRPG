@@ -1,0 +1,6 @@
+{
+  "entity": "divinerpg:scorcher",
+  "fluid": "#lava",
+  "power/mb": 1000,
+  "tick/mb": 16
+}
