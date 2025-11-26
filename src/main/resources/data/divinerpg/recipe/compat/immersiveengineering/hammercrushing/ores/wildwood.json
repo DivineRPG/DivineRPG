@@ -1,0 +1,15 @@
+{
+  "type": "immersiveengineering:hammer_crushing",
+  "input": {
+    "tag": "divinerpg:ores/wildwood"
+  },
+  "result": {
+    "item": "divinerpg:wildwood_dust"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

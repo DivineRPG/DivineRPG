@@ -1,5 +1,6 @@
 package divinerpg.util;
 
+import divinerpg.compat.brewinandchewin.BrewinAndChewinLoader;
 import divinerpg.compat.farmersdelight.DelightLoader;
 import divinerpg.registries.MobEffectRegistry;
 import net.minecraft.world.effect.*;
@@ -41,8 +42,15 @@ public class FoodList {
         COOKED_WOLPERTINGER_MEAT = food(6, .6F),
         CHOCOLATE_LOG = food(5, .7F),
         EGG_NOG = foodBuilder(4, .8F).usingConvertsTo(Items.BUCKET)
-            .effect(() -> new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 12 * 20, 0), 1)
-            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 12 * 20, 0), 1).build(),
+            .effect(() -> {
+                if(ModList.get().isLoaded("brewinandchewin")) return BrewinAndChewinLoader.getTipsyEffect(2 * 60);
+                return new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 12 * 20, 0);
+            }, 1)
+            .effect(() -> {
+                if(ModList.get().isLoaded("brewinandchewin")) return BrewinAndChewinLoader.getIntoxicationEffect(90);
+                return new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 12 * 20, 0);
+            }, 1)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 30 * 20, 0), 1).build(),
         FRUIT_CAKE = food(8, .3F),
         PEPPERMINTS = foodBuilder(1, .4F).fast().build(),
         SNOW_CONES = food(3, .4F),

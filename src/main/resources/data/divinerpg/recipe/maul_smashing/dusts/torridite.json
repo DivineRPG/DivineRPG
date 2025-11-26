@@ -1,8 +1,16 @@
 {
   "type": "divinerpg:maul_smashing",
-  "input": {
-    "tag": "divinerpg:ingots/torridite"
-  },
+  "input": [
+    {
+      "tag": "divinerpg:ores/torridite"
+    },
+    {
+      "tag": "divinerpg:raw_materials/torridite"
+    },
+    {
+      "item": "divinerpg:torridite_ingot"
+    }
+  ],
   "output": {
     "id": "divinerpg:torridite_dust"
   }

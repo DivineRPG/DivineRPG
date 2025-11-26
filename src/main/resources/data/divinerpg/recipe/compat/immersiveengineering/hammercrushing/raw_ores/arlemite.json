@@ -1,0 +1,15 @@
+{
+  "type": "immersiveengineering:hammer_crushing",
+  "input": {
+    "tag": "divinerpg:raw_materials/arlemite"
+  },
+  "result": {
+    "item": "divinerpg:arlemite_dust"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

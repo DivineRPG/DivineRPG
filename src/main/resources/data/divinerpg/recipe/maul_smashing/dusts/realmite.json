@@ -1,8 +1,16 @@
 {
   "type": "divinerpg:maul_smashing",
-  "input": {
-    "tag": "divinerpg:ingots/realmite"
-  },
+  "input": [
+    {
+      "tag": "divinerpg:ores/realmite"
+    },
+    {
+      "tag": "divinerpg:raw_materials/realmite"
+    },
+    {
+      "item": "divinerpg:realmite_ingot"
+    }
+  ],
   "output": {
     "id": "divinerpg:realmite_dust"
   }

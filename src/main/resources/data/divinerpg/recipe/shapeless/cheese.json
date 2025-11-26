@@ -3,9 +3,28 @@
   "ingredients": [
     {
       "tag": "c:drinks/milk"
+    },
+    {
+      "tag": "c:foods/white_mushroom"
+    },
+    {
+      "tag": "c:seeds/tomato"
+    },
+    {
+      "item": "sugar"
     }
   ],
   "result": {
-    "id": "divinerpg:cheese"
-  }
+    "id": "divinerpg:cheese",
+    "count": 3
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "brewinandchewin"
+      }
+    }
+  ]
 }

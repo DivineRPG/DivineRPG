@@ -97,13 +97,18 @@ dependencies {
     compileOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
     runtimeOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
     runtimeOnly "curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}" //Just Enough Effect Descriptions
-    //Guide book
+    //Guide books
+    runtimeOnly "curse.maven:guideme-1173950:${guidme_id}" //GuidME (required for AE2)
     compileOnly "vazkii.patchouli:Patchouli:1.21.1-${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
     runtimeOnly "vazkii.patchouli:Patchouli:1.21.1-${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
     //Compat
     //Advanced Mining Dimension isn't ported to 1.21.1
 //    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension
 //    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether
+    //TODO: to fix ghost item appearing when interacting with crates,
+    // statue sound playing when picking it up,
+    // being able to carry nightmare bed
+    implementation "curse.maven:carry-on-274259:${carry_on_id}" //Carry On
     //TODO: to add woodcutter variants
     implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
     runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
@@ -122,9 +127,10 @@ dependencies {
     //Farmer's Delight Collection
     //TODO: to make cabinet variant textures for Every Compat (and maybe crop blocks)
     implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
-    //TODO: fermenting recipes
-    runtimeOnly "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewing and Chewing
+    //TODO: fermenting recipes (liquids to pour, tar input)
+    implementation "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin'
     //Tech mods compat
+    runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
     //TODO: to make window+pane variant textures for Every Compat, crushed ores (+recipes), potato projectiles, potion mixing, liquids, to remove weird twilight block cutting recipes
     runtimeOnly "curse.maven:create-328085:${create_id}" //Create
     //TODO: eio_soul/spawner/...

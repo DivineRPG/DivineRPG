@@ -1,8 +1,13 @@
 {
   "type": "divinerpg:maul_smashing",
-  "input": {
-    "tag": "divinerpg:fragments/apalachia"
-  },
+  "input": [
+    {
+      "tag": "divinerpg:ores/apalachia"
+    },
+    {
+      "tag": "divinerpg:fragments/apalachia"
+    }
+  ],
   "output": {
     "id": "divinerpg:apalachia_dust"
   }

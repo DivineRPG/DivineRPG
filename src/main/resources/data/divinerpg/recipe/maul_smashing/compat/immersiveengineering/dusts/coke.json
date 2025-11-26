@@ -1,0 +1,15 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "immersiveengineering:coal_coke"
+  },
+  "output": {
+    "id": "immersiveengineering:dust_coke"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

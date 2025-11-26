@@ -1,0 +1,38 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:ores/skythern"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:compat/immersiveengineering/hammercrushing/ores/skythern"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/immersiveengineering/hammercrushing/ores/skythern"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

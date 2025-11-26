@@ -1,0 +1,23 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": [
+    {
+      "item": "mekanism:fluorite_gem"
+    },
+    {
+      "item": "mekanism:fluorite_ore"
+    },
+    {
+      "item": "mekanism:deepslate_fluorite_ore"
+    }
+  ],
+  "output": {
+    "id": "mekanism:dust_fluorite"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

@@ -1,8 +1,13 @@
 {
   "type": "divinerpg:maul_smashing",
-  "input": {
-    "tag": "divinerpg:fragments/mortum"
-  },
+  "input": [
+    {
+      "tag": "divinerpg:ores/mortum"
+    },
+    {
+      "tag": "divinerpg:fragments/mortum"
+    }
+  ],
   "output": {
     "id": "divinerpg:mortum_dust"
   }

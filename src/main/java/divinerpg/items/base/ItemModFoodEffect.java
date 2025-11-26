@@ -26,6 +26,11 @@ public class ItemModFoodEffect extends ItemModFood {
         super(stacksToOne, food);
         this.food = food;
     }
+    //Stacks to 1 or 16, custom craft remainder
+    public ItemModFoodEffect(boolean stacksToOne, Item craftRemainder, FoodProperties food) {
+        super(stacksToOne, craftRemainder, food);
+        this.food = food;
+    }
     //Stacks to 64, instant consumption
     public ItemModFoodEffect(FoodProperties food, boolean instantConsumption) {
         super(food, instantConsumption);

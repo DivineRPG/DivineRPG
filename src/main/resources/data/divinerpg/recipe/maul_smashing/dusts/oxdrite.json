@@ -1,8 +1,16 @@
 {
   "type": "divinerpg:maul_smashing",
-  "input": {
-    "tag": "divinerpg:ingots/oxdrite"
-  },
+  "input": [
+    {
+      "tag": "divinerpg:ores/oxdrite"
+    },
+    {
+      "tag": "divinerpg:raw_materials/oxdrite"
+    },
+    {
+      "item": "divinerpg:oxdrite_ingot"
+    }
+  ],
   "output": {
     "id": "divinerpg:oxdrite_dust"
   }

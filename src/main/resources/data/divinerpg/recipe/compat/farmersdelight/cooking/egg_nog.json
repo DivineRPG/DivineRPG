@@ -1,12 +1,12 @@
 {
   "type": "farmersdelight:cooking",
   "recipe_book_tab": "drinks",
-  "container": {
-    "id": "bucket"
-  },
   "ingredients": [
     {
       "tag": "c:drinks/milk"
+    },
+    {
+      "item": "divinerpg:winterberry"
     },
     {
       "tag": "c:seeds"
@@ -20,6 +20,9 @@
   ],
   "result": {
     "id": "divinerpg:egg_nog"
+  },
+  "container": {
+    "id": "bucket"
   },
   "experience": 1,
   "neoforge:conditions": [

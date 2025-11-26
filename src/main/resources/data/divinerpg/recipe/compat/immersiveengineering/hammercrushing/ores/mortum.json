@@ -1,0 +1,15 @@
+{
+  "type": "immersiveengineering:hammer_crushing",
+  "input": {
+    "tag": "divinerpg:ores/mortum"
+  },
+  "result": {
+    "item": "divinerpg:mortum_dust"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

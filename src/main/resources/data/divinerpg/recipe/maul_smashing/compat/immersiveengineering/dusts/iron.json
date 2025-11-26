@@ -1,0 +1,15 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": {
+    "item": "immersiveengineering:plate_iron"
+  },
+  "output": {
+    "id": "immersiveengineering:dust_iron"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

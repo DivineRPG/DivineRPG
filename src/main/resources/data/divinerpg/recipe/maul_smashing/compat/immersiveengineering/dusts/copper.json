@@ -1,16 +1,15 @@
 {
   "type": "divinerpg:maul_smashing",
   "input": {
-    "item": "wither_skeleton_skull"
+    "item": "immersiveengineering:plate_copper"
   },
   "output": {
-    "id": "enderio:withering_powder",
-    "count": 2
+    "id": "immersiveengineering:dust_copper"
   },
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",
-      "modid": "enderio"
+      "modid": "immersiveengineering"
     }
   ]
 }

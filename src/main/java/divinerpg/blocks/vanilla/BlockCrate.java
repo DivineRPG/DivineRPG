@@ -26,36 +26,26 @@ public class BlockCrate extends BaseEntityBlock {
 		registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.ENABLED, true));
 	}
 	@Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(BlockStateProperties.ENABLED);}
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+	@Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return BlockEntityRegistry.CRATE.get().create(pos, state);
 	}
 	@Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+    @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
     	return createCrateTicker(level, type, BlockEntityRegistry.CRATE.get());
     }
 	@Nullable
 	protected static <T extends BlockEntity> BlockEntityTicker<T> createCrateTicker(Level level, BlockEntityType<T> type, BlockEntityType< ? extends CrateBlockEntity> entityType) {
 		return level.isClientSide ? null : createTickerHelper(type, entityType, CrateBlockEntity::serverTick);
 	}
-	@Override
-	public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos p, boolean b) {
+	@Override public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos p, boolean b) {
 		boolean signal = !level.hasNeighborSignal(pos);
 		if(state.getValue(BlockStateProperties.ENABLED) ^ signal) level.setBlock(pos, state.setValue(BlockStateProperties.ENABLED, signal), 4);
 	}
-	@Override
-	public boolean hasAnalogOutputSignal(BlockState state) {
-		return true;
-	}
-	@Override
-	public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+	@Override public boolean hasAnalogOutputSignal(BlockState state) {return true;}
+	@Override public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
 		return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
 	}
-	@Override
-	public RenderShape getRenderShape(BlockState state) {
-		return RenderShape.MODEL;
-	}
+	@Override public RenderShape getRenderShape(BlockState state) {return RenderShape.MODEL;}
 	@Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		if(level.getBlockEntity(pos) instanceof CrateBlockEntity block) {
 			if(stack == null || stack.isEmpty()) {

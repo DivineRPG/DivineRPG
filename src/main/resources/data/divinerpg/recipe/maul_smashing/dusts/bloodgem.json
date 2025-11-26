@@ -1,8 +1,13 @@
 {
   "type": "divinerpg:maul_smashing",
-  "input": {
-    "tag": "divinerpg:gems/bloodgem"
-  },
+  "input": [
+    {
+      "tag": "divinerpg:ores/bloodgem"
+    },
+    {
+      "item": "divinerpg:bloodgem"
+    }
+  ],
   "output": {
     "id": "divinerpg:bloodgem_dust"
   }

@@ -5,7 +5,17 @@
       "conditions": {
         "items": [
           {
-            "items": "#:foods/milk"
+            "items": "#c:foods/milk"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_white_mushroom": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/white_mushroom"
           }
         ]
       },
@@ -21,6 +31,7 @@
   "requirements": [
     [
       "has_milk",
+      "has_white_mushroom",
       "has_the_recipe"
     ]
   ],
@@ -28,5 +39,14 @@
     "recipes": [
       "divinerpg:shapeless/cheese"
     ]
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "brewinandchewin"
+      }
+    }
+  ]
 }

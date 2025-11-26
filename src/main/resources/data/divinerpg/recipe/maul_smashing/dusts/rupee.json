@@ -1,8 +1,16 @@
 {
   "type": "divinerpg:maul_smashing",
-  "input": {
-    "item": "divinerpg:rupee_ingot"
-  },
+  "input": [
+    {
+      "tag": "divinerpg:ores/rupee"
+    },
+    {
+      "tag": "divinerpg:raw_materials/rupee"
+    },
+    {
+      "item": "divinerpg:rupee_ingot"
+    }
+  ],
   "output": {
     "id": "divinerpg:rupee_dust"
   }

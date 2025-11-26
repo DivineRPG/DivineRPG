@@ -1,0 +1,38 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:ingots/shadow"
+          }
+        ]
+      },
+      "trigger": "inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:compat/immersiveengineering/hammering/shadow_coins"
+      },
+      "trigger": "recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/immersiveengineering/hammering/shadow_coins"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

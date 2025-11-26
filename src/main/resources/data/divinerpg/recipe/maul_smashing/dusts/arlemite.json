@@ -1,8 +1,16 @@
 {
   "type": "divinerpg:maul_smashing",
-  "input": {
-    "item": "divinerpg:arlemite_ingot"
-  },
+  "input": [
+    {
+      "tag": "divinerpg:ores/arlemite"
+    },
+    {
+      "tag": "divinerpg:raw_materials/arlemite"
+    },
+    {
+      "item": "divinerpg:arlemite_ingot"
+    }
+  ],
   "output": {
     "id": "divinerpg:arlemite_dust"
   }

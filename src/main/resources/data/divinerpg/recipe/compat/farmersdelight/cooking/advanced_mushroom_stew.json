@@ -1,9 +1,6 @@
 {
   "type": "farmersdelight:cooking",
   "recipe_book_tab": "meals",
-  "container": {
-    "id": "bowl"
-  },
   "ingredients": [
     {
       "tag": "c:foods/white_mushroom"
@@ -17,6 +14,9 @@
   ],
   "result": {
     "id": "divinerpg:advanced_mushroom_stew"
+  },
+  "container": {
+    "id": "bowl"
   },
   "experience": 1,
   "neoforge:conditions": [

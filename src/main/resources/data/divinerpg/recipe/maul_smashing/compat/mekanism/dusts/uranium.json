@@ -1,0 +1,26 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": [
+    {
+      "item": "mekanism:uranium_ore"
+    },
+    {
+      "item": "mekanism:deepslate_uranium_ore"
+    },
+    {
+      "item": "mekanism:raw_uranium"
+    },
+    {
+      "item": "mekanism:ingot_uranium"
+    }
+  ],
+  "output": {
+    "id": "mekanism:dust_uranium"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

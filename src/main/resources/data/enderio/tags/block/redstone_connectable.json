@@ -1,12 +1,9 @@
 {
   "values": [
     "divinerpg:slime_light",
-    "divinerpg:dark_bridge",
-    "divinerpg:star_bridge",
-    "divinerpg:red_fence",
-    "divinerpg:blue_fence",
-    "divinerpg:green_fence",
-    "divinerpg:oxcrate",
+    "#divinerpg:bridges",
+    "#divinerpg:fences/redstone",
+    "#divinerpg:crates",
     "divinerpg:inserter",
     "divinerpg:distributor",
     "divinerpg:elevantium",
