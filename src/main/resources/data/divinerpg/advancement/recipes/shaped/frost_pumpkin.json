@@ -2,28 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_shards": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:ice_shards"
-            ]
+            "items": "divinerpg:ice_shards"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/frost_pumpkin"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_shards",
-      "has_the_recipe"
+      "has_shards"
     ]
   ],
   "rewards": {

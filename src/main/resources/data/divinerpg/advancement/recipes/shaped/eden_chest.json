@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_fragments": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:eden_fragments"
-            ]
+            "items": "#divinerpg:fragments/eden"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/eden_chest"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_fragments",
-      "has_the_recipe"
+      "has_fragments"
     ]
   ],
   "rewards": {

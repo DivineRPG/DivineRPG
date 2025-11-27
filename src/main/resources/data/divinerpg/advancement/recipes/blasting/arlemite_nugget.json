@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_arlemite_equipment": {
+    "has_equipment": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:smeltable_equipment/arlemite"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:blasting/arlemite_nugget"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_arlemite_equipment",
-      "has_the_recipe"
+      "has_equipment"
     ]
   ],
   "rewards": {

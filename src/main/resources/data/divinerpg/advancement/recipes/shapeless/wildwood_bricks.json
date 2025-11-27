@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_gem": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:gems/wildwood"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/wildwood_bricks"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_gem",
-      "has_the_recipe"
+      "has_gem"
     ]
   ],
   "rewards": {

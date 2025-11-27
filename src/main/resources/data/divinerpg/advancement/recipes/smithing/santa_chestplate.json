@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_chestplate": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:seng_fur_chestplate"
-            ]
+            "items": "divinerpg:seng_fur_chestplate"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smithing/santa_chestplate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_chestplate",
-      "has_the_recipe"
+      "has_chestplate"
     ]
   ],
   "rewards": {

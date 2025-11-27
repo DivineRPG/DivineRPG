@@ -1,7 +1,8 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_leggings": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
@@ -11,20 +12,12 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smithing/bedrock_leggings"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_leggings",
-      "has_the_recipe"
+      "has_leggings"
     ]
   ],
   "rewards": {

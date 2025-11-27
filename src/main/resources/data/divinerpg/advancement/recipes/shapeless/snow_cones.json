@@ -2,52 +2,41 @@
   "parent": "recipes/root",
   "criteria": {
     "has_milk": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:drinks/milk"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_sugar": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "sugar"
-            ]
+            "items": "sugar"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_snowball": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "snowball"
-            ]
+            "items": "snowball"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/snow_cones"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_milk",
       "has_sugar",
-      "has_snowball",
-      "has_the_recipe"
+      "has_snowball"
     ]
   ],
   "rewards": {

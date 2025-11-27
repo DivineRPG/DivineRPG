@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_chunk": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:wildwood_chunk"
-            ]
+            "items": "#divinerpg:chunks/wildwood"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/wildwood_shield"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_chunk",
-      "has_the_recipe"
+      "has_chunk"
     ]
   ],
   "rewards": {

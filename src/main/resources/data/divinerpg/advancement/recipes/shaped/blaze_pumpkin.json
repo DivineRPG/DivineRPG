@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_blaze_powder": {
+    "has_powder": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:blaze_powder"
-            ]
+            "items": "blaze_powder"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/blaze_pumpkin"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_blaze_powder",
-      "has_the_recipe"
+      "has_powder"
     ]
   ],
   "rewards": {

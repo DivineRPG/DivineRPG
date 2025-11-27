@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_globebrush": {
+    "has_double_flower": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:globebrush"
-            ]
+            "items": "divinerpg:globebrush"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/white_dye_from_globebrush"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_globebrush",
-      "has_the_recipe"
+      "has_double_flower"
     ]
   ],
   "rewards": {

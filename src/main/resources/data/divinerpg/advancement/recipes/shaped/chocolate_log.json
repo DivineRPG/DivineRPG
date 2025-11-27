@@ -1,29 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_cocoa_beans": {
+    "has_beans": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "cocoa_beans"
-            ]
+            "items": "#c:crops/cocoa_bean"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/chocolate_log"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_cocoa_beans",
-      "has_the_recipe"
+      "has_beans"
     ]
   ],
   "rewards": {

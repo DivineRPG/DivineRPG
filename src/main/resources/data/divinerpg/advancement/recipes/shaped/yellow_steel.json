@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_dye": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:dyes/yellow"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/yellow_steel"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_dye",
-      "has_the_recipe"
+      "has_dye"
     ]
   ],
   "rewards": {

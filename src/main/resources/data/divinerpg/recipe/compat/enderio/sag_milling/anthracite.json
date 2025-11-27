@@ -1,7 +1,7 @@
 {
   "type": "enderio:sag_milling",
   "input": {
-    "item": "divinerpg:anthracite"
+    "tag": "divinerpg:coals/anthracite"
   },
   "energy": 2400,
   "outputs": [

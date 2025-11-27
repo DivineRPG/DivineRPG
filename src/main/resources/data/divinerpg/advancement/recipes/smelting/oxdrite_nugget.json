@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_oxdrite_equipment": {
+    "has_equipment": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:smeltable_equipment/oxdrite"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smelting/oxdrite_nugget"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_oxdrite_equipment",
-      "has_the_recipe"
+      "has_equipment"
     ]
   ],
   "rewards": {

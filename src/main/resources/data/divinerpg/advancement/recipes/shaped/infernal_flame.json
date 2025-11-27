@@ -1,38 +1,31 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_purple_blaze": {
+    "has_powder": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:powders/purple_blaze"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
-    "has_inferno_sword": {
+    "has_sword": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:inferno_sword"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/infernal_flame"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_purple_blaze",
-      "has_inferno_sword",
-      "has_the_recipe"
+      "has_powder",
+      "has_sword"
     ]
   ],
   "rewards": {

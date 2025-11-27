@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_sunbloom": {
+    "has_flower": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:sunbloom"
-            ]
+            "items": "divinerpg:sunbloom"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/orange_dye_from_sunbloom"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_sunbloom",
-      "has_the_recipe"
+      "has_flower"
     ]
   ],
   "rewards": {

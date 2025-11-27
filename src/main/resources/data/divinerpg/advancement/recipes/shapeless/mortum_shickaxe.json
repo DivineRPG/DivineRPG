@@ -1,68 +1,53 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_axe": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:mortum_axe"
-            ]
+            "items": "divinerpg:mortum_axe"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_hoe": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "divinerpg:mortum_hoe"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_pickaxe": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "divinerpg:mortum_pickaxe"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_shovel": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "divinerpg:mortum_shovel"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/mortum_shickaxe"
-      },
-      "trigger": "minecraft:recipe_unlocked"
       }
     },
+    "has_hoe": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:mortum_hoe"
+          }
+        ]
+      }
+    },
+    "has_pickaxe": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:mortum_pickaxe"
+          }
+        ]
+      }
+    },
+    "has_shovel": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:mortum_shovel"
+          }
+        ]
+      }
+    }
+  },
   "requirements": [
     [
       "has_axe",
       "has_hoe",
       "has_pickaxe",
-      "has_shovel",
-      "has_the_recipe"
+      "has_shovel"
     ]
   ],
   "rewards": {

@@ -1,29 +1,26 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_rupee_helmet": {
+    "has_helmet": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:rupee_helmet"
+              "divinerpg:rupee_helmet",
+              "divinerpg:red_rupee_helmet",
+              "divinerpg:green_rupee_helmet",
+              "divinerpg:blue_rupee_helmet",
+              "divinerpg:gray_rupee_helmet"
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smithing/yellow_rupee_helmet"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_rupee_helmet",
-      "has_the_recipe"
+      "has_helmet"
     ]
   ],
   "rewards": {

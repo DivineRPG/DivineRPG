@@ -1,55 +1,42 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_teeth": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:liopleurodon_teeth"
-            ]
+            "items": "#divinerpg:teeth/liopleurodon"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
     "has_skull": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:liopleurodon_skull"
-            ]
+            "items": "#divinerpg:skulls/liopleurodon"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
     "has_ingot": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:aquatic_ingot"
-            ]
+            "items": "#divinerpg:ingots/aquatic"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/liopleurodon_anchor"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_teeth",
       "has_skull",
-      "has_ingot",
-      "has_the_recipe"
+      "has_ingot"
     ]
   ],
   "rewards": {

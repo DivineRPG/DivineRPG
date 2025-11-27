@@ -1,42 +1,31 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_shadow_stone": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:shadow_stone"
-            ]
+            "items": "#divinerpg:gems/shadow"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
-    "has_snow_block": {
+    "has_block": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:snow_block"
-            ]
+            "items": "snow_block"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/snow_globe"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_shadow_stone",
-      "has_snow_block",
-      "has_the_recipe"
+      "has_gemstone",
+      "has_block"
     ]
   ],
   "rewards": {

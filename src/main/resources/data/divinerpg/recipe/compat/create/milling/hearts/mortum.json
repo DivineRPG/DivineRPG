@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "divinerpg:mortum_heart"
+      "tag": "divinerpg:hearts/mortum"
     }
   ],
   "processing_time": 100,

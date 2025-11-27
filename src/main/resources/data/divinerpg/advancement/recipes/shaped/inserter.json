@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_crate": {
+    "has_block": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "divinerpg:crate"
+            "items": "#divinerpg:crates"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/inserter"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_crate",
-      "has_the_recipe"
+      "has_block"
     ]
   ],
   "rewards": {

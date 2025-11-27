@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_white_mushroom": {
+    "has_mushroom": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:foods/white_mushroom"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/farmersdelight/cooking/advanced_mushroom_stew"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_white_mushroom",
-      "has_the_recipe"
+      "has_mushroom"
     ]
   ],
   "rewards": {

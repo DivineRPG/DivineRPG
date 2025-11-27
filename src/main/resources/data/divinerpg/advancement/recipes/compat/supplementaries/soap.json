@@ -2,37 +2,30 @@
   "parent": "recipes/root",
   "criteria": {
     "has_blubber": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:blubber"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_ash": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:ash"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/supplementaries/soap"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_blubber",
-      "has_ash",
-      "has_the_recipe"
+      "has_ash"
     ]
   ],
   "rewards": {

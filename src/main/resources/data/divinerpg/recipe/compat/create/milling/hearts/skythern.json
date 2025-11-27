@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "divinerpg:skythern_heart"
+      "tag": "divinerpg:hearts/skythern"
     }
   ],
   "processing_time": 100,

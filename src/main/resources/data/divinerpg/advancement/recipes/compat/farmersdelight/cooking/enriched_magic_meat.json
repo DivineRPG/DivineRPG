@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_strong_arcana_potion": {
+    "has_potion": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:strong_arcana_potion"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/farmersdelight/cooking/enriched_magic_meat"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_strong_arcana_potion",
-      "has_the_recipe"
+      "has_potion"
     ]
   ],
   "rewards": {

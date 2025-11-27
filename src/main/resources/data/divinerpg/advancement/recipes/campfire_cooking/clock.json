@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_clock": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:frozen_clock"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:campfire_cooking/clock"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_clock",
-      "has_the_recipe"
+      "has_clock"
     ]
   ],
   "rewards": {

@@ -1,0 +1,27 @@
+{
+  "type": "enderio:sag_milling",
+  "input": {
+    "tag": "divinerpg:souls/skythern"
+  },
+  "energy": 2400,
+  "outputs": [
+    {
+      "item": {
+        "id": "divinerpg:skythern_fragments",
+        "count": 2
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:skythern_dust"
+      },
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

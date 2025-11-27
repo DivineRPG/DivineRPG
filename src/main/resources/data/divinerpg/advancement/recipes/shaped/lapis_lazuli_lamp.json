@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_lapis_lazuli": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:gems/lapis"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/lapis_lazuli_lamp"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_lapis_lazuli",
-      "has_the_recipe"
+      "has_gemstone"
     ]
   ],
   "rewards": {

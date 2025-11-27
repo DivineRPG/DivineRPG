@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_skin": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:skin/kraken"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/kraken_lamp"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_skin",
-      "has_the_recipe"
+      "has_skin"
     ]
   ],
   "rewards": {

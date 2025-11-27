@@ -1,47 +1,42 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_divine_sapling": {
+    "has_sapling": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:divine_sapling"
-            ]
+            "items": "divinerpg:divine_sapling"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
     "has_book": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:book"
-            ]
+            "items": "book"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/guide_book"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_divine_sapling",
-      "has_book",
-      "has_the_recipe"
+      "has_sapling",
+      "has_book"
     ]
   ],
   "rewards": {
     "recipes": [
       "divinerpg:shapeless/guide_book"
     ]
-  }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "patchouli"
+    }
+  ]
 }

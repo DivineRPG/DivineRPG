@@ -1,40 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_mortum_block": {
+    "has_heart": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:mortum_block"
-            ]
+            "items": "#divinerpg:hearts/mortum"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_wood": {
-      "conditions": {
-        "items": [
-          {
-              "items": "#divinerpg:wood_types/mortum"
-          }
-        ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/nightmare_bed"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_mortum_block",
-      "has_wood",
-      "has_the_recipe"
+      "has_heart"
     ]
   ],
   "rewards": {

@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_oxdrite_ingot": {
+    "has_ingot": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "divinerpg:oxdrite_ingot"
+            "items": "#divinerpg:ingots/oxdrite"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/oxdrite_rail"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_oxdrite_ingot",
-      "has_the_recipe"
+      "has_ingot"
     ]
   ],
   "rewards": {

@@ -1,29 +1,26 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_armor_pouch": {
+    "has_pouch": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:armor_pouch"
+              "divinerpg:armor_pouch",
+              "divinerpg:red_armor_pouch",
+              "divinerpg:green_armor_pouch",
+              "divinerpg:blue_armor_pouch",
+              "divinerpg:gray_armor_pouch"
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/yellow_armor_pouch"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_armor_pouch",
-      "has_the_recipe"
+      "has_pouch"
     ]
   ],
   "rewards": {

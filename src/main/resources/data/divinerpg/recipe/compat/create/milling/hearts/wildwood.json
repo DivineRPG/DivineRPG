@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "divinerpg:wildwood_heart"
+      "tag": "divinerpg:hearts/wildwood"
     }
   ],
   "processing_time": 100,

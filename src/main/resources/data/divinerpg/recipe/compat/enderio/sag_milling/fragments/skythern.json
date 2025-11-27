@@ -1,7 +1,7 @@
 {
   "type": "enderio:sag_milling",
   "input": {
-    "item": "divinerpg:skythern_fragments"
+    "tag": "divinerpg:fragments/skythern"
   },
   "energy": 2400,
   "outputs": [

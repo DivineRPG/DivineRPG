@@ -1,42 +1,31 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_stone": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:healing_stone"
-            ]
+            "items": "#divinerpg:gems/healing"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
     "has_totem": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:totem_of_undying"
-            ]
+            "items": "totem_of_undying"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/serenade_of_health"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_stone",
-      "has_totem",
-      "has_the_recipe"
+      "has_gemstone",
+      "has_totem"
     ]
   ],
   "rewards": {

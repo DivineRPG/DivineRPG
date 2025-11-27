@@ -2,37 +2,30 @@
   "parent": "recipes/root",
   "criteria": {
     "has_wood": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-              "items": "#logs"
+            "items": "#logs"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_planks": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-              "items": "#planks"
+            "items": "#planks"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/crate"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_wood",
-      "has_planks",
-      "has_the_recipe"
+      "has_planks"
     ]
   ],
   "rewards": {

@@ -6,10 +6,10 @@
       "item": "projecte:philosophers_stone"
     },
     {
-      "item": "divinerpg:shadow_coins"
+      "tag": "divinerpg:coins/shadow"
     },
     {
-      "item": "divinerpg:shadow_coins"
+      "tag": "divinerpg:coins/shadow"
     }
   ],
   "result": {

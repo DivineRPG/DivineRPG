@@ -1,29 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_cobbled_scorchalt": {
+    "has_cobbled_stone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:cobbled_scorchalt"
-            ]
+            "items": "divinerpg:cobbled_scorchalt"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:stonecutter/cobbled_scorchalt_wall"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_cobbled_scorchalt",
-      "has_the_recipe"
+      "has_cobbled_stone"
     ]
   ],
   "rewards": {

@@ -1,0 +1,25 @@
+{
+  "type": "immersiveengineering:crusher",
+  "input": {
+    "tag": "divinerpg:souls/mortum"
+  },
+  "energy": 1600,
+  "result": {
+    "id": "divinerpg:mortum_fragments",
+    "count": 2
+  },
+  "secondaries": [
+    {
+      "output": {
+        "id": "divinerpg:mortum_dust"
+      },
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

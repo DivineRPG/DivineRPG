@@ -1,42 +1,31 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_arlemite": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:arlemite_dust"
-            ]
+            "items": "#divinerpg:dusts/arlemite"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
     "has_rupee": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:rupee_dust"
-            ]
+            "items": "#divinerpg:dusts/rupee"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/shadow_bar"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_arlemite",
-      "has_rupee",
-      "has_the_recipe"
+      "has_rupee"
     ]
   ],
   "rewards": {

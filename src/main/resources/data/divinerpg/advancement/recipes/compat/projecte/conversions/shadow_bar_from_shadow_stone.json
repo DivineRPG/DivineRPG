@@ -1,30 +1,23 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_shadow_stone": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "projecte:philosophers_stone"
           },
           {
-            "items": "divinerpg:shadow_stone"
+            "items": "#divinerpg:gems/shadow"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/projecte/conversions/shadow_bar_from_shadow_stone"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_shadow_stone",
-      "has_the_recipe"
+      "has_gemstone"
     ]
   ],
   "rewards": {

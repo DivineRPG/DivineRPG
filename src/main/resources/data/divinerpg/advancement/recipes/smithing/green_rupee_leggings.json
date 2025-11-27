@@ -1,29 +1,26 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_rupee_leggings": {
+    "has_leggings": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:rupee_leggings"
+              "divinerpg:rupee_leggings",
+              "divinerpg:red_rupee_leggings",
+              "divinerpg:yellow_rupee_leggings",
+              "divinerpg:blue_rupee_leggings",
+              "divinerpg:gray_rupee_leggings"
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smithing/green_rupee_leggings"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_rupee_leggings",
-      "has_the_recipe"
+      "has_leggings"
     ]
   ],
   "rewards": {

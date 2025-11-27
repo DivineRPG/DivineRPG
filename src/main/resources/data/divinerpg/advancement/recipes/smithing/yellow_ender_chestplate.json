@@ -1,29 +1,26 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_ender_chestplate": {
+    "has_chestplate": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:ender_chestplate"
+              "divinerpg:ender_chestplate",
+              "divinerpg:red_ender_chestplate",
+              "divinerpg:green_ender_chestplate",
+              "divinerpg:blue_ender_chestplate",
+              "divinerpg:gray_ender_chestplate"
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smithing/yellow_ender_chestplate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_ender_chestplate",
-      "has_the_recipe"
+      "has_chestplate"
     ]
   ],
   "rewards": {

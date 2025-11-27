@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_cozybark_leaves": {
+    "has_leaves": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:cozybark_leaves"
-            ]
+            "items": "divinerpg:cozybark_leaves"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/robbin_nest"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_cozybark_leaves",
-      "has_the_recipe"
+      "has_leaves"
     ]
   ],
   "rewards": {

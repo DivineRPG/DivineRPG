@@ -1,38 +1,31 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_ingot": {
+    "has_hellstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:ingots/hellstone"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
-    "has_bar": {
+    "has_shadow": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:ingots/shadow"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/ghast_cannon"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_ingot",
-      "has_bar",
-      "has_the_recipe"
+      "has_hellstone",
+      "has_shadow"
     ]
   ],
   "rewards": {

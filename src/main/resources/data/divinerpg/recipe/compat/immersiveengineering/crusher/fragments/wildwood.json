@@ -1,7 +1,7 @@
 {
   "type": "immersiveengineering:crusher",
   "input": {
-    "item": "divinerpg:wildwood_fragments"
+    "tag": "divinerpg:fragments/wildwood"
   },
   "energy": 3200,
   "result": {

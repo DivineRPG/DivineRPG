@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_log": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:wood_types/streamleaf"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/streamleaf_planks"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_log",
-      "has_the_recipe"
+      "has_log"
     ]
   ],
   "rewards": {

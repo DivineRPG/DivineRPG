@@ -1,7 +1,8 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_charcoal": {
+    "has_coal": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
@@ -11,20 +12,12 @@
             "items": "charcoal"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/projecte/conversions/anthracite_from_charcoal"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_charcoal",
-      "has_the_recipe"
+      "has_coal"
     ]
   ],
   "rewards": {

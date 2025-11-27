@@ -1,7 +1,7 @@
 {
   "type": "divinerpg:fire_conversion",
   "input_item": {
-    "item": "divinerpg:wildwood_heart"
+    "tag": "divinerpg:hearts/wildwood"
   },
   "input_state": {
     "predicate_type": "block_match",

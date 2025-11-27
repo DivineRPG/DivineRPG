@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_torridite_equipment": {
+    "has_equipment": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:smeltable_equipment/compressed/torridite"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smelting/torridite_ingot_from_equipment"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_torridite_equipment",
-      "has_the_recipe"
+      "has_equipment"
     ]
   ],
   "rewards": {

@@ -1,7 +1,7 @@
 {
   "type": "enderio:sag_milling",
   "input": {
-    "item": "divinerpg:apalachia_fragments"
+    "tag": "divinerpg:fragments/apalachia"
   },
   "energy": 2400,
   "outputs": [

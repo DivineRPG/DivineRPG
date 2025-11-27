@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_fragments": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:wildwood_fragments"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/wildwood_gem"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_fragments",
-      "has_the_recipe"
+      "has_fragments"
     ]
   ],
   "rewards": {

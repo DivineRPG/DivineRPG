@@ -1,10 +1,10 @@
 {
   "type": "smelting",
   "ingredient": {
-    "item": "divinerpg:eden_dust"
+    "tag": "divinerpg:dusts/eden"
   },
   "result": {
     "id": "divinerpg:eden_sparkles"
   },
-  "experience": 1.5
+  "experience": 0.35
 }

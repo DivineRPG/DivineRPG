@@ -17,7 +17,7 @@
       "conditions": {
         "items": [
           {
-            "items": "divinerpg:bedrock_chunk"
+            "items": "#divinerpg:chunks/bedrock"
           }
         ]
       }

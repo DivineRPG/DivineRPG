@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "divinerpg:eden_soul"
+      "tag": "divinerpg:souls/eden"
     }
   ],
   "processing_time": 100,

@@ -2,6 +2,7 @@
   "parent": "recipes/root",
   "criteria": {
     "has_water": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
@@ -11,20 +12,12 @@
             ]
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/aqua_lamp"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_water",
-      "has_the_recipe"
+      "has_water"
     ]
   ],
   "rewards": {

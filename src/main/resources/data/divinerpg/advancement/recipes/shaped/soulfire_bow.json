@@ -1,42 +1,31 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_stone": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:soulfire_stone"
-            ]
+            "items": "#divinerpg:gems/soulfire"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
     "has_rod": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:aquatic_blaze_rod"
-            ]
+            "items": "#divinerpg:rods/aquatic_blaze"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/soulfire_bow"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_stone",
-      "has_rod",
-      "has_the_recipe"
+      "has_gemstone",
+      "has_rod"
     ]
   ],
   "rewards": {

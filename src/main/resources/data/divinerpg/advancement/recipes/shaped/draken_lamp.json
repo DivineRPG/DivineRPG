@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_lava": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:buckets/lava"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/draken_lamp"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_lava",
-      "has_the_recipe"
+      "has_lava"
     ]
   ],
   "rewards": {

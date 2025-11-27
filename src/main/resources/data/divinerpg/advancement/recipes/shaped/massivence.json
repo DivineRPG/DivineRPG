@@ -1,38 +1,31 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_bloodgem": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:gems/bloodgem"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
-    "has_torridite_ingot": {
+    "has_ingot": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:ingots/torridite"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/massivence"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_bloodgem",
-      "has_torridite_ingot",
-      "has_the_recipe"
+      "has_gemstone",
+      "has_ingot"
     ]
   ],
   "rewards": {

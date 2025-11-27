@@ -2,37 +2,30 @@
   "parent": "recipes/root",
   "criteria": {
     "has_ingot": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:ingots/shadow"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_obsidian": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:obsidians/normal"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/brooding_obsidian"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_ingot",
-      "has_obsidian",
-      "has_the_recipe"
+      "has_obsidian"
     ]
   ],
   "rewards": {

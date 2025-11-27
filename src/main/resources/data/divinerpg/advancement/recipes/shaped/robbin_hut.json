@@ -1,7 +1,8 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_wood": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
@@ -11,20 +12,12 @@
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/robbin_hut"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_wood",
-      "has_the_recipe"
+      "has_wood"
     ]
   ],
   "rewards": {

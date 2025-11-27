@@ -2,28 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_arrow": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:soulfire_arrow"
-            ]
+            "items": "divinerpg:soulfire_arrow"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/snowstorm_arrow"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_arrow",
-      "has_the_recipe"
+      "has_arrow"
     ]
   ],
   "rewards": {

@@ -1,7 +1,7 @@
 {
   "type": "immersiveengineering:crusher",
   "input": {
-    "item": "divinerpg:eden_fragments"
+    "tag": "divinerpg:fragments/eden"
   },
   "energy": 3200,
   "result": {

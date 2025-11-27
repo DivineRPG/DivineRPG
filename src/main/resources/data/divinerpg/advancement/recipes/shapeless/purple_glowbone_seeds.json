@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_purple_glowbone": {
+    "has_crop": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:purple_glowbone"
-            ]
+            "items": "#divinerpg:crops/purple_glowbone"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/purple_glowbone_seeds"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_purple_glowbone",
-      "has_the_recipe"
+      "has_crop"
     ]
   ],
   "rewards": {

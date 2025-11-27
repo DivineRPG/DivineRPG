@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_dusk_bloom": {
+    "has_flower": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:dusk_bloom"
-            ]
+            "items": "divinerpg:dusk_bloom"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/purple_dye_from_dusk_bloom"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_dusk_bloom",
-      "has_the_recipe"
+      "has_flower"
     ]
   ],
   "rewards": {

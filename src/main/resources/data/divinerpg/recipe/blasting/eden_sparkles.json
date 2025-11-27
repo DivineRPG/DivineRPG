@@ -1,0 +1,10 @@
+{
+  "type": "blasting",
+  "ingredient": {
+    "tag": "divinerpg:dusts/eden"
+  },
+  "result": {
+    "id": "divinerpg:eden_sparkles"
+  },
+  "experience": 0.35
+}

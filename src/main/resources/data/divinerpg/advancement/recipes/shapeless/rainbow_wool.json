@@ -1,35 +1,28 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
     "has_wool": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:red_wool",
-              "minecraft:orange_wool",
-              "minecraft:yellow_wool",
-              "minecraft:lime_wool",
-              "minecraft:light_blue_wool",
-              "minecraft:blue_wool",
-              "minecraft:purple_wool"
+              "red_wool",
+              "orange_wool",
+              "yellow_wool",
+              "lime_wool",
+              "light_blue_wool",
+              "blue_wool",
+              "purple_wool"
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/rainbow_wool"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_wool",
-      "has_the_recipe"
+      "has_wool"
     ]
   ],
   "rewards": {

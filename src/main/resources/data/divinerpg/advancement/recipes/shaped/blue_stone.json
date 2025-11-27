@@ -1,38 +1,31 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_lapis": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:gems/lapis"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
-    "has_glowstone": {
+    "has_dust": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:dusts/glowstone"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/blue_stone"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_lapis",
-      "has_glowstone",
-      "has_the_recipe"
+      "has_gemstone",
+      "has_dust"
     ]
   ],
   "rewards": {

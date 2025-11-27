@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_dye": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:dyes/green"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/green_candy_cane"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_dye",
-      "has_the_recipe"
+      "has_dye"
     ]
   ],
   "rewards": {

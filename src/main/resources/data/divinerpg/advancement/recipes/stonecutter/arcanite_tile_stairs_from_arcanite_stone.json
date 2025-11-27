@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_arcanite_stone": {
+    "has_stone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:arcanite_stone"
-            ]
+            "items": "divinerpg:arcanite_stone"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:stonecutter/arcanite_tile_stairs_from_arcanite_stone"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_arcanite_stone",
-      "has_the_recipe"
+      "has_stone"
     ]
   ],
   "rewards": {

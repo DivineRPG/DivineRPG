@@ -1,7 +1,7 @@
 {
   "type": "immersiveengineering:crusher",
   "input": {
-    "item": "divinerpg:apalachia_fragments"
+    "tag": "divinerpg:fragments/apalachia"
   },
   "energy": 3200,
   "result": {

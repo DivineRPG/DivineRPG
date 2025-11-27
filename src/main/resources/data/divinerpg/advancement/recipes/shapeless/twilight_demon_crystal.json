@@ -1,29 +1,20 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_base_spawn_crystal": {
+    "has_crystal": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:base_spawn_crystal"
-            ]
+            "items": "divinerpg:base_spawn_crystal"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/twilight_demon_crystal"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_base_spawn_crystal",
-      "has_the_recipe"
+      "has_crystal"
     ]
   ],
   "rewards": {

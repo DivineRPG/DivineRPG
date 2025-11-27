@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "divinerpg:skythern_soul"
+      "tag": "divinerpg:souls/skythern"
     }
   ],
   "processing_time": 100,

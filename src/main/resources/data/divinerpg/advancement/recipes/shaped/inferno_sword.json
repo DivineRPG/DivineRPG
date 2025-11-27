@@ -2,39 +2,30 @@
   "parent": "recipes/root",
   "criteria": {
     "has_ore": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-              "items": "#c:ores/redstone"
+            "items": "#c:ores/redstone"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_powder": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "blaze_powder"
-            ]
+            "items": "blaze_powder"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/inferno_sword"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_ore",
-      "has_powder",
-      "has_the_recipe"
+      "has_powder"
     ]
   ],
   "rewards": {

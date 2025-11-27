@@ -1,29 +1,26 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_ender_leggings": {
+    "has_leggings": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:ender_leggings"
+              "divinerpg:ender_leggings",
+              "divinerpg:red_ender_leggings",
+              "divinerpg:yellow_ender_leggings",
+              "divinerpg:blue_ender_leggings",
+              "divinerpg:gray_ender_leggings"
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smithing/green_ender_leggings"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_ender_leggings",
-      "has_the_recipe"
+      "has_leggings"
     ]
   ],
   "rewards": {

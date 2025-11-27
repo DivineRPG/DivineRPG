@@ -1,55 +1,42 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_ice_shards": {
+    "has_shards": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:ice_shards"
-            ]
+            "items": "#divinerpg:shards/ice"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
-    "has_ice_stone": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:ice_stone"
-            ]
+            "items": "#divinerpg:gems/ice"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
     "has_ingot": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:aquatic_ingot"
-            ]
+            "items": "#divinerpg:ingots/aquatic"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/frosted_allure"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_ice_shards",
-      "has_ice_stone",
-      "has_ingot",
-      "has_the_recipe"
+      "has_shards",
+      "has_gemstone",
+      "has_ingot"
     ]
   ],
   "rewards": {

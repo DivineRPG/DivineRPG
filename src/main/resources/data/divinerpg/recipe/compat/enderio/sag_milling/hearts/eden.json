@@ -1,0 +1,33 @@
+{
+  "type": "enderio:sag_milling",
+  "input": {
+    "tag": "divinerpg:hearts/eden"
+  },
+  "energy": 2400,
+  "outputs": [
+    {
+      "item": {
+        "id": "divinerpg:eden_fragments",
+        "count": 3
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:eden_fragments"
+      },
+      "chance": 0.75
+    },
+    {
+      "item": {
+        "id": "divinerpg:eden_dust"
+      },
+      "chance": 0.45
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    }
+  ]
+}

@@ -1,38 +1,31 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_jungle_stone": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:gems/jungle"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
-    "has_shadow_bar": {
+    "has_ingot": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:ingots/shadow"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/jungle_rapier"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_jungle_stone",
-      "has_shadow_bar",
-      "has_the_recipe"
+      "has_gemstone",
+      "has_ingot"
     ]
   ],
   "rewards": {

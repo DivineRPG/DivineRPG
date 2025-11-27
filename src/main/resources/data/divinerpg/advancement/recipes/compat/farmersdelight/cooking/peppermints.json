@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_sugar": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "sugar"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/farmersdelight/cooking/peppermints"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_sugar",
-      "has_the_recipe"
+      "has_sugar"
     ]
   ],
   "rewards": {

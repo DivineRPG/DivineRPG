@@ -1,29 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_scorchalt": {
+    "has_stone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:scorchalt"
-            ]
+            "items": "divinerpg:scorchalt"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/chiseled_scorchalt"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_scorchalt",
-      "has_the_recipe"
+      "has_stone"
     ]
   ],
   "rewards": {

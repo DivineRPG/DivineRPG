@@ -2,37 +2,30 @@
   "parent": "recipes/root",
   "criteria": {
     "has_milk": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "#c:foods/milk"
+            "items": "#c:drinks/milk"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
-    "has_white_mushroom": {
+    "has_mushroom": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:foods/white_mushroom"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/cheese"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_milk",
-      "has_white_mushroom",
-      "has_the_recipe"
+      "has_mushroom"
     ]
   ],
   "rewards": {

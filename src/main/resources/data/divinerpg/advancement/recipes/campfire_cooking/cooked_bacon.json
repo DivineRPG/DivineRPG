@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_bacon": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:bacon"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:campfire_cooking/cooked_bacon"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_bacon",
-      "has_the_recipe"
+      "has_bacon"
     ]
   ],
   "rewards": {

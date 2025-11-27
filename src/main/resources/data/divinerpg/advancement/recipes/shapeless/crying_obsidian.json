@@ -1,38 +1,31 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_stone": {
+    "has_gemstone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:gems/corrupted"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_obsidian": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:obsidians/normal"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/crying_obsidian"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_stone",
-      "has_obsidian",
-      "has_the_recipe"
+      "has_gemstone",
+      "has_obsidian"
     ]
   ],
   "rewards": {

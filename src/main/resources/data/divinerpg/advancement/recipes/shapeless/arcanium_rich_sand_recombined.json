@@ -1,27 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_piece_of_raw_arcanium": {
+    "has_piece": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:piece_of_raw_arcanium"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shapeless/arcanium_rich_sand_recombined"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_piece_of_raw_arcanium",
-      "has_the_recipe"
+      "has_piece"
     ]
   ],
   "rewards": {

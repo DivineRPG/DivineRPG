@@ -1,38 +1,31 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_slime": {
+    "has_slimeball": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:slime_balls"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_sword": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "diamond_sword"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/slime_sword"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_slime",
-      "has_sword",
-      "has_the_recipe"
+      "has_slimeball",
+      "has_sword"
     ]
   ],
   "rewards": {

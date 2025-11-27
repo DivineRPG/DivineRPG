@@ -7,7 +7,7 @@
   ],
   "key": {
     "C": {
-      "item": "cocoa_beans"
+      "tag": "c:crops/cocoa_bean"
     },
     "S": {
       "item": "sugar"

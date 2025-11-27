@@ -2,28 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_peppermints": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:peppermints"
-            ]
+            "items": "divinerpg:peppermints"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/green_candy_cane"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_peppermints",
-      "has_the_recipe"
+      "has_peppermints"
     ]
   ],
   "rewards": {

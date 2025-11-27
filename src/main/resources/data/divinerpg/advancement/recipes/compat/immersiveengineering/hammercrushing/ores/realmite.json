@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_ore": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:ores/realmite"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/immersiveengineering/hammercrushing/ores/realmite"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_ore",
-      "has_the_recipe"
+      "has_ore"
     ]
   ],
   "rewards": {

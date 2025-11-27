@@ -2,54 +2,44 @@
   "parent": "recipes/root",
   "criteria": {
     "has_leather": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#c:leathers"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_string": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "string"
-            ]
+            "items": "#c:strings"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_armor_stand": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "armor_stand"
-            ]
+            "items": "armor_stand"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_wood": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-              "items": "#divinerpg:wood_types/divine"
+            "items": "#divinerpg:wood_types/divine"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/armor_pouch"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
@@ -57,8 +47,7 @@
       "has_leather",
       "has_string",
       "has_armor_stand",
-      "has_wood",
-      "has_the_recipe"
+      "has_wood"
     ]
   ],
   "rewards": {

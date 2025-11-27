@@ -1,7 +1,7 @@
 {
   "type": "immersiveengineering:crusher",
   "input": {
-    "item": "divinerpg:mortum_fragments"
+    "tag": "divinerpg:fragments/mortum"
   },
   "energy": 3200,
   "result": {

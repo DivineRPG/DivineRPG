@@ -1,7 +1,8 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_wildwood_heart": {
+    "has_heart": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
@@ -11,20 +12,12 @@
             "items": "#divinerpg:hearts/wildwood"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/projecte/conversions/wildwood_soul"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_wildwood_heart",
-      "has_the_recipe"
+      "has_heart"
     ]
   ],
   "rewards": {

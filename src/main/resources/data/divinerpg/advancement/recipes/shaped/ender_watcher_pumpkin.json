@@ -1,29 +1,31 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_shards": {
+    "has_eye": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:ender_shards"
-            ]
+            "items": "divinerpg:watching_eye"
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     },
-    "has_the_recipe": {
+    "has_shards": {
+      "trigger": "inventory_changed",
       "conditions": {
-        "recipe": "divinerpg:shaped/ender_watcher_pumpkin"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+        "items": [
+          {
+            "items": "divinerpg:ender_shards"
+          }
+        ]
+      }
     }
   },
   "requirements": [
     [
-      "has_shards",
-      "has_the_recipe"
+      "has_eye",
+      "has_shards"
     ]
   ],
   "rewards": {

@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "divinerpg:mortum_soul"
+      "tag": "divinerpg:souls/mortum"
     }
   ],
   "processing_time": 100,

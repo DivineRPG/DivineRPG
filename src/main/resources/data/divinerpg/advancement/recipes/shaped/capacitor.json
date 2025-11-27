@@ -2,37 +2,30 @@
   "parent": "recipes/root",
   "criteria": {
     "has_blubber": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:blubber"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_ingot": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "#divinerpg:ingots/oxdrite"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:shaped/capacitor"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_blubber",
-      "has_ingot",
-      "has_the_recipe"
+      "has_ingot"
     ]
   ],
   "rewards": {

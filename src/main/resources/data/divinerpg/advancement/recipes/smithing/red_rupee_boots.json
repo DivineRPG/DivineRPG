@@ -1,29 +1,26 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_rupee_boots": {
+    "has_boots": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:rupee_boots"
+              "divinerpg:rupee_boots",
+              "divinerpg:yellow_rupee_boots",
+              "divinerpg:green_rupee_boots",
+              "divinerpg:blue_rupee_boots",
+              "divinerpg:gray_rupee_boots"
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smithing/red_rupee_boots"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_rupee_boots",
-      "has_the_recipe"
+      "has_boots"
     ]
   ],
   "rewards": {

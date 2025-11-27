@@ -1,7 +1,7 @@
 {
   "type": "immersiveengineering:crusher",
   "input": {
-    "item": "divinerpg:skythern_fragments"
+    "tag": "divinerpg:fragments/skythern"
   },
   "energy": 3200,
   "result": {

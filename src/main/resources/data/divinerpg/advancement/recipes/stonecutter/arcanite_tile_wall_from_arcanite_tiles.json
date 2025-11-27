@@ -1,29 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_arcanite_tiles": {
+    "has_tiles": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:arcanite_tiles"
-            ]
+            "items": "divinerpg:arcanite_tiles"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:stonecutter/arcanite_tile_wall_from_arcanite_tiles"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_arcanite_tiles",
-      "has_the_recipe"
+      "has_tiles"
     ]
   ],
   "rewards": {

@@ -2,26 +2,19 @@
   "parent": "recipes/root",
   "criteria": {
     "has_dust": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": "divinerpg:realmite_dust"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smelting/realmite_ingot_from_dust"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_dust",
-      "has_the_recipe"
+      "has_dust"
     ]
   ],
   "rewards": {

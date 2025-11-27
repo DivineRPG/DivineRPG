@@ -10,7 +10,7 @@
       "tag": "divinerpg:storage_blocks/realmite"
     },
     "C": {
-      "item": "divinerpg:crate"
+      "tag": "divinerpg:crates"
     }
   },
   "result": {

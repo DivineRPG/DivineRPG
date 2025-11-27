@@ -1,29 +1,26 @@
 {
-  "parent": "minecraft:recipes/root",
+  "parent": "recipes/root",
   "criteria": {
-    "has_ender_sword": {
+    "has_sword": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "divinerpg:ender_sword"
+              "divinerpg:ender_sword",
+              "divinerpg:red_ender_sword",
+              "divinerpg:yellow_ender_sword",
+              "divinerpg:green_ender_sword",
+              "divinerpg:blue_ender_sword"
             ]
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:smithing/black_ender_sword"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_ender_sword",
-      "has_the_recipe"
+      "has_sword"
     ]
   ],
   "rewards": {

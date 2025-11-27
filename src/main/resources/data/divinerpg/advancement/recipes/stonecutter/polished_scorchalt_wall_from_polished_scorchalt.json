@@ -1,29 +1,20 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_polished_scorchalt": {
+    "has_polished_stone": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [
-              "divinerpg:polished_scorchalt"
-            ]
+            "items": "divinerpg:polished_scorchalt"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:stonecutter/polished_scorchalt_wall_from_polished_scorchalt"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
-      "has_polished_scorchalt",
-      "has_the_recipe"
+      "has_polished_stone"
     ]
   ],
   "rewards": {

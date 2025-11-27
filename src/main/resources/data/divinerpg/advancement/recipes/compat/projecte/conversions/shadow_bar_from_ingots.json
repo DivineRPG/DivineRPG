@@ -2,6 +2,7 @@
   "parent": "recipes/root",
   "criteria": {
     "has_arlemite": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
@@ -11,10 +12,10 @@
             "items": "#divinerpg:ingots/arlemite"
           }
         ]
-      },
-      "trigger": "inventory_changed"
+      }
     },
     "has_rupee": {
+      "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
@@ -24,21 +25,13 @@
             "items": "#divinerpg:ingots/rupee"
           }
         ]
-      },
-      "trigger": "inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "divinerpg:compat/projecte/conversions/shadow_bar_from_ingots"
-      },
-      "trigger": "recipe_unlocked"
+      }
     }
   },
   "requirements": [
     [
       "has_arlemite",
-      "has_rupee",
-      "has_the_recipe"
+      "has_rupee"
     ]
   ],
   "rewards": {
