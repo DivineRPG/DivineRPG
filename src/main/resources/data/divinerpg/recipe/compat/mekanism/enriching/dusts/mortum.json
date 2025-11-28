@@ -1,0 +1,15 @@
+{
+  "type": "mekanism:enriching",
+  "input": {
+    "item": "divinerpg:mortum_dust"
+  },
+  "output": {
+    "id": "divinerpg:mortum_fragments"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

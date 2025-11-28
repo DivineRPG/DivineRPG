@@ -1,12 +1,12 @@
 {
   "parent": "recipes/root",
   "criteria": {
-    "has_dust": {
+    "has_beans": {
       "trigger": "inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "divinerpg:bloodgem_dust"
+            "items": "#c:crops/cocoa_bean"
           }
         ]
       }
@@ -14,12 +14,12 @@
   },
   "requirements": [
     [
-      "has_dust"
+      "has_beans"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:smelting/bloodgem_from_dust"
+      "divinerpg:shapeless/chocolate_log"
     ]
   }
 }

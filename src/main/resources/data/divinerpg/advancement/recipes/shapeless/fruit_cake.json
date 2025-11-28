@@ -1,6 +1,16 @@
 {
   "parent": "recipes/root",
   "criteria": {
+    "has_fruit": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/fruit"
+          }
+        ]
+      }
+    },
     "has_egg": {
       "trigger": "inventory_changed",
       "conditions": {
@@ -24,13 +34,14 @@
   },
   "requirements": [
     [
+      "has_fruit",
       "has_egg",
       "has_wheat"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shaped/donut"
+      "divinerpg:shapeless/fruit_cake"
     ]
   }
 }

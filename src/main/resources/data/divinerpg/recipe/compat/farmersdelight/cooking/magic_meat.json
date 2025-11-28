@@ -2,10 +2,10 @@
   "type": "farmersdelight:cooking",
   "ingredients": [
     {
-      "item": "divinerpg:weak_arcana_potion"
+      "tag": "c:foods/raw_meat"
     },
     {
-      "tag": "c:foods/raw_meat"
+      "item": "divinerpg:weak_arcana_potion"
     }
   ],
   "result": {

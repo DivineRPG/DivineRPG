@@ -1,0 +1,21 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "c:drinks/milk"
+    },
+    {
+      "item": "sugar"
+    },
+    {
+      "tag": "c:crops/cocoa_bean"
+    },
+    {
+      "tag": "c:crops/cocoa_bean"
+    }
+  ],
+  "result": {
+    "id": "divinerpg:chocolate_log",
+    "count": 2
+  }
+}

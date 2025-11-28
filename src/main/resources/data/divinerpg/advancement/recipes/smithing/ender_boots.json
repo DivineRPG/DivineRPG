@@ -1,0 +1,31 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_boots": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:red_ender_boots",
+              "divinerpg:yellow_ender_boots",
+              "divinerpg:green_ender_boots",
+              "divinerpg:blue_ender_boots",
+              "divinerpg:gray_ender_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_boots"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smithing/ender_boots"
+    ]
+  }
+}

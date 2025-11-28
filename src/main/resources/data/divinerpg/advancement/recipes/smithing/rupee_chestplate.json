@@ -1,0 +1,31 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_chestplate": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "divinerpg:red_rupee_chestplate",
+              "divinerpg:yellow_rupee_chestplate",
+              "divinerpg:green_rupee_chestplate",
+              "divinerpg:blue_rupee_chestplate",
+              "divinerpg:gray_rupee_chestplate"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chestplate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smithing/rupee_chestplate"
+    ]
+  }
+}

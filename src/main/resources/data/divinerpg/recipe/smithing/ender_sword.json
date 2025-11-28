@@ -1,0 +1,29 @@
+{
+  "type": "smithing_transform",
+  "template": {
+    "item": "divinerpg:color_template"
+  },
+  "base": [
+    {
+      "item": "divinerpg:red_ender_sword"
+    },
+    {
+      "item": "divinerpg:yellow_ender_sword"
+    },
+    {
+      "item": "divinerpg:green_ender_sword"
+    },
+    {
+      "item": "divinerpg:blue_ender_sword"
+    },
+    {
+      "item": "divinerpg:black_ender_sword"
+    }
+  ],
+  "addition": {
+    "tag": "divinerpg:no_itself/diamond_no_chunks"
+  },
+  "result": {
+    "id": "divinerpg:ender_sword"
+  }
+}

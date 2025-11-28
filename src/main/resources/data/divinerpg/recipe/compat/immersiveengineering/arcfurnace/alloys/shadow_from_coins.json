@@ -1,14 +1,18 @@
 {
   "type": "immersiveengineering:arc_furnace",
   "input": {
-    "item": "divinerpg:bloodgem_dust"
+    "tag": "divinerpg:coins/shadow"
   },
-  "additives": [],
+  "additives": [
+    {
+      "tag": "divinerpg:coins/shadow"
+    }
+  ],
   "energy": 51200,
   "time": 100,
   "results": [
     {
-      "id": "divinerpg:bloodgem"
+      "id": "divinerpg:shadow_bar"
     }
   ],
   "neoforge:conditions": [

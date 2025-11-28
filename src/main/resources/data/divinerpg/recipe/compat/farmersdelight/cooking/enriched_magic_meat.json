@@ -2,13 +2,13 @@
   "type": "farmersdelight:cooking",
   "ingredients": [
     {
+      "tag": "c:foods/raw_meat"
+    },
+    {
       "item": "divinerpg:strong_arcana_potion"
     },
     {
       "item": "dragon_breath"
-    },
-    {
-      "tag": "c:foods/raw_meat"
     }
   ],
   "result": {

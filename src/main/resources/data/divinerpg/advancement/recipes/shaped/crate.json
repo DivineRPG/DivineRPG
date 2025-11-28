@@ -20,12 +20,19 @@
           }
         ]
       }
+    },
+    "has_the_recipe": {
+      "trigger": "recipe_unlocked",
+      "conditions": {
+        "recipe": "hopper"
+      }
     }
   },
   "requirements": [
     [
       "has_wood",
-      "has_planks"
+      "has_planks",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
