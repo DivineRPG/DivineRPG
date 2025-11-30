@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "tag": "divinerpg:fragments/wildwood"
+      "item": "divinerpg:wildwood_fragments"
     }
   ],
   "processing_time": 250,

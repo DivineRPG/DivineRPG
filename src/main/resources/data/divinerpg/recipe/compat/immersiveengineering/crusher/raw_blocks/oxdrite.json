@@ -8,6 +8,15 @@
     "id": "divinerpg:oxdrite_dust",
     "count": 12
   },
+  "secondaries": [
+    {
+      "output": {
+        "id": "brown_dye",
+        "count": 3
+      },
+      "chance": 0.45
+    }
+  ],
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

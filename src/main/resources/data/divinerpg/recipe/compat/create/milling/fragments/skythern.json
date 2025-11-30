@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "tag": "divinerpg:fragments/skythern"
+      "item": "divinerpg:skythern_fragments"
     }
   ],
   "processing_time": 250,

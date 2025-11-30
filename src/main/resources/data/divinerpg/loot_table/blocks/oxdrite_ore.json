@@ -32,6 +32,14 @@
               "name": "divinerpg:raw_oxdrite",
               "functions": [
                 {
+                  "function": "set_count",
+                  "count": {
+                    "type": "uniform",
+                    "min": 2,
+                    "max": 5
+                  }
+                },
+                {
                   "function": "apply_bonus",
                   "enchantment": "fortune",
                   "formula": "ore_drops"

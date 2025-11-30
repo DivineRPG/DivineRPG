@@ -1,7 +1,7 @@
 {
   "type": "enderio:sag_milling",
   "input": {
-    "tag": "divinerpg:fragments/eden"
+    "item": "divinerpg:eden_fragments"
   },
   "energy": 2400,
   "outputs": [

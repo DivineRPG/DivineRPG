@@ -13,6 +13,12 @@
         "id": "divinerpg:oxdrite_dust"
       },
       "chance": 0.33333334
+    },
+    {
+      "output": {
+        "id": "brown_dye"
+      },
+      "chance": 0.05
     }
   ],
   "neoforge:conditions": [

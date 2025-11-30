@@ -1,0 +1,33 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "tag": "divinerpg:ores/wildwood"
+  },
+  "duration": 40,
+  "output_items": [
+    {
+      "item": {
+        "id": "divinerpg:wildwood_fragments",
+        "count": 5
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:wildwood_fragments"
+      },
+      "chance": 0.5
+    },
+    {
+      "item": {
+        "id": "divinerpg:wildwood_gem"
+      },
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

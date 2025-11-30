@@ -26,6 +26,10 @@
     {
       "type": "neoforge:mod_loaded",
       "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "soap"
     }
   ]
 }

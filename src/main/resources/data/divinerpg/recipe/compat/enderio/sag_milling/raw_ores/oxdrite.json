@@ -22,6 +22,12 @@
         "count": 1
       },
       "chance": 0.2
+    },
+    {
+      "item": {
+        "id": "brown_dye"
+      },
+      "chance": 0.05
     }
   ],
   "neoforge:conditions": [

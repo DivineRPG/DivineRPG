@@ -5,7 +5,7 @@
       "tag": "divinerpg:ores/eden"
     },
     {
-      "tag": "divinerpg:fragments/eden"
+      "item": "divinerpg:eden_fragments"
     }
   ],
   "output": {

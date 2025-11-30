@@ -1,0 +1,26 @@
+{
+  "type": "integrateddynamics:squeezer",
+  "input_item": {
+    "tag": "divinerpg:souls/wildwood"
+  },
+  "output_items": [
+    {
+      "item": {
+        "id": "divinerpg:wildwood_fragments",
+        "count": 2
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:wildwood_dust"
+      },
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "integrateddynamics:squeezer",
+  "input_item": {
+    "item": "divinerpg:eye_plant"
+  },
+  "output_items": [
+    {
+      "item": {
+        "id": "red_dye",
+        "count": 4
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

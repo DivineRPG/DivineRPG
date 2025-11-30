@@ -11,7 +11,7 @@
   "ambient_light": 0.2,
   "fixed_time": 6000,
   "logical_height": 128,
-  "effects": "minecraft:nether",
+  "effects": "nether",
   "infiniburn": "#divinerpg:infiniburn/arcana",
   "min_y": 0,
   "height": 256,

@@ -1,0 +1,17 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "item": "divinerpg:aqua_ball"
+  },
+  "duration": 15,
+  "output_fluid": {
+    "id": "water",
+    "amount": 250
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

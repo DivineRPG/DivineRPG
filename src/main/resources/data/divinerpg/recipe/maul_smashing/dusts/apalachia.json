@@ -5,7 +5,7 @@
       "tag": "divinerpg:ores/apalachia"
     },
     {
-      "tag": "divinerpg:fragments/apalachia"
+      "item": "divinerpg:apalachia_fragments"
     }
   ],
   "output": {

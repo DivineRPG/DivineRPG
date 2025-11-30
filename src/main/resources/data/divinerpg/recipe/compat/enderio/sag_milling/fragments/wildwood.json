@@ -1,7 +1,7 @@
 {
   "type": "enderio:sag_milling",
   "input": {
-    "tag": "divinerpg:fragments/wildwood"
+    "item": "divinerpg:wildwood_fragments"
   },
   "energy": 2400,
   "outputs": [

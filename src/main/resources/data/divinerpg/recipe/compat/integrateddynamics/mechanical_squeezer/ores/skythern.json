@@ -1,0 +1,33 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "tag": "divinerpg:ores/skythern"
+  },
+  "duration": 40,
+  "output_items": [
+    {
+      "item": {
+        "id": "divinerpg:skythern_fragments",
+        "count": 5
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:skythern_fragments"
+      },
+      "chance": 0.5
+    },
+    {
+      "item": {
+        "id": "divinerpg:skythern_gem"
+      },
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

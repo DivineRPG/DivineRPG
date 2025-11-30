@@ -1,0 +1,27 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "tag": "divinerpg:ores/bloodgem"
+  },
+  "duration": 40,
+  "output_items": [
+    {
+      "item": {
+        "id": "divinerpg:bloodgem",
+        "count": 2
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:bloodgem"
+      },
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

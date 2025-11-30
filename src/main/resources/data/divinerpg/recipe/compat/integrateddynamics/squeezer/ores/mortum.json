@@ -1,0 +1,26 @@
+{
+  "type": "integrateddynamics:squeezer",
+  "input_item": {
+    "tag": "divinerpg:ores/mortum"
+  },
+  "output_items": [
+    {
+      "item": {
+        "id": "divinerpg:mortum_fragments",
+        "count": 5
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:mortum_gem"
+      },
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

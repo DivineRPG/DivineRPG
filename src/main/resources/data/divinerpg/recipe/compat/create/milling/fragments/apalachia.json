@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "tag": "divinerpg:fragments/apalachia"
+      "item": "divinerpg:apalachia_fragments"
     }
   ],
   "processing_time": 250,

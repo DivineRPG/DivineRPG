@@ -1,0 +1,35 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "item": "divinerpg:thermoliage"
+  },
+  "duration": 5,
+  "output_items": [
+    {
+      "item": {
+        "id": "pink_dye",
+        "count": 8
+      }
+    },
+    {
+      "item": {
+        "id": "pink_dye",
+        "count": 2
+      },
+      "chance": 0.5
+    },
+    {
+      "item": {
+        "id": "pink_dye",
+        "count": 2
+      },
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

@@ -5,7 +5,7 @@
       "tag": "divinerpg:ores/wildwood"
     },
     {
-      "tag": "divinerpg:fragments/wildwood"
+      "item": "divinerpg:wildwood_fragments"
     }
   ],
   "output": {

@@ -1,7 +1,7 @@
 {
   "type": "enderio:sag_milling",
   "input": {
-    "tag": "divinerpg:fragments/mortum"
+    "item": "divinerpg:mortum_fragments"
   },
   "energy": 2400,
   "outputs": [

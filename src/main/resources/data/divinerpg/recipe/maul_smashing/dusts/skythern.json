@@ -5,7 +5,7 @@
       "tag": "divinerpg:ores/skythern"
     },
     {
-      "tag": "divinerpg:fragments/skythern"
+      "item": "divinerpg:skythern_fragments"
     }
   ],
   "output": {

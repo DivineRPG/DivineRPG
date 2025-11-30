@@ -1,0 +1,19 @@
+{
+  "type": "integrateddynamics:squeezer",
+  "input_item": {
+    "item": "divinerpg:scorchalt"
+  },
+  "output_items": [
+    {
+      "item": {
+        "id": "divinerpg:cobbled_scorchalt"
+      }
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

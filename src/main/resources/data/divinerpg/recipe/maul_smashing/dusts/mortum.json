@@ -5,7 +5,7 @@
       "tag": "divinerpg:ores/mortum"
     },
     {
-      "tag": "divinerpg:fragments/mortum"
+      "item": "divinerpg:mortum_fragments"
     }
   ],
   "output": {

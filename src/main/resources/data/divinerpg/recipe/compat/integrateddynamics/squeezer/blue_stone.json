@@ -1,0 +1,26 @@
+{
+  "type": "integrateddynamics:squeezer",
+  "input_item": {
+    "item": "divinerpg:blue_stone"
+  },
+  "output_items": [
+    {
+      "item": {
+        "id": "glowstone_dust",
+        "count": 4
+      }
+    },
+    {
+      "item": {
+        "id": "lapis_lazuli"
+      },
+      "chance": 0.05
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

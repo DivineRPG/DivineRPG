@@ -1,0 +1,28 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "item": "divinerpg:dusk_bloom"
+  },
+  "duration": 5,
+  "output_items": [
+    {
+      "item": {
+        "id": "purple_dye",
+        "count": 4
+      }
+    },
+    {
+      "item": {
+        "id": "purple_dye",
+        "count": 2
+      },
+      "chance": 0.5
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

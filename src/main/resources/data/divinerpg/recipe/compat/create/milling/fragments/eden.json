@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "tag": "divinerpg:fragments/eden"
+      "item": "divinerpg:eden_fragments"
     }
   ],
   "processing_time": 250,

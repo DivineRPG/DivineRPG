@@ -1,0 +1,26 @@
+{
+  "type": "integrateddynamics:squeezer",
+  "input_item": {
+    "tag": "divinerpg:ores/realmite"
+  },
+  "output_items": [
+    {
+      "item": {
+        "id": "divinerpg:raw_realmite",
+        "count": 2
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:raw_realmite"
+      },
+      "chance": 0.75
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

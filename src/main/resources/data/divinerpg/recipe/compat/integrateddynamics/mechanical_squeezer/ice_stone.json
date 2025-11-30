@@ -1,0 +1,17 @@
+{
+  "type": "integrateddynamics:mechanical_squeezer",
+  "input_item": {
+    "item": "divinerpg:ice_stone"
+  },
+  "duration": 30,
+  "output_fluid": {
+    "id": "water",
+    "amount": 500
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}

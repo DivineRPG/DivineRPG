@@ -2,7 +2,7 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "tag": "divinerpg:fragments/mortum"
+      "item": "divinerpg:mortum_fragments"
     }
   ],
   "processing_time": 250,

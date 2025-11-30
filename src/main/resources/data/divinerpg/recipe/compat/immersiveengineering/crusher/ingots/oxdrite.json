@@ -7,14 +7,6 @@
   "result": {
     "id": "divinerpg:oxdrite_dust"
   },
-  "secondaries": [
-    {
-      "output": {
-        "id": "brown_dye"
-      },
-      "chance": 0.05
-    }
-  ],
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

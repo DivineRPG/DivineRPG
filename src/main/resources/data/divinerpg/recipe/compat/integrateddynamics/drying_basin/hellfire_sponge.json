@@ -1,0 +1,16 @@
+{
+  "type": "integrateddynamics:drying_basin",
+  "input_item": {
+    "item": "divinerpg:cold_hellfire_sponge"
+  },
+  "duration": 200,
+  "output_item": {
+    "id": "divinerpg:hellfire_sponge"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "integrateddynamics"
+    }
+  ]
+}
