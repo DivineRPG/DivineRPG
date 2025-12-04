@@ -1,6 +1,6 @@
 {
   "type": "divinerpg:highest_ground",
-  "biomes": "divinerpg:apalachia",
+  "biomes": "#divinerpg:is_apalachia",
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",

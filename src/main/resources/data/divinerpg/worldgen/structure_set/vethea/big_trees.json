@@ -1,19 +1,18 @@
 {
-	"structures": [
-		{
-			"structure": "divinerpg:vethea/big_dream_tree",
-			"weight": 1
-		},
-		{
-			"structure": "divinerpg:vethea/big_hyretree",
-			"weight": 1
-		}
-	],
-	"placement": {
-		"type": "minecraft:random_spread",
-		"salt": 557403648,
-		"spread_type": "linear",
-		"spacing": 16,
-		"separation": 8
-	}
+  "structures": [
+    {
+      "structure": "divinerpg:vethea/big_dream_tree",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/big_hyretree",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "random_spread",
+    "salt": 557403648,
+    "spacing": 16,
+    "separation": 8
+  }
 }

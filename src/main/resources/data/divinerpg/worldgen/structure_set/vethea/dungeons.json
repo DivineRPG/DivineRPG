@@ -1,23 +1,22 @@
 {
-	"structures": [
-		{
-			"structure": "divinerpg:vethea/crypt",
-			"weight": 1
-		},
-		{
-			"structure": "divinerpg:vethea/crypt2",
-			"weight": 1
-		},
-		{
-			"structure": "divinerpg:vethea/temple",
-			"weight": 1
-		}
-	],
-	"placement": {
-		"type": "minecraft:random_spread",
-		"salt": 1587242645,
-		"spread_type": "linear",
-		"spacing": 16,
-		"separation": 12
-	}
+  "structures": [
+    {
+      "structure": "divinerpg:vethea/crypt",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/crypt2",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/temple",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "random_spread",
+    "salt": 1587242645,
+    "spacing": 16,
+    "separation": 12
+  }
 }

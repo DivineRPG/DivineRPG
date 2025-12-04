@@ -1,15 +1,14 @@
 {
-	"structures": [
-		{
-			"structure": "divinerpg:arcana/ruined_portal",
-			"weight": 1
-		}
-	],
-	"placement": {
-		"type": "random_spread",
-		"spread_type": "linear",
-		"salt": 25565432,
-		"spacing": 25,
-		"separation": 8
-	}
+  "structures": [
+    {
+      "structure": "divinerpg:arcana/ruined_portal",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "random_spread",
+    "salt": 25565432,
+    "spacing": 25,
+    "separation": 8
+  }
 }

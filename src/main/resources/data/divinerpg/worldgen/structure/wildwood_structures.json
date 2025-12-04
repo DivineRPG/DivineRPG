@@ -1,6 +1,6 @@
 {
   "type": "divinerpg:highest_ground",
-  "biomes": "divinerpg:wildwood",
+  "biomes": "#divinerpg:is_wildwood",
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",

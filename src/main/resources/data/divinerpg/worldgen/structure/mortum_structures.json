@@ -1,6 +1,6 @@
 {
   "type": "divinerpg:lowest_ground",
-  "biomes": "divinerpg:mortum",
+  "biomes": "#divinerpg:is_mortum",
   "step": "underground_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",

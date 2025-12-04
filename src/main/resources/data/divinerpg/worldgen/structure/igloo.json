@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:jigsaw",
+  "type": "jigsaw",
   "biomes": "#c:is_snowy",
   "step": "surface_structures",
   "spawn_overrides": {},

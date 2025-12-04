@@ -1,6 +1,6 @@
 {
   "type": "divinerpg:lowest_ground",
-  "biomes": "divinerpg:skythern",
+  "biomes": "#divinerpg:is_skythern",
   "step": "surface_structures",
   "spawn_overrides": {},
   "terrain_adaptation": "beard_thin",

@@ -1,15 +1,14 @@
 {
-	"structures": [
-		{
-			"structure": "divinerpg:vethea/infusion_outpost",
-			"weight": 1
-		}
-	],
-	"placement": {
-		"type": "minecraft:random_spread",
-		"salt": 791986225,
-		"spread_type": "linear",
-		"spacing": 12,
-		"separation": 6
-	}
+  "structures": [
+    {
+      "structure": "divinerpg:vethea/infusion_outpost",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "random_spread",
+    "salt": 791986225,
+    "spacing": 12,
+    "separation": 6
+  }
 }
