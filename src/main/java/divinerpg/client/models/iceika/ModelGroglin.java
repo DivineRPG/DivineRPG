@@ -15,9 +15,9 @@ public class ModelGroglin extends HumanoidModel<Groglin> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("groglin");
 	public ModelGroglin(ModelPart part) {super(part);}
 	public static LayerDefinition createBodyLayer() {
-		MeshDefinition meshdefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
-		PartDefinition partdefinition = meshdefinition.getRoot();
 		CubeDeformation cubeDef = CubeDeformation.NONE;
+		MeshDefinition meshdefinition = HumanoidModel.createMesh(cubeDef, 0);
+		PartDefinition partdefinition = meshdefinition.getRoot();
 		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(32, 34).addBox(4, -9, 0, 1, 5, 5, cubeDef)
 		.texOffs(32, 24).addBox(-5, -9, 0, 1, 5, 5, cubeDef)
 		.texOffs(0, 0).addBox(-1, -3, -6, 2, 5, 2, cubeDef)

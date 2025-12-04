@@ -1,67 +1,66 @@
 {
   "name": "obstructions",
-  "fallback": "minecraft:empty",
+  "fallback": "empty",
   "elements": [
     {
-      "weight": 32,
       "element": {
-        "element_type": "minecraft:empty_pool_element",
-        "projection": "rigid"
-      }
+        "element_type": "empty_pool_element"
+      },
+      "weight": 32
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/obstructions/post_1",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/obstructions/post_2",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 2,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/obstructions/door_1",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 2
     },
     {
-      "weight": 2,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/obstructions/door_2",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 2
     },
     {
-      "weight": 1,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/obstructions/snow",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 1
     },
     {
-      "weight": 1,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/obstructions/pumpkin",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 1
     }
   ]
 }

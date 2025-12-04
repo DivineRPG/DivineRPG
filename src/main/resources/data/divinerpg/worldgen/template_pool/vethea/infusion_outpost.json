@@ -1,15 +1,15 @@
 {
   "name": "infusion_outpost",
-  "fallback": "minecraft:empty",
+  "fallback": "empty",
   "elements": [
     {
-      "weight": 1,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:vethea/all_biomes/infusionoutpost",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 1
     }
   ]
 }

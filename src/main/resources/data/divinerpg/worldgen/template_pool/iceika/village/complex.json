@@ -1,69 +1,69 @@
 {
   "name": "iceika_village",
-  "fallback": "minecraft:empty",
+  "fallback": "empty",
   "elements": [
     {
-      "weight": 1,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "terrain_matching",
         "location": "divinerpg:iceika/village/road/road",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 1
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/village/workshop_house_1",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/village/workshop_house_2",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/village/workshop_house_3",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/village/workshop_house_4",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/village/workshop_house_5",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/village/workshop_house_6",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     }
   ]
 }

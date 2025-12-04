@@ -19,6 +19,8 @@ public class GroglinMerchant extends Groglin {
 	@Override protected void populateDefaultEquipmentSlots(RandomSource random, DifficultyInstance difficulty) {setItemInHand(MAIN_HAND, new ItemStack(blue_armor_pouch.get()));}
 	@Override protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
+		goalSelector.addGoal(0, new OpenDoorGoal(this, true));
+		goalSelector.addGoal(1, new LookAtTradingPlayerGoal(this));
 		goalSelector.addGoal(4, new AvoidFactionGoal(this, getFaction(), (float)getAttributeValue(Attributes.FOLLOW_RANGE), 1.1, 1.1));
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6));

@@ -1,51 +1,51 @@
 {
   "name": "groglin_village",
-  "fallback": "minecraft:empty",
+  "fallback": "empty",
   "elements": [
     {
-      "weight": 1,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "terrain_matching",
         "location": "divinerpg:iceika/groglin/road/crossroads",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 1
     },
     {
-      "weight": 2,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "terrain_matching",
         "location": "divinerpg:iceika/groglin/road/junction",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 2
     },
     {
-      "weight": 2,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "terrain_matching",
         "location": "divinerpg:iceika/groglin/road/road",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 2
     },
     {
-      "weight": 4,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "terrain_matching",
         "location": "divinerpg:iceika/groglin/road/junction_left",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 4
     },
     {
-      "weight": 4,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "terrain_matching",
         "location": "divinerpg:iceika/groglin/road/junction_right",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 4
     }
   ]
 }

@@ -1,22 +1,21 @@
 {
   "name": "wall",
-  "fallback": "minecraft:empty",
+  "fallback": "empty",
   "elements": [
-  	{
-      "weight": 1,
+    {
       "element": {
-        "element_type": "minecraft:empty_pool_element",
-        "projection": "rigid"
-      }
+        "element_type": "empty_pool_element"
+      },
+      "weight": 1
     },
     {
-      "weight": 1,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/wall",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 1
     }
   ]
 }

@@ -31,6 +31,8 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 	protected abstract Holder<MobEffect> getTargetEffect();
 	@Override protected void registerGoals() {
 		goalSelector.addGoal(0, new FloatGoal(this));
+		goalSelector.addGoal(0, new OpenDoorGoal(this, true));
+		goalSelector.addGoal(1, new LookAtTradingPlayerGoal(this));
         if(!(this instanceof RangedAttackMob)) goalSelector.addGoal(0, new MeleeAttackGoal(this, 1, false));
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6));
@@ -43,6 +45,16 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
 		nav.setCanOpenDoors(true);
 		nav.setCanPassDoors(true);
 		return nav;
+	}
+	@Override public void aiStep() {
+		updateSwingTime();
+		updateNoActionTime();
+		super.aiStep();
+	}
+	@SuppressWarnings("deprecation")
+	protected void updateNoActionTime() {
+		float f = getLightLevelDependentMagicValue();
+		if(f > .5F) noActionTime += 2;
 	}
 	@Nullable
 	@Override public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType type, @Nullable SpawnGroupData data) {

@@ -1,22 +1,21 @@
 {
   "name": "traps",
-  "fallback": "minecraft:empty",
+  "fallback": "empty",
   "elements": [
     {
-      "weight": 15,
       "element": {
-        "element_type": "minecraft:empty_pool_element",
-        "projection": "rigid"
-      }
+        "element_type": "empty_pool_element"
+      },
+      "weight": 15
     },
     {
-      "weight": 1,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:iceika/dungeon/traps/allure",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 1
     }
   ]
 }

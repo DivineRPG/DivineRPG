@@ -1,114 +1,114 @@
 {
   "name": "wildwood",
-  "fallback": "minecraft:empty",
+  "fallback": "empty",
   "elements": [
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/wildwood/giant_mangroove",
-        "processors": "minecraft:empty"
-      }
+        "location": "divinerpg:twilight/wildwood/giant_mangrove",
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/wildwood/giant_mangroove_dead",
-        "processors": "minecraft:empty"
-      }
+        "location": "divinerpg:twilight/wildwood/giant_mangrove_dead",
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
-        "location": "divinerpg:twilight/wildwood/giant_mangroove_treehouse",
-        "processors": "minecraft:empty"
-      }
+        "location": "divinerpg:twilight/wildwood/giant_mangrove_treehouse",
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/heavily_overgrown_wildwood_portal1",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/heavily_overgrown_wildwood_portal2",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/heavily_overgrown_wildwood_portal3",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/wildwood_dungeon1",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/wildwood_house",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/wildwood_outpost",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/wildwood_pillar1",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 5,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/wildwood_pillar2",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 5
     },
     {
-      "weight": 3,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:twilight/wildwood/termasect_nest",
-        "processors": "minecraft:empty"
-      }
+        "processors": "empty"
+      },
+      "weight": 3
     }
   ]
 }

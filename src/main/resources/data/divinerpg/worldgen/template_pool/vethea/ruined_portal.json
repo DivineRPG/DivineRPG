@@ -1,36 +1,36 @@
 {
   "name": "ruined_portal",
-  "fallback": "minecraft:empty",
+  "fallback": "empty",
   "elements": [
     {
-      "weight": 1,
       "element": {
-        "element_type": "minecraft:single_pool_element",
+        "element_type": "single_pool_element",
         "projection": "rigid",
         "location": "divinerpg:vethea/ember_caverns/ruined_portal",
         "processors": {
-			"processors": [
-				{
-					"processor_type": "minecraft:rule",
-					"rules": [
-						{
-							"location_predicate": {
-								"predicate_type": "minecraft:always_true"
-							},
-							"input_predicate": {
-								"predicate_type": "minecraft:random_block_match",
-								"block": "divinerpg:mortum_block",
-								"probability": 0.5
-							},
-							"output_state": {
-								"Name": "minecraft:air"
-							}
-						}
-					]
-				}
-			]
-		}
-      }
+          "processors": [
+            {
+              "processor_type": "rule",
+              "rules": [
+                {
+                  "location_predicate": {
+                    "predicate_type": "always_true"
+                  },
+                  "input_predicate": {
+                    "predicate_type": "random_block_match",
+                    "block": "divinerpg:mortum_block",
+                    "probability": 0.5
+                  },
+                  "output_state": {
+                    "Name": "air"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "weight": 1
     }
   ]
 }
