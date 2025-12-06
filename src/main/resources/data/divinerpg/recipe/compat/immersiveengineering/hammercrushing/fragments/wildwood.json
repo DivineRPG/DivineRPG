@@ -1,0 +1,15 @@
+{
+  "type": "immersiveengineering:hammer_crushing",
+  "input": {
+    "item": "divinerpg:wildwood_fragments"
+  },
+  "result": {
+    "item": "divinerpg:wildwood_dust"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

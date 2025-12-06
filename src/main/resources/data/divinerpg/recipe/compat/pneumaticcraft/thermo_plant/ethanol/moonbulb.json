@@ -1,0 +1,30 @@
+{
+  "type": "pneumaticcraft:thermo_plant",
+  "exothermic": true,
+  "inputs": {
+    "fluid": {
+      "tag": "pneumaticcraft:yeast_culture",
+      "amount": 100
+    },
+    "item": {
+      "tag": "divinerpg:crops/moonbulb"
+    }
+  },
+  "temperature": {
+    "min": 303,
+    "max": 333
+  },
+  "speed": 0.25,
+  "outputs": {
+    "fluid_output": {
+      "id": "pneumaticcraft:ethanol",
+      "amount": 30
+    }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
+}

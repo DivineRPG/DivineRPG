@@ -1,0 +1,14 @@
+{
+  "type": "pneumaticcraft:fuel_quality",
+  "fluid": {
+    "tag": "divinerpg:smoldering_tar"
+  },
+  "air_per_bucket": 50000,
+  "burn_rate": 0.2,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
+}

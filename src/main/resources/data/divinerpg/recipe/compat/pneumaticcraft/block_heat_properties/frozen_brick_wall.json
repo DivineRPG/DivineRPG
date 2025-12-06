@@ -1,0 +1,16 @@
+{
+  "type": "pneumaticcraft:heat_properties",
+  "block": "divinerpg:frozen_brick_wall",
+  "heatCapacity": 15000,
+  "temperature": 223,
+  "thermalResistance": 200,
+  "transforms": {
+    "hot": "brick_wall"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
+}

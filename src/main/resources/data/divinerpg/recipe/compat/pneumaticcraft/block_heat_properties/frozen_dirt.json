@@ -1,0 +1,16 @@
+{
+  "type": "pneumaticcraft:heat_properties",
+  "block": "divinerpg:frozen_dirt",
+  "heatCapacity": 5000,
+  "temperature": 223,
+  "thermalResistance": 100,
+  "transforms": {
+    "hot": "dirt"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
+}

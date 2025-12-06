@@ -1,0 +1,21 @@
+{
+  "type": "pneumaticcraft:pressure_chamber",
+  "inputs": [
+    {
+      "tag": "divinerpg:storage_blocks/anthracite",
+      "count": 24
+    }
+  ],
+  "pressure": 4,
+  "results": [
+    {
+      "id": "diamond"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
+}

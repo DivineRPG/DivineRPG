@@ -1,0 +1,16 @@
+{
+  "type": "pneumaticcraft:heat_properties",
+  "block": "divinerpg:smoldering_tar",
+  "heatCapacity": 10000,
+  "temperature": 723,
+  "thermalResistance": 300,
+  "transforms": {
+    "cold": "divinerpg:asphalt"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
+}

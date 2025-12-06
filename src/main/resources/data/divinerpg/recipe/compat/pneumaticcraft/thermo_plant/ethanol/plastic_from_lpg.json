@@ -1,0 +1,27 @@
+{
+  "type": "pneumaticcraft:thermo_plant",
+  "inputs": {
+    "fluid": {
+      "tag": "c:lpg",
+      "amount": 100
+    },
+    "item": {
+      "item": "divinerpg:anthracite"
+    }
+  },
+  "temperature": {
+    "min": 373
+  },
+  "outputs": {
+    "fluid_output": {
+      "id": "pneumaticcraft:plastic",
+      "amount": 1000
+    }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
+}

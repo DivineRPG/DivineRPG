@@ -2,18 +2,16 @@
   "type": "pneumaticcraft:amadron",
   "input": {
     "resource": {
-      "amount": 4000,
-      "id": "divinerpg:smoldering_tar"
+      "id": "divinerpg:smoldering_tar",
+      "amount": 4000
     }
   },
-  "level": 0,
-  "offer_id": "pneumaticcraft:amadron/smoldering_tar_to_corrupted_shards",
   "output": {
     "resource": {
-      "count": 1,
       "id": "divinerpg:corrupted_shards"
     }
   },
+  "offer_id": "divinerpg:compat/pneumaticcraft/amadron/smoldering_tar_to_corrupted_shards",
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

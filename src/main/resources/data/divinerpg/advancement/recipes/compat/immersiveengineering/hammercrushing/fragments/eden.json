@@ -1,0 +1,31 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_fragments": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:eden_fragments"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_fragments"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/immersiveengineering/hammercrushing/fragments/eden"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "immersiveengineering"
+    }
+  ]
+}

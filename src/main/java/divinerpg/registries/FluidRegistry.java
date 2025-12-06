@@ -25,7 +25,7 @@ public class FluidRegistry {
         return new BaseFlowingFluid.Properties(SMOLDERING_TAR, SMOLDERING_TAR_FLUID, SMOLDERING_TAR_FLUID_FLOWING).block(SMOLDERING_TAR_BLOCK).bucket(ItemRegistry.smoldering_tar_bucket);
     }
     public static final DeferredHolder<FluidType, FluidType> SMOLDERING_TAR = FLUID_TYPES.register("smoldering_tar_fluid_type", () ->
-            new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(1100).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)));
+            new FluidType(FluidType.Properties.create().canSwim(false).canHydrate(false).canDrown(true).density(1153).viscosity(8000).temperature(723).sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)));
     public static final DeferredHolder<Fluid, BaseFlowingFluid> SMOLDERING_TAR_FLUID = FLUIDS.register("smoldering_tar", () ->
             new BaseFlowingFluid.Source(fluidProperties()) {
                 @Override public int getSlopeFindDistance(LevelReader level) {return level.dimensionType().ultraWarm() ? 4 : 2;}

@@ -105,9 +105,7 @@ dependencies {
     //Advanced Mining Dimension isn't ported to 1.21.1
 //    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension
 //    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether
-    //TODO: to fix ghost item appearing when interacting with crates,
-    // statue sound playing when picking it up,
-    // being able to carry nightmare bed
+    //TODO: to fix ghost item appearing when interacting with crates, and statue sound playing when picking it up
     implementation "curse.maven:carry-on-274259:${carry_on_id}" //Carry On
     //TODO: to add woodcutter variants
     implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
@@ -115,7 +113,6 @@ dependencies {
     //TODO: mob animations, fix hat placement, capabilities
 //    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fights_id}" //Epic Fights
     implementation "curse.maven:every-compat-628539:${every_compat_id}" //Every Compat
-//    runtimeOnly "curse.maven:mystical-agriculture-246640:${mystical_agriculture_id}" //Mystical Agriculture
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
     runtimeOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
@@ -124,29 +121,33 @@ dependencies {
     //TODO: to add raked frozen gravel, cannon boat variants, way posts in Iceika, map markers, hourglass dusts
     runtimeOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries
     //Traveler's Titles don't have NeoForge version up until 1.21.4
-    //Farmer's Delight Collection
+    //Farmer's Delight collection
     //TODO: to make cabinet variant textures for Every Compat (and maybe crop blocks)
     implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
     //TODO: fermenting recipes (liquids to pour, tar input)
     implementation "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin'
-    //Tech mods compat
+    //Tech mods
     runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
     //TODO: to make window+pane variant textures for Every Compat, crushed ores (+recipes), potato projectiles, potion mixing, liquids, to remove weird twilight block cutting recipes
     runtimeOnly "curse.maven:create-328085:${create_id}" //Create
     //TODO: eio_soul/spawner/...
     runtimeOnly "curse.maven:ender-io-64578:${ender_io_id}" //Ender IO
     //TODO: arc furnace recycling, potion support
-    implementation "blusunrize.immersiveengineering:ImmersiveEngineering:${immersive_engineering_version}" //Immersive Engineering
+    runtimeOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersive_engineering_version}" //Immersive Engineering
     runtimeOnly "curse.maven:industrial-foregoing-266515:${industrial_foregoing_id}" //Industrial Foregoing
     runtimeOnly "curse.maven:integrated_dynamics-236307:${integrated_dynamics_id}" //Integrated Dynamics
     runtimeOnly "curse.maven:common_capabilities-247007:${common_capabilities_id}" //Common Capabilities
-//    runtimeOnly "curse.maven:iron-jetpacks-284497:${iron_jetpacks_id}" //Iron Jetpacks
     compileOnly "mekanism:Mekanism:${mekanism_version}:api" //Mekanism
     runtimeOnly "mekanism:Mekanism:${mekanism_version}" //Mekanism
     runtimeOnly "mekanism:Mekanism:${mekanism_version}:additions" //Mekanism: Additions
     runtimeOnly "mekanism:Mekanism:${mekanism_version}:generators" //Mekanism: Generators
     runtimeOnly "mekanism:Mekanism:${mekanism_version}:tools" //Mekanism: Tools
     runtimeOnly "curse.maven:pneumaticcraft-repressurized-281849:${pneumaticcraft_id}" //Pneumaticcraft
+    //Cucumber family
+//    runtimeOnly "curse.maven:mystical-agriculture-246640:${mystical_agriculture_id}" //Mystical Agriculture
+//    runtimeOnly "curse.maven:mystical-agradditions-256247:${mystical_agradditions_id}" //Mystical Agradditions
+//    runtimeOnly "curse.maven:mystical-customization-280441:${mystical_customization_id}" //Mystical Customization
+//    runtimeOnly "curse.maven:iron-jetpacks-284497:${iron_jetpacks_id}" //Iron Jetpacks
     //Helpful
     runtimeOnly "curse.maven:appleskin-248787:${apple_skin_id}" //Apple Skin
     runtimeOnly "curse.maven:not-enough-crashes-forge-442354:${not_enough_crashes_id}" //Not Enough Crashes

@@ -1,0 +1,16 @@
+{
+  "type": "pneumaticcraft:heat_properties",
+  "block": "divinerpg:frosted_glass",
+  "heatCapacity": 6000,
+  "temperature": 233,
+  "thermalResistance": 100,
+  "transforms": {
+    "hot": "glass"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    }
+  ]
+}
