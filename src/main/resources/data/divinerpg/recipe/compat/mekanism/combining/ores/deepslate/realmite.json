@@ -1,0 +1,19 @@
+{
+  "type": "mekanism:combining",
+  "main_input": {
+    "item": "divinerpg:raw_realmite",
+    "count": 8
+  },
+  "extra_input": {
+    "tag": "c:cobblestones/deepslate"
+  },
+  "output": {
+    "id": "divinerpg:realmite_ore_deepslate"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

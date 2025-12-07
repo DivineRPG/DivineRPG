@@ -1,0 +1,19 @@
+{
+  "type": "mekanism:combining",
+  "main_input": {
+    "item": "divinerpg:raw_oxdrite",
+    "count": 20
+  },
+  "extra_input": {
+    "tag": "divinerpg:cobblestones/frozen"
+  },
+  "output": {
+    "id": "divinerpg:oxdrite_ore"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

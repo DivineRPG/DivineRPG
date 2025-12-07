@@ -1,0 +1,16 @@
+{
+  "type": "mekanism:chemical_conversion",
+  "input": {
+    "tag": "divinerpg:coals/anthracite"
+  },
+  "output": {
+    "id": "mekanism:carbon",
+    "amount": 20
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

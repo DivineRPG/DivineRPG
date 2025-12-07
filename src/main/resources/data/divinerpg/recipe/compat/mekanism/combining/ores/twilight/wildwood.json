@@ -1,0 +1,19 @@
+{
+  "type": "mekanism:combining",
+  "main_input": {
+    "item": "divinerpg:wildwood_dust",
+    "count": 12
+  },
+  "extra_input": {
+    "item": "divinerpg:twilight_stone"
+  },
+  "output": {
+    "id": "divinerpg:wildwood_ore"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

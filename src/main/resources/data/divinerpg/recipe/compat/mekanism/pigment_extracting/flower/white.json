@@ -9,8 +9,8 @@
     ]
   },
   "output": {
-    "id":"mekanism:white",
-    "amount":768
+    "id": "mekanism:white",
+    "amount": 768
   },
   "neoforge:conditions": [
     {

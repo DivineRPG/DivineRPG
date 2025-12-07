@@ -1,0 +1,19 @@
+{
+  "type": "mekanism:combining",
+  "main_input": {
+    "tag": "divinerpg:gems/ice",
+    "count": 4
+  },
+  "extra_input": {
+    "tag": "divinerpg:cobblestones/frozen"
+  },
+  "output": {
+    "id": "divinerpg:icy_stone"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

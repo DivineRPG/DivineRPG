@@ -5,7 +5,7 @@
   "temperature": 223,
   "thermalResistance": 200,
   "transforms": {
-    "hot": "brick_wall"
+    "hot": "stone_brick_wall"
   },
   "neoforge:conditions": [
     {

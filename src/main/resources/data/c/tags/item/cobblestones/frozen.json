@@ -1,6 +1,5 @@
 {
   "values": [
-    "divinerpg:cobbled_frozen_stone",
-    "divinerpg:icy_stone"
+    "#divinerpg:cobblestones/frozen"
   ]
 }

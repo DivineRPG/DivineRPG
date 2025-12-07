@@ -1,0 +1,19 @@
+{
+  "type": "mekanism:combining",
+  "main_input": {
+    "item": "divinerpg:eden_dust",
+    "count": 12
+  },
+  "extra_input": {
+    "tag": "divinerpg:cobblestones/scorchalt"
+  },
+  "output": {
+    "id": "divinerpg:scorchalt_eden_ore"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

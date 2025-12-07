@@ -1,0 +1,18 @@
+{
+  "type": "mekanism:combining",
+  "main_input": {
+    "item": "flint"
+  },
+  "extra_input": {
+    "tag": "divinerpg:cobblestones/frozen"
+  },
+  "output": {
+    "id": "divinerpg:frozen_gravel"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

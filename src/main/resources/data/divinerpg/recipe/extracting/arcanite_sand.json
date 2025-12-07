@@ -4,8 +4,8 @@
     "item": "divinerpg:arcanite_stone"
   },
   "cookingtime": 20,
-  "result":{
-    "id":  "divinerpg:arcanite_sand"
+  "result": {
+    "id": "divinerpg:arcanite_sand"
   },
   "experience": 0.1
 }

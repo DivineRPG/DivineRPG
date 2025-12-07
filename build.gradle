@@ -81,6 +81,7 @@ configurations {
 dependencies {
     //Libraries, etc.
     runtimeOnly "curse.maven:bookshelf-228525:${bookshelf_id}" //Bookshelf
+    runtimeOnly "curse.maven:common_capabilities-247007:${common_capabilities_id}" //Common Capabilities
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}" //Curios Continuation
     runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}" //Curios Continuation
     runtimeOnly "curse.maven:cyclops_core-232758:${cyclops_core_id}" //Cyclops Core
@@ -118,7 +119,7 @@ dependencies {
     runtimeOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
     runtimeOnly "curse.maven:resource-pandas-410681:${resource_pandas_id}" //Resource Pandas
     runtimeOnly "curse.maven:sawmill-964817:${sawmill_id}" //Sawmill
-    //TODO: to add raked frozen gravel, cannon boat variants, way posts in Iceika, map markers, hourglass dusts
+    //TODO: to add frozen gravel variants, cannon boat variants, way posts in Iceika, map markers, hourglass dusts
     runtimeOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries
     //Traveler's Titles don't have NeoForge version up until 1.21.4
     //Farmer's Delight collection
@@ -128,7 +129,7 @@ dependencies {
     implementation "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin'
     //Tech mods
     runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
-    //TODO: to make window+pane variant textures for Every Compat, crushed ores (+recipes), potato projectiles, potion mixing, liquids, to remove weird twilight block cutting recipes
+    //TODO: to make window+pane variant textures for Every Compat, potato projectiles, potion mixing, liquids, to remove weird twilight block cutting recipes
     runtimeOnly "curse.maven:create-328085:${create_id}" //Create
     //TODO: eio_soul/spawner/...
     runtimeOnly "curse.maven:ender-io-64578:${ender_io_id}" //Ender IO
@@ -136,7 +137,7 @@ dependencies {
     runtimeOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersive_engineering_version}" //Immersive Engineering
     runtimeOnly "curse.maven:industrial-foregoing-266515:${industrial_foregoing_id}" //Industrial Foregoing
     runtimeOnly "curse.maven:integrated_dynamics-236307:${integrated_dynamics_id}" //Integrated Dynamics
-    runtimeOnly "curse.maven:common_capabilities-247007:${common_capabilities_id}" //Common Capabilities
+    //TODO: crushing/enriching/nucleosynthesizing/painting/pigment_extracting/sawing recipes
     compileOnly "mekanism:Mekanism:${mekanism_version}:api" //Mekanism
     runtimeOnly "mekanism:Mekanism:${mekanism_version}" //Mekanism
     runtimeOnly "mekanism:Mekanism:${mekanism_version}:additions" //Mekanism: Additions

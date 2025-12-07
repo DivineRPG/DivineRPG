@@ -1,0 +1,19 @@
+{
+  "type": "mekanism:combining",
+  "main_input": {
+    "item": "divinerpg:raw_torridite",
+    "count": 8
+  },
+  "extra_input": {
+    "tag": "c:netherracks"
+  },
+  "output": {
+    "id": "divinerpg:torridite_ore"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}
