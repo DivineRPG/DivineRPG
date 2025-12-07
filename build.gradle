@@ -99,13 +99,13 @@ dependencies {
     runtimeOnly "curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}" //Just Enough Effect Descriptions
     //Guide books
     runtimeOnly "curse.maven:guideme-1173950:${guidme_id}" //GuidME (required for AE2)
-    compileOnly "vazkii.patchouli:Patchouli:1.21.1-${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
-    runtimeOnly "vazkii.patchouli:Patchouli:1.21.1-${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
+    compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
+    runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
     //Compat
     //Advanced Mining Dimension isn't ported to 1.21.1
 //    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension
 //    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether
-    //TODO: to fix ghost item appearing when interacting with crates, and statue sound playing when picking it up
+    //TODO: to fix ghost item appearing when interacting with crates
     implementation "curse.maven:carry-on-274259:${carry_on_id}" //Carry On
     //TODO: to add woodcutter variants
     implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
