@@ -1,0 +1,13 @@
+{
+  "values": [
+    "divinerpg:smoldering_tar",
+    "divinerpg:hot_spike_block",
+    "divinerpg:lava_bricks",
+    "divinerpg:molten_lamp",
+    "divinerpg:lava_lamp",
+    "divinerpg:draken_lamp"
+  ],
+  "remove": [
+    "divinerpg:icy_fire"
+  ]
+}
