@@ -106,6 +106,8 @@ dependencies {
     //Advanced Mining Dimension isn't ported to 1.21.1
 //    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension
 //    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether
+    //TODO: 3d fireballs
+//    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments
     //TODO: to fix ghost item appearing when interacting with crates
     implementation "curse.maven:carry-on-274259:${carry_on_id}" //Carry On
     //TODO: to add woodcutter variants
