@@ -11,6 +11,8 @@ import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 
+import static net.minecraft.world.Difficulty.PEACEFUL;
+
 public class EntityGlinthop extends EntityDivineTameable {
     public EntityGlinthop(EntityType<? extends EntityGlinthop> type, Level worldIn) {
         super(type, worldIn, 1.5F);
@@ -22,7 +24,11 @@ public class EntityGlinthop extends EntityDivineTameable {
     }
     @Override public void die(DamageSource source) {
         super.die(source);
-        if(!level().isClientSide && !isTame()) transform();
+        if(!level().isClientSide && !isTame() && !level().getDifficulty().equals(PEACEFUL)) transform();
+    }
+    private void transform() {
+        EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
+        remove(RemovalReason.KILLED);
     }
     @Override public void setTarget(LivingEntity e) {
     	super.setTarget(e);
@@ -33,10 +39,6 @@ public class EntityGlinthop extends EntityDivineTameable {
         LivingEntity entity = super.getTarget();
         if(entity != null && ((isTame() && distanceToSqr(entity) < 144) || !isTame())) return entity;
         return null;
-    }
-    private void transform() {
-        EntityRegistry.ANGRY_GLINTHOP.get().spawn((ServerLevel) level(), ItemStack.EMPTY, null, blockPosition(), MobSpawnType.MOB_SUMMONED, true, false);
-        remove(RemovalReason.KILLED);
     }
     @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_GLINTHOP);}
     @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_GLINTHOP);}
