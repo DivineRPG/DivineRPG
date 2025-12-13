@@ -1,11 +1,5 @@
 {
   "values": [
-    "#divinerpg:tools/unbreakable",
-    "divinerpg:divine_accumulator",
-    "divinerpg:ender_scepter",
-    "divinerpg:ghostbane",
-    "divinerpg:arcanium_attractor",
-    "divinerpg:arcanium_reflector",
-    "divinerpg:meriks_missile"
+    "#divinerpg:tools/unbreakable"
   ]
 }
