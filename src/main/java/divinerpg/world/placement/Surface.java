@@ -1,13 +1,12 @@
 package divinerpg.world.placement;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.registries.PlacementModifierRegistry;
 import net.minecraft.core.*;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -32,7 +31,10 @@ public class Surface extends PlacementModifier {
 		this.maxHeight = maxHeight;
 		this.bury = bury;
 	}
-	public static int getSurface(Surface_Type type, Mode mode, int minHeight, int maxHeight, int bury, WorldGenLevel level, RandomSource random, int x, int z) {
+    public static BlockPos getSurface(Surface_Type type, Mode mode, int minHeight, int maxHeight, int bury, LevelReader level, RandomSource random, BlockPos pos) {
+        return new BlockPos(pos.getX(), getSurface(type, mode, minHeight, maxHeight, bury, level, random, pos.getX(), pos.getZ()), pos.getZ());
+    }
+	public static int getSurface(Surface_Type type, Mode mode, int minHeight, int maxHeight, int bury, LevelReader level, RandomSource random, int x, int z) {
 		final int minY, maxY;
 		if(mode == Mode.RANDOM_SECTION) {
 			minY = random.nextInt(minHeight, maxHeight + 1);
@@ -64,7 +66,7 @@ public class Surface extends PlacementModifier {
 	public static boolean hasSpace(BlockState state) {
 		return state.isAir() || state.is(Blocks.WATER);
 	}
-	public static boolean hasSpace(WorldGenLevel level, BlockPos pos) {
+	public static boolean hasSpace(LevelReader level, BlockPos pos) {
 		BlockState state = level.getBlockState(pos);
 		return state.isAir() || state.is(Blocks.WATER);
 	}

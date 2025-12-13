@@ -5,21 +5,17 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.DivineRPG;
 import divinerpg.block_entities.block.RiftBlockEntity;
 import divinerpg.registries.*;
-import divinerpg.util.UniversalPosition;
-import divinerpg.util.Utils;
-import divinerpg.world.placement.Surface;
+import divinerpg.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -30,6 +26,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -130,13 +127,8 @@ public class BlockModRift extends BaseEntityBlock implements Portal {
         if(level.dimension() == rootDimension || (entity instanceof ItemEntity e && e.getItem().is(empowerTag))) return null;
         ServerLevel targetLevel = level.getServer().getLevel(rootDimension);
         BlockPos targetPosition = scalePosition(pos, level.dimensionType(), targetLevel.dimensionType());
-        pos = targetPosition;
-        for(int tries = 0; tries < 10; tries++) {
-            pos = applyLocationPreference(targetLevel, entity, pos);
-            if(hasRoom(targetLevel, pos)) break;
-            if(tries == 9) pos = targetPosition;
-            else pos = targetPosition.offset((int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)), 0, (int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)));
-        } targetPosition = pos;
+        for(int tries = 0; tries < 10; tries++) if(hasRoom(targetLevel, pos = applyLocationPreference(targetLevel, entity, targetPosition.offset((int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)), 0, (int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)))))) break;
+        targetPosition = pos;
         BlockState state = targetLevel.getBlockState(pos = targetPosition.below());
         if(state.is(this)) return transitionTo(level.getServer(), entity, new UniversalPosition(rootDimension, pos));
         if(!state.isFaceSturdy(targetLevel, pos, Direction.UP)) targetLevel.setBlock(pos, BlockRegistry.twilightStone.get().defaultBlockState(), 3);
@@ -154,14 +146,15 @@ public class BlockModRift extends BaseEntityBlock implements Portal {
      * @param pos the initial position provided for location search
      * @return the new preferred block position for where to place the portal
      */
+    @NotNull
     public BlockPos applyLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-        return new BlockPos(pos.getX(), Surface.getSurface(Surface.Surface_Type.HIGHEST_GROUND, Surface.Mode.FULL, level.getMinBuildHeight() + 1, level.dimensionType().logicalHeight(), 0, level, level.getRandom(), pos.getX(), pos.getZ()), pos.getZ());
+        return PortalBlock.defaultLocationPreferences(level, pos);
     }
     public boolean hasRoom(ServerLevel level, BlockPos pos) {
         return level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir() && level.getBlockState(pos.above(2)).isAir();
     }
     @Override public int getPortalTransitionTime(ServerLevel level, Entity entity) {
-        return entity instanceof Player player ? Math.max(1, level.getGameRules().getInt(player.getAbilities().invulnerable ? GameRules.RULE_PLAYERS_NETHER_PORTAL_CREATIVE_DELAY : GameRules.RULE_PLAYERS_NETHER_PORTAL_DEFAULT_DELAY)) : 0;
+        return 0;
     }
 
     @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {

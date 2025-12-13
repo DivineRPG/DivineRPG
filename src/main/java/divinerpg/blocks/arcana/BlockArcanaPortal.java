@@ -23,12 +23,10 @@ import net.minecraft.world.phys.shapes.*;
 import org.jetbrains.annotations.*;
 
 public class BlockArcanaPortal extends PortalBlock {
-	//TODO: this shouldn't have axis
-	//TODO: fix portal's hitbox height (it has a full block one, should be quite lower)
+    //TODO: fix portal's hitbox height (it has a full block one, should be quite lower)
     protected static final VoxelShape SHAPE = Block.box(0, 5, 0, 16, 8, 16);
     public BlockArcanaPortal() {
         super(BlockBehaviour.Properties.ofFullCopy(Blocks.END_PORTAL), LevelRegistry.ARCANA, Level.OVERWORLD, BlockRegistry.arcanaPortalFrame.get(), null);
-        registerDefaultState(stateDefinition.any());
     }
 	@Override
 	public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -61,7 +59,7 @@ public class BlockArcanaPortal extends PortalBlock {
 			}
 		} return pos;
     }
-	private BlockPos repairRuinedPortal(ServerLevel level, BlockPos position) {
+	public BlockPos repairRuinedPortal(ServerLevel level, BlockPos position) {
 		if(position == null) return null;
 		int surface = Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, 33, 255, 0, level, null, position.getX(), position.getZ());
 		for(int x = position.getX() - 11; x < position.getX() + 11; x++) for(int y = surface - 7; y < surface + 7; y++) for(int z = position.getZ() - 11; z < position.getZ() + 11; z++) if(level.getBlockState(new BlockPos(x, y, z)).is(this))
@@ -97,4 +95,5 @@ public class BlockArcanaPortal extends PortalBlock {
 			connectTo(level, pos.west(), connection, axis);
 		}
 	}
+    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {}
 }
