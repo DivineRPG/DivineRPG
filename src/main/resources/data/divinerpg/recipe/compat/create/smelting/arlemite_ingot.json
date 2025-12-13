@@ -1,0 +1,17 @@
+{
+  "type": "smelting",
+  "group": "arlemite_ingot",
+  "ingredient": {
+    "item": "divinerpg:crushed_raw_arlemite"
+  },
+  "result": {
+    "id": "divinerpg:arlemite_ingot"
+  },
+  "experience": 0.1,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

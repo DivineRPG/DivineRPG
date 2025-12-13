@@ -1,0 +1,17 @@
+{
+  "type": "blasting",
+  "group": "rupee_ingot",
+  "ingredient": {
+    "item": "divinerpg:crushed_raw_rupee"
+  },
+  "result": {
+    "id": "divinerpg:rupee_ingot"
+  },
+  "experience": 0.1,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

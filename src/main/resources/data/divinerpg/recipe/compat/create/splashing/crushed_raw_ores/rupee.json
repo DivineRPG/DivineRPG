@@ -1,0 +1,24 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "divinerpg:crushed_raw_rupee"
+    }
+  ],
+  "results": [
+    {
+      "id": "divinerpg:rupee_nugget",
+      "count": 9
+    },
+    {
+      "id": "lapis_lazuli",
+      "chance": 0.25
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

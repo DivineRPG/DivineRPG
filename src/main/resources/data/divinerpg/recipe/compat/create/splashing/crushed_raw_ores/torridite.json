@@ -1,0 +1,24 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "divinerpg:crushed_raw_torridite"
+    }
+  ],
+  "results": [
+    {
+      "id": "divinerpg:torridite_nugget",
+      "count": 9
+    },
+    {
+      "id": "divinerpg:molten_shards",
+      "chance": 0.05
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}
