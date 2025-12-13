@@ -271,16 +271,20 @@ public class LocalizeUtils {
      * @param text - lang key
      * @param args - string format arguments
      */
-    //Colored tooltips
+    //Colored tooltips with arguments
     public static Component i18n(ChatFormatting color, String text, Object... args) {
         if(args == null) args = new Object[0];
         return Component.translatable("tooltip.divinerpg." + text, args).withStyle(color);
     }
-    //Gray tooltips
+    //Plain text tooltips with custom style
+    public static Component i18n(String text, ChatFormatting... format) {return Component.translatable("tooltip.divinerpg." + text).withStyle(format);}
+    //Gray tooltips with arguments
     public static Component i18n(String text, Object... args) {
         if(args == null) args = new Object[0];
         return i18n(GRAY, text, args);
     }
+    //Plain text gray tooltips
+    public static Component i18n(String text) {return i18n(text, GRAY);}
     //Colored client messages
     public static Component clientMessage(ChatFormatting color, String text, Object... args) {
         if(args == null) args = new Object[0];

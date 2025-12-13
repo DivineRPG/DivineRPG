@@ -1,0 +1,19 @@
+{
+  "type": "divinerpg:fire_conversion",
+  "input_item": {
+    "item": "supplementaries:gravel_bricks"
+  },
+  "input_state": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:icy_fire"
+  },
+  "output_item": {
+    "id": "divinerpg:frozen_gravel_bricks"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

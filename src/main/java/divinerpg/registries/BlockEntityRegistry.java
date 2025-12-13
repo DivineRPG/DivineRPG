@@ -6,17 +6,18 @@ import divinerpg.block_entities.bosses.*;
 import divinerpg.block_entities.chests.*;
 import divinerpg.block_entities.furnace.*;
 import divinerpg.client.renders.tiles.*;
+import divinerpg.compat.supplementaries.SuspiciousFrozenGravelBricksTile;
 import net.minecraft.client.renderer.blockentity.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.*;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.*;
 
 import java.util.function.Supplier;
 
 import static divinerpg.DivineRPG.MODID;
 import static net.minecraft.core.registries.Registries.BLOCK_ENTITY_TYPE;
-
 
 public class BlockEntityRegistry {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(BLOCK_ENTITY_TYPE, MODID);
@@ -64,8 +65,15 @@ public class BlockEntityRegistry {
     //Extra
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TerranGhostBlockEntity>> TERRAN_GHOST = register("terran_ghost", () -> BlockEntityType.Builder.of(TerranGhostBlockEntity::new, BlockRegistry.terranGhostBlock.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DreamLampBlockEntity>> DREAM_LAMP = register("dream_lamp", () -> BlockEntityType.Builder.of(DreamLampBlockEntity::new, BlockRegistry.dreamLamp.get()).build(null));
+    //Compat
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SuspiciousFrozenGravelBricksTile>> SUSPICIOUS_FROZEN_GRAVEL_BRICKS_TILE = registerSupplementaries("suspicious_frozen_gravel_bricks_tile", () -> BlockEntityType.Builder.of(SuspiciousFrozenGravelBricksTile::new, BlockRegistry.suspiciousFrozenGravelBricks.get()).build(null));
     private static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> register(String registryName, Supplier<BlockEntityType<T>> tile) {
         return BLOCK_ENTITIES.register(registryName, tile);
+    }
+    //Compat
+    private static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> registerSupplementaries(String registryName, Supplier<BlockEntityType<T>> tile) {
+        if(ModList.get().isLoaded("supplementaries")) return register(registryName, tile);
+        else return null;
     }
     public static void renderTiles() {
         //Work Stations

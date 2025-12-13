@@ -1,0 +1,31 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_gravel": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:frozen_gravel"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gravel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/supplementaries/frozen_gravel_bricks"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

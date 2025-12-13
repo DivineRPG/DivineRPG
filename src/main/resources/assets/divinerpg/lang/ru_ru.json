@@ -181,6 +181,9 @@
   "block.divinerpg.frozen_dirt": "Промёрзлая земля",
   "block.divinerpg.frozen_grass": "Промёрзлый дёрн",
   "block.divinerpg.frozen_gravel": "Промёрзлый гравий",
+  "block.divinerpg.raked_frozen_gravel": "Сгребённый промёрзлый гравий",
+  "block.divinerpg.frozen_gravel_bricks": "Промёрзлые гравийные кирпичи",
+  "block.divinerpg.suspicious_frozen_gravel_bricks": "Подозрительные промёрзлые гравийные кирпичи",
   "block.divinerpg.frozen_stone": "Промёрзлый камень",
   "block.divinerpg.frozen_stairs": "Ступеньки из промёрзлого камня",
   "block.divinerpg.frozen_slab": "Плита из промёрзлого камня",
@@ -1037,6 +1040,7 @@
   "item.divinerpg.wither_reaper_boots": "Ботинки визер-жнеца",
 
   "item.divinerpg.raw_realmite": "Рудный реалмит",
+  "item.divinerpg.crushed_raw_realmite": "Дроблёный рудный реалмит",
   "item.divinerpg.realmite_ingot": "Реалмитовый слиток",
   "item.divinerpg.realmite_dust": "Реалмитовая пыль",
   "item.divinerpg.realmite_nugget": "Кусочек реалмита",
@@ -1057,6 +1061,7 @@
   "item.divinerpg.realmite_hoe": "Реалмитовая мотыга",
 
   "item.divinerpg.raw_arlemite": "Рудный арлемит",
+  "item.divinerpg.crushed_raw_arlemite": "Дроблёный рудный арлемит",
   "item.divinerpg.arlemite_ingot": "Арлемитовый слиток",
   "item.divinerpg.arlemite_dust": "Арлемитовая пыль",
   "item.divinerpg.arlemite_nugget": "Кусочек арлемита",
@@ -1073,6 +1078,7 @@
   "item.divinerpg.arlemite_shickaxe": "Арлемитовый мультиинструмент",
 
   "item.divinerpg.raw_rupee": "Рудный рупий",
+  "item.divinerpg.crushed_raw_rupee": "Дроблёный рудный рупий",
   "item.divinerpg.rupee_ingot": "Рупиевый слиток",
   "item.divinerpg.rupee_dust": "Рупиевая пыль",
   "item.divinerpg.rupee_nugget": "Кусочек рупия",
@@ -1167,6 +1173,7 @@
   "entity.divinerpg.vile_storm": "Отравленный сюрикен",
 
   "item.divinerpg.raw_torridite": "Рудный торридит",
+  "item.divinerpg.crushed_raw_torridite": "Дроблёный рудный торридит",
   "item.divinerpg.torridite_ingot": "Торридитовый слиток",
   "item.divinerpg.torridite_dust": "Торридитовая пыль",
   "item.divinerpg.torridite_nugget": "Кусочек торридита",
@@ -1270,6 +1277,7 @@
   "item.divinerpg.olivine": "Оливин",
   "trim_material.divinerpg.olivine": "Оливин",
   "item.divinerpg.raw_oxdrite": "Рудный оксидит",
+  "item.divinerpg.crushed_raw_oxdrite": "Дроблёный рудный оксидит",
   "item.divinerpg.oxdrite_ingot": "Оксидитовый слиток",
   "item.divinerpg.oxdrite_dust": "Оксидитовая пыль",
   "item.divinerpg.oxdrite_nugget": "Кусочек оксидита",

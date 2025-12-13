@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_farmland",
+  "textures": {
+    "dirt": "divinerpg:block/frozen_gravel",
+    "top": "divinerpg:block/raked_frozen_gravel"
+  }
+}

@@ -56,6 +56,13 @@ public class ItemRegistry {
         raw_torridite = registerItem("raw_torridite"),
         raw_oxdrite = registerItem("raw_oxdrite"),
 
+        //Crushed
+        crushed_raw_realmite = registerItemCreate("crushed_raw_realmite"),
+        crushed_raw_arlemite = registerItemCreate("crushed_raw_arlemite"),
+        crushed_raw_rupee = registerItemCreate("crushed_raw_rupee"),
+        crushed_raw_torridite = registerItemCreate("crushed_raw_torridite"),
+        crushed_raw_oxdrite = registerItemCreate("crushed_raw_oxdrite"),
+
         //Powders
         purple_blaze = registerItem("purple_blaze"),
         fury_fire = registerItem("fury_fire"),
@@ -1066,5 +1073,10 @@ public class ItemRegistry {
         CreativeTabRegistry.tools.add(i);
         DISPENSER_ITEMS.add(i);
         return i;
+    }
+    //Compat
+    private static DeferredItem<Item> registerItemCreate(String registryId) {
+        if(ModList.get().isLoaded("create")) return registerItem(registryId, ItemMod::new);
+        return null;
     }
 }

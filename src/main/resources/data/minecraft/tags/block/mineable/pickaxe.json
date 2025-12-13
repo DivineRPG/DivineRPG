@@ -59,6 +59,14 @@
     "divinerpg:frosted_allure",
     "divinerpg:snow_bricks",
     "divinerpg:glaciline",
+    {
+      "id": "divinerpg:frozen_gravel_bricks",
+      "required": false
+    },
+    {
+      "id": "divinerpg:suspicious_frozen_gravel_bricks",
+      "required": false
+    },
     "divinerpg:frozen_stone",
     "divinerpg:frozen_stairs",
     "divinerpg:frozen_slab",

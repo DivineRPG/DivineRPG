@@ -100,11 +100,5 @@
       "result": "divinerpg:yellow_fairy_lights",
       "alt_result": "divinerpg:green_fairy_lights"
     }
-  ],
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "projecte"
-    }
   ]
 }

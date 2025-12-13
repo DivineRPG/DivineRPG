@@ -320,11 +320,5 @@
       "result": "divinerpg:shiverspine_hanging_sign",
       "alt_result": "divinerpg:cozybark_hanging_sign"
     }
-  ],
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "projecte"
-    }
   ]
 }

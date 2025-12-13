@@ -17,6 +17,8 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.*;
 
 public class BlockArcanaPortalFrame extends BlockMod {
+    //TODO: to fix vanilla bug, that causes activation sound to play when placing more portal frames near existing ones
+    // does it play globally?
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     protected static final VoxelShape BASE_SHAPE = Block.box(0, 0, 0, 16, 13, 16);
     private static BlockPattern portalShape;

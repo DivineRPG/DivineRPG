@@ -48,8 +48,7 @@ public class ItemMod extends Item {
         if(potioncontents != null) {
             if(!(this instanceof ItemMinersAmulet)) tooltip.add(LocalizeUtils.inflict());
             potioncontents.addPotionTooltip(tooltip::add, 1, context.tickRate());
-        } if(getDescriptionId().contains("torridite")) tooltip.add(LocalizeUtils.i18n("torridite"));
-        if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
+        } if(arcanaConsumedUse > 0) tooltip.add(LocalizeUtils.arcanaConsumed(arcanaConsumedUse));
     }
     @Override public Component getName(ItemStack pStack) {
     	return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);

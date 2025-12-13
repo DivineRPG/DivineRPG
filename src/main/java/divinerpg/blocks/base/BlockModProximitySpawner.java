@@ -36,7 +36,7 @@ public class BlockModProximitySpawner extends BaseEntityBlock {
 	}
 	@Override public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
 		if(player.isCreative() && level.getBlockEntity(pos) instanceof ProximitySpawnerBlockEntity entity) {
-			if(stack.isEmpty() && state.getValue(ENABLED)) entity.entityName = null;
+			if(!(stack.getItem() instanceof SpawnEggItem) && state.getValue(ENABLED)) entity.entityName = null;
 			else if(stack.getItem() instanceof SpawnEggItem spawnEgg) entity.entityName = spawnEgg.getType(stack).getDescriptionId().substring(7).replace('.', ':');
 			else return ItemInteractionResult.FAIL;
 			boolean enabled = entity.entityName != null;

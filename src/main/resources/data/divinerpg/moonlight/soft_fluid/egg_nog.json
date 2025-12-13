@@ -17,11 +17,5 @@
   "translation_key": "item.divinerpg.egg_nog",
   "still_texture": "moonlight:block/soft_fluids/milk_liquid",
   "flowing_texture": "moonlight:block/soft_fluids/milk_liquid",
-  "color": "#fff2cb",
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "supplementaries"
-    }
-  ]
+  "color": "#fff2cb"
 }

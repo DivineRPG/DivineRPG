@@ -5,10 +5,6 @@
   "enchant_power": 0.35,
   "neoforge:conditions": [
     {
-      "type": "neoforge:mod_loaded",
-      "modid": "supplementaries"
-    },
-    {
       "type": "supplementaries:flag",
       "flag": "placeable_books"
     }

@@ -2,24 +2,25 @@
   "type": "create:crushing",
   "ingredients": [
     {
-      "item": "divinerpg:bloodgem_ore"
+      "item": "divinerpg:realmite_ore_deepslate"
     }
   ],
   "processing_time": 350,
   "results": [
     {
-      "id": "divinerpg:bloodgem"
+      "id": "divinerpg:crushed_raw_realmite",
+      "count": 2
     },
     {
-      "id": "divinerpg:bloodgem",
-      "chance": 0.75
+      "id": "divinerpg:crushed_raw_realmite",
+      "chance": 0.25
     },
     {
       "id": "create:experience_nugget",
       "chance": 0.75
     },
     {
-      "id": "netherrack",
+      "id": "cobbled_deepslate",
       "chance": 0.125
     }
   ],

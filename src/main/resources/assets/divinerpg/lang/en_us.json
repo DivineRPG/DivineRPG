@@ -181,6 +181,9 @@
   "block.divinerpg.frozen_dirt": "Frozen Dirt",
   "block.divinerpg.frozen_grass": "Frozen Grass Block",
   "block.divinerpg.frozen_gravel": "Frozen Gravel",
+  "block.divinerpg.raked_frozen_gravel": "Raked Frozen Gravel",
+  "block.divinerpg.frozen_gravel_bricks": "Frozen Gravel Bricks",
+  "block.divinerpg.suspicious_frozen_gravel_bricks": "Suspicious Frozen Gravel Bricks",
   "block.divinerpg.frozen_stone": "Frozen Stone",
   "block.divinerpg.frozen_stairs": "Frozen Stairs",
   "block.divinerpg.frozen_slab": "Frozen Slab",
@@ -1037,6 +1040,7 @@
   "item.divinerpg.wither_reaper_boots": "Wither Reaper Boots",
 
   "item.divinerpg.raw_realmite": "Raw Realmite",
+  "item.divinerpg.crushed_raw_realmite": "Crushed Raw Realmite",
   "item.divinerpg.realmite_ingot": "Realmite Ingot",
   "item.divinerpg.realmite_dust": "Realmite Dust",
   "item.divinerpg.realmite_nugget": "Realmite Nugget",
@@ -1057,6 +1061,7 @@
   "item.divinerpg.realmite_hoe": "Realmite Hoe",
 
   "item.divinerpg.raw_arlemite": "Raw Arlemite",
+  "item.divinerpg.crushed_raw_arlemite": "Crushed Raw Arlemite",
   "item.divinerpg.arlemite_ingot": "Arlemite Ingot",
   "item.divinerpg.arlemite_dust": "Arlemite Dust",
   "item.divinerpg.arlemite_nugget": "Arlemite Nugget",
@@ -1073,6 +1078,7 @@
   "item.divinerpg.arlemite_shickaxe": "Arlemite Shickaxe",
 
   "item.divinerpg.raw_rupee": "Raw Rupee",
+  "item.divinerpg.crushed_raw_rupee": "Crushed Raw Rupee",
   "item.divinerpg.rupee_ingot": "Rupee Ingot",
   "item.divinerpg.rupee_dust": "Rupee Dust",
   "item.divinerpg.rupee_nugget": "Rupee Nugget",
@@ -1167,6 +1173,7 @@
   "entity.divinerpg.vile_storm": "Vile Storm",
 
   "item.divinerpg.raw_torridite": "Raw Torridite",
+  "item.divinerpg.crushed_raw_torridite": "Crushed Raw Torridite",
   "item.divinerpg.torridite_ingot": "Torridite Ingot",
   "item.divinerpg.torridite_dust": "Torridite Dust",
   "item.divinerpg.torridite_nugget": "Torridite Nugget",
@@ -1270,6 +1277,7 @@
   "item.divinerpg.olivine": "Olivine",
   "trim_material.divinerpg.olivine": "Olivine Material",
   "item.divinerpg.raw_oxdrite": "Raw Oxdrite",
+  "item.divinerpg.crushed_raw_oxdrite": "Crushed Raw Oxdrite",
   "item.divinerpg.oxdrite_ingot": "Oxdrite Ingot",
   "item.divinerpg.oxdrite_dust": "Oxdrite Dust",
   "item.divinerpg.oxdrite_nugget": "Oxdrite Nugget",

@@ -80,12 +80,16 @@ configurations {
 
 dependencies {
     //Libraries, etc.
+//    runtimeOnly "curse.maven:apothic-attributes-898963:${apothic_attributes_id}" //Apothic Attributes
+//    runtimeOnly "curse.maven:atlas-api-1145462:${atlas_api_id}" //Atlas API
     runtimeOnly "curse.maven:bookshelf-228525:${bookshelf_id}" //Bookshelf
     runtimeOnly "curse.maven:common_capabilities-247007:${common_capabilities_id}" //Common Capabilities
-    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}" //Curios Continuation
-    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}" //Curios Continuation
+    implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}" //Curios Continuation
     runtimeOnly "curse.maven:cyclops_core-232758:${cyclops_core_id}" //Cyclops Core
 //    runtimeOnly "curse.maven:cucumber-272335:${cucumber_id}" //Cucumber
+//    runtimeOnly "curse.maven:geckolib-388172:${geckolib_id}" //GeckoLib
+//    runtimeOnly "curse.maven:placebo-283644:${placebo_id}" //Placebo
+//    runtimeOnly "curse.maven:playeranimator-658587:${player_animator_id}" //Player Animator
     runtimeOnly "curse.maven:selene-499980:${moonlight_id}" //Moonlight
 //    runtimeOnly "curse.maven:owo-lib-532610:${owo_id}" //oωo
     runtimeOnly "curse.maven:prickle-1023259:${prickle_id}" //Prickle
@@ -95,62 +99,54 @@ dependencies {
     compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}" //Just Enough Items
     runtimeOnly "mezz.jei:jei-${minecraft_version}-common:${jei_version}" //Just Enough Items
     runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}" //Just Enough Items
-    compileOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
-    runtimeOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
+    implementation "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
     runtimeOnly "curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}" //Just Enough Effect Descriptions
-    //Guide books
-    runtimeOnly "curse.maven:guideme-1173950:${guidme_id}" //GuidME (required for AE2)
+    //Guide books and info
+    runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
+//    runtimeOnly "curse.maven:guideme-1173950:${guidme_id}" //GuidME (required for AE2)
     compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
     runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
+    //Traveler's Titles don't have NeoForge version up until 1.21.4
     //Compat
     //Advanced Mining Dimension isn't ported to 1.21.1
-//    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension
-//    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether
-    //TODO: 3d fireballs
-//    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments
-    //TODO: to fix ghost item appearing when interacting with crates
-    implementation "curse.maven:carry-on-274259:${carry_on_id}" //Carry On
-    //TODO: to add woodcutter variants
-    implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
-    runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
-    //TODO: mob animations, fix hat placement, capabilities
-//    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fights_id}" //Epic Fights
-    implementation "curse.maven:every-compat-628539:${every_compat_id}" //Every Compat
+//    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension //TODO: realm stones and portal support
+//    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether //TODO: compat
+    implementation "curse.maven:carry-on-274259:${carry_on_id}" //Carry On //TODO: to fix ghost item appearing when interacting with crates
+    implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter //TODO: to add woodcutter variants
+//    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fights_id}" //Epic Fights //TODO: mob animations, fix hat placement, capabilities
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
-    runtimeOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
-    runtimeOnly "curse.maven:resource-pandas-410681:${resource_pandas_id}" //Resource Pandas
-    runtimeOnly "curse.maven:sawmill-964817:${sawmill_id}" //Sawmill
-    //TODO: to add frozen gravel variants, cannon boat variants, way posts in Iceika, map markers, hourglass dusts
-    runtimeOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries
-    //Traveler's Titles don't have NeoForge version up until 1.21.4
+//    runtimeOnly "curse.maven:resource-pandas-410681:${resource_pandas_id}" //Resource Pandas
+    //Iron's collection
+//    runtimeOnly "curse.maven:irons-jewelry-1101111:7084345" //Iron's Jewelry //TODO: compat
+//    runtimeOnly "curse.maven:irons-spells-n-spellbooks-855414:7271541" //Iron's Spells 'n Spellbooks //TODO: compat
     //Farmer's Delight collection
-    //TODO: to make cabinet variant textures for Every Compat (and maybe crop blocks)
-    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight
-    //TODO: fermenting recipes (liquids to pour, tar input)
-    implementation "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin'
+    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: crop blocks
+    compileOnly "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
+    //MehVahdJukaar's collection
+//    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments //TODO: 3d fireballs
+    runtimeOnly "curse.maven:every-compat-628539:${ec_wood_good_id}" //Every Compat: Wood Good //TODO: FD cabinet variant textures, Create window + pane variant textures
+//    runtimeOnly "curse.maven:stone-zone-1154622:${ec_stone_zone_id}" //Every Compat: Stone Zone //TODO: compat?
+    runtimeOnly "curse.maven:sawmill-964817:${sawmill_id}" //Sawmill
+    implementation "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries //TODO: to add [boat variants], way posts in Iceika, map markers, hourglass dusts, frozen clock time display, re-implement flags in recipes/advancements
     //Tech mods
-    runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
-    //TODO: to make window+pane variant textures for Every Compat, potato projectiles, potion mixing, liquids, to remove weird twilight block cutting recipes
-    runtimeOnly "curse.maven:create-328085:${create_id}" //Create
-    //TODO: eio_soul/spawner/...
-    runtimeOnly "curse.maven:ender-io-64578:${ender_io_id}" //Ender IO
-    //TODO: arc furnace recycling, potion support
-    runtimeOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersive_engineering_version}" //Immersive Engineering
-    runtimeOnly "curse.maven:industrial-foregoing-266515:${industrial_foregoing_id}" //Industrial Foregoing
-    runtimeOnly "curse.maven:integrated_dynamics-236307:${integrated_dynamics_id}" //Integrated Dynamics
-    //TODO: crushing/enriching/nucleosynthesizing/painting/pigment_extracting/sawing recipes
-    compileOnly "mekanism:Mekanism:${mekanism_version}:api" //Mekanism
+//    runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
+    runtimeOnly "curse.maven:create-328085:${create_id}" //Create //TODO: potato projectiles, potion mixing, liquids, to remove weird twilight block cutting recipes
+    runtimeOnly "curse.maven:ender-io-64578:${ender_io_id}" //Ender IO //TODO: eio_soul/spawner/...
+    runtimeOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersive_engineering_version}" //Immersive Engineering //TODO: arc furnace recycling, potion support
+    runtimeOnly "curse.maven:industrial-foregoing-266515:${industrial_foregoing_id}" //Industrial Foregoing //TODO: finish compat
+//    runtimeOnly "curse.maven:integrated_dynamics-236307:${integrated_dynamics_id}" //Integrated Dynamics
+    compileOnly "mekanism:Mekanism:${mekanism_version}:api" //Mekanism //TODO: crushing/enriching/nucleosynthesizing/painting/pigment_extracting/sawing recipes
     runtimeOnly "mekanism:Mekanism:${mekanism_version}" //Mekanism
-    runtimeOnly "mekanism:Mekanism:${mekanism_version}:additions" //Mekanism: Additions
-    runtimeOnly "mekanism:Mekanism:${mekanism_version}:generators" //Mekanism: Generators
-    runtimeOnly "mekanism:Mekanism:${mekanism_version}:tools" //Mekanism: Tools
-    runtimeOnly "curse.maven:pneumaticcraft-repressurized-281849:${pneumaticcraft_id}" //Pneumaticcraft
+//    runtimeOnly "mekanism:Mekanism:${mekanism_version}:additions" //Mekanism: Additions
+//    runtimeOnly "mekanism:Mekanism:${mekanism_version}:generators" //Mekanism: Generators
+//    runtimeOnly "mekanism:Mekanism:${mekanism_version}:tools" //Mekanism: Tools
+//    runtimeOnly "curse.maven:pneumaticcraft-repressurized-281849:${pneumaticcraft_id}" //Pneumaticcraft
     //Cucumber family
 //    runtimeOnly "curse.maven:mystical-agriculture-246640:${mystical_agriculture_id}" //Mystical Agriculture
 //    runtimeOnly "curse.maven:mystical-agradditions-256247:${mystical_agradditions_id}" //Mystical Agradditions
-//    runtimeOnly "curse.maven:mystical-customization-280441:${mystical_customization_id}" //Mystical Customization
-//    runtimeOnly "curse.maven:iron-jetpacks-284497:${iron_jetpacks_id}" //Iron Jetpacks
+//    runtimeOnly "curse.maven:mystical-customization-280441:${mystical_customization_id}" //Mystical Customization //TODO: to transfer compat
+//    runtimeOnly "curse.maven:iron-jetpacks-284497:${iron_jetpacks_id}" //Iron Jetpacks //TODO: to transfer compat
     //Helpful
     runtimeOnly "curse.maven:appleskin-248787:${apple_skin_id}" //Apple Skin
     runtimeOnly "curse.maven:not-enough-crashes-forge-442354:${not_enough_crashes_id}" //Not Enough Crashes

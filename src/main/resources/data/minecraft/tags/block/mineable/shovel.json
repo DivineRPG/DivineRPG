@@ -13,6 +13,18 @@
     "divinerpg:kobblin_burrow",
     "divinerpg:gelidite",
     "divinerpg:frozen_gravel",
+    {
+      "id": "divinerpg:raked_frozen_gravel",
+      "required": false
+    },
+    {
+      "id": "divinerpg:frozen_gravel_bricks",
+      "required": false
+    },
+    {
+      "id": "divinerpg:suspicious_frozen_gravel_bricks",
+      "required": false
+    },
     "#divinerpg:sands",
     "divinerpg:soul_sludge_breakable"
   ]

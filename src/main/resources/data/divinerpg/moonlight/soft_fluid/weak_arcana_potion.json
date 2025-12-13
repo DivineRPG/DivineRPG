@@ -15,11 +15,5 @@
   "translation_key": "item.divinerpg.weak_arcana_potion",
   "still_texture": "moonlight:block/soft_fluids/potion_still",
   "flowing_texture": "moonlight:block/soft_fluids/potion_flow",
-  "color": "#4b82d3",
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "supplementaries"
-    }
-  ]
+  "color": "#4b82d3"
 }

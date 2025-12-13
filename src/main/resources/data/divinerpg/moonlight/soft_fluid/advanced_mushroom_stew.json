@@ -15,11 +15,5 @@
   "translation_key": "item.divinerpg.advanced_mushroom_stew",
   "still_texture": "moonlight:block/soft_fluids/soup_liquid",
   "flowing_texture": "moonlight:block/soft_fluids/potion_flow",
-  "color": "#dabfb0",
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "supplementaries"
-    }
-  ]
+  "color": "#dabfb0"
 }

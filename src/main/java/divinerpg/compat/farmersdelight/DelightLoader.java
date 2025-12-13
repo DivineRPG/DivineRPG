@@ -13,5 +13,5 @@ public class DelightLoader {
     public static MobEffectInstance getNourishmentEffect(int seconds) {
         return new MobEffectInstance(ModEffects.NOURISHMENT, seconds * 20, 0);
     }
-    public static boolean foodEffectTooltipEnabled () {return Configuration.FOOD_EFFECT_TOOLTIP.get();}
+    public static boolean foodEffectTooltipEnabled() {return Configuration.FOOD_EFFECT_TOOLTIP.get();}
 }

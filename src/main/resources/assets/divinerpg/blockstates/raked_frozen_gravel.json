@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "shape=north_south": {
+      "model": "divinerpg:block/raked_frozen_gravel"
+    },
+    "shape=east_west": {
+      "model": "divinerpg:block/raked_frozen_gravel",
+      "y": 90
+    },
+    "shape=south_east": {
+      "model": "divinerpg:block/raked_frozen_gravel_corner"
+    },
+    "shape=south_west": {
+      "model": "divinerpg:block/raked_frozen_gravel_corner",
+      "y": 90
+    },
+    "shape=north_west": {
+      "model": "divinerpg:block/raked_frozen_gravel_corner",
+      "y": 180
+    },
+    "shape=north_east": {
+      "model": "divinerpg:block/raked_frozen_gravel_corner",
+      "y": 270
+    }
+  }
+}

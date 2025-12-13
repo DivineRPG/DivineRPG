@@ -1,0 +1,20 @@
+{
+  "type": "pneumaticcraft:heat_properties",
+  "block": "divinerpg:suspicious_frozen_gravel_bricks",
+  "heatCapacity": 7500,
+  "temperature": 223,
+  "thermalResistance": 150,
+  "transforms": {
+    "hot": "supplementaries:suspicious_gravel_bricks"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "pneumaticcraft"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

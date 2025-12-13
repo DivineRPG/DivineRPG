@@ -217,6 +217,9 @@
   "block.divinerpg.frozen_dirt": "Permafrost",
   "block.divinerpg.frozen_grass": "Mraz",
   "block.divinerpg.frozen_gravel": "Glacier Floor",
+  "block.divinerpg.raked_frozen_gravel": "Raked Glacier Floor",
+  "block.divinerpg.frozen_gravel_bricks": "Glacier Floor Bricks",
+  "block.divinerpg.suspicious_frozen_gravel_bricks": "Sus Glacier Floor Bricks",
   "block.divinerpg.frozen_stone": "Pluto Block",
   "block.divinerpg.frozen_stairs": "Pluto Stairs",
   "block.divinerpg.frozen_slab": "Pluto Slab",
@@ -963,6 +966,7 @@
   "item.divinerpg.wither_reaper_boots": "The Reaper's Boots",
 
   "item.divinerpg.raw_realmite": "Raw Reality",
+  "item.divinerpg.crushed_raw_realmite": "Crushed Raw Reality",
   "item.divinerpg.realmite_ingot": "Realistic Ingot",
   "item.divinerpg.realmite_dust": "Realistic Dust",
   "item.divinerpg.realmite_nugget": "Realistic Nugget",
@@ -983,6 +987,7 @@
   "item.divinerpg.realmite_hoe": "Realistic Hoe",
 
   "item.divinerpg.raw_arlemite": "Raw Aragorn",
+  "item.divinerpg.crushed_raw_arlemite": "Crushed Raw Aragorn",
   "item.divinerpg.arlemite_ingot": "Aragorn's Ingot",
   "item.divinerpg.arlemite_dust": "Aragorn's Remains",
   "item.divinerpg.arlemite_nugget": "Aragorn's Nugget",
@@ -999,6 +1004,7 @@
   "item.divinerpg.arlemite_shickaxe": "Aragorn's Shickaxe",
 
   "item.divinerpg.raw_rupee": "Raw Zelda Currency",
+  "item.divinerpg.crushed_raw_rupee": "Crushed Raw Zelda Currency",
   "item.divinerpg.rupee_ingot": "Zelda Ingot",
   "item.divinerpg.rupee_dust": "Zelda's Ashes",
   "item.divinerpg.rupee_nugget": "Zelda Nugget",
@@ -1092,6 +1098,7 @@
   "entity.divinerpg.vile_storm": "Vile Storm",
 
   "item.divinerpg.raw_torridite": "Raw Netherite",
+  "item.divinerpg.crushed_raw_torridite": "Crushed Raw Netherite",
   "item.divinerpg.torridite_ingot": "Netherite Ingot",
   "item.divinerpg.torridite_dust": "Netherite Dust",
   "item.divinerpg.torridite_nugget": "Netherite Nugget",
@@ -1195,6 +1202,7 @@
   "item.divinerpg.olivine": "Crystalized Olive",
   "trim_material.divinerpg.olivine": "Crystalized Olive Material",
   "item.divinerpg.raw_oxdrite": "Raw Lightly Weathered Exposed Oxides",
+  "item.divinerpg.crushed_raw_oxdrite": "Crushed Raw Lightly Weathered Exposed Oxides",
   "item.divinerpg.oxdrite_ingot": "Oxidized Lightly Weathered Exposed Ingot",
   "item.divinerpg.oxdrite_dust": "Cocoa Powder",
   "item.divinerpg.oxdrite_nugget": "Chocolate Chip",

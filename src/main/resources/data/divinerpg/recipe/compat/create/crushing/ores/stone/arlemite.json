@@ -1,0 +1,33 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "divinerpg:arlemite_ore"
+    }
+  ],
+  "processing_time": 250,
+  "results": [
+    {
+      "id": "divinerpg:crushed_raw_arlemite"
+    },
+    {
+      "id": "divinerpg:crushed_raw_arlemite",
+      "chance": 0.75
+    },
+    {
+      "id": "create:experience_nugget",
+      "count": 2,
+      "chance": 0.75
+    },
+    {
+      "id": "cobblestone",
+      "chance": 0.125
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

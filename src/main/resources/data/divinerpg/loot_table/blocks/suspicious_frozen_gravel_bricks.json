@@ -1,0 +1,10 @@
+{
+  "type": "block",
+  "random_sequence": "divinerpg:blocks/suspicious_frozen_gravel_bricks",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

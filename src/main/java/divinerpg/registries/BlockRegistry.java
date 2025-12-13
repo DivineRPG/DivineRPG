@@ -8,6 +8,7 @@ import divinerpg.blocks.twilight.*;
 import divinerpg.blocks.vanilla.*;
 import divinerpg.blocks.vanilla.FireBlock;
 import divinerpg.blocks.vethea.*;
+import divinerpg.compat.supplementaries.*;
 import divinerpg.items.base.block.*;
 import divinerpg.util.*;
 import divinerpg.world.ConfiguredFeatureKeys;
@@ -23,6 +24,7 @@ import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.PushReaction;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.*;
 
 import java.util.*;
@@ -73,7 +75,8 @@ public class BlockRegistry {
     gelidite = registerBlock("gelidite", () -> new BlockMod(Properties.ofFullCopy(Blocks.MUD))),
 
     //Gravel
-    frozenGravel = registerBlock("frozen_gravel", () -> new ColoredFallingBlock(new ColorRGBA(13561077), Properties.ofFullCopy(Blocks.GRAVEL).mapColor(GLOW_LICHEN))),
+    frozenGravel = registerBlock("frozen_gravel", FrozenGravel::new),
+    rakedFrozenGravel = registerBlockSupplementariesRakedGravel("raked_frozen_gravel", ModList.get().isLoaded("supplementaries") ? RakedFrozenGravel::new : null),
 
     //Sand
     arcaniteSand = registerBlock("arcanite_sand", () -> new ColoredFallingBlock(new ColorRGBA(7911916), Properties.ofFullCopy(Blocks.SAND).mapColor(COLOR_LIGHT_BLUE))),
@@ -543,6 +546,8 @@ public class BlockRegistry {
     bloodgemMinibricks = registerBlock("bloodgem_minibricks", () -> new BlockMod(CRIMSON_STEM, 2, 6, SoundType.NETHER_BRICKS, NoteBlockInstrument.BASEDRUM)),
 
     //Iceika Bricks & Other Blocks
+    frozenGravelBricks = registerBlockSupplementariesGravelBricks("frozen_gravel_bricks", ModList.get().isLoaded("supplementaries") ? FrozenGravelBricks::new : null),
+    suspiciousFrozenGravelBricks = registerBlockSupplementariesGravelBricks("suspicious_frozen_gravel_bricks", ModList.get().isLoaded("supplementaries") ? SuspiciousFrozenGravelBricks::new : null),
     frozenBricks = registerBlock("frozen_bricks", () -> new BlockMod(GLOW_LICHEN)),
     frozenBrickStairs = registerBlock("frozen_brick_stairs", () -> new BlockModStairs(frozenBricks.get())),
     frozenBrickSlab = registerBlock("frozen_brick_slab", () -> new BlockModSlab(frozenBricks.get())),
@@ -731,7 +736,7 @@ public class BlockRegistry {
     slimeLight = registerBlock("slime_light", BlockModLampRedstone::new),
     workshopLamp = registerBlock("workshop_lamp", () -> new BlockModLamp(COLOR_LIGHT_BLUE, SoundType.GLASS)),
     dungeonLamp = registerBlock("dungeon_lamp", () -> new BlockModUnbreakable(QUARTZ, 15)),
-    dungeonLampBreakable = registerBlock("dungeon_lamp_breakable", () -> new BlockMod(Properties.of().mapColor(QUARTZ).strength(.3F).sound(SoundType.GLASS).instrument(NoteBlockInstrument.HAT).lightLevel((state) -> 15))),
+    dungeonLampBreakable = registerBlock("dungeon_lamp_breakable", () -> new BlockMod(Properties.of().mapColor(QUARTZ).strength(.3F).sound(SoundType.GLASS).instrument(NoteBlockInstrument.HAT).lightLevel(state -> 15))),
     cellLamp = registerBlock("cell_lamp", () -> new BlockModLamp(COLOR_LIGHT_GREEN, SoundType.GLASS)),
     villageLamp = registerBlock("village_lamp", () -> new BlockModLamp(TERRACOTTA_RED, SoundType.GLASS)),
     dreamLamp = registerBlock("dream_lamp", () -> new BlockDreamLamp(Properties.of())),
@@ -1071,5 +1076,20 @@ public class BlockRegistry {
             case "dramix_altar" -> BLOCK_ITEMS.register(registryName, () -> new ItemDramixAltar(registeredBlock.get(), new Item.Properties().rarity(rarity)));
             default -> BLOCK_ITEMS.register(registryName, () -> new ItemStatueBlock(registeredBlock::get, new Item.Properties().rarity(rarity).fireResistant()));
         } return registeredBlock;
+    }
+    //Compat
+    private static <T extends Block> DeferredBlock<T> registerBlockSupplementaries(String registryName, Supplier<T> block, boolean isEnabled) {
+        DeferredBlock<T> registeredBlock = BLOCKS.register(registryName, block);
+        if(isEnabled) CreativeTabRegistry.blocks.add(registeredBlock);
+        BLOCK_ITEMS.register(registryName, () -> new BlockItem(registeredBlock.get(), new Item.Properties()));
+        return registeredBlock;
+    }
+    private static DeferredBlock<Block> registerBlockSupplementariesRakedGravel(String registryName, Supplier<Block> block) {
+        if(ModList.get().isLoaded("supplementaries")) return registerBlockSupplementaries(registryName, block, SupplementariesLoader.rakedGravelEnabled());
+        return null;
+    }
+    private static DeferredBlock<Block> registerBlockSupplementariesGravelBricks(String registryName, Supplier<Block> block) {
+        if(ModList.get().isLoaded("supplementaries")) return registerBlockSupplementaries(registryName, block, SupplementariesLoader.gravelBricksEnabled());
+        return null;
     }
 }

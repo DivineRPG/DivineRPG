@@ -33,6 +33,6 @@ public class Tooltips {
             else if(holderSet.stream().anyMatch(holder -> holder.is(BlockTags.NEEDS_DIAMOND_TOOL))) tooltip.add(2, LocalizeUtils.harvestLevel(Component.literal(Items.DIAMOND.getName(stack).getString()).withColor(2293477)));
             else if(holderSet.stream().anyMatch(holder -> holder.is(NEEDS_NETHERITE_TOOL))) tooltip.add(2, LocalizeUtils.harvestLevel(Component.literal(Items.OBSIDIAN.getName(stack).getString()).withColor(7096985)));
             else tooltip.add(2, LocalizeUtils.harvestLevel(Component.literal(Items.OBSIDIAN.getName(stack).getString() + "+").withStyle(DARK_RED)));
-        }
+        } if(stack.getDescriptionId().contains("torridite")) tooltip.add(1, LocalizeUtils.i18n("torridite", DARK_RED, BOLD));
     }
 }

@@ -23,6 +23,7 @@ import net.minecraft.world.phys.shapes.*;
 import org.jetbrains.annotations.*;
 
 public class BlockArcanaPortal extends PortalBlock {
+	//TODO: this shouldn't have axis
     protected static final VoxelShape SHAPE = Block.box(0, 5, 0, 16, 8, 16);
     public BlockArcanaPortal() {
         super(BlockBehaviour.Properties.ofFullCopy(Blocks.END_PORTAL), LevelRegistry.ARCANA, Level.OVERWORLD, BlockRegistry.arcanaPortalFrame.get(), null);
