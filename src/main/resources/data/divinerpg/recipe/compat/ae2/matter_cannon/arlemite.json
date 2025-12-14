@@ -1,0 +1,13 @@
+{
+  "type": "ae2:matter_cannon",
+  "ammo": {
+    "tag": "divinerpg:nuggets/arlemite"
+  },
+  "weight": 58.5423,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    }
+  ]
+}

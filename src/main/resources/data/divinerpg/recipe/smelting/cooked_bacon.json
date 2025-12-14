@@ -1,10 +1,10 @@
 {
   "type": "smelting",
   "category": "food",
-  "group": "cooked_bacon",
   "ingredient": {
     "item": "divinerpg:bacon"
   },
+  "cookingtime": 100,
   "result": {
     "id": "divinerpg:cooked_bacon"
   },

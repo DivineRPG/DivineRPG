@@ -1,11 +1,12 @@
 {
   "type": "smelting",
   "category": "blocks",
+  "group": "dirt",
   "ingredient": {
-    "item": "divinerpg:soul_sludge_breakable"
+    "item": "divinerpg:frozen_dirt"
   },
   "result": {
-    "id": "soul_sand"
+    "id": "dirt"
   },
   "experience": 0.1
 }

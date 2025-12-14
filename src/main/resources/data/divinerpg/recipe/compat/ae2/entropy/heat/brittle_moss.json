@@ -1,0 +1,20 @@
+{
+  "type": "ae2:entropy",
+  "input": {
+    "block": {
+      "id": "divinerpg:brittle_moss"
+    }
+  },
+  "mode": "heat",
+  "output": {
+    "block": {
+      "id": "moss_block"
+    }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    }
+  ]
+}

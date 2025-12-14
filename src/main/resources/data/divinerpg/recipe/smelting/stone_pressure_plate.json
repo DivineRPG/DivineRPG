@@ -2,10 +2,10 @@
   "type": "smelting",
   "category": "blocks",
   "ingredient": {
-    "item": "divinerpg:soul_sludge_breakable"
+    "item": "divinerpg:frozen_pressure_plate"
   },
   "result": {
-    "id": "soul_sand"
+    "id": "stone_pressure_plate"
   },
   "experience": 0.1
 }

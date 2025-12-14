@@ -1,0 +1,17 @@
+{
+  "type": "smelting",
+  "category": "blocks",
+  "ingredient": {
+    "item": "divinerpg:raked_frozen_gravel"
+  },
+  "result": {
+    "id": "supplementaries:raked_gravel"
+  },
+  "experience": 0.1,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}

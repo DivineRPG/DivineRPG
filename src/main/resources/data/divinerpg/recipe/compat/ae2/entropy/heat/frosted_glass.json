@@ -1,0 +1,20 @@
+{
+  "type": "ae2:entropy",
+  "input": {
+    "block": {
+      "id": "divinerpg:frosted_glass"
+    }
+  },
+  "mode": "heat",
+  "output": {
+    "block": {
+      "id": "glass"
+    }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    }
+  ]
+}

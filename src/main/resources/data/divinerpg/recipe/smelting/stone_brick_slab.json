@@ -1,0 +1,12 @@
+{
+  "type": "smelting",
+  "category": "blocks",
+  "ingredient": {
+    "item": "divinerpg:frozen_brick_slab"
+  },
+  "cookingtime": 100,
+  "result": {
+    "id": "stone_brick_slab"
+  },
+  "experience": 0.05
+}

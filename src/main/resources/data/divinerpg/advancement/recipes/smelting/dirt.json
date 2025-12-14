@@ -1,0 +1,25 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_dirt": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:frozen_dirt"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dirt"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/dirt"
+    ]
+  }
+}

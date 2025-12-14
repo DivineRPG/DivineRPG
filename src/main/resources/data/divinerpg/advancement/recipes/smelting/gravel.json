@@ -1,0 +1,25 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_gravel": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:frozen_gravel"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gravel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/gravel"
+    ]
+  }
+}

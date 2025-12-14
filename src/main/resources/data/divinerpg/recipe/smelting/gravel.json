@@ -1,11 +1,12 @@
 {
   "type": "smelting",
   "category": "blocks",
+  "group": "gravel",
   "ingredient": {
-    "item": "divinerpg:soul_sludge_breakable"
+    "item": "divinerpg:frozen_gravel"
   },
   "result": {
-    "id": "soul_sand"
+    "id": "gravel"
   },
   "experience": 0.1
 }

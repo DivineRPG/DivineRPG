@@ -1,0 +1,25 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_stone": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:frozen_stone"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/stone"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "ae2:inscriber",
+  "ingredients": {
+    "middle": {
+      "item": "divinerpg:skythern_fragments"
+    }
+  },
+  "mode": "inscribe",
+  "result": {
+    "id": "divinerpg:skythern_dust"
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    }
+  ]
+}

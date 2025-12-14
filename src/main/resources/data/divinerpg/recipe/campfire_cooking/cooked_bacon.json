@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "divinerpg:bacon"
   },
-  "cookingtime": 600,
+  "cookingtime": 300,
   "result": {
     "id": "divinerpg:cooked_bacon"
   }

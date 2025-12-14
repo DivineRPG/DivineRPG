@@ -1,5 +1,10 @@
 {
   "values": [
+    "divinerpg:ancient_brick_stairs",
+    "divinerpg:ancient_brick_slab",
+    "divinerpg:degraded_brick_stairs",
+    "divinerpg:degraded_brick_slab",
+    "divinerpg:arcanium_metal",
     "divinerpg:arcana_portal_frame",
     "divinerpg:arcanium_extractor",
     "divinerpg:karos_dispenser"

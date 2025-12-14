@@ -1,0 +1,25 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_wall": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:cobbled_frozen_wall"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wall"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/cobblestone_wall"
+    ]
+  }
+}

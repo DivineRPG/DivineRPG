@@ -1,0 +1,25 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_stairs": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:frozen_brick_stairs"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stairs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/stone_brick_stairs"
+    ]
+  }
+}

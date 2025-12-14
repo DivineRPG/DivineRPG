@@ -2,10 +2,10 @@
   "type": "smelting",
   "category": "blocks",
   "ingredient": {
-    "item": "divinerpg:soul_sludge_breakable"
+    "item": "divinerpg:cobbled_frozen_stairs"
   },
   "result": {
-    "id": "soul_sand"
+    "id": "cobblestone_stairs"
   },
   "experience": 0.1
 }

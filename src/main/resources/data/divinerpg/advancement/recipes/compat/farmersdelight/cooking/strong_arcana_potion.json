@@ -1,0 +1,31 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_veilo": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:crops/veilo"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_veilo"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:compat/farmersdelight/cooking/strong_arcana_potion"
+    ]
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

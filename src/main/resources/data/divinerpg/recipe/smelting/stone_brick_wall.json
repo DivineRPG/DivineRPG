@@ -2,10 +2,10 @@
   "type": "smelting",
   "category": "blocks",
   "ingredient": {
-    "item": "divinerpg:soul_sludge_breakable"
+    "item": "divinerpg:frozen_brick_wall"
   },
   "result": {
-    "id": "soul_sand"
+    "id": "stone_brick_wall"
   },
   "experience": 0.1
 }

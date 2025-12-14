@@ -1,0 +1,25 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_slab": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:cobbled_frozen_slab"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/cobblestone_slab"
+    ]
+  }
+}

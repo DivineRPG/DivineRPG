@@ -1,0 +1,25 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_glass": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:frosted_glass"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_glass"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/glass"
+    ]
+  }
+}

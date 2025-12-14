@@ -1,5 +1,6 @@
 {
   "type": "smelting",
+  "category": "blocks",
   "ingredient": {
     "item": "divinerpg:cobbled_frozen_stone"
   },

@@ -1,0 +1,24 @@
+{
+  "type": "ae2:entropy",
+  "input": {
+    "block": {
+      "id": "divinerpg:frozen_gravel_bricks"
+    }
+  },
+  "mode": "heat",
+  "output": {
+    "block": {
+      "id": "supplementaries:gravel_bricks"
+    }
+  },
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}
