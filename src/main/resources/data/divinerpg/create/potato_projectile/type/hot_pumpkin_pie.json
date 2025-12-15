@@ -1,0 +1,19 @@
+{
+  "items": "divinerpg:hot_pumpkin_pie",
+  "damage": 7,
+  "knockback": 0.05,
+  "velocity_multiplier": 1.1,
+  "reload_ticks": 15,
+  "sticky": true,
+  "on_entity_hit": {
+    "type": "create:potion_effect",
+    "effect": "divinerpg:warmth",
+    "level": 1,
+    "ticks": 200,
+    "recoverable": false
+  },
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.1
+}

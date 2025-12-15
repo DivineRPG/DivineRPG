@@ -67,6 +67,7 @@ public class ModelAridWarrior extends HumanoidModel<EntityAridWarrior> {
 		modelpart.x += f;
 		modelpart.translateAndRotate(stack);
 		modelpart.x -= f;
+		stack.translate(0, .12F, 0);
 	}
 	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
 		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);

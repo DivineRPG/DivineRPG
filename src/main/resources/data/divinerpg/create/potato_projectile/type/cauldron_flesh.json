@@ -1,0 +1,19 @@
+{
+  "items": "divinerpg:cauldron_flesh",
+  "knockback": 0.4,
+  "velocity_multiplier": 1.1,
+  "sticky": true,
+  "on_entity_hit": {
+    "type": "create:potion_effect",
+    "effect": "nausea",
+    "level": 1,
+    "ticks": 240,
+    "recoverable": true
+  },
+  "render_mode": {
+    "type": "create:toward_motion",
+    "spin": 1,
+    "sprite_angle_offset": 140
+  },
+  "sound_pitch": 1.1
+}

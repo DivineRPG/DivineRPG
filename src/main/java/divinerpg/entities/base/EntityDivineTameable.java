@@ -63,12 +63,11 @@ public class EntityDivineTameable extends TamableAnimal implements NeutralMob {
             return super.hurt(source, amount);
         }
     }
-    @Override public void setTame(boolean tamed, boolean applyTamingSideEffects) {
-        super.setTame(tamed, applyTamingSideEffects);
+    @Override protected void applyTamingSideEffects() {
         if(isTame()) {
-            AttributeInstance attribute = getAttribute(Attributes.MAX_HEALTH);
-            attribute.setBaseValue(attribute.getValue() * healthIncrease);
-        }
+            getAttribute(Attributes.MAX_HEALTH).setBaseValue(getMaxHealth() * healthIncrease);
+            setHealth(getMaxHealth());
+        } else getAttribute(Attributes.MAX_HEALTH).setBaseValue(getMaxHealth());
     }
     @Override public void aiStep() {
         super.aiStep();

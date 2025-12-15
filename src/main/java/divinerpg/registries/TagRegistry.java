@@ -119,6 +119,10 @@ public class TagRegistry {
         SUMMONING_EXPERIENCED_CORI = item("summoning/experienced_cori"),
 
     //Pet Foods
+        ANIMAL_FOODS_DOLOSSAL = item("animal_foods/dolossal"),
+        ANIMAL_FOODS_MAMOTH = item("animal_foods/mamoth"),
+
+    //Pet Foods
         PET_FOODS_SNAPPER = item("pet_foods/snapper"),
         PET_FOODS_EHU = item("pet_foods/ehu"),
         PET_FOODS_HUSK = item("pet_foods/husk"),

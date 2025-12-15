@@ -1,0 +1,41 @@
+{
+  "items": "divinerpg:purple_glowbone",
+  "knockback": 0.05,
+  "reload_ticks": 40,
+  "on_entity_hit": {
+    "type": "create:food_effects",
+    "food_property": {
+      "nutrition": 1,
+      "saturation": 0,
+      "effects": [
+        {
+          "effect": {
+            "id": "divinerpg:wither_protection",
+            "duration": 100,
+            "neoforge:cures": [
+              "milk",
+              "protected_by_totem"
+            ],
+            "show_icon": true
+          }
+        },
+        {
+          "effect": {
+            "id": "divinerpg:poison_protection",
+            "duration": 100,
+            "neoforge:cures": [
+              "milk",
+              "protected_by_totem"
+            ],
+            "show_icon": true
+          }
+        }
+      ]
+    },
+    "recoverable": false
+  },
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.1
+}

@@ -1,0 +1,32 @@
+{
+  "items": "divinerpg:sky_flower",
+  "knockback": 0.05,
+  "velocity_multiplier": 0.9,
+  "reload_ticks": 40,
+  "on_entity_hit": {
+    "type": "create:food_effects",
+    "recoverable": false,
+    "food_property": {
+      "nutrition": 1,
+      "saturation": 0,
+      "effects": [
+        {
+          "effect": {
+            "id": "divinerpg:prevent_fall_damage",
+            "duration": 360,
+            "neoforge:cures": [
+              "milk",
+              "protected_by_totem"
+            ],
+            "show_icon": true
+          }
+        }
+      ]
+    },
+    "recoverable": false
+  },
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.1
+}

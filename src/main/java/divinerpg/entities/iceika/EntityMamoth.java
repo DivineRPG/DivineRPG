@@ -5,11 +5,8 @@ import java.util.UUID;
 import javax.annotation.Nullable;
 
 import divinerpg.entities.goals.*;
-import divinerpg.registries.BlockRegistry;
-import divinerpg.registries.EntityRegistry;
 import divinerpg.util.Utils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
+import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
@@ -33,9 +30,12 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 
+import static divinerpg.registries.EntityRegistry.MAMOTH;
+import static divinerpg.registries.TagRegistry.ANIMAL_FOODS_MAMOTH;
+
 public class EntityMamoth extends Animal implements NeutralMob {
 	public boolean wantsToFly = false;
-	public static final Ingredient FOOD = Ingredient.of(BlockRegistry.brittleGrass.get());
+	public static final Ingredient FOOD = Ingredient.of(ANIMAL_FOODS_MAMOTH);
 	private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
 	protected @Nullable Vec3 pathfindPos;
 	private UUID persistentAngerTarget;
@@ -124,7 +124,7 @@ public class EntityMamoth extends Animal implements NeutralMob {
 		return super.finalizeSpawn(level, instance, type, data);
 	}
 	@Override public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mob) {
-		return EntityRegistry.MAMOTH.get().create(level);
+		return MAMOTH.get().create(level);
 	}
 	@Override public boolean isFood(ItemStack stack) {return FOOD.test(stack);}
 	@Override public int getRemainingPersistentAngerTime() {return remainingPersistentAngerTime;}

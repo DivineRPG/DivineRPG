@@ -1,0 +1,8 @@
+{
+  "owners": [
+    "divinerpg:desert_crawler"
+  ],
+  "animation": "builtin",
+  "width_increment": 0.4,
+  "height_increment": 0.6
+}

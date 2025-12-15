@@ -1,0 +1,10 @@
+{
+  "items": "divinerpg:lamona",
+  "damage": 5,
+  "knockback": 0.5,
+  "velocity_multiplier": 1.45,
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.1
+}

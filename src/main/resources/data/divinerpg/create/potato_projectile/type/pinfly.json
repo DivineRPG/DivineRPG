@@ -1,0 +1,18 @@
+{
+  "items": "divinerpg:pinfly",
+  "damage": 5,
+  "knockback": 0.75,
+  "velocity_multiplier": 1.45,
+  "reload_ticks": 15,
+  "on_entity_hit": {
+    "type": "create:potion_effect",
+    "effect": "speed",
+    "level": 3,
+    "ticks": 60,
+    "recoverable": false
+  },
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.3
+}

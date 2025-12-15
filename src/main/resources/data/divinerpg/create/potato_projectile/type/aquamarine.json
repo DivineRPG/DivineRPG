@@ -1,0 +1,15 @@
+{
+  "items": "divinerpg:aquamarine",
+  "damage": 3,
+  "knockback": 0.5,
+  "velocity_multiplier": 1.1,
+  "reload_ticks": 20,
+  "on_block_hit": {
+    "type": "create:place_block_on_ground",
+    "block": "water"
+  },
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.1
+}

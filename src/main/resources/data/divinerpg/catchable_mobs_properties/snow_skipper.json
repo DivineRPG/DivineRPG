@@ -1,0 +1,8 @@
+{
+  "owners": [
+    "divinerpg:snow_skipper"
+  ],
+  "animation": "builtin",
+  "width_increment": 0.05,
+  "height_increment": 0
+}

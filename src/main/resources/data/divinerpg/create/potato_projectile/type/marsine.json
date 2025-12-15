@@ -1,0 +1,10 @@
+{
+  "items": "divinerpg:marsine",
+  "damage": 5,
+  "knockback": 0.5,
+  "velocity_multiplier": 1.35,
+  "reload_ticks": 15,
+  "render_mode": {
+    "type": "create:tumble"
+  }
+}

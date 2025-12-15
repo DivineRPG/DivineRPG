@@ -1,0 +1,11 @@
+{
+  "items": "divinerpg:firestock",
+  "damage": 4,
+  "knockback": 0.5,
+  "velocity_multiplier": 1.3,
+  "reload_ticks": 15,
+  "render_mode": {
+    "type": "create:tumble"
+  },
+  "sound_pitch": 1.2
+}

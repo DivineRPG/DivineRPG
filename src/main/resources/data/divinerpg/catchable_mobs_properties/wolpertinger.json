@@ -1,0 +1,8 @@
+{
+  "owners": [
+    "divinerpg:wolpertinger"
+  ],
+  "animation": "builtin",
+  "width_increment": 0.75,
+  "height_increment": 0
+}

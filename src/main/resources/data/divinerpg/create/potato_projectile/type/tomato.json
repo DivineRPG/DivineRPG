@@ -1,0 +1,9 @@
+{
+  "items": "divinerpg:tomato",
+  "damage": 2,
+  "knockback": 0.25,
+  "velocity_multiplier": 1.25,
+  "render_mode": {
+    "type": "create:tumble"
+  }
+}
