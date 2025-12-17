@@ -1,6 +1,7 @@
 {
-	"parent": "item/generated",
+	"parent": "item/template_spawn_egg",
 	"textures": {
-		"layer0": "divinerpg:item/livestock_pet_spawn_egg"
+		"layer0": "divinerpg:item/smelter_spawn_egg",
+		"layer1": "divinerpg:item/smelter_spawn_egg"
 	}
 }

@@ -1,1 +1,7 @@
-{"parent": "item/template_spawn_egg"}
+{
+  "parent": "item/template_spawn_egg",
+  "textures": {
+    "layer0": "divinerpg:item/pink_ghost_glider_spawn_egg",
+    "layer1": "divinerpg:item/pink_ghost_glider_spawn_egg"
+  }
+}
