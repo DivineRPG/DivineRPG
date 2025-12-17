@@ -1,24 +1,26 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
-import divinerpg.effect.dimension.*;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
 import net.minecraft.world.level.Level;
-import net.neoforged.api.distmarker.*;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.RegisterDimensionSpecialEffectsEvent;
+import net.minecraft.world.level.biome.Biome;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import static divinerpg.DivineRPG.MODID;
+import static net.minecraft.core.registries.Registries.*;
 
 public class LevelRegistry {
     public static final ResourceKey<Level>
-        EDEN = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden")),
-        WILDWOOD = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "wildwood")),
-        APALACHIA = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "apalachia")),
-        SKYTHERN = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "skythern")),
-        MORTUM = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "mortum")),
-        ICEIKA = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "iceika")),
-        ARCANA = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana")),
-        VETHEA = ResourceKey.create(Registries.DIMENSION, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "vethea"));
+        EDEN = ResourceKey.create(DIMENSION, ResourceLocation.fromNamespaceAndPath(MODID, "eden")),
+        WILDWOOD = ResourceKey.create(DIMENSION, ResourceLocation.fromNamespaceAndPath(MODID, "wildwood")),
+        APALACHIA = ResourceKey.create(DIMENSION, ResourceLocation.fromNamespaceAndPath(MODID, "apalachia")),
+        SKYTHERN = ResourceKey.create(DIMENSION, ResourceLocation.fromNamespaceAndPath(MODID, "skythern")),
+        MORTUM = ResourceKey.create(DIMENSION, ResourceLocation.fromNamespaceAndPath(MODID, "mortum")),
+        ICEIKA = ResourceKey.create(DIMENSION, ResourceLocation.fromNamespaceAndPath(MODID, "iceika")),
+        ARCANA = ResourceKey.create(DIMENSION, ResourceLocation.fromNamespaceAndPath(MODID, "arcana")),
+        VETHEA = ResourceKey.create(DIMENSION, ResourceLocation.fromNamespaceAndPath(MODID, "vethea"));
 
+    public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(BIOME, MODID);
+    static {
+        BIOMES.addAlias(ResourceLocation.fromNamespaceAndPath(MODID, "eden"), ResourceLocation.fromNamespaceAndPath(MODID, "eden/plains"));
+    }
 }
