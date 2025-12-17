@@ -1,73 +1,59 @@
 package divinerpg.block_entities.block;
 
-import java.util.function.Predicate;
-
-import divinerpg.registries.BlockEntityRegistry;
+import divinerpg.registries.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.Container;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.*;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-public class CrateBlockEntity extends BlockEntity implements Hopper {
-	private ItemStack stack = ItemStack.EMPTY;
-	private int cooldown = 6;
-	public CrateBlockEntity(BlockPos pos, BlockState state) {super(BlockEntityRegistry.CRATE.get(), pos, state);}
+public class CrateBlockEntity extends RandomizableContainerBlockEntity implements Hopper {
+	NonNullList<ItemStack> items;
+	private int cooldown = 4;
+	public CrateBlockEntity(BlockPos pos, BlockState state) {
+		this(BlockEntityRegistry.CRATE.get(), pos, state);
+	}
+	protected CrateBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
+		super(type, pos, blockState);
+		items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
+	}
 	@Override public boolean isGridAligned() {return false;}
 	public static void serverTick(Level level, BlockPos pos, BlockState state, CrateBlockEntity block) {
 		if(!block.isEmpty() && state.getValue(BlockStateProperties.ENABLED)) {
 			if(block.cooldown < 1) {
-				if(HopperBlockEntity.suckInItems(level, block)) block.cooldown = 6;
+				if(HopperBlockEntity.suckInItems(level, block)) block.cooldown = 4;
 			} else block.cooldown--;
 		}
 	}
 	@Override protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
 		super.saveAdditional(tag, registries);
-		if(stack != null && !stack.isEmpty()) tag.put("item", getItem().save(registries));
+		if(!trySaveLootTable(tag)) ContainerHelper.saveAllItems(tag, items, registries);
 	}
 	@Override public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
 		super.loadAdditional(tag, registries);
-		if(tag.contains("item")) stack = ItemStack.parseOptional(registries, tag.getCompound("item"));
+		items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
+		if(!tryLoadLootTable(tag)) ContainerHelper.loadAllItems(tag, items, registries);
+		//Backwards compatibility with old version
+		if(!(this instanceof OxcrateBlockEntity) && tag.contains("item")) {
+			items.set(0, ItemStack.parseOptional(registries, tag.getCompound("item")));
+			tag.remove("item");
+		}
 	}
-	@Override public int getContainerSize() {return 1;}
-	@Override public void clearContent() {stack = ItemStack.EMPTY;}
-	@Override public boolean isEmpty() {return stack.isEmpty();}
-	protected ItemStack getItem() {return stack;}
-	@Override public ItemStack getItem(int i) {return stack;}
-	@Override public ItemStack removeItem(int i, int amount) {
-		if(amount > 0) setChanged();
-		else return ItemStack.EMPTY;
-		int c = stack.getCount();
-		if(amount > c) {
-			ItemStack s = stack;
-			stack = ItemStack.EMPTY;
-			return s;
-		} ItemStack s = stack.copyWithCount(amount);
-		stack.setCount(stack.getCount() - amount);
-		return s;
+	@Override public int getContainerSize() {return 27;}
+	@Override protected NonNullList<ItemStack> getItems() {return this.items;}
+	@Override protected void setItems(NonNullList<ItemStack> items) {
+		this.items = items;
 	}
-	@Override public ItemStack removeItemNoUpdate(int i) {
-		ItemStack s = stack;
-		stack = ItemStack.EMPTY;
-		return s;
-	}
-	@Override public void setItem(int i, ItemStack s) {stack = s == null ? ItemStack.EMPTY : s;
-	}
-	@Override public boolean stillValid(Player player) {return !player.isSpectator();}
-	@Override public void setRemoved() {
-		super.setRemoved();
-		stack = ItemStack.EMPTY;
-	}
-	@Override public int countItem(Item i) {return stack.is(i) ? stack.getCount() : 0;}
-	@Override public boolean hasAnyMatching(Predicate<ItemStack> predicate) {return predicate.test(stack);}
-	@Override public boolean canTakeItem(Container c, int i, ItemStack s) {
-		return stack.getCount() > 1 && level.getBlockState(worldPosition).getValue(BlockStateProperties.ENABLED);
-	}
-	public double getLevelX() {return worldPosition.getX() + .5;}
-	public double getLevelY() {return worldPosition.getY() + .5;}
-	public double getLevelZ() {return worldPosition.getZ() + .5;}
+	@Override protected Component getDefaultName() {return Component.translatable(BlockRegistry.crate.get().getDescriptionId());}
+	@Override protected AbstractContainerMenu createMenu(int id, Inventory player) {return ChestMenu.threeRows(id, player, this);}
+	@Override public boolean canTakeItem(Container c, int i, ItemStack s) {return s.getCount() > 1;}
+	@Override public double getLevelX() {return worldPosition.getX() + .5;}
+	@Override public double getLevelY() {return worldPosition.getY() + .5;}
+	@Override public double getLevelZ() {return worldPosition.getZ() + .5;}
 }

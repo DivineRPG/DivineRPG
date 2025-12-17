@@ -1,4 +1,5 @@
 {
+  "_comment": "This biome is not used. It exists only as a backwards compatibility with old worlds before DivineRPG 1.10.9.2",
   "temperature": 0.8,
   "downfall": 0.4,
   "has_precipitation": true,

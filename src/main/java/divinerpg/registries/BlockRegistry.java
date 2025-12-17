@@ -916,7 +916,7 @@ public class BlockRegistry {
     frostedChest = registerWithRender("frosted_chest", BlockFrostedChest::new, Rarity.COMMON),
     presentBox = registerWithRender("present_box", BlockPresentBox::new, Rarity.COMMON),
     edenChest = registerWithRender("eden_chest", BlockEdenChest::new, Rarity.COMMON),
-    crate = registerBlock("crate", () -> new BlockCrate(Properties.ofFullCopy(Blocks.OAK_PLANKS))),
+    crate = registerBlock("crate", BlockCrate::new),
     oxcrate = registerBlock("oxcrate", () -> new Oxcrate(Properties.of().mapColor(COLOR_BROWN).strength(3, 6).sound(SoundType.COPPER).instrument(NoteBlockInstrument.HARP))),
     inserter = registerBlock("inserter", BlockInserter::new),
     distributor = registerBlock("distributor", BlockDistributor::new),
