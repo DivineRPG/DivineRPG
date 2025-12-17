@@ -1039,6 +1039,13 @@ public class BlockRegistry {
     //Bushes
     arcanaBushPot = registerFlowerPot("arcana_bush_pot", arcanaBush);
 
+    static {
+        BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_dirt"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_dirt"));
+        BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_dirt"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_dirt"));
+        BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_grass"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_grass"));
+        BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_grass"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_grass"));
+    }
+
     private static <T extends Block> DeferredBlock<T> registerBlockWithSpecialItem(String name, Supplier<T> block) {
         DeferredBlock<T> registeredBlock;
         CreativeTabRegistry.blocks.add(registeredBlock = BLOCKS.register(name, block));
