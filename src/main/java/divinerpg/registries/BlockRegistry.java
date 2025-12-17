@@ -1044,6 +1044,8 @@ public class BlockRegistry {
         BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_dirt"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_dirt"));
         BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_grass"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_grass"));
         BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_grass"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_grass"));
+        BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_ore"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight_eden_ore"));
+        BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_ore"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight_eden_ore"));
     }
 
     private static <T extends Block> DeferredBlock<T> registerBlockWithSpecialItem(String name, Supplier<T> block) {

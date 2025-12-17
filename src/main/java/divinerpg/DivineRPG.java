@@ -40,7 +40,6 @@ public class DivineRPG {
         RecipeRegistry.Types.RECIPE_TYPES.register(bus);
         FeatureRegistry.FEATURES.register(bus);
         StructureRegistry.STRUCTURE_TYPE.register(bus);
-        LevelRegistry.BIOMES.register(bus);
         PaintingRegistry.PAINTING_VARIANTS.register(bus);
         LootModifierRegistry.GLOBAL_LOOT_MODIFIERS.register(bus);
         CreativeTabRegistry.CREATIVE_MODE_TABS.register(bus);
