@@ -2,20 +2,26 @@
   "type": "crafting_shaped",
   "group": "divinerpg_crate",
   "pattern": [
-    "XYX",
-    "Y Y",
-    "XYX"
+    "XTX",
+    "IBI",
+    "XIX"
   ],
   "key": {
     "X": {
       "tag": "planks"
     },
-    "Y": {
-      "tag": "logs"
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "B": {
+      "tag": "c:barrels/wooden"
+    },
+    "T": {
+      "item": "redstone_torch"
     }
   },
   "result": {
     "id": "divinerpg:crate",
-    "count": 5
+    "count": 1
   }
 }
