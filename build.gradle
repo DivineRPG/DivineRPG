@@ -111,8 +111,8 @@ dependencies {
     //Advanced Mining Dimension isn't ported to 1.21.1
 //    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension //TODO: realm stones and portal support
 //    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether //TODO: compat
-    implementation "curse.maven:carry-on-274259:${carry_on_id}" //Carry On //TODO: to fix ghost item appearing when interacting with crates
-    implementation "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter //TODO: to add woodcutter variants
+    runtimeOnly "curse.maven:carry-on-274259:${carry_on_id}" //Carry On //TODO: opening sound plays when picking up the crate/ox-crate
+    compileOnly "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
 //    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fights_id}" //Epic Fights //TODO: mob animations, fix hat placement, capabilities
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
@@ -122,7 +122,7 @@ dependencies {
 //    runtimeOnly "curse.maven:irons-spells-n-spellbooks-855414:7271541" //Iron's Spells 'n Spellbooks //TODO: compat
     //Farmer's Delight collection
     implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: crop blocks
-    compileOnly "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
+    implementation "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
     //MehVahdJukaar's collection
 //    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments //TODO: 3d fireballs
     runtimeOnly "curse.maven:every-compat-628539:${ec_wood_good_id}" //Every Compat: Wood Good //TODO: FD cabinet variant textures, Create window + pane variant textures

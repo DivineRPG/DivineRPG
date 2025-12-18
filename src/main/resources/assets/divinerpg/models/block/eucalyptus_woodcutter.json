@@ -1,0 +1,6 @@
+{
+  "parent": "corail_woodcutter:block/woodcutter",
+  "textures": {
+    "base": "divinerpg:block/eucalyptus_planks"
+  }
+}

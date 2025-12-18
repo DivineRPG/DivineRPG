@@ -1,0 +1,52 @@
+{
+  "values": [
+    {
+      "id": "divinerpg:woodcutter_design",
+      "required": false
+    },
+    {
+      "id": "divinerpg:divine_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:shiverspine_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:auroraoak_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:cozybark_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:streamleaf_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:eucalyptus_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:eden_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:wildwood_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:apalachia_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:skythern_woodcutter",
+      "required": false
+    },
+    {
+      "id": "divinerpg:mortum_woodcutter",
+      "required": false
+    }
+  ]
+}

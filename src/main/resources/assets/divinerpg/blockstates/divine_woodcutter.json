@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "divinerpg:block/divine_woodcutter"
+    },
+    "facing=east": {
+      "model": "divinerpg:block/divine_woodcutter",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "divinerpg:block/divine_woodcutter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "divinerpg:block/divine_woodcutter",
+      "y": 270
+    }
+  }
+}
