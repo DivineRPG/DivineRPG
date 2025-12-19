@@ -930,7 +930,7 @@ public class BlockRegistry {
     presentBox = registerWithRender("present_box", BlockPresentBox::new, Rarity.COMMON),
     edenChest = registerWithRender("eden_chest", BlockEdenChest::new, Rarity.COMMON),
     crate = registerBlock("crate", BlockCrate::new),
-    oxcrate = registerBlock("oxcrate", () -> new Oxcrate(Properties.of().mapColor(COLOR_BROWN).strength(3, 6).sound(SoundType.COPPER).instrument(NoteBlockInstrument.HARP))),
+    oxcrate = registerBlock("oxcrate", () -> new Oxcrate()),
     inserter = registerBlock("inserter", BlockInserter::new),
     distributor = registerBlock("distributor", BlockDistributor::new),
 

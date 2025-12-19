@@ -1,5 +1,6 @@
 {
   "type": "crafting_shaped",
+  "category": "redstone",
   "group": "divinerpg_crate",
   "pattern": [
     "XTX",
@@ -21,7 +22,6 @@
     }
   },
   "result": {
-    "id": "divinerpg:crate",
-    "count": 1
+    "id": "divinerpg:crate"
   }
 }

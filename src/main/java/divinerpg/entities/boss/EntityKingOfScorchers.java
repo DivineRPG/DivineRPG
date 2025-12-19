@@ -11,7 +11,6 @@ import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
 
 import static net.minecraft.world.damagesource.DamageTypes.EXPLOSION;
 
@@ -23,29 +22,27 @@ public class EntityKingOfScorchers extends EntityDivineBoss implements RangedAtt
         goalSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (entity) -> Math.abs(entity.getY() - getY()) <= 4));
     }
+    //TODO: lame pattern, to improve
     @Override public void performRangedAttack(LivingEntity entity, float range) {
-        if (isAlive() && !level().isClientSide) {
-            if (getTarget() != null) {
-                Vec3 vector3d = getViewVector(1);
-                double d0 = getTarget().getX() - (getX() + vector3d.x * 4);
-                double d1 = getTarget().getY(.5) - (.5 + getY(.5));
-                double d2 = getTarget().getZ() - (getZ() + vector3d.z * 4);
-                double d3 = Math.sqrt(d0 * d0 + d2 * d2);
-                ThrowableProjectile projectile = EntityRegistry.KING_OF_SCORCHERS_SHOT.get().create(level());
+        if (isAlive() && getTarget() != null && !level().isClientSide) {
+            ThrowableProjectile projectile = EntityRegistry.KING_OF_SCORCHERS_SHOT.get().create(level());
+            projectile.setOwner(this);
+            projectile.setPos(getEyePosition());
+            double d0 = getTarget().getX() - getX();
+            double d1 = getTarget().getY(.3333333333333333) - projectile.getY();
+            double d2 = getTarget().getZ() - getZ();
+            double d3 = Math.sqrt(d0 * d0 + d2 * d2);
+            if(level().getRandom().nextInt(10) == 0) {
+                projectile = EntityRegistry.KING_OF_SCORCHERS_METEOR.get().create(level());
                 projectile.setOwner(this);
                 projectile.setPos(getEyePosition());
-                if(level().getRandom().nextInt(10) == 0) {
-                    projectile = EntityRegistry.KING_OF_SCORCHERS_METEOR.get().create(level());
-                    projectile.setOwner(this);
-                    projectile.setPos(getEyePosition());
-                    for(int i = 0; i < 4; i++) {
-                        projectile.shoot(d0, d1 + d3 * .2, d2, 1.6F, (float)(14 - level().getDifficulty().getId() * 4));
-                        level().addFreshEntity(projectile);
-                    }
-                } else {
+                for(int i = 0; i < 4; i++) {
                     projectile.shoot(d0, d1 + d3 * .2, d2, 1.6F, (float)(14 - level().getDifficulty().getId() * 4));
                     level().addFreshEntity(projectile);
                 }
+            } else {
+                projectile.shoot(d0, d1 + d3 * .2, d2, 1.6F, (float)(14 - level().getDifficulty().getId() * 4));
+                level().addFreshEntity(projectile);
             }
         }
     }

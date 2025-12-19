@@ -8,6 +8,7 @@ import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
@@ -18,12 +19,12 @@ import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraft.world.phys.BlockHitResult;
 
+import static net.minecraft.world.level.block.Blocks.BARREL;
+
 public class BlockCrate extends BaseEntityBlock {
 	public static final MapCodec<BlockCrate> CODEC = simpleCodec(BlockCrate::new);
 	@Override public MapCodec<? extends BaseEntityBlock> codec() {return CODEC;}
-	public BlockCrate() {
-		this(Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.5F).sound(SoundType.WOOD).ignitedByLava().instrument(NoteBlockInstrument.BASS));
-	}
+	public BlockCrate() {this(Properties.ofFullCopy(BARREL));}
 	public BlockCrate(Properties properties) {
 		super(properties);
 		registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.ENABLED, true));
@@ -57,13 +58,15 @@ public class BlockCrate extends BaseEntityBlock {
 		} return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
 	}
 	@Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-		level.playSound(player, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, 0.5F, level.random.nextFloat() * .1F + .9F);
+		level.playSound(player, pos, SoundEvents.BARREL_OPEN, SoundSource.BLOCKS, .5F, level.random.nextFloat() * .1F + .9F);
 		if(level.isClientSide) return InteractionResult.SUCCESS;
 		else {
 			BlockEntity blockentity = level.getBlockEntity(pos);
 			if(blockentity instanceof CrateBlockEntity c) {
 				player.openMenu(c);
+				//TODO: custom stats
 				//player.awardStat(Stats.OPEN_BARREL);
+				PiglinAi.angerNearbyPiglins(player, true);
 			} return InteractionResult.CONSUME;
 		}
 	}

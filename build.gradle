@@ -112,6 +112,7 @@ dependencies {
 //    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension //TODO: realm stones and portal support
 //    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether //TODO: compat
     runtimeOnly "curse.maven:carry-on-274259:${carry_on_id}" //Carry On //TODO: opening sound plays when picking up the crate/ox-crate
+//    runtimeOnly "curse.maven:concoction-1039618:${concoction_id}" //Concoction! //TODO: compat
     compileOnly "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
 //    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fights_id}" //Epic Fights //TODO: mob animations, fix hat placement, capabilities
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
