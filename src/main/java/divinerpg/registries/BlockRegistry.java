@@ -930,7 +930,7 @@ public class BlockRegistry {
     presentBox = registerWithRender("present_box", BlockPresentBox::new, Rarity.COMMON),
     edenChest = registerWithRender("eden_chest", BlockEdenChest::new, Rarity.COMMON),
     crate = registerBlock("crate", BlockCrate::new),
-    oxcrate = registerBlock("oxcrate", () -> new Oxcrate()),
+    oxcrate = registerBlock("oxcrate", Oxcrate::new),
     inserter = registerBlock("inserter", BlockInserter::new),
     distributor = registerBlock("distributor", BlockDistributor::new),
 
@@ -964,7 +964,6 @@ public class BlockRegistry {
     karosDispenser = registerBlock("karos_dispenser", () -> new BlockKarosDispenser(Properties.of())),
 
     //Acid
-    acidBlock = registerBlock("acid_block", BlockAcid::new),
     bacterialAcid = registerBlock("bacterial_acid", BlockAcid::new),
     lunicAcid = registerBlock("lunic_acid", BlockAcid::new),
 
@@ -1059,6 +1058,8 @@ public class BlockRegistry {
         BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_grass"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_grass"));
         BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_ore"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight_eden_ore"));
         BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_ore"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight_eden_ore"));
+        BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "acid_block"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "bacterial_acid"));
+        BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "acid_block"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "bacterial_acid"));
     }
 
     private static <T extends Block> DeferredBlock<T> registerBlockWithSpecialItem(String name, Supplier<T> block) {

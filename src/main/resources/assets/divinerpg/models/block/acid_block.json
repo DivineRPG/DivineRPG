@@ -1,7 +1,0 @@
-{
-  "parent": "block/snow_height2",
-  "textures": {
-    "particle": "divinerpg:block/acid_block",
-    "texture": "divinerpg:block/acid_block"
-  }
-}

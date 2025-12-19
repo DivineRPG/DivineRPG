@@ -12,48 +12,45 @@ import static divinerpg.util.ClientUtils.createLocation;
 
 public class ModelGrizzle<T extends EntityDivineTameable> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = createLocation("grizzle");
-	private final ModelPart leg1, leg2, leg4, leg3, body, head, tail;
+	private final ModelPart leg1, leg2, leg4, leg3, body, head;
 	public ModelGrizzle(Context context) {
 		ModelPart root = context.bakeLayer(LAYER_LOCATION);
-		this.leg1 = root.getChild("leg1");
-		this.leg2 = root.getChild("leg2");
-		this.leg4 = root.getChild("leg4");
-		this.leg3 = root.getChild("leg3");
-		this.body = root.getChild("body");
-		this.head = root.getChild("head");
-		this.tail = root.getChild("tail");
+		body = root.getChild("body");
+		head = root.getChild("head");
+		leg1 = root.getChild("leg1");
+		leg2 = root.getChild("leg2");
+		leg3 = root.getChild("leg3");
+		leg4 = root.getChild("leg4");
 	}
 
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		partdefinition.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.9999F, 0.0F, -2.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 14.0F, -8.0F));
+		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-6F, -12F, -9F, 16F, 13F, 13F, CubeDeformation.NONE)
+				.texOffs(0, 26).addBox(-5F, -23F, -8F, 14F, 11F, 11F, CubeDeformation.NONE), PartPose.offsetAndRotation(-2F, 9F, 12F, 1.5708F, 0F, 0F));
 
-		partdefinition.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-1.9999F, 0.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-4.0F, 16.0F, 8.0F));
+		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 48).addBox(-5F, -3F, -3F, 10F, 8F, 8F, CubeDeformation.NONE)
+				.texOffs(50, 37).addBox(-3F, 1F, -7F, 6F, 4F, 4F, CubeDeformation.NONE)
+				.texOffs(51, 45).addBox(3F, -5F, 0F, 3F, 4F, 1F, CubeDeformation.NONE)
+				.texOffs(51, 45).mirror().addBox(-6F, -5F, 0F, 3F, 4F, 1F, CubeDeformation.NONE).mirror(false), PartPose.offset(0F, 10F, -16F));
 
-		partdefinition.addOrReplaceChild("leg4", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-2.0001F, 0.0F, -2.0F, 4.0F, 8.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 16.0F, 8.0F));
+		partdefinition.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(50, 26).addBox(-3F, 2F, -2.5F, 5F, 6F, 5F, CubeDeformation.NONE), PartPose.offset(-4.5F, 16F, 10F));
 
-		partdefinition.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-2.0001F, 0.0F, -2.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(4.0F, 14.0F, -8.0F));
+		partdefinition.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(50, 26).mirror().addBox(-2F, 2F, -2.5F, 5F, 6F, 5F, CubeDeformation.NONE).mirror(false), PartPose.offset(4.5F, 16F, 10F));
 
-		partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(0.0F, 0.0F, 0.0F, 12.0F, 10.0F, 22.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.0F, 4.5F, -11.0F, -0.0873F, 0.0F, 0.0F));
+		partdefinition.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(36, 48).addBox(-3F, 1F, -2.5F, 5F, 7F, 5F, CubeDeformation.NONE), PartPose.offset(-3.5F, 16F, -8F));
 
-		partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 32).mirror().addBox(-4.0F, -3.0F, -5.0F, 8.0F, 8.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 46).mirror().addBox(-2.0F, 1.0F, -9.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 14).mirror().addBox(3.0F, -4.0F, -1.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(0, 14).mirror().addBox(-5.0F, -4.0F, -1.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 5.0F, -11.0F));
-
-		partdefinition.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 26).mirror().addBox(5.0F, 4.0F, 21.54F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-6.0F, 4.5F, -11.0F, -0.0873F, 0.0F, 0.0F));
-
+		partdefinition.addOrReplaceChild("leg4", CubeListBuilder.create().texOffs(36, 48).mirror().addBox(-2F, 1F, -2.5F, 5F, 7F, 5F, CubeDeformation.NONE).mirror(false), PartPose.offset(3.5F, 16F, -8F));
+		
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 	@Override public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		head.xRot = headPitch * Mth.DEG_TO_RAD;
 		head.yRot = netHeadYaw * Mth.DEG_TO_RAD;
-		float f = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
-		float f1 = Mth.cos(limbSwing * .6662F + Mth.PI) * 1.4F * limbSwingAmount;
-		leg1.xRot = leg2.xRot = f;
-        leg3.xRot = leg4.xRot = f1;
+		leg1.xRot = Mth.cos(limbSwing * .6662F) * 1.4F * limbSwingAmount;
+		leg4.xRot = leg1.xRot;
+        leg2.xRot = leg3.xRot = -leg1.xRot;
 	}
 	@Override public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
 		leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
@@ -62,6 +59,5 @@ public class ModelGrizzle<T extends EntityDivineTameable> extends EntityModel<T>
 		leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		body.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 		head.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-		tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
 	}
 }

@@ -18,7 +18,7 @@ public class EntityAcidHag extends EntityDivineMonster {
         BlockPos below = new BlockPos((int)getX(), (int)getY() - 1, (int)getZ() - 1);
         BlockState belowState = this.level().getBlockState(below);
         if(level().getBlockState(current).getBlock() == Blocks.AIR && belowState.isValidSpawn(level(), below, EntityRegistry.ACID_HAG.get()) && belowState.canOcclude())
-            level().setBlockAndUpdate(current, BlockRegistry.acidBlock.get().defaultBlockState());
+            level().setBlockAndUpdate(current, BlockRegistry.bacterialAcid.get().defaultBlockState());
     }
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.ACID_HAG.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.ACID_HAG_HURT.get();}
