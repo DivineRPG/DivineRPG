@@ -59,7 +59,7 @@ public abstract class PortalBlock extends BaseEntityBlock implements Portal {
 //		DivineRPG.LOGGER.info("No Connection Present. Creating new Portal.");
 		BlockState state = level.getBlockState(pos);
 		Axis axis = state.hasProperty(BlockStateProperties.HORIZONTAL_AXIS) ? state.getValue(BlockStateProperties.HORIZONTAL_AXIS) : null;
-		ResourceKey<Level> targetDimension = level.dimension() == rootDimension ? chainDimension : rootDimension;
+		ResourceKey<Level> targetDimension = getTargetDimension(level.dimension(), entity);
 		ServerLevel targetLevel = level.getServer().getLevel(targetDimension);
 		BlockPos targetPosition = scalePosition(pos, level.dimensionType(), targetLevel.dimensionType());
 		UniversalPosition origin = new UniversalPosition(level, pos);
@@ -69,6 +69,9 @@ public abstract class PortalBlock extends BaseEntityBlock implements Portal {
 		UniversalPosition target = new UniversalPosition(targetDimension, targetPosition);
 		linkPortals(level.getServer(), origin, target);
 		return transitionTo(level.getServer(), entity, target);
+	}
+	public ResourceKey<Level> getTargetDimension(ResourceKey<Level> sourceDimension, Entity entity) {
+		return sourceDimension == rootDimension ? chainDimension : rootDimension;
 	}
 	/**
 	 * Use this method to influence where in the world the portal should be placed.
