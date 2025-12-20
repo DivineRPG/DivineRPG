@@ -4,6 +4,7 @@ import divinerpg.DivineRPG;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -271,6 +272,8 @@ public class TagRegistry {
     public static final TagKey<Fluid>
         SMOLDERING_TAR = fluid("smoldering_tar");
 
+    public static final TagKey<DamageType>
+        AVOIDS_SAGUARO_THORNS = damageType("avoids_saguaro_thorns");
     public static final TagKey<Structure>
     //Iceika Structures
         ICEIKA_DUNGEON = structure("iceika_dungeon"),
@@ -278,8 +281,9 @@ public class TagRegistry {
         RAID_TARGETS = structure("groglin_raid_targets"),
         WHALE_SKULL = structure("whale_skull");
     private static ResourceLocation location(String path) {return ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, path);}
+    private static TagKey<Item> item(String path) {return TagKey.create(Registries.ITEM, location(path));}
     private static TagKey<Block> block(String path) {return TagKey.create(Registries.BLOCK, location(path));}
     private static TagKey<Fluid> fluid(String path) {return TagKey.create(Registries.FLUID, location(path));}
-    private static TagKey<Item> item(String path) {return TagKey.create(Registries.ITEM, location(path));}
+    private static TagKey<DamageType> damageType(String path) {return TagKey.create(Registries.DAMAGE_TYPE, location(path));}
     private static TagKey<Structure> structure(String path) {return TagKey.create(Registries.STRUCTURE, location(path));}
 }

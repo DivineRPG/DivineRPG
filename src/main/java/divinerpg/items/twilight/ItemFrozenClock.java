@@ -19,9 +19,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class ItemFrozenClock extends ItemMod {
     public static final ResourceLocation ADVANCEMENT_OOPS = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/oops");
-    public ItemFrozenClock() {
-        super(new Properties().component(DataComponentRegistry.variant, (byte)0));
-    }
+    public ItemFrozenClock() {super(new Properties().component(DataComponentRegistry.variant, (byte)0));}
     public static InteractionResult useOnPortalBlock(Level level, Player player, BlockPos facing, BlockState block, byte timeOfDay) {
         PortalBlock portal = null;
         ResourceKey<Level> dim = level.dimension();

@@ -5,8 +5,7 @@ import divinerpg.compat.farmersdelight.DelightLoader;
 import divinerpg.enums.*;
 import divinerpg.items.arcana.*;
 import divinerpg.items.base.*;
-import divinerpg.items.base.block.DivineSign;
-import divinerpg.items.base.block.DivineSignHanging;
+import divinerpg.items.base.block.*;
 import divinerpg.items.iceika.*;
 import divinerpg.items.ranged.*;
 import divinerpg.items.ranged.shooter.*;
@@ -18,6 +17,7 @@ import divinerpg.items.ranged.bows.*;
 import divinerpg.items.vethea.*;
 import divinerpg.util.*;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.Item.Properties;
@@ -56,7 +56,7 @@ public class ItemRegistry {
         raw_torridite = registerItem("raw_torridite"),
         raw_oxdrite = registerItem("raw_oxdrite"),
 
-        //Crushed
+        //Crushed Raw (Create)
         crushed_raw_realmite = registerItemCreate("crushed_raw_realmite"),
         crushed_raw_arlemite = registerItemCreate("crushed_raw_arlemite"),
         crushed_raw_rupee = registerItemCreate("crushed_raw_rupee"),
@@ -1028,6 +1028,26 @@ public class ItemRegistry {
         tormented_leggings = registerTool("tormented_leggings", () -> new ItemDivineArmor(TORMENTED, LEGGINGS, 45)),
         tormented_boots = registerTool("tormented_boots", () -> new ItemDivineArmor(TORMENTED, BOOTS, 45));
 
+    static {
+        //Torridite
+        addAliases("netherite_ingot", torridite_ingot);
+        addAliases("netherite_nugget", torridite_nugget);
+        addAliases("netherite_chunk", torridite_chunk);
+        addAliases("netherite_helmet", torridite_helmet);
+        addAliases("netherite_chestplate", torridite_chestplate);
+        addAliases("netherite_leggings", torridite_leggings);
+        addAliases("netherite_boots", torridite_boots);
+        //Soulfire
+        addAliases("bluefire_stone", soulfire_stone);
+        addAliases("bluefire_sword", soulfire_sword);
+        addAliases("bluefire_bow", soulfire_bow);
+        //Keys
+        addAliases("frozen_charge", ancient_key);
+    }
+    private static void addAliases(String path, DeferredItem<Item> item) {
+        ResourceLocation loc = ResourceLocation.fromNamespaceAndPath(MODID, path);
+        ITEMS.addAlias(loc, item.getId());
+    }
     public static void registerDispenserItems() {
         if(!DISPENSER_ITEMS.isEmpty()) for(ItemLike item : DISPENSER_ITEMS) DispenserBlock.registerProjectileBehavior(item);
         else DivineRPG.LOGGER.error("No items registered for dispenser behavior");

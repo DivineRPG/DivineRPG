@@ -979,12 +979,12 @@ public class BlockRegistry {
     //Portals
     gateway = registerBlock("gateway", () -> new BlockGateway(Properties.ofFullCopy(Blocks.LODESTONE))),
     arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
-    iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, Level.OVERWORLD, Blocks.SNOW_BLOCK, ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "frost"))),
-    edenPortal = registerBlock("eden_portal", () -> new SimplePortalBlock(LevelRegistry.EDEN, Level.OVERWORLD, edenBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_portal"))),
-    wildwoodPortal = registerBlock("wildwood_portal", () -> new SimplePortalBlock(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, wildwoodBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "wildwood_portal"))),
-    apalachiaPortal = registerBlock("apalachia_portal", () -> new SimplePortalBlock(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, apalachiaBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "apalachia_portal"))),
-    skythernPortal = registerBlock("skythern_portal", () -> new SimplePortalBlock(LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, skythernBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "skythern_portal"))),
-    mortumPortal = registerBlock("mortum_portal", () -> new SimplePortalBlock(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, mortumBlock.get(), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "mortum_portal"))),
+    iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, Level.OVERWORLD, Blocks.SNOW_BLOCK, ResourceLocation.fromNamespaceAndPath(MODID, "frost"))),
+    edenPortal = registerBlock("eden_portal", () -> new SimplePortalBlock(LevelRegistry.EDEN, Level.OVERWORLD, edenBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),
+    wildwoodPortal = registerBlock("wildwood_portal", () -> new SimplePortalBlock(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, wildwoodBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "wildwood_portal"))),
+    apalachiaPortal = registerBlock("apalachia_portal", () -> new SimplePortalBlock(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, apalachiaBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "apalachia_portal"))),
+    skythernPortal = registerBlock("skythern_portal", () -> new SimplePortalBlock(LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, skythernBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "skythern_portal"))),
+    mortumPortal = registerBlock("mortum_portal", () -> new SimplePortalBlock(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, mortumBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "mortum_portal"))),
     vetheaPortal = registerBlock("vethea_portal", VetheaPortal::new),
 
     //Rifts
@@ -1052,16 +1052,70 @@ public class BlockRegistry {
     arcanaBushPot = registerFlowerPot("arcana_bush_pot", arcanaBush);
 
     static {
-        BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_dirt"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_dirt"));
-        BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_dirt"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_dirt"));
-        BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_grass"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_grass"));
-        BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_grass"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "ray_grass"));
-        BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_ore"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight_eden_ore"));
-        BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "eden_ore"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight_eden_ore"));
-        BLOCKS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "acid_block"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "bacterial_acid"));
-        BLOCK_ITEMS.addAlias(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "acid_block"), ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "bacterial_acid"));
+        //Obsidian
+        addAliases("red_vane", bleedingObsidian);
+        addAliases("yellow_vane", shiningObsidian);
+        addAliases("cyan_vane", glitteringObsidian);
+        addAliases("blue_vane", seepingObsidian);
+        addAliases("purple_vane", vwoopingObsidian);
+        //Lamps
+        addAliases("bluefire_lamp", soulfireLamp);
+        addAliases("redstone_ore_lamp", bloodgemLamp);
+        //Shiverspine
+        addAliases("frozen_sapling", shiverspineSapling);
+        addAliases("frozen_log", shiverspineLog);
+        addAliases("stripped_frozen_log", strippedShiverspineLog);
+        addAliases("frozen_planks", shiverspinePlanks);
+        addAliases("frozen_fence", shiverspineFence);
+        addAliases("frozen_fence_gate", shiverspineFenceGate);
+        addAliases("frozen_door", shiverspineDoor);
+        addAliases("frozen_trapdoor", shiverspineTrapdoor);
+        //Fire
+        addAliases("iceika_fire", icyFire);
+        addVanillaAliases("blue_fire", Blocks.SOUL_FIRE);
+        //Steel
+        addAliases("white_steel", steel);
+        addAliases("teal_steel", cyanSteel);
+        addAliases("bright_red_steel", magentaSteel);
+        //Stained Glass
+        addAliases("stained_glass2", stainedGlass);
+        addAliases("stained_glass3", stainedGlass);
+        addAliases("stained_glass4", stainedGlass);
+        addAliases("stained_glass5", stainedGlass);
+        addAliases("stained_glass6", stainedGlass);
+        addAliases("stained_glass7", stainedGlass);
+        addAliases("stained_glass8", stainedGlass);
+        //Extra Arcana
+        addAliases("arcana_hard_portal_frame", arcanaPortalFrame);
+        //Eden
+        addAliases("eden_dirt", rayDirt);
+        addAliases("eden_grass", rayGrass);
+        addAliases("eden_ore", twilightEdenOre);
+        //Vethea
+        addAliases("acid_block", bacterialAcid);
+        addAliases("karos_heat_tile_green", karosHeatTile);
+        addAliases("karos_heat_tile_red", karosHeatTile);
+        //Compat (why not)
+        if(!ModList.get().isLoaded("supplementaries")) {
+            addAliases("raked_frozen_gravel", frozenGravel);
+            addAliases("frozen_gravel_bricks", frozenGravel);
+            addAliases("suspicious_frozen_gravel_bricks", frozenGravel);
+        }
     }
-
+    private static ResourceLocation getResourceLocation(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    }
+    private static void addAliases(String path, DeferredBlock<Block> block) {
+        ResourceLocation loc = getResourceLocation(path);
+        BLOCKS.addAlias(loc, block.getId());
+        BLOCK_ITEMS.addAlias(loc, block.getId());
+    }
+    private static void addVanillaAliases(String path, Block block) {
+        ResourceLocation loc = getResourceLocation(path);
+        ResourceLocation defLoc = ResourceLocation.withDefaultNamespace(path);
+        BLOCKS.addAlias(loc, defLoc);
+        BLOCK_ITEMS.addAlias(loc, defLoc);
+    }
     private static <T extends Block> DeferredBlock<T> registerBlockWithSpecialItem(String name, Supplier<T> block) {
         DeferredBlock<T> registeredBlock;
         CreativeTabRegistry.blocks.add(registeredBlock = BLOCKS.register(name, block));

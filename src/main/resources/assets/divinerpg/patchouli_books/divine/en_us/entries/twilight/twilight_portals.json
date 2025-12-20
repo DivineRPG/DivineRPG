@@ -22,17 +22,15 @@
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "__0_" ],
-          [ "PPPP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PPPP" ],
-          [ "____" ]
+          [ "_", "P", "P", "_" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "0", "_", "P" ],
+          [ "_", "P", "P", "_" ],
+          [ "_", "_", "_", "_" ]
         ],
         "mapping": {
-          "P": "divinerpg:eden_block",
-          "B": "divinerpg:eden_portal[axis=z]"
+          "P": "divinerpg:eden_block"
         }
       },
       "name": "Eden Portal",
@@ -47,17 +45,15 @@
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "__0_" ],
-          [ "PPPP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PPPP" ],
-          [ "____" ]
+          [ "_", "P", "P", "_" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "0", "_", "P" ],
+          [ "_", "P", "P", "_" ],
+          [ "_", "_", "_", "_" ]
         ],
         "mapping": {
-          "P": "divinerpg:wildwood_block",
-          "B": "divinerpg:wildwood_portal[axis=z]"
+          "P": "divinerpg:wildwood_block"
         }
       },
       "name": "Wildwood Portal",
@@ -72,17 +68,15 @@
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "__0_" ],
-          [ "PPPP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PPPP" ],
-          [ "____" ]
+          [ "_", "P", "P", "_" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "0", "_", "P" ],
+          [ "_", "P", "P", "_" ],
+          [ "_", "_", "_", "_" ]
         ],
         "mapping": {
-          "P": "divinerpg:apalachia_block",
-          "B": "divinerpg:apalachia_portal[axis=z]"
+          "P": "divinerpg:apalachia_block"
         }
       },
       "name": "Apalachia Portal",
@@ -97,17 +91,15 @@
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "__0_" ],
-          [ "PPPP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PPPP" ],
-          [ "____" ]
+          [ "_", "P", "P", "_" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "0", "_", "P" ],
+          [ "_", "P", "P", "_" ],
+          [ "_", "_", "_", "_" ]
         ],
         "mapping": {
-          "P": "divinerpg:skythern_block",
-          "B": "divinerpg:skythern_portal[axis=z]"
+          "P": "divinerpg:skythern_block"
         }
       },
       "name": "Skythern Portal",
@@ -122,21 +114,19 @@
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "__0_" ],
-          [ "PPPP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PPPP" ],
-          [ "____" ]
+          [ "_", "P", "P", "_" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "0", "_", "P" ],
+          [ "_", "P", "P", "_" ],
+          [ "_", "_", "_", "_" ]
         ],
         "mapping": {
-          "P": "divinerpg:mortum_block",
-          "B": "divinerpg:mortum_portal[axis=z]"
+          "P": "divinerpg:mortum_block"
         }
       },
       "name": "Mortum Portal",
       "text": "book.divinerpg.entry.twilight.portals.3"
     }
-    ]
+  ]
 }

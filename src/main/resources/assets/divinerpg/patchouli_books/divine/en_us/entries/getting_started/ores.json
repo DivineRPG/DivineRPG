@@ -12,31 +12,31 @@
     {
       "type": "spotlight",
       "item": "divinerpg:arlemite_ore",
-      "title": "book.divinerpg.entry.getting_started.arlemite.title",
+      "title": "block.divinerpg.arlemite_ore",
       "text": "book.divinerpg.entry.getting_started.arlemite.1"
     },
     {
       "type": "spotlight",
       "item": "divinerpg:realmite_ore",
-      "title": "book.divinerpg.entry.getting_started.realmite.title",
+      "title": "block.divinerpg.realmite_ore",
       "text": "book.divinerpg.entry.getting_started.realmite.1"
     },
     {
       "type": "spotlight",
       "item": "divinerpg:rupee_ore",
-      "title": "book.divinerpg.entry.getting_started.rupee.title",
+      "title": "block.divinerpg.rupee_ore",
       "text": "book.divinerpg.entry.getting_started.rupee.1"
     },
     {
       "type": "spotlight",
       "item": "divinerpg:bloodgem_ore",
-      "title": "book.divinerpg.entry.getting_started.bloodgem.title",
+      "title": "block.divinerpg.bloodgem_ore",
       "text": "book.divinerpg.entry.getting_started.bloodgem.1"
     },
     {
       "type": "spotlight",
       "item": "divinerpg:torridite_ore",
-      "title": "book.divinerpg.entry.getting_started.torridite.title",
+      "title": "block.divinerpg.torridite_ore",
       "text": "book.divinerpg.entry.getting_started.torridite.1"
     }
   ]

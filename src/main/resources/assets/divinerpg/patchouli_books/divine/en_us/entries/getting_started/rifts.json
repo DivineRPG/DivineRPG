@@ -12,7 +12,6 @@
       "type": "text",
       "text": "book.divinerpg.entry.getting_started.rifts.2"
     },
-
     {
       "type": "text",
       "title": "book.divinerpg.entry.getting_started.rifts.eden.name",
@@ -24,17 +23,15 @@
       "multiblock": {
         "pattern": [
           ["0"],
-          ["F"],
           ["B"],
           ["_"]
         ],
         "mapping": {
-          "F": "divinerpg:divine_flame",
+          "0": "divinerpg:divine_flame",
           "B": "divinerpg:shining_obsidian"
         }
       }
     },
-
     {
       "type": "text",
       "title": "book.divinerpg.entry.getting_started.rifts.wildwood.name",
@@ -46,17 +43,15 @@
       "multiblock": {
         "pattern": [
           ["0"],
-          ["F"],
           ["B"],
           ["_"]
         ],
         "mapping": {
-          "F": "divinerpg:wild_flame",
+          "0": "divinerpg:wild_flame",
           "B": "divinerpg:seeping_obsidian"
         }
       }
     },
-
     {
       "type": "text",
       "title": "book.divinerpg.entry.getting_started.rifts.apalachia.name",
@@ -68,17 +63,15 @@
       "multiblock": {
         "pattern": [
           ["0"],
-          ["F"],
           ["B"],
           ["_"]
         ],
         "mapping": {
-          "F": "divinerpg:enchanted_flame",
+          "0": "divinerpg:enchanted_flame",
           "B": "divinerpg:vwooping_obsidian"
         }
       }
     },
-
     {
       "type": "text",
       "title": "book.divinerpg.entry.getting_started.rifts.skythern.name",
@@ -90,17 +83,15 @@
       "multiblock": {
         "pattern": [
           ["0"],
-          ["F"],
           ["B"],
           ["_"]
         ],
         "mapping": {
-          "F": "divinerpg:sky_fire",
+          "0": "divinerpg:sky_fire",
           "B": "divinerpg:brooding_obsidian"
         }
       }
     },
-
     {
       "type": "text",
       "title": "book.divinerpg.entry.getting_started.rifts.mortum.name",
@@ -112,12 +103,11 @@
       "multiblock": {
         "pattern": [
           ["0"],
-          ["F"],
           ["B"],
           ["_"]
         ],
         "mapping": {
-          "F": "divinerpg:mortum_embers",
+          "0": "divinerpg:mortum_embers",
           "B": "divinerpg:bleeding_obsidian"
         }
       }
@@ -133,17 +123,16 @@
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "____" ],
-          [ "OOOO" ],
-          [ "OBBO" ],
-          [ "OBBO" ],
-          [ "OBBO" ],
-          [ "OOOO" ],
-          [ "__0_" ]
+          [ "_", "P", "P", "_" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "0", "_", "P" ],
+          [ "_", "P", "P", "_" ],
+          [ "_", "_", "_", "_" ]
         ],
         "mapping": {
-          "O": "minecraft:snow_block",
-          "B": "divinerpg:iceika_portal[axis=z]"
+          "P": "snow_block",
+          "0": "divinerpg:icy_fire"
         }
       },
       "name": "book.divinerpg.entry.getting_started.rifts.iceika.name"

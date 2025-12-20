@@ -14,17 +14,16 @@
       "type": "multiblock",
       "multiblock": {
         "pattern": [
-          [ "__0_" ],
-          [ "PPPP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PBBP" ],
-          [ "PPPP" ],
-          [ "____" ]
+          [ "_", "P", "P", "_" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "_", "_", "P" ],
+          [ "P", "0", "_", "P" ],
+          [ "_", "P", "P", "_" ],
+          [ "_", "_", "_", "_" ]
         ],
         "mapping": {
-          "P": "minecraft:snow_block",
-          "B": "divinerpg:iceika_portal[axis=z]"
+          "P": "snow_block",
+          "0": "divinerpg:icy_fire"
         }
       },
       "name": "Iceika Portal"

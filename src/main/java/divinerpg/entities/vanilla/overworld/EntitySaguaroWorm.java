@@ -15,6 +15,9 @@ import net.minecraft.world.level.*;
 import net.neoforged.neoforge.common.Tags.Blocks;
 import net.neoforged.neoforge.fluids.FluidType;
 
+import static divinerpg.registries.TagRegistry.AVOIDS_SAGUARO_THORNS;
+import static net.minecraft.world.damagesource.DamageTypes.THORNS;
+
 public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAttackMob {
     public EntitySaguaroWorm(EntityType<? extends EntitySaguaroWorm> type, Level worldIn) {super(type, worldIn);}
     @Override public void onAddedToLevel() {
@@ -40,10 +43,14 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
         }
     }
     @Override public boolean hurt(DamageSource source, float amount) {
+        if(level().isClientSide) return false;
         Entity entity = source.getDirectEntity();
         if(!(entity instanceof LivingEntity)) entity = source.getEntity();
         if(entity instanceof LivingEntity l && !l.level().isClientSide) setProvoked(l);
-        return super.hurt(source, amount);
+        if(!source.is(AVOIDS_SAGUARO_THORNS) && !source.is(THORNS)) {
+            Entity directEntity = source.getDirectEntity();
+            if(directEntity instanceof LivingEntity livingEntity) livingEntity.hurt(damageSources().thorns(this), 2);
+        } return super.hurt(source, amount);
     }
     @Override public boolean isPushedByFluid(FluidType type) {return false;}
     @Override public boolean isPushable() {return false;}
