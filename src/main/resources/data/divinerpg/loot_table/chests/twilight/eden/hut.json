@@ -170,6 +170,7 @@
       ],
       "rolls": 5,
       "bonus_rolls": {
+        "type": "uniform",
         "min": 0,
         "max": 2
       }

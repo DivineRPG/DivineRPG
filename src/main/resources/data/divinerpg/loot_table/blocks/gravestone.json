@@ -78,7 +78,7 @@
                 },
                 {
                   "type": "item",
-                  "name": "enchanted_book",
+                  "name": "book",
                   "weight": 3,
                   "functions": [
                     {
@@ -99,7 +99,7 @@
                 },
                 {
                   "type": "item",
-                  "name": "enchanted_book",
+                  "name": "book",
                   "weight": 2,
                   "functions": [
                     {
