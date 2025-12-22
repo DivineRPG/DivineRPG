@@ -27,6 +27,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.event.entity.*;
+import net.neoforged.neoforge.event.entity.player.CanContinueSleepingEvent;
+import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.*;
 
@@ -63,6 +65,18 @@ public class Ticker {
     		int f = player.getTicksFrozen();
     		if(f > 0) player.setTicksFrozen(f - 2);
         }
+    }
+    @SubscribeEvent
+    public void canSleep(CanPlayerSleepEvent e) {
+        Player.BedSleepingProblem p = e.getProblem();
+        if((p == Player.BedSleepingProblem.NOT_POSSIBLE_HERE || p == Player.BedSleepingProblem.NOT_POSSIBLE_NOW) && e.getState().is(BlockRegistry.nightmareBed))
+            e.setProblem(null);
+    }
+    @SubscribeEvent
+    public void canContinueSleeping(CanContinueSleepingEvent e) {
+        Player.BedSleepingProblem p = e.getProblem();
+        if((p == Player.BedSleepingProblem.NOT_POSSIBLE_HERE || p == Player.BedSleepingProblem.NOT_POSSIBLE_NOW) && e.getEntity().getInBlockState().is(BlockRegistry.nightmareBed))
+            e.setContinueSleeping(true);
     }
     @SubscribeEvent
     public void addVanillaMobGoals(EntityJoinLevelEvent event) {

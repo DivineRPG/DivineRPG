@@ -59,19 +59,21 @@ public abstract class PortalBlock extends BaseEntityBlock implements Portal {
 //		DivineRPG.LOGGER.info("No Connection Present. Creating new Portal.");
 		BlockState state = level.getBlockState(pos);
 		Axis axis = state.hasProperty(BlockStateProperties.HORIZONTAL_AXIS) ? state.getValue(BlockStateProperties.HORIZONTAL_AXIS) : null;
-		ResourceKey<Level> targetDimension = getTargetDimension(level.dimension(), entity);
-		ServerLevel targetLevel = level.getServer().getLevel(targetDimension);
-		BlockPos targetPosition = scalePosition(pos, level.dimensionType(), targetLevel.dimensionType());
-		UniversalPosition origin = new UniversalPosition(level, pos);
+
+		UniversalPosition origin = new UniversalPosition(level, pos), target = getTargetLocation(level, entity, pos);
+		if(target == null) return null;
+		ServerLevel targetLevel = target.level(level.getServer());
+		BlockPos targetPosition = target.blockPos();
 		for(int tries = 0; tries < 10; tries++) if(hasRoomForPortal(targetLevel, pos = applyPlacementLocationPreference(targetLevel, entity, targetPosition.offset((int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)), 0, (int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)))))) break;
 		targetPosition = placePortal(targetLevel, pos, axis);
 		if(targetPosition == null) return null;
-		UniversalPosition target = new UniversalPosition(targetDimension, targetPosition);
+		target = new UniversalPosition(targetLevel.dimension(), targetPosition);
 		linkPortals(level.getServer(), origin, target);
 		return transitionTo(level.getServer(), entity, target);
 	}
-	public ResourceKey<Level> getTargetDimension(ResourceKey<Level> sourceDimension, Entity entity) {
-		return sourceDimension == rootDimension ? chainDimension : rootDimension;
+	public UniversalPosition getTargetLocation(ServerLevel source, Entity entity, BlockPos pos) {
+		ResourceKey<Level> targetDimension = source.dimension() == rootDimension ? chainDimension : rootDimension;
+		return new UniversalPosition(targetDimension, scalePosition(pos, source.dimensionType(), source.getServer().getLevel(targetDimension).dimensionType()));
 	}
 	/**
 	 * Use this method to influence where in the world the portal should be placed.
