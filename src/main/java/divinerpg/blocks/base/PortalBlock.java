@@ -93,7 +93,7 @@ public abstract class PortalBlock extends BaseEntityBlock implements Portal {
         else if(d == VETHEA) m = Surface.getSurface(Surface_Type.LOWEST_GROUND, Mode.FULL, -55, 32, 0, level, level.getRandom(), pos).mutable();
         else m = Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinBuildHeight() + 5, level.dimensionType().logicalHeight(), 0, level, level.getRandom(), pos).mutable();
         while(level.getBlockState(m).is(Blocks.WATER)) m.move(0, 1, 0);
-        return m.move(0, -1, 0);
+        return m;
     }
 	public boolean hasRoomForPortal(ServerLevel level, BlockPos pos) {
 		pos = pos.above();
@@ -108,6 +108,7 @@ public abstract class PortalBlock extends BaseEntityBlock implements Portal {
 	 */
 	public abstract BlockPos placePortal(ServerLevel level, BlockPos pos, Axis axis);
 	public static BlockPos placeVanillaLookingPortal(ServerLevel level, BlockPos pos, BlockState frameBlock, BlockState portalBlock, Axis axis) {
+		pos = pos.below();
 		if(!level.ensureCanWrite(pos)) return null;
         Block p = portalBlock.getBlock();
         for(int x = -3; x < 4; x++) for(int y = -3; y < 4; y++) for(int z = -3; z < 4; z++) if(level.getBlockState(pos.offset(x, y, z)).is(p)) return pos.offset(x, y, z);

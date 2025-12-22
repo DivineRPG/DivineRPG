@@ -148,7 +148,7 @@ public class BlockModRift extends BaseEntityBlock implements Portal {
      */
     @NotNull
     public BlockPos applyLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-        return PortalBlock.defaultLocationPreferences(level, pos).above();
+        return PortalBlock.defaultLocationPreferences(level, pos);
     }
     public boolean hasRoom(ServerLevel level, BlockPos pos) {
         return level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir() && level.getBlockState(pos.above(2)).isAir();
