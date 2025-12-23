@@ -28,11 +28,13 @@ public class ModelJungleBat extends HierarchicalModel<Bat> {
 
         PartDefinition rightEar = head.addOrReplaceChild("right_ear", CubeListBuilder.create(), PartPose.offset(-1.5F, -2F, 0F));
 
-        rightEar.addOrReplaceChild("right_ear_r1", CubeListBuilder.create().texOffs(1, 15).addBox(-3F, -4F, 0F, 3F, 5F, 0F, CubeDeformation.NONE), PartPose.offsetAndRotation(0.5F, -1F, 0.5F, 0F, 0F, -0.7854F));
+        rightEar.addOrReplaceChild("right_ear_r1", CubeListBuilder.create().texOffs(1, 20).addBox(-3F, -4F, 0.001F, 3F, 5F, 0F, CubeDeformation.NONE)
+                .texOffs(1, 15).addBox(-3F, -4F, 0F, 3F, 5F, 0F, CubeDeformation.NONE), PartPose.offsetAndRotation(0.5F, -1F, 0.5F, 0F, 0F, -0.7854F));
 
         PartDefinition leftEar = head.addOrReplaceChild("left_ear", CubeListBuilder.create(), PartPose.offset(1.1F, -2F, 0F));
 
-        leftEar.addOrReplaceChild("left_ear_r1", CubeListBuilder.create().texOffs(8, 15).addBox(0F, -4F, 0F, 3F, 5F, 0F, CubeDeformation.NONE), PartPose.offsetAndRotation(-0.1F, -1F, 0.5F, 0F, 0F, 0.7854F));
+        leftEar.addOrReplaceChild("left_ear_r1", CubeListBuilder.create().texOffs(8, 27).addBox(0F, -4F, 0.001F, 3F, 5F, 0F, CubeDeformation.NONE)
+                .texOffs(8, 15).addBox(0F, -4F, 0F, 3F, 5F, 0F, CubeDeformation.NONE), PartPose.offsetAndRotation(-0.1F, -1F, 0.5F, 0F, 0F, 0.7854F));
 
         PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-1.5F, 0F, -1F, 3F, 5F, 2F, CubeDeformation.NONE)
                 .texOffs(8, 25).addBox(-0.5F, 0.5F, 1F, 1F, 1F, 1F, CubeDeformation.NONE), PartPose.offset(0F, 17F, 0F));
