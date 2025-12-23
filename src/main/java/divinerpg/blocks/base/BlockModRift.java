@@ -9,7 +9,6 @@ import divinerpg.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
@@ -26,14 +25,11 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.*;
 import net.minecraft.world.phys.shapes.*;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static divinerpg.blocks.base.PortalBlock.*;
-
-public class BlockModRift extends BaseEntityBlock implements Portal {
+public class BlockModRift extends BaseEntityBlock implements DivinePortalLogic {
     public static final ResourceLocation
             ADVANCEMENT_UNSTABLE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/an_unstable_combination"),
             ADVANCEMENT_STABLE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/ripple_space_time");
@@ -109,7 +105,7 @@ public class BlockModRift extends BaseEntityBlock implements Portal {
         default -> ParticleRegistry.EDEN_RIFT.get();
         }, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 5, 0D, 0D, 0D, 0D);
     }
-    @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    @Override public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if(entity instanceof ItemEntity e && e.getItem().is(empowerTag)) {
             e.discard();
             RiftBlockEntity r = (RiftBlockEntity) level.getBlockEntity(pos);
@@ -125,68 +121,42 @@ public class BlockModRift extends BaseEntityBlock implements Portal {
     }
     @Override public @Nullable DimensionTransition getPortalDestination(ServerLevel level, Entity entity, BlockPos pos) {
         if(level.dimension() == rootDimension || (entity instanceof ItemEntity e && e.getItem().is(empowerTag))) return null;
-        ServerLevel targetLevel = level.getServer().getLevel(rootDimension);
-        BlockPos targetPosition = scalePosition(pos, level.dimensionType(), targetLevel.dimensionType());
-        for(int tries = 0; tries < 10; tries++) if(hasRoom(targetLevel, pos = applyLocationPreference(targetLevel, entity, targetPosition.offset((int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)), 0, (int)((entity.getRandom().nextFloat() - 0.5F) * (tries << 2)))))) break;
-        targetPosition = pos;
-        BlockState state = targetLevel.getBlockState(pos = targetPosition.below());
-        if(state.is(this)) return transitionTo(level.getServer(), entity, new UniversalPosition(rootDimension, pos));
+        return DivinePortalLogic.super.getPortalDestination(level, entity, pos);
+    }
+    @Override @Nullable
+    public BlockPos lookForNearbyPortal(ServerLevel level, Entity entity, BlockPos center) {
+        return level.getBlockState(center.below()).is(this) ? center.below() : null;
+    }
+    @Override
+    public boolean hasSpace(ServerLevel level, BlockPos pos) {
+        return level.getBlockState(pos.above()).isAir();
+    }
+    @Override
+    public BlockPos placeAndLink(ServerLevel originLevel, BlockPos originPos, ServerLevel targetLevel, BlockPos targetPos, Entity entity) {
+        BlockPos pos = targetPos.below();
+        BlockState state = targetLevel.getBlockState(pos);
         if(!state.isFaceSturdy(targetLevel, pos, Direction.UP)) targetLevel.setBlock(pos, BlockRegistry.twilightStone.get().defaultBlockState(), 3);
-        targetLevel.setBlock(targetPosition, Blocks.AIR.defaultBlockState(), 3);
-        targetLevel.setBlock(targetPosition.above(), Blocks.AIR.defaultBlockState(), 3);
-        targetLevel.setBlock(targetPosition.above(2), defaultBlockState(), 3);
-        return transitionTo(level.getServer(), entity, new UniversalPosition(rootDimension, targetPosition));
-    }
-    public DimensionTransition transitionTo(MinecraftServer server, Entity entity, UniversalPosition pos) {
-        return new DimensionTransition(pos.level(server), pos.pos().add(.5, 0, .5), Vec3.ZERO, entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET).then(e -> e.hurt(e.damageSources().inWall(), e.level().dimension() == chainDimension ? 1 : 18)));
-    }
-    /**
-     * Use this method to influence where in the world the portal should be placed.
-     * @param level the target level where the portal should get placed
-     * @param pos the initial position provided for location search
-     * @return the new preferred block position for where to place the portal
-     */
-    @NotNull
-    public BlockPos applyLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-        return PortalBlock.defaultLocationPreferences(level, pos);
-    }
-    public boolean hasRoom(ServerLevel level, BlockPos pos) {
-        return level.getBlockState(pos).isAir() && level.getBlockState(pos.above()).isAir() && level.getBlockState(pos.above(2)).isAir();
-    }
-    @Override public int getPortalTransitionTime(ServerLevel level, Entity entity) {
-        return 0;
+        targetLevel.setBlock(targetPos, Blocks.AIR.defaultBlockState(), 3);
+        targetLevel.setBlock(targetPos.above(), Blocks.AIR.defaultBlockState(), 3);
+        targetLevel.setBlock(targetPos.above(2), defaultBlockState(), 3);
+        return targetPos;
     }
 
-    @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return Shapes.empty();
-    }
-    @Override public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.getValue(BlockStateProperties.LEVEL);
-    }
-    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.LEVEL);
-    }
+    @Override protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {return Shapes.empty();}
+    @Override public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {return state.getValue(BlockStateProperties.LEVEL);}
+    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(BlockStateProperties.LEVEL);}
     @Override protected RenderShape getRenderShape(BlockState state) {
         return RenderShape.ENTITYBLOCK_ANIMATED;
     }
 
-    public static final MapCodec<BlockModRift> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(propertiesCodec(), ResourceLocation.CODEC.fieldOf("root_dimension").forGetter(BlockModRift::rootDimension), ResourceLocation.CODEC.fieldOf("chain_dimension").forGetter(BlockModRift::chainDimension), TagKey.codec(Registries.BLOCK).fieldOf("supported_blocks").forGetter(BlockModRift::resonanceTag), TagKey.codec(Registries.ITEM).fieldOf("replenishing_items").forGetter(BlockModRift::empowerTag), Codec.BYTE.fieldOf("variant").forGetter(BlockModRift::variant)).apply(instance, BlockModRift::new));
+    public static final MapCodec<BlockModRift> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(propertiesCodec(), ResourceLocation.CODEC.fieldOf("root_dimension").forGetter(BlockModRift::rootDimensionLocation), ResourceLocation.CODEC.fieldOf("chain_dimension").forGetter(BlockModRift::chainDimension), TagKey.codec(Registries.BLOCK).fieldOf("supported_blocks").forGetter(BlockModRift::resonanceTag), TagKey.codec(Registries.ITEM).fieldOf("replenishing_items").forGetter(BlockModRift::empowerTag), Codec.BYTE.fieldOf("variant").forGetter(BlockModRift::variant)).apply(instance, BlockModRift::new));
     @Override protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
-    public ResourceLocation rootDimension() {
-        return rootDimension.location();
-    }
-    public ResourceLocation chainDimension() {
-        return chainDimension.location();
-    }
-    public TagKey<Block> resonanceTag() {
-        return resonanceTag;
-    }
-    public TagKey<Item> empowerTag() {
-        return empowerTag;
-    }
-    public byte variant() {
-        return variant;
-    }
+    @Override public ResourceKey<Level> rootDimension() {return rootDimension;}
+    public ResourceLocation rootDimensionLocation() {return rootDimension.location();}
+    public ResourceLocation chainDimension() {return chainDimension.location();}
+    public TagKey<Block> resonanceTag() {return resonanceTag;}
+    public TagKey<Item> empowerTag() {return empowerTag;}
+    public byte variant() {return variant;}
 }

@@ -8,9 +8,7 @@ import divinerpg.util.UniversalPosition;
 import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.*;
 import net.minecraft.core.*;
-import net.minecraft.core.Direction.Axis;
 import net.minecraft.resources.*;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.StructureTags;
 import net.minecraft.world.entity.Entity;
@@ -38,24 +36,29 @@ public class BlockArcanaPortal extends PortalBlock {
     	return supportedBy(level.getBlockState(pos.north())) && supportedBy(level.getBlockState(pos.east())) && supportedBy(level.getBlockState(pos.south())) && supportedBy(level.getBlockState(pos.west()));
     }
     @Override
-    public BlockPos applyPlacementLocationPreference(ServerLevel level, Entity entity, BlockPos pos) {
-    	if(level.dimension() == rootDimension) {
-			BlockPos ruinedPortal = repairRuinedPortal(level, level.findNearestMapStructure(StructureTags.RUINED_PORTAL, pos, 128, false));
+    public BlockPos findSuitableLocation(ServerLevel level, Entity entity, BlockPos center, int attempt) {
+    	if(level.dimension() == rootDimension && attempt == 0) {
+			BlockPos ruinedPortal = repairRuinedPortal(level, level.findNearestMapStructure(StructureTags.RUINED_PORTAL, center, 128, false));
 			if(ruinedPortal != null) return ruinedPortal;
-		} return super.applyPlacementLocationPreference(level, entity, pos);
+		} return super.findSuitableLocation(level, entity, center, attempt);
     }
     @Override
-    public BlockPos placePortal(ServerLevel level, BlockPos pos, Axis axis) {
-    	if(level.dimension() == rootDimension && level.getBlockState(pos.offset(2, 0, 2)).is(this)) return pos;
-        Block frame = BlockRegistry.arcanaPortalFrame.get();
+    public BlockPos placeAndLink(ServerLevel originLevel, BlockPos originPos, ServerLevel level, BlockPos pos, Entity entity) {
+    	UniversalPosition link = new UniversalPosition(originLevel, originPos);
+		Block frame = BlockRegistry.arcanaPortalFrame.get();
 		for(int x = -2; x < 3; x++) for(int z = -2; z < 3; z++) {
-			if(Math.abs(x) < 2 && Math.abs(z) < 2) level.setBlock(pos.offset(x, 0, z), this.defaultBlockState(), 3);
-			else if(Math.abs(z) < 2) {
-				if(x == -2) level.setBlock(pos.offset(x, 0, z), frame.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.EAST), 3);
-				else if(x == 2) level.setBlock(pos.offset(x, 0, z), frame.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.WEST), 3);
+			if(Math.abs(x) < 2 && Math.abs(z) < 2) {
+				BlockPos p = pos.offset(x, 0, z);
+				level.setBlock(p, defaultBlockState(), UPDATE_KNOWN_SHAPE);
+				PortalBlockEntity portal = BlockEntityRegistry.PORTAL.get().create(p, defaultBlockState());
+				portal.targetPosition = link;
+				level.setBlockEntity(portal);
+			} else if(Math.abs(z) < 2) {
+				if(x == -2) level.setBlock(pos.offset(x, 0, z), frame.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.EAST), UPDATE_KNOWN_SHAPE);
+				else if(x == 2) level.setBlock(pos.offset(x, 0, z), frame.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.WEST), UPDATE_KNOWN_SHAPE);
 			} else if(Math.abs(x) < 2) {
-				if(z == -2) level.setBlock(pos.offset(x, 0, z), frame.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.SOUTH), 3);
-				else level.setBlock(pos.offset(x, 0, z), frame.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH), 3);
+				if(z == -2) level.setBlock(pos.offset(x, 0, z), frame.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.SOUTH), UPDATE_KNOWN_SHAPE);
+				else level.setBlock(pos.offset(x, 0, z), frame.defaultBlockState().setValue(HorizontalDirectionalBlock.FACING, Direction.NORTH), UPDATE_KNOWN_SHAPE);
 			}
 		} return pos;
     }
@@ -76,24 +79,6 @@ public class BlockArcanaPortal extends PortalBlock {
 		} if(pos == null) return null;
 		level.getStructureManager().getOrCreate(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "arcana/portal")).placeInWorld(level, pos, pos, new StructurePlaceSettings(), level.random, 2);
 		return new BlockPos(pos.getX() + 4, pos.getY() + 1, pos.getZ() + 4);
-	}
-	@Override
-	public void linkPortals(MinecraftServer server, UniversalPosition origin, UniversalPosition target) {
-		if(!hasPortal(server, origin) || !hasPortal(server, target)) {
-//			DivineRPG.LOGGER.error("portal linking failed");
-			return;
-		} connectTo(origin.level(server), origin.blockPos(), target, null);
-		connectTo(target.level(server), target.blockPos(), origin, null);
-	}
-	@Override
-	public void connectTo(ServerLevel level, BlockPos pos, @NotNull UniversalPosition connection, Axis axis) {
-		if(level.getBlockEntity(pos) instanceof PortalBlockEntity portal && !connection.equals(portal.targetPosition)) {
-			portal.targetPosition = connection;
-			connectTo(level, pos.north(), connection, axis);
-			connectTo(level, pos.east(), connection, axis);
-			connectTo(level, pos.south(), connection, axis);
-			connectTo(level, pos.west(), connection, axis);
-		}
 	}
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {}
 }
