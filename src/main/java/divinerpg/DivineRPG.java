@@ -78,6 +78,7 @@ public class DivineRPG {
             NeoForge.EVENT_BUS.register(new BossBarRenderer());
             NeoForge.EVENT_BUS.register(new EventClientLogin());
             NeoForge.EVENT_BUS.register(new ClientSidedExtraEvents.MusicEvent());
+            NeoForge.EVENT_BUS.register(new Tooltips());
             Utils.loadHatInformation();
             ItemPropertyRegistry.registerProperties();
         });
