@@ -274,7 +274,7 @@ public class EntityRegistry {
     //Nether
     public static final DeferredHolder<EntityType<?>, EntityType<EntityHellPig>>	        HELL_PIG 	         = registerEntityFireImmune(EntityHellPig::new, 	"hell_pig", 	        .9F, 1.15625F, .99375F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityHellSpider>>         HELL_SPIDER          = registerEntityFireImmune(EntityHellSpider::new,  "hell_spider",        1.4F, .9F, .65F, 0xb01916, 0x720b07);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityWildfire>>	        WILDFIRE 	         = registerEntityFireImmune(EntityWildfire::new, 	"wildfire", 	        .75F, 1.875F, 1.75F, .7F, 0xaa0b01, 0x9c6d11);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityWildfire>>	        WILDFIRE 	         = registerEntityFireImmune(EntityWildfire::new, 	"wildfire", 	        .75F, 1.875F, 1.75F, .7F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityScorcher>>	        SCORCHER 	         = registerEntityFireImmune(EntityScorcher::new, 	"scorcher", 	        1.2F, 1.875F, 1.625F, 0xffffff, 0xffffff);
 
     //Iceika
@@ -726,6 +726,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelGlacon.LAYER_LOCATION, ModelGlacon::createBodyLayer);
         event.registerLayerDefinition(ModelGrizzle.LAYER_LOCATION, ModelGrizzle::createBodyLayer);
         event.registerLayerDefinition(ModelHusk.LAYER_LOCATION, ModelHusk::createBodyLayer);
+        event.registerLayerDefinition(ModelJungleBat.LAYER_LOCATION, ModelJungleBat::createBodyLayer);
         event.registerLayerDefinition(ModelJungleDramcryx.LAYER_LOCATION, ModelJungleDramcryx::createBodyLayer);
         event.registerLayerDefinition(ModelJungleSpider.LAYER_LOCATION, ModelJungleSpider::createBodyLayer);
         event.registerLayerDefinition(ModelKingCrab.LAYER_LOCATION,	ModelKingCrab::createBodyLayer);
@@ -785,6 +786,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelDungeonConstructor.LAYER_LOCATION, ModelDungeonConstructor::createBodyLayer);
         event.registerLayerDefinition(ModelDungeonDemon.LAYER_LOCATION, ModelDungeonDemon::createBodyLayer);
         event.registerLayerDefinition(ModelDungeonPrisoner.LAYER_LOCATION, ModelDungeonPrisoner::createBodyLayer);
+        event.registerLayerDefinition(ModelFyracryx.LAYER_LOCATION, ModelFyracryx::createBodyLayer);
         event.registerLayerDefinition(ModelRejuvGolem.LAYER_LOCATION, ModelRejuvGolem::createBodyLayer);
         event.registerLayerDefinition(ModelLeorna.LAYER_LOCATION, ModelLeorna::createBodyLayer);
         event.registerLayerDefinition(ModelParatiku.LAYER_LOCATION, ModelParatiku::createBodyLayer);
@@ -1113,7 +1115,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(DUNGEON_CONSTRUCTOR.get(),(Context context) -> new RenderDivineMob<>(context, "dungeon_constructor", new ModelDungeonConstructor<>(context), .4F, .4F));
         event.registerEntityRenderer(DUNGEON_DEMON.get(),	  (Context context) -> new RenderDivineMob<>(context, "dungeon_demon", new ModelDungeonDemon<>(context), .6F));
         event.registerEntityRenderer(DUNGEON_PRISONER.get(),  (Context context) -> new RenderDivineMob<>(context, "dungeon_prisoner", new ModelDungeonPrisoner(context), .6F));
-        event.registerEntityRenderer(FYRACRYX.get(),		  (Context context) -> new RenderDivineMob<>(context, "fyracryx", new ModelDeathcryx<>(context)));
+        event.registerEntityRenderer(FYRACRYX.get(),		  (Context context) -> new RenderDivineMob<>(context, "fyracryx", new ModelFyracryx(context)));
         event.registerEntityRenderer(GOLEM_OF_REJUVENATION.get(),(Context context) -> new RenderDivineMob<>(context, "golem_of_rejuvenation", new ModelRejuvGolem<>(context)));
         event.registerEntityRenderer(KAZARI.get(),			  (Context context) -> new RenderDivineMob<>(context, "kazari", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
         event.registerEntityRenderer(LEORNA.get(),			  (Context context) -> new RenderDivineMob<>(context, "leorna", new ModelLeorna<>(context), .5F));

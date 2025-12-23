@@ -2,19 +2,18 @@ package divinerpg.client.renders.base;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import divinerpg.DivineRPG;
+import divinerpg.client.models.vanilla.ModelJungleBat;
 import net.minecraft.client.model.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Mob;
-
-import static divinerpg.util.ClientUtils.layerBat;
 
 public class RenderDivineBat<Type extends Mob> extends MobRenderer<Type, HierarchicalModel<Type>>{
 	protected final ResourceLocation TEXTURE;
     protected float scale;
 	@SuppressWarnings("unchecked")
 	public RenderDivineBat(EntityRendererProvider.Context context, String name, float shadowSize, float scale) {
-        super(context, (HierarchicalModel<Type>) new BatModel(context.bakeLayer(layerBat)), shadowSize);
+        super(context, (HierarchicalModel<Type>) new ModelJungleBat(context), shadowSize);
         this.scale = scale;
         TEXTURE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "textures/entity/" + name + ".png");
     }
