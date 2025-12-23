@@ -775,6 +775,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelRobbin.LAYER_LOCATION, ModelRobbin::createBodyLayer);
 
         //End
+        event.registerLayerDefinition(ModelEnderSpider.LAYER_LOCATION, ModelEnderSpider::createBodyLayer);
         event.registerLayerDefinition(ModelEnderTriplets.LAYER_LOCATION, ModelEnderTriplets::createBodyLayer);
         event.registerLayerDefinition(ModelEnderScrounge.LAYER_LOCATION, ModelEnderScrounge::createBodyLayer);
 
@@ -1099,7 +1100,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(GRUZZORLUG_SWORDSMAN.get(),RenderGruzzorlug::new);
 
         //End
-        event.registerEntityRenderer(ENDER_SPIDER.get(),  (Context context) -> new RenderDivineMob<>(context, "ender_spider", new SpiderModel<>(context.bakeLayer(layerSpider)), .5F, .6F));
+        event.registerEntityRenderer(ENDER_SPIDER.get(),  (Context context) -> new RenderDivineMob<>(context, "ender_spider", new ModelEnderSpider(context), .5F, .6F));
         event.registerEntityRenderer(ENDER_SCROUNGE.get(),     (Context context) -> new RenderDivineMob<>(context, "ender_scrounge", new ModelEnderScrounge(context), .1F, .5F));
         event.registerEntityRenderer(ENDER_TRIPLETS.get(),(Context context) -> new RenderDivineMob<>(context, "ender_triplets", new ModelEnderTriplets(context), .4F));
         event.registerEntityRenderer(ENDER_WATCHER.get(), (Context context) -> new RenderDivineMob<>(context, "ender_watcher", new ModelWatcher(context), .4F));
