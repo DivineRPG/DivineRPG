@@ -201,14 +201,14 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityKingOfScorchers>>     KING_OF_SCORCHERS 	 = registerEntityFireImmune(EntityKingOfScorchers::new, "king_of_scorchers", 2, 2.5F, 1, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityKitra>>               KITRA               = registerEntity(EntityKitra::new,             "kitra",                  3, 2, 1.5F, 0x7a8383, 0xb6f0f0, MobCategory.WATER_CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityAyeraco>>		     AYERACO			 = registerEntity(EntityAyeraco::new,		    "ayeraco",			    2, 1.2F, .65625F, 0x10100e, 0x5b036e);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityDramix>>		         DRAMIX 			 = registerEntityFireImmune(EntityDramix::new, 	"dramix", 			    .85F,2.5625F, 2.25F, 0x07282c, 0x08b287);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityDramix>>		         DRAMIX 			 = registerEntityFireImmune(EntityDramix::new, 	"dramix", 			    .85F, 2.5625F, 2.25F, 0x07282c, 0x08b287);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityParasecta>>		     PARASECTA 			 = registerEntity(EntityParasecta::new, 		"parasecta", 	        	1.3F, 2, 1.8125F, 0x142634, 0x89b6da);
     public static final DeferredHolder<EntityType<?>, EntityType<EntitySunstorm>>		     SUNSTORM 			 = registerEntity(EntitySunstorm::new, 		    "sunstorm", 		        1.7F, 3.4375F, 2.875F, 0xa23c34, 0xfee16a);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityTermasect>>		     TERMASECT 			 = registerEntity(EntityTermasect::new, 		"termasect", 		        5.9F, 8, 7, 0x222f42, 0x6286bb);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityEternalArcher>>       ETERNAL_ARCHER 	 = registerEntity(EntityEternalArcher::new,  	"eternal_archer",       	3, 5, 4.5F, 0x016481, 0x43eef9);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityExperiencedCori>>     EXPERIENCED_CORI 	 = registerEntity(EntityExperiencedCori::new,   "experienced_cori",       4, 7.1875F, 4.0625F, 0x888888, 0x0e1991);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityVamacheron>>	         VAMACHERON 		 = registerEntity(EntityVamacheron::new, 	    "vamacheron", 		    1.45F,2.25F, 2.1875F, 0x1a0d1e, 0xff6b48);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityKarot>>			     KAROT 				 = registerEntity(EntityKarot::new, 			"karot", 			        3,4.1875F, 3.4375F, 0x121413, 0xa21717);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityVamacheron>>	         VAMACHERON 		 = registerEntity(EntityVamacheron::new, 	    "vamacheron", 		    1.45F, 2.25F, 2.1875F, 0x1a0d1e, 0xff6b48);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityKarot>>			     KAROT 				 = registerEntity(EntityKarot::new, 			"karot", 			        3, 4.1875F, 3.4375F, 0x121413, 0xa21717);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityTwilightDemon>>       TWILIGHT_DEMON 	 = registerEntity(EntityTwilightDemon::new,  	"twilight_demon", 	    2, 4, 3.5F, 0x160202, 0x672a24);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDensos>>		         DENSOS 			 = registerEntity(EntityDensos::new, 		    "densos", 			    1, 2.5F, 2, 0xf00000, 0x370809);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityReyvor>>		         REYVOR 			 = registerEntity(EntityReyvor::new, 		    "reyvor", 			    1, 2.5F, 2, 0xe07327, 0x301a04);
@@ -224,8 +224,8 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityLivestockMerchant>>   LIVESTOCK_MERCHANT  = registerEntity(EntityLivestockMerchant::new, "livestock_merchant", 	.8F, 2, 1.74F, 0x213c56, 0xa27d6a, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityJackOMan>>			 JACK_O_MAN 		 = registerEntity(EntityJackOMan::new, 			"jack_o_man", 			.8F, 2, 1.74F, .7F, 0x3d2322, 0xe3901d, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityCyclops>>			 CYCLOPS 			 = registerEntity(EntityCyclops::new, 			"cyclops", 				1.2F, 4, 3.5F, 1.3F, 0x352a1f, 0x877e47);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityKobblin>>			 KOBBLIN 			 = registerEntity(EntityKobblin::new, 			"kobblin", 				.75F,1, .719F, 0xffffff, 0xffffff);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityPumpkinSpider>>		 PUMPKIN_SPIDER 	 = registerEntity(EntityPumpkinSpider::new, 	"pumpkin_spider", 		1.4F,1, .65F, 0xffffff, 0xffffff);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityKobblin>>			 KOBBLIN 			 = registerEntity(EntityKobblin::new, 			"kobblin", 				.75F, 1, .719F, 0xffffff, 0xffffff);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityPumpkinSpider>>		 PUMPKIN_SPIDER 	 = registerEntity(EntityPumpkinSpider::new, 	"pumpkin_spider", 		1.4F, 1, .65F, 0xffffff, 0xffffff);
 
     //Jungle
     public static final DeferredHolder<EntityType<?>, EntityType<Bat>>      			     JUNGLE_BAT 		 = registerEntity(Bat::new, 		            "jungle_bat", 			.3F, .36F, .18F, 0xffffff, 0xffffff, MobCategory.AMBIENT);
@@ -255,11 +255,11 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDiamondDave>>         DIAMOND_DAVE        = registerEntity(EntityDiamondDave::new, 	    "diamond_dave", 		    .8F, 2, 1.74F, .7F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityRainbour>>			 RAINBOUR 			 = registerEntity(EntityRainbour::new, 			"rainbour", 			    1, 1, .72F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityMiner>>				 MINER 				 = registerEntity(EntityMiner::new, 			"miner", 				    .6F, 2, 1.74F, .7F, 0x7f5200, 0xe2e048);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityRotatick>>			 ROTATICK 			 = registerEntity(EntityRotatick::new, 			"rotatick", 			    .85F, .8F, .5F,0xffffff, 0xffffff);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityRotatick>>			 ROTATICK 			 = registerEntity(EntityRotatick::new, 			"rotatick", 			    .85F, .8F, .5F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityCrawler>>			 CAVE_CRAWLER 		 = registerEntity(EntityCrawler::new, 			"cave_crawler", 		    .75F, 1, .84375F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityCaveclops>>			 CAVECLOPS 			 = registerEntity(EntityCaveclops::new, 		"caveclops", 			    1.2F, 4, 3.5F, 1.3F, 0x3a3030, 0x77352b);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityTheEye>>			     THE_EYE 			 = registerEntity(EntityTheEye::new, 			"the_eye", 				.8F, 2.625F, 2.25F, 0xffffff, 0xffffff);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnthralledDramcryx>>  ENTHRALLED_DRAMCRYX = registerEntity(EntityEnthralledDramcryx::new,"enthralled_dramcryx",    1.35F,1.75F, 1.3125F, 0xffffff, 0xffffff);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnthralledDramcryx>>  ENTHRALLED_DRAMCRYX = registerEntity(EntityEnthralledDramcryx::new,"enthralled_dramcryx",    1.35F, 1.75F, 1.3125F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityTheGrue>>			 THE_GRUE 			 = registerEntity(EntityTheGrue::new, 			"the_grue", 			    1, 1.75F, 1.625F, 0xffffff, 0xffffff);
 
     //Livestock
@@ -316,7 +316,7 @@ public class EntityRegistry {
 
     //End
     public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderScrounge>>      ENDER_SCROUNGE      = registerEntity(EntityEnderScrounge::new,     "ender_scrounge",         .2F, .15F, .1F, 0x162916, 0xfc1b11, MobCategory.CREATURE);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderSpider>>        ENDER_SPIDER        = registerEntity(EntityEnderSpider::new,       "ender_spider",           .5F, .55F, .36875F,0x0a0a0a, 0x260125);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderSpider>>        ENDER_SPIDER        = registerEntity(EntityEnderSpider::new,       "ender_spider",           .65F, .55F, .36875F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderWatcher>>       ENDER_WATCHER       = registerEntity(EntityEnderWatcher::new,      "ender_watcher",          .7F, .8125F, .5F, 0x161616, 0xca1ae1);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityEnderTriplets>>      ENDER_TRIPLETS      = registerEntity(EntityEnderTriplets::new,     "ender_triplets",         2, 2, 1, 0x161616, 0xfc1b28);
 
@@ -328,11 +328,11 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityLordVatticus>>		LORD_VATTICUS 		  = registerEntity(EntityLordVatticus::new, 	  "lord_vatticus", 		  .6F, 2, 1.67F, .7F, 0x2d0701, 0xb91c20, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWarGeneral>>		    WAR_GENERAL 		  = registerEntity(EntityWarGeneral::new, 		  "war_general", 		      .6F, 2, 1.74F, 0x272928, 0x1d326a, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityZelus>>				ZELUS 				  = registerEntity(EntityZelus::new, 			  "zelus", 				  .6F, 2, 1.74F, .7F, 0x141414, 0x800706, MobCategory.CREATURE);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntitySkyre>>			    SKYRE 			      = registerEntityFireImmune(EntitySkyre::new,    "skyre", 			      .4F, .5625F, .4375F,0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntitySkyre>>			    SKYRE 			      = registerEntityFireImmune(EntitySkyre::new,    "skyre", 			      .4F, .5625F, .4375F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityRazorback>>			RAZORBACK 			  = registerEntityFireImmune(EntityRazorback::new, "razorback", 			  .6F, .5F, .4F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDeathHound>>		    DEATH_HOUND 		  = registerEntityFireImmune(EntityDeathHound::new, "death_hound", 		  .8F, .85F, .75F, 0x011821, 0x03345a);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDungeonConstructor>> DUNGEON_CONSTRUCTOR   = registerEntityFireImmune(EntityDungeonConstructor::new, "dungeon_constructor", .5F, 1.0625F, .9F, 0x203e0a, 0xd0ff00);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityDungeonPrisoner>>	DUNGEON_PRISONER 	  = registerEntityFireImmune(EntityDungeonPrisoner::new, "dungeon_prisoner", .6F,2.4375F, 1.8125F, 0x8d8c76, 0xe5e5d3);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityDungeonPrisoner>>	DUNGEON_PRISONER 	  = registerEntityFireImmune(EntityDungeonPrisoner::new, "dungeon_prisoner", .6F, 2.4375F, 1.8125F, 0x8d8c76, 0xe5e5d3);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDungeonDemon>>		DUNGEON_DEMON 		  = registerEntityFireImmune(EntityDungeonDemon::new, "dungeon_demon", 	  .6F, 2.4375F, 1.8125F, 0x3f2923, 0xff584c);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityRoamer>>			    ROAMER 			      = registerEntityFireImmune(EntityRoamer::new, "roamer", 			      .6F, 1.75F, 1.5625F, 0x21425f, 0x1162ff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDeathcryx>>			DEATHCRYX 			  = registerEntityFireImmune(EntityDeathcryx::new, "deathcryx", 			  1, 1.0625F, .9375F, 0x071b35, 0x0d2ebe);
@@ -341,7 +341,7 @@ public class EntityRegistry {
     //Arcana Pets
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWraith>>			     WRAITH 			  = registerEntity(EntityWraith::new, 			  "wraith", 			      .9F, 1.4F, 1.15625F, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityFyracryx>>			 FYRACRYX 			  = registerEntity(EntityFyracryx::new, 		  "fyracryx", 			  1, .9375F, .85F, MobCategory.CREATURE);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityGolemOfRejuvenation>> GOLEM_OF_REJUVENATION= registerEntity(EntityGolemOfRejuvenation::new,"golem_of_rejuvenation",  1,1.5625F, 1.375F, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityGolemOfRejuvenation>> GOLEM_OF_REJUVENATION= registerEntity(EntityGolemOfRejuvenation::new,"golem_of_rejuvenation",  1, 1.5625F, 1.375F, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityParatiku>>			 PARATIKU 			  = registerEntity(EntityParatiku::new, 		  "paratiku", 			  .7F, 1.4375F, 1.1875F, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntitySeimer>>			     SEIMER 			  = registerEntity(EntitySeimer::new, 			  "seimer", 			      1, 1, .6F, MobCategory.CREATURE);
 
@@ -356,7 +356,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWeakCori>> 		     WEAK_CORI 		     = registerEntity(EntityWeakCori::new, 		    "weak_cori", 	            .7F, 1.125F, .97F, 0xffffff, 0xffffff);
 
     //Wildwood
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityMoonWolf>> 			 MOON_WOLF 			 = registerEntity(EntityMoonWolf::new, 			"moon_wolf", 		        .6F,.98F, .96875F, 0xffffff, 0xffffff, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityMoonWolf>> 			 MOON_WOLF 			 = registerEntity(EntityMoonWolf::new, 			"moon_wolf", 		        .6F, .98F, .96875F, 0xffffff, 0xffffff, MobCategory.CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWildwoodTomo>> 		 WILDWOOD_TOMO 		 = registerEntity(EntityWildwoodTomo::new, 		"wildwood_tomo", 	        .99F, .83F, .518F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityWildwoodCadillion>>   WILDWOOD_CADILLION  = registerEntity(EntityWildwoodCadillion::new, "wildwood_cadillion",     .875F, 1.4F, 1.3625F, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityEpiphite>> 			 EPIPHITE 			 = registerEntityFireImmune(EntityEpiphite::new, "epiphite", 		        .8F, 1.0625F, .875F, 0x2f74d9, 0x87ecfa);
@@ -1100,9 +1100,9 @@ public class EntityRegistry {
         event.registerEntityRenderer(GRUZZORLUG_SWORDSMAN.get(),RenderGruzzorlug::new);
 
         //End
-        event.registerEntityRenderer(ENDER_SPIDER.get(),  (Context context) -> new RenderDivineMob<>(context, "ender_spider", new ModelEnderSpider(context), .5F, .6F));
-        event.registerEntityRenderer(ENDER_SCROUNGE.get(),     (Context context) -> new RenderDivineMob<>(context, "ender_scrounge", new ModelEnderScrounge(context), .1F, .5F));
-        event.registerEntityRenderer(ENDER_TRIPLETS.get(),(Context context) -> new RenderDivineMob<>(context, "ender_triplets", new ModelEnderTriplets(context), .4F));
+        event.registerEntityRenderer(ENDER_SPIDER.get(), (Context context) -> new RenderDivineMob<>(context, "ender_spider", new ModelEnderSpider(context), .5F, .6F));
+        event.registerEntityRenderer(ENDER_SCROUNGE.get(), (Context context) -> new RenderDivineMob<>(context, "ender_scrounge", new ModelEnderScrounge(context), .1F, .5F));
+        event.registerEntityRenderer(ENDER_TRIPLETS.get(), (Context context) -> new RenderDivineMob<>(context, "ender_triplets", new ModelEnderTriplets(context), .4F));
         event.registerEntityRenderer(ENDER_WATCHER.get(), (Context context) -> new RenderDivineMob<>(context, "ender_watcher", new ModelWatcher(context), .4F));
 
         //Arcana

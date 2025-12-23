@@ -45,11 +45,11 @@ public class ModelJungleSpider extends HierarchicalModel<EntityJungleSpider> {
 		PartDefinition rightFrontLeg = body.addOrReplaceChild("right_front_leg", CubeListBuilder.create(), PartPose.offset(-4, 0, -2));
 		PartDefinition rightFrontLegRot = rightFrontLeg.addOrReplaceChild("right_front_leg_rot", CubeListBuilder.create().texOffs(0, 35).addBox(-11, -1, -1, 12, 2, 2, cubeDef)
 		.texOffs(0, 39).addBox(-13, -3, -1, 2, 8, 2, cubeDef), PartPose.rotation(0, -Mth.PI / 4, -Mth.PI / 8));
-		rightFrontLegRot.addOrReplaceChild("right_front_leg_down_rot", CubeListBuilder.create().texOffs(8, 39).addBox(-2, -.05F, -1, 2, 8, 2, new CubeDeformation(.01F)), PartPose.offsetAndRotation(-13, .25F, 0, 0, 0, -Mth.PI / 8));
+		rightFrontLegRot.addOrReplaceChild("right_front_lower_leg", CubeListBuilder.create().texOffs(8, 39).addBox(-2, -.05F, -1, 2, 8, 2, new CubeDeformation(.01F)), PartPose.offsetAndRotation(-13, .25F, 0, 0, 0, -Mth.PI / 8));
 		PartDefinition leftFrontLeg = body.addOrReplaceChild("left_front_leg", CubeListBuilder.create(), PartPose.offset(4, 0, -2));
 		PartDefinition leftFrontLegRot = leftFrontLeg.addOrReplaceChild("left_front_leg_rot", CubeListBuilder.create().texOffs(0, 35).mirror().addBox(-1, -1, -1, 12, 2, 2, cubeDef)
 		.texOffs(0, 39).mirror().addBox(11, -3, -1, 2, 8, 2, cubeDef), PartPose.rotation(0, Mth.PI / 4, Mth.PI / 8));
-		leftFrontLegRot.addOrReplaceChild("left_front_leg_down_rot", CubeListBuilder.create().texOffs(8, 39).mirror().addBox(0, -.05F, -1, 2, 8, 2, new CubeDeformation(.01F)), PartPose.offsetAndRotation(13, .25F, 0, 0, 0, Mth.PI / 8));
+		leftFrontLegRot.addOrReplaceChild("left_front_lower_leg", CubeListBuilder.create().texOffs(8, 39).mirror().addBox(0, -.05F, -1, 2, 8, 2, new CubeDeformation(.01F)), PartPose.offsetAndRotation(13, .25F, 0, 0, 0, Mth.PI / 8));
 		PartDefinition rightMiddleFrontLeg = body.addOrReplaceChild("right_middle_front_leg", CubeListBuilder.create(), PartPose.offset(-4, 0, -1));
 		rightMiddleFrontLeg.addOrReplaceChild("right_middle_front_leg_rot", CubeListBuilder.create().texOffs(0, 35).addBox(-11, -1, -1, 12, 2, 2, cubeDef)
 		.texOffs(38, 7).addBox(-13, -3, -1, 2, 10, 2, cubeDef), PartPose.rotation(0, -Mth.PI / 12, -.3054F));
@@ -83,20 +83,29 @@ public class ModelJungleSpider extends HierarchicalModel<EntityJungleSpider> {
 		if(entity.isAggressive() || (!entity.onGround() && !entity.isClimbing() && !entity.isInWaterOrBubble())) {
 			rightMandible.yRot = rightFrontLeg.zRot = Mth.PI / 8;
 			leftMandible.yRot = -rightMandible.yRot;
-			leftFrontLeg.zRot = -rightFrontLeg.zRot;
 			rightFrontLeg.xRot = leftFrontLeg.xRot = -Mth.PI / 3;
 		} else {
 			rightMandible.yRot = leftMandible.yRot = rightFrontLeg.xRot = leftFrontLeg.xRot = 0;
 			rightFrontLeg.zRot = f4;
-			leftFrontLeg.zRot = -f4;
 		} thorax.xRot = Mth.cos(limbSwing * .6662F) * .25F * limbSwingAmount;
-		rightHindLeg.yRot = leftMiddleHindLeg.yRot = f1;
-		leftHindLeg.yRot = rightMiddleHindLeg.yRot = -f1;
-		rightMiddleFrontLeg.yRot = leftFrontLeg.yRot = f2;
-		leftMiddleFrontLeg.yRot = rightFrontLeg.yRot = -f2;
-		rightHindLeg.zRot = rightMiddleHindLeg.zRot = f3;
-		leftHindLeg.zRot = leftMiddleHindLeg.zRot = -f3;
+		//Front legs
+		leftFrontLeg.yRot = f2;
+		rightFrontLeg.yRot = -leftFrontLeg.yRot;
+		leftFrontLeg.zRot = -rightFrontLeg.zRot;
+		//Middle front legs
+		rightMiddleFrontLeg.yRot = f2;
+		leftMiddleFrontLeg.yRot = -rightMiddleFrontLeg.yRot;
 		rightMiddleFrontLeg.zRot = f4;
-		leftMiddleFrontLeg.zRot = -f4;
+		leftMiddleFrontLeg.zRot = -rightMiddleFrontLeg.zRot;
+		//Middle hind legs
+		leftMiddleHindLeg.yRot = f1;
+		rightMiddleHindLeg.yRot = -leftMiddleHindLeg.yRot;
+		rightMiddleHindLeg.zRot = f3;
+		leftMiddleHindLeg.zRot = -rightMiddleHindLeg.zRot;
+		//Hind legs
+		rightHindLeg.yRot = f1;
+		leftHindLeg.yRot = -rightHindLeg.yRot;
+		rightHindLeg.zRot = f3;
+		leftHindLeg.zRot = -rightHindLeg.zRot;
 	}
 }
