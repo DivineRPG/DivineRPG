@@ -1,6 +1,11 @@
 {
   "values": [
-    "#divinerpg:ingots/oxdrite",
-    "#divinerpg:dusts/oxdrite"
+    "#divinerpg:raw_materials/oxdrite",
+    {
+      "id": "divinerpg:crushed_raw_oxdrite",
+      "required": false
+    },
+    "#divinerpg:dusts/oxdrite",
+    "#divinerpg:ingots/oxdrite"
   ]
 }

@@ -14,6 +14,8 @@ import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
+import static divinerpg.registries.ItemRegistry.liopleurodon_teeth;
+
 public class EntityLiopleurodon extends EntityDivineWaterMob {
     private int attackTick;
     public EntityLiopleurodon(EntityType<? extends EntityLiopleurodon> type, Level worldIn) {
@@ -52,6 +54,7 @@ public class EntityLiopleurodon extends EntityDivineWaterMob {
     @Override public boolean doHurtTarget(Entity target) {
         attackTick = 10;
         level().broadcastEntityEvent(this, (byte)4);
+        if(!level().isClientSide && level().getRandom().nextInt(100) == 0) spawnAtLocation(liopleurodon_teeth);
         return super.doHurtTarget(target);
     }
     //TODO: is this gonna be used anymore?

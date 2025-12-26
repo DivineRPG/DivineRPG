@@ -1,6 +1,11 @@
 {
   "values": [
-    "#divinerpg:ingots/rupee",
-    "#divinerpg:dusts/rupee"
+    "#divinerpg:raw_materials/rupee",
+    {
+      "id": "divinerpg:crushed_raw_rupee",
+      "required": false
+    },
+    "#divinerpg:dusts/rupee",
+    "#divinerpg:ingots/rupee"
   ]
 }

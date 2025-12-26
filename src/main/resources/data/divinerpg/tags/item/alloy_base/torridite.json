@@ -1,6 +1,11 @@
 {
   "values": [
-    "#divinerpg:ingots/torridite",
-    "#divinerpg:dusts/torridite"
+    "#divinerpg:raw_materials/torridite",
+    {
+      "id": "divinerpg:crushed_raw_torridite",
+      "required": false
+    },
+    "#divinerpg:dusts/torridite",
+    "#divinerpg:ingots/torridite"
   ]
 }

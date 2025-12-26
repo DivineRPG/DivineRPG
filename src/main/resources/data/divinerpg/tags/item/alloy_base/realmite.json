@@ -1,6 +1,11 @@
 {
   "values": [
-    "#divinerpg:ingots/realmite",
-    "#divinerpg:dusts/realmite"
+    "#divinerpg:raw_materials/realmite",
+    {
+      "id": "divinerpg:crushed_raw_realmite",
+      "required": false
+    },
+    "#divinerpg:dusts/realmite",
+    "#divinerpg:ingots/realmite"
   ]
 }

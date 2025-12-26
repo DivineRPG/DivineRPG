@@ -143,7 +143,7 @@ public class EntityRegistry {
     //Arrows
     public static final DeferredHolder<EntityType<?>, EntityType<HunterArrow>> HUNTER_ARROW = registerArrowProjectile(HunterArrow::new, "hunter_arrow");
     public static final DeferredHolder<EntityType<?>, EntityType<ShadowArrow>> SHADOW_ARROW = registerArrowProjectile(ShadowArrow::new, "shadow_arrow");
-    public static final DeferredHolder<EntityType<?>, EntityType<IcicleArrow>> ICICLE_ARROW = registerArrowProjectile(IcicleArrow::new, "icicle_arrow");
+    public static final DeferredHolder<EntityType<?>, EntityType<IcicleArrow>> ICICLE_ARROW = registerFireImmuneArrowProjectile(IcicleArrow::new, "icicle_arrow");
     public static final DeferredHolder<EntityType<?>, EntityType<InfernoArrow>> INFERNO_ARROW = registerArrowProjectile(InfernoArrow::new, "inferno_arrow");
     public static final DeferredHolder<EntityType<?>, EntityType<SoulfireArrow>> SOULFIRE_ARROW = registerArrowProjectile(SoulfireArrow::new, "soulfire_arrow");
     public static final DeferredHolder<EntityType<?>, EntityType<SnowstormArrow>> SNOWSTORM_ARROW = registerArrowProjectile(SnowstormArrow::new, "snowstorm_arrow");
@@ -199,7 +199,7 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityAncientEntity>>       ANCIENT_ENTITY 	 = registerEntity(EntityAncientEntity::new, 	"ancient_entity", 	    4, 6.5F, 6, 0xffffff, 0xffffff);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityTheWatcher>>	         THE_WATCHER 		 = registerEntityFireImmune(EntityTheWatcher::new, "the_watcher", 		3.875F, 4.875F, 3, 0x2e0f0a, 0x79574d);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityKingOfScorchers>>     KING_OF_SCORCHERS 	 = registerEntityFireImmune(EntityKingOfScorchers::new, "king_of_scorchers", 2, 2.5F, 1, 0xffffff, 0xffffff);
-    public static final DeferredHolder<EntityType<?>, EntityType<EntityKitra>>               KITRA               = registerEntity(EntityKitra::new,             "kitra",                  3, 2, 1.5F, 0x7a8383, 0xb6f0f0, MobCategory.WATER_CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityKitra>>               KITRA               = registerEntityFireImmune(EntityKitra::new,   "kitra",                  3, 2, 1.5F, 0x7a8383, 0xb6f0f0, MobCategory.WATER_CREATURE);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityAyeraco>>		     AYERACO			 = registerEntity(EntityAyeraco::new,		    "ayeraco",			    2, 1.2F, .65625F, 0x10100e, 0x5b036e);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityDramix>>		         DRAMIX 			 = registerEntityFireImmune(EntityDramix::new, 	"dramix", 			    .85F, 2.5625F, 2.25F, 0x07282c, 0x08b287);
     public static final DeferredHolder<EntityType<?>, EntityType<EntityParasecta>>		     PARASECTA 			 = registerEntity(EntityParasecta::new, 		"parasecta", 	        	1.3F, 2, 1.8125F, 0x142634, 0x89b6da);
@@ -1294,6 +1294,9 @@ public class EntityRegistry {
     }
     private static <T extends AbstractArrow> DeferredHolder<EntityType<?>, EntityType<T>> registerArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerProjectile(factory, entityName, .5F, .5F);
+    }
+    private static <T extends Projectile> DeferredHolder<EntityType<?>, EntityType<T>> registerFireImmuneArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
+        return registerFireImmuneProjectile(factory, entityName, .5F, .5F);
     }
     private static <T extends DivineFireball> DeferredHolder<EntityType<?>, EntityType<T>> registerFireballProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerFireImmuneProjectile(factory, entityName, .25F, .25F);
