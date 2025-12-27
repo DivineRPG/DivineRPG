@@ -1,0 +1,36 @@
+{
+  "type": "enderio:sag_milling",
+  "input": {
+    "item": "divinerpg:crushed_raw_torridite"
+  },
+  "energy": 2400,
+  "outputs": [
+    {
+      "item": {
+        "id": "divinerpg:torridite_dust"
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:torridite_dust"
+      },
+      "chance": 0.8
+    },
+    {
+      "item": {
+        "id": "divinerpg:bloodgem_dust"
+      },
+      "chance": 0.05
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enderio"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

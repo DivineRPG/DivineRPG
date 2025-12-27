@@ -11,6 +11,7 @@
       }
     }
   ],
+  "bonus": "none",
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",
