@@ -96,11 +96,12 @@ dependencies {
     runtimeOnly "curse.maven:titanium-287342:${titanium_id}" //Titanium
     //JEI, JER and addons
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}" //Just Enough Items
-    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}" //Just Enough Items
-    runtimeOnly "mezz.jei:jei-${minecraft_version}-common:${jei_version}" //Just Enough Items
-    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}" //Just Enough Items
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    runtimeOnly "mezz.jei:jei-${minecraft_version}-common:${jei_version}"
+    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
     implementation "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
     runtimeOnly "curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}" //Just Enough Effect Descriptions
+//    runtimeOnly "curse.maven:ae2-jei-integration-1074338:${jei_ae2_id}" //AE2 JEI Integration
     //Guide books and info
     runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
 //    runtimeOnly "curse.maven:guideme-1173950:${guidme_id}" //GuidME (required for AE2)

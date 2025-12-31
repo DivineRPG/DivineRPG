@@ -1102,7 +1102,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(GRUZZORLUG_SWORDSMAN.get(),RenderGruzzorlug::new);
 
         //End
-        event.registerEntityRenderer(ENDER_SPIDER.get(), (Context context) -> new RenderDivineMob<>(context, "ender_spider", new ModelEnderSpider(context), .5F, .6F));
+        event.registerEntityRenderer(ENDER_SPIDER.get(), RenderEnderSpider::new);
         event.registerEntityRenderer(ENDER_SCROUNGE.get(), (Context context) -> new RenderDivineMob<>(context, "ender_scrounge", new ModelEnderScrounge(context), .1F, .5F));
         event.registerEntityRenderer(ENDER_TRIPLETS.get(), (Context context) -> new RenderDivineMob<>(context, "ender_triplets", new ModelEnderTriplets(context), .4F));
         event.registerEntityRenderer(ENDER_WATCHER.get(), (Context context) -> new RenderDivineMob<>(context, "ender_watcher", new ModelWatcher(context), .4F));
@@ -1295,7 +1295,7 @@ public class EntityRegistry {
     private static <T extends AbstractArrow> DeferredHolder<EntityType<?>, EntityType<T>> registerArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerProjectile(factory, entityName, .5F, .5F);
     }
-    private static <T extends Projectile> DeferredHolder<EntityType<?>, EntityType<T>> registerFireImmuneArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
+    private static <T extends AbstractArrow> DeferredHolder<EntityType<?>, EntityType<T>> registerFireImmuneArrowProjectile(EntityType.EntityFactory<T> factory, String entityName) {
         return registerFireImmuneProjectile(factory, entityName, .5F, .5F);
     }
     private static <T extends DivineFireball> DeferredHolder<EntityType<?>, EntityType<T>> registerFireballProjectile(EntityType.EntityFactory<T> factory, String entityName) {
