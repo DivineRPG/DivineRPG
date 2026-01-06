@@ -1,6 +1,5 @@
 package divinerpg.registries;
 
-import divinerpg.DivineRPG;
 import divinerpg.blocks.arcana.*;
 import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
@@ -249,7 +248,7 @@ public class BlockRegistry {
     divineWoodcutter = registerBlockCorailWoodcutter("divine_woodcutter", ModList.get().isLoaded("corail_woodcutter") ? WoodcutterLoader.create(divinePlanks, DIVINE) : null),
 
     //Shiverspine
-    shiverspineSapling = registerBlock("shiverspine_sapling", () -> new BlockModSapling(GLOW_LICHEN, new TreeGrower("shiverspine", Optional.of(ConfiguredFeatureKeys.SHIVERSPINE_TREE), Optional.empty(), Optional.empty()))),
+    shiverspineSapling = registerBlock("shiverspine_sapling", () -> new BlockModSapling(GLOW_LICHEN, new TreeGrower("shiverspine", Optional.empty(), Optional.of(ConfiguredFeatureKeys.SHIVERSPINE_TREE), Optional.empty()))),
     brittleLeaves = registerBlock("brittle_leaves", () -> new BlockModLeaves(WOOL, SoundType.GRASS)),
     shiverspineLog = registerBlock("shiverspine_log", () -> new BlockModLog(GLOW_LICHEN, COLOR_LIGHT_GRAY)),
     shiverspineWood = registerBlock("shiverspine_wood", () -> new BlockModLog(COLOR_LIGHT_GRAY)),
@@ -294,7 +293,7 @@ public class BlockRegistry {
     auroraoakWoodcutter = registerBlockCorailWoodcutter("auroraoak_woodcutter", ModList.get().isLoaded("corail_woodcutter") ? WoodcutterLoader.create(auroraoakPlanks, AURORAOAK) : null),
 
     //Cozybark
-    cozybarkSapling = registerBlock("cozybark_sapling", () -> new BlockModSapling(CRIMSON_STEM, new TreeGrower("cozybark", Optional.of(ConfiguredFeatureKeys.COZYBARK_TREE), Optional.empty(), Optional.empty()))),
+    cozybarkSapling = registerBlock("cozybark_sapling", () -> new BlockModSapling(CRIMSON_STEM, new TreeGrower("cozybark", Optional.empty(), Optional.of(ConfiguredFeatureKeys.COZYBARK_TREE), Optional.empty()))),
     cozybarkLeaves = registerBlock("cozybark_leaves", BlockCozybarkLeaves::new),
     cozybarkLog = registerBlock("cozybark_log", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.CHERRY_WOOD)),
     cozybarkWood = registerBlock("cozybark_wood", () -> new BlockModLog(TERRACOTTA_PURPLE, SoundType.CHERRY_WOOD)),
@@ -396,8 +395,12 @@ public class BlockRegistry {
     edenTorch = registerBlockWithSpecialItem("eden_torch", BlockModTorch::new),
     edenWallTorch = BLOCKS.register("eden_wall_torch", BlockModWallTorch::new),
 
+    //Crimseeker
+    crimseekerSapling = registerBlock("crimseeker_sapling", () -> new BlockModSapling(CRIMSON_STEM, new TreeGrower("crimseeker", Optional.empty(), Optional.of(ConfiguredFeatureKeys.WILDWOOD_TREE), Optional.empty()))),
+    crimmseekerLog = registerBlock("crimseeker_log", () -> new BlockModLog(CRIMSON_STEM, COLOR_RED)),
+
     //Wildwood Tree
-    wildwoodSapling = registerBlock("wildwood_sapling", () -> new BlockModSapling(COLOR_LIGHT_BLUE, new TreeGrower("wildwood", Optional.of(ConfiguredFeatureKeys.WILDWOOD_TREE), Optional.empty(), Optional.empty()))),
+    wildwoodSapling = registerBlock("wildwood_sapling", () -> new BlockModSapling(COLOR_LIGHT_BLUE, new TreeGrower("wildwood", Optional.empty(), Optional.of(ConfiguredFeatureKeys.WILDWOOD_TREE), Optional.empty()))),
     wildwoodLeaves = registerBlock("wildwood_leaves", () -> new BlockModLeaves(COLOR_LIGHT_BLUE)),
     wildwoodLog = registerBlock("wildwood_log", () -> new BlockModLog(COLOR_LIGHT_BLUE, COLOR_BLUE)),
     wildwoodWood = registerBlock("wildwood_wood", () -> new BlockModLog(COLOR_BLUE)),
@@ -441,7 +444,7 @@ public class BlockRegistry {
     apalachiaWoodcutter = registerBlockCorailWoodcutter("apalachia_woodcutter", ModList.get().isLoaded("corail_woodcutter") ? WoodcutterLoader.create(apalachiaPlanks, APALACHIA) : null),
 
     //Skythern Tree
-    skythernSapling = registerBlock("skythern_sapling", () -> new BlockModSapling(WOOL, new TreeGrower("skythern", Optional.of(ConfiguredFeatureKeys.SKYTHERN_TREE), Optional.empty(), Optional.empty()))),
+    skythernSapling = registerBlock("skythern_sapling", () -> new BlockModSapling(WOOL, new TreeGrower("skythern", Optional.empty(), Optional.of(ConfiguredFeatureKeys.SKYTHERN_TREE), Optional.empty()))),
     skythernLeaves = registerBlock("skythern_leaves", () -> new BlockModLeaves(COLOR_LIGHT_GRAY)),
     skythernLog = registerBlock("skythern_log", () -> new BlockModLog(WOOL, COLOR_LIGHT_GRAY, SoundType.NETHER_WOOD)),
     skythernWood = registerBlock("skythern_wood", () -> new BlockModLog(COLOR_LIGHT_GRAY, SoundType.NETHER_WOOD)),
@@ -1010,6 +1013,7 @@ public class BlockRegistry {
     cozybarkSaplingPot = registerFlowerPot("cozybark_sapling_pot", cozybarkSapling),
     streamleafSaplingPot = registerFlowerPot("streamleaf_sapling_pot", streamleafSapling),
     edenSaplingPot = registerFlowerPot("eden_sapling_pot", edenSapling),
+    crimseekerSaplingPot = registerFlowerPot("crimseeker_sapling_pot", crimseekerSapling),
     wildwoodSaplingPot = registerFlowerPot("wildwood_sapling_pot", wildwoodSapling),
     apalachiaSaplingPot = registerFlowerPot("apalachia_sapling_pot", apalachiaSapling),
     skythernSaplingPot = registerFlowerPot("skythern_sapling_pot", skythernSapling),

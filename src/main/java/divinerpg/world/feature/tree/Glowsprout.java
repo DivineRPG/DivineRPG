@@ -3,6 +3,7 @@ package divinerpg.world.feature.tree;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
@@ -12,7 +13,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 public class Glowsprout extends AuroraoakTree {
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(Blocks.MUD) || state.is(BlockRegistry.gelidite.get()) || state.is(BlockRegistry.frozenDirt.get()) || state.is(Blocks.MYCELIUM);
+		return state.is(Blocks.MUD) || state.is(BlockRegistry.gelidite.get()) || state.is(BlockTags.DIRT) || state.is(Blocks.MYCELIUM);
 	}
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {

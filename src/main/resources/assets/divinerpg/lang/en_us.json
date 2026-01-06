@@ -644,6 +644,8 @@
   "block.divinerpg.duncap": "Duncap",
   "block.divinerpg.eden_sapling": "Eden Sapling",
   "block.divinerpg.eden_sapling_pot": "Potted Eden Sapling",
+  "block.divinerpg.crimseeker_sapling": "Crimseeker Sapling",
+  "block.divinerpg.crimseeker_sapling_pot": "Potted Crimseeker Sapling",
   "block.divinerpg.eden_leaves": "Eden Leaves",
   "block.divinerpg.eden_log": "Eden Log",
   "block.divinerpg.eden_wood": "Eden Wood",
@@ -666,6 +668,7 @@
   "block.everycomp.fd.divinerpg.eden_cabinet": "Eden Cabinet",
   "block.everycomp.c.divinerpg.eden_window": "Eden Window",
   "block.everycomp.c.divinerpg.eden_window_pane": "Eden Window Pane",
+  "block.divinerpg.crimseeker_log": "Crimseeker Log",
 
   "block.divinerpg.sunstorm_spawner": "Sunstorm Spawner",
   "block.divinerpg.sunstorm_statue": "Sunstorm Statue",

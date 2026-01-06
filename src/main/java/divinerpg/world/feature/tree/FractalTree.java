@@ -1,7 +1,6 @@
 package divinerpg.world.feature.tree;
 
 import java.util.ArrayList;
-import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -15,13 +14,13 @@ import net.minecraft.world.phys.Vec3;
 public class FractalTree extends DivineTree {
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockTags.SNOW) || state.is(BlockTags.ICE) || state.is(BlockRegistry.frozenGrass.get()) || state.is(BlockRegistry.frozenDirt.get());
+		return state.is(BlockTags.SNOW) || state.is(BlockTags.ICE) || state.is(BlockTags.DIRT);
 	}
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
 			if(level.getBlockState(pos.below()).is(BlockTags.SNOW)) pos = pos.below();
-			boolean treeType = random.nextBoolean() ? true : random.nextBoolean();
+			boolean treeType = random.nextBoolean() || random.nextBoolean();
 			int treeHeight = (treeType ? 4 : 6) + random.nextInt(5);
 			if(heightCheck(level, pos, treeHeight, 1)) {
 				BlockState packed_ice = config.log;

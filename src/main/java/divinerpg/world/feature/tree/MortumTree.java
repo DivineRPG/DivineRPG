@@ -10,10 +10,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 
 public class MortumTree extends DivineTree {
 	@Override
-	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockRegistry.mortumDirt.get()) || state.is(BlockRegistry.mortumGrass.get());
-	}
-	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
 			int treeHeight, extraHeight, treeType = random.nextInt(4);

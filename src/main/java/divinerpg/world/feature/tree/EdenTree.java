@@ -1,6 +1,5 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -9,10 +8,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 
 public class EdenTree extends DivineTree {
-	@Override
-	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockRegistry.scorchdirt.get()) || state.is(BlockRegistry.scorchgrass.get());
-	}
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {
@@ -27,7 +22,7 @@ public class EdenTree extends DivineTree {
         		extraHeight = treeHeight + 2;
         		break;
         	case 2:
-        		treeHeight = 0 + random.nextInt(3);
+        		treeHeight = random.nextInt(3);
         		extraHeight = treeHeight + 1;
         		break;
 			default: return super.place(config, level, chunkGen, random, pos);

@@ -11,10 +11,6 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 
 public class WildwoodTree extends DivineTree {
 	public static BlockState westVines, eastVines, southVines, northVines;
-	@Override
-	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockRegistry.wildwoodDirt.get()) || state.is(BlockRegistry.wildwoodGrass.get());
-	}
 	private void growLeavesWithVines(WorldGenLevel world, RandomSource random, BlockPos pos, BlockState leaves, int maxY, int width, int offset, float leavesChance, float vineChance) {
 		for(int minY = 0; minY <= maxY; minY++) {
 			chanceSetBlock(world, random, pos.offset(width, minY, offset), leaves, leavesChance);
@@ -213,7 +209,7 @@ public class WildwoodTree extends DivineTree {
     	        		int length = treeHeight - trunkY;
 	    	        	for(int i = random.nextInt(4) == 0 ? 0 : 1; i < 3; i++) {
 	    	        		if(i == 2) treeHeight -= random.nextInt(3);
-	    	        		double stepX = (double) ((-3D + random.nextDouble() * 7D)/length), stepZ = (double) ((-3D + random.nextDouble() * 7D)/length);
+	    	        		double stepX = (-3D + random.nextDouble() * 7D)/length, stepZ = (-3D + random.nextDouble() * 7D)/length;
 	        	        	double x = 0D, z = 0D;
 	        	        	for(int y = 1; y < length + 1; y++) {
 	        	        		x += stepX;

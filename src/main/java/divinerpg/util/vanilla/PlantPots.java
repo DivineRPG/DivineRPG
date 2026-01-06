@@ -18,6 +18,7 @@ public class PlantPots {
             addPlant(cozybarkSapling, cozybarkSaplingPot);
             addPlant(streamleafSapling, streamleafSaplingPot);
             addPlant(edenSapling, edenSaplingPot);
+            addPlant(crimseekerSapling, crimseekerSaplingPot);
             addPlant(wildwoodSapling, wildwoodSaplingPot);
             addPlant(apalachiaSapling, apalachiaSaplingPot);
             addPlant(skythernSapling, skythernSaplingPot);

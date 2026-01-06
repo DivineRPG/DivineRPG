@@ -6,7 +6,7 @@
   "overrides": [
     {
       "predicate": {
-        "divinerpg:blocking": 1
+        "blocking": 1
       },
       "model": "divinerpg:item/apalachia_shield_blocking"
     }

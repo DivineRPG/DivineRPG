@@ -73,7 +73,6 @@ public class DivineRPG {
     }
     private void client(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            ModelPropRegistry.init();
             BlockEntityRegistry.renderTiles();
             NeoForge.EVENT_BUS.register(new BossBarRenderer());
             NeoForge.EVENT_BUS.register(new EventClientLogin());

@@ -22,7 +22,7 @@ public class AuroraoakTree extends DivineTree {
 	}
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockTags.SNOW) || state.is(BlockRegistry.frozenGrass.get()) || state.is(BlockRegistry.frozenDirt.get()) || state.is(BlockRegistry.frozenStone.get()) || state.is(Blocks.PACKED_ICE) || state.is(BlockRegistry.cobbledFrozenStone.get());
+		return state.is(BlockTags.SNOW) || state.is(BlockTags.DIRT) || state.is(BlockRegistry.frozenStone.get()) || state.is(Blocks.PACKED_ICE) || state.is(BlockRegistry.cobbledFrozenStone.get());
 	}
 	@Override
 	public boolean hasSpace(BlockState state) {

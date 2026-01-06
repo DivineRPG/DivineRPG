@@ -1,6 +1,5 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -10,10 +9,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 
 public class SkythernTree extends DivineTree {
-	@Override
-	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockRegistry.skythernDirt.get()) || state.is(BlockRegistry.skythernGrass.get());
-	}
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int width, int offset) {
 		wideGrow(world, pos, state, width, offset, false);
 	}

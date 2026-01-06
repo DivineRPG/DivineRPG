@@ -1,6 +1,5 @@
 package divinerpg.world.feature.tree;
 
-import divinerpg.registries.BlockRegistry;
 import divinerpg.world.feature.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -13,7 +12,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 public class ShiverspineTree extends SkythernTree {
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
-		return state.is(BlockTags.SNOW) || state.is(BlockRegistry.frozenGrass.get()) || state.is(BlockRegistry.frozenDirt.get());
+		return state.is(BlockTags.SNOW) || state.is(BlockTags.DIRT);
 	}
 	@Override
 	public boolean hasSpace(BlockState state) {
