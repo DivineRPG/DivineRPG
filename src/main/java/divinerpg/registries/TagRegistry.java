@@ -212,6 +212,7 @@ public class TagRegistry {
         TOOLS_MAUL = item("tools/maul"),
 
     //Misc
+        ARMOR_POUCHES = item("armor_pouches"),
         FROSTED_ALLURE_CYCLE_ITEMS = item("frosted_allure_cycle_items"),
         FURNACES = item("furnaces");
 
@@ -273,7 +274,8 @@ public class TagRegistry {
         SMOLDERING_TAR = fluid("smoldering_tar");
 
     public static final TagKey<DamageType>
-        AVOIDS_SAGUARO_THORNS = damageType("avoids_saguaro_thorns");
+        AVOIDS_SAGUARO_THORNS = damageType("avoids_saguaro_thorns"),
+        MAGE_RESISTANT_TO = damageType("mage_resistant_to");
     public static final TagKey<Structure>
     //Iceika Structures
         ICEIKA_DUNGEON = structure("iceika_dungeon"),
