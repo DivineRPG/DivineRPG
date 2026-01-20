@@ -106,7 +106,7 @@ public class Ticker {
             List<FireConversionRecipe> recipes = level.getRecipeManager().getAllRecipesFor(FireConversionRecipe.TYPE).stream().filter(r -> r.value().inputItem().test(stack)).map(RecipeHolder::value).toList();
             if(recipes.isEmpty()) return;
             BlockPos pos = i.blockPosition();
-            if(!level.isAreaLoaded(pos, 1)) return;
+            if(!level.hasChunk(pos.getX() >> 4, pos.getZ() >> 4)) return;
             BlockState state, prevState;
             BlockPos[] positions = new BlockPos[]{pos, pos.below(), pos.north(), pos.east(), pos.south(), pos.west(), pos.offset(1, 0, 1), pos.offset(1, 0, -1), pos.offset(-1, 0, 1), pos.offset(-1, 0, -1)};
             for(BlockPos position : positions) {
