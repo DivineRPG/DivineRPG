@@ -14,6 +14,8 @@ import net.minecraft.world.level.*;
 import java.util.function.Supplier;
 
 import static divinerpg.registries.EntityRegistry.SPELLBINDER_SHOT;
+import static divinerpg.registries.TagRegistry.MAGE_RESISTANT_TO;
+import static net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.INNATE_RESISTANCE;
 
 public class EntityBaseMage extends EntityDivineMonster {
     private final Supplier<EntityType<? extends DivineThrowableProjectile>> projectileType;
@@ -21,8 +23,7 @@ public class EntityBaseMage extends EntityDivineMonster {
         super(type, worldIn);
         this.projectileType = projectileType;
     }
-    @Override
-    protected void registerGoals() {
+    @Override protected void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, 0, true, false, null));
     }
@@ -37,6 +38,16 @@ public class EntityBaseMage extends EntityDivineMonster {
             level().addFreshEntity(e);
             playSound(SoundRegistry.MAGE_FIRE.get());
         }
+    }
+    @Override protected float getDamageAfterMagicAbsorb(DamageSource source, float damage) {
+        damage = super.getDamageAfterMagicAbsorb(source, damage);
+        if(source.getEntity() == this) {
+            damageContainers.peek().setReduction(INNATE_RESISTANCE, damage);
+            damage = 0;
+        } else if(source.is(MAGE_RESISTANT_TO)) {
+            damageContainers.peek().setReduction(INNATE_RESISTANCE, damage * .85F);
+            damage *= .15F;
+        } return damage;
     }
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader world) {return 0;}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.INSECT.get();}
