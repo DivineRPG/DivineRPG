@@ -27,8 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.event.entity.*;
-import net.neoforged.neoforge.event.entity.player.CanContinueSleepingEvent;
-import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
+import net.neoforged.neoforge.event.entity.player.*;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.*;
 
@@ -108,7 +107,7 @@ public class Ticker {
             BlockPos pos = i.blockPosition();
             if(!level.isAreaLoaded(pos, 1)) return;
             BlockState state, prevState;
-            BlockPos[] positions = new BlockPos[]{pos, pos.below(), pos.north(), pos.east(), pos.south(), pos.west(), pos.offset(1, 0, 1), pos.offset(1, 0, -1), pos.offset(-1, 0, 1), pos.offset(-1, 0, -1)};
+            Iterable<BlockPos> positions = BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 0, 1));
             for(BlockPos position : positions) {
                 prevState = state = level.getBlockState(position);
                 if(!state.isAir()) for(FireConversionRecipe recipe : recipes) if(recipe.inputState().test(state, level.random)) {
