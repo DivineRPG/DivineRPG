@@ -123,7 +123,7 @@ dependencies {
 //    runtimeOnly "curse.maven:irons-jewelry-1101111:${irons_jewelry_id}" //Iron's Jewelry //TODO: compat
 //    runtimeOnly "curse.maven:irons-spells-n-spellbooks-855414:${irons_spells_id}" //Iron's Spells 'n Spellbooks //TODO: compat
     //Farmer's Delight collection
-    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: crop blocks
+    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: crop blocks, update tags etc.
     implementation "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
     //MehVahdJukaar's collection
 //    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments //TODO: 3d fireballs

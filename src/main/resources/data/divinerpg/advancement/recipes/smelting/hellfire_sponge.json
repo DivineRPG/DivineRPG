@@ -1,0 +1,25 @@
+{
+  "parent": "recipes/root",
+  "criteria": {
+    "has_sponge": {
+      "trigger": "inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:cold_hellfire_sponge"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_sponge"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/hellfire_sponge"
+    ]
+  }
+}

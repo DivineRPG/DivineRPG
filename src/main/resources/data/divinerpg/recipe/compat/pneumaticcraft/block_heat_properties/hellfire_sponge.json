@@ -1,11 +1,11 @@
 {
   "type": "pneumaticcraft:heat_properties",
-  "block": "divinerpg:smoldering_tar",
+  "block": "divinerpg:hellfire_sponge",
   "heatCapacity": 10000,
-  "temperature": 723,
-  "thermalResistance": 125,
+  "temperature": 673,
+  "thermalResistance": 280,
   "transforms": {
-    "cold": "divinerpg:asphalt"
+    "cold": "divinerpg:cold_hellfire_sponge"
   },
   "neoforge:conditions": [
     {
