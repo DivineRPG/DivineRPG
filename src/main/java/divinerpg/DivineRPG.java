@@ -47,6 +47,8 @@ public class DivineRPG {
         AttachmentRegistry.ATTACHMENT_TYPES.register(bus);
         PlacementModifierRegistry.PLACEMENT_MODIFIER.register(bus);
         PlacementModifierRegistry.DENSITY_FUNCTION.register(bus);
+        TrunkPlacerRegistry.TRUNK_PLACERS.register(bus);
+        FoliagePlacerRegistry.FOLIAGE_PLACERS.register(bus);
         EventRegistry.init();
         NeoForge.EVENT_BUS.addListener(SpawnEvents::spawnPlacementCheck);
         bus.addListener(this::setup);

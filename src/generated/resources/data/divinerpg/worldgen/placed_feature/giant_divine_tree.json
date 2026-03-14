@@ -1,0 +1,19 @@
+{
+  "feature": "divinerpg:giant_divine_tree",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 4000
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

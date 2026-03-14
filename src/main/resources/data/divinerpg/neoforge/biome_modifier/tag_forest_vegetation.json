@@ -3,7 +3,8 @@
   "biomes": "#is_forest",
   "features": [
     "divinerpg:divine_tree",
-    "divinerpg:kobblin_hill"
+    "divinerpg:kobblin_hill",
+    "divinerpg:giant_divine_tree"
   ],
   "step": "top_layer_modification"
 }
