@@ -4,12 +4,15 @@ import divinerpg.attachments.Arcana;
 import divinerpg.entities.projectile.DivineThrownItem;
 import divinerpg.network.payload.AccurateSetMotionPacket;
 import divinerpg.util.LocalizeUtils;
+import divinerpg.util.Utils;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
@@ -17,7 +20,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Unbreakable;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.neoforged.api.distmarker.*;
 import net.neoforged.neoforge.common.CommonHooks;
@@ -26,6 +31,8 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import javax.annotation.Nullable;
 import java.util.*;
 import java.util.function.*;
+
+import static net.minecraft.world.item.enchantment.Enchantments.FLAME;
 
 
 public class ItemRangedWeapon extends ProjectileWeaponItem {
@@ -111,7 +118,7 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
             if(!level.isClientSide) {
                 shoot((ServerLevel)level, player, player.getUsedItemHand(), stack, List.of(ammo), power, 1, false, null);
                 if(arcanaConsumedUse > 0) Arcana.modifyAmount(player, -arcanaConsumedUse);
-            } ammo.consume(1, player);
+            } if(!player.isCreative() && stack.getEnchantmentLevel(level.holderOrThrow(Enchantments.INFINITY)) < 1) ammo.consume(1, player);
             if(cooldown > 0) player.getCooldowns().addCooldown(this, cooldown);
             player.awardStat(Stats.ITEM_USED.get(this));
             if(this instanceof ItemThrowable) {
@@ -130,7 +137,7 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
             for(int i = 0; i < player.getInventory().getContainerSize(); ++i) {
                 ItemStack itemstack1 = player.getInventory().getItem(i);
                 if(itemstack1.is(ammoType)) return CommonHooks.getProjectile(player, shootable, itemstack1);
-            } return CommonHooks.getProjectile(player, shootable, player.getAbilities().instabuild ? getDefaultCreativeAmmo(player, shootable) : ItemStack.EMPTY);
+            } return CommonHooks.getProjectile(player, shootable, player.isCreative() ? getDefaultCreativeAmmo(player, shootable) : ItemStack.EMPTY);
         }
     }
     @Override public Predicate<ItemStack> getAllSupportedProjectiles() {return this::isOfTag;}
@@ -169,5 +176,12 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
     }
     @Override public Component getName(ItemStack pStack) {
         return nameColor != null ? ((MutableComponent) super.getName(pStack)).withColor(nameColor) : super.getName(pStack);
+    }
+    @Override
+    public boolean supportsEnchantment(ItemStack stack, Holder<Enchantment> enchantment) {
+        return super.supportsEnchantment(stack, enchantment) || (ammoType != null && enchantment.is(Enchantments.INFINITY));
+    }
+    @Override public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return super.isBookEnchantable(stack, book) || (ammoType != null && Utils.hasStoredEnchantment(Enchantments.INFINITY, book));
     }
 }

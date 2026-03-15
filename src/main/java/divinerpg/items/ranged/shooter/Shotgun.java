@@ -14,6 +14,7 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,7 +42,7 @@ public class Shotgun extends ItemRangedWeapon {
             if(!level.isClientSide) {
                 for(int i = 0; i < count; i++) shoot((ServerLevel) level, player, player.getUsedItemHand(), stack, List.of(ammo), power, 10F, false, null);
                 if(arcanaConsumedUse > 0) Arcana.modifyAmount(player, -arcanaConsumedUse);
-            } ammo.consume(count, player);
+            } if(!player.isCreative() && stack.getEnchantmentLevel(level.holderOrThrow(Enchantments.INFINITY)) < 1) ammo.consume(count, player);
             if(cooldown > 0) player.getCooldowns().addCooldown(this, cooldown);
             player.awardStat(Stats.ITEM_USED.get(this));
             player.playSound(sound != null ? sound : SoundEvents.ARROW_SHOOT, 1, 1);

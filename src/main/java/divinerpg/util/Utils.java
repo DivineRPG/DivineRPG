@@ -17,6 +17,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.*;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.*;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.*;
@@ -199,6 +200,15 @@ public class Utils {
         for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return true;
         return false;
     }
+    /**
+     * Use this if you do not have level registry access
+     */
+    public static boolean hasStoredTag(TagKey<Enchantment> enchantment, ItemStack stack) {
+        ItemEnchantments itemEnchantmentsComponent = stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY);
+        for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return true;
+        return false;
+    }
+
     public static final Container EMPTY_CONTAINER = new Container() {
         @Override public void clearContent() {}
         @Override public int getContainerSize() {return 1;}

@@ -11,6 +11,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.*;
@@ -23,14 +24,9 @@ public class ItemThrowable extends ItemRangedWeapon implements ProjectileItem {
     public final float damage;
     public ItemThrowable(float damage) {
         this(EntityRegistry.THROWN_ITEM::value, damage);
-        power = 2;
-        infinite = false;
     }
     public ItemThrowable(Supplier<EntityType<? extends Projectile>> projectileType, float damage) {
-        super(new Properties().stacksTo(32), projectileType);
-        this.damage = damage;
-        power = 2;
-        infinite = false;
+        this(new Properties().stacksTo(32), projectileType, damage);
     }
     public ItemThrowable(Properties properties, Supplier<EntityType<? extends Projectile>> projectileType, float damage) {
         super(properties, projectileType);
@@ -45,7 +41,7 @@ public class ItemThrowable extends ItemRangedWeapon implements ProjectileItem {
         DivineThrownItem projectile = (DivineThrownItem) super.createProjectile(level, shooter, weapon, ammo, isCrit);
         projectile.setItem(weapon);
         projectile.setPos(shooter.getEyePosition());
-        if(shooter instanceof Player player && player.isCreative()) projectile.canPickup = false;
+        if((shooter instanceof Player player && player.isCreative()) || weapon.getEnchantmentLevel(level.holderOrThrow(Enchantments.INFINITY)) > 0) projectile.canPickup = false;
         return projectile;
     }
     @OnlyIn(Dist.CLIENT)

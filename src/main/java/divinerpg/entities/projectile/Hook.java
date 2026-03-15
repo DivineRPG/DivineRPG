@@ -24,6 +24,7 @@ public class Hook extends Projectile implements Leashable {
     BlockState lastState;
     boolean inGround;
     public float hookDistance = 0;
+    public boolean infinite;
     public Hook(EntityType<? extends Projectile> entityType, Level level) {super(entityType, level);}
     @Override public @Nullable LeashData getLeashData() {return leashData;}
     @Override public void setLeashData(LeashData leashData) {this.leashData = leashData;}
@@ -38,8 +39,8 @@ public class Hook extends Projectile implements Leashable {
         super.tick();
         Vec3 dv;
         Entity owner = getOwner();
-        if(owner == null || !owner.isAlive()) {
-            discard();
+        if(owner == null || !owner.isAlive() || !isAlive()) {
+            unhook();
             return;
         } dv = owner.position().subtract(position());
         if(dv.lengthSqr() > 4096) {
@@ -87,10 +88,10 @@ public class Hook extends Projectile implements Leashable {
         } if(owner instanceof Player p) {
             boolean shift = p.isShiftKeyDown();
             if(shift && hookDistance > 0 && !p.onGround()) {
-                hookDistance += .2;
+                hookDistance += .2F;
                 if(hookDistance > 64) hookDistance = 64;
             } if(p.isUsingItem() && p.getUseItem().is(jungle_hook)) {
-                if(shift) discard();
+                if(shift) unhook();
                 else if(hookDistance > 0) {
                     hookDistance -= 1;
                     if(hookDistance < .2) hookDistance = .2F;
@@ -102,7 +103,7 @@ public class Hook extends Projectile implements Leashable {
         if(inGround == this.inGround) return;
         if(inGround) {
             Entity owner = getOwner();
-            if(owner == null) discard();
+            if(owner == null) unhook();
             else {
                 this.inGround = true;
                 hookDistance = distanceTo(owner) + 1;
@@ -157,5 +158,13 @@ public class Hook extends Projectile implements Leashable {
     @Override public void onRemovedFromLevel() {
         super.onRemovedFromLevel();
         if(getOwner() instanceof ServerPlayer p) HOOKED.set(p, false);
+    }
+    @Override
+    public void dropLeash(boolean broadcastPacket, boolean dropItem) {
+        Leashable.super.dropLeash(broadcastPacket, dropItem && !infinite);
+    }
+    public void unhook() {
+        dropLeash(true, true);
+        discard();
     }
 }

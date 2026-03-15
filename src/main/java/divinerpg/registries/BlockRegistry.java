@@ -518,6 +518,7 @@ public class BlockRegistry {
     //Wool
     checker = registerBlock("checker", () -> new BlockModWool(WOOL)),
     rainbowWool = registerBlock("rainbow_wool", () -> new BlockModWool(COLOR_PURPLE)),
+    rainbowWoolCarpet = registerBlock("rainbow_carpet", () -> new WoolCarpetBlock(DyeColor.PURPLE, Properties.ofFullCopy(Blocks.RED_CARPET).mapColor(COLOR_PURPLE))),
     fancyWool = registerBlock("fancy_wool", () -> new BlockModWool(CRIMSON_HYPHAE)),
     workshopCarpet = registerBlock("workshop_carpet", () -> new BlockModWool(TERRACOTTA_RED)),
 
