@@ -63,7 +63,7 @@ All past, present, and future assets of the mod are property of the mod develope
 Modification of the mod may be done for private purposes, however the modified file may not be publicly distributed by any means. You may privately share the file with friends.
 
 ### Withheld Rights
-Tslat reserves the right to implement any concepts created by any add-on or extension into the core mod. All assets and code of the extension is strictly property of the add-on author however, and relative care will be taken to consider the author's thoughts and wishes when assuming the concept for use.
+Tslat, Nicusha and Velocityraptor reserve the right to implement any concepts created by any add-on or extension into the core mod. All assets and code of the extension is strictly property of the add-on author however, and relative care will be taken to consider the author's thoughts and wishes when assuming the concept for use.
 
 
 # Breaches
