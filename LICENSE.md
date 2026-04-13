@@ -11,7 +11,7 @@ For all other purposes, all activities must follow the clauses outlined on this 
 Clauses outlined in this section apply in all situations regarding DivineRPG.
 
 ### Waivers
-Any/all clauses on this page may be waived if, and only if you have explicit, written, documented permission from Tslat to do so. Failure to present this evidence at request is regarded as a violation of this license.
+Any/all clauses on this page may be waived if, and only if you have explicit, written, documented permission from Tslat, Nicusha and/or Velocityraptor to do so. Failure to present this evidence at request is regarded as a violation of this license.
 
 ### Applicability
 These licensing terms apply to all past, present, and future compiled binaries of DivineRPG, any of its assets, official wiki content and assets, and any/all source code related to the mod.
@@ -34,7 +34,7 @@ Under no circumstances may you re-host the mod or any of its assets on any platf
 As a singular exception to the above clause, you may re-host this mod, as a compiled binary (.jar file) within any modpack as required for usage within that modpack. Modpacks that require downloading the mod individually must link back to one of the official channels listed in the above clause.
 
 ### Alternate Hosting
-If, for some reason, none of the existing methods of downloading/distribution satisfy your requirements for using the mod, you may request that alternate arrangements be made with Tslat. No guarantee will be made that your request will be granted, but it will be given as much consideration as reasonably possible.
+If, for some reason, none of the existing methods of downloading/distribution satisfy your requirements for using the mod, you may request that alternate arrangements be made with Tslat, Nicusha or Velocityraptor. No guarantee will be made that your request will be granted, but it will be given as much consideration as reasonably possible.
 
 
 # Usage
@@ -50,7 +50,7 @@ Permission is granted to use DivineRPG within any modpack as wanted, provided th
 You may create, use, and distribute any extensions or addons to DivineRPG as wanted, provided that the extension or addon complies with the rest of the terms of this license.
 
 ### Attribution
-In all circumstances where the mod or its assets are featured, linked, reviewed, or otherwise showcased; the mod developer Tslat, Nicusha and Velocityraptor must be credited clearly and plainly. A linkback to the official wiki is greatly appreciated, but not strictly required.
+In all circumstances where the mod or its assets are featured, linked, reviewed, or otherwise showcased; the mod developers Tslat, Nicusha and Velocityraptor must be credited clearly and plainly. A linkback to the official wiki is greatly appreciated, but not strictly required.
 
 
 # Re-use
