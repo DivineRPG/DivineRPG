@@ -50,7 +50,7 @@ Permission is granted to use DivineRPG within any modpack as wanted, provided th
 You may create, use, and distribute any extensions or addons to DivineRPG as wanted, provided that the extension or addon complies with the rest of the terms of this license.
 
 ### Attribution
-In all circumstances where the mod or its assets are featured, linked, reviewed, or otherwise showcased; the mod developer Tslat must be credited clearly and plainly. A linkback to the official wiki is greatly appreciated, but not strictly required.
+In all circumstances where the mod or its assets are featured, linked, reviewed, or otherwise showcased; the mod developer Tslat, Nicusha and Velocityraptor must be credited clearly and plainly. A linkback to the official wiki is greatly appreciated, but not strictly required.
 
 
 # Re-use
