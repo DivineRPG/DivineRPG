@@ -1,0 +1,30 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "tag": "divinerpg:armor/sets/seng_fur"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "divinerpg:seng_fur"
+      }
+    }
+  ],
+  "tool": [
+    {
+      "type": "farmersdelight:item_ability",
+      "action": "shears_dig"
+    },
+    {
+      "tag": "c:tools/shear"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

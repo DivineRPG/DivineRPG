@@ -22,7 +22,7 @@ public class FoodList {
         WHITE_MUSHROOM = food(2, .1F),
         ADVANCED_MUSHROOM_STEW = foodBuilder(10, .6F).usingConvertsTo(Items.BOWL)
             .effect(() -> {
-                if(ModList.get().isLoaded("farmersdelight")) return DelightLoader.getComfortEffect(3 * 60);
+                if(ModList.get().isLoaded("farmersdelight")) return DelightLoader.getNourishmentEffect(3 * 60 + 30);
                 return new MobEffectInstance(MobEffects.REGENERATION, 5 * 20, 2);
             }, 1)
             .effect(() -> new MobEffectInstance(MobEffectRegistry.WARMTH, 20 * 20, 0), 1).build(),

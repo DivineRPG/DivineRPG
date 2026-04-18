@@ -4,7 +4,7 @@
     "item": "divinerpg:hellfire_sponge"
   },
   "fluid": {
-    "id": "water",
+    "fluid": "water",
     "amount": 1000
   },
   "mode": "fill",

@@ -18,10 +18,15 @@
       "chance": 0.1
     }
   ],
-  "tool": {
-    "type": "farmersdelight:item_ability",
-    "action": "shovel_dig"
-  },
+  "tool": [
+    {
+      "type": "farmersdelight:item_ability",
+      "action": "shovel_dig"
+    },
+    {
+      "tag": "shovels"
+    }
+  ],
   "neoforge:conditions": [
     {
       "type": "neoforge:mod_loaded",

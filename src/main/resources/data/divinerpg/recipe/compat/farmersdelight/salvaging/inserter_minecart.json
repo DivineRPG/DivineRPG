@@ -1,0 +1,38 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "divinerpg:inserter_minecart"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "minecart"
+      }
+    },
+    {
+      "item": {
+        "id": "divinerpg:inserter"
+      }
+    }
+  ],
+  "sound": {
+    "sound_id": "block.metal.break"
+  },
+  "tool": [
+    {
+      "type": "farmersdelight:item_ability",
+      "action": "hoe_dig"
+    },
+    {
+      "tag": "hoes"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ]
+}

@@ -13,13 +13,14 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
-    maven { url = "https://modmaven.dev"}
-    maven { url = "https://www.cursemaven.com"}
-    maven { url = "https://maven.octo-studios.com/releases"}
-    maven { url = "https://modmaven.dev"}
+    maven { url = "https://modmaven.dev" }
+    maven { url = "https://www.cursemaven.com" }
+    maven { url = "https://maven.octo-studios.com/releases" }
+    maven { url = "https://modmaven.dev" }
     maven { url = uri("https://maven.blakesmods.com") }
-    maven { url 'https://maven.blamejared.com'}
+    maven { url 'https://maven.blamejared.com' }
     maven { url 'https://maven.rover656.dev/releases' }
+    maven { url = "https://maven.greenhouse.lgbt/snapshots" }
 }
 
 base {
@@ -104,7 +105,7 @@ dependencies {
 //    runtimeOnly "curse.maven:ae2-jei-integration-1074338:${jei_ae2_id}" //AE2 JEI Integration
     //Guide books and info
     runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
-//    runtimeOnly "curse.maven:guideme-1173950:${guidme_id}" //GuidME (required for AE2)
+//    runtimeOnly "curse.maven:guideme-1173950:${guidme_id}" //GuidME (required for AE2 and MI)
     compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
     runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
     //Traveler's Titles don't have NeoForge version up until 1.21.4
@@ -115,7 +116,7 @@ dependencies {
     runtimeOnly "curse.maven:carry-on-274259:${carry_on_id}" //Carry On //TODO: opening sound plays when picking up the crate/ox-crate
 //    runtimeOnly "curse.maven:concoction-1039618:${concoction_id}" //Concoction! //TODO: compat
     compileOnly "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
-//    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fights_id}" //Epic Fights //TODO: mob animations, fix hat placement, capabilities
+//    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fight_id}" //Epic Fights //TODO: mob animations, fix hat placement, capabilities
     runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
     compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
 //    runtimeOnly "curse.maven:resource-pandas-410681:${resource_pandas_id}" //Resource Pandas
@@ -123,14 +124,15 @@ dependencies {
 //    runtimeOnly "curse.maven:irons-jewelry-1101111:${irons_jewelry_id}" //Iron's Jewelry //TODO: compat
 //    runtimeOnly "curse.maven:irons-spells-n-spellbooks-855414:${irons_spells_id}" //Iron's Spells 'n Spellbooks //TODO: compat
     //Farmer's Delight collection
-    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: crop blocks, update tags etc.
-    implementation "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
+    implementation "vectorwing.farmersdelight:FarmersDelight:1.21.1-1.3.0-rc1"
+//    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: figure out stackable soup, placeable pies + slices, crop blocks, update tags, etc.
+    compileOnly "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
     //MehVahdJukaar's collection
 //    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments //TODO: 3d fireballs
     runtimeOnly "curse.maven:every-compat-628539:${ec_wood_good_id}" //Every Compat: Wood Good //TODO: FD cabinet variant textures, Create window + pane variant textures
 //    runtimeOnly "curse.maven:stone-zone-1154622:${ec_stone_zone_id}" //Every Compat: Stone Zone //TODO: compat?
     runtimeOnly "curse.maven:sawmill-964817:${sawmill_id}" //Sawmill
-    implementation "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries //TODO: to add [boat variants], flower box models, way posts, map markers/trades, frozen clock time display, re-implement flags in recipes/advancements
+    compileOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries //TODO: to add [boat variants], flower box models, way posts, map markers/trades, frozen clock time display, re-implement flags in recipes/advancements
     //Tech mods
 //    runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
     runtimeOnly "curse.maven:create-328085:${create_id}" //Create //TODO: potion mixing, liquids, to remove weird twilight block cutting recipes
@@ -144,6 +146,7 @@ dependencies {
 //    runtimeOnly "mekanism:Mekanism:${mekanism_version}:additions" //Mekanism: Additions
 //    runtimeOnly "mekanism:Mekanism:${mekanism_version}:generators" //Mekanism: Generators
 //    runtimeOnly "mekanism:Mekanism:${mekanism_version}:tools" //Mekanism: Tools
+//    runtimeOnly "curse.maven:modern-industrialization-405388:${modern_industrialization_id}" //TODO: compat
 //    runtimeOnly "curse.maven:pneumaticcraft-repressurized-281849:${pneumaticcraft_id}" //Pneumaticcraft
     //Cucumber family
 //    runtimeOnly "curse.maven:mystical-agriculture-246640:${mystical_agriculture_id}" //Mystical Agriculture

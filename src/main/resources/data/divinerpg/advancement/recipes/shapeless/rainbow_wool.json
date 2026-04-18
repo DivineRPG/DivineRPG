@@ -27,8 +27,7 @@
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:shapeless/rainbow_wool",
-      "divinerpg:shaped/rainbow_carpet"
+      "divinerpg:shapeless/rainbow_wool"
     ]
   }
 }

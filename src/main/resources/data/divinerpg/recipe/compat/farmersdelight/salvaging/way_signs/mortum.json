@@ -1,0 +1,35 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "supplementaries:divinerpg/way_sign_mortum"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "divinerpg:mortum_slab"
+      },
+      "chance": 0.75
+    }
+  ],
+  "tool": [
+    {
+      "type": "farmersdelight:item_ability",
+      "action": "axe_dig"
+    },
+    {
+      "tag": "axes"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "supplementaries"
+    }
+  ]
+}
