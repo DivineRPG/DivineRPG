@@ -105,7 +105,7 @@ dependencies {
 //    runtimeOnly "curse.maven:ae2-jei-integration-1074338:${jei_ae2_id}" //AE2 JEI Integration
     //Guide books and info
     runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
-//    runtimeOnly "curse.maven:guideme-1173950:${guidme_id}" //GuidME (required for AE2 and MI)
+//    runtimeOnly "curse.maven:guideme-1173950:${guideme_id}" //GuideME (required for AE2 and MI)
     compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
     runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
     //Traveler's Titles don't have NeoForge version up until 1.21.4
@@ -124,8 +124,7 @@ dependencies {
 //    runtimeOnly "curse.maven:irons-jewelry-1101111:${irons_jewelry_id}" //Iron's Jewelry //TODO: compat
 //    runtimeOnly "curse.maven:irons-spells-n-spellbooks-855414:${irons_spells_id}" //Iron's Spells 'n Spellbooks //TODO: compat
     //Farmer's Delight collection
-    implementation "vectorwing.farmersdelight:FarmersDelight:1.21.1-1.3.0-rc1"
-//    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: figure out stackable soup, placeable pies + slices, crop blocks, update tags, etc.
+    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: figure out stackable soup, placeable pies + slices, crop blocks, update tags, etc.
     compileOnly "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
     //MehVahdJukaar's collection
 //    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments //TODO: 3d fireballs

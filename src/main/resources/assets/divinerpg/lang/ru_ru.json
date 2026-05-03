@@ -30,7 +30,7 @@
   "block.divinerpg.green_bricks": "Зелёные кирпичи",
   "block.divinerpg.darkstone": "Темнокамень",
   "block.divinerpg.darkstone_bricks": "Темнокаменные кирпичи",
-  "block.divinerpg.aquatonic_bricks": "Водяные кирпичи",
+  "block.divinerpg.aquatonic_bricks": "Акватонические кирпичи",
   "block.divinerpg.diamond_bricks": "Алмазные кирпичи",
   "block.divinerpg.lapis_lazuli_bricks": "Лазуритовые кирпичи",
   "block.divinerpg.purple_bricks": "Фиолетовые кирпичи",
@@ -145,7 +145,7 @@
 
   "block.divinerpg.kobblin_burrow": "Нора землешмыга",
   "block.divinerpg.proximity_spawner": "Рассадник приближения",
-  "block.divinerpg.random_item_dropper": "Выбрасыватель случайного предмета",
+  "block.divinerpg.random_item_dropper": "Выбрасыватель случайных предметов",
   "block.divinerpg.crate": "Ящик",
   "block.divinerpg.oxcrate": "Окс-ящик",
   "block.divinerpg.inserter": "Внедритель",
