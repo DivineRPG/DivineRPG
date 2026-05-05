@@ -131,7 +131,7 @@ dependencies {
     runtimeOnly "curse.maven:every-compat-628539:${ec_wood_good_id}" //Every Compat: Wood Good //TODO: FD cabinet variant textures, Create window + pane variant textures
 //    runtimeOnly "curse.maven:stone-zone-1154622:${ec_stone_zone_id}" //Every Compat: Stone Zone //TODO: compat?
     runtimeOnly "curse.maven:sawmill-964817:${sawmill_id}" //Sawmill
-    compileOnly "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries //TODO: to add [boat variants], flower box models, way posts, map markers/trades, frozen clock time display, re-implement flags in recipes/advancements
+    implementation "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries //TODO: to add [boat variants], flower box models, way posts, map markers/trades, frozen clock time display, re-implement flags in recipes/advancements
     //Tech mods
 //    runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
     runtimeOnly "curse.maven:create-328085:${create_id}" //Create //TODO: potion mixing, liquids, to remove weird twilight block cutting recipes
