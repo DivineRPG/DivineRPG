@@ -307,7 +307,7 @@
   "block.divinerpg.brittle_moss": "Brittle Moss Block",
   "block.divinerpg.brittle_grass": "Brittle Grass",
   "block.divinerpg.winterberry_bush": "Winterberry Bush",
-  "block.divinerpg.winterberry_vines_body": "Winterberry Vines",
+  "block.divinerpg.winterberry_vines_body": "Winterberry Vines Plant",
   "block.divinerpg.winterberry_vines_head": "Winterberry Vines",
   "block.divinerpg.crimpetal": "Crimpetal",
   "block.divinerpg.crimpetal_pot": "Potted Crimpetal",
@@ -435,7 +435,7 @@
   "block.divinerpg.arcanite_dirt": "Arcanite Dirt",
   "block.divinerpg.arcanite_grass": "Arcanite Grass Block",
   "block.divinerpg.arcanite_moss": "Arcanite Moss Block",
-  "block.divinerpg.arcanite_vines_body": "Arcanite Vines",
+  "block.divinerpg.arcanite_vines_body": "Arcanite Vines Plant",
   "block.divinerpg.arcanite_vines_head": "Arcanite Vines",
   "block.divinerpg.arcanite_stone": "Arcanite Stone",
   "block.divinerpg.arcanite_stairs": "Arcanite Stairs",
@@ -455,12 +455,9 @@
   "block.divinerpg.arcana_brush": "Arcana Brush",
   "block.divinerpg.arcana_bush": "Arcana Bush",
   "block.divinerpg.arcana_bush_pot": "Potted Arcana Bush",
+
   "block.divinerpg.gem_of_the_dunes": "Gem of the Dunes",
   "block.divinerpg.gem_of_the_dunes_pot": "Potted Gem of the Dunes",
-  "block.divinerpg.weedwood_vine": "Weedwood Vines",
-  "block.divinerpg.blossomed_weedwood_vine": "Blossomed Weedwood Vines",
-  "block.divinerpg.land_vine_stem": "Land Vine Stem",
-  "block.divinerpg.land_vine": "Land Vine",
 
   "block.divinerpg.aquamarine_plant": "Aquamarine Plant",
   "block.divinerpg.firestock_plant": "Firestock Plant",
@@ -672,6 +669,8 @@
   "block.divinerpg.lushroom": "Lushroom",
   "block.divinerpg.lushroom_pot": "Potted Lushroom",
   "block.divinerpg.duncap": "Duncap",
+  "block.divinerpg.land_vine_stem": "Land Vine Stem",
+  "block.divinerpg.land_vine": "Land Vine",
 
   "block.divinerpg.sunstorm_spawner": "Sunstorm Spawner",
   "block.divinerpg.sunstorm_statue": "Sunstorm Statue",
@@ -916,6 +915,9 @@
   "block.divinerpg.green_gemtop_pot": "Potted Green Gem Top",
   "block.divinerpg.purple_gemtop": "Purple Gem Top",
   "block.divinerpg.purple_gemtop_pot": "Potted Purple Gem Top",
+
+  "block.divinerpg.weedwood_vine": "Weedwood Vines",
+  "block.divinerpg.blossomed_weedwood_vine": "Blossomed Weedwood Vines",
 
   "block.divinerpg.firewood_leaves": "Firewood Leaves",
   "block.divinerpg.firewood_log": "Firewood Log",

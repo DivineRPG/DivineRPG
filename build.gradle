@@ -135,7 +135,7 @@ dependencies {
     //Tech mods
 //    runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
     runtimeOnly "curse.maven:create-328085:${create_id}" //Create //TODO: potion mixing, liquids, to remove weird twilight block cutting recipes
-    runtimeOnly "curse.maven:ender-io-64578:${ender_io_id}" //Ender IO //TODO: eio_soul/spawner/...
+    runtimeOnly "curse.maven:ender-io-64578:${ender_io_id}" //Ender IO //TODO: eio_soul/spawner/..., silent pressure plates
 //    runtimeOnly "curse.maven:ex-deorum-901420:${ex_deorum_id}" //Ex Deorum //TODO: compat
     runtimeOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersive_engineering_version}" //Immersive Engineering //TODO: arc furnace recycling, potion support
     runtimeOnly "curse.maven:industrial-foregoing-266515:${industrial_foregoing_id}" //Industrial Foregoing //TODO: finish compat

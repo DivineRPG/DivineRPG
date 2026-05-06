@@ -25,14 +25,14 @@ public class BlockElevantium extends BlockMod {
                                                              box(4.5, 1, 4.5, 11.5, 2, 11.5));
     public BlockElevantium() {
         super(Properties.ofFullCopy(DIAMOND_BLOCK).mapColor(COLOR_LIGHT_BLUE).pushReaction(DESTROY));
-        stateDefinition.any().setValue(POWERED, false);
+        registerDefaultState(stateDefinition.any().setValue(POWERED, false));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(POWERED);}
     @Override public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         int signal = level.getBestNeighborSignal(pos);
         boolean canJump = !level.getBlockCollisions(entity, entity.getBoundingBox().expandTowards(0, 2, 0)).iterator().hasNext();
         if(signal > 0 && !entity.isSuppressingBounce() && canJump) {
-            //TODO: holding the jump button as well as pressing the shift down at the right timing causes the sound to play, but ignore the launch (seems like the reason is that setDeltaMovement doesn't apply immediately)
+            //TODO: holding the jump button or pressing the shift down at the right timing causes the sound to play, but ignores the launch (seems like the reason is that setDeltaMovement doesn't apply immediately)
             entity.push(0, signal * .25, 0);
             level.playSound(null, pos, CONSTRUCTOR_PUNCH.get(), BLOCKS, .75F, .9F);
         }
