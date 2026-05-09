@@ -19,7 +19,7 @@ public class BlockStatueColored extends BlockStatue {
     public static final EnumProperty<BlockColor> COLOR = BlockColor.COLOR;
     public BlockStatueColored() {
         super(AYERACO);
-        registerDefaultState(stateDefinition.any().setValue(COLOR, BlockColor.WHITE));
+        registerDefaultState(stateDefinition.any().setValue(ROTATION, 0).setValue(POWERED, false).setValue(COLOR, BlockColor.WHITE));
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);

@@ -467,7 +467,7 @@
   "block.divinerpg.pinfly_plant": "Пинфлай",
   "block.divinerpg.veilo_plant": "Вейло",
 
-  "block.divinerpg.eucalyptus_plant": "Эвкалипт",
+  "block.divinerpg.eucalyptus_plant": "Ростки эвкалипта",
   "block.divinerpg.eucalyptus_log": "Эвкалиптовое бревно",
   "block.divinerpg.eucalyptus_wood": "Эвкалипт",
   "block.divinerpg.stripped_eucalyptus_log": "Обтёсанное эвкалиптовое бревно",
@@ -563,7 +563,7 @@
   "block.divinerpg.encaged_captain_merik": "Заточённый капитан Мерик",
   "block.divinerpg.encaged_datticon": "Заточённый Даттикон",
   "block.divinerpg.encaged_kazari": "Заточённый Казари",
-  "block.divinerpg.encaged_leorna": "Заточённый Леорна",
+  "block.divinerpg.encaged_leorna": "Заточённая Леорна",
   "block.divinerpg.encaged_lord_vatticus": "Заточённый лорд Ваттикус",
   "block.divinerpg.encaged_war_general": "Заточённый военный генерал",
   "block.divinerpg.encaged_zelus": "Заточённый Зелус",
@@ -707,8 +707,8 @@
   "block.everycomp.c.divinerpg.wildwood_window": "Окно из дерева Диколесья",
   "block.everycomp.c.divinerpg.wildwood_window_pane": "Оконная панель из дерева Диколесья",
 
-  "block.divinerpg.moonlight_fern": "Папоротник лунного света",
   "block.divinerpg.moonbulb_plant": "Лунная луковица",
+  "block.divinerpg.moonlight_fern": "Папоротник лунного света",
   "block.divinerpg.moonlight_fern_pot": "Папоротник лунного света в горшке",
   "block.divinerpg.moon_bud": "Лунный бутон",
   "block.divinerpg.moon_bud_pot": "Лунный бутон в горшке",
@@ -789,7 +789,7 @@
   "block.everycomp.c.divinerpg.skythern_window": "Окно из дерева Поднебесья",
   "block.everycomp.c.divinerpg.skythern_window_pane": "Оконная панель из дерева Поднебесья",
 
-  "block.divinerpg.sky_plant": "Небесные ростки",
+  "block.divinerpg.sky_plant": "Небесное растение",
   "block.divinerpg.dust_lily": "Пыльная лилия",
   "block.divinerpg.dust_lily_pot": "Пыльная лилия в горшке",
   "block.divinerpg.dust_brambles": "Пыльные колючки",
@@ -872,7 +872,7 @@
   "block.divinerpg.chamber_wall": "Стена комнаты",
   "block.divinerpg.shifted_chamber_wall": "Смещённая стена комнаты",
   "block.divinerpg.stacked_chamber_wall": "Сложенная стена комнаты",
-  "block.divinerpg.hall_wall": "Стена зала",
+  "block.divinerpg.hall_wall": "Стена залы",
 
   "block.divinerpg.bacterial_acid": "Бактериальная кислота",
   "block.divinerpg.lunic_acid": "Лунная кислота",
@@ -887,7 +887,7 @@
   "block.divinerpg.village_lamp": "Деревенский фонарь",
   "block.divinerpg.dream_lamp": "Фонарь сновидений",
   "block.divinerpg.infusion_table": "Стол наполнения",
-  "block.divinerpg.dungeon_air": "Воздух подземелья Везеи",
+  "block.divinerpg.dungeon_air": "Подземельный воздух Везеи",
 
   "block.divinerpg.karos_altar": "Алтарь Кароса",
   "block.divinerpg.lunic_altar": "Лунный алтарь",
@@ -958,11 +958,6 @@
   "item.minecraft.lingering_potion.effect.warmth": "Туманное зелье теплоты",
   "item.minecraft.tipped_arrow.effect.warmth": "Стрела теплоты",
 
-  "item.minecraft.potion.effect.long_warmth": "Зелье теплоты",
-  "item.minecraft.splash_potion.effect.long_warmth": "Взрывное зелье теплоты",
-  "item.minecraft.lingering_potion.effect.long_warmth": "Туманное зелье теплоты",
-  "item.minecraft.tipped_arrow.effect.long_warmth": "Стрела теплоты",
-
   "item.divinerpg.potion.red_cattle": "Красная коровка",
 
   "item.divinerpg.potion.wreck_potion": "Зелье Круша",
@@ -988,8 +983,8 @@
   "item.divinerpg.cyclopsian_sword": "Циклопический меч",
   "item.divinerpg.cyclopsian_staff": "Циклопический жезл",
 
-  "item.divinerpg.crab_claw": "Клешня краба",
-  "item.divinerpg.crabclaw_maul": "Кувалда из клешней краба",
+  "item.divinerpg.crab_claw": "Крабовая клешня",
+  "item.divinerpg.crabclaw_maul": "Крабоклешневая кувалда",
   "item.divinerpg.dual_claw": "Двойная клешня",
   "item.divinerpg.crab_anchor": "Крабовый якорь",
   "entity.divinerpg.crab_anchor_shot": "Снаряд крабового якоря",
@@ -998,12 +993,12 @@
   "item.divinerpg.frostclaw_cannon": "Морозная крабоклешневая пушка",
   "entity.divinerpg.frost_claw": "Снаряд морозной крабоклешневой пушки",
 
-  "item.divinerpg.shark_fin": "Плавник акулы",
+  "item.divinerpg.shark_fin": "Акулий плавник",
   "item.divinerpg.shark_sword": "Акуловый меч",
   "item.divinerpg.shark_anchor": "Акуловый якорь",
   "entity.divinerpg.shark_anchor_shot": "Снаряд акулового якоря",
 
-  "item.divinerpg.whale_fin": "Плавник кита",
+  "item.divinerpg.whale_fin": "Китовый плавник",
   "item.divinerpg.bowhead_anchor": "Гренландский якорь",
   "entity.divinerpg.bowhead_anchor_shot": "Снаряд гренландского якоря",
   "item.divinerpg.bowhead_cannon": "Гренландская пушка",
@@ -1013,8 +1008,9 @@
   "item.divinerpg.liopleurodon_teeth": "Зубы лиоплевродона",
   "item.divinerpg.liopleurodon_anchor": "Якорь лиоплевродона",
   "entity.divinerpg.liopleurodon_anchor_shot": "Снаряд якоря лиоплевродона",
-  "item.divinerpg.aquatooth_sword": "Меч из зубов лиоплевродона",
-  "item.divinerpg.aquatooth_maul": "Кувалда из зубов лиоплевродона",
+
+  "item.divinerpg.aquatooth_sword": "Водно-зубной меч",
+  "item.divinerpg.aquatooth_maul": "Водно-зубная кувалда",
 
   "item.divinerpg.aqua_ball": "Сгусток воды",
   "item.divinerpg.aquatic_pellets": "Водяные гранулы",

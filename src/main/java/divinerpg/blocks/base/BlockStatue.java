@@ -22,22 +22,29 @@ import static net.minecraft.sounds.SoundSource.BLOCKS;
 public class BlockStatue extends BlockMod implements EntityBlock {
     private static final int ROTATIONS = RotationSegment.getMaxSegmentIndex() + 1;
     public static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     private final Supplier<SoundEvent> statueSound;
     public BlockStatue(Supplier<SoundEvent> soundIn) {
         super(Properties.of().strength(2, 6).noOcclusion().requiresCorrectToolForDrops());
         statueSound = soundIn;
-        registerDefaultState(defaultBlockState().setValue(ROTATION, 0));
+        registerDefaultState(defaultBlockState().setValue(ROTATION, 0).setValue(POWERED, false));
     }
     @Override public boolean skipRendering(BlockState state, BlockState state1, Direction dir) {return true;}
     @Nullable
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {return new StatueBlockEntity(pos, state);}
-    @Override public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult trace) {
+    @Override public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult trace) {
         if((player.isCrouching() && !player.getMainHandItem().isEmpty()) || statueSound == null) return InteractionResult.PASS;
-        world.playSound(player, pos, statueSound.get(), BLOCKS, 3, 1);
+        level.playSound(player, pos, statueSound.get(), BLOCKS, 3, .9F + level.getRandom().nextFloat() * .2F);
         return InteractionResult.SUCCESS;
     }
-    @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return super.getStateForPlacement(context).setValue(ROTATION, RotationSegment.convertToSegment(context.getRotation()));
+    @Override protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
+        //TODO: to add some kind of delay in order to prevent sound spamming (for both redstone activation and manual usage)
+        boolean flag = level.hasNeighborSignal(pos);
+        if(flag != state.getValue(POWERED)) {
+            if(flag && statueSound != null)
+                level.playSound(null, pos, statueSound.get(), BLOCKS, 3,  .9F + level.getRandom().nextFloat() * .2F + (level.getBestNeighborSignal(pos) - 7) * .05F);
+            level.setBlock(pos, state.setValue(POWERED, flag), 3);
+        }
     }
     @Override protected BlockState rotate(BlockState state, Rotation rotation) {
         return state.setValue(ROTATION, rotation.rotate(state.getValue(ROTATION), ROTATIONS));
@@ -47,7 +54,10 @@ public class BlockStatue extends BlockMod implements EntityBlock {
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(ROTATION);
+        builder.add(ROTATION).add(POWERED);
+    }
+    @Override public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return super.getStateForPlacement(context).setValue(ROTATION, RotationSegment.convertToSegment(context.getRotation()));
     }
     @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         return Shapes.create(new AABB(.2, 0, .2, .8, 1, .8));
