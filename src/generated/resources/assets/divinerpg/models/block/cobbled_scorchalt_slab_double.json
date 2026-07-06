@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/cobbled_scorchalt",
+    "side": "divinerpg:block/cobbled_scorchalt"
+  }
+}

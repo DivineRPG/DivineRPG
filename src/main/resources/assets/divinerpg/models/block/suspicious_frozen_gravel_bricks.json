@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "divinerpg:block/suspicious_frozen_gravel_bricks"
-  }
-}

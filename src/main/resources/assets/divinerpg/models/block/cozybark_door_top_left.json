@@ -1,8 +1,0 @@
-{
-  "parent": "block/door_top_left",
-  "render_type": "cutout",
-  "textures": {
-    "bottom": "divinerpg:block/cozybark_door_bottom",
-    "top": "divinerpg:block/cozybark_door_top"
-  }
-}

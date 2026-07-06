@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/fancy_wool",
-    "side": "divinerpg:block/soft_miner_side",
-    "top": "divinerpg:block/soft_miner_front"
-  }
-}

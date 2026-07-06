@@ -1,0 +1,40 @@
+{
+  "values": [
+    {
+      "id": "divinerpg:fall",
+      "required": false
+    },
+    {
+      "id": "divinerpg:moonlight_rave",
+      "required": false
+    },
+    {
+      "id": "divinerpg:grazing",
+      "required": false
+    },
+    {
+      "id": "divinerpg:disturbed",
+      "required": false
+    },
+    {
+      "id": "divinerpg:levels",
+      "required": false
+    },
+    {
+      "id": "divinerpg:ice_age",
+      "required": false
+    },
+    {
+      "id": "divinerpg:crawling",
+      "required": false
+    },
+    {
+      "id": "divinerpg:howling_at_the_moon",
+      "required": false
+    },
+    {
+      "id": "divinerpg:lurking_terror",
+      "required": false
+    }
+  ]
+}

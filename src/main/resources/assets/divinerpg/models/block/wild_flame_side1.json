@@ -1,7 +1,0 @@
-{
-  "parent": "block/template_fire_side",
-  "render_type": "cutout",
-  "textures": {
-    "fire": "divinerpg:block/wild_flame_1"
-  }
-}

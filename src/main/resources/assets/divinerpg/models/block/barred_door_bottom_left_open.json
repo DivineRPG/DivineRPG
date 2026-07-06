@@ -1,8 +1,0 @@
-{
-  "parent": "block/door_bottom_left_open",
-  "render_type": "cutout",
-  "textures": {
-    "bottom": "divinerpg:block/barred_door_bottom",
-    "top": "divinerpg:block/barred_door_top"
-  }
-}

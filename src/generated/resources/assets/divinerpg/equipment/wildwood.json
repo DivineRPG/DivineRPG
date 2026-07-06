@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:wildwood"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:wildwood"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:wildwood"
+      }
+    ]
+  }
+}

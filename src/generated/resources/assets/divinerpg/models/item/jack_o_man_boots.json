@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "divinerpg:item/jack_o_man_boots"
+  }
+}

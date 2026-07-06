@@ -1,8 +1,0 @@
-{
-  "parent": "block/glow_lichen",
-  "render_type": "cutout",
-  "textures": {
-    "particle": "divinerpg:block/snowy_moss",
-    "glow_lichen": "divinerpg:block/snowy_moss"
-  }
-}

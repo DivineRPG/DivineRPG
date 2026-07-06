@@ -1,6 +1,0 @@
-{
-  "parent": "item/bow",
-  "textures": {
-    "layer0": "divinerpg:item/shadow_bow_1"
-  }
-}

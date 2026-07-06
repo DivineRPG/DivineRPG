@@ -1,8 +1,0 @@
-{
-  "parent": "block/inner_stairs",
-  "textures": {
-    "side": "divinerpg:block/degraded_bricks",
-    "top": "divinerpg:block/degraded_bricks",
-    "bottom": "divinerpg:block/degraded_bricks"
-  }
-}

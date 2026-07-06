@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/plank_design",
+    "side": "divinerpg:block/plank_design"
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "feature": "divinerpg:exposure",
-  "placement": [
-    {
-      "type": "minecraft:count",
-      "count": 1
-    }
-  ]
-}

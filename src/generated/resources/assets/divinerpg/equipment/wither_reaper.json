@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:wither_reaper"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:wither_reaper"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:wither_reaper"
+      }
+    ]
+  }
+}

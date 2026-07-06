@@ -1,9 +1,0 @@
-{
-  "type": "stonecutting",
-  "ingredient": {
-    "item": "divinerpg:darkstone"
-  },
-  "result": {
-    "id": "divinerpg:darkstone_bricks"
-  }
-}

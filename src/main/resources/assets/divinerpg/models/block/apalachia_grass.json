@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/apalachia_dirt",
-    "top": "divinerpg:block/apalachia_grass_top",
-    "side": "divinerpg:block/apalachia_grass_side"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "divinerpg:block/infusion_table_top",
-    "side": "divinerpg:block/infusion_table_side"
-  }
-}

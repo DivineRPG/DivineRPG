@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#c:storage_blocks/realmite",
+    "#c:storage_blocks/arlemite",
+    "#c:storage_blocks/rupee",
+    "#c:storage_blocks/bloodgem",
+    "#c:storage_blocks/torridite",
+    "#c:storage_blocks/olivine"
+  ]
+}

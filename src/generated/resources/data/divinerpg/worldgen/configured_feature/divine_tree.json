@@ -1,7 +1,12 @@
 {
   "type": "divinerpg:divine_tree",
   "config": {
-    "can_grow_on": [],
+    "can_grow_on": [
+      {
+        "predicate_type": "minecraft:tag_match",
+        "tag": "minecraft:grass_blocks"
+      }
+    ],
     "leaves": {
       "Name": "divinerpg:divine_leaves",
       "Properties": {

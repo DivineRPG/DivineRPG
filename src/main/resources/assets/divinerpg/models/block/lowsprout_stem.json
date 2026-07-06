@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "divinerpg:block/lowsprout_stem_top",
-    "side": "divinerpg:block/lowsprout_stem_side"
-  }
-}

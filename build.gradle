@@ -1,7 +1,8 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '1.0.21'
+    id 'net.neoforged.moddev' version '2.0.141'
+    id 'idea'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -11,34 +12,27 @@ tasks.named('wrapper', Wrapper).configure {
 version = mod_version
 group = mod_group_id
 
+sourceSets.main.resources {
+    srcDir('src/generated/resources')
+    exclude("**/*.bbmodel")
+    exclude("src/generated/**/.cache")
+}
+
 repositories {
-    mavenLocal()
-    maven { url = "https://modmaven.dev" }
+    maven { url = 'https://maven.blamejared.com/' }
+    maven { url = 'https://modmaven.dev' }
     maven { url = "https://www.cursemaven.com" }
-    maven { url = "https://maven.octo-studios.com/releases" }
-    maven { url = "https://modmaven.dev" }
-    maven { url = uri("https://maven.blakesmods.com") }
-    maven { url 'https://maven.blamejared.com' }
-    maven { url 'https://maven.rover656.dev/releases' }
-    maven { url = "https://maven.greenhouse.lgbt/snapshots" }
 }
 
 base {
     archivesName = mod_id
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 neoForge {
     version = project.neo_version
-
-    parchment {
-        mappingsVersion = project.parchment_mappings_version
-        minecraftVersion = project.parchment_minecraft_version
-    }
-
-     accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
-
+//    accessTransformers.from(file('src/main/resources/META-INF/accesstransformer.cfg'))
     runs {
         client {
             client()
@@ -57,9 +51,10 @@ neoForge {
         }
 
         data {
-            data()
+            clientData()
             programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
+
         configureEach {
             systemProperty 'forge.logging.markers', 'REGISTRIES'
             logLevel = org.slf4j.event.Level.DEBUG
@@ -73,90 +68,14 @@ neoForge {
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
-
 configurations {
     runtimeClasspath.extendsFrom localRuntime
 }
 
 dependencies {
-    //Libraries, etc.
-//    runtimeOnly "curse.maven:apothic-attributes-898963:${apothic_attributes_id}" //Apothic Attributes
-//    runtimeOnly "curse.maven:atlas-api-1145462:${atlas_api_id}" //Atlas API
-    runtimeOnly "curse.maven:bookshelf-228525:${bookshelf_id}" //Bookshelf
-    runtimeOnly "curse.maven:common_capabilities-247007:${common_capabilities_id}" //Common Capabilities
-    implementation "top.theillusivec4.curios:curios-neoforge:${curios_version}" //Curios Continuation
-    runtimeOnly "curse.maven:cyclops_core-232758:${cyclops_core_id}" //Cyclops Core
-//    runtimeOnly "curse.maven:cucumber-272335:${cucumber_id}" //Cucumber
-//    runtimeOnly "curse.maven:geckolib-388172:${geckolib_id}" //GeckoLib
-//    runtimeOnly "curse.maven:placebo-283644:${placebo_id}" //Placebo
-//    runtimeOnly "curse.maven:playeranimator-658587:${player_animator_id}" //Player Animator
-    runtimeOnly "curse.maven:selene-499980:${moonlight_id}" //Moonlight
-//    runtimeOnly "curse.maven:owo-lib-532610:${owo_id}" //oωo
-    runtimeOnly "curse.maven:prickle-1023259:${prickle_id}" //Prickle
-    runtimeOnly "curse.maven:titanium-287342:${titanium_id}" //Titanium
-    //JEI, JER and addons
-    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}" //Just Enough Items
-    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
-    runtimeOnly "mezz.jei:jei-${minecraft_version}-common:${jei_version}"
-    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
-    implementation "curse.maven:just-enough-resources-jer-240630:${jer_id}" //Just Enough Resources
-    runtimeOnly "curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_id}" //Just Enough Effect Descriptions
-//    runtimeOnly "curse.maven:ae2-jei-integration-1074338:${jei_ae2_id}" //AE2 JEI Integration
-    //Guide books and info
-    runtimeOnly "curse.maven:enchantment-descriptions-250419:${enchantment_description_id}" //Enchantment Description
-//    runtimeOnly "curse.maven:guideme-1173950:${guideme_id}" //GuideME (required for AE2 and MI)
-    compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT:api" //Patchouli
-    runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT" //Patchouli
-    //Traveler's Titles don't have NeoForge version up until 1.21.4
-    //Compat
-    //Advanced Mining Dimension isn't ported to 1.21.1
-//    runtimeOnly "curse.maven:advent-of-ascension-nevermine-311054:${advent_of_ascension_id}" //Advent of Ascension //TODO: realm stones and portal support
-//    runtimeOnly "curse.maven:aether-255308:${aether_id}" //The Aether //TODO: compat
-    runtimeOnly "curse.maven:carry-on-274259:${carry_on_id}" //Carry On //TODO: opening sound plays when picking up the crate/ox-crate
-//    runtimeOnly "curse.maven:concoction-1039618:${concoction_id}" //Concoction! //TODO: compat
-    compileOnly "curse.maven:corail-woodcutter-331983:${corail_woodcutter_id}" //Corail Woodcutter
-//    runtimeOnly "curse.maven:epic-fight-mod-405076:${epic_fight_id}" //Epic Fights //TODO: mob animations, fix hat placement, capabilities
-    runtimeOnly "curse.maven:productivebees-377897:${productivebees_id}" //Productive Bees
-    compileOnly "curse.maven:projecte-226410:${projecte_id}" //ProjectE
-//    runtimeOnly "curse.maven:resource-pandas-410681:${resource_pandas_id}" //Resource Pandas
-    //Iron's collection
-//    runtimeOnly "curse.maven:irons-jewelry-1101111:${irons_jewelry_id}" //Iron's Jewelry //TODO: compat
-//    runtimeOnly "curse.maven:irons-spells-n-spellbooks-855414:${irons_spells_id}" //Iron's Spells 'n Spellbooks //TODO: compat
-    //Farmer's Delight collection
-    implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: figure out stackable soup, placeable pies + slices, crop blocks, update tags, etc.
-    compileOnly "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
-    //MehVahdJukaar's collection
-//    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments //TODO: 3d fireballs
-    runtimeOnly "curse.maven:every-compat-628539:${ec_wood_good_id}" //Every Compat: Wood Good //TODO: FD cabinet variant textures, Create window + pane variant textures
-//    runtimeOnly "curse.maven:stone-zone-1154622:${ec_stone_zone_id}" //Every Compat: Stone Zone //TODO: compat?
-    runtimeOnly "curse.maven:sawmill-964817:${sawmill_id}" //Sawmill
-    implementation "curse.maven:supplementaries-412082:${supplementaries_id}" //Supplementaries //TODO: to add [boat variants], sconces, flower box models, way posts, map markers/trades, frozen clock time display, re-implement flags in recipes/advancements
-    //Tech mods
-//    runtimeOnly "curse.maven:applied-energistics-2-223794:${applied_energistics_id}" //Applied Energistics 2
-    runtimeOnly "curse.maven:create-328085:${create_id}" //Create //TODO: potion mixing, liquids, to remove weird twilight block cutting recipes
-    runtimeOnly "curse.maven:ender-io-64578:${ender_io_id}" //Ender IO //TODO: eio_soul/spawner/..., silent pressure plates
-//    runtimeOnly "curse.maven:ex-deorum-901420:${ex_deorum_id}" //Ex Deorum //TODO: compat
-    runtimeOnly "blusunrize.immersiveengineering:ImmersiveEngineering:${immersive_engineering_version}" //Immersive Engineering //TODO: arc furnace recycling, potion support
-    runtimeOnly "curse.maven:industrial-foregoing-266515:${industrial_foregoing_id}" //Industrial Foregoing //TODO: finish compat
-//    runtimeOnly "curse.maven:integrated_dynamics-236307:${integrated_dynamics_id}" //Integrated Dynamics
-    compileOnly "mekanism:Mekanism:${mekanism_version}:api" //Mekanism //TODO: crushing/enriching/nucleosynthesizing/painting/pigment_extracting/sawing recipes
-    runtimeOnly "mekanism:Mekanism:${mekanism_version}" //Mekanism
-//    runtimeOnly "mekanism:Mekanism:${mekanism_version}:additions" //Mekanism: Additions
-//    runtimeOnly "mekanism:Mekanism:${mekanism_version}:generators" //Mekanism: Generators
-//    runtimeOnly "mekanism:Mekanism:${mekanism_version}:tools" //Mekanism: Tools
-//    runtimeOnly "curse.maven:modern-industrialization-405388:${modern_industrialization_id}" //TODO: compat
-//    runtimeOnly "curse.maven:pneumaticcraft-repressurized-281849:${pneumaticcraft_id}" //Pneumaticcraft
-    //Cucumber family
-//    runtimeOnly "curse.maven:mystical-agriculture-246640:${mystical_agriculture_id}" //Mystical Agriculture
-//    runtimeOnly "curse.maven:mystical-agradditions-256247:${mystical_agradditions_id}" //Mystical Agradditions
-//    runtimeOnly "curse.maven:mystical-customization-280441:${mystical_customization_id}" //Mystical Customization //TODO: to transfer compat
-//    runtimeOnly "curse.maven:iron-jetpacks-284497:${iron_jetpacks_id}" //Iron Jetpacks //TODO: to transfer compat
-    //Helpful
-    runtimeOnly "curse.maven:appleskin-248787:${apple_skin_id}" //Apple Skin
-    runtimeOnly "curse.maven:not-enough-crashes-forge-442354:${not_enough_crashes_id}" //Not Enough Crashes
-    runtimeOnly "curse.maven:mmmmmmmmmmmm-225738:${target_dummy_id}" //Target Dummy
-    runtimeOnly "curse.maven:tslatentitystatus-tes-830420:${tes_id}" //TslatEntityStatus
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+//    runtimeOnly "curse.maven:configured-457570:${configured_id}" //Configured
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
@@ -171,16 +90,23 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_license            : mod_license,
             mod_version            : mod_version,
             mod_authors            : mod_authors,
-            mod_description        : mod_description
+            mod_description        : mod_description,
+            mod_url                : mod_url,
+            mod_logo               : mod_logo,
+            mod_update_json        : mod_update_json,
     ]
     inputs.properties replaceProperties
     expand replaceProperties
     from "src/main/templates"
     into "build/generated/sources/modMetadata"
 }
+
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
 
+tasks.named('createMinecraftArtifacts').configure {
+    dependsOn generateModMetadata
+}
 publishing {
     publications {
         register('mavenJava', MavenPublication) {

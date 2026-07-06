@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "render_type": "cutout_mipped",
-  "textures": {
-    "all": "divinerpg:block/ripe_winterberry_bush"
-  }
-}

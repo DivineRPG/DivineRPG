@@ -1,8 +1,0 @@
-{
-  "parent": "block/door_bottom_left_open",
-  "render_type": "translucent",
-  "textures": {
-    "bottom": "divinerpg:block/mortum_door_bottom",
-    "top": "divinerpg:block/mortum_door_top"
-  }
-}

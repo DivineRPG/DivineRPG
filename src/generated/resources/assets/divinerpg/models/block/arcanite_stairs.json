@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "divinerpg:block/arcanite_stone",
+    "side": "divinerpg:block/arcanite_stone",
+    "top": "divinerpg:block/arcanite_stone"
+  }
+}

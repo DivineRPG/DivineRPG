@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/realmite_block",
-    "side": "divinerpg:block/inserter_side",
-    "top": "divinerpg:block/inserter_front"
-  }
-}

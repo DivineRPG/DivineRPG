@@ -1,7 +1,0 @@
-{
-  "parent": "divinerpg:block/template_fairy_lights",
-  "textures": {
-    "texture": "divinerpg:block/purple_fairy_lights",
-    "particle": "divinerpg:block/purple_fairy_lights"
-  }
-}

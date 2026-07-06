@@ -1,9 +1,0 @@
-{
-  "parent": "block/slab",
-  "render_type": "cutout",
-  "textures": {
-    "side": "divinerpg:block/cut_oxdrite",
-    "top": "divinerpg:block/cut_oxdrite",
-    "bottom": "divinerpg:block/cut_oxdrite"
-  }
-}

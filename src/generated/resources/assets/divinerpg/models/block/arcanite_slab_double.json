@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/arcanite_stone",
+    "side": "divinerpg:block/arcanite_stone"
+  }
+}

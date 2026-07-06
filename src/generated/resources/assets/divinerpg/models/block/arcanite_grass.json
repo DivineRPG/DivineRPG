@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "divinerpg:block/arcanite_dirt",
+    "side": "divinerpg:block/arcanite_grass_side",
+    "top": "divinerpg:block/arcanite_grass_top"
+  }
+}

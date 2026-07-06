@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/template_piston",
-  "textures": {
-    "bottom": "divinerpg:block/rupee_block",
-    "platform": "divinerpg:block/miner_front",
-    "side": "divinerpg:block/miner_side"
-  }
-}

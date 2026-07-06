@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab_top",
-  "textures": {
-    "side": "divinerpg:block/twilight_bricks",
-    "top": "divinerpg:block/twilight_bricks",
-    "bottom": "divinerpg:block/twilight_bricks"
-  }
-}

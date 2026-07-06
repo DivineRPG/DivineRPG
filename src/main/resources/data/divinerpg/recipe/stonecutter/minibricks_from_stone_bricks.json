@@ -1,9 +1,0 @@
-{
-  "type": "stonecutting",
-  "ingredient": {
-    "item": "stone_bricks"
-  },
-  "result": {
-    "id": "divinerpg:minibricks"
-  }
-}

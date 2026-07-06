@@ -1,8 +1,0 @@
-{
-  "parent": "block/door_bottom_right",
-  "render_type": "cutout",
-  "textures": {
-    "bottom": "divinerpg:block/eucalyptus_door_bottom",
-    "top": "divinerpg:block/eucalyptus_door_top"
-  }
-}

@@ -1,0 +1,11 @@
+{
+  "asset_id": "divinerpg:crawling",
+  "author": {
+    "translate": "painting.divinerpg.crawling.author"
+  },
+  "height": 1,
+  "title": {
+    "translate": "painting.divinerpg.crawling.title"
+  },
+  "width": 1
+}

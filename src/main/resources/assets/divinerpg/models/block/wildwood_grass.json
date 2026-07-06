@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/wildwood_dirt",
-    "top": "divinerpg:block/wildwood_grass_top",
-    "side": "divinerpg:block/wildwood_grass_side"
-  }
-}

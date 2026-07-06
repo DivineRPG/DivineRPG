@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "divinerpg:block/streamleaf_leaves"
+  }
+}

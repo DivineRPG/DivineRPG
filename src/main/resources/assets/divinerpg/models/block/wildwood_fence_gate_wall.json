@@ -1,6 +1,0 @@
-{
-  "parent": "block/template_fence_gate_wall",
-  "textures": {
-    "texture": "divinerpg:block/wildwood_planks"
-  }
-}

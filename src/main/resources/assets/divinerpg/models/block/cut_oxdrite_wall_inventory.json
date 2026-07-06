@@ -1,7 +1,0 @@
-{
-  "parent": "block/wall_inventory",
-  "render_type": "cutout",
-  "textures": {
-    "wall": "divinerpg:block/cut_oxdrite"
-  }
-}

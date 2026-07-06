@@ -1,7 +1,0 @@
-{
-  "parent": "block/template_torch_wall",
-  "render_type": "cutout",
-  "textures": {
-    "torch": "divinerpg:block/eden_torch"
-  }
-}

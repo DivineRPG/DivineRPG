@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:aquastrive"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:aquastrive"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:aquastrive"
+      }
+    ]
+  }
+}

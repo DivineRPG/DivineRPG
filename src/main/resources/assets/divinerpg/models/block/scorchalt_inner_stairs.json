@@ -1,8 +1,0 @@
-{
-  "parent": "block/inner_stairs",
-  "textures": {
-    "side": "divinerpg:block/scorchalt",
-    "top": "divinerpg:block/scorchalt",
-    "bottom": "divinerpg:block/scorchalt"
-  }
-}

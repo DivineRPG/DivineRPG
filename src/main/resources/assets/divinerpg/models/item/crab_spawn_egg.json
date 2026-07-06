@@ -1,7 +1,0 @@
-{
-  "parent": "item/template_spawn_egg",
-  "textures": {
-    "layer0": "divinerpg:item/crab_spawn_egg",
-    "layer1": "divinerpg:item/crab_spawn_egg"
-  }
-}

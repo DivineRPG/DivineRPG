@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/twilight_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/twilight_slab_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/twilight_slab_top"
+    }
+  }
+}

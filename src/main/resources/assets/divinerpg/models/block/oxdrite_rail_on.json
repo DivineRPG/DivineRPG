@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/rail_flat",
-  "render_type": "cutout",
-  "textures": {
-    "rail": "divinerpg:block/oxdrite_rail_on"
-  }
-}

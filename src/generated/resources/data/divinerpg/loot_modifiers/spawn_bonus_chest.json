@@ -1,0 +1,10 @@
+{
+  "type": "divinerpg:spawn_bonus_modifier",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/spawn_bonus"
+    }
+  ],
+  "priority": 1
+}

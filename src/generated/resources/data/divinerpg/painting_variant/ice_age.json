@@ -1,0 +1,11 @@
+{
+  "asset_id": "divinerpg:ice_age",
+  "author": {
+    "translate": "painting.divinerpg.ice_age.author"
+  },
+  "height": 4,
+  "title": {
+    "translate": "painting.divinerpg.ice_age.title"
+  },
+  "width": 4
+}

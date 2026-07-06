@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:korma"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:korma"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:korma"
+      }
+    ]
+  }
+}

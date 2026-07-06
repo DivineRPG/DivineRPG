@@ -1,8 +1,0 @@
-{
-  "parent": "block/door_top_right_open",
-  "render_type": "cutout",
-  "textures": {
-    "bottom": "divinerpg:block/soul_sludge_door_bottom",
-    "top": "divinerpg:block/soul_sludge_door_top"
-  }
-}

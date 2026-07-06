@@ -1,8 +1,0 @@
-{   "parent": "block/enchanting_table",
-  "textures": {
-    "particle": "divinerpg:block/altar_of_corruption_bottom",
-    "bottom": "divinerpg:block/altar_of_corruption_bottom",
-    "top": "divinerpg:block/altar_of_corruption_top",
-    "side": "divinerpg:block/altar_of_corruption_side"
-  }
-}

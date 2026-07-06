@@ -1,9 +1,0 @@
-{
-  "type": "stonecutting",
-  "ingredient": {
-    "item": "divinerpg:coalstone"
-  },
-  "result": {
-    "id": "divinerpg:coalstone_stairs"
-  }
-}

@@ -1,0 +1,11 @@
+{
+  "asset_id": "divinerpg:levels",
+  "author": {
+    "translate": "painting.divinerpg.levels.author"
+  },
+  "height": 2,
+  "title": {
+    "translate": "painting.divinerpg.levels.title"
+  },
+  "width": 2
+}

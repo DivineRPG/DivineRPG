@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "side": "divinerpg:block/coalstone",
-    "top": "divinerpg:block/coalstone",
-    "bottom": "divinerpg:block/coalstone"
-  }
-}

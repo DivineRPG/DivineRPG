@@ -1,8 +1,0 @@
-{
-  "parent": "block/stairs",
-  "textures": {
-    "side": "divinerpg:block/asphalt",
-    "top": "divinerpg:block/asphalt",
-    "bottom": "divinerpg:block/asphalt"
-  }
-}

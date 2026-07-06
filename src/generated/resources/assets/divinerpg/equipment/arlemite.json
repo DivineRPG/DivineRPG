@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:arlemite"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:arlemite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:arlemite"
+      }
+    ]
+  }
+}

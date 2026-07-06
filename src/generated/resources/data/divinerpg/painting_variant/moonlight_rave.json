@@ -1,0 +1,11 @@
+{
+  "asset_id": "divinerpg:moonlight_rave",
+  "author": {
+    "translate": "painting.divinerpg.moonlight_rave.author"
+  },
+  "height": 1,
+  "title": {
+    "translate": "painting.divinerpg.moonlight_rave.title"
+  },
+  "width": 2
+}

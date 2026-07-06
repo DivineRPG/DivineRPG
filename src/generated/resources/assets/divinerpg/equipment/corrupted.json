@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:corrupted"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:corrupted"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:corrupted"
+      }
+    ]
+  }
+}

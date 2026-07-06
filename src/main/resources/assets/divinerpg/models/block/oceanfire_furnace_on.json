@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "front": "divinerpg:block/oceanfire_furnace_front_on",
-    "side": "divinerpg:block/oceanfire_furnace_side",
-    "top": "divinerpg:block/oceanfire_furnace_top"
-  }
-}

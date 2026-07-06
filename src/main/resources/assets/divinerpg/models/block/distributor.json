@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "side": "divinerpg:block/realmite_block",
-    "top": "divinerpg:block/realmite_block",
-    "bottom": "divinerpg:block/realmite_block"
-  }
-}

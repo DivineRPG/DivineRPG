@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "divinerpg:arlemite",
+    "divinerpg:realmite",
+    "divinerpg:realmite_vein_large",
+    "divinerpg:realmite_vein_small",
+    "divinerpg:rupee"
+  ],
+  "step": "underground_ores"
+}

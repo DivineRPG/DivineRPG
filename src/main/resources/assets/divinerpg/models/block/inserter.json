@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/template_piston",
-  "textures": {
-    "bottom": "divinerpg:block/realmite_block",
-    "platform": "divinerpg:block/inserter_front",
-    "side": "divinerpg:block/inserter_side"
-  }
-}

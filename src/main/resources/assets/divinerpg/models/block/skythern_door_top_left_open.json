@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_top_left_open",
-  "textures": {
-    "bottom": "divinerpg:block/skythern_door_bottom",
-    "top": "divinerpg:block/skythern_door_top"
-  }
-}

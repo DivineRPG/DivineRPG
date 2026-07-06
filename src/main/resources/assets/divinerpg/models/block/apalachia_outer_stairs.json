@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "side": "divinerpg:block/apalachia_planks",
-    "top": "divinerpg:block/apalachia_planks",
-    "bottom": "divinerpg:block/apalachia_planks"
-  }
-}

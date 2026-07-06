@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "divinerpg:block/cobbled_frozen_stone",
+    "side": "divinerpg:block/cobbled_frozen_stone",
+    "top": "divinerpg:block/cobbled_frozen_stone"
+  }
+}

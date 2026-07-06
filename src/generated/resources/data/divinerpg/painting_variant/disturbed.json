@@ -1,0 +1,11 @@
+{
+  "asset_id": "divinerpg:disturbed",
+  "author": {
+    "translate": "painting.divinerpg.disturbed.author"
+  },
+  "height": 2,
+  "title": {
+    "translate": "painting.divinerpg.disturbed.title"
+  },
+  "width": 1
+}

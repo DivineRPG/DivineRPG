@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "divinerpg:item/seimer_spawn_egg"
+  }
+}

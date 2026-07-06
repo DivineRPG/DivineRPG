@@ -1,0 +1,11 @@
+{
+  "asset_id": "divinerpg:grazing",
+  "author": {
+    "translate": "painting.divinerpg.grazing.author"
+  },
+  "height": 1,
+  "title": {
+    "translate": "painting.divinerpg.grazing.title"
+  },
+  "width": 1
+}

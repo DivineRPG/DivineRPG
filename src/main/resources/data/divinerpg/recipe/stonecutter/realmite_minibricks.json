@@ -1,9 +1,0 @@
-{
-  "type": "stonecutting",
-  "ingredient": {
-    "item": "divinerpg:realmite_bricks"
-  },
-  "result": {
-    "id": "divinerpg:realmite_minibricks"
-  }
-}

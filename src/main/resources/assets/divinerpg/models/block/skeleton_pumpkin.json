@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "front": "divinerpg:block/skeleton_pumpkin_front",
-    "side": "divinerpg:block/skeleton_pumpkin_side",
-    "top": "divinerpg:block/skeleton_pumpkin_top"
-  }
-}

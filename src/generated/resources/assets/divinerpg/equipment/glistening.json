@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:glistening"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:glistening"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:glistening"
+      }
+    ]
+  }
+}

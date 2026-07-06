@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "divinerpg:item/red_armor_pouch"
-  }
-}

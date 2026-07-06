@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "front": "divinerpg:block/greenlight_furnace_front_off",
-    "side": "divinerpg:block/greenlight_furnace_side",
-    "top": "divinerpg:block/greenlight_furnace_top"
-  }
-}

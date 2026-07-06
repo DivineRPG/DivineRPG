@@ -1,0 +1,11 @@
+{
+  "asset_id": "divinerpg:fall",
+  "author": {
+    "translate": "painting.divinerpg.fall.author"
+  },
+  "height": 2,
+  "title": {
+    "translate": "painting.divinerpg.fall.title"
+  },
+  "width": 2
+}

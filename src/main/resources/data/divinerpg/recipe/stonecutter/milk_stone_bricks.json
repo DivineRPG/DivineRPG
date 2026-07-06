@@ -1,9 +1,0 @@
-{
-  "type": "stonecutting",
-  "ingredient": {
-    "item": "divinerpg:milk_stone"
-  },
-  "result": {
-    "id": "divinerpg:milk_stone_bricks"
-  }
-}

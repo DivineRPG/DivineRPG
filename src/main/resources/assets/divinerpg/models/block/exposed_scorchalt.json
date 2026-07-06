@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/scorchalt",
-    "top": "divinerpg:block/ray_stone",
-    "side": "divinerpg:block/exposed_scorchalt"
-  }
-}

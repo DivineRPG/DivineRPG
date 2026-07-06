@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all_inner_faces",
-  "render_type": "cutout",
-  "textures": {
-    "all": "divinerpg:block/encaged_datticon"
-  }
-}

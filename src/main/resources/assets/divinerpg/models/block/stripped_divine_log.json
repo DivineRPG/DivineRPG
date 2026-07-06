@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "divinerpg:block/stripped_divine_log_top",
-    "side": "divinerpg:block/stripped_divine_log_side"
-  }
-}

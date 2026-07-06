@@ -1,9 +1,0 @@
-{
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/mortum_planks"
-      }
-    }
-  ]
-}

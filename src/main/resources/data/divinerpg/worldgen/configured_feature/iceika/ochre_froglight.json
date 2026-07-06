@@ -1,9 +1,0 @@
-{
-	"type": "divinerpg:spud",
-	"config": {
-		"center": {
-			"Name": "minecraft:ochre_froglight"
-		},
-		"rules": []
-	}
-}

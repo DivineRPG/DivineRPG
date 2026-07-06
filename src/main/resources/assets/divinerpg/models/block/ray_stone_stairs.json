@@ -1,8 +1,0 @@
-{
-  "parent": "block/stairs",
-  "textures": {
-    "side": "divinerpg:block/ray_stone",
-    "top": "divinerpg:block/ray_stone",
-    "bottom": "divinerpg:block/ray_stone"
-  }
-}

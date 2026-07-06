@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_rail_raised_ne",
-  "render_type": "cutout",
-  "textures": {
-    "rail": "divinerpg:block/oxdrite_rail"
-  }
-}

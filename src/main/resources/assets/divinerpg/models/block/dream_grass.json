@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/dream_dirt",
-    "top": "divinerpg:block/dream_grass_top",
-    "side": "divinerpg:block/dream_grass_side"
-  }
-}

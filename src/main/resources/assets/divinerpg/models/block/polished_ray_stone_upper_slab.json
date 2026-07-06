@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab_top",
-  "textures": {
-    "side": "divinerpg:block/polished_ray_stone",
-    "top": "divinerpg:block/polished_ray_stone",
-    "bottom": "divinerpg:block/polished_ray_stone"
-  }
-}

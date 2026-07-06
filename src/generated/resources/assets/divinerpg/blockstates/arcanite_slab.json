@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/arcanite_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/arcanite_slab_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/arcanite_slab_top"
+    }
+  }
+}

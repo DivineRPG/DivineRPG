@@ -1,8 +1,0 @@
-{
-  "parent": "block/inner_stairs",
-  "textures": {
-    "side": "divinerpg:block/polished_cobaltite",
-    "top": "divinerpg:block/polished_cobaltite",
-    "bottom": "divinerpg:block/polished_cobaltite"
-  }
-}

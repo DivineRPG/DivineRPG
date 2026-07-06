@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:santa"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:santa"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:santa"
+      }
+    ]
+  }
+}

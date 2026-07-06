@@ -1,6 +1,0 @@
-{
-  "parent": "corail_woodcutter:block/woodcutter",
-  "textures": {
-    "base": "divinerpg:block/skythern_planks"
-  }
-}

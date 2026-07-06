@@ -1,8 +1,0 @@
-{
-  "owners": [
-    "divinerpg:cave_crawler"
-  ],
-  "animation": "builtin",
-  "width_increment": 0.3,
-  "height_increment": 0
-}

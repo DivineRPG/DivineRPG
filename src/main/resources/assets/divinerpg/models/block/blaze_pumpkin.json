@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "front": "divinerpg:block/blaze_pumpkin_front",
-    "side": "divinerpg:block/blaze_pumpkin_side",
-    "top": "divinerpg:block/blaze_pumpkin_top"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "divinerpg:block/coalstone",
-    "side": "divinerpg:block/workshop_bookcase"
-  }
-}

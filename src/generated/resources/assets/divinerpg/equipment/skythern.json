@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:skythern"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:skythern"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:skythern"
+      }
+    ]
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/template_piston",
-  "textures": {
-    "bottom": "divinerpg:block/fancy_wool",
-    "platform": "divinerpg:block/soft_miner_front",
-    "side": "divinerpg:block/soft_miner_side"
-  }
-}

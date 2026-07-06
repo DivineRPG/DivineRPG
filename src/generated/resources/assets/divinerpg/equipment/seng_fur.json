@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:seng_fur"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:seng_fur"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:seng_fur"
+      }
+    ]
+  }
+}

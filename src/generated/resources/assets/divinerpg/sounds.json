@@ -1,0 +1,1528 @@
+{
+  "acid_hag": {
+    "sounds": [
+      "divinerpg:maybe_replace/acid_hag"
+    ],
+    "subtitle": "subtitles.divinerpg.acid_hag"
+  },
+  "acid_hag_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/acid_hag_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.acid_hag_hurt"
+  },
+  "alicanto": {
+    "sounds": [
+      "divinerpg:mobs/iceika/alicanto"
+    ],
+    "subtitle": "subtitles.divinerpg.alicanto"
+  },
+  "alicanto_hurt": {
+    "sounds": [
+      "divinerpg:mobs/iceika/alicanto_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.alicanto_hurt"
+  },
+  "arcanium_saber": {
+    "sounds": [
+      "divinerpg:items/arcanium_saber"
+    ],
+    "subtitle": "subtitles.divinerpg.arcanium_saber"
+  },
+  "archer": {
+    "sounds": [
+      "divinerpg:mobs/base/archer"
+    ],
+    "subtitle": "subtitles.divinerpg.archer"
+  },
+  "arid_warrior": {
+    "sounds": [
+      "divinerpg:mobs/overworld/arid_warrior"
+    ],
+    "subtitle": "subtitles.divinerpg.arid_warrior"
+  },
+  "arid_warrior_death": {
+    "sounds": [
+      "divinerpg:mobs/overworld/arid_warrior_death"
+    ],
+    "subtitle": "subtitles.divinerpg.arid_warrior_death"
+  },
+  "arid_warrior_hurt": {
+    "sounds": [
+      "divinerpg:mobs/overworld/arid_warrior_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.arid_warrior_hurt"
+  },
+  "ayeraco": {
+    "sounds": [
+      "divinerpg:to_replace/ayeraco"
+    ],
+    "subtitle": "subtitles.divinerpg.ayeraco"
+  },
+  "ayeraco_half_health": {
+    "sounds": [
+      "divinerpg:to_replace/ayeraco_half_health"
+    ],
+    "subtitle": "subtitles.divinerpg.ayeraco_half_health"
+  },
+  "ayeraco_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/ayeraco_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.ayeraco_hurt"
+  },
+  "ayeraco_pillar": {
+    "sounds": [
+      "divinerpg:blocks/ayeraco_pillar"
+    ],
+    "subtitle": "subtitles.divinerpg.ayeraco_pillar"
+  },
+  "ayeraco_spawn": {
+    "sounds": [
+      "divinerpg:to_replace/ayeraco_spawn"
+    ],
+    "subtitle": "subtitles.divinerpg.ayeraco_spawn"
+  },
+  "ayeraco_teleport": {
+    "sounds": [
+      "divinerpg:to_replace/ayeraco_teleport"
+    ],
+    "subtitle": "subtitles.divinerpg.ayeraco_teleport"
+  },
+  "biphron": {
+    "sounds": [
+      "divinerpg:to_replace/biphron"
+    ],
+    "subtitle": "subtitles.divinerpg.biphron"
+  },
+  "biphron_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/biphron_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.biphron_hurt"
+  },
+  "blitz": {
+    "sounds": [
+      "divinerpg:to_replace/blitz"
+    ],
+    "subtitle": "subtitles.divinerpg.blitz"
+  },
+  "bohemite": {
+    "sounds": [
+      "divinerpg:maybe_replace/bohemite"
+    ],
+    "subtitle": "subtitles.divinerpg.bohemite"
+  },
+  "bohemite_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/bohemite_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.bohemite_hurt"
+  },
+  "cadillion": {
+    "sounds": [
+      "divinerpg:to_replace/cadillion"
+    ],
+    "subtitle": "subtitles.divinerpg.cadillion"
+  },
+  "cave_crawler_step": {
+    "sounds": [
+      "divinerpg:to_replace/cave_crawler_step"
+    ],
+    "subtitle": "subtitles.divinerpg.cave_crawler_step"
+  },
+  "caved_core": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/caved_core",
+        "stream": true
+      }
+    ]
+  },
+  "ceiling_explosions": {
+    "sounds": [
+      "divinerpg:maybe_replace/ceiling_explosions"
+    ],
+    "subtitle": "subtitles.divinerpg.ceiling_explosions"
+  },
+  "cold_waters": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/cold_waters",
+        "stream": true
+      }
+    ]
+  },
+  "constructor_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/constructor_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.constructor_hurt"
+  },
+  "constructor_punch": {
+    "sounds": [
+      "divinerpg:to_replace/constructor_punch"
+    ],
+    "subtitle": "subtitles.divinerpg.constructor_punch"
+  },
+  "cori": {
+    "sounds": [
+      "divinerpg:to_replace/cori"
+    ],
+    "subtitle": "subtitles.divinerpg.cori"
+  },
+  "cori_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/cori_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.cori_hurt"
+  },
+  "cori_idle": {
+    "sounds": [
+      "divinerpg:to_replace/cori_idle"
+    ],
+    "subtitle": "subtitles.divinerpg.cori_idle"
+  },
+  "cori_shoot": {
+    "sounds": [
+      "divinerpg:to_replace/cori_shoot"
+    ],
+    "subtitle": "subtitles.divinerpg.cori_shoot"
+  },
+  "crab": {
+    "sounds": [
+      "divinerpg:to_replace/crab"
+    ],
+    "subtitle": "subtitles.divinerpg.crab"
+  },
+  "crab_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/crab_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.crab_hurt"
+  },
+  "crawler": {
+    "sounds": [
+      "divinerpg:mobs/overworld/crawler"
+    ],
+    "subtitle": "subtitles.divinerpg.crawler"
+  },
+  "crawler_hurt": {
+    "sounds": [
+      "divinerpg:mobs/overworld/crawler_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.crawler_hurt"
+  },
+  "croak": {
+    "sounds": [
+      "divinerpg:to_replace/croak"
+    ],
+    "subtitle": "subtitles.divinerpg.croak"
+  },
+  "crystal_tears": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/crystal_tears",
+        "stream": true
+      }
+    ]
+  },
+  "cup_of_tea": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/cup_of_tea",
+        "stream": true
+      }
+    ]
+  },
+  "cyclops": {
+    "sounds": [
+      "divinerpg:mobs/overworld/cyclops"
+    ],
+    "subtitle": "subtitles.divinerpg.cyclops"
+  },
+  "cyclops_hurt": {
+    "sounds": [
+      "divinerpg:mobs/overworld/cyclops_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.cyclops_hurt"
+  },
+  "cymesoid": {
+    "sounds": [
+      "divinerpg:maybe_replace/cymesoid"
+    ],
+    "subtitle": "subtitles.divinerpg.cymesoid"
+  },
+  "cymesoid_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/cymesoid_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.cymesoid_hurt"
+  },
+  "death_hound": {
+    "sounds": [
+      "divinerpg:to_replace/death_hound"
+    ],
+    "subtitle": "subtitles.divinerpg.death_hound"
+  },
+  "death_hound_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/death_hound_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.death_hound_hurt"
+  },
+  "deathcryx": {
+    "sounds": [
+      "divinerpg:mobs/arcana/deathcryx"
+    ],
+    "subtitle": "subtitles.divinerpg.deathcryx"
+  },
+  "deathcryx_hurt": {
+    "sounds": [
+      "divinerpg:mobs/arcana/deathcryx_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.deathcryx_hurt"
+  },
+  "deep_laugh": {
+    "sounds": [
+      "divinerpg:to_replace/deep_laugh"
+    ],
+    "subtitle": "subtitles.divinerpg.deep_laugh"
+  },
+  "demon_of_darkness": {
+    "sounds": [
+      "divinerpg:to_replace/demon_of_darkness"
+    ],
+    "subtitle": "subtitles.divinerpg.demon_of_darkness"
+  },
+  "densos": {
+    "sounds": [
+      "divinerpg:mobs/boss/densos"
+    ],
+    "subtitle": "subtitles.divinerpg.densos"
+  },
+  "densos_hurt": {
+    "sounds": [
+      "divinerpg:mobs/boss/densos_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.densos_hurt"
+  },
+  "destiny": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/destiny",
+        "stream": true
+      }
+    ]
+  },
+  "dissiment": {
+    "sounds": [
+      "divinerpg:to_replace/dissiment"
+    ],
+    "subtitle": "subtitles.divinerpg.dissiment"
+  },
+  "dissiment_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/dissiment_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.dissiment_hurt"
+  },
+  "divine_accumulator": {
+    "sounds": [
+      "divinerpg:to_replace/divine_accumulator"
+    ],
+    "subtitle": "subtitles.divinerpg.divine_accumulator"
+  },
+  "dramcryx": {
+    "sounds": [
+      "divinerpg:to_replace/dramcryx"
+    ],
+    "subtitle": "subtitles.divinerpg.dramcryx"
+  },
+  "dramcryx_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/dramcryx_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.dramcryx_hurt"
+  },
+  "dramix": {
+    "sounds": [
+      "divinerpg:to_replace/dramix"
+    ],
+    "subtitle": "subtitles.divinerpg.dramix"
+  },
+  "dramix_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/dramix_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.dramix_hurt"
+  },
+  "dream_wrecker": {
+    "sounds": [
+      "divinerpg:to_replace/dream_wrecker"
+    ],
+    "subtitle": "subtitles.divinerpg.dream_wrecker"
+  },
+  "dream_wrecker_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/dream_wrecker_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.dream_wrecker_hurt"
+  },
+  "dungeon_prisoner": {
+    "sounds": [
+      "divinerpg:to_replace/dungeon_prisoner"
+    ],
+    "subtitle": "subtitles.divinerpg.dungeon_prisoner"
+  },
+  "dungeon_prisoner_change": {
+    "sounds": [
+      "divinerpg:to_replace/dungeon_prisoner_change"
+    ],
+    "subtitle": "subtitles.divinerpg.dungeon_prisoner_change"
+  },
+  "dungeon_prisoner_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/dungeon_prisoner_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.dungeon_prisoner_hurt"
+  },
+  "duo": {
+    "sounds": [
+      "divinerpg:maybe_replace/duo"
+    ],
+    "subtitle": "subtitles.divinerpg.duo"
+  },
+  "duo_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/duo_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.duo_hurt"
+  },
+  "endiku": {
+    "sounds": [
+      "divinerpg:mobs/wildwood/endiku"
+    ],
+    "subtitle": "subtitles.divinerpg.endiku"
+  },
+  "endiku_death": {
+    "sounds": [
+      "divinerpg:mobs/wildwood/endiku_death"
+    ],
+    "subtitle": "subtitles.divinerpg.endiku_death"
+  },
+  "endiku_hurt": {
+    "sounds": [
+      "divinerpg:mobs/wildwood/endiku_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.endiku_hurt"
+  },
+  "ent": {
+    "sounds": [
+      "divinerpg:to_replace/ent"
+    ],
+    "subtitle": "subtitles.divinerpg.ent"
+  },
+  "ent_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/ent_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.ent_hurt"
+  },
+  "explosions": {
+    "sounds": [
+      "divinerpg:maybe_replace/explosions"
+    ],
+    "subtitle": "subtitles.divinerpg.explosions"
+  },
+  "feel_soul_arksiane": {
+    "sounds": [
+      "divinerpg:maybe_replace/feel_soul_arksiane"
+    ],
+    "subtitle": "subtitles.divinerpg.feel_soul_arksiane"
+  },
+  "firefly": {
+    "sounds": [
+      "divinerpg:to_replace/firefly"
+    ],
+    "subtitle": "subtitles.divinerpg.firefly"
+  },
+  "fractite": {
+    "sounds": [
+      "divinerpg:to_replace/fractite"
+    ],
+    "subtitle": "subtitles.divinerpg.fractite"
+  },
+  "fractite_attack": {
+    "sounds": [
+      "divinerpg:to_replace/fractite_attack"
+    ],
+    "subtitle": "subtitles.divinerpg.fractite_attack"
+  },
+  "fractite_cannon": {
+    "sounds": [
+      "divinerpg:items/fractite_cannon"
+    ],
+    "subtitle": "subtitles.divinerpg.fractite_cannon"
+  },
+  "fractite_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/fractite_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.fractite_hurt"
+  },
+  "freeze": {
+    "sounds": [
+      "divinerpg:blocks/freeze1",
+      "divinerpg:blocks/freeze2",
+      "divinerpg:blocks/freeze3"
+    ],
+    "subtitle": "subtitles.divinerpg.freeze"
+  },
+  "frost": {
+    "sounds": [
+      "divinerpg:to_replace/frost"
+    ],
+    "subtitle": "subtitles.divinerpg.frost"
+  },
+  "frost_cannon": {
+    "sounds": [
+      "divinerpg:to_replace/frost_cannon"
+    ],
+    "subtitle": "subtitles.divinerpg.frost_cannon"
+  },
+  "frostclaw_cannon": {
+    "sounds": [
+      "divinerpg:to_replace/frostclaw_cannon"
+    ],
+    "subtitle": "subtitles.divinerpg.frostclaw_cannon"
+  },
+  "frozen_dispersion": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/frozen_dispersion",
+        "stream": true
+      }
+    ]
+  },
+  "frozen_flesh": {
+    "sounds": [
+      "divinerpg:to_replace/frozen_flesh"
+    ],
+    "subtitle": "subtitles.divinerpg.frozen_flesh"
+  },
+  "frozen_flesh_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/frozen_flesh_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.frozen_flesh_hurt"
+  },
+  "galroid": {
+    "sounds": [
+      "divinerpg:maybe_replace/galroid"
+    ],
+    "subtitle": "subtitles.divinerpg.galroid"
+  },
+  "galroid_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/galroid_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.galroid_hurt"
+  },
+  "ghast_cannon": {
+    "sounds": [
+      "divinerpg:to_replace/ghast_cannon"
+    ],
+    "subtitle": "subtitles.divinerpg.ghast_cannon"
+  },
+  "glacide": {
+    "sounds": [
+      "divinerpg:to_replace/glacide"
+    ],
+    "subtitle": "subtitles.divinerpg.glacide"
+  },
+  "glacide_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/glacide_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.glacide_hurt"
+  },
+  "glinthop": {
+    "sounds": [
+      "divinerpg:to_replace/glinthop"
+    ],
+    "subtitle": "subtitles.divinerpg.glinthop"
+  },
+  "glinthop_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/glinthop_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.glinthop_hurt"
+  },
+  "golem": {
+    "sounds": [
+      "divinerpg:to_replace/golem"
+    ],
+    "subtitle": "subtitles.divinerpg.golem"
+  },
+  "gorgosion": {
+    "sounds": [
+      "divinerpg:to_replace/gorgosion"
+    ],
+    "subtitle": "subtitles.divinerpg.gorgosion"
+  },
+  "gorgosion_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/gorgosion_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.gorgosion_hurt"
+  },
+  "grizzle": {
+    "sounds": [
+      "divinerpg:mobs/overworld/grizzle"
+    ],
+    "subtitle": "subtitles.divinerpg.grizzle"
+  },
+  "grizzle_hurt": {
+    "sounds": [
+      "divinerpg:mobs/overworld/grizzle_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.grizzle_hurt"
+  },
+  "growl": {
+    "sounds": [
+      "divinerpg:to_replace/growl"
+    ],
+    "subtitle": "subtitles.divinerpg.growl"
+  },
+  "growl_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/growl_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.growl_hurt"
+  },
+  "hastreus": {
+    "sounds": [
+      "divinerpg:to_replace/hastreus"
+    ],
+    "subtitle": "subtitles.divinerpg.hastreus"
+  },
+  "hastreus_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/hastreus_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.hastreus_hurt"
+  },
+  "heal": {
+    "sounds": [
+      "divinerpg:to_replace/heal"
+    ],
+    "subtitle": "subtitles.divinerpg.heal"
+  },
+  "helio": {
+    "sounds": [
+      "divinerpg:maybe_replace/helio"
+    ],
+    "subtitle": "subtitles.divinerpg.helio"
+  },
+  "helio_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/helio_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.helio_hurt"
+  },
+  "hell_spider": {
+    "sounds": [
+      "divinerpg:mobs/nether/hell_spider"
+    ],
+    "subtitle": "subtitles.divinerpg.hell_spider"
+  },
+  "high_hit": {
+    "sounds": [
+      "divinerpg:to_replace/high_hit"
+    ],
+    "subtitle": "subtitles.divinerpg.high_hit"
+  },
+  "hiss": {
+    "sounds": [
+      "divinerpg:to_replace/hiss"
+    ],
+    "subtitle": "subtitles.divinerpg.hiss"
+  },
+  "hive_queen": {
+    "sounds": [
+      "divinerpg:to_replace/hive_queen"
+    ],
+    "subtitle": "subtitles.divinerpg.hive_queen"
+  },
+  "hive_queen_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/hive_queen_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.hive_queen_hurt"
+  },
+  "hover_stinger": {
+    "sounds": [
+      "divinerpg:to_replace/hover_stinger"
+    ],
+    "subtitle": "subtitles.divinerpg.hover_stinger"
+  },
+  "hover_stinger_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/hover_stinger_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.hover_stinger_hurt"
+  },
+  "iceika_music": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/iceika_music",
+        "stream": true
+      }
+    ]
+  },
+  "iceika_portal_trigger": {
+    "sounds": [
+      "divinerpg:blocks/iceika_portal_trigger"
+    ],
+    "subtitle": "subtitles.divinerpg.iceika_portal_trigger"
+  },
+  "iceman": {
+    "sounds": [
+      "divinerpg:to_replace/iceman"
+    ],
+    "subtitle": "subtitles.divinerpg.iceman"
+  },
+  "iceman_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/iceman_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.iceman_hurt"
+  },
+  "inferno_bow_charge": {
+    "sounds": [
+      "divinerpg:items/inferno_bow_charge"
+    ],
+    "subtitle": "subtitles.divinerpg.inferno_bow_charge"
+  },
+  "inferno_bow_shoot": {
+    "sounds": [
+      "divinerpg:items/inferno_bow_shoot"
+    ],
+    "subtitle": "subtitles.divinerpg.inferno_bow_shoot"
+  },
+  "insect": {
+    "sounds": [
+      "divinerpg:to_replace/insect"
+    ],
+    "subtitle": "subtitles.divinerpg.insect"
+  },
+  "insect_fourteen_hurt": {
+    "sounds": [
+      "divinerpg:mobs/vethea/insect_fourteen_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.insect_fourteen_hurt"
+  },
+  "isolation": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/isolation",
+        "stream": true
+      }
+    ]
+  },
+  "jackoman": {
+    "sounds": [
+      "divinerpg:to_replace/jackoman"
+    ],
+    "subtitle": "subtitles.divinerpg.jackoman"
+  },
+  "jungle_spider": {
+    "sounds": [
+      "divinerpg:mobs/overworld/jungle_spider"
+    ],
+    "subtitle": "subtitles.divinerpg.jungle_spider"
+  },
+  "karos_intro": {
+    "sounds": [
+      "divinerpg:maybe_replace/karos_intro"
+    ],
+    "subtitle": "subtitles.divinerpg.karos_intro"
+  },
+  "karos_laugh": {
+    "sounds": [
+      "divinerpg:maybe_replace/karos_laugh"
+    ],
+    "subtitle": "subtitles.divinerpg.karos_laugh"
+  },
+  "kazrotic": {
+    "sounds": [
+      "divinerpg:maybe_replace/kazrotic"
+    ],
+    "subtitle": "subtitles.divinerpg.kazrotic"
+  },
+  "kazrotic_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/kazrotic_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.kazrotic_hurt"
+  },
+  "king_of_scorchers": {
+    "sounds": [
+      "divinerpg:mobs/boss/king_of_scorchers"
+    ],
+    "subtitle": "subtitles.divinerpg.king_of_scorchers"
+  },
+  "king_of_scorchers_hurt": {
+    "sounds": [
+      "divinerpg:mobs/boss/king_of_scorchers_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.king_of_scorchers_hurt"
+  },
+  "kobblin": {
+    "sounds": [
+      "divinerpg:to_replace/kobblin"
+    ],
+    "subtitle": "subtitles.divinerpg.kobblin"
+  },
+  "la_vekor": {
+    "sounds": [
+      "divinerpg:to_replace/la_vekor"
+    ],
+    "subtitle": "subtitles.divinerpg.la_vekor"
+  },
+  "lady_luna": {
+    "sounds": [
+      "divinerpg:maybe_replace/lady_luna1",
+      "divinerpg:maybe_replace/lady_luna2",
+      "divinerpg:maybe_replace/lady_luna3"
+    ],
+    "subtitle": "subtitles.divinerpg.lady_luna"
+  },
+  "lady_luna_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/lady_luna_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.lady_luna_hurt"
+  },
+  "lheiva": {
+    "sounds": [
+      "divinerpg:to_replace/lheiva"
+    ],
+    "subtitle": "subtitles.divinerpg.lheiva"
+  },
+  "lheiva_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/lheiva_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.lheiva_hurt"
+  },
+  "liopleurodon": {
+    "sounds": [
+      "divinerpg:mobs/overworld/liopleurodon"
+    ],
+    "subtitle": "subtitles.divinerpg.liopleurodon"
+  },
+  "liopleurodon_death": {
+    "sounds": [
+      "divinerpg:mobs/overworld/liopleurodon_death"
+    ],
+    "subtitle": "subtitles.divinerpg.liopleurodon_death"
+  },
+  "liopleurodon_hurt": {
+    "sounds": [
+      "divinerpg:mobs/overworld/liopleurodon_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.liopleurodon_hurt"
+  },
+  "livestock_merchant": {
+    "sounds": [
+      "divinerpg:to_replace/livestock_merchant"
+    ],
+    "subtitle": "subtitles.divinerpg.livestock_merchant"
+  },
+  "livestock_merchant_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/livestock_merchant_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.livestock_merchant_hurt"
+  },
+  "lorga": {
+    "sounds": [
+      "divinerpg:to_replace/lorga"
+    ],
+    "subtitle": "subtitles.divinerpg.lorga"
+  },
+  "lorga_flight": {
+    "sounds": [
+      "divinerpg:to_replace/lorga_flight"
+    ],
+    "subtitle": "subtitles.divinerpg.lorga_flight"
+  },
+  "lorga_flight_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/lorga_flight_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.lorga_flight_hurt"
+  },
+  "lorga_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/lorga_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.lorga_hurt"
+  },
+  "madivel": {
+    "sounds": [
+      "divinerpg:to_replace/madivel"
+    ],
+    "subtitle": "subtitles.divinerpg.madivel"
+  },
+  "madivel_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/madivel_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.madivel_hurt"
+  },
+  "mage_fire": {
+    "sounds": [
+      "divinerpg:to_replace/mage_fire"
+    ],
+    "subtitle": "subtitles.divinerpg.mage_fire"
+  },
+  "mandragora": {
+    "sounds": [
+      "divinerpg:to_replace/mandragora"
+    ],
+    "subtitle": "subtitles.divinerpg.mandragora"
+  },
+  "meet_doom": {
+    "sounds": [
+      "divinerpg:maybe_replace/meet_doom"
+    ],
+    "subtitle": "subtitles.divinerpg.meet_doom"
+  },
+  "megalith": {
+    "sounds": [
+      "divinerpg:to_replace/megalith"
+    ],
+    "subtitle": "subtitles.divinerpg.megalith"
+  },
+  "megalith_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/megalith_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.megalith_hurt"
+  },
+  "merchant": {
+    "sounds": [
+      "divinerpg:mobs/base/merchant_1",
+      "divinerpg:mobs/base/merchant_2",
+      "divinerpg:mobs/base/merchant_3"
+    ],
+    "subtitle": "subtitles.divinerpg.merchant"
+  },
+  "merchant_hurt": {
+    "sounds": [
+      "divinerpg:mobs/base/merchant_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.merchant_hurt"
+  },
+  "mortum_ambience": {
+    "sounds": [
+      {
+        "name": "divinerpg:ambience/mortum_ambience1",
+        "stream": true
+      }
+    ]
+  },
+  "mortum_mood": {
+    "sounds": [
+      {
+        "name": "divinerpg:ambience/mortum_ambience",
+        "stream": true
+      }
+    ]
+  },
+  "mucky": {
+    "sounds": [
+      "divinerpg:to_replace/mucky"
+    ],
+    "subtitle": "subtitles.divinerpg.mucky"
+  },
+  "nesro": {
+    "sounds": [
+      "divinerpg:to_replace/nesro"
+    ],
+    "subtitle": "subtitles.divinerpg.nesro"
+  },
+  "nesro_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/nesro_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.nesro_hurt"
+  },
+  "nobody_can_defeat": {
+    "sounds": [
+      "divinerpg:maybe_replace/nobody_can_defeat"
+    ],
+    "subtitle": "subtitles.divinerpg.nobody_can_defeat"
+  },
+  "parasecta": {
+    "sounds": [
+      "divinerpg:to_replace/parasecta"
+    ],
+    "subtitle": "subtitles.divinerpg.parasecta"
+  },
+  "parasecta_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/parasecta_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.parasecta_hurt"
+  },
+  "patchouli_flip": {
+    "sounds": [
+      "divinerpg:items/patchouli_flip"
+    ],
+    "subtitle": "subtitles.divinerpg.patchouli_flip"
+  },
+  "patchouli_open": {
+    "sounds": [
+      "divinerpg:items/patchouli_open"
+    ],
+    "subtitle": "subtitles.divinerpg.patchouli_open"
+  },
+  "phaser": {
+    "sounds": [
+      "divinerpg:to_replace/phaser"
+    ],
+    "subtitle": "subtitles.divinerpg.phaser"
+  },
+  "quadro_die_before": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_die_before"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_die_before"
+  },
+  "quadro_enough": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_enough"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_enough"
+  },
+  "quadro_incoming_punch": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_incoming_punch"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_incoming_punch"
+  },
+  "quadro_is_next": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_is_next"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_is_next"
+  },
+  "quadro_kill_mine": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_kill_mine"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_kill_mine"
+  },
+  "quadro_my_kill": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_my_kill"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_my_kill"
+  },
+  "quadro_no_die": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_no_die"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_no_die"
+  },
+  "quadro_sit_down": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_sit_down"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_sit_down"
+  },
+  "quadro_taste_fist": {
+    "sounds": [
+      "divinerpg:maybe_replace/quadro_taste_fist"
+    ],
+    "subtitle": "subtitles.divinerpg.quadro_taste_fist"
+  },
+  "raglok_avenge": {
+    "sounds": [
+      "divinerpg:maybe_replace/raglok_avenge"
+    ],
+    "subtitle": "subtitles.divinerpg.raglok_avenge"
+  },
+  "raglok_awaken": {
+    "sounds": [
+      "divinerpg:maybe_replace/raglok_awaken"
+    ],
+    "subtitle": "subtitles.divinerpg.raglok_awaken"
+  },
+  "raglok_dark": {
+    "sounds": [
+      "divinerpg:maybe_replace/raglok_dark"
+    ],
+    "subtitle": "subtitles.divinerpg.raglok_dark"
+  },
+  "raglok_guardian": {
+    "sounds": [
+      "divinerpg:maybe_replace/raglok_guardian"
+    ],
+    "subtitle": "subtitles.divinerpg.raglok_guardian"
+  },
+  "raglok_nothing": {
+    "sounds": [
+      "divinerpg:maybe_replace/raglok_nothing"
+    ],
+    "subtitle": "subtitles.divinerpg.raglok_nothing"
+  },
+  "raglok_rain": {
+    "sounds": [
+      "divinerpg:maybe_replace/raglok_rain"
+    ],
+    "subtitle": "subtitles.divinerpg.raglok_rain"
+  },
+  "rainbour": {
+    "sounds": [
+      "divinerpg:to_replace/rainbour"
+    ],
+    "subtitle": "subtitles.divinerpg.rainbour"
+  },
+  "rainbour_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/rainbour_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.rainbour_hurt"
+  },
+  "razorback": {
+    "sounds": [
+      "divinerpg:to_replace/razorback"
+    ],
+    "subtitle": "subtitles.divinerpg.razorback"
+  },
+  "razorback_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/razorback_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.razorback_hurt"
+  },
+  "red_stains_on_the_bluest_snow": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/red_stains_on_the_bluest_snow",
+        "stream": true
+      }
+    ]
+  },
+  "reflector": {
+    "sounds": [
+      "divinerpg:to_replace/reflector"
+    ],
+    "subtitle": "subtitles.divinerpg.reflector"
+  },
+  "reyvor": {
+    "sounds": [
+      "divinerpg:mobs/boss/reyvor"
+    ],
+    "subtitle": "subtitles.divinerpg.reyvor"
+  },
+  "reyvor_hurt": {
+    "sounds": [
+      "divinerpg:mobs/boss/reyvor_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.reyvor_hurt"
+  },
+  "rift_ambient": {
+    "sounds": [
+      "divinerpg:blocks/rift_ambient"
+    ],
+    "subtitle": "subtitles.divinerpg.rift_ambient"
+  },
+  "rift_close": {
+    "sounds": [
+      "divinerpg:blocks/rift_close"
+    ],
+    "subtitle": "subtitles.divinerpg.rift_close"
+  },
+  "rift_close_muffled": {
+    "sounds": [
+      "divinerpg:blocks/rift_close_muffled"
+    ],
+    "subtitle": "subtitles.divinerpg.rift_close_muffled"
+  },
+  "rift_instability": {
+    "sounds": [
+      "divinerpg:blocks/rift_instability"
+    ],
+    "subtitle": "subtitles.divinerpg.rift_instability"
+  },
+  "rift_open": {
+    "sounds": [
+      "divinerpg:blocks/rift_open"
+    ],
+    "subtitle": "subtitles.divinerpg.rift_open"
+  },
+  "rift_replenish": {
+    "sounds": [
+      "divinerpg:blocks/rift_replenish"
+    ],
+    "subtitle": "subtitles.divinerpg.rift_replenish"
+  },
+  "roamer": {
+    "sounds": [
+      "divinerpg:to_replace/roamer"
+    ],
+    "subtitle": "subtitles.divinerpg.roamer"
+  },
+  "roamer_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/roamer_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.roamer_hurt"
+  },
+  "roar": {
+    "sounds": [
+      "divinerpg:to_replace/roar"
+    ],
+    "subtitle": "subtitles.divinerpg.roar"
+  },
+  "rollum": {
+    "sounds": [
+      "divinerpg:to_replace/rollum"
+    ],
+    "subtitle": "subtitles.divinerpg.rollum"
+  },
+  "rollum_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/rollum_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.rollum_hurt"
+  },
+  "rotatick": {
+    "sounds": [
+      "divinerpg:to_replace/rotatick"
+    ],
+    "subtitle": "subtitles.divinerpg.rotatick"
+  },
+  "rotatick_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/rotatick_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.rotatick_hurt"
+  },
+  "saguaro_worm": {
+    "sounds": [
+      "divinerpg:to_replace/saguaro_worm"
+    ],
+    "subtitle": "subtitles.divinerpg.saguaro_worm"
+  },
+  "scorcher": {
+    "sounds": [
+      "divinerpg:mobs/nether/scorcher"
+    ],
+    "subtitle": "subtitles.divinerpg.scorcher"
+  },
+  "seng_ambient": {
+    "sounds": [
+      "divinerpg:mobs/iceika/seng_ambient"
+    ],
+    "subtitle": "subtitles.divinerpg.seng_ambient"
+  },
+  "seng_growl": {
+    "sounds": [
+      "divinerpg:mobs/iceika/seng_growl"
+    ],
+    "subtitle": "subtitles.divinerpg.seng_growl"
+  },
+  "seng_hurt": {
+    "sounds": [
+      "divinerpg:mobs/iceika/seng_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.seng_hurt"
+  },
+  "serenade": {
+    "sounds": [
+      "divinerpg:to_replace/serenade"
+    ],
+    "subtitle": "subtitles.divinerpg.serenade"
+  },
+  "shadahier": {
+    "sounds": [
+      "divinerpg:maybe_replace/shadahier"
+    ],
+    "subtitle": "subtitles.divinerpg.shadahier"
+  },
+  "shadahier_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/shadahier_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.shadahier_hurt"
+  },
+  "shadow_saber": {
+    "sounds": [
+      "divinerpg:to_replace/shadow_saber"
+    ],
+    "subtitle": "subtitles.divinerpg.shadow_saber"
+  },
+  "shark": {
+    "sounds": [
+      "divinerpg:maybe_replace/shark"
+    ],
+    "subtitle": "subtitles.divinerpg.shark"
+  },
+  "shark_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/shark_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.shark_hurt"
+  },
+  "skyre_ambient": {
+    "sounds": [
+      "divinerpg:mobs/arcana/skyre_ambient"
+    ],
+    "subtitle": "subtitles.divinerpg.skyre_ambient"
+  },
+  "skyre_die": {
+    "sounds": [
+      "divinerpg:mobs/arcana/skyre_die"
+    ],
+    "subtitle": "subtitles.divinerpg.skyre_die"
+  },
+  "skyre_shoot": {
+    "sounds": [
+      "divinerpg:mobs/arcana/skyre_shoot"
+    ],
+    "subtitle": "subtitles.divinerpg.skyre_shoot"
+  },
+  "skyre_spark": {
+    "sounds": [
+      "divinerpg:mobs/arcana/skyre_spark"
+    ],
+    "subtitle": "subtitles.divinerpg.skyre_spark"
+  },
+  "snap": {
+    "sounds": [
+      "divinerpg:items/snap"
+    ],
+    "subtitle": "subtitles.divinerpg.snap"
+  },
+  "snowflakes_after_blizzard": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/snowflakes_after_blizzard",
+        "stream": true
+      }
+    ]
+  },
+  "snowflakes_after_blizzard_synth": {
+    "sounds": [
+      {
+        "name": "divinerpg:music/snowflakes_after_blizzard_synth",
+        "stream": true
+      }
+    ]
+  },
+  "sound_of_carols": {
+    "sounds": [
+      "divinerpg:to_replace/sound_of_carols"
+    ],
+    "subtitle": "subtitles.divinerpg.sound_of_carols"
+  },
+  "sound_of_music": {
+    "sounds": [
+      "divinerpg:to_replace/sound_of_music"
+    ],
+    "subtitle": "subtitles.divinerpg.sound_of_music"
+  },
+  "sparkler": {
+    "sounds": [
+      "divinerpg:to_replace/sparkler"
+    ],
+    "subtitle": "subtitles.divinerpg.sparkler"
+  },
+  "staff": {
+    "sounds": [
+      "divinerpg:to_replace/staff"
+    ],
+    "subtitle": "subtitles.divinerpg.staff"
+  },
+  "starlight": {
+    "sounds": [
+      "divinerpg:to_replace/starlight"
+    ],
+    "subtitle": "subtitles.divinerpg.starlight"
+  },
+  "stop_at_once": {
+    "sounds": [
+      "divinerpg:maybe_replace/stop_at_once"
+    ],
+    "subtitle": "subtitles.divinerpg.stop_at_once"
+  },
+  "the_eye": {
+    "sounds": [
+      "divinerpg:to_replace/the_eye"
+    ],
+    "subtitle": "subtitles.divinerpg.the_eye"
+  },
+  "the_eye_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/the_eye_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.the_eye_hurt"
+  },
+  "tocaxin": {
+    "sounds": [
+      "divinerpg:maybe_replace/tocaxin"
+    ],
+    "subtitle": "subtitles.divinerpg.tocaxin"
+  },
+  "tocaxin_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/tocaxin_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.tocaxin_hurt"
+  },
+  "try_your_best": {
+    "sounds": [
+      "divinerpg:maybe_replace/try_your_best"
+    ],
+    "subtitle": "subtitles.divinerpg.try_your_best"
+  },
+  "verek": {
+    "sounds": [
+      "divinerpg:to_replace/verek"
+    ],
+    "subtitle": "subtitles.divinerpg.verek"
+  },
+  "verek_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/verek_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.verek_hurt"
+  },
+  "vermenous": {
+    "sounds": [
+      "divinerpg:to_replace/vermenous"
+    ],
+    "subtitle": "subtitles.divinerpg.vermenous"
+  },
+  "vermenous_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/vermenous_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.vermenous_hurt"
+  },
+  "vethea_bow": {
+    "sounds": [
+      "divinerpg:items/vethea_bow"
+    ],
+    "subtitle": "subtitles.divinerpg.vethea_bow"
+  },
+  "vethea_teleport": {
+    "sounds": [
+      "divinerpg:blocks/vethea_teleport"
+    ],
+    "subtitle": "subtitles.divinerpg.vethea_teleport"
+  },
+  "vhraak": {
+    "sounds": [
+      "divinerpg:maybe_replace/vhraak"
+    ],
+    "subtitle": "subtitles.divinerpg.vhraak"
+  },
+  "vhraak_hurt": {
+    "sounds": [
+      "divinerpg:maybe_replace/vhraak_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.vhraak_hurt"
+  },
+  "whale": {
+    "sounds": [
+      "divinerpg:to_replace/whale"
+    ],
+    "subtitle": "subtitles.divinerpg.whale"
+  },
+  "whale_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/whale_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.whale_hurt"
+  },
+  "wildfire": {
+    "sounds": [
+      "divinerpg:to_replace/wildfire"
+    ],
+    "subtitle": "subtitles.divinerpg.wildfire"
+  },
+  "wildfire_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/wildfire_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.wildfire_hurt"
+  },
+  "wraith": {
+    "sounds": [
+      "divinerpg:to_replace/wraith"
+    ],
+    "subtitle": "subtitles.divinerpg.wraith"
+  },
+  "wraith_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/wraith_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.wraith_hurt"
+  },
+  "wreck_intro": {
+    "sounds": [
+      "divinerpg:maybe_replace/wreck_intro"
+    ],
+    "subtitle": "subtitles.divinerpg.wreck_intro"
+  },
+  "wreck_speed": {
+    "sounds": [
+      "divinerpg:maybe_replace/wreck_speed"
+    ],
+    "subtitle": "subtitles.divinerpg.wreck_speed"
+  },
+  "wreck_strength": {
+    "sounds": [
+      "divinerpg:maybe_replace/wreck_strength"
+    ],
+    "subtitle": "subtitles.divinerpg.wreck_strength"
+  },
+  "you_cant_kill_me": {
+    "sounds": [
+      "divinerpg:maybe_replace/you_cant_kill_me"
+    ],
+    "subtitle": "subtitles.divinerpg.you_cant_kill_me"
+  },
+  "zone": {
+    "sounds": [
+      "divinerpg:to_replace/zone"
+    ],
+    "subtitle": "subtitles.divinerpg.zone"
+  },
+  "zone_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/zone_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.zone_hurt"
+  },
+  "zoragon": {
+    "sounds": [
+      "divinerpg:to_replace/zoragon"
+    ],
+    "subtitle": "subtitles.divinerpg.zoragon"
+  },
+  "zoragon_hurt": {
+    "sounds": [
+      "divinerpg:to_replace/zoragon_hurt"
+    ],
+    "subtitle": "subtitles.divinerpg.zoragon_hurt"
+  }
+}

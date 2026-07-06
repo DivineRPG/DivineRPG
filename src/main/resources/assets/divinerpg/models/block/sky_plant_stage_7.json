@@ -1,7 +1,0 @@
-{
-  "parent": "block/crop",
-  "render_type": "cutout",
-  "textures": {
-    "crop": "divinerpg:block/sky_plant_7"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "divinerpg:block/template_portal_ew",
-  "textures": {
-    "particle": "divinerpg:block/skythern_portal",
-    "portal": "divinerpg:block/skythern_portal"
-    }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_top_right",
-  "textures": {
-    "bottom": "divinerpg:block/eden_door_bottom",
-    "top": "divinerpg:block/eden_door_top"
-  }
-}

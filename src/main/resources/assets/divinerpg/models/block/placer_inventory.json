@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/arlemite_block",
-    "side": "divinerpg:block/placer_side",
-    "top": "divinerpg:block/placer_front"
-  }
-}

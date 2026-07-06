@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "render_type": "cutout",
-  "textures": {
-    "cross": "divinerpg:block/wildwood_tallgrass_top"
-  }
-}

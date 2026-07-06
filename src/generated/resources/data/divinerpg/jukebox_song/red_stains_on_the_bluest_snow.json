@@ -1,0 +1,10 @@
+{
+  "comparator_output": 10,
+  "description": {
+    "translate": "jukebox_song.divinerpg.red_stains"
+  },
+  "length_in_seconds": 120.0,
+  "sound_event": {
+    "sound_id": "divinerpg:red_stains_on_the_bluest_snow"
+  }
+}

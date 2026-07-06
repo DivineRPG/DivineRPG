@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:realmite"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:realmite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:realmite"
+      }
+    ]
+  }
+}

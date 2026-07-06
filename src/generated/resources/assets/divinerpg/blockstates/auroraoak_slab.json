@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/auroraoak_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/auroraoak_slab_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/auroraoak_slab_top"
+    }
+  }
+}

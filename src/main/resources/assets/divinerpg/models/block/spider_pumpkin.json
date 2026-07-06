@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "front": "divinerpg:block/spider_pumpkin_front",
-    "side": "divinerpg:block/spider_pumpkin_side",
-    "top": "divinerpg:block/spider_pumpkin_top"
-  }
-}

@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:vemos"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:vemos"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:vemos"
+      }
+    ]
+  }
+}

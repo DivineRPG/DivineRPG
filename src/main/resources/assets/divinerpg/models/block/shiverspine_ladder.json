@@ -1,7 +1,0 @@
-{
-  "parent": "divinerpg:block/template_ladder",
-  "textures": {
-  	"0": "divinerpg:block/shiverspine_ladder",
-  	"particle": "divinerpg:block/shiverspine_ladder"
-  }
-}

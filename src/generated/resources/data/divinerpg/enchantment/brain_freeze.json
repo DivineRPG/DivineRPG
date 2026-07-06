@@ -1,0 +1,20 @@
+{
+  "anvil_cost": 2,
+  "description": {
+    "translate": "enchantment.divinerpg.brain_freeze"
+  },
+  "max_cost": {
+    "base": 35,
+    "per_level_above_first": 9
+  },
+  "max_level": 2,
+  "min_cost": {
+    "base": 15,
+    "per_level_above_first": 9
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/weapon",
+  "weight": 5
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_bottom_left",
-  "textures": {
-    "bottom": "divinerpg:block/cozybark_door_bottom",
-    "top": "divinerpg:block/cozybark_door_top"
-  }
-}

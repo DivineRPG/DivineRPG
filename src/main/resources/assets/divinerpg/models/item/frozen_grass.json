@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/frozen_dirt",
-    "top": "divinerpg:block/frozen_grass_top",
-    "side": "divinerpg:block/frozen_grass_side"
-  }
-}

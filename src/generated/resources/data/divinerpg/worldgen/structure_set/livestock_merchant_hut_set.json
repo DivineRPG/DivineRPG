@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1234567890,
+    "separation": 8,
+    "spacing": 32
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:livestock_merchant_hut",
+      "weight": 1
+    }
+  ]
+}

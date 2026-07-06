@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "bottom": "divinerpg:block/mortum_dirt",
-    "top": "divinerpg:block/mortum_grass_top",
-    "side": "divinerpg:block/mortum_grass_side"
-  }
-}

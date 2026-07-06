@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:finished"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:finished"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:finished"
+      }
+    ]
+  }
+}

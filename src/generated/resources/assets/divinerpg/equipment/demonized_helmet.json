@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "divinerpg:demonized_helmet"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "divinerpg:demonized_helmet"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "divinerpg:demonized_helmet"
+      }
+    ]
+  }
+}

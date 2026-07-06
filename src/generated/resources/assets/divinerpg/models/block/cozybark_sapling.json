@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "divinerpg:block/cozybark_sapling"
+  }
+}

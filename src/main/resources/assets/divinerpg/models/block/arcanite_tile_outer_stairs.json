@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "side": "divinerpg:block/arcanite_tiles",
-    "top": "divinerpg:block/arcanite_tiles",
-    "bottom": "divinerpg:block/arcanite_tiles"
-  }
-}

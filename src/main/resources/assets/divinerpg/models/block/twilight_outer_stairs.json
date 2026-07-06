@@ -1,8 +1,0 @@
-{
-  "parent": "block/outer_stairs",
-  "textures": {
-    "side": "divinerpg:block/twilight_stone",
-    "top": "divinerpg:block/twilight_stone",
-    "bottom": "divinerpg:block/twilight_stone"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "multipart": [
-    {
-      "apply": {
-        "model": "divinerpg:block/reyvor_statue"
-      }
-    }
-  ]
-}
