@@ -125,7 +125,7 @@ dependencies {
 //    runtimeOnly "curse.maven:irons-spells-n-spellbooks-855414:${irons_spells_id}" //Iron's Spells 'n Spellbooks //TODO: compat
     //Farmer's Delight collection
     implementation "curse.maven:farmers-delight-398521:${farmers_delight_id}" //Farmer's Delight //TODO: figure out stackable soup, placeable pies + slices, crop blocks, update tags, etc.
-    compileOnly "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
+    implementation "curse.maven:brewin-and-chewin-637808:${brewin_and_chewin_id}" //Brewin' and Chewin' //TODO: fermenting recipes (liquids to pour, tar input)
     //MehVahdJukaar's collection
 //    runtimeOnly "curse.maven:amendments-896746:${amendments_id}" //Amendments //TODO: 3d fireballs
     runtimeOnly "curse.maven:every-compat-628539:${ec_wood_good_id}" //Every Compat: Wood Good //TODO: FD cabinet variant textures, Create window + pane variant textures

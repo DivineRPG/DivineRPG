@@ -69,6 +69,7 @@ public class ItemMaul extends ItemModSword {
         player.getCooldowns().addCooldown(this, COOLDOWN_TICKS);
         player.awardStat(ITEM_USED.get(this));
     }
+    //TODO: Mauls breaking shield block
     @Nullable
     private MaulSmashingRecipe findMatchingRecipe(RecipeManager recipeManager, ItemStack inputStack, Level level, BlockPos itemPos) {
         BlockState baseState = level.getBlockState(itemPos.below());
