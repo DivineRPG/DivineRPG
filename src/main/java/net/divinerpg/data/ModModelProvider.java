@@ -66,13 +66,16 @@ public class ModModelProvider extends ModelProvider {
 
         registerArcanaPortalFrame(gen, BlockRegistry.arcanaPortalFrame.get());
 
-        registerShieldModel(itemModels, ItemRegistry.apalachia_shield.get());
-
         for (var entry : DivineRegistries.ITEMS.getEntries()) {
             Item item = entry.get();
             if (registeredItems.contains(item)) continue;
             if (!(item instanceof BlockItem)) {
-                itemModels.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+                String path = BuiltInRegistries.ITEM.getKey(item).getPath();
+                if (path.contains("_sword") || path.contains("_pickaxe") || path.contains("_axe") || path.contains("_shovel") || path.contains("_hoe") || path.contains("_shickaxe") || path.contains("_maul") || path.contains("_backsword") || path.contains("_blade") || path.contains("_dagger") || path.contains("_saber") || path.contains("_hammer") || path.contains("_claw") || path.contains("_knife") || path.contains("_trident") || path.contains("aquaton") || path.contains("_stabber") || path.contains("_rapier") || path.contains("death_bringer") || path.contains("flaming_fury") || path.contains("_sabre") || path.contains("icicle_bane") || path.contains("enderice") || path.contains("_sandslash") || path.contains("_snowslash") || path.contains("everlight") || path.contains("_rockmaul") || path.contains("everbright") || path.contains("_anchor") || path.contains("sound_of_") || path.contains("_slicer") || path.contains("_disk") || path.contains("_dissipator") || path.contains("firefly") || path.contains("meriks_missile") || path.contains("scythe") || path.contains("_staff") || path.contains("captains_sparkler") || path.contains("starlight") || path.contains("meteor_mash") || path.contains("evernight") || path.contains("_phaser") || path.contains("_cannon") || path.contains("_blaster") || path.contains("eversight") || path.contains("palavence") || path.contains("massivence") || path.contains("frossivence") || path.contains("divine_accumulator") || path.contains("ender_scepter") || path.contains("staff_of_enrichment") || path.contains("arcanium_attractor") || path.contains("arcanium_reflector") || path.contains("terran_shifter")) {
+                    itemModels.generateFlatItem(item, FLAT_HANDHELD_ITEM);
+                } else {
+                    itemModels.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+                }
                 registeredItems.add(item);
             }
         }

@@ -17,9 +17,11 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Unit;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -595,70 +597,70 @@ public class ItemRegistry {
         heliosis_cannon      = register("heliosis_cannon"/*, () -> new VetheanCannon(9.3F, new Item.Properties().setId(key("heliosis_cannon")))*/),
         arksiane_cannon      = register("arksiane_cannon"/*, () -> new VetheanCannon(12, new Item.Properties().setId(key("arksiane_cannon")))*/),
         eversight            = register("eversight"/*, () -> new ItemRangedWeapon(TagRegistry.AMMO_VETHEAN_CANNON, ItemRegistry.acid::toStack, EntityRegistry.EVERSIGHT_SHOT::value, new Item.Properties().setId(key("eversight"))).withTooltip(LocalizeUtils.rangedDam(42)).withSound(SoundRegistry.BLITZ.get()).arcanaUse(10)*/),
-        realmite_shovel      = register("realmite_shovel"/*, () -> new ItemModShovel(ToolStats.REALMITE_SHOVEL, new Item.Properties().setId(key("realmite_shovel")))*/),
-        realmite_pickaxe     = register("realmite_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.REALMITE_PICKAXE, new Item.Properties().setId(key("realmite_pickaxe")))*/),
-        realmite_axe         = register("realmite_axe"/*, () -> new ItemModAxe(ToolStats.REALMITE_AXE, -3.1F, new Item.Properties().setId(key("realmite_axe")))*/),
-        realmite_hoe         = register("realmite_hoe"/*, () -> new ItemModHoe(ToolStats.REALMITE_HOE, -1, new Item.Properties().setId(key("realmite_hoe")))*/),
-        oxdrite_pickaxe   = register("oxdrite_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.OXDRITE_PICKAXE, new Item.Properties().setId(key("oxdrite_pickaxe")))*/),
-        arlemite_shovel   = register("arlemite_shovel"/*, () -> new ItemModShovel(ToolStats.ARLEMITE_SHOVEL, new Item.Properties().setId(key("arlemite_shovel")))*/),
-        arlemite_pickaxe  = register("arlemite_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.ARLEMITE_PICKAXE, new Item.Properties().setId(key("arlemite_pickaxe")))*/),
-        arlemite_axe      = register("arlemite_axe"/*, () -> new ItemModAxe(ToolStats.ARLEMITE_AXE, -3, new Item.Properties().setId(key("arlemite_axe")))*/),
-        arlemite_hoe      = register("arlemite_hoe"/*, () -> new ItemModHoe(ToolStats.ARLEMITE_HOE, 0, new Item.Properties().setId(key("arlemite_hoe")))*/),
-        arlemite_shickaxe = register("arlemite_shickaxe"/*, () -> new ItemShickaxe(ToolStats.ARLEMITE_SHICKAXE, new Item.Properties().setId(key("arlemite_shickaxe")))*/),
-        terran_shovel    = register("terran_shovel"/*, () -> new ItemModShovel(ToolStats.TERRAN_SHOVEL, new Item.Properties().setId(key("terran_shovel")))*/),
-        terran_pickaxe   = register("terran_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.TERRAN_PICKAXE, new Item.Properties().setId(key("terran_pickaxe")))*/),
-        terran_axe       = register("terran_axe"/*, () -> new ItemModAxe(ToolStats.TERRAN_AXE, -3, new Item.Properties().setId(key("terran_axe")))*/),
-        terran_hoe       = register("terran_hoe"/*, () -> new ItemModHoe(ToolStats.TERRAN_HOE, 0, new Item.Properties().setId(key("terran_hoe")))*/),
-        terran_shickaxe  = register("terran_shickaxe"/*, () -> new ItemShickaxe(ToolStats.TERRAN_SHICKAXE, new Item.Properties().setId(key("terran_shickaxe")))*/),
-        terran_shifter   = register("terran_shifter"/*, () -> new ItemShickaxe(ToolStats.TERRAN_SHIFTER, new Item.Properties().setId(key("terran_shifter")))*/),
-        rupee_shovel     = register("rupee_shovel"/*, () -> new ItemModShovel(ToolStats.RUPEE_SHOVEL, new Item.Properties().setId(key("rupee_shovel")))*/),
-        rupee_pickaxe    = register("rupee_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.RUPEE_PICKAXE, new Item.Properties().setId(key("rupee_pickaxe")))*/),
-        rupee_axe        = register("rupee_axe"/*, () -> new ItemModAxe(ToolStats.RUPEE_AXE, -3, new Item.Properties().setId(key("rupee_axe")))*/),
-        rupee_hoe        = register("rupee_hoe"/*, () -> new ItemModHoe(ToolStats.RUPEE_HOE, 0, new Item.Properties().setId(key("rupee_hoe")))*/),
-        rupee_shickaxe   = register("rupee_shickaxe"/*, () -> new ItemShickaxe(ToolStats.RUPEE_SHICKAXE, new Item.Properties().setId(key("rupee_shickaxe")))*/),
-        corrupted_shovel   = register("corrupted_shovel"/*, () -> new ItemModShovel(ToolStats.CORRUPTED_SHOVEL, new Item.Properties().setId(key("corrupted_shovel")))*/),
-        corrupted_pickaxe  = register("corrupted_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.CORRUPTED_PICKAXE, new Item.Properties().setId(key("corrupted_pickaxe")))*/),
-        corrupted_axe      = register("corrupted_axe"/*, () -> new ItemModAxe(ToolStats.CORRUPTED_AXE, -2.9F, new Item.Properties().setId(key("corrupted_axe")))*/),
-        corrupted_hoe      = register("corrupted_hoe"/*, () -> new ItemModHoe(ToolStats.CORRUPTED_HOE, 0, new Item.Properties().setId(key("corrupted_hoe")))*/),
-        corrupted_shickaxe = register("corrupted_shickaxe"/*, () -> new ItemShickaxe(ToolStats.CORRUPTED_SHICKAXE, new Item.Properties().setId(key("corrupted_shickaxe")))*/),
-        bedrock_shovel    = register("bedrock_shovel"/*, () -> new ItemModShovel(ToolStats.BEDROCK_SHOVEL, new Item.Properties().setId(key("bedrock_shovel")).fireResistant())*/),
-        bedrock_pickaxe   = register("bedrock_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.BEDROCK_PICKAXE, new Item.Properties().setId(key("bedrock_pickaxe")).fireResistant())*/),
-        bedrock_axe       = register("bedrock_axe"/*, () -> new ItemModAxe(ToolStats.BEDROCK_AXE, -2.9F, new Item.Properties().setId(key("bedrock_axe")).fireResistant())*/),
-        bedrock_hoe       = register("bedrock_hoe"/*, () -> new ItemModHoe(ToolStats.BEDROCK_HOE, 0, new Item.Properties().setId(key("bedrock_hoe")).fireResistant())*/),
-        divine_shovel    = register("divine_shovel"/*, () -> new ItemModShovel(ToolStats.DIVINE_SHOVEL, new Item.Properties().setId(key("divine_shovel")).rarity(RarityList.DIVINE))*/),
-        divine_pickaxe   = register("divine_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.DIVINE_PICKAXE, new Item.Properties().setId(key("divine_pickaxe")).rarity(RarityList.DIVINE))*/),
-        divine_axe       = register("divine_axe"/*, () -> new ItemModAxe(ToolStats.DIVINE_AXE, -2.9F, new Item.Properties().setId(key("divine_axe")).rarity(RarityList.DIVINE))*/),
-        divine_hoe       = register("divine_hoe"/*, () -> new ItemModHoe(ToolStats.DIVINE_HOE, 0, new Item.Properties().setId(key("divine_hoe")).rarity(RarityList.DIVINE))*/),
-        divine_shickaxe  = register("divine_shickaxe"/*, () -> new ItemShickaxe(ToolStats.DIVINE_SHICKAXE, new Item.Properties().setId(key("divine_shickaxe")).rarity(RarityList.DIVINE))*/),
-        eden_shovel      = register("eden_shovel"/*, () -> new ItemModShovel(ToolStats.EDEN_SHOVEL, new Item.Properties().setId(key("eden_shovel")).rarity(RarityList.EDEN))*/),
-        eden_pickaxe     = register("eden_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.EDEN_PICKAXE, new Item.Properties().setId(key("eden_pickaxe")).rarity(RarityList.EDEN))*/),
-        eden_axe         = register("eden_axe"/*, () -> new ItemModAxe(ToolStats.EDEN_AXE, -2.8F, new Item.Properties().setId(key("eden_axe")).rarity(RarityList.EDEN))*/),
-        eden_hoe         = register("eden_hoe"/*, () -> new ItemModHoe(ToolStats.EDEN_HOE, 0, new Item.Properties().setId(key("eden_hoe")).rarity(RarityList.EDEN))*/),
-        eden_shickaxe    = register("eden_shickaxe"/*, () -> new ItemShickaxe(ToolStats.EDEN_SHICKAXE, new Item.Properties().setId(key("eden_shickaxe")).rarity(RarityList.EDEN))*/),
-        wildwood_shovel    = register("wildwood_shovel"/*, () -> new ItemModShovel(ToolStats.WILDWOOD_SHOVEL, new Item.Properties().setId(key("wildwood_shovel")).rarity(RarityList.WILDWOOD))*/),
-        wildwood_pickaxe   = register("wildwood_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.WILDWOOD_PICKAXE, new Item.Properties().setId(key("wildwood_pickaxe")).rarity(RarityList.WILDWOOD))*/),
-        wildwood_axe       = register("wildwood_axe"/*, () -> new ItemModAxe(ToolStats.WILDWOOD_AXE, -2.8F, new Item.Properties().setId(key("wildwood_axe")).rarity(RarityList.WILDWOOD))*/),
-        wildwood_hoe       = register("wildwood_hoe"/*, () -> new ItemModHoe(ToolStats.WILDWOOD_HOE, 0, new Item.Properties().setId(key("wildwood_hoe")).rarity(RarityList.WILDWOOD))*/),
-        wildwood_shickaxe  = register("wildwood_shickaxe"/*, () -> new ItemShickaxe(ToolStats.WILDWOOD_SHICKAXE, new Item.Properties().setId(key("wildwood_shickaxe")).rarity(RarityList.WILDWOOD))*/),
-        apalachia_shovel   = register("apalachia_shovel"/*, () -> new ItemModShovel(ToolStats.APALACHIA_SHOVEL, new Item.Properties().setId(key("apalachia_shovel")).rarity(RarityList.APALACHIA))*/),
-        apalachia_pickaxe  = register("apalachia_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.APALACHIA_PICKAXE, new Item.Properties().setId(key("apalachia_pickaxe")).rarity(RarityList.APALACHIA))*/),
-        apalachia_axe      = register("apalachia_axe"/*, () -> new ItemModAxe(ToolStats.APALACHIA_AXE, -2.8F, new Item.Properties().setId(key("apalachia_axe")).rarity(RarityList.APALACHIA))*/),
-        apalachia_hoe      = register("apalachia_hoe"/*, () -> new ItemModHoe(ToolStats.APALACHIA_HOE, 0, new Item.Properties().setId(key("apalachia_hoe")).rarity(RarityList.APALACHIA))*/),
-        apalachia_shickaxe = register("apalachia_shickaxe"/*, () -> new ItemShickaxe(ToolStats.APALACHIA_SHICKAXE, new Item.Properties().setId(key("apalachia_shickaxe")).rarity(RarityList.APALACHIA))*/),
-        skythern_shovel    = register("skythern_shovel"/*, () -> new ItemModShovel(ToolStats.SKYTHERN_SHOVEL, new Item.Properties().setId(key("skythern_shovel")).rarity(RarityList.SKYTHERN))*/),
-        skythern_pickaxe   = register("skythern_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.SKYTHERN_PICKAXE, new Item.Properties().setId(key("skythern_pickaxe")).rarity(RarityList.SKYTHERN))*/),
-        skythern_axe       = register("skythern_axe"/*, () -> new ItemModAxe(ToolStats.SKYTHERN_AXE, -2.8F, new Item.Properties().setId(key("skythern_axe")).rarity(RarityList.SKYTHERN))*/),
-        skythern_hoe       = register("skythern_hoe"/*, () -> new ItemModHoe(ToolStats.SKYTHERN_HOE, 0, new Item.Properties().setId(key("skythern_hoe")).rarity(RarityList.SKYTHERN))*/),
-        skythern_shickaxe  = register("skythern_shickaxe"/*, () -> new ItemShickaxe(ToolStats.SKYTHERN_SHICKAXE, new Item.Properties().setId(key("skythern_shickaxe")).rarity(RarityList.SKYTHERN))*/),
-        mortum_shovel    = register("mortum_shovel"/*, () -> new ItemModShovel(ToolStats.MORTUM_SHOVEL, new Item.Properties().setId(key("mortum_shovel")).rarity(RarityList.MORTUM))*/),
-        mortum_pickaxe   = register("mortum_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.MORTUM_PICKAXE, new Item.Properties().setId(key("mortum_pickaxe")).rarity(RarityList.MORTUM))*/),
-        mortum_axe       = register("mortum_axe"/*, () -> new ItemModAxe(ToolStats.MORTUM_AXE, -2.8F, new Item.Properties().setId(key("mortum_axe")).rarity(RarityList.MORTUM))*/),
-        mortum_hoe       = register("mortum_hoe"/*, () -> new ItemModHoe(ToolStats.MORTUM_HOE, 0, new Item.Properties().setId(key("mortum_hoe")).rarity(RarityList.MORTUM))*/),
-        mortum_shickaxe  = register("mortum_shickaxe"/*, () -> new ItemShickaxe(ToolStats.MORTUM_SHICKAXE, new Item.Properties().setId(key("mortum_shickaxe")).rarity(RarityList.MORTUM))*/),
-        halite_shickaxe = register("halite_shickaxe"/*, () -> new ItemShickaxe(ToolStats.HALITE_SHICKAXE, new Item.Properties().setId(key("halite_shickaxe")).rarity(RarityList.HALITE))*/),
-        dream_shovel    = register("dream_shovel"/*, () -> new ItemModShovel(ToolStats.DREAM_SHOVEL, new Item.Properties().setId(key("dream_shovel")))*/),
-        dream_pickaxe   = register("dream_pickaxe"/*, () -> new ItemModPickaxe(ToolStats.DREAM_PICKAXE, new Item.Properties().setId(key("dream_pickaxe")))*/),
-        dream_axe       = register("dream_axe"/*, () -> new ItemModAxe(ToolStats.DREAM_AXE, -3.1F, new Item.Properties().setId(key("dream_axe")))*/),
+        realmite_shovel      = registerShovel("realmite_shovel", ToolStats.REALMITE_SHOVEL, Rarity.COMMON, false),
+        realmite_pickaxe     = registerPickaxe("realmite_pickaxe", ToolStats.REALMITE_PICKAXE, Rarity.COMMON, false),
+        realmite_axe         = registerAxe("realmite_axe", ToolStats.REALMITE_AXE, Rarity.COMMON, false),
+        realmite_hoe         = registerHoe("realmite_hoe", ToolStats.REALMITE_HOE, Rarity.COMMON, false),
+        oxdrite_pickaxe   = registerPickaxe("oxdrite_pickaxe", ToolStats.OXDRITE_PICKAXE, Rarity.COMMON, false),
+        arlemite_shovel   = registerShovel("arlemite_shovel", ToolStats.ARLEMITE_SHOVEL, Rarity.COMMON, false),
+        arlemite_pickaxe  = registerPickaxe("arlemite_pickaxe", ToolStats.ARLEMITE_PICKAXE, Rarity.COMMON, false),
+        arlemite_axe      = registerAxe("arlemite_axe", ToolStats.ARLEMITE_AXE, Rarity.COMMON, false),
+        arlemite_hoe      = registerHoe("arlemite_hoe", ToolStats.ARLEMITE_HOE, Rarity.COMMON, false),
+        arlemite_shickaxe = registerShickaxe("arlemite_shickaxe", ToolStats.ARLEMITE_SHICKAXE, Rarity.COMMON, false),
+        terran_shovel    = registerShovel("terran_shovel", ToolStats.TERRAN_SHOVEL, Rarity.COMMON, false),
+        terran_pickaxe   = registerPickaxe("terran_pickaxe", ToolStats.TERRAN_PICKAXE, Rarity.COMMON, false),
+        terran_axe       = registerAxe("terran_axe", ToolStats.TERRAN_AXE, Rarity.COMMON, false),
+        terran_hoe       = registerHoe("terran_hoe", ToolStats.TERRAN_HOE, Rarity.COMMON, false),
+        terran_shickaxe  = registerShickaxe("terran_shickaxe", ToolStats.TERRAN_SHICKAXE, Rarity.COMMON, false),
+        terran_shifter   = registerShickaxe("terran_shifter", ToolStats.TERRAN_SHIFTER, Rarity.COMMON, false),
+        rupee_shovel     = registerShovel("rupee_shovel", ToolStats.RUPEE_SHOVEL, Rarity.COMMON, false),
+        rupee_pickaxe    = registerPickaxe("rupee_pickaxe", ToolStats.RUPEE_PICKAXE, Rarity.COMMON, false),
+        rupee_axe        = registerAxe("rupee_axe", ToolStats.RUPEE_AXE, Rarity.COMMON, false),
+        rupee_hoe        = registerHoe("rupee_hoe", ToolStats.RUPEE_HOE, Rarity.COMMON, false),
+        rupee_shickaxe   = registerShickaxe("rupee_shickaxe", ToolStats.RUPEE_SHICKAXE, Rarity.COMMON, false),
+        corrupted_shovel   = registerShovel("corrupted_shovel", ToolStats.CORRUPTED_SHOVEL, Rarity.COMMON, false),
+        corrupted_pickaxe  = registerPickaxe("corrupted_pickaxe", ToolStats.CORRUPTED_PICKAXE, Rarity.COMMON, false),
+        corrupted_axe      = registerAxe("corrupted_axe", ToolStats.CORRUPTED_AXE, Rarity.COMMON, false),
+        corrupted_hoe      = registerHoe("corrupted_hoe", ToolStats.CORRUPTED_HOE, Rarity.COMMON, false),
+        corrupted_shickaxe = registerShickaxe("corrupted_shickaxe", ToolStats.CORRUPTED_SHICKAXE, Rarity.COMMON, false),
+        bedrock_shovel    = registerShovel("bedrock_shovel", ToolStats.BEDROCK_SHOVEL, Rarity.COMMON, true),
+        bedrock_pickaxe   = registerPickaxe("bedrock_pickaxe", ToolStats.BEDROCK_PICKAXE, Rarity.COMMON, true),
+        bedrock_axe       = registerAxe("bedrock_axe", ToolStats.BEDROCK_AXE, Rarity.COMMON, true),
+        bedrock_hoe       = registerHoe("bedrock_hoe", ToolStats.BEDROCK_HOE, Rarity.COMMON, true),
+        divine_shovel    = registerShovel("divine_shovel", ToolStats.DIVINE_SHOVEL, Rarity.COMMON, false),
+        divine_pickaxe   = registerPickaxe("divine_pickaxe", ToolStats.DIVINE_PICKAXE, Rarity.COMMON, false),
+        divine_axe       = registerAxe("divine_axe", ToolStats.DIVINE_AXE, Rarity.COMMON, false),
+        divine_hoe       = registerHoe("divine_hoe", ToolStats.DIVINE_HOE, Rarity.COMMON, false),
+        divine_shickaxe  = registerShickaxe("divine_shickaxe", ToolStats.DIVINE_SHICKAXE, Rarity.COMMON, false),
+        eden_shovel      = registerShovel("eden_shovel", ToolStats.EDEN_SHOVEL, Rarity.COMMON, false),
+        eden_pickaxe     = registerPickaxe("eden_pickaxe", ToolStats.EDEN_PICKAXE, Rarity.COMMON, false),
+        eden_axe         = registerAxe("eden_axe", ToolStats.EDEN_AXE, Rarity.COMMON, false),
+        eden_hoe         = registerHoe("eden_hoe", ToolStats.EDEN_HOE, Rarity.COMMON, false),
+        eden_shickaxe    = registerShickaxe("eden_shickaxe", ToolStats.EDEN_SHICKAXE, Rarity.COMMON, false),
+        wildwood_shovel    = registerShovel("wildwood_shovel", ToolStats.WILDWOOD_SHOVEL, Rarity.COMMON, false),
+        wildwood_pickaxe   = registerPickaxe("wildwood_pickaxe", ToolStats.WILDWOOD_PICKAXE, Rarity.COMMON, false),
+        wildwood_axe       = registerAxe("wildwood_axe", ToolStats.WILDWOOD_AXE, Rarity.COMMON, false),
+        wildwood_hoe       = registerHoe("wildwood_hoe", ToolStats.WILDWOOD_HOE, Rarity.COMMON, false),
+        wildwood_shickaxe  = registerShickaxe("wildwood_shickaxe", ToolStats.WILDWOOD_SHICKAXE, Rarity.COMMON, false),
+        apalachia_shovel   = registerShovel("apalachia_shovel", ToolStats.APALACHIA_SHOVEL, Rarity.COMMON, false),
+        apalachia_pickaxe  = registerPickaxe("apalachia_pickaxe", ToolStats.APALACHIA_PICKAXE, Rarity.COMMON, false),
+        apalachia_axe      = registerAxe("apalachia_axe", ToolStats.APALACHIA_AXE, Rarity.COMMON, false),
+        apalachia_hoe      = registerHoe("apalachia_hoe", ToolStats.APALACHIA_HOE, Rarity.COMMON, false),
+        apalachia_shickaxe = registerShickaxe("apalachia_shickaxe", ToolStats.APALACHIA_SHICKAXE, Rarity.COMMON, false),
+        skythern_shovel    = registerShovel("skythern_shovel", ToolStats.SKYTHERN_SHOVEL, Rarity.COMMON, false),
+        skythern_pickaxe   = registerPickaxe("skythern_pickaxe", ToolStats.SKYTHERN_PICKAXE, Rarity.COMMON, false),
+        skythern_axe       = registerAxe("skythern_axe", ToolStats.SKYTHERN_AXE, Rarity.COMMON, false),
+        skythern_hoe       = registerHoe("skythern_hoe", ToolStats.SKYTHERN_HOE, Rarity.COMMON, false),
+        skythern_shickaxe  = registerShickaxe("skythern_shickaxe", ToolStats.SKYTHERN_SHICKAXE, Rarity.COMMON, false),
+        mortum_shovel    = registerShovel("mortum_shovel", ToolStats.MORTUM_SHOVEL, Rarity.COMMON, false),
+        mortum_pickaxe   = registerPickaxe("mortum_pickaxe", ToolStats.MORTUM_PICKAXE, Rarity.COMMON, false),
+        mortum_axe       = registerAxe("mortum_axe", ToolStats.MORTUM_AXE, Rarity.COMMON, false),
+        mortum_hoe       = registerHoe("mortum_hoe", ToolStats.MORTUM_HOE, Rarity.COMMON, false),
+        mortum_shickaxe  = registerShickaxe("mortum_shickaxe", ToolStats.MORTUM_SHICKAXE, Rarity.COMMON, false),
+        halite_shickaxe = registerShickaxe("halite_shickaxe", ToolStats.HALITE_SHICKAXE, Rarity.COMMON, false),
+        dream_shovel    = registerShovel("dream_shovel", ToolStats.DREAM_SHOVEL, Rarity.COMMON, false),
+        dream_pickaxe   = registerPickaxe("dream_pickaxe", ToolStats.DREAM_PICKAXE, Rarity.COMMON, false),
+        dream_axe       = registerAxe("dream_axe", ToolStats.DREAM_AXE, Rarity.COMMON, false),
         nightmare_bed = register("nightmare_bed"/*, () -> /* new ItemNightmareBed(new Item.Properties().setId(key("nightmare_bed"))) */),
         divine_sign            = register("divine_sign"/*, () -> new DivineSign(BlockRegistry.divineSign.get(), BlockRegistry.divineWallSign.get(), new Item.Properties().setId(key("divine_sign")))*/),
         divine_hanging_sign    = register("divine_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.divineHangingSign.get(), BlockRegistry.divineHangingWallSign.get(), new Item.Properties().setId(key("divine_hanging_sign")))*/),
@@ -813,10 +815,10 @@ public class ItemRegistry {
     public static final DeferredItem<Item> CORRUPTED_LEGGINGS = ITEMS.registerItem("corrupted_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.LEGGINGS).stacksTo(1)));
     public static final DeferredItem<Item> CORRUPTED_BOOTS = ITEMS.registerItem("corrupted_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> BEDROCK_HELMET = ITEMS.registerItem("bedrock_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.HELMET).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> BEDROCK_CHESTPLATE = ITEMS.registerItem("bedrock_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.CHESTPLATE).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> BEDROCK_LEGGINGS = ITEMS.registerItem("bedrock_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.LEGGINGS).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> BEDROCK_BOOTS = ITEMS.registerItem("bedrock_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.BOOTS).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> BEDROCK_HELMET = ITEMS.registerItem("bedrock_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.HELMET).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> BEDROCK_CHESTPLATE = ITEMS.registerItem("bedrock_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.CHESTPLATE).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> BEDROCK_LEGGINGS = ITEMS.registerItem("bedrock_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.LEGGINGS).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> BEDROCK_BOOTS = ITEMS.registerItem("bedrock_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.BOOTS).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
 
     public static final DeferredItem<Item> KORMA_HELMET = ITEMS.registerItem("korma_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.HELMET).stacksTo(1)));
     public static final DeferredItem<Item> KORMA_CHESTPLATE = ITEMS.registerItem("korma_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.CHESTPLATE).stacksTo(1)));
@@ -888,15 +890,15 @@ public class ItemRegistry {
     public static final DeferredItem<Item> MORTUM_LEGGINGS = ITEMS.registerItem("mortum_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.LEGGINGS).stacksTo(1)));
     public static final DeferredItem<Item> MORTUM_BOOTS = ITEMS.registerItem("mortum_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> HALITE_HELMET = ITEMS.registerItem("halite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> HALITE_CHESTPLATE = ITEMS.registerItem("halite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> HALITE_LEGGINGS = ITEMS.registerItem("halite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> HALITE_BOOTS = ITEMS.registerItem("halite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> HALITE_HELMET = ITEMS.registerItem("halite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.HELMET).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> HALITE_CHESTPLATE = ITEMS.registerItem("halite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.CHESTPLATE).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> HALITE_LEGGINGS = ITEMS.registerItem("halite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.LEGGINGS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> HALITE_BOOTS = ITEMS.registerItem("halite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.BOOTS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
 
-    public static final DeferredItem<Item> AWAKENED_HALITE_HELMET = ITEMS.registerItem("awakened_halite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> AWAKENED_HALITE_CHESTPLATE = ITEMS.registerItem("awakened_halite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> AWAKENED_HALITE_LEGGINGS = ITEMS.registerItem("awakened_halite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> AWAKENED_HALITE_BOOTS = ITEMS.registerItem("awakened_halite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> AWAKENED_HALITE_HELMET = ITEMS.registerItem("awakened_halite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.HELMET).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> AWAKENED_HALITE_CHESTPLATE = ITEMS.registerItem("awakened_halite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.CHESTPLATE).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> AWAKENED_HALITE_LEGGINGS = ITEMS.registerItem("awakened_halite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.LEGGINGS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> AWAKENED_HALITE_BOOTS = ITEMS.registerItem("awakened_halite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.BOOTS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
 
     public static final DeferredItem<Item> DEGRADED_HELMET = ITEMS.registerItem("degraded_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.HELMET).stacksTo(1)));
     public static final DeferredItem<Item> DEGRADED_HOOD = ITEMS.registerItem("degraded_hood", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.HELMET).stacksTo(1)));
@@ -938,8 +940,7 @@ public class ItemRegistry {
     }
 
     private static DeferredItem<Item> register(String name, Function<Item.Properties, Item> factory) {
-        return ITEMS.register(name, () -> factory.apply(
-                new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))));
+        return ITEMS.register(name, () -> factory.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))));
     }
 
     private static DeferredItem<Item> registerSeed(String name, Supplier<Block> block) {
@@ -963,10 +964,83 @@ public class ItemRegistry {
         return register(name); //Placeholder until the tool classes are registered
     }
 
+    private static DeferredItem<Item> registerAxe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            props.axe(stats.getMaterial(), 1.0F, -2.4F);
+            return new Item(props);});
+    }
+
+    private static DeferredItem<Item> registerAxe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            props.axe(stats.getMaterial(), 1.0F, -2.4F);
+            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+    }
+
+    private static DeferredItem<Item> registerHoe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            props.hoe(stats.getMaterial(), 1.0F, -2.4F);
+            return new Item(props);});
+    }
+
+    private static DeferredItem<Item> registerHoe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            props.hoe(stats.getMaterial(), 1.0F, -2.4F);
+            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+    }
+
+    private static DeferredItem<Item> registerPickaxe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            props.pickaxe(stats.getMaterial(), 1.0F, -2.4F);
+            return new Item(props);});
+    }
+
+    private static DeferredItem<Item> registerPickaxe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            props.pickaxe(stats.getMaterial(), 1.0F, -2.4F);
+            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+    }
+
+    private static DeferredItem<Item> registerShovel(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            props.shovel(stats.getMaterial(), 1.0F, -2.4F);
+            return new Item(props);});
+    }
+
+    private static DeferredItem<Item> registerShovel(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            props.shovel(stats.getMaterial(), 1.0F, -2.4F);
+            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+    }
+
     private static DeferredItem<Item> registerSword(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
         return ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             props.sword(stats.getMaterial(), 1.0F, -2.4F);
             return new Item(props);});
     }
@@ -975,14 +1049,32 @@ public class ItemRegistry {
         return ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             props.sword(stats.getMaterial(), 1.0F, -2.4F);
             return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+    }
+
+    private static DeferredItem<Item> registerShickaxe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            return new ItemShickaxe(stats, props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)) : super.getName(stack);}};});
+    }
+
+    private static DeferredItem<Item> registerShickaxe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
+        return ITEMS.register(name, () -> {
+            Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
+            if (fireResistant) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            return new ItemShickaxe(stats, props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
     }
 
     private static DeferredItem<Item> registerMaul(String name, ToolStats stats, Rarity rarity, boolean fire) {
         return ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fire) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             props.sword(stats.getMaterial(), 1.0F, -2.4F);
             return new ItemMaul(stats.getMaterial(), props);});
     }
@@ -991,6 +1083,7 @@ public class ItemRegistry {
         return ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fire) props.fireResistant();
+            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             props.sword(stats.getMaterial(), 1.0F, -2.4F);
             return new ItemMaul(stats.getMaterial(), props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
     }
@@ -1006,6 +1099,7 @@ public class ItemRegistry {
                     .equippableUnswappable(EquipmentSlot.OFFHAND)
                     .delayedComponent(DataComponents.BLOCKS_ATTACKS, context -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
                     .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK);
+            if(durability == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             return new ShieldItem(props);
         });
     }
@@ -1020,6 +1114,7 @@ public class ItemRegistry {
                     .equippableUnswappable(EquipmentSlot.OFFHAND)
                     .delayedComponent(DataComponents.BLOCKS_ATTACKS, context -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
                     .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK);
+            if(durability == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             return new ShieldItem(props){@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};
         });
     }
@@ -1034,7 +1129,7 @@ public class ItemRegistry {
                     .equippableUnswappable(EquipmentSlot.OFFHAND)
                     .delayedComponent(DataComponents.BLOCKS_ATTACKS, context -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
                     .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK);
-
+            if(durability == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             return new ShieldItem(props);
         });
     }
