@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shadow_gem": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:gems/shadow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_soulfire_gem": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:gems/soulfire"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:crafting_shaped/angelic_boots"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_shadow_gem",
+      "has_soulfire_gem"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:crafting_shaped/angelic_boots"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:cobaltite",
+  "result": {
+    "id": "divinerpg:cobaltite_stairs"
+  }
+}

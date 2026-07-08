@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.7,
+  "group": "arlemite",
+  "ingredient": "divinerpg:arlemite_ore",
+  "result": {
+    "id": "divinerpg:arlemite_ingot"
+  }
+}

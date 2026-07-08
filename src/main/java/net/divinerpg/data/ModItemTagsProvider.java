@@ -56,6 +56,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             tag(commonTag("ores/bloodgem")).add(BlockRegistry.bloodgemOre.asItem().builtInRegistryHolder().getKey());
             tag(commonTag("ores")).addTags(commonTag("ores/arlemite"), commonTag("ores/rupee"), commonTag("ores/bloodgem"), commonTag("ores/realmite"), commonTag("ores/torridite"));
 
+            tag(commonTag("foods")).addTags(commonTag("foods/white_mushroom"));
+            tag(commonTag("foods/white_mushroom")).add(ItemRegistry.white_mushroom.getKey());
+
             tag(TagRegistry.REPAIR_REALMITE).add(ItemRegistry.realmite_ingot.getKey());
             tag(TagRegistry.REPAIR_ARLEMITE).add(ItemRegistry.arlemite_ingot.getKey());
             tag(TagRegistry.REPAIR_RUPEE).add(ItemRegistry.rupee_ingot.getKey());

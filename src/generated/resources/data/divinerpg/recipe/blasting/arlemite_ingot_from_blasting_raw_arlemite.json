@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.7,
+  "group": "arlemite",
+  "ingredient": "divinerpg:raw_arlemite",
+  "result": {
+    "id": "divinerpg:arlemite_ingot"
+  }
+}
