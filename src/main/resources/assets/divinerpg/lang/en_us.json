@@ -131,8 +131,8 @@
   "block.everycomp.c.divinerpg.divine_window": "Divine Window",
   "block.everycomp.c.divinerpg.divine_window_pane": "Divine Window Pane",
 
-  "block.divinerpg.tomato_plant": "Tomato Plant",
-  "block.divinerpg.white_mushroom_plant": "White Mushroom",
+  "block.divinerpg.tomato_plant": "Tomatoes",
+  "block.divinerpg.white_mushroom_plant": "White Mushrooms",
 
   "block.divinerpg.plank_design": "Plank Design",
   "block.divinerpg.stair_design": "Stair Design",
@@ -291,11 +291,11 @@
   "block.divinerpg.cut_oxdrite_pressure_plate": "Cut Oxdrite Pressure Plate",
   "block.divinerpg.cut_oxdrite_button": "Cut Oxdrite Button",
 
-  "block.divinerpg.red_candy_cane": "Red Candy Cane",
-  "block.divinerpg.yellow_candy_cane": "Yellow Candy Cane",
-  "block.divinerpg.green_candy_cane": "Green Candy Cane",
-  "block.divinerpg.blue_candy_cane": "Blue Candy Cane",
-  "block.divinerpg.pink_candy_cane": "Pink Candy Cane",
+  "block.divinerpg.red_candy_cane": "Red Glazed Sugar Block",
+  "block.divinerpg.yellow_candy_cane": "Yellow Glazed Sugar Block",
+  "block.divinerpg.green_candy_cane": "Green Glazed Sugar Block",
+  "block.divinerpg.blue_candy_cane": "Blue Glazed Sugar Block",
+  "block.divinerpg.pink_candy_cane": "Pink Glazed Sugar Block",
 
   "block.divinerpg.red_fairy_lights": "Red Fairy Lights",
   "block.divinerpg.yellow_fairy_lights": "Yellow Fairy Lights",
@@ -459,15 +459,15 @@
   "block.divinerpg.gem_of_the_dunes": "Gem of the Dunes",
   "block.divinerpg.gem_of_the_dunes_pot": "Potted Gem of the Dunes",
 
-  "block.divinerpg.aquamarine_plant": "Aquamarine Plant",
-  "block.divinerpg.firestock_plant": "Firestock Plant",
-  "block.divinerpg.hitchak_plant": "Hitchak Plant",
-  "block.divinerpg.lamona_plant": "Lamona Plant",
-  "block.divinerpg.marsine_plant": "Marsine Plant",
-  "block.divinerpg.pinfly_plant": "Pinfly Plant",
-  "block.divinerpg.veilo_plant": "Veilo Plant",
+  "block.divinerpg.aquamarine_plant": "Aquamarines",
+  "block.divinerpg.firestock_plant": "Firestocks",
+  "block.divinerpg.hitchak_plant": "Hitchak",
+  "block.divinerpg.lamona_plant": "Lamonae",
+  "block.divinerpg.marsine_plant": "Marsines",
+  "block.divinerpg.pinfly_plant": "Pinflies",
+  "block.divinerpg.veilo_plant": "Veilos",
 
-  "block.divinerpg.eucalyptus_plant": "Eucalyptus Plant",
+  "block.divinerpg.eucalyptus_plant": "Eucalyptus Sprouts",
   "block.divinerpg.eucalyptus_log": "Eucalyptus Log",
   "block.divinerpg.eucalyptus_wood": "Eucalyptus Wood",
   "block.divinerpg.stripped_eucalyptus_log": "Stripped Eucalyptus Log",
@@ -707,8 +707,8 @@
   "block.everycomp.c.divinerpg.wildwood_window": "Wildwood Window",
   "block.everycomp.c.divinerpg.wildwood_window_pane": "Wildwood Window Pane",
 
+  "block.divinerpg.moonbulb_plant": "Moonbulbs",
   "block.divinerpg.moonlight_fern": "Moonlight Fern",
-  "block.divinerpg.moonbulb_plant": "Moonbulb Plant",
   "block.divinerpg.moonlight_fern_pot": "Potted Moonlight Fern",
   "block.divinerpg.moon_bud": "Moon Bud",
   "block.divinerpg.moon_bud_pot": "Potted Moon Bud",
@@ -748,8 +748,8 @@
   "block.everycomp.c.divinerpg.apalachia_window": "Apalachia Window",
   "block.everycomp.c.divinerpg.apalachia_window_pane": "Apalachia Window Pane",
 
-  "block.divinerpg.purple_glowbone_plant": "Purple Glowbone Plant",
-  "block.divinerpg.pink_glowbone_plant": "Pink Glowbone Plant",
+  "block.divinerpg.purple_glowbone_plant": "Purple Glowbones",
+  "block.divinerpg.pink_glowbone_plant": "Pink Glowbones",
   "block.divinerpg.dusk_bloom": "Dusk Bloom",
   "block.divinerpg.dusk_bloom_pot": "Potted Dusk Bloom",
   "block.divinerpg.dusk_flower": "Dusk Flower",
@@ -958,11 +958,6 @@
   "item.minecraft.lingering_potion.effect.warmth": "Lingering Potion of Warmth",
   "item.minecraft.tipped_arrow.effect.warmth": "Arrow of Warmth",
 
-  "item.minecraft.potion.effect.long_warmth": "Potion of Warmth",
-  "item.minecraft.splash_potion.effect.long_warmth": "Splash Potion of Warmth",
-  "item.minecraft.lingering_potion.effect.long_warmth": "Lingering Potion of Warmth",
-  "item.minecraft.tipped_arrow.effect.long_warmth": "Arrow of Warmth",
-
   "item.divinerpg.potion.red_cattle": "Red Cattle",
 
   "item.divinerpg.potion.wreck_potion": "Wreck Potion",
@@ -1013,6 +1008,7 @@
   "item.divinerpg.liopleurodon_teeth": "Liopleurodon Teeth",
   "item.divinerpg.liopleurodon_anchor": "Liopleurodon Anchor",
   "entity.divinerpg.liopleurodon_anchor_shot": "Liopleurodon Anchor Shot",
+
   "item.divinerpg.aquatooth_sword": "Aquatooth Sword",
   "item.divinerpg.aquatooth_maul": "Aquatooth Maul",
 
@@ -2645,7 +2641,7 @@
   "tag.item.divinerpg.seeds.sky_plant": "Sky Plant Seeds",
 
   "tag.block.divinerpg.bedrock_grinding_base": "Bedrock Grinding Base",
-  "tag.block.divinerpg.candy_canes": "DivineRPG Candy Canes",
+  "tag.block.divinerpg.candy_canes": "DivineRPG Glazed Sugar Blocks",
   "tag.block.divinerpg.colored_bricks": "DivineRPG Colored Bricks",
   "tag.block.divinerpg.crops": "DivineRPG Crops",
   "tag.block.divinerpg.obsidians.crying": "DivineRPG Crying Obsidians",
