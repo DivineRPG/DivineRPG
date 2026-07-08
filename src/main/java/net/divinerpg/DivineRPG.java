@@ -38,4 +38,5 @@ public class DivineRPG {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
     }
+
 }
