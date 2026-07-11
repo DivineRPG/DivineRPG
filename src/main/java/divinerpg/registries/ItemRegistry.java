@@ -10,7 +10,6 @@ import divinerpg.items.iceika.*;
 import divinerpg.items.ranged.*;
 import divinerpg.items.ranged.shooter.*;
 import divinerpg.items.ranged.staffs.*;
-import divinerpg.items.twilight.*;
 import divinerpg.items.vanilla.*;
 import divinerpg.items.ranged.arrows.*;
 import divinerpg.items.ranged.bows.*;
@@ -336,7 +335,7 @@ public class ItemRegistry {
 
         //Igniters
         snow_globe = registerTool("snow_globe", ItemSnowGlobe::new),
-        frozen_clock = registerTool("frozen_clock", ItemFrozenClock::new),
+        frozen_clock = registerTool("frozen_clock", () -> new ItemMod(new Properties().component(DataComponentRegistry.variant, (byte)0))),
 
         //Boss Summons
         mysterious_clock = registerTool("mysterious_clock", () -> new ItemBossSpawner("item.overworld_only", Level.OVERWORLD, EntityRegistry.ANCIENT_ENTITY::get)),

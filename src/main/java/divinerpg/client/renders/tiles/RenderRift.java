@@ -14,6 +14,7 @@ import static divinerpg.DivineRPG.MODID;
 public class RenderRift implements BlockEntityRenderer<RiftBlockEntity> {
     BlockEntityRenderDispatcher dispatcher;
     static final RenderType
+        overworld = RenderType.entityTranslucentCull(ResourceLocation.fromNamespaceAndPath(MODID, "textures/block/overworld_rift_full.png")),
         eden = RenderType.entityTranslucentCull(ResourceLocation.fromNamespaceAndPath(MODID, "textures/block/eden_rift_full.png")),
         wildwood = RenderType.entityTranslucentCull(ResourceLocation.fromNamespaceAndPath(MODID, "textures/block/wildwood_rift_full.png")),
         apalachia = RenderType.entityTranslucentCull(ResourceLocation.fromNamespaceAndPath(MODID, "textures/block/apalachia_rift_full.png")),
@@ -41,7 +42,8 @@ public class RenderRift implements BlockEntityRenderer<RiftBlockEntity> {
             case 2 -> wildwood;
             case 3 -> apalachia;
             case 4 -> skythern;
-            default -> mortum;
+            case 5 -> mortum;
+            default -> overworld;
         });
         if((riftBlockEntity.variant & 0b10000) == 0b10000 ) {
             switch(Mth.floor(Math.random() * 5D)) {

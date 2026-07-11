@@ -1,6 +1,8 @@
 package divinerpg.blocks.twilight;
 
 import divinerpg.DivineRPG;
+import divinerpg.blocks.base.PortalBlock;
+import divinerpg.registries.*;
 import divinerpg.util.Utils;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
@@ -14,29 +16,30 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class DivineFlame extends TwilightFire {
+public class DivineFlame extends PortalFire {
     public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/ritual_or_not");
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
         if(entity instanceof Player p) {
             var lookup = level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
-            int cursesRemoed = removeCurses(lookup, p, EquipmentSlot.HEAD) +
+            int cursesRemoved = removeCurses(lookup, p, EquipmentSlot.HEAD) +
                               removeCurses(lookup, p, EquipmentSlot.CHEST) +
                               removeCurses(lookup, p, EquipmentSlot.LEGS) +
                               removeCurses(lookup, p, EquipmentSlot.FEET) +
                               removeCurses(lookup, p, EquipmentSlot.MAINHAND) +
                               removeCurses(lookup, p, EquipmentSlot.OFFHAND);
-            if(cursesRemoed > 0) {
-                p.hurt(level.damageSources().magic(), cursesRemoed * 4);
+            if(cursesRemoved > 0) {
+                p.hurt(level.damageSources().magic(), cursesRemoved * 4);
                 p.playSound(SoundEvents.SCULK_SHRIEKER_SHRIEK, .6F, 0.7F);
                 p.playSound(SoundEvents.TRIDENT_THUNDER.value(), 1F, 0.5F);
                 if(level instanceof ServerLevel s) {
-                    s.sendParticles(ParticleTypes.LARGE_SMOKE, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 7 * cursesRemoed, .5, .5, .5, 0);
-                    s.sendParticles(ParticleTypes.SOUL, p.getX(), p.getEyeY(), p.getZ(), 7 * cursesRemoed, .25, .25, .25, 0);
+                    s.sendParticles(ParticleTypes.LARGE_SMOKE, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 7 * cursesRemoved, .5, .5, .5, 0);
+                    s.sendParticles(ParticleTypes.SOUL, p.getX(), p.getEyeY(), p.getZ(), 7 * cursesRemoved, .25, .25, .25, 0);
                     Utils.awardAdvancement(s.getServer(), (ServerPlayer) p, ADVANCEMENT, "remove_curse");
                 } level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
             }
@@ -51,5 +54,11 @@ public class DivineFlame extends TwilightFire {
             p.setItemSlot(slot, stack);
             return 1;
         } return 0;
+    }
+    @Override public PortalBlock getPortalBlock(Level level, BlockState frame, byte timeOfDay) {
+        return frame.is(BlockRegistry.edenBlock) && (timeOfDay == 0 || (timeOfDay == 5 && level.dimension() == LevelRegistry.EDEN)) ? (PortalBlock)BlockRegistry.edenPortal.get() : null;
+    }
+    @Override public Block getRift(byte timeOfDay) {
+        return timeOfDay == 0 ? BlockRegistry.edenRift.get() : null;
     }
 }

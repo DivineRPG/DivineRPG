@@ -2,6 +2,7 @@ package divinerpg.events;
 
 import divinerpg.attachments.Arcana;
 import divinerpg.block_entities.block.TerranGhostBlockEntity;
+import divinerpg.blocks.twilight.PortalFire;
 import divinerpg.entities.goals.TurtleEatAequoreaGoal;
 import divinerpg.entities.vanilla.overworld.EntityAequorea;
 import divinerpg.network.payload.Weather;
@@ -101,16 +102,17 @@ public class Ticker {
         if(!event.getLevel().isClientSide && event.getEntity() instanceof ItemEntity i && i.getAge() < i.lifespan) {
             ItemStack stack = i.getItem();
             if(stack.isEmpty()) return;
-            ServerLevel level = (ServerLevel) event.getLevel();
-            List<FireConversionRecipe> recipes = level.getRecipeManager().getAllRecipesFor(FireConversionRecipe.TYPE).stream().filter(r -> r.value().inputItem().test(stack)).map(RecipeHolder::value).toList();
-            if(recipes.isEmpty()) return;
             BlockPos pos = i.blockPosition();
-            if(!level.isAreaLoaded(pos, 1)) return;
-            BlockState state, prevState;
             Iterable<BlockPos> positions = BlockPos.betweenClosed(pos.offset(-1, -1, -1), pos.offset(1, 0, 1));
+            ServerLevel level = (ServerLevel) event.getLevel();
+            if(!level.isAreaLoaded(pos, 1)) return;
+            List<FireConversionRecipe> recipes = level.getRecipeManager().getAllRecipesFor(FireConversionRecipe.TYPE).stream().filter(r -> r.value().inputItem().test(stack)).map(RecipeHolder::value).toList();
+            BlockState state, prevState;
             for(BlockPos position : positions) {
                 prevState = state = level.getBlockState(position);
-                if(!state.isAir()) for(FireConversionRecipe recipe : recipes) if(recipe.inputState().test(state, level.random)) {
+                if(state.isAir()) continue;
+                if(state.getBlock() instanceof PortalFire fire && PortalFire.initiatePortal(level, fire, Utils.getNearbyPlayers(level, i.getX(), i.getY(), i.getZ(), 9), position, stack)) return;
+                for(FireConversionRecipe recipe : recipes) if(recipe.inputState().test(state, level.random)) {
                     if(recipe.outputState().isPresent()) level.setBlock(position, state = recipe.outputState().get().getState(level.getRandom(), position), 3);
                     if(recipe.outputItem().isPresent()) {
                         ItemStack output = recipe.outputItem().get().copy();

@@ -33,21 +33,22 @@ public class BlockModRift extends BaseEntityBlock implements DivinePortalLogic {
     public static final ResourceLocation
             ADVANCEMENT_UNSTABLE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/an_unstable_combination"),
             ADVANCEMENT_STABLE = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/ripple_space_time");
-    public final ResourceKey<Level> rootDimension, chainDimension;
+    public final ResourceKey<Level> rootDimension;
+    public final TagKey<Level> stableDimension;
     public final TagKey<Block> resonanceTag;
     public final TagKey<Item> empowerTag;
     public final byte variant;
-    public BlockModRift(Properties properties, ResourceLocation rootDimension, ResourceLocation chainDimension, TagKey<Block> resonanceTag, TagKey<Item> empowerTag, byte variant) {
-        this(properties.pushReaction(PushReaction.BLOCK), ResourceKey.create(Registries.DIMENSION, rootDimension), ResourceKey.create(Registries.DIMENSION, chainDimension), resonanceTag, empowerTag, variant);
+    public BlockModRift(Properties properties, ResourceLocation rootDimension, TagKey<Level> stableDimension, TagKey<Block> resonanceTag, TagKey<Item> empowerTag, byte variant) {
+        this(properties.pushReaction(PushReaction.BLOCK), ResourceKey.create(Registries.DIMENSION, rootDimension), stableDimension, resonanceTag, empowerTag, variant);
     }
-    public BlockModRift(ResourceKey<Level> rootDimension, ResourceKey<Level> chainDimension, TagKey<Block> resonanceTag, TagKey<Item> empowerTag, byte variant) {
-        this(Properties.of().replaceable().noCollission().noLootTable().air().strength(-1, 3600000), rootDimension, chainDimension, resonanceTag, empowerTag, variant);
+    public BlockModRift(ResourceKey<Level> rootDimension, TagKey<Level> stableDimension, TagKey<Block> resonanceTag, TagKey<Item> empowerTag, byte variant) {
+        this(Properties.of().replaceable().noCollission().noLootTable().air().strength(-1, 3600000), rootDimension, stableDimension, resonanceTag, empowerTag, variant);
     }
-    public BlockModRift(Properties properties, ResourceKey<Level> rootDimension, ResourceKey<Level> chainDimension, TagKey<Block> resonanceTag, TagKey<Item> empowerTag, byte variant) {
+    public BlockModRift(Properties properties, ResourceKey<Level> rootDimension, TagKey<Level> stableDimension, TagKey<Block> resonanceTag, TagKey<Item> empowerTag, byte variant) {
         super(properties.pushReaction(PushReaction.BLOCK));
         registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.LEVEL, 15));
         this.rootDimension = rootDimension;
-        this.chainDimension = chainDimension;
+        this.stableDimension = stableDimension;
         this.resonanceTag = resonanceTag;
         this.empowerTag = empowerTag;
         this.variant = variant;
@@ -61,6 +62,7 @@ public class BlockModRift extends BaseEntityBlock implements DivinePortalLogic {
             return;
         } if(state.hasBlockEntity()) {
             if(level instanceof ServerLevel s) s.sendParticles(switch(((RiftBlockEntity)level.getBlockEntity(pos)).variant & 0b111) {
+                case 6 -> ParticleRegistry.OVERWORLD_RIFT.get();
                 case 5 -> ParticleRegistry.MORTUM_RIFT.get();
                 case 4 -> ParticleRegistry.SKYTHERN_RIFT.get();
                 case 3 -> ParticleRegistry.APALACHIA_RIFT.get();
@@ -68,7 +70,7 @@ public class BlockModRift extends BaseEntityBlock implements DivinePortalLogic {
                 default -> ParticleRegistry.EDEN_RIFT.get();
             }, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 5, 0D, 0D, 0D, 0D);
             level.removeBlockEntity(pos);
-        } if(level.dimension() != rootDimension && level.dimension() != chainDimension) {
+        } if(!level.holderOrThrow(level.dimension()).is(stableDimension)) {
             level.explode(null, pos.getX() + .5, pos.getY(), pos.getZ() + .5, 3, Level.ExplosionInteraction.TNT);
             BlockPos p;
             for(int i = 0; i < 15; i++) if(level.getBlockState(p = pos.offset(Mth.sign(Math.random() - .5) * (level.random.nextInt(3) + 1), Mth.sign(Math.random() - .5) * (level.random.nextInt(2) + 1) - 1, Mth.sign(Math.random() - .5) * (level.random.nextInt(3) + 1))).isAir())
@@ -83,7 +85,7 @@ public class BlockModRift extends BaseEntityBlock implements DivinePortalLogic {
         List<BlockState> states = level.getBlockStates(new AABB(UniversalPosition.toVec3(pos.offset(-2, -2, -2)), UniversalPosition.toVec3(pos.offset(2, 2, 2)))).toList();
         for(BlockState s : states) if(s.is(resonanceTag)) lifetime = (lifetime * 5) >> 2;
         e.maxLifeTime = e.lifeTime = lifetime;
-        if(level.dimension() != rootDimension && level.dimension() != chainDimension) {
+        if(!level.holderOrThrow(level.dimension()).is(stableDimension)) {
             e.variant = (byte) (e.variant | 0b10000);
             level.explode(null, pos.getX() + .5, pos.getY(), pos.getZ() + .5, 5, Level.ExplosionInteraction.TNT);
             BlockPos p;
@@ -98,6 +100,7 @@ public class BlockModRift extends BaseEntityBlock implements DivinePortalLogic {
             for(ServerPlayer player : players) Utils.awardAdvancement(s.getServer(), player, ADVANCEMENT_STABLE, "create_stable_rift");
         } level.playSound(null, pos, SoundRegistry.RIFT_OPEN.get(), SoundSource.BLOCKS, 1F, 1F);
         if(level instanceof ServerLevel s) s.sendParticles(switch(e.variant & 0b111) {
+        case 6 -> ParticleRegistry.OVERWORLD_RIFT.get();
         case 5 -> ParticleRegistry.MORTUM_RIFT.get();
         case 4 -> ParticleRegistry.SKYTHERN_RIFT.get();
         case 3 -> ParticleRegistry.APALACHIA_RIFT.get();
@@ -149,13 +152,13 @@ public class BlockModRift extends BaseEntityBlock implements DivinePortalLogic {
         return RenderShape.ENTITYBLOCK_ANIMATED;
     }
 
-    public static final MapCodec<BlockModRift> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(propertiesCodec(), ResourceLocation.CODEC.fieldOf("root_dimension").forGetter(BlockModRift::rootDimensionLocation), ResourceLocation.CODEC.fieldOf("chain_dimension").forGetter(BlockModRift::chainDimension), TagKey.codec(Registries.BLOCK).fieldOf("supported_blocks").forGetter(BlockModRift::resonanceTag), TagKey.codec(Registries.ITEM).fieldOf("replenishing_items").forGetter(BlockModRift::empowerTag), Codec.BYTE.fieldOf("variant").forGetter(BlockModRift::variant)).apply(instance, BlockModRift::new));
+    public static final MapCodec<BlockModRift> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(propertiesCodec(), ResourceLocation.CODEC.fieldOf("root_dimension").forGetter(BlockModRift::rootDimensionLocation), TagKey.codec(Registries.DIMENSION).fieldOf("stable_dimension").forGetter(BlockModRift::stableDimension), TagKey.codec(Registries.BLOCK).fieldOf("supported_blocks").forGetter(BlockModRift::resonanceTag), TagKey.codec(Registries.ITEM).fieldOf("replenishing_items").forGetter(BlockModRift::empowerTag), Codec.BYTE.fieldOf("variant").forGetter(BlockModRift::variant)).apply(instance, BlockModRift::new));
     @Override protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
     @Override public ResourceKey<Level> rootDimension() {return rootDimension;}
     public ResourceLocation rootDimensionLocation() {return rootDimension.location();}
-    public ResourceLocation chainDimension() {return chainDimension.location();}
+    public TagKey<Level> stableDimension() {return stableDimension;}
     public TagKey<Block> resonanceTag() {return resonanceTag;}
     public TagKey<Item> empowerTag() {return empowerTag;}
     public byte variant() {return variant;}

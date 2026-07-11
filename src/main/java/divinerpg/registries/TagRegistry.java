@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.material.Fluid;
@@ -29,6 +30,7 @@ public class TagRegistry {
         AMMO_VETHEAN_CANNON = item("ammo/vethean_cannon"),
 
     //Rift-related Items
+        RIFT_REPLENISHING_OVERWORLD = item("rift_replenishing/overworld"),
         RIFT_REPLENISHING_EDEN = item("rift_replenishing/eden"),
         RIFT_REPLENISHING_WILDWOOD = item("rift_replenishing/wildwood"),
         RIFT_REPLENISHING_APALACHIA = item("rift_replenishing/apalachia"),
@@ -264,11 +266,20 @@ public class TagRegistry {
         BASE_BLOCKS_ICY_FIRE = block("base_blocks/icy_fire"),
 
     //Rift related Blocks
+        RIFT_RESONATING_OVERWORLD = block("rift_resonating/overworld"),
         RIFT_RESONATING_EDEN = block("rift_resonating/eden"),
         RIFT_RESONATING_WILDWOOD = block("rift_resonating/wildwood"),
         RIFT_RESONATING_APALACHIA = block("rift_resonating/apalachia"),
         RIFT_RESONATING_SKYTHERN = block("rift_resonating/skythern"),
         RIFT_RESONATING_MORTUM = block("rift_resonating/mortum");
+
+    public static final TagKey<Level>
+        STABLE_OVERWORLD_RIFT = level("stable_overworld_rift"),
+        STABLE_EDEN_RIFT = level("stable_eden_rift"),
+        STABLE_WILDWOOD_RIFT = level("stable_wildwood_rift"),
+        STABLE_APALACHIA_RIFT = level("stabe_apalachia_rift"),
+        STABLE_SKYTHERN_RIFT = level("stable_skythern_rift"),
+        STABLE_MORTUM_RIFT = level("stable_mortum_rift");
 
     public static final TagKey<Fluid>
         SMOLDERING_TAR = fluid("smoldering_tar");
@@ -288,4 +299,5 @@ public class TagRegistry {
     private static TagKey<Fluid> fluid(String path) {return TagKey.create(Registries.FLUID, location(path));}
     private static TagKey<DamageType> damageType(String path) {return TagKey.create(Registries.DAMAGE_TYPE, location(path));}
     private static TagKey<Structure> structure(String path) {return TagKey.create(Registries.STRUCTURE, location(path));}
+    private static TagKey<Level> level(String path) {return TagKey.create(Registries.DIMENSION, location(path));}
 }

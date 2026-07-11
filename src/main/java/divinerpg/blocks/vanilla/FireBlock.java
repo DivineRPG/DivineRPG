@@ -24,6 +24,9 @@ public class FireBlock extends BaseFireBlock {
 	public FireBlock(float fireDamage) {
 		super(Properties.ofFullCopy(Blocks.FIRE).mapColor(MapColor.FIRE), fireDamage);
 	}
+	public FireBlock(Properties properties, float fireDamage) {
+		super(properties, fireDamage);
+	}
 	@Override
 	protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 		super.entityInside(state, level, pos, entity);

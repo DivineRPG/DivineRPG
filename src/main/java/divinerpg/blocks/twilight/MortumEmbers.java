@@ -1,6 +1,9 @@
 package divinerpg.blocks.twilight;
 
 import divinerpg.DivineRPG;
+import divinerpg.blocks.base.PortalBlock;
+import divinerpg.registries.BlockRegistry;
+import divinerpg.registries.LevelRegistry;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.util.Utils;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -17,16 +20,23 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.CommonHooks;
 
 import java.util.List;
 
-public class MortumEmbers extends TwilightFire {
+public class MortumEmbers extends PortalFire {
     public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "twilight/curses");
     public MortumEmbers() {
         super(25F);
+    }
+    @Override public PortalBlock getPortalBlock(Level level, BlockState frame, byte timeOfDay) {
+        return frame.is(BlockRegistry.mortumBlock) && (timeOfDay == 4 || (timeOfDay == 3 && level.dimension() == LevelRegistry.MORTUM)) ? (PortalBlock) BlockRegistry.mortumPortal.get() : null;
+    }
+    @Override public Block getRift(byte timeOfDay) {
+        return timeOfDay == 4 ? BlockRegistry.mortumRift.get() : null;
     }
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {

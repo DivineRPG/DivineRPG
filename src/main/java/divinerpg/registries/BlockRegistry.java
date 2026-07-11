@@ -204,11 +204,11 @@ public class BlockRegistry {
     arcaniumBlock = registerBlock("arcanium_block", () -> new BlockMod(COLOR_LIGHT_BLUE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
 
     //Twilight Compressed Ore Blocks
-    edenBlock = registerBlock("eden_block", () -> new TwilightPortalFrame(COLOR_ORANGE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-    wildwoodBlock = registerBlock("wildwood_block", () -> new TwilightPortalFrame(LAPIS, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-    apalachiaBlock = registerBlock("apalachia_block", () -> new TwilightPortalFrame(COLOR_MAGENTA, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-    skythernBlock = registerBlock("skythern_block", () -> new TwilightPortalFrame(WOOL, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
-    mortumBlock = registerBlock("mortum_block", () -> new TwilightPortalFrame(COLOR_GRAY, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+    edenBlock = registerBlock("eden_block", () -> new BlockMod(COLOR_ORANGE, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+    wildwoodBlock = registerBlock("wildwood_block", () -> new BlockMod(LAPIS, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+    apalachiaBlock = registerBlock("apalachia_block", () -> new BlockMod(COLOR_MAGENTA, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+    skythernBlock = registerBlock("skythern_block", () -> new BlockMod(WOOL, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
+    mortumBlock = registerBlock("mortum_block", () -> new BlockMod(COLOR_GRAY, 5, 6, SoundType.METAL, NoteBlockInstrument.HARP)),
 
     //Arcana Portal Frames
     arcanaPortalFrame = registerBlock("arcana_portal_frame", BlockArcanaPortalFrame::new),
@@ -992,11 +992,12 @@ public class BlockRegistry {
     vetheaPortal = registerBlock("vethea_portal", VetheaPortal::new),
 
     //Rifts
-    edenRift = BLOCKS.register("eden_rift", () -> new BlockModRift(LevelRegistry.EDEN, Level.OVERWORLD, RIFT_RESONATING_EDEN, RIFT_REPLENISHING_EDEN, (byte)1)),
-    wildwoodRift = BLOCKS.register("wildwood_rift", () -> new BlockModRift(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, RIFT_RESONATING_WILDWOOD, RIFT_REPLENISHING_WILDWOOD, (byte)2)),
-    apalachiaRift = BLOCKS.register("apalachia_rift", () -> new BlockModRift(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, RIFT_RESONATING_APALACHIA, RIFT_REPLENISHING_APALACHIA, (byte)3)),
-    skythernRift = BLOCKS.register("skythern_rift", () -> new BlockModRift(LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, RIFT_RESONATING_SKYTHERN, RIFT_REPLENISHING_SKYTHERN, (byte)4)),
-    mortumRift = BLOCKS.register("mortum_rift", () -> new BlockModRift(LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, RIFT_RESONATING_MORTUM, RIFT_REPLENISHING_MORTUM, (byte)5)),
+    overworldRift = BLOCKS.register("overworld_rift", () -> new BlockModRift(Level.OVERWORLD, STABLE_OVERWORLD_RIFT, RIFT_RESONATING_OVERWORLD, RIFT_REPLENISHING_OVERWORLD, (byte)6)),
+    edenRift = BLOCKS.register("eden_rift", () -> new BlockModRift(LevelRegistry.EDEN, STABLE_EDEN_RIFT, RIFT_RESONATING_EDEN, RIFT_REPLENISHING_EDEN, (byte)1)),
+    wildwoodRift = BLOCKS.register("wildwood_rift", () -> new BlockModRift(LevelRegistry.WILDWOOD, STABLE_WILDWOOD_RIFT, RIFT_RESONATING_WILDWOOD, RIFT_REPLENISHING_WILDWOOD, (byte)2)),
+    apalachiaRift = BLOCKS.register("apalachia_rift", () -> new BlockModRift(LevelRegistry.APALACHIA, STABLE_APALACHIA_RIFT, RIFT_RESONATING_APALACHIA, RIFT_REPLENISHING_APALACHIA, (byte)3)),
+    skythernRift = BLOCKS.register("skythern_rift", () -> new BlockModRift(LevelRegistry.SKYTHERN, STABLE_SKYTHERN_RIFT, RIFT_RESONATING_SKYTHERN, RIFT_REPLENISHING_SKYTHERN, (byte)4)),
+    mortumRift = BLOCKS.register("mortum_rift", () -> new BlockModRift(LevelRegistry.MORTUM, STABLE_MORTUM_RIFT, RIFT_RESONATING_MORTUM, RIFT_REPLENISHING_MORTUM, (byte)5)),
 
     //Air
     dungeonAir = registerBlock("dungeon_air", BlockModDungeonAir::new, Rarity.EPIC),
