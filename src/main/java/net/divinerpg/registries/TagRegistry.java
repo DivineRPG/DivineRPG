@@ -20,10 +20,14 @@ public class TagRegistry {
                 AMMO_SKYTHERN_BLITZ = item("ammo/skythern_blitz"), AMMO_MORTUM_BLITZ = item("ammo/mortum_blitz"),
                 AMMO_HALITE_BLITZ = item("ammo/halite_blitz"), AMMO_VETHEAN_CANNON = item("ammo/vethean_cannon");
 
-        public static final TagKey<Item>
-                RIFT_EDEN = item("rift_replenishing/eden"), RIFT_WILDWOOD = item("rift_replenishing/wildwood"),
-                RIFT_APALACHIA = item("rift_replenishing/apalachia"), RIFT_SKYTHERN = item("rift_replenishing/skythern"),
-                RIFT_MORTUM = item("rift_replenishing/mortum");
+    public static final TagKey<Item>
+            RIFT_EDEN = item("rift_replenishing/eden"), RIFT_WILDWOOD = item("rift_replenishing/wildwood"),
+            RIFT_APALACHIA = item("rift_replenishing/apalachia"), RIFT_SKYTHERN = item("rift_replenishing/skythern"),
+            RIFT_MORTUM = item("rift_replenishing/mortum");
+
+    public static final TagKey<Item>
+            ENCHANTABLE_ARMOR = minecraftItem("enchantable/armor"), ENCHANTABLE_CHEST = minecraftItem("enchantable/chest_armor"), ENCHANTABLE_FOOT = minecraftItem("enchantable/foot_armor"),
+            ENCHANTABLE_HEAD = minecraftItem("enchantable/head_armor"), ENCHANTABLE_LEG = minecraftItem("enchantable/leg_armor"), TRIMMABLE_ARMOR = minecraftItem("trimmable_armor");
 
         public static final TagKey<Item>
                 REPAIR_GOLDEN_FURY = item("repairs/golden_fury"), REPAIR_DIAMOND = item("repairs/equipment/diamond"),
@@ -168,6 +172,7 @@ public class TagRegistry {
 
 
     private static TagKey<Item> item(String path) { return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(DivineRPG.MODID, path)); }
+    private static TagKey<Item> minecraftItem(String path) { return TagKey.create(Registries.ITEM, Identifier.parse(path)); }
     private static TagKey<Item> common(String path) { return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", path)); }
     private static TagKey<Block> block(String path) { return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(DivineRPG.MODID, path)); }
     private static TagKey<Fluid> fluid(String path) { return TagKey.create(Registries.FLUID, Identifier.fromNamespaceAndPath(DivineRPG.MODID, path)); }
