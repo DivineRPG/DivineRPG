@@ -1,0 +1,28 @@
+{
+  "parent": "divinerpg:twilight/root",
+  "criteria": {
+    "enter_eden": {
+      "conditions": {
+        "to": "divinerpg:eden"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.1001_possibilities.desc"
+    },
+    "icon": {
+      "id": "divinerpg:divine_log"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.1001_possibilities"
+    }
+  },
+  "requirements": [
+    [
+      "enter_eden"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

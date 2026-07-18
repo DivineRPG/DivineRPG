@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:nether/root",
+  "criteria": {
+    "get_torridite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/torridite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.nether.the_original.desc"
+    },
+    "icon": {
+      "id": "divinerpg:torridite_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.nether.the_original"
+    }
+  },
+  "requirements": [
+    [
+      "get_torridite_ingot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

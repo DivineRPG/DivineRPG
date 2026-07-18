@@ -182,6 +182,7 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> strippedDivineLog = registerBlock("stripped_divine_log", RotatedPillarBlock::new, Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG));
     public static final DeferredBlock<Block> strippedDivineWood = registerBlock("stripped_divine_wood", RotatedPillarBlock::new, Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD));
     public static final DeferredBlock<Block> divinePlanks = registerBlock("divine_planks", Block::new, Properties.ofFullCopy(Blocks.OAK_PLANKS));
+    public static final DeferredBlock<Block> divineRock = registerBlock("divine_rock", Block::new, Properties.ofFullCopy(Blocks.STONE));
     public static final DeferredBlock<StairBlock> divineStairs = registerBlock("divine_stairs", p -> new StairBlock(divinePlanks.get().defaultBlockState(), p), Properties.ofFullCopy(Blocks.OAK_STAIRS));
     public static final DeferredBlock<SlabBlock> divineSlab = registerBlock("divine_slab", SlabBlock::new, Properties.ofFullCopy(Blocks.OAK_SLAB));
     public static final DeferredBlock<FenceBlock> divineFence = registerBlock("divine_fence", FenceBlock::new, Properties.ofFullCopy(Blocks.OAK_FENCE));

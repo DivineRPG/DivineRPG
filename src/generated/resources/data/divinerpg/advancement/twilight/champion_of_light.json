@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:twilight/1001_possibilities",
+  "criteria": {
+    "kill_boss_sunstorm": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:endermite"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.champion_of_light.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:eden_heart"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.champion_of_light"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_sunstorm"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

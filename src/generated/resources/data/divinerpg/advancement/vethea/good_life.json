@@ -1,0 +1,30 @@
+{
+  "parent": "divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria": {
+    "eat_pie": {
+      "conditions": {
+        "item": {
+          "items": "divinerpg:dream_pie"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.good_life.desc"
+    },
+    "icon": {
+      "id": "divinerpg:dream_pie"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.good_life"
+    }
+  },
+  "requirements": [
+    [
+      "eat_pie"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

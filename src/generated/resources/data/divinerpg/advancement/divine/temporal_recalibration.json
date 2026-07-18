@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/freezing_fire",
+  "criteria": {
+    "get_frozen_clock": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:frozen_clock"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.temporal_recalibration.desc"
+    },
+    "icon": {
+      "id": "divinerpg:frozen_clock"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.temporal_recalibration"
+    }
+  },
+  "requirements": [
+    [
+      "get_frozen_clock"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:nether/pain_in_the_bar",
+  "criteria": {
+    "kill_boss_the_watcher": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:endermite"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.nether.overseeing_eye.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:soulfire_stone"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.nether.overseeing_eye"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_the_watcher"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "get_jungle_hook": {
+      "conditions": {
+        "items": [
+          {
+            "items": []
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.adventure.jungle_hook.desc"
+    },
+    "icon": {
+      "id": "divinerpg:jungle_hook"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.making_tarzan_proud"
+    }
+  },
+  "requirements": [
+    [
+      "get_jungle_hook"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

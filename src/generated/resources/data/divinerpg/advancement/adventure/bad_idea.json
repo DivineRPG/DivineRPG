@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "open_tomb_chest": {
+      "conditions": {
+        "loot_table": "divinerpg:chests/overworld/ancient_tomb"
+      },
+      "trigger": "minecraft:player_generates_container_loot"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.divinerpg.adventure.bad_idea.desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:skeleton_skull"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.divinerpg.adventure.bad_idea"
+    }
+  },
+  "requirements": [
+    [
+      "open_tomb_chest"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

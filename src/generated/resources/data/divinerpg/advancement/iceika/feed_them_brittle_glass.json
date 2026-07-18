@@ -1,0 +1,36 @@
+{
+  "parent": "divinerpg:iceika/root",
+  "criteria": {
+    "mammoth": {
+      "conditions": {
+        "child": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:wolf"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:bred_animals"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.feed_them_brittle_glass.desc"
+    },
+    "icon": {
+      "id": "divinerpg:frozen_grass"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.feed_them_brittle_glass"
+    }
+  },
+  "requirements": [
+    [
+      "mammoth"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

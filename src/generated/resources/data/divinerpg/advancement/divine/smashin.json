@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/the_real_stuff",
+  "criteria": {
+    "get_maul": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:tools/maul"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.smashin.desc"
+    },
+    "icon": {
+      "id": "divinerpg:realmite_maul"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.smashin"
+    }
+  },
+  "requirements": [
+    [
+      "get_maul"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

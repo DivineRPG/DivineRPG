@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:end/elytra",
+  "criteria": {
+    "get_angelic_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:angelic_helmet"
+          },
+          {
+            "items": "divinerpg:angelic_chestplate"
+          },
+          {
+            "items": "divinerpg:angelic_leggings"
+          },
+          {
+            "items": "divinerpg:angelic_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.end.when_pigs_fly.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "id": "divinerpg:angelic_helmet"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.end.when_pigs_fly"
+    }
+  },
+  "requirements": [
+    [
+      "get_angelic_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 200
+  },
+  "sends_telemetry_event": true
+}

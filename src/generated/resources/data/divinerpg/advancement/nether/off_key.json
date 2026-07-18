@@ -1,0 +1,30 @@
+{
+  "parent": "divinerpg:nether/scorching",
+  "criteria": {
+    "use_sound_of_music": {
+      "conditions": {
+        "item": {
+          "items": "divinerpg:sound_of_music"
+        }
+      },
+      "trigger": "minecraft:item_durability_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.nether.off_key.desc"
+    },
+    "icon": {
+      "id": "divinerpg:sound_of_music"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.nether.off_key"
+    }
+  },
+  "requirements": [
+    [
+      "use_sound_of_music"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "kill_jungle_dramcryx": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:salmon"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.adventure.jungle_stegosaurus_slayer.desc"
+    },
+    "icon": {
+      "id": "divinerpg:jungle_shards"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.jungle_stegosaurus_slayer"
+    }
+  },
+  "requirements": [
+    [
+      "kill_jungle_dramcryx"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

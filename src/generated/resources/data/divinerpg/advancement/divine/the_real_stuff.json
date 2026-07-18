@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/root",
+  "criteria": {
+    "get_realmite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/realmite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.the_real_stuff.desc"
+    },
+    "icon": {
+      "id": "divinerpg:realmite_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.the_real_stuff"
+    }
+  },
+  "requirements": [
+    [
+      "get_realmite_ingot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

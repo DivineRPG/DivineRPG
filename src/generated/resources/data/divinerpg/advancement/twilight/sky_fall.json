@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:twilight/archaic_bowman",
+  "criteria": {
+    "create_sky_fire": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.sky_fall.desc"
+    },
+    "icon": {
+      "id": "minecraft:acacia_planks"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.sky_fall"
+    }
+  },
+  "requirements": [
+    [
+      "create_sky_fire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

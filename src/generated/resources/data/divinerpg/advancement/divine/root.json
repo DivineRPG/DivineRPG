@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "first_world_load": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "divinerpg:block/divine_rock",
+    "description": {
+      "translate": "advancement.divinerpg.divine.root.desc"
+    },
+    "icon": {
+      "id": "divinerpg:rupee_shickaxe"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.divinerpg.divine.root"
+    }
+  },
+  "requirements": [
+    [
+      "first_world_load"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

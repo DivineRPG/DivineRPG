@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "look_into_the_eye": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.adventure.eye_of_evil.desc"
+    },
+    "icon": {
+      "id": "divinerpg:rupee_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.eye_of_evil"
+    }
+  },
+  "requirements": [
+    [
+      "look_into_the_eye"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

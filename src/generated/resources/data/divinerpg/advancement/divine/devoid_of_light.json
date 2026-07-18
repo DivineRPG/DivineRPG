@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/deep_blue",
+  "criteria": {
+    "get_shadow_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:dusts/shadow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.devoid_of_light.desc"
+    },
+    "icon": {
+      "id": "divinerpg:shadow_dust"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.devoid_of_light"
+    }
+  },
+  "requirements": [
+    [
+      "get_shadow_dust"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

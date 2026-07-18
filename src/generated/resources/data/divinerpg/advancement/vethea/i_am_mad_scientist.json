@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:vethea/getting_out_of_hand",
+  "criteria": {
+    "kill_karos": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:wither"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.i_am_mad_scientist.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:karos_lump"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.i_am_mad_scientist"
+    }
+  },
+  "requirements": [
+    [
+      "kill_karos"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

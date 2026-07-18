@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/devoid_of_light",
+  "criteria": {
+    "get_shadow_coins": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:coins/shadow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.coinage.desc"
+    },
+    "icon": {
+      "id": "divinerpg:shadow_coins"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.coinage"
+    }
+  },
+  "requirements": [
+    [
+      "get_shadow_coins"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

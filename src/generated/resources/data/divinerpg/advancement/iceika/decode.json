@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:iceika/icy_catacombs",
+  "criteria": {
+    "get_icy_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.decode.desc"
+    },
+    "icon": {
+      "id": "minecraft:bricks"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.decode"
+    }
+  },
+  "requirements": [
+    [
+      "get_icy_bricks"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

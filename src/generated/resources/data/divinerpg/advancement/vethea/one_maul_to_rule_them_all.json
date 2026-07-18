@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:vethea/i_am_mad_scientist",
+  "criteria": {
+    "obtain_karos_rockmaul": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:karos_rockmaul"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.one_maul_to_rule_them_all.desc"
+    },
+    "icon": {
+      "id": "divinerpg:karos_rockmaul"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.one_maul_to_rule_them_all"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_karos_rockmaul"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

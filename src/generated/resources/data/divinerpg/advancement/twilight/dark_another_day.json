@@ -1,0 +1,28 @@
+{
+  "parent": "divinerpg:twilight/glowing_death",
+  "criteria": {
+    "enter_mortum": {
+      "conditions": {
+        "to": "divinerpg:mortum"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.dark_another_day.desc"
+    },
+    "icon": {
+      "id": "divinerpg:auroraoak_log"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.dark_another_day"
+    }
+  },
+  "requirements": [
+    [
+      "enter_mortum"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

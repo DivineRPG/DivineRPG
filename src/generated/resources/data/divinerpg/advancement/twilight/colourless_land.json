@@ -1,0 +1,28 @@
+{
+  "parent": "divinerpg:twilight/sky_fall",
+  "criteria": {
+    "enter_skythern": {
+      "conditions": {
+        "to": "divinerpg:skythern"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.colourless_land.desc"
+    },
+    "icon": {
+      "id": "divinerpg:divine_log"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.colourless_land"
+    }
+  },
+  "requirements": [
+    [
+      "enter_skythern"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:arcana/root",
+  "criteria": {
+    "kill_boss_parasecta": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:salmon"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.arcana.evil_disease.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:wizards_book"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.arcana.evil_disease"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_parasecta"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:iceika/chocolate_ore",
+  "criteria": {
+    "get_oxdrite_tech": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/oxdrite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.advanced_technology.desc"
+    },
+    "icon": {
+      "id": "minecraft:repeater"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.advanced_technology"
+    }
+  },
+  "requirements": [
+    [
+      "get_oxdrite_tech"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

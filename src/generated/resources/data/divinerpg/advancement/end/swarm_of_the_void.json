@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:end/blown_away",
+  "criteria": {
+    "ayeraco": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:bat"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.end.swarm_of_the_void.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:cinnabar_wall"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.end.swarm_of_the_void"
+    }
+  },
+  "requirements": [
+    [
+      "ayeraco"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

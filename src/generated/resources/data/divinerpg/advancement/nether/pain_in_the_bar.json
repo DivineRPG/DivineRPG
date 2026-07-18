@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:nether/tormented_souls",
+  "criteria": {
+    "get_hellstone_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/hellstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.nether.pain_in_the_bar.desc"
+    },
+    "icon": {
+      "id": "divinerpg:hellstone_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.nether.pain_in_the_bar"
+    }
+  },
+  "requirements": [
+    [
+      "get_hellstone_ingot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

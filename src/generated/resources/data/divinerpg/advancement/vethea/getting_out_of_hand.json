@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria": {
+    "kill_quadro": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:wither"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.getting_out_of_hand.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:quadrotic_lump"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.getting_out_of_hand"
+    }
+  },
+  "requirements": [
+    [
+      "kill_quadro"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

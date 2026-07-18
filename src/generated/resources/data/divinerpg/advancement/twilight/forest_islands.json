@@ -1,0 +1,28 @@
+{
+  "parent": "divinerpg:twilight/wilderness_ablaze",
+  "criteria": {
+    "enter_wildwood": {
+      "conditions": {
+        "to": "divinerpg:wildwood"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.forest_islands.desc"
+    },
+    "icon": {
+      "id": "divinerpg:divine_log"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.forest_islands"
+    }
+  },
+  "requirements": [
+    [
+      "enter_wildwood"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

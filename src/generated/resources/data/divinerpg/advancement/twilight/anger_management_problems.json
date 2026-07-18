@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:twilight/dark_another_day",
+  "criteria": {
+    "kill_boss_karot": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:camel"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.anger_management_problems.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:halite_phaser"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.anger_management_problems"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_karot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

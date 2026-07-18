@@ -1,0 +1,40 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "betrayal": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:wolf"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "advancement.divinerpg.adventure.thick_of_it.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:bone"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.divinerpg.adventure.thick_of_it"
+    }
+  },
+  "requirements": [
+    [
+      "betrayal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

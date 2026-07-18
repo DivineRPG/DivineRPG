@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "vethea": {
+      "conditions": {
+        "to": "divinerpg:vethea"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "background": "divinerpg:block/dream_stone",
+    "description": {
+      "translate": "advancement.divinerpg.vethea.root.desc"
+    },
+    "icon": {
+      "id": "divinerpg:arcanite_grass"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.root"
+    }
+  },
+  "requirements": [
+    [
+      "vethea"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

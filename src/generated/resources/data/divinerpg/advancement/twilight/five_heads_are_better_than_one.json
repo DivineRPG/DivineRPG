@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:twilight/dark_another_day",
+  "criteria": {
+    "kill_boss_densos": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:breeze"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.five_heads_are_better_than_one.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:halite_chestplate"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.five_heads_are_better_than_one"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_densos"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

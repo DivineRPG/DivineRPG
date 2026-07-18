@@ -1,0 +1,28 @@
+{
+  "parent": "divinerpg:twilight/1001_possibilities",
+  "criteria": {
+    "enter_eden_portal": {
+      "conditions": {
+        "block": "minecraft:nether_portal"
+      },
+      "trigger": "minecraft:enter_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.a_way_home.desc"
+    },
+    "icon": {
+      "id": "divinerpg:olivine_block"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.a_way_home"
+    }
+  },
+  "requirements": [
+    [
+      "enter_eden_portal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

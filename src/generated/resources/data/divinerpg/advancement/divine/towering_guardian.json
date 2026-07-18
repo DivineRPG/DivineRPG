@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:divine/devoid_of_light",
+  "criteria": {
+    "kill_boss_ancient_entity": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:bee"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.towering_guardian.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:sandslash"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.towering_guardian"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_ancient_entity"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

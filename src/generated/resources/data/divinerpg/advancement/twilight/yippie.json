@@ -1,0 +1,28 @@
+{
+  "parent": "divinerpg:twilight/sky_fall",
+  "criteria": {
+    "enter_sky_fire": {
+      "conditions": {
+        "block": "divinerpg:divine_log"
+      },
+      "trigger": "minecraft:enter_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.yippie.desc"
+    },
+    "icon": {
+      "id": "minecraft:feather"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.yippie"
+    }
+  },
+  "requirements": [
+    [
+      "enter_sky_fire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

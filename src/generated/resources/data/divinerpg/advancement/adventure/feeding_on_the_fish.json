@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "kill_shark": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:salmon"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.adventure.feeding_on_the_fish.desc"
+    },
+    "icon": {
+      "id": "divinerpg:shark_fin"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.feeding_on_the_fish"
+    }
+  },
+  "requirements": [
+    [
+      "kill_shark"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria": {
+    "kill_ent": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:phantom"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.an_elm_on_nightmare_street.desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "divinerpg:auroraoak_log"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.an_elm_on_nightmare_street"
+    }
+  },
+  "requirements": [
+    [
+      "kill_ent"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

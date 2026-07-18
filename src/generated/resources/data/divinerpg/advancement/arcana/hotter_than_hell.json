@@ -1,0 +1,41 @@
+{
+  "parent": "divinerpg:arcana/root",
+  "criteria": {
+    "walk_on_heat_trap": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:location": {
+                "block": {
+                  "blocks": []
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.arcana.hotter_than_hell.desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "divinerpg:arcana_portal_frame"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.arcana.hotter_than_hell"
+    }
+  },
+  "requirements": [
+    [
+      "walk_on_heat_trap"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

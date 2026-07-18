@@ -1,0 +1,140 @@
+{
+  "parent": "divinerpg:divine/a_divine_plan",
+  "criteria": {
+    "divine_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_axe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "divine_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "divine_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "divine_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "divine_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "divine_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "divine_shickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_shickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "divine_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_shovel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "divine_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:tools/sword/divine"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.attempt_at_ascension.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "divinerpg:divine_helmet"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.attempt_at_ascension"
+    }
+  },
+  "requirements": [
+    [
+      "divine_helmet"
+    ],
+    [
+      "divine_chestplate"
+    ],
+    [
+      "divine_leggings"
+    ],
+    [
+      "divine_boots"
+    ],
+    [
+      "divine_sword"
+    ],
+    [
+      "divine_axe"
+    ],
+    [
+      "divine_pickaxe"
+    ],
+    [
+      "divine_shovel"
+    ],
+    [
+      "divine_shickaxe"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

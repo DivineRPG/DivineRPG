@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "talk_to_jack_o_man": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:villager"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:villager_trade"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.adventure.halloween_spirit.desc"
+    },
+    "icon": {
+      "id": "divinerpg:scythe"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.halloween_spirit"
+    }
+  },
+  "requirements": [
+    [
+      "talk_to_jack_o_man"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

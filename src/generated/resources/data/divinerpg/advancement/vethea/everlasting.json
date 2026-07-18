@@ -1,0 +1,88 @@
+{
+  "parent": "divinerpg:vethea/lunar_emissary",
+  "criteria": {
+    "obtain_everbright": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:everbright"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "obtain_everfright": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:everfright"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "obtain_everlight": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:everlight"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "obtain_evernight": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:evernight"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "obtain_eversight": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:eversight"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.everlasting.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "divinerpg:eversight"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.everlasting"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_everbright"
+    ],
+    [
+      "obtain_everfright"
+    ],
+    [
+      "obtain_everlight"
+    ],
+    [
+      "obtain_evernight"
+    ],
+    [
+      "obtain_eversight"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

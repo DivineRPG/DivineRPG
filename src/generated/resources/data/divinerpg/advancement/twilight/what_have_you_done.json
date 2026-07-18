@@ -1,0 +1,31 @@
+{
+  "parent": "divinerpg:twilight/1001_possibilities",
+  "criteria": {
+    "requirement": {
+      "conditions": {
+        "item": {
+          "items": []
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.what_have_you_done.desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "divinerpg:forbidden_fruit"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.what_have_you_done"
+    }
+  },
+  "requirements": [
+    [
+      "requirement"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

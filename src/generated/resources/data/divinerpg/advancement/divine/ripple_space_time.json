@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:divine/temporal_recalibration",
+  "criteria": {
+    "create_stable_rift": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.ripple_space_time.desc"
+    },
+    "icon": {
+      "id": "minecraft:obsidian"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.ripple_space_time"
+    }
+  },
+  "requirements": [
+    [
+      "create_stable_rift"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

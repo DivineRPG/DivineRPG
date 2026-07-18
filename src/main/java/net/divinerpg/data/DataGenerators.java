@@ -3,10 +3,12 @@ package net.divinerpg.data;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static net.divinerpg.DivineRPG.MODID;
@@ -34,6 +36,7 @@ public class DataGenerators {
         generator.addProvider(true, new ModSoundProvider(output));
         generator.addProvider(true, new RecipeProvider.Runner(output, lookupProvider) {@Override public String getName() { return "DivineRPG Recipes"; } @Override protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput recipeOutput) {return new ModRecipeProvider(registries, recipeOutput);}});
         generator.addProvider(true, new ModEquipmentAssetProvider(output));
+        generator.addProvider(true, new AdvancementProvider(event.getGenerator().getPackOutput(), event.getLookupProvider(), List.of(new ModAdvancementProvider())));
 
     }
 }

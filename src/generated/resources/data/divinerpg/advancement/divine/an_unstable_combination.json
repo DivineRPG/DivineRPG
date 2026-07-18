@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:divine/temporal_recalibration",
+  "criteria": {
+    "create_unstable_rift": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.an_unstable_combination.desc"
+    },
+    "icon": {
+      "id": "minecraft:obsidian"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.an_unstable_combination"
+    }
+  },
+  "requirements": [
+    [
+      "create_unstable_rift"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

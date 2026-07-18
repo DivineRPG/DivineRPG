@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:twilight/colourless_land",
+  "criteria": {
+    "kill_boss_experienced_cori": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:breeze"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.observer_of_the_skies.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:experienced_cori_heart"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.observer_of_the_skies"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_experienced_cori"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

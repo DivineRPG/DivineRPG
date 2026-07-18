@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/crystallization",
+  "criteria": {
+    "get_bedrock_chunk": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:chunks/bedrock"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.borderline.desc"
+    },
+    "icon": {
+      "id": "divinerpg:bedrock_chunk"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.borderline"
+    }
+  },
+  "requirements": [
+    [
+      "get_bedrock_chunk"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

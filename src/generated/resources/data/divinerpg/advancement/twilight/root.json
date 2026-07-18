@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "divinerpg": {
+      "conditions": {
+        "to": "divinerpg:eden"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "divinerpg:block/twilight_stone",
+    "description": {
+      "translate": "advancement.divinerpg.twilight.root.desc"
+    },
+    "icon": {
+      "id": "divinerpg:divine_rock"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.divinerpg.twilight.root"
+    }
+  },
+  "requirements": [
+    [
+      "divinerpg"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

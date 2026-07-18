@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:vethea/swiss_cheese",
+  "criteria": {
+    "kill_wreck": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:wither"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.unlimited_power.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:arksiane_lump"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.unlimited_power"
+    }
+  },
+  "requirements": [
+    [
+      "kill_wreck"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

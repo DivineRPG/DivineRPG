@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "iceika": {
+      "conditions": {
+        "to": "divinerpg:iceika"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "background": "divinerpg:block/frozen_dirt",
+    "description": {
+      "translate": "advancement.divinerpg.iceika.root.desc"
+    },
+    "icon": {
+      "id": "divinerpg:snow_globe"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.root"
+    }
+  },
+  "requirements": [
+    [
+      "iceika"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

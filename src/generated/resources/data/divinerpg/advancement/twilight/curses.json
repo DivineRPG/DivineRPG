@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:twilight/glowing_death",
+  "criteria": {
+    "use_mortum_embers": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.curses.desc"
+    },
+    "icon": {
+      "id": "divinerpg:mortum_soul"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.curses"
+    }
+  },
+  "requirements": [
+    [
+      "use_mortum_embers"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

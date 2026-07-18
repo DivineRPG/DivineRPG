@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:divine/towering_guardian",
+  "criteria": {
+    "create_divine_flame": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.the_link.desc"
+    },
+    "icon": {
+      "id": "minecraft:flint_and_steel"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.the_link"
+    }
+  },
+  "requirements": [
+    [
+      "create_divine_flame"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

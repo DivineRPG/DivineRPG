@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "get_terran_shards": {
+      "conditions": {
+        "items": [
+          {
+            "items": []
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.adventure.earthbound.desc"
+    },
+    "icon": {
+      "id": "divinerpg:terran_shards"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.earthbound"
+    }
+  },
+  "requirements": [
+    [
+      "get_terran_shards"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

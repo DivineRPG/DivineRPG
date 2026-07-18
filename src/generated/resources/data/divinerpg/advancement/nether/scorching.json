@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:nether/obtain_blaze_rod",
+  "criteria": {
+    "kill_scorcher": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:blaze"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.nether.scorching.desc"
+    },
+    "icon": {
+      "id": "divinerpg:purple_blaze"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.nether.scorching"
+    }
+  },
+  "requirements": [
+    [
+      "kill_scorcher"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

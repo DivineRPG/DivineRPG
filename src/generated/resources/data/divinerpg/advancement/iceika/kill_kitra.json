@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:iceika/boneyard",
+  "criteria": {
+    "kill_boss_kitra": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:camel"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.kill_kitra.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:brain_coral"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.kill_kitra"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_kitra"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:adventure/earthbound",
+  "criteria": {
+    "get_terran_shifter": {
+      "conditions": {
+        "items": [
+          {
+            "items": []
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.adventure.ground_dweller.desc"
+    },
+    "icon": {
+      "id": "divinerpg:terran_shifter"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.ground_dweller"
+    }
+  },
+  "requirements": [
+    [
+      "get_terran_shifter"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

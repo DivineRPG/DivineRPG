@@ -1,0 +1,36 @@
+{
+  "parent": "divinerpg:iceika/frozen_goods",
+  "criteria": {
+    "talk_to_workshop_tinkerer": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:villager"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:villager_trade"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.a_lil_tinkering.desc"
+    },
+    "icon": {
+      "id": "divinerpg:frostking_sword"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.a_lil_tinkering"
+    }
+  },
+  "requirements": [
+    [
+      "talk_to_workshop_tinkerer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

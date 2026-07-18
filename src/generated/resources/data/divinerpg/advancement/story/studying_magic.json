@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:story/enchant_item",
+  "criteria": {
+    "in_extractor": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:emerald_block",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.story.studying_magic.desc"
+    },
+    "icon": {
+      "id": "minecraft:emerald_block"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.story.studying_magic"
+    }
+  },
+  "requirements": [
+    [
+      "in_extractor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

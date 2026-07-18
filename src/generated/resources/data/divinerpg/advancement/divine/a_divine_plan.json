@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/towering_guardian",
+  "criteria": {
+    "craft_divine_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:tools/sword/divine"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.a_divine_plan.desc"
+    },
+    "icon": {
+      "id": "divinerpg:divine_sword"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.a_divine_plan"
+    }
+  },
+  "requirements": [
+    [
+      "craft_divine_sword"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

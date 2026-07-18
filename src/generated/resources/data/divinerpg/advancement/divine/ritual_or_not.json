@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:divine/the_link",
+  "criteria": {
+    "remove_curse": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.ritual_or_not.desc"
+    },
+    "icon": {
+      "id": "minecraft:golden_apple"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.ritual_or_not"
+    }
+  },
+  "requirements": [
+    [
+      "remove_curse"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

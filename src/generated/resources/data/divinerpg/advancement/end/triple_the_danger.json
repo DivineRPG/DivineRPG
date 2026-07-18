@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "kill_ender_triplets": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:bat"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.end.triple_the_danger.desc"
+    },
+    "icon": {
+      "id": "divinerpg:ender_shards"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.end.triple_the_danger"
+    }
+  },
+  "requirements": [
+    [
+      "kill_ender_triplets"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

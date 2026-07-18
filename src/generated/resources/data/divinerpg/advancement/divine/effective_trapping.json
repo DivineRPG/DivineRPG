@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/root",
+  "criteria": {
+    "get_spike_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:metal_spike_blocks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.effective_trapping.desc"
+    },
+    "icon": {
+      "id": "minecraft:iron_sword"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.effective_trapping"
+    }
+  },
+  "requirements": [
+    [
+      "get_spike_block"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

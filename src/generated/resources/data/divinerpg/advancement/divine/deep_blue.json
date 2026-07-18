@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/kinetic_metal",
+  "criteria": {
+    "get_rupee_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/rupee"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.deep_blue.desc"
+    },
+    "icon": {
+      "id": "divinerpg:rupee_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.deep_blue"
+    }
+  },
+  "requirements": [
+    [
+      "get_rupee_ingot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

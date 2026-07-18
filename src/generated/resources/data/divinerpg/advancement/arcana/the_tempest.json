@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:arcana/root",
+  "criteria": {
+    "get_storm_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": []
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.arcana.the_tempest.desc"
+    },
+    "icon": {
+      "id": "divinerpg:storm_sword"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.arcana.the_tempest"
+    }
+  },
+  "requirements": [
+    [
+      "get_storm_sword"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

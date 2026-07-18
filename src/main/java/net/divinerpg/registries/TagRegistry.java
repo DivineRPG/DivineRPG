@@ -68,10 +68,10 @@ public class TagRegistry {
                 SUMMON_SUNSTORM = item("summoning/sunstorm"), SUMMON_TERMASECT = item("summoning/termasect"),
                 SUMMON_ARCHER = item("summoning/eternal_archer"), SUMMON_CORI = item("summoning/experienced_cori");
 
-        public static final TagKey<Item>
-                FOOD_DOLOSSAL = item("animal_foods/dolossal"), FOOD_MAMOTH = item("animal_foods/mamoth");
+    public static final TagKey<Item>
+            FOOD_DOLOSSAL = item("animal_foods/dolossal"), FOOD_MAMOTH = item("animal_foods/mamoth");
 
-        public static final TagKey<Item>
+    public static final TagKey<Item>
                 PET_SNAPPER = item("pet_foods/snapper"), PET_EHU = item("pet_foods/ehu"), PET_HUSK = item("pet_foods/husk"),
                 PET_BROWN_GRIZZLE = item("pet_foods/brown_grizzle"), PET_WHITE_GRIZZLE = item("pet_foods/white_grizzle"),
                 PET_STONE_GOLEM = item("pet_foods/stone_golem"), PET_SMELTER = item("pet_foods/smelter"),
@@ -98,7 +98,13 @@ public class TagRegistry {
         INGOT_AQUATIC = common("ingots/aquatic"), INGOT_REALMITE = common("ingots/realmite"),
                 INGOT_ARLEMITE = common("ingots/arlemite"), INGOT_RUPEE = common("ingots/rupee"),
                 INGOT_SHADOW = common("ingots/shadow"), INGOT_TORRIDITE = common("ingots/torridite"),
+    INGOT_HELLSTONE = common("ingots/hellstone"),
                 INGOT_OXDRITE = common("ingots/oxdrite"),
+
+                DUST_AQUATIC = common("dusts/aquatic"), DUST_REALMITE = common("dusts/realmite"),
+                DUST_ARLEMITE = common("dusts/arlemite"), DUST_RUPEE = common("dusts/rupee"),
+                DUST_SHADOW = common("dusts/shadow"), DUST_TORRIDITE = common("dusts/torridite"),
+                DUST_OXDRITE = common("dusts/oxdrite"),
 
         GEM_SHADOW = item("gems/shadow"), GEM_ICE = item("gems/ice"), GEM_TERRAN = item("gems/terran"),
                 GEM_JUNGLE = item("gems/jungle"), GEM_MOLTEN = item("gems/molten"), GEM_SOULFIRE = item("gems/soulfire"),
@@ -107,6 +113,8 @@ public class TagRegistry {
                 GEM_WILDWOOD = item("gems/wildwood"), GEM_APALACHIA = item("gems/apalachia"),
                 GEM_SKYTHERN = item("gems/skythern"), GEM_MORTUM = item("gems/mortum"),
 
+        SHARDS_TERRAN = item("shards/terran"),
+
         CHUNK_TORRIDITE = item("chunks/torridite"), CHUNK_BEDROCK = item("chunks/bedrock"),
                 CHUNK_EDEN = item("chunks/eden"), CHUNK_WILDWOOD = item("chunks/wildwood"),
                 CHUNK_APALACHIA = item("chunks/apalachia"), CHUNK_SKYTHERN = item("chunks/skythern"),
@@ -114,11 +122,16 @@ public class TagRegistry {
 
         FUEL_COLLECTOR = item("fuels/collector"), STORAGE_REALMITE = common("storage_blocks/realmite"),
                 TOOL_MAUL = item("tools/maul"), ARMOR_POUCHES = item("armor_pouches"),
-                FROST_CYCLE = item("frosted_allure_cycle_items"), FURNACES = item("furnaces");
+                FROST_CYCLE = item("frosted_allure_cycle_items"), FURNACES = item("furnaces"),
+
+        DIVINE_SWORDS = item("tools/sword/divine"), METAL_SPIKE_BLOCK = item("metal_spike_blocks");
+
+
+        public static final TagKey<Item> SHADOW_COIN = item("coins/shadow");
 
         public static final TagKey<Block>
                 MINEABLE_SHICKAXE = block("mineable/shickaxe"), REPLACE_TREE_ICEIKA = block("replaceable_by_trees/iceika"),
-                FIRE = block("fire"), GATEWAY_RECEIVER = block("gateway_receiver");
+                FIRE = block("fire"), GATEWAY_RECEIVER = block("gateway_receiver"), METAL_SPIKE_BLOCKS = block("metal_spike_blocks");
 
         public static final TagKey<Block>
                 INC_AQUATIC = block("incorrect_for_tool/aquatic"), INC_REALMITE = block("incorrect_for_tool/realmite"),

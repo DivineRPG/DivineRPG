@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/the_real_stuff",
+  "criteria": {
+    "get_arlemite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:ingots/arlemite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.kinetic_metal.desc"
+    },
+    "icon": {
+      "id": "divinerpg:arlemite_ingot"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.kinetic_metal"
+    }
+  },
+  "requirements": [
+    [
+      "get_arlemite_ingot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

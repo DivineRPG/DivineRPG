@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:divine/freezing_fire",
+  "criteria": {
+    "has_frozen_clock_variant_4": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "divinerpg:variant": 4
+            },
+            "items": []
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.90_seconds_to_midnight.desc"
+    },
+    "frame": "goal",
+    "hidden": true,
+    "icon": {
+      "id": "divinerpg:frozen_clock"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.90_seconds_to_midnight"
+    }
+  },
+  "requirements": [
+    [
+      "has_frozen_clock_variant_4"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

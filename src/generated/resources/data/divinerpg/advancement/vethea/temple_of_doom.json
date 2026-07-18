@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:vethea/crypt_raider",
+  "criteria": {
+    "obtain_cermile_lump": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:lumps/cermile"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.temple_of_doom.desc"
+    },
+    "icon": {
+      "id": "divinerpg:cermile_lump"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.temple_of_doom"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_cermile_lump"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

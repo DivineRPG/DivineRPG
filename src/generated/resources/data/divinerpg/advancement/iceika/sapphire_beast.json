@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:iceika/root",
+  "criteria": {
+    "get_seng_fur": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:fur/seng"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.sapphire_beast.desc"
+    },
+    "icon": {
+      "id": "divinerpg:seng_fur"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.sapphire_beast"
+    }
+  },
+  "requirements": [
+    [
+      "get_seng_fur"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

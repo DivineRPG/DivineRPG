@@ -1,0 +1,45 @@
+{
+  "parent": "divinerpg:iceika/sapphire_beast",
+  "criteria": {
+    "have_seng_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:seng_fur_helmet"
+          },
+          {
+            "items": "divinerpg:seng_fur_chestplate"
+          },
+          {
+            "items": "divinerpg:seng_fur_leggings"
+          },
+          {
+            "items": "divinerpg:seng_fur_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.what_makes_you_beautiful.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "divinerpg:seng_fur_helmet"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.what_makes_you_beautiful"
+    }
+  },
+  "requirements": [
+    [
+      "have_seng_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

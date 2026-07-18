@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/crystallization",
+  "criteria": {
+    "get_snow_globe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:snow_globe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.observing_the_cold.desc"
+    },
+    "icon": {
+      "id": "divinerpg:snow_globe"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.observing_the_cold"
+    }
+  },
+  "requirements": [
+    [
+      "get_snow_globe"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

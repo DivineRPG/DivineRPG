@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:husbandry/plant_seed",
+  "criteria": {
+    "eat_chicken_dinner": {
+      "conditions": {
+        "item": {
+          "items": "divinerpg:chicken_dinner"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.husbandry.a_meal_to_remember.desc"
+    },
+    "icon": {
+      "id": "divinerpg:chicken_dinner"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.husbandry.a_meal_to_remember"
+    }
+  },
+  "requirements": [
+    [
+      "eat_chicken_dinner"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/devoid_of_light",
+  "criteria": {
+    "get_shadow_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:gems/shadow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.crystallization.desc"
+    },
+    "icon": {
+      "id": "divinerpg:shadow_stone"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.crystallization"
+    }
+  },
+  "requirements": [
+    [
+      "get_shadow_stone"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

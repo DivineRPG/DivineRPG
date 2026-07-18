@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:twilight/dark_another_day",
+  "criteria": {
+    "kill_boss_twilight_demon": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:spider"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.exorcism.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:halite_bow"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.exorcism"
+    }
+  },
+  "requirements": [
+    [
+      "kill_boss_twilight_demon"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

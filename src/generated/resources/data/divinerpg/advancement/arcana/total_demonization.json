@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:arcana/root",
+  "criteria": {
+    "obtain_demon_furnace": {
+      "conditions": {
+        "items": [
+          {
+            "items": []
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.arcana.total_demonization.desc"
+    },
+    "icon": {
+      "id": "minecraft:furnace"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.arcana.total_demonization"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_demon_furnace"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

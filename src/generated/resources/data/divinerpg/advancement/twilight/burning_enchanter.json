@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:twilight/magical_incineration",
+  "criteria": {
+    "use_enchanted_flame": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.burning_enchanter.desc"
+    },
+    "icon": {
+      "id": "divinerpg:purple_glowbone"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.burning_enchanter"
+    }
+  },
+  "requirements": [
+    [
+      "use_enchanted_flame"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

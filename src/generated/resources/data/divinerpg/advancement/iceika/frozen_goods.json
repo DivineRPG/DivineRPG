@@ -1,0 +1,33 @@
+{
+  "parent": "divinerpg:iceika/root",
+  "criteria": {
+    "get_snowflake": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:snowflakes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.iceika.frozen_goods.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:chest"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.iceika.frozen_goods"
+    }
+  },
+  "requirements": [
+    [
+      "get_snowflake"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

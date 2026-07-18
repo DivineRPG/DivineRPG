@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:divine/root",
+  "criteria": {
+    "get_armor_pouch": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:armor_pouches"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.adaptive_strategies.desc"
+    },
+    "icon": {
+      "id": "divinerpg:armor_pouch"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.adaptive_strategies"
+    }
+  },
+  "requirements": [
+    [
+      "get_armor_pouch"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

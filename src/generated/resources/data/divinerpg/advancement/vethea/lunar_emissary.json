@@ -1,0 +1,37 @@
+{
+  "parent": "divinerpg:vethea/unlimited_power",
+  "criteria": {
+    "kill_lady_luna": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:wither"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.lunar_emissary.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "divinerpg:moon_clock"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.lunar_emissary"
+    }
+  },
+  "requirements": [
+    [
+      "kill_lady_luna"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

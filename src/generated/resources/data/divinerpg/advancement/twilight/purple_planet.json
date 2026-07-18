@@ -1,0 +1,28 @@
+{
+  "parent": "divinerpg:twilight/magical_incineration",
+  "criteria": {
+    "enter_apalachia": {
+      "conditions": {
+        "to": "divinerpg:apalachia"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.purple_planet.desc"
+    },
+    "icon": {
+      "id": "divinerpg:divine_log"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.purple_planet"
+    }
+  },
+  "requirements": [
+    [
+      "enter_apalachia"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

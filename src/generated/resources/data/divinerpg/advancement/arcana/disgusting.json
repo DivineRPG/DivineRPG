@@ -1,0 +1,32 @@
+{
+  "parent": "divinerpg:arcana/root",
+  "criteria": {
+    "get_arcana_potion": {
+      "conditions": {
+        "items": [
+          {
+            "items": []
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.arcana.disgusting.desc"
+    },
+    "icon": {
+      "id": "divinerpg:weak_arcana_potion"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.arcana.disgusting"
+    }
+  },
+  "requirements": [
+    [
+      "get_arcana_potion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

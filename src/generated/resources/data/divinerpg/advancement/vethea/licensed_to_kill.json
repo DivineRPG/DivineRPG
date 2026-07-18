@@ -1,0 +1,36 @@
+{
+  "parent": "divinerpg:vethea/for_the_man_who_has_everything",
+  "criteria": {
+    "kill_lheiva": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:wither"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.vethea.licensed_to_kill.desc"
+    },
+    "icon": {
+      "id": "divinerpg:band_of_lheiva_hunting"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.vethea.licensed_to_kill"
+    }
+  },
+  "requirements": [
+    [
+      "kill_lheiva"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

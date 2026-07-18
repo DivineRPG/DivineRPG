@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:twilight/observer_of_the_skies",
+  "criteria": {
+    "create_mortum_embers": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.glowing_death.desc"
+    },
+    "icon": {
+      "id": "minecraft:kelp"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.glowing_death"
+    }
+  },
+  "requirements": [
+    [
+      "create_mortum_embers"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

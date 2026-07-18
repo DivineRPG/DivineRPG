@@ -1,0 +1,36 @@
+{
+  "parent": "divinerpg:twilight/1001_possibilities",
+  "criteria": {
+    "kill_twilight_glinthop": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:rabbit"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.friend_or_foe.desc"
+    },
+    "icon": {
+      "id": "divinerpg:eden_soul"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.friend_or_foe"
+    }
+  },
+  "requirements": [
+    [
+      "kill_twilight_glinthop"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

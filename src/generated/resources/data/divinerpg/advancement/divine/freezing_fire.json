@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:divine/root",
+  "criteria": {
+    "create_icy_fire": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.freezing_fire.desc"
+    },
+    "icon": {
+      "id": "divinerpg:ice_shards"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.freezing_fire"
+    }
+  },
+  "requirements": [
+    [
+      "create_icy_fire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

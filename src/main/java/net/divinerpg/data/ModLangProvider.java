@@ -438,6 +438,123 @@ public class ModLangProvider extends LanguageProvider {
         addAuto("subtitles.divinerpg.quadro_taste_fist", "Quadro: Taste my fist!");
         addAuto("subtitles.divinerpg.croak", "Croak");
         addAuto("subtitles.divinerpg.mandragora", "Mandragora");
+
+        addAdvancement("adventure.bad_idea", "Bad idea right?", "Visit an ancient tomb");
+        addAdvancement("adventure.earthbound", "Earthbound", "Obtain Terran Shards");
+        addAdvancement("adventure.eye_of_evil", "Eye of Evil", "Look into the eye of The Eye");
+        addAdvancement("adventure.feeding_on_the_fish", "Feeding on the Fish", "Kill a Shark");
+        addAdvancement("adventure.ground_dweller", "Ground Dweller", "Obtain a Terran Shifter");
+        addAdvancement("adventure.halloween_spirit", "Halloween Spirit", "Trade with a Jack o'Man");
+        addAdvancement("adventure.jungle_stegosaurus_slayer", "Jungle Stegosaurus Slayer", "Kill a Jungle Dramcryx");
+        addAdvancement("adventure.lonely_guy", "Story of a Lonely Guy", "Trade with Diamond Dave");
+        addAdvancement("adventure.making_tarzan_proud", "Making Tarzan Proud", "Obtain a Jungle Hook");
+        addAdvancement("adventure.they_wont_bite", "They Won't Bite", "Trade with Livestock Merchant");
+        addAdvancement("adventure.thick_of_it", "Thick of It", "\"I guess this is how the story goes\" — KSI");
+        addAdvancement("arcana.disgusting", "Disgusting!", "Buy a Weak Arcana Potion");
+        addAdvancement("arcana.dungeon_master", "Dungeon Master", "Defeat the Dramix");
+        addAdvancement("arcana.evil_disease", "Evil Disease", "Defeat the Parasecta");
+        addAdvancement("arcana.hotter_than_hell", "Hotter than Hell", "Walk on a Heat Trap");
+        addAdvancement("arcana.my_little_creature", "My Little Creature", "Tame a pet from Zelus");
+        addAdvancement("arcana.root", "Arcana", "What lies within?");
+        addAdvancement("arcana.sky_high", "Sky High", "Jump on an Elevantium Block");
+        addAdvancement("arcana.the_tempest", "The Tempest", "Buy a Storm Sword");
+        addAdvancement("arcana.total_demonization", "Total Demonization", "Obtain a Demon Furnace");
+        addAdvancement("divine.90_seconds_to_midnight", "90 Seconds to Midnight", "The gaff's on fire, it's too far gone!");
+        addAdvancement("divine.a_divine_plan", "A Divine Plan", "Craft a Divine Sword");
+        addAdvancement("divine.adaptive_strategies", "Adaptive Strategies", "Obtain an Armor Pouch");
+        addAdvancement("divine.an_unstable_combination", "An Unstable Combination", "Create an Unstable Rift");
+        addAdvancement("divine.attempt_at_ascension", "Attempt at Ascension", "Craft all Divine armor and tools");
+        addAdvancement("divine.borderline", "Borderline", "Obtain a Bedrock Chunk");
+        addAdvancement("divine.coinage", "Coinage", "Coin a Shadow Bar");
+        addAdvancement("divine.crystallization", "Crystallization", "Crystallize a Shadow Block in Smoldering Tar");
+        addAdvancement("divine.deep_blue", "Deep Blue", "Smelt a Rupee Ingot");
+        addAdvancement("divine.devoid_of_light", "Devoid of Light", "Craft Shadow Dust from smashed dusts");
+        addAdvancement("divine.effective_trapping", "Effective Trapping", "Obtain a Spike Block");
+        addAdvancement("divine.freezing_fire", "Freezing Fire", "Create Icy Fire");
+        addAdvancement("divine.kinetic_metal", "Kinetic Metal", "Smelt an Arlemite Ingot");
+        addAdvancement("divine.observing_the_cold", "Observing the Cold", "Obtain a Snow Globe");
+        addAdvancement("divine.oops", "Oops!", "Explode a Rift");
+        addAdvancement("divine.ripple_space_time", "A Ripple Through Space & Time", "Create a Stable Rift");
+        addAdvancement("divine.ritual_or_not", "Ritual or Not, It Hurts", "Remove a curse");
+        addAdvancement("divine.root", "DivineRPG", "The journey begins...");
+        addAdvancement("divine.smashin", "Smashin'", "Craft a Maul");
+        addAdvancement("divine.temporal_recalibration", "Temporal Re-Calibration", "Freeze a Clock");
+        addAdvancement("divine.the_link", "The Link", "Create Divine Flame");
+        addAdvancement("divine.the_real_stuff", "The Real Stuff", "Smelt a Realmite Ingot");
+        addAdvancement("divine.towering_guardian", "Towering Guardian", "Defeat the Ancient Entity");
+        addAdvancement("end.blown_away", "Blown Away", "Craft a Horde Horn");
+        addAdvancement("end.swarm_of_the_void", "Swarm of the Void", "Defeat the Ayeraco Horde");
+        addAdvancement("end.triple_the_danger", "Triple the Danger", "Kill an Ender Triplet");
+        addAdvancement("end.when_pigs_fly", "When Pigs Fly", "Get a full suit of Angelic armor");
+        addAdvancement("husbandry.a_meal_to_remember", "A Meal to Remember", "Eat a Chicken Dinner");
+        addAdvancement("iceika.a_lil_gift", "A Lil' Gift", "Trade with a Workshop Merchant");
+        addAdvancement("iceika.a_lil_tinkering", "A Lil' Tinkering", "Trade with a Workshop Tinkerer");
+        addAdvancement("iceika.advanced_technology", "Advanced Technology", "Obtain an Oxdrite technology");
+        addAdvancement("iceika.boneyard", "The Whale Graveyard", "Come across a boneyard");
+        addAdvancement("iceika.chocolate_ore", "A Chocolate Ore", "Smelt an Oxdrite Ingot");
+        addAdvancement("iceika.decode", "Decode", "\"How did we get here?\" — Paramore");
+        addAdvancement("iceika.explore_iceika", "A Frosty Stroll", "Explore all Iceika biomes");
+        addAdvancement("iceika.feed_them_brittle_glass", "Feed Them Brittle §mGlass§r Grass", "Breed two Mamoths");
+        addAdvancement("iceika.frozen_goods", "Frozen Goods", "Obtain a Snowflake");
+        addAdvancement("iceika.icy_catacombs", "The Icy Catacombs", "Enter an Iceika Dungeon");
+        addAdvancement("iceika.kill_kitra", "An Invulnerable Whale", "Defeat the Kitra");
+        addAdvancement("iceika.merry_xmas", "Merry Xmas!", "Drink grog while wearing a Santa suit");
+        addAdvancement("iceika.root", "Iceika", "The frozen land");
+        addAdvancement("iceika.sapphire_beast", "A Sapphire Beast", "Obtain a Seng Fur");
+        addAdvancement("iceika.what_makes_you_beautiful", "What Makes You Beautiful", "Get a full suit of Seng Fur armor");
+        addAdvancement("nether.eternal_flame", "Eternal Flame", "Defeat the King of Scorchers");
+        addAdvancement("nether.off_key", "Off Key", "Shoot a Sound of Music");
+        addAdvancement("nether.overseeing_eye", "Overseeing Eye", "Defeat the Watcher");
+        addAdvancement("nether.pain_in_the_bar", "Pain in the Bar", "Obtain a Hellstone Ingot");
+        addAdvancement("nether.scorching", "Scorching!", "Kill a Scorcher");
+        addAdvancement("nether.the_original", "The Original", "Smelt a §mNetherite§r§a Torridite Ingot");
+        addAdvancement("nether.tormented_souls", "Tormented Souls", "Create Hellfire");
+        addAdvancement("story.perfectly_corrupted", "Perfectly Corrupted", "Use an Altar of Corruption");
+        addAdvancement("story.studying_magic", "Studying Magic", "Use a Corrupted Extractor");
+        addAdvancement("twilight.1001_possibilities", "1001 Possibilities", "Enter the Eden dimension");
+        addAdvancement("twilight.a_way_home", "A Way Home", "Build a portal back to the Overworld");
+        addAdvancement("twilight.anger_management_problems", "Anger Management Problems", "Defeat the Karot");
+        addAdvancement("twilight.arachnophobia", "Arachnophobia", "Defeat the Soul Fiend");
+        addAdvancement("twilight.archaic_bowman", "Archaic Bowman", "Defeat the Eternal Archer");
+        addAdvancement("twilight.arrow_to_the_knee", "Arrow to the Knee", "Get shot by a Twilight Archer");
+        addAdvancement("twilight.bicorn", "Bicorn", "Defeat the Vamacheron");
+        addAdvancement("twilight.burning_enchanter", "Burning Enchanter", "Enchant an item in an Enchanted Flame");
+        addAdvancement("twilight.champion_of_light", "Champion of Light", "Defeat the Sunstorm");
+        addAdvancement("twilight.colourless_land", "Colourless Land", "Enter the Skythern dimension");
+        addAdvancement("twilight.curses", "Curses", "You've been cursed!");
+        addAdvancement("twilight.dark_another_day", "Dark Another Day", "Enter the Mortum dimension");
+        addAdvancement("twilight.exorcism", "Exorcism", "Defeat the Twilight Demon");
+        addAdvancement("twilight.five_heads_are_better_than_one", "Five Heads Are Better Than One", "Defeat Densos");
+        addAdvancement("twilight.forest_islands", "Forest Islands", "Enter the Wildwood dimension");
+        addAdvancement("twilight.forest_scourge", "Forest Scourge", "Defeat the Termasect");
+        addAdvancement("twilight.friend_or_foe", "Friend or Foe?", "Make a Glinthop angry");
+        addAdvancement("twilight.glowing_death", "Glowing Death", "Create Mortum Embers");
+        addAdvancement("twilight.hard_times", "Hard Times", "\"Hard times, gonna take you down and laugh when you cry\" — Paramore");
+        addAdvancement("twilight.legolas", "Legolas", "Defeat Reyvor");
+        addAdvancement("twilight.magical_incineration", "Magical Incineration", "Create Enchanted Flame");
+        addAdvancement("twilight.observer_of_the_skies", "Observer of the Skies", "Defeat the Experienced Cori");
+        addAdvancement("twilight.purple_planet", "Purple Planet", "Enter the Apalachia dimension");
+        addAdvancement("twilight.root", "Twilight Dimensions", "Taste the rainbow");
+        addAdvancement("twilight.sky_fall", "Sky Fall", "Create Sky Fire");
+        addAdvancement("twilight.what_have_you_done", "What Have You Done?!", "Eat a Forbidden Fruit");
+        addAdvancement("twilight.wilderness_ablaze", "Wilderness Ablaze", "Create Wild Flame");
+        addAdvancement("twilight.yippie", "Yippie!", "You're gonna fly high");
+        addAdvancement("vethea.an_elm_on_nightmare_street", "An Elm on Nightmare Street", "Be careful when breaking trees");
+        addAdvancement("vethea.crypt_raider", "Crypt Raider", "Obtain an Amthirmis Lump from a crypt");
+        addAdvancement("vethea.everlasting", "Everlasting", "Obtain every \"ever\" weapon from Lady Luna");
+        addAdvancement("vethea.for_the_man_who_has_everything", "For the Man Who Has Everything", "Find and trade with the Hunger");
+        addAdvancement("vethea.getting_out_of_hand", "Getting Out of Hand", "Defeat Quadro");
+        addAdvancement("vethea.good_life", "Do You Want a Slice of the Good Life?", "Eat a slice of Dream Pie");
+        addAdvancement("vethea.i_am_mad_scientist", "I am Mad Scientist", "Defeat Dr. Karos");
+        addAdvancement("vethea.let_them_eat_cake", "Let Them Eat Cake", "Eat a Dream Cake");
+        addAdvancement("vethea.licensed_to_kill", "Licensed to Kill", "Kill an L'heiva");
+        addAdvancement("vethea.lunar_emissary", "Lunar Emissary", "Defeat Lady Luna");
+        addAdvancement("vethea.one_maul_to_rule_them_all", "One Maul to Rule Them All", "Obtain a Karos Rockmaul");
+        addAdvancement("vethea.root", "Vethea", "Dive into your dreams");
+        addAdvancement("vethea.royal_beeswax", "Royal Beeswax", "Defeat the Hive Queen");
+        addAdvancement("vethea.swiss_cheese", "Swiss Cheese", "Defeat Raglok Gog'dure");
+        addAdvancement("vethea.temple_of_doom", "Temple of Doom", "Obtain a Cermile Lump from a temple");
+        addAdvancement("vethea.unlimited_power", "Unlimited Power", "Defeat Wreck");
     }
 
     private void addAuto(Object key, String englishValue) {
@@ -505,6 +622,12 @@ public class ModLangProvider extends LanguageProvider {
     private void addPainting(String registryName, String title, String author) {
         addAuto("painting.divinerpg." + registryName + ".title", title);
         add("painting.divinerpg." + registryName + ".author", author);
+    }
+
+    private void addAdvancement(String id, String title, String desc) {
+        DivineRPG.LOGGER.info("adding :" + id + ". With the title: " + title + ". and description: " + desc);
+        add("advancement.divinerpg." + id, title);
+        add("advancement.divinerpg." + id + ".desc", desc);
     }
 
     @Override

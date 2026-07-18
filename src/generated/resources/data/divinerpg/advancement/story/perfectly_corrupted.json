@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:story/enchant_item",
+  "criteria": {
+    "in_altar": {
+      "conditions": {
+        "location": [
+          {
+            "block": "divinerpg:arcana_portal_frame",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.story.perfectly_corrupted.desc"
+    },
+    "icon": {
+      "id": "minecraft:carved_pumpkin"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.story.perfectly_corrupted"
+    }
+  },
+  "requirements": [
+    [
+      "in_altar"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

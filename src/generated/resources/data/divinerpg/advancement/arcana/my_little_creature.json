@@ -1,0 +1,87 @@
+{
+  "parent": "divinerpg:arcana/root",
+  "criteria": {
+    "tame_fyracryx": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:bee"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tame_animal"
+    },
+    "tame_golem_of_rejuvenation": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:salmon"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tame_animal"
+    },
+    "tame_paratiku": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:wolf"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tame_animal"
+    },
+    "tame_seimer": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:armadillo"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:tame_animal"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.arcana.my_little_creature.desc"
+    },
+    "icon": {
+      "id": "divinerpg:seimer_spawn_egg"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.arcana.my_little_creature"
+    }
+  },
+  "requirements": [
+    [
+      "tame_fyracryx"
+    ],
+    [
+      "tame_seimer"
+    ],
+    [
+      "tame_paratiku"
+    ],
+    [
+      "tame_golem_of_rejuvenation"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

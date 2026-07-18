@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "trade_with_dave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:villager"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:villager_trade"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.adventure.lonely_guy.desc"
+    },
+    "icon": {
+      "id": "divinerpg:realmite_pickaxe"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.adventure.lonely_guy"
+    }
+  },
+  "requirements": [
+    [
+      "trade_with_dave"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

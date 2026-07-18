@@ -1,0 +1,26 @@
+{
+  "parent": "divinerpg:divine/temporal_recalibration",
+  "criteria": {
+    "explode_rift": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.divine.oops.desc"
+    },
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:bone"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.divine.oops"
+    }
+  },
+  "requirements": [
+    [
+      "explode_rift"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

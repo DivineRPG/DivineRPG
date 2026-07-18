@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:end/kill_dragon",
+  "criteria": {
+    "horde_horn": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:horde_horn"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.end.blown_away.desc"
+    },
+    "icon": {
+      "id": "divinerpg:horde_horn"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.end.blown_away"
+    }
+  },
+  "requirements": [
+    [
+      "horde_horn"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,25 @@
+{
+  "parent": "divinerpg:twilight/champion_of_light",
+  "criteria": {
+    "create_wild_flame": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.divinerpg.twilight.wilderness_ablaze.desc"
+    },
+    "icon": {
+      "id": "minecraft:blaze_powder"
+    },
+    "title": {
+      "translate": "advancement.divinerpg.twilight.wilderness_ablaze"
+    }
+  },
+  "requirements": [
+    [
+      "create_wild_flame"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
