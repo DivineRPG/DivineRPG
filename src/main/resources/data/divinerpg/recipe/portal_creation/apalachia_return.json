@@ -1,0 +1,26 @@
+{
+  "type": "divinerpg:portal_creation",
+  "lighter": {
+    "item": "divinerpg:skythern_soul"
+  },
+  "flame": {
+    "predicate_type": "block_match",
+    "block": "minecraft:fire"
+  },
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:apalachia_rift"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:apalachia_rift"
+    }
+  },
+  "rift": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:apalachia_rift"
+    }
+  }
+}

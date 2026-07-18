@@ -25,7 +25,7 @@ public record FireConversionRecipe(Ingredient inputItem, RuleTest inputState, Op
         ResourceLocation.CODEC.optionalFieldOf("advancement").forGetter(FireConversionRecipe::advancement),
         Codec.STRING.optionalFieldOf("advancement_criteria").forGetter(FireConversionRecipe::advancementCriteria)
     ).apply(instance, FireConversionRecipe::new));
-    public static final RecipeType<FireConversionRecipe> TYPE = RecipeType.simple(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "maul_smashing"));
+    public static final RecipeType<FireConversionRecipe> TYPE = RecipeType.simple(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "fire_conversion"));
     @Override
     public boolean matches(RecipeInput recipeInput, Level level) {
         return inputItem.test(recipeInput.getItem(0));

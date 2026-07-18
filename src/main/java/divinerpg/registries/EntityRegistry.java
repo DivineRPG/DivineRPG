@@ -70,6 +70,7 @@ public class EntityRegistry {
     //Throwables
     public static final DeferredHolder<EntityType<?>, EntityType<DivineThrownItem>> THROWN_ITEM = registerProjectile(DivineThrownItem::new, "thrown_item");
     public static final DeferredHolder<EntityType<?>, EntityType<Tomato>> TOMATO = registerProjectile(Tomato::new, "tomato");
+    public static final DeferredHolder<EntityType<?>, EntityType<EdenSparkles>> EDEN_SPARKLES = registerProjectile(EdenSparkles::new, "eden_sparkles");
     public static final DeferredHolder<EntityType<?>, EntityType<SnowFlakeShuriken>> SNOWFLAKE_SHURIKEN = registerProjectile(SnowFlakeShuriken::new, "snowflake_shuriken");
     public static final DeferredHolder<EntityType<?>, EntityType<VileStorm>> VILE_STORM = registerProjectile(VileStorm::new, "vile_storm");
     public static final DeferredHolder<EntityType<?>, EntityType<Grenade>> GRENADE = registerProjectile(Grenade::new, "grenade");
@@ -890,6 +891,7 @@ public class EntityRegistry {
         //Projectiles
         event.registerEntityRenderer(THROWN_ITEM.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(TOMATO.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(EDEN_SPARKLES.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(SNOWFLAKE_SHURIKEN.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(VILE_STORM.get(), ThrownItemRenderer::new);
         event.registerEntityRenderer(GRENADE.get(), ThrownItemRenderer::new);

@@ -1,0 +1,7 @@
+{
+  "parent": "divinerpg:block/template_portal_ns",
+  "textures": {
+    "particle": "divinerpg:block/divine_portal",
+    "portal": "divinerpg:block/divine_portal"
+  }
+}

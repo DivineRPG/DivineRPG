@@ -29,6 +29,7 @@ import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.io.IOUtils;
 
@@ -105,12 +106,15 @@ public class Utils {
         public List<UUID> artists;
         public List<UUID> friend;
     }
+    public static byte getTimeOfDay(Level level, ItemStack stack) {
+        return stack.is(ItemRegistry.frozen_clock) ? stack.get(DataComponentRegistry.variant) : Utils.determineTimeOfDay(level);
+    }
     public static byte determineTimeOfDay(Level level) {
-        if(level.dimension() == LevelRegistry.EDEN) return 5;//guaranteed return to overworld
-        if(level.dimension() == LevelRegistry.WILDWOOD) return 0;//guaranteed return to eden
-        if(level.dimension() == LevelRegistry.APALACHIA) return 1;//guaranteed return to wildwood
-        if(level.dimension() == LevelRegistry.SKYTHERN) return 2;//guaranteed return to apalachia
-        if(level.dimension() == LevelRegistry.MORTUM) return 5;//guaranteed return to skythern
+        if(level.dimension() == LevelRegistry.EDEN) return 0;//guaranteed return to overworld
+        if(level.dimension() == LevelRegistry.WILDWOOD) return 1;//guaranteed return to eden
+        if(level.dimension() == LevelRegistry.APALACHIA) return 2;//guaranteed return to wildwood
+        if(level.dimension() == LevelRegistry.SKYTHERN) return 3;//guaranteed return to apalachia
+        if(level.dimension() == LevelRegistry.MORTUM) return 4;//guaranteed return to skythern
         float timeOfDay = level.getTimeOfDay(1F);
         return
             timeOfDay < .0625F ? 0 : //noon
@@ -119,7 +123,7 @@ public class Utils {
             timeOfDay < .37 ? (byte)3 : //night
             timeOfDay < .6 ? (byte)4 : //midnight
             timeOfDay < .9 ? (byte)5 : //morning
-            0;
+            0; //noon
     }
     public static Block getBlock(String registryName) {
     	return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, registryName));
@@ -231,5 +235,55 @@ public class Utils {
                     else if(e instanceof Mob l) l.setTarget(player);
                 }
             }, pos, MobSpawnType.TRIGGERED, true, false);
+    }
+    public static Direction.Axis checkForFrame(Level level, BlockPos pos, RuleTest frame) {
+        Direction d = null;
+        for(Direction di : Direction.values()) if(frame.test(level.getBlockState(pos.relative(di)), level.random)) {
+            d = di;
+            break;
+        } if(d == null) return null;
+        return travel(level, pos, Direction.Axis.X, frame) ? Direction.Axis.X : (travel(level, pos, Direction.Axis.Z, frame) ? Direction.Axis.Z : null);
+    }
+    protected static boolean travel(Level level, BlockPos pos, Direction.Axis axis, RuleTest frame) {
+        Direction d = lookForFrameBlock(level, pos, axis, frame), dir = d;
+        if(d == null) return false;
+        BlockState state;
+        BlockPos.MutableBlockPos mut = pos.mutable();
+        while((dir = dir.getClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X)) != d) {
+            state = level.getBlockState(mut.relative(dir));
+            if(frame.test(state, level.random)) continue;
+            if(state.isAir()) break;
+            return false;
+        } if(dir == d) return true;
+        mut.move(d = dir);
+        while(mut.distManhattan(pos) < 33 && !mut.equals(pos)) {
+            if(!frame.test(level.getBlockState(mut.relative(d.getCounterClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X))), level.random)) return false;
+            do {
+                state = level.getBlockState(mut.relative(dir));
+                if(frame.test(state, level.random)) continue;
+                if(state.isAir()) {
+                    d = dir;
+                    break;
+                } return false;
+            } while((dir = dir.getClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X)) != d);
+            mut.move(d);
+        } return frame.test(level.getBlockState(mut.relative(d.getCounterClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X))), level.random) && mut.equals(pos);
+    }
+    protected static Direction lookForFrameBlock(Level level, BlockPos pos, Direction.Axis axis, RuleTest frame) {
+        Direction d = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH, dir = d;
+        do {
+            if(frame.test(level.getBlockState(pos.relative(dir)), level.random)) return dir;
+        } while((dir = dir.getClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X)) != d);
+        return null;
+    }
+    public static void spreadBlock(Level level, BlockState newState, BlockPos pos, Block spreadTarget, Direction.Axis axis) {
+        BlockState state;
+        if((state = level.getBlockState(pos)).is(spreadTarget) && !state.is(newState.getBlock())) {
+            level.setBlock(pos, newState, 16);
+            spreadBlock(level, newState, pos.above(), spreadTarget, axis);
+            spreadBlock(level, newState, pos.below(), spreadTarget, axis);
+            spreadBlock(level, newState, pos.relative(axis, 1), spreadTarget, axis);
+            spreadBlock(level, newState, pos.relative(axis, -1), spreadTarget, axis);
+        } level.sendBlockUpdated(pos, spreadTarget.defaultBlockState(), newState, 3);
     }
 }

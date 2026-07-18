@@ -166,56 +166,6 @@ public abstract class PortalBlock extends BaseEntityBlock implements DivinePorta
 			level.setBlockEntity(portal);
 		}
 	}
-	public static void spreadBlock(Level level, BlockState newState, BlockPos pos, Block spreadTarget, Axis axis) {
-		BlockState state;
-		if((state = level.getBlockState(pos)).is(spreadTarget) && !state.is(newState.getBlock())) {
-			level.setBlock(pos, newState, UPDATE_KNOWN_SHAPE);
-			spreadBlock(level, newState, pos.above(), spreadTarget, axis);
-			spreadBlock(level, newState, pos.below(), spreadTarget, axis);
-			spreadBlock(level, newState, pos.relative(axis, 1), spreadTarget, axis);
-			spreadBlock(level, newState, pos.relative(axis, -1), spreadTarget, axis);
-		} level.sendBlockUpdated(pos, spreadTarget.defaultBlockState(), newState, 3);
-	}
-	public Axis checkForFrame(Level level, BlockPos pos) {
-		Direction d = null;
-		for(Direction di : Direction.values()) if(level.getBlockState(pos.relative(di)).is(frameBlock)) {
-			d = di;
-			break;
-		} if(d == null) return null;
-		return travel(level, pos, Axis.X) ? Axis.X : (travel(level, pos, Axis.Z) ? Axis.Z : null);
-	}
-	protected boolean travel(Level level, BlockPos pos, Axis axis) {
-		Direction d = lookForFrameBlock(level, pos, axis), dir = d;
-		if(d == null) return false;
-		BlockState state;
-		MutableBlockPos mut = pos.mutable();
-		while((dir = dir.getClockWise(axis == Axis.X ? Axis.Z : Axis.X)) != d) {
-			state = level.getBlockState(mut.relative(dir));
-			if(state.is(frameBlock)) continue;
-			if(state.isAir()) break;
-			return false;
-		} if(dir == d) return true;
-		mut.move(d = dir);
-		while(mut.distManhattan(pos) < 33 && !mut.equals(pos)) {
-			if(!level.getBlockState(mut.relative(d.getCounterClockWise(axis == Axis.X ? Axis.Z : Axis.X))).is(frameBlock)) return false;
-			do {
-				state = level.getBlockState(mut.relative(dir));
-				if(state.is(frameBlock)) continue;
-				if(state.isAir()) {
-					d = dir;
-					break;
-				} return false;
-			} while((dir = dir.getClockWise(axis == Axis.X ? Axis.Z : Axis.X)) != d);
-			mut.move(d);
-		} return level.getBlockState(mut.relative(d.getCounterClockWise(axis == Axis.X ? Axis.Z : Axis.X))).is(frameBlock) && mut.equals(pos);
-	}
-	protected Direction lookForFrameBlock(Level level, BlockPos pos, Axis axis) {
-		Direction d = axis == Axis.X ? Direction.EAST : Direction.SOUTH, dir = d;
-		do {
-			if(level.getBlockState(pos.relative(dir)).is(frameBlock)) return dir;
-		} while((dir = dir.getClockWise(axis == Axis.X ? Axis.Z : Axis.X)) != d);
-		return null;
-	}
 	@Override
 	protected RenderShape getRenderShape(BlockState state) {
 		return RenderShape.MODEL;

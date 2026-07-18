@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "axis=z": {
+      "model": "divinerpg:block/divine_portal_ew"
+    },
+    "axis=x": {
+      "model": "divinerpg:block/divine_portal_ns"
+    }
+  }
+}

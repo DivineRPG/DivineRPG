@@ -1,29 +1,19 @@
 package divinerpg.blocks.twilight;
 
-import divinerpg.blocks.base.PortalBlock;
-import divinerpg.registries.BlockRegistry;
-import divinerpg.registries.LevelRegistry;
+import divinerpg.blocks.vanilla.Fire;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 import static net.minecraft.sounds.SoundEvents.BREEZE_JUMP;
 import static net.minecraft.sounds.SoundSource.BLOCKS;
 
-public class SkyFire extends PortalFire {
+public class SkyFire extends Fire {
     public SkyFire() {super(2);}
-    @Override public PortalBlock getPortalBlock(Level level, BlockState frame, byte timeOfDay) {
-        return frame.is(BlockRegistry.skythernBlock) && (timeOfDay == 3 || (timeOfDay == 2 && level.dimension() == LevelRegistry.SKYTHERN)) ? (PortalBlock) BlockRegistry.skythernPortal.get() : null;
-    }
-    @Override public Block getRift(byte timeOfDay) {
-        return timeOfDay == 3 ? BlockRegistry.skythernRift.get() : null;
-    }
     @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
         if(entity instanceof ItemEntity) return;

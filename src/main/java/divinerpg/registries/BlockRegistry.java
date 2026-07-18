@@ -5,7 +5,7 @@ import divinerpg.blocks.base.*;
 import divinerpg.blocks.iceika.*;
 import divinerpg.blocks.twilight.*;
 import divinerpg.blocks.vanilla.*;
-import divinerpg.blocks.vanilla.FireBlock;
+import divinerpg.blocks.vanilla.Fire;
 import divinerpg.blocks.vethea.*;
 import divinerpg.compat.corail_woodcutter.*;
 import divinerpg.compat.supplementaries.*;
@@ -973,7 +973,7 @@ public class BlockRegistry {
 
     //Fire
     icyFire = registerBlock("icy_fire", () -> new BlockIcyFire(Properties.ofFullCopy(Blocks.SOUL_FIRE))),
-    hellFire = registerBlock("hellfire", () -> new FireBlock(8F)),
+    hellFire = registerBlock("hellfire", () -> new Fire(8F)),
     divineFlame = registerBlock("divine_flame", DivineFlame::new),
     wildFlame = registerBlock("wild_flame", WildFlame::new),
     enchantedFlame = registerBlock("enchanted_flame", EnchantedFlame::new),
@@ -982,6 +982,7 @@ public class BlockRegistry {
 
     //Portals
     gateway = registerBlock("gateway", () -> new BlockGateway(Properties.ofFullCopy(Blocks.LODESTONE))),
+    divinePortal = registerBlock("divine_portal", () -> new SimplePortalBlock(Level.OVERWORLD, LevelRegistry.EDEN, divineRock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),
     arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
     iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, Level.OVERWORLD, Blocks.SNOW_BLOCK, ResourceLocation.fromNamespaceAndPath(MODID, "frost"))),
     edenPortal = registerBlock("eden_portal", () -> new SimplePortalBlock(LevelRegistry.EDEN, Level.OVERWORLD, edenBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),

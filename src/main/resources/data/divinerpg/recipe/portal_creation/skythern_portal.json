@@ -1,0 +1,27 @@
+{
+  "type": "divinerpg:portal_creation",
+  "lighter": {
+    "tag": "c:clocks"
+  },
+  "flame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:sky_fire"
+  },
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:skythern_block"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:skythern_portal"
+    }
+  },
+  "rift": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:skythern_rift"
+    }
+  },
+  "time_of_day": 3
+}

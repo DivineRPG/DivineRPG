@@ -1,8 +1,6 @@
 package divinerpg.blocks.twilight;
 
-import divinerpg.blocks.base.PortalBlock;
-import divinerpg.registries.BlockRegistry;
-import divinerpg.registries.LevelRegistry;
+import divinerpg.blocks.vanilla.Fire;
 import divinerpg.util.Utils;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
@@ -15,7 +13,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.CommonHooks;
@@ -27,7 +24,7 @@ import static net.minecraft.advancements.CriteriaTriggers.ENCHANTED_ITEM;
 import static net.minecraft.core.registries.Registries.ENCHANTMENT;
 import static net.minecraft.sounds.SoundEvents.ENCHANTMENT_TABLE_USE;
 
-public class EnchantedFlame extends PortalFire {
+public class EnchantedFlame extends Fire {
     public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(MODID, "twilight/burning_enchanter");
     @Override protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         super.entityInside(state, level, pos, entity);
@@ -76,12 +73,5 @@ public class EnchantedFlame extends PortalFire {
                 }
             }
         } return 0;
-    }
-
-    @Override public PortalBlock getPortalBlock(Level level, BlockState frame, byte timeOfDay) {
-        return frame.is(BlockRegistry.apalachiaBlock) && (timeOfDay == 2 || (timeOfDay == 1 && level.dimension() == LevelRegistry.APALACHIA)) ? (PortalBlock) BlockRegistry.apalachiaPortal.get() : null;
-    }
-    @Override public Block getRift(byte timeOfDay) {
-        return timeOfDay == 2 ? BlockRegistry.apalachiaRift.get() : null;
     }
 }

@@ -1,17 +1,19 @@
 package divinerpg.events;
 
+import divinerpg.DivineRPG;
 import divinerpg.attachments.Arcana;
 import divinerpg.block_entities.block.TerranGhostBlockEntity;
-import divinerpg.blocks.twilight.PortalFire;
+import divinerpg.blocks.base.PortalBlock;
 import divinerpg.entities.goals.TurtleEatAequoreaGoal;
 import divinerpg.entities.vanilla.overworld.EntityAequorea;
 import divinerpg.network.payload.Weather;
-import divinerpg.recipe.FireConversionRecipe;
+import divinerpg.recipe.*;
 import divinerpg.registries.*;
 import divinerpg.util.Utils;
-import net.minecraft.core.BlockPos;
+import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.tags.BlockTags;
@@ -24,7 +26,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.event.entity.*;
@@ -35,6 +40,7 @@ import net.neoforged.neoforge.event.tick.*;
 import java.util.List;
 
 public class Ticker {
+    public static final ResourceLocation ADVANCEMENT_OOPS = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/oops");
     public static int tick;
     @SubscribeEvent
     public void tickServer(ServerTickEvent.Pre evt) {
@@ -107,11 +113,31 @@ public class Ticker {
             ServerLevel level = (ServerLevel) event.getLevel();
             if(!level.isAreaLoaded(pos, 1)) return;
             List<FireConversionRecipe> recipes = level.getRecipeManager().getAllRecipesFor(FireConversionRecipe.TYPE).stream().filter(r -> r.value().inputItem().test(stack)).map(RecipeHolder::value).toList();
+            List<PortalCreationRecipe> portalCreations = level.getRecipeManager().getAllRecipesFor(PortalCreationRecipe.TYPE).stream().filter(r -> r.value().lighter().test(stack)).map(RecipeHolder::value).toList();
             BlockState state, prevState;
             for(BlockPos position : positions) {
                 prevState = state = level.getBlockState(position);
                 if(state.isAir()) continue;
-                if(state.getBlock() instanceof PortalFire fire && PortalFire.initiatePortal(level, fire, Utils.getNearbyPlayers(level, i.getX(), i.getY(), i.getZ(), 9), position, stack)) return;
+                for(PortalCreationRecipe recipe : portalCreations) if(recipe.flame().test(state, level.random)) {
+                    if(recipe.timeOfDay().isPresent() && recipe.timeOfDay().get() != Utils.getTimeOfDay(level, stack)) {
+                        level.explode(null, i.getX(), i.getY(), i.getZ(), 3, true, Level.ExplosionInteraction.BLOCK);
+                        List<ServerPlayer> players = Utils.getNearbyPlayers(level, i.getX(), i.getY(), i.getZ(), 9);
+                        for(ServerPlayer player : players) Utils.awardAdvancement(level.getServer(), player, ADVANCEMENT_OOPS, "explode_rift");
+                        return;
+                    } level.setBlock(position, Blocks.AIR.defaultBlockState(), Block.UPDATE_NONE);
+                    Direction.Axis axis = Utils.checkForFrame(level, position, recipe.frame());
+                    if(axis != null) {
+                        if(!level.isClientSide) Utils.spreadBlock(level, recipe.portal().getState(level.random, position).setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), position, Blocks.AIR, axis);
+                        //TODO portal creation sound
+                        level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, level.random.nextFloat() * .4F + .8F);
+                        return;
+                    } level.setBlock(position, state, Block.UPDATE_NONE);
+                    BlockPos above = position.above();
+                    BlockState rift = recipe.rift().getState(level.random, position);
+                    if(level.getBlockState(above).is(rift.getBlock())) return;
+                    level.setBlock(above, rift, 3);
+                    return;
+                }
                 for(FireConversionRecipe recipe : recipes) if(recipe.inputState().test(state, level.random)) {
                     if(recipe.outputState().isPresent()) level.setBlock(position, state = recipe.outputState().get().getState(level.getRandom(), position), 3);
                     if(recipe.outputItem().isPresent()) {
@@ -152,4 +178,5 @@ public class Ticker {
             }
         }
     }
+
 }

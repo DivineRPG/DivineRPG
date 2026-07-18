@@ -12,19 +12,19 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.material.MapColor;
 
-public class FireBlock extends BaseFireBlock {
-	public static final MapCodec<FireBlock> CODEC = simpleCodec(FireBlock::new);
-	@Override public MapCodec<FireBlock> codec() {return CODEC;}
-	public FireBlock() {
+public class Fire extends BaseFireBlock {
+	public static final MapCodec<Fire> CODEC = simpleCodec(Fire::new);
+	@Override public MapCodec<Fire> codec() {return CODEC;}
+	public Fire() {
 		super(Properties.ofFullCopy(Blocks.FIRE).mapColor(MapColor.FIRE), 8);
 	}
-	public FireBlock(Properties properties) {
+	public Fire(Properties properties) {
 		super(properties, 8);
 	}
-	public FireBlock(float fireDamage) {
+	public Fire(float fireDamage) {
 		super(Properties.ofFullCopy(Blocks.FIRE).mapColor(MapColor.FIRE), fireDamage);
 	}
-	public FireBlock(Properties properties, float fireDamage) {
+	public Fire(Properties properties, float fireDamage) {
 		super(properties, fireDamage);
 	}
 	@Override

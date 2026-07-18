@@ -1,7 +1,7 @@
 package divinerpg.blocks.twilight;
 
 import divinerpg.DivineRPG;
-import divinerpg.blocks.base.PortalBlock;
+import divinerpg.blocks.vanilla.Fire;
 import divinerpg.registries.*;
 import divinerpg.util.Utils;
 import net.minecraft.core.*;
@@ -16,11 +16,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class DivineFlame extends PortalFire {
+public class DivineFlame extends Fire {
     public static final ResourceLocation ADVANCEMENT = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/ritual_or_not");
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
@@ -54,11 +53,5 @@ public class DivineFlame extends PortalFire {
             p.setItemSlot(slot, stack);
             return 1;
         } return 0;
-    }
-    @Override public PortalBlock getPortalBlock(Level level, BlockState frame, byte timeOfDay) {
-        return frame.is(BlockRegistry.edenBlock) && (timeOfDay == 0 || (timeOfDay == 5 && level.dimension() == LevelRegistry.EDEN)) ? (PortalBlock)BlockRegistry.edenPortal.get() : null;
-    }
-    @Override public Block getRift(byte timeOfDay) {
-        return timeOfDay == 0 ? BlockRegistry.edenRift.get() : null;
     }
 }

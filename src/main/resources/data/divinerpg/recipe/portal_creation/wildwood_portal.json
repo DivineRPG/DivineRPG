@@ -1,0 +1,27 @@
+{
+  "type": "divinerpg:portal_creation",
+  "lighter": {
+    "tag": "c:clocks"
+  },
+  "flame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:wild_flame"
+  },
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:wildwood_block"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:wildwood_portal"
+    }
+  },
+  "rift": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:wildwood_rift"
+    }
+  },
+  "time_of_day": 1
+}

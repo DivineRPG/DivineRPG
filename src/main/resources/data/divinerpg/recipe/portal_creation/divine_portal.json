@@ -1,0 +1,26 @@
+{
+  "type": "divinerpg:portal_creation",
+  "lighter": {
+    "item": "divinerpg:eden_soul"
+  },
+  "flame": {
+    "predicate_type": "block_match",
+    "block": "minecraft:fire"
+  },
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:divine_rock"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:divine_portal"
+    }
+  },
+  "rift": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:overworld_rift"
+    }
+  }
+}

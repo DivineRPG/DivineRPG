@@ -1,0 +1,27 @@
+{
+  "type": "divinerpg:portal_creation",
+  "lighter": {
+    "tag": "c:clocks"
+  },
+  "flame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:divine_flame"
+  },
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:eden_block"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:eden_portal"
+    }
+  },
+  "rift": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:eden_rift"
+    }
+  },
+  "time_of_day": 0
+}

@@ -1,0 +1,26 @@
+{
+  "type": "divinerpg:portal_creation",
+  "lighter": {
+    "item": "divinerpg:wildwood_soul"
+  },
+  "flame": {
+    "predicate_type": "block_match",
+    "block": "minecraft:fire"
+  },
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:eden_rift"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:eden_rift"
+    }
+  },
+  "rift": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:eden_rift"
+    }
+  }
+}
