@@ -17,7 +17,7 @@
       "translate": "advancement.divinerpg.divine.effective_trapping.desc"
     },
     "icon": {
-      "id": "minecraft:iron_sword"
+      "id": "divinerpg:spike_block"
     },
     "title": {
       "translate": "advancement.divinerpg.divine.effective_trapping"

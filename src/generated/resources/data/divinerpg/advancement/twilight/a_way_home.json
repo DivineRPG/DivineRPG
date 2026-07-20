@@ -3,7 +3,7 @@
   "criteria": {
     "enter_eden_portal": {
       "conditions": {
-        "block": "minecraft:nether_portal"
+        "block": "divinerpg:eden_portal"
       },
       "trigger": "minecraft:enter_block"
     }
@@ -13,7 +13,7 @@
       "translate": "advancement.divinerpg.twilight.a_way_home.desc"
     },
     "icon": {
-      "id": "divinerpg:olivine_block"
+      "id": "divinerpg:eden_block"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.a_way_home"

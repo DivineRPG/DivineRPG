@@ -17,7 +17,7 @@
       "translate": "advancement.divinerpg.arcana.total_demonization.desc"
     },
     "icon": {
-      "id": "minecraft:furnace"
+      "id": "divinerpg:demon_furnace"
     },
     "title": {
       "translate": "advancement.divinerpg.arcana.total_demonization"

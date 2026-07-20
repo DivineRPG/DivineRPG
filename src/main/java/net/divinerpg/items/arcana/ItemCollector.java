@@ -2,16 +2,14 @@ package net.divinerpg.items.arcana;
 
 import net.divinerpg.items.base.ItemMod;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
-import static net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED;
+import static net.divinerpg.registries.BlockRegistry.dramixAltar;
 
 public class ItemCollector extends ItemMod {
 
@@ -25,13 +23,13 @@ public class ItemCollector extends ItemMod {
         Block block = level.getBlockState(pos).getBlock();
         Player player = context.getPlayer();
         ItemStack stack = player.getItemInHand(context.getHand());
-        //TODO - dramix altar
-//        if(block == dramixAltar.get()) {
-//            if(!level.isClientSide) DUNGEON_CONSTRUCTOR.get().spawn((ServerLevel) level, stack, player, pos, MOB_SUMMONED, true, false);
-//            stack.consume(1, player);
+        //TODO - DUNGEON CONSTRUCTOR
+        if(block == dramixAltar.get()) {
+//            if(!level.isClientSide()) DUNGEON_CONSTRUCTOR.get().spawn((ServerLevel) level, stack, player, pos, MOB_SUMMONED, true, false);
+            stack.consume(1, player);
 //            player.getCooldowns().addCooldown(this, 20);
-//            return InteractionResult.SUCCESS;
-//        }
+            return InteractionResult.SUCCESS;
+        }
         return InteractionResult.PASS;
     }
 }

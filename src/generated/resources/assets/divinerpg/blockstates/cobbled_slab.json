@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "divinerpg:block/cobbled_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/cobbled_slab_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/cobbled_slab_top"
+    }
+  }
+}

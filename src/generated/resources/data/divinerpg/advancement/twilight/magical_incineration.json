@@ -10,7 +10,7 @@
       "translate": "advancement.divinerpg.twilight.magical_incineration.desc"
     },
     "icon": {
-      "id": "minecraft:blaze_powder"
+      "id": "divinerpg:enchanted_flame"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.magical_incineration"

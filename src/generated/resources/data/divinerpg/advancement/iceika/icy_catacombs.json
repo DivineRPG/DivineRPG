@@ -24,7 +24,7 @@
     },
     "frame": "goal",
     "icon": {
-      "id": "minecraft:bricks"
+      "id": "divinerpg:icy_bricks"
     },
     "title": {
       "translate": "advancement.divinerpg.iceika.icy_catacombs"

@@ -10,7 +10,7 @@
       "translate": "advancement.divinerpg.twilight.wilderness_ablaze.desc"
     },
     "icon": {
-      "id": "minecraft:blaze_powder"
+      "id": "divinerpg:wild_flame"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.wilderness_ablaze"

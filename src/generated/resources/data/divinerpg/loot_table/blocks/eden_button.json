@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:eden_button"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "divinerpg:blocks/eden_button"
+}

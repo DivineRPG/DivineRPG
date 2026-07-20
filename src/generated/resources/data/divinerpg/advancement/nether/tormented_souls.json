@@ -10,7 +10,7 @@
       "translate": "advancement.divinerpg.nether.tormented_souls.desc"
     },
     "icon": {
-      "id": "minecraft:carved_pumpkin"
+      "id": "divinerpg:hellfire"
     },
     "title": {
       "translate": "advancement.divinerpg.nether.tormented_souls"

@@ -18,7 +18,7 @@
       "translate": "advancement.divinerpg.story.perfectly_corrupted.desc"
     },
     "icon": {
-      "id": "minecraft:carved_pumpkin"
+      "id": "divinerpg:altar_of_corruption"
     },
     "title": {
       "translate": "advancement.divinerpg.story.perfectly_corrupted"

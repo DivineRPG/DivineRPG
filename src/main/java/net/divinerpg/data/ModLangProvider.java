@@ -3,15 +3,12 @@ package net.divinerpg.data;
 
 import net.divinerpg.DivineRPG;
 import net.divinerpg.registries.BlockRegistry;
-import net.divinerpg.registries.DamageRegistry;
 import net.divinerpg.registries.ItemRegistry;
 import net.divinerpg.utils.Utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -625,7 +622,6 @@ public class ModLangProvider extends LanguageProvider {
     }
 
     private void addAdvancement(String id, String title, String desc) {
-        DivineRPG.LOGGER.info("adding :" + id + ". With the title: " + title + ". and description: " + desc);
         add("advancement.divinerpg." + id, title);
         add("advancement.divinerpg." + id + ".desc", desc);
     }

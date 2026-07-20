@@ -5,7 +5,7 @@
       "conditions": {
         "location": [
           {
-            "block": "minecraft:emerald_block",
+            "block": "divinerpg:infusion_table",
             "condition": "minecraft:block_state_property"
           }
         ]
@@ -18,7 +18,7 @@
       "translate": "advancement.divinerpg.story.studying_magic.desc"
     },
     "icon": {
-      "id": "minecraft:emerald_block"
+      "id": "divinerpg:infusion_table"
     },
     "title": {
       "translate": "advancement.divinerpg.story.studying_magic"

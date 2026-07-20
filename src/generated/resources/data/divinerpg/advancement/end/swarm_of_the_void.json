@@ -22,7 +22,7 @@
     },
     "frame": "goal",
     "icon": {
-      "id": "minecraft:cinnabar_wall"
+      "id": "divinerpg:ayeraco_statue"
     },
     "title": {
       "translate": "advancement.divinerpg.end.swarm_of_the_void"

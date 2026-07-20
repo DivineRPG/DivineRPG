@@ -10,7 +10,7 @@
       "translate": "advancement.divinerpg.twilight.glowing_death.desc"
     },
     "icon": {
-      "id": "minecraft:kelp"
+      "id": "divinerpg:mortum_embers"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.glowing_death"

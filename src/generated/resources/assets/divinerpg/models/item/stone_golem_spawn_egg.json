@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "divinerpg:item/stone_golem_spawn_egg"
+  }
+}

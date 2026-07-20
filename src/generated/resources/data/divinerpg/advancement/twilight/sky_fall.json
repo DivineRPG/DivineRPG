@@ -10,7 +10,7 @@
       "translate": "advancement.divinerpg.twilight.sky_fall.desc"
     },
     "icon": {
-      "id": "minecraft:acacia_planks"
+      "id": "divinerpg:sky_fire"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.sky_fall"

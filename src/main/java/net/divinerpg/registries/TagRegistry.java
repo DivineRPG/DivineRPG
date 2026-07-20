@@ -128,8 +128,19 @@ public class TagRegistry {
                 TOOL_MAUL = item("tools/maul"), ARMOR_POUCHES = item("armor_pouches"),
                 FROST_CYCLE = item("frosted_allure_cycle_items"), FURNACES = item("furnaces"),
 
-        DIVINE_SWORDS = item("tools/sword/divine"), METAL_SPIKE_BLOCK = item("metal_spike_blocks");
+        DIVINE_SWORDS = common("tools/swords/divine"), METAL_SPIKE_BLOCK = item("metal_spike_blocks");
 
+    public static final TagKey<Item> PICKAXES = minecraftItem("pickaxes");
+    public static final TagKey<Item> AXES = minecraftItem("axes");
+    public static final TagKey<Item> HOES = minecraftItem("hoes");
+    public static final TagKey<Item> SHOVELS = minecraftItem("shovels");
+    public static final TagKey<Item> SWORDS = minecraftItem("swords");
+    public static final TagKey<Item> COMMON_PICKAXES = common("tools/pickaxes");
+    public static final TagKey<Item> COMMON_AXES = common("tools/axes");
+    public static final TagKey<Item> COMMON_HOES = common("tools/hoes");
+    public static final TagKey<Item> COMMON_SHOVELS = common("tools/shovels");
+    public static final TagKey<Item> COMMON_SWORDS = common("tools/swords");
+    public static final TagKey<Item> SHICKAXES = common("tools/shickaxes");
 
         public static final TagKey<Item> SHADOW_COIN = item("coins/shadow");
 

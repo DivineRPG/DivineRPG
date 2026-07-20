@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "divinerpg:block/king_of_scorchers_statue"
+  }
+}

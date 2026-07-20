@@ -16,6 +16,12 @@ import java.util.stream.Collectors;
 
 public class ModBlockLoot extends BlockLootSubProvider {
 
+    private static final Set<Block> NO_LOOT_BLOCKS = Set.of(
+            BlockRegistry.arcanaPortalFrame.get(),
+            BlockRegistry.proximitySpawner.get(),
+            BlockRegistry.terranGhostBlock.get()
+    );
+
     private static final Map<Block, Item> ORE_DROPS = Map.of(
             BlockRegistry.realmiteOre.get(), ItemRegistry.raw_realmite.get(),
             BlockRegistry.realmiteOreDeepslate.get(), ItemRegistry.raw_realmite.get(),
@@ -41,13 +47,20 @@ public class ModBlockLoot extends BlockLootSubProvider {
     protected void generate() {
         for (DeferredHolder<Block, ? extends Block> holder : DivineRegistries.BLOCKS.getEntries()) {
             Block block = holder.get();
-
-            if (block == BlockRegistry.arcanaPortalFrame.get()) {
+            if (NO_LOOT_BLOCKS.contains(block)) {
                 continue;
             } else if (ORE_DROPS.containsKey(block)) {
-                this.add(block, (b) -> createOreDrop(b, ORE_DROPS.get(b)));
-            }else if (LEAF_TO_SAPLING.containsKey(block)) {
-                this.add(block, (b) -> createLeavesDrops(b, LEAF_TO_SAPLING.get(b), NORMAL_LEAVES_SAPLING_CHANCES));
+                Item drop = ORE_DROPS.get(block);
+                if (drop == net.minecraft.world.item.Items.AIR) {
+                    throw new IllegalStateException("Drop for block " + block + " is AIR!");
+                }
+                this.add(block, (b) -> createOreDrop(b, drop));
+            } else if (LEAF_TO_SAPLING.containsKey(block)) {
+                Block sapling = LEAF_TO_SAPLING.get(block);
+                if (sapling == null) {
+                    throw new IllegalStateException("Sapling for leaf " + block + " is null!");
+                }
+                this.add(block, (b) -> createLeavesDrops(b, sapling, NORMAL_LEAVES_SAPLING_CHANCES));
             } else {
                 this.dropSelf(block);
             }
@@ -58,7 +71,7 @@ public class ModBlockLoot extends BlockLootSubProvider {
     protected Iterable<Block> getKnownBlocks() {
         return DivineRegistries.BLOCKS.getEntries().stream()
                 .map(DeferredHolder::get)
-                .filter(block -> block != BlockRegistry.arcanaPortalFrame.get())
+                .filter(block -> !NO_LOOT_BLOCKS.contains(block))
                 .collect(Collectors.toList());
     }
 }

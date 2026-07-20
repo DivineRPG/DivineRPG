@@ -17,7 +17,7 @@
       "translate": "advancement.divinerpg.iceika.advanced_technology.desc"
     },
     "icon": {
-      "id": "minecraft:repeater"
+      "id": "divinerpg:capacitor"
     },
     "title": {
       "translate": "advancement.divinerpg.iceika.advanced_technology"

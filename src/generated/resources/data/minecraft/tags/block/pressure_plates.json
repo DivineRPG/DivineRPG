@@ -1,11 +1,33 @@
 {
   "values": [
     "divinerpg:frozen_pressure_plate",
+    "divinerpg:cobbled_frozen_pressure_plate",
     "divinerpg:cobaltite_pressure_plate",
+    "divinerpg:coalstone_pressure_plate",
+    "divinerpg:arcanite_pressure_plate",
+    "divinerpg:twilight_pressure_plate",
+    "divinerpg:scorchalt_pressure_plate",
+    "divinerpg:cobbled_scorchalt_pressure_plate",
+    "divinerpg:ray_stone_pressure_plate",
+    "divinerpg:divine_pressure_plate",
     "divinerpg:shiverspine_pressure_plate",
     "divinerpg:auroraoak_pressure_plate",
     "divinerpg:cozybark_pressure_plate",
     "divinerpg:streamleaf_pressure_plate",
-    "divinerpg:divine_pressure_plate"
+    "divinerpg:eucalyptus_pressure_plate",
+    "divinerpg:eden_pressure_plate",
+    "divinerpg:wildwood_pressure_plate",
+    "divinerpg:apalachia_pressure_plate",
+    "divinerpg:skythern_pressure_plate",
+    "divinerpg:mortum_pressure_plate",
+    "divinerpg:frozen_brick_pressure_plate",
+    "divinerpg:polished_cobaltite_pressure_plate",
+    "divinerpg:coalstone_brick_pressure_plate",
+    "divinerpg:polished_coalstone_pressure_plate",
+    "divinerpg:cut_oxdrite_pressure_plate",
+    "divinerpg:arcanite_tile_pressure_plate",
+    "divinerpg:twilight_brick_pressure_plate",
+    "divinerpg:polished_scorchalt_pressure_plate",
+    "divinerpg:polished_ray_stone_pressure_plate"
   ]
 }

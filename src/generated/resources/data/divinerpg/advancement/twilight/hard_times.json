@@ -22,7 +22,7 @@
     },
     "hidden": true,
     "icon": {
-      "id": "minecraft:dead_bush"
+      "id": "divinerpg:demon_brambles"
     },
     "title": {
       "translate": "advancement.divinerpg.twilight.hard_times"

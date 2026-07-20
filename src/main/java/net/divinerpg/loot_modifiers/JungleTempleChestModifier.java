@@ -3,6 +3,7 @@ package net.divinerpg.loot_modifiers;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.divinerpg.registries.BlockRegistry;
 import net.divinerpg.registries.ItemRegistry;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
@@ -31,8 +32,7 @@ public class JungleTempleChestModifier extends LootModifier {
         }
 
         if(context.getRandom().nextFloat() <= 0.5F) {
-            //TODO - Jungle spider pumpkin
-            ItemStack toAdd = new ItemStack(Blocks.PUMPKIN.asItem(), 1 + context.getRandom().nextInt(1));
+            ItemStack toAdd = new ItemStack(BlockRegistry.jungleSpiderPumpkin.asItem(), 1 + context.getRandom().nextInt(1));
             generatedLoot.add(toAdd);
         }
 

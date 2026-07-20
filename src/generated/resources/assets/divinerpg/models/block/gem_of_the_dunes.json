@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "divinerpg:block/gem_of_the_dunes"
+  }
+}

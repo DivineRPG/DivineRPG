@@ -10,7 +10,7 @@
       "translate": "advancement.divinerpg.divine.the_link.desc"
     },
     "icon": {
-      "id": "minecraft:flint_and_steel"
+      "id": "divinerpg:divine_flame"
     },
     "title": {
       "translate": "advancement.divinerpg.divine.the_link"

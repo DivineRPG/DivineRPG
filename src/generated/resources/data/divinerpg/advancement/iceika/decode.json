@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:bricks"
+            "items": "divinerpg:runic_icy_bricks"
           }
         ]
       },
@@ -17,7 +17,7 @@
       "translate": "advancement.divinerpg.iceika.decode.desc"
     },
     "icon": {
-      "id": "minecraft:bricks"
+      "id": "divinerpg:runic_icy_bricks"
     },
     "title": {
       "translate": "advancement.divinerpg.iceika.decode"

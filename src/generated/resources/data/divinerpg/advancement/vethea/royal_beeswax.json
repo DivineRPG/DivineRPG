@@ -22,7 +22,7 @@
     },
     "frame": "goal",
     "icon": {
-      "id": "minecraft:egg"
+      "id": "divinerpg:hive_egg"
     },
     "title": {
       "translate": "advancement.divinerpg.vethea.royal_beeswax"

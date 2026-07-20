@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "divinerpg:block/purple_glowbone_plant"
+  }
+}

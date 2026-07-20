@@ -10,7 +10,7 @@
       "translate": "advancement.divinerpg.divine.ripple_space_time.desc"
     },
     "icon": {
-      "id": "minecraft:obsidian"
+      "id": "divinerpg:shining_obsidian"
     },
     "title": {
       "translate": "advancement.divinerpg.divine.ripple_space_time"

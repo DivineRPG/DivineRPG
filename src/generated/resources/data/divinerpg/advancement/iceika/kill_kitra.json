@@ -22,7 +22,7 @@
     },
     "frame": "goal",
     "icon": {
-      "id": "minecraft:brain_coral"
+      "id": "divinerpg:calcified_brain"
     },
     "title": {
       "translate": "advancement.divinerpg.iceika.kill_kitra"

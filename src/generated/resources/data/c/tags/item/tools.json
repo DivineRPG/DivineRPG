@@ -1,0 +1,11 @@
+{
+  "values": [
+    "#minecraft:pickaxes",
+    "#minecraft:axes",
+    "#minecraft:shovels",
+    "#minecraft:hoes",
+    "#c:tools/shickaxes",
+    "#minecraft:swords",
+    "#divinerpg:tools/maul"
+  ]
+}
