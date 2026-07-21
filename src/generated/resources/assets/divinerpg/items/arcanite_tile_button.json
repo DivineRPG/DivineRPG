@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/arcanite_tile_button"
+    "model": "divinerpg:block/arcanite_tile_button_inventory"
   }
 }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/steel_door"
+    "model": "divinerpg:item/steel_door"
   }
 }

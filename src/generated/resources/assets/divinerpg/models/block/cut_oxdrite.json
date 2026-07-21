@@ -1,6 +1,9 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "divinerpg:block/cut_oxdrite"
+    "all": {
+      "force_translucent": true,
+      "sprite": "divinerpg:block/cut_oxdrite"
+    }
   }
 }

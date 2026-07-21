@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "cross": "divinerpg:block/streamleaf_sapling"
+    "all": "divinerpg:block/streamleaf_sapling"
   }
 }

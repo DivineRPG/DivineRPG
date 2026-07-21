@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:item/streamleaf_sapling"
+    "model": "divinerpg:block/streamleaf_sapling"
   }
 }

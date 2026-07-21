@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "divinerpg:block/mortum_planks",
+    "side": "divinerpg:block/mortum_planks",
+    "top": "divinerpg:block/mortum_planks"
+  }
+}

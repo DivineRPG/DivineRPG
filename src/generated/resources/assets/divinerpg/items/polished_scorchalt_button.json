@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/polished_scorchalt_button"
+    "model": "divinerpg:block/polished_scorchalt_button_inventory"
   }
 }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/mortum_door"
+    "model": "divinerpg:item/mortum_door"
   }
 }

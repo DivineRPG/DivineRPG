@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
+    "type=bottom": {
       "model": "divinerpg:block/polished_coalstone_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/polished_coalstone_slab_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/polished_coalstone_slab_top"
     }
   }
 }

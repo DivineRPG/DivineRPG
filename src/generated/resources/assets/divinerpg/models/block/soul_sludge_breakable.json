@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "divinerpg:block/soul_sludge_breakable"
+    "all": "divinerpg:block/soul_sludge"
   }
 }

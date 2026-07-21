@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/soul_stone_door"
+    "model": "divinerpg:item/soul_stone_door"
   }
 }

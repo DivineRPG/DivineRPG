@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "divinerpg:block/wildwood_door_bottom",
+    "top": "divinerpg:block/wildwood_door_top"
+  }
+}

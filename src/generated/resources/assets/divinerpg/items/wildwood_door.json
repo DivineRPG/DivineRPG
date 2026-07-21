@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/wildwood_door"
+    "model": "divinerpg:item/wildwood_door"
   }
 }

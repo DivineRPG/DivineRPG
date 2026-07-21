@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
+    "type=bottom": {
       "model": "divinerpg:block/skythern_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/skythern_slab_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/skythern_slab_top"
     }
   }
 }

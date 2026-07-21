@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/twilight_brick_button"
+    "model": "divinerpg:block/twilight_brick_button_inventory"
   }
 }

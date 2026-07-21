@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "divinerpg:block/barred_door_bottom",
+    "top": "divinerpg:block/barred_door_top"
+  }
+}

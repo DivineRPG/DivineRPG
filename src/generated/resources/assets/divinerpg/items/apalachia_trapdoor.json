@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/apalachia_trapdoor"
+    "model": "divinerpg:block/apalachia_trapdoor_bottom"
   }
 }

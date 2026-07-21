@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "divinerpg:block/dreamwood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "divinerpg:block/dreamwood_log"
+    },
+    "axis=z": {
+      "model": "divinerpg:block/dreamwood_log_horizontal",
+      "x": 90
     }
   }
 }

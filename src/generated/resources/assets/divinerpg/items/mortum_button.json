@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/mortum_button"
+    "model": "divinerpg:block/mortum_button_inventory"
   }
 }

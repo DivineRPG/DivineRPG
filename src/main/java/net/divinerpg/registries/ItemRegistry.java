@@ -970,7 +970,7 @@ public class ItemRegistry {
             if (fireResistant) props.fireResistant();
             if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             props.axe(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props);});
+            return new AxeItem(stats.getMaterial(), 1.0F, -2.4F, props);});
     }
 
     private static DeferredItem<Item> registerAxe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
@@ -979,7 +979,7 @@ public class ItemRegistry {
             if (fireResistant) props.fireResistant();
             if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             props.axe(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            return new AxeItem(stats.getMaterial(), 1.0F, -2.4F, props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
     }
 
     private static DeferredItem<Item> registerHoe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
@@ -987,8 +987,7 @@ public class ItemRegistry {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
             if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            props.hoe(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props);});
+            return new HoeItem(stats.getMaterial(), 1.0F, -2.4F, props);});
     }
 
     private static DeferredItem<Item> registerHoe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
@@ -996,8 +995,7 @@ public class ItemRegistry {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
             if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            props.hoe(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            return new HoeItem(stats.getMaterial(), 1.0F, -2.4F, props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
     }
 
     private static DeferredItem<Item> registerPickaxe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
@@ -1023,8 +1021,7 @@ public class ItemRegistry {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
             if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            props.shovel(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props);});
+            return new ShovelItem(stats.getMaterial(), 1.0F, -2.4F, props);});
     }
 
     private static DeferredItem<Item> registerShovel(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
@@ -1032,8 +1029,7 @@ public class ItemRegistry {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
             if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            props.shovel(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            return new ShovelItem(stats.getMaterial(), 1.0F, -2.4F, props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
     }
 
     private static DeferredItem<Item> registerSword(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {

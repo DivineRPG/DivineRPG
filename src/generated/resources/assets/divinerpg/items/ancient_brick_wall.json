@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/ancient_brick_wall"
+    "model": "divinerpg:block/ancient_brick_wall_inventory"
   }
 }

@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "powered=false": {
       "model": "divinerpg:block/arcanite_tile_pressure_plate"
+    },
+    "powered=true": {
+      "model": "divinerpg:block/arcanite_tile_pressure_plate_down"
     }
   }
 }

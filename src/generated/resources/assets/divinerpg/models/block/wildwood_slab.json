@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/slab",
   "textures": {
-    "all": "divinerpg:block/wildwood_slab"
+    "bottom": "divinerpg:block/wildwood_planks",
+    "side": "divinerpg:block/wildwood_planks",
+    "top": "divinerpg:block/wildwood_planks"
   }
 }

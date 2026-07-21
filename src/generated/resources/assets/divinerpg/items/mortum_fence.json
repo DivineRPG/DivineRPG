@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/mortum_fence"
+    "model": "divinerpg:block/mortum_fence_inventory"
   }
 }

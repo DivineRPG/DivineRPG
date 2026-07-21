@@ -7,7 +7,6 @@ import net.divinerpg.blocks.iceika.BlockCandyCane;
 import net.divinerpg.blocks.iceika.BlockCozybarkLeaves;
 import net.divinerpg.blocks.iceika.BlockLights;
 import net.divinerpg.blocks.vethea.VetheaLog;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -15,7 +14,6 @@ import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -25,7 +23,6 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.Optional;
@@ -36,9 +33,6 @@ import static net.divinerpg.DivineRPG.MODID;
 import static net.divinerpg.registries.DivineRegistries.BLOCKS;
 import static net.divinerpg.registries.DivineRegistries.ITEMS;
 import static net.divinerpg.registries.ItemRegistry.*;
-import static net.divinerpg.registries.SoundRegistry.*;
-import static net.minecraft.sounds.SoundEvents.IRON_GOLEM_DEATH;
-import static net.minecraft.sounds.SoundEvents.WOOD_STEP;
 
 public class BlockRegistry {
 
@@ -707,9 +701,9 @@ public class BlockRegistry {
     public static final DeferredBlock<FenceBlock> redFence = registerBlock("red_fence", p -> new FenceBlock(p), Block.Properties.of().mapColor(MapColor.COLOR_RED).strength(2.0F, 6.0F).noOcclusion());
     public static final DeferredBlock<FenceBlock> blueFence = registerBlock("blue_fence", p -> new FenceBlock(p), Block.Properties.of().mapColor(MapColor.COLOR_BLUE).strength(2.0F, 6.0F).noOcclusion());
     public static final DeferredBlock<FenceBlock> greenFence = registerBlock("green_fence", p -> new FenceBlock(p), Block.Properties.of().mapColor(MapColor.COLOR_GREEN).strength(2.0F, 6.0F).noOcclusion());
-    public static final DeferredBlock<Block> frostedGlass = registerBlock("frosted_glass", /*BlockModGlass*/Block::new, Block.Properties.of().noOcclusion().isSuffocating((s, g, p) -> false));
-    public static final DeferredBlock<Block> stainedGlass = registerBlock("stained_glass", /*BlockModGlass*/Block::new, Block.Properties.of().noOcclusion().isSuffocating((s, g, p) -> false));
-    public static final DeferredBlock<Block> smoothGlass = registerBlock("smooth_glass", /*BlockModGlass*/Block::new, Block.Properties.of().noOcclusion().isSuffocating((s, g, p) -> false));
+    public static final DeferredBlock<Block> frostedGlass = registerBlock("frosted_glass", /*BlockModGlass*/Block::new, Block.Properties.ofFullCopy(Blocks.GLASS));
+    public static final DeferredBlock<Block> stainedGlass = registerBlock("stained_glass", /*BlockModGlass*/Block::new, Block.Properties.ofFullCopy(Blocks.GLASS));
+    public static final DeferredBlock<Block> smoothGlass = registerBlock("smooth_glass", /*BlockModGlass*/Block::new, Block.Properties.ofFullCopy(Blocks.GLASS));
     public static final DeferredBlock<Block> brittleGrass = registerBlock("brittle_grass", /*BlockBrittleGrass*/Block::new, Block.Properties.ofFullCopy(Blocks.SEAGRASS));
     public static final DeferredBlock<Block> winterberryBush = registerBlock("winterberry_bush", /*BlockWinterberryBush*/Block::new, Block.Properties.of().noOcclusion().randomTicks());
     public static final DeferredBlock<Block> winterberryVinesBody = registerBlock("winterberry_vines_body", /*BlockWinterberryVinesBody*/Block::new, Block.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES));
@@ -903,7 +897,6 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> randomItemDropper = registerBlock("random_item_dropper", /*BlockRandomItemDropper*/Block::new, Block.Properties.of().strength(2.0F));
 
     public static final DeferredBlock<FlowerPotBlock>
-            //Saplings
             divineSaplingPot = registerFlowerPot("divine_sapling_pot", divineSapling),
             shiverspineSaplingPot = registerFlowerPot("shiverspine_sapling_pot", shiverspineSapling),
             auroraoakSaplingPot = registerFlowerPot("auroraoak_sapling_pot", auroraoakSapling),
@@ -915,14 +908,10 @@ public class BlockRegistry {
             apalachiaSaplingPot = registerFlowerPot("apalachia_sapling_pot", apalachiaSapling),
             skythernSaplingPot = registerFlowerPot("skythern_sapling_pot", skythernSapling),
             mortumSaplingPot = registerFlowerPot("mortum_sapling_pot", mortumSapling),
-
-    //Mushrooms
     glowsproutPot = registerFlowerPot("glowsprout_pot", glowsprout),
             lowsproutPot = registerFlowerPot("lowsprout_pot", lowsprout),
             slowsproutPot = registerFlowerPot("slowsprout_pot", slowsprout),
             dreamglowPot = registerFlowerPot("dreamglow_pot", dreamglow),
-
-    //Short Flowers
     crimpetalPot = registerFlowerPot("crimpetal_pot", crimpetal),
             roofbellPot = registerFlowerPot("roofbell_pot", roofbell),
             winterbloomPot = registerFlowerPot("winterbloom_pot", winterbloom),
@@ -945,28 +934,21 @@ public class BlockRegistry {
             greenDulahPot = registerFlowerPot("green_dulah_pot", greenDulah),
             greenGemtopPot = registerFlowerPot("green_gemtop_pot", greenGemtop),
             purpleGemtopPot = registerFlowerPot("purple_gemtop_pot", purpleGemtop),
-
-    //Tall Flowers
     globebrushPot = registerFlowerPot("globebrush_pot", globebrush),
             thermoliagePot = registerFlowerPot("thermoliage_pot", thermoliage),
             duskFlowerPot = registerFlowerPot("dusk_flower_pot", duskFlower),
             dustBramblesPot = registerFlowerPot("dust_brambles_pot", dustBrambles),
             demonBramblesPot = registerFlowerPot("demon_brambles_pot", demonBrambles),
-
-    //Bushes
     arcanaBushPot = registerFlowerPot("arcana_bush_pot", arcanaBush);
 
     static {
-        //Obsidian
         addAliases("red_vane", bleedingObsidian);
         addAliases("yellow_vane", shiningObsidian);
         addAliases("cyan_vane", glitteringObsidian);
         addAliases("blue_vane", seepingObsidian);
         addAliases("purple_vane", vwoopingObsidian);
-        //Lamps
         addAliases("bluefire_lamp", soulfireLamp);
         addAliases("redstone_ore_lamp", bloodgemLamp);
-        //Shiverspine
         addAliases("frozen_sapling", shiverspineSapling);
         addAliases("frozen_log", shiverspineLog);
         addAliases("stripped_frozen_log", strippedShiverspineLog);
@@ -975,14 +957,11 @@ public class BlockRegistry {
         addAliases("frozen_fence_gate", shiverspineFenceGate);
         addAliases("frozen_door", shiverspineDoor);
         addAliases("frozen_trapdoor", shiverspineTrapdoor);
-        //Fire
         addAliases("iceika_fire", icyFire);
         addVanillaAliases("blue_fire", Blocks.SOUL_FIRE);
-        //Steel
         addAliases("white_steel", steel);
         addAliases("teal_steel", cyanSteel);
         addAliases("bright_red_steel", magentaSteel);
-        //Stained Glass
         addAliases("stained_glass2", stainedGlass);
         addAliases("stained_glass3", stainedGlass);
         addAliases("stained_glass4", stainedGlass);
@@ -990,9 +969,7 @@ public class BlockRegistry {
         addAliases("stained_glass6", stainedGlass);
         addAliases("stained_glass7", stainedGlass);
         addAliases("stained_glass8", stainedGlass);
-        //Extra Arcana
         addAliases("arcana_hard_portal_frame", arcanaPortalFrame);
-        //Eden
         addAliases("eden_dirt", rayDirt);
         addAliases("eden_grass", rayGrass);
         addAliases("eden_ore", twilightEdenOre);

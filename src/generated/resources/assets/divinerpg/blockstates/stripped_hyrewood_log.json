@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "divinerpg:block/stripped_hyrewood_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "divinerpg:block/stripped_hyrewood_log"
+    },
+    "axis=z": {
+      "model": "divinerpg:block/stripped_hyrewood_log_horizontal",
+      "x": 90
     }
   }
 }

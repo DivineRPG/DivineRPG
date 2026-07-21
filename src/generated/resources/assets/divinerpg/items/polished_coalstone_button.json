@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/polished_coalstone_button"
+    "model": "divinerpg:block/polished_coalstone_button_inventory"
   }
 }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/eden_button"
+    "model": "divinerpg:block/eden_button_inventory"
   }
 }

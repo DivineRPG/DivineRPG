@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/skythern_trapdoor"
+    "model": "divinerpg:block/skythern_trapdoor_bottom"
   }
 }

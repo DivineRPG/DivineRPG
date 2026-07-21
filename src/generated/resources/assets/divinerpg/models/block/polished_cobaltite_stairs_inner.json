@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "divinerpg:block/polished_cobaltite",
+    "side": "divinerpg:block/polished_cobaltite",
+    "top": "divinerpg:block/polished_cobaltite"
+  }
+}

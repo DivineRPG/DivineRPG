@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "divinerpg:block/arcanite_tiles",
+    "side": "divinerpg:block/arcanite_tiles",
+    "top": "divinerpg:block/arcanite_tiles"
+  }
+}

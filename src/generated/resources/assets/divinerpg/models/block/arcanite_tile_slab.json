@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/slab",
   "textures": {
-    "all": "divinerpg:block/arcanite_tile_slab"
+    "bottom": "divinerpg:block/arcanite_tiles",
+    "side": "divinerpg:block/arcanite_tiles",
+    "top": "divinerpg:block/arcanite_tiles"
   }
 }

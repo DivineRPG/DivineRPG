@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/apalachia_fence"
+    "model": "divinerpg:block/apalachia_fence_inventory"
   }
 }

@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/stairs",
   "textures": {
-    "all": "divinerpg:block/eden_stairs"
+    "bottom": "divinerpg:block/eden_planks",
+    "side": "divinerpg:block/eden_planks",
+    "top": "divinerpg:block/eden_planks"
   }
 }

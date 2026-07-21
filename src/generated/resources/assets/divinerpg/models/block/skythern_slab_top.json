@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "divinerpg:block/skythern_planks",
+    "side": "divinerpg:block/skythern_planks",
+    "top": "divinerpg:block/skythern_planks"
+  }
+}

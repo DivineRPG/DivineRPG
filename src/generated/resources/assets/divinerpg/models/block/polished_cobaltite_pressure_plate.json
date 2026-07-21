@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/pressure_plate_up",
   "textures": {
-    "all": "divinerpg:block/polished_cobaltite_pressure_plate"
+    "texture": "divinerpg:block/polished_cobaltite"
   }
 }

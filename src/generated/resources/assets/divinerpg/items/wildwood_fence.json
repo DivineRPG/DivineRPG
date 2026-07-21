@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/wildwood_fence"
+    "model": "divinerpg:block/wildwood_fence_inventory"
   }
 }

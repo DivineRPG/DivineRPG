@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "divinerpg:block/arcanium_metal_breakable"
+    "all": "divinerpg:block/arcanium_metal"
   }
 }

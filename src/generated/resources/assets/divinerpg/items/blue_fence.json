@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/blue_fence"
+    "model": "divinerpg:block/blue_fence_inventory"
   }
 }

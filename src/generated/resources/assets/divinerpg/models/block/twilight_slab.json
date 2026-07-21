@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "bottom": "divinerpg:block/twilight_stone",
-    "side": "divinerpg:block/twilight_stone",
-    "top": "divinerpg:block/twilight_stone"
+    "bottom": "divinerpg:block/twilight_bricks",
+    "side": "divinerpg:block/twilight_bricks",
+    "top": "divinerpg:block/twilight_bricks"
   }
 }

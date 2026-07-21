@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/mortum_trapdoor"
+    "model": "divinerpg:block/mortum_trapdoor_bottom"
   }
 }

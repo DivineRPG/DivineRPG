@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/polished_ray_stone",
+    "side": "divinerpg:block/polished_ray_stone"
+  }
+}

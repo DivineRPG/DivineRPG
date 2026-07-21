@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/wildwood_trapdoor"
+    "model": "divinerpg:block/wildwood_trapdoor_bottom"
   }
 }

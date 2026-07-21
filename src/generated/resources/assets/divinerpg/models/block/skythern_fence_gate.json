@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/template_fence_gate",
   "textures": {
-    "all": "divinerpg:block/skythern_fence_gate"
+    "texture": "divinerpg:block/skythern_planks"
   }
 }

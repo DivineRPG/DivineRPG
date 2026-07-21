@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/wildwood_button"
+    "model": "divinerpg:block/wildwood_button_inventory"
   }
 }

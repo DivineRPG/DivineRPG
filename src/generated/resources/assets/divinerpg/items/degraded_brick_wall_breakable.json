@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/degraded_brick_wall_breakable"
+    "model": "divinerpg:block/degraded_brick_wall_breakable_inventory"
   }
 }

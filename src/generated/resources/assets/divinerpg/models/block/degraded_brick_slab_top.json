@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "divinerpg:block/degraded_bricks",
+    "side": "divinerpg:block/degraded_bricks",
+    "top": "divinerpg:block/degraded_bricks"
+  }
+}

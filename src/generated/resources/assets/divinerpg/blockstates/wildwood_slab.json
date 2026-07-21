@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
+    "type=bottom": {
       "model": "divinerpg:block/wildwood_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/wildwood_slab_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/wildwood_slab_top"
     }
   }
 }

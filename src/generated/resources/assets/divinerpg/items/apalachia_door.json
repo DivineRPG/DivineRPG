@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/apalachia_door"
+    "model": "divinerpg:item/apalachia_door"
   }
 }

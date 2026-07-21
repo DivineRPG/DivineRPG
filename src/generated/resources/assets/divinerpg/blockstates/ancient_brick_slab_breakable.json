@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
+    "type=bottom": {
       "model": "divinerpg:block/ancient_brick_slab_breakable"
+    },
+    "type=double": {
+      "model": "divinerpg:block/ancient_brick_slab_breakable_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/ancient_brick_slab_breakable_top"
     }
   }
 }

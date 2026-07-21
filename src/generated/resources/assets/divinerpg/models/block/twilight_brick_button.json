@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/button",
   "textures": {
-    "all": "divinerpg:block/twilight_brick_button"
+    "texture": "divinerpg:block/twilight_bricks"
   }
 }

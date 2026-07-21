@@ -1,7 +1,13 @@
 {
   "variants": {
-    "": {
+    "type=bottom": {
       "model": "divinerpg:block/mortum_slab"
+    },
+    "type=double": {
+      "model": "divinerpg:block/mortum_slab_double"
+    },
+    "type=top": {
+      "model": "divinerpg:block/mortum_slab_top"
     }
   }
 }

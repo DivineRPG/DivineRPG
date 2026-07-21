@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/slab",
   "textures": {
-    "all": "divinerpg:block/polished_coalstone_slab"
+    "bottom": "divinerpg:block/polished_coalstone",
+    "side": "divinerpg:block/polished_coalstone",
+    "top": "divinerpg:block/polished_coalstone"
   }
 }

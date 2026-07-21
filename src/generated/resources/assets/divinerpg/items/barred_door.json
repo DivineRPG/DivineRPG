@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/barred_door"
+    "model": "divinerpg:item/barred_door"
   }
 }

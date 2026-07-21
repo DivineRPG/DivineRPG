@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "divinerpg:block/cut_oxdrite",
+    "side": "divinerpg:block/cut_oxdrite",
+    "top": "divinerpg:block/cut_oxdrite"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "divinerpg:block/mortum_door_bottom",
+    "top": "divinerpg:block/mortum_door_top"
+  }
+}

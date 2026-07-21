@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/ancient_bricks",
+    "side": "divinerpg:block/ancient_bricks"
+  }
+}

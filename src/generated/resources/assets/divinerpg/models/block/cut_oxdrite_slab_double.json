@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/cut_oxdrite",
+    "side": "divinerpg:block/cut_oxdrite"
+  }
+}

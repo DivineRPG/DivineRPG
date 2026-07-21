@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/stairs",
   "textures": {
-    "all": "divinerpg:block/degraded_brick_stairs"
+    "bottom": "divinerpg:block/degraded_bricks",
+    "side": "divinerpg:block/degraded_bricks",
+    "top": "divinerpg:block/degraded_bricks"
   }
 }

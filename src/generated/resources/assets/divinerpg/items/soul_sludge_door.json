@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/soul_sludge_door"
+    "model": "divinerpg:item/soul_sludge_door"
   }
 }

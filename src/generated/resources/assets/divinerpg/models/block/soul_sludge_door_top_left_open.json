@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "divinerpg:block/soul_sludge_door_bottom",
+    "top": "divinerpg:block/soul_sludge_door_top"
+  }
+}

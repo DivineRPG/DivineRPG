@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/template_fence_gate",
   "textures": {
-    "all": "divinerpg:block/mortum_fence_gate"
+    "texture": "divinerpg:block/mortum_planks"
   }
 }
