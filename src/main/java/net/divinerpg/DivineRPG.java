@@ -4,6 +4,8 @@ import net.divinerpg.config.Config;
 import net.divinerpg.data.DataGenerators;
 import net.divinerpg.registries.DivineRegistries;
 import net.divinerpg.registries.PaintingRegistry;
+import net.divinerpg.utils.Utils;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -24,6 +26,7 @@ public class DivineRPG {
 
     public DivineRPG(IEventBus bus, ModContainer container) {
         bus.addListener(this::commonSetup);
+        bus.addListener(this::clientSetup);
         bus.addListener(DataGenerators::genData);
         bus.addListener(DivineRegistries::creativeTab);
         NeoForge.EVENT_BUS.register(this);
@@ -33,6 +36,12 @@ public class DivineRPG {
 
     private void commonSetup(FMLCommonSetupEvent event) {
 
+    }
+
+    private void clientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(()-> {
+            Utils.loadHatInformation();
+        });
     }
 
     @SubscribeEvent

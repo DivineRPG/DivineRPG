@@ -1,0 +1,12 @@
+{
+  "spec": "1",
+  "minVersion": "0.8",
+  "package": "net.divinerpg.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "divinerpg.refmap.json",
+  "mixins": [
+    "AvatarRenderStateAccessorMixin",
+    "AvatarRendererMixin"
+  ],
+  "client": []
+}

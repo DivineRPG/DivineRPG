@@ -48,7 +48,6 @@ public class ModModelProvider extends ModelProvider {
         registerStairs(gen, BlockRegistry.stairDesign.get(), BlockRegistry.plankDesign.get());
         registerSlab(gen, BlockRegistry.slabDesign.get(), BlockRegistry.plankDesign.get());
         registerSlab(gen, BlockRegistry.cobbledScorchaltSlab.get(), BlockRegistry.cobbledScorchalt.get());
-        registerCarpet(gen, BlockRegistry.workshopCarpet.get(), BlockRegistry.workshopCarpet.get());
         registerCarpet(gen, BlockRegistry.rainbowWoolCarpet.get(), BlockRegistry.rainbowWool.get());
 
         for (var entry : DivineRegistries.ITEMS.getEntries()) {

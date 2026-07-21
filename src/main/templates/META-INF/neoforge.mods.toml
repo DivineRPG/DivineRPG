@@ -12,6 +12,10 @@ displayURL="${mod_url}"
 logoFile="${mod_logo}"
 updateJSONURL="${mod_update_json}"
 
+[[mixins]]
+modid = "divinerpg"
+config = "divinerpg.mixins.json"
+
 [[dependencies.divinerpg]]
 modId="neoforge"
 type="required"
