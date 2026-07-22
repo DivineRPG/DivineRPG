@@ -3,6 +3,7 @@ package net.divinerpg;
 import net.divinerpg.config.Config;
 import net.divinerpg.data.DataGenerators;
 import net.divinerpg.registries.DivineRegistries;
+import net.divinerpg.registries.EntityRegistry;
 import net.divinerpg.registries.PaintingRegistry;
 import net.divinerpg.utils.Utils;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -29,6 +30,7 @@ public class DivineRPG {
         bus.addListener(this::clientSetup);
         bus.addListener(DataGenerators::genData);
         bus.addListener(DivineRegistries::creativeTab);
+        bus.register(EntityRegistry.class);
         NeoForge.EVENT_BUS.register(this);
         DivineRegistries.register(bus);
         container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

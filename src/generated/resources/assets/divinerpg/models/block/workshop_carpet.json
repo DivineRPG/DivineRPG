@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/carpet",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "wool": "divinerpg:block/workshop_carpet"
+    "all": "divinerpg:block/workshop_carpet"
   }
 }

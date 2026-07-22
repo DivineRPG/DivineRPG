@@ -5,6 +5,7 @@ import net.divinerpg.items.arcana.ItemFirestock;
 import net.divinerpg.items.base.*;
 import net.divinerpg.items.iceika.ItemEggNog;
 import net.divinerpg.items.vanilla.ItemHealingStone;
+import net.divinerpg.items.vanilla.ItemTomato;
 import net.divinerpg.utils.FoodList;
 import net.divinerpg.utils.RarityList;
 import net.divinerpg.utils.ToolStats;
@@ -234,9 +235,7 @@ public class ItemRegistry {
     public static final DeferredItem<Item> cheese = register("cheese", properties -> new ItemModFood(FoodList.CHEESE, properties));
     public static final DeferredItem<Item> donut = register("donut", properties -> new ItemModFood(FoodList.DONUT, properties));
     public static final DeferredItem<Item> hot_pumpkin_pie = register("hot_pumpkin_pie", properties -> new ItemModFoodEffect(FoodList.HOT_PUMPKIN_PIE, properties));
-    //TODO - throwable food
-//    public static final DeferredItem<Item> tomato = registerThrowableItem("tomato", ItemTomato::new);
-    public static final DeferredItem<Item> tomato = register("tomato", properties -> new ItemModFood(FoodList.TOMATO, properties));
+    public static final DeferredItem<Item> tomato = registerThrowableItem("tomato", ItemTomato::new);
     public static final DeferredItem<Item> white_mushroom = register("white_mushroom", properties -> new ItemModFood(FoodList.WHITE_MUSHROOM, properties));
     public static final DeferredItem<Item> advanced_mushroom_stew = register("advanced_mushroom_stew", properties -> new ItemModFoodEffect(true, FoodList.ADVANCED_MUSHROOM_STEW, properties));
     public static final DeferredItem<Item> chicken_dinner = register("chicken_dinner", properties -> new ItemModFoodEffect(true, FoodList.CHICKEN_DINNER, properties));
@@ -1128,6 +1127,11 @@ public class ItemRegistry {
             if(durability == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
             return new ShieldItem(props);
         });
+    }
+
+    private static <T extends Item> DeferredItem<T> registerThrowableItem(String registryId, Supplier<T> item) {
+        DeferredItem<T> i = ITEMS.register(registryId, item);
+        return i;
     }
 
     public static void load() {}

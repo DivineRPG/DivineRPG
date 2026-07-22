@@ -8,7 +8,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
-@EventBusSubscriber
+import static net.divinerpg.DivineRPG.MODID;
+import static net.neoforged.api.distmarker.Dist.CLIENT;
+
+@EventBusSubscriber(modid = MODID, value = CLIENT)
 public class FancyRenders {
 
     @SubscribeEvent
