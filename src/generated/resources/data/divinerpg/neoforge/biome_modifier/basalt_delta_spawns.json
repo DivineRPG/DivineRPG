@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#divinerpg:basalt_deltas",
+  "spawners": {
+    "type": "divinerpg:scorcher",
+    "maxCount": 4,
+    "minCount": 1,
+    "weight": 24
+  }
+}

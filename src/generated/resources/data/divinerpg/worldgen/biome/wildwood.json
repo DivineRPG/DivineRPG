@@ -1,0 +1,83 @@
+{
+  "attributes": {
+    "minecraft:visual/fog_color": "#5d95fe",
+    "minecraft:visual/sky_color": "#a3baff",
+    "minecraft:visual/water_fog_color": "#d1e3ff"
+  },
+  "carvers": "minecraft:canyon",
+  "downfall": 0.4,
+  "effects": {
+    "foliage_color": "#2b00ff",
+    "grass_color": "#0059ff",
+    "water_color": "#a1c0e8"
+  },
+  "features": [],
+  "has_precipitation": true,
+  "spawn_costs": {
+    "divinerpg:moon_wolf": {
+      "charge": 0.1,
+      "energy_budget": 1.0
+    }
+  },
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "divinerpg:moon_wolf",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 1
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "divinerpg:wildwood_cadillion",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 4
+      },
+      {
+        "type": "divinerpg:wildwood_tomo",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 4
+      },
+      {
+        "type": "divinerpg:epiphite",
+        "maxCount": 2,
+        "minCount": 2,
+        "weight": 1
+      },
+      {
+        "type": "divinerpg:behemoth",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
+      },
+      {
+        "type": "divinerpg:wildwood_golem",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 3
+      },
+      {
+        "type": "divinerpg:verek",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 4
+      },
+      {
+        "type": "divinerpg:mage",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.8
+}

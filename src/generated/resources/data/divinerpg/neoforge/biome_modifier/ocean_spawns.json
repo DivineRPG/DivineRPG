@@ -1,0 +1,18 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_ocean",
+  "spawners": [
+    {
+      "type": "divinerpg:whale",
+      "maxCount": 3,
+      "minCount": 1,
+      "weight": 2
+    },
+    {
+      "type": "divinerpg:aequorea",
+      "maxCount": 6,
+      "minCount": 1,
+      "weight": 6
+    }
+  ]
+}

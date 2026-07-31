@@ -1,0 +1,60 @@
+{
+  "carvers": "minecraft:canyon",
+  "downfall": 0.4,
+  "effects": {
+    "foliage_color": "#d814ff",
+    "grass_color": "#c014ff",
+    "water_color": "#e8a1e6"
+  },
+  "features": [],
+  "has_precipitation": true,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [
+      {
+        "type": "divinerpg:apalachia_cadillion",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:apalachia_golem",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:apalachia_tomo",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:enchanted_warrior",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:enchanted_archer",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:spellbinder",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 1
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.8
+}

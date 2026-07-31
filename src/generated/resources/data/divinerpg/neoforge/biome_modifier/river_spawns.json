@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_river",
+  "spawners": {
+    "type": "divinerpg:aequorea",
+    "maxCount": 6,
+    "minCount": 1,
+    "weight": 3
+  }
+}

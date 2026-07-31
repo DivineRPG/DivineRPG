@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#divinerpg:warm_ocean",
+  "spawners": {
+    "type": "divinerpg:shark",
+    "maxCount": 3,
+    "minCount": 1,
+    "weight": 3
+  }
+}

@@ -3,7 +3,7 @@
   "criteria": {
     "enter_sky_fire": {
       "conditions": {
-        "block": "divinerpg:divine_log"
+        "block": "divinerpg:sky_fire"
       },
       "trigger": "minecraft:enter_block"
     }

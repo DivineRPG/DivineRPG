@@ -1,0 +1,18 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_sparse_vegetation/nether",
+  "spawners": [
+    {
+      "type": "divinerpg:hell_spider",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 16
+    },
+    {
+      "type": "divinerpg:wildfire",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 20
+    }
+  ]
+}

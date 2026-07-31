@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "minecraft:warped_forest",
+  "spawners": {
+    "type": "divinerpg:ender_scrounge",
+    "maxCount": 3,
+    "minCount": 2,
+    "weight": 60
+  }
+}

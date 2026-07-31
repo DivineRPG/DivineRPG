@@ -1,0 +1,24 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_jungle",
+  "spawners": [
+    {
+      "type": "divinerpg:jungle_bat",
+      "maxCount": 4,
+      "minCount": 1,
+      "weight": 12
+    },
+    {
+      "type": "divinerpg:jungle_dramcryx",
+      "maxCount": 4,
+      "minCount": 1,
+      "weight": 60
+    },
+    {
+      "type": "divinerpg:jungle_spider",
+      "maxCount": 4,
+      "minCount": 1,
+      "weight": 40
+    }
+  ]
+}

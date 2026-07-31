@@ -1,0 +1,26 @@
+package divinerpg.entities.vanilla.overworld;
+
+import divinerpg.entities.base.EntityDivineTameable;
+import divinerpg.registries.TagRegistry;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+
+public class EntityStoneGolem extends EntityDivineTameable{
+    public EntityStoneGolem(EntityType<? extends EntityStoneGolem> type, Level worldIn) {super(type, worldIn, 1);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_STONE_GOLEM);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.TAMING_STONE_GOLEM);}
+    @Override public boolean doHurtTarget(ServerLevel level, Entity entity) {
+        boolean attack = super.doHurtTarget(level, entity);
+        if(attack) {
+            entity.setDeltaMovement(-Mth.sin(getXRot() * Mth.DEG_TO_RAD), .1, Mth.cos(getXRot() * Mth.DEG_TO_RAD));
+        } return attack;
+    }
+    @Override
+    public void aiStep() {
+        updateSwingTime();
+        super.aiStep();
+    }
+}

@@ -1,0 +1,50 @@
+package divinerpg.client.models.twilight;
+
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
+
+import static divinerpg.utils.Utils.createLocation;
+
+
+public class ModelEnchantedWarrior<S extends HumanoidRenderState> extends HumanoidModel<S> {
+    public static final ModelLayerLocation LAYER_LOCATION = createLocation("enchanted_warrior");
+
+    public ModelEnchantedWarrior(ModelPart part) {
+        super(part);
+    }
+
+    public ModelEnchantedWarrior(EntityRendererProvider.Context context) {
+        this(context.bakeLayer(LAYER_LOCATION));
+    }
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition meshdefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0);
+        PartDefinition partdefinition = meshdefinition.getRoot();
+        CubeDeformation cubeDef = CubeDeformation.NONE;
+        PartPose zPose = PartPose.ZERO;
+
+        partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(24, 16).addBox(-7, -13, 2, 14, 12, 0, cubeDef)
+                .texOffs(24, 0).addBox(-7, -7, -1, 14, 2, 2, cubeDef)
+                .texOffs(0, 0).addBox(-4, -8, -4, 8, 8, 8, cubeDef), zPose);
+        partdefinition.addOrReplaceChild("hat", CubeListBuilder.create().texOffs(32, 46).addBox(-4, -8, -4, 8, 8, 8, new CubeDeformation(.5F)), zPose);
+        partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 16).addBox(-4, -7, -2, 8, 14, 4, cubeDef), zPose);
+        partdefinition.addOrReplaceChild("right_arm", CubeListBuilder.create().texOffs(24, 28).addBox(-3, -2, -2, 4, 14, 4, cubeDef), zPose);
+        partdefinition.addOrReplaceChild("left_arm", CubeListBuilder.create().texOffs(0, 34).addBox(-1, -2, -2, 4, 14, 4, cubeDef), zPose);
+        partdefinition.addOrReplaceChild("right_leg", CubeListBuilder.create().texOffs(16, 46).addBox(-2, 0, -2, 4, 14, 4, cubeDef), PartPose.offset(-2, 0, 0));
+        partdefinition.addOrReplaceChild("left_leg", CubeListBuilder.create().texOffs(40, 28).addBox(-2, 0, -2, 4, 14, 4, cubeDef), PartPose.offset(2, 0, 0));
+
+        return LayerDefinition.create(meshdefinition, 64, 64);
+    }
+
+    @Override
+    public void setupAnim(S state) {
+        super.setupAnim(state);
+        rightArm.y = leftArm.y = -2;
+        rightLeg.y = leftLeg.y = 10;
+        head.y = hat.y = -4;
+        body.y = 3;
+    }
+}

@@ -1,0 +1,79 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": {
+          "sound_id": "divinerpg:mortum_ambience"
+        },
+        "tick_chance": 0.011099999770522118
+      },
+      "mood": {
+        "block_search_extent": 8,
+        "offset": 2.0,
+        "sound": {
+          "sound_id": "divinerpg:mortum_mood"
+        },
+        "tick_delay": 2000
+      }
+    },
+    "minecraft:visual/fog_color": "#918455",
+    "minecraft:visual/sky_color": "#ffae00",
+    "minecraft:visual/water_fog_color": "#4b2c02"
+  },
+  "carvers": "minecraft:canyon",
+  "downfall": 0.4,
+  "effects": {
+    "water_color": "#43300e"
+  },
+  "features": [],
+  "has_precipitation": true,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [
+      {
+        "type": "divinerpg:demon_of_darkness",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:basilisk",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:soul_stealer",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:mortum_cadillion",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:twilight_archer",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:sorcerer",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 1
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.8
+}

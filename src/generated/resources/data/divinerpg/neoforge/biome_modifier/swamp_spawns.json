@@ -1,0 +1,18 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_swamp",
+  "spawners": [
+    {
+      "type": "divinerpg:jack_o_man",
+      "maxCount": 1,
+      "minCount": 1,
+      "weight": 5
+    },
+    {
+      "type": "divinerpg:pumpkin_spider",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 24
+    }
+  ]
+}

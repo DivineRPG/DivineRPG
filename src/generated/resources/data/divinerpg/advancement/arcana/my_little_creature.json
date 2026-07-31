@@ -8,7 +8,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "minecraft:entity_type": "minecraft:bee"
+              "minecraft:entity_type": "divinerpg:fyracryx"
             }
           }
         ]
@@ -22,7 +22,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "minecraft:entity_type": "minecraft:salmon"
+              "minecraft:entity_type": "divinerpg:golem_of_rejuvenation"
             }
           }
         ]
@@ -36,7 +36,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "minecraft:entity_type": "minecraft:wolf"
+              "minecraft:entity_type": "divinerpg:paratiku"
             }
           }
         ]
@@ -50,7 +50,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "minecraft:entity_type": "minecraft:armadillo"
+              "minecraft:entity_type": "divinerpg:seimer"
             }
           }
         ]

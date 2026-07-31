@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/template_piston",
   "textures": {
-    "all": "divinerpg:block/inserter"
+    "bottom": "divinerpg:block/realmite_block",
+    "platform": "divinerpg:block/inserter_front",
+    "side": "divinerpg:block/inserter_side"
   }
 }

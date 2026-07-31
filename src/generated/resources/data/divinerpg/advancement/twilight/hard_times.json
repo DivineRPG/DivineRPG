@@ -8,7 +8,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "minecraft:entity_type": "minecraft:bat"
+              "minecraft:entity_type": "divinerpg:weak_cori"
             }
           }
         ]

@@ -5,7 +5,7 @@
       "conditions": {
         "damage": {
           "source_entity": {
-            "minecraft:entity_type": "minecraft:skeleton"
+            "minecraft:entity_type": "divinerpg:twilight_archer"
           }
         }
       },

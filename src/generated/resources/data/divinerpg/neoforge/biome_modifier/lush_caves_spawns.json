@@ -1,0 +1,42 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_lush",
+  "spawners": [
+    {
+      "type": "divinerpg:cave_crawler",
+      "maxCount": 3,
+      "minCount": 2,
+      "weight": 60
+    },
+    {
+      "type": "divinerpg:caveclops",
+      "maxCount": 4,
+      "minCount": 1,
+      "weight": 60
+    },
+    {
+      "type": "divinerpg:enthralled_dramcryx",
+      "maxCount": 2,
+      "minCount": 1,
+      "weight": 16
+    },
+    {
+      "type": "divinerpg:crab",
+      "maxCount": 4,
+      "minCount": 1,
+      "weight": 20
+    },
+    {
+      "type": "divinerpg:jungle_bat",
+      "maxCount": 4,
+      "minCount": 1,
+      "weight": 8
+    },
+    {
+      "type": "divinerpg:aequorea",
+      "maxCount": 4,
+      "minCount": 1,
+      "weight": 8
+    }
+  ]
+}

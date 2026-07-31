@@ -1,0 +1,74 @@
+{
+  "attributes": {
+    "minecraft:visual/fog_color": "#d4d4d4",
+    "minecraft:visual/sky_color": "#ffffff",
+    "minecraft:visual/water_fog_color": "#787878"
+  },
+  "carvers": [
+    "minecraft:canyon",
+    "minecraft:cave"
+  ],
+  "downfall": 0.4,
+  "effects": {
+    "foliage_color": "#ffffff",
+    "grass_color": "#ffffff",
+    "water_color": "#999999"
+  },
+  "features": [],
+  "has_precipitation": true,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [
+      {
+        "type": "divinerpg:skythern_fiend",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 4
+      },
+      {
+        "type": "divinerpg:skythern_golem",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 4
+      },
+      {
+        "type": "divinerpg:skythern_archer",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 4
+      },
+      {
+        "type": "divinerpg:samek",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 4
+      },
+      {
+        "type": "divinerpg:advanced_cori",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 1
+      },
+      {
+        "type": "divinerpg:mystic",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 2
+      },
+      {
+        "type": "divinerpg:megalith",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 1
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.8
+}

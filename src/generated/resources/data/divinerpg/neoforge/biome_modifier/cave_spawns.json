@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_cave",
+  "spawners": {
+    "type": "divinerpg:rainbour",
+    "maxCount": 2,
+    "minCount": 1,
+    "weight": 30
+  }
+}

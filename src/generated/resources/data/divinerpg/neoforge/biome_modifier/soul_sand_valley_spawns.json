@@ -1,0 +1,18 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#divinerpg:soul_sand_valley",
+  "spawners": [
+    {
+      "type": "divinerpg:scorcher",
+      "maxCount": 4,
+      "minCount": 4,
+      "weight": 15
+    },
+    {
+      "type": "divinerpg:wildfire",
+      "maxCount": 3,
+      "minCount": 3,
+      "weight": 18
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#minecraft:has_structure/mineshaft",
+  "spawners": {
+    "type": "divinerpg:miner",
+    "maxCount": 2,
+    "minCount": 1,
+    "weight": 60
+  }
+}

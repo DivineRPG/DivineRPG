@@ -1,0 +1,68 @@
+{
+  "carvers": "minecraft:cave",
+  "creature_spawn_probability": 0.05,
+  "downfall": 0.4,
+  "effects": {
+    "foliage_color": "#fff714",
+    "grass_color": "#fff714",
+    "water_color": "#a1e8af"
+  },
+  "features": [],
+  "has_precipitation": true,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "divinerpg:glinthop",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 20
+      }
+    ],
+    "misc": [],
+    "monster": [
+      {
+        "type": "divinerpg:eden_tomo",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 20
+      },
+      {
+        "type": "divinerpg:eden_cadillion",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 20
+      },
+      {
+        "type": "divinerpg:weak_cori",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
+      },
+      {
+        "type": "divinerpg:greenfeet",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 20
+      },
+      {
+        "type": "divinerpg:madivel",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 20
+      },
+      {
+        "type": "divinerpg:sun_archer",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 6
+      }
+    ],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.8
+}

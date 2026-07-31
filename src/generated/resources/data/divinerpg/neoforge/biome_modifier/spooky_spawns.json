@@ -1,0 +1,30 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_spooky",
+  "spawners": [
+    {
+      "type": "divinerpg:jack_o_man",
+      "maxCount": 1,
+      "minCount": 1,
+      "weight": 7
+    },
+    {
+      "type": "divinerpg:cyclops",
+      "maxCount": 4,
+      "minCount": 2,
+      "weight": 40
+    },
+    {
+      "type": "divinerpg:pumpkin_spider",
+      "maxCount": 3,
+      "minCount": 1,
+      "weight": 40
+    },
+    {
+      "type": "divinerpg:enthralled_dramcryx",
+      "maxCount": 3,
+      "minCount": 1,
+      "weight": 36
+    }
+  ]
+}

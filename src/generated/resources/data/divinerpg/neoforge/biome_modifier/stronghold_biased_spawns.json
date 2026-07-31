@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#minecraft:stronghold_biased_to",
+  "spawners": {
+    "type": "divinerpg:ender_spider",
+    "maxCount": 4,
+    "minCount": 1,
+    "weight": 16
+  }
+}
