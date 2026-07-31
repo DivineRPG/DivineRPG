@@ -6,14 +6,13 @@ import divinerpg.client.models.boss.*;
 import divinerpg.client.models.iceika.*;
 import divinerpg.client.models.twilight.*;
 import divinerpg.client.models.vanilla.*;
-//import divinerpg.client.models.vethea.*;
+import divinerpg.client.models.vethea.*;
 import divinerpg.client.renders.base.*;
 import divinerpg.client.renders.entity.boss.*;
 import divinerpg.client.renders.entity.iceika.*;
 import divinerpg.client.renders.entity.projectile.*;
 import divinerpg.client.renders.entity.twilight.*;
 import divinerpg.client.renders.entity.vanilla.*;
-//import divinerpg.client.renders.entity.vethea.*;
 import divinerpg.entities.apalachia.*;
 import divinerpg.entities.arcana.*;
 import divinerpg.entities.base.*;
@@ -33,7 +32,7 @@ import divinerpg.entities.skythern.*;
 import divinerpg.entities.vanilla.end.*;
 import divinerpg.entities.vanilla.nether.*;
 import divinerpg.entities.vanilla.overworld.*;
-//import divinerpg.entities.vethea.*;
+import divinerpg.entities.vethea.*;
 import divinerpg.entities.wildwood.*;
 import divinerpg.utils.EntityStats;
 import net.minecraft.client.model.HumanoidModel;
@@ -391,47 +390,47 @@ public class EntityRegistry {
     public static final DeferredHolder<EntityType<?>, EntityType<EntityTwilightArcher>>     TWILIGHT_ARCHER      = registerEntityFireImmune(EntityTwilightArcher::new,                "twilight_archer",   1.8F, 3, 2.9F);
     public static final DeferredHolder<EntityType<?>, EntityType<EntitySorcerer>>		    SORCERER 		     = registerEntityFireImmune(EntitySorcerer::new, 	                    "sorcerer", 		   .9F, 2.2F, 2);
 
-//    //Vethea
-//    //Layer 1
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityTheHunger>>			 THE_HUNGER			  = registerEntity(EntityTheHunger::new,			"the_hunger",			     .8F, 2, 1.8125F, MobCategory.CREATURE);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityCryptKeeper>>		 CRYPT_KEEPER		  = registerEntity(EntityCryptKeeper::new,			"crypt_keeper",			 .6F, 2.0625F, 1.9275F, MobCategory.CREATURE);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer1>> MYSTERIOUS_MAN_LAYER1= registerEntity(EntityMysteriousManLayer1::new,  "mysterious_man_layer_1",  .6F, 2.125F, 1.99F, MobCategory.CREATURE);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityAcidHag>>			 ACID_HAG			  = registerEntity(EntityAcidHag::new,				"acid_hag",				 .9F, 1.7F, 1.525F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityCymesoid>>			 CYMESOID			  = registerEntity(EntityCymesoid::new,				"cymesoid",				 .8F, 2, 1.7F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityDreamwrecker>>		 DREAMWRECKER		  = registerEntity(EntityDreamwrecker::new,			"dreamwrecker",			 1, 4.5625F, 4.375F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityDuo>>				 DUO				  = registerEntity(EntityDuo::new,					"duo",					 1, 2.25F, 1.8F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnt>>				 ENT				  = registerEntity(EntityEnt::new,					"ent",					 2, 4.4F, 4);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityHiveSoldier>>		 HIVE_SOLDIER		  = registerEntity(EntityHiveSoldier::new,			"hive_soldier",			 .6F, 1.9375F, 1.84375F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityHoverStinger>>		 HOVER_STINGER		  = registerEntity(EntityHoverStinger::new,			"hover_stinger",		     .7F, 2.1875F, 2);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityLorga>>				 LORGA				  = registerEntity(EntityLorga::new,				"lorga",				     1, 2.25F, 2);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityShadahier>>			 SHADAHIER 			  = registerEntity(EntityShadahier::new,			"shadahier",			     .8F, 1.375F, 1.25F);
-//
-//    //Layer 2
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityTempleGuardian>>	 TEMPLE_GUARDIAN	  = registerEntity(EntityTempleGuardian::new, 		"temple_guardian",		 .6F, 2, 1.865F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer2>>MYSTERIOUS_MAN_LAYER2= registerEntity(EntityMysteriousManLayer2::new,  "mysterious_man_layer_2",  .6F, 2.125F, 1.99F, MobCategory.CREATURE);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityBiphron>>			 BIPHRON			  = registerEntity(EntityBiphron::new,				"biphron",				 1, 3.5F, 1.8F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityGorgosion>>			 GORGOSION			  = registerEntity(EntityGorgosion::new,			"gorgosion",			     2, 1.75F, 1.2F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityInsectFourteen>> INSECT_FOURTEEN         = registerEntity(EntityInsectFourteen::new,        "insect_fourteen",           .65F, 1.26F, .9F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityMandragora>>		 MANDRAGORA			  = registerEntity(EntityMandragora::new,			"mandragora",			     1, 2, 1.8F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityTwins>>				 TWINS				  = registerEntity(EntityTwins::new, 				"twins",				     1, 2.25F, 2);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityVermenous>>			 VERMENOUS			  = registerEntity(EntityVermenous::new, 			"vermenous",			     1, 2.9375F, 2.5F);
-//
-//    //Layer 3
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer3>>MYSTERIOUS_MAN_LAYER3= registerEntity(EntityMysteriousManLayer3::new,  "mysterious_man_layer_3",  .6F, 2.125F, 1.99F, MobCategory.CREATURE);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityBohemite>>			 BOHEMITE			  = registerEntity(EntityBohemite::new,				"bohemite",				 1, 2, 1.875F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityGalroid>>			 GALROID			  = registerEntity(EntityGalroid::new,				"galroid",				 1, 2.5F, 2.4175F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityKazrotic>>			 KAZROTIC			  = registerEntity(EntityKazrotic::new,				"kazrotic",				 1.2F, 2.9375F, 2.65625F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityLheiva>>			 LHEIVA				  = registerEntity(EntityLheiva::new,				"lheiva",				     1, 1.5625F, 1);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityLorgaflight>>		 LORGA_FLIGHT		  = registerEntity(EntityLorgaflight::new,			"lorga_flight",			 .7F, 1.1875F, .9375F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityTocaxin>>			 TOCAXIN			  = registerEntity(EntityTocaxin::new, 				"tocaxin",				 1, 3.5F, 3.25F);
-//
-//    //Layer 4
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityDissiment>>			 DISSIMENT			  = registerEntity(EntityDissiment::new,			"dissiment",			     1.5F, 2.5F, 1.125F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityHelio>>				 HELIO				  = registerEntity(EntityHelio::new,				"helio",				     1, 2, 1.8F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityVhraak>>			 VHRAAK				  = registerEntity(EntityVhraak::new, 				"vhraak",				     1, 1.25F, .8F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityFakeVhraak>>		 FAKE_VHRAAK		  = registerEntity(EntityFakeVhraak::new,			"fake_vhraak",			 1, 1.25F, .8F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityZone>>				 ZONE				  = registerEntity(EntityZone::new, 				"zone",					 1, 1.4375F, 1.1875F);
-//    public static final DeferredHolder<EntityType<?>, EntityType<EntityZoragon>>			 ZORAGON			  = registerEntity(EntityZoragon::new, 				"zoragon",				 3.8F, 3.75F, 2);
+    //Vethea
+    //Layer 1
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityTheHunger>>			 THE_HUNGER			  = registerEntity(EntityTheHunger::new,			"the_hunger",			     .8F, 2, 1.8125F, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityCryptKeeper>>		 CRYPT_KEEPER		  = registerEntity(EntityCryptKeeper::new,			"crypt_keeper",			 .6F, 2.0625F, 1.9275F, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer1>> MYSTERIOUS_MAN_LAYER1= registerEntity(EntityMysteriousManLayer1::new,  "mysterious_man_layer_1",  .6F, 2.125F, 1.99F, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityAcidHag>>			 ACID_HAG			  = registerEntity(EntityAcidHag::new,				"acid_hag",				 .9F, 1.7F, 1.525F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityCymesoid>>			 CYMESOID			  = registerEntity(EntityCymesoid::new,				"cymesoid",				 .8F, 2, 1.7F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityDreamwrecker>>		 DREAMWRECKER		  = registerEntity(EntityDreamwrecker::new,			"dreamwrecker",			 1, 4.5625F, 4.375F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityDuo>>				 DUO				  = registerEntity(EntityDuo::new,					"duo",					 1, 2.25F, 1.8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityEnt>>				 ENT				  = registerEntity(EntityEnt::new,					"ent",					 2, 4.4F, 4);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityHiveSoldier>>		 HIVE_SOLDIER		  = registerEntity(EntityHiveSoldier::new,			"hive_soldier",			 .6F, 1.9375F, 1.84375F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityHoverStinger>>		 HOVER_STINGER		  = registerEntity(EntityHoverStinger::new,			"hover_stinger",		     .7F, 2.1875F, 2);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityLorga>>				 LORGA				  = registerEntity(EntityLorga::new,				"lorga",				     1, 2.25F, 2);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityShadahier>>			 SHADAHIER 			  = registerEntity(EntityShadahier::new,			"shadahier",			     .8F, 1.375F, 1.25F);
+
+    //Layer 2
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityTempleGuardian>>	 TEMPLE_GUARDIAN	  = registerEntity(EntityTempleGuardian::new, 		"temple_guardian",		 .6F, 2, 1.865F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer2>>MYSTERIOUS_MAN_LAYER2= registerEntity(EntityMysteriousManLayer2::new,  "mysterious_man_layer_2",  .6F, 2.125F, 1.99F, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityBiphron>>			 BIPHRON			  = registerEntity(EntityBiphron::new,				"biphron",				 1, 3.5F, 1.8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityGorgosion>>			 GORGOSION			  = registerEntity(EntityGorgosion::new,			"gorgosion",			     2, 1.75F, 1.2F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityInsectFourteen>> INSECT_FOURTEEN         = registerEntity(EntityInsectFourteen::new,        "insect_fourteen",           .65F, 1.26F, .9F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityMandragora>>		 MANDRAGORA			  = registerEntity(EntityMandragora::new,			"mandragora",			     1, 2, 1.8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityTwins>>				 TWINS				  = registerEntity(EntityTwins::new, 				"twins",				     1, 2.25F, 2);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityVermenous>>			 VERMENOUS			  = registerEntity(EntityVermenous::new, 			"vermenous",			     1, 2.9375F, 2.5F);
+
+    //Layer 3
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityMysteriousManLayer3>>MYSTERIOUS_MAN_LAYER3= registerEntity(EntityMysteriousManLayer3::new,  "mysterious_man_layer_3",  .6F, 2.125F, 1.99F, MobCategory.CREATURE);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityBohemite>>			 BOHEMITE			  = registerEntity(EntityBohemite::new,				"bohemite",				 1, 2, 1.875F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityGalroid>>			 GALROID			  = registerEntity(EntityGalroid::new,				"galroid",				 1, 2.5F, 2.4175F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityKazrotic>>			 KAZROTIC			  = registerEntity(EntityKazrotic::new,				"kazrotic",				 1.2F, 2.9375F, 2.65625F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityLheiva>>			 LHEIVA				  = registerEntity(EntityLheiva::new,				"lheiva",				     1, 1.5625F, 1);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityLorgaflight>>		 LORGA_FLIGHT		  = registerEntity(EntityLorgaflight::new,			"lorga_flight",			 .7F, 1.1875F, .9375F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityTocaxin>>			 TOCAXIN			  = registerEntity(EntityTocaxin::new, 				"tocaxin",				 1, 3.5F, 3.25F);
+
+    //Layer 4
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityDissiment>>			 DISSIMENT			  = registerEntity(EntityDissiment::new,			"dissiment",			     1.5F, 2.5F, 1.125F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityHelio>>				 HELIO				  = registerEntity(EntityHelio::new,				"helio",				     1, 2, 1.8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityVhraak>>			 VHRAAK				  = registerEntity(EntityVhraak::new, 				"vhraak",				     1, 1.25F, .8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityFakeVhraak>>		 FAKE_VHRAAK		  = registerEntity(EntityFakeVhraak::new,			"fake_vhraak",			 1, 1.25F, .8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityZone>>				 ZONE				  = registerEntity(EntityZone::new, 				"zone",					 1, 1.4375F, 1.1875F);
+    public static final DeferredHolder<EntityType<?>, EntityType<EntityZoragon>>			 ZORAGON			  = registerEntity(EntityZoragon::new, 				"zoragon",				 3.8F, 3.75F, 2);
 
     private static ResourceKey<EntityType<?>> key(String name) {
         return ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(MODID, name));
@@ -767,39 +766,39 @@ public class EntityRegistry {
         event.registerEntityRenderer(TWILIGHT_ARCHER.get(),  RenderTwilightArcher::new);
 
         //Vethea
-//        event.registerEntityRenderer(ACID_HAG.get(), (context) -> new RenderDivineMob<>(context, "acid_hag", new ModelAcidHag<>(context)));
-//        event.registerEntityRenderer(BIPHRON.get(), (context) -> new RenderDivineMob<>(context, "biphron", new ModelBiphron<>(context)));
-//        event.registerEntityRenderer(BOHEMITE.get(), (context) -> new RenderDivineMob<>(context, "bohemite", new ModelBohemite<>(context)));
-//        event.registerEntityRenderer(CRYPT_KEEPER.get(), (context) -> new RenderDivineMob<>(context, "crypt_keeper", new ModelCryptKeeper<>(context), .5F));
-//        event.registerEntityRenderer(CYMESOID.get(), (context) -> new RenderDivineMob<>(context, "cymesoid", new ModelCymesoid<>(context)));
-//        event.registerEntityRenderer(DISSIMENT.get(), (context) -> new RenderDivineMob<>(context, "dissiment", new ModelDissiment<>(context)));
-//        event.registerEntityRenderer(DREAMWRECKER.get(), (context) -> new RenderDivineMob<>(context, "dreamwrecker", new ModelDreamwrecker<>(context)));
-//        event.registerEntityRenderer(DUO.get(), (context) -> new RenderDivineMob<>(context, "duo", new ModelDuo(context)));
-//        event.registerEntityRenderer(ENT.get(), (context) -> new RenderDivineMob<>(context, "ent", new ModelEnt<>(context)));
-//        event.registerEntityRenderer(FAKE_VHRAAK.get(), (context) -> new RenderDivineMob<>(context, "vhraak", new ModelVhraak<>(context)));
-//        event.registerEntityRenderer(GALROID.get(), RenderGalroid::new);
-//        event.registerEntityRenderer(GORGOSION.get(), (context) -> new RenderDivineMob<>(context, "gorgosion", new ModelGorgosion<>(context)));
-//        event.registerEntityRenderer(HELIO.get(), (context) -> new RenderDivineMob<>(context, "helio", new ModelHelio<>(context)));
-//        event.registerEntityRenderer(HIVE_SOLDIER.get(), (context) -> new RenderDivineMob<>(context, "hive_soldier", new ModelHiveSoldier<>(context)));
-//        event.registerEntityRenderer(HOVER_STINGER.get(), (context) -> new RenderDivineMob<>(context, "hover_stinger", new ModelHoverStinger<>(context)));
-//        event.registerEntityRenderer(INSECT_FOURTEEN.get(), RenderInsectFourteen::new);
-//        event.registerEntityRenderer(KAZROTIC.get(), (context) -> new RenderDivineMob<>(context, "kazrotic", new ModelKazrotic<>(context)));
-//        event.registerEntityRenderer(LHEIVA.get(), (context) -> new RenderDivineMob<>(context, "lheiva", new ModelLheiva<>(context)));
-//        event.registerEntityRenderer(LORGA.get(), (context) -> new RenderDivineMob<>(context, "lorga", new ModelLorga<>(context)));
-//        event.registerEntityRenderer(LORGA_FLIGHT.get(), (context) -> new RenderDivineMob<>(context, "lorgaflight", new ModelLorgaFlight<>(context)));
-//        event.registerEntityRenderer(MANDRAGORA.get(), (context) -> new RenderDivineMob<>(context, "mandragora", new ModelMandragora<>(context)));
-//        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER1.get(), (context) -> new RenderDivineMob<>(context, "mysterious_man_layer_1", new ModelMysteriousMan<>(context), .5F));
-//        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER2.get(), (context) -> new RenderDivineMob<>(context, "mysterious_man_layer_2", new ModelMysteriousMan<>(context), .5F));
-//        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER3.get(), (context) -> new RenderDivineMob<>(context, "mysterious_man_layer_3", new ModelMysteriousMan<>(context), .5F));
-//        event.registerEntityRenderer(SHADAHIER.get(), (context) -> new RenderDivineMob<>(context, "shadahier", new ModelShadahier<>(context)));
-//        event.registerEntityRenderer(TEMPLE_GUARDIAN.get(), (context) -> new RenderDivineMob<>(context, "temple_guardian", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
-//        event.registerEntityRenderer(THE_HUNGER.get(), (context) -> new RenderDivineMob<>(context, "the_hunger", new ModelTheHunger<>(context), .5F));
-//        event.registerEntityRenderer(TOCAXIN.get(), (context) -> new RenderDivineMob<>(context, "tocaxin", new ModelTocaxin<>(context)));
-//        event.registerEntityRenderer(TWINS.get(), (context) -> new RenderDivineMob<>(context, "twins", new ModelTwins(context)));
-//        event.registerEntityRenderer(VERMENOUS.get(), (context) -> new RenderDivineMob<>(context, "vermenous", new ModelVermenous<>(context)));
-//        event.registerEntityRenderer(VHRAAK.get(), (context) -> new RenderDivineMob<>(context, "vhraak", new ModelVhraak<>(context)));
-//        event.registerEntityRenderer(ZONE.get(), (context) -> new RenderDivineMob<>(context, "zone", new ModelZone<>(context)));
-//        event.registerEntityRenderer(ZORAGON.get(), (context) -> new RenderDivineMob<>(context, "zoragon", new ModelZoragon<>(context), .5F, 3));
+        event.registerEntityRenderer(ACID_HAG.get(), RenderAcidHag::new);
+        event.registerEntityRenderer(BIPHRON.get(), (context) -> new RenderDivineMob<>(context, "biphron", new ModelBiphron<>(context)));
+        event.registerEntityRenderer(BOHEMITE.get(), (context) -> new RenderDivineMob<>(context, "bohemite", new ModelBohemite<>(context)));
+        event.registerEntityRenderer(CRYPT_KEEPER.get(), (context) -> new RenderDivineMob<>(context, "crypt_keeper", new ModelCryptKeeper<>(context), .5F));
+        event.registerEntityRenderer(CYMESOID.get(), (context) -> new RenderDivineMob<>(context, "cymesoid", new ModelCymesoid<>(context)));
+        event.registerEntityRenderer(DISSIMENT.get(), (context) -> new RenderDivineMob<>(context, "dissiment", new ModelDissiment<>(context)));
+        event.registerEntityRenderer(DREAMWRECKER.get(), (context) -> new RenderDivineMob<>(context, "dreamwrecker", new ModelDreamwrecker<>(context)));
+        event.registerEntityRenderer(DUO.get(), (context) -> new RenderDivineMob<>(context, "duo", new ModelDuo(context)));
+        event.registerEntityRenderer(ENT.get(), (context) -> new RenderDivineMob<>(context, "ent", new ModelEnt<>(context)));
+        event.registerEntityRenderer(FAKE_VHRAAK.get(), (context) -> new RenderDivineMob<>(context, "vhraak", new ModelVhraak<>(context)));
+        event.registerEntityRenderer(GALROID.get(), RenderGalroid::new);
+        event.registerEntityRenderer(GORGOSION.get(), (context) -> new RenderDivineMob<>(context, "gorgosion", new ModelGorgosion<>(context)));
+        event.registerEntityRenderer(HELIO.get(), (context) -> new RenderDivineMob<>(context, "helio", new ModelHelio<>(context)));
+        event.registerEntityRenderer(HIVE_SOLDIER.get(), (context) -> new RenderDivineMob<>(context, "hive_soldier", new ModelHiveSoldier<>(context)));
+        event.registerEntityRenderer(HOVER_STINGER.get(), (context) -> new RenderDivineMob<>(context, "hover_stinger", new ModelHoverStinger<>(context)));
+        event.registerEntityRenderer(INSECT_FOURTEEN.get(), RenderInsectFourteen::new);
+        event.registerEntityRenderer(KAZROTIC.get(), (context) -> new RenderDivineMob<>(context, "kazrotic", new ModelKazrotic<>(context)));
+        event.registerEntityRenderer(LHEIVA.get(), (context) -> new RenderDivineMob<>(context, "lheiva", new ModelLheiva<>(context)));
+        event.registerEntityRenderer(LORGA.get(), (context) -> new RenderDivineMob<>(context, "lorga", new ModelLorga<>(context)));
+        event.registerEntityRenderer(LORGA_FLIGHT.get(), (context) -> new RenderDivineMob<>(context, "lorgaflight", new ModelLorgaFlight<>(context)));
+        event.registerEntityRenderer(MANDRAGORA.get(), (context) -> new RenderDivineMob<>(context, "mandragora", new ModelMandragora<>(context)));
+        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER1.get(), (context) -> new RenderDivineMob<>(context, "mysterious_man_layer_1", new ModelMysteriousMan<>(context), .5F));
+        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER2.get(), (context) -> new RenderDivineMob<>(context, "mysterious_man_layer_2", new ModelMysteriousMan<>(context), .5F));
+        event.registerEntityRenderer(MYSTERIOUS_MAN_LAYER3.get(), (context) -> new RenderDivineMob<>(context, "mysterious_man_layer_3", new ModelMysteriousMan<>(context), .5F));
+        event.registerEntityRenderer(SHADAHIER.get(), (context) -> new RenderDivineMob<>(context, "shadahier", new ModelShadahier<>(context)));
+        event.registerEntityRenderer(TEMPLE_GUARDIAN.get(), (context) -> new RenderDivineMob<>(context, "temple_guardian", new HumanoidModel<>(context.bakeLayer(layerHumanoid)), .5F));
+        event.registerEntityRenderer(THE_HUNGER.get(), (context) -> new RenderDivineMob<>(context, "the_hunger", new ModelTheHunger<>(context), .5F));
+        event.registerEntityRenderer(TOCAXIN.get(), (context) -> new RenderDivineMob<>(context, "tocaxin", new ModelTocaxin<>(context)));
+        event.registerEntityRenderer(TWINS.get(), (context) -> new RenderDivineMob<>(context, "twins", new ModelTwins(context)));
+        event.registerEntityRenderer(VERMENOUS.get(), (context) -> new RenderDivineMob<>(context, "vermenous", new ModelVermenous<>(context)));
+        event.registerEntityRenderer(VHRAAK.get(), (context) -> new RenderDivineMob<>(context, "vhraak", new ModelVhraak<>(context)));
+        event.registerEntityRenderer(ZONE.get(), (context) -> new RenderDivineMob<>(context, "zone", new ModelZone<>(context)));
+        event.registerEntityRenderer(ZORAGON.get(), (context) -> new RenderDivineMob<>(context, "zoragon", new ModelZoragon<>(context), .5F, 3));
     }
 
     @SubscribeEvent
@@ -1002,45 +1001,45 @@ public class EntityRegistry {
 
         //Vethea
         //Layer 1
-//        registerMerchantAttributes(event, THE_HUNGER);
-//        registerMerchantAttributes(event, CRYPT_KEEPER);
-//        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER1);
-//        registerMobAttributes(event, ACID_HAG, EntityStats.ACID_HAG);
-//        registerMobAttributes(event, CYMESOID, EntityStats.CYMESOID);
-//        registerMobAttributes(event, DREAMWRECKER, EntityStats.DREAMWRECKER);
-//        registerMobAttributes(event, DUO, EntityStats.DUO);
-//        registerMobAttributes(event, ENT, EntityStats.ENT);
-//        registerMobAttributes(event, HIVE_SOLDIER, EntityStats.HIVE_SOLDIER);
-//        registerMobAttributes(event, HOVER_STINGER, EntityStats.HOVER_STINGER);
-//        registerMobAttributes(event, LORGA, EntityStats.LORGA);
-//        registerMobAttributes(event, SHADAHIER, EntityStats.SHADAHIER);
-//
-//        //Layer 2
-//        registerMerchantAttributes(event, TEMPLE_GUARDIAN);
-//        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER2);
-//        registerMobAttributes(event, BIPHRON, EntityStats.BIPHRON);
-//        registerMobAttributes(event, GORGOSION, EntityStats.GORGOSION);
-//        registerMobAttributes(event, INSECT_FOURTEEN, EntityStats.INSECT_FOURTEEN);
-//        registerMobAttributes(event, MANDRAGORA, EntityStats.MANDRAGORA);
-//        registerMobAttributes(event, TWINS, EntityStats.TWINS);
-//        registerMobAttributes(event, VERMENOUS, EntityStats.VERMENOUS);
-//
-//        //Layer 3
-//        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER3);
-//        registerMobAttributes(event, BOHEMITE, EntityStats.BOHEMITE);
-//        registerMobAttributes(event, GALROID, EntityStats.GALROID);
-//        registerMobAttributes(event, KAZROTIC, EntityStats.KAZROTIC);
-//        registerMobAttributes(event, LHEIVA, EntityStats.LHEIVA);
-//        registerMobAttributes(event, LORGA_FLIGHT, EntityStats.LORGA_FLIGHT);
-//        registerMobAttributes(event, TOCAXIN, EntityStats.TOCAXIN);
-//
-//        //Layer 4
-//        registerMobAttributes(event, DISSIMENT, EntityStats.DISSIMENT);
-//        registerMobAttributes(event, HELIO, EntityStats.HELIO);
-//        registerMobAttributes(event, VHRAAK, EntityStats.VHRAAK);
-//        registerMobAttributes(event, FAKE_VHRAAK, EntityStats.VHRAAK);
-//        registerMobAttributes(event, ZONE, EntityStats.ZONE);
-//        registerMobAttributes(event, ZORAGON, EntityStats.ZORAGON);
+        registerMerchantAttributes(event, THE_HUNGER);
+        registerMerchantAttributes(event, CRYPT_KEEPER);
+        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER1);
+        registerMobAttributes(event, ACID_HAG, EntityStats.ACID_HAG);
+        registerMobAttributes(event, CYMESOID, EntityStats.CYMESOID);
+        registerMobAttributes(event, DREAMWRECKER, EntityStats.DREAMWRECKER);
+        registerMobAttributes(event, DUO, EntityStats.DUO);
+        registerMobAttributes(event, ENT, EntityStats.ENT);
+        registerMobAttributes(event, HIVE_SOLDIER, EntityStats.HIVE_SOLDIER);
+        registerMobAttributes(event, HOVER_STINGER, EntityStats.HOVER_STINGER);
+        registerMobAttributes(event, LORGA, EntityStats.LORGA);
+        registerMobAttributes(event, SHADAHIER, EntityStats.SHADAHIER);
+
+        //Layer 2
+        registerMerchantAttributes(event, TEMPLE_GUARDIAN);
+        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER2);
+        registerMobAttributes(event, BIPHRON, EntityStats.BIPHRON);
+        registerMobAttributes(event, GORGOSION, EntityStats.GORGOSION);
+        registerMobAttributes(event, INSECT_FOURTEEN, EntityStats.INSECT_FOURTEEN);
+        registerMobAttributes(event, MANDRAGORA, EntityStats.MANDRAGORA);
+        registerMobAttributes(event, TWINS, EntityStats.TWINS);
+        registerMobAttributes(event, VERMENOUS, EntityStats.VERMENOUS);
+
+        //Layer 3
+        registerMerchantAttributes(event, MYSTERIOUS_MAN_LAYER3);
+        registerMobAttributes(event, BOHEMITE, EntityStats.BOHEMITE);
+        registerMobAttributes(event, GALROID, EntityStats.GALROID);
+        registerMobAttributes(event, KAZROTIC, EntityStats.KAZROTIC);
+        registerMobAttributes(event, LHEIVA, EntityStats.LHEIVA);
+        registerMobAttributes(event, LORGA_FLIGHT, EntityStats.LORGA_FLIGHT);
+        registerMobAttributes(event, TOCAXIN, EntityStats.TOCAXIN);
+
+        //Layer 4
+        registerMobAttributes(event, DISSIMENT, EntityStats.DISSIMENT);
+        registerMobAttributes(event, HELIO, EntityStats.HELIO);
+        registerMobAttributes(event, VHRAAK, EntityStats.VHRAAK);
+        registerMobAttributes(event, FAKE_VHRAAK, EntityStats.VHRAAK);
+        registerMobAttributes(event, ZONE, EntityStats.ZONE);
+        registerMobAttributes(event, ZORAGON, EntityStats.ZORAGON);
     }
 
     @SubscribeEvent
@@ -1201,37 +1200,37 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelTwilightArcher.LAYER_LOCATION, ModelTwilightArcher::createBodyLayer);
 
         //Vethea
-//        event.registerLayerDefinition(ModelAcidHag.LAYER_LOCATION,  ModelAcidHag::createBodyLayer);
-//        event.registerLayerDefinition(ModelBiphron.LAYER_LOCATION, ModelBiphron::createBodyLayer);
-//        event.registerLayerDefinition(ModelBohemite.LAYER_LOCATION, ModelBohemite::createBodyLayer);
-//        event.registerLayerDefinition(ModelCryptKeeper.LAYER_LOCATION, ModelCryptKeeper::createBodyLayer);
-//        event.registerLayerDefinition(ModelCymesoid.LAYER_LOCATION, ModelCymesoid::createBodyLayer);
-//        event.registerLayerDefinition(ModelDissiment.LAYER_LOCATION, ModelDissiment::createBodyLayer);
-//        event.registerLayerDefinition(ModelDreamwrecker.LAYER_LOCATION, ModelDreamwrecker::createBodyLayer);
-//        event.registerLayerDefinition(ModelDuo.LAYER_LOCATION, ModelDuo::createBodyLayer);
-//        event.registerLayerDefinition(ModelEnt.LAYER_LOCATION, ModelEnt::createBodyLayer);
-//        event.registerLayerDefinition(ModelVhraak.LAYER_LOCATION, ModelVhraak::createBodyLayer);
-//        event.registerLayerDefinition(ModelGalroid.LAYER_LOCATION, ModelGalroid::createBodyLayer);
-//        event.registerLayerDefinition(ModelGorgosion.LAYER_LOCATION, ModelGorgosion::createBodyLayer);
-//        event.registerLayerDefinition(ModelHelio.LAYER_LOCATION, ModelHelio::createBodyLayer);
-//        event.registerLayerDefinition(ModelHiveSoldier.LAYER_LOCATION, ModelHiveSoldier::createBodyLayer);
-//        event.registerLayerDefinition(ModelHoverStinger.LAYER_LOCATION, ModelHoverStinger::createBodyLayer);
-//        event.registerLayerDefinition(ModelInsectFourteen.LAYER_LOCATION, ModelInsectFourteen::createBodyLayer);
-//        event.registerLayerDefinition(ModelKazrotic.LAYER_LOCATION, ModelKazrotic::createBodyLayer);
-//        event.registerLayerDefinition(ModelLheiva.LAYER_LOCATION, ModelLheiva::createBodyLayer);
-//        event.registerLayerDefinition(ModelLorga.LAYER_LOCATION, ModelLorga::createBodyLayer);
-//        event.registerLayerDefinition(ModelLorgaFlight.LAYER_LOCATION, ModelLorgaFlight::createBodyLayer);
-//        event.registerLayerDefinition(ModelMandragora.LAYER_LOCATION, ModelMandragora::createBodyLayer);
-//        event.registerLayerDefinition(ModelMysteriousMan.LAYER_LOCATION, ModelMysteriousMan::createBodyLayer);
-//        event.registerLayerDefinition(ModelShadahier.LAYER_LOCATION, ModelShadahier::createBodyLayer);
-//        event.registerLayerDefinition(ModelTheHunger.LAYER_LOCATION, ModelTheHunger::createBodyLayer);
-//        event.registerLayerDefinition(ModelTocaxin.LAYER_LOCATION, ModelTocaxin::createBodyLayer);
-//        event.registerLayerDefinition(ModelTwins.LAYER_LOCATION, ModelTwins::createBodyLayer);
-//        event.registerLayerDefinition(ModelVermenous.LAYER_LOCATION, ModelVermenous::createBodyLayer);
-//        event.registerLayerDefinition(ModelZone.LAYER_LOCATION, ModelZone::createBodyLayer);
-//        event.registerLayerDefinition(ModelZoragon.LAYER_LOCATION, ModelZoragon::createBodyLayer);
-//
-//        //Blocks
+        event.registerLayerDefinition(ModelAcidHag.LAYER_LOCATION,  ModelAcidHag::createBodyLayer);
+        event.registerLayerDefinition(ModelBiphron.LAYER_LOCATION, ModelBiphron::createBodyLayer);
+        event.registerLayerDefinition(ModelBohemite.LAYER_LOCATION, ModelBohemite::createBodyLayer);
+        event.registerLayerDefinition(ModelCryptKeeper.LAYER_LOCATION, ModelCryptKeeper::createBodyLayer);
+        event.registerLayerDefinition(ModelCymesoid.LAYER_LOCATION, ModelCymesoid::createBodyLayer);
+        event.registerLayerDefinition(ModelDissiment.LAYER_LOCATION, ModelDissiment::createBodyLayer);
+        event.registerLayerDefinition(ModelDreamwrecker.LAYER_LOCATION, ModelDreamwrecker::createBodyLayer);
+        event.registerLayerDefinition(ModelDuo.LAYER_LOCATION, ModelDuo::createBodyLayer);
+        event.registerLayerDefinition(ModelEnt.LAYER_LOCATION, ModelEnt::createBodyLayer);
+        event.registerLayerDefinition(ModelVhraak.LAYER_LOCATION, ModelVhraak::createBodyLayer);
+        event.registerLayerDefinition(ModelGalroid.LAYER_LOCATION, ModelGalroid::createBodyLayer);
+        event.registerLayerDefinition(ModelGorgosion.LAYER_LOCATION, ModelGorgosion::createBodyLayer);
+        event.registerLayerDefinition(ModelHelio.LAYER_LOCATION, ModelHelio::createBodyLayer);
+        event.registerLayerDefinition(ModelHiveSoldier.LAYER_LOCATION, ModelHiveSoldier::createBodyLayer);
+        event.registerLayerDefinition(ModelHoverStinger.LAYER_LOCATION, ModelHoverStinger::createBodyLayer);
+        event.registerLayerDefinition(ModelInsectFourteen.LAYER_LOCATION, ModelInsectFourteen::createBodyLayer);
+        event.registerLayerDefinition(ModelKazrotic.LAYER_LOCATION, ModelKazrotic::createBodyLayer);
+        event.registerLayerDefinition(ModelLheiva.LAYER_LOCATION, ModelLheiva::createBodyLayer);
+        event.registerLayerDefinition(ModelLorga.LAYER_LOCATION, ModelLorga::createBodyLayer);
+        event.registerLayerDefinition(ModelLorgaFlight.LAYER_LOCATION, ModelLorgaFlight::createBodyLayer);
+        event.registerLayerDefinition(ModelMandragora.LAYER_LOCATION, ModelMandragora::createBodyLayer);
+        event.registerLayerDefinition(ModelMysteriousMan.LAYER_LOCATION, ModelMysteriousMan::createBodyLayer);
+        event.registerLayerDefinition(ModelShadahier.LAYER_LOCATION, ModelShadahier::createBodyLayer);
+        event.registerLayerDefinition(ModelTheHunger.LAYER_LOCATION, ModelTheHunger::createBodyLayer);
+        event.registerLayerDefinition(ModelTocaxin.LAYER_LOCATION, ModelTocaxin::createBodyLayer);
+        event.registerLayerDefinition(ModelTwins.LAYER_LOCATION, ModelTwins::createBodyLayer);
+        event.registerLayerDefinition(ModelVermenous.LAYER_LOCATION, ModelVermenous::createBodyLayer);
+        event.registerLayerDefinition(ModelZone.LAYER_LOCATION, ModelZone::createBodyLayer);
+        event.registerLayerDefinition(ModelZoragon.LAYER_LOCATION, ModelZoragon::createBodyLayer);
+
+        //Blocks
 //        event.registerLayerDefinition(ModelArcaniumExtractor.LAYER_LOCATION, ModelArcaniumExtractor::createBodyLayer);
 //        event.registerLayerDefinition(ModelBoneChest.LAYER_LOCATION, ModelBoneChest::createBodyLayer);
 //        event.registerLayerDefinition(ModelDemonFurnace.LAYER_LOCATION, ModelDemonFurnace::createBodyLayer);
@@ -1240,11 +1239,9 @@ public class EntityRegistry {
 //        event.registerLayerDefinition(ModelFrostedChest.LAYER_LOCATION, ModelFrostedChest::createBodyLayer);
 //        event.registerLayerDefinition(ModelParasectaAltar.LAYER_LOCATION, ModelParasectaAltar::createBodyLayer);
 //        event.registerLayerDefinition(ModelPresentBox.LAYER_LOCATION, ModelPresentBox::createBodyLayer);
-//
-//        //Misc
+
+        //Misc
         event.registerLayerDefinition(ModelHat.LAYER_LOCATION, ModelHat::createBodyLayer);
-//        event.registerLayerDefinition(RenderNightmareBed.HEAD, RenderNightmareBed::createHeadLayer);
-//        event.registerLayerDefinition(RenderNightmareBed.FOOT, RenderNightmareBed::createFootLayer);
     }
 
     private static <T extends Mob> void registerMobAttributesStep(EntityAttributeCreationEvent event, DeferredHolder<EntityType<?>, EntityType<T>> entity, EntityStats stats, double stepHeight) {

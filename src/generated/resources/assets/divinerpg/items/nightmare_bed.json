@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:item/nightmare_bed"
+    "model": "divinerpg:block/nightmare_bed_foot"
   }
 }

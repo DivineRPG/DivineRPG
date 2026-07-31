@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/template_bed_foot",
+  "textures": {
+    "east": "divinerpg:block/nightmare_bed_foot_east",
+    "south": "divinerpg:block/nightmare_bed_foot_south",
+    "up": "divinerpg:block/nightmare_bed_foot_up",
+    "west": "divinerpg:block/nightmare_bed_foot_west"
+  }
+}

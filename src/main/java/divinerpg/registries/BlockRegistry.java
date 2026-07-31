@@ -7,6 +7,7 @@ import divinerpg.blocks.iceika.BlockCandyCane;
 import divinerpg.blocks.iceika.BlockCozybarkLeaves;
 import divinerpg.blocks.iceika.BlockLights;
 import divinerpg.blocks.vanilla.BlockInserter;
+import divinerpg.blocks.vethea.BlockNightmareBed;
 import divinerpg.blocks.vethea.VetheaLog;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -845,7 +846,7 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> oxcrate = registerBlock("oxcrate", /*Oxcrate*/Block::new, Block.Properties.of().strength(2.5F));
     public static final DeferredBlock<Block> inserter = registerBlock("inserter", BlockInserter::new, Block.Properties.of().strength(2.0F));
     public static final DeferredBlock<Block> distributor = registerBlock("distributor", /*BlockDistributor*/Block::new, Block.Properties.of().strength(2.0F));
-//    public static final DeferredBlock<Block> nightmareBed = registerBlock("nightmare_bed", /*BlockNightmareBed*/Block::new, Block.Properties.of().strength(2.0F)); /*registerBlockWithSpecialItem*/
+    public static final DeferredBlock<Block> nightmareBed = registerBlock("nightmare_bed", BlockNightmareBed::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).ignitedByLava().pushReaction(PushReaction.DESTROY).strength(.2F).sound(SoundType.WOOD));
     public static final DeferredBlock<Block> hellfireSponge = registerBlock("hellfire_sponge", /*BlockHellfireSponge*/Block::new, Block.Properties.of().strength(0.6F));
     public static final DeferredBlock<Block> coldHellfireSponge = registerBlock("cold_hellfire_sponge", /*BlockColdHellfireSponge*/Block::new, Block.Properties.of().strength(0.6F));
     public static final DeferredBlock<Block> frostedAllure = registerBlock("frosted_allure", /*BlockFrostedAllure*/Block::new, Block.Properties.of()); /*Rarity.UNCOMMON*/

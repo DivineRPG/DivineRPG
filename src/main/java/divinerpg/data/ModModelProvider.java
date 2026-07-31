@@ -21,6 +21,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
@@ -143,6 +144,9 @@ public class ModModelProvider extends ModelProvider {
                 }
                 else if (block == BlockRegistry.inserter.get()) {
                     registerInserter(gen, block);
+                }
+                else if (block instanceof BedBlock bedBlock) {
+                    registerBed(gen, bedBlock);
                 }
                 else if (path.endsWith("_lamp") || path.endsWith("_furnace") || path.endsWith("_spawner") || path.endsWith("_portal") || path.endsWith("_rift")) {
                     gen.createTrivialCube(block);
@@ -596,5 +600,52 @@ public class ModModelProvider extends ModelProvider {
         gen.blockStateOutput.accept(MultiVariantGenerator.dispatch(inserter).with(PropertyDispatch.initial(BlockStateProperties.FACING).select(Direction.NORTH, plainVariant(modelId)).select(Direction.EAST, plainVariant(modelId).with(Y_ROT_90)).select(Direction.SOUTH, plainVariant(modelId).with(Y_ROT_180)).select(Direction.WEST, plainVariant(modelId).with(Y_ROT_270)).select(Direction.UP, plainVariant(modelId).with(X_ROT_270)).select(Direction.DOWN, plainVariant(modelId).with(X_ROT_90))));
         gen.registerSimpleItemModel(inserter.asItem(), modelId);
         registeredItems.add(inserter.asItem());
+    }
+
+    private void registerBed(BlockModelGenerators gen, Block bed) {
+        if (handledBlocks.contains(bed)) return;
+        handledBlocks.add(bed);
+
+        String path = BuiltInRegistries.BLOCK.getKey(bed).getPath();
+        Identifier footModelLoc = Identifier.fromNamespaceAndPath(MODID, "block/" + path + "_foot");
+        Identifier headModelLoc = Identifier.fromNamespaceAndPath(MODID, "block/" + path + "_head");
+
+        gen.modelOutput.accept(footModelLoc, () -> {
+            JsonObject model = new JsonObject();
+            model.addProperty("parent", "minecraft:block/template_bed_foot");
+            JsonObject textures = new JsonObject();
+            textures.addProperty("east", MODID + ":block/" + path + "_foot_east");
+            textures.addProperty("south", MODID + ":block/" + path + "_foot_south");
+            textures.addProperty("up", MODID + ":block/" + path + "_foot_up");
+            textures.addProperty("west", MODID + ":block/" + path + "_foot_west");
+            model.add("textures", textures);
+            return model;
+        });
+
+        gen.modelOutput.accept(headModelLoc, () -> {
+            JsonObject model = new JsonObject();
+            model.addProperty("parent", "minecraft:block/template_bed_head");
+            JsonObject textures = new JsonObject();
+            textures.addProperty("east", MODID + ":block/" + path + "_head_east");
+            textures.addProperty("up", MODID + ":block/" + path + "_head_up");
+            textures.addProperty("west", MODID + ":block/" + path + "_head_west");
+            model.add("textures", textures);
+            return model;
+        });
+
+        gen.blockStateOutput.accept(MultiVariantGenerator.dispatch(bed)
+                .with(PropertyDispatch.initial(BedBlock.FACING, BedBlock.PART)
+                        .select(Direction.NORTH, BedPart.FOOT, plainVariant(footModelLoc))
+                        .select(Direction.NORTH, BedPart.HEAD, plainVariant(headModelLoc))
+                        .select(Direction.EAST, BedPart.FOOT, plainVariant(footModelLoc).with(Y_ROT_90))
+                        .select(Direction.EAST, BedPart.HEAD, plainVariant(headModelLoc).with(Y_ROT_90))
+                        .select(Direction.SOUTH, BedPart.FOOT, plainVariant(footModelLoc).with(Y_ROT_180))
+                        .select(Direction.SOUTH, BedPart.HEAD, plainVariant(headModelLoc).with(Y_ROT_180))
+                        .select(Direction.WEST, BedPart.FOOT, plainVariant(footModelLoc).with(Y_ROT_270))
+                        .select(Direction.WEST, BedPart.HEAD, plainVariant(headModelLoc).with(Y_ROT_270))
+                ));
+
+        gen.registerSimpleItemModel(bed.asItem(), footModelLoc);
+        registeredItems.add(bed.asItem());
     }
 }

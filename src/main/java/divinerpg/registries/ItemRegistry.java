@@ -658,7 +658,7 @@ public class ItemRegistry {
         dream_shovel    = registerShovel("dream_shovel", ToolStats.DREAM_SHOVEL, Rarity.COMMON, false),
         dream_pickaxe   = registerPickaxe("dream_pickaxe", ToolStats.DREAM_PICKAXE, Rarity.COMMON, false),
         dream_axe       = registerAxe("dream_axe", ToolStats.DREAM_AXE, Rarity.COMMON, false),
-        nightmare_bed = register("nightmare_bed"/*, () -> /* new ItemNightmareBed(new Item.Properties().setId(key("nightmare_bed"))) */),
+//        nightmare_bed = register("nightmare_bed"/*, () -> /* new ItemNightmareBed(new Item.Properties().setId(key("nightmare_bed"))) */),
         divine_sign            = register("divine_sign"/*, () -> new DivineSign(BlockRegistry.divineSign.get(), BlockRegistry.divineWallSign.get(), new Item.Properties().setId(key("divine_sign")))*/),
         divine_hanging_sign    = register("divine_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.divineHangingSign.get(), BlockRegistry.divineHangingWallSign.get(), new Item.Properties().setId(key("divine_hanging_sign")))*/),
         shiverspine_sign       = register("shiverspine_sign"/*, () -> new DivineSign(BlockRegistry.shiverspineSign.get(), BlockRegistry.shiverspineWallSign.get(), new Item.Properties().setId(key("shiverspine_sign")))*/),

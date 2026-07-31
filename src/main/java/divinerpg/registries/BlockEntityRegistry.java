@@ -1,9 +1,6 @@
 package divinerpg.registries;
 
-import divinerpg.block_entities.block.InserterBlockEntity;
-import divinerpg.block_entities.block.KarosDispenser;
-import divinerpg.block_entities.block.RobbinHutBlockEntity;
-import divinerpg.block_entities.block.RobbinNestBlockEntity;
+import divinerpg.block_entities.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -15,11 +12,12 @@ public class BlockEntityRegistry {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<KarosDispenser>> KAROS_DISPENSER = register("karos_dispenser", () -> new BlockEntityType<>(KarosDispenser::new, BlockRegistry.karosDispenser.get()));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RobbinNestBlockEntity>> ROBBIN_NEST = register("robbin_nest", () -> new BlockEntityType<>(RobbinNestBlockEntity::new, BlockRegistry.robbinNest.get()));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RobbinHutBlockEntity>> ROBBIN_HUT = register("robbin_hut", () -> new BlockEntityType<>(RobbinHutBlockEntity::new, BlockRegistry.robbinHut.get()));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NightmareBedBlockEntity>> NIGHTMARE_BED = register("nightmare_bed", () -> new BlockEntityType<>(NightmareBedBlockEntity::new, BlockRegistry.nightmareBed.get()));
 
 
 
 
-     static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> register(String registryName, Supplier<BlockEntityType<T>> tile) {
+    static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> register(String registryName, Supplier<BlockEntityType<T>> tile) {
         return DivineRegistries.BLOCK_ENTITIES.register(registryName, tile);
     }
     public static void load() {}
