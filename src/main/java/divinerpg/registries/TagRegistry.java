@@ -216,7 +216,8 @@ public class TagRegistry {
     //Misc
         ARMOR_POUCHES = item("armor_pouches"),
         FROSTED_ALLURE_CYCLE_ITEMS = item("frosted_allure_cycle_items"),
-        FURNACES = item("furnaces");
+        FURNACES = item("furnaces"),
+        CLOCKS = TagKey.create(Registries.ITEM, ResourceLocation.parse("c:clocks"));
 
     public static final TagKey<Block>
         MINEABLE_WITH_SHICKAXE = block("mineable/shickaxe"),

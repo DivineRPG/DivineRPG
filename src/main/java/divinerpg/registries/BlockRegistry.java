@@ -982,7 +982,7 @@ public class BlockRegistry {
 
     //Portals
     gateway = registerBlock("gateway", () -> new BlockGateway(Properties.ofFullCopy(Blocks.LODESTONE))),
-    divinePortal = registerBlock("divine_portal", () -> new SimplePortalBlock(Level.OVERWORLD, LevelRegistry.EDEN, divineRock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),
+    divinePortal = registerBlock("divine_portal", () -> new SimplePortalBlock(Level.OVERWORLD, Level.OVERWORLD, divineRock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),
     arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
     iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, Level.OVERWORLD, Blocks.SNOW_BLOCK, ResourceLocation.fromNamespaceAndPath(MODID, "frost"))),
     edenPortal = registerBlock("eden_portal", () -> new SimplePortalBlock(LevelRegistry.EDEN, Level.OVERWORLD, edenBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),

@@ -14,5 +14,15 @@
     }
   },
   "advancement": "divinerpg:twilight/magical_incineration",
-  "advancement_criteria": "create_enchanted_flame"
+  "advancement_criteria": "create_enchanted_flame",
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:apalachia_block"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:apalachia_portal"
+    }
+  }
 }

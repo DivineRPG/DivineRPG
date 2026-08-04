@@ -14,5 +14,15 @@
     }
   },
   "advancement": "divinerpg:twilight/glowing_death",
-  "advancement_criteria": "create_mortum_embers"
+  "advancement_criteria": "create_mortum_embers",
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:mortum_block"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:mortum_portal"
+    }
+  }
 }

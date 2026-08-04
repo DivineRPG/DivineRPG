@@ -2,13 +2,10 @@
   "type": "divinerpg:fire_conversion",
   "input_item": [
     {
-      "item": "divinerpg:eden_soul"
+      "item": "divinerpg:skythern_soul"
     },
     {
-      "item": "divinerpg:eden_heart"
-    },
-    {
-      "tag": "divinerpg:gems/divine"
+      "item": "divinerpg:skythern_heart"
     }
   ],
   "input_state": {
@@ -18,19 +15,17 @@
   "output_state": {
     "type": "simple_state_provider",
     "state": {
-      "Name": "divinerpg:divine_flame"
+      "Name": "divinerpg:sky_fire"
     }
   },
-  "advancement": "divinerpg:divine/the_link",
-  "advancement_criteria": "create_divine_flame",
   "frame": {
     "predicate_type": "block_match",
-    "block": "divinerpg:eden_block"
+    "block": "divinerpg:skythern_block"
   },
   "portal": {
     "type": "simple_state_provider",
     "state": {
-      "Name": "divinerpg:eden_portal"
+      "Name": "divinerpg:skythern_portal"
     }
   }
 }

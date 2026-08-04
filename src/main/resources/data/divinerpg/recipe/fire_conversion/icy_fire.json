@@ -14,5 +14,15 @@
     }
   },
   "advancement": "divinerpg:divine/freezing_fire",
-  "advancement_criteria": "create_icy_fire"
+  "advancement_criteria": "create_icy_fire",
+  "frame": {
+    "predicate_type": "tag_match",
+    "tag": "divinerpg:base_blocks/icy_fire"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:iceika_portal"
+    }
+  }
 }

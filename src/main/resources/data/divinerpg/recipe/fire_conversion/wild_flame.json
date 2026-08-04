@@ -14,5 +14,15 @@
     }
   },
   "advancement": "divinerpg:twilight/wilderness_ablaze",
-  "advancement_criteria": "create_wild_flame"
+  "advancement_criteria": "create_wild_flame",
+  "frame": {
+    "predicate_type": "block_match",
+    "block": "divinerpg:wildwood_block"
+  },
+  "portal": {
+    "type": "simple_state_provider",
+    "state": {
+      "Name": "divinerpg:wildwood_portal"
+    }
+  }
 }

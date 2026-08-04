@@ -170,6 +170,7 @@ public class SoundRegistry {
         PARASECTA = registerSound("parasecta"),
         PARASECTA_HURT = registerSound("parasecta_hurt"),
         PHASER = registerSound("phaser"),
+        PORTAL_CREATION = registerSound("portal_creation"),
         QUADRO_DIE_BEFORE = registerSound("quadro_die_before"),
         QUADRO_ENOUGH = registerSound("quadro_enough"),
         QUADRO_INCOMING_PUNCH = registerSound("quadro_incoming_punch"),

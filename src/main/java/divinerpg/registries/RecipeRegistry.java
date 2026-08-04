@@ -29,7 +29,6 @@ public class RecipeRegistry {
         public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionTableRecipe>> INFUSION_TABLE_RECIPE_TYPE = RECIPE_TYPES.register("infusion_table", () -> InfusionTableRecipe.TYPE);
         public static final DeferredHolder<RecipeType<?>, RecipeType<MaulSmashingRecipe>> MAUL_SMASHING = RECIPE_TYPES.register("maul_smashing", () -> MaulSmashingRecipe.TYPE);
         public static final DeferredHolder<RecipeType<?>, RecipeType<FireConversionRecipe>> FIRE_CONVERSION = RECIPE_TYPES.register("fire_conversion", () -> FireConversionRecipe.TYPE);
-        public static final DeferredHolder<RecipeType<?>, RecipeType<PortalCreationRecipe>> PORTAL_CREATION = RECIPE_TYPES.register("portal_creation", () -> PortalCreationRecipe.TYPE);
     }
     public static class Serializers {
         public static final DeferredRegister<RecipeSerializer<?>> SERIALIZER = DeferredRegister.create(Registries.RECIPE_SERIALIZER, MODID);
@@ -38,7 +37,6 @@ public class RecipeRegistry {
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<InfusionTableRecipe>> INFUSION_TABLE_SERIALIZER = SERIALIZER.register("infusion_table", InfusionTableRecipe.Serializer::new);
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MaulSmashingRecipe>> MAUL_SMASHING_SERIALIZER = SERIALIZER.register("maul_smashing", MaulSmashingRecipe.Serializer::new);
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FireConversionRecipe>> FIRE_CONVERSION_SERIALIZER = SERIALIZER.register("fire_conversion", FireConversionRecipe.Serializer::new);
-        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<PortalCreationRecipe>> PORTAL_CREATION_SERIALIZER = SERIALIZER.register("portal_creation", PortalCreationRecipe.Serializer::new);
     }
     @SubscribeEvent
     public void registerBrewingRecipes(RegisterBrewingRecipesEvent e) {

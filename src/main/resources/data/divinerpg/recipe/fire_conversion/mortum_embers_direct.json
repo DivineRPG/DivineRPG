@@ -2,13 +2,10 @@
   "type": "divinerpg:fire_conversion",
   "input_item": [
     {
-      "item": "divinerpg:eden_soul"
+      "item": "divinerpg:mortum_soul"
     },
     {
-      "item": "divinerpg:eden_heart"
-    },
-    {
-      "tag": "divinerpg:gems/divine"
+      "item": "divinerpg:mortum_heart"
     }
   ],
   "input_state": {
@@ -18,19 +15,17 @@
   "output_state": {
     "type": "simple_state_provider",
     "state": {
-      "Name": "divinerpg:divine_flame"
+      "Name": "divinerpg:mortum_embers"
     }
   },
-  "advancement": "divinerpg:divine/the_link",
-  "advancement_criteria": "create_divine_flame",
   "frame": {
     "predicate_type": "block_match",
-    "block": "divinerpg:eden_block"
+    "block": "divinerpg:mortum_block"
   },
   "portal": {
     "type": "simple_state_provider",
     "state": {
-      "Name": "divinerpg:eden_portal"
+      "Name": "divinerpg:mortum_portal"
     }
   }
 }

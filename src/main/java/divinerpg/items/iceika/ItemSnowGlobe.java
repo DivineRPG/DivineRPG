@@ -1,12 +1,10 @@
 package divinerpg.items.iceika;
 
-import divinerpg.blocks.base.PortalBlock;
 import divinerpg.items.base.ItemMod;
 import divinerpg.registries.*;
-import divinerpg.util.LocalizeUtils;
+import divinerpg.util.Utils;
 import net.minecraft.core.*;
 import net.minecraft.core.Direction.Axis;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -16,14 +14,27 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.neoforged.api.distmarker.*;
-
-import java.util.List;
 
 public class ItemSnowGlobe extends ItemMod {
     public ItemSnowGlobe() {super(new Properties().stacksTo(1));}
-    @OnlyIn(Dist.CLIENT)
-    @Override public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(LocalizeUtils.i18n("snow_globe"));
+    @Override public InteractionResult useOn(UseOnContext context) {
+        Direction facing = context.getClickedFace();
+        BlockPos pos = context.getClickedPos();
+        Level worldIn = context.getLevel();
+        Player player = context.getPlayer();
+        if(!player.mayUseItemAt(pos, facing, player.getItemInHand(context.getHand()))) return InteractionResult.FAIL;
+        BlockState block = worldIn.getBlockState(pos);
+        if(!block.is(TagRegistry.BASE_BLOCKS_ICY_FIRE)) return InteractionResult.FAIL;
+        pos = pos.relative(facing);
+        if(!worldIn.isClientSide()) {
+            Axis axis = Utils.checkForFrame(worldIn, pos, new TagMatchTest(TagRegistry.BASE_BLOCKS_ICY_FIRE));
+            if(axis != null) {
+                Utils.spreadBlock(worldIn, BlockRegistry.iceikaPortal.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), pos, Blocks.AIR, axis);
+                worldIn.playSound(null, pos, SoundRegistry.ICEIKA_PORTAL_TRIGGER.get(), SoundSource.BLOCKS, 1, 1);
+                return InteractionResult.SUCCESS;
+            }
+        } return InteractionResult.CONSUME;
     }
 }
