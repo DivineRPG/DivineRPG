@@ -972,6 +972,7 @@ public class BlockRegistry {
     lunicAcid = registerBlock("lunic_acid", BlockAcid::new),
 
     //Fire
+    bonfire = registerBlock("bonfire", () -> new Bonfire(Properties.ofFullCopy(Blocks.CAMPFIRE))),
     icyFire = registerBlock("icy_fire", () -> new BlockIcyFire(Properties.ofFullCopy(Blocks.SOUL_FIRE))),
     hellFire = registerBlock("hellfire", () -> new Fire(8F)),
     divineFlame = registerBlock("divine_flame", DivineFlame::new),

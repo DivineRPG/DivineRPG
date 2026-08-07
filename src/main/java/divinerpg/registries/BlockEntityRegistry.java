@@ -5,6 +5,7 @@ import divinerpg.block_entities.block.*;
 import divinerpg.block_entities.bosses.*;
 import divinerpg.block_entities.chests.*;
 import divinerpg.block_entities.furnace.*;
+import divinerpg.blocks.vanilla.Bonfire;
 import divinerpg.client.renders.tiles.*;
 import divinerpg.compat.supplementaries.SuspiciousFrozenGravelBricksTile;
 import net.minecraft.client.renderer.blockentity.*;
@@ -40,6 +41,7 @@ public class BlockEntityRegistry {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DistributorBlockEntity>> DISTRIBUTOR = register("distributor", () -> BlockEntityType.Builder.of(DistributorBlockEntity::new, BlockRegistry.distributor.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<KarosDispenser>> KAROS_DISPENSER = register("karos_dispenser", () -> BlockEntityType.Builder.of(KarosDispenser::new, BlockRegistry.karosDispenser.get()).build(null));
     //Furnaces
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BonfireBlockEntity>> BONFIRE = register("bonfire", () -> BlockEntityType.Builder.of(BonfireBlockEntity::new, BlockRegistry.bonfire.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CoalstoneFurnaceBlockEntity>> COALSTONE_FURNACE = register("coalstone_furnace", () -> BlockEntityType.Builder.of(CoalstoneFurnaceBlockEntity::new, BlockRegistry.coalstoneFurnace.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<DemonFurnaceBlockEntity>> DEMON_FURNACE = register("demon_furnace", () -> BlockEntityType.Builder.of(DemonFurnaceBlockEntity::new, BlockRegistry.demonFurnace.get()).build(null));
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GreenlightFurnaceBlockEntity>> GREENLIGHT_FURNACE = register("greelight_furnace", () -> BlockEntityType.Builder.of(GreenlightFurnaceBlockEntity::new, BlockRegistry.greenlightFurnace.get()).build(null));

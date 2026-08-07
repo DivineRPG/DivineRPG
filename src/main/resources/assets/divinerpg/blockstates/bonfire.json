@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "divinerpg:block/bonfire"
+    },
+    "lit=true": {
+      "model": "divinerpg:block/bonfire_lit"
+    }
+  }
+}

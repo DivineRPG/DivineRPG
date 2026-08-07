@@ -1,6 +1,5 @@
 package divinerpg.events;
 
-import divinerpg.DivineRPG;
 import divinerpg.attachments.Arcana;
 import divinerpg.block_entities.block.TerranGhostBlockEntity;
 import divinerpg.entities.goals.TurtleEatAequoreaGoal;
@@ -12,7 +11,6 @@ import divinerpg.util.Utils;
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
 import net.minecraft.tags.BlockTags;
@@ -29,7 +27,6 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.event.entity.*;
@@ -39,8 +36,9 @@ import net.neoforged.neoforge.event.tick.*;
 
 import java.util.List;
 
+import static divinerpg.registries.TagRegistry.CLOCKS;
+
 public class Ticker {
-    public static final ResourceLocation ADVANCEMENT_OOPS = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/oops");
     public static int tick;
     @SubscribeEvent
     public void tickServer(ServerTickEvent.Pre evt) {
@@ -106,39 +104,7 @@ public class Ticker {
     @SubscribeEvent
     public void onUseOnBlock(UseItemOnBlockEvent event) {
         ItemStack item = event.getItemStack();
-        if(item.is(TagRegistry.CLOCKS)) {
-            Level level = event.getLevel();
-            BlockPos pos = event.getPos();
-            BlockState block = level.getBlockState(pos);
-            Block portal = null, rift = null;
-            switch(Utils.getTimeOfDay(level, item)) {
-                case 0: if(block.is(BlockRegistry.edenBlock)) portal = BlockRegistry.edenPortal.get(); else if(block.is(BlockRegistry.divineFlame)) rift = BlockRegistry.edenRift.get(); break;
-                case 1: if(block.is(BlockRegistry.wildwoodBlock)) portal = BlockRegistry.wildwoodPortal.get(); else if(block.is(BlockRegistry.wildFlame)) rift = BlockRegistry.wildwoodRift.get(); break;
-                case 2: if(block.is(BlockRegistry.apalachiaBlock)) portal = BlockRegistry.apalachiaPortal.get(); else if(block.is(BlockRegistry.enchantedFlame)) rift = BlockRegistry.apalachiaRift.get(); break;
-                case 3: if(block.is(BlockRegistry.skythernBlock)) portal = BlockRegistry.skythernPortal.get(); else if(block.is(BlockRegistry.skyFire)) rift = BlockRegistry.skythernRift.get(); break;
-                case 4: if(block.is(BlockRegistry.mortumBlock)) portal = BlockRegistry.mortumPortal.get(); else if(block.is(BlockRegistry.mortumEmbers)) rift = BlockRegistry.mortumRift.get(); break;
-                case 5: if(block.is(BlockRegistry.divineRock)) portal = BlockRegistry.divinePortal.get(); else if(block.is(Blocks.FIRE)) rift = BlockRegistry.overworldRift.get(); break;
-            } if(portal != null) {
-                BlockPos facing = pos.relative(event.getFace());
-                Direction.Axis axis = Utils.checkForFrame(level, facing, new BlockMatchTest(block.getBlock()));
-                if(axis != null) {
-                    if(!level.isClientSide) Utils.spreadBlock(level, portal.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), facing, Blocks.AIR, axis);
-                    level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, level.random.nextFloat() * .4F + .8F);
-                    level.playSound(null, pos, SoundRegistry.PORTAL_CREATION.get(), SoundSource.BLOCKS, 1, 1F);
-                    event.cancelWithResult(ItemInteractionResult.SUCCESS);
-                }
-            } else if(rift != null) {
-                if(!level.getBlockState(pos.above()).is(rift)) {
-                    level.setBlock(pos.above(), rift.defaultBlockState(), 3);
-                    event.cancelWithResult(ItemInteractionResult.SUCCESS);
-                }
-            } else if(block.is(BlockTags.FIRE)) {
-                Player player = event.getPlayer();
-                level.explode(player, pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 3, true, Level.ExplosionInteraction.BLOCK);
-                if(level instanceof ServerLevel s) Utils.awardAdvancement(s.getServer(), (ServerPlayer) player, ADVANCEMENT_OOPS, "explode_rift");
-                event.cancelWithResult(ItemInteractionResult.SUCCESS);
-            }
-        }
+        if(item.is(CLOCKS) && Utils.clockUse(event.getLevel(), item, event.getPos(), event.getLevel().getBlockState(event.getPos()), List.of(event.getPlayer()), event.getFace())) event.cancelWithResult(ItemInteractionResult.SUCCESS);
     }
     @SubscribeEvent
     public void onEntityLeave(EntityLeaveLevelEvent event) {
@@ -199,7 +165,7 @@ public class Ticker {
                         level.playSound(null, position, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1, 1);
                         level.playSound(null, position, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1, 1);
                     } return;
-                }
+                } if(state.is(BlockTags.FIRE) && stack.is(CLOCKS) && Utils.clockUse(level, stack, position, state, Utils.getNearbyPlayers(level, i.getX(), i.getY(), i.getZ(), 9), null)) return;
             }
         }
     }

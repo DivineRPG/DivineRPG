@@ -545,6 +545,7 @@
   "block.divinerpg.acceleron": "Acceleron",
   "block.divinerpg.elevantium": "Elevantium",
 
+  "block.divinerpg.bonfire": "Bonfire",
   "block.divinerpg.hellfire": "Hellfire",
   "block.divinerpg.icy_fire": "Icy Fire",
   "block.divinerpg.divine_flame": "Divine Flame",
@@ -2737,7 +2738,6 @@
   "tooltip.divinerpg.shots.homing": "Homing projectiles",
   "tooltip.divinerpg.shots.sky": "%s projectile(-s) from the sky",
   "tooltip.divinerpg.shots.split": "Projectiles split into %s on impact",
-  "tooltip.divinerpg.snow_globe": "Use on Icy Fire to create Iceika Portal",
   "tooltip.divinerpg.staff_of_enrichment": "Use on Arcanite Dirt to purify",
   "tooltip.divinerpg.summon": "Summons a friendly %s:",
   "tooltip.divinerpg.summon.damage": " %s Attack Damage",

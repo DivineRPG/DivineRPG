@@ -16,6 +16,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.*;
+import net.minecraft.sounds.*;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.*;
@@ -27,9 +28,10 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.*;
 import net.minecraft.world.item.enchantment.*;
 import net.minecraft.world.level.*;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.minecraft.world.phys.Vec3;
 import org.apache.commons.io.IOUtils;
 
@@ -52,6 +54,7 @@ public class Utils {
     public static boolean isSpecial(UUID name) {return SPECIAL_LIST.contains(name);}
     public static boolean isArtist(UUID name) {return ARTIST_LIST.contains(name);}
     public static boolean isFriend(UUID name) {return FRIEND_LIST.contains(name);}
+    public static final ResourceLocation ADVANCEMENT_OOPS = ResourceLocation.fromNamespaceAndPath(DivineRPG.MODID, "divine/oops");
     public static void loadHatInformation() {
         CompletableFuture.supplyAsync(() -> {
             String urlString = "https://raw.githubusercontent.com/DivineRPG/DivineRPG-Assets/main/hats.json";
@@ -71,19 +74,17 @@ public class Utils {
             SPECIAL_LIST.clear();
             ARTIST_LIST.clear();
             FRIEND_LIST.clear();
-            if(rawJson != null) {
-                try {
-                    HatsInfo info = new Gson().fromJson(rawJson, HatsInfo.class);
-                    if(info != null) {
-                        DEV_LIST.addAll(info.dev);
-                        TESTER_LIST.addAll(info.tester);
-                        SPECIAL_LIST.addAll(info.special);
-                        ARTIST_LIST.addAll(info.artists);
-                        FRIEND_LIST.addAll(info.friend);
-                    }
-                } catch(Exception e) {
-                    e.printStackTrace();
+            try {
+                HatsInfo info = new Gson().fromJson(rawJson, HatsInfo.class);
+                if(info != null) {
+                    DEV_LIST.addAll(info.dev);
+                    TESTER_LIST.addAll(info.tester);
+                    SPECIAL_LIST.addAll(info.special);
+                    ARTIST_LIST.addAll(info.artists);
+                    FRIEND_LIST.addAll(info.friend);
                 }
+            } catch(Exception e) {
+                e.printStackTrace();
             } return rawJson;
         });
     }
@@ -108,6 +109,33 @@ public class Utils {
     }
     public static byte getTimeOfDay(Level level, ItemStack stack) {
         return stack.is(ItemRegistry.frozen_clock) ? stack.get(DataComponentRegistry.variant) : Utils.determineTimeOfDay(level);
+    }
+    public static boolean clockUse(Level level, ItemStack stack, BlockPos pos, BlockState state, List<? extends Player> players, Direction face) {
+        Block portal = null, rift = null;
+        switch(Utils.getTimeOfDay(level, stack)) {
+            case 0: if(state.is(BlockRegistry.edenBlock)) portal = BlockRegistry.edenPortal.get(); else if(state.is(BlockRegistry.divineFlame)) rift = BlockRegistry.edenRift.get(); break;
+            case 1: if(state.is(BlockRegistry.wildwoodBlock)) portal = BlockRegistry.wildwoodPortal.get(); else if(state.is(BlockRegistry.wildFlame)) rift = BlockRegistry.wildwoodRift.get(); break;
+            case 2: if(state.is(BlockRegistry.apalachiaBlock)) portal = BlockRegistry.apalachiaPortal.get(); else if(state.is(BlockRegistry.enchantedFlame)) rift = BlockRegistry.apalachiaRift.get(); break;
+            case 3: if(state.is(BlockRegistry.skythernBlock)) portal = BlockRegistry.skythernPortal.get(); else if(state.is(BlockRegistry.skyFire)) rift = BlockRegistry.skythernRift.get(); break;
+            case 4: if(state.is(BlockRegistry.mortumBlock)) portal = BlockRegistry.mortumPortal.get(); else if(state.is(BlockRegistry.mortumEmbers)) rift = BlockRegistry.mortumRift.get(); break;
+            case 5: if(state.is(BlockRegistry.divineRock)) portal = BlockRegistry.divinePortal.get(); else if(state.is(Blocks.FIRE)) rift = BlockRegistry.overworldRift.get(); break;
+        } if(portal != null) {
+            BlockPos facing = face == null ? pos.above() : pos.relative(face);
+            Direction.Axis axis = Utils.checkForFrame(level, facing, new BlockMatchTest(state.getBlock()));
+            if(axis != null) {
+                if(!level.isClientSide) Utils.spreadBlock(level, portal.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), facing, Blocks.AIR, axis);
+                level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1, level.random.nextFloat() * .4F + .8F);
+                level.playSound(null, pos, SoundRegistry.PORTAL_CREATION.get(), SoundSource.BLOCKS, 1, 1F);
+                return true;
+            }
+        } else if(rift != null && !level.getBlockState(pos.above()).is(rift)) {
+            level.setBlock(pos.above(), rift.defaultBlockState(), 3);
+            return true;
+        } else if(state.is(BlockTags.FIRE)) {
+            level.explode(players.getFirst(), pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 3, true, Level.ExplosionInteraction.BLOCK);
+            if(level instanceof ServerLevel s) for(Player player : players) Utils.awardAdvancement(s.getServer(), (ServerPlayer) player, ADVANCEMENT_OOPS, "explode_rift");
+            return true;
+        } return false;
     }
     public static byte determineTimeOfDay(Level level) {
         if(level.dimension() == LevelRegistry.EDEN) return 0;//guaranteed return to overworld

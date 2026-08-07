@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "tag": "logs_that_burn"
+    }
+  },
+  "result": {
+    "id": "divinerpg:bonfire"
+  }
+}
