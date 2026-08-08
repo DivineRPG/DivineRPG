@@ -17,8 +17,7 @@ import net.minecraft.resources.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.*;
 import net.minecraft.sounds.*;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
+import net.minecraft.tags.*;
 import net.minecraft.util.*;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.*;
@@ -131,7 +130,7 @@ public class Utils {
         } else if(rift != null && !level.getBlockState(pos.above()).is(rift)) {
             level.setBlock(pos.above(), rift.defaultBlockState(), 3);
             return true;
-        } else if(state.is(BlockTags.FIRE) && !state.is(Blocks.FIRE)) {
+        } else if(state.is(TagRegistry.FIRE_BLOCK)) {
             level.explode(players.getFirst(), pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 3, true, Level.ExplosionInteraction.BLOCK);
             if(level instanceof ServerLevel s) for(Player player : players) Utils.awardAdvancement(s.getServer(), (ServerPlayer) player, ADVANCEMENT_OOPS, "explode_rift");
             return true;
