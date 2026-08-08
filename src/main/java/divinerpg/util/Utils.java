@@ -131,7 +131,7 @@ public class Utils {
         } else if(rift != null && !level.getBlockState(pos.above()).is(rift)) {
             level.setBlock(pos.above(), rift.defaultBlockState(), 3);
             return true;
-        } else if(state.is(BlockTags.FIRE)) {
+        } else if(state.is(BlockTags.FIRE) && !state.is(Blocks.FIRE)) {
             level.explode(players.getFirst(), pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5, 3, true, Level.ExplosionInteraction.BLOCK);
             if(level instanceof ServerLevel s) for(Player player : players) Utils.awardAdvancement(s.getServer(), (ServerPlayer) player, ADVANCEMENT_OOPS, "explode_rift");
             return true;
