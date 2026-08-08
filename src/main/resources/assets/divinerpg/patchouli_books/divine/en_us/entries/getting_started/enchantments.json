@@ -6,6 +6,10 @@
   "pages": [
     {
       "type": "text",
+      "text": "book.divinerpg.entry.getting_started.enchantments.0"
+    },
+    {
+      "type": "text",
       "title": "enchantment.divinerpg.rive",
       "text": "book.divinerpg.entry.getting_started.enchantments.1"
     },

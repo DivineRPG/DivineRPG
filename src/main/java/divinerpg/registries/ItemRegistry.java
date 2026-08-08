@@ -359,7 +359,7 @@ public class ItemRegistry {
         weak_arcana_potion = registerTool("weak_arcana_potion", () -> new ItemArcanaPotion(FoodList.WEAK_ARCANA_POTION, 100)),
         strong_arcana_potion = registerTool("strong_arcana_potion", () -> new ItemArcanaPotion(FoodList.STRONG_ARCANA_POTION, 200)),
         heat_pack = registerTool("heat_pack", ItemHeatPack::new),
-        glacial_wall_totem = registerTool("glacial_wall_totem", () -> new ItemMod(new Properties().stacksTo(1))),
+        glacial_wall_totem = registerTool("glacial_wall_totem", () -> new ItemMod(new Properties().stacksTo(1).rarity(Rarity.UNCOMMON))),
         miners_amulet = registerTool("miners_amulet", ItemMinersAmulet::new),
         band_of_lheiva_hunting = registerTool("band_of_lheiva_hunting", () -> new ItemVethean(new Properties().stacksTo(1))),
 

@@ -9,10 +9,9 @@
       "text": "book.divinerpg.entry.vethea.nightmare_bed"
     },
     {
-      "type": "image",
-      "images": ["divinerpg:textures/gui/patchouli/nightmare_bed.png"],
-      "title": "Nightmare Bed",
-      "border": true
+      "type": "crafting",
+      "recipe": "divinerpg:shaped/nightmare_bed",
+      "title": "block.divinerpg.nightmare_bed"
     }
   ]
 }
