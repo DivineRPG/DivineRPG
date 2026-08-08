@@ -49,9 +49,9 @@ public class JERCompat {
         } IWorldGenRegistry worldGenRegistry = jerApi.getWorldGenRegistry();
         if(worldGenRegistry != null) {
             //Overworld
-            worldGenRegistry.register(new ItemStack(BlockRegistry.realmiteOre.get()), new ItemStack(BlockRegistry.realmiteOreDeepslate.get()), new DistributionSquare(30, 8, 28, 52), new LootDrop(new ItemStack(ItemRegistry.raw_realmite.get()), 1, 4, Conditional.affectedByFortune));
-            worldGenRegistry.register(new ItemStack(BlockRegistry.arlemiteOre.get()), new ItemStack(BlockRegistry.arlemiteOreDeepslate.get()), new DistributionSquare(2, 8, 5, 70), new LootDrop(new ItemStack(ItemRegistry.raw_arlemite.get()), 1, 4, Conditional.affectedByFortune));
-            worldGenRegistry.register(new ItemStack(BlockRegistry.rupeeOre.get()), new ItemStack(BlockRegistry.rupeeOreDeepslate.get()), new DistributionSquare(3, 8, -64, 64), new LootDrop(new ItemStack(ItemRegistry.raw_rupee.get()), 1, 4, Conditional.affectedByFortune));
+            worldGenRegistry.register(new ItemStack(BlockRegistry.realmiteOre.get()), new ItemStack(BlockRegistry.realmiteOreDeepslate.get()), new DistributionSquare(30, 8, 0, 52), new LootDrop(new ItemStack(ItemRegistry.raw_realmite.get()), 1, 4, Conditional.affectedByFortune));
+            worldGenRegistry.register(new ItemStack(BlockRegistry.arlemiteOre.get()), new ItemStack(BlockRegistry.arlemiteOreDeepslate.get()), new DistributionSquare(2, 8, -60, 7), new LootDrop(new ItemStack(ItemRegistry.raw_arlemite.get()), 1, 4, Conditional.affectedByFortune));
+            worldGenRegistry.register(new ItemStack(BlockRegistry.rupeeOre.get()), new ItemStack(BlockRegistry.rupeeOreDeepslate.get()), new DistributionSquare(3, 8, -64, 0), new LootDrop(new ItemStack(ItemRegistry.raw_rupee.get()), 1, 4, Conditional.affectedByFortune));
             //Nether
             worldGenRegistry.register(new ItemStack(BlockRegistry.torriditeOre.get()), new DistributionSquare(5, 4, 8, 120), new Restriction(new DimensionRestriction(Level.NETHER)), new LootDrop(new ItemStack(ItemRegistry.raw_torridite.get()), 1, 4, Conditional.affectedByFortune));
             worldGenRegistry.register(new ItemStack(BlockRegistry.bloodgemOre.get()), new DistributionSquare(5, 4, 8, 120), new Restriction(new DimensionRestriction(Level.NETHER)), new LootDrop(new ItemStack(ItemRegistry.bloodgem.get()), 1, 4, Conditional.affectedByFortune));
