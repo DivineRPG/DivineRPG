@@ -2,6 +2,7 @@ package divinerpg.data;
 
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.DivineRegistries;
+import divinerpg.registries.FluidRegistry;
 import divinerpg.registries.ItemRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -19,7 +20,8 @@ public class ModBlockLoot extends BlockLootSubProvider {
     private static final Set<Block> NO_LOOT_BLOCKS = Set.of(
             BlockRegistry.arcanaPortalFrame.get(),
             BlockRegistry.proximitySpawner.get(),
-            BlockRegistry.terranGhostBlock.get()
+            BlockRegistry.terranGhostBlock.get(),
+            FluidRegistry.SMOLDERING_TAR_BLOCK.get()
     );
 
     private static final Map<Block, Item> ORE_DROPS = Map.of(

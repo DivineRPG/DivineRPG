@@ -32,6 +32,7 @@ public class DataGenerators {
         event.createProvider(ModDamageTagProvider::new);
         event.createProvider(ModBiomeTagProvider::new);
         event.createProvider(ModEntityTypeTagProvider::new);
+        event.createProvider(ModFluidTagsProvider::new);
 
         generator.addProvider(true, new ModLootModifierProvider(output, lookupProvider, MODID));
         generator.addProvider(true, new ModPaintingTagsProvider(output, lookupProvider));

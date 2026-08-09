@@ -3,11 +3,13 @@ package divinerpg.data;
 import com.google.common.collect.ImmutableList;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.FeatureRegistry;
+import divinerpg.registries.FluidRegistry;
 import divinerpg.world.config.ore.OreVeinConfig;
 import divinerpg.world.config.tree.GiantDivineFoliagePlacer;
 import divinerpg.world.config.tree.GiantDivineTrunkPlacer;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -18,8 +20,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.LakeFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
@@ -44,7 +49,6 @@ public class ModFeatureProvider {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configured = context.lookup(Registries.CONFIGURED_FEATURE);
-
         registerOre(context, FeatureRegistry.ARLEMITE_ORE, BlockRegistry.arlemiteOre.get(), BlockRegistry.arlemiteOreDeepslate.get(), 8, 0.75f, STONE, DEEPSLATE);
         registerOre(context, FeatureRegistry.REALMITE_ORE, BlockRegistry.realmiteOre.get(), BlockRegistry.realmiteOreDeepslate.get(), 12, 0.4f, STONE, DEEPSLATE);
         registerOre(context, FeatureRegistry.RUPEE_ORE, BlockRegistry.rupeeOre.get(), BlockRegistry.rupeeOreDeepslate.get(), 8, 0.75f, STONE, DEEPSLATE);
@@ -56,6 +60,10 @@ public class ModFeatureProvider {
 
         context.register(FeatureRegistry.DIVINE_TREE_KEY, new ConfiguredFeature<>(FeatureRegistry.DIVINE_TREE.get(), new TreeConfig(BlockRegistry.divineLog.get().defaultBlockState(), BlockRegistry.divineLeaves.get().defaultBlockState().setValue(LeavesBlock.DISTANCE, 1), ImmutableList.of(new TagMatchTest(BlockTags.GRASS_BLOCKS)))));
         context.register(FeatureRegistry.GIANT_DIVINE_TREE, new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(BlockRegistry.divineLog.get()), new GiantDivineTrunkPlacer(32, 24, 24), BlockStateProvider.simple(BlockRegistry.divineLeaves.get()), new GiantDivineFoliagePlacer(ConstantInt.of(10), ConstantInt.of(0)), Optional.empty(), new TwoLayersFeatureSize(1, 0, 2), BlockStateProvider.simple(Blocks.DIRT)).ignoreVines().build()));
+        context.register(FeatureRegistry.TAR_LAKE_KEY, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(FluidRegistry.SMOLDERING_TAR_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(Blocks.STONE), BlockPredicate.alwaysTrue(), BlockPredicate.alwaysTrue(), BlockPredicate.alwaysTrue())));
+
+        context.register(FeatureRegistry.KOBBLIN_HILL_KEY, new ConfiguredFeature<>((Feature<NoneFeatureConfiguration>) FeatureRegistry.KOBBLIN_HILL_FEATURE.get(), NoneFeatureConfiguration.INSTANCE));
+
     }
 
     private static void registerOre(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Block stone, Block deepslate, int size, float discard, RuleTest ruleTest, RuleTest ruleTest2) {

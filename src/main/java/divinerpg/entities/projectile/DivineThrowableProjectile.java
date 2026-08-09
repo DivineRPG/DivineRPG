@@ -47,6 +47,11 @@ public class DivineThrowableProjectile extends ThrowableProjectile {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
+
+        if (level().isClientSide()) {
+            return;
+        }
+
         float f = (float) getDeltaMovement().length();
         float d0 = baseDamage;
         Entity owner = getOwner();

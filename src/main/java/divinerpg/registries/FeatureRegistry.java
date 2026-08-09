@@ -5,22 +5,32 @@ import divinerpg.world.OreVein;
 import divinerpg.world.config.ore.OreVeinConfig;
 import divinerpg.world.config.tree.TreeConfig;
 import divinerpg.world.feature.DivineTree;
+import divinerpg.world.feature.Ellipsoid;
+import divinerpg.world.feature.config.EllipsoidConfig;
+import divinerpg.world.feature.structurelike.KobblinHill;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import static divinerpg.DivineRPG.MODID;
+import static divinerpg.registries.DivineRegistries.FEATURES;
 
 public class FeatureRegistry {
 
-    public static final DeferredHolder<Feature<?>, Feature<OreVeinConfig>> ORE_VEIN_FEATURE = DivineRegistries.FEATURES.register("ore_vein", OreVein::new);
-    public static final DeferredHolder<Feature<?>, Feature<TreeConfig>> DIVINE_TREE = DivineRegistries.FEATURES.register("divine_tree", DivineTree::new);
-
+    public static final DeferredHolder<Feature<?>, Feature<EllipsoidConfig>> ELLIPSOID = FEATURES.register("blob", Ellipsoid::new);
+    public static final DeferredHolder<Feature<?>, Feature<OreVeinConfig>> ORE_VEIN_FEATURE = FEATURES.register("ore_vein", OreVein::new);
+    public static final DeferredHolder<Feature<?>, Feature<TreeConfig>> DIVINE_TREE = FEATURES.register("divine_tree", DivineTree::new);// Inside FeatureRegistry.java
+    public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> KOBBLIN_HILL_FEATURE = FEATURES.register("kobblin_hill", KobblinHill::new);
+    public static final ResourceKey<ConfiguredFeature<?, ?>> KOBBLIN_HILL_KEY = registerConfigured("kobblin_hill");
+    public static final ResourceKey<PlacedFeature> KOBBLIN_HILL = registerPlaced("kobblin_hill");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TAR_LAKE_KEY = registerConfigured("tar_lake");
+    public static final ResourceKey<PlacedFeature> TAR_LAKE = registerPlaced("tar_lake");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ARLEMITE_ORE = registerConfigured("arlemite_ore");
     public static final ResourceKey<PlacedFeature> ARLEMITE_PLACED = registerPlaced("arlemite");

@@ -309,7 +309,7 @@ public class ItemRegistry {
 
     public static final DeferredItem<Item> cauldron_fish_bucket = register("cauldron_fish_bucket", properties -> new MobBucketItem(EntityRegistry.CAULDRON_FISH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, properties.stacksTo(1)));
     public static final DeferredItem<Item> gem_fin_bucket = register("gem_fin_bucket", properties -> new MobBucketItem(EntityRegistry.GEM_FIN.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, properties.stacksTo(1)));
-    public static final DeferredItem<Item> smoldering_tar_bucket = register("smoldering_tar_bucket", properties -> new BucketItem(Fluids.LAVA, properties.craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final DeferredItem<Item> smoldering_tar_bucket = register("smoldering_tar_bucket", properties -> new BucketItem(FluidRegistry.SMOLDERING_TAR_FLUID.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
     public static final DeferredItem<Item> inserter_minecart = register("inserter_minecart"/*, properties -> new ItemInserterMinecart(properties)*/);
 
     public static final DeferredItem<Item> snow_globe = register("snow_globe"/*, properties -> new ItemSnowGlobe(properties)*/);

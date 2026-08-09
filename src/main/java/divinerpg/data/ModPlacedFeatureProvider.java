@@ -5,8 +5,10 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.heightproviders.TrapezoidHeight;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -28,6 +30,9 @@ public class ModPlacedFeatureProvider {
 
         registerPlaced(context, FeatureRegistry.DIVINE_TREE_PLACED, configured, FeatureRegistry.DIVINE_TREE_KEY, List.of(RarityFilter.onAverageOnceEvery(12), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), InSquarePlacement.spread()));
         registerPlaced(context, FeatureRegistry.GIANT_DIVINE_TREE_PLACED, configured, FeatureRegistry.GIANT_DIVINE_TREE, List.of(RarityFilter.onAverageOnceEvery(500), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome()));
+
+        context.register(FeatureRegistry.KOBBLIN_HILL, new PlacedFeature(configured.getOrThrow(FeatureRegistry.KOBBLIN_HILL_KEY), List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.DIRT)))));
+        context.register(FeatureRegistry.TAR_LAKE, new PlacedFeature(configured.getOrThrow(FeatureRegistry.TAR_LAKE_KEY), List.of(RarityFilter.onAverageOnceEvery(100), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG), BiomeFilter.biome())));
     }
 
     private static void registerOre(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, HolderGetter<ConfiguredFeature<?, ?>> configured, ResourceKey<ConfiguredFeature<?, ?>> feature, PlacementModifier count, PlacementModifier height) {

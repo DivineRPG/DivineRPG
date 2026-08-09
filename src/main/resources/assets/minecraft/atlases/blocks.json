@@ -12,6 +12,8 @@
             "permutations": {
                 "olivine": "divinerpg:trims/color_palettes/olivine"
             }
-        }
+        },
+        { "type": "minecraft:single", "resource": "divinerpg:block/smoldering_tar" },
+        { "type": "minecraft:single", "resource": "divinerpg:block/flowing_smoldering_tar" }
     ]
 }
