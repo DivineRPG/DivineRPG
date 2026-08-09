@@ -6,9 +6,7 @@
   "pages": [
     {
       "type": "entity",
-      "entity": "divinerpg:captain_merik",
-      "scale": 1,
-      "name": "Captain Merik"
+      "entity": "divinerpg:captain_merik"
     },
     {
       "type": "text",
@@ -17,9 +15,7 @@
     },
     {
       "type": "entity",
-      "entity": "divinerpg:datticon",
-      "scale": 1,
-      "name": "Datticon"
+      "entity": "divinerpg:datticon"
     },
     {
       "type": "text",
@@ -28,9 +24,7 @@
     },
     {
       "type": "entity",
-      "entity": "divinerpg:kazari",
-      "scale": 1,
-      "name": "Kazari"
+      "entity": "divinerpg:kazari"
     },
     {
       "type": "text",
@@ -39,9 +33,7 @@
     },
     {
       "type": "entity",
-      "entity": "divinerpg:leorna",
-      "scale": 1,
-      "name": "Leorna"
+      "entity": "divinerpg:leorna"
     },
     {
       "type": "text",
@@ -50,9 +42,7 @@
     },
     {
       "type": "entity",
-      "entity": "divinerpg:lord_vatticus",
-      "scale": 1,
-      "name": "Lord Vatticus"
+      "entity": "divinerpg:lord_vatticus"
     },
     {
       "type": "text",
@@ -61,9 +51,7 @@
     },
     {
       "type": "entity",
-      "entity": "divinerpg:war_general",
-      "scale": 1,
-      "name": "War General"
+      "entity": "divinerpg:war_general"
     },
     {
       "type": "text",
@@ -72,9 +60,7 @@
     },
     {
       "type": "entity",
-      "entity": "divinerpg:zelus",
-      "scale": 1,
-      "name": "Zelus"
+      "entity": "divinerpg:zelus"
     },
     {
       "type": "text",

@@ -16,6 +16,7 @@
     {
       "type": "crafting",
       "recipe": "divinerpg:shaped/eden_block",
+      "title": "block.divinerpg.eden_portal",
       "text": "book.divinerpg.entry.twilight.eden_portal.1"
     },
     {
@@ -33,12 +34,12 @@
           "P": "divinerpg:eden_block"
         }
       },
-      "name": "Eden Portal",
       "text": "book.divinerpg.entry.twilight.portals.3"
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shaped/wildwood_block",
+      "title": "block.divinerpg.wildwood_portal",
       "text": "book.divinerpg.entry.twilight.wildwood_portal.1"
     },
     {
@@ -56,12 +57,12 @@
           "P": "divinerpg:wildwood_block"
         }
       },
-      "name": "Wildwood Portal",
       "text": "book.divinerpg.entry.twilight.portals.3"
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shaped/apalachia_block",
+      "title": "block.divinerpg.apalachia_portal",
       "text": "book.divinerpg.entry.twilight.apalachia_portal.1"
     },
     {
@@ -79,12 +80,12 @@
           "P": "divinerpg:apalachia_block"
         }
       },
-      "name": "Apalachia Portal",
       "text": "book.divinerpg.entry.twilight.portals.3"
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shaped/skythern_block",
+      "title": "block.divinerpg.skythern_portal",
       "text": "book.divinerpg.entry.twilight.skythern_portal.1"
     },
     {
@@ -102,12 +103,12 @@
           "P": "divinerpg:skythern_block"
         }
       },
-      "name": "Skythern Portal",
       "text": "book.divinerpg.entry.twilight.portals.3"
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shaped/mortum_block",
+      "title": "block.divinerpg.mortum_portal",
       "text": "book.divinerpg.entry.twilight.mortum_portal.1"
     },
     {
@@ -125,7 +126,6 @@
           "P": "divinerpg:mortum_block"
         }
       },
-      "name": "Mortum Portal",
       "text": "book.divinerpg.entry.twilight.portals.3"
     }
   ]

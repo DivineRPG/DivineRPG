@@ -6,9 +6,7 @@
   "pages": [
     {
       "type": "entity",
-      "entity": "divinerpg:jack_o_man",
-      "scale": 1,
-      "name": "Jack-O-Man"
+      "entity": "divinerpg:jack_o_man"
     },
     {
       "type": "text",
@@ -17,9 +15,7 @@
     },
     {
       "type": "entity",
-      "entity": "divinerpg:livestock_merchant",
-      "scale": 1,
-      "name": "Livestock Merchant"
+      "entity": "divinerpg:livestock_merchant"
     },
     {
       "type": "text",

@@ -983,9 +983,9 @@ public class BlockRegistry {
 
     //Portals
     gateway = registerBlock("gateway", () -> new BlockGateway(Properties.ofFullCopy(Blocks.LODESTONE))),
-    divinePortal = registerBlock("divine_portal", () -> new SimplePortalBlock(Level.OVERWORLD, Level.OVERWORLD, divineRock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),
     arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new),
     iceikaPortal = registerBlock("iceika_portal", () -> new SimplePortalBlock(LevelRegistry.ICEIKA, Level.OVERWORLD, Blocks.SNOW_BLOCK, ResourceLocation.fromNamespaceAndPath(MODID, "frost"))),
+    divinePortal = registerBlock("divine_portal", () -> new SimplePortalBlock(Level.OVERWORLD, Level.OVERWORLD, divineRock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),
     edenPortal = registerBlock("eden_portal", () -> new SimplePortalBlock(LevelRegistry.EDEN, Level.OVERWORLD, edenBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal"))),
     wildwoodPortal = registerBlock("wildwood_portal", () -> new SimplePortalBlock(LevelRegistry.WILDWOOD, LevelRegistry.EDEN, wildwoodBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "wildwood_portal"))),
     apalachiaPortal = registerBlock("apalachia_portal", () -> new SimplePortalBlock(LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, apalachiaBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "apalachia_portal"))),

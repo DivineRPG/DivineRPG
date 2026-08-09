@@ -7,8 +7,6 @@
     {
       "type": "entity",
       "entity": "divinerpg:sunstorm",
-      "scale": 1,
-      "name": "Sunstorm",
       "offset": 0.4,
       "anchor": "sunstorm"
     },
@@ -25,7 +23,6 @@
       "type": "entity",
       "entity": "divinerpg:termasect",
       "scale": 0.6,
-      "name": "Termasect",
       "offset": 2,
       "anchor": "termasect"
     },
@@ -42,7 +39,6 @@
       "type": "entity",
       "entity": "divinerpg:eternal_archer",
       "scale": 0.8,
-      "name": "Eternal Archer",
       "offset": 1.4,
       "anchor": "archer"
     },
@@ -58,8 +54,6 @@
     {
       "type": "entity",
       "entity": "divinerpg:experienced_cori",
-      "scale": 1,
-      "name": "Experienced Cori",
       "offset": 1.4,
       "anchor": "cori"
     },
@@ -74,80 +68,64 @@
     },
     {
       "type": "entity",
-      "entity": "divinerpg:densos",
-      "scale": 1,
-      "name": "Densos",
-      "offset": 0
+      "entity": "divinerpg:densos"
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shapeless/densos_crystal",
-      "title": "Densos",
+      "title": "entity.divinerpg.densos",
       "text": "book.divinerpg.entry.twilight.densos"
     },
     {
       "type": "entity",
       "entity": "divinerpg:karot",
-      "scale": 0.8,
-      "name": "Karot",
-      "offset": 0
+      "scale": 0.8
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shapeless/karot_crystal",
-      "title": "Karot",
+      "title": "entity.divinerpg.karot",
       "text": "book.divinerpg.entry.twilight.karot"
     },
     {
       "type": "entity",
-      "entity": "divinerpg:reyvor",
-      "scale": 1,
-      "name": "Reyvor",
-      "offset": 0
+      "entity": "divinerpg:reyvor"
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shapeless/reyvor_crystal",
-      "title": "Reyvor",
+      "title": "entity.divinerpg.reyvor",
       "text": "book.divinerpg.entry.twilight.reyvor"
     },
     {
       "type": "entity",
-      "entity": "divinerpg:soul_fiend",
-      "scale": 1,
-      "name": "Soul Fiend",
-      "offset": 0
+      "entity": "divinerpg:soul_fiend"
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shapeless/soul_fiend_crystal",
-      "title": "Soul Fiend",
+      "title": "entity.divinerpg.soul_fiend",
       "text": "book.divinerpg.entry.twilight.soul_fiend"
     },
     {
       "type": "entity",
-      "entity": "divinerpg:twilight_demon",
-      "scale": 1,
-      "name": "Twilight Demon",
-      "offset": 0
+      "entity": "divinerpg:twilight_demon"
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shapeless/twilight_demon_crystal",
-      "title": "Twilight Demon",
+      "title": "entity.divinerpg.twilight_demon",
       "text": "book.divinerpg.entry.twilight.twilight_demon"
     },
     {
       "type": "entity",
       "entity": "divinerpg:vamacheron",
-      "scale": 0.8,
-      "name": "Vamacheron",
-      "offset": 0
+      "scale": 0.8
     },
     {
       "type": "crafting",
       "recipe": "divinerpg:shapeless/vamacheron_crystal",
-      "title": "Vamacheron",
+      "title": "entity.divinerpg.vamacheron",
       "text": "book.divinerpg.entry.twilight.vamacheron"
     }
   ]

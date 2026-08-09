@@ -605,7 +605,7 @@ public class ItemRegistry {
         arksiane_dissipator = registerThrowableTool("arksiane_dissipator", () -> new ItemVetheanDissipator(18.5F).withTooltip(LocalizeUtils.returnsToSender())),
 
         //Explosive & Homing
-        eden_sparkles = registerItem("eden_sparkles", () -> new ItemThrowable(EntityRegistry.EDEN_SPARKLES::value, .5F)),
+        eden_sparkles = registerThrowableTool("eden_sparkles", () -> new ItemThrowable(EntityRegistry.EDEN_SPARKLES::value, .5F)),
         grenade = registerThrowableTool("grenade", () -> new ItemThrowable(EntityRegistry.GRENADE::value, 3F).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(20).withSound(SoundEvents.TRIDENT_THROW.value())),
         la_vekor = registerTool("la_vekor", () -> new ItemRangedWeapon(TagRegistry.AMMO_GRENADE, ItemRegistry.grenade::toStack, EntityRegistry.GRENADE::value, 1225).withTooltip(LocalizeUtils.rangedDam(6)).withTooltip(LocalizeUtils.explosiveShots()).withCooldown(10).withSound(SoundRegistry.LA_VEKOR.get()).arcanaUse(15)),
         firefly = registerTool("firefly", ItemFirefly::new),
