@@ -9,7 +9,8 @@ displayName="${mod_name}"
 authors="${mod_authors}"
 description="${mod_description}"
 displayURL="${mod_url}"
-logoFile="${mod_logo}"
+bannerFile="${mod_banner}"
+iconFile="${mod_logo}"
 updateJSONURL="${mod_update_json}"
 
 [[dependencies.divinerpg]]

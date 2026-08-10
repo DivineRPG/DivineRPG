@@ -32,7 +32,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 neoForge {
     version = project.neo_version
-    accessTransformers.from(file('src/main/resources/META-INF/accesstransformer.cfg'))
+    accessTransformers.from(file('src/main/templates/META-INF/accesstransformer.cfg'))
     runs {
         client {
             client()
@@ -95,6 +95,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_description        : mod_description,
             mod_url                : mod_url,
             mod_logo               : mod_logo,
+            mod_banner             : mod_banner,
             mod_update_json        : mod_update_json,
     ]
     inputs.properties replaceProperties
