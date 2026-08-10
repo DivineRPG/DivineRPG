@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/auroraoak_sapling"
+    "model": "divinerpg:item/auroraoak_sapling"
   }
 }

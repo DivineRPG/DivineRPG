@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "all": "divinerpg:block/ray_grass"
+    "bottom": "divinerpg:block/ray_dirt",
+    "side": "divinerpg:block/ray_grass_side",
+    "top": "divinerpg:block/ray_grass_top"
   }
 }

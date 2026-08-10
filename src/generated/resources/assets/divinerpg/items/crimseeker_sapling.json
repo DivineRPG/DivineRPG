@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/crimseeker_sapling"
+    "model": "divinerpg:item/crimseeker_sapling"
   }
 }

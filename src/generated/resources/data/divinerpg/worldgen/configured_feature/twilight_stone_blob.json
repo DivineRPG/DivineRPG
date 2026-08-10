@@ -1,0 +1,21 @@
+{
+  "type": "divinerpg:blob",
+  "config": {
+    "block": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "divinerpg:twilight_stone"
+      }
+    },
+    "max_size": 5,
+    "min_size": 2,
+    "replace": [
+      {
+        "block_state": {
+          "Name": "divinerpg:frozen_stone"
+        },
+        "predicate_type": "minecraft:blockstate_match"
+      }
+    ]
+  }
+}

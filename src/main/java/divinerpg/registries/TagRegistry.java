@@ -173,6 +173,7 @@ public class TagRegistry {
                 INC_ARKSIANE = block("incorrect_for_tool/arksiane"), INC_EVER = block("incorrect_for_tool/ever");
 
         public static final TagKey<Block> BASE_ICY_FIRE = block("base_blocks/icy_fire");
+        public static final TagKey<Block> APALACHIA_INFINIBURN = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(DivineRPG.MODID, "infiniburn/apalachia"));
 
         public static final TagKey<Block>
                 RIFT_EDEN_BLOCK = block("rift_resonating/eden"), RIFT_WILDWOOD_BLOCK = block("rift_resonating/wildwood"),

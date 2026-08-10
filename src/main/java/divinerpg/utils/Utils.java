@@ -3,10 +3,13 @@ package divinerpg.utils;
 import com.google.gson.Gson;
 import divinerpg.DivineRPG;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -127,5 +130,11 @@ public class Utils {
                 if(c.equals(criterion)) player.getAdvancements().award(adv, c);
             });
         }
+    }
+    public static Block getBlock(String registryName) {
+        return BuiltInRegistries.BLOCK.get(Identifier.fromNamespaceAndPath(DivineRPG.MODID, registryName)).get().value();
+    }
+    public static BlockState getBlockState(String registryName) {
+        return BuiltInRegistries.BLOCK.get(Identifier.fromNamespaceAndPath(DivineRPG.MODID, registryName)).get().value().defaultBlockState();
     }
 }

@@ -1,4 +1,4 @@
-package divinerpg.world.feature;
+package divinerpg.world.feature.tree;
 
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;

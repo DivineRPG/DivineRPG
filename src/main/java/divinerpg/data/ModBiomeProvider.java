@@ -1,6 +1,7 @@
 package divinerpg.data;
 
 import divinerpg.registries.EntityRegistry;
+import divinerpg.registries.FeatureRegistry;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -67,11 +68,10 @@ public class ModBiomeProvider {
         apalachiaSpawners.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(EntityRegistry.SPELLBINDER.get(), 4, 4));
         BiomeGenerationSettings.Builder apalachiaFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
         apalachiaFeatures.addCarver(ResourceKey.create(Registries.CONFIGURED_CARVER, Identifier.fromNamespaceAndPath("minecraft", "canyon")));
-        //TODO - features
-//        apalachiaFeatures.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "apalachia/ore")));
-//        apalachiaFeatures.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "twilight_tar_lake")));
-//        apalachiaFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "apalachia/tree")));
-//        apalachiaFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "apalachia/plants")));
+        apalachiaFeatures.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, FeatureRegistry.APALACHIA_ORE_PLACED);
+        apalachiaFeatures.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, FeatureRegistry.TWILIGHT_TAR_LAKE_PLACED_KEY);
+        apalachiaFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FeatureRegistry.APALACHIA_TREE_PLACED);
+        apalachiaFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FeatureRegistry.APALACHIA_VEGETATION_KEY_PLACED);
         ctx.register(APALACHIA, new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.4F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(15245798).grassColorOverride(12588287).foliageColorOverride(14161151).build()).mobSpawnSettings(apalachiaSpawners.build()).generationSettings(apalachiaFeatures.build()).build());
 
         MobSpawnSettings.Builder mortumSpawners = new MobSpawnSettings.Builder();

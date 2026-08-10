@@ -6,7 +6,24 @@
     "grass_color": "#c014ff",
     "water_color": "#e8a1e6"
   },
-  "features": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "divinerpg:apalachia_ore",
+      "divinerpg:twilight_tar_lake"
+    ],
+    [],
+    [],
+    [
+      "divinerpg:apalachia_tree",
+      "divinerpg:apalachia_vegetation"
+    ]
+  ],
   "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {

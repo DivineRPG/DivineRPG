@@ -14,6 +14,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import java.util.concurrent.CompletableFuture;
 
 import static divinerpg.DivineRPG.MODID;
+import static divinerpg.registries.TagRegistry.APALACHIA_INFINIBURN;
 import static divinerpg.registries.TagRegistry.MINEABLE_SHICKAXE;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
@@ -57,6 +58,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(MINEABLE_SHICKAXE).addTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.MINEABLE_WITH_HOE, BlockTags.MINEABLE_WITH_SHOVEL);
 
+        tag(APALACHIA_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().getKey(), Blocks.NETHERRACK.builtInRegistryHolder().getKey());
+
         for (var entry : DivineRegistries.BLOCKS.getEntries()) {
             Block b = entry.get();
             var key = b.builtInRegistryHolder().getKey();
@@ -86,6 +89,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             if (b instanceof WallBlock) tag(BlockTags.WALLS).add(key);
             if (b instanceof DoorBlock) tag(BlockTags.DOORS).add(key);
             if (b instanceof TrapDoorBlock) tag(BlockTags.TRAPDOORS).add(key);
+            if (b instanceof GrassBlock) tag(BlockTags.GRASS_BLOCKS).add(key);
         }
     }
 

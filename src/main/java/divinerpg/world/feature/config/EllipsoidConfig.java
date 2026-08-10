@@ -3,10 +3,13 @@ package divinerpg.world.feature.config;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockStateMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 import java.util.List;
@@ -29,5 +32,12 @@ public class EllipsoidConfig implements FeatureConfiguration {
     }
     public EllipsoidConfig(BlockStateProvider block, int minSize, int maxSize, RuleTest growableOn) {
         this(block, minSize, maxSize, ImmutableList.of(growableOn));
+    }
+
+    public EllipsoidConfig(BlockStateProvider state, BlockStateProvider target, IntProvider radius) {
+        this.block = state;
+        this.replace = ImmutableList.of(new BlockStateMatchTest(target.getState(null, null, null)));
+        this.maxSize = radius.maxInclusive();
+        this.minSize = radius.minInclusive();
     }
 }

@@ -63,7 +63,10 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.PLACED_FEATURE, ModPlacedFeatureProvider::bootstrap)
             .add(Registries.BIOME, ModBiomeProvider::bootstrap)
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifierBootstrap::bootstrap)
-            .add(Registries.JUKEBOX_SONG, ModDatapackProvider::registerJukeboxSongs);
+            .add(Registries.JUKEBOX_SONG, ModDatapackProvider::registerJukeboxSongs)
+            .add(Registries.DIMENSION_TYPE, ModDimensionTypeProvider::bootstrap)
+            .add(Registries.LEVEL_STEM, ModDimensionProvider::bootstrap)
+            .add(Registries.NOISE_SETTINGS, ModNoiseSettingsProvider::bootstrap);
 
 
     public ModDatapackProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {

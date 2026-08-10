@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "all": "divinerpg:block/flame_grass"
+    "bottom": "divinerpg:block/flame_grass",
+    "side": "divinerpg:block/flame_grass_side",
+    "top": "divinerpg:block/flame_grass_top"
   }
 }

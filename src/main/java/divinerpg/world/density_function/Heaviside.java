@@ -1,4 +1,4 @@
-package divinerpg.world.placement;
+package divinerpg.world.density_function;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.util.KeyDispatchDataCodec;

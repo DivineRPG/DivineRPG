@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cross",
   "textures": {
-    "all": "divinerpg:block/wildwood_sapling"
+    "cross": "divinerpg:block/wildwood_sapling"
   }
 }

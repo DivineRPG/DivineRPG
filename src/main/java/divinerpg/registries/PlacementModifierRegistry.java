@@ -1,6 +1,7 @@
 package divinerpg.registries;
 
 import com.mojang.serialization.MapCodec;
+import divinerpg.world.density_function.Heaviside;
 import divinerpg.world.placement.*;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.placement.PlacementModifierType;

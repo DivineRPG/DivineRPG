@@ -2,6 +2,7 @@ package divinerpg.data;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.DivineRegistries;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -23,6 +24,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.HashSet;
@@ -117,6 +119,9 @@ public class ModModelProvider extends ModelProvider {
                 else if (block instanceof LeavesBlock leaves) {
                     registerLeaves(gen, leaves);
                 }
+                else if (block instanceof SaplingBlock sapling) {
+                    registerCrossBlock(gen, sapling);
+                }
                 else if (block instanceof RotatedPillarBlock pillar) {
                     if (path.endsWith("_log") || path.endsWith("_wood") || path.endsWith("_stem") || path.endsWith("_hyphae")) {
                         if (path.startsWith("stripped_")) {
@@ -172,6 +177,14 @@ public class ModModelProvider extends ModelProvider {
                 .replace("_breakable" + variantSuffix, "")
                 .replace(variantSuffix, "")
                 .replace("_breakable", "");
+
+        if (block instanceof GrassBlock || path.endsWith("_grass")) {
+            Identifier dirtId = Identifier.fromNamespaceAndPath(MODID, cleanPath + "_dirt");
+            if (BuiltInRegistries.BLOCK.containsKey(dirtId)) {
+                return BuiltInRegistries.BLOCK.get(dirtId).get().value();
+            }
+        }
+
         Identifier directId = Identifier.fromNamespaceAndPath(MODID, cleanPath);
         if (BuiltInRegistries.BLOCK.containsKey(directId)) {
             return BuiltInRegistries.BLOCK.get(directId).get().value();
@@ -404,7 +417,9 @@ public class ModModelProvider extends ModelProvider {
                 .put(TextureSlot.ALL, mat)
                 .put(TextureSlot.TEXTURE, mat);
 
-        Identifier modelId = ModelTemplates.LEAVES.create(leaves, mapping, gen.modelOutput);
+        ModelTemplate template = ExtendedModelTemplateBuilder.of(ModelTemplates.LEAVES).build();
+
+        Identifier modelId = template.create(leaves, mapping, gen.modelOutput);
         gen.blockStateOutput.accept(createSimpleBlock(leaves, plainVariant(modelId)));
         gen.registerSimpleItemModel(leaves.asItem(), modelId);
         registeredItems.add(leaves.asItem());
@@ -420,7 +435,7 @@ public class ModModelProvider extends ModelProvider {
 
         Item item = block.asItem();
         if (item != Items.AIR) {
-            TextureMapping itemMapping = TextureMapping.layer0(item);
+            TextureMapping itemMapping = TextureMapping.layer0(block);
             Identifier itemModelId = FLAT_ITEM.create(item, itemMapping, gen.modelOutput);
             gen.registerSimpleItemModel(item, itemModelId);
             registeredItems.add(item);

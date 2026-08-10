@@ -1,0 +1,25 @@
+{
+  "type": "divinerpg:apalachia_tree",
+  "config": {
+    "can_grow_on": [
+      {
+        "predicate_type": "minecraft:tag_match",
+        "tag": "minecraft:grass_blocks"
+      }
+    ],
+    "leaves": {
+      "Name": "divinerpg:apalachia_leaves",
+      "Properties": {
+        "distance": "1",
+        "persistent": "false",
+        "waterlogged": "false"
+      }
+    },
+    "log": {
+      "Name": "divinerpg:apalachia_log",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

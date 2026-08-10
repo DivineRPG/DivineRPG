@@ -1,11 +1,15 @@
 package divinerpg.data;
 
 import divinerpg.registries.FeatureRegistry;
+import divinerpg.world.ConfiguredFeatureKeys;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -31,8 +35,15 @@ public class ModPlacedFeatureProvider {
         registerPlaced(context, FeatureRegistry.DIVINE_TREE_PLACED, configured, FeatureRegistry.DIVINE_TREE_KEY, List.of(RarityFilter.onAverageOnceEvery(12), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), InSquarePlacement.spread()));
         registerPlaced(context, FeatureRegistry.GIANT_DIVINE_TREE_PLACED, configured, FeatureRegistry.GIANT_DIVINE_TREE, List.of(RarityFilter.onAverageOnceEvery(500), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome()));
 
-        context.register(FeatureRegistry.KOBBLIN_HILL, new PlacedFeature(configured.getOrThrow(FeatureRegistry.KOBBLIN_HILL_KEY), List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.DIRT)))));
+        context.register(FeatureRegistry.KOBBLIN_HILL_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.KOBBLIN_HILL_KEY), List.of(RarityFilter.onAverageOnceEvery(12), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome(), BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(BlockTags.DIRT)))));
         context.register(FeatureRegistry.TAR_LAKE, new PlacedFeature(configured.getOrThrow(FeatureRegistry.TAR_LAKE_KEY), List.of(RarityFilter.onAverageOnceEvery(100), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG), BiomeFilter.biome())));
+        context.register(FeatureRegistry.TWILIGHT_TAR_LAKE_PLACED_KEY, new PlacedFeature(configured.getOrThrow(ConfiguredFeatureKeys.TWILIGHT_TAR_LAKE), List.of(RarityFilter.onAverageOnceEvery(200), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE_WG))));
+
+
+        context.register(FeatureRegistry.APALACHIA_ORE_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_ORE),List.of(CountPlacement.of(12),InSquarePlacement.spread(),HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(256)),BiomeFilter.biome())));
+        context.register(FeatureRegistry.APALACHIA_VEGETATION_KEY_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_VEGETATION_PATCH_KEY), List.of(CountPlacement.of(34), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.allOf(BlockPredicate.replaceable()), BlockPredicate.anyOf(BlockPredicate.matchesBlocks(Blocks.AIR), BlockPredicate.matchesBlocks(Blocks.WATER)), 12), RandomOffsetPlacement.of(UniformInt.of(4, 7), UniformInt.of(1, 2)), BiomeFilter.biome())));
+        context.register(FeatureRegistry.APALACHIA_TREE_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_TREE_KEY), List.of(NoiseBasedCountPlacement.of(1,12, 90.0), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome())));
+
     }
 
     private static void registerOre(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, HolderGetter<ConfiguredFeature<?, ?>> configured, ResourceKey<ConfiguredFeature<?, ?>> feature, PlacementModifier count, PlacementModifier height) {

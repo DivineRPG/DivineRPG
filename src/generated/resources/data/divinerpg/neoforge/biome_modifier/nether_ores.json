@@ -2,8 +2,8 @@
   "type": "neoforge:add_features",
   "biomes": "#minecraft:is_nether",
   "features": [
-    "divinerpg:torridite_ore",
-    "divinerpg:bloodgem_ore"
+    "divinerpg:torridite_placed",
+    "divinerpg:bloodgem_ore_placed"
   ],
   "step": "underground_ores"
 }
