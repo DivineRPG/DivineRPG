@@ -660,7 +660,7 @@ public class EntityRegistry {
         event.registerEntityRenderer(MAMOTH.get(),			(context) -> new RenderDivineMob<>(context, "mamoth", new ModelMamoth(context), .9F));
         event.registerEntityRenderer(SNOW_SKIPPER.get(),	(context) -> new RenderDivineMob<>(context, "snow_skipper", new ModelSnowSkipper(context), .25F));
         event.registerEntityRenderer(PINK_GHOST_GLIDER.get(),(context) -> new RenderDivineMob<>(context, "pink_ghost_glider", new ModelGhostGlider(context), .5F));
-        event.registerEntityRenderer(ALICANTO.get(),		 (context) -> new RenderDivineMob<>(context, "alicanto",  new ModelAlicanto(context), .7F));
+        event.registerEntityRenderer(ALICANTO.get(),		 RenderAlicanto::new);
         event.registerEntityRenderer(FRACTITE.get(),		 (context) -> new RenderDivineMob<>(context, "fractite",  new ModelFractite(context), .5F, 2));
         event.registerEntityRenderer(PALE_ARCHER.get(),	     RenderPaleArcher::new);
         event.registerEntityRenderer(FROZEN_FLESH.get(),	 (context) -> new RenderDivineMob<>(context, "frozen_flesh",  new ModelFrozenFlesh(context), .5F));

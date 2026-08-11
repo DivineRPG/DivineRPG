@@ -1,0 +1,4 @@
+{
+  "type": "minecraft:entity",
+  "random_sequence": "divinerpg:entities/frost_cannon_shot"
+}

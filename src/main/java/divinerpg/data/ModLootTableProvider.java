@@ -26,23 +26,11 @@ import static divinerpg.DivineRPG.MODID;
 
 public class ModLootTableProvider implements LootTableSubProvider {
     public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        return new LootTableProvider(output, Set.of(), List.of(new LootTableProvider.SubProviderEntry(ModBlockLoot::new, LootContextParamSets.BLOCK)), registries);
+        return new LootTableProvider(output, Set.of(), List.of(new LootTableProvider.SubProviderEntry(ModBlockLoot::new, LootContextParamSets.BLOCK), new LootTableProvider.SubProviderEntry(ModEntityLootSubProvider::new, LootContextParamSets.ENTITY), new LootTableProvider.SubProviderEntry(ModChestLootSubProvider::new, LootContextParamSets.CHEST)), registries);
     }
 
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
-        //TODO - Patchouli isnt updated yet
-//        output.accept(LootTableRegistry.PATCHOULI, LootTable.lootTable()
-//                .withPool(LootPool.lootPool()
-//                        .setRolls(ConstantValue.exactly(1))
-//                        .add(LootItem.lootTableItem(BuiltInRegistries.ITEM.get(Identifier.fromNamespaceAndPath("patchouli", "guide_book")).get().value())
-//                                .apply(SetComponentsFunction.setComponent(DataComponentPatch.builder()
-//                                        .set(PatchouliComponents.BOOK.get(), "divinerpg:divine") // Adjust based on your Patchouli mapping
-//                                        .build()
-//                                ))
-//                        )
-//                )
-//                .apply(RandomSequence.seedForKey(Identifier.fromNamespaceAndPath(MODID, "patchouli")))
-//        );
+
     }
 }

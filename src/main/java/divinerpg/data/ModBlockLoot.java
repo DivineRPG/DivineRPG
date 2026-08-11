@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
@@ -53,7 +54,7 @@ public class ModBlockLoot extends BlockLootSubProvider {
                 continue;
             } else if (ORE_DROPS.containsKey(block)) {
                 Item drop = ORE_DROPS.get(block);
-                if (drop == net.minecraft.world.item.Items.AIR) {
+                if (drop == Items.AIR) {
                     throw new IllegalStateException("Drop for block " + block + " is AIR!");
                 }
                 this.add(block, (b) -> createOreDrop(b, drop));
@@ -71,9 +72,6 @@ public class ModBlockLoot extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return DivineRegistries.BLOCKS.getEntries().stream()
-                .map(DeferredHolder::get)
-                .filter(block -> !NO_LOOT_BLOCKS.contains(block))
-                .collect(Collectors.toList());
+        return DivineRegistries.BLOCKS.getEntries().stream().map(DeferredHolder::get).filter(block -> !NO_LOOT_BLOCKS.contains(block)).collect(Collectors.toList());
     }
 }
