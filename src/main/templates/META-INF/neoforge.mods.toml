@@ -12,6 +12,7 @@ displayURL="${mod_url}"
 bannerFile="${mod_banner}"
 iconFile="${mod_logo}"
 updateJSONURL="${mod_update_json}"
+issueTrackerURL="${issue_tracker_url}"
 
 [[dependencies.divinerpg]]
 modId="neoforge"
