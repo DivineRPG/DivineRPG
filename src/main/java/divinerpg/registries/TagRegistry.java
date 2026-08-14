@@ -145,6 +145,7 @@ public class TagRegistry {
     public static final TagKey<Item> COMMON_SHOVELS = common("tools/shovels");
     public static final TagKey<Item> COMMON_SWORDS = common("tools/swords");
     public static final TagKey<Item> SHICKAXES = common("tools/shickaxes");
+    public static final TagKey<Item> SMELTS_LOOT = common("smelts_loot");
 
         public static final TagKey<Item> SHADOW_COIN = item("coins/shadow");
 

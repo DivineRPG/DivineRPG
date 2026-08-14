@@ -1,4 +1,58 @@
 {
   "type": "minecraft:entity",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "enchantment": "minecraft:looting",
+              "function": "minecraft:enchanted_count_increase"
+            }
+          ],
+          "name": "divinerpg:mortum_heart"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:halite_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:halite_helmet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:twilight_demon_statue"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
   "random_sequence": "divinerpg:entities/twilight_demon"
 }

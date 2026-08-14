@@ -39,6 +39,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(commonTag("foods")).addTags(commonTag("foods/white_mushroom"));
         tag(commonTag("foods/white_mushroom")).add(ItemRegistry.white_mushroom.getKey());
         tag(commonTag("mushrooms")).add(ItemRegistry.white_mushroom.getKey());
+        tag(TagRegistry.SMELTS_LOOT).add(Blocks.COAL_BLOCK.asItem().builtInRegistryHolder().key());
 
             tag(TagRegistry.REPAIR_REALMITE).add(ItemRegistry.realmite_ingot.getKey());
             tag(TagRegistry.REPAIR_ARLEMITE).add(ItemRegistry.arlemite_ingot.getKey());

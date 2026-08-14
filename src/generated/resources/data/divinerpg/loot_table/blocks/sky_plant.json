@@ -10,7 +10,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:sky_plant"
+          "name": "divinerpg:sky_plant_seeds"
         }
       ],
       "rolls": 1.0

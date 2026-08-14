@@ -86,7 +86,7 @@
               "function": "minecraft:enchanted_count_increase"
             }
           ],
-          "name": "minecraft:beetroot_seeds"
+          "name": "divinerpg:purple_glowbone_seeds"
         },
         {
           "type": "minecraft:item",
@@ -109,7 +109,7 @@
               "function": "minecraft:enchanted_count_increase"
             }
           ],
-          "name": "minecraft:wheat_seeds"
+          "name": "divinerpg:pink_glowbone_seeds"
         }
       ],
       "rolls": 1.0

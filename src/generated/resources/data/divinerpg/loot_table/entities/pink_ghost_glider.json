@@ -1,4 +1,22 @@
 {
   "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 1.0,
+      "conditions": [
+        {
+          "chance": 0.2,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone_meal"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
   "random_sequence": "divinerpg:entities/pink_ghost_glider"
 }

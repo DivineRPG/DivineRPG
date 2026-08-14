@@ -1,4 +1,27 @@
 {
   "type": "minecraft:entity",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:ancient_key"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:degraded_key"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:sludge_key"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:soul_key"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
   "random_sequence": "divinerpg:entities/dungeon_constructor"
 }

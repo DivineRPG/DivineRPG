@@ -1,4 +1,36 @@
 {
   "type": "minecraft:entity",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:everbright"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:everfright"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:evernight"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:everlight"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "divinerpg:eversight"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
   "random_sequence": "divinerpg:entities/lady_luna"
 }

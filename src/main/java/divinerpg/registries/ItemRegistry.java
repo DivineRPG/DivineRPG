@@ -271,21 +271,20 @@ public class ItemRegistry {
     public static final DeferredItem<Item> dream_sweets = register("dream_sweets", properties -> new ItemHealingFood(FoodList.DREAM_SWEETS, properties));
     public static final DeferredItem<Item> dream_sours = register("dream_sours", properties -> new ItemHealingFood(FoodList.DREAM_SOURS, properties));
 
-    //TODO - plant blocks
-//    public static final DeferredItem<Item> tomato_seeds = registerSeed("tomato_seeds", BlockRegistry.tomatoPlant);
-//    public static final DeferredItem<Item> white_mushroom_seeds = registerSeed("white_mushroom_seeds", BlockRegistry.whiteMushroomPlant);
-//    public static final DeferredItem<Item> aquamarine_seeds = registerSeed("aquamarine_seeds", BlockRegistry.aquamarinePlant);
-//    public static final DeferredItem<Item> eucalyptus_root_seeds = registerSeed("eucalyptus_root_seeds", BlockRegistry.eucalyptusPlant);
-//    public static final DeferredItem<Item> firestock_seeds = registerSeed("firestock_seeds", BlockRegistry.firestockPlant);
-//    public static final DeferredItem<Item> hitchak_seeds = registerSeed("hitchak_seeds", BlockRegistry.hitchakPlant);
-//    public static final DeferredItem<Item> lamona_seeds = registerSeed("lamona_seeds", BlockRegistry.lamonaPlant);
-//    public static final DeferredItem<Item> marsine_seeds = registerSeed("marsine_seeds", BlockRegistry.marsinePlant);
-//    public static final DeferredItem<Item> pinfly_seeds = registerSeed("pinfly_seeds", BlockRegistry.pinflyPlant);
-//    public static final DeferredItem<Item> veilo_seeds = registerSeed("veilo_seeds", BlockRegistry.veiloPlant);
-//    public static final DeferredItem<Item> moonbulb_seeds = registerSeed("moonbulb_seeds", BlockRegistry.moonbulbPlant);
-//    public static final DeferredItem<Item> pink_glowbone_seeds = registerSeed("pink_glowbone_seeds", BlockRegistry.pinkGlowbonePlant);
-//    public static final DeferredItem<Item> purple_glowbone_seeds = registerSeed("purple_glowbone_seeds", BlockRegistry.purpleGlowbonePlant);
-//    public static final DeferredItem<Item> sky_plant_seeds = registerSeed("sky_plant_seeds", BlockRegistry.skyPlant);
+    public static final DeferredItem<Item> tomato_seeds = registerSeed("tomato_seeds", BlockRegistry.tomatoPlant);
+    public static final DeferredItem<Item> white_mushroom_seeds = registerSeed("white_mushroom_seeds", BlockRegistry.whiteMushroomPlant);
+    public static final DeferredItem<Item> aquamarine_seeds = registerSeed("aquamarine_seeds", BlockRegistry.aquamarinePlant);
+    public static final DeferredItem<Item> eucalyptus_root_seeds = registerSeed("eucalyptus_root_seeds", BlockRegistry.eucalyptusPlant);
+    public static final DeferredItem<Item> firestock_seeds = registerSeed("firestock_seeds", BlockRegistry.firestockPlant);
+    public static final DeferredItem<Item> hitchak_seeds = registerSeed("hitchak_seeds", BlockRegistry.hitchakPlant);
+    public static final DeferredItem<Item> lamona_seeds = registerSeed("lamona_seeds", BlockRegistry.lamonaPlant);
+    public static final DeferredItem<Item> marsine_seeds = registerSeed("marsine_seeds", BlockRegistry.marsinePlant);
+    public static final DeferredItem<Item> pinfly_seeds = registerSeed("pinfly_seeds", BlockRegistry.pinflyPlant);
+    public static final DeferredItem<Item> veilo_seeds = registerSeed("veilo_seeds", BlockRegistry.veiloPlant);
+    public static final DeferredItem<Item> moonbulb_seeds = registerSeed("moonbulb_seeds", BlockRegistry.moonbulbPlant);
+    public static final DeferredItem<Item> pink_glowbone_seeds = registerSeed("pink_glowbone_seeds", BlockRegistry.pinkGlowbonePlant);
+    public static final DeferredItem<Item> purple_glowbone_seeds = registerSeed("purple_glowbone_seeds", BlockRegistry.purpleGlowbonePlant);
+    public static final DeferredItem<Item> sky_plant_seeds = registerSeed("sky_plant_seeds", BlockRegistry.skyPlant);
 
     public static final DeferredItem<Item> snapper_egg = registerEgg("snapper_spawn_egg", () -> EntityRegistry.SNAPPER.get());
     public static final DeferredItem<Item> ehu_egg = registerEgg("ehu_spawn_egg", () -> EntityRegistry.EHU.get());
