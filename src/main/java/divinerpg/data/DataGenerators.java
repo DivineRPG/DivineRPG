@@ -28,7 +28,7 @@ public class DataGenerators {
 
         event.createProvider(ModModelProvider::new);
         event.createBlockAndItemTags(ModBlockTagsProvider::new, (packOutput, lookup, blockTags) -> new ModItemTagsProvider(packOutput, lookup));
-        event.createProvider((packOutput, lookup) -> ModLootTableProvider.create(packOutput, lookup));
+        event.createProvider(ModLootTableProvider::create);
         event.createProvider(ModDamageTagProvider::new);
         event.createProvider(ModBiomeTagProvider::new);
         event.createProvider(ModEntityTypeTagProvider::new);

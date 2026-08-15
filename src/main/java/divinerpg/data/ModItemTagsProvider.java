@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
@@ -67,7 +68,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         for (var entry : DivineRegistries.BLOCKS.getEntries()) {
             Block b = entry.get();
-            if (b.asItem() == net.minecraft.world.item.Items.AIR) continue;
+            if (b.asItem() == Items.AIR) continue;
             var itemKey = b.asItem().builtInRegistryHolder().key();
             String path = entry.getId().getPath();
             if (path.contains("_planks")) tag(ItemTags.PLANKS).add(itemKey);
