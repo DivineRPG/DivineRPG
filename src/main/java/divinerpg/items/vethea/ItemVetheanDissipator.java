@@ -1,6 +1,6 @@
 package divinerpg.items.vethea;
 
-import divinerpg.items.base.ItemThrowable;
+import divinerpg.items.ranged.ItemThrowable;
 import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import static divinerpg.registries.EntityRegistry.DISSIPATOR;
 
 public class ItemVetheanDissipator extends ItemThrowable {
-    public ItemVetheanDissipator(float damage) {
-        super(new Properties().stacksTo(1), DISSIPATOR::value, damage);
+    public ItemVetheanDissipator(Properties properties, float damage) {
+        super(properties.stacksTo(1), DISSIPATOR::value, damage);
     }
     public static ArrayList<BlockPos> getLocalDungeonAir(Level level, BlockPos pos, float damage) {
         int area = (int)(damage / 3);

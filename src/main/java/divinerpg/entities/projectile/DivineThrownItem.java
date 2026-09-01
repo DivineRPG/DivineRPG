@@ -1,6 +1,6 @@
 package divinerpg.entities.projectile;
 
-import divinerpg.items.base.ItemThrowable;
+import divinerpg.items.ranged.ItemThrowable;
 import divinerpg.registries.EntityRegistry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;

@@ -1,7 +1,7 @@
 package divinerpg.entities.projectile.throwable;
 
 import divinerpg.entities.projectile.DivineThrownItem;
-import divinerpg.items.base.ItemThrowable;
+import divinerpg.items.ranged.ItemThrowable;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;

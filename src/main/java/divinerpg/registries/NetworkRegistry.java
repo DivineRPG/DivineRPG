@@ -13,6 +13,6 @@ public class NetworkRegistry {
     public static void register(final RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar(DivineRPG.MODID);
 
-        AttachmentRegistry.ARCANA.registerPayload(registrar);
+//        AttachmentRegistry.ARCANA.registerPayload(registrar);
     }
 }

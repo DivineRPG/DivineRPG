@@ -14,8 +14,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import java.util.concurrent.CompletableFuture;
 
 import static divinerpg.DivineRPG.MODID;
-import static divinerpg.registries.TagRegistry.APALACHIA_INFINIBURN;
-import static divinerpg.registries.TagRegistry.MINEABLE_SHICKAXE;
+import static divinerpg.registries.TagRegistry.*;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
     public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
@@ -55,6 +54,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(commonTag("ores_in_ground/deepslate")).add(BlockRegistry.realmiteOreDeepslate.getKey(), BlockRegistry.rupeeOreDeepslate.getKey(), BlockRegistry.arlemiteOreDeepslate.getKey());
 
         tag(customTag("replaceable_by_trees/iceika")).addTags(BlockTags.SNOW);
+        tag(BASE_ICY_FIRE).addTags(BlockTags.SNOW, BlockTags.ICE).add(BlockRegistry.snowBricks.getKey(), BlockRegistry.icyStone.getKey());
 
         tag(MINEABLE_SHICKAXE).addTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.MINEABLE_WITH_HOE, BlockTags.MINEABLE_WITH_SHOVEL);
 

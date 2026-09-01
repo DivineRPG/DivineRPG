@@ -56,8 +56,13 @@ public class ModModelProvider extends ModelProvider {
         for (var entry : DivineRegistries.ITEMS.getEntries()) {
             Item item = entry.get();
             if (registeredItems.contains(item)) continue;
+            String path = BuiltInRegistries.ITEM.getKey(item).getPath();
+            if (path.equals("winterberry")) {
+                itemModels.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+                registeredItems.add(item);
+                continue;
+            }
             if (!(item instanceof BlockItem)) {
-                String path = BuiltInRegistries.ITEM.getKey(item).getPath();
                 if (isHandheldTool(path)) {
                     itemModels.generateFlatItem(item, FLAT_HANDHELD_ITEM);
                 } else {

@@ -1,7 +1,6 @@
-package divinerpg.items.base;
+package divinerpg.items.ranged;
 
 import divinerpg.entities.projectile.DivineThrownItem;
-import divinerpg.items.ranged.ItemRangedWeapon;
 import divinerpg.registries.EntityRegistry;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
@@ -24,12 +23,8 @@ import java.util.function.Supplier;
 public class ItemThrowable extends ItemRangedWeapon implements ProjectileItem {
     public final float damage;
 
-    public ItemThrowable(float damage) {
-        this(EntityRegistry.THROWN_ITEM::value, damage);
-    }
-
-    public ItemThrowable(Supplier<EntityType<? extends Projectile>> projectileType, float damage) {
-        this(new Properties().stacksTo(32), projectileType, damage);
+    public ItemThrowable(Properties properties, float damage) {
+        this(properties, () -> EntityRegistry.THROWN_ITEM.value(), damage);
     }
 
     public ItemThrowable(Properties properties, Supplier<EntityType<? extends Projectile>> projectileType, float damage) {

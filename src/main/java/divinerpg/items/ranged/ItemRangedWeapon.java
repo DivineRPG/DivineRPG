@@ -1,7 +1,6 @@
 package divinerpg.items.ranged;
 
 import divinerpg.entities.projectile.DivineThrownItem;
-import divinerpg.items.base.ItemThrowable;
 import divinerpg.utils.ArcanaHelper;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.core.Holder;

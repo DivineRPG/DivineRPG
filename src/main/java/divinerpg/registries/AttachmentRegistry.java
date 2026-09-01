@@ -61,7 +61,7 @@ public class AttachmentRegistry {
         SPECIAL.registerPayload(r);
         HOOKED.registerPayload(r);
 
-        COLOR.registerPayload(r);
+//        COLOR.registerPayload(r);
     }
 
     public static <T> SingleSidedAttachment<T> registerSingleSided(String name, Supplier<T> defaultValue, Codec<T> codec, boolean clientSide) {

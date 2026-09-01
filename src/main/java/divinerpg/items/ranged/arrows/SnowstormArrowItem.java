@@ -1,0 +1,35 @@
+package divinerpg.items.ranged.arrows;
+
+import divinerpg.entities.projectile.arrows.SnowstormArrow;
+import divinerpg.items.ranged.ItemDivineArrow;
+import divinerpg.utils.LocalizeUtils;
+import net.minecraft.core.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.*;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.level.Level;
+import net.neoforged.api.distmarker.*;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+import java.util.function.Consumer;
+
+public class SnowstormArrowItem extends ItemDivineArrow {
+    public SnowstormArrowItem(Properties properties) {super(properties);}
+    @Override public AbstractArrow createArrow(Level level, ItemStack ammo, LivingEntity shooter, @Nullable ItemStack weapon) {
+        return new SnowstormArrow(level, shooter, ammo.copyWithCount(1), weapon);
+    }
+    @Override public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
+        return new SnowstormArrow(level, pos.x(), pos.y(), pos.z(), stack.copyWithCount(1), null);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
+        builder.accept(LocalizeUtils.explosiveShots());
+    }
+
+}

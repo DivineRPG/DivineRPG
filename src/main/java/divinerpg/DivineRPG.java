@@ -3,6 +3,7 @@ package divinerpg;
 import divinerpg.config.Config;
 import divinerpg.data.DataGenerators;
 import divinerpg.events.SpawnEvents;
+import divinerpg.network.Payloads;
 import divinerpg.registries.*;
 import divinerpg.utils.Utils;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -32,6 +33,7 @@ public class DivineRPG {
         bus.addListener(SpawnEvents::registerSpawnPlacements);
         bus.register(EntityRegistry.class);
         NeoForge.EVENT_BUS.register(this);
+        bus.register(Payloads.class);
         DivineRegistries.register(bus);
         container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

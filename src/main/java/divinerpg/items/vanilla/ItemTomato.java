@@ -1,6 +1,6 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemThrowable;
+import divinerpg.items.ranged.ItemThrowable;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.utils.FoodList;
 import net.minecraft.core.component.DataComponents;

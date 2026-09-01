@@ -1,7 +1,7 @@
 package divinerpg.entities.projectile.throwable;
 
 import divinerpg.entities.projectile.DivineThrownItem;
-import divinerpg.items.base.ItemThrowable;
+import divinerpg.items.ranged.ItemThrowable;
 import divinerpg.items.vethea.ItemVetheanDissipator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;

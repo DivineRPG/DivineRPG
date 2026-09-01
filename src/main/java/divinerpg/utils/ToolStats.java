@@ -174,12 +174,12 @@ public enum ToolStats {
     SKYTHERN_HOE(TagRegistry.INC_SKYTHERN, 2783, 4.0F, 2.0F, 22, REPAIR_SKYTHERN),
     MORTUM_HOE(TagRegistry.INC_MORTUM, 2922, 4.0F, 2.0F, 22, REPAIR_MORTUM),
     HUNTER_BOW(1125, 72000, 1.2F, 1, REPAIR_JUNGLE),
-    SHADOW_BOW(1225, 36000, 1, 1, REPAIR_SHADOW),
-    ICICLE_BOW(1456, 24000, 1, 1, REPAIR_ICE),
-    INFERNO_BOW(72000, 1, 1, REPAIR_MOLTEN),
-    SOULFIRE_BOW(72000, 1.5F, 1, REPAIR_SOULFIRE),
-    SNOWSTORM_BOW(72000, 1.7F, 1, REPAIR_SNOWFLAKE),
-    ENDER_BOW(72000, 1.2F, 1, REPAIR_EDEN),
+    SHADOW_BOW(1225, 36000, 1.0F, 1, REPAIR_SHADOW),
+    ICICLE_BOW(1456, 24000, 1.0F, 1, REPAIR_ICE),
+    INFERNO_BOW(1320, 72000, 1.0F, 1, REPAIR_MOLTEN), // Add missing uses if needed
+    SOULFIRE_BOW(1500, 72000, 1.5F, 1, REPAIR_SOULFIRE),
+    SNOWSTORM_BOW(1600, 72000, 1.7F, 1, REPAIR_SNOWFLAKE),
+    ENDER_BOW(1700, 72000, 1.2F, 1, REPAIR_EDEN),
     EDEN_BOW(1517, 72000, 1.3F, 1, REPAIR_EDEN),
     WILDWOOD_BOW(1624, 36000, 1.4F, 1, REPAIR_WILDWOOD),
     APALACHIA_BOW(1778, 72000, 1.5F, 2, REPAIR_APALACHIA),
@@ -187,16 +187,16 @@ public enum ToolStats {
     MORTUM_BOW(1990, 72000, 1.7F, 3, REPAIR_MORTUM),
     HALITE_BOW(2114, 36000, 1.8F, 3, REPAIR_HALITE),
     TWILIGHT_BOW(2376, 14400, 1.9F, 4, REPAIR_TWILIGHT),
-    TEAKER_BOW(72000, .9F, 1, REPAIR_TEAKER),
-    AMTHIRMIS_BOW(72000, 1, 1, REPAIR_AMTHIRMIS),
-    DARVEN_BOW(72000, 1.1F, 1, REPAIR_DARVEN),
-    CERMILE_BOW(72000, 1.2F, 1, REPAIR_CERMILE),
-    PARDIMAL_BOW(72000, 1.3F, 1, REPAIR_PARDIMAL),
-    QUADROTIC_BOW(72000, 1.4F, 1, REPAIR_QUADROTIC),
-    KAROS_BOW(72000, 1.5F, 1, REPAIR_KAROS),
-    HELIOSIS_BOW(72000, 1.6F, 1, REPAIR_HELIOSIS),
-    ARKSIANE_BOW(72000, 1.7F, 1, REPAIR_ARKSIANE),
-    EVERFRIGHT(72000, 1.8F, 1, REPAIR_EVER),
+    TEAKER_BOW(500, 72000, 0.9F, 1, REPAIR_TEAKER),
+    AMTHIRMIS_BOW(600, 72000, 1.0F, 1, REPAIR_AMTHIRMIS),
+    DARVEN_BOW(700, 72000, 1.1F, 1, REPAIR_DARVEN),
+    CERMILE_BOW(800, 72000, 1.2F, 1, REPAIR_CERMILE),
+    PARDIMAL_BOW(900, 72000, 1.3F, 1, REPAIR_PARDIMAL),
+    QUADROTIC_BOW(1000, 72000, 1.4F, 1, REPAIR_QUADROTIC),
+    KAROS_BOW(1100, 72000, 1.5F, 1, REPAIR_KAROS),
+    HELIOSIS_BOW(1200, 72000, 1.6F, 1, REPAIR_HELIOSIS),
+    ARKSIANE_BOW(1300, 72000, 1.7F, 1, REPAIR_ARKSIANE),
+    EVERFRIGHT(1400, 72000, 1.8F, 1, REPAIR_EVER),
     EDEN_PHASER(1517, 50, 3, 2.6F, 1, REPAIR_EDEN),
     WILDWOOD_PHASER(1624, 50, 3, 3.3F, 1, REPAIR_WILDWOOD),
     APALACHIA_PHASER(1778, 50, 3, 4, 2, REPAIR_APALACHIA),
@@ -206,7 +206,7 @@ public enum ToolStats {
 
     private final ToolMaterial material;
     private final SwordSpecial special;
-    private final int effectPower, effectSec;
+    public final int effectPower, effectSec;
 
     ToolStats(TagKey<Block> tag, int uses, float speed, float damage, int enchant, TagKey<Item> repair, SwordSpecial special, int power, int sec) {
         this.material = new ToolMaterial(tag, uses, speed, damage, enchant, repair);
@@ -223,8 +223,8 @@ public enum ToolStats {
         this(null, uses, speed, 0, enchant, repairJungle);
     }
 
-    ToolStats(int uses, float speed, float damage, int enchant, TagKey<Item> repairJungle) {
-        this(null, uses, speed, damage, enchant, repairJungle);
+    ToolStats(int uses, int useDuration, float damage, int enchant, TagKey<Item> repair) {
+        this(null, uses, (float)useDuration, damage, enchant, repair, SwordSpecial.NONE, 0, 0);
     }
 
     ToolStats(int uses, float cooldown, float speed, float damage, int enchant, TagKey<Item> repairJungle) {
