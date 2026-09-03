@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/gray",
+  "base": "divinerpg:yellow_divine_sword",
+  "result": {
+    "id": "divinerpg:gray_divine_sword"
+  },
+  "template": "divinerpg:color_template"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "experience": 0.35,
+  "group": "seng_steak",
+  "ingredient": "divinerpg:raw_seng_meat",
+  "result": {
+    "id": "divinerpg:seng_steak"
+  }
+}

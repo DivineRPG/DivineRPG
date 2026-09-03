@@ -2,6 +2,7 @@ package divinerpg.registries;
 
 import divinerpg.entities.base.EntityDivineMerchant.DivineMapTrades;
 import divinerpg.entities.base.EntityDivineMerchant.DivineTrades;
+import divinerpg.recipe.MaulSmashingRecipe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.util.RandomSource;
@@ -9,17 +10,40 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import static divinerpg.registries.BlockRegistry.*;
+import static divinerpg.registries.DivineRegistries.RECIPE_SERIALIZERS;
+import static divinerpg.registries.DivineRegistries.RECIPE_TYPES;
 import static divinerpg.registries.ItemRegistry.*;
 
 public class RecipeRegistry {
 
-//TODO - potion trades
+    public static class Types {
+
+//        public static final DeferredHolder<RecipeType<?>, RecipeType<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_RECIPE_TYPE = RECIPE_TYPES.register("arcanium_extractor", () -> ArcaniumExtractorRecipe.TYPE);
+//        public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionTableRecipe>> INFUSION_TABLE_RECIPE_TYPE = RECIPE_TYPES.register("infusion_table", () -> InfusionTableRecipe.TYPE);
+        public static final DeferredHolder<RecipeType<?>, RecipeType<MaulSmashingRecipe>> MAUL_SMASHING = RECIPE_TYPES.register("maul_smashing", () -> MaulSmashingRecipe.TYPE);
+//        public static final DeferredHolder<RecipeType<?>, RecipeType<FireConversionRecipe>> FIRE_CONVERSION = RECIPE_TYPES.register("fire_conversion", () -> FireConversionRecipe.TYPE);
+
+        public static void load() {}
+    }
+    public static class Serializers {
+        //TODO: Unknown recipe category 'divinerpg:arcanium_extractor/divinerpg:extracting/arcanium', etc.
+//        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_SERIALIZER = RECIPE_SERIALIZERS.register("arcanium_extractor", () -> new SimpleCookingSerializer<>(ArcaniumExtractorRecipe::new, 100));
+//        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<InfusionTableRecipe>> INFUSION_TABLE_SERIALIZER = RECIPE_SERIALIZERS.register("infusion_table", InfusionTableRecipe.Serializer::new);
+        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MaulSmashingRecipe>> MAUL_SMASHING_SERIALIZER = RECIPE_SERIALIZERS.register("maul_smashing", () -> MaulSmashingRecipe.Serializer.SERIALIZER);
+        //        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FireConversionRecipe>> FIRE_CONVERSION_SERIALIZER = RECIPE_SERIALIZERS.register("fire_conversion", FireConversionRecipe.Serializer::new);
+
+        public static void load() {}
+    }
+    //TODO - potion trades
     public static class Trades {
         @FunctionalInterface
         public interface TradeGetter {
@@ -235,14 +259,14 @@ public class RecipeRegistry {
                         new DivineTrades(collector.toStack(2), soulStoneBreakable.toStack(16), random.nextInt(7), 5)
                 },
                 LEORNA = (level, random) -> new DivineTrades[]{
-//                        new DivineTrades(arcanium.toStack(), eucalyptus_root_seeds.toStack(), random.nextInt(7), 5),
-//                        new DivineTrades(arcanium.toStack(2), marsine_seeds.toStack(), random.nextInt(7), 5),
-//                        new DivineTrades(arcanium.toStack(2), firestock_seeds.toStack(), random.nextInt(7), 5),
-//                        new DivineTrades(arcanium.toStack(3), pinfly_seeds.toStack(), random.nextInt(7), 5),
-//                        new DivineTrades(arcanium.toStack(4), aquamarine_seeds.toStack(), random.nextInt(7), 5),
-//                        new DivineTrades(arcanium.toStack(5), hitchak_seeds.toStack(), random.nextInt(7), 5),
-//                        new DivineTrades(arcanium.toStack(7), veilo_seeds.toStack(), random.nextInt(7), 5),
-//                        new DivineTrades(arcanium.toStack(9), lamona_seeds.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(), eucalyptus_root_seeds.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(2), marsine_seeds.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(2), firestock_seeds.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(3), pinfly_seeds.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(4), aquamarine_seeds.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(5), hitchak_seeds.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(7), veilo_seeds.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(9), lamona_seeds.toStack(), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(2), arcaniteDirt.toStack(16), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(2), arcaniteGrass.toStack(16), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(6), staff_of_enrichment.toStack(), random.nextInt(7), 5),

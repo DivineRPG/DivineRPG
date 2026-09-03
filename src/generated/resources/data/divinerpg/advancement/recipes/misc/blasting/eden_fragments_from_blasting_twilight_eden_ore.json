@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:blasting/eden_fragments_from_blasting_twilight_eden_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_twilight_eden_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:twilight_eden_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_twilight_eden_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:blasting/eden_fragments_from_blasting_twilight_eden_ore"
+    ]
+  }
+}

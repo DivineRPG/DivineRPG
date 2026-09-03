@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.35,
+  "group": "hot_pumpkin_pie",
+  "ingredient": "minecraft:pumpkin_pie",
+  "result": {
+    "id": "divinerpg:hot_pumpkin_pie"
+  }
+}

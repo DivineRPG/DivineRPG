@@ -1,0 +1,6 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": "divinerpg:mortum_fragments",
+  "required_base_block": "#c:ores/mortum",
+  "result": "divinerpg:mortum_fragments"
+}

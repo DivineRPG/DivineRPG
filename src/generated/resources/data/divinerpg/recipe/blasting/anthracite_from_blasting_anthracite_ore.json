@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.1,
+  "group": "anthracite",
+  "ingredient": "divinerpg:anthracite_ore",
+  "result": {
+    "id": "divinerpg:anthracite"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mortum_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:mortum_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/mortum_fragments_from_smelting_mortum_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mortum_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/mortum_fragments_from_smelting_mortum_ore"
+    ]
+  }
+}

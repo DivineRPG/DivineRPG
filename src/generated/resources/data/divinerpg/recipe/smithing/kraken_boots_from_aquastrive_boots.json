@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:skin/kraken",
+  "base": "divinerpg:aquastrive_boots",
+  "result": {
+    "id": "divinerpg:kraken_boots"
+  },
+  "template": "divinerpg:aquatic_coating_template"
+}

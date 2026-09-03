@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pure_aquatic_pellets": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:pure_aquatic_pellets"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/aquatic_ingot_from_smelting_pure_aquatic_pellets"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pure_aquatic_pellets"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/aquatic_ingot_from_smelting_pure_aquatic_pellets"
+    ]
+  }
+}

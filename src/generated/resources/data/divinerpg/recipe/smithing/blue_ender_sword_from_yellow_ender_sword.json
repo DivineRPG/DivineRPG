@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/blue",
+  "base": "divinerpg:yellow_ender_sword",
+  "result": {
+    "id": "divinerpg:blue_ender_sword"
+  },
+  "template": "divinerpg:color_template"
+}

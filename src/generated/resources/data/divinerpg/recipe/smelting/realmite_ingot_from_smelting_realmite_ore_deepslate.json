@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.7,
+  "group": "realmite_ingot",
+  "ingredient": "divinerpg:realmite_ore_deepslate",
+  "result": {
+    "id": "divinerpg:realmite_ingot"
+  }
+}

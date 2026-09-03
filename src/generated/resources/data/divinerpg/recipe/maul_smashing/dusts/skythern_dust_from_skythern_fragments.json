@@ -1,0 +1,6 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": "divinerpg:skythern_fragments",
+  "required_base_block": "#c:ores/skythern",
+  "result": "divinerpg:skythern_dust"
+}

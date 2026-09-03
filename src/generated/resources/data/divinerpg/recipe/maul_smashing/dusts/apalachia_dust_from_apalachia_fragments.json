@@ -1,0 +1,6 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": "divinerpg:apalachia_fragments",
+  "required_base_block": "#c:ores/apalachia",
+  "result": "divinerpg:apalachia_dust"
+}

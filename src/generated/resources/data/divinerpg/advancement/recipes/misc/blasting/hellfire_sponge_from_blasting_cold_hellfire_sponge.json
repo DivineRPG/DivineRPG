@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cold_hellfire_sponge": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:cold_hellfire_sponge"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:blasting/hellfire_sponge_from_blasting_cold_hellfire_sponge"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cold_hellfire_sponge"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:blasting/hellfire_sponge_from_blasting_cold_hellfire_sponge"
+    ]
+  }
+}

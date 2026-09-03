@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:blasting/wildwood_fragments_from_blasting_wildwood_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wildwood_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:wildwood_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wildwood_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:blasting/wildwood_fragments_from_blasting_wildwood_ore"
+    ]
+  }
+}

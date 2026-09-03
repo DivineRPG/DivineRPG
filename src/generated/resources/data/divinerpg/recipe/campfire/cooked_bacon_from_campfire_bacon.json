@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 300,
+  "experience": 0.35,
+  "group": "cooked_bacon",
+  "ingredient": "divinerpg:bacon",
+  "result": {
+    "id": "divinerpg:cooked_bacon"
+  }
+}

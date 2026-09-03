@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.1,
+  "group": "eden_fragments",
+  "ingredient": "#divinerpg:smeltable_equipment/eden",
+  "result": {
+    "id": "divinerpg:eden_fragments"
+  }
+}

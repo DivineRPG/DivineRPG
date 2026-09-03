@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/red",
+  "base": "divinerpg:gray_ender_leggings",
+  "result": {
+    "id": "divinerpg:red_ender_leggings"
+  },
+  "template": "divinerpg:color_template"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.1,
+  "group": "ender_shards",
+  "ingredient": "#divinerpg:smeltable_equipment/ender",
+  "result": {
+    "id": "divinerpg:ender_shards"
+  }
+}

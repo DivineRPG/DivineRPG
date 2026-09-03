@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oxdrite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:oxdrite_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:maul_smashing/dusts/oxdrite_dust_from_oxdrite_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oxdrite_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:maul_smashing/dusts/oxdrite_dust_from_oxdrite_ingot"
+    ]
+  }
+}

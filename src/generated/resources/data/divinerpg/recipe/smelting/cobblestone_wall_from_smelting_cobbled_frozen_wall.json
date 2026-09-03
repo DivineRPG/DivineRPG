@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "cobblestone_wall",
+  "ingredient": "divinerpg:cobbled_frozen_wall",
+  "result": {
+    "id": "minecraft:cobblestone_wall"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tag": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:smeltable_equipment/apalachia"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:blasting/apalachia_fragments_from_blasting_tag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tag"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:blasting/apalachia_fragments_from_blasting_tag"
+    ]
+  }
+}

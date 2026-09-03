@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 2.0,
+  "group": "mortum_fragments",
+  "ingredient": "divinerpg:mortum_ore",
+  "result": {
+    "id": "divinerpg:mortum_fragments"
+  }
+}

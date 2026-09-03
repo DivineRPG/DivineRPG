@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bedrock_upgrade": {
+    "has_color_template": {
       "conditions": {
         "items": [
           {
-            "items": "divinerpg:bedrock_upgrade_template"
+            "items": "divinerpg:color_template"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/bedrock_boots_from_inferno"
+        "recipe": "divinerpg:smithing/yellow_divine_sword_from_divine_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_bedrock_upgrade"
+      "has_color_template"
     ]
   ],
   "rewards": {
     "recipes": [
-      "divinerpg:smithing/bedrock_boots_from_inferno"
+      "divinerpg:smithing/yellow_divine_sword_from_divine_sword"
     ]
   }
 }

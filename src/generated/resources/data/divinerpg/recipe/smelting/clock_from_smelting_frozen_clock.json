@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 100,
+  "group": "clock",
+  "ingredient": "divinerpg:frozen_clock",
+  "result": {
+    "id": "minecraft:clock"
+  }
+}

@@ -183,19 +183,29 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         public final ItemStack input1;
         public final ItemStack input2;
         public final ItemStack output;
+        public final Component name;
         protected final int xp;
         protected final int stock;
 
-        public DivineTrades(ItemStack input1, ItemStack input2, ItemStack output, int stock, int xp) {
+        public DivineTrades(ItemStack input1, ItemStack input2, ItemStack output, int stock, int xp, Component name) {
             this.input1 = input1;
             this.input2 = input2;
             this.output = output;
             this.stock = stock + 1;
             this.xp = xp;
+            this.name = name != null ? name : output.getHoverName();
+        }
+
+        public DivineTrades(ItemStack input1, ItemStack input2, ItemStack output, int stock, int xp) {
+            this(input1, input2, output, stock, xp, null);
+        }
+
+        public DivineTrades(ItemStack input1, ItemStack output, int stock, int xp, Component name) {
+            this(input1, ItemStack.EMPTY, output, stock, xp, name);
         }
 
         public DivineTrades(ItemStack input1, ItemStack output, int stock, int xp) {
-            this(input1, ItemStack.EMPTY, output, stock, xp);
+            this(input1, ItemStack.EMPTY, output, stock, xp, null);
         }
 
         @Nullable
@@ -219,7 +229,7 @@ public abstract class EntityDivineMerchant extends AbstractVillager {
         public final Holder<MapDecorationType> destinationType;
 
         public DivineMapTrades(ItemStack input1, ItemStack input2, String displayName, TagKey<Structure> destination, Holder<MapDecorationType> destinationType, int xp) {
-            super(input1, input2, ItemStack.EMPTY, 1, xp);
+            super(input1, input2, ItemStack.EMPTY, 1, xp, Component.translatable(displayName));
             this.displayName = displayName;
             this.destination = destination;
             this.destinationType = destinationType;

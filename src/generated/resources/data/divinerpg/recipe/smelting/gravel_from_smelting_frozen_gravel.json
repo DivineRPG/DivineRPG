@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "gravel",
+  "ingredient": "divinerpg:frozen_gravel",
+  "result": {
+    "id": "minecraft:gravel"
+  }
+}

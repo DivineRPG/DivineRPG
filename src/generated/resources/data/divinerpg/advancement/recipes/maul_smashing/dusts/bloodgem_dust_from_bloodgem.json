@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bloodgem": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:bloodgem"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:maul_smashing/dusts/bloodgem_dust_from_bloodgem"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bloodgem"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:maul_smashing/dusts/bloodgem_dust_from_bloodgem"
+    ]
+  }
+}

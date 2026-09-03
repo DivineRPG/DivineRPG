@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/red",
+  "base": "divinerpg:blue_divine_sword",
+  "result": {
+    "id": "divinerpg:red_divine_sword"
+  },
+  "template": "divinerpg:color_template"
+}

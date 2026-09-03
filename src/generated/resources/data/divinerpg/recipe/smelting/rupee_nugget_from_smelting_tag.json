@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "rupee_nugget",
+  "ingredient": "#divinerpg:smeltable_equipment/rupee",
+  "result": {
+    "id": "divinerpg:rupee_nugget"
+  }
+}

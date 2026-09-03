@@ -1,0 +1,6 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": "divinerpg:arlemite_ingot",
+  "required_base_block": "#c:ores/arlemite",
+  "result": "divinerpg:arlemite_dust"
+}

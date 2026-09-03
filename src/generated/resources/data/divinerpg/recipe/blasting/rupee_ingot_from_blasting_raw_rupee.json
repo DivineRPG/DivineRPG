@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.7,
+  "group": "rupee_ingot",
+  "ingredient": "divinerpg:raw_rupee",
+  "result": {
+    "id": "divinerpg:rupee_ingot"
+  }
+}

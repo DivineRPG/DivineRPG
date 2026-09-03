@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/yellow",
+  "base": "divinerpg:blue_ender_helmet",
+  "result": {
+    "id": "divinerpg:yellow_ender_helmet"
+  },
+  "template": "divinerpg:color_template"
+}

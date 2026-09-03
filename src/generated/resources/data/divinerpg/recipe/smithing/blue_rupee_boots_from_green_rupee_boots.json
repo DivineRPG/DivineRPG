@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/blue",
+  "base": "divinerpg:green_rupee_boots",
+  "result": {
+    "id": "divinerpg:blue_rupee_boots"
+  },
+  "template": "divinerpg:color_template"
+}

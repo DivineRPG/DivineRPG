@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bedrock_upgrade_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:bedrock_upgrade_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smithing/bedrock_chestplate_from_inferno_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bedrock_upgrade_template"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smithing/bedrock_chestplate_from_inferno_chestplate"
+    ]
+  }
+}

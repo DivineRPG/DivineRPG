@@ -1,0 +1,6 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": "divinerpg:realmite_ingot",
+  "required_base_block": "#c:ores/realmite",
+  "result": "divinerpg:realmite_dust"
+}

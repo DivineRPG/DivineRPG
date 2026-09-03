@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 1.0,
+  "group": "apalachia_fragments",
+  "ingredient": "divinerpg:apalachia_ore",
+  "result": {
+    "id": "divinerpg:apalachia_fragments"
+  }
+}

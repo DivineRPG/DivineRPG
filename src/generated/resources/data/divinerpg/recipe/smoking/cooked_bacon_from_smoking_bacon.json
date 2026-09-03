@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 50,
+  "experience": 0.35,
+  "group": "cooked_bacon",
+  "ingredient": "divinerpg:bacon",
+  "result": {
+    "id": "divinerpg:cooked_bacon"
+  }
+}

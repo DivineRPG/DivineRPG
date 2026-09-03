@@ -2,6 +2,7 @@ package divinerpg.data;
 
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.DivineRegistries;
+import divinerpg.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -23,12 +24,18 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(commonTag("ores/arlemite")).add(BlockRegistry.arlemiteOre.getKey(), BlockRegistry.arlemiteOreDeepslate.getKey());
-        tag(commonTag("ores/rupee")).add(BlockRegistry.rupeeOre.getKey(), BlockRegistry.rupeeOreDeepslate.getKey());
-        tag(commonTag("ores/realmite")).add(BlockRegistry.realmiteOre.getKey(), BlockRegistry.realmiteOreDeepslate.getKey());
-        tag(commonTag("ores/torridite")).add(BlockRegistry.torriditeOre.getKey());
-        tag(commonTag("ores/bloodgem")).add(BlockRegistry.bloodgemOre.getKey());
-        tag(commonTag("ores")).addTags(commonTag("ores/arlemite"), commonTag("ores/rupee"), commonTag("ores/realmite"), commonTag("ores/torridite"), commonTag("ores/bloodgem"));
+        tag(APALACHIA_ORE).add(BlockRegistry.apalachiaOre.getKey());
+        tag(ARLEMITE_ORE).add(BlockRegistry.arlemiteOre.getKey(), BlockRegistry.arlemiteOreDeepslate.getKey());
+        tag(BLOODGEM_ORE).add(BlockRegistry.bloodgemOre.getKey());
+        tag(EDEN_ORE).add(BlockRegistry.scorchaltEdenOre.getKey(), BlockRegistry.scorchaltEdenOre.getKey());
+        tag(MORTUM_ORE).add(BlockRegistry.mortumOre.getKey());
+        tag(OXDRITE_ORE).add(BlockRegistry.oxdriteOre.getKey());
+        tag(REALMITE_ORE).add(BlockRegistry.realmiteOre.getKey(), BlockRegistry.realmiteOreDeepslate.getKey());
+        tag(RUPEE_ORE).add(BlockRegistry.rupeeOre.getKey(), BlockRegistry.rupeeOreDeepslate.getKey());
+        tag(SKYTHERN_ORE).add(BlockRegistry.skythernOre.getKey());
+        tag(TORRIDITE_ORE).add(BlockRegistry.torriditeOre.getKey());
+        tag(WILDWOOD_ORE).add(BlockRegistry.wildwoodOre.getKey());
+        tag(ORES).addTags(APALACHIA_ORE, ARLEMITE_ORE, BLOODGEM_ORE, EDEN_ORE, MORTUM_ORE, OXDRITE_ORE, REALMITE_ORE, RUPEE_ORE, SKYTHERN_ORE, TORRIDITE_ORE, WILDWOOD_ORE);
 
         tag(commonTag("storage_blocks/realmite")).add(BlockRegistry.realmiteBlock.getKey());
         tag(commonTag("storage_blocks/arlemite")).add(BlockRegistry.arlemiteBlock.getKey());
@@ -55,6 +62,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(customTag("replaceable_by_trees/iceika")).addTags(BlockTags.SNOW);
         tag(BASE_ICY_FIRE).addTags(BlockTags.SNOW, BlockTags.ICE).add(BlockRegistry.snowBricks.getKey(), BlockRegistry.icyStone.getKey());
+        tag(BEDROCK_GRINDING_BASE).add(Blocks.BEDROCK.builtInRegistryHolder().getKey(), BlockRegistry.bedrockMinibricks.getKey());
 
         tag(MINEABLE_SHICKAXE).addTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.MINEABLE_WITH_HOE, BlockTags.MINEABLE_WITH_SHOVEL);
 

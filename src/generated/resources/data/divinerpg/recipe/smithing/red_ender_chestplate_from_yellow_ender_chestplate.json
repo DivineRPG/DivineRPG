@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/red",
+  "base": "divinerpg:yellow_ender_chestplate",
+  "result": {
+    "id": "divinerpg:red_ender_chestplate"
+  },
+  "template": "divinerpg:color_template"
+}

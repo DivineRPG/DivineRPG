@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_realmite_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:realmite_dust"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:blasting/realmite_ingot_from_blasting_realmite_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_realmite_dust"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:blasting/realmite_ingot_from_blasting_realmite_dust"
+    ]
+  }
+}

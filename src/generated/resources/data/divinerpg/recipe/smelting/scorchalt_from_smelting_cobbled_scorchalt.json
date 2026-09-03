@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "scorchalt",
+  "ingredient": "divinerpg:cobbled_scorchalt",
+  "result": {
+    "id": "divinerpg:scorchalt"
+  }
+}

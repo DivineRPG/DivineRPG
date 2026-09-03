@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "stone_bricks",
+  "ingredient": "divinerpg:frozen_bricks",
+  "result": {
+    "id": "minecraft:stone_bricks"
+  }
+}

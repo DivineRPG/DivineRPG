@@ -1,0 +1,6 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "input": "divinerpg:oxdrite_ingot",
+  "required_base_block": "#c:ores/oxdrite",
+  "result": "divinerpg:oxdrite_dust"
+}

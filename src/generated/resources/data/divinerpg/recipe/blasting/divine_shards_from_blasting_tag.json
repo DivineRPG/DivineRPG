@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.1,
+  "group": "divine_shards",
+  "ingredient": "#divinerpg:smeltable_equipment/divine",
+  "result": {
+    "id": "divinerpg:divine_shards"
+  }
+}

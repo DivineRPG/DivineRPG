@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.35,
+  "group": "boiled_egg",
+  "ingredient": "#c:eggs",
+  "result": {
+    "id": "divinerpg:boiled_egg"
+  }
+}

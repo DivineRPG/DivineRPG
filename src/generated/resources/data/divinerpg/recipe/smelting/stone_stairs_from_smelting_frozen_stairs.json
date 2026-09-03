@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "stone_stairs",
+  "ingredient": "divinerpg:frozen_stairs",
+  "result": {
+    "id": "minecraft:stone_stairs"
+  }
+}

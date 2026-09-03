@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_scorchalt_eden_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:scorchalt_eden_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:blasting/eden_fragments_from_blasting_scorchalt_eden_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_scorchalt_eden_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:blasting/eden_fragments_from_blasting_scorchalt_eden_ore"
+    ]
+  }
+}

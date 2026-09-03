@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.7,
+  "group": "rupee_ingot",
+  "ingredient": "divinerpg:rupee_ore_deepslate",
+  "result": {
+    "id": "divinerpg:rupee_ingot"
+  }
+}

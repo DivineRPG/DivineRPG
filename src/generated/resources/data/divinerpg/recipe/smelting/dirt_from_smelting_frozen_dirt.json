@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "dirt",
+  "ingredient": "divinerpg:frozen_dirt",
+  "result": {
+    "id": "minecraft:dirt"
+  }
+}

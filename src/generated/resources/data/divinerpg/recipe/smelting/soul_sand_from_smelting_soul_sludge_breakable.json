@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "soul_sand",
+  "ingredient": "divinerpg:soul_sludge_breakable",
+  "result": {
+    "id": "minecraft:soul_sand"
+  }
+}

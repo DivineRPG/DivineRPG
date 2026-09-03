@@ -147,7 +147,20 @@ public class TagRegistry {
     public static final TagKey<Item> SHICKAXES = common("tools/shickaxes");
     public static final TagKey<Item> SMELTS_LOOT = common("smelts_loot");
 
-        public static final TagKey<Item> SHADOW_COIN = item("coins/shadow");
+    public static final TagKey<Item> SHADOW_COIN = item("coins/shadow");
+    public static final TagKey<Item> SMELTABLE_APALACHIA = item("smeltable_equipment/apalachia"), SMELTABLE_ARLEMITE = item("smeltable_equipment/arlemite"),
+            SMELTABLE_CORRUPTED = item("smeltable_equipment/corrupted"), SMELTABLE_DIVINE = item("smeltable_equipment/divine"),
+            SMELTABLE_EDEN = item("smeltable_equipment/eden"), SMELTABLE_ENDER = item("smeltable_equipment/ender"),
+            SMELTABLE_GOLD_COMPRESSED = item("smeltable_equipment/compressed/gold"), SMELTABLE_ICE = item("smeltable_equipment/ice"),
+            SMELTABLE_JUNGLE = item("smeltable_equipment/jungle"), SMELTABLE_MOLTEN = item("smeltable_equipment/molten"),
+            SMELTABLE_MORTUM = item("smeltable_equipment/mortum"), SMELTABLE_OXDRITE = item("smeltable_equipment/oxdrite"),
+            SMELTABLE_REALMITE = item("smeltable_equipment/realmite"), SMELTABLE_RUPEE = item("smeltable_equipment/rupee"),
+            SMELTABLE_SKYTHERN = item("smeltable_equipment/skythern"), SMELTABLE_TERRAN = item("smeltable_equipment/terran"),
+            SMELTABLE_TORRIDITE = item("smeltable_equipment/torridite"), SMELTABLE_WILDWOOD = item("smeltable_equipment/wildwood"),
+            SMELTABLE_TORRIDITE_COMPRESSED = item("smeltable_equipment/compressed/torridite"), SMELTABLE_REALMITE_COMPRESSED = item("smeltable_equipment/compressed/realmite");
+
+    public static final TagKey<Item> DIAMOND_GRAY = item("chunks/diamond/gray"), DIAMOND_BLUE = item("chunks/diamond/blue"),
+            DIAMOND_GREEN = item("chunks/diamond/green"), DIAMOND_RED = item("chunks/diamond/red"), DIAMOND_YELLOW = item("chunks/diamond/yellow"), DIAMOND_NO = item("no_itself/diamond_no_chunks");
 
         public static final TagKey<Block>
                 MINEABLE_SHICKAXE = block("mineable/shickaxe"), REPLACE_TREE_ICEIKA = block("replaceable_by_trees/iceika"),
@@ -173,7 +186,20 @@ public class TagRegistry {
                 INC_KAROS = block("incorrect_for_tool/karos"), INC_HELIOSIS = block("incorrect_for_tool/heliosis"),
                 INC_ARKSIANE = block("incorrect_for_tool/arksiane"), INC_EVER = block("incorrect_for_tool/ever");
 
-        public static final TagKey<Block> BASE_ICY_FIRE = block("base_blocks/icy_fire");
+    public static final TagKey<Block> BASE_ICY_FIRE = block("base_blocks/icy_fire");
+    public static final TagKey<Block> BEDROCK_GRINDING_BASE = block("bedrock_grinding_base");
+    public static final TagKey<Block> APALACHIA_ORE = commonBlock("ores/apalachia");
+    public static final TagKey<Block> ARLEMITE_ORE = commonBlock("ores/arlemite");
+    public static final TagKey<Block> BLOODGEM_ORE = commonBlock("ores/bloodgem");
+    public static final TagKey<Block> EDEN_ORE = commonBlock("ores/eden");
+    public static final TagKey<Block> MORTUM_ORE = commonBlock("ores/mortum");
+    public static final TagKey<Block> OXDRITE_ORE = commonBlock("ores/oxdrite");
+    public static final TagKey<Block> REALMITE_ORE = commonBlock("ores/realmite");
+    public static final TagKey<Block> RUPEE_ORE = commonBlock("ores/rupee");
+    public static final TagKey<Block> SKYTHERN_ORE = commonBlock("ores/skythern");
+    public static final TagKey<Block> TORRIDITE_ORE = commonBlock("ores/torridite");
+    public static final TagKey<Block> WILDWOOD_ORE = commonBlock("ores/wildwood");
+    public static final TagKey<Block> ORES = commonBlock("ores");
         public static final TagKey<Block> APALACHIA_INFINIBURN = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(DivineRPG.MODID, "infiniburn/apalachia"));
 
         public static final TagKey<Block>
@@ -200,6 +226,7 @@ public class TagRegistry {
     private static TagKey<Item> item(String path) { return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, path)); }
     private static TagKey<Item> minecraftItem(String path) { return TagKey.create(Registries.ITEM, Identifier.parse(path)); }
     private static TagKey<Item> common(String path) { return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", path)); }
+    private static TagKey<Block> commonBlock(String path) { return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", path)); }
     private static TagKey<Block> block(String path) { return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, path)); }
     private static TagKey<Fluid> fluid(String path) { return TagKey.create(Registries.FLUID, Identifier.fromNamespaceAndPath(MODID, path)); }
     private static TagKey<DamageType> damageType(String path) { return TagKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(MODID, path)); }

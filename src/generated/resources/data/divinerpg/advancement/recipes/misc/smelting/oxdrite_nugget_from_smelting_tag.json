@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tag": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:smeltable_equipment/oxdrite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/oxdrite_nugget_from_smelting_tag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tag"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/oxdrite_nugget_from_smelting_tag"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.7,
+  "group": "rupee_ingot",
+  "ingredient": "divinerpg:rupee_ore",
+  "result": {
+    "id": "divinerpg:rupee_ingot"
+  }
+}

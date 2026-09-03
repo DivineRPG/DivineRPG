@@ -122,6 +122,8 @@ public class DivineRegistries {
         PlacementModifierRegistry.load();
         PotionRegistry.load();
         RecipeRegistry.load();
+        RecipeRegistry.Types.load();
+        RecipeRegistry.Serializers.load();
         SoundRegistry.load();
         StructureRegistry.load();
         TrunkPlacerRegistry.load();

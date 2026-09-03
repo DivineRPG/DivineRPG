@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_frozen_clock": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:frozen_clock"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/clock_from_smelting_frozen_clock"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_frozen_clock"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/clock_from_smelting_frozen_clock"
+    ]
+  }
+}

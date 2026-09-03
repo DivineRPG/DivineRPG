@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:maul_smashing/dusts/torridite_dust_from_torridite_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torridite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:torridite_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_torridite_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:maul_smashing/dusts/torridite_dust_from_torridite_ingot"
+    ]
+  }
+}

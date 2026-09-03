@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.35,
+  "group": "wolpertinger_steak",
+  "ingredient": "divinerpg:raw_wolpertinger_meat",
+  "result": {
+    "id": "divinerpg:wolpertinger_steak"
+  }
+}

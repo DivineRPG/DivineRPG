@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.1,
+  "group": "hellfire_sponge",
+  "ingredient": "divinerpg:cold_hellfire_sponge",
+  "result": {
+    "id": "divinerpg:hellfire_sponge"
+  }
+}

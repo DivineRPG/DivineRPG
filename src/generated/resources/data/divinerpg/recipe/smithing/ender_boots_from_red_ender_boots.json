@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:no_itself/diamond_no_chunks",
+  "base": "divinerpg:red_ender_boots",
+  "result": {
+    "id": "divinerpg:ender_boots"
+  },
+  "template": "divinerpg:color_template"
+}

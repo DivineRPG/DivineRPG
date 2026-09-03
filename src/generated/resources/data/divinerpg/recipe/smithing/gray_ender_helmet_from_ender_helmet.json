@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/gray",
+  "base": "divinerpg:ender_helmet",
+  "result": {
+    "id": "divinerpg:gray_ender_helmet"
+  },
+  "template": "divinerpg:color_template"
+}

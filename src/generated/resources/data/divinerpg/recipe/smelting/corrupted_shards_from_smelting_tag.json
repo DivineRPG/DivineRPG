@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "corrupted_shards",
+  "ingredient": "#divinerpg:smeltable_equipment/corrupted",
+  "result": {
+    "id": "divinerpg:corrupted_shards"
+  }
+}

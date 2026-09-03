@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.1,
+  "group": "wildwood_fragments",
+  "ingredient": "#divinerpg:smeltable_equipment/wildwood",
+  "result": {
+    "id": "divinerpg:wildwood_fragments"
+  }
+}

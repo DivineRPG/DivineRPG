@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aquatic_coating_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:aquatic_coating_template"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smithing/kraken_helmet_from_aquastrive_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_aquatic_coating_template"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smithing/kraken_helmet_from_aquastrive_helmet"
+    ]
+  }
+}

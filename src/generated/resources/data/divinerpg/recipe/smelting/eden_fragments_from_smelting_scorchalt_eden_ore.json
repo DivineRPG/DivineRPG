@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "eden_fragments",
+  "ingredient": "divinerpg:scorchalt_eden_ore",
+  "result": {
+    "id": "divinerpg:eden_fragments"
+  }
+}

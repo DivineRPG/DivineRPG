@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cobbled_frozen_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:cobbled_frozen_stone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/frozen_stone_from_smelting_cobbled_frozen_stone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobbled_frozen_stone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/frozen_stone_from_smelting_cobbled_frozen_stone"
+    ]
+  }
+}

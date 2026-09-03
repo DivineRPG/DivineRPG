@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.35,
+  "group": "eden_sparkles",
+  "ingredient": "divinerpg:eden_dust",
+  "result": {
+    "id": "divinerpg:eden_sparkles"
+  }
+}

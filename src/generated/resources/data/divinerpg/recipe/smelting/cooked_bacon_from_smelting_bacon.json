@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.35,
+  "group": "cooked_bacon",
+  "ingredient": "divinerpg:bacon",
+  "result": {
+    "id": "divinerpg:cooked_bacon"
+  }
+}

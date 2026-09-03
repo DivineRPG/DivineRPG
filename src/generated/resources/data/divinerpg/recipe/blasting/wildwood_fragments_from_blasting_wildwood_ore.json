@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 1.7,
+  "group": "wildwood_fragments",
+  "ingredient": "divinerpg:wildwood_ore",
+  "result": {
+    "id": "divinerpg:wildwood_fragments"
+  }
+}

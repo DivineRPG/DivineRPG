@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "divinerpg:fancy_wool",
+  "base": "divinerpg:seng_fur_chestplate",
+  "result": {
+    "id": "divinerpg:santa_chestplate"
+  },
+  "template": "divinerpg:color_template"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 1.3,
+  "group": "aquatic_ingot",
+  "ingredient": "divinerpg:pure_aquatic_pellets",
+  "result": {
+    "id": "divinerpg:aquatic_ingot"
+  }
+}

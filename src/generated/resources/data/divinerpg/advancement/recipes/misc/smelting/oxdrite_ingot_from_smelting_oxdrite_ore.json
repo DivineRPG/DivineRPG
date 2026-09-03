@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oxdrite_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:oxdrite_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/oxdrite_ingot_from_smelting_oxdrite_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oxdrite_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/oxdrite_ingot_from_smelting_oxdrite_ore"
+    ]
+  }
+}

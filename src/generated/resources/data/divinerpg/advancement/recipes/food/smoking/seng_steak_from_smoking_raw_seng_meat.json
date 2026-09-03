@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_seng_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:raw_seng_meat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smoking/seng_steak_from_smoking_raw_seng_meat"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_seng_meat"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smoking/seng_steak_from_smoking_raw_seng_meat"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 1.2,
+  "group": "bloodgem",
+  "ingredient": "divinerpg:bloodgem_ore",
+  "result": {
+    "id": "divinerpg:bloodgem"
+  }
+}

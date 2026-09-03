@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.7,
+  "group": "oxdrite_ingot",
+  "ingredient": "divinerpg:oxdrite_ore",
+  "result": {
+    "id": "divinerpg:oxdrite_ingot"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 1.3,
+  "group": "apalachia_fragments",
+  "ingredient": "divinerpg:apalachia_ore",
+  "result": {
+    "id": "divinerpg:apalachia_fragments"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.1,
+  "group": "molten_shards",
+  "ingredient": "#divinerpg:smeltable_equipment/molten",
+  "result": {
+    "id": "divinerpg:molten_shards"
+  }
+}

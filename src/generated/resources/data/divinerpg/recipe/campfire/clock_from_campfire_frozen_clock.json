@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "clock",
+  "ingredient": "divinerpg:frozen_clock",
+  "result": {
+    "id": "minecraft:clock"
+  }
+}

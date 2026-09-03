@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.7,
+  "group": "torridite_ingot",
+  "ingredient": "divinerpg:torridite_ore",
+  "result": {
+    "id": "divinerpg:torridite_ingot"
+  }
+}

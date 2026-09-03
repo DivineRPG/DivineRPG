@@ -1,0 +1,6 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "count": 2,
+  "input": "#c:ingots/shadow",
+  "result": "divinerpg:shadow_coins"
+}

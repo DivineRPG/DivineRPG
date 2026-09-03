@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "experience": 0.35,
+  "group": "empowered_meat",
+  "ingredient": "divinerpg:raw_empowered_meat",
+  "result": {
+    "id": "divinerpg:empowered_meat"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cobbled_frozen_wall": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:cobbled_frozen_wall"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/cobblestone_wall_from_smelting_cobbled_frozen_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cobbled_frozen_wall"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/cobblestone_wall_from_smelting_cobbled_frozen_wall"
+    ]
+  }
+}

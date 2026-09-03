@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "skythern_fragments",
+  "ingredient": "#divinerpg:smeltable_equipment/skythern",
+  "result": {
+    "id": "divinerpg:skythern_fragments"
+  }
+}

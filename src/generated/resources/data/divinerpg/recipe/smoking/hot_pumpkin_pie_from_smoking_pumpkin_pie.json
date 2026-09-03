@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "experience": 0.35,
+  "group": "hot_pumpkin_pie",
+  "ingredient": "minecraft:pumpkin_pie",
+  "result": {
+    "id": "divinerpg:hot_pumpkin_pie"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:skin/kraken",
+  "base": "divinerpg:aquastrive_helmet",
+  "result": {
+    "id": "divinerpg:kraken_helmet"
+  },
+  "template": "divinerpg:aquatic_coating_template"
+}

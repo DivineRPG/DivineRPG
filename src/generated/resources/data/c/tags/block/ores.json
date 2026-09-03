@@ -1,9 +1,15 @@
 {
   "values": [
+    "#c:ores/apalachia",
     "#c:ores/arlemite",
-    "#c:ores/rupee",
+    "#c:ores/bloodgem",
+    "#c:ores/eden",
+    "#c:ores/mortum",
+    "#c:ores/oxdrite",
     "#c:ores/realmite",
+    "#c:ores/rupee",
+    "#c:ores/skythern",
     "#c:ores/torridite",
-    "#c:ores/bloodgem"
+    "#c:ores/wildwood"
   ]
 }

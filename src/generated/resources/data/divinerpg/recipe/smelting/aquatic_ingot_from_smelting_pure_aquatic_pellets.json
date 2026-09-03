@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 0.1,
+  "group": "aquatic_ingot",
+  "ingredient": "divinerpg:pure_aquatic_pellets",
+  "result": {
+    "id": "divinerpg:aquatic_ingot"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 1.0,
+  "group": "wildwood_fragments",
+  "ingredient": "divinerpg:wildwood_ore",
+  "result": {
+    "id": "divinerpg:wildwood_fragments"
+  }
+}

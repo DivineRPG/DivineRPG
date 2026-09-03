@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:smelting/torridite_ingot_from_smelting_torridite_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torridite_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:torridite_dust"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_torridite_dust"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:smelting/torridite_ingot_from_smelting_torridite_dust"
+    ]
+  }
+}

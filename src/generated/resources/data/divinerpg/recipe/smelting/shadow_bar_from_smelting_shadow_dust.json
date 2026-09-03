@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "experience": 1.0,
+  "group": "shadow_bar",
+  "ingredient": "divinerpg:shadow_dust",
+  "result": {
+    "id": "divinerpg:shadow_bar"
+  }
+}

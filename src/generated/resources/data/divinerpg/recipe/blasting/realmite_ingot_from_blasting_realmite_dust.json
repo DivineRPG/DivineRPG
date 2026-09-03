@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 0.7,
+  "group": "realmite_ingot",
+  "ingredient": "divinerpg:realmite_dust",
+  "result": {
+    "id": "divinerpg:realmite_ingot"
+  }
+}
