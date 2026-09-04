@@ -1,0 +1,29 @@
+{
+  "type": "divinerpg:fire_conversion",
+  "advancement": "divinerpg:divine/the_link",
+  "advancement_criteria": "create_divine_flame",
+  "frame": {
+    "block": "divinerpg:eden_block",
+    "predicate_type": "minecraft:block_match"
+  },
+  "input_item": [
+    "divinerpg:eden_soul",
+    "divinerpg:eden_heart"
+  ],
+  "input_state": {
+    "block": "minecraft:fire",
+    "predicate_type": "minecraft:block_match"
+  },
+  "output_state": {
+    "type": "minecraft:simple_state_provider",
+    "state": {
+      "Name": "divinerpg:divine_flame"
+    }
+  },
+  "portal": {
+    "type": "minecraft:simple_state_provider",
+    "state": {
+      "Name": "divinerpg:eden_portal"
+    }
+  }
+}

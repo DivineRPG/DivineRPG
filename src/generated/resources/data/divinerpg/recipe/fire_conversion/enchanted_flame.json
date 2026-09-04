@@ -1,0 +1,26 @@
+{
+  "type": "divinerpg:fire_conversion",
+  "advancement": "divinerpg:twilight/magical_incineration",
+  "advancement_criteria": "create_enchanted_flame",
+  "frame": {
+    "block": "divinerpg:apalachia_block",
+    "predicate_type": "minecraft:block_match"
+  },
+  "input_item": "#divinerpg:hearts/wildwood",
+  "input_state": {
+    "block": "divinerpg:wild_flame",
+    "predicate_type": "minecraft:block_match"
+  },
+  "output_state": {
+    "type": "minecraft:simple_state_provider",
+    "state": {
+      "Name": "divinerpg:enchanted_flame"
+    }
+  },
+  "portal": {
+    "type": "minecraft:simple_state_provider",
+    "state": {
+      "Name": "divinerpg:apalachia_portal"
+    }
+  }
+}

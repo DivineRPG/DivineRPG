@@ -2,6 +2,9 @@ package divinerpg.registries;
 
 import divinerpg.entities.base.EntityDivineMerchant.DivineMapTrades;
 import divinerpg.entities.base.EntityDivineMerchant.DivineTrades;
+import divinerpg.recipe.ArcaniumExtractorRecipe;
+import divinerpg.recipe.FireConversionRecipe;
+import divinerpg.recipe.InfusionTableRecipe;
 import divinerpg.recipe.MaulSmashingRecipe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.EnchantmentTags;
@@ -27,19 +30,19 @@ public class RecipeRegistry {
 
     public static class Types {
 
-//        public static final DeferredHolder<RecipeType<?>, RecipeType<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_RECIPE_TYPE = RECIPE_TYPES.register("arcanium_extractor", () -> ArcaniumExtractorRecipe.TYPE);
-//        public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionTableRecipe>> INFUSION_TABLE_RECIPE_TYPE = RECIPE_TYPES.register("infusion_table", () -> InfusionTableRecipe.TYPE);
+        public static final DeferredHolder<RecipeType<?>, RecipeType<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_RECIPE_TYPE = RECIPE_TYPES.register("arcanium_extractor", () -> ArcaniumExtractorRecipe.TYPE);
+        public static final DeferredHolder<RecipeType<?>, RecipeType<InfusionTableRecipe>> INFUSION_TABLE_RECIPE_TYPE = RECIPE_TYPES.register("infusion_table", () -> InfusionTableRecipe.TYPE);
         public static final DeferredHolder<RecipeType<?>, RecipeType<MaulSmashingRecipe>> MAUL_SMASHING = RECIPE_TYPES.register("maul_smashing", () -> MaulSmashingRecipe.TYPE);
-//        public static final DeferredHolder<RecipeType<?>, RecipeType<FireConversionRecipe>> FIRE_CONVERSION = RECIPE_TYPES.register("fire_conversion", () -> FireConversionRecipe.TYPE);
+        public static final DeferredHolder<RecipeType<?>, RecipeType<FireConversionRecipe>> FIRE_CONVERSION = RECIPE_TYPES.register("fire_conversion", () -> FireConversionRecipe.TYPE);
 
         public static void load() {}
     }
     public static class Serializers {
         //TODO: Unknown recipe category 'divinerpg:arcanium_extractor/divinerpg:extracting/arcanium', etc.
-//        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_SERIALIZER = RECIPE_SERIALIZERS.register("arcanium_extractor", () -> new SimpleCookingSerializer<>(ArcaniumExtractorRecipe::new, 100));
-//        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<InfusionTableRecipe>> INFUSION_TABLE_SERIALIZER = RECIPE_SERIALIZERS.register("infusion_table", InfusionTableRecipe.Serializer::new);
+        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaniumExtractorRecipe>> ARCANIUM_EXTRACTOR_SERIALIZER = RECIPE_SERIALIZERS.register("arcanium_extractor", () -> ArcaniumExtractorRecipe.SERIALIZER);
+        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<InfusionTableRecipe>> INFUSION_TABLE_SERIALIZER = RECIPE_SERIALIZERS.register("infusion_table", () -> InfusionTableRecipe.Serializer.SERIALIZER);
         public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<MaulSmashingRecipe>> MAUL_SMASHING_SERIALIZER = RECIPE_SERIALIZERS.register("maul_smashing", () -> MaulSmashingRecipe.Serializer.SERIALIZER);
-        //        public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FireConversionRecipe>> FIRE_CONVERSION_SERIALIZER = RECIPE_SERIALIZERS.register("fire_conversion", FireConversionRecipe.Serializer::new);
+                public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FireConversionRecipe>> FIRE_CONVERSION_SERIALIZER = RECIPE_SERIALIZERS.register("fire_conversion", () -> FireConversionRecipe.Serializer.SERIALIZER);
 
         public static void load() {}
     }

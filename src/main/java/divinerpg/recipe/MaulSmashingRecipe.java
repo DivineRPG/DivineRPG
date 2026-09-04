@@ -3,8 +3,6 @@ package divinerpg.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import divinerpg.registries.RecipeRegistry;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -24,16 +22,9 @@ import java.util.Optional;
 import static divinerpg.DivineRPG.MODID;
 import static net.minecraft.core.registries.Registries.BLOCK;
 
-public record MaulSmashingRecipe(
-        Ingredient input,
-        Item outputItem,
-        int outputCount,
-        @Nullable TagKey<Block> requiredBaseBlockTag
-) implements Recipe<SingleRecipeInput> {
+public record MaulSmashingRecipe(Ingredient input, Item outputItem, int outputCount, @Nullable TagKey<Block> requiredBaseBlockTag) implements Recipe<SingleRecipeInput> {
 
-    public static final RecipeType<MaulSmashingRecipe> TYPE = RecipeType.simple(
-            Identifier.fromNamespaceAndPath(MODID, "maul_smashing")
-    );
+    public static final RecipeType<MaulSmashingRecipe> TYPE = RecipeType.simple(Identifier.fromNamespaceAndPath(MODID, "maul_smashing"));
 
     @Override
     public boolean matches(SingleRecipeInput input, Level level) {
@@ -80,15 +71,9 @@ public record MaulSmashingRecipe(
                 Ingredient.CODEC.fieldOf("input").forGetter(MaulSmashingRecipe::input),
                 BuiltInRegistries.ITEM.byNameCodec().fieldOf("result").forGetter(MaulSmashingRecipe::outputItem),
                 Codec.INT.optionalFieldOf("count", 1).forGetter(MaulSmashingRecipe::outputCount),
-                TagKey.hashedCodec(BLOCK)
-                        .optionalFieldOf("required_base_block")
-                        .forGetter(r -> Optional.ofNullable(r.requiredBaseBlockTag()))
-        ).apply(instance, (input, item, count, baseOpt) -> new MaulSmashingRecipe(input, item, count, baseOpt.orElse(null))));
+                TagKey.hashedCodec(BLOCK).optionalFieldOf("required_base_block").forGetter(r -> Optional.ofNullable(r.requiredBaseBlockTag()))).apply(instance, (input, item, count, baseOpt) -> new MaulSmashingRecipe(input, item, count, baseOpt.orElse(null))));
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, MaulSmashingRecipe> STREAM_CODEC = StreamCodec.of(
-                Serializer::toNetwork,
-                Serializer::fromNetwork
-        );
+        public static final StreamCodec<RegistryFriendlyByteBuf, MaulSmashingRecipe> STREAM_CODEC = StreamCodec.of(Serializer::toNetwork, Serializer::fromNetwork);
 
         public static final RecipeSerializer<MaulSmashingRecipe> SERIALIZER = new RecipeSerializer<>(MAP_CODEC, STREAM_CODEC);
 

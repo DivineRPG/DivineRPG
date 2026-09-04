@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_amthirmis_lump": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:amthirmis_lump"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:infusion_table/amthirmis_backsword_from_amthirmis_lump"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_amthirmis_lump"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:infusion_table/amthirmis_backsword_from_amthirmis_lump"
+    ]
+  }
+}

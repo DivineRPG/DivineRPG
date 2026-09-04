@@ -101,7 +101,8 @@ public class TagRegistry {
                 TEETH_LIOPLEURODON = item("teeth/liopleurodon"), TEETH_SABEAR = item("teeth/sabear"),
                 SKULLS_LIOPLEURODON = item("skulls/liopleurodon"), SKIN_KRAKEN = item("skin/kraken"),
                 FUR_SENG = item("fur/seng"), POWDER_PURPLE_BLAZE = item("powders/purple_blaze"),
-                SNOWFLAKES = item("snowflakes"),
+                SNOWFLAKES = item("snowflakes"), HEART_EDEN = item("hearts/eden"), HEART_WILDWOOD = item("hearts/wildwood"),
+                HEART_APALACHIA = item("hearts/apalachia"), HEART_SKYTHERN = item("hearts/skythern"), HEART_MORTUM = item("hearts/mortum"), HEARTS = item("hearts"),
 
         INGOT_AQUATIC = common("ingots/aquatic"), INGOT_REALMITE = common("ingots/realmite"),
                 INGOT_ARLEMITE = common("ingots/arlemite"), INGOT_RUPEE = common("ingots/rupee"),

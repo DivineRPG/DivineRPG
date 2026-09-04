@@ -1,10 +1,15 @@
 package divinerpg.data;
 
+import divinerpg.recipe.builder.ArcaniumExtractorRecipeBuilder;
+import divinerpg.recipe.builder.FireConversionRecipeBuilder;
+import divinerpg.recipe.builder.InfusionTableRecipeBuilder;
 import divinerpg.recipe.builder.MaulSmashingRecipeBuilder;
 import divinerpg.registries.*;
+import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.Identifier;
@@ -18,9 +23,14 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.function.Consumer;
 
 import static divinerpg.DivineRPG.MODID;
 import static net.minecraft.data.recipes.SingleItemRecipeBuilder.stonecutting;
@@ -80,10 +90,15 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //TODO - Compat
 
-        //TODO - Extracting
+        arcaniumExtraction(BlockRegistry.arcaniteStone.asItem(), BlockRegistry.arcaniteSand.asItem(), 1, 0.1F, 20);
+        arcaniumExtraction(BlockRegistry.rawArcanium.asItem(), ItemRegistry.arcanium, 1, 1.0F, 100);
+        arcaniumExtraction(BlockRegistry.arcaniumRichSand.asItem(), ItemRegistry.pieceOfRawArcanium, 1, 0.1F, 20);
 
+        fireConversion(BlockRegistry.divineFlame.get(), Ingredient.of(ItemRegistry.eden_soul.get(), ItemRegistry.eden_heart.get()), new BlockMatchTest(Blocks.FIRE), builder -> builder.outputState(SimpleStateProvider.simple(BlockRegistry.divineFlame.get())).advancement(Identifier.fromNamespaceAndPath(MODID, "divine/the_link"), "create_divine_flame").frame(new BlockMatchTest(BlockRegistry.edenBlock.get())).portal(SimpleStateProvider.simple(BlockRegistry.edenPortal.get())), "has_eden_soul", this.has(ItemRegistry.eden_soul.get()));
+        fireConversion(BlockRegistry.enchantedFlame.get(), TagRegistry.HEART_WILDWOOD, new BlockMatchTest(BlockRegistry.wildFlame.get()), builder -> builder.outputState(SimpleStateProvider.simple(BlockRegistry.enchantedFlame.get())).advancement(Identifier.fromNamespaceAndPath(MODID, "twilight/magical_incineration"), "create_enchanted_flame").frame(new BlockMatchTest(BlockRegistry.apalachiaBlock.get())).portal(SimpleStateProvider.simple(BlockRegistry.apalachiaPortal.get())), "has_wildwood_heart", has(TagRegistry.HEART_WILDWOOD));
         //TODO - Fire Conversion
 
+        infusion(ItemRegistry.amthirmis_lump, 5, Ingredient.of(ItemRegistry.backsword_template), ItemRegistry.amthirmis_backsword, 1);
         //TODO - Infusing
 
         shaped(RecipeCategory.COMBAT, ItemRegistry.ANGELIC_BOOTS.get()).pattern("I I").pattern("X X").define('X', TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, "gems/shadow"))).define('I', TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, "gems/soulfire"))).unlockedBy("has_shadow_gem", has(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, "gems/shadow")))).unlockedBy("has_soulfire_gem", has(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, "gems/soulfire")))).save(this.output, MODID + ":crafting_shaped/angelic_boots");
@@ -351,5 +366,43 @@ public class ModRecipeProvider extends RecipeProvider {
             String inputName = getItemName(item), recipeName = getItemName(outputItem) + "_from_" + inputName;
             MaulSmashingRecipeBuilder.smashing(Ingredient.of(item), outputItem, count, requiredBaseBlockTag).unlockedBy(getHasName(item), this.has(item)).save(this.output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "maul_smashing/" + subFolder + "/" + recipeName)));
         }
+    }
+
+    protected void infusion(ItemLike inputItem, int inputCount, Ingredient template, ItemLike outputItem, int outputCount) {
+        InfusionTableRecipeBuilder.infusion(inputItem, inputCount, template, outputItem, outputCount).unlockedBy(getHasName(inputItem), this.has(inputItem)).save(this.output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "infusion_table/" + getItemName(outputItem) + "_from_" + getItemName(inputItem))));
+    }
+
+    protected void infusion(TagKey<Item> inputTag, int inputCount, Ingredient template, ItemLike outputItem, int outputCount) {
+        HolderSet<Item> tagHolderSet = this.registries.lookupOrThrow(Registries.ITEM).getOrThrow(inputTag);
+        Item representativeItem = tagHolderSet.iterator().next().value();
+        InfusionTableRecipeBuilder.infusion(representativeItem, inputCount, template, outputItem, outputCount).unlockedBy("has_tag", this.has(inputTag)).save(this.output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "infusion_table/" + getItemName(outputItem) + "_from_" + inputTag.location().getPath())));
+    }
+
+    protected void arcaniumExtraction(ItemLike inputItem, ItemLike outputItem, int outputCount, float experience, int cookingTime) {
+        ArcaniumExtractorRecipeBuilder.extraction(Ingredient.of(inputItem), outputItem, outputCount, experience, cookingTime).unlockedBy(getHasName(inputItem), this.has(inputItem)).save(this.output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "arcanium_extractor/" + getItemName(outputItem) + "_from_" + getItemName(inputItem))));
+    }
+
+    protected void fireConversion(ItemLike output, Ingredient inputItem, RuleTest inputState, Consumer<FireConversionRecipeBuilder> configurator, String unlockCriterionName, Criterion<?> unlockCriterion) {this.fireConversion("", output, inputItem, inputState, configurator, unlockCriterionName, unlockCriterion);}
+
+    protected void fireConversion(String subfolder, ItemLike output, Ingredient inputItem, RuleTest inputState, Consumer<FireConversionRecipeBuilder> configurator, String unlockCriterionName, Criterion<?> unlockCriterion) {
+        String fileName = getItemName(output);
+        String path = subfolder.isEmpty() ? "fire_conversion/" + fileName : "fire_conversion/" + subfolder + "/" + fileName;
+        ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, path));
+        FireConversionRecipeBuilder builder = FireConversionRecipeBuilder.conversion(inputItem, inputState).unlockedBy(unlockCriterionName, unlockCriterion);
+        configurator.accept(builder);
+        builder.save(this.output, recipeKey);
+    }
+    protected void fireConversion(ItemLike output, TagKey<Item> inputTag, RuleTest inputState, Consumer<FireConversionRecipeBuilder> configurator, String unlockCriterionName, Criterion<?> unlockCriterion) {
+        this.fireConversion("", output, inputTag, inputState, configurator, unlockCriterionName, unlockCriterion);
+    }
+    protected void fireConversion(String subfolder, ItemLike output, TagKey<Item> inputTag, RuleTest inputState, Consumer<FireConversionRecipeBuilder> configurator, String unlockCriterionName, Criterion<?> unlockCriterion) {
+        String fileName = getItemName(output);
+        String path = subfolder.isEmpty() ? "fire_conversion/" + fileName : "fire_conversion/" + subfolder + "/" + fileName;
+        ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, path));
+        HolderSet<Item> tagHolderSet = this.registries.lookupOrThrow(Registries.ITEM).get(inputTag).orElseThrow();
+        Ingredient inputItem = Ingredient.of(tagHolderSet);
+        FireConversionRecipeBuilder builder = FireConversionRecipeBuilder.conversion(inputItem, inputState).unlockedBy(unlockCriterionName, unlockCriterion);
+        configurator.accept(builder);
+        builder.save(this.output, recipeKey);
     }
 }

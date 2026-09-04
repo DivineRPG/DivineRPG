@@ -1,13 +1,19 @@
 package divinerpg.compat.jei;
 
+import divinerpg.client.screen.ArcaniumExtractorScreen;
+import divinerpg.client.screen.InfusionTableScreen;
 import divinerpg.compat.jei.category.*;
 import divinerpg.compat.jei.ingredient.*;
 import divinerpg.entities.base.EntityDivineMerchant.DivineTrades;
+import divinerpg.recipe.ArcaniumExtractorRecipe;
+import divinerpg.recipe.FireConversionRecipe;
+import divinerpg.recipe.InfusionTableRecipe;
 import divinerpg.recipe.MaulSmashingRecipe;
 import divinerpg.registries.*;
 import mezz.jei.api.*;
-import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.constants.VanillaTypes;
+import mezz.jei.api.gui.handlers.IGuiClickableArea;
+import mezz.jei.api.gui.handlers.IGuiContainerHandler;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.registration.*;
@@ -19,12 +25,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static divinerpg.DivineRPG.MODID;
@@ -40,6 +46,7 @@ public class JEICompat implements IModPlugin {
         var itemRegistry = Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ITEM);
         List<ItemStack> mauls = itemRegistry.getOrThrow(TagRegistry.TOOL_MAUL).stream().map(holder -> new ItemStack(holder.value())).toList();
         registration.addCraftingStations(SmashingCategory.RECIPE_TYPE, VanillaTypes.ITEM_STACK, mauls);
+        registration.addCraftingStations(InfusionTableCategory.RECIPE_TYPE, VanillaTypes.ITEM_STACK, List.of(BlockRegistry.infusionTable.asItem().getDefaultInstance()));
     }
     @Override public void registerRecipes(IRecipeRegistration registration) {
         ClientLevel level = Minecraft.getInstance().level;
@@ -53,10 +60,29 @@ public class JEICompat implements IModPlugin {
                 smashingRecipes.add((RecipeHolder<MaulSmashingRecipe>) holder);
             }
         }
-//        registration.addRecipes(ArcaniumExtractorCategory.RECIPE_TYPE, manager.getAllRecipesFor(ARCANIUM_EXTRACTOR_RECIPE_TYPE.get()));
-//        registration.addRecipes(InfusionTableCategory.RECIPE_TYPE, manager.getAllRecipesFor(INFUSION_TABLE_RECIPE_TYPE.get()));
+        List<RecipeHolder<InfusionTableRecipe>> infusionRecipes = new ArrayList<>();
+        for (RecipeHolder<?> holder : manager.getRecipes()) {
+            if (holder.value() instanceof InfusionTableRecipe recipe) {
+                infusionRecipes.add((RecipeHolder<InfusionTableRecipe>) holder);
+            }
+        }
+        List<RecipeHolder<ArcaniumExtractorRecipe>> extractorRecipes = new ArrayList<>();
+        for (RecipeHolder<?> holder : manager.getRecipes()) {
+            if (holder.value() instanceof ArcaniumExtractorRecipe recipe) {
+                extractorRecipes.add((RecipeHolder<ArcaniumExtractorRecipe>) holder);
+            }
+        }
+        List<RecipeHolder<FireConversionRecipe>> fireRecipes = new ArrayList<>();
+        for (RecipeHolder<?> holder : manager.getRecipes()) {
+            if (holder.value() instanceof FireConversionRecipe recipe) {
+                fireRecipes.add((RecipeHolder<FireConversionRecipe>) holder);
+            }
+        }
+
+        registration.addRecipes(InfusionTableCategory.RECIPE_TYPE, infusionRecipes);
         registration.addRecipes(SmashingCategory.RECIPE_TYPE, smashingRecipes);
-//        registration.addRecipes(FireConversionCategory.RECIPE_TYPE, manager.getAllRecipesFor(FIRE_CONVERSION.get()));
+        registration.addRecipes(ArcaniumExtractorCategory.RECIPE_TYPE, extractorRecipes);
+        registration.addRecipes(FireConversionCategory.RECIPE_TYPE, fireRecipes);
 //        registration.addRecipes(RecipeTypes.BREWING, List.of(
 //                //TODO: some potion recipe variants display "?" as steps count (those that are added automatically)
 //                new PotionRecipe(Items.POTION, Potions.AWKWARD, GROG, 2, Identifier.fromNamespaceAndPath(MODID, "brewing.grog.regular"), ItemRegistry.cauldron_flesh.toStack()),
@@ -197,13 +223,15 @@ public class JEICompat implements IModPlugin {
     }
     @Override public void registerCategories(IRecipeCategoryRegistration registration) {
         IGuiHelper helper = registration.getJeiHelpers().getGuiHelper();
-        registration.addRecipeCategories(/*new ArcaniumExtractorCategory(helper), new InfusionTableCategory(helper), */new SmashingCategory(helper), /*new FireConversionCategory(helper), */new MerchantTradeCategory(helper));
+        registration.addRecipeCategories(new ArcaniumExtractorCategory(helper), new InfusionTableCategory(helper), new SmashingCategory(helper), new FireConversionCategory(helper), new MerchantTradeCategory(helper));
     }
     @Override public void registerIngredients(IModIngredientRegistration registration) {
         registration.register(BLOCK_INGREDIENT_TYPE, List.of(), new BlockIngredientHelper(), new BlockIngredientRenderer(), Block.CODEC.codec());
     }
     @Override public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-//        registration.addRecipeClickArea(ArcaniumExtractorScreen.class, 79, 34, 24, 16, new RecipeType<>(Identifier.fromNamespaceAndPath(MODID, "arcanium_extractor"), RecipeHolder.class));
-//        registration.addRecipeClickArea(InfusionTableScreen.class, 36, 47, 25, 18, new RecipeType<>(Identifier.fromNamespaceAndPath(MODID, "infusion_table"), RecipeHolder.class));
+        registration.addGuiContainerHandler(InfusionTableScreen.class, new IGuiContainerHandler<InfusionTableScreen>() {
+            @Override public Collection<IGuiClickableArea> getGuiClickableAreas(InfusionTableScreen containerScreen, double mouseX, double mouseY) {return List.of(IGuiClickableArea.createBasic(36, 47, 25, 18, InfusionTableCategory.RECIPE_TYPE));}});
+        registration.addGuiContainerHandler(ArcaniumExtractorScreen.class, new IGuiContainerHandler<ArcaniumExtractorScreen>() {
+            @Override public Collection<IGuiClickableArea> getGuiClickableAreas(ArcaniumExtractorScreen containerScreen, double mouseX, double mouseY) {return List.of(IGuiClickableArea.createBasic(79, 34, 24, 16, ArcaniumExtractorCategory.RECIPE_TYPE));}});
     }
 }

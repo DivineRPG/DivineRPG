@@ -1,0 +1,11 @@
+{
+  "type": "divinerpg:infusion_table",
+  "input": {
+    "count": 5,
+    "id": "divinerpg:amthirmis_lump"
+  },
+  "output": {
+    "id": "divinerpg:amthirmis_backsword"
+  },
+  "template": "divinerpg:backsword_template"
+}

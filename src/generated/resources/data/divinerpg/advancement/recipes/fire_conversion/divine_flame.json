@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eden_soul": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:eden_soul"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:fire_conversion/divine_flame"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_eden_soul"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:fire_conversion/divine_flame"
+    ]
+  }
+}

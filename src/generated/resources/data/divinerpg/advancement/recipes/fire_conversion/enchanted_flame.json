@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "divinerpg:fire_conversion/enchanted_flame"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wildwood_heart": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:hearts/wildwood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wildwood_heart"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:fire_conversion/enchanted_flame"
+    ]
+  }
+}

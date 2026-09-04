@@ -90,6 +90,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.SMELTABLE_WILDWOOD).add(ItemRegistry.wildwood_pickaxe.getKey(), ItemRegistry.wildwood_shovel.getKey(), ItemRegistry.wildwood_axe.getKey(), ItemRegistry.wildwood_hoe.getKey(), ItemRegistry.wildwood_shickaxe.getKey(), ItemRegistry.wildwood_blade.getKey(), ItemRegistry.wildwood_bow.getKey(), ItemRegistry.wildwood_phaser.getKey(), ItemRegistry.wildwood_blitz.getKey(), ItemRegistry.wildwood_shield.getKey(), ItemRegistry.WILDWOOD_HELMET.getKey(), ItemRegistry.WILDWOOD_CHESTPLATE.getKey(), ItemRegistry.WILDWOOD_LEGGINGS.getKey(), ItemRegistry.WILDWOOD_BOOTS.getKey());
 
         tag(TagRegistry.SKIN_KRAKEN).add(ItemRegistry.kraken_skin.getKey());
+        tag(TagRegistry.HEART_EDEN).add(ItemRegistry.eden_heart.getKey());
+        tag(TagRegistry.HEART_WILDWOOD).add(ItemRegistry.wildwood_heart.getKey());
+        tag(TagRegistry.HEART_APALACHIA).add(ItemRegistry.apalachia_heart.getKey());
+        tag(TagRegistry.HEART_SKYTHERN).add(ItemRegistry.skythern_heart.getKey());
+        tag(TagRegistry.HEART_MORTUM).add(ItemRegistry.mortum_heart.getKey());
+        tag(TagRegistry.HEARTS).addTags(TagRegistry.HEART_EDEN, TagRegistry.HEART_WILDWOOD, TagRegistry.HEART_APALACHIA, TagRegistry.HEART_SKYTHERN, TagRegistry.HEART_MORTUM);
 
         tag(TagRegistry.DIAMOND_GRAY).add(ItemRegistry.gray_diamond_chunk.getKey());
         tag(TagRegistry.DIAMOND_BLUE).add(ItemRegistry.blue_diamond_chunk.getKey());

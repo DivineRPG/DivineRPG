@@ -35,6 +35,7 @@ public class DivineRPG {
         NeoForge.EVENT_BUS.register(this);
         bus.register(Payloads.class);
         DivineRegistries.register(bus);
+        bus.register(MenuTypeRegistry.class);
         container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 

@@ -1,6 +1,6 @@
 package divinerpg.recipe.builder;
 
-import divinerpg.recipe.MaulSmashingRecipe;
+import divinerpg.recipe.InfusionTableRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
@@ -11,12 +11,10 @@ import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.LinkedHashMap;
@@ -24,39 +22,40 @@ import java.util.Map;
 
 import static divinerpg.DivineRPG.MODID;
 
-public class MaulSmashingRecipeBuilder implements RecipeBuilder {
-    private final Ingredient input;
+public class InfusionTableRecipeBuilder implements RecipeBuilder {
+    private final Item inputItem;
+    private final int inputCount;
+    private final Ingredient template;
     private final Item outputItem;
-    private final int count;
-    @Nullable
-    private final TagKey<Block> requiredBaseBlockTag;
+    private final int outputCount;
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
-    public MaulSmashingRecipeBuilder(Ingredient input, ItemLike outputItem, int count, @Nullable TagKey<Block> requiredBaseBlockTag) {
-        this.input = input;
+    public InfusionTableRecipeBuilder(ItemLike inputItem, int inputCount, Ingredient template, ItemLike outputItem, int outputCount) {
+        this.inputItem = inputItem.asItem();
+        this.inputCount = inputCount;
+        this.template = template;
         this.outputItem = outputItem.asItem();
-        this.count = count;
-        this.requiredBaseBlockTag = requiredBaseBlockTag;
+        this.outputCount = outputCount;
     }
 
-    public static MaulSmashingRecipeBuilder smashing(Ingredient input, ItemLike outputItem, int count, @Nullable TagKey<Block> requiredBaseBlockTag) {
-        return new MaulSmashingRecipeBuilder(input, outputItem, count, requiredBaseBlockTag);
+    public static InfusionTableRecipeBuilder infusion(ItemLike inputItem, int inputCount, Ingredient template, ItemLike outputItem, int outputCount) {
+        return new InfusionTableRecipeBuilder(inputItem, inputCount, template, outputItem, outputCount);
     }
 
     @Override
-    public MaulSmashingRecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
+    public InfusionTableRecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
         this.criteria.put(name, criterion);
         return this;
     }
 
     @Override
-    public MaulSmashingRecipeBuilder group(@Nullable String groupName) {
+    public InfusionTableRecipeBuilder group(@Nullable String groupName) {
         return this;
     }
 
     @Override
     public ResourceKey<Recipe<?>> defaultId() {
-        return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "maul_smashing"));
+        return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "infusion_table"));
     }
 
     @Override
@@ -64,7 +63,7 @@ public class MaulSmashingRecipeBuilder implements RecipeBuilder {
         this.ensureValid(resourceKey.identifier());
         Advancement.Builder advancementBuilder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
         this.criteria.forEach(advancementBuilder::addCriterion);
-        MaulSmashingRecipe recipe = new MaulSmashingRecipe(input, outputItem, count, requiredBaseBlockTag);
+        InfusionTableRecipe recipe = new InfusionTableRecipe(inputItem, inputCount, template, outputItem, outputCount);
         recipeOutput.accept(resourceKey, recipe, advancementBuilder.build(resourceKey.identifier().withPrefix("recipes/")));
     }
 
