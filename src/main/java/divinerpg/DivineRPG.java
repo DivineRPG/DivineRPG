@@ -1,5 +1,6 @@
 package divinerpg;
 
+import divinerpg.compat.ModCompat;
 import divinerpg.config.Config;
 import divinerpg.data.DataGenerators;
 import divinerpg.events.SpawnEvents;
@@ -39,8 +40,7 @@ public class DivineRPG {
         container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    private void commonSetup(FMLCommonSetupEvent event) {
-
+    private void commonSetup(final FMLCommonSetupEvent event) {
     }
 
     private void clientSetup(FMLClientSetupEvent event) {

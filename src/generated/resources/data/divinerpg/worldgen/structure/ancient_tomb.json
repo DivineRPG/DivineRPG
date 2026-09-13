@@ -1,0 +1,12 @@
+{
+  "type": "divinerpg:highest_ceiling",
+  "biomes": "#c:is_plains",
+  "bury": 4,
+  "max_distance_from_center": 1,
+  "max_height": 200,
+  "min_height": 55,
+  "size": 6,
+  "spawn_overrides": {},
+  "start_pool": "divinerpg:overworld/ancient_tomb",
+  "step": "surface_structures"
+}

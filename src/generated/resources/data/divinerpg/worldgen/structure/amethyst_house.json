@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#minecraft:is_overworld",
+  "max_distance_from_center": 80,
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "size": 6,
+  "spawn_overrides": {},
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": -21
+    },
+    "min_inclusive": {
+      "absolute": -56
+    }
+  },
+  "start_pool": "divinerpg:overworld/amethyst_house",
+  "step": "surface_structures",
+  "terrain_adaptation": "bury",
+  "use_expansion_hack": false
+}
