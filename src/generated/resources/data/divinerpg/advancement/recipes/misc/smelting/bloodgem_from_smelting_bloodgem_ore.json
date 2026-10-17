@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/bloodgem_from_smelting_bloodgem_ore"
+        "recipes": "divinerpg:smelting/bloodgem_from_smelting_bloodgem_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

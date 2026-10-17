@@ -1,6 +1,8 @@
 package divinerpg.client;
 
+import divinerpg.DivineRPG;
 import divinerpg.client.renders.PlayerHatRender;
+import divinerpg.client.renders.item.ArcaniumExtractorItemRenderer;
 import divinerpg.registries.FluidRegistry;
 import net.minecraft.client.renderer.block.FluidModel;
 import net.minecraft.client.renderer.entity.player.AvatarRenderer;
@@ -11,6 +13,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
+import net.neoforged.neoforge.client.event.RegisterSpecialModelRendererEvent;
 
 import static divinerpg.DivineRPG.MODID;
 import static net.neoforged.api.distmarker.Dist.CLIENT;
@@ -31,5 +34,10 @@ public class FancyRenders {
     @SubscribeEvent
     private static void registerFluidModels(RegisterFluidModelsEvent event) {
         event.register(new FluidModel.Unbaked(new Material(Identifier.fromNamespaceAndPath(MODID, "block/smoldering_tar")), new Material(Identifier.fromNamespaceAndPath(MODID, "block/flowing_smoldering_tar")), null, null, null), FluidRegistry.SMOLDERING_TAR_FLUID, FluidRegistry.SMOLDERING_TAR_FLUID_FLOWING);
+    }
+
+    @SubscribeEvent
+    public static void registerSpecialModels(RegisterSpecialModelRendererEvent event) {
+        event.register(Identifier.fromNamespaceAndPath(DivineRPG.MODID, "arcanium_extractor"), ArcaniumExtractorItemRenderer.Unbaked.MAP_CODEC);
     }
 }

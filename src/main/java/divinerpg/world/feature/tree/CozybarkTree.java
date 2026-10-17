@@ -1,5 +1,7 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.world.config.tree.TreeConfig;
 import divinerpg.world.feature.decoration.SnowCoverage;
 import net.minecraft.core.BlockPos;
@@ -10,10 +12,23 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.*;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
 public class CozybarkTree extends ShiverspineTree {
+	public static final MapCodec<CozybarkTree> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, CozybarkTree::new));
+	private TreeConfig config;
+	public CozybarkTree(TreeConfig config) {
+		super(config);
+		this.config = config;
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	@Override
 	protected void setBlock(WorldGenLevel level, BlockPos pos, BlockState state, boolean replace) {
 		MutableBlockPos position = pos.mutable();
@@ -35,7 +50,7 @@ public class CozybarkTree extends ShiverspineTree {
 		if(hasSnow) {
 			position = pos.mutable();
 			while(!level.getBlockState(position.move(0, 1, 0)).isAir());
-			SnowCoverage.snow(level, level.getRandom(), position);
+			SnowCoverage.snow(level, null, level.getRandom(), position);
 		}
 	}
 	@Override
@@ -60,7 +75,7 @@ public class CozybarkTree extends ShiverspineTree {
 			if(hasSnow) {
 				position = pos.mutable();
 				while(!level.getBlockState(position.move(0, 1, 0)).isAir());
-				SnowCoverage.snow(level, level.getRandom(), position);
+				SnowCoverage.snow(level, null, level.getRandom(), position);
 			}
 		}
 	}

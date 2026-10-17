@@ -6,6 +6,7 @@ import divinerpg.utils.LocalizeUtils;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
@@ -44,7 +45,7 @@ public class ItemArcanaPotion extends ItemModFood {
             if(stack.isEmpty()) return new ItemStack(GLASS_BOTTLE);
             else if (entity instanceof Player player && !player.hasInfiniteMaterials()) {
                 ItemStack glassBottle = new ItemStack(GLASS_BOTTLE);
-                if(!player.getInventory().add(glassBottle)) player.drop(glassBottle, false);
+                if(!player.getInventory().add(glassBottle)) player.drop(glassBottle, false, Prediction.PREDICTED);
             }
         } return stack;
     }

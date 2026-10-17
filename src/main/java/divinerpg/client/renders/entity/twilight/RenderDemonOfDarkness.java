@@ -25,7 +25,7 @@ public class RenderDemonOfDarkness<T extends EntityDemonOfDarkness, S extends Li
 
     @Override
     protected void scale(S state, PoseStack matrixStackIn) {
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(180.0F));
+        matrixStackIn.rotate(Axis.YP.rotationDegrees(180.0F));
     }
 
     @Override

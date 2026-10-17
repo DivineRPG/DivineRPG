@@ -2,7 +2,6 @@ package divinerpg.world.placement;
 
 import com.mojang.serialization.MapCodec;
 
-import divinerpg.registries.PlacementModifierRegistry;
 import net.minecraft.core.*;
 import net.minecraft.core.BlockPos.MutableBlockPos;
 import net.minecraft.tags.BlockTags;
@@ -13,13 +12,13 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.placement.*;
 
-public class Underground extends PlacementFilter {
+public class Underground implements PlacementFilter {
     private static final Underground INSTANCE = new Underground();
-    public static final MapCodec<Underground> CODEC = MapCodec.unit(() -> INSTANCE);
+    public static final MapCodec<Underground> CODEC = MapCodec.unit(INSTANCE);
     private Underground() {}
     public static Underground underground() {return INSTANCE;}
     @Override
-    protected boolean shouldPlace(PlacementContext context, RandomSource source, BlockPos pos) {
+    public boolean shouldPlace(PlacementContext context, RandomSource source, BlockPos pos) {
         return isUnderground(context.getLevel(), pos);
     }
     public static boolean isUnderground(LevelAccessor level, BlockPos pos) {
@@ -30,7 +29,7 @@ public class Underground extends PlacementFilter {
         } return false;
     }
     @Override
-    public PlacementModifierType<?> type() {
-        return PlacementModifierRegistry.UNDERGROUND.get();
+    public MapCodec<? extends PlacementFilter> codec() {
+        return CODEC;
     }
 }

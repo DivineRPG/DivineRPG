@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/torridite_dust_from_torridite_ingot"
+        "recipes": "divinerpg:maul_smashing/dusts/torridite_dust_from_torridite_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

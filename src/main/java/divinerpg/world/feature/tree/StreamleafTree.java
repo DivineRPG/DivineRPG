@@ -1,5 +1,7 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -8,8 +10,21 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 public class StreamleafTree extends AuroraoakTree {
+	public static final MapCodec<StreamleafTree> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, StreamleafTree::new));
+	private TreeConfig config;
+	public StreamleafTree(TreeConfig config) {
+		super(config);
+		this.config = config;
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	@Override
 	public boolean canBeHere(WorldGenLevel level, RandomSource random, BlockPos pos, TreeConfig config) {
 		return super.canBeHere(level, random, pos, config) && (level.getBlockState(pos.offset(-1, -1, 0)).is(Blocks.WATER) || level.getBlockState(pos.offset(1, -1, 0)).is(Blocks.WATER) || level.getBlockState(pos.offset(0, -1, -1)).is(Blocks.WATER) || level.getBlockState(pos.offset(0, -1, 1)).is(Blocks.WATER));

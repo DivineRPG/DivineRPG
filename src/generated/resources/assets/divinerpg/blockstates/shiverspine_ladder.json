@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "divinerpg:block/shiverspine_ladder",
+      "y": 90
+    },
+    "facing=north": {
       "model": "divinerpg:block/shiverspine_ladder"
+    },
+    "facing=south": {
+      "model": "divinerpg:block/shiverspine_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "divinerpg:block/shiverspine_ladder",
+      "y": 270
     }
   }
 }

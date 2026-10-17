@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/thermoliage"
+    "half=lower": {
+      "model": "divinerpg:block/thermoliage_lower"
+    },
+    "half=upper": {
+      "model": "divinerpg:block/thermoliage_upper"
     }
   }
 }

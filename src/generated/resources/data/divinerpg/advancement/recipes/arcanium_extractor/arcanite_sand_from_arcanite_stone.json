@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:arcanium_extractor/arcanite_sand_from_arcanite_stone"
+        "recipes": "divinerpg:arcanium_extractor/arcanite_sand_from_arcanite_stone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

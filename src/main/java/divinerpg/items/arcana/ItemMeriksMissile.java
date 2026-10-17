@@ -13,6 +13,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.PositionPath;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -52,7 +53,7 @@ public class ItemMeriksMissile extends ItemMod {
                 float damage = Mth.clamp(finalCharge * 25, 2, 8);
                 level.playSound(null, player.blockPosition(), SoundEvents.ARROW_SHOOT, SoundSource.PLAYERS, 1, 1);
                 EntityMerikMissile bullet = new EntityMerikMissile(EntityRegistry.MERIKS_MISSILE.get(), level, player, damage);
-                bullet.moveOrInterpolateTo(new Vec3(player.getX(), player.getY() + 1, player.getZ()));
+                bullet.moveOrInterpolateTo(PositionPath.of(new Vec3(player.getX(), player.getY() + 1, player.getZ())));
                 bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 3, 1);
                 level.addFreshEntity(bullet);
                 if(!level.isClientSide()) ArcanaHelper.modifyAmount(player, -arcanaPoints);

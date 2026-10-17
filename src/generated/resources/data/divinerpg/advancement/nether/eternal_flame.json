@@ -3,15 +3,13 @@
   "criteria": {
     "kill_boss_king_of_scorchers": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:king_of_scorchers"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:king_of_scorchers"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

@@ -3,7 +3,7 @@
   "criteria": {
     "open_tomb_chest": {
       "conditions": {
-        "loot_table": "divinerpg:chests/overworld/ancient_tomb"
+        "loot_tables": "divinerpg:chests/overworld/ancient_tomb"
       },
       "trigger": "minecraft:player_generates_container_loot"
     }

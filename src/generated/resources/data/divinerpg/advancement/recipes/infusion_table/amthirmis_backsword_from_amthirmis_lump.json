@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:infusion_table/amthirmis_backsword_from_amthirmis_lump"
+        "recipes": "divinerpg:infusion_table/amthirmis_backsword_from_amthirmis_lump"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

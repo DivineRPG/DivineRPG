@@ -1,21 +1,23 @@
 package divinerpg.world.feature.plant;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.*;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class ArcaniteVines extends Feature<NoneFeatureConfiguration> {
-	public ArcaniteVines() {super(NoneFeatureConfiguration.CODEC);}
+public class ArcaniteVines implements Feature {
+	public static final MapCodec<ArcaniteVines> CODEC = MapCodec.unit(ArcaniteVines::new);
+
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-		return place(null, context.level(), null, context.random(), context.origin());
+	public MapCodec<ArcaniteVines> codec() {
+		return CODEC;
 	}
+
 	@Override
-	public boolean place(NoneFeatureConfiguration c, WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
+	public boolean place(WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
 		pos = new BlockPos(pos.getX(), 46, pos.getZ());
 		while(!level.getBlockState(pos).is(BlockRegistry.arcaniteMoss.get())) {
 			pos = pos.above();
@@ -23,8 +25,11 @@ public class ArcaniteVines extends Feature<NoneFeatureConfiguration> {
 		}
 		do {
 			pos = pos.below();
-			if(level.getBlockState(pos).isAir()) setBlock(level, pos, BlockRegistry.arcaniteVinesBody.get().defaultBlockState());
-			else break;
+			if(level.getBlockState(pos).isAir()) {
+				setBlock(level, pos, BlockRegistry.arcaniteVinesBody.get().defaultBlockState());
+			} else {
+				break;
+			}
 		} while(random.nextBoolean());
 		setBlock(level, pos, BlockRegistry.arcaniteVinesHead.get().defaultBlockState());
 		return true;

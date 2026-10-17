@@ -1,0 +1,9 @@
+{
+  "feature": "divinerpg:apalachia_vegetation",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 4
+    }
+  ]
+}

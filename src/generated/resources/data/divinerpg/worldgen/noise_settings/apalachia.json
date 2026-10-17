@@ -1,74 +1,9 @@
 {
-  "aquifers_enabled": false,
-  "default_block": {
-    "Name": "divinerpg:twilight_stone"
-  },
-  "default_fluid": {
-    "Name": "minecraft:water",
-    "Properties": {
-      "level": "0"
-    }
-  },
+  "default_block": "divinerpg:twilight_stone",
+  "default_fluid": "minecraft:water",
   "disable_mob_generation": false,
   "legacy_random_source": false,
-  "noise": {
-    "height": 256,
-    "min_y": 0,
-    "size_horizontal": 1,
-    "size_vertical": 2
-  },
-  "noise_router": {
-    "barrier": 0.0,
-    "continents": "minecraft:overworld/continents",
-    "depth": "minecraft:overworld/depth",
-    "erosion": "minecraft:overworld/erosion",
-    "final_density": {
-      "type": "minecraft:interpolated",
-      "argument": {
-        "type": "minecraft:add",
-        "argument1": {
-          "type": "minecraft:y_clamped_gradient",
-          "from_value": -2.6,
-          "from_y": 0,
-          "to_value": 0.1,
-          "to_y": 128
-        },
-        "argument2": {
-          "type": "minecraft:add",
-          "argument1": {
-            "type": "minecraft:y_clamped_gradient",
-            "from_value": 0.0,
-            "from_y": 128,
-            "to_value": -0.7,
-            "to_y": 256
-          },
-          "argument2": "minecraft:end/base_3d_noise"
-        }
-      }
-    },
-    "fluid_level_floodedness": 0.0,
-    "fluid_level_spread": 0.0,
-    "lava": 0.0,
-    "preliminary_surface_level": "minecraft:overworld/base_3d_noise",
-    "ridges": "minecraft:overworld/ridges",
-    "temperature": 0.6,
-    "vegetation": {
-      "type": "minecraft:shifted_noise",
-      "noise": "minecraft:vegetation_large",
-      "shift_x": "minecraft:shift_x",
-      "shift_y": 0.0,
-      "shift_z": "minecraft:shift_z",
-      "xz_scale": 0.25,
-      "y_scale": 0.0
-    },
-    "vein_gap": 0.0,
-    "vein_ridged": 0.0,
-    "vein_toggle": 0.0
-  },
-  "ore_veins_enabled": false,
-  "sea_level": 0,
-  "spawn_target": [],
-  "surface_rule": {
+  "material_rule": {
     "type": "minecraft:sequence",
     "sequence": [
       {
@@ -82,12 +17,7 @@
         },
         "then_run": {
           "type": "minecraft:block",
-          "result_state": {
-            "Name": "divinerpg:apalachia_grass",
-            "Properties": {
-              "snowy": "false"
-            }
-          }
+          "result_state": "divinerpg:apalachia_grass"
         }
       },
       {
@@ -101,11 +31,52 @@
         },
         "then_run": {
           "type": "minecraft:block",
-          "result_state": {
-            "Name": "divinerpg:apalachia_dirt"
-          }
+          "result_state": "divinerpg:apalachia_dirt"
         }
       }
     ]
-  }
+  },
+  "noise": {
+    "height": 256,
+    "min_y": 0
+  },
+  "noise_router": {
+    "chunk_surface_level": 0.0,
+    "continents": "minecraft:overworld/continents",
+    "depth": "minecraft:overworld/depth",
+    "erosion": "minecraft:overworld/erosion",
+    "final_density": {
+      "type": "minecraft:interpolated",
+      "cell_size_xz": 1,
+      "cell_size_y": 2,
+      "input": {
+        "type": "minecraft:add",
+        "left": {
+          "type": "minecraft:gradient",
+          "axis": "y",
+          "from_coordinate": 0,
+          "from_value": -2.6,
+          "to_coordinate": 128,
+          "to_value": 0.1
+        },
+        "right": {
+          "type": "minecraft:add",
+          "left": {
+            "type": "minecraft:gradient",
+            "axis": "y",
+            "from_coordinate": 128,
+            "from_value": 0.0,
+            "to_coordinate": 256,
+            "to_value": -0.7
+          },
+          "right": "minecraft:end/base_3d_noise"
+        }
+      }
+    },
+    "ridges": "minecraft:overworld/ridges",
+    "temperature": 0.0,
+    "vegetation": 0.0
+  },
+  "sea_level": 0,
+  "spawn_target": []
 }

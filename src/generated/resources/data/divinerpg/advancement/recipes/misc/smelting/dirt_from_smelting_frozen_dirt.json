@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/dirt_from_smelting_frozen_dirt"
+        "recipes": "divinerpg:smelting/dirt_from_smelting_frozen_dirt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

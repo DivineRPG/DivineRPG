@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/bloodgem_from_blasting_bloodgem_ore"
+        "recipes": "divinerpg:blasting/bloodgem_from_blasting_bloodgem_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

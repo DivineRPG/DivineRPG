@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.ItemRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -12,12 +13,12 @@ import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
 
-public class SpawnBonusChestModifier extends LootModifier {
-    public static final MapCodec<SpawnBonusChestModifier> CODEC = RecordCodecBuilder.mapCodec(
-            instance -> codecStart(instance).apply(instance, SpawnBonusChestModifier::new)
-    );
+import java.util.Optional;
 
-    public SpawnBonusChestModifier(LootItemCondition[] conditionsIn, int priority) {
+public class SpawnBonusChestModifier extends LootModifier {
+    public static final MapCodec<SpawnBonusChestModifier> CODEC = RecordCodecBuilder.mapCodec(instance -> codecStart(instance).apply(instance, SpawnBonusChestModifier::new));
+
+    public SpawnBonusChestModifier(Optional<Holder<LootItemCondition>> conditionsIn, int priority) {
         super(conditionsIn, priority);
     }
 

@@ -1,5 +1,6 @@
 package divinerpg.world.feature.decoration;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.DivineRPG;
 import divinerpg.world.placement.Surface;
 import divinerpg.world.placement.Surface.*;
@@ -13,33 +14,42 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.DensityFunction.SinglePointContext;
-import net.minecraft.world.level.levelgen.NoiseRouter;
+import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.feature.*;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
-	public SnowCoverage() {super(NoneFeatureConfiguration.CODEC);}
+public class SnowCoverage implements Feature {
+	public static final MapCodec<SnowCoverage> CODEC = MapCodec.unit(SnowCoverage::new);
+
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-		return place(null, context.level(), context.chunkGenerator(), context.random(), context.origin());
+	public MapCodec<SnowCoverage> codec() {
+		return CODEC;
 	}
+
 	@Override
-	public boolean place(NoneFeatureConfiguration c, WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
+	public boolean place(WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
 		byte i = 0;
-		for(int x = pos.getX() & 0xFFFFFFF0, maxX = x + 16; x < maxX; x++) for(int z = pos.getZ() & 0xFFFFFFF0, maxZ = z + 16; z < maxZ; z++) i += snow(level, random, new MutableBlockPos(x, Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinY(), level.getMaxY(), 0, level, random, x, z), z));
+		for(int x = pos.getX() & 0xFFFFFFF0, maxX = x + 16; x < maxX; x++) {
+			for(int z = pos.getZ() & 0xFFFFFFF0, maxZ = z + 16; z < maxZ; z++) {
+				i += snow(level, g, random, new MutableBlockPos(x, Surface.getSurface(Surface_Type.HIGHEST_GROUND, Mode.FULL, level.getMinY(), level.getMaxY(), 0, level, random, x, z), z));
+			}
+		}
 		return i > 0;
 	}
+
 	public static boolean isWaterBlock(BlockState state) {
 		return state.is(Blocks.WATER) || state.is(Blocks.BUBBLE_COLUMN) || state.getOptionalValue(BlockStateProperties.WATERLOGGED).orElse(false) || state.is(BlockTags.UNDERWATER_BONEMEALS) || state.is(Blocks.KELP) || state.is(Blocks.TALL_SEAGRASS);
 	}
-	public static byte snow(WorldGenLevel level, RandomSource random, MutableBlockPos position) {
+
+	public static byte snow(WorldGenLevel level, ChunkGenerator generator, RandomSource random, MutableBlockPos position) {
 		if(level.getChunkSource() instanceof ServerChunkCache source) {
 			while(isWaterBlock(level.getBlockState(position))) position.move(0, 1, 0);
-			SinglePointContext context = new SinglePointContext(position.getX(), position.getY(), position.getZ());
-			NoiseRouter router = source.randomState().router();
-			double depth = ((level.getBiome(position).value().getModifiedClimateSettings().downfall() + level.getBiome(position.north()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.south()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.east()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.west()).value().getModifiedClimateSettings().downfall()) / 5D)
-					* (router.vegetation().compute(context) + 1.1) + router.temperature().compute(context) + 1D;
+			RandomState randomState = source.randomState();
+			double temperatureVal = level.getBiome(position).value().getBaseTemperature();
+			double downfallVal = level.getBiome(position).value().getModifiedClimateSettings().downfall();
+
+			double depth = ((downfallVal + level.getBiome(position.north()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.south()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.east()).value().getModifiedClimateSettings().downfall() + level.getBiome(position.west()).value().getModifiedClimateSettings().downfall()) / 5D)
+					* 1.1 + temperatureVal + 1D;
+
 			if(depth >= .125) {
 				BlockPos below = position.below();
 				BlockState state = level.getBlockState(below);
@@ -56,8 +66,8 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 							depth = Math.floor(depth);
 							state = random.nextFloat() < .94F ? Blocks.POWDER_SNOW.defaultBlockState() : Blocks.SNOW_BLOCK.defaultBlockState();
 						} else state = Blocks.SNOW_BLOCK.defaultBlockState();
-						int i, k = (int) depth;
-						for(i = 0; i < k; i++) if(level.getBlockState(position).isAir()) {
+						int k = (int) depth;
+						for(int j = 0; j < k; j++) if(level.getBlockState(position).isAir()) {
 							level.setBlock(position, state, 3);
 							position.move(0, 1, 0);
 						}
@@ -70,6 +80,7 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 		} else DivineRPG.LOGGER.info("could not access server chunk cache");
 		return 0;
 	}
+
 	static void snowLog(WorldGenLevel level, MutableBlockPos pos, BlockState snowyBlock, boolean[] space) {
 		level.setBlock(pos, snowyBlock, 2);
 		pos.move(0, -1, 0);

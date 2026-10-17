@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/rupee_dust_from_rupee_ingot"
+        "recipes": "divinerpg:maul_smashing/dusts/rupee_dust_from_rupee_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

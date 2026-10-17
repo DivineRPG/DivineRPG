@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:campfire/hot_pumpkin_pie_from_campfire_pumpkin_pie"
+        "recipes": "divinerpg:campfire/hot_pumpkin_pie_from_campfire_pumpkin_pie"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

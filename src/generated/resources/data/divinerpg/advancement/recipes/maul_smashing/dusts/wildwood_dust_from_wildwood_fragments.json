@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/wildwood_dust_from_wildwood_fragments"
+        "recipes": "divinerpg:maul_smashing/dusts/wildwood_dust_from_wildwood_fragments"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

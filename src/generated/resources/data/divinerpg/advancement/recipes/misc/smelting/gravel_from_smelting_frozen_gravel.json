@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/gravel_from_smelting_frozen_gravel"
+        "recipes": "divinerpg:smelting/gravel_from_smelting_frozen_gravel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -10,6 +10,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -150,11 +151,9 @@ public class FindOreGoal extends Goal {
         if (this.miner.level().getBlockState(pos).is(BlockTags.create(Identifier.parse("c:ores")))) {
             Block block = this.miner.level().getBlockState(pos).getBlock();
             float hardness = block.defaultDestroyTime();
-
-            // Perform ray trace to ensure line of sight
             boolean hasLineOfSight = hasClearLineOfSight(pos);
             if (!hasLineOfSight) {
-                return; // Exit if there's no line of sight
+                return;
             }
 
             double verticalOffset = pos.getY() - this.miner.getEyePosition().y;
@@ -169,7 +168,7 @@ public class FindOreGoal extends Goal {
 
             if (miningTime < hardness * 10) {
                 miningTime++;
-                this.miner.swing(InteractionHand.MAIN_HAND);
+                this.miner.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT);
                 this.miner.level().levelEvent(2001, pos, Block.getId(this.miner.level().getBlockState(pos)));
             } else {
                 block.dropResources(this.miner.level().getBlockState(pos), this.miner.level(), pos, null, this.miner, this.miner.getMainHandItem());
@@ -194,7 +193,7 @@ public class FindOreGoal extends Goal {
 
             if (miningTime < hardness * 10) {
                 miningTime++;
-                this.miner.swing(InteractionHand.MAIN_HAND);
+                this.miner.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT);
                 this.miner.level().levelEvent(2001, pos, Block.getId(this.miner.level().getBlockState(pos)));
             } else {
                 this.miner.level().setBlock(pos, Blocks.AIR.defaultBlockState(), 3);

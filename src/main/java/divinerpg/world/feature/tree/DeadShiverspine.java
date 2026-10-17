@@ -1,5 +1,7 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -9,8 +11,21 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 public class DeadShiverspine extends ShiverspineTree {
+	public static final MapCodec<DeadShiverspine> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, DeadShiverspine::new));
+	private TreeConfig config;
+	public DeadShiverspine(TreeConfig config) {
+		super(config);
+		this.config = config;
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {

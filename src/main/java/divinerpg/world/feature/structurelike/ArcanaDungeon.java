@@ -1,5 +1,6 @@
 package divinerpg.world.feature.structurelike;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.DivineRPG;
 import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
@@ -11,30 +12,32 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.XoroshiroRandomSource;
 import net.minecraft.world.level.levelgen.feature.*;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
+import net.minecraft.world.level.levelgen.synth.Noise;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import javax.annotation.Nullable;
 
 import static divinerpg.registries.StructureRegistry.*;
 
-public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
-	public static NormalNoise dungeonNoise;
+public class ArcanaDungeon implements Feature {
+	public static final MapCodec<ArcanaDungeon> CODEC = MapCodec.unit(ArcanaDungeon::new);
+	public static Noise dungeonNoise;
 	public static long seed;
 	public static StructureTemplate doorway, entranceRoom, stairs, stairsTop;
 	public static StructureTemplate[] doors;
 	public static Room[] adaptiveRooms, corners, junctions, crossroads, deadends, hallways, hidden;
 	public static VerticalRoom[] verticalRooms;
 	public static BigRoom[] bigRooms;
-	public ArcanaDungeon() {super(NoneFeatureConfiguration.CODEC);}
+
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
-		return place(null, context.level(), null, context.random(), context.origin());
+	public MapCodec<ArcanaDungeon> codec() {
+		return CODEC;
 	}
+
 	@Override
-	public boolean place(NoneFeatureConfiguration c, WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
+	public boolean place(WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
 		if(doorway == null) {
-			StructureTemplateManager manager = level.getLevel().getServer().getStructureManager();
+			StructureTemplateManager manager = level.getLevel().getServer().getStructureTemplateManager();
 			BlockState degraded = BlockRegistry.degradedBricks.get().defaultBlockState(), ancientBrick = BlockRegistry.ancientBricks.get().defaultBlockState(), sludge = BlockRegistry.soulStone.get().defaultBlockState(), ancient = BlockRegistry.ancientStone.get().defaultBlockState();
 			doorway = manager.getOrCreate(Identifier.fromNamespaceAndPath(DivineRPG.MODID, "arcana/doors/doorway"));
 			entranceRoom = manager.getOrCreate(Identifier.fromNamespaceAndPath(DivineRPG.MODID, "arcana/entrance_room"));
@@ -122,12 +125,15 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 		}
 		long newSeed = level.getSeed();
 		if(seed != newSeed) {
-			dungeonNoise = NormalNoise.create(new XoroshiroRandomSource(newSeed), 1, 1.5);
+			NormalNoise noiseDef = NormalNoise.createParity(1, 1.5);
+			dungeonNoise = noiseDef.create(new XoroshiroRandomSource(newSeed));
 			seed = newSeed;
 		}
-		for(int x = 0; x < 16; x++) for(int z = 0; z < 16; z++) {
-			setBlock(level, pos.offset(x, 32, z), BlockRegistry.ancientStone.get().defaultBlockState());
-			setBlock(level, pos.offset(x, 33, z), BlockRegistry.ancientStoneBreakable.get().defaultBlockState());
+		for(int x = 0; x < 16; x++) {
+			for(int z = 0; z < 16; z++) {
+				setBlock(level, pos.offset(x, 32, z), BlockRegistry.ancientStone.get().defaultBlockState());
+				setBlock(level, pos.offset(x, 33, z), BlockRegistry.ancientStoneBreakable.get().defaultBlockState());
+			}
 		}
 		if(generate(level, random, pos, (byte)0)) {
 			if(generate(level, random, pos.offset(0, 8, 0), (byte)1)) {
@@ -226,7 +232,10 @@ public class ArcanaDungeon extends Feature<NoneFeatureConfiguration> {
 	}
 	public static byte getDoorValue(int chunkX, int y, int chunkZ) {
 		byte value = 0;
-		for(byte steps = 0; value == 0 && steps < 16; steps++) value = (byte) (Math.abs(dungeonNoise.getValue(chunkX - (111 * steps), y + (112 * steps), chunkZ - (113 * steps))) * 15.7);
+		for(byte steps = 0; value == 0 && steps < 16; steps++) {
+			float noiseSample = dungeonNoise.get(chunkX - (111L * steps), y + (112L * steps), chunkZ - (113L * steps));
+			value = (byte) (Math.abs(noiseSample) * 15.7);
+		}
 		return value;
 	}
 	public static void placeRoom(StructureTemplate room, WorldGenLevel level, RandomSource random, BlockPos pos, Rotation rotation, byte getsWalls) {

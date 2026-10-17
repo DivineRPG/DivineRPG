@@ -28,7 +28,7 @@ public class ItemSerenadeStriker extends ItemMod {
         double angle = 0;
         while(angle < 1 * Math.PI) {
             LightningBolt bolt = new LightningBolt(EntityTypes.LIGHTNING_BOLT, level);
-            bolt.moveOrInterpolateTo(pos.getLocation());
+            bolt.moveOrInterpolateTo(PositionPath.of(pos.getLocation()));
             level.addFreshEntity(bolt);
             angle += Math.PI / 8;
         } if(!player.isCreative()) stack.hurtAndBreak(1, player, hand);

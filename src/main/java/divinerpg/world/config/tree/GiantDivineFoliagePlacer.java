@@ -2,7 +2,6 @@ package divinerpg.world.config.tree;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import divinerpg.registries.FoliagePlacerRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
@@ -12,7 +11,6 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.material.Fluids;
@@ -37,7 +35,7 @@ public class GiantDivineFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void createFoliage(WorldGenLevel level, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration config, int maxFreeTreeHeight, FoliageAttachment attachment, int foliageHeight, int foliageRadius, int foliageOffset) {
+    protected void createFoliage(WorldGenLevel level, FoliageSetter foliageSetter, RandomSource random, TreeFeature config, int maxFreeTreeHeight, FoliageAttachment attachment, int foliageHeight, int foliageRadius, int foliageOffset) {
         BlockPos center = attachment.pos();
         int maxRadius = foliageRadius + 7;
         int aboveHeight = 3;
@@ -86,10 +84,10 @@ public class GiantDivineFoliagePlacer extends FoliagePlacer {
         }
     }
 
-    protected static boolean tryPlaceLeaf(WorldGenLevel level, FoliageSetter setter, RandomSource random, TreeConfiguration config, BlockPos pos) {
+    protected static boolean tryPlaceLeaf(WorldGenLevel level, FoliageSetter setter, RandomSource random, TreeFeature config, BlockPos pos) {
         if (!TreeFeature.validTreePos(level, pos))
             return false;
-        BlockState state = config.foliageProvider.getState(level, random, pos).setValue(LeavesBlock.PERSISTENT, true).setValue(LeavesBlock.DISTANCE, 1);
+        BlockState state = config.foliageProvider().value().getState(level, random, pos).setValue(LeavesBlock.PERSISTENT, true).setValue(LeavesBlock.DISTANCE, 1);
         if (state.hasProperty(BlockStateProperties.WATERLOGGED)) {
             state = state.setValue(BlockStateProperties.WATERLOGGED, level.isFluidAtPosition(pos, f -> f.isSourceOfType(Fluids.WATER)));
         }
@@ -98,7 +96,7 @@ public class GiantDivineFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    public int foliageHeight(RandomSource random, int trunkHeight, TreeConfiguration config) {
+    public int foliageHeight(RandomSource random, int trunkHeight, TreeFeature config) {
         return 5;
     }
 

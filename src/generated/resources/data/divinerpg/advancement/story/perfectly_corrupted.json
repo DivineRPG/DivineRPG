@@ -3,12 +3,10 @@
   "criteria": {
     "in_altar": {
       "conditions": {
-        "location": [
-          {
-            "block": "divinerpg:arcana_portal_frame",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "divinerpg:arcana_portal_frame"
+        }
       },
       "trigger": "minecraft:placed_block"
     }

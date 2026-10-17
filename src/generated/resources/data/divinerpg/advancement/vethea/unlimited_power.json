@@ -3,15 +3,13 @@
   "criteria": {
     "kill_wreck": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:wreck"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:wreck"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

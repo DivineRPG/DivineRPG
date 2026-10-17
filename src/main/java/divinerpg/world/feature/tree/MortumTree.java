@@ -1,13 +1,27 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 public class MortumTree extends DivineTree {
+	public static final MapCodec<MortumTree> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(MortumTree::getConfig)).apply(instance, MortumTree::new));
+
+	public MortumTree(TreeConfig config) {
+		super(config);
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	@Override
 	public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
 		if(canBeHere(level, random, pos, config)) {

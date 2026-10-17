@@ -3,15 +3,13 @@
   "criteria": {
     "kill_lady_luna": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:lady_luna"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:lady_luna"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

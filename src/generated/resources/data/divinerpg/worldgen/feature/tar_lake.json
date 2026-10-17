@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:lake",
+  "barrier": {
+    "id": "minecraft:stone"
+  },
+  "can_place_feature": {
+    "type": "minecraft:true"
+  },
+  "can_replace_with_air_or_fluid": {
+    "type": "minecraft:true"
+  },
+  "can_replace_with_barrier": {
+    "type": "minecraft:true"
+  },
+  "fluid": {
+    "id": "divinerpg:smoldering_tar",
+    "properties": {
+      "level": "0"
+    }
+  }
+}

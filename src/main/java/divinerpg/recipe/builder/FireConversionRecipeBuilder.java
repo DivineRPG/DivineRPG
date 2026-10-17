@@ -6,6 +6,7 @@ import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.advancements.triggers.RecipeUnlockedTrigger;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -28,11 +29,11 @@ public class FireConversionRecipeBuilder implements RecipeBuilder {
     private final Ingredient inputItem;
     private final RuleTest inputState;
     private Optional<ItemStack> outputItem = Optional.empty();
-    private Optional<BlockStateProvider> outputState = Optional.empty();
+    private Optional<Holder<BlockStateProvider>> outputState = Optional.empty();
     private Optional<Identifier> advancement = Optional.empty();
     private Optional<String> advancementCriteria = Optional.empty();
     private Optional<RuleTest> frame = Optional.empty();
-    private Optional<BlockStateProvider> portal = Optional.empty();
+    private Optional<Holder<BlockStateProvider>> portal = Optional.empty();
 
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
@@ -51,6 +52,11 @@ public class FireConversionRecipeBuilder implements RecipeBuilder {
     }
 
     public FireConversionRecipeBuilder outputState(BlockStateProvider outputState) {
+        this.outputState = Optional.of(Holder.direct(outputState));
+        return this;
+    }
+
+    public FireConversionRecipeBuilder outputState(Holder<BlockStateProvider> outputState) {
         this.outputState = Optional.of(outputState);
         return this;
     }
@@ -67,6 +73,11 @@ public class FireConversionRecipeBuilder implements RecipeBuilder {
     }
 
     public FireConversionRecipeBuilder portal(BlockStateProvider portal) {
+        this.portal = Optional.of(Holder.direct(portal));
+        return this;
+    }
+
+    public FireConversionRecipeBuilder portal(Holder<BlockStateProvider> portal) {
         this.portal = Optional.of(portal);
         return this;
     }
@@ -90,7 +101,7 @@ public class FireConversionRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(RecipeOutput recipeOutput, ResourceKey<Recipe<?>> resourceKey) {
         this.ensureValid(resourceKey.identifier());
-        Advancement.Builder advancementBuilder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceKey)).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
+        Advancement.Builder advancementBuilder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeOutput.lookup(Registries.RECIPE).getOrThrow(resourceKey))).rewards(AdvancementRewards.Builder.recipe(resourceKey)).requirements(AdvancementRequirements.Strategy.OR);
         this.criteria.forEach(advancementBuilder::addCriterion);
         FireConversionRecipe recipe = new FireConversionRecipe(inputItem, inputState, outputItem, outputState, advancement, advancementCriteria, frame, portal);
         recipeOutput.accept(resourceKey, recipe, advancementBuilder.build(resourceKey.identifier().withPrefix("recipes/")));

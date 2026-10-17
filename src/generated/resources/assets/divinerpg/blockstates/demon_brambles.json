@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/demon_brambles"
+    "half=lower": {
+      "model": "divinerpg:block/demon_brambles_lower"
+    },
+    "half=upper": {
+      "model": "divinerpg:block/demon_brambles_upper"
     }
   }
 }

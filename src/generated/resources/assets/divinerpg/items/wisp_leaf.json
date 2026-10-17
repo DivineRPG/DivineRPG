@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/wisp_leaf"
+    "model": "divinerpg:item/wisp_leaf"
   }
 }

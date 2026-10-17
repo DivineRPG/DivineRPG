@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/cobblestone_slab_from_smelting_cobbled_frozen_slab"
+        "recipes": "divinerpg:smelting/cobblestone_slab_from_smelting_cobbled_frozen_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/moon_bud"
+    "model": "divinerpg:item/moon_bud"
   }
 }

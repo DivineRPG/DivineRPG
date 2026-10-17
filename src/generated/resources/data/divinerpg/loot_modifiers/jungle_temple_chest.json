@@ -1,10 +1,8 @@
 {
   "type": "divinerpg:abandoned_mineshaft_modifier",
-  "conditions": [
-    {
-      "condition": "neoforge:loot_table_id",
-      "loot_table_id": "minecraft:chests/jungle_temple"
-    }
-  ],
+  "condition": {
+    "type": "neoforge:loot_table_id",
+    "loot_table_id": "minecraft:chests/jungle_temple"
+  },
   "priority": 1
 }

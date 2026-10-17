@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/realmite_ingot_from_blasting_realmite_dust"
+        "recipes": "divinerpg:blasting/realmite_ingot_from_blasting_realmite_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

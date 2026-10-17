@@ -5,6 +5,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -101,7 +102,7 @@ public class EntityEnderScrounge extends PathfinderMob {
             EntityTeleportEvent.EnderEntity event = EventHooks.onEnderTeleport(this, p_32544_, p_32545_, p_32546_);
             if(event.isCanceled()) return false;
             Vec3 vec3 = position();
-            boolean flag2 = randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true);
+            boolean flag2 = randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true, BlockTags.ENDERMAN_DOES_NOT_TELEPORT_TO);
             if(flag2) {
                 level().gameEvent(GameEvent.TELEPORT, vec3, GameEvent.Context.of(this));
                 if(!isSilent()) {

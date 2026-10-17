@@ -3,15 +3,13 @@
   "criteria": {
     "kill_boss_reyvor": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:reyvor"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:reyvor"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

@@ -1,5 +1,7 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
@@ -10,8 +12,21 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 public class AuroraoakTree extends DivineTree {
+	public static final MapCodec<AuroraoakTree> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, AuroraoakTree::new));
+	private TreeConfig config;
+	public AuroraoakTree(TreeConfig config) {
+		super(config);
+		this.config = config;
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	protected void gradualGrowth(WorldGenLevel level, RandomSource random, MutableBlockPos pos, BlockState log, BlockState leaves, int maxY, float curvatureChance, float splitChance, boolean replace) {
 		setBlock(level, pos, log, replace);
 		for(int y = 0; y <= maxY; y++) {

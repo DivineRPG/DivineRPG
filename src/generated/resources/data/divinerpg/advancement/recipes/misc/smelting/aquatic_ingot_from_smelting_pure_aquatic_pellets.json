@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/aquatic_ingot_from_smelting_pure_aquatic_pellets"
+        "recipes": "divinerpg:smelting/aquatic_ingot_from_smelting_pure_aquatic_pellets"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

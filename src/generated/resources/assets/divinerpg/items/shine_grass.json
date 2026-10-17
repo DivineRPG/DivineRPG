@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/shine_grass"
+    "model": "divinerpg:item/shine_grass"
   }
 }

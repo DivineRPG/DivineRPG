@@ -1,5 +1,7 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.*;
@@ -9,10 +11,24 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 public class FirewoodTree extends SkythernTree {
+	public static final MapCodec<FirewoodTree> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, FirewoodTree::new));
+	private TreeConfig config;
 	protected Direction direction;
+
+	public FirewoodTree(TreeConfig config) {
+		super(config);
+		this.config = config;
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	protected void directionalWideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int width, int offset) {
 		if(direction == Direction.UP || direction == Direction.DOWN) wideGrow(world, pos, state, width, offset);
 		else if(direction == Direction.NORTH || direction == Direction.SOUTH) {
@@ -31,7 +47,7 @@ public class FirewoodTree extends SkythernTree {
 	public boolean canBeHere(WorldGenLevel level, RandomSource random, BlockPos pos, TreeConfig config) {
 		BlockState state = level.getBlockState(pos);
 		if(config.growableOn.isEmpty() && defaultGrowOn(state)) return searchForSpace(level, random, pos);
-		for(RuleTest test : config.growableOn) if(test.test(state, random)) return searchForSpace(level, random, pos);
+		for(RuleTest test : config.growableOn) if(test.test(state, pos, random)) return searchForSpace(level, random, pos);
 		return false;
 	}
 	protected boolean searchForSpace(WorldGenLevel level, RandomSource random, BlockPos pos) {

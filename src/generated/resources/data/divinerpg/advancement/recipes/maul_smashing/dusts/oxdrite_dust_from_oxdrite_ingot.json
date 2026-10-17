@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/oxdrite_dust_from_oxdrite_ingot"
+        "recipes": "divinerpg:maul_smashing/dusts/oxdrite_dust_from_oxdrite_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -4,14 +4,20 @@
   "spawners": [
     {
       "type": "divinerpg:crab",
-      "maxCount": 5,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 5,
+        "min_inclusive": 1
+      },
       "weight": 40
     },
     {
       "type": "divinerpg:king_crab",
-      "maxCount": 5,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 5,
+        "min_inclusive": 1
+      },
       "weight": 20
     }
   ]

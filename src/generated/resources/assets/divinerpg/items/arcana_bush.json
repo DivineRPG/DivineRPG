@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/arcana_bush"
+    "model": "divinerpg:item/arcana_bush"
   }
 }

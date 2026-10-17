@@ -6,7 +6,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.monster.Enderman;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -67,35 +67,28 @@ public class DivineThrownItem extends ThrowableItemProjectile {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
-
         if (!(level() instanceof ServerLevel serverLevel)) {
             return;
         }
-
         Entity entity = result.getEntity();
         ItemStack item = getItem();
         float f = (float) getDeltaMovement().length();
         float d0 = item.isEmpty() || !(item.getItem() instanceof ItemThrowable t) ? 1 : t.damage;
         Entity owner = getOwner();
         DamageSource damageSource = getDamageSource(result);
-
         if (!item.isEmpty()) {
             d0 = EnchantmentHelper.modifyDamage(serverLevel, item, entity, damageSource, d0);
         }
-
         int j = Mth.ceil(Mth.clamp(f * d0, 0, Integer.MAX_VALUE));
         int i = entity.getRemainingFireTicks();
-
         if (owner instanceof LivingEntity livingOwner) {
             livingOwner.setLastHurtMob(entity);
         }
-
         if (isOnFire()) {
             entity.igniteForSeconds(5);
         }
-
         if (entity.hurtServer(serverLevel, damageSource, j)) {
-            if (!(entity instanceof EnderMan)) {
+            if (!(entity instanceof Enderman)) {
                 if (entity instanceof LivingEntity livingEntity) {
                     if (!item.isEmpty()) {
                         EnchantmentHelper.doPostAttackEffectsWithItemSource(serverLevel, livingEntity, damageSource, item);
@@ -107,7 +100,7 @@ public class DivineThrownItem extends ThrowableItemProjectile {
             drop();
         } else {
             entity.setRemainingFireTicks(i);
-            deflect(REVERSE, entity, EntityReference.of(getOwner()), false);
+            deflect(REVERSE, entity, EntityReference.of(getOwner()), false, entity.getDeltaMovement());
             setDeltaMovement(getDeltaMovement().scale(0.2));
             if (getDeltaMovement().lengthSqr() < 1e-7) {
                 drop();

@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "divinerpg:block/globebrush"
+    "half=lower": {
+      "model": "divinerpg:block/globebrush_lower"
+    },
+    "half=upper": {
+      "model": "divinerpg:block/globebrush_upper"
     }
   }
 }

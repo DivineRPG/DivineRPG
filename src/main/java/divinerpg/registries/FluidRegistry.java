@@ -94,7 +94,7 @@ public class FluidRegistry {
     }
 
     public static final DeferredBlock<LiquidBlock> SMOLDERING_TAR_BLOCK = DivineRegistries.BLOCKS.register("smoldering_tar", () ->
-            new LiquidBlock(SMOLDERING_TAR_FLUID.get(), BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, "smoldering_tar"))).sound(SoundType.EMPTY).replaceable().pushReaction(PushReaction.DESTROY).randomTicks().mapColor(MapColor.COLOR_BLACK).noCollision().strength(100).noLootTable()) {
+            new LiquidBlock(SMOLDERING_TAR_FLUID.get(), BlockBehaviour.Properties.of().setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, "smoldering_tar"))).sound(SoundType.EMPTY).replaceable().pushReaction(PushReaction.POPPED).randomTicks().mapColor(MapColor.COLOR_BLACK).noCollision().strength(100)) {
                 @Override
                 protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean isPrecise) {
                     entity.makeStuckInBlock(state, new Vec3(.4, .4, .4));

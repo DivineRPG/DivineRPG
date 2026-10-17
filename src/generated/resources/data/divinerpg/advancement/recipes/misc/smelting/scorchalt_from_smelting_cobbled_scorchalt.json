@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/scorchalt_from_smelting_cobbled_scorchalt"
+        "recipes": "divinerpg:smelting/scorchalt_from_smelting_cobbled_scorchalt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

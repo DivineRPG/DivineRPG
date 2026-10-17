@@ -1,19 +1,16 @@
 package divinerpg.registries;
 
-import divinerpg.blocks.arcana.BlockArcanaDoor;
-import divinerpg.blocks.base.BlockModWool;
-import divinerpg.blocks.base.DivineLeavesBlock;
-import divinerpg.blocks.iceika.BlockCandyCane;
-import divinerpg.blocks.iceika.BlockCozybarkLeaves;
-import divinerpg.blocks.iceika.BlockLights;
-import divinerpg.blocks.twilight.LandVine;
-import divinerpg.blocks.vanilla.BlockInserter;
-import divinerpg.blocks.vethea.BlockNightmareBed;
-import divinerpg.blocks.vethea.VetheaLog;
+import divinerpg.blocks.arcana.*;
+import divinerpg.blocks.base.*;
+import divinerpg.blocks.iceika.*;
+import divinerpg.blocks.twilight.*;
+import divinerpg.blocks.vanilla.*;
+import divinerpg.blocks.vethea.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.ColorRGBA;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -248,7 +245,7 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> apalachiaBlock = registerBlock("apalachia_block", Block::new, Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_MAGENTA).strength(5.0F, 6.0F).sound(SoundType.METAL));
     public static final DeferredBlock<Block> skythernBlock = registerBlock("skythern_block", Block::new, Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.WOOL).strength(5.0F, 6.0F).sound(SoundType.METAL));
     public static final DeferredBlock<Block> mortumBlock = registerBlock("mortum_block", Block::new, Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_GRAY).strength(5.0F, 6.0F).sound(SoundType.METAL));
-    public static final DeferredBlock<Block> arcanaPortalFrame = registerBlock("arcana_portal_frame", /*BlockArcanaPortalFrame::new*/ Block::new, Block.Properties.ofFullCopy(Blocks.END_PORTAL_FRAME));
+    public static final DeferredBlock<Block> arcanaPortalFrame = registerBlock("arcana_portal_frame", BlockArcanaPortalFrame::new, Properties.of().noOcclusion().mapColor(MapColor.COLOR_GREEN).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.GLASS).lightLevel((state) -> {return 1;}).strength(-1.0F, 3600000.0F));
     public static final DeferredBlock<AmethystBlock> olivineBlock = registerBlock("olivine_block", AmethystBlock::new, Block.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.COLOR_GREEN).lightLevel(s -> 1));
     public static final DeferredBlock<Block> buddingOlivine = registerBlock("budding_olivine", /*BlockBuddingOlivine::new*/ Block::new, Block.Properties.ofFullCopy(Blocks.BUDDING_AMETHYST).mapColor(MapColor.COLOR_GREEN).lightLevel(s -> 2));
     public static final DeferredBlock<AmethystClusterBlock> olivineCluster = registerBlock("olivine_cluster", p -> new AmethystClusterBlock(7, 3, p), Block.Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER).mapColor(MapColor.COLOR_GREEN).lightLevel(s -> 3));
@@ -265,7 +262,7 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> divineSlab = registerBlock("divine_slab", SlabBlock::new, DIVINE_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> divineFence = registerBlock("divine_fence", FenceBlock::new, DIVINE_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> divineFenceGate = registerBlock("divine_fence_gate", p -> new FenceGateBlock(new WoodType("divine", BlockSetType.OAK), p), DIVINE_PLANKS_PROPS);
-    public static final DeferredBlock<Block> divineSapling = registerBlock("divine_sapling", p -> new SaplingBlock(new TreeGrower("divine", Optional.empty(), Optional.of(FeatureRegistry.DIVINE_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
+    public static final DeferredBlock<Block> divineSapling = registerBlock("divine_sapling", properties -> new SaplingBlock(new TreeGrower("divine", WeightedList.of(FeatureRegistry.DIVINE_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.DIVINE_TREE_KEY), properties), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
     public static final DeferredBlock<Block> divineLeaves = registerBlock("divine_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD).sound(SoundType.CHERRY_LEAVES).noOcclusion());
     public static final DeferredBlock<DoorBlock> divineDoor = registerBlock("divine_door",p -> new DoorBlock(BlockSetType.OAK, p),DIVINE_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> divineTrapdoor = registerBlock("divine_trapdoor",p -> new TrapDoorBlock(BlockSetType.OAK, p),DIVINE_PLANKS_PROPS);
@@ -281,13 +278,13 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> shiverspineFence = registerBlock("shiverspine_fence", FenceBlock::new, SHIVERSPINE_PLANKS_PROPS);
     public static final DeferredBlock<Block> shiverspineFenceGate = registerBlock("shiverspine_fence_gate", p -> new FenceGateBlock(new WoodType("shiverspine", BlockSetType.OAK), p), SHIVERSPINE_PLANKS_PROPS);
     public static final DeferredBlock<LadderBlock> shiverspineLadder = registerBlock("shiverspine_ladder", LadderBlock::new, SHIVERSPINE_PLANKS_PROPS);
-    public static final DeferredBlock<Block> shiverspineSapling = registerBlock("shiverspine_sapling", p -> new SaplingBlock(new TreeGrower("shiverspine", Optional.empty(), Optional.of(FeatureRegistry.SHIVERSPINE_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
+    public static final DeferredBlock<Block> shiverspineSapling = registerBlock("shiverspine_sapling", p -> new SaplingBlock(new TreeGrower("shiverspine", WeightedList.of(FeatureRegistry.SHIVERSPINE_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.SHIVERSPINE_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
     public static final DeferredBlock<Block> brittleLeaves = registerBlock("brittle_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.WOOL).sound(SoundType.GRASS).noOcclusion());
     public static final DeferredBlock<Block> shiverspineDoor = registerBlock("shiverspine_door", p -> new DoorBlock(BlockSetType.OAK, p), SHIVERSPINE_PLANKS_PROPS);
     public static final DeferredBlock<Block> shiverspineTrapdoor = registerBlock("shiverspine_trapdoor", p -> new TrapDoorBlock(BlockSetType.OAK, p), SHIVERSPINE_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> shiverspinePressurePlate = registerBlock("shiverspine_pressure_plate", p -> new PressurePlateBlock(BlockSetType.OAK, p), SHIVERSPINE_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> shiverspineButton = registerBlock("shiverspine_button", p -> new ButtonBlock(BlockSetType.OAK, 20, p), SHIVERSPINE_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> shiverspineSign = registerBlock("shiverspine_sign",p -> new StandingSignBlock(SHIVERSPINE_WOOD_TYPE, p),SHIVERSPINE_PLANKS_PROPS.noCollision().strength(1.0F));
+    //    public static final DeferredBlock<StandingSignBlock> shiverspineSign = registerBlock("shiverspine_sign",p -> new StandingSignBlock(SHIVERSPINE_WOOD_TYPE, p),SHIVERSPINE_PLANKS_PROPS.noCollision().strength(1.0F));
 //    public static final DeferredBlock<WallSignBlock> shiverspineWallSign = registerBlock("shiverspine_wall_sign",p -> new WallSignBlock(SHIVERSPINE_WOOD_TYPE, p),SHIVERSPINE_PLANKS_PROPS.noCollision().strength(1.0F));
 //    public static final DeferredBlock<CeilingHangingSignBlock> shiverspineHangingSign = registerBlock("shiverspine_hanging_sign",p -> new CeilingHangingSignBlock(SHIVERSPINE_WOOD_TYPE, p),SHIVERSPINE_PLANKS_PROPS.noCollision().strength(1.0F));
 //    public static final DeferredBlock<WallHangingSignBlock> shiverspineHangingWallSign = registerBlock("shiverspine_wall_hanging_sign",p -> new WallHangingSignBlock(SHIVERSPINE_WOOD_TYPE, p),SHIVERSPINE_PLANKS_PROPS.noCollision().strength(1.0F));
@@ -300,13 +297,13 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> auroraoakSlab = registerBlock("auroraoak_slab", SlabBlock::new, AURORAOAK_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> auroraoakFence = registerBlock("auroraoak_fence", FenceBlock::new, AURORAOAK_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> auroraoakFenceGate = registerBlock("auroraoak_fence_gate", p -> new FenceGateBlock(new WoodType("auroraoak", BlockSetType.OAK), p), AURORAOAK_PLANKS_PROPS);
-    public static final DeferredBlock<Block> auroraoakSapling = registerBlock("auroraoak_sapling", p -> new SaplingBlock(new TreeGrower("auroraoak", Optional.empty(), Optional.of(FeatureRegistry.AURORAOAK_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
+    public static final DeferredBlock<Block> auroraoakSapling = registerBlock("auroraoak_sapling", p -> new SaplingBlock(new TreeGrower("auroraoak", WeightedList.of(FeatureRegistry.AURORAOAK_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.AURORAOAK_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
     public static final DeferredBlock<Block> auroraoakLeaves = registerBlock("auroraoak_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.CHERRY_LEAVES).mapColor(MapColor.COLOR_PURPLE).noOcclusion());
     public static final DeferredBlock<DoorBlock> auroraoakDoor = registerBlock("auroraoak_door", p -> new DoorBlock(BlockSetType.OAK, p), AURORAOAK_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> auroraoakTrapdoor = registerBlock("auroraoak_trapdoor", p -> new TrapDoorBlock(BlockSetType.OAK, p), AURORAOAK_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> auroraoakPressurePlate = registerBlock("auroraoak_pressure_plate", p -> new PressurePlateBlock(BlockSetType.OAK, p), AURORAOAK_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> auroraoakButton = registerBlock("auroraoak_button", p -> new ButtonBlock(BlockSetType.OAK, 20, p), AURORAOAK_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> auroraoakSign = registerBlock("auroraoak_sign", p -> new StandingSignBlock(AURORAOAK_WOOD_TYPE, p), AURORAOAK_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> auroraoakSign = registerBlock("auroraoak_sign", p -> new StandingSignBlock(AURORAOAK_WOOD_TYPE, p), AURORAOAK_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> auroraoakWallSign = registerBlock("auroraoak_wall_sign", p -> new WallSignBlock(AURORAOAK_WOOD_TYPE, p), AURORAOAK_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<CeilingHangingSignBlock> auroraoakHangingSign = registerBlock("auroraoak_hanging_sign", p -> new CeilingHangingSignBlock(AURORAOAK_WOOD_TYPE, p), AURORAOAK_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallHangingSignBlock> auroraoakHangingWallSign = registerBlock("auroraoak_wall_hanging_sign", p -> new WallHangingSignBlock(AURORAOAK_WOOD_TYPE, p), AURORAOAK_PLANKS_PROPS.noCollision());
@@ -319,13 +316,13 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> cozybarkSlab = registerBlock("cozybark_slab", SlabBlock::new, COZYBARK_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> cozybarkFence = registerBlock("cozybark_fence", FenceBlock::new, COZYBARK_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> cozybarkFenceGate = registerBlock("cozybark_fence_gate", p -> new FenceGateBlock(new WoodType("cozybark", BlockSetType.CHERRY), p), COZYBARK_PLANKS_PROPS);
-    public static final DeferredBlock<Block> cozybarkSapling = registerBlock("cozybark_sapling", p -> new SaplingBlock(new TreeGrower("cozybark", Optional.empty(), Optional.of(FeatureRegistry.COZYBARK_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.CRIMSON_STEM));
+    public static final DeferredBlock<Block> cozybarkSapling = registerBlock("cozybark_sapling", p -> new SaplingBlock(new TreeGrower("cozybark", WeightedList.of(FeatureRegistry.COZYBARK_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.COZYBARK_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.CRIMSON_STEM));
     public static final DeferredBlock<Block> cozybarkLeaves = registerBlock("cozybark_leaves", BlockCozybarkLeaves::new, Block.Properties.ofFullCopy(Blocks.CHERRY_LEAVES));
     public static final DeferredBlock<DoorBlock> cozybarkDoor = registerBlock("cozybark_door", p -> new DoorBlock(BlockSetType.CHERRY, p), COZYBARK_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> cozybarkTrapdoor = registerBlock("cozybark_trapdoor", p -> new TrapDoorBlock(BlockSetType.CHERRY, p), COZYBARK_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> cozybarkPressurePlate = registerBlock("cozybark_pressure_plate", p -> new PressurePlateBlock(BlockSetType.CHERRY, p), COZYBARK_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> cozybarkButton = registerBlock("cozybark_button", p -> new ButtonBlock(BlockSetType.CHERRY, 20, p), COZYBARK_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> cozybarkSign = registerBlock("cozybark_sign", p -> new StandingSignBlock(COZYBARK_WOOD_TYPE, p), COZYBARK_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> cozybarkSign = registerBlock("cozybark_sign", p -> new StandingSignBlock(COZYBARK_WOOD_TYPE, p), COZYBARK_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> cozybarkWallSign = registerBlock("cozybark_wall_sign", p -> new WallSignBlock(COZYBARK_WOOD_TYPE, p), COZYBARK_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<CeilingHangingSignBlock> cozybarkHangingSign = registerBlock("cozybark_hanging_sign", p -> new CeilingHangingSignBlock(COZYBARK_WOOD_TYPE, p), COZYBARK_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallHangingSignBlock> cozybarkHangingWallSign = registerBlock("cozybark_wall_hanging_sign", p -> new WallHangingSignBlock(COZYBARK_WOOD_TYPE, p), COZYBARK_PLANKS_PROPS.noCollision());
@@ -338,13 +335,13 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> streamleafSlab = registerBlock("streamleaf_slab", SlabBlock::new, STREAMLEAF_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> streamleafFence = registerBlock("streamleaf_fence", FenceBlock::new, STREAMLEAF_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> streamleafFenceGate = registerBlock("streamleaf_fence_gate", p -> new FenceGateBlock(new WoodType("streamleaf", BlockSetType.WARPED), p), STREAMLEAF_PLANKS_PROPS);
-    public static final DeferredBlock<Block> streamleafSapling = registerBlock("streamleaf_sapling", p -> new SaplingBlock(new TreeGrower("streamleaf", Optional.empty(), Optional.of(FeatureRegistry.STREAMLEAF_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.WARPED_ROOTS));
+    public static final DeferredBlock<Block> streamleafSapling = registerBlock("streamleaf_sapling", p -> new SaplingBlock(new TreeGrower("streamleaf", WeightedList.of(FeatureRegistry.STREAMLEAF_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.STREAMLEAF_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.WARPED_ROOTS));
     public static final DeferredBlock<Block> streamleafLeaves = registerBlock("streamleaf_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.WARPED_WART_BLOCK).mapColor(MapColor.GLOW_LICHEN).noOcclusion());
     public static final DeferredBlock<DoorBlock> streamleafDoor = registerBlock("streamleaf_door", p -> new DoorBlock(BlockSetType.WARPED, p), STREAMLEAF_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> streamleafTrapdoor = registerBlock("streamleaf_trapdoor", p -> new TrapDoorBlock(BlockSetType.WARPED, p), STREAMLEAF_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> streamleafPressurePlate = registerBlock("streamleaf_pressure_plate", p -> new PressurePlateBlock(BlockSetType.WARPED, p), STREAMLEAF_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> streamleafButton = registerBlock("streamleaf_button", p -> new ButtonBlock(BlockSetType.WARPED, 20, p), STREAMLEAF_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> streamleafSign = registerBlock("streamleaf_sign", p -> new StandingSignBlock(STREAMLEAF_WOOD_TYPE, p), STREAMLEAF_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> streamleafSign = registerBlock("streamleaf_sign", p -> new StandingSignBlock(STREAMLEAF_WOOD_TYPE, p), STREAMLEAF_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> streamleafWallSign = registerBlock("streamleaf_wall_sign", p -> new WallSignBlock(STREAMLEAF_WOOD_TYPE, p), STREAMLEAF_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<CeilingHangingSignBlock> streamleafHangingSign = registerBlock("streamleaf_hanging_sign", p -> new CeilingHangingSignBlock(STREAMLEAF_WOOD_TYPE, p), STREAMLEAF_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallHangingSignBlock> streamleafHangingWallSign = registerBlock("streamleaf_wall_hanging_sign", p -> new WallHangingSignBlock(STREAMLEAF_WOOD_TYPE, p), STREAMLEAF_PLANKS_PROPS.noCollision());
@@ -370,7 +367,7 @@ public class BlockRegistry {
     public static final DeferredBlock<TrapDoorBlock> eucalyptusTrapdoor = registerBlock("eucalyptus_trapdoor", p -> new TrapDoorBlock(BlockSetType.OAK, p), EUCALYPTUS_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> eucalyptusPressurePlate = registerBlock("eucalyptus_pressure_plate", p -> new PressurePlateBlock(BlockSetType.OAK, p), EUCALYPTUS_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> eucalyptusButton = registerBlock("eucalyptus_button", p -> new ButtonBlock(BlockSetType.OAK, 20, p), EUCALYPTUS_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> eucalyptusSign = registerBlock("eucalyptus_sign", p -> new StandingSignBlock(EUCALYPTUS_WOOD_TYPE, p), EUCALYPTUS_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> eucalyptusSign = registerBlock("eucalyptus_sign", p -> new StandingSignBlock(EUCALYPTUS_WOOD_TYPE, p), EUCALYPTUS_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> eucalyptusWallSign = registerBlock("eucalyptus_wall_sign", p -> new WallSignBlock(EUCALYPTUS_WOOD_TYPE, p), EUCALYPTUS_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<CeilingHangingSignBlock> eucalyptusHangingSign = registerBlock("eucalyptus_hanging_sign", p -> new CeilingHangingSignBlock(EUCALYPTUS_WOOD_TYPE, p), EUCALYPTUS_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallHangingSignBlock> eucalyptusHangingWallSign = registerBlock("eucalyptus_wall_hanging_sign", p -> new WallHangingSignBlock(EUCALYPTUS_WOOD_TYPE, p), EUCALYPTUS_PLANKS_PROPS.noCollision());
@@ -383,17 +380,17 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> edenSlab = registerBlock("slab", SlabBlock::new, EDEN_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> edenFence = registerBlock("eden_fence", FenceBlock::new, EDEN_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> edenFenceGate = registerBlock("eden_fence_gate", p -> new FenceGateBlock(new WoodType("eden", BlockSetType.OAK), p), EDEN_PLANKS_PROPS);
-    public static final DeferredBlock<Block> edenSapling = registerBlock("eden_sapling", p -> new SaplingBlock(new TreeGrower("eden", Optional.empty(), Optional.of(FeatureRegistry.EDEN_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
+    public static final DeferredBlock<Block> edenSapling = registerBlock("eden_sapling", p -> new SaplingBlock(new TreeGrower("eden", WeightedList.of(FeatureRegistry.EDEN_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.EDEN_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
     public static final DeferredBlock<Block> edenLeaves = registerBlock("eden_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD).noOcclusion());
     public static final DeferredBlock<DoorBlock> edenDoor = registerBlock("eden_door", p -> new DoorBlock(BlockSetType.OAK, p), EDEN_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> edenTrapdoor = registerBlock("eden_trapdoor", p -> new TrapDoorBlock(BlockSetType.OAK, p), EDEN_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> edenPressurePlate = registerBlock("eden_pressure_plate", p -> new PressurePlateBlock(BlockSetType.OAK, p), EDEN_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> edenButton = registerBlock("eden_button", p -> new ButtonBlock(BlockSetType.OAK, 20, p), EDEN_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> edenSign = registerBlock("eden_sign", p -> new StandingSignBlock(EDEN_WOOD_TYPE, p), EDEN_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> edenSign = registerBlock("eden_sign", p -> new StandingSignBlock(EDEN_WOOD_TYPE, p), EDEN_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> edenWallSign = registerBlock("eden_wall_sign", p -> new WallSignBlock(EDEN_WOOD_TYPE, p), EDEN_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<TorchBlock> edenTorch = registerBlock("eden_torch", p -> new TorchBlock(ParticleTypes.FLAME, p), Block.Properties.ofFullCopy(Blocks.TORCH));
 //    public static final DeferredBlock<WallTorchBlock> edenWallTorch = registerBlock("eden_wall_torch", p -> new WallTorchBlock(ParticleTypes.FLAME, p), Block.Properties.ofFullCopy(Blocks.WALL_TORCH));
-    public static final DeferredBlock<Block> crimseekerSapling = registerBlock("crimseeker_sapling",p -> new SaplingBlock(new TreeGrower("crimseeker", Optional.empty(), Optional.of(FeatureRegistry.WILDWOOD_TREE_KEY), Optional.empty()), p),Block.Properties.ofFullCopy(Blocks.CRIMSON_FUNGUS));
+    public static final DeferredBlock<Block> crimseekerSapling = registerBlock("crimseeker_sapling",p -> new SaplingBlock(new TreeGrower("crimseeker", WeightedList.of(FeatureRegistry.WILDWOOD_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.WILDWOOD_TREE_KEY), p),Block.Properties.ofFullCopy(Blocks.CRIMSON_FUNGUS));
     public static final DeferredBlock<Block> crimmseekerLog = registerBlock("crimseeker_log",RotatedPillarBlock::new,Block.Properties.ofFullCopy(Blocks.CRIMSON_STEM).mapColor(MapColor.COLOR_RED));
     public static final DeferredBlock<Block> wildwoodLog = registerBlock("wildwood_log", RotatedPillarBlock::new, WILDWOOD_LOG_PROPS.mapColor(MapColor.COLOR_BLUE));
     public static final DeferredBlock<Block> wildwoodWood = registerBlock("wildwood_wood", RotatedPillarBlock::new, WILDWOOD_LOG_PROPS.mapColor(MapColor.COLOR_BLUE));
@@ -404,13 +401,13 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> wildwoodSlab = registerBlock("wildwood_slab", SlabBlock::new, WILDWOOD_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> wildwoodFence = registerBlock("wildwood_fence", FenceBlock::new, WILDWOOD_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> wildwoodFenceGate = registerBlock("wildwood_fence_gate", p -> new FenceGateBlock(new WoodType("wildwood", BlockSetType.OAK), p), WILDWOOD_PLANKS_PROPS);
-    public static final DeferredBlock<Block> wildwoodSapling = registerBlock("wildwood_sapling", p -> new SaplingBlock(new TreeGrower("wildwood", Optional.empty(), Optional.of(FeatureRegistry.WILDWOOD_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
+    public static final DeferredBlock<Block> wildwoodSapling = registerBlock("wildwood_sapling", p -> new SaplingBlock(new TreeGrower("wildwood", WeightedList.of(FeatureRegistry.WILDWOOD_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.WILDWOOD_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.OAK_SAPLING));
     public static final DeferredBlock<Block> wildwoodLeaves = registerBlock("wildwood_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.COLOR_LIGHT_BLUE).noOcclusion());
     public static final DeferredBlock<DoorBlock> wildwoodDoor = registerBlock("wildwood_door", p -> new DoorBlock(BlockSetType.OAK, p), WILDWOOD_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> wildwoodTrapdoor = registerBlock("wildwood_trapdoor", p -> new TrapDoorBlock(BlockSetType.OAK, p), WILDWOOD_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> wildwoodPressurePlate = registerBlock("wildwood_pressure_plate", p -> new PressurePlateBlock(BlockSetType.OAK, p), WILDWOOD_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> wildwoodButton = registerBlock("wildwood_button", p -> new ButtonBlock(BlockSetType.OAK, 20, p), WILDWOOD_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> wildwoodSign = registerBlock("wildwood_sign", p -> new StandingSignBlock(WILDWOOD_WOOD_TYPE, p), WILDWOOD_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> wildwoodSign = registerBlock("wildwood_sign", p -> new StandingSignBlock(WILDWOOD_WOOD_TYPE, p), WILDWOOD_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> wildwoodWallSign = registerBlock("wildwood_wall_sign", p -> new WallSignBlock(WILDWOOD_WOOD_TYPE, p), WILDWOOD_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<CeilingHangingSignBlock> wildwoodHangingSign = registerBlock("wildwood_hanging_sign", p -> new CeilingHangingSignBlock(WILDWOOD_WOOD_TYPE, p), WILDWOOD_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallHangingSignBlock> wildwoodHangingWallSign = registerBlock("wildwood_wall_hanging_sign", p -> new WallHangingSignBlock(WILDWOOD_WOOD_TYPE, p), WILDWOOD_PLANKS_PROPS.noCollision());
@@ -423,13 +420,13 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> apalachiaSlab = registerBlock("apalachia_slab", SlabBlock::new, APALACHIA_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> apalachiaFence = registerBlock("apalachia_fence", FenceBlock::new, APALACHIA_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> apalachiaFenceGate = registerBlock("apalachia_fence_gate", p -> new FenceGateBlock(new WoodType("apalachia", BlockSetType.WARPED), p), APALACHIA_PLANKS_PROPS);
-    public static final DeferredBlock<Block> apalachiaSapling = registerBlock("apalachia_sapling", p -> new SaplingBlock(new TreeGrower("apalachia", Optional.empty(), Optional.of(FeatureRegistry.APALACHIA_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.WARPED_FUNGUS));
+    public static final DeferredBlock<Block> apalachiaSapling = registerBlock("apalachia_sapling", p -> new SaplingBlock(new TreeGrower("apalachia", WeightedList.of(FeatureRegistry.APALACHIA_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.APALACHIA_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.WARPED_FUNGUS));
     public static final DeferredBlock<Block> apalachiaLeaves = registerBlock("apalachia_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.WARPED_WART_BLOCK).mapColor(MapColor.COLOR_MAGENTA).noOcclusion());
     public static final DeferredBlock<DoorBlock> apalachiaDoor = registerBlock("apalachia_door", p -> new DoorBlock(BlockSetType.WARPED, p), APALACHIA_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> apalachiaTrapdoor = registerBlock("apalachia_trapdoor", p -> new TrapDoorBlock(BlockSetType.WARPED, p), APALACHIA_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> apalachiaPressurePlate = registerBlock("apalachia_pressure_plate", p -> new PressurePlateBlock(BlockSetType.WARPED, p), APALACHIA_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> apalachiaButton = registerBlock("apalachia_button", p -> new ButtonBlock(BlockSetType.WARPED, 20, p), APALACHIA_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> apalachiaSign = registerBlock("apalachia_sign", p -> new StandingSignBlock(APALACHIA_WOOD_TYPE, p), APALACHIA_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> apalachiaSign = registerBlock("apalachia_sign", p -> new StandingSignBlock(APALACHIA_WOOD_TYPE, p), APALACHIA_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> apalachiaWallSign = registerBlock("apalachia_wall_sign", p -> new WallSignBlock(APALACHIA_WOOD_TYPE, p), APALACHIA_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<CeilingHangingSignBlock> apalachiaHangingSign = registerBlock("apalachia_hanging_sign", p -> new CeilingHangingSignBlock(APALACHIA_WOOD_TYPE, p), APALACHIA_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallHangingSignBlock> apalachiaHangingWallSign = registerBlock("apalachia_wall_hanging_sign", p -> new WallHangingSignBlock(APALACHIA_WOOD_TYPE, p), APALACHIA_PLANKS_PROPS.noCollision());
@@ -442,13 +439,13 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> skythernSlab = registerBlock("skythern_slab", SlabBlock::new, SKYTHERN_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> skythernFence = registerBlock("skythern_fence", FenceBlock::new, SKYTHERN_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> skythernFenceGate = registerBlock("skythern_fence_gate", p -> new FenceGateBlock(new WoodType("skythern", BlockSetType.WARPED), p), SKYTHERN_PLANKS_PROPS);
-    public static final DeferredBlock<Block> skythernSapling = registerBlock("skythern_sapling", p -> new SaplingBlock(new TreeGrower("skythern", Optional.empty(), Optional.of(FeatureRegistry.SKYTHERN_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.WARPED_ROOTS));
+    public static final DeferredBlock<Block> skythernSapling = registerBlock("skythern_sapling", p -> new SaplingBlock(new TreeGrower("skythern", WeightedList.of(FeatureRegistry.SKYTHERN_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.SKYTHERN_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.WARPED_ROOTS));
     public static final DeferredBlock<Block> skythernLeaves = registerBlock("skythern_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.WARPED_WART_BLOCK).mapColor(MapColor.COLOR_LIGHT_GRAY).noOcclusion());
     public static final DeferredBlock<DoorBlock> skythernDoor = registerBlock("skythern_door", p -> new DoorBlock(BlockSetType.WARPED, p), SKYTHERN_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> skythernTrapdoor = registerBlock("skythern_trapdoor", p -> new TrapDoorBlock(BlockSetType.WARPED, p), SKYTHERN_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> skythernPressurePlate = registerBlock("skythern_pressure_plate", p -> new PressurePlateBlock(BlockSetType.WARPED, p), SKYTHERN_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> skythernButton = registerBlock("skythern_button", p -> new ButtonBlock(BlockSetType.WARPED, 20, p), SKYTHERN_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> skythernSign = registerBlock("skythern_sign", p -> new StandingSignBlock(SKYTHERN_WOOD_TYPE, p), SKYTHERN_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> skythernSign = registerBlock("skythern_sign", p -> new StandingSignBlock(SKYTHERN_WOOD_TYPE, p), SKYTHERN_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> skythernWallSign = registerBlock("skythern_wall_sign", p -> new WallSignBlock(SKYTHERN_WOOD_TYPE, p), SKYTHERN_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<CeilingHangingSignBlock> skythernHangingSign = registerBlock("skythern_hanging_sign", p -> new CeilingHangingSignBlock(SKYTHERN_WOOD_TYPE, p), SKYTHERN_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallHangingSignBlock> skythernHangingWallSign = registerBlock("skythern_wall_hanging_sign", p -> new WallHangingSignBlock(SKYTHERN_WOOD_TYPE, p), SKYTHERN_PLANKS_PROPS.noCollision());
@@ -461,13 +458,13 @@ public class BlockRegistry {
     public static final DeferredBlock<SlabBlock> mortumSlab = registerBlock("mortum_slab", SlabBlock::new, MORTUM_PLANKS_PROPS);
     public static final DeferredBlock<FenceBlock> mortumFence = registerBlock("mortum_fence", FenceBlock::new, MORTUM_PLANKS_PROPS);
     public static final DeferredBlock<FenceGateBlock> mortumFenceGate = registerBlock("mortum_fence_gate", p -> new FenceGateBlock(new WoodType("mortum", BlockSetType.DARK_OAK), p), MORTUM_PLANKS_PROPS);
-    public static final DeferredBlock<Block> mortumSapling = registerBlock("mortum_sapling", p -> new SaplingBlock(new TreeGrower("mortum", Optional.empty(), Optional.of(FeatureRegistry.MORTUM_TREE_KEY), Optional.empty()), p), Block.Properties.ofFullCopy(Blocks.DARK_OAK_SAPLING));
+    public static final DeferredBlock<Block> mortumSapling = registerBlock("mortum_sapling", p -> new SaplingBlock(new TreeGrower("mortum", WeightedList.of(FeatureRegistry.MORTUM_TREE_KEY), WeightedList.of(), WeightedList.of(), FeatureRegistry.MORTUM_TREE_KEY), p), Block.Properties.ofFullCopy(Blocks.DARK_OAK_SAPLING));
     public static final DeferredBlock<Block> mortumLeaves = registerBlock("mortum_leaves", DivineLeavesBlock::new, Block.Properties.ofFullCopy(Blocks.DARK_OAK_LEAVES).mapColor(MapColor.COLOR_BLACK).noOcclusion());
     public static final DeferredBlock<DoorBlock> mortumDoor = registerBlock("mortum_door", p -> new DoorBlock(BlockSetType.DARK_OAK, p), MORTUM_PLANKS_PROPS);
     public static final DeferredBlock<TrapDoorBlock> mortumTrapdoor = registerBlock("mortum_trapdoor", p -> new TrapDoorBlock(BlockSetType.DARK_OAK, p), MORTUM_PLANKS_PROPS);
     public static final DeferredBlock<PressurePlateBlock> mortumPressurePlate = registerBlock("mortum_pressure_plate", p -> new PressurePlateBlock(BlockSetType.DARK_OAK, p), MORTUM_PLANKS_PROPS);
     public static final DeferredBlock<ButtonBlock> mortumButton = registerBlock("mortum_button", p -> new ButtonBlock(BlockSetType.DARK_OAK, 20, p), MORTUM_PLANKS_PROPS);
-//    public static final DeferredBlock<StandingSignBlock> mortumSign = registerBlock("mortum_sign", p -> new StandingSignBlock(MORTUM_WOOD_TYPE, p), MORTUM_PLANKS_PROPS.noCollision());
+    //    public static final DeferredBlock<StandingSignBlock> mortumSign = registerBlock("mortum_sign", p -> new StandingSignBlock(MORTUM_WOOD_TYPE, p), MORTUM_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallSignBlock> mortumWallSign = registerBlock("mortum_wall_sign", p -> new WallSignBlock(MORTUM_WOOD_TYPE, p), MORTUM_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<CeilingHangingSignBlock> mortumHangingSign = registerBlock("mortum_hanging_sign", p -> new CeilingHangingSignBlock(MORTUM_WOOD_TYPE, p), MORTUM_PLANKS_PROPS.noCollision());
 //    public static final DeferredBlock<WallHangingSignBlock> mortumHangingWallSign = registerBlock("mortum_wall_hanging_sign", p -> new WallHangingSignBlock(MORTUM_WOOD_TYPE, p), MORTUM_PLANKS_PROPS.noCollision());
@@ -557,12 +554,12 @@ public class BlockRegistry {
     public static final DeferredBlock<WallBlock> polishedCoalstoneWall = registerBlock("polished_coalstone_wall", WallBlock::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2.0F, 6.0F));
     public static final DeferredBlock<PressurePlateBlock> polishedCoalstonePressurePlate = registerBlock("polished_coalstone_pressure_plate", p -> new PressurePlateBlock(BlockSetType.POLISHED_BLACKSTONE, p), Block.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2.0F, 6.0F));
     public static final DeferredBlock<ButtonBlock> polishedCoalstoneButton = registerBlock("polished_coalstone_button", p -> new ButtonBlock(BlockSetType.POLISHED_BLACKSTONE, 20, p), Block.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2.0F, 6.0F));
-    public static final DeferredBlock<Block> cutOxdrite = registerBlock("cut_oxdrite",p -> new WaterloggedTransparentBlock(p),Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
-    public static final DeferredBlock<StairBlock> cutOxdriteStairs = registerBlock("cut_oxdrite_stairs",p -> new StairBlock(cutOxdrite.get().defaultBlockState(), p),Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
-    public static final DeferredBlock<SlabBlock> cutOxdriteSlab = registerBlock("cut_oxdrite_slab",SlabBlock::new,Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
-    public static final DeferredBlock<WallBlock> cutOxdriteWall = registerBlock("cut_oxdrite_wall",WallBlock::new,Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
-    public static final DeferredBlock<PressurePlateBlock> cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate",p -> new PressurePlateBlock(BlockSetType.IRON, p),Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
-    public static final DeferredBlock<ButtonBlock> cutOxdriteButton = registerBlock("cut_oxdrite_button",p -> new ButtonBlock(BlockSetType.IRON, 20, p),Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
+    public static final DeferredBlock<Block> cutOxdrite = registerBlock("cut_oxdrite",p -> new WaterloggedTransparentBlock(p),Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos, i) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
+    public static final DeferredBlock<StairBlock> cutOxdriteStairs = registerBlock("cut_oxdrite_stairs",p -> new StairBlock(cutOxdrite.get().defaultBlockState(), p),Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos,  i) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
+    public static final DeferredBlock<SlabBlock> cutOxdriteSlab = registerBlock("cut_oxdrite_slab",SlabBlock::new,Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos, i) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
+    public static final DeferredBlock<WallBlock> cutOxdriteWall = registerBlock("cut_oxdrite_wall",WallBlock::new,Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos, i) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
+    public static final DeferredBlock<PressurePlateBlock> cutOxdritePressurePlate = registerBlock("cut_oxdrite_pressure_plate",p -> new PressurePlateBlock(BlockSetType.IRON, p),Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos, i) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
+    public static final DeferredBlock<ButtonBlock> cutOxdriteButton = registerBlock("cut_oxdrite_button",p -> new ButtonBlock(BlockSetType.IRON, 20, p),Block.Properties.ofFullCopy(Blocks.IRON_BLOCK).mapColor(MapColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.COPPER_GRATE).noOcclusion().isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos,  i) -> false).isRedstoneConductor((state, getter, pos) -> false).isValidSpawn((state, getter, pos, entityType) -> false));
     public static final DeferredBlock<Block> arcaniteTiles = registerBlock("arcanite_tiles", Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).requiresCorrectToolForDrops().strength(2.0F, 6.0F));
     public static final DeferredBlock<StairBlock> arcaniteTileStairs = registerBlock("arcanite_tile_stairs", p -> new StairBlock(arcaniteTiles.get().defaultBlockState(), p), Block.Properties.of().mapColor(MapColor.COLOR_CYAN).requiresCorrectToolForDrops().strength(2.0F, 6.0F));
     public static final DeferredBlock<SlabBlock> arcaniteTileSlab = registerBlock("arcanite_tile_slab", SlabBlock::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).requiresCorrectToolForDrops().strength(2.0F, 6.0F));
@@ -662,7 +659,7 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> greenFairyLights = registerBlock("green_fairy_lights", BlockLights::new, Block.Properties.of());
     public static final DeferredBlock<Block> blueFairyLights = registerBlock("blue_fairy_lights", BlockLights::new, Block.Properties.of());
     public static final DeferredBlock<Block> purpleFairyLights = registerBlock("purple_fairy_lights", BlockLights::new, Block.Properties.of());
-//    public static final DeferredBlock<Block> aquaTorch = registerBlock("aqua_torch", BlockAquaTorch::new, Block.Properties.ofFullCopy(Blocks.TORCH));
+    //    public static final DeferredBlock<Block> aquaTorch = registerBlock("aqua_torch", BlockAquaTorch::new, Block.Properties.ofFullCopy(Blocks.TORCH));
 //    public static final DeferredBlock<Block> aquaWallTorch = registerBlock("aqua_wall_torch", BlockAquaWallTorch::new, Block.Properties.ofFullCopy(Blocks.WALL_TORCH));
 //    public static final DeferredBlock<Block> arcaniumTorch = registerBlock("arcanium_torch", BlockModTorch::new, Block.Properties.ofFullCopy(Blocks.TORCH));
 //    public static final DeferredBlock<Block> arcaniumWallTorch = registerBlock("arcanium_wall_torch", BlockModWallTorch::new, Block.Properties.ofFullCopy(Blocks.WALL_TORCH));
@@ -712,48 +709,48 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> winterberryVinesBody = registerBlock("winterberry_vines_body", /*BlockWinterberryVinesBody*/Block::new, Block.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES));
     public static final DeferredBlock<Block> winterberryVinesHead = registerBlock("winterberry_vines_head", /*BlockWinterberryVinesHead*/Block::new, Block.Properties.ofFullCopy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES));
     public static final DeferredBlock<Block> snowyMoss = registerBlock("snowy_moss", /*BlockSnowyMoss*/Block::new, Block.Properties.ofFullCopy(Blocks.MOSS_BLOCK));
-    public static final DeferredBlock<Block> crimpetal = registerBlock("crimpetal", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_MAGENTA).noCollision().instabreak());
-    public static final DeferredBlock<Block> roofbell = registerBlock("roofbell", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_PINK).noCollision().instabreak());
-    public static final DeferredBlock<Block> winterbloom = registerBlock("winterbloom", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.SNOW).noCollision().instabreak());
-    public static final DeferredBlock<Block> wispLeaf = registerBlock("wisp_leaf", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).noCollision().instabreak());
-    public static final DeferredBlock<Block> globebrush = registerBlock("globebrush", /*BlockModDoubleFlower*/Block::new, Block.Properties.of().mapColor(MapColor.SNOW).noCollision().instabreak());
-    public static final DeferredBlock<Block> thermoliage = registerBlock("thermoliage", /*BlockModDoubleFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_PINK).noCollision().instabreak());
-    public static final DeferredBlock<Block> arcanaBrush = registerBlock("arcana_brush", /*BlockModGrass*/Block::new, Block.Properties.of().mapColor(MapColor.ICE).noCollision().instabreak());
-    public static final DeferredBlock<Block> arcanaBush = registerBlock("arcana_bush", /*BlockModGrass*/Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).noCollision().instabreak());
-    public static final DeferredBlock<Block> gemOfTheDunes = registerBlock("gem_of_the_dunes", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_MAGENTA).noCollision().instabreak());
-    public static final DeferredBlock<Block> arcaniteVinesBody = registerBlock("arcanite_vines_body", /*BlockArcaniteVinesBody*/Block::new, Block.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES));
-    public static final DeferredBlock<Block> arcaniteVinesHead = registerBlock("arcanite_vines_head", /*BlockArcaniteVinesHead*/Block::new, Block.Properties.ofFullCopy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES));
-    public static final DeferredBlock<Block> edenBrush = registerBlock("eden_brush", /*BlockModGrass*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).noCollision().instabreak());
-    public static final DeferredBlock<Block> sunBlossom = registerBlock("sun_blossom", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.PLANT).noCollision().instabreak());
-    public static final DeferredBlock<Block> sunbloom = registerBlock("sunbloom", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).noCollision().instabreak());
+    public static final DeferredBlock<Block> crimpetal = registerBlock("crimpetal", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_MAGENTA).noCollision().instabreak());
+    public static final DeferredBlock<Block> roofbell = registerBlock("roofbell", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_PINK).noCollision().instabreak());
+    public static final DeferredBlock<Block> winterbloom = registerBlock("winterbloom", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.SNOW).noCollision().instabreak());
+    public static final DeferredBlock<Block> wispLeaf = registerBlock("wisp_leaf", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).noCollision().instabreak());
+    public static final DeferredBlock<Block> globebrush = registerBlock("globebrush", BlockModDoubleFlower::new, Block.Properties.of().mapColor(MapColor.SNOW).noCollision().instabreak());
+    public static final DeferredBlock<Block> thermoliage = registerBlock("thermoliage", BlockModDoubleFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_PINK).noCollision().instabreak());
+    public static final DeferredBlock<Block> arcanaBrush = registerBlock("arcana_brush", BlockModGrass::new, Block.Properties.of().mapColor(MapColor.ICE).noCollision().instabreak());
+    public static final DeferredBlock<Block> arcanaBush = registerBlock("arcana_bush", BlockModGrass::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).noCollision().instabreak());
+    public static final DeferredBlock<Block> gemOfTheDunes = registerBlock("gem_of_the_dunes", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_MAGENTA).noCollision().instabreak());
+    public static final DeferredBlock<Block> arcaniteVinesBody = registerBlock("arcanite_vines_body", BlockArcaniteVinesBody::new, Block.Properties.ofFullCopy(Blocks.WEEPING_VINES_PLANT).sound(SoundType.CAVE_VINES));
+    public static final DeferredBlock<Block> arcaniteVinesHead = registerBlock("arcanite_vines_head", BlockArcaniteVinesHead::new, Block.Properties.ofFullCopy(Blocks.WEEPING_VINES).sound(SoundType.CAVE_VINES));
+    public static final DeferredBlock<Block> edenBrush = registerBlock("eden_brush", BlockModGrass::new, Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).noCollision().instabreak());
+    public static final DeferredBlock<Block> sunBlossom = registerBlock("sun_blossom", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.PLANT).noCollision().instabreak());
+    public static final DeferredBlock<Block> sunbloom = registerBlock("sunbloom", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).noCollision().instabreak());
     public static final DeferredBlock<Block> lushroom = registerBlock("lushroom", /*Lushroom*/Block::new, Block.Properties.of().noCollision().instabreak().sound(SoundType.GRASS));
     public static final DeferredBlock<Block> duncap = registerBlock("duncap", /*Duncap*/Block::new, Block.Properties.of().noCollision().instabreak().sound(SoundType.GRASS));
     public static final DeferredBlock<Block> landVineStem = registerBlock("land_vine_stem", /*LandVineStem*/Block::new, Block.Properties.of().noCollision().instabreak().sound(SoundType.VINE));
     public static final DeferredBlock<Block> landVine = registerBlock("land_vine", LandVine::new, Block.Properties.ofFullCopy(Blocks.VINE).noCollision().instabreak().sound(SoundType.VINE));
     public static final DeferredBlock<Block> wildwoodVine = registerBlock("wildwood_vine", /*BlockModVine*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).noCollision().instabreak().sound(SoundType.VINE));
-    public static final DeferredBlock<Block> moonlightFern = registerBlock("moonlight_fern", /*BlockModGrass*/Block::new, Block.Properties.of().mapColor(MapColor.ICE).noCollision().instabreak().sound(SoundType.GRASS));
-    public static final DeferredBlock<Block> moonBud = registerBlock("moon_bud", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.QUARTZ).noCollision().instabreak());
-    public static final DeferredBlock<Block> wildwoodTallgrass = registerBlock("wildwood_tallgrass", /*BlockModDoublePlant*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_BLUE).noCollision().instabreak().sound(SoundType.GRASS));
-    public static final DeferredBlock<Block> apalachiaTallgrass = registerBlock("apalachia_tallgrass", /*BlockModGrass*/Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).noCollision().instabreak().sound(SoundType.GRASS));
-    public static final DeferredBlock<Block> duskBloom = registerBlock("dusk_bloom", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).noCollision().instabreak());
-    public static final DeferredBlock<Block> duskFlower = registerBlock("dusk_flower", /*BlockModDoubleFlower*/Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).noCollision().instabreak());
-    public static final DeferredBlock<Block> skythernBrush = registerBlock("skythern_brush", /*BlockModGrass*/Block::new, Block.Properties.of().mapColor(MapColor.WOOL).noCollision().instabreak().sound(SoundType.GRASS));
-    public static final DeferredBlock<Block> dustLily = registerBlock("dust_lily", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.WOOL).noCollision().instabreak());
-    public static final DeferredBlock<Block> dustBrambles = registerBlock("dust_brambles", /*BlockBrambles*/Block::new, Block.Properties.of().mapColor(MapColor.WOOL).noCollision().instabreak().sound(SoundType.GRASS));
-    public static final DeferredBlock<Block> mortumBrush = registerBlock("mortum_brush", /*BlockModGrass*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).noCollision().instabreak().sound(SoundType.GRASS));
-    public static final DeferredBlock<Block> eyePlant = registerBlock("eye_plant", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).noCollision().instabreak());
-    public static final DeferredBlock<Block> truffle = registerBlock("truffle", Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(1.0F).pushReaction(PushReaction.DESTROY).sound(SoundType.WOOD));
-    public static final DeferredBlock<Block> demonBrambles = registerBlock("demon_brambles", /*BlockBrambles*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).noCollision().instabreak().sound(SoundType.GRASS));
-    public static final DeferredBlock<Block> shineGrass = registerBlock("shine_grass", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> cracklespike = registerBlock("cracklespike", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> fernite = registerBlock("fernite", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> dreamglow = registerBlock("dreamglow", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> bulbatobe = registerBlock("bulbatobe", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> shimmer = registerBlock("shimmer", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> yellowDulah = registerBlock("yellow_dulah", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> greenDulah = registerBlock("green_dulah", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> greenGemtop = registerBlock("green_gemtop", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
-    public static final DeferredBlock<Block> purpleGemtop = registerBlock("purple_gemtop", /*BlockModFlower*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> moonlightFern = registerBlock("moonlight_fern", BlockModGrass::new, Block.Properties.of().mapColor(MapColor.ICE).noCollision().instabreak().sound(SoundType.GRASS));
+    public static final DeferredBlock<Block> moonBud = registerBlock("moon_bud", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.QUARTZ).noCollision().instabreak());
+    public static final DeferredBlock<Block> wildwoodTallgrass = registerBlock("wildwood_tallgrass", BlockModDoublePlant::new, Block.Properties.of().mapColor(MapColor.COLOR_BLUE).noCollision().instabreak().sound(SoundType.GRASS));
+    public static final DeferredBlock<Block> apalachiaTallgrass = registerBlock("apalachia_tallgrass", BlockModGrass::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).noCollision().instabreak().sound(SoundType.GRASS));
+    public static final DeferredBlock<Block> duskBloom = registerBlock("dusk_bloom", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).noCollision().instabreak());
+    public static final DeferredBlock<Block> duskFlower = registerBlock("dusk_flower", BlockModDoubleFlower::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BLUE).noCollision().instabreak());
+    public static final DeferredBlock<Block> skythernBrush = registerBlock("skythern_brush", BlockModGrass::new, Block.Properties.of().mapColor(MapColor.WOOL).noCollision().instabreak().sound(SoundType.GRASS));
+    public static final DeferredBlock<Block> dustLily = registerBlock("dust_lily", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.WOOL).noCollision().instabreak());
+    public static final DeferredBlock<Block> dustBrambles = registerBlock("dust_brambles", BlockBrambles::new, Block.Properties.of().mapColor(MapColor.WOOL).noCollision().instabreak().sound(SoundType.GRASS));
+    public static final DeferredBlock<Block> mortumBrush = registerBlock("mortum_brush", BlockModGrass::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).noCollision().instabreak().sound(SoundType.GRASS));
+    public static final DeferredBlock<Block> eyePlant = registerBlock("eye_plant", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).noCollision().instabreak());
+    public static final DeferredBlock<Block> truffle = registerBlock("truffle", Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(1.0F).pushReaction(PushReaction.POPPED).sound(SoundType.WOOD));
+    public static final DeferredBlock<Block> demonBrambles = registerBlock("demon_brambles", BlockBrambles::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).noCollision().instabreak().sound(SoundType.GRASS));
+    public static final DeferredBlock<Block> shineGrass = registerBlock("shine_grass", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> cracklespike = registerBlock("cracklespike", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> fernite = registerBlock("fernite", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> dreamglow = registerBlock("dreamglow", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> bulbatobe = registerBlock("bulbatobe", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> shimmer = registerBlock("shimmer", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> yellowDulah = registerBlock("yellow_dulah", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> greenDulah = registerBlock("green_dulah", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> greenGemtop = registerBlock("green_gemtop", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
+    public static final DeferredBlock<Block> purpleGemtop = registerBlock("purple_gemtop", BlockModFlower::new, Block.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollision().instabreak());
     public static final DeferredBlock<Block> weedwoodVine = registerBlock("weedwood_vine", /*BlockModVine*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_BLUE).noCollision().instabreak().sound(SoundType.VINE));
     public static final DeferredBlock<Block> blossomedWeedwoodVine = registerBlock("blossomed_weedwood_vine", /*BlockModVine*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_BLUE).noCollision().instabreak().sound(SoundType.VINE));
     public static final DeferredBlock<Block> tomatoPlant = registerBlock("tomato_plant", /*BlockModCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
@@ -765,11 +762,11 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> marsinePlant = registerBlock("marsine_plant", /*BlockModCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
     public static final DeferredBlock<Block> veiloPlant = registerBlock("veilo_plant", /*BlockModCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
     public static final DeferredBlock<Block> skyPlant = registerBlock("sky_plant", /*BlockModCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
-    public static final DeferredBlock<Block> firestockPlant = registerBlock("firestock_plant", /*BlockArcanaDoubleCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
-    public static final DeferredBlock<Block> pinflyPlant = registerBlock("pinfly_plant", /*BlockArcanaDoubleCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
-    public static final DeferredBlock<Block> moonbulbPlant = registerBlock("moonbulb_plant", /*BlockModDoubleCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
-    public static final DeferredBlock<Block> purpleGlowbonePlant = registerBlock("purple_glowbone_plant", /*BlockModDoubleCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
-    public static final DeferredBlock<Block> pinkGlowbonePlant = registerBlock("pink_glowbone_plant", /*BlockModDoubleCrop*/Block::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
+    public static final DeferredBlock<Block> firestockPlant = registerBlock("firestock_plant", BlockArcanaDoubleCrop::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
+    public static final DeferredBlock<Block> pinflyPlant = registerBlock("pinfly_plant", BlockArcanaDoubleCrop::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
+    public static final DeferredBlock<Block> moonbulbPlant = registerBlock("moonbulb_plant", BlockModDoubleCrop::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
+    public static final DeferredBlock<Block> purpleGlowbonePlant = registerBlock("purple_glowbone_plant", BlockModDoubleCrop::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
+    public static final DeferredBlock<Block> pinkGlowbonePlant = registerBlock("pink_glowbone_plant", BlockModDoubleCrop::new, Block.Properties.of().noCollision().instabreak().randomTicks().sound(SoundType.CROP));
     public static final DeferredBlock<Block> blazePumpkin = registerBlock("blaze_pumpkin", /*BlockMobPumpkin*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(1.0F).sound(SoundType.WOOD));
     public static final DeferredBlock<Block> creeperPumpkin = registerBlock("creeper_pumpkin", /*BlockMobPumpkin*/Block::new, Block.Properties.of().mapColor(MapColor.EMERALD).strength(1.0F).sound(SoundType.WOOD));
     public static final DeferredBlock<Block> cyclopsPumpkin = registerBlock("cyclops_pumpkin", /*BlockMobPumpkin*/Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GREEN).strength(1.0F).sound(SoundType.WOOD));
@@ -800,7 +797,7 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> densosStatue = registerBlock("densos_statue", /*BlockStatue*/p -> new Block(p), Block.Properties.of().mapColor(MapColor.STONE).strength(2.0F) /*DENSOS*/);
     public static final DeferredBlock<Block> reyvorStatue = registerBlock("reyvor_statue", /*BlockStatue*/p -> new Block(p), Block.Properties.of().mapColor(MapColor.STONE).strength(2.0F) /*REYVOR*/);
     public static final DeferredBlock<Block> soulFiendStatue = registerBlock("soul_fiend_statue", /*BlockStatue*/p -> new Block(p), Block.Properties.of().mapColor(MapColor.STONE).strength(2.0F) /*null*/);
-    public static final DeferredBlock<Block> proximitySpawner = registerBlock("proximity_spawner", /*BlockModProximitySpawner*/Block::new, Block.Properties.ofFullCopy(Blocks.SPAWNER).noLootTable());
+    public static final DeferredBlock<Block> proximitySpawner = registerBlock("proximity_spawner", /*BlockModProximitySpawner*/Block::new, Block.Properties.ofFullCopy(Blocks.SPAWNER));
     public static final DeferredBlock<Block> kobblinBurrow = registerBlock("kobblin_burrow", /*KobblinBurrow*/Block::new, Block.Properties.ofFullCopy(Blocks.ROOTED_DIRT));
     public static final DeferredBlock<Block> encagedCaptainMerik = registerBlock("encaged_captain_merik", /*BlockModMobCage*/Block::new, Block.Properties.of().strength(2.0F) /*EntityRegistry.CAPTAIN_MERIK.getId(), SUMMONING_CAPTAIN_MERIK*/);
     public static final DeferredBlock<Block> encagedDatticon = registerBlock("encaged_datticon", /*BlockModMobCage*/Block::new, Block.Properties.of().strength(2.0F) /*EntityRegistry.DATTICON.getId(), SUMMONING_DATTICON*/);
@@ -814,8 +811,8 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> termasectSpawner = registerBlock("termasect_spawner", /*BlockModMobCage*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE) /*EntityRegistry.TERMASECT.getId(), SUMMONING_TERMASECT, new BlockPos(0, 11, 0)*/);
     public static final DeferredBlock<Block> eternalArcherSpawner = registerBlock("eternal_archer_spawner", /*BlockModMobCage*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_MAGENTA) /*EntityRegistry.ETERNAL_ARCHER.getId(), SUMMONING_ETERNAL_ARCHER*/);
     public static final DeferredBlock<Block> experiencedCoriSpawner = registerBlock("experienced_cori_spawner", /*BlockModMobCage*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY) /*EntityRegistry.EXPERIENCED_CORI.getId(), SUMMONING_EXPERIENCED_CORI, new BlockPos(0, 11, 0)*/);
-    public static final DeferredBlock<Block> dramixAltar = registerBlock("dramix_altar", /*BlockArcanaAltar*/Block::new, Block.Properties.of().mapColor(MapColor.CRIMSON_HYPHAE).strength(3.0F)); /*Rarity.COMMON*/
-    public static final DeferredBlock<Block> parasectaAltar = registerBlock("parasecta_altar", /*BlockArcanaAltar*/Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(3.0F)); /*Rarity.COMMON*/
+    public static final DeferredBlock<Block> dramixAltar = registerBlock("dramix_altar", BlockArcanaAltar::new, Block.Properties.of().mapColor(MapColor.CRIMSON_HYPHAE).strength(3.0F)); /*Rarity.COMMON*/
+    public static final DeferredBlock<Block> parasectaAltar = registerBlock("parasecta_altar", BlockArcanaAltar::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).strength(3.0F)); /*Rarity.COMMON*/
     public static final DeferredBlock<Block> karosAltar = registerBlock("karos_altar", /*BlockKarosAltar*/Block::new, Block.Properties.of().strength(3.0F));
     public static final DeferredBlock<Block> lunicAltar = registerBlock("lunic_altar", /*BlockLunicAltar*/Block::new, Block.Properties.of().strength(3.0F));
     public static final DeferredBlock<Block> quadroticAltar = registerBlock("quadrotic_altar", /*BlockQuadroticAltar*/Block::new, Block.Properties.of().strength(3.0F));
@@ -830,7 +827,7 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> ayeracoBeamPink = registerBlock("ayeraco_beam_pink", /*BlockAyeracoBeam*/Block::new, Block.Properties.of().noOcclusion() /*BossBarColor.PINK*/);
     public static final DeferredBlock<Block> ayeracoSpawn = registerBlock("ayeraco_spawn", /*BlockAyeracoSpawn*/Block::new, Block.Properties.of());
     public static final DeferredBlock<Block> altarOfCorruption = registerBlock("altar_of_corruption", /*BlockAltarOfCorruption*/Block::new, Block.Properties.ofFullCopy(Blocks.ENCHANTING_TABLE)); /*Rarity.UNCOMMON*/
-    public static final DeferredBlock<Block> arcaniumExtractor = registerBlock("arcanium_extractor", /*BlockArcaniumExtractor*/Block::new, Block.Properties.of().strength(3.0F)); /*Rarity.RARE*/
+    public static final DeferredBlock<Block> arcaniumExtractor = registerBlock("arcanium_extractor", BlockArcaniumExtractor::new, Block.Properties.of().strength(3.0F)); /*Rarity.RARE*/
     public static final DeferredBlock<Block> infusionTable = registerBlock("infusion_table", /*BlockInfusionTable*/Block::new, Block.Properties.of().strength(3.0F)); /*Rarity.RARE*/
     public static final DeferredBlock<Block> coalstoneFurnace = registerBlock("coalstone_furnace", /*BlockModInfiniFurnace*/Block::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).strength(3.5F) /*BlockEntityRegistry.COALSTONE_FURNACE::get*/);
     public static final DeferredBlock<Block> moltenFurnace = registerBlock("molten_furnace", /*BlockModInfiniFurnace*/Block::new, Block.Properties.of().mapColor(MapColor.TERRACOTTA_LIGHT_GRAY).strength(3.5F)); /*Rarity.UNCOMMON, BlockEntityRegistry.MOLTEN_FURNACE::get*/
@@ -847,12 +844,12 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> oxcrate = registerBlock("oxcrate", /*Oxcrate*/Block::new, Block.Properties.of().strength(2.5F));
     public static final DeferredBlock<Block> inserter = registerBlock("inserter", BlockInserter::new, Block.Properties.of().strength(2.0F));
     public static final DeferredBlock<Block> distributor = registerBlock("distributor", /*BlockDistributor*/Block::new, Block.Properties.of().strength(2.0F));
-    public static final DeferredBlock<Block> nightmareBed = registerBlock("nightmare_bed", BlockNightmareBed::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).ignitedByLava().pushReaction(PushReaction.DESTROY).strength(.2F).sound(SoundType.WOOD));
+    public static final DeferredBlock<Block> nightmareBed = registerBlockNoItem("nightmare_bed", BlockNightmareBed::new, Block.Properties.of().mapColor(MapColor.COLOR_GRAY).ignitedByLava().pushReaction(PushReaction.POPPED).strength(.2F).sound(SoundType.WOOD));
     public static final DeferredBlock<Block> hellfireSponge = registerBlock("hellfire_sponge", /*BlockHellfireSponge*/Block::new, Block.Properties.of().strength(0.6F));
     public static final DeferredBlock<Block> coldHellfireSponge = registerBlock("cold_hellfire_sponge", /*BlockColdHellfireSponge*/Block::new, Block.Properties.of().strength(0.6F));
     public static final DeferredBlock<Block> frostedAllure = registerBlock("frosted_allure", /*BlockFrostedAllure*/Block::new, Block.Properties.of()); /*Rarity.UNCOMMON*/
     public static final DeferredBlock<Block> soulTrap = registerBlock("soul_trap", /*BlockModSoulTrap*/Block::new, Block.Properties.of().strength(2.0F));
-    public static final DeferredBlock<Block> acceleron = registerBlock("acceleron", /*BlockAcceleron*/Block::new, Block.Properties.of().strength(2.0F)); /*Rarity.UNCOMMON*/
+    public static final DeferredBlock<Block> acceleron = registerBlock("acceleron", BlockAcceleron::new, Block.Properties.of().strength(2.0F)); /*Rarity.UNCOMMON*/
     public static final DeferredBlock<Block> graveStone = registerBlock("gravestone", /*BlockGraveStone*/Block::new, Block.Properties.of().strength(2.0F)); /*Rarity.UNCOMMON*/
     public static final DeferredBlock<Block> robbinHut = registerBlock("robbin_hut", /*BlockRobbinHut*/Block::new, Block.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS));
     public static final DeferredBlock<Block> robbinNest = registerBlock("robbin_nest", /*BlockRobbinNest*/Block::new, Block.Properties.ofFullCopy(Blocks.HAY_BLOCK));
@@ -881,7 +878,7 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> mortumEmbers = registerBlock("mortum_embers", /*MortumEmbers*/Block::new, Block.Properties.of().replaceable().noCollision().instabreak());
     public static final DeferredBlock<Block> gateway = registerBlock("gateway", /*BlockGateway*/Block::new, Block.Properties.ofFullCopy(Blocks.LODESTONE));
     public static final DeferredBlock<Block> divinePortal = registerBlock("divine_portal", /*SimplePortalBlock*/Block::new, Block.Properties.of().noCollision().instabreak()); /*Level.OVERWORLD, LevelRegistry.EDEN, divineRock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal")*/
-    public static final DeferredBlock<Block> arcanaPortal = registerBlock("arcana_portal", /*BlockArcanaPortal*/Block::new, Block.Properties.of().noCollision().instabreak());
+    public static final DeferredBlock<Block> arcanaPortal = registerBlock("arcana_portal", BlockArcanaPortal::new, Block.Properties.of().noCollision().instabreak());
     public static final DeferredBlock<Block> iceikaPortal = registerBlock("iceika_portal", /*SimplePortalBlock*/Block::new, Block.Properties.of().noCollision().instabreak()); /*LevelRegistry.ICEIKA, Level.OVERWORLD, Blocks.SNOW_BLOCK, ResourceLocation.fromNamespaceAndPath(MODID, "frost")*/
     public static final DeferredBlock<Block> edenPortal = registerBlock("eden_portal", /*SimplePortalBlock*/Block::new, Block.Properties.of().noCollision().instabreak()); /*LevelRegistry.EDEN, Level.OVERWORLD, edenBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "eden_portal")*/
     public static final DeferredBlock<Block> wildwoodPortal = registerBlock("wildwood_portal", /*SimplePortalBlock*/Block::new, Block.Properties.of().noCollision().instabreak()); /*LevelRegistry.WILDWOOD, LevelRegistry.EDEN, wildwoodBlock.get(), ResourceLocation.fromNamespaceAndPath(MODID, "wildwood_portal")*/
@@ -896,7 +893,7 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> skythernRift = registerBlock("skythern_rift", /*BlockModRift*/Block::new, Block.Properties.of().noCollision().instabreak()); /*LevelRegistry.SKYTHERN, STABLE_SKYTHERN_RIFT, RIFT_RESONATING_SKYTHERN, RIFT_REPLENISHING_SKYTHERN, (byte)4*/
     public static final DeferredBlock<Block> mortumRift = registerBlock("mortum_rift", /*BlockModRift*/Block::new, Block.Properties.of().noCollision().instabreak()); /*LevelRegistry.MORTUM, STABLE_MORTUM_RIFT, RIFT_RESONATING_MORTUM, RIFT_REPLENISHING_MORTUM, (byte)5*/
     public static final DeferredBlock<Block> dungeonAir = registerBlock("dungeon_air", /*BlockModDungeonAir*/Block::new, Block.Properties.of().air().replaceable().noCollision()); /*Rarity.EPIC*/
-    public static final DeferredBlock<Block> terranGhostBlock = registerBlock("terran_ghost_block", /*TerranGhostBlock*/Block::new, Block.Properties.of().noLootTable().noOcclusion().noCollision().air().replaceable());
+    public static final DeferredBlock<Block> terranGhostBlock = registerBlock("terran_ghost_block", /*TerranGhostBlock*/Block::new, Block.Properties.of().noOcclusion().noCollision().air().replaceable());
     public static final DeferredBlock<Block> randomItemDropper = registerBlock("random_item_dropper", /*BlockRandomItemDropper*/Block::new, Block.Properties.of().strength(2.0F));
 
     public static final DeferredBlock<FlowerPotBlock>
@@ -911,11 +908,11 @@ public class BlockRegistry {
             apalachiaSaplingPot = registerFlowerPot("apalachia_sapling_pot", apalachiaSapling),
             skythernSaplingPot = registerFlowerPot("skythern_sapling_pot", skythernSapling),
             mortumSaplingPot = registerFlowerPot("mortum_sapling_pot", mortumSapling),
-    glowsproutPot = registerFlowerPot("glowsprout_pot", glowsprout),
+            glowsproutPot = registerFlowerPot("glowsprout_pot", glowsprout),
             lowsproutPot = registerFlowerPot("lowsprout_pot", lowsprout),
             slowsproutPot = registerFlowerPot("slowsprout_pot", slowsprout),
             dreamglowPot = registerFlowerPot("dreamglow_pot", dreamglow),
-    crimpetalPot = registerFlowerPot("crimpetal_pot", crimpetal),
+            crimpetalPot = registerFlowerPot("crimpetal_pot", crimpetal),
             roofbellPot = registerFlowerPot("roofbell_pot", roofbell),
             winterbloomPot = registerFlowerPot("winterbloom_pot", winterbloom),
             wispLeafPot = registerFlowerPot("wisp_leaf_pot", wispLeaf),
@@ -937,12 +934,12 @@ public class BlockRegistry {
             greenDulahPot = registerFlowerPot("green_dulah_pot", greenDulah),
             greenGemtopPot = registerFlowerPot("green_gemtop_pot", greenGemtop),
             purpleGemtopPot = registerFlowerPot("purple_gemtop_pot", purpleGemtop),
-    globebrushPot = registerFlowerPot("globebrush_pot", globebrush),
+            globebrushPot = registerFlowerPot("globebrush_pot", globebrush),
             thermoliagePot = registerFlowerPot("thermoliage_pot", thermoliage),
             duskFlowerPot = registerFlowerPot("dusk_flower_pot", duskFlower),
             dustBramblesPot = registerFlowerPot("dust_brambles_pot", dustBrambles),
             demonBramblesPot = registerFlowerPot("demon_brambles_pot", demonBrambles),
-    arcanaBushPot = registerFlowerPot("arcana_bush_pot", arcanaBush);
+            arcanaBushPot = registerFlowerPot("arcana_bush_pot", arcanaBush);
 
     static {
         addAliases("red_vane", bleedingObsidian);
@@ -1003,6 +1000,13 @@ public class BlockRegistry {
         properties.setId(blockKey);
         DeferredBlock<T> block = BLOCKS.register(name, () -> blockFactory.apply(properties));
         DivineRegistries.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))));
+        return block;
+    }
+
+    private static <T extends Block> DeferredBlock<T> registerBlockNoItem(String name, Function<Properties, T> blockFactory, Block.Properties properties) {
+        ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, name));
+        properties.setId(blockKey);
+        DeferredBlock<T> block = BLOCKS.register(name, () -> blockFactory.apply(properties));
         return block;
     }
 

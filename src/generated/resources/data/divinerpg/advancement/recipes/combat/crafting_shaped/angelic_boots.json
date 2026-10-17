@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:crafting_shaped/angelic_boots"
+        "recipes": "divinerpg:crafting_shaped/angelic_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

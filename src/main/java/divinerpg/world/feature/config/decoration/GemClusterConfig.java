@@ -7,10 +7,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
-public class GemClusterConfig implements FeatureConfiguration {
+public class GemClusterConfig {
 	public static final Codec<GemClusterConfig> CODEC = RecordCodecBuilder.create((instance) -> {
 		return instance.group(BlockState.CODEC.fieldOf("block").forGetter((config) -> {
 	           return config.block;

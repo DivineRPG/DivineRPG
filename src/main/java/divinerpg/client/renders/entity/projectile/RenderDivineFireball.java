@@ -44,7 +44,7 @@ public class RenderDivineFireball<T extends Entity> extends EntityRenderer<T, En
         super.submit(state, poseStack, submitNodeCollector, camera);
         poseStack.pushPose();
         poseStack.scale(0.5F, 0.5F, 0.5F);
-        poseStack.mulPose(camera.orientation);
+        poseStack.rotate(camera.orientation);
         submitNodeCollector.submitCustomGeometry(poseStack, this.renderType,
                 (pose, vertexBuilder) -> {
                     Matrix4f matrix4f = pose.pose();

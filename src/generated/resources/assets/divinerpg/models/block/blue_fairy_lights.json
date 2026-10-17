@@ -1,6 +1,42 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "faces": {
+        "north": {
+          "texture": "#texture",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#texture",
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        15.2
+      ],
+      "shade_direction_override": "up",
+      "to": [
+        16,
+        16,
+        15.2
+      ]
+    }
+  ],
   "textures": {
-    "all": "divinerpg:block/blue_fairy_lights"
+    "particle": "divinerpg:block/blue_fairy_lights",
+    "texture": "divinerpg:block/blue_fairy_lights"
   }
 }

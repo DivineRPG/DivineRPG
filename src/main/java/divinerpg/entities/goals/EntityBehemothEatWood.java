@@ -26,7 +26,7 @@ public class EntityBehemothEatWood extends Goal {
             if(mob.level().getBlockState(pos).is(BlockTags.LOGS)) {
                 mob.level().destroyBlock(pos, false, mob);
                 mob.heal(5F);
-                mob.playSound(SoundEvents.AXE_STRIP);
+                mob.playSound(SoundEvents.AXE_STRIP.value());
                 eatingCooldown = 40;
             }
         }

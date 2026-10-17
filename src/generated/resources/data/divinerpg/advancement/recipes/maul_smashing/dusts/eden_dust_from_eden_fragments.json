@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/eden_dust_from_eden_fragments"
+        "recipes": "divinerpg:maul_smashing/dusts/eden_dust_from_eden_fragments"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

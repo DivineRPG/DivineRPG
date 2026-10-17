@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/empowered_meat_from_smelting_raw_empowered_meat"
+        "recipes": "divinerpg:smelting/empowered_meat_from_smelting_raw_empowered_meat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

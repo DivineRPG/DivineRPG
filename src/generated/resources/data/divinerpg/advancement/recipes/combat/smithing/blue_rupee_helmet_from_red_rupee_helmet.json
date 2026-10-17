@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/blue_rupee_helmet_from_red_rupee_helmet"
+        "recipes": "divinerpg:smithing/blue_rupee_helmet_from_red_rupee_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

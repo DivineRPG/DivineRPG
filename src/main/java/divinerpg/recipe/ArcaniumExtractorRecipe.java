@@ -33,7 +33,13 @@ public class ArcaniumExtractorRecipe extends AbstractCookingRecipe {
 
     @Override
     public RecipeBookCategory recipeBookCategory() {
-        return null;
+        CookingBookCategory cookingCat = this.category();
+        if (cookingCat == CookingBookCategory.FOOD) {
+            return RecipeBookCategories.FURNACE_FOOD;
+        } else if (cookingCat == CookingBookCategory.BLOCKS) {
+            return RecipeBookCategories.FURNACE_BLOCKS;
+        }
+        return RecipeBookCategories.FURNACE_MISC;
     }
 
     @Override
@@ -49,12 +55,7 @@ public class ArcaniumExtractorRecipe extends AbstractCookingRecipe {
         return this.result();
     }
 
-    public static final RecipeType<ArcaniumExtractorRecipe> TYPE = RecipeType.simple(
-            Identifier.fromNamespaceAndPath(MODID, "arcanium_extractor")
-    );
+    public static final RecipeType<ArcaniumExtractorRecipe> TYPE = RecipeType.simple(Identifier.fromNamespaceAndPath(MODID, "arcanium_extractor"));
 
-    public static final RecipeSerializer<ArcaniumExtractorRecipe> SERIALIZER = new RecipeSerializer<>(
-            cookingMapCodec(ArcaniumExtractorRecipe::new, 200),
-            cookingStreamCodec(ArcaniumExtractorRecipe::new)
-    );
+    public static final RecipeSerializer<ArcaniumExtractorRecipe> SERIALIZER = new RecipeSerializer<>(cookingMapCodec(ArcaniumExtractorRecipe::new), cookingStreamCodec(ArcaniumExtractorRecipe::new));
 }

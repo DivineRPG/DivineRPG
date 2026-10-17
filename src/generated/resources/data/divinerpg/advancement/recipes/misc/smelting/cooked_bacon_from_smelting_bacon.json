@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/cooked_bacon_from_smelting_bacon"
+        "recipes": "divinerpg:smelting/cooked_bacon_from_smelting_bacon"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

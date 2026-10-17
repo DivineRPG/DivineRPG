@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/bloodgem_dust_from_bloodgem"
+        "recipes": "divinerpg:maul_smashing/dusts/bloodgem_dust_from_bloodgem"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,8 +3,11 @@
   "biomes": "#c:is_deep_ocean",
   "spawners": {
     "type": "divinerpg:liopleurodon",
-    "maxCount": 2,
-    "minCount": 1,
+    "count": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 2,
+      "min_inclusive": 1
+    },
     "weight": 2
   }
 }

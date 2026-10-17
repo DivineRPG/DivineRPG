@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/anthracite_from_blasting_anthracite_ore"
+        "recipes": "divinerpg:blasting/anthracite_from_blasting_anthracite_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

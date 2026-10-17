@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/realmite_dust_from_realmite_ingot"
+        "recipes": "divinerpg:maul_smashing/dusts/realmite_dust_from_realmite_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

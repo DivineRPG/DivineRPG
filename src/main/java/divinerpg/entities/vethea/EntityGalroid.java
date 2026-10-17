@@ -17,10 +17,10 @@ public class EntityGalroid extends EntityDivineMonster {
         super.tick();
         if(getProtectionTimer() <= 0 && !isInvulnerable()) {
             setProtectionTimer(200);
-            setInvulnerable(true);
+            setPermanentlyInvulnerable(true);
         } else if(isInvulnerable() && getProtectionTimer() <= 0) {
             setProtectionTimer(200);
-            setInvulnerable(false);
+            setPermanentlyInvulnerable(false);
         } setProtectionTimer(getProtectionTimer() - 1);
     }
     private int getProtectionTimer() {return protectionTimer;}

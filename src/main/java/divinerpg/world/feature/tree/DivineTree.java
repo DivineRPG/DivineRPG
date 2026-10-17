@@ -1,5 +1,7 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
@@ -10,13 +12,14 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 import static divinerpg.DivineRPG.MODID;
 
-public class DivineTree extends Feature<TreeConfig> {
-    public DivineTree() {super(TreeConfig.CODEC);}
+public class DivineTree implements Feature {
+    public static final MapCodec<DivineTree> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(DivineTree::getConfig)).apply(instance, DivineTree::new));
+    private final TreeConfig config;
+    public DivineTree(TreeConfig config) {this.config = config;}
     public boolean hasSpace(WorldGenLevel level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
         return hasSpace(state);
@@ -34,7 +37,7 @@ public class DivineTree extends Feature<TreeConfig> {
         if(hasSpace(level, pos)) {
             BlockState state = level.getBlockState(pos.below());
             if(config.growableOn.isEmpty() && defaultGrowOn(state)) return true;
-            for(RuleTest test : config.growableOn) if(test.test(state, random)) return true;
+            for(RuleTest test : config.growableOn) if(test.test(state, pos, random)) return true;
             return false;
         } return false;
     }
@@ -104,10 +107,17 @@ public class DivineTree extends Feature<TreeConfig> {
             chanceSetBlock(world, random, pos.offset(-offset, minY, width), state, chance, replace);
         }
     }
-    @Override public boolean place(FeaturePlaceContext<TreeConfig> context) {
-        return place(context.config(), context.level(), context.chunkGenerator(), context.random(), context.origin());
+
+    @Override
+    public MapCodec<? extends Feature> codec() {
+        return CODEC;
     }
-    @Override public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
+
+    @Override
+    public boolean place(WorldGenLevel level, ChunkGenerator chunkGenerator, RandomSource randomSource, BlockPos blockPos) {
+        return place(config, level, chunkGenerator, randomSource, blockPos);
+    }
+    public boolean place(TreeConfig config, WorldGenLevel level, ChunkGenerator chunkGen, RandomSource random, BlockPos pos) {
         if(canBeHere(level, random, pos, config)) {
             int treeHeight = 3 + random.nextInt(3), extraHeight = treeHeight + 1;
             if(heightCheck(level, pos, extraHeight, 1)) {
@@ -124,5 +134,8 @@ public class DivineTree extends Feature<TreeConfig> {
             }
         }
         return false;
+    }
+    public TreeConfig getConfig() {
+        return this.config;
     }
 }

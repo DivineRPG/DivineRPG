@@ -26,7 +26,7 @@ public class RenderRollum extends LivingEntityRenderer<EntityRollum, RollumRende
     public void extractRenderState(EntityRollum entity, RollumRenderState state, float partialTick) {
         super.extractRenderState(entity, state, partialTick);
 
-        state.attackTime = (int) entity.getAttackAnim(partialTick);
+        state.attackTime = entity.getCurrentSwing().durationTicks();
     }
 
     @Override

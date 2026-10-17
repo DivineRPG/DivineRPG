@@ -4,14 +4,20 @@
   "spawners": [
     {
       "type": "divinerpg:hell_pig",
-      "maxCount": 4,
-      "minCount": 2,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 4,
+        "min_inclusive": 2
+      },
       "weight": 60
     },
     {
       "type": "divinerpg:hell_spider",
-      "maxCount": 2,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 2,
+        "min_inclusive": 1
+      },
       "weight": 24
     }
   ]

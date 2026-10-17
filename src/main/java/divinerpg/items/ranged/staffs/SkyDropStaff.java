@@ -36,6 +36,6 @@ public class SkyDropStaff extends ItemRangedWeapon {
         Vec3 vec3d1 = shooter.getViewVector(1);
         Vec3 vec3d2 = vec3d.add(vec3d1.x * blockReachDistance, vec3d1.y * blockReachDistance, vec3d1.z * blockReachDistance);
         BlockHitResult pos = shooter.level().clip(new ClipContext(vec3d, vec3d2, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, shooter));
-        projectile.moveOrInterpolateTo(new Vec3(pos.getBlockPos().getX() + shooter.getRandom().nextDouble() - .5, pos.getBlockPos().getY() + 20, pos.getBlockPos().getZ() + shooter.getRandom().nextDouble() - .5));
+        projectile.moveOrInterpolateTo(PositionPath.of(new Vec3(pos.getBlockPos().getX() + shooter.getRandom().nextDouble() - .5, pos.getBlockPos().getY() + 20, pos.getBlockPos().getZ() + shooter.getRandom().nextDouble() - .5)));
     }
 }

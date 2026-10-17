@@ -3,15 +3,13 @@
   "criteria": {
     "betrayal": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "minecraft:wolf"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:wolf"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

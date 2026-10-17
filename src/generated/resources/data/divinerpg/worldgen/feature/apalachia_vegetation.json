@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "type": "minecraft:weighted",
+    "entries": [
+      {
+        "data": "divinerpg:apalachia_tallgrass",
+        "weight": 5
+      },
+      {
+        "data": "divinerpg:dusk_bloom",
+        "weight": 1
+      },
+      {
+        "data": "divinerpg:dusk_flower",
+        "weight": 2
+      }
+    ]
+  }
+}

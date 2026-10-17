@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 68435185,
+    "separation": 2,
+    "spacing": 4
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:apalachia_structures",
+      "weight": 1
+    }
+  ]
+}

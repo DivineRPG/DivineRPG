@@ -3,8 +3,7 @@ package divinerpg.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import divinerpg.DivineRPG;
-import divinerpg.registries.RecipeRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -21,8 +20,7 @@ import java.util.Optional;
 
 import static divinerpg.DivineRPG.MODID;
 
-public record FireConversionRecipe(Ingredient inputItem, RuleTest inputState, Optional<ItemStack> outputItem, Optional<BlockStateProvider> outputState, Optional<Identifier> advancement, Optional<String> advancementCriteria, Optional<RuleTest> frame, Optional<BlockStateProvider> portal) implements Recipe<RecipeInput> {
-
+public record FireConversionRecipe(Ingredient inputItem, RuleTest inputState, Optional<ItemStack> outputItem, Optional<Holder<BlockStateProvider>> outputState, Optional<Identifier> advancement, Optional<String> advancementCriteria, Optional<RuleTest> frame, Optional<Holder<BlockStateProvider>> portal) implements Recipe<RecipeInput> {
     public static final RecipeType<FireConversionRecipe> TYPE = RecipeType.simple(Identifier.fromNamespaceAndPath(MODID, "fire_conversion"));
 
     @Override
@@ -47,9 +45,7 @@ public record FireConversionRecipe(Ingredient inputItem, RuleTest inputState, Op
 
     @Override
     public RecipeSerializer<? extends Recipe<RecipeInput>> getSerializer() {
-        return (RecipeSerializer<? extends Recipe<RecipeInput>>) BuiltInRegistries.RECIPE_SERIALIZER.getValueOrThrow(
-                ResourceKey.create(Registries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(MODID, "fire_conversion"))
-        );
+        return (RecipeSerializer<? extends Recipe<RecipeInput>>) BuiltInRegistries.RECIPE_SERIALIZER.getValueOrThrow(ResourceKey.create(Registries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(MODID, "fire_conversion")));
     }
 
     @Override
@@ -92,11 +88,11 @@ public record FireConversionRecipe(Ingredient inputItem, RuleTest inputState, Op
             Ingredient inputItem = Ingredient.CONTENTS_STREAM_CODEC.decode(buffer);
             RuleTest inputState = buffer.readLenientJsonWithCodec(RuleTest.CODEC);
             ItemStack outputItem = ItemStack.OPTIONAL_STREAM_CODEC.decode(buffer);
-            Optional<BlockStateProvider> outputState = buffer.readBoolean() ? Optional.of(buffer.readLenientJsonWithCodec(BlockStateProvider.CODEC)) : Optional.empty();
+            Optional<Holder<BlockStateProvider>> outputState = buffer.readBoolean() ? Optional.of(buffer.readLenientJsonWithCodec(BlockStateProvider.CODEC)) : Optional.empty();
             Optional<Identifier> advancement = buffer.readBoolean() ? Optional.of(buffer.readIdentifier()) : Optional.empty();
             Optional<String> advancementCriteria = buffer.readBoolean() ? Optional.of(buffer.readUtf()) : Optional.empty();
             Optional<RuleTest> frame = buffer.readBoolean() ? Optional.of(buffer.readLenientJsonWithCodec(RuleTest.CODEC)) : Optional.empty();
-            Optional<BlockStateProvider> portal = buffer.readBoolean() ? Optional.of(buffer.readLenientJsonWithCodec(BlockStateProvider.CODEC)) : Optional.empty();
+            Optional<Holder<BlockStateProvider>> portal = buffer.readBoolean() ? Optional.of(buffer.readLenientJsonWithCodec(BlockStateProvider.CODEC)) : Optional.empty();
             return new FireConversionRecipe(inputItem, inputState, Optional.of(outputItem), outputState, advancement, advancementCriteria, frame, portal);
         }
     }

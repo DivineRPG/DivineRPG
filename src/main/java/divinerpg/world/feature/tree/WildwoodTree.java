@@ -1,5 +1,7 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
@@ -8,9 +10,22 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 public class WildwoodTree extends DivineTree {
 	public static BlockState westVines, eastVines, southVines, northVines;
+
+	public static final MapCodec<WildwoodTree> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(WildwoodTree::getConfig)).apply(instance, WildwoodTree::new));
+
+	public WildwoodTree(TreeConfig config) {
+		super(config);
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	private void growLeavesWithVines(WorldGenLevel world, RandomSource random, BlockPos pos, BlockState leaves, int maxY, int width, int offset, float leavesChance, float vineChance) {
 		for(int minY = 0; minY <= maxY; minY++) {
 			chanceSetBlock(world, random, pos.offset(width, minY, offset), leaves, leavesChance);

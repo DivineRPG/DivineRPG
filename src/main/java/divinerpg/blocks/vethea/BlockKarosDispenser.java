@@ -48,7 +48,6 @@ import javax.annotation.Nullable;
 import java.util.Map;
 
 public class BlockKarosDispenser extends BaseEntityBlock {
-    public static final MapCodec<BlockKarosDispenser> CODEC = simpleCodec(BlockKarosDispenser::new);
     public static final EnumProperty<Direction> FACING = DirectionalBlock.FACING;
     public static final BooleanProperty TRIGGERED = BlockStateProperties.TRIGGERED;
 
@@ -66,11 +65,6 @@ public class BlockKarosDispenser extends BaseEntityBlock {
                 .instrument(NoteBlockInstrument.BASEDRUM)
                 .noLootTable());
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TRIGGERED, false));
-    }
-
-    @Override
-    public MapCodec<BlockKarosDispenser> codec() {
-        return CODEC;
     }
 
     @Override

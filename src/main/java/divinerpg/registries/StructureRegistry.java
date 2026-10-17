@@ -2,6 +2,7 @@ package divinerpg.registries;
 
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.MapCodec;
+import divinerpg.DivineRPG;
 import divinerpg.structure.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
@@ -89,6 +90,8 @@ public class StructureRegistry {
         context.register(ResourceKey.create(Registries.STRUCTURE_SET, Identifier.fromNamespaceAndPath(MODID, "ancient_tomb")), new StructureSet(structureLookup.getOrThrow(ANCIENT_TOMB), new RandomSpreadStructurePlacement(50, 25, RandomSpreadType.LINEAR, 213551)));
         context.register(ResourceKey.create(Registries.STRUCTURE_SET, Identifier.fromNamespaceAndPath(MODID, "igloo")), new StructureSet(structureLookup.getOrThrow(IGLOO), new RandomSpreadStructurePlacement(32, 16, RandomSpreadType.LINEAR, 25565)));
         context.register(ResourceKey.create(Registries.STRUCTURE_SET, Identifier.fromNamespaceAndPath(MODID, "livestock_merchant_hut")), new StructureSet(structureLookup.getOrThrow(LIVESTOCK_MERCHANT_HUT), new RandomSpreadStructurePlacement(32, 8, RandomSpreadType.LINEAR, 1234567890)));
+
+        context.register(ResourceKey.create(Registries.STRUCTURE_SET, Identifier.fromNamespaceAndPath(MODID, "apalachia_structures")), new StructureSet(structureLookup.getOrThrow(APALACHIA_STRUCTURES), new RandomSpreadStructurePlacement(4, 2, RandomSpreadType.LINEAR, 68435185)));
     }
 
     public static void bootstrapStructureTemplatePool(BootstrapContext<StructureTemplatePool> context) {
@@ -99,6 +102,8 @@ public class StructureRegistry {
         context.register(ResourceKey.create(Registries.TEMPLATE_POOL, Identifier.fromNamespaceAndPath(MODID, "overworld/igloo")), new StructureTemplatePool(pools.getOrThrow(Pools.EMPTY), List.of(Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "overworld/igloo").toString()), 1)), StructureTemplatePool.Projection.RIGID));
         context.register(ResourceKey.create(Registries.TEMPLATE_POOL, Identifier.fromNamespaceAndPath(MODID, "overworld/livestock_merchant_hut")), new StructureTemplatePool(pools.getOrThrow(Pools.EMPTY), List.of(Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "overworld/livestock_merchant_hut").toString()), 1)), StructureTemplatePool.Projection.RIGID));
 
+        context.register(ResourceKey.create(Registries.TEMPLATE_POOL, Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia_structures")), new StructureTemplatePool(pools.getOrThrow(Pools.EMPTY), List.of(Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_fallen_log").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_fallen_log2").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_fallen_log3").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_fallen_log4").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_fallen_log5").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_house").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_pillar1").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_pillar2").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_pillar3").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_pillar4").toString()), 1), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_portal_remnants1").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_portal_remnants2").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/apalachia_shrine").toString()), 5), Pair.of(StructurePoolElement.single(Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia/eternal_archer_dungeon").toString()), 3)), StructureTemplatePool.Projection.RIGID));
+
     }
 
     public static void bootstrapStructure(BootstrapContext<Structure> context) {
@@ -107,11 +112,14 @@ public class StructureRegistry {
         var tombSettings = new Structure.StructureSettings(biomeLookup.getOrThrow(TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("c", "is_plains"))), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE);
         var iglooSettings = new Structure.StructureSettings(biomeLookup.getOrThrow(TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("c", "is_snowy"))), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN);
         var livestockSettings = new Structure.StructureSettings(biomeLookup.getOrThrow(TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("c", "is_plains"))), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN);
+        var apalachiaStructures = new Structure.StructureSettings(biomeLookup.getOrThrow(TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "apalachia"))), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN);
 
         context.register(AMETHYST_HOUSE, new JigsawStructure(amethystSettings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, Identifier.fromNamespaceAndPath(MODID, "overworld/amethyst_house"))), 6, UniformHeight.of(VerticalAnchor.absolute(-56), VerticalAnchor.absolute(-21)), false, Heightmap.Types.WORLD_SURFACE_WG));
         context.register(ANCIENT_TOMB, new HighestCeilingType(tombSettings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, Identifier.fromNamespaceAndPath(MODID, "overworld/ancient_tomb"))), Optional.empty(), 6, 55, 200, 4,  "full", 1));
         context.register(IGLOO, new JigsawStructure(iglooSettings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, Identifier.fromNamespaceAndPath(MODID, "overworld/igloo"))), 6, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Heightmap.Types.WORLD_SURFACE_WG));
         context.register(LIVESTOCK_MERCHANT_HUT, new JigsawStructure(livestockSettings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, Identifier.fromNamespaceAndPath(MODID, "overworld/livestock_merchant_hut"))), 6, ConstantHeight.of(VerticalAnchor.absolute(0)), false, Heightmap.Types.WORLD_SURFACE_WG));
+
+        context.register(APALACHIA_STRUCTURES, new HighestGroundType(apalachiaStructures, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(ResourceKey.create(Registries.TEMPLATE_POOL, Identifier.fromNamespaceAndPath(MODID, "twilight/apalachia_structures"))), Optional.empty(), 6, 10, 255, 0, "full", 1));
     }
 
     private static ResourceKey<Structure> registerStructure(String name) {

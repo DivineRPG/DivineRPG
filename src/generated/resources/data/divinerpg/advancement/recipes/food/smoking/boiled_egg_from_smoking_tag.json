@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smoking/boiled_egg_from_smoking_tag"
+        "recipes": "divinerpg:smoking/boiled_egg_from_smoking_tag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

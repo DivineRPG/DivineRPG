@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/gem_of_the_dunes"
+    "model": "divinerpg:item/gem_of_the_dunes"
   }
 }

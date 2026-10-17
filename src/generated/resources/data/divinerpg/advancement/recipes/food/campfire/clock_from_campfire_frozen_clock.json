@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:campfire/clock_from_campfire_frozen_clock"
+        "recipes": "divinerpg:campfire/clock_from_campfire_frozen_clock"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

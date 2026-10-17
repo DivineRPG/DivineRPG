@@ -4,7 +4,5 @@
     "translate": "jukebox_song.divinerpg.destiny"
   },
   "length_in_seconds": 159.0,
-  "sound_event": {
-    "sound_id": "divinerpg:destiny"
-  }
+  "sound_event": "divinerpg:destiny"
 }

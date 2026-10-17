@@ -121,16 +121,14 @@ public class EntityMiner extends EntityDivineMonster {
                 }
             }
 
-
             boolean flag = this.isSunBurnTick();
             if (flag) {
                 ItemStack itemstack = this.getItemBySlot(EquipmentSlot.HEAD);
                 if (!itemstack.isEmpty()) {
                     if (itemstack.isDamageableItem()) {
-                        Item item = itemstack.getItem();
                         itemstack.setDamageValue(itemstack.getDamageValue() + this.random.nextInt(2));
                         if (itemstack.getDamageValue() >= itemstack.getMaxDamage()) {
-                            this.onEquippedItemBroken(item, EquipmentSlot.HEAD);
+                            this.onEquippedItemBroken(itemstack, EquipmentSlot.HEAD);
                             this.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
                         }
                     }

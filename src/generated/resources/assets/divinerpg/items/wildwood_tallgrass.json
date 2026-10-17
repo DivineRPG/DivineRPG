@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/wildwood_tallgrass"
+    "model": "divinerpg:item/wildwood_tallgrass"
   }
 }

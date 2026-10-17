@@ -53,7 +53,7 @@ public class RenderDivineItemProjectile<T extends Projectile> extends EntityRend
         super.submit(state, poseStack, submitNodeCollector, camera);
 
         poseStack.pushPose();
-        poseStack.mulPose(camera.orientation);
+        poseStack.rotate(camera.orientation);
         state.itemState.submit(poseStack, submitNodeCollector, state.lightCoords, OverlayTexture.NO_OVERLAY, state.outlineColor);
         poseStack.popPose();
     }

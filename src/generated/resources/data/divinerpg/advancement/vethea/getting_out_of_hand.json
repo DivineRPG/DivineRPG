@@ -3,15 +3,13 @@
   "criteria": {
     "kill_quadro": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:quadro"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:quadro"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

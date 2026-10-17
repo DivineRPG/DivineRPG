@@ -7,18 +7,22 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
-public class TreeConfig implements FeatureConfiguration {
+public class
+TreeConfig {
     public static final Codec<TreeConfig> CODEC = RecordCodecBuilder.create((instance) -> {
-        return instance.group(BlockState.CODEC.fieldOf("log").forGetter((config) -> {
-            return config.log;
-        }), BlockState.CODEC.fieldOf("leaves").forGetter((config) -> {
-            return config.leaves;
-        }),  Codec.list(RuleTest.CODEC).fieldOf("can_grow_on").forGetter((config) -> {
-            return config.growableOn;
-        })).apply(instance, TreeConfig::new);
+        return instance.group(
+                BlockState.CODEC.fieldOf("log").forGetter((config) -> {
+                    return config.log;
+                }),
+                BlockState.CODEC.fieldOf("leaves").forGetter((config) -> {
+                    return config.leaves;
+                }),
+                Codec.list(RuleTest.CODEC).fieldOf("can_grow_on").forGetter((config) -> {
+                    return config.growableOn;
+                })
+        ).apply(instance, TreeConfig::new);
     });
     public final List<RuleTest> growableOn;
     public final BlockState log, leaves;

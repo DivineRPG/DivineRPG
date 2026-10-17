@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:fire_conversion/divine_flame"
+        "recipes": "divinerpg:fire_conversion/divine_flame"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

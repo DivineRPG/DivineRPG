@@ -2,6 +2,8 @@ package divinerpg.world.feature.tree;
 
 import java.util.ArrayList;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -10,9 +12,22 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.phys.Vec3;
 
 public class FractalTree extends DivineTree {
+	public static final MapCodec<FractalTree> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, FractalTree::new));
+	private TreeConfig config;
+	public FractalTree(TreeConfig config) {
+		super(config);
+		this.config = config;
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
 		return state.is(BlockTags.SNOW) || state.is(BlockTags.ICE) || state.is(BlockTags.DIRT);

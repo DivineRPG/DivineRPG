@@ -2,6 +2,11 @@ package divinerpg.world.feature.ore;
 
 import java.util.List;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import divinerpg.registries.FeatureRegistry;
+import divinerpg.world.feature.NBTFeature;
+import divinerpg.world.feature.config.NBTFeatureConfig;
 import divinerpg.world.feature.config.ore.OreVeinConfig;
 import net.minecraft.core.*;
 import net.minecraft.util.RandomSource;
@@ -10,11 +15,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.*;
 
-public class OreVein extends Feature<OreVeinConfig> {
-	public OreVein() {
-		super(OreVeinConfig.CODEC);
+public class OreVein implements Feature {
+	public static final MapCodec<OreVein> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(OreVeinConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, OreVein::new));
+	private final OreVeinConfig config;
+	public OreVein(OreVeinConfig config) {
+		this.config = config;
 	}
-	@Override
 	public boolean place(OreVeinConfig config, WorldGenLevel level, ChunkGenerator generator, RandomSource random, BlockPos origin) {
 		List<OreVeinConfig.TargetBlockState> states = config.targetStates;
 		if(VeinArm.canBeHere(level, origin, states, random)) {
@@ -22,9 +28,15 @@ public class OreVein extends Feature<OreVeinConfig> {
 			return true;
 		} return false;
 	}
+
 	@Override
-	public boolean place(FeaturePlaceContext<OreVeinConfig> context) {
-		return place(context.config(), context.level(), context.chunkGenerator(), context.random(), context.origin());
+	public MapCodec<OreVein> codec() {
+		return FeatureRegistry.ORE_VEIN.get();
+	}
+
+	@Override
+	public boolean place(WorldGenLevel level, ChunkGenerator chunkGenerator, RandomSource randomSource, BlockPos blockPos) {
+		return place(config, level, chunkGenerator, randomSource, blockPos);
 	}
 	public static class VeinArm {
 		Direction direction;
@@ -37,7 +49,7 @@ public class OreVein extends Feature<OreVeinConfig> {
 			BlockState state = level.getBlockState(pos);
 			for(OreVeinConfig.TargetBlockState targetState : states) {
 				if(targetState.state.is(state.getBlock())) return true;
-				if(targetState.target.test(state, random)) return true;
+				if(targetState.target.test(state, pos, random)) return true;
 			}
 			return false;
 		}
@@ -59,7 +71,7 @@ public class OreVein extends Feature<OreVeinConfig> {
 			if(random.nextBoolean()) pos = pos.relative(Direction.getRandom(random));
 			OreVeinConfig.TargetBlockState targetState = states.get(random.nextInt(states.size()));
 			if(random.nextFloat() <= targetState.chance
-					&& targetState.target.test(level.getBlockState(pos), random)
+					&& targetState.target.test(level.getBlockState(pos), pos, random)
 					&& (random.nextFloat() > targetState.discardChanceOnAirExposure || !checkForAir(level, pos)))
 				level.setBlock(pos, targetState.state, 3);
 		}

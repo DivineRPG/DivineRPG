@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/oxdrite_ingot_from_blasting_raw_oxdrite"
+        "recipes": "divinerpg:blasting/oxdrite_ingot_from_blasting_raw_oxdrite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

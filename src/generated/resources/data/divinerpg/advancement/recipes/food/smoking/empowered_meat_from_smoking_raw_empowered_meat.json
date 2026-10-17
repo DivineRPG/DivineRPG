@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smoking/empowered_meat_from_smoking_raw_empowered_meat"
+        "recipes": "divinerpg:smoking/empowered_meat_from_smoking_raw_empowered_meat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

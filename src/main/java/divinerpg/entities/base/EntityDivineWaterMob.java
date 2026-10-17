@@ -2,6 +2,7 @@ package divinerpg.entities.base;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -26,7 +27,7 @@ public class EntityDivineWaterMob extends WaterAnimal implements Enemy {
     public EntityDivineWaterMob(EntityType<? extends EntityDivineWaterMob> type, Level worldIn) {super(type, worldIn);}
     @Override protected int getBaseExperienceReward(ServerLevel level) {return XP_REWARD_MEDIUM;}
     @Override protected void registerGoals() {
-        goalSelector.addGoal(0, new TryFindWaterGoal(this));
+        goalSelector.addGoal(0, new TryFindLiquidGoal(this, FluidTags.WATER));
         goalSelector.addGoal(2, new RandomSwimmingGoal(this, 1, 10));
         goalSelector.addGoal(2, new RandomLookAroundGoal(this));
         goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 32));

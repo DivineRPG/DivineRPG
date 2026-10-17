@@ -1,5 +1,6 @@
 {
   "type": "minecraft:blasting",
+  "cookingtime": 100,
   "experience": 1.7,
   "group": "skythern_fragments",
   "ingredient": "divinerpg:skythern_ore",

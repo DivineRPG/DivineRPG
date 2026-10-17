@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:arcanium_extractor/arcanium_from_raw_arcanium"
+        "recipes": "divinerpg:arcanium_extractor/arcanium_from_raw_arcanium"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

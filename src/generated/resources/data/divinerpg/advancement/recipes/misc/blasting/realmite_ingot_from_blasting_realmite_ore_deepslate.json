@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/realmite_ingot_from_blasting_realmite_ore_deepslate"
+        "recipes": "divinerpg:blasting/realmite_ingot_from_blasting_realmite_ore_deepslate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

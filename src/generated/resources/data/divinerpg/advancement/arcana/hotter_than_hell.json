@@ -3,19 +3,17 @@
   "criteria": {
     "walk_on_heat_trap": {
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:location": {
-                "block": {
-                  "blocks": []
-                }
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "block": {
+                "blocks": "divinerpg:heat_trap"
               }
             }
           }
-        ]
+        }
       },
       "trigger": "minecraft:location"
     }

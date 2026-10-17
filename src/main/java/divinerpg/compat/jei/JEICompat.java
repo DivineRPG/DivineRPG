@@ -20,6 +20,7 @@ import mezz.jei.api.registration.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -44,8 +45,15 @@ public class JEICompat implements IModPlugin {
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         var itemRegistry = Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ITEM);
-        List<ItemStack> mauls = itemRegistry.getOrThrow(TagRegistry.TOOL_MAUL).stream().map(holder -> new ItemStack(holder.value())).toList();
-        registration.addCraftingStations(SmashingCategory.RECIPE_TYPE, VanillaTypes.ITEM_STACK, mauls);
+
+        List<ItemStack> mauls = itemRegistry.get(TagRegistry.TOOL_MAUL)
+                .map(named -> named.stream().map(holder -> new ItemStack(holder.value())).toList())
+                .orElseGet(List::of);
+
+        if (!mauls.isEmpty()) {
+            registration.addCraftingStations(SmashingCategory.RECIPE_TYPE, VanillaTypes.ITEM_STACK, mauls);
+        }
+
         registration.addCraftingStations(InfusionTableCategory.RECIPE_TYPE, VanillaTypes.ITEM_STACK, List.of(BlockRegistry.infusionTable.asItem().getDefaultInstance()));
     }
     @Override public void registerRecipes(IRecipeRegistration registration) {
@@ -128,50 +136,49 @@ public class JEICompat implements IModPlugin {
                 ItemRegistry.blue_armor_pouch.toStack(),
                 ItemRegistry.gray_armor_pouch.toStack()), ItemRegistry.armor_pouch.getId().getPath());
         //TODO: to add lang keys for commented out ones
-//        registerIngredientInfo(registration, ItemRegistry.terran_shifter, ItemRegistry.terran_shifter.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.jungle_hook, ItemRegistry.jungle_hook.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.terran_shifter, ItemRegistry.terran_shifter.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.jungle_hook, ItemRegistry.jungle_hook.getId().getPath());
         registerIngredientInfo(registration, ItemRegistry.frozen_clock, ItemRegistry.frozen_clock.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.mysterious_clock, ItemRegistry.mysterious_clock.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.call_of_the_watcher, ItemRegistry.call_of_the_watcher.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.infernal_flame, ItemRegistry.infernal_flame.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.horde_horn, ItemRegistry.horde_horn.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.wizards_book, ItemRegistry.wizards_book.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.dream_flint, ItemRegistry.dream_flint.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.moon_clock, ItemRegistry.moon_clock.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.liopleurodon_skull, ItemRegistry.liopleurodon_skull.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.aquatic_coating_template, ItemRegistry.aquatic_coating_template.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.mysterious_clock, ItemRegistry.mysterious_clock.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.call_of_the_watcher, ItemRegistry.call_of_the_watcher.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.infernal_flame, ItemRegistry.infernal_flame.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.horde_horn, ItemRegistry.horde_horn.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.wizards_book, ItemRegistry.wizards_book.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.dream_flint, ItemRegistry.dream_flint.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.moon_clock, ItemRegistry.moon_clock.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.liopleurodon_skull, ItemRegistry.liopleurodon_skull.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.aquatic_coating_template, ItemRegistry.aquatic_coating_template.getId().getPath());
         registerIngredientInfo(registration, ItemRegistry.collector, ItemRegistry.collector.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.aquamarine, ItemRegistry.aquamarine.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.aquamarine, ItemRegistry.aquamarine.getId().getPath());
         registerIngredientInfo(registration, ItemRegistry.firestock, ItemRegistry.firestock.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.hitchak, ItemRegistry.hitchak.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.lamona, ItemRegistry.lamona.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.marsine, ItemRegistry.marsine.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.pinfly, ItemRegistry.pinfly.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.veilo, ItemRegistry.veilo.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.teleportation_star, ItemRegistry.teleportation_star.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.eden_chunk, ItemRegistry.eden_chunk.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.wildwood_chunk, ItemRegistry.wildwood_chunk.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.apalachia_chunk, ItemRegistry.apalachia_chunk.getId().getPath());
-//        registerIngredientInfo(registration, ItemRegistry.skythern_chunk, ItemRegistry.skythern_chunk.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.hitchak, ItemRegistry.hitchak.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.lamona, ItemRegistry.lamona.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.marsine, ItemRegistry.marsine.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.pinfly, ItemRegistry.pinfly.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.veilo, ItemRegistry.veilo.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.teleportation_star, ItemRegistry.teleportation_star.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.eden_chunk, ItemRegistry.eden_chunk.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.wildwood_chunk, ItemRegistry.wildwood_chunk.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.apalachia_chunk, ItemRegistry.apalachia_chunk.getId().getPath());
+        registerIngredientInfo(registration, ItemRegistry.skythern_chunk, ItemRegistry.skythern_chunk.getId().getPath());
         registerIngredientInfo(registration, ItemRegistry.acid, ItemRegistry.acid.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.aquaTorch, BlockRegistry.aquaTorch.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.icyFire, BlockRegistry.icyFire.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.hellFire, BlockRegistry.hellFire.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.divineFlame, BlockRegistry.divineFlame.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.wildFlame, BlockRegistry.wildFlame.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.enchantedFlame, BlockRegistry.enchantedFlame.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.skyFire, BlockRegistry.skyFire.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.mortumEmbers, BlockRegistry.mortumEmbers.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.hellFire, BlockRegistry.hellFire.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.divineFlame, BlockRegistry.divineFlame.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.wildFlame, BlockRegistry.wildFlame.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.enchantedFlame, BlockRegistry.enchantedFlame.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.skyFire, BlockRegistry.skyFire.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.mortumEmbers, BlockRegistry.mortumEmbers.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.asphalt, BlockRegistry.asphalt.getId().getPath());
-//        registerIngredientInfo(registration, List.of(BlockRegistry.hellfireSponge.toStack(),
-//                BlockRegistry.coldHellfireSponge.toStack()), BlockRegistry.hellfireSponge.getId().getPath());
+        registerIngredientInfo(registration, List.of(BlockRegistry.hellfireSponge.toStack(), BlockRegistry.coldHellfireSponge.toStack()), BlockRegistry.hellfireSponge.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.rawArcanium, BlockRegistry.rawArcanium.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.proximitySpawner, BlockRegistry.proximitySpawner.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.calcifiedBrain, BlockRegistry.calcifiedBrain.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.sunstormSpawner, BlockRegistry.sunstormSpawner.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.termasectSpawner, BlockRegistry.termasectSpawner.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.eternalArcherSpawner, BlockRegistry.eternalArcherSpawner.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.experiencedCoriSpawner, BlockRegistry.experiencedCoriSpawner.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.proximitySpawner, BlockRegistry.proximitySpawner.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.calcifiedBrain, BlockRegistry.calcifiedBrain.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.sunstormSpawner, BlockRegistry.sunstormSpawner.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.termasectSpawner, BlockRegistry.termasectSpawner.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.eternalArcherSpawner, BlockRegistry.eternalArcherSpawner.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.experiencedCoriSpawner, BlockRegistry.experiencedCoriSpawner.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.encagedCaptainMerik, BlockRegistry.encagedCaptainMerik.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.encagedDatticon, BlockRegistry.encagedDatticon.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.encagedKazari, BlockRegistry.encagedKazari.getId().getPath());
@@ -182,25 +189,25 @@ public class JEICompat implements IModPlugin {
         registerIngredientInfo(registration, BlockRegistry.dramixAltar, BlockRegistry.dramixAltar.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.parasectaAltar, BlockRegistry.parasectaAltar.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.hiveEgg, BlockRegistry.hiveEgg.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.karosAltar, BlockRegistry.karosAltar.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.lunicAltar, BlockRegistry.lunicAltar.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.quadroticAltar, BlockRegistry.quadroticAltar.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.raglokAltar, BlockRegistry.raglokAltar.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.wreckAltar, BlockRegistry.wreckAltar.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.robbinHut, BlockRegistry.robbinHut.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.crate, BlockRegistry.crate.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.oxcrate, BlockRegistry.oxcrate.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.altarOfCorruption, BlockRegistry.altarOfCorruption.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.booster, BlockRegistry.booster.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.limiter, BlockRegistry.limiter.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.oxdriteRail, BlockRegistry.oxdriteRail.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.oxdriteLamp, BlockRegistry.oxdriteLamp.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.capacitor, BlockRegistry.capacitor.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.gateway, BlockRegistry.gateway.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.karosAltar, BlockRegistry.karosAltar.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.lunicAltar, BlockRegistry.lunicAltar.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.quadroticAltar, BlockRegistry.quadroticAltar.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.raglokAltar, BlockRegistry.raglokAltar.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.wreckAltar, BlockRegistry.wreckAltar.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.robbinHut, BlockRegistry.robbinHut.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.crate, BlockRegistry.crate.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.oxcrate, BlockRegistry.oxcrate.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.altarOfCorruption, BlockRegistry.altarOfCorruption.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.booster, BlockRegistry.booster.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.limiter, BlockRegistry.limiter.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.oxdriteRail, BlockRegistry.oxdriteRail.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.oxdriteLamp, BlockRegistry.oxdriteLamp.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.capacitor, BlockRegistry.capacitor.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.gateway, BlockRegistry.gateway.getId().getPath());
         registerIngredientInfo(registration, List.of(BlockRegistry.miner.toStack(),
                 BlockRegistry.softMiner.toStack()), BlockRegistry.miner.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.placer, BlockRegistry.placer.getId().getPath());
-//        registerIngredientInfo(registration, BlockRegistry.acceleron, BlockRegistry.acceleron.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.placer, BlockRegistry.placer.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.acceleron, BlockRegistry.acceleron.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.elevantium, BlockRegistry.elevantium.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.soulTrap, BlockRegistry.soulTrap.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.nightmareBed, BlockRegistry.nightmareBed.getId().getPath());
@@ -226,7 +233,7 @@ public class JEICompat implements IModPlugin {
         registration.addRecipeCategories(new ArcaniumExtractorCategory(helper), new InfusionTableCategory(helper), new SmashingCategory(helper), new FireConversionCategory(helper), new MerchantTradeCategory(helper));
     }
     @Override public void registerIngredients(IModIngredientRegistration registration) {
-        registration.register(BLOCK_INGREDIENT_TYPE, List.of(), new BlockIngredientHelper(), new BlockIngredientRenderer(), Block.CODEC.codec());
+        registration.register(BLOCK_INGREDIENT_TYPE, List.of(), new BlockIngredientHelper(), new BlockIngredientRenderer(), BuiltInRegistries.BLOCK.byNameCodec());
     }
     @Override public void registerGuiHandlers(IGuiHandlerRegistration registration) {
         registration.addGuiContainerHandler(InfusionTableScreen.class, new IGuiContainerHandler<InfusionTableScreen>() {

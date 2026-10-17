@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/red_divine_sword_from_green_divine_sword"
+        "recipes": "divinerpg:smithing/red_divine_sword_from_green_divine_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

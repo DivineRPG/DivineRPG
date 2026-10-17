@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/shadow_bar_from_smelting_shadow_dust"
+        "recipes": "divinerpg:smelting/shadow_bar_from_smelting_shadow_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

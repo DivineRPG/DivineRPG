@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/rupee_ingot_from_smelting_rupee_ore"
+        "recipes": "divinerpg:smelting/rupee_ingot_from_smelting_rupee_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/cobblestone_stairs_from_smelting_cobbled_frozen_stairs"
+        "recipes": "divinerpg:smelting/cobblestone_stairs_from_smelting_cobbled_frozen_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

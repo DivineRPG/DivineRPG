@@ -2,6 +2,7 @@ package divinerpg.utils;
 
 import com.google.gson.Gson;
 import divinerpg.DivineRPG;
+import divinerpg.registries.FluidRegistry;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.core.BlockPos;
@@ -18,6 +19,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -165,7 +167,7 @@ public class Utils {
 
     public static Direction.Axis checkForFrame(Level level, BlockPos pos, RuleTest frame) {
         Direction d = null;
-        for(Direction di : Direction.values()) if(frame.test(level.getBlockState(pos.relative(di)), level.getRandom())) {
+        for(Direction di : Direction.values()) if(frame.test(level.getBlockState(pos.relative(di)), pos, level.getRandom())) {
             d = di;
             break;
         } if(d == null) return null;
@@ -178,28 +180,28 @@ public class Utils {
         BlockPos.MutableBlockPos mut = pos.mutable();
         while((dir = dir.getClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X)) != d) {
             state = level.getBlockState(mut.relative(dir));
-            if(frame.test(state, level.getRandom())) continue;
+            if(frame.test(state, mut, level.getRandom())) continue;
             if(state.isAir()) break;
             return false;
         } if(dir == d) return true;
         mut.move(d = dir);
         while(mut.distManhattan(pos) < 33 && !mut.equals(pos)) {
-            if(!frame.test(level.getBlockState(mut.relative(d.getCounterClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X))), level.getRandom())) return false;
+            if(!frame.test(level.getBlockState(mut.relative(d.getCounterClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X))), pos, level.getRandom())) return false;
             do {
                 state = level.getBlockState(mut.relative(dir));
-                if(frame.test(state, level.getRandom())) continue;
+                if(frame.test(state, mut, level.getRandom())) continue;
                 if(state.isAir()) {
                     d = dir;
                     break;
                 } return false;
             } while((dir = dir.getClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X)) != d);
             mut.move(d);
-        } return frame.test(level.getBlockState(mut.relative(d.getCounterClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X))), level.getRandom()) && mut.equals(pos);
+        } return frame.test(level.getBlockState(mut.relative(d.getCounterClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X))), pos, level.getRandom()) && mut.equals(pos);
     }
     protected static Direction lookForFrameBlock(Level level, BlockPos pos, Direction.Axis axis, RuleTest frame) {
         Direction d = axis == Direction.Axis.X ? Direction.EAST : Direction.SOUTH, dir = d;
         do {
-            if(frame.test(level.getBlockState(pos.relative(dir)), level.getRandom())) return dir;
+            if(frame.test(level.getBlockState(pos.relative(dir)), pos, level.getRandom())) return dir;
         } while((dir = dir.getClockWise(axis == Direction.Axis.X ? Direction.Axis.Z : Direction.Axis.X)) != d);
         return null;
     }
@@ -213,5 +215,13 @@ public class Utils {
             spreadBlock(level, newState, pos.relative(axis, -1), spreadTarget, axis);
         } level.sendBlockUpdated(pos, spreadTarget.defaultBlockState(), newState, 3);
     }
-
+    public static boolean bordersTar(BlockGetter world, int x, int y, int z) {
+        for(int i = x - 4; i <= x + 4; ++i) {
+            for(int j = y; j <= y + 1; ++j) {
+                for(int k = z - 4; k <= z + 4; ++k) {
+                    if(world.getBlockState(new BlockPos(i, j, k)).getBlock() == FluidRegistry.SMOLDERING_TAR_BLOCK.get()) return true;
+                }
+            }
+        } return false;
+    }
 }

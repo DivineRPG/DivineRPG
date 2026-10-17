@@ -3,15 +3,13 @@
   "criteria": {
     "kill_scorcher": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:scorcher"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:scorcher"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

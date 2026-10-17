@@ -122,7 +122,7 @@ public class EntityRaglok extends EntityDivineBoss {
 
                     ThrowableProjectile var2 = EntityRegistry.RAGLOK_BOMB.get().create(level(), EntitySpawnReason.EVENT);
                     var2.setOwner(this);
-                    var2.moveOrInterpolateTo(new Vec3(player.xo, player.yo + 5, player.zo));
+                    var2.moveOrInterpolateTo(PositionPath.of(new Vec3(player.xo, player.yo + 5, player.zo)));
                     var2.setDeltaMovement((random.nextDouble() - random.nextDouble()) / 5, -0.14, (random.nextDouble() - random.nextDouble()) / 5);
                     this.level().addFreshEntity(var2);
                     ++this.rangedAttackCounter;

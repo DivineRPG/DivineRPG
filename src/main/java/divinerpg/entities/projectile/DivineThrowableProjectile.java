@@ -47,31 +47,24 @@ public class DivineThrowableProjectile extends ThrowableProjectile {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
-
         if (level().isClientSide()) {
             return;
         }
-
         float f = (float) getDeltaMovement().length();
         float d0 = baseDamage;
         Entity owner = getOwner();
         DamageSource damageSource = getDamageSource(result);
-
         if (getWeaponItem() != null && level() instanceof ServerLevel s) {
             d0 = EnchantmentHelper.modifyDamage(s, getWeaponItem(), entity, damageSource, baseDamage);
         }
-
         int damage = Mth.ceil(Mth.clamp(f * d0, 0.0F, (float) Integer.MAX_VALUE));
         int remainingFire = entity.getRemainingFireTicks();
-
         if (owner instanceof LivingEntity livingOwner) {
             livingOwner.setLastHurtMob(entity);
         }
-
         if (isOnFire()) {
             entity.igniteForSeconds(5);
         }
-
         if (entity.hurtServer(level().getServer().getLevel(level().dimension()), damageSource, damage)) {
             if (entity instanceof LivingEntity livingEntity) {
                 if (level() instanceof ServerLevel s1) {
@@ -82,10 +75,10 @@ public class DivineThrowableProjectile extends ThrowableProjectile {
             discard();
         } else {
             entity.setRemainingFireTicks(remainingFire);
-            if (entity.invulnerableTime > 0 || entity.deflection(this) == ProjectileDeflection.NONE) {
+            if (entity.getInvulnerableTime() > 0 || entity.deflection(this) == ProjectileDeflection.NONE) {
                 discard();
             } else {
-                deflect(ProjectileDeflection.REVERSE, entity, EntityReference.of(getOwner()), false);
+                deflect(ProjectileDeflection.REVERSE, entity, EntityReference.of(getOwner()), false, 1);
                 setDeltaMovement(getDeltaMovement().scale(0.2));
                 if (!level().isClientSide() && getDeltaMovement().lengthSqr() < 1E-7) {
                     discard();

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/yellow_ender_helmet_from_ender_helmet"
+        "recipes": "divinerpg:smithing/yellow_ender_helmet_from_ender_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

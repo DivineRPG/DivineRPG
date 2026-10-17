@@ -3,15 +3,13 @@
   "criteria": {
     "kill_twilight_glinthop": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:glinthop"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:glinthop"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

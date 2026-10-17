@@ -3,15 +3,13 @@
   "criteria": {
     "kill_boss_experienced_cori": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:experienced_cori"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:experienced_cori"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

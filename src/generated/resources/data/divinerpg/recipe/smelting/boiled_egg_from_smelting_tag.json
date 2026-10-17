@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
   "experience": 0.35,
   "group": "boiled_egg",
   "ingredient": "#c:eggs",

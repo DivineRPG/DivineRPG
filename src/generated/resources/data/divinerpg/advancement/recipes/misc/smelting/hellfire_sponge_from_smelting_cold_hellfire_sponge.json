@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/hellfire_sponge_from_smelting_cold_hellfire_sponge"
+        "recipes": "divinerpg:smelting/hellfire_sponge_from_smelting_cold_hellfire_sponge"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

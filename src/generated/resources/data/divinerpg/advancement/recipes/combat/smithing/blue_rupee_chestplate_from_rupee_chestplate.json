@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/blue_rupee_chestplate_from_rupee_chestplate"
+        "recipes": "divinerpg:smithing/blue_rupee_chestplate_from_rupee_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -61,16 +61,28 @@ public class SmashingCategory implements IRecipeCategory<RecipeHolder<MaulSmashi
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<MaulSmashingRecipe> recipe, IFocusGroup focuses) {
-        builder.addInputSlot(10, 11).addIngredients(recipe.value().input());
+        builder.addInputSlot(10, 11).add(recipe.value().input());
         var blockRegistry = Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.BLOCK);
         TagKey<Block> baseTag = recipe.value().requiredBaseBlockTag();
+
         if (baseTag != null) {
-            List<ItemStack> baseBlockStacks = blockRegistry.getOrThrow(baseTag).stream().map(Holder::value).map(Block::asItem).filter(item -> item != Items.AIR).map(ItemStack::new).toList();
-            builder.addInputSlot(48, 11).addItemStacks(baseBlockStacks);
+            List<ItemStack> baseBlockStacks = blockRegistry.get(baseTag)
+                    .map(named -> named.stream()
+                            .map(Holder::value)
+                            .map(Block::asItem)
+                            .filter(item -> item != Items.AIR)
+                            .map(ItemStack::new)
+                            .toList())
+                    .orElse(List.of());
+
+            if (!baseBlockStacks.isEmpty()) {
+                builder.addInputSlot(48, 11).addItemStacks(baseBlockStacks);
+            }
         }
+
         ItemStack outputStack = recipe.value().outputItem().getDefaultInstance();
         if (!outputStack.isEmpty()) {
-            builder.addOutputSlot(96, 11).addItemStack(outputStack);
+            builder.addOutputSlot(96, 11).add(outputStack);
         }
     }
 }

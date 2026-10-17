@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "divinerpg:block/blue_fairy_lights",
+      "y": 90
+    },
+    "facing=north": {
       "model": "divinerpg:block/blue_fairy_lights"
+    },
+    "facing=south": {
+      "model": "divinerpg:block/blue_fairy_lights",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "divinerpg:block/blue_fairy_lights",
+      "y": 270
     }
   }
 }

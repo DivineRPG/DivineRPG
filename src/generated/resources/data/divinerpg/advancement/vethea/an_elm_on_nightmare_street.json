@@ -3,15 +3,13 @@
   "criteria": {
     "kill_ent": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:ent"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:ent"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

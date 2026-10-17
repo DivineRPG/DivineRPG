@@ -8,22 +8,20 @@
           "name": "divinerpg:cauldron_flesh"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "chance": 0.05,
-          "condition": "minecraft:random_chance"
-        }
-      ],
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.05
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:bone_meal"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "divinerpg:entities/cauldron_fish"

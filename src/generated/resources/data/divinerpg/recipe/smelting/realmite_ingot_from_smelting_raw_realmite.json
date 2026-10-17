@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
   "experience": 0.7,
   "group": "realmite_ingot",
   "ingredient": "divinerpg:raw_realmite",

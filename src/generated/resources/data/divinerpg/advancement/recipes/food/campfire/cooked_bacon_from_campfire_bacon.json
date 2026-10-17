@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:campfire/cooked_bacon_from_campfire_bacon"
+        "recipes": "divinerpg:campfire/cooked_bacon_from_campfire_bacon"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

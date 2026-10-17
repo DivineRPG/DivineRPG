@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.heightproviders.TrapezoidHeight;
 import net.minecraft.world.level.levelgen.placement.*;
 
@@ -22,7 +22,7 @@ import java.util.List;
 public class ModPlacedFeatureProvider {
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
-        HolderGetter<ConfiguredFeature<?, ?>> configured = context.lookup(Registries.CONFIGURED_FEATURE);
+        HolderGetter<Feature> configured = context.lookup(Registries.FEATURE);
 
         registerOre(context, FeatureRegistry.ARLEMITE_PLACED, configured, FeatureRegistry.ARLEMITE_ORE, CountPlacement.of(2), HeightRangePlacement.of(TrapezoidHeight.of(VerticalAnchor.aboveBottom(5), VerticalAnchor.aboveBottom(70))));
         registerOre(context, FeatureRegistry.REALMITE_PLACED, configured, FeatureRegistry.REALMITE_ORE, CountPlacement.of(10), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(64)));
@@ -41,16 +41,16 @@ public class ModPlacedFeatureProvider {
 
 
         context.register(FeatureRegistry.APALACHIA_ORE_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_ORE),List.of(CountPlacement.of(12),InSquarePlacement.spread(),HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(256)),BiomeFilter.biome())));
-        context.register(FeatureRegistry.APALACHIA_VEGETATION_KEY_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_VEGETATION_PATCH_KEY), List.of(CountPlacement.of(34), InSquarePlacement.spread(), HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(256)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.allOf(BlockPredicate.replaceable()), BlockPredicate.anyOf(BlockPredicate.matchesBlocks(Blocks.AIR), BlockPredicate.matchesBlocks(Blocks.WATER)), 12), RandomOffsetPlacement.of(UniformInt.of(4, 7), UniformInt.of(1, 2)), BiomeFilter.biome())));
+        context.register(FeatureRegistry.APALACHIA_VEGETATION_KEY_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_VEGETATION_KEY), List.of(CountPlacement.of(34), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(Direction.DOWN, BlockTags.GRASS_BLOCKS)), BiomeFilter.biome())));
         context.register(FeatureRegistry.APALACHIA_TREE_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_TREE_KEY), List.of(NoiseBasedCountPlacement.of(1,12, 90.0), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome())));
-
+        context.register(FeatureRegistry.APALACHIA_VEGETATION_PATCH_KEY, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_VEGETATION_KEY), List.of(RarityFilter.onAverageOnceEvery(4))));
     }
 
-    private static void registerOre(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, HolderGetter<ConfiguredFeature<?, ?>> configured, ResourceKey<ConfiguredFeature<?, ?>> feature, PlacementModifier count, PlacementModifier height) {
+    private static void registerOre(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, HolderGetter<Feature> configured, ResourceKey<Feature> feature, PlacementModifier count, PlacementModifier height) {
         context.register(key, new PlacedFeature(configured.getOrThrow(feature), List.of(count, InSquarePlacement.spread(), height, BiomeFilter.biome())));
     }
 
-    private static void registerPlaced(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, HolderGetter<ConfiguredFeature<?, ?>> configured, ResourceKey<ConfiguredFeature<?, ?>> feature, List<PlacementModifier> modifiers) {
+    private static void registerPlaced(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, HolderGetter<Feature> configured, ResourceKey<Feature> feature, List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configured.getOrThrow(feature), modifiers));
     }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/santa_boots_from_seng_fur_boots"
+        "recipes": "divinerpg:smithing/santa_boots_from_seng_fur_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

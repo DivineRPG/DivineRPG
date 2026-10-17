@@ -1,0 +1,11 @@
+{
+  "type": "divinerpg:blob",
+  "config": {
+    "block": {
+      "id": "divinerpg:twilight_stone"
+    },
+    "max_size": 5,
+    "min_size": 2,
+    "replace": []
+  }
+}

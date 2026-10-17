@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "divinerpg:block/dusk_flower_bottom"
+  }
+}

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:fire_conversion/enchanted_flame"
+        "recipes": "divinerpg:fire_conversion/enchanted_flame"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

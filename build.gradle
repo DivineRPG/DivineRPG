@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.neoforged.moddev' version '2.0.147'
     id 'idea'
 }
 
@@ -76,9 +76,9 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 //    runtimeOnly "curse.maven:configured-457570:${configured_id}" //Configured
-    compileOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}"
-    runtimeOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}"
-    runtimeOnly "curse.maven:jei-worldgen-1509527:${jei_wg_id}"
+//    compileOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}"
+//    runtimeOnly "curse.maven:just-enough-resources-jer-240630:${jer_id}"
+    compileOnly "curse.maven:jei-worldgen-1509527:${jei_wg_id}"
     runtimeOnly "curse.maven:jade-324717:${jade_id}"
 }
 
@@ -87,8 +87,6 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
             neo_version            : neo_version,
-            neo_version_range      : neo_version_range,
-            loader_version_range   : loader_version_range,
             mod_id                 : mod_id,
             mod_name               : mod_name,
             mod_license            : mod_license,
@@ -128,6 +126,14 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xmaxerrs" << "2000"
+}
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 idea {

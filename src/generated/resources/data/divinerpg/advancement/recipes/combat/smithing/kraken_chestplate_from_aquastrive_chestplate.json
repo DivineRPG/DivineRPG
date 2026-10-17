@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/kraken_chestplate_from_aquastrive_chestplate"
+        "recipes": "divinerpg:smithing/kraken_chestplate_from_aquastrive_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

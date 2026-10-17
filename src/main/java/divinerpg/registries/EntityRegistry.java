@@ -2,6 +2,7 @@ package divinerpg.registries;
 
 import divinerpg.client.models.*;
 import divinerpg.client.models.arcana.*;
+import divinerpg.client.models.block.ModelArcaniumExtractor;
 import divinerpg.client.models.boss.*;
 import divinerpg.client.models.iceika.*;
 import divinerpg.client.models.twilight.*;
@@ -1232,7 +1233,7 @@ public class EntityRegistry {
         event.registerLayerDefinition(ModelZoragon.LAYER_LOCATION, ModelZoragon::createBodyLayer);
 
         //Blocks
-//        event.registerLayerDefinition(ModelArcaniumExtractor.LAYER_LOCATION, ModelArcaniumExtractor::createBodyLayer);
+        event.registerLayerDefinition(ModelArcaniumExtractor.LAYER_LOCATION, ModelArcaniumExtractor::createBodyLayer);
 //        event.registerLayerDefinition(ModelBoneChest.LAYER_LOCATION, ModelBoneChest::createBodyLayer);
 //        event.registerLayerDefinition(ModelDemonFurnace.LAYER_LOCATION, ModelDemonFurnace::createBodyLayer);
 //        event.registerLayerDefinition(ModelDramixAltar.LAYER_LOCATION, ModelDramixAltar::createBodyLayer);

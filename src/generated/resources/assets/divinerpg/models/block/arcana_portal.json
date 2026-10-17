@@ -1,6 +1,42 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#portal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#portal",
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ]
+        }
+      },
+      "from": [
+        0,
+        6,
+        0
+      ],
+      "to": [
+        16,
+        12,
+        16
+      ]
+    }
+  ],
   "textures": {
-    "all": "divinerpg:block/arcana_portal"
+    "particle": "divinerpg:block/arcana_portal",
+    "portal": "divinerpg:block/arcana_portal"
   }
 }

@@ -3,15 +3,13 @@
   "criteria": {
     "talk_to_workshop_tinkerer": {
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:workshop_tinkerer"
-            }
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:workshop_tinkerer"
           }
-        ]
+        }
       },
       "trigger": "minecraft:villager_trade"
     }

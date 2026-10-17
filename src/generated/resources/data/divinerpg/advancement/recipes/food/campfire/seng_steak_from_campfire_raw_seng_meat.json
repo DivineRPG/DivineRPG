@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:campfire/seng_steak_from_campfire_raw_seng_meat"
+        "recipes": "divinerpg:campfire/seng_steak_from_campfire_raw_seng_meat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

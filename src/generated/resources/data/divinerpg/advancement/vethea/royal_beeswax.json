@@ -3,15 +3,13 @@
   "criteria": {
     "kill_hive_queen": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:hive_queen"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:hive_queen"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

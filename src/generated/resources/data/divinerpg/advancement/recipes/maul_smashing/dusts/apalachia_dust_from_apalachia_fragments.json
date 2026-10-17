@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/apalachia_dust_from_apalachia_fragments"
+        "recipes": "divinerpg:maul_smashing/dusts/apalachia_dust_from_apalachia_fragments"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

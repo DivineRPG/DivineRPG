@@ -39,7 +39,7 @@ public class RenderDungeonConstructor
 
         super.extractRenderState(entity, state, partialTicks);
 
-        state.attackTime = entity.getAttackAnim(partialTicks);
+        state.currentSwing = entity.getCurrentSwing();
         state.walkAnimationPos = entity.walkAnimation.position(partialTicks);
         state.walkAnimationSpeed = entity.walkAnimation.speed(partialTicks);
         state.ageInTicks = entity.tickCount + partialTicks;

@@ -3,12 +3,10 @@
   "criteria": {
     "in_extractor": {
       "conditions": {
-        "location": [
-          {
-            "block": "divinerpg:infusion_table",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "divinerpg:infusion_table"
+        }
       },
       "trigger": "minecraft:placed_block"
     }

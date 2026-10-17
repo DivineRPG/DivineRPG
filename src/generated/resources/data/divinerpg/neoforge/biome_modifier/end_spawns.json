@@ -4,26 +4,38 @@
   "spawners": [
     {
       "type": "divinerpg:ender_spider",
-      "maxCount": 4,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 4,
+        "min_inclusive": 1
+      },
       "weight": 9
     },
     {
       "type": "divinerpg:ender_triplets",
-      "maxCount": 4,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 4,
+        "min_inclusive": 1
+      },
       "weight": 8
     },
     {
       "type": "divinerpg:ender_watcher",
-      "maxCount": 4,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 4,
+        "min_inclusive": 1
+      },
       "weight": 10
     },
     {
       "type": "divinerpg:ender_scrounge",
-      "maxCount": 3,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 3,
+        "min_inclusive": 1
+      },
       "weight": 20
     }
   ]

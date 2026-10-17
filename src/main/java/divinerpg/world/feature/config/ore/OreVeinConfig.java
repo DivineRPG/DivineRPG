@@ -7,10 +7,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
-public class OreVeinConfig implements FeatureConfiguration {
+public class OreVeinConfig {
 	public static final Codec<OreVeinConfig> CODEC = RecordCodecBuilder.create((instance) -> {
 		return instance.group(Codec.floatRange(0.0F, 1.0F).fieldOf("cutoffChance").forGetter((config) -> {
 	        return config.cutoffChance;

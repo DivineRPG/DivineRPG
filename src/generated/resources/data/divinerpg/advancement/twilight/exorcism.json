@@ -3,15 +3,13 @@
   "criteria": {
     "kill_boss_twilight_demon": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:twilight_demon"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:twilight_demon"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

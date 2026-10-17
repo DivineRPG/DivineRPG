@@ -3,15 +3,13 @@
   "criteria": {
     "ayeraco": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:ayeraco"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:ayeraco"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

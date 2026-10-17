@@ -3,15 +3,13 @@
   "criteria": {
     "kill_boss_sunstorm": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:sunstorm"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:sunstorm"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

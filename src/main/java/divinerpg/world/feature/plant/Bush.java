@@ -1,5 +1,7 @@
 package divinerpg.world.feature.plant;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.world.config.tree.TreeConfig;
 import divinerpg.world.feature.tree.DivineTree;
 import net.minecraft.core.BlockPos;
@@ -10,6 +12,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 
 public class Bush extends DivineTree {
+	public static final MapCodec<Bush> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(TreeConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, Bush::new));
+	private final TreeConfig config;
+	public Bush(TreeConfig config) {
+		super(config);
+		this.config = config;
+	}
+
 	@Override
 	protected boolean defaultGrowOn(BlockState state) {
 		return state.is(Blocks.SNOW_BLOCK) || state.is(Blocks.DIRT);

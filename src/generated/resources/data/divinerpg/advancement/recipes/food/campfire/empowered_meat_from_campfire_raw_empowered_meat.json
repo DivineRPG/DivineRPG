@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:campfire/empowered_meat_from_campfire_raw_empowered_meat"
+        "recipes": "divinerpg:campfire/empowered_meat_from_campfire_raw_empowered_meat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

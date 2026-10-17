@@ -1,11 +1,16 @@
 package divinerpg.utils;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 
 public record UniversalPosition(ResourceKey<Level> dimension, Vec3 pos) {
@@ -37,7 +42,25 @@ public record UniversalPosition(ResourceKey<Level> dimension, Vec3 pos) {
     public static BlockPos toBlockPos(Vec3 v) {
         return new BlockPos((int)v.x, (int)v.y, (int)v.z);
     }
-    public static Vec3 toVec3(BlockPos p) {return new Vec3(p.getX(), p.getY(), p.getZ());}
+    public static Vec3 toVec3(BlockPos p) { return new Vec3(p.getX(), p.getY(), p.getZ()); }
+
+    public void write(ValueOutput output) {
+        output.putString("dimension", this.dimension.identifier().toString());
+        output.putDouble("x", this.pos.x);
+        output.putDouble("y", this.pos.y);
+        output.putDouble("z", this.pos.z);
+    }
+
+    public static UniversalPosition read(ValueInput input) {
+        String dimStr = input.getStringOr("dimension", "");
+        if (dimStr.isEmpty()) return null;
+
+        ResourceKey<Level> dim = ResourceKey.create(Registries.DIMENSION, Identifier.parse(dimStr));
+        double x = input.getDoubleOr("x", 0.0);
+        double y = input.getDoubleOr("y", 0.0);
+        double z = input.getDoubleOr("z", 0.0);
+        return new UniversalPosition(dim, new Vec3(x, y, z));
+    }
 
     @Override
     public String toString() {

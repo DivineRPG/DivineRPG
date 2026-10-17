@@ -1,12 +1,17 @@
 package divinerpg.world.feature.pond;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import divinerpg.world.config.tree.TreeConfig;
+import divinerpg.world.feature.config.RuleTestConfig;
+import divinerpg.world.feature.tree.ShiverspineTree;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 import java.util.List;
@@ -14,6 +19,18 @@ import java.util.List;
 import divinerpg.world.ConfiguredFeatureKeys;
 
 public class BrittlePond extends GlacialPond {
+	public static final MapCodec<BrittlePond> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(RuleTestConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, BrittlePond::new));
+	private RuleTestConfig config;
+	public BrittlePond(RuleTestConfig config) {
+		super(config);
+		this.config = config;
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	@Override
 	protected void genDeep(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		if(random.nextFloat() < .15F) {
@@ -44,7 +61,7 @@ public class BrittlePond extends GlacialPond {
 	@Override
 	protected void genEdge(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		setBlock(level, pos, random.nextFloat() < .3F ? Blocks.CLAY.defaultBlockState() : Blocks.MOSS_BLOCK.defaultBlockState());
-		ConfiguredFeature<?, ?> vegetation = ConfiguredFeatureKeys.getConfiguredFeature(level, ConfiguredFeatureKeys.BRITTLE_CAVES_VEGETATION).value();
+		Feature vegetation = ConfiguredFeatureKeys.getConfiguredFeature(level, ConfiguredFeatureKeys.BRITTLE_CAVES_VEGETATION).value();
 		vegetation.place(level, null, random, pos.offset(random.nextInt(3) - 1, random.nextInt(3) - 1, random.nextInt(3) - 1));
 		pos = pos.offset(random.nextInt(5) - 2, random.nextInt(3) - 1, random.nextInt(5) - 2);
 		if(canSustain(rules, level, random, pos)) setBlock(level, pos, Blocks.MOSS_BLOCK.defaultBlockState());

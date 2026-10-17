@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smoking/cooked_bacon_from_smoking_bacon"
+        "recipes": "divinerpg:smoking/cooked_bacon_from_smoking_bacon"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

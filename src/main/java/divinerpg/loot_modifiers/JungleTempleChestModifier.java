@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.ItemRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -13,13 +14,12 @@ import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
 
-public class JungleTempleChestModifier extends LootModifier {
-    public static final MapCodec<JungleTempleChestModifier> CODEC = RecordCodecBuilder.mapCodec(
-            (RecordCodecBuilder.Instance<JungleTempleChestModifier> instance) ->
-                    codecStart(instance).apply(instance, JungleTempleChestModifier::new)
-    );
+import java.util.Optional;
 
-    public JungleTempleChestModifier(LootItemCondition[] conditionsIn, int priority) {
+public class JungleTempleChestModifier extends LootModifier {
+    public static final MapCodec<JungleTempleChestModifier> CODEC = RecordCodecBuilder.mapCodec((RecordCodecBuilder.Instance<JungleTempleChestModifier> instance) -> codecStart(instance).apply(instance, JungleTempleChestModifier::new));
+
+    public JungleTempleChestModifier(Optional<Holder<LootItemCondition>> conditionsIn, int priority) {
         super(conditionsIn, priority);
     }
 

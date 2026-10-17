@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/rupee_leggings_from_yellow_rupee_leggings"
+        "recipes": "divinerpg:smithing/rupee_leggings_from_yellow_rupee_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

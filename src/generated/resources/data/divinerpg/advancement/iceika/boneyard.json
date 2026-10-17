@@ -3,17 +3,15 @@
   "criteria": {
     "boneyard": {
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:location": {
-                "biomes": "minecraft:badlands"
-              }
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "biomes": "minecraft:badlands"
             }
           }
-        ]
+        }
       },
       "trigger": "minecraft:location"
     }

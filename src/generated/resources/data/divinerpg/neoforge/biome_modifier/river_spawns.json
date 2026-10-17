@@ -3,8 +3,11 @@
   "biomes": "#c:is_river",
   "spawners": {
     "type": "divinerpg:aequorea",
-    "maxCount": 6,
-    "minCount": 1,
+    "count": {
+      "type": "minecraft:uniform",
+      "max_inclusive": 6,
+      "min_inclusive": 1
+    },
     "weight": 3
   }
 }

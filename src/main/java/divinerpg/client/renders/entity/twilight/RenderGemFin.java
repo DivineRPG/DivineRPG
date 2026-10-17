@@ -40,10 +40,10 @@ public class RenderGemFin<T extends EntityGemFin, S extends LivingEntityRenderSt
     protected void setupRotations(S state, PoseStack poseStack, float bob, float yBodyRot) {
         super.setupRotations(state, poseStack, bob, yBodyRot);
         float f = 4.3F * Mth.sin(0.6F * bob);
-        poseStack.mulPose(Axis.YP.rotationDegrees(f));
+        poseStack.rotate(Axis.YP.rotationDegrees(f));
         if (!isInWater) {
             poseStack.translate(0.2F, 0.2F, 0.0F);
-            poseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
+            poseStack.rotate(Axis.ZP.rotationDegrees(90.0F));
         }
     }
 

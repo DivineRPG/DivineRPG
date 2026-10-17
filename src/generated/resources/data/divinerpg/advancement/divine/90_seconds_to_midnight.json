@@ -8,7 +8,7 @@
             "components": {
               "divinerpg:variant": 4
             },
-            "items": []
+            "items": "divinerpg:terran_shards"
           }
         ]
       },

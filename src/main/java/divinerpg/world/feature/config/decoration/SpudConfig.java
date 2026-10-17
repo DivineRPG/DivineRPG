@@ -7,10 +7,9 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
-public record SpudConfig(Optional<BlockState> center, Optional<BlockState> edge, List<RuleTest> rules, Optional<List<RuleTest>> edgerules) implements FeatureConfiguration {
+public record SpudConfig(Optional<BlockState> center, Optional<BlockState> edge, List<RuleTest> rules, Optional<List<RuleTest>> edgerules) {
     public static final Codec<SpudConfig> CODEC = RecordCodecBuilder.create((instance) ->
             instance.group(BlockState.CODEC.optionalFieldOf("center").forGetter((config) ->
                     config.center

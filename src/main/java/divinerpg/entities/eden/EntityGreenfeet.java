@@ -7,7 +7,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -22,10 +21,9 @@ public class EntityGreenfeet extends EntityDivineMonster {
                 ItemStack itemstack = getItemBySlot(EquipmentSlot.HEAD);
                 if(!itemstack.isEmpty()) {
                     if(itemstack.isDamageableItem()) {
-                        Item item = itemstack.getItem();
                         itemstack.setDamageValue(itemstack.getDamageValue() + random.nextInt(2));
                         if(itemstack.getDamageValue() >= itemstack.getMaxDamage()) {
-                            onEquippedItemBroken(item, EquipmentSlot.HEAD);
+                            onEquippedItemBroken(itemstack, EquipmentSlot.HEAD);
                             setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
                         }
                     } flag = false;

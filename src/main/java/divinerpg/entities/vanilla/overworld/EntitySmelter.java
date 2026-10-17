@@ -19,9 +19,4 @@ public class EntitySmelter extends EntityDivineTameable {
             entity.igniteForSeconds(5);
         } return attack;
     }
-    @Override
-    public void aiStep() {
-        updateSwingTime();
-        super.aiStep();
-    }
 }

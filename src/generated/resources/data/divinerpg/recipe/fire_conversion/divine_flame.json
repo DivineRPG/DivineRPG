@@ -15,15 +15,9 @@
     "predicate_type": "minecraft:block_match"
   },
   "output_state": {
-    "type": "minecraft:simple_state_provider",
-    "state": {
-      "Name": "divinerpg:divine_flame"
-    }
+    "id": "divinerpg:divine_flame"
   },
   "portal": {
-    "type": "minecraft:simple_state_provider",
-    "state": {
-      "Name": "divinerpg:eden_portal"
-    }
+    "id": "divinerpg:eden_portal"
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/realmite_ingot_from_smelting_raw_realmite"
+        "recipes": "divinerpg:smelting/realmite_ingot_from_smelting_raw_realmite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

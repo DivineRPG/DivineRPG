@@ -3,15 +3,13 @@
   "criteria": {
     "killed_by_cori": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:weak_cori"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:weak_cori"
           }
-        ]
+        }
       },
       "trigger": "minecraft:entity_killed_player"
     }

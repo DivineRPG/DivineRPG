@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/wildwood_fragments_from_smelting_tag"
+        "recipes": "divinerpg:smelting/wildwood_fragments_from_smelting_tag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

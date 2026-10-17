@@ -3,15 +3,13 @@
   "criteria": {
     "trade_with_dave": {
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:diamond_dave"
-            }
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:diamond_dave"
           }
-        ]
+        }
       },
       "trigger": "minecraft:villager_trade"
     }

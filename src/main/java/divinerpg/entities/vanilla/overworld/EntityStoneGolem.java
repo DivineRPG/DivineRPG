@@ -18,9 +18,4 @@ public class EntityStoneGolem extends EntityDivineTameable{
             entity.setDeltaMovement(-Mth.sin(getXRot() * Mth.DEG_TO_RAD), .1, Mth.cos(getXRot() * Mth.DEG_TO_RAD));
         } return attack;
     }
-    @Override
-    public void aiStep() {
-        updateSwingTime();
-        super.aiStep();
-    }
 }

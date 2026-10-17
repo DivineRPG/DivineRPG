@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smoking/hot_pumpkin_pie_from_smoking_pumpkin_pie"
+        "recipes": "divinerpg:smoking/hot_pumpkin_pie_from_smoking_pumpkin_pie"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

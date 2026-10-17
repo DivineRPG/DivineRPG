@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/kraken_boots_from_aquastrive_boots"
+        "recipes": "divinerpg:smithing/kraken_boots_from_aquastrive_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

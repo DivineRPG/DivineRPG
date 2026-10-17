@@ -1,5 +1,6 @@
 package divinerpg.world.feature.decoration;
 
+import com.mojang.serialization.MapCodec;
 import divinerpg.registries.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -13,18 +14,18 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-public class WhaleSkeleton extends Feature<NoneFeatureConfiguration> {
+public class WhaleSkeleton implements Feature {
+	public static final MapCodec<WhaleSkeleton> CODEC = MapCodec.unit(WhaleSkeleton::new);
 	public static BlockState xBone, yBone, zBone, coalstone;
-	public WhaleSkeleton() {super(NoneFeatureConfiguration.CODEC);}
+
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> config) {
-		return place(null, config.level(), null, config.random(), config.origin());
+	public MapCodec<WhaleSkeleton> codec() {
+		return CODEC;
 	}
+
 	@Override
-	public boolean place(NoneFeatureConfiguration config, WorldGenLevel level, ChunkGenerator c, RandomSource random, BlockPos origin) {
+	public boolean place(WorldGenLevel level, ChunkGenerator c, RandomSource random, BlockPos origin) {
 		if(xBone == null) {
 			xBone = Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Axis.X);
 			yBone = Blocks.BONE_BLOCK.defaultBlockState();
@@ -55,7 +56,7 @@ public class WhaleSkeleton extends Feature<NoneFeatureConfiguration> {
 				setBlock(level, mut, bone, random);
 				setBlock(level, mut.relative(otherAx, 1), bone, random);
 				byte bshift = (byte)(b + shift);
-				if(rib < ribAmount && bshift % 2 == 0) {//put ribs
+				if(rib < ribAmount && bshift % 2 == 0) {
 					for(byte r = -1; r < 3; r++) if(r == -1 || r == 2) {
 						MutableBlockPos ribmut = mut.relative(otherAx, r).mutable();
 						setBlock(level, ribmut, otherbone, random);
@@ -97,7 +98,7 @@ public class WhaleSkeleton extends Feature<NoneFeatureConfiguration> {
 				mut.move(direction);
 				if(random.nextFloat() < .2F) mut = mut.relative(otherAx, random.nextBoolean() ? 1 : -1).mutable();
 			}
-		} else if(random.nextBoolean()) {//laying rib
+		} else if(random.nextBoolean()) {
 			Direction dir = Direction.getRandom(random);
 			while(dir == direction) dir = Direction.getRandom(random);
 			BlockState otherbone = yBone.setValue(RotatedPillarBlock.AXIS, dir.getAxis());
@@ -107,7 +108,7 @@ public class WhaleSkeleton extends Feature<NoneFeatureConfiguration> {
 			setBlock(level, mut.move(direction), bone, random);
 			if(random.nextBoolean()) setBlock(level, mut.move(direction), bone, random);
 			if(random.nextBoolean()) setBlock(level, mut.move(direction).move(dir), otherbone, random);
-		} else {//standing rib
+		} else {
 			if(random.nextBoolean())  setBlock(level, origin.below(2).relative(direction), bone, random);
 			setBlock(level, origin.below(), yBone, random);
 			setBlock(level, origin, yBone, random);

@@ -20,7 +20,7 @@
           "name": "divinerpg:soul_key"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "divinerpg:entities/dungeon_constructor"

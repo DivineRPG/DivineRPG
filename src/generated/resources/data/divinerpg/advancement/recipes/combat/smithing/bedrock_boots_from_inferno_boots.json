@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/bedrock_boots_from_inferno_boots"
+        "recipes": "divinerpg:smithing/bedrock_boots_from_inferno_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

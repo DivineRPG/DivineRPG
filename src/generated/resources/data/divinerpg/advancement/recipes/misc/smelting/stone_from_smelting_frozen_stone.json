@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/stone_from_smelting_frozen_stone"
+        "recipes": "divinerpg:smelting/stone_from_smelting_frozen_stone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

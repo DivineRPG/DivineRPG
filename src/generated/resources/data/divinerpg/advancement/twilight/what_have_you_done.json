@@ -4,7 +4,7 @@
     "requirement": {
       "conditions": {
         "item": {
-          "items": []
+          "items": "divinerpg:forbidden_fruit"
         }
       },
       "trigger": "minecraft:consume_item"

@@ -9,7 +9,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
@@ -38,7 +38,7 @@ public class GiantDivineTrunkPlacer extends TrunkPlacer {
     }
 
     @Override
-    public List<FoliagePlacer.FoliageAttachment> placeTrunk(WorldGenLevel level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, int height, BlockPos start, TreeConfiguration config) {
+    public List<FoliagePlacer.FoliageAttachment> placeTrunk(WorldGenLevel level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, int height, BlockPos start, TreeFeature config) {
         List<FoliagePlacer.FoliageAttachment> foliage = new ArrayList<>();
         BlockPos soilPos = start.below();
         if (!level.isStateAtPosition(soilPos, s -> s.is(BlockTags.DIRT) || s.is(Blocks.GRASS_BLOCK))) {
@@ -70,7 +70,7 @@ public class GiantDivineTrunkPlacer extends TrunkPlacer {
         return foliage;
     }
 
-    private void generateRoots(WorldGenLevel level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos start, TreeConfiguration config) {
+    private void generateRoots(WorldGenLevel level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos start, TreeFeature config) {
         int rootCount = 4 + random.nextInt(3);
         for (int i = 0; i < rootCount; i++) {
             double angle = (2 * Math.PI / rootCount) * i + random.nextDouble() * 0.5;
@@ -86,7 +86,7 @@ public class GiantDivineTrunkPlacer extends TrunkPlacer {
         }
     }
 
-    private void generateBranch(WorldGenLevel level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos start, TreeConfiguration config) {
+    private void generateBranch(WorldGenLevel level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos start, TreeFeature config) {
         Direction dir = Direction.Plane.HORIZONTAL.getRandomDirection(random);
         int length = 8 + random.nextInt(6);
         int radius = 2;
@@ -106,14 +106,14 @@ public class GiantDivineTrunkPlacer extends TrunkPlacer {
         generateLeafCluster(level, setter, random, pos, config);
     }
 
-    private void generateLeafCluster(WorldGenLevel level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos center, TreeConfiguration config) {
+    private void generateLeafCluster(WorldGenLevel level, BiConsumer<BlockPos, BlockState> setter, RandomSource random, BlockPos center, TreeFeature config) {
         int radius = 4;
         for (int x = -radius; x <= radius; x++) {
             for (int y = -radius; y <= radius; y++) {
                 for (int z = -radius; z <= radius; z++) {
                     if (x*x + y*y + z*z <= radius * radius + random.nextInt(3)) {
                         BlockPos pos = center.offset(x, y, z);
-                        setter.accept(pos, config.foliageProvider.getState(level, random, pos));
+                        setter.accept(pos, config.foliageProvider().value().getState(level, random, pos));
                     }
                 }
             }

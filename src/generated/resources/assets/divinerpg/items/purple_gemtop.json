@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/purple_gemtop"
+    "model": "divinerpg:item/purple_gemtop"
   }
 }

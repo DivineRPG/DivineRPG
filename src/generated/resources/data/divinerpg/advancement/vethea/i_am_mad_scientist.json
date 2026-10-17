@@ -3,15 +3,13 @@
   "criteria": {
     "kill_karos": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:karos"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:karos"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

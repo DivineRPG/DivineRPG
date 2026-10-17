@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/arlemite_ingot_from_smelting_arlemite_dust"
+        "recipes": "divinerpg:smelting/arlemite_ingot_from_smelting_arlemite_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -10,6 +10,7 @@ import net.minecraft.util.InclusiveRange;
 import net.minecraft.util.Unit;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.PositionPath;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -38,7 +39,7 @@ public class ItemEnderScepter extends ItemMod {
         player.resetFallDistance();
         if(player.isPassenger()) player.stopRiding();
         for(int i = 0; i < 5; i++) level.addParticle(ParticleTypes.PORTAL, player.getX() + player.getRandom().nextDouble() - .5, player.getY(), player.getZ() + player.getRandom().nextDouble() - .5, 0, 0, 0);
-        player.moveOrInterpolateTo(pos.getLocation());
+        player.moveOrInterpolateTo(PositionPath.of(pos.getLocation()));
         for(int i = 0; i < 5; i++) level.addParticle(ParticleTypes.PORTAL, player.getX() + player.getRandom().nextDouble() - .5, player.getY(), player.getZ() + player.getRandom().nextDouble() - .5, 0, 0, 0);
         player.playSound(SoundEvents.CHORUS_FRUIT_TELEPORT, 1, 1);
         return InteractionResult.SUCCESS;

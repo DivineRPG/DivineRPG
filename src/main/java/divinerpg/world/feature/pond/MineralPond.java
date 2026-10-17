@@ -1,15 +1,34 @@
 package divinerpg.world.feature.pond;
 
 import java.util.List;
+
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.registries.BlockRegistry;
+import divinerpg.world.config.tree.TreeConfig;
+import divinerpg.world.feature.config.RuleTestConfig;
+import divinerpg.world.feature.tree.ShiverspineTree;
 import net.minecraft.core.*;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 public class MineralPond extends GlacialPond {
+	public static final MapCodec<MineralPond> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(RuleTestConfig.CODEC.fieldOf("config").forGetter(f -> f.config)).apply(instance, MineralPond::new));
+	private RuleTestConfig config;
+	public MineralPond(RuleTestConfig config) {
+		super(config);
+		this.config = config;
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	@Override
 	protected void genDeep(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		setBlock(level, pos, Blocks.WATER.defaultBlockState());

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/yellow_rupee_boots_from_gray_rupee_boots"
+        "recipes": "divinerpg:smithing/yellow_rupee_boots_from_gray_rupee_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

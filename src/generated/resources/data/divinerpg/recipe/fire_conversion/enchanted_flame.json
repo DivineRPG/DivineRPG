@@ -12,15 +12,9 @@
     "predicate_type": "minecraft:block_match"
   },
   "output_state": {
-    "type": "minecraft:simple_state_provider",
-    "state": {
-      "Name": "divinerpg:enchanted_flame"
-    }
+    "id": "divinerpg:enchanted_flame"
   },
   "portal": {
-    "type": "minecraft:simple_state_provider",
-    "state": {
-      "Name": "divinerpg:apalachia_portal"
-    }
+    "id": "divinerpg:apalachia_portal"
   }
 }

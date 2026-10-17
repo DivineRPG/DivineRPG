@@ -3,19 +3,17 @@
   "criteria": {
     "step_on_elevantium": {
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:location": {
-                "block": {
-                  "blocks": []
-                }
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "block": {
+                "blocks": "divinerpg:elevantium"
               }
             }
           }
-        ]
+        }
       },
       "trigger": "minecraft:location"
     }

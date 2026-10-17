@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/yellow_rupee_chestplate_from_red_rupee_chestplate"
+        "recipes": "divinerpg:smithing/yellow_rupee_chestplate_from_red_rupee_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

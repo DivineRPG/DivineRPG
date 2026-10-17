@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
   "experience": 0.1,
   "group": "cobblestone_stairs",
   "ingredient": "divinerpg:cobbled_frozen_stairs",

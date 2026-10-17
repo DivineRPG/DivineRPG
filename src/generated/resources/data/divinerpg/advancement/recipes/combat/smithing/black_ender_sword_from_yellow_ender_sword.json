@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/black_ender_sword_from_yellow_ender_sword"
+        "recipes": "divinerpg:smithing/black_ender_sword_from_yellow_ender_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

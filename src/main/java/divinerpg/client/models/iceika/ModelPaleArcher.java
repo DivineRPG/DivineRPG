@@ -49,7 +49,7 @@ public class ModelPaleArcher<S extends HumanoidRenderState> extends HumanoidMode
         float limbSwing = state.walkAnimationPos;
         float limbSwingAmount = state.walkAnimationSpeed;
         float ageInTicks = state.ageInTicks;
-        float attackTime = state.attackTime;
+        float attackTime = state.ticksUsingItem;
 
         this.body.xRot = 0.1565F;
         this.rightArm.zRot = 0.2182F;

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/hellfire_sponge_from_blasting_cold_hellfire_sponge"
+        "recipes": "divinerpg:blasting/hellfire_sponge_from_blasting_cold_hellfire_sponge"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,15 +3,13 @@
   "criteria": {
     "allo": {
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:the_hunger"
-            }
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:the_hunger"
           }
-        ]
+        }
       },
       "trigger": "minecraft:villager_trade"
     }

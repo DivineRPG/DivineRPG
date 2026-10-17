@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/eden_sparkles_from_blasting_eden_dust"
+        "recipes": "divinerpg:blasting/eden_sparkles_from_blasting_eden_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

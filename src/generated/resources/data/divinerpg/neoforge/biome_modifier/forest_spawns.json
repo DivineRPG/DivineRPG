@@ -4,20 +4,29 @@
   "spawners": [
     {
       "type": "divinerpg:jack_o_man",
-      "maxCount": 1,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 1,
+        "min_inclusive": 1
+      },
       "weight": 4
     },
     {
       "type": "divinerpg:cyclops",
-      "maxCount": 4,
-      "minCount": 2,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 4,
+        "min_inclusive": 2
+      },
       "weight": 80
     },
     {
       "type": "divinerpg:pumpkin_spider",
-      "maxCount": 3,
-      "minCount": 1,
+      "count": {
+        "type": "minecraft:uniform",
+        "max_inclusive": 3,
+        "min_inclusive": 1
+      },
       "weight": 60
     }
   ]

@@ -54,39 +54,39 @@ public class FireConversionCategory implements IRecipeCategory<RecipeHolder<Fire
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<FireConversionRecipe> recipe, IFocusGroup focuses) {
-        builder.addInputSlot(2, 2).addIngredients(recipe.value().inputItem());
+        builder.addInputSlot(2, 2).add(recipe.value().inputItem());
 
         RuleTest test = recipe.value().inputState();
         IRecipeSlotBuilder slotBuilder = builder.addSlot(RecipeIngredientRole.INPUT, 2, 38);
         var ingredients = builder.addInvisibleIngredients(RecipeIngredientRole.INPUT);
 
         BuiltInRegistries.FLUID.forEach(f -> {
-            if (test.test(f.defaultFluidState().createLegacyBlock(), random)) {
-                slotBuilder.addFluidStack(f);
+            if (test.test(f.defaultFluidState().createLegacyBlock(), BlockPos.ZERO, random)) {
+                slotBuilder.add(f);
             }
         });
 
         BuiltInRegistries.BLOCK.get(BlockTags.FIRE).ifPresent(tag -> tag.forEach(block -> {
             Block b = block.value();
-            if (test.test(b.defaultBlockState(), random)) {
-                slotBuilder.addIngredient(JEICompat.BLOCK_INGREDIENT_TYPE, b);
-                ingredients.addItemStack(b.asItem().getDefaultInstance());
+            if (test.test(b.defaultBlockState(), BlockPos.ZERO, random)) {
+                slotBuilder.add(JEICompat.BLOCK_INGREDIENT_TYPE, b);
+                ingredients.add(b.asItem().getDefaultInstance());
             }
         }));
 
         recipe.value().outputItem().ifPresent(stack -> {
-            if (!stack.isEmpty()) builder.addOutputSlot(53, 2).addItemStack(stack);
+            if (!stack.isEmpty()) builder.addOutputSlot(53, 2).add(stack);
         });
 
         recipe.value().outputState().ifPresent(s -> {
-            BlockState state = s.getState(null, random, BlockPos.ZERO);
+            BlockState state = s.value().getState(null, random, BlockPos.ZERO);
             if (!state.isAir()) {
                 if (!state.getFluidState().isEmpty()) {
-                    builder.addOutputSlot(53, 38).addFluidStack(state.getFluidState().getType());
+                    builder.addOutputSlot(53, 38).add(state.getFluidState().getType());
                 } else {
-                    builder.addOutputSlot(53, 38).addIngredient(JEICompat.BLOCK_INGREDIENT_TYPE, state.getBlock());
+                    builder.addOutputSlot(53, 38).add(JEICompat.BLOCK_INGREDIENT_TYPE, state.getBlock());
                 }
-                builder.addInvisibleIngredients(RecipeIngredientRole.OUTPUT).addItemStack(state.getBlock().asItem().getDefaultInstance());
+                builder.addInvisibleIngredients(RecipeIngredientRole.OUTPUT).add(state.getBlock().asItem().getDefaultInstance());
             }});
     }
 
@@ -95,7 +95,7 @@ public class FireConversionCategory implements IRecipeCategory<RecipeHolder<Fire
         background.draw(guiGraphics, 0, 0);
         if (recipe.value().outputItem().isPresent() && !recipe.value().outputItem().get().isEmpty()) {
             slot.draw(guiGraphics, 52, 1);
-            if (recipe.value().outputState().isPresent() && !recipe.value().outputState().get().getState(null, random, BlockPos.ZERO).isAir()) {
+            if (recipe.value().outputState().isPresent() && !recipe.value().outputState().get().value().getState(null, random, BlockPos.ZERO).isAir()) {
                 plus.draw(guiGraphics, 54, 22);
             }
         }

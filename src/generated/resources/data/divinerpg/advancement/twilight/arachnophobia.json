@@ -3,15 +3,13 @@
   "criteria": {
     "kill_boss_soul_fiend": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:soul_fiend"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:soul_fiend"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

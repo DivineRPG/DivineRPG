@@ -3,15 +3,13 @@
   "criteria": {
     "kill_lheiva": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:lheiva"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:lheiva"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

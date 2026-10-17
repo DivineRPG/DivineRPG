@@ -3,15 +3,13 @@
   "criteria": {
     "kill_boss_ancient_entity": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:ancient_entity"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:ancient_entity"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

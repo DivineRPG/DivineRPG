@@ -1,0 +1,26 @@
+{
+  "type": "divinerpg:ore_vein_feature",
+  "branching_chance": 0.0,
+  "cutoff_chance": 0.0,
+  "straightness": 0.0,
+  "target_states": [
+    {
+      "chance": 0.4,
+      "discard_chance_on_air_exposure": 0.0,
+      "state": "divinerpg:realmite_ore",
+      "target": {
+        "predicate_type": "minecraft:tag_match",
+        "tag": "minecraft:stone_ore_replaceables"
+      }
+    },
+    {
+      "chance": 0.4,
+      "discard_chance_on_air_exposure": 0.0,
+      "state": "divinerpg:realmite_ore_deepslate",
+      "target": {
+        "predicate_type": "minecraft:tag_match",
+        "tag": "minecraft:deepslate_ore_replaceables"
+      }
+    }
+  ]
+}

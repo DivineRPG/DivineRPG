@@ -49,9 +49,9 @@ public class RenderAequorea<T extends EntityAequorea, S extends LivingEntityRend
         float f = 0.0F;
         float f1 = 0.0F;
         poseStack.translate(0.0D, 0.25D, 0.0D);
-        poseStack.mulPose(Axis.YP.rotationDegrees(180.0F - yBodyRot));
-        poseStack.mulPose(Axis.XP.rotationDegrees(f));
-        poseStack.mulPose(Axis.YP.rotationDegrees(f1));
+        poseStack.rotate(Axis.YP.rotationDegrees(180.0F - yBodyRot));
+        poseStack.rotate(Axis.XP.rotationDegrees(f));
+        poseStack.rotate(Axis.YP.rotationDegrees(f1));
         poseStack.translate(0.0D, -0.6D, 0.0D);
     }
 

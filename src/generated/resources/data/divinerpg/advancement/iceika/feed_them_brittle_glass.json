@@ -3,15 +3,13 @@
   "criteria": {
     "mammoth": {
       "conditions": {
-        "child": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:mamoth"
-            }
+        "child": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:mamoth"
           }
-        ]
+        }
       },
       "trigger": "minecraft:bred_animals"
     }

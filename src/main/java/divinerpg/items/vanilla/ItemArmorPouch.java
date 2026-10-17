@@ -4,6 +4,7 @@ import divinerpg.items.base.ItemMod;
 import divinerpg.utils.Utils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.HolderLookup.RegistryLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -37,12 +38,17 @@ public class ItemArmorPouch extends ItemMod {
     @Override
     public void onDestroyed(ItemEntity entity, DamageSource source) {
         ItemStack item = entity.getItem();
-        if(item.has(DataComponents.CONTAINER)) {
+        if (item.has(DataComponents.CONTAINER)) {
             ItemContainerContents container = item.get(DataComponents.CONTAINER);
-            Utils.drop(entity.level(), entity.position(), container.getStackInSlot(0));
-            Utils.drop(entity.level(), entity.position(), container.getStackInSlot(1));
-            Utils.drop(entity.level(), entity.position(), container.getStackInSlot(2));
-            Utils.drop(entity.level(), entity.position(), container.getStackInSlot(3));
+            if (container != null) {
+                NonNullList<ItemStack> drops = NonNullList.withSize(container.size(), ItemStack.EMPTY);
+                container.copyInto(drops);
+                for (ItemStack stack : drops) {
+                    if (!stack.isEmpty()) {
+                        Utils.drop(entity.level(), entity.position(), stack);
+                    }
+                }
+            }
         }
     }
     @Override
@@ -100,17 +106,22 @@ public class ItemArmorPouch extends ItemMod {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltip, Consumer<Component> builder, TooltipFlag flagIn) {
-        if(stack.has(DataComponents.CONTAINER)) {
+        if (stack.has(DataComponents.CONTAINER)) {
             ItemContainerContents container = stack.get(DataComponents.CONTAINER);
-            ItemStack helmet = container.getStackInSlot(0);
-            ItemStack chestplate = container.getStackInSlot(1);
-            ItemStack leggings = container.getStackInSlot(2);
-            ItemStack boots = container.getStackInSlot(3);
-            if(!isEmpty(helmet)) builder.accept(Component.translatable("tooltip.divinerpg.armor_pouch.helmet").append(helmet.getHoverName()).withStyle(ChatFormatting.WHITE));
-            if(!isEmpty(chestplate)) builder.accept(Component.translatable("tooltip.divinerpg.armor_pouch.chestplate").append(chestplate.getHoverName()).withStyle(ChatFormatting.WHITE));
-            if(!isEmpty(leggings)) builder.accept(Component.translatable("tooltip.divinerpg.armor_pouch.leggings").append(leggings.getHoverName()).withStyle(ChatFormatting.WHITE));
-            if(!isEmpty(boots)) builder.accept(Component.translatable("tooltip.divinerpg.armor_pouch.boots").append(boots.getHoverName()).withStyle(ChatFormatting.WHITE));
-        } super.appendHoverText(stack, context, tooltip, builder, flagIn);
+            if (container != null) {
+                NonNullList<ItemStack> contents = NonNullList.withSize(4, ItemStack.EMPTY);
+                container.copyInto(contents);
+                ItemStack helmet = contents.size() > 0 ? contents.get(0) : ItemStack.EMPTY;
+                ItemStack chestplate = contents.size() > 1 ? contents.get(1) : ItemStack.EMPTY;
+                ItemStack leggings = contents.size() > 2 ? contents.get(2) : ItemStack.EMPTY;
+                ItemStack boots = contents.size() > 3 ? contents.get(3) : ItemStack.EMPTY;
+                if (!isEmpty(helmet)) builder.accept(Component.translatable("tooltip.divinerpg.armor_pouch.helmet").append(helmet.getHoverName()).withStyle(ChatFormatting.WHITE));
+                if (!isEmpty(chestplate)) builder.accept(Component.translatable("tooltip.divinerpg.armor_pouch.chestplate").append(chestplate.getHoverName()).withStyle(ChatFormatting.WHITE));
+                if (!isEmpty(leggings)) builder.accept(Component.translatable("tooltip.divinerpg.armor_pouch.leggings").append(leggings.getHoverName()).withStyle(ChatFormatting.WHITE));
+                if (!isEmpty(boots)) builder.accept(Component.translatable("tooltip.divinerpg.armor_pouch.boots").append(boots.getHoverName()).withStyle(ChatFormatting.WHITE));
+            }
+        }
+        super.appendHoverText(stack, context, tooltip, builder, flagIn);
     }
     public void setEntitySlot(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
         entity.setItemSlot(slot, stack.getItem() instanceof ItemArmorPouch ? ItemStack.EMPTY : stack);
@@ -123,8 +134,12 @@ public class ItemArmorPouch extends ItemMod {
     }
     public static List<ItemStack> getContainerContentsAsList(ItemContainerContents c) {
         List<ItemStack> result = new ArrayList<>();
-        for(int i = 0; i < c.getSlots(); i++) result.add(c.getStackInSlot(i));
-        if(result.size() != 4) throw new IllegalArgumentException();
+        NonNullList<ItemStack> temp = NonNullList.withSize(Math.max(c.getSlots(), 4), ItemStack.EMPTY);
+        c.copyInto(temp);
+        for (int i = 0; i < 4 && i < temp.size(); i++) {
+            result.add(temp.get(i));
+        }
+        if (result.size() != 4) throw new IllegalArgumentException();
         return result;
     }
     public static boolean isEmptyItemList(List<ItemStack> list) {

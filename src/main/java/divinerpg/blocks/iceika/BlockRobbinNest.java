@@ -6,6 +6,7 @@ import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -23,10 +24,8 @@ import net.minecraft.world.phys.shapes.*;
 import org.jspecify.annotations.Nullable;
 
 public class BlockRobbinNest extends BaseEntityBlock {
-    public static final MapCodec<BlockRobbinNest> CODEC = simpleCodec(BlockRobbinNest::new);
-    @Override public MapCodec<BlockRobbinNest> codec() {return CODEC;}
     protected static final VoxelShape BASE_SHAPE = Block.box(2, 0, 2, 14, 4, 14);
-    public BlockRobbinNest(Properties properties) {super(properties.randomTicks().noOcclusion().mapColor(MapColor.COLOR_BROWN).isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos) -> false).pushReaction(PushReaction.DESTROY).isRedstoneConductor((state, getter, pos) -> false));}
+    public BlockRobbinNest(Properties properties) {super(properties.randomTicks().noOcclusion().mapColor(MapColor.COLOR_BROWN).isSuffocating((state, getter, pos) -> false).isViewBlocking((state, getter, pos, i) -> false).pushReaction(PushReaction.POPPED).isRedstoneConductor((state, getter, pos) -> false));}
     @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return BASE_SHAPE;}
     @Override public RenderShape getRenderShape(BlockState state) {return RenderShape.MODEL;}
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {return BlockEntityRegistry.ROBBIN_NEST.get().create(pos, state);}
@@ -67,7 +66,7 @@ public class BlockRobbinNest extends BaseEntityBlock {
     }
 
     @Override
-    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack destroyedWith) {
+    public void playerDestroy(ServerLevel level, ServerPlayer player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack destroyedWith) {
         if(level.getBlockEntity(pos) instanceof RobbinNestBlockEntity block) {
             if(!block.isEmpty()) Containers.dropContents(level, pos, block);
             level.removeBlockEntity(pos);

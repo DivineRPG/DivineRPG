@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/clock_from_smelting_frozen_clock"
+        "recipes": "divinerpg:smelting/clock_from_smelting_frozen_clock"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

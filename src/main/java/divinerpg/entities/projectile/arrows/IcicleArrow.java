@@ -4,7 +4,7 @@ import divinerpg.entities.projectile.DivineArrow;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.monster.Enderman;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -26,7 +26,7 @@ public class IcicleArrow extends DivineArrow {
     @Override protected ItemStack getDefaultPickupItem() {return new ItemStack(icicle_arrow.get());}
     @Override protected void onHitEntity(EntityHitResult result) {
         Entity entity = result.getEntity();
-        if(entity instanceof LivingEntity livingEntity && entity.canFreeze() && !(entity instanceof EnderMan) && !(entity instanceof Player p && p.isCreative())) {
+        if(entity instanceof LivingEntity livingEntity && entity.canFreeze() && !(entity instanceof Enderman) && !(entity instanceof Player p && p.isCreative())) {
             livingEntity.setTicksFrozen(livingEntity.getTicksFrozen() + 80);
             if(livingEntity.isOnFire()) livingEntity.extinguishFire();
         } super.onHitEntity(result);

@@ -1,0 +1,17 @@
+{
+  "type": "divinerpg:ore_vein_feature",
+  "branching_chance": 0.0,
+  "cutoff_chance": 0.0,
+  "straightness": 0.0,
+  "target_states": [
+    {
+      "chance": 0.6,
+      "discard_chance_on_air_exposure": 0.15,
+      "state": "divinerpg:apalachia_ore",
+      "target": {
+        "predicate_type": "minecraft:tag_match",
+        "tag": "c:stones"
+      }
+    }
+  ]
+}

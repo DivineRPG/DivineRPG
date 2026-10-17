@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:stonecutting/cobalite_stairs"
+        "recipes": "divinerpg:stonecutting/cobalite_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

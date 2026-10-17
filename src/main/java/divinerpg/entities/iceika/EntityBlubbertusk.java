@@ -18,6 +18,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.*;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -150,7 +151,7 @@ public class EntityBlubbertusk extends Animal {
         @SuppressWarnings("deprecation")
         boolean landingIsClear(BlockPos pos, int stepX, int stepZ, int step) {
             BlockPos blockPos = pos.offset(stepX * step, 0, stepZ * step);
-            return mob.level().getBlockState(blockPos).blocksMotion();
+            return mob.level().getBlockState(blockPos).getPistonPushReaction().equals(PushReaction.IMMOVEABLE);
         }
         boolean surfaceIsClear(BlockPos pos, int stepX, int stepZ, int step) {
             return mob.level().getBlockState(pos.offset(stepX* step, 1, stepZ* step)).isAir() && mob.level().getBlockState(pos.offset(stepX* step, 2, stepZ* step)).isAir();

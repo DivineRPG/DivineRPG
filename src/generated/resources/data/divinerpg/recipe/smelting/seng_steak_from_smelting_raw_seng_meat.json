@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
   "experience": 0.35,
   "group": "seng_steak",
   "ingredient": "divinerpg:raw_seng_meat",

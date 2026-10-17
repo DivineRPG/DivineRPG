@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/wolpertinger_steak_from_smelting_raw_wolpertinger_meat"
+        "recipes": "divinerpg:smelting/wolpertinger_steak_from_smelting_raw_wolpertinger_meat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

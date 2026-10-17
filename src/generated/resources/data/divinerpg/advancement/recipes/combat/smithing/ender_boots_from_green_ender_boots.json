@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/ender_boots_from_green_ender_boots"
+        "recipes": "divinerpg:smithing/ender_boots_from_green_ender_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

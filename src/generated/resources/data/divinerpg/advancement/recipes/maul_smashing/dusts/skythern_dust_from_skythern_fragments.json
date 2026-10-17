@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:maul_smashing/dusts/skythern_dust_from_skythern_fragments"
+        "recipes": "divinerpg:maul_smashing/dusts/skythern_dust_from_skythern_fragments"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

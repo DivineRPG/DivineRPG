@@ -3,57 +3,49 @@
   "criteria": {
     "tame_fyracryx": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:fyracryx"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:fyracryx"
           }
-        ]
+        }
       },
       "trigger": "minecraft:tame_animal"
     },
     "tame_golem_of_rejuvenation": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:golem_of_rejuvenation"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:golem_of_rejuvenation"
           }
-        ]
+        }
       },
       "trigger": "minecraft:tame_animal"
     },
     "tame_paratiku": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:paratiku"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:paratiku"
           }
-        ]
+        }
       },
       "trigger": "minecraft:tame_animal"
     },
     "tame_seimer": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:seimer"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:seimer"
           }
-        ]
+        }
       },
       "trigger": "minecraft:tame_animal"
     }

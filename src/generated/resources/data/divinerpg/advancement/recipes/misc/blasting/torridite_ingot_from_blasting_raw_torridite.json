@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/torridite_ingot_from_blasting_raw_torridite"
+        "recipes": "divinerpg:blasting/torridite_ingot_from_blasting_raw_torridite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

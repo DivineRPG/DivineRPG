@@ -13,7 +13,6 @@ public class InfusionTableScreen extends AbstractContainerScreen<InfusionTableMe
     private static final Identifier LOCATION = Identifier.fromNamespaceAndPath(DivineRPG.MODID, "textures/gui/infusion_table.png");
     public InfusionTableScreen(InfusionTableMenu container, Inventory playerInventory, Component title) {
         super(container, playerInventory, title);
-
         this.titleLabelY -= 2;
     }
 
@@ -24,9 +23,9 @@ public class InfusionTableScreen extends AbstractContainerScreen<InfusionTableMe
 
     @Override
     public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTicks) {
-        int edgeSpacingX = (this.width - this.getXSize()) / 2;
-        int edgeSpacingY = (this.height - this.getYSize()) / 2;
-        graphics.blit(LOCATION, edgeSpacingX, edgeSpacingY, 0, 0, this.getXSize(), this.getYSize(), 176, 166);
+        int edgeSpacingX = (this.width - this.imageWidth) / 2;
+        int edgeSpacingY = (this.height - this.imageHeight) / 2;
+        graphics.blit(LOCATION, edgeSpacingX, edgeSpacingY, 0, 0, this.imageWidth, this.imageHeight, 176, 166);
     }
 
 

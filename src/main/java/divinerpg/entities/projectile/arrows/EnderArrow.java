@@ -52,7 +52,7 @@ public class EnderArrow extends DivineArrow {
                 discard();
             } else {
                 entity.setRemainingFireTicks(i);
-                deflect(REVERSE, entity, EntityReference.of(getOwner()), false);
+                deflect(REVERSE, entity, EntityReference.of(getOwner()), false, 1);
                 setDeltaMovement(getDeltaMovement().scale(.2));
                 if(!level().isClientSide() && getDeltaMovement().lengthSqr() < 1-7) {
                     if(pickup == Pickup.ALLOWED) spawnAtLocation(level().getServer().getLevel(level().dimension()), getPickupItem(), .1F);

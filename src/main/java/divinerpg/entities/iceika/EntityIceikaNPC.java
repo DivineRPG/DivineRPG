@@ -47,7 +47,6 @@ public abstract class EntityIceikaNPC extends EntityDivineMerchant implements Fa
         return nav;
     }
     @Override public void aiStep() {
-        updateSwingTime();
         updateNoActionTime();
         super.aiStep();
     }

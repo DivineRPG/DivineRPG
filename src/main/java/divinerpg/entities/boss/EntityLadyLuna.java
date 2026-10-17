@@ -16,6 +16,7 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.PositionPath;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -79,10 +80,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
         super.tick();
         Level level = level();
         if (level.isClientSide()) return;
-
         BlockPos currentPos = BlockPos.containing(getX(), getY(), getZ());
-
-        // Break surrounding leaves and logs
         if (tickCount % 5 == 0) {
             for (int x = currentPos.getX() - 2; x <= currentPos.getX() + 2; x++) {
                 for (int y = (int) getBoundingBox().minY; y < (int) getBoundingBox().minY + 4; y++) {
@@ -96,18 +94,13 @@ public class EntityLadyLuna extends EntityDivineBoss {
                 }
             }
         }
-
-        // Place lunic acid trail below
         BlockPos current = BlockPos.containing(getX() - 1, getY(), getZ() - 1);
         BlockPos below = BlockPos.containing(getX() - 1, getY() - 1, getZ() - 1);
         BlockState belowState = level.getBlockState(below);
-
         if (level.getBlockState(current).isAir() && belowState.canOcclude() && belowState.hasLargeCollisionShape()) {
             level.setBlock(current, BlockRegistry.lunicAcid.get().defaultBlockState(), 1);
             acidPositions.add(current);
         }
-
-        // Spawn sparklers when in protection state 0
         if (getProtection() == 0 && tickCount % 30 == 0) {
             Iterator<BlockPos> iter = acidPositions.iterator();
             while (iter.hasNext()) {
@@ -118,7 +111,7 @@ public class EntityLadyLuna extends EntityDivineBoss {
                     EntityLadyLunaSparkler e = EntityRegistry.LADY_LUNA_SPARKLER.get().create(level, EntitySpawnReason.EVENT);
                     if (e != null) {
                         e.setOwner(this);
-                        e.moveOrInterpolateTo(new Vec3(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D));
+                        e.moveOrInterpolateTo(PositionPath.of(new Vec3(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D)));
                         level.addFreshEntity(e);
                     }
                 }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/eden_fragments_from_blasting_twilight_eden_ore"
+        "recipes": "divinerpg:blasting/eden_fragments_from_blasting_twilight_eden_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

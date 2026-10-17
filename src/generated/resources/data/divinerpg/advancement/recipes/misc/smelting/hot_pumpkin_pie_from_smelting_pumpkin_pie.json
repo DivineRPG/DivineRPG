@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/hot_pumpkin_pie_from_smelting_pumpkin_pie"
+        "recipes": "divinerpg:smelting/hot_pumpkin_pie_from_smelting_pumpkin_pie"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

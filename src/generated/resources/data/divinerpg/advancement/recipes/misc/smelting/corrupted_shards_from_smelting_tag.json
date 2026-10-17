@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/corrupted_shards_from_smelting_tag"
+        "recipes": "divinerpg:smelting/corrupted_shards_from_smelting_tag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

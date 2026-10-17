@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.PositionPath;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -31,7 +32,7 @@ public class ItemStormSword extends ItemModSword {
             double angle = 0;
             while(angle < 2 * Math.PI) {
                 LightningBolt bolt = new LightningBolt(EntityTypes.LIGHTNING_BOLT, level);
-                bolt.moveOrInterpolateTo(pos.getLocation().offsetRandom(RandomSource.create(), 8));
+                bolt.moveOrInterpolateTo(PositionPath.of(pos.getLocation().offsetRandom(RandomSource.create(), 8)));
                 level.addFreshEntity(bolt);
                 angle += Math.PI / 8;
             }

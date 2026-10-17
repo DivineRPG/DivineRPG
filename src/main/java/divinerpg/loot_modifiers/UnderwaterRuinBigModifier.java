@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import divinerpg.registries.ItemRegistry;
+import net.minecraft.core.Holder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -11,12 +12,12 @@ import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
 
-public class UnderwaterRuinBigModifier extends LootModifier {
-    public static final MapCodec<UnderwaterRuinBigModifier> CODEC = RecordCodecBuilder.mapCodec(
-            instance -> codecStart(instance).apply(instance, UnderwaterRuinBigModifier::new)
-    );
+import java.util.Optional;
 
-    public UnderwaterRuinBigModifier(LootItemCondition[] conditionsIn, int priority) {
+public class UnderwaterRuinBigModifier extends LootModifier {
+    public static final MapCodec<UnderwaterRuinBigModifier> CODEC = RecordCodecBuilder.mapCodec(instance -> codecStart(instance).apply(instance, UnderwaterRuinBigModifier::new));
+
+    public UnderwaterRuinBigModifier(Optional<Holder<LootItemCondition>> conditionsIn, int priority) {
         super(conditionsIn, priority);
     }
 

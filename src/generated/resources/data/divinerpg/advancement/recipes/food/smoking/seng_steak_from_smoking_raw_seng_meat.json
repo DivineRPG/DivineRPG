@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smoking/seng_steak_from_smoking_raw_seng_meat"
+        "recipes": "divinerpg:smoking/seng_steak_from_smoking_raw_seng_meat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,5 +1,9 @@
 {
   "ambient_light": 0.0,
+  "attributes": {
+    "minecraft:visual/fog_color": "#301250",
+    "minecraft:visual/sky_color": "#501d80"
+  },
   "coordinate_scale": 6.0,
   "has_ceiling": false,
   "has_ender_dragon_fight": false,
@@ -14,5 +18,6 @@
     "type": "minecraft:uniform",
     "max_inclusive": 7,
     "min_inclusive": 0
-  }
+  },
+  "skybox": "none"
 }

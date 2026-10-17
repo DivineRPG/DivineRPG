@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/shadow_bar_from_blasting_shadow_dust"
+        "recipes": "divinerpg:blasting/shadow_bar_from_blasting_shadow_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

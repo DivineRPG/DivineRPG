@@ -1,12 +1,12 @@
 package divinerpg.entities.vanilla.end;
 
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.monster.Enderman;
 import net.minecraft.world.level.Level;
 
 import static net.minecraft.sounds.SoundEvents.ENDERMAN_SCREAM;
 
-public class EntityEnderWatcher extends EnderMan {
+public class EntityEnderWatcher extends Enderman {
     public EntityEnderWatcher(EntityType<? extends EntityEnderWatcher> type, Level worldIn) {super(type, worldIn);}
     int lastStareSound;
     @Override public void playStareSound() {

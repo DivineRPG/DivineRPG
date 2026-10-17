@@ -73,7 +73,7 @@ public class EntityDisk extends DivineThrownItem {
                     doPostHurtEffects(livingEntity);
                 }
             }
-            deflect(ProjectileDeflection.REVERSE, entity, EntityReference.of(getOwner()), false);
+            deflect(ProjectileDeflection.REVERSE, entity, EntityReference.of(getOwner()), false, 1);
             setDeltaMovement(getDeltaMovement().scale(.2));
         }
     }

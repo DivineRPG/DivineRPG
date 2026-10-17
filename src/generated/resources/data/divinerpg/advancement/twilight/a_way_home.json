@@ -3,7 +3,7 @@
   "criteria": {
     "enter_eden_portal": {
       "conditions": {
-        "block": "divinerpg:eden_portal"
+        "blocks": "divinerpg:eden_portal"
       },
       "trigger": "minecraft:enter_block"
     }

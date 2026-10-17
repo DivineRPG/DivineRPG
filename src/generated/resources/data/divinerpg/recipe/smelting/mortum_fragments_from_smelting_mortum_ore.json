@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
   "experience": 2.0,
   "group": "mortum_fragments",
   "ingredient": "divinerpg:mortum_ore",

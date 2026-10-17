@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/soul_sand_from_smelting_soul_sludge_breakable"
+        "recipes": "divinerpg:smelting/soul_sand_from_smelting_soul_sludge_breakable"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,6 +1,285 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#0",
+          "uv": [
+            3,
+            15,
+            1,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#0",
+          "uv": [
+            2,
+            0,
+            1,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#0",
+          "uv": [
+            1,
+            0,
+            3,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#0",
+          "uv": [
+            3,
+            0,
+            1,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#0",
+          "uv": [
+            3,
+            0,
+            1,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#0",
+          "uv": [
+            3,
+            0,
+            2,
+            16
+          ]
+        }
+      },
+      "from": [
+        13,
+        0,
+        15
+      ],
+      "name": "1",
+      "to": [
+        15,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#0",
+          "uv": [
+            7,
+            15,
+            5,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#0",
+          "uv": [
+            6,
+            0,
+            5,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#0",
+          "uv": [
+            5,
+            0,
+            7,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#0",
+          "uv": [
+            7,
+            0,
+            5,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#0",
+          "uv": [
+            7,
+            0,
+            5,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#0",
+          "uv": [
+            7,
+            0,
+            6,
+            16
+          ]
+        }
+      },
+      "from": [
+        9,
+        0,
+        15
+      ],
+      "name": "2",
+      "to": [
+        11,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#0",
+          "uv": [
+            11,
+            15,
+            9,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#0",
+          "uv": [
+            10,
+            0,
+            9,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#0",
+          "uv": [
+            9,
+            0,
+            11,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#0",
+          "uv": [
+            11,
+            0,
+            9,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#0",
+          "uv": [
+            11,
+            0,
+            9,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#0",
+          "uv": [
+            11,
+            0,
+            10,
+            16
+          ]
+        }
+      },
+      "from": [
+        5,
+        0,
+        15
+      ],
+      "name": "3",
+      "to": [
+        7,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#0",
+          "uv": [
+            15,
+            15,
+            13,
+            16
+          ]
+        },
+        "east": {
+          "texture": "#0",
+          "uv": [
+            14,
+            0,
+            13,
+            16
+          ]
+        },
+        "north": {
+          "texture": "#0",
+          "uv": [
+            13,
+            0,
+            15,
+            16
+          ]
+        },
+        "south": {
+          "texture": "#0",
+          "uv": [
+            15,
+            0,
+            13,
+            16
+          ]
+        },
+        "up": {
+          "texture": "#0",
+          "uv": [
+            15,
+            0,
+            13,
+            1
+          ]
+        },
+        "west": {
+          "texture": "#0",
+          "uv": [
+            15,
+            0,
+            14,
+            16
+          ]
+        }
+      },
+      "from": [
+        1,
+        0,
+        15
+      ],
+      "name": "4",
+      "to": [
+        3,
+        16,
+        16
+      ]
+    }
+  ],
   "textures": {
-    "all": "divinerpg:block/arcanite_tubes"
+    "0": "divinerpg:block/arcanite_tubes",
+    "particle": "divinerpg:block/arcanite_tubes"
   }
 }

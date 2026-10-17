@@ -4,25 +4,26 @@ import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.DivineRegistries;
 import divinerpg.registries.FluidRegistry;
 import divinerpg.registries.ItemRegistry;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.function.Supplier;
 
 public class ModBlockLoot extends BlockLootSubProvider {
 
-    private static final Set<Block> NO_LOOT_BLOCKS = Set.of(
-            BlockRegistry.arcanaPortalFrame.get(),
-            BlockRegistry.proximitySpawner.get(),
-            BlockRegistry.terranGhostBlock.get(),
-            FluidRegistry.SMOLDERING_TAR_BLOCK.get()
+    private static final Set<Supplier<? extends Block>> NO_LOOT_BLOCKS = Set.of(
+            BlockRegistry.arcanaPortalFrame,
+            BlockRegistry.proximitySpawner,
+            BlockRegistry.terranGhostBlock,
+            FluidRegistry.SMOLDERING_TAR_BLOCK
     );
 
     private static final Map<Block, Item> ORE_DROPS = Map.of(
@@ -34,7 +35,7 @@ public class ModBlockLoot extends BlockLootSubProvider {
             BlockRegistry.rupeeOreDeepslate.get(), ItemRegistry.raw_rupee.get()
     );
 
-    private static final Map<Block, Block> LEAF_TO_SAPLING = Map.of(
+    private static final Map<Block, Block> LEAVES_TO_SAPLING = Map.of(
             BlockRegistry.divineLeaves.get(), BlockRegistry.divineSapling.get(),
             BlockRegistry.brittleLeaves.get(), BlockRegistry.shiverspineSapling.get(),
             BlockRegistry.auroraoakLeaves.get(), BlockRegistry.auroraoakSapling.get(),
@@ -42,36 +43,38 @@ public class ModBlockLoot extends BlockLootSubProvider {
             BlockRegistry.streamleafLeaves.get(), BlockRegistry.streamleafSapling.get()
     );
 
-    protected ModBlockLoot(HolderLookup.Provider registries) {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
+    public ModBlockLoot(LootTableSubProvider.Context context) {
+        super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags(), context);
+    }
+
+    @Override
+    protected Iterable<Block> getKnownBlocks() {
+        return DivineRegistries.BLOCKS.getEntries().stream().map(holder -> (Block) holder.get()).toList();
     }
 
     @Override
     protected void generate() {
         for (DeferredHolder<Block, ? extends Block> holder : DivineRegistries.BLOCKS.getEntries()) {
             Block block = holder.get();
-            if (NO_LOOT_BLOCKS.contains(block)) {
+            if (isNoLootBlock(block)) {
+                add(block, LootTable.lootTable());
                 continue;
-            } else if (ORE_DROPS.containsKey(block)) {
-                Item drop = ORE_DROPS.get(block);
-                if (drop == Items.AIR) {
-                    throw new IllegalStateException("Drop for block " + block + " is AIR!");
-                }
-                this.add(block, (b) -> createOreDrop(b, drop));
-            } else if (LEAF_TO_SAPLING.containsKey(block)) {
-                Block sapling = LEAF_TO_SAPLING.get(block);
-                if (sapling == null) {
-                    throw new IllegalStateException("Sapling for leaf " + block + " is null!");
-                }
-                this.add(block, (b) -> createLeavesDrops(b, sapling, NORMAL_LEAVES_SAPLING_CHANCES));
-            } else {
-                this.dropSelf(block);
             }
+            Item oreDrop = ORE_DROPS.get(block);
+            if (oreDrop != null) {
+                add(block, createOreDrop(block, oreDrop));
+                continue;
+            }
+            Block sapling = LEAVES_TO_SAPLING.get(block);
+            if (sapling != null) {
+                add(block, createLeavesDrops(block, sapling, NORMAL_LEAVES_SAPLING_CHANCES));
+                continue;
+            }
+            dropSelf(block);
         }
     }
 
-    @Override
-    protected Iterable<Block> getKnownBlocks() {
-        return DivineRegistries.BLOCKS.getEntries().stream().map(DeferredHolder::get).filter(block -> !NO_LOOT_BLOCKS.contains(block)).collect(Collectors.toList());
+    private boolean isNoLootBlock(Block block) {
+        return NO_LOOT_BLOCKS.stream().anyMatch(supplier -> supplier.get() == block);
     }
 }

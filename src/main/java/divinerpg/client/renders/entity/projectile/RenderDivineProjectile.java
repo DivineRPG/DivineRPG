@@ -61,7 +61,7 @@ public class RenderDivineProjectile<T extends Projectile> extends EntityRenderer
 
         poseStack.pushPose();
         poseStack.scale(0.5F, 0.5F, 0.5F);
-        poseStack.mulPose(camera.orientation);
+        poseStack.rotate(camera.orientation);
 
         submitNodeCollector.submitCustomGeometry(
                 poseStack,

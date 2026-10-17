@@ -37,7 +37,7 @@ public class DivineRPG {
         bus.register(Payloads.class);
         DivineRegistries.register(bus);
         bus.register(MenuTypeRegistry.class);
-        container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        container.registerConfig(ModConfig.Type.LOCAL, Config.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

@@ -3,15 +3,13 @@
   "criteria": {
     "kill_boss_densos": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:densos"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:densos"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

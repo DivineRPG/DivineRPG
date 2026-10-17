@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/realmite_nugget_from_smelting_tag"
+        "recipes": "divinerpg:smelting/realmite_nugget_from_smelting_tag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

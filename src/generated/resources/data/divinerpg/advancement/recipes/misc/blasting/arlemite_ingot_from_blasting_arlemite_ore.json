@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/arlemite_ingot_from_blasting_arlemite_ore"
+        "recipes": "divinerpg:blasting/arlemite_ingot_from_blasting_arlemite_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:blasting",
+  "cookingtime": 100,
   "experience": 1.0,
   "group": "gold_ingot",
   "ingredient": "#divinerpg:smeltable_equipment/compressed/gold",

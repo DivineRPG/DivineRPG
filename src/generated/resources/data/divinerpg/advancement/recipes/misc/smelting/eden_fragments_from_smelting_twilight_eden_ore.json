@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smelting/eden_fragments_from_smelting_twilight_eden_ore"
+        "recipes": "divinerpg:smelting/eden_fragments_from_smelting_twilight_eden_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

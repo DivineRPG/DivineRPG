@@ -3,15 +3,13 @@
   "criteria": {
     "kill_ender_triplets": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "divinerpg:ender_triplets"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "divinerpg:ender_triplets"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }

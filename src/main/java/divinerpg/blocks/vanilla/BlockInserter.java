@@ -5,6 +5,8 @@ import divinerpg.block_entities.block.InserterBlockEntity;
 import divinerpg.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -25,8 +27,6 @@ import net.minecraft.world.level.redstone.Orientation;
 import javax.annotation.Nullable;
 
 public class BlockInserter extends BaseEntityBlock {
-    public static final MapCodec<BlockInserter> CODEC = simpleCodec(BlockInserter::new);
-    @Override public MapCodec<BlockInserter> codec() {return CODEC;}
     public BlockInserter() {
         super(Properties.ofFullCopy(Blocks.HOPPER));
         registerDefaultState(stateDefinition.any().setValue(BlockStateProperties.ENABLED, true).setValue(BlockStateProperties.FACING, Direction.NORTH));
@@ -100,7 +100,7 @@ public class BlockInserter extends BaseEntityBlock {
     }
 
     @Override
-    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack destroyedWith) {
+    public void playerDestroy(ServerLevel level, ServerPlayer player, BlockPos pos, BlockState state, @org.jspecify.annotations.Nullable BlockEntity blockEntity, ItemStack destroyedWith) {
         if(level.getBlockEntity(pos) instanceof InserterBlockEntity block) {
             if(!block.isEmpty()) Containers.dropContents(level, pos, block);
             level.removeBlockEntity(pos);

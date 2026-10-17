@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:blasting/arlemite_nugget_from_blasting_tag"
+        "recipes": "divinerpg:blasting/arlemite_nugget_from_blasting_tag"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

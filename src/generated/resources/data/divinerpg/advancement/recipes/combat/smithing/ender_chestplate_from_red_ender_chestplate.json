@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/ender_chestplate_from_red_ender_chestplate"
+        "recipes": "divinerpg:smithing/ender_chestplate_from_red_ender_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

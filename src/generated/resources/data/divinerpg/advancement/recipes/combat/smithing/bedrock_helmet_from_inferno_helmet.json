@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/bedrock_helmet_from_inferno_helmet"
+        "recipes": "divinerpg:smithing/bedrock_helmet_from_inferno_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

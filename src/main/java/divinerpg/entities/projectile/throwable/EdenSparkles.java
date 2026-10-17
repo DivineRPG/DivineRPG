@@ -46,7 +46,7 @@ public class EdenSparkles extends DivineThrownItem {
     public void handleEntityEvent(byte id) {
     if(id == 3){
         Vec3 vec3 = getDeltaMovement();
-        level().createFireworks(getX(), getY(), getZ(), vec3.x, vec3.y, vec3.z, List.of(new FireworkExplosion(FireworkExplosion.Shape.SMALL_BALL, IntList.of(14003720), IntList.of(5255174), false, true)));
+        level().createFireworks(getX(), getY(), getZ(), vec3.x, vec3.y, vec3.z, List.of(new FireworkExplosion(FireworkExplosion.Shape.SMALL_BALL, IntList.of(14003720), IntList.of(5255174), false, true)), true);
     }
     }
 

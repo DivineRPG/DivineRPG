@@ -9,6 +9,7 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.animal.squid.Squid;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.Path;
 
@@ -122,7 +123,7 @@ public class EntityAequorea extends Squid {
             double d0 = getAttackReachSqr(entity);
             if(range <= d0 && ticksUntilNextAttack <= 0) {
                 resetAttackCooldown();
-                mob.swing(InteractionHand.MAIN_HAND);
+                mob.swing(InteractionHand.MAIN_HAND, SwingAnimation.DEFAULT);
                 mob.doHurtTarget(getServerLevel(entity.level()), entity);
                 entity.addEffect(new MobEffectInstance(POISON, 3 * 20));
             }

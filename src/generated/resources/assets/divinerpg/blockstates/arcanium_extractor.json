@@ -1,7 +1,9 @@
 {
-  "variants": {
-    "": {
-      "model": "divinerpg:block/arcanium_extractor"
+  "multipart": [
+    {
+      "apply": {
+        "model": "divinerpg:block/arcanium_extractor"
+      }
     }
-  }
+  ]
 }

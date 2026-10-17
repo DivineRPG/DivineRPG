@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "divinerpg:block/arcanite_tubes",
+      "y": 90
+    },
+    "facing=north": {
       "model": "divinerpg:block/arcanite_tubes"
+    },
+    "facing=south": {
+      "model": "divinerpg:block/arcanite_tubes",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "divinerpg:block/arcanite_tubes",
+      "y": 270
     }
   }
 }

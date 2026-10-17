@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -28,6 +29,11 @@ public class ModBiomeTagProvider extends BiomeTagsProvider {
         tag(NETHER_WASTES).add(Biomes.NETHER_WASTES);
         tag(SOUL_SAND_VALLEY).add(Biomes.SOUL_SAND_VALLEY);
         tag(WARM_OCEAN).add(Biomes.LUKEWARM_OCEAN, Biomes.WARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN);
+        tag(customTag("apalachia")).addOptional(ModBiomeProvider.APALACHIA);
+        tag(customTag("eden")).addOptional(ModBiomeProvider.EDEN);
+        tag(customTag("wildwood")).addOptional(ModBiomeProvider.WILDWOOD);
+        tag(customTag("skythern")).addOptional(ModBiomeProvider.SKYTHERN);
+        tag(customTag("mortum")).addOptional(ModBiomeProvider.MORTUM);
     }
 
     private TagKey<Biome> commonTag(String name){
@@ -38,5 +44,9 @@ public class ModBiomeTagProvider extends BiomeTagsProvider {
     }
     private TagKey<Biome> customTag(String name){
         return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, name));
+    }
+
+    private static ResourceKey<Biome> biome(String name) {
+        return ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, name));
     }
 }

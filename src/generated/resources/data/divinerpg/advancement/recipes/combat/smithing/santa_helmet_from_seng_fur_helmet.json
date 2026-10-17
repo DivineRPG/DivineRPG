@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "divinerpg:smithing/santa_helmet_from_seng_fur_helmet"
+        "recipes": "divinerpg:smithing/santa_helmet_from_seng_fur_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,6 +1,7 @@
 {
   "type": "minecraft:smoking",
   "category": "food",
+  "cookingtime": 100,
   "experience": 0.35,
   "group": "hot_pumpkin_pie",
   "ingredient": "minecraft:pumpkin_pie",

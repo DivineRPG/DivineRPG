@@ -1,5 +1,7 @@
 package divinerpg.world.feature.tree;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.world.config.tree.TreeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -7,8 +9,24 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 public class SkythernTree extends DivineTree {
+	public static final MapCodec<SkythernTree> CODEC =
+			RecordCodecBuilder.mapCodec(instance ->
+					instance.group(
+							TreeConfig.CODEC.fieldOf("config")
+									.forGetter(SkythernTree::getConfig)
+					).apply(instance, SkythernTree::new));
+	public SkythernTree(TreeConfig config) {
+		super(config);
+	}
+
+	@Override
+	public MapCodec<? extends Feature> codec() {
+		return CODEC;
+	}
+
 	protected void wideGrow(WorldGenLevel world, BlockPos pos, BlockState state, int width, int offset) {
 		wideGrow(world, pos, state, width, offset, false);
 	}

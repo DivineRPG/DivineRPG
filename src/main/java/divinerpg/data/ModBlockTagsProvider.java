@@ -27,7 +27,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(APALACHIA_ORE).add(BlockRegistry.apalachiaOre.getKey());
         tag(ARLEMITE_ORE).add(BlockRegistry.arlemiteOre.getKey(), BlockRegistry.arlemiteOreDeepslate.getKey());
         tag(BLOODGEM_ORE).add(BlockRegistry.bloodgemOre.getKey());
-        tag(EDEN_ORE).add(BlockRegistry.scorchaltEdenOre.getKey(), BlockRegistry.scorchaltEdenOre.getKey());
+        tag(EDEN_ORE).add(BlockRegistry.twilightEdenOre.getKey(), BlockRegistry.scorchaltEdenOre.getKey());
         tag(MORTUM_ORE).add(BlockRegistry.mortumOre.getKey());
         tag(OXDRITE_ORE).add(BlockRegistry.oxdriteOre.getKey());
         tag(REALMITE_ORE).add(BlockRegistry.realmiteOre.getKey(), BlockRegistry.realmiteOreDeepslate.getKey());
@@ -98,6 +98,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             if (b instanceof DoorBlock) tag(BlockTags.DOORS).add(key);
             if (b instanceof TrapDoorBlock) tag(BlockTags.TRAPDOORS).add(key);
             if (b instanceof GrassBlock) tag(BlockTags.GRASS_BLOCKS).add(key);
+            if (b instanceof LadderBlock) tag(BlockTags.CLIMBABLE).add(key);
         }
     }
 

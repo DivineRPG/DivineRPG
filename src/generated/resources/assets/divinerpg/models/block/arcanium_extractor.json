@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "block/block",
   "textures": {
-    "all": "divinerpg:block/arcanium_extractor"
+    "all": "divinerpg:block/arcanium_extractor",
+    "particle": "divinerpg:block/arcanium_extractor"
   }
 }

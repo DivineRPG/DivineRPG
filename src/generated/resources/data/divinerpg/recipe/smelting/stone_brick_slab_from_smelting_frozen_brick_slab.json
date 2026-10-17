@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
   "experience": 0.05,
   "group": "stone_brick_slab",
   "ingredient": "divinerpg:frozen_brick_slab",

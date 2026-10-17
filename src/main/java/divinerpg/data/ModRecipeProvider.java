@@ -5,6 +5,7 @@ import divinerpg.recipe.builder.FireConversionRecipeBuilder;
 import divinerpg.recipe.builder.InfusionTableRecipeBuilder;
 import divinerpg.recipe.builder.MaulSmashingRecipeBuilder;
 import divinerpg.registries.*;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -12,6 +13,7 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
@@ -38,8 +40,8 @@ import static net.minecraft.data.recipes.SmithingTransformRecipeBuilder.smithing
 
 public class ModRecipeProvider extends RecipeProvider {
 
-    public ModRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-        super(registries, output);
+    public ModRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+        super(recipeOutput, advancementOutput);
     }
 
     @Override
@@ -94,8 +96,8 @@ public class ModRecipeProvider extends RecipeProvider {
         arcaniumExtraction(BlockRegistry.rawArcanium.asItem(), ItemRegistry.arcanium, 1, 1.0F, 100);
         arcaniumExtraction(BlockRegistry.arcaniumRichSand.asItem(), ItemRegistry.pieceOfRawArcanium, 1, 0.1F, 20);
 
-        fireConversion(BlockRegistry.divineFlame.get(), Ingredient.of(ItemRegistry.eden_soul.get(), ItemRegistry.eden_heart.get()), new BlockMatchTest(Blocks.FIRE), builder -> builder.outputState(SimpleStateProvider.simple(BlockRegistry.divineFlame.get())).advancement(Identifier.fromNamespaceAndPath(MODID, "divine/the_link"), "create_divine_flame").frame(new BlockMatchTest(BlockRegistry.edenBlock.get())).portal(SimpleStateProvider.simple(BlockRegistry.edenPortal.get())), "has_eden_soul", this.has(ItemRegistry.eden_soul.get()));
-        fireConversion(BlockRegistry.enchantedFlame.get(), TagRegistry.HEART_WILDWOOD, new BlockMatchTest(BlockRegistry.wildFlame.get()), builder -> builder.outputState(SimpleStateProvider.simple(BlockRegistry.enchantedFlame.get())).advancement(Identifier.fromNamespaceAndPath(MODID, "twilight/magical_incineration"), "create_enchanted_flame").frame(new BlockMatchTest(BlockRegistry.apalachiaBlock.get())).portal(SimpleStateProvider.simple(BlockRegistry.apalachiaPortal.get())), "has_wildwood_heart", has(TagRegistry.HEART_WILDWOOD));
+        fireConversion(BlockRegistry.divineFlame.get(), Ingredient.of(ItemRegistry.eden_soul.get(), ItemRegistry.eden_heart.get()), new BlockMatchTest(Blocks.FIRE), builder -> builder.outputState(new SimpleStateProvider(BlockRegistry.divineFlame.get().defaultBlockState())).advancement(Identifier.fromNamespaceAndPath(MODID, "divine/the_link"), "create_divine_flame").frame(new BlockMatchTest(BlockRegistry.edenBlock.get())).portal(new SimpleStateProvider(BlockRegistry.edenPortal.get().defaultBlockState())), "has_eden_soul", this.has(ItemRegistry.eden_soul.get()));
+        fireConversion(BlockRegistry.enchantedFlame.get(), TagRegistry.HEART_WILDWOOD, new BlockMatchTest(BlockRegistry.wildFlame.get()), builder -> builder.outputState(new SimpleStateProvider(BlockRegistry.enchantedFlame.get().defaultBlockState())).advancement(Identifier.fromNamespaceAndPath(MODID, "twilight/magical_incineration"), "create_enchanted_flame").frame(new BlockMatchTest(BlockRegistry.apalachiaBlock.get())).portal(new SimpleStateProvider(BlockRegistry.apalachiaPortal.get().defaultBlockState())), "has_wildwood_heart", has(TagRegistry.HEART_WILDWOOD));
         //TODO - Fire Conversion
 
         infusion(ItemRegistry.amthirmis_lump, 5, Ingredient.of(ItemRegistry.backsword_template), ItemRegistry.amthirmis_backsword, 1);
@@ -270,7 +272,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     protected <T extends AbstractCookingRecipe> void cooking(AbstractCookingRecipe.Factory<T> factory, TagKey<Item> inputTag, RecipeCategory craftingCategory, CookingBookCategory cookingCategory, ItemLike result, float experience, int cookingTime, String group, String fromDesc, String folder) {
         String recipeId = folder + "/" + getItemName(result) + fromDesc + "_tag";
-        HolderSet<Item> tagHolderSet = this.registries.lookupOrThrow(Registries.ITEM).getOrThrow(inputTag);
+        HolderSet<Item> tagHolderSet = this.items.getOrThrow(inputTag);
         SimpleCookingRecipeBuilder.generic(Ingredient.of(tagHolderSet), craftingCategory, cookingCategory, result, experience, cookingTime, factory).group(group).unlockedBy("has_tag", this.has(inputTag)).save(this.output, MODID + ":" + recipeId);
     }
 
@@ -332,20 +334,20 @@ public class ModRecipeProvider extends RecipeProvider {
 
     protected void smithing(ItemLike template, List<ItemLike> baseItems, Object catalystObj, ItemLike resultItem) {
         for (ItemLike baseItem : baseItems) {
-            Ingredient catalystIngredient = catalystObj instanceof TagKey<?> tag ? Ingredient.of(this.registries.lookupOrThrow(Registries.ITEM).getOrThrow((TagKey<Item>) tag)) : catalystObj instanceof ItemLike item ? Ingredient.of(item) : Ingredient.of((Item) catalystObj);
+            Ingredient catalystIngredient = catalystObj instanceof TagKey<?> tag ? Ingredient.of(items.getOrThrow((TagKey<Item>) tag)) : catalystObj instanceof ItemLike item ? Ingredient.of(item) : Ingredient.of((Item) catalystObj);
             String baseName = baseItem instanceof Item item ? getItemName(item) : getItemName(baseItem.asItem());
             SmithingTransformRecipeBuilder.smithing(Ingredient.of(template),Ingredient.of(baseItem),catalystIngredient,RecipeCategory.COMBAT,resultItem.asItem()).unlocks("has_" + getItemName(template), has(template)).save(this.output, MODID + ":smithing/" + getItemName(resultItem) + "_from_" + baseName);
         }
     }
 
     protected void maulSmashing(TagKey<Item> inputTag, ItemLike outputItem, int count, @Nullable TagKey<Block> requiredBaseBlockTag) {
-        HolderSet<Item> tagHolderSet = this.registries.lookupOrThrow(Registries.ITEM).getOrThrow(inputTag);
+        HolderSet<Item> tagHolderSet = items.getOrThrow(inputTag);
         String inputPath = inputTag.location().getPath(), inputName = inputPath.contains("/") ? inputPath.substring(inputPath.lastIndexOf('/') + 1) : inputPath, recipeName = getItemName(outputItem) + "_from_" + inputName;
         MaulSmashingRecipeBuilder.smashing(Ingredient.of(tagHolderSet), outputItem, count, requiredBaseBlockTag).unlockedBy("has_tag", this.has(inputTag)).save(this.output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "maul_smashing/" + recipeName)));
     }
 
     protected void maulSmashing(TagKey<Item> inputTag, ItemLike outputItem, int count, @Nullable TagKey<Block> requiredBaseBlockTag, String subFolder) {
-        HolderSet<Item> tagHolderSet = this.registries.lookupOrThrow(Registries.ITEM).getOrThrow(inputTag);
+        HolderSet<Item> tagHolderSet = items.getOrThrow(inputTag);
         String inputPath = inputTag.location().getPath(), inputName = inputPath.contains("/") ? inputPath.substring(inputPath.lastIndexOf('/') + 1) : inputPath, recipeName = getItemName(outputItem) + "_from_" + inputName;
         MaulSmashingRecipeBuilder.smashing(Ingredient.of(tagHolderSet), outputItem, count, requiredBaseBlockTag).unlockedBy("has_tag", this.has(inputTag)).save(this.output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "maul_smashing/"+ subFolder + "/" + recipeName)));
     }
@@ -373,7 +375,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     protected void infusion(TagKey<Item> inputTag, int inputCount, Ingredient template, ItemLike outputItem, int outputCount) {
-        HolderSet<Item> tagHolderSet = this.registries.lookupOrThrow(Registries.ITEM).getOrThrow(inputTag);
+        HolderSet<Item> tagHolderSet = items.getOrThrow(inputTag);
         Item representativeItem = tagHolderSet.iterator().next().value();
         InfusionTableRecipeBuilder.infusion(representativeItem, inputCount, template, outputItem, outputCount).unlockedBy("has_tag", this.has(inputTag)).save(this.output, ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, "infusion_table/" + getItemName(outputItem) + "_from_" + inputTag.location().getPath())));
     }
@@ -399,7 +401,7 @@ public class ModRecipeProvider extends RecipeProvider {
         String fileName = getItemName(output);
         String path = subfolder.isEmpty() ? "fire_conversion/" + fileName : "fire_conversion/" + subfolder + "/" + fileName;
         ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(MODID, path));
-        HolderSet<Item> tagHolderSet = this.registries.lookupOrThrow(Registries.ITEM).get(inputTag).orElseThrow();
+        HolderSet<Item> tagHolderSet = items.get(inputTag).orElseThrow();
         Ingredient inputItem = Ingredient.of(tagHolderSet);
         FireConversionRecipeBuilder builder = FireConversionRecipeBuilder.conversion(inputItem, inputState).unlockedBy(unlockCriterionName, unlockCriterion);
         configurator.accept(builder);
