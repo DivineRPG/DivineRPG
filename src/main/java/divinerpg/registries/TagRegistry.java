@@ -278,7 +278,7 @@ public class TagRegistry {
         STABLE_OVERWORLD_RIFT = level("stable_overworld_rift"),
         STABLE_EDEN_RIFT = level("stable_eden_rift"),
         STABLE_WILDWOOD_RIFT = level("stable_wildwood_rift"),
-        STABLE_APALACHIA_RIFT = level("stabe_apalachia_rift"),
+        STABLE_APALACHIA_RIFT = level("stable_apalachia_rift"),
         STABLE_SKYTHERN_RIFT = level("stable_skythern_rift"),
         STABLE_MORTUM_RIFT = level("stable_mortum_rift");
 
