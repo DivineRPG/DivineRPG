@@ -3,8 +3,33 @@
   "generator": {
     "type": "minecraft:noise",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "divinerpg:arcana"
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "divinerpg:arcana/baron_highlands",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": 0.0,
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 1.0,
+            "weirdness": 0.304
+          }
+        },
+        {
+          "biome": "divinerpg:arcana/dune_valley",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": 0.0,
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 1.0,
+            "weirdness": 0.3
+          }
+        }
+      ]
     },
     "settings": "divinerpg:arcana"
   }

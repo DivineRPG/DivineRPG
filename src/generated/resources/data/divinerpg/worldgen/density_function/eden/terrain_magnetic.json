@@ -8,8 +8,8 @@
     "min_inclusive": 1.0,
     "when_in_range": {
       "type": "minecraft:interpolated",
-      "cell_size_xz": 1,
-      "cell_size_y": 2,
+      "cell_size_xz": 4,
+      "cell_size_y": 1,
       "input": {
         "type": "minecraft:add",
         "left": {

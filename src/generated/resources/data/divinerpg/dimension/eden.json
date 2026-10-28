@@ -3,8 +3,99 @@
   "generator": {
     "type": "minecraft:noise",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "divinerpg:eden"
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "divinerpg:eden/plains",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": [
+              -1.0,
+              0.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 0.6,
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:eden/dravite_hills",
+          "parameters": {
+            "continentalness": 0.5,
+            "depth": [
+              -1.0,
+              0.0
+            ],
+            "erosion": -1.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 0.6,
+            "weirdness": -0.7
+          }
+        },
+        {
+          "biome": "divinerpg:eden/dravite_caves",
+          "parameters": {
+            "continentalness": 0.5,
+            "depth": [
+              -1.0,
+              0.0
+            ],
+            "erosion": -1.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 0.6,
+            "weirdness": 0.8
+          }
+        },
+        {
+          "biome": "divinerpg:eden/magnetic_isles",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": [
+              0.01,
+              1.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 0.6,
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:eden/forest",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": [
+              -1.0,
+              0.0
+            ],
+            "erosion": 0.0,
+            "humidity": 1.0,
+            "offset": 0.25,
+            "temperature": 0.6,
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:eden/golden_peaks",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": [
+              -1.0,
+              -0.2
+            ],
+            "erosion": 0.0,
+            "humidity": 1.0,
+            "offset": 0.1,
+            "temperature": 0.6,
+            "weirdness": -0.7
+          }
+        }
+      ]
     },
     "settings": "divinerpg:eden"
   }

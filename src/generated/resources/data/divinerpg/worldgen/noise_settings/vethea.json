@@ -1,11 +1,96 @@
 {
-  "default_block": "divinerpg:twilight_stone",
+  "default_block": "divinerpg:dream_stone",
   "default_fluid": "minecraft:water",
   "disable_mob_generation": false,
-  "legacy_random_source": false,
+  "legacy_random_source": true,
   "material_rule": {
     "type": "minecraft:sequence",
     "sequence": [
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:not",
+          "invert": {
+            "type": "minecraft:biome",
+            "biome_is": "divinerpg:vethea/scorched_tops"
+          }
+        },
+        "then_run": {
+          "type": "minecraft:sequence",
+          "sequence": [
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": "divinerpg:vethea/hyrelands"
+              },
+              "then_run": {
+                "type": "minecraft:condition",
+                "if_true": {
+                  "type": "minecraft:stone_depth",
+                  "add_surface_depth": false,
+                  "offset": 0,
+                  "secondary_depth_range": 0,
+                  "surface_type": "floor"
+                },
+                "then_run": {
+                  "type": "minecraft:block",
+                  "result_state": "divinerpg:evergrass"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": "divinerpg:vethea/dream_grounds"
+              },
+              "then_run": {
+                "type": "minecraft:condition",
+                "if_true": {
+                  "type": "minecraft:stone_depth",
+                  "add_surface_depth": false,
+                  "offset": 0,
+                  "secondary_depth_range": 0,
+                  "surface_type": "floor"
+                },
+                "then_run": {
+                  "type": "minecraft:block",
+                  "result_state": "divinerpg:dream_grass"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:stone_depth",
+                "add_surface_depth": false,
+                "offset": 0,
+                "secondary_depth_range": 0,
+                "surface_type": "floor"
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": "divinerpg:flame_grass"
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:stone_depth",
+                "add_surface_depth": true,
+                "offset": 1,
+                "secondary_depth_range": 0,
+                "surface_type": "floor"
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": "divinerpg:dream_dirt"
+              }
+            }
+          ]
+        }
+      },
       {
         "type": "minecraft:condition",
         "if_true": {
@@ -17,66 +102,226 @@
         },
         "then_run": {
           "type": "minecraft:block",
-          "result_state": "minecraft:grass_block"
+          "result_state": "divinerpg:scorched_grass"
         }
       },
       {
         "type": "minecraft:condition",
         "if_true": {
-          "type": "minecraft:stone_depth",
-          "add_surface_depth": true,
-          "offset": 1,
-          "secondary_depth_range": 0,
-          "surface_type": "floor"
+          "type": "minecraft:vertical_gradient",
+          "false_at_and_above": {
+            "above_bottom": 5
+          },
+          "random_name": "divinerpg:everstone_floor",
+          "true_at_and_below": {
+            "above_bottom": 0
+          }
         },
         "then_run": {
           "type": "minecraft:block",
-          "result_state": "minecraft:dirt"
+          "result_state": "divinerpg:dark_everstone"
         }
       }
     ]
   },
   "noise": {
-    "height": 256,
-    "min_y": 0
+    "height": 384,
+    "min_y": -64
   },
   "noise_router": {
-    "chunk_surface_level": 0.0,
-    "continents": "minecraft:overworld/continents",
-    "depth": "minecraft:overworld/depth",
+    "chunk_surface_level": {
+      "type": "minecraft:gradient",
+      "axis": "y",
+      "from_coordinate": -64,
+      "from_value": 1.0,
+      "to_coordinate": -50,
+      "to_value": 0.0
+    },
+    "continents": {
+      "type": "minecraft:add",
+      "left": {
+        "type": "minecraft:gradient",
+        "axis": "y",
+        "from_coordinate": -64,
+        "from_value": 1.0,
+        "to_coordinate": 310,
+        "to_value": -0.3
+      },
+      "right": "minecraft:overworld/continents"
+    },
+    "depth": {
+      "type": "minecraft:gradient",
+      "axis": "y",
+      "from_coordinate": -64,
+      "from_value": 1.0,
+      "to_coordinate": 310,
+      "to_value": -1.0
+    },
     "erosion": "minecraft:overworld/erosion",
     "final_density": {
       "type": "minecraft:interpolated",
-      "cell_size_xz": 1,
-      "cell_size_y": 2,
+      "cell_size_xz": 4,
+      "cell_size_y": 1,
       "input": {
         "type": "minecraft:add",
         "left": {
-          "type": "minecraft:gradient",
-          "axis": "y",
-          "from_coordinate": 0,
-          "from_value": -2.6,
-          "to_coordinate": 128,
-          "to_value": 0.0
+          "type": "minecraft:squeeze",
+          "input": {
+            "type": "minecraft:mul",
+            "left": 0.64,
+            "right": {
+              "type": "minecraft:blend_density",
+              "input": {
+                "type": "minecraft:add",
+                "left": 2.47,
+                "right": {
+                  "type": "minecraft:mul",
+                  "left": {
+                    "type": "minecraft:gradient",
+                    "axis": "y",
+                    "from_coordinate": -70,
+                    "from_value": 0.0,
+                    "to_coordinate": -46,
+                    "to_value": 1.0
+                  },
+                  "right": {
+                    "type": "minecraft:add",
+                    "left": -1.53,
+                    "right": {
+                      "type": "minecraft:mul",
+                      "left": {
+                        "type": "minecraft:gradient",
+                        "axis": "y",
+                        "from_coordinate": 40,
+                        "from_value": 1.0,
+                        "to_coordinate": 64,
+                        "to_value": 0.0
+                      },
+                      "right": {
+                        "type": "minecraft:add",
+                        "left": -0.92,
+                        "right": "minecraft:nether/base_3d_noise"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "right": {
           "type": "minecraft:add",
           "left": {
-            "type": "minecraft:gradient",
-            "axis": "y",
-            "from_coordinate": 128,
-            "from_value": 0.0,
-            "to_coordinate": 256,
-            "to_value": -2.6
+            "type": "minecraft:add",
+            "left": {
+              "type": "minecraft:gradient",
+              "axis": "y",
+              "from_coordinate": 54,
+              "from_value": 0.0,
+              "to_coordinate": 64,
+              "to_value": -0.3
+            },
+            "right": {
+              "type": "minecraft:mul",
+              "left": {
+                "type": "minecraft:gradient",
+                "axis": "y",
+                "from_coordinate": 54,
+                "from_value": 0.0,
+                "to_coordinate": 72,
+                "to_value": 1.0
+              },
+              "right": {
+                "type": "minecraft:add",
+                "left": {
+                  "type": "minecraft:gradient",
+                  "axis": "y",
+                  "from_coordinate": 54,
+                  "from_value": 0.4,
+                  "to_coordinate": 128,
+                  "to_value": -0.4
+                },
+                "right": "minecraft:overworld/base_3d_noise"
+              }
+            }
           },
-          "right": "minecraft:end/base_3d_noise"
+          "right": {
+            "type": "minecraft:add",
+            "left": {
+              "type": "minecraft:gradient",
+              "axis": "y",
+              "from_coordinate": 128,
+              "from_value": 0.0,
+              "to_coordinate": 256,
+              "to_value": 1.2
+            },
+            "right": {
+              "type": "minecraft:mul",
+              "left": {
+                "type": "minecraft:gradient",
+                "axis": "y",
+                "from_coordinate": 128,
+                "from_value": 0.0,
+                "to_coordinate": 256,
+                "to_value": 1.1
+              },
+              "right": {
+                "type": "minecraft:add",
+                "left": {
+                  "type": "minecraft:add",
+                  "left": {
+                    "type": "minecraft:gradient",
+                    "axis": "y",
+                    "from_coordinate": 200,
+                    "from_value": 0.0,
+                    "to_coordinate": 280,
+                    "to_value": -2.0
+                  },
+                  "right": {
+                    "type": "minecraft:add",
+                    "left": {
+                      "type": "minecraft:gradient",
+                      "axis": "y",
+                      "from_coordinate": 243,
+                      "from_value": 0.0,
+                      "to_coordinate": 300,
+                      "to_value": 2.0
+                    },
+                    "right": {
+                      "type": "minecraft:gradient",
+                      "axis": "y",
+                      "from_coordinate": 285,
+                      "from_value": 0.0,
+                      "to_coordinate": 310,
+                      "to_value": -2.0
+                    }
+                  }
+                },
+                "right": "minecraft:end/base_3d_noise"
+              }
+            }
+          }
         }
       }
     },
     "ridges": "minecraft:overworld/ridges",
-    "temperature": 0.0,
-    "vegetation": 0.0
+    "temperature": {
+      "type": "minecraft:gradient",
+      "axis": "y",
+      "from_coordinate": -64,
+      "from_value": 1.0,
+      "to_coordinate": 310,
+      "to_value": -1.0
+    },
+    "vegetation": {
+      "type": "minecraft:noise",
+      "noise": "minecraft:vegetation",
+      "shift_x": "minecraft:shift_x",
+      "shift_z": "minecraft:shift_z",
+      "xz_scale": 0.25,
+      "y_scale": 0.0
+    }
   },
-  "sea_level": 0,
+  "sea_level": -64,
   "spawn_target": []
 }

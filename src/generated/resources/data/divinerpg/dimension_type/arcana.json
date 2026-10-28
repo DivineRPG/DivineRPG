@@ -11,7 +11,7 @@
   "has_skylight": true,
   "height": 256,
   "infiniburn": "#divinerpg:infiniburn/arcana",
-  "logical_height": 244,
+  "logical_height": 128,
   "min_y": 0,
   "monster_spawn_block_light_limit": 0,
   "monster_spawn_light_level": {

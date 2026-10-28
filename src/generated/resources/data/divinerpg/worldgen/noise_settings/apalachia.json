@@ -47,17 +47,17 @@
     "erosion": "minecraft:overworld/erosion",
     "final_density": {
       "type": "minecraft:interpolated",
-      "cell_size_xz": 1,
-      "cell_size_y": 2,
+      "cell_size_xz": 4,
+      "cell_size_y": 8,
       "input": {
         "type": "minecraft:add",
         "left": {
           "type": "minecraft:gradient",
           "axis": "y",
           "from_coordinate": 0,
-          "from_value": -1.0,
+          "from_value": -5.2,
           "to_coordinate": 128,
-          "to_value": 0.0
+          "to_value": 0.2
         },
         "right": {
           "type": "minecraft:add",
@@ -67,9 +67,9 @@
             "from_coordinate": 128,
             "from_value": 0.0,
             "to_coordinate": 256,
-            "to_value": -1.0
+            "to_value": -1.4
           },
-          "right": "minecraft:overworld/base_3d_noise"
+          "right": "minecraft:end/base_3d_noise"
         }
       }
     },

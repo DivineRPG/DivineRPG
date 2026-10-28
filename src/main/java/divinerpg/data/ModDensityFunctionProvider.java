@@ -31,7 +31,7 @@ public class ModDensityFunctionProvider {
         DensityFunction grad3 = DensityFunctions.yClampedGradient(112, 128, 0.0F, 0.1F);
         DensityFunction grad4 = DensityFunctions.yClampedGradient(128, 132, 0.0F, -0.1F);
         DensityFunction base3d = new DensityFunctions.HolderHolder(densityFunctions.getOrThrow(ResourceKey.create(Registries.DENSITY_FUNCTION, Identifier.parse("minecraft:overworld/base_3d_noise"))));
-        DensityFunction terrain = DensityFunctions.interpolated(DensityFunctions.add(grad1, DensityFunctions.add(DensityFunctions.add(grad2, DensityFunctions.add(grad3, grad4)), base3d)), 1, 2);
+        DensityFunction terrain = DensityFunctions.interpolated(DensityFunctions.add(grad1, DensityFunctions.add(DensityFunctions.add(grad2, DensityFunctions.add(grad3, grad4)), base3d)), 4, 1);
         context.register(TERRAIN, terrain);
         DensityFunction flow05 = DensityFunctions.noise(noises.getOrThrow(ResourceKey.create(Registries.NOISE, Identifier.fromNamespaceAndPath(DivineRPG.MODID, "magnetic_flow"))), 0.5, 0.5);
         DensityFunction addedNoise = DensityFunctions.add(DensityFunctions.constant(-0.45F), flow05);
@@ -41,7 +41,7 @@ public class ModDensityFunctionProvider {
         DensityFunction magneticStringsRef = new DensityFunctions.HolderHolder(densityFunctions.getOrThrow(MAGNETIC_STRINGS));
         DensityFunction terrainRef = new DensityFunctions.HolderHolder(densityFunctions.getOrThrow(TERRAIN));
         DensityFunction rangeInnerAdd = DensityFunctions.add(magneticStringsRef, DensityFunctions.add(DensityFunctions.yClampedGradient(128, 135, 0.0F, 1.0F), DensityFunctions.yClampedGradient(232, 260, 0.0F, -10.0F)));
-        DensityFunction rangeWhenInRange = DensityFunctions.interpolated(DensityFunctions.add(DensityFunctions.yClampedGradient(0, 128, -1.0F, 0.0F), DensityFunctions.add(base3d, DensityFunctions.clamp(rangeInnerAdd, -1.0F, 1.0F))), 1, 2);
+        DensityFunction rangeWhenInRange = DensityFunctions.interpolated(DensityFunctions.add(DensityFunctions.yClampedGradient(0, 128, -1.0F, 0.0F), DensityFunctions.add(base3d, DensityFunctions.clamp(rangeInnerAdd, -1.0F, 1.0F))), 4, 1);
         DensityFunction rangeChoice = DensityFunctions.rangeChoice(magneticToggleRef, 1.0F, 2.0F, rangeWhenInRange, DensityFunctions.constant(-1.0F));
         DensityFunction terrainMagnetic = DensityFunctions.max(terrainRef, rangeChoice);
         context.register(TERRAIN_MAGNETIC, terrainMagnetic);

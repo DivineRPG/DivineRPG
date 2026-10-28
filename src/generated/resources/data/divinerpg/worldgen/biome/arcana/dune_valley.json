@@ -1,0 +1,43 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": {
+          "sound_id": "minecraft:ambient.soul_sand_valley.additions"
+        },
+        "tick_chance": 0.011099999770522118
+      },
+      "loop": {
+        "sound_id": "minecraft:ambient.soul_sand_valley.loop"
+      },
+      "mood": {
+        "block_search_extent": 8,
+        "offset": 2.0,
+        "sound": {
+          "sound_id": "minecraft:ambient.soul_sand_valley.mood"
+        },
+        "tick_delay": 6000
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {}
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/fog_color": "#000000",
+    "minecraft:visual/sky_color": "#ffffff",
+    "minecraft:visual/water_fog_color": "#ffffff"
+  },
+  "carvers": [],
+  "downfall": 0.0,
+  "effects": {
+    "foliage_color": "#1f31d1",
+    "grass_color": "#1f31d1",
+    "water_color": "#7a5e4b"
+  },
+  "features": [],
+  "has_precipitation": false,
+  "temperature": 1.0
+}

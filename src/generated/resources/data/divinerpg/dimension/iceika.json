@@ -3,8 +3,687 @@
   "generator": {
     "type": "minecraft:noise",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "divinerpg:iceika"
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "divinerpg:iceika/frozen_peaks",
+          "parameters": {
+            "continentalness": [
+              0.05,
+              1.0
+            ],
+            "depth": [
+              -0.365,
+              0.125
+            ],
+            "erosion": [
+              -1.0,
+              -0.5
+            ],
+            "humidity": [
+              -1.0,
+              -0.75
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -2.0,
+              -1.625
+            ],
+            "weirdness": -0.7
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/chill_passage",
+          "parameters": {
+            "continentalness": [
+              0.02,
+              1.0
+            ],
+            "depth": [
+              -0.4,
+              0.5
+            ],
+            "erosion": [
+              0.1,
+              0.75
+            ],
+            "humidity": [
+              -0.625,
+              0.25
+            ],
+            "offset": 0.16,
+            "temperature": [
+              -1.5,
+              -1.12
+            ],
+            "weirdness": -0.75
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/borealis_steeps",
+          "parameters": {
+            "continentalness": [
+              0.11,
+              1.0
+            ],
+            "depth": [
+              0.7,
+              1.0
+            ],
+            "erosion": [
+              -0.6,
+              -0.06
+            ],
+            "humidity": [
+              0.1,
+              0.6
+            ],
+            "offset": 0.23,
+            "temperature": [
+              -1.25,
+              -0.5
+            ],
+            "weirdness": -0.75
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/snowy_peaks",
+          "parameters": {
+            "continentalness": [
+              0.1,
+              1.0
+            ],
+            "depth": [
+              -1.0,
+              -0.5
+            ],
+            "erosion": [
+              0.6,
+              1.0
+            ],
+            "humidity": [
+              -0.625,
+              -0.25
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -0.5,
+              0.0
+            ],
+            "weirdness": -0.7
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/fractal_forest",
+          "parameters": {
+            "continentalness": [
+              0.3,
+              0.9
+            ],
+            "depth": [
+              0.0,
+              0.375
+            ],
+            "erosion": [
+              -0.625,
+              -0.5
+            ],
+            "humidity": [
+              0.5,
+              0.75
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -2.0,
+              -1.625
+            ],
+            "weirdness": -0.4
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/shiverspine_forest",
+          "parameters": {
+            "continentalness": [
+              0.35,
+              1.0
+            ],
+            "depth": [
+              -0.5,
+              0.125
+            ],
+            "erosion": [
+              -0.625,
+              0.3
+            ],
+            "humidity": [
+              0.0,
+              0.5
+            ],
+            "offset": 0.32,
+            "temperature": [
+              -0.8,
+              -0.5
+            ],
+            "weirdness": -0.137
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/geyser_plateau",
+          "parameters": {
+            "continentalness": [
+              0.125,
+              0.365
+            ],
+            "depth": 1.0,
+            "erosion": [
+              -1.0,
+              0.0
+            ],
+            "humidity": [
+              -1.0,
+              -0.75
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -0.375,
+              -0.125
+            ],
+            "weirdness": -0.4
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/cozybark_forest",
+          "parameters": {
+            "continentalness": [
+              0.6,
+              1.0
+            ],
+            "depth": [
+              0.4,
+              1.0
+            ],
+            "erosion": [
+              0.5,
+              1.0
+            ],
+            "humidity": [
+              0.6,
+              1.0
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -0.4,
+              0.0
+            ],
+            "weirdness": -0.3
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/fractal_forest",
+          "parameters": {
+            "continentalness": [
+              0.1,
+              0.9
+            ],
+            "depth": [
+              0.5,
+              0.75
+            ],
+            "erosion": [
+              -0.75,
+              -0.4
+            ],
+            "humidity": [
+              0.4,
+              0.75
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -2.0,
+              -1.75
+            ],
+            "weirdness": [
+              -0.3,
+              0.0
+            ]
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/ice_spikes",
+          "parameters": {
+            "continentalness": [
+              0.2,
+              0.5
+            ],
+            "depth": [
+              -0.75,
+              0.0
+            ],
+            "erosion": [
+              -1.0,
+              -0.75
+            ],
+            "humidity": [
+              -0.75,
+              -0.25
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -1.75,
+              -1.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/ice_spikes",
+          "parameters": {
+            "continentalness": 1.0,
+            "depth": 0.3,
+            "erosion": -0.1,
+            "humidity": -0.4,
+            "offset": 0.3,
+            "temperature": -1.9,
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/snow_bog",
+          "parameters": {
+            "continentalness": [
+              0.05,
+              0.08
+            ],
+            "depth": [
+              0.125,
+              0.4
+            ],
+            "erosion": [
+              0.25,
+              0.625
+            ],
+            "humidity": [
+              -0.125,
+              0.2
+            ],
+            "offset": 0.222,
+            "temperature": [
+              -1.375,
+              -1.15
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/tundra",
+          "parameters": {
+            "continentalness": [
+              0.35,
+              1.0
+            ],
+            "depth": [
+              -1.0,
+              -0.25
+            ],
+            "erosion": [
+              -0.25,
+              0.32
+            ],
+            "humidity": [
+              -0.8,
+              -0.375
+            ],
+            "offset": 0.222,
+            "temperature": [
+              -1.25,
+              -0.75
+            ],
+            "weirdness": [
+              -0.1,
+              -0.02
+            ]
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/morgue_marsh",
+          "parameters": {
+            "continentalness": 0.1,
+            "depth": [
+              -0.375,
+              0.5
+            ],
+            "erosion": [
+              0.5,
+              0.875
+            ],
+            "humidity": [
+              0.125,
+              0.25
+            ],
+            "offset": 0.222,
+            "temperature": [
+              -0.5,
+              -0.375
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/geyser_plateau",
+          "parameters": {
+            "continentalness": [
+              0.125,
+              0.365
+            ],
+            "depth": 1.0,
+            "erosion": [
+              -1.0,
+              -0.1
+            ],
+            "humidity": -1.0,
+            "offset": 0.0,
+            "temperature": -0.25,
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/cozybark_forest",
+          "parameters": {
+            "continentalness": [
+              0.3,
+              1.0
+            ],
+            "depth": [
+              0.4,
+              1.0
+            ],
+            "erosion": [
+              0.5,
+              1.0
+            ],
+            "humidity": [
+              0.6,
+              1.0
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -0.36,
+              0.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/ice_sheet",
+          "parameters": {
+            "continentalness": [
+              -1.0,
+              -0.6
+            ],
+            "depth": [
+              0.0,
+              1.0
+            ],
+            "erosion": [
+              0.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              -0.6
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -2.0,
+              -1.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/frozen_ocean",
+          "parameters": {
+            "continentalness": [
+              -0.8,
+              -0.52
+            ],
+            "depth": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "offset": 0.255,
+            "temperature": [
+              -2.0,
+              0.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/deep_frozen_ocean",
+          "parameters": {
+            "continentalness": [
+              -1.0,
+              -0.75
+            ],
+            "depth": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "offset": 0.24,
+            "temperature": [
+              -2.0,
+              0.0
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/boneyard",
+          "parameters": {
+            "continentalness": [
+              -1.0,
+              -0.65
+            ],
+            "depth": [
+              0.45,
+              0.8
+            ],
+            "erosion": [
+              -0.3,
+              0.1
+            ],
+            "humidity": [
+              0.1,
+              0.375
+            ],
+            "offset": 0.1,
+            "temperature": [
+              -0.75,
+              -0.5
+            ],
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/thermal_vents",
+          "parameters": {
+            "continentalness": [
+              -1.0,
+              -0.7
+            ],
+            "depth": [
+              0.875,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              -0.625
+            ],
+            "humidity": [
+              0.5,
+              1.0
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -0.25,
+              0.0
+            ],
+            "weirdness": 0.1
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/frozen_menagerie",
+          "parameters": {
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "depth": [
+              -1.0,
+              -0.625
+            ],
+            "erosion": [
+              -0.625,
+              -0.375
+            ],
+            "humidity": [
+              -0.5,
+              -0.125
+            ],
+            "offset": 0.15,
+            "temperature": [
+              -2.0,
+              -1.625
+            ],
+            "weirdness": 0.5299
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/chilly_cavern",
+          "parameters": {
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "depth": [
+              -0.5,
+              -0.125
+            ],
+            "erosion": [
+              -0.25,
+              0.0
+            ],
+            "humidity": [
+              -1.0,
+              -0.625
+            ],
+            "offset": 0.1,
+            "temperature": [
+              -1.5,
+              -1.125
+            ],
+            "weirdness": 0.55
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/glowing_deep",
+          "parameters": {
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "depth": [
+              0.375,
+              0.625
+            ],
+            "erosion": [
+              0.625,
+              1.0
+            ],
+            "humidity": [
+              0.125,
+              0.75
+            ],
+            "offset": 0.25,
+            "temperature": [
+              -1.0,
+              -0.5
+            ],
+            "weirdness": 1.0
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/sheltered_garden",
+          "parameters": {
+            "continentalness": [
+              -0.625,
+              1.0
+            ],
+            "depth": [
+              0.0,
+              0.25
+            ],
+            "erosion": [
+              0.125,
+              0.5
+            ],
+            "humidity": [
+              0.625,
+              1.0
+            ],
+            "offset": 0.12,
+            "temperature": [
+              -0.375,
+              -0.25
+            ],
+            "weirdness": 0.45
+          }
+        },
+        {
+          "biome": "divinerpg:iceika/thermal_vents",
+          "parameters": {
+            "continentalness": [
+              -1.0,
+              -0.75
+            ],
+            "depth": [
+              0.75,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              -0.75
+            ],
+            "humidity": [
+              0.0,
+              0.5
+            ],
+            "offset": 0.0,
+            "temperature": [
+              -0.125,
+              0.0
+            ],
+            "weirdness": 0.7
+          }
+        }
+      ]
     },
     "settings": "divinerpg:iceika"
   }

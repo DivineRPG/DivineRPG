@@ -3,8 +3,69 @@
   "generator": {
     "type": "minecraft:noise",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "divinerpg:vethea"
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "divinerpg:vethea/scorched_tops",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": [
+              -1.0,
+              -0.7
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 0.0,
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:vethea/hyrelands",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": [
+              -0.69,
+              -0.4
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 0.0,
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:vethea/dream_grounds",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": [
+              0.2,
+              0.3899
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 0.0,
+            "weirdness": 0.0
+          }
+        },
+        {
+          "biome": "divinerpg:vethea/ember_caverns",
+          "parameters": {
+            "continentalness": 0.0,
+            "depth": [
+              0.4,
+              1.0
+            ],
+            "erosion": 0.0,
+            "humidity": 0.0,
+            "offset": 0.0,
+            "temperature": 0.0,
+            "weirdness": 0.0
+          }
+        }
+      ]
     },
     "settings": "divinerpg:vethea"
   }

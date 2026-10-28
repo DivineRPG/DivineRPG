@@ -1,0 +1,51 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": {
+          "sound_id": "minecraft:ambient.basalt_deltas.additions"
+        },
+        "tick_chance": 0.011099999770522118
+      },
+      "loop": {
+        "sound_id": "minecraft:ambient.basalt_deltas.loop"
+      },
+      "mood": {
+        "block_search_extent": 8,
+        "offset": 2.0,
+        "sound": {
+          "sound_id": "minecraft:ambient.basalt_deltas.mood"
+        },
+        "tick_delay": 8000
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {}
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "minecraft:smoke"
+        },
+        "probability": 0.001
+      }
+    ],
+    "minecraft:visual/fog_color": "#ffffff",
+    "minecraft:visual/sky_color": "#ffffff",
+    "minecraft:visual/water_fog_color": "#ffffff"
+  },
+  "carvers": "minecraft:cave",
+  "downfall": 0.0,
+  "effects": {
+    "foliage_color": "#5c6ae7",
+    "grass_color": "#5c6ae7",
+    "water_color": "#9f7b64"
+  },
+  "features": [],
+  "has_precipitation": false,
+  "temperature": 2.0
+}

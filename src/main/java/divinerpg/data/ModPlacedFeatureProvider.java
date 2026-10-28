@@ -41,8 +41,8 @@ public class ModPlacedFeatureProvider {
 
 
         context.register(FeatureRegistry.APALACHIA_ORE_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_ORE),List.of(CountPlacement.of(12),InSquarePlacement.spread(),HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(256)),BiomeFilter.biome())));
-        context.register(FeatureRegistry.APALACHIA_VEGETATION_KEY_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_VEGETATION_KEY), List.of(CountPlacement.of(34), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(Direction.DOWN, BlockTags.GRASS_BLOCKS)), BiomeFilter.biome())));
-        context.register(FeatureRegistry.APALACHIA_TREE_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_TREE_KEY), List.of(NoiseBasedCountPlacement.of(1,12, 90.0), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome())));
+        context.register(FeatureRegistry.APALACHIA_VEGETATION_KEY_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_VEGETATION_KEY), List.of(CountPlacement.of(34), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(Direction.DOWN, BlockTags.GRASS_BLOCKS)), EnvironmentScanPlacement.scanningFor(Direction.DOWN, BlockPredicate.ONLY_IN_AIR_OR_WATER_PREDICATE, 12), BiomeFilter.biome())));
+        context.register(FeatureRegistry.APALACHIA_TREE_PLACED, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_TREE_KEY), List.of(NoiseBasedCountPlacement.of(12,90, 0.0), InSquarePlacement.spread(), HeightmapPlacement.onHeightmap(Heightmap.Types.WORLD_SURFACE), BiomeFilter.biome())));
         context.register(FeatureRegistry.APALACHIA_VEGETATION_PATCH_KEY, new PlacedFeature(configured.getOrThrow(FeatureRegistry.APALACHIA_VEGETATION_KEY), List.of(RarityFilter.onAverageOnceEvery(4))));
     }
 

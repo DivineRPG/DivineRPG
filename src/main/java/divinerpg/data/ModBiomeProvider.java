@@ -5,14 +5,13 @@ import divinerpg.registries.FeatureRegistry;
 import divinerpg.registries.SoundRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.attribute.AmbientAdditionsSettings;
-import net.minecraft.world.attribute.AmbientMoodSettings;
-import net.minecraft.world.attribute.AmbientSounds;
-import net.minecraft.world.attribute.EnvironmentAttributes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.attribute.*;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
@@ -38,9 +37,39 @@ public class ModBiomeProvider {
     public static final ResourceKey<Biome> APALACHIA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "apalachia"));
     public static final ResourceKey<Biome> SKYTHERN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "skythern"));
     public static final ResourceKey<Biome> MORTUM = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "mortum"));
+
     public static final ResourceKey<Biome> ICEIKA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika"));
+    public static final ResourceKey<Biome> ICEIKA_GLOWING_DEEP = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/glowing_deep"));
+    public static final ResourceKey<Biome> ICEIKA_FROZEN_MENAGERIE = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/frozen_menagerie"));
+    public static final ResourceKey<Biome> ICEIKA_MORGUE_MARSH = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/morgue_marsh"));
+    public static final ResourceKey<Biome> ICEIKA_ICE_SPIKES = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/ice_spikes"));
+    public static final ResourceKey<Biome> ICEIKA_BOREALIS_STEEPS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/borealis_steeps"));
+    public static final ResourceKey<Biome> ICEIKA_FROZEN_OCEAN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/frozen_ocean"));
+    public static final ResourceKey<Biome> ICEIKA_DEEP_FROZEN_OCEAN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/deep_frozen_ocean"));
+    public static final ResourceKey<Biome> ICEIKA_SNOWY_PEAKS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/snowy_peaks"));
+    public static final ResourceKey<Biome> ICEIKA_CHILL_PASSAGE = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/chill_passage"));
+    public static final ResourceKey<Biome> ICEIKA_FRACTAL_FOREST = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/fractal_forest"));
+    public static final ResourceKey<Biome> ICEIKA_FROZEN_PEAKS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/frozen_peaks"));
+    public static final ResourceKey<Biome> ICEIKA_GEYSER_PLATEAU = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/geyser_plateau"));
+    public static final ResourceKey<Biome> ICEIKA_SHIVERSPINE_FOREST = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/shiverspine_forest"));
+    public static final ResourceKey<Biome> ICEIKA_COZYBARK_FOREST = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/cozybark_forest"));
+    public static final ResourceKey<Biome> ICEIKA_ICE_SHEET = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/ice_sheet"));
+    public static final ResourceKey<Biome> ICEIKA_SNOW_BOG = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/snow_bog"));
+    public static final ResourceKey<Biome> ICEIKA_TUNDRA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/tundra"));
+    public static final ResourceKey<Biome> ICEIKA_BONEYARD = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/boneyard"));
+    public static final ResourceKey<Biome> ICEIKA_THERMAL_VENTS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/thermal_vents"));
+    public static final ResourceKey<Biome> ICEIKA_CHILLY_CAVERN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/chilly_cavern"));
+    public static final ResourceKey<Biome> ICEIKA_SHELTERED_GARDEN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/sheltered_garden"));
+
     public static final ResourceKey<Biome> ARCANA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "arcana"));
+    public static final ResourceKey<Biome> ARCANA_DUNE_VALLEY = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "arcana/dune_valley"));
+    public static final ResourceKey<Biome> ARCANA_BARON_HIGHLANDS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "arcana/baron_highlands"));
+
     public static final ResourceKey<Biome> VETHEA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea"));
+    public static final ResourceKey<Biome> VETHEA_SCORCHED_TOPS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea/scorched_tops"));
+    public static final ResourceKey<Biome> VETHEA_HYRELANDS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea/hyrelands"));
+    public static final ResourceKey<Biome> VETHEA_DREAM_GROUNDS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea/dream_grounds"));
+    public static final ResourceKey<Biome> VETHEA_EMBER_CAVERNS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea/ember_caverns"));
 
     public static void bootstrap(BootstrapContext<Biome> ctx) {
         HolderGetter<PlacedFeature> placedFeatures = ctx.lookup(Registries.PLACED_FEATURE);
@@ -146,19 +175,65 @@ public class ModBiomeProvider {
 //        wildwoodFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "wildwood/tree")));
         ctx.register(WILDWOOD, new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.4F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(10600680).grassColorOverride(23039).foliageColorOverride(2818303).build()).setAttribute(EnvironmentAttributes.FOG_COLOR, new Vector3f(6133246)).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, new Vector3f(13755391)).setAttribute(EnvironmentAttributes.SKY_COLOR, new Vector3f(10730239)).mobSpawnSettings(wildwoodSpawners.build()).generationSettings(wildwoodFeatures.build()).build());
 
-        // Iceika Biome
+        // Iceika Biomes
         MobSpawnSettings.Builder iceikaSpawners = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder iceikaFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-        ctx.register(ICEIKA, new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.0F).downfall(0.8F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build()).mobSpawnSettings(iceikaSpawners.build()).generationSettings(iceikaFeatures.build()).build());
+        Biome iceikaBiomeBase = new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.0F).downfall(0.8F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build()).mobSpawnSettings(iceikaSpawners.build()).generationSettings(iceikaFeatures.build()).build();
+        ctx.register(ICEIKA, iceikaBiomeBase);
+        ctx.register(ICEIKA_GLOWING_DEEP, iceikaBiomeBase);
+        ctx.register(ICEIKA_FROZEN_MENAGERIE, iceikaBiomeBase);
+        ctx.register(ICEIKA_MORGUE_MARSH, iceikaBiomeBase);
+        ctx.register(ICEIKA_ICE_SPIKES, iceikaBiomeBase);
+        ctx.register(ICEIKA_BOREALIS_STEEPS, iceikaBiomeBase);
+        ctx.register(ICEIKA_FROZEN_OCEAN, iceikaBiomeBase);
+        ctx.register(ICEIKA_DEEP_FROZEN_OCEAN, iceikaBiomeBase);
+        ctx.register(ICEIKA_SNOWY_PEAKS, iceikaBiomeBase);
+        ctx.register(ICEIKA_CHILL_PASSAGE, iceikaBiomeBase);
+        ctx.register(ICEIKA_FRACTAL_FOREST, iceikaBiomeBase);
+        ctx.register(ICEIKA_FROZEN_PEAKS, iceikaBiomeBase);
+        ctx.register(ICEIKA_GEYSER_PLATEAU, iceikaBiomeBase);
+        ctx.register(ICEIKA_SHIVERSPINE_FOREST, iceikaBiomeBase);
+        ctx.register(ICEIKA_COZYBARK_FOREST, iceikaBiomeBase);
+        ctx.register(ICEIKA_ICE_SHEET, iceikaBiomeBase);
+        ctx.register(ICEIKA_SNOW_BOG, iceikaBiomeBase);
+        ctx.register(ICEIKA_TUNDRA, iceikaBiomeBase);
+        ctx.register(ICEIKA_BONEYARD, iceikaBiomeBase);
+        ctx.register(ICEIKA_THERMAL_VENTS, iceikaBiomeBase);
+        ctx.register(ICEIKA_CHILLY_CAVERN, iceikaBiomeBase);
+        ctx.register(ICEIKA_SHELTERED_GARDEN, iceikaBiomeBase);
 
-        // Arcana Biome
+        // Arcana Biomes
         MobSpawnSettings.Builder arcanaSpawners = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder arcanaFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
         ctx.register(ARCANA, new Biome.BiomeBuilder().hasPrecipitation(false).temperature(1.0F).downfall(0.0F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build()).mobSpawnSettings(arcanaSpawners.build()).generationSettings(arcanaFeatures.build()).build());
 
+        // Arcana - Dune Valley
+        BiomeGenerationSettings.Builder duneValleyFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
+        //TODO - features
+//        duneValleyFeatures.addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "arcana/dungeon")));
+//        duneValleyFeatures.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "arcana/tar_lake")));
+//        duneValleyFeatures.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "arcana/vines")));
+//        duneValleyFeatures.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "arcana/brush")));
+//        duneValleyFeatures.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "arcana/bush")));
+//        duneValleyFeatures.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "arcana/gem_of_the_dunes")));
+
+        ctx.register(ARCANA_DUNE_VALLEY, new Biome.BiomeBuilder().hasPrecipitation(false).temperature(1.0F).downfall(0.0F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(8019531).grassColorOverride(2044369).foliageColorOverride(2044369).build()).setAttribute(EnvironmentAttributes.SKY_COLOR, new Vector3f(10540502)).setAttribute(EnvironmentAttributes.FOG_COLOR, new Vector3f(7579884)).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, new Vector3f(14319662)).setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(Holder.direct(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_LOOP.value())), Optional.of(new AmbientMoodSettings(Holder.direct(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_MOOD.value()), 6000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(Holder.direct(SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS.value()), 0.0111F)))).mobSpawnSettings(arcanaSpawners.build()).generationSettings(duneValleyFeatures.build()).build());
+
+        // Arcana - Baron Highlands
+        BiomeGenerationSettings.Builder baronHighlandsFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
+        baronHighlandsFeatures.addCarver(ResourceKey.create(Registries.CARVER, Identifier.parse("minecraft:cave")));
+        //TODO - feature
+//        baronHighlandsFeatures.addFeature(GenerationStep.Decoration.SURFACE_STRUCTURES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "arcana/soul_fire")));
+        ctx.register(ARCANA_BARON_HIGHLANDS, new Biome.BiomeBuilder().hasPrecipitation(false).temperature(2.0F).downfall(0.0F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(10451812).grassColorOverride(6056679).foliageColorOverride(6056679).build()).setAttribute(EnvironmentAttributes.SKY_COLOR, new Vector3f(11786203)).setAttribute(EnvironmentAttributes.FOG_COLOR, new Vector3f(11965169)).setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, List.of(new AmbientParticle(ParticleTypes.SMOKE, 0.001F))).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, new Vector3f(13472278)).setAttribute(EnvironmentAttributes.AMBIENT_SOUNDS, new AmbientSounds(Optional.of(Holder.direct(SoundEvents.AMBIENT_BASALT_DELTAS_LOOP.value())), Optional.of(new AmbientMoodSettings(Holder.direct(SoundEvents.AMBIENT_BASALT_DELTAS_MOOD.value()), 8000, 8, 2.0D)), List.of(new AmbientAdditionsSettings(Holder.direct(SoundEvents.AMBIENT_BASALT_DELTAS_ADDITIONS.value()), 0.0111F)))).mobSpawnSettings(arcanaSpawners.build()).generationSettings(baronHighlandsFeatures.build()).build());
+
         // Vethea Biome
         MobSpawnSettings.Builder vetheaSpawners = new MobSpawnSettings.Builder();
         BiomeGenerationSettings.Builder vetheaFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-        ctx.register(VETHEA, new Biome.BiomeBuilder().hasPrecipitation(false).temperature(1.0F).downfall(0.0F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build()).mobSpawnSettings(vetheaSpawners.build()).generationSettings(vetheaFeatures.build()).build());
+        Biome vetheaBiomeBase = new Biome.BiomeBuilder().hasPrecipitation(false).temperature(1.0F).downfall(0.0F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build()).mobSpawnSettings(vetheaSpawners.build()).generationSettings(vetheaFeatures.build()).build();
+        ctx.register(VETHEA, vetheaBiomeBase);
+        ctx.register(VETHEA_SCORCHED_TOPS, vetheaBiomeBase);
+        ctx.register(VETHEA_HYRELANDS, vetheaBiomeBase);
+        ctx.register(VETHEA_DREAM_GROUNDS, vetheaBiomeBase);
+        ctx.register(VETHEA_EMBER_CAVERNS, vetheaBiomeBase);
     }
 }
