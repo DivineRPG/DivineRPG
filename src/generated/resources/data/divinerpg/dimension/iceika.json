@@ -1,0 +1,11 @@
+{
+  "type": "divinerpg:iceika",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "divinerpg:iceika"
+    },
+    "settings": "divinerpg:iceika"
+  }
+}

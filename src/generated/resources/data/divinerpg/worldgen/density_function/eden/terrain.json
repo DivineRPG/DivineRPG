@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:interpolated",
+  "cell_size_xz": 1,
+  "cell_size_y": 2,
+  "input": {
+    "type": "minecraft:add",
+    "left": {
+      "type": "minecraft:gradient",
+      "axis": "y",
+      "from_coordinate": 0,
+      "from_value": -1.0,
+      "to_coordinate": 128,
+      "to_value": 0.0
+    },
+    "right": {
+      "type": "minecraft:add",
+      "left": {
+        "type": "minecraft:add",
+        "left": {
+          "type": "minecraft:gradient",
+          "axis": "y",
+          "from_coordinate": 128,
+          "from_value": -0.1,
+          "to_coordinate": 256,
+          "to_value": -1.34
+        },
+        "right": {
+          "type": "minecraft:add",
+          "left": {
+            "type": "minecraft:gradient",
+            "axis": "y",
+            "from_coordinate": 112,
+            "from_value": 0.0,
+            "to_coordinate": 128,
+            "to_value": 0.1
+          },
+          "right": {
+            "type": "minecraft:gradient",
+            "axis": "y",
+            "from_coordinate": 128,
+            "from_value": 0.0,
+            "to_coordinate": 132,
+            "to_value": -0.1
+          }
+        }
+      },
+      "right": "minecraft:overworld/base_3d_noise"
+    }
+  }
+}

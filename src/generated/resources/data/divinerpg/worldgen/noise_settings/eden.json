@@ -1,0 +1,152 @@
+{
+  "default_block": "divinerpg:scorchalt",
+  "default_fluid": "minecraft:water",
+  "disable_mob_generation": false,
+  "legacy_random_source": false,
+  "material_rule": {
+    "type": "minecraft:sequence",
+    "sequence": [
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:not",
+          "invert": {
+            "type": "minecraft:biome",
+            "biome_is": "divinerpg:eden/dravite_hills"
+          }
+        },
+        "then_run": {
+          "type": "minecraft:condition",
+          "if_true": {
+            "type": "minecraft:stone_depth",
+            "add_surface_depth": true,
+            "offset": 1,
+            "secondary_depth_range": 0,
+            "surface_type": "floor"
+          },
+          "then_run": {
+            "type": "minecraft:sequence",
+            "sequence": [
+              {
+                "type": "minecraft:condition",
+                "if_true": {
+                  "type": "minecraft:biome",
+                  "biome_is": "divinerpg:eden/golden_peaks"
+                },
+                "then_run": {
+                  "type": "minecraft:sequence",
+                  "sequence": [
+                    {
+                      "type": "minecraft:condition",
+                      "if_true": {
+                        "type": "minecraft:stone_depth",
+                        "add_surface_depth": false,
+                        "offset": 0,
+                        "secondary_depth_range": 0,
+                        "surface_type": "floor"
+                      },
+                      "then_run": {
+                        "type": "minecraft:block",
+                        "result_state": "divinerpg:ray_grass"
+                      }
+                    },
+                    {
+                      "type": "minecraft:block",
+                      "result_state": "divinerpg:ray_dirt"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "minecraft:condition",
+                "if_true": {
+                  "type": "minecraft:stone_depth",
+                  "add_surface_depth": false,
+                  "offset": 0,
+                  "secondary_depth_range": 0,
+                  "surface_type": "floor"
+                },
+                "then_run": {
+                  "type": "minecraft:block",
+                  "result_state": "divinerpg:scorched_dirt"
+                }
+              },
+              {
+                "type": "minecraft:block",
+                "result_state": "divinerpg:scorched_dirt"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:biome",
+          "biome_is": "divinerpg:eden/golden_peaks"
+        },
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": "divinerpg:ray_stone"
+        }
+      },
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:vertical_gradient",
+          "false_at_and_above": {
+            "absolute": 108
+          },
+          "random_name": "minecraft:draught_bottom",
+          "true_at_and_below": {
+            "absolute": 96
+          }
+        },
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": "divinerpg:draught_stone"
+        }
+      }
+    ]
+  },
+  "noise": {
+    "height": 256,
+    "min_y": 0
+  },
+  "noise_router": {
+    "chunk_surface_level": 0.0,
+    "continents": {
+      "type": "minecraft:add",
+      "left": "divinerpg:eden/terrain_magnetic",
+      "right": 0.15
+    },
+    "depth": {
+      "type": "minecraft:add",
+      "left": {
+        "type": "minecraft:gradient",
+        "axis": "y",
+        "from_coordinate": 0,
+        "from_value": 1.0,
+        "to_coordinate": 255,
+        "to_value": -1.0
+      },
+      "right": {
+        "type": "minecraft:clamp",
+        "input": {
+          "type": "minecraft:add",
+          "left": "divinerpg:eden/terrain_magnetic",
+          "right": -0.02
+        },
+        "max": 999.0,
+        "min": 0.0
+      }
+    },
+    "erosion": "minecraft:overworld/erosion",
+    "final_density": "divinerpg:eden/terrain_magnetic",
+    "ridges": "divinerpg:eden/magnetic_biome_toggle",
+    "temperature": 0.6,
+    "vegetation": 0.0
+  },
+  "sea_level": 0,
+  "spawn_target": []
+}

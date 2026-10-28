@@ -1,0 +1,118 @@
+{
+  "default_block": "divinerpg:arcanite_stone",
+  "default_fluid": "divinerpg:smoldering_tar",
+  "disable_mob_generation": false,
+  "legacy_random_source": false,
+  "material_rule": {
+    "type": "minecraft:sequence",
+    "sequence": [
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:stone_depth",
+          "add_surface_depth": false,
+          "offset": 0,
+          "secondary_depth_range": 0,
+          "surface_type": "ceiling"
+        },
+        "then_run": {
+          "type": "minecraft:condition",
+          "if_true": {
+            "type": "minecraft:vertical_gradient",
+            "false_at_and_above": {
+              "absolute": 77
+            },
+            "random_name": "divinerpg:arcanite_moss",
+            "true_at_and_below": {
+              "absolute": 44
+            }
+          },
+          "then_run": {
+            "type": "minecraft:block",
+            "result_state": "divinerpg:arcanite_moss"
+          }
+        }
+      },
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:stone_depth",
+          "add_surface_depth": true,
+          "offset": 1,
+          "secondary_depth_range": 0,
+          "surface_type": "floor"
+        },
+        "then_run": {
+          "type": "minecraft:condition",
+          "if_true": {
+            "type": "minecraft:vertical_gradient",
+            "false_at_and_above": {
+              "absolute": 82
+            },
+            "random_name": "divinerpg:arcanite_sand",
+            "true_at_and_below": {
+              "absolute": 76
+            }
+          },
+          "then_run": {
+            "type": "minecraft:block",
+            "result_state": "divinerpg:arcanite_sand"
+          }
+        }
+      }
+    ]
+  },
+  "noise": {
+    "height": 256,
+    "min_y": 0
+  },
+  "noise_router": {
+    "chunk_surface_level": 0.0,
+    "continents": 0.0,
+    "depth": {
+      "type": "minecraft:gradient",
+      "axis": "y",
+      "from_coordinate": 0,
+      "from_value": 0.0,
+      "to_coordinate": 256,
+      "to_value": 1.0
+    },
+    "erosion": "minecraft:overworld/erosion",
+    "final_density": {
+      "type": "minecraft:interpolated",
+      "cell_size_xz": 1,
+      "cell_size_y": 2,
+      "input": {
+        "type": "minecraft:range_choice",
+        "input": {
+          "type": "minecraft:gradient",
+          "axis": "y",
+          "from_coordinate": 32,
+          "from_value": -1.0,
+          "to_coordinate": 34,
+          "to_value": 1.0
+        },
+        "max_exclusive": 1.1,
+        "min_inclusive": 0.0,
+        "when_in_range": {
+          "type": "minecraft:add",
+          "left": {
+            "type": "minecraft:gradient",
+            "axis": "y",
+            "from_coordinate": 32,
+            "from_value": 0.7,
+            "to_coordinate": 256,
+            "to_value": -3.0
+          },
+          "right": "minecraft:overworld/base_3d_noise"
+        },
+        "when_out_of_range": 0.0
+      }
+    },
+    "ridges": "minecraft:overworld/ridges",
+    "temperature": 1.0,
+    "vegetation": 0.0
+  },
+  "sea_level": 0,
+  "spawn_target": []
+}

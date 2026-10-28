@@ -1,0 +1,71 @@
+{
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "creature": [
+            {
+              "type": "divinerpg:glinthop",
+              "count": 4,
+              "weight": 20
+            }
+          ],
+          "monster": [
+            {
+              "type": "divinerpg:eden_tomo",
+              "count": 4,
+              "weight": 20
+            },
+            {
+              "type": "divinerpg:eden_cadillion",
+              "count": 4,
+              "weight": 20
+            },
+            {
+              "type": "divinerpg:weak_cori",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "type": "divinerpg:greenfeet",
+              "count": 4,
+              "weight": 20
+            },
+            {
+              "type": "divinerpg:madivel",
+              "count": 4,
+              "weight": 20
+            },
+            {
+              "type": "divinerpg:sun_archer",
+              "count": 4,
+              "weight": 6
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    }
+  },
+  "carvers": "minecraft:cave",
+  "downfall": 0.4,
+  "effects": {
+    "foliage_color": "#fff714",
+    "grass_color": "#fff714",
+    "water_color": "#a1e8af"
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "divinerpg:twilight_tar_lake"
+    ]
+  ],
+  "has_precipitation": true,
+  "temperature": 0.8
+}

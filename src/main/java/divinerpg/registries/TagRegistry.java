@@ -201,7 +201,14 @@ public class TagRegistry {
     public static final TagKey<Block> TORRIDITE_ORE = commonBlock("ores/torridite");
     public static final TagKey<Block> WILDWOOD_ORE = commonBlock("ores/wildwood");
     public static final TagKey<Block> ORES = commonBlock("ores");
-        public static final TagKey<Block> APALACHIA_INFINIBURN = TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(DivineRPG.MODID, "infiniburn/apalachia"));
+    public static final TagKey<Block> EDEN_INFINIBURN = block("infiniburn/eden");
+    public static final TagKey<Block> WILDWOOD_INFINIBURN = block("infiniburn/wildwood");
+    public static final TagKey<Block> APALACHIA_INFINIBURN = block("infiniburn/apalachia");
+    public static final TagKey<Block> SKYTHERN_INFINIBURN = block("infiniburn/skythern");
+    public static final TagKey<Block> MORTUM_INFINIBURN = block("infiniburn/mortum");
+    public static final TagKey<Block> ICEIKA_INFINIBURN = block("infiniburn/iceika");
+    public static final TagKey<Block> ARCANA_INFINIBURN = block("infiniburn/arcana");
+    public static final TagKey<Block> VETHEA_INFINIBURN = block("infiniburn/vethea");
 
         public static final TagKey<Block>
                 RIFT_EDEN_BLOCK = block("rift_resonating/eden"), RIFT_WILDWOOD_BLOCK = block("rift_resonating/wildwood"),

@@ -114,6 +114,14 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
             .add(Registries.NOISE_SETTINGS, ctx -> {
                 LOGGER.info("[DatapackGen] Bootstrapping Noise Settings...");
                 ModNoiseSettingsProvider.bootstrap(ctx);
+            })
+            .add(Registries.DENSITY_FUNCTION, ctx -> {
+                LOGGER.info("[DatapackGen] Bootstrapping Density Settings...");
+                ModDensityFunctionProvider.bootstrap(ctx);
+            })
+            .add(Registries.NOISE, ctx -> {
+                LOGGER.info("[DatapackGen] Bootstrapping Noise Parameters...");
+                ModNoiseParametersProvider.bootstrap(ctx);
             });
 
     public static final RegistrySetBuilder RELOADABLE_BUILDER = new RegistrySetBuilder().add(Registries.LOOT_TABLE, new ModLootTableProvider()).add(RecipeProvider.asBootstrap(ModRecipeProvider::new)).add(Registries.ADVANCEMENT, new AdvancementProvider(List.of(ModAdvancementProvider::new)));
@@ -158,8 +166,8 @@ public class ModDatapackProvider extends DatapackBuiltinEntriesProvider {
 
     public static void registerJukeboxSongs(BootstrapContext<JukeboxSong> context) {
         HolderGetter<SoundEvent> sounds = context.lookup(Registries.SOUND_EVENT);
-        if (SoundRegistry.DESTINY_SONG == null || SoundRegistry.DESTINY == null) {LOGGER.error("[DatapackGen] SoundRegistry holder for DESTINY or DESTINY_SONG is null!");} else {context.register(SoundRegistry.DESTINY_SONG.getKey(), new JukeboxSong(sounds.getOrThrow(SoundRegistry.DESTINY.getKey()), Component.translatable("jukebox_song.divinerpg.destiny"), 159.0F, 4));}
-        if (SoundRegistry.RED_STAINS_SONG == null || SoundRegistry.RED_STAINS == null) {LOGGER.error("[DatapackGen] SoundRegistry holder for RED_STAINS or RED_STAINS_SONG is null!");} else {context.register(SoundRegistry.RED_STAINS_SONG.getKey(), new JukeboxSong(sounds.getOrThrow(SoundRegistry.RED_STAINS.getKey()), Component.translatable("jukebox_song.divinerpg.red_stains"), 120.0F, 10));}
+        if (SoundRegistry.DESTINY_SONG == null || SoundRegistry.DESTINY == null) {LOGGER.error("[DatapackGen] SoundRegistry holder for DESTINY or DESTINY_SONG is null!");} else {context.register(SoundRegistry.DESTINY_SONG.key(), new JukeboxSong(sounds.getOrThrow(SoundRegistry.DESTINY.key()), Component.translatable("jukebox_song.divinerpg.destiny"), 159.0F, 4));}
+        if (SoundRegistry.RED_STAINS_SONG == null || SoundRegistry.RED_STAINS == null) {LOGGER.error("[DatapackGen] SoundRegistry holder for RED_STAINS or RED_STAINS_SONG is null!");} else {context.register(SoundRegistry.RED_STAINS_SONG.key(), new JukeboxSong(sounds.getOrThrow(SoundRegistry.RED_STAINS.key()), Component.translatable("jukebox_song.divinerpg.red_stains"), 120.0F, 10));}
     }
 
     public static DatapackBuiltinEntriesProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> world) {

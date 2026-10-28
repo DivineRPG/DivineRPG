@@ -1,0 +1,11 @@
+{
+  "type": "divinerpg:eden",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "divinerpg:eden"
+    },
+    "settings": "divinerpg:eden"
+  }
+}

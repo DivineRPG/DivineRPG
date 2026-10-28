@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:cache",
+  "input": {
+    "type": "minecraft:cache",
+    "input": {
+      "type": "minecraft:shift_b",
+      "noise": "divinerpg:offset"
+    }
+  }
+}

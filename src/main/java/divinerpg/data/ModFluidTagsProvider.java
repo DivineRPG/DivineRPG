@@ -17,6 +17,6 @@ public class ModFluidTagsProvider extends FluidTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider registries) {
-        tag(TagRegistry.SMOLDERING_TAR).add(FluidRegistry.SMOLDERING_TAR_FLUID.getKey());
+        tag(TagRegistry.SMOLDERING_TAR).add(FluidRegistry.SMOLDERING_TAR_FLUID.key());
     }
 }

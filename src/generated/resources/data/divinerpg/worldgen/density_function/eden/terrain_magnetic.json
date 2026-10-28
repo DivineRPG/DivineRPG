@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:max",
+  "left": "divinerpg:eden/terrain",
+  "right": {
+    "type": "minecraft:range_choice",
+    "input": "divinerpg:eden/magnetic_biome_toggle",
+    "max_exclusive": 2.0,
+    "min_inclusive": 1.0,
+    "when_in_range": {
+      "type": "minecraft:interpolated",
+      "cell_size_xz": 1,
+      "cell_size_y": 2,
+      "input": {
+        "type": "minecraft:add",
+        "left": {
+          "type": "minecraft:gradient",
+          "axis": "y",
+          "from_coordinate": 0,
+          "from_value": -1.0,
+          "to_coordinate": 128,
+          "to_value": 0.0
+        },
+        "right": {
+          "type": "minecraft:add",
+          "left": "minecraft:overworld/base_3d_noise",
+          "right": {
+            "type": "minecraft:clamp",
+            "input": {
+              "type": "minecraft:add",
+              "left": "divinerpg:eden/magnetic_strings",
+              "right": {
+                "type": "minecraft:add",
+                "left": {
+                  "type": "minecraft:gradient",
+                  "axis": "y",
+                  "from_coordinate": 128,
+                  "from_value": 0.0,
+                  "to_coordinate": 135,
+                  "to_value": 1.0
+                },
+                "right": {
+                  "type": "minecraft:gradient",
+                  "axis": "y",
+                  "from_coordinate": 232,
+                  "from_value": 0.0,
+                  "to_coordinate": 260,
+                  "to_value": -10.0
+                }
+              }
+            },
+            "max": 1.0,
+            "min": -1.0
+          }
+        }
+      }
+    },
+    "when_out_of_range": -1.0
+  }
+}

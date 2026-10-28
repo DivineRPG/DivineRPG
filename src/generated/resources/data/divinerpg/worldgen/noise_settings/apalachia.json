@@ -55,9 +55,9 @@
           "type": "minecraft:gradient",
           "axis": "y",
           "from_coordinate": 0,
-          "from_value": -2.6,
+          "from_value": -1.0,
           "to_coordinate": 128,
-          "to_value": 0.1
+          "to_value": 0.0
         },
         "right": {
           "type": "minecraft:add",
@@ -67,15 +67,22 @@
             "from_coordinate": 128,
             "from_value": 0.0,
             "to_coordinate": 256,
-            "to_value": -0.7
+            "to_value": -1.0
           },
-          "right": "minecraft:end/base_3d_noise"
+          "right": "minecraft:overworld/base_3d_noise"
         }
       }
     },
     "ridges": "minecraft:overworld/ridges",
-    "temperature": 0.0,
-    "vegetation": 0.0
+    "temperature": 0.6,
+    "vegetation": {
+      "type": "minecraft:noise",
+      "noise": "minecraft:vegetation_large",
+      "shift_x": "minecraft:shift_x",
+      "shift_z": "minecraft:shift_z",
+      "xz_scale": 0.25,
+      "y_scale": 0.0
+    }
   },
   "sea_level": 0,
   "spawn_target": []

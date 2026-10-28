@@ -24,53 +24,60 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(APALACHIA_ORE).add(BlockRegistry.apalachiaOre.getKey());
-        tag(ARLEMITE_ORE).add(BlockRegistry.arlemiteOre.getKey(), BlockRegistry.arlemiteOreDeepslate.getKey());
-        tag(BLOODGEM_ORE).add(BlockRegistry.bloodgemOre.getKey());
-        tag(EDEN_ORE).add(BlockRegistry.twilightEdenOre.getKey(), BlockRegistry.scorchaltEdenOre.getKey());
-        tag(MORTUM_ORE).add(BlockRegistry.mortumOre.getKey());
-        tag(OXDRITE_ORE).add(BlockRegistry.oxdriteOre.getKey());
-        tag(REALMITE_ORE).add(BlockRegistry.realmiteOre.getKey(), BlockRegistry.realmiteOreDeepslate.getKey());
-        tag(RUPEE_ORE).add(BlockRegistry.rupeeOre.getKey(), BlockRegistry.rupeeOreDeepslate.getKey());
-        tag(SKYTHERN_ORE).add(BlockRegistry.skythernOre.getKey());
-        tag(TORRIDITE_ORE).add(BlockRegistry.torriditeOre.getKey());
-        tag(WILDWOOD_ORE).add(BlockRegistry.wildwoodOre.getKey());
+        tag(APALACHIA_ORE).add(BlockRegistry.apalachiaOre.key());
+        tag(ARLEMITE_ORE).add(BlockRegistry.arlemiteOre.key(), BlockRegistry.arlemiteOreDeepslate.key());
+        tag(BLOODGEM_ORE).add(BlockRegistry.bloodgemOre.key());
+        tag(EDEN_ORE).add(BlockRegistry.twilightEdenOre.key(), BlockRegistry.scorchaltEdenOre.key());
+        tag(MORTUM_ORE).add(BlockRegistry.mortumOre.key());
+        tag(OXDRITE_ORE).add(BlockRegistry.oxdriteOre.key());
+        tag(REALMITE_ORE).add(BlockRegistry.realmiteOre.key(), BlockRegistry.realmiteOreDeepslate.key());
+        tag(RUPEE_ORE).add(BlockRegistry.rupeeOre.key(), BlockRegistry.rupeeOreDeepslate.key());
+        tag(SKYTHERN_ORE).add(BlockRegistry.skythernOre.key());
+        tag(TORRIDITE_ORE).add(BlockRegistry.torriditeOre.key());
+        tag(WILDWOOD_ORE).add(BlockRegistry.wildwoodOre.key());
         tag(ORES).addTags(APALACHIA_ORE, ARLEMITE_ORE, BLOODGEM_ORE, EDEN_ORE, MORTUM_ORE, OXDRITE_ORE, REALMITE_ORE, RUPEE_ORE, SKYTHERN_ORE, TORRIDITE_ORE, WILDWOOD_ORE);
 
-        tag(commonTag("storage_blocks/realmite")).add(BlockRegistry.realmiteBlock.getKey());
-        tag(commonTag("storage_blocks/arlemite")).add(BlockRegistry.arlemiteBlock.getKey());
-        tag(commonTag("storage_blocks/rupee")).add(BlockRegistry.rupeeBlock.getKey());
-        tag(commonTag("storage_blocks/bloodgem")).add(BlockRegistry.bloodgemBlock.getKey());
-        tag(commonTag("storage_blocks/torridite")).add(BlockRegistry.torriditeBlock.getKey());
-        tag(commonTag("storage_blocks/olivine")).add(BlockRegistry.olivineBlock.getKey());
+        tag(commonTag("storage_blocks/realmite")).add(BlockRegistry.realmiteBlock.key());
+        tag(commonTag("storage_blocks/arlemite")).add(BlockRegistry.arlemiteBlock.key());
+        tag(commonTag("storage_blocks/rupee")).add(BlockRegistry.rupeeBlock.key());
+        tag(commonTag("storage_blocks/bloodgem")).add(BlockRegistry.bloodgemBlock.key());
+        tag(commonTag("storage_blocks/torridite")).add(BlockRegistry.torriditeBlock.key());
+        tag(commonTag("storage_blocks/olivine")).add(BlockRegistry.olivineBlock.key());
         tag(commonTag("storage_blocks")).addTags(commonTag("storage_blocks/realmite"), commonTag("storage_blocks/arlemite"), commonTag("storage_blocks/rupee"), commonTag("storage_blocks/bloodgem"), commonTag("storage_blocks/torridite"), commonTag("storage_blocks/olivine"));
 
-        tag(commonTag("stones/frozen")).add(BlockRegistry.frozenStone.getKey());
-        tag(commonTag("stones/cobaltite")).add(BlockRegistry.cobaltite.getKey());
-        tag(commonTag("stones/coalstone")).add(BlockRegistry.coalstone.getKey());
-        tag(commonTag("stones/arcanite")).add(BlockRegistry.arcaniteStone.getKey());
+        tag(commonTag("stones/frozen")).add(BlockRegistry.frozenStone.key());
+        tag(commonTag("stones/cobaltite")).add(BlockRegistry.cobaltite.key());
+        tag(commonTag("stones/coalstone")).add(BlockRegistry.coalstone.key());
+        tag(commonTag("stones/arcanite")).add(BlockRegistry.arcaniteStone.key());
         tag(commonTag("stones")).addTags(commonTag("stones/frozen"), commonTag("stones/cobaltite"), commonTag("stones/coalstone"), commonTag("stones/arcanite"));
 
-        tag(commonTag("cobblestones/frozen")).add(BlockRegistry.frozenStone.getKey());
-        tag(commonTag("cobblestones/cobaltite")).add(BlockRegistry.cobaltite.getKey());
-        tag(commonTag("cobblestones/coalstone")).add(BlockRegistry.coalstone.getKey());
+        tag(commonTag("cobblestones/frozen")).add(BlockRegistry.frozenStone.key());
+        tag(commonTag("cobblestones/cobaltite")).add(BlockRegistry.cobaltite.key());
+        tag(commonTag("cobblestones/coalstone")).add(BlockRegistry.coalstone.key());
         tag(commonTag("cobblestones")).addTags(commonTag("cobblestones/frozen"), commonTag("cobblestones/cobaltite"), commonTag("cobblestones/coalstone"));
 
-        tag(commonTag("ores_in_ground/netherrack")).add(BlockRegistry.torriditeOre.getKey(), BlockRegistry.bloodgemOre.getKey());
-        tag(commonTag("ores_in_ground/stone")).add(BlockRegistry.realmiteOre.getKey(), BlockRegistry.rupeeOre.getKey(), BlockRegistry.arlemiteOre.getKey());
-        tag(commonTag("ores_in_ground/deepslate")).add(BlockRegistry.realmiteOreDeepslate.getKey(), BlockRegistry.rupeeOreDeepslate.getKey(), BlockRegistry.arlemiteOreDeepslate.getKey());
+        tag(commonTag("ores_in_ground/netherrack")).add(BlockRegistry.torriditeOre.key(), BlockRegistry.bloodgemOre.key());
+        tag(commonTag("ores_in_ground/stone")).add(BlockRegistry.realmiteOre.key(), BlockRegistry.rupeeOre.key(), BlockRegistry.arlemiteOre.key());
+        tag(commonTag("ores_in_ground/deepslate")).add(BlockRegistry.realmiteOreDeepslate.key(), BlockRegistry.rupeeOreDeepslate.key(), BlockRegistry.arlemiteOreDeepslate.key());
 
         tag(customTag("replaceable_by_trees/iceika")).addTags(BlockTags.SNOW);
-        tag(BASE_ICY_FIRE).addTags(BlockTags.SNOW, BlockTags.ICE).add(BlockRegistry.snowBricks.getKey(), BlockRegistry.icyStone.getKey());
-        tag(BEDROCK_GRINDING_BASE).add(Blocks.BEDROCK.builtInRegistryHolder().getKey(), BlockRegistry.bedrockMinibricks.getKey());
+        tag(BASE_ICY_FIRE).addTags(BlockTags.SNOW, BlockTags.ICE).add(BlockRegistry.snowBricks.key(), BlockRegistry.icyStone.key());
+        tag(BEDROCK_GRINDING_BASE).add(Blocks.BEDROCK.builtInRegistryHolder().key(), BlockRegistry.bedrockMinibricks.key());
 
         tag(MINEABLE_SHICKAXE).addTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.MINEABLE_WITH_HOE, BlockTags.MINEABLE_WITH_SHOVEL);
 
-        tag(APALACHIA_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().getKey(), Blocks.NETHERRACK.builtInRegistryHolder().getKey());
+        tag(EDEN_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
+        tag(WILDWOOD_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
+        tag(APALACHIA_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
+        tag(SKYTHERN_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
+        tag(MORTUM_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
+        tag(ICEIKA_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
+        tag(ARCANA_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
+        tag(VETHEA_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
 
         for (var entry : DivineRegistries.BLOCKS.getEntries()) {
             Block b = entry.get();
-            var key = b.builtInRegistryHolder().getKey();
+            var key = b.builtInRegistryHolder().key();
             String path = entry.getId().getPath();
 
             if (path.contains("ore") || path.contains("stone") || path.contains("cobble") || path.contains("block")) {

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:mul",
+  "left": -10.0,
+  "right": {
+    "type": "minecraft:add",
+    "left": {
+      "type": "minecraft:abs",
+      "input": {
+        "type": "minecraft:noise",
+        "noise": "divinerpg:magnetic_flow",
+        "xz_scale": 2.0,
+        "y_scale": 2.0
+      }
+    },
+    "right": {
+      "type": "minecraft:abs",
+      "input": {
+        "type": "minecraft:noise",
+        "noise": "divinerpg:magnetic_stability",
+        "xz_scale": 1.95,
+        "y_scale": 1.95
+      }
+    }
+  }
+}

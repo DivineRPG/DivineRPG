@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:cache",
+  "input": {
+    "type": "minecraft:add",
+    "left": -0.45,
+    "right": {
+      "type": "minecraft:noise",
+      "noise": "divinerpg:magnetic_flow",
+      "xz_scale": 0.5,
+      "y_scale": 0.5
+    }
+  }
+}

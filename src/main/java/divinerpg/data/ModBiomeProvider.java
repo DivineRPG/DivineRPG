@@ -27,10 +27,20 @@ import static divinerpg.DivineRPG.MODID;
 public class ModBiomeProvider {
 
     public static final ResourceKey<Biome> EDEN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden"));
+    public static final ResourceKey<Biome> EDEN_DRAVITE_CAVES = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/dravite_caves"));
+    public static final ResourceKey<Biome> EDEN_DRAVITE_HILLS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/dravite_hills"));
+    public static final ResourceKey<Biome> EDEN_FOREST = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/forest"));
+    public static final ResourceKey<Biome> EDEN_GOLDEN_PEAKS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/golden_peaks"));
+    public static final ResourceKey<Biome> EDEN_MAGNETIC_ISLES = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/magnetic_isles"));
+    public static final ResourceKey<Biome> EDEN_PLAINS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/plains"));
+
     public static final ResourceKey<Biome> WILDWOOD = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "wildwood"));
     public static final ResourceKey<Biome> APALACHIA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "apalachia"));
     public static final ResourceKey<Biome> SKYTHERN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "skythern"));
     public static final ResourceKey<Biome> MORTUM = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "mortum"));
+    public static final ResourceKey<Biome> ICEIKA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika"));
+    public static final ResourceKey<Biome> ARCANA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "arcana"));
+    public static final ResourceKey<Biome> VETHEA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea"));
 
     public static void bootstrap(BootstrapContext<Biome> ctx) {
         HolderGetter<PlacedFeature> placedFeatures = ctx.lookup(Registries.PLACED_FEATURE);
@@ -56,7 +66,15 @@ public class ModBiomeProvider {
 //        edenFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "eden/bush")));
 //        edenFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "eden/duncap")));
 //        edenFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "eden/plants")));
-        ctx.register(EDEN, new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.4F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(10610863).grassColorOverride(16774932).foliageColorOverride(16774932).build()).mobSpawnSettings(edenSpawners.build()).generationSettings(edenFeatures.build()).build());
+        Biome edenBaseBiome = new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.4F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(10610863).grassColorOverride(16774932).foliageColorOverride(16774932).build()).mobSpawnSettings(edenSpawners.build()).generationSettings(edenFeatures.build()).build();
+        ctx.register(EDEN, edenBaseBiome);
+        ctx.register(EDEN_DRAVITE_CAVES, edenBaseBiome);
+        ctx.register(EDEN_DRAVITE_HILLS, edenBaseBiome);
+        ctx.register(EDEN_FOREST, edenBaseBiome);
+        ctx.register(EDEN_GOLDEN_PEAKS, edenBaseBiome);
+        ctx.register(EDEN_MAGNETIC_ISLES, edenBaseBiome);
+        ctx.register(EDEN_PLAINS, edenBaseBiome);
+
 
         MobSpawnSettings.Builder apalachiaSpawners = new MobSpawnSettings.Builder();
         apalachiaSpawners.addSpawn(EntityRegistry.APALACHIA_CADILLION.get(), 2,4, 4);
@@ -127,5 +145,20 @@ public class ModBiomeProvider {
 //        wildwoodFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "wildwood/plants")));
 //        wildwoodFeatures.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "wildwood/tree")));
         ctx.register(WILDWOOD, new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.8F).downfall(0.4F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(10600680).grassColorOverride(23039).foliageColorOverride(2818303).build()).setAttribute(EnvironmentAttributes.FOG_COLOR, new Vector3f(6133246)).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, new Vector3f(13755391)).setAttribute(EnvironmentAttributes.SKY_COLOR, new Vector3f(10730239)).mobSpawnSettings(wildwoodSpawners.build()).generationSettings(wildwoodFeatures.build()).build());
+
+        // Iceika Biome
+        MobSpawnSettings.Builder iceikaSpawners = new MobSpawnSettings.Builder();
+        BiomeGenerationSettings.Builder iceikaFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
+        ctx.register(ICEIKA, new Biome.BiomeBuilder().hasPrecipitation(true).temperature(0.0F).downfall(0.8F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build()).mobSpawnSettings(iceikaSpawners.build()).generationSettings(iceikaFeatures.build()).build());
+
+        // Arcana Biome
+        MobSpawnSettings.Builder arcanaSpawners = new MobSpawnSettings.Builder();
+        BiomeGenerationSettings.Builder arcanaFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
+        ctx.register(ARCANA, new Biome.BiomeBuilder().hasPrecipitation(false).temperature(1.0F).downfall(0.0F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build()).mobSpawnSettings(arcanaSpawners.build()).generationSettings(arcanaFeatures.build()).build());
+
+        // Vethea Biome
+        MobSpawnSettings.Builder vetheaSpawners = new MobSpawnSettings.Builder();
+        BiomeGenerationSettings.Builder vetheaFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
+        ctx.register(VETHEA, new Biome.BiomeBuilder().hasPrecipitation(false).temperature(1.0F).downfall(0.0F).specialEffects(new BiomeSpecialEffects.Builder().waterColor(4159204).build()).mobSpawnSettings(vetheaSpawners.build()).generationSettings(vetheaFeatures.build()).build());
     }
 }
