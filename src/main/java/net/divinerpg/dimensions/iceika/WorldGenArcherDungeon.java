@@ -50,8 +50,8 @@ public class WorldGenArcherDungeon extends WorldGenerator {
 		WorldGenAPI.addBlock(w, x + 20, y, z - 1, IceikaBlocks.frostArcherSpawner);
 		WorldGenAPI.addBlock(w, x + 23, y, z - 1, IceikaBlocks.frostArcherSpawner);
 		WorldGenAPI.addBlock(w, x + 8, y, z + 1, IceikaBlocks.frostArcherSpawner);
-		w.setBlock(x + 24, y + 1, z - 4, IceikaBlocks.frostedChest, 1, 2);
-		w.setBlock(x + 19, y + 1, z - 4, IceikaBlocks.frostedChest, 1, 2);
+		WorldGenAPI.placeIceikaDungeonChest(w, x + 24, y + 1, z - 4, 1);
+		WorldGenAPI.placeIceikaDungeonChest(w, x + 19, y + 1, z - 4, 1);
 		WorldGenAPI.addRectangle(10, 2, 3, w, x - 5, y + 1, z + 1, Blocks.air);
         return true;
     }

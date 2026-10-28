@@ -6,6 +6,7 @@ import net.divinerpg.utils.blocks.IceikaBlocks;
 import net.divinerpg.utils.items.IceikaItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.tileentity.TileEntitySign;
@@ -88,13 +89,79 @@ public class WorldGenAPI {
 		}
 	}
 	
+	//Matches the 1.12.2 iceika_chest_hut loot table: {item, weight, min, max}
+	private static final Object[][] ICEIKA_HUT_LOOT = {
+		{IceikaItems.iceShards, 12, 1, 8},
+		{IceikaItems.snowCones, 7, 1, 8},
+		{IceikaItems.chocolateLog, 7, 1, 4},
+		{IceikaItems.peppermints, 6, 1, 5},
+		{IceikaItems.eggNog, 4, 1, 3},
+		{IceikaItems.fruitCake, 4, 1, 3},
+		{IceikaItems.soundOfCarols, 2, 1, 1},
+		{IceikaItems.icicleBane, 2, 1, 1},
+		{IceikaItems.santaCap, 1, 1, 1},
+		{IceikaItems.santaTunic, 1, 1, 1},
+		{IceikaItems.santaPants, 1, 1, 1},
+		{IceikaItems.santaBoots, 1, 1, 1}
+	};
+
+	//Matches the 1.12.2 iceika_chest_dungeon loot table: {item, weight, min, max}
+	private static final Object[][] ICEIKA_DUNGEON_LOOT = {
+		{IceikaItems.iceShards, 14, 1, 8},
+		{IceikaItems.snowflakeShuriken, 10, 1, 16},
+		{IceikaItems.peppermints, 7, 1, 5},
+		{IceikaItems.snowflake, 6, 1, 1},
+		{IceikaItems.iceStone, 4, 1, 4},
+		{IceikaItems.frostkingSword, 3, 1, 1},
+		{IceikaItems.serenadeOfIce, 2, 1, 1},
+		{IceikaItems.snowSlash, 2, 1, 1},
+		{IceikaItems.snowstormBow, 2, 1, 1},
+		{IceikaItems.frozenMaul, 1, 1, 1}
+	};
+
 	public static void placeIceikaChest(World w, int x, int y, int z, int meta){
+		placeIceikaLootChest(w, x, y, z, meta, IceikaBlocks.decorativeFrostedChest, ICEIKA_HUT_LOOT);
+	}
+
+	//Percent chance that a dungeon chest is decorative instead of a frosted chest. Balances the loot,
+	//since only frosted chests drop a snowflake when broken, while keeping the frozenGoods achievement
+	//for breaking a frosted chest obtainable. Both blocks are kept for backwards compatibility with existing worlds.
+	private static final int DECORATIVE_DUNGEON_CHEST_CHANCE = 0;
+
+	public static void placeIceikaDungeonChest(World w, int x, int y, int z, int meta){
+		Block b = w.rand.nextInt(100) < DECORATIVE_DUNGEON_CHEST_CHANCE ? IceikaBlocks.decorativeFrostedChest : IceikaBlocks.frostedChest;
+		placeIceikaLootChest(w, x, y, z, meta, b, ICEIKA_DUNGEON_LOOT);
+	}
+
+	private static void placeIceikaLootChest(World w, int x, int y, int z, int meta, Block b, Object[][] loot){
 		Random r = new Random();
-		w.setBlock(x, y, z, IceikaBlocks.decorativeFrostedChest, meta, 2);
+		w.setBlock(x, y, z, b, meta, 2);
 		TileEntityChest chest = (TileEntityChest)w.getTileEntity(x, y, z);
 		if(chest != null && !w.isRemote){
-			for(int i = 0; i < r.nextInt(4) + 1; i++){
-				chest.setInventorySlotContents(r.nextInt(26) + 1, new ItemStack(IceikaItems.peppermints));
+			putInRandomSlot(chest, r, new ItemStack(IceikaItems.snowflake));
+			int totalWeight = 0;
+			for(Object[] entry : loot) totalWeight += (Integer)entry[1];
+			int rolls = r.nextInt(5) + 4;
+			for(int i = 0; i < rolls; i++){
+				int pick = r.nextInt(totalWeight);
+				for(Object[] entry : loot){
+					pick -= (Integer)entry[1];
+					if(pick < 0){
+						int min = (Integer)entry[2], max = (Integer)entry[3];
+						putInRandomSlot(chest, r, new ItemStack((Item)entry[0], min + r.nextInt(max - min + 1)));
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	private static void putInRandomSlot(TileEntityChest chest, Random r, ItemStack is){
+		for(int tries = 0; tries < 10; tries++){
+			int slot = r.nextInt(chest.getSizeInventory());
+			if(chest.getStackInSlot(slot) == null){
+				chest.setInventorySlotContents(slot, is);
+				return;
 			}
 		}
 	}
