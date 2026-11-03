@@ -54,7 +54,13 @@
                     "predicate": {
                       "minecraft:equipment": {
                         "mainhand": {
-                          "items": "#c:smelts_loot"
+                          "predicates": {
+                            "minecraft:enchantments": [
+                              {
+                                "enchantments": "#minecraft:smelts_loot"
+                              }
+                            ]
+                          }
                         }
                       }
                     }
