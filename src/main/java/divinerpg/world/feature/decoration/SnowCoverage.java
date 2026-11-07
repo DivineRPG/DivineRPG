@@ -67,7 +67,7 @@ public class SnowCoverage extends Feature<NoneFeatureConfiguration> {
 				}
 				return 1;
 			}
-		} else DivineRPG.LOGGER.info("could not access server chunk cache");
+		}
 		return 0;
 	}
 	static void snowLog(WorldGenLevel level, MutableBlockPos pos, BlockState snowyBlock, boolean[] space) {
