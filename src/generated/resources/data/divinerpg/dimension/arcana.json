@@ -9,24 +9,24 @@
           "biome": "divinerpg:arcana/baron_highlands",
           "parameters": {
             "continentalness": 0.0,
-            "depth": 0.0,
+            "depth": 0.304,
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
             "temperature": 1.0,
-            "weirdness": 0.304
+            "weirdness": 0.0
           }
         },
         {
           "biome": "divinerpg:arcana/dune_valley",
           "parameters": {
             "continentalness": 0.0,
-            "depth": 0.0,
+            "depth": 0.3,
             "erosion": 0.0,
             "humidity": 0.0,
             "offset": 0.0,
             "temperature": 1.0,
-            "weirdness": 0.3
+            "weirdness": 0.0
           }
         }
       ]
