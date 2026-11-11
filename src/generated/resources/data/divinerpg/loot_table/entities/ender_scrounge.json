@@ -29,8 +29,8 @@
             "type": "minecraft:random_chance_with_enchanted_bonus",
             "enchanted_chance": {
               "type": "minecraft:linear",
-              "base": 0.51,
-              "per_level_above_first": 0.265
+              "base": 0.26500002,
+              "per_level_above_first": 0.02
             },
             "enchantment": "minecraft:looting",
             "unenchanted_chance": 0.245

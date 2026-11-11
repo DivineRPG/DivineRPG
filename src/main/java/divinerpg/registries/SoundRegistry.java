@@ -190,7 +190,7 @@ public class SoundRegistry {
             REYVOR_HURT = registerSound("reyvor_hurt"),
             RIFT_AMBIENT = registerSound("rift_ambient"),
             RIFT_CLOSE = registerSound("rift_close"),
-            RIFT_COLSE_MUFFLED = registerSound("rift_close_muffled"),
+            RIFT_CLOSE_MUFFLED = registerSound("rift_close_muffled"),
             RIFT_INSTABILITY = registerSound("rift_instability"),
             RIFT_OPEN = registerSound("rift_open"),
             RIFT_REPLENISH = registerSound("rift_replenish"),

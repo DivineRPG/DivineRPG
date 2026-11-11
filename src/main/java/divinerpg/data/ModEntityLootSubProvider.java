@@ -1,55 +1,40 @@
 package divinerpg.data;
 
 import divinerpg.registries.*;
-import net.minecraft.advancements.predicates.FluidPredicate;
-import net.minecraft.advancements.predicates.ItemPredicate;
-import net.minecraft.advancements.predicates.LocationPredicate;
-import net.minecraft.advancements.predicates.entity.EntityEquipmentPredicate;
-import net.minecraft.advancements.predicates.entity.EntityFlagsPredicate;
-import net.minecraft.advancements.predicates.entity.EntityPredicate;
+import net.minecraft.advancements.predicates.*;
+import net.minecraft.advancements.predicates.entity.*;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.loot.EntityLootSubProvider;
-import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.core.registries.*;
+import net.minecraft.data.loot.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
+import net.minecraft.tags.*;
+import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.*;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.*;
+import net.minecraft.world.level.storage.loot.entries.*;
 import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.floats.ContextFloatProviders;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import static divinerpg.registries.EntityRegistry.*;
+import static divinerpg.registries.ItemRegistry.*;
 
 public class ModEntityLootSubProvider extends EntityLootSubProvider {
 
@@ -62,14 +47,14 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     private final HolderGetter<Fluid> fluidLookup = output.lookup(Registries.FLUID);
     private final HolderGetter<Enchantment> enchantmentLookup = output.lookup(Registries.ENCHANTMENT);
 
-    private final LootItemCondition.Builder smeltPredicate = createSmeltPredicate();
+    private final LootItemCondition.Builder smeltPredicate = shouldSmeltLoot();
 
     public ModEntityLootSubProvider(LootTableSubProvider.Context output) {
         super(FeatureFlags.REGISTRY.allFlags(), output);
         registerTables();
     }
 
-    // One item with the default count of 1 and withot Looting bonus
+    // One item with the default count of 1 and without Looting bonus
     private LootItem.Builder<?> lootItem(ItemLike item) {
         return LootItem.lootTableItem(item);
     }
@@ -167,18 +152,6 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     private SmeltItemFunction.Builder smelt() {
         return SmeltItemFunction.smelted().when(smeltPredicate);
     }
-
-    // Smelts loot if the mob is burning OR the main hand of DIRECT_ATTACKER matches SMELTS_LOOT
-    private LootItemCondition.Builder createSmeltPredicate() {
-        return AnyOfCondition.anyOf(
-                LootItemEntityPropertyCondition.hasProperties(
-                        LootContext.EntityTarget.THIS,
-                        EntityPredicate.Builder.entity().flags(EntityFlagsPredicate.Builder.flags().setOnFire(true))
-                ),
-                mainHandHolds(LootContext.EntityTarget.DIRECT_ATTACKER, TagRegistry.SMELTS_LOOT)
-        );
-    }
-
     ////  Pools methods
     // A standard pool ONE roll among the supplied entries
     private LootPool.Builder pool(LootPoolEntryContainer.Builder<?>... entries) {
@@ -251,17 +224,17 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
 
     // Wildwood magic meat 0–1 without Looting
     private LootPool.Builder magicMeat() {
-        return pool(lootItem(ItemRegistry.magic_meat.get(), 0, 1));
+        return pool(lootItem(magic_meat.get(), 0, 1));
     }
 
     // Apalachia enriched magic meat: 0–1, without Looting
     private LootPool.Builder enrichedMeat() {
-        return pool(lootItem(ItemRegistry.enriched_magic_meat.get(), 0, 1));
+        return pool(lootItem(enriched_magic_meat.get(), 0, 1));
     }
 
     // Raw empowered meat from Eden, which may drop cooked
     private LootPool.Builder empoweredMeat() {
-        return pool(lootItem(ItemRegistry.raw_empowered_meat.get()).apply(smelt()).apply(lootingBonus()));
+        return pool(lootItem(raw_empowered_meat.get()).apply(smelt()).apply(lootingBonus()));
     }
 
     //// Potions
@@ -270,7 +243,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     private LootItem.Builder<?> poisonPotion() {
         return lootItem(Items.POTION).apply(SetComponentsFunction.setComponent(
                 DataComponents.POTION_CONTENTS,
-                new PotionContents(BuiltInRegistries.POTION.get(Potions.POISON.getKey()).get())
+                new PotionContents(BuiltInRegistries.POTION.get(Potions.POISON.key()).get())
         ));
     }
 
@@ -299,7 +272,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     private void registerLoot(Supplier<? extends EntityType<?>> entity, LootPool.Builder... pools) {
         EntityType<?> type = entity.get();
         if (lootTableMap.containsKey(type)) {
-            throw new IllegalStateException("Таблица лута уже зарегистрирована для: " + type);
+            throw new IllegalStateException("Loot table is already registered for: " + type);
         }
         LootTable.Builder table = LootTable.lootTable();
         for (LootPool.Builder pool : pools) {
@@ -341,7 +314,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     private void registerOverworldTables() {
         // One pool with two entries: slime (weight 4) OR aqua ball (weight 1); slime is four times as likely.
         registerLoot(AEQUOREA,
-                pool(lootingItem(Items.SLIME_BALL, 1, 3).setWeight(4), lootingItem(ItemRegistry.aqua_ball.get(), 1, 2)));
+                pool(lootingItem(Items.SLIME_BALL, 1, 3).setWeight(4), lootingItem(aqua_ball.get(), 1, 2)));
 
         // Two pools: sandstone and red wool roll independently, so both may drop
         registerLoot(ARID_WARRIOR,
@@ -351,20 +324,20 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
         // Two independent pools, both requiring player kill credit:
         // realmite ingots and gold nuggets may drop together
         registerLoot(CAVECLOPS,
-                playerLootingPool(ItemRegistry.realmite_ingot.get(), 0, 3),
+                playerLootingPool(realmite_ingot.get(), 0, 3),
                 playerLootingPool(Items.GOLD_NUGGET, 0, 2));
 
         registerLoot(CAVE_CRAWLER,
-                playerLootingPool(ItemRegistry.realmite_ingot.get(), 0, 2),
+                playerLootingPool(realmite_ingot.get(), 0, 2),
                 playerKillPool(poisonPotion()).when(lootingChance(0.01F, 0.03F)));
 
         registerLoot(CRAB,
-                lootingPool(ItemRegistry.crab_claw.get(), 0, 1));
+                lootingPool(crab_claw.get(), 0, 1));
 
         registerLoot(CYCLOPS,
-                lootingPool(ItemRegistry.cyclops_eye_shards.get(), 0, 1),
+                lootingPool(cyclops_eye_shards.get(), 0, 1),
                 playerLootingPool(Items.GOLD_INGOT, 0, 1),
-                rarePool(ItemRegistry.bloodgem.get(), 0.025F, 0.005F));
+                rarePool(bloodgem.get(), 0.025F, 0.005F));
 
         // Desert Crawler: loot depends on the killers tool and the block the mob stands on
         registerLoot(DESERT_CRAWLER,
@@ -388,40 +361,40 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
                         .when(attackerHolds(ItemTags.MINING_ENCHANTABLE))));
 
         registerLoot(ENTHRALLED_DRAMCRYX,
-                lootingPool(ItemRegistry.corrupted_shards.get(), 0, 2),
-                lootingPool(ItemRegistry.corrupted_shards.get(), 0, 4),   // second pool with the same item; intentional?
-                rarePool(ItemRegistry.arlemite_ingot.get(), 0.025F, 0.045F));
+                lootingPool(corrupted_shards.get(), 0, 2),
+                lootingPool(corrupted_shards.get(), 0, 4),
+                rarePool(arlemite_ingot.get(), 0.025F, 0.045F));
 
         registerLoot(FROST,
-                lootingPool(ItemRegistry.ice_shards.get(), 0, 2),
-                playerKillPool(lootItem(ItemRegistry.ice_stone.get(), 0, 1)).when(lootingChance(0.13F, 0.02F)),
-                playerKillPool(lootingItem(ItemRegistry.tomato.get(), 0, 1)).when(lootingChance(0.5F, 0.01F)));
+                lootingPool(ice_shards.get(), 0, 2),
+                playerKillPool(lootItem(ice_stone.get(), 0, 1)).when(lootingChance(0.13F, 0.02F)),
+                playerKillPool(lootingItem(tomato.get(), 0, 1)).when(lootingChance(0.5F, 0.01F)));
 
         registerLoot(GLACON,
-                lootingPool(ItemRegistry.ice_shards.get(), 0, 3),
-                playerKillPool(lootingItem(ItemRegistry.white_mushroom.get(), 0, 1)).when(lootingChance(0.5F, 0.01F)));
+                lootingPool(ice_shards.get(), 0, 3),
+                playerKillPool(lootingItem(white_mushroom.get(), 0, 1)).when(lootingChance(0.5F, 0.01F)));
 
         // Two mobs with identical loot.
         registerGroup(List.of(JUNGLE_BAT, JUNGLE_DRAMCRYX),
-                lootingPool(ItemRegistry.jungle_shards.get(), 0, 2));
+                lootingPool(jungle_shards.get(), 0, 2));
 
         registerLoot(JUNGLE_SPIDER,
-                lootingPool(ItemRegistry.jungle_shards.get(), 0, 1),
-                lootingPool(ItemRegistry.jungle_shards.get(), 0, 2),      // two shard pools; intentional?
+                lootingPool(jungle_shards.get(), 0, 1),
+                lootingPool(jungle_shards.get(), 0, 2),
                 stringPool(),
                 spiderEyePool());
 
         registerLoot(KING_CRAB,
-                lootingPool(ItemRegistry.crab_claw.get(), 0, 1),
-                lootingPool(ItemRegistry.aquatic_pellets.get(), 0, 3));
+                lootingPool(crab_claw.get(), 0, 1),
+                lootingPool(aquatic_pellets.get(), 0, 3));
 
         registerLoot(KOBBLIN,
-                lootingPool(ItemRegistry.terran_shards.get(), 0, 2));
+                lootingPool(terran_shards.get(), 0, 2));
 
         registerLoot(LIOPLEURODON,
                 // Skull 25% chance (+30 percentage points per Looting level), without requiring player kill credit
-                pool(lootItem(ItemRegistry.liopleurodon_skull.get())).when(lootingChance(0.25F, 0.3F)),
-                lootingPool(ItemRegistry.liopleurodon_teeth.get(), 0, 2));
+                pool(lootItem(liopleurodon_skull.get())).when(lootingChance(0.25F, 0.3F)),
+                lootingPool(liopleurodon_teeth.get(), 0, 2));
 
         registerLoot(MINER,
                 lootingPool(Items.ROTTEN_FLESH, 0, 2),
@@ -435,37 +408,37 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
                         .when(lootingChance(0.025F, 0.01F)));
 
         registerLoot(PUMPKIN_SPIDER,
-                lootingPool(ItemRegistry.terran_shards.get(), 0, 2),
+                lootingPool(terran_shards.get(), 0, 2),
                 pool(lootItem(Items.PUMPKIN)),
                 stringPool(),
                 spiderEyePool());
 
         registerLoot(RAINBOUR,
-                playerKillPool(lootItem(ItemRegistry.healing_stone.get())),
-                rarePool(ItemRegistry.color_template.get(), 0.005F, 0.001F));
+                playerKillPool(lootItem(healing_stone.get())),
+                rarePool(color_template.get(), 0.005F, 0.001F));
 
         // No Looting the 0–2 count does not depend on the enchantment
         registerLoot(ROTATICK,
                 playerKillPool(lootItem(Items.DIAMOND, 0, 2)));
 
         registerLoot(SAGUARO_WORM,
-                lootingPool(ItemRegistry.terran_shards.get(), 0, 2),
+                lootingPool(terran_shards.get(), 0, 2),
                 pool(lootItem(Items.CACTUS, 3, 5)));
 
         registerLoot(SHARK,
-                lootingPool(ItemRegistry.shark_fin.get(), 1, 3));
+                lootingPool(shark_fin.get(), 1, 3));
 
         registerLoot(THE_EYE,
                 playerLootingPool(Items.ECHO_SHARD, 0, 2),
-                rarePool(ItemRegistry.rupee_ingot.get(), 0.125F, 0.02F));
+                rarePool(rupee_ingot.get(), 0.125F, 0.02F));
 
         registerLoot(THE_GRUE,
                 // Shards have a 70% base chance, without requiring player kill credit
-                pool(lootingItem(ItemRegistry.corrupted_shards.get(), 2, 4)).when(lootingChance(0.7F, 0.02F)),
-                rarePool(ItemRegistry.arlemite_ingot.get(), 0.125F, 0.02F));
+                pool(lootingItem(corrupted_shards.get(), 2, 4)).when(lootingChance(0.7F, 0.02F)),
+                rarePool(arlemite_ingot.get(), 0.125F, 0.02F));
 
         registerLoot(WHALE,
-                lootingPool(ItemRegistry.whale_fin.get(), 1, 3));
+                lootingPool(whale_fin.get(), 1, 3));
     }
 
     // Vethea
@@ -473,13 +446,13 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     // is credited to a player.
     private void registerVetheaTables() {
         // Shared builders: used by several mobs; do not modify after creation.
-        LootPool.Builder dirtyPearl    = playerLootingPool(ItemRegistry.dirty_pearls.get());
-        LootPool.Builder cleanPearl    = playerLootingPool(ItemRegistry.clean_pearls.get());
-        LootPool.Builder polishedPearl = playerLootingPool(ItemRegistry.polished_pearls.get());
-        LootPool.Builder shinyPearl    = playerLootingPool(ItemRegistry.shiny_pearls.get());
+        LootPool.Builder dirtyPearl    = playerLootingPool(dirty_pearls.get());
+        LootPool.Builder cleanPearl    = playerLootingPool(clean_pearls.get());
+        LootPool.Builder polishedPearl = playerLootingPool(polished_pearls.get());
+        LootPool.Builder shinyPearl    = playerLootingPool(shiny_pearls.get());
 
         // The only Vethea mob with a second pool: acid does not require player kill credit
-        registerLoot(ACID_HAG, dirtyPearl, lootingPool(ItemRegistry.acid.get(), 1, 3));
+        registerLoot(ACID_HAG, dirtyPearl, lootingPool(acid.get(), 1, 3));
 
         registerGroup(List.of(CYMESOID, DREAMWRECKER, DUO, ENT, HIVE_SOLDIER, HOVER_STINGER, LORGA, SHADAHIER),
                 dirtyPearl);
@@ -494,28 +467,28 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     // Skythern
     private void registerSkythernTables() {
         registerGroup(List.of(ADVANCED_CORI, MYSTIC, SAMEK, SKYTHERN_ARCHER, SKYTHERN_FIEND, SKYTHERN_GOLEM),
-                lootingPool(ItemRegistry.skythern_soul.get(), 0, 2));
+                lootingPool(skythern_soul.get(), 0, 2));
 
         registerLoot(MEGALITH,
-                lootingPool(ItemRegistry.skythern_soul.get(), 0, 1),
-                playerKillPool(lootingItem(ItemRegistry.sky_plant_seeds.get(), 0, 2)).when(lootingChance(0.5F, 0.03F)));
+                lootingPool(skythern_soul.get(), 0, 1),
+                playerKillPool(lootingItem(sky_plant_seeds.get(), 0, 2)).when(lootingChance(0.5F, 0.03F)));
     }
 
     // Iceika
     private void registerIceikaTables() {
         // Shared ice-shard builders: used by several mobs; do not modify after creation
-        LootPool.Builder iceShards2 = lootingPool(ItemRegistry.ice_shards.get(), 0, 2);
-        LootPool.Builder iceShards3 = lootingPool(ItemRegistry.ice_shards.get(), 0, 3);
+        LootPool.Builder iceShards2 = lootingPool(ice_shards.get(), 0, 2);
+        LootPool.Builder iceShards3 = lootingPool(ice_shards.get(), 0, 3);
 
         registerGroup(List.of(ALICANTO, PALE_ARCHER), iceShards2);
 
         registerLoot(BLUBBERTUSK,
                 lootingPool(Items.LEATHER, 0, 2),
-                lootingPool(ItemRegistry.blubber.get(), 1, 2),
+                lootingPool(blubber.get(), 1, 2),
                 lootingPool(Items.BONE, 0, 2));
 
         registerLoot(CAULDRON_FISH,
-                pool(lootItem(ItemRegistry.cauldron_flesh.get())),
+                pool(lootItem(cauldron_flesh.get())),
                 boneMealPool(0.05F));
 
         // One pool: each roll selects either feathers OR bones
@@ -526,14 +499,14 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
                 iceShards2,
                 iceShards3,
                 // TODO: Verify the 0.16 increase with a base chance of 0.13.
-                playerKillPool(lootItem(ItemRegistry.ice_stone.get(), 1, 2)).when(lootingChance(0.13F, 0.16F)));
+                playerKillPool(lootItem(ice_stone.get(), 1, 2)).when(lootingChance(0.13F, 0.16F)));
 
         registerLoot(FROZEN_FLESH,
                 iceShards3,
                 // One roll: snowballs (weight 9) OR peppermints (weight 1); usually snowballs
                 playerKillPool(
                         lootItem(Items.SNOWBALL, 1, 3).setWeight(9),
-                        lootingItem(ItemRegistry.peppermints.get(), 0, 2)));
+                        lootingItem(peppermints.get(), 0, 2)));
 
         registerGroup(List.of(GLACIDE, HASTREUS), iceShards2, iceShards3);
 
@@ -547,20 +520,20 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
         registerLoot(ROLLUM,
                 iceShards2,
                 iceShards3,
-                playerKillPool(lootingItem(ItemRegistry.oxdrite_nugget.get(), 0, 3)).when(lootingChance(0.35F, 0.05F)));
+                playerKillPool(lootingItem(oxdrite_nugget.get(), 0, 3)).when(lootingChance(0.35F, 0.05F)));
 
         registerLoot(SABEAR,
-                lootingPool(ItemRegistry.sabear_fur.get(), 0, 2),
-                pool(lootItem(ItemRegistry.sabear_tooth.get(), 1, 2)).when(lootingChance(0.85F, 0.02F)));
+                lootingPool(sabear_fur.get(), 0, 2),
+                pool(lootItem(sabear_tooth.get(), 1, 2)).when(lootingChance(0.85F, 0.02F)));
 
         registerLoot(SENG,
-                lootingPool(ItemRegistry.seng_fur.get(), 0, 2),
+                lootingPool(seng_fur.get(), 0, 2),
                 // Function order matters: count first, then smelting, then the Looting bonus
-                pool(lootItem(ItemRegistry.raw_seng_meat.get(), 1, 3).apply(smelt()).apply(lootingBonus())));
+                pool(lootItem(raw_seng_meat.get(), 1, 3).apply(smelt()).apply(lootingBonus())));
 
         registerLoot(WOLPERTINGER,
                 lootingPool(Items.RABBIT_HIDE, 0, 1),
-                pool(lootItem(ItemRegistry.raw_wolpertinger_meat.get(), 1, 2).apply(smelt()).apply(lootingBonus())),
+                pool(lootItem(raw_wolpertinger_meat.get(), 1, 2).apply(smelt()).apply(lootingBonus())),
                 rarePool(Items.RABBIT_FOOT, 0.1F, 0.03F));
     }
 
@@ -570,24 +543,24 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
                 lootingPool(Items.PORKCHOP, 1, 3));
 
         registerLoot(HELL_SPIDER,
-                lootingPool(ItemRegistry.molten_shards.get(), 0, 1),
+                lootingPool(molten_shards.get(), 0, 1),
                 // TODO: Verify the 0.42 increase with a base chance of 0.4.
                 pool(lootItem(Items.NETHERRACK, 2, 5)).when(lootingChance(0.4F, 0.02F)),
                 stringPool(),
                 spiderEyePool());
 
         registerLoot(SCORCHER,
-                playerLootingPool(ItemRegistry.purple_blaze.get(), 0, 1));
+                playerLootingPool(purple_blaze.get(), 0, 1));
 
         registerLoot(WILDFIRE,
-                lootingPool(ItemRegistry.molten_shards.get(), 1, 4),
-                playerKillPool(lootingItem(ItemRegistry.torridite_nugget.get(), 0, 3)).when(lootingChance(0.35F, 0.05F)));
+                lootingPool(molten_shards.get(), 1, 4),
+                playerKillPool(lootingItem(torridite_nugget.get(), 0, 3)).when(lootingChance(0.35F, 0.05F)));
     }
 
     // End
     private void registerEndTables() {
         registerLoot(ENDER_SCROUNGE,
-                pool(lootItem(ItemRegistry.ender_shards.get(), 0, 1)),
+                pool(lootItem(ender_shards.get(), 0, 1)),
                 // A ~24.5% base chance to select ONE item: ender pearl (weight 25), amethyst (8), or iron nugget (1)
                 playerKillPool(
                         lootItem(Items.ENDER_PEARL).setWeight(25),
@@ -596,28 +569,28 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
                         .when(lootingChance(0.245F, 0.02F)));
 
         registerLoot(ENDER_SPIDER,
-                pool(lootItem(ItemRegistry.ender_shards.get())),
+                pool(lootItem(ender_shards.get())),
                 stringPool(),
                 spiderEyePool(),
                 // Watching eye: requires player kill credit and a 25% chance (entry condition),
                 // and only drops in the End (pool condition)
-                playerKillPool(lootItem(ItemRegistry.watching_eye.get()).when(LootItemRandomChanceCondition.randomChance(0.25F)))
+                playerKillPool(lootItem(watching_eye.get()).when(LootItemRandomChanceCondition.randomChance(0.25F)))
                         .when(inDimension(Level.END)));
 
         registerLoot(ENDER_TRIPLETS,
-                lootingPool(ItemRegistry.ender_shards.get(), 0, 6),
+                lootingPool(ender_shards.get(), 0, 6),
                 lootingPool(Items.ENDER_EYE, 0, 3));
 
         registerLoot(ENDER_WATCHER,
-                lootingPool(ItemRegistry.ender_shards.get(), 0, 2),
-                playerKillPool(lootItem(ItemRegistry.watching_eye.get(), 0, 1)));
+                lootingPool(ender_shards.get(), 0, 2),
+                playerKillPool(lootItem(watching_eye.get(), 0, 1)));
     }
 
 
     // Arcana
     private void registerArcanaTables() {
         // Shared builder: used by several mobs; do not modify after creation.
-        LootPool.Builder fragments = lootingPool(ItemRegistry.collector_fragments.get(), 0, 2);
+        LootPool.Builder fragments = lootingPool(collector_fragments.get(), 0, 2);
 
         registerGroup(List.of(DEATHCRYX, DEATH_HOUND, DUNGEON_DEMON, DUNGEON_PRISONER, LIVING_STATUE, ROAMER),
                 fragments);
@@ -628,21 +601,21 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
 
         // One roll selects one of four keys.
         registerLoot(DUNGEON_CONSTRUCTOR,
-                pool(lootItem(ItemRegistry.ancient_key.get()),
-                        lootItem(ItemRegistry.degraded_key.get()),
-                        lootItem(ItemRegistry.sludge_key.get()),
-                        lootItem(ItemRegistry.soul_key.get())));
+                pool(lootItem(ancient_key.get()),
+                        lootItem(degraded_key.get()),
+                        lootItem(sludge_key.get()),
+                        lootItem(soul_key.get())));
     }
 
     // Eden
     private void registerEdenTables() {
         registerGroup(List.of(EDEN_CADILLION, SUN_ARCHER),
-                lootingPool(ItemRegistry.eden_soul.get(), 0, 1),
+                lootingPool(eden_soul.get(), 0, 1),
                 empoweredMeat());
 
         registerLoot(EDEN_TOMO,
                 // Soul 50% chance (+2 percentage points per level), without requiring player kill credit
-                pool(lootingItem(ItemRegistry.eden_soul.get())).when(lootingChance(0.5F, 0.02F)),
+                pool(lootingItem(eden_soul.get())).when(lootingChance(0.5F, 0.02F)),
                 empoweredMeat(),
                 playerKillPool(lootItem(Items.GOLD_INGOT, 1, 3)).when(lootingChance(0.33F, 0.02F)));
 
@@ -650,75 +623,75 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
                 boneMealPool(0.05F));
 
         registerLoot(GLINTHOP,
-                pool(lootingItem(ItemRegistry.eden_soul.get())).when(lootingChance(0.5F, 0.03F)));
+                pool(lootingItem(eden_soul.get())).when(lootingChance(0.5F, 0.03F)));
 
         registerGroup(List.of(GREENFEET, WEAK_CORI),
-                lootingPool(ItemRegistry.eden_soul.get(), 0, 2));
+                lootingPool(eden_soul.get(), 0, 2));
 
         registerLoot(MADIVEL,
-                lootingPool(ItemRegistry.eden_soul.get(), 0, 2),
+                lootingPool(eden_soul.get(), 0, 2),
                 empoweredMeat());
     }
 
     // Wildwood
     private void registerWildwoodTables() {
         registerGroup(List.of(BEHEMOTH, MAGE, VEREK, WILDWOOD_TOMO),
-                lootingPool(ItemRegistry.wildwood_soul.get(), 0, 2),
+                lootingPool(wildwood_soul.get(), 0, 2),
                 magicMeat());
 
         registerLoot(EPIPHITE,
                 // TODO: Verify the 0.52 increase with a base value of 0.5
-                pool(lootingItem(ItemRegistry.wildwood_soul.get())).when(lootingChance(0.5F, 0.02F)),
+                pool(lootingItem(wildwood_soul.get())).when(lootingChance(0.5F, 0.02F)),
                 magicMeat());
 
         registerLoot(TERMID,
-                lootingPool(ItemRegistry.wildwood_soul.get(), 0, 2),
+                lootingPool(wildwood_soul.get(), 0, 2),
                 pool(lootItem(BlockRegistry.wildwoodLog.get(), 0, 4)));
 
         registerLoot(WILDWOOD_CADILLION,
-                lootingPool(ItemRegistry.wildwood_soul.get(), 0, 1),
+                lootingPool(wildwood_soul.get(), 0, 1),
                 magicMeat());
 
         registerLoot(WILDWOOD_GOLEM,
-                lootingPool(ItemRegistry.wildwood_soul.get(), 1, 3),
+                lootingPool(wildwood_soul.get(), 1, 3),
                 magicMeat(),
-                playerKillPool(lootingItem(ItemRegistry.moonbulb_seeds.get(), 1, 3)).when(lootingChance(0.5F, 0.03F)));
+                playerKillPool(lootingItem(moonbulb_seeds.get(), 1, 3)).when(lootingChance(0.5F, 0.03F)));
     }
 
     // Apalachia
     private void registerApalachiaTables() {
         registerLoot(APALACHIA_CADILLION,
-                lootingPool(ItemRegistry.apalachia_soul.get(), 0, 1),
+                lootingPool(apalachia_soul.get(), 0, 1),
                 enrichedMeat());
 
         registerLoot(APALACHIA_GOLEM,
-                lootingPool(ItemRegistry.apalachia_soul.get(), 1, 3),
+                lootingPool(apalachia_soul.get(), 1, 3),
                 enrichedMeat(),
                 // purple or pink seeds
                 playerKillPool(
-                        lootingItem(ItemRegistry.purple_glowbone_seeds.get(), 1, 3),
-                        lootingItem(ItemRegistry.pink_glowbone_seeds.get(), 1, 3))
+                        lootingItem(purple_glowbone_seeds.get(), 1, 3),
+                        lootingItem(pink_glowbone_seeds.get(), 1, 3))
                         .when(lootingChance(0.5F, 0.03F)));
 
         registerLoot(APALACHIA_TOMO,
-                lootingPool(ItemRegistry.apalachia_soul.get(), 1, 2),
+                lootingPool(apalachia_soul.get(), 1, 2),
                 enrichedMeat());
 
         registerLoot(ENCHANTED_ARCHER,
-                lootingPool(ItemRegistry.apalachia_soul.get(), 0, 2));
+                lootingPool(apalachia_soul.get(), 0, 2));
 
         registerLoot(ENCHANTED_WARRIOR,
-                lootingPool(ItemRegistry.apalachia_soul.get(), 1, 2));
+                lootingPool(apalachia_soul.get(), 1, 2));
 
         registerLoot(SPELLBINDER,
-                lootingPool(ItemRegistry.apalachia_soul.get(), 0, 2),
+                lootingPool(apalachia_soul.get(), 0, 2),
                 enrichedMeat());
     }
 
     //  Mortum (regular mobs)
     private void registerMortumTables() {
         registerGroup(List.of(BASILISK, DEMON_OF_DARKNESS, MORTUM_CADILLION, SORCERER, SOUL_STEALER, TWILIGHT_ARCHER),
-                lootingPool(ItemRegistry.mortum_soul.get(), 0, 2));
+                lootingPool(mortum_soul.get(), 0, 2));
     }
 
     //  Ping ghost?
@@ -738,7 +711,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     private void mortumBoss(Supplier<? extends EntityType<?>> boss, ItemLike statueBlock,
                             LootPoolEntryContainer.Builder<?>... prizes) {
         registerLoot(boss,
-                lootingPool(ItemRegistry.mortum_heart.get()),
+                lootingPool(mortum_heart.get()),
                 playerKillPool(prizes),
                 statue(statueBlock));
     }
@@ -746,110 +719,110 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
     private void registerBossTables() {
         // Mortum bosses
         mortumBoss(DENSOS, BlockRegistry.densosStatue.get(),
-                lootItem(ItemRegistry.HALITE_CHESTPLATE.get()));
+                lootItem(HALITE_CHESTPLATE.get()));
         mortumBoss(KAROT, BlockRegistry.karotStatue.get(),
-                lootItem(ItemRegistry.halite_shickaxe.get()),
-                lootItem(ItemRegistry.halite_phaser.get()));
+                lootItem(halite_shickaxe.get()),
+                lootItem(halite_phaser.get()));
         mortumBoss(REYVOR, BlockRegistry.reyvorStatue.get(),
-                lootItem(ItemRegistry.HALITE_LEGGINGS.get()));
+                lootItem(HALITE_LEGGINGS.get()));
 
         mortumBoss(SOUL_FIEND, BlockRegistry.soulFiendStatue.get(),
-                lootItem(ItemRegistry.halite_slicer.get(), 200),
-                lootItem(ItemRegistry.halite_blitz.get()));
+                lootItem(halite_slicer.get(), 200),
+                lootItem(halite_blitz.get()));
         mortumBoss(TWILIGHT_DEMON, BlockRegistry.twilightDemonStatue.get(),
-                lootItem(ItemRegistry.HALITE_BOOTS.get()),
-                lootItem(ItemRegistry.HALITE_HELMET.get()));
+                lootItem(HALITE_BOOTS.get()),
+                lootItem(HALITE_HELMET.get()));
         mortumBoss(VAMACHERON, BlockRegistry.vamacheronStatue.get(),
-                lootItem(ItemRegistry.halite_blade.get()));
+                lootItem(halite_blade.get()));
 
         // Bosses unique loot
         registerLoot(ANCIENT_ENTITY,
-                lootingPool(ItemRegistry.divine_shards.get(), 3, 6),
-                playerKillPool(lootItem(ItemRegistry.sandslash.get())),
+                lootingPool(divine_shards.get(), 3, 6),
+                playerKillPool(lootItem(sandslash.get())),
                 statue(BlockRegistry.ancientEntityStatue.get()));
 
         registerLoot(AYERACO,
-                lootingPool(ItemRegistry.divine_shards.get(), 1, 3),
-                rarePool(ItemRegistry.ender_sword.get(), 0.01F, 0.03F),
+                lootingPool(divine_shards.get(), 1, 3),
+                rarePool(ender_sword.get(), 0.01F, 0.03F),
                 statue(BlockRegistry.ayeracoStatue.get()));
 
         registerLoot(DRAMIX,
-                playerLootingPool(ItemRegistry.dungeon_tokens.get(), 3, 5),
+                playerLootingPool(dungeon_tokens.get(), 3, 5),
                 statue(BlockRegistry.dramixStatue.get()));
 
         registerLoot(ETERNAL_ARCHER,
-                lootingPool(ItemRegistry.apalachia_heart.get()),
-                playerLootingPool(ItemRegistry.apalachia_fragments.get(), 0, 4),
-                playerKillPool(lootItem(ItemRegistry.halite_bow.get())),
+                lootingPool(apalachia_heart.get()),
+                playerLootingPool(apalachia_fragments.get(), 0, 4),
+                playerKillPool(lootItem(halite_bow.get())),
                 statue(BlockRegistry.eternalArcherStatue.get()));
 
         registerLoot(EXPERIENCED_CORI,
-                lootingPool(ItemRegistry.skythern_heart.get()),
-                playerLootingPool(ItemRegistry.skythern_fragments.get(), 0, 4),
+                lootingPool(skythern_heart.get()),
+                playerLootingPool(skythern_fragments.get(), 0, 4),
                 // blitz OR shield
-                playerKillPool(lootItem(ItemRegistry.skythern_blitz.get()).setWeight(9),
-                        lootItem(ItemRegistry.halite_shield.get())),
+                playerKillPool(lootItem(skythern_blitz.get()).setWeight(9),
+                        lootItem(halite_shield.get())),
                 statue(BlockRegistry.experiencedCoriStatue.get()));
 
         registerLoot(HIVE_QUEEN,
-                lootingPool(ItemRegistry.cermile_lump.get(), 17, 22),
-                playerLootingPool(ItemRegistry.honeychunk.get(), 10, 15),
-                playerLootingPool(ItemRegistry.honeysuckle.get(), 15, 20));
+                lootingPool(cermile_lump.get(), 17, 22),
+                playerLootingPool(honeychunk.get(), 10, 15),
+                playerLootingPool(honeysuckle.get(), 15, 20));
 
         registerLoot(KAROS,
-                lootingPool(ItemRegistry.karos_lump.get(), 20, 25),
-                playerLootingPool(ItemRegistry.rock_chunks.get(), 2, 3));
+                lootingPool(karos_lump.get(), 20, 25),
+                playerLootingPool(rock_chunks.get(), 2, 3));
 
         registerLoot(KING_OF_SCORCHERS,
-                playerLootingPool(ItemRegistry.fury_fire.get()),
-                playerKillPool(lootItem(ItemRegistry.soulfire_stone.get(), 6)),
+                playerLootingPool(fury_fire.get()),
+                playerKillPool(lootItem(soulfire_stone.get(), 6)),
                 statue(BlockRegistry.kingOfScorchersStatue.get()));
 
         registerLoot(KITRA,
                 pool(lootItem(Items.BONE_BLOCK, 16, 24)),
-                playerKillPool(lootItem(ItemRegistry.sound_of_whales.get()),
-                        lootItem(ItemRegistry.icicle_dagger.get())),
+                playerKillPool(lootItem(sound_of_whales.get()),
+                        lootItem(icicle_dagger.get())),
                 statue(BlockRegistry.kitraStatue.get()));
 
         // Ever loot
         registerLoot(LADY_LUNA,
-                playerKillPool(lootItem(ItemRegistry.everbright.get()),
-                        lootItem(ItemRegistry.everfright.get()),
-                        lootItem(ItemRegistry.evernight.get()),
-                        lootItem(ItemRegistry.everlight.get()),
-                        lootItem(ItemRegistry.eversight.get())));
+                playerKillPool(lootItem(everbright.get()),
+                        lootItem(everfright.get()),
+                        lootItem(evernight.get()),
+                        lootItem(everlight.get()),
+                        lootItem(eversight.get())));
 
         registerLoot(PARASECTA,
-                playerLootingPool(ItemRegistry.dungeon_tokens.get(), 6, 8),
+                playerLootingPool(dungeon_tokens.get(), 6, 8),
                 statue(BlockRegistry.parasectaStatue.get()));
 
         registerLoot(QUADRO,
-                lootingPool(ItemRegistry.quadrotic_lump.get(), 20, 25));
+                lootingPool(quadrotic_lump.get(), 20, 25));
 
         registerLoot(RAGLOK,
-                lootingPool(ItemRegistry.heliosis_lump.get(), 20, 25));
+                lootingPool(heliosis_lump.get(), 20, 25));
 
         registerLoot(SUNSTORM,
-                lootingPool(ItemRegistry.eden_heart.get()),
-                playerLootingPool(ItemRegistry.eden_fragments.get(), 3, 6),
-                playerKillPool(lootItem(ItemRegistry.eden_blitz.get())),
+                lootingPool(eden_heart.get()),
+                playerLootingPool(eden_fragments.get(), 3, 6),
+                playerKillPool(lootItem(eden_blitz.get())),
                 statue(BlockRegistry.sunstormStatue.get()));
 
         registerLoot(TERMASECT,
-                lootingPool(ItemRegistry.wildwood_heart.get()),
-                playerLootingPool(ItemRegistry.wildwood_fragments.get(), 0, 4),
+                lootingPool(wildwood_heart.get()),
+                playerLootingPool(wildwood_fragments.get(), 0, 4),
                 pool(lootItem(BlockRegistry.wildwoodLog.get(), 64, 100)),
-                playerKillPool(lootItem(ItemRegistry.wildwood_blitz.get())),
+                playerKillPool(lootItem(wildwood_blitz.get())),
                 statue(BlockRegistry.termasectStatue.get()));
 
         registerLoot(THE_WATCHER,
-                lootingPool(ItemRegistry.divine_shards.get(), 3, 6),
-                playerKillPool(lootItem(ItemRegistry.torridite_ingot.get(), 100)),
-                playerKillPool(lootItem(ItemRegistry.soulfire_stone.get())),
+                lootingPool(divine_shards.get(), 3, 6),
+                playerKillPool(lootItem(torridite_ingot.get(), 100)),
+                playerKillPool(lootItem(soulfire_stone.get())),
                 statue(BlockRegistry.theWatcherStatue.get()));
 
         registerLoot(WRECK,
-                lootingPool(ItemRegistry.arksiane_lump.get(), 20, 25),
+                lootingPool(arksiane_lump.get(), 20, 25),
                 playerKillPool(wreckPotion()).when(lootingChance(0.5F, 0.04F)));
     }
 
@@ -862,6 +835,6 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
 
     @Override
     protected @NotNull Stream<EntityType<?>> getKnownEntityTypes() {
-        return DivineRegistries.ENTITIES.getEntries().stream().map(entry -> (EntityType<?>) entry.get());
+        return DivineRegistries.ENTITIES.getEntries().stream().map(DeferredHolder::get);
     }
 }

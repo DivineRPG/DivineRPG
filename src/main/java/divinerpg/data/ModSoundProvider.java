@@ -223,7 +223,7 @@ public class ModSoundProvider extends SoundDefinitionsProvider {
         add(SoundRegistry.REFLECTOR, definition().subtitle("subtitles.divinerpg.reflector").with(sound(MODID + ":to_replace/reflector")));
         add(SoundRegistry.RIFT_AMBIENT, definition().subtitle("subtitles.divinerpg.rift_ambient").with(sound(MODID + ":blocks/rift_ambient")));
         add(SoundRegistry.RIFT_CLOSE, definition().subtitle("subtitles.divinerpg.rift_close").with(sound(MODID + ":blocks/rift_close")));
-        add(SoundRegistry.RIFT_COLSE_MUFFLED, definition().subtitle("subtitles.divinerpg.rift_close_muffled").with(sound(MODID + ":blocks/rift_close_muffled")));
+        add(SoundRegistry.RIFT_CLOSE_MUFFLED, definition().subtitle("subtitles.divinerpg.rift_close_muffled").with(sound(MODID + ":blocks/rift_close_muffled")));
         add(SoundRegistry.RIFT_INSTABILITY, definition().subtitle("subtitles.divinerpg.rift_instability").with(sound(MODID + ":blocks/rift_instability")));
         add(SoundRegistry.RIFT_OPEN, definition().subtitle("subtitles.divinerpg.rift_open").with(sound(MODID + ":blocks/rift_open")));
         add(SoundRegistry.RIFT_REPLENISH, definition().subtitle("subtitles.divinerpg.rift_replenish").with(sound(MODID + ":blocks/rift_replenish")));
