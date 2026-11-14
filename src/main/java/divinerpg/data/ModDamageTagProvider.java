@@ -18,6 +18,6 @@ public class ModDamageTagProvider extends DamageTypeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider registries) {
-        tag(TagRegistry.MAGE_RESIST).addTags(DamageTypeTags.WITCH_RESISTANT_TO);
+        tag(TagRegistry.MAGE_RESISTANT_TO).addTags(DamageTypeTags.WITCH_RESISTANT_TO);
     }
 }

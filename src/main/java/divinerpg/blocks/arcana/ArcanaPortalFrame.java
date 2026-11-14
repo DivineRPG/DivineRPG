@@ -1,0 +1,47 @@
+package divinerpg.blocks.arcana;
+
+import com.google.common.base.Predicates;
+import divinerpg.registries.BlockRegistry;
+import net.minecraft.core.*;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.pattern.*;
+import net.minecraft.world.level.block.state.predicate.BlockStatePredicate;
+import net.minecraft.world.level.material.*;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.shapes.*;
+
+import static net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING;
+
+public class ArcanaPortalFrame extends Block {
+    //TODO: to fix vanilla bug, that causes activation sound to play when placing more portal frames near existing ones
+    // does it play globally?
+    protected static final VoxelShape BASE_SHAPE = Block.box(0, 0, 0, 16, 13, 16);
+    static final BlockPattern portalShape = BlockPatternBuilder.start().aisle("?vvv?", ">???<", ">???<", ">???<", "?^^^?").where('?', BlockInWorld.hasState(BlockStatePredicate.ANY)).where('^', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.arcanaPortalFrame.get()).where(FACING, Predicates.equalTo(Direction.SOUTH)))).where('>', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.arcanaPortalFrame.get()).where(FACING, Predicates.equalTo(Direction.WEST)))).where('v', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.arcanaPortalFrame.get()).where(FACING, Predicates.equalTo(Direction.NORTH)))).where('<', BlockInWorld.hasState(BlockStatePredicate.forBlock(BlockRegistry.arcanaPortalFrame.get()).where(FACING, Predicates.equalTo(Direction.EAST)))).build();
+    public ArcanaPortalFrame(Properties p) {
+        super(p);
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
+    }
+    @Override public boolean useShapeForLightOcclusion(BlockState state) {return true;}
+    @Override public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {return BASE_SHAPE;}
+    @Override public BlockState getStateForPlacement(BlockPlaceContext context) {return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());}
+    @Override public BlockState rotate(BlockState state, Rotation rot) {return state.setValue(FACING, rot.rotate(state.getValue(FACING)));}
+    @SuppressWarnings("deprecation")
+    @Override public BlockState mirror(BlockState state, Mirror mirror) {return state.rotate(mirror.getRotation(state.getValue(FACING)));}
+    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> state) {state.add(FACING);}
+    @Override public boolean isPathfindable(BlockState state, PathComputationType type) {return false;}
+    @Override
+    protected void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        if(world.isClientSide()) return;
+        BlockPattern.BlockPatternMatch frame = portalShape.find(world, pos);
+        if(frame != null) {
+            BlockPos blockpos1 = frame.getFrontTopLeft().offset(-3, 0, -3);
+            for(int i = 0; i < 3; ++i) {
+                for(int j = 0; j < 3; ++j) world.setBlock(blockpos1.offset(i, 0, j), BlockRegistry.arcanaPortal.get().defaultBlockState(), Block.UPDATE_CLIENTS);
+            }
+            world.globalLevelEvent(1038, blockpos1.offset(1, 0, 1), 0);
+        }
+    }
+}

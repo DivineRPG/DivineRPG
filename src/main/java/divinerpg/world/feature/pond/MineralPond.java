@@ -5,9 +5,7 @@ import java.util.List;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import divinerpg.registries.BlockRegistry;
-import divinerpg.world.config.tree.TreeConfig;
 import divinerpg.world.feature.config.RuleTestConfig;
-import divinerpg.world.feature.tree.ShiverspineTree;
 import net.minecraft.core.*;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
@@ -73,6 +71,6 @@ public class MineralPond extends GlacialPond {
 				setBlock(level, pos.above(), BlockRegistry.olivineCluster.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.UP));
 				setBlock(level, pos, BlockRegistry.buddingOlivine.get().defaultBlockState());
 			} return;
-		} setBlock(level, pos, BlockRegistry.cobbledFrozenStone.get().defaultBlockState());
+		} setBlock(level, pos, BlockRegistry.cobbledFrozenStoneSet.getFirst().get().defaultBlockState());
 	}
 }

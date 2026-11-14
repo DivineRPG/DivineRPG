@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 public class Exposure implements Feature {
     public static final BlockState
         exposedScorchalt = BlockRegistry.exposedScorchalt.get().defaultBlockState(),
-        rayStone = BlockRegistry.rayStone.get().defaultBlockState();
+        rayStone = BlockRegistry.rayStoneSet.getFirst().get().defaultBlockState();
     public Exposure() {}
 
     public static final MapCodec<Exposure> CODEC = MapCodec.unit(Exposure::new);
@@ -37,7 +37,7 @@ public class Exposure implements Feature {
         for(int x = 0; x < 16; x++) for(int z = 0; z < 16; z++) {
             pos = new BlockPos.MutableBlockPos(origin.getX() | x, level.getMaxY(), origin.getZ() | z);
             while(pos.getY() > 127 && (state = level.getBlockState(pos)).isAir()) pos.move(0, -1, 0);
-            if(state.is(BlockRegistry.scorchalt)) expose(level, pos);
+            if(state.is(BlockRegistry.scorchaltSet.getFirst())) expose(level, pos);
         } return true;
     }
     public static void expose(WorldGenLevel level, final BlockPos pos) {

@@ -16,7 +16,6 @@ import net.minecraft.world.level.*;
 import net.neoforged.neoforge.common.Tags.Blocks;
 import net.neoforged.neoforge.fluids.FluidType;
 
-import static divinerpg.registries.TagRegistry.AVOIDS_THORNS;
 import static net.minecraft.world.damagesource.DamageTypes.THORNS;
 
 public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAttackMob {
@@ -48,7 +47,7 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
         Entity entity = source.getDirectEntity();
         if(!(entity instanceof LivingEntity)) entity = source.getEntity();
         if(entity instanceof LivingEntity l && !l.level().isClientSide()) setProvoked(l);
-        if(!source.is(AVOIDS_THORNS) && !source.is(THORNS)) {
+        if(!source.is(TagRegistry.AVOIDS_SAGUARO_THORNS) && !source.is(THORNS)) {
             Entity directEntity = source.getDirectEntity();
             if(directEntity instanceof LivingEntity livingEntity) livingEntity.hurt(damageSources().thorns(this), 2);
         } return super.hurtServer(level, source, amount);

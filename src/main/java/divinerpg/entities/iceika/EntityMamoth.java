@@ -42,7 +42,7 @@ import static divinerpg.registries.EntityRegistry.MAMOTH;
 public class EntityMamoth extends Animal implements NeutralMob {
     public boolean wantsToFly = false;
     private static final Supplier<Ingredient> FOOD = Suppliers.memoize(() ->
-            Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(TagRegistry.FOOD_MAMOTH))
+            Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(TagRegistry.ANIMAL_FOODS_MAMOTH))
     );
     private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(20, 39);
     protected @Nullable Vec3 pathfindPos;

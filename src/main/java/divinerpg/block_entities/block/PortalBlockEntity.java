@@ -13,11 +13,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 public class PortalBlockEntity extends BlockEntity {
     public UniversalPosition targetPosition;
-
-    public PortalBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-        super(type, pos, state);
-    }
-
     public PortalBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.PORTAL.get(), pos, state);
     }

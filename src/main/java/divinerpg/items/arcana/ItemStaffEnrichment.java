@@ -29,9 +29,9 @@ public class ItemStaffEnrichment extends ItemMod {
         BlockPos pos = context.getClickedPos();
         Level level = context.getLevel();
         Block block = level.getBlockState(pos).getBlock();
-        if(block == BlockRegistry.arcaniteDirt.get()){
+        if(block == BlockRegistry.arcaniteSoil.getFirst().get()){
             level.levelEvent(1505, pos, 0);
-            level.setBlock(pos, BlockRegistry.arcaniteGrass.get().defaultBlockState(), 0);
+            level.setBlock(pos, BlockRegistry.arcaniteSoil.getLast().get().defaultBlockState(), 0);
             player.getItemInHand(hand).hurtAndBreak(1, player, hand);
             return InteractionResult.SUCCESS;
         }

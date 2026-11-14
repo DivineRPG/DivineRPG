@@ -511,7 +511,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
         registerGroup(List.of(GLACIDE, HASTREUS), iceShards2, iceShards3);
 
         registerLoot(MAMOTH,
-                playerLootingPool(BlockRegistry.fancyWool.get(), 1, 2),
+                playerLootingPool(BlockRegistry.fancySet.getFirst().get(), 1, 2),
                 lootingPool(Items.BONE, 0, 4));
 
         registerLoot(ROBBIN,
@@ -646,7 +646,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
 
         registerLoot(TERMID,
                 lootingPool(wildwood_soul.get(), 0, 2),
-                pool(lootItem(BlockRegistry.wildwoodLog.get(), 0, 4)));
+                pool(lootItem(BlockRegistry.wildwoodWoodSet.get(3).get(), 0, 4)));
 
         registerLoot(WILDWOOD_CADILLION,
                 lootingPool(wildwood_soul.get(), 0, 1),
@@ -811,7 +811,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
         registerLoot(TERMASECT,
                 lootingPool(wildwood_heart.get()),
                 playerLootingPool(wildwood_fragments.get(), 0, 4),
-                pool(lootItem(BlockRegistry.wildwoodLog.get(), 64, 100)),
+                pool(lootItem(BlockRegistry.wildwoodWoodSet.get(3).get(), 64, 100)),
                 playerKillPool(lootItem(wildwood_blitz.get())),
                 statue(BlockRegistry.termasectStatue.get()));
 

@@ -33,7 +33,7 @@ public class ItemFirestock extends ItemMod {
                     level.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, .6F, (random.nextFloat() - random.nextFloat()) * .2F + 1);
                     level.setBlock(pos.above(), state, 3);
                 }
-            } if(!state.is(TagRegistry.FIRE)) level.playSound(null, item.getX(), item.getY(), item.getZ(), SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, .6F, 1.3F);
+            } if(!state.is(TagRegistry.FIRE_BLOCK)) level.playSound(null, item.getX(), item.getY(), item.getZ(), SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, .6F, 1.3F);
         }
     }
 }

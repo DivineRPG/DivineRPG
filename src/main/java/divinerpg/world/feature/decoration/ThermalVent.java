@@ -24,23 +24,23 @@ public class ThermalVent implements Feature {
 		if(state.isAir()) {
 			state = level.getBlockState(pos.below());
 			if(!state.isAir() && !state.is(Blocks.WATER)) {
-				setBlock(level, pos.below(), BlockRegistry.coalstone.get().defaultBlockState());
+				setBlock(level, pos.below(), BlockRegistry.coalstoneSet.getFirst().get().defaultBlockState());
 				return true;
 			}
 		} else if(state.is(Blocks.WATER)) {
 			state = level.getBlockState(pos.below());
 			if(!state.isAir() && !state.is(Blocks.WATER)) {
-				setBlock(level, pos.below(), BlockRegistry.coalstone.get().defaultBlockState());
+				setBlock(level, pos.below(), BlockRegistry.coalstoneSet.getFirst().get().defaultBlockState());
 				setBlock(level, pos, BlockRegistry.thermalVent.get().defaultBlockState());
 				return true;
 			}
 		} else {
 			state = level.getBlockState(pos.above());
 			if(state.isAir()) {
-				setBlock(level, pos, BlockRegistry.coalstone.get().defaultBlockState());
+				setBlock(level, pos, BlockRegistry.coalstoneSet.getFirst().get().defaultBlockState());
 				return true;
 			} else if(state.is(Blocks.WATER)) {
-				setBlock(level, pos, BlockRegistry.coalstone.get().defaultBlockState());
+				setBlock(level, pos, BlockRegistry.coalstoneSet.getFirst().get().defaultBlockState());
 				setBlock(level, pos.above(), BlockRegistry.thermalVent.get().defaultBlockState());
 				return true;
 			}

@@ -10,8 +10,8 @@ import net.minecraft.world.level.Level;
 
 public class EntityStoneGolem extends EntityDivineTameable{
     public EntityStoneGolem(EntityType<? extends EntityStoneGolem> type, Level worldIn) {super(type, worldIn, 1);}
-    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_STONE_GOLEM);}
-    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.TAMING_STONE_GOLEM);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_STONE_GOLEM);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_STONE_GOLEM);}
     @Override public boolean doHurtTarget(ServerLevel level, Entity entity) {
         boolean attack = super.doHurtTarget(level, entity);
         if(attack) {

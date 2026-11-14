@@ -31,5 +31,6 @@ public class ParticleRegistry {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> APALACHIA_RIFT = DivineRegistries.PARTICLES.register("apalachia_rift", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SKYTHERN_RIFT = DivineRegistries.PARTICLES.register("skythern_rift", () -> new SimpleParticleType(false));
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> MORTUM_RIFT = DivineRegistries.PARTICLES.register("mortum_rift", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> OVERWORLD_RIFT = DivineRegistries.PARTICLES.register("overworld_rift", () -> new SimpleParticleType(false));
     public static void load() {}
 }

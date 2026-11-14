@@ -1,5 +1,6 @@
 package divinerpg.data;
 
+import divinerpg.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -13,7 +14,6 @@ import net.minecraft.world.level.biome.Biomes;
 import java.util.concurrent.CompletableFuture;
 
 import static divinerpg.DivineRPG.MODID;
-import static divinerpg.registries.TagRegistry.*;
 
 public class ModBiomeTagProvider extends BiomeTagsProvider {
     public ModBiomeTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
@@ -22,13 +22,13 @@ public class ModBiomeTagProvider extends BiomeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider registries) {
-        tag(BASALT_DELTAS).add(Biomes.BASALT_DELTAS);
-        tag(CRIMSON_FOREST).add(Biomes.CRIMSON_FOREST);
-        tag(IS_DEEP_DARK_OR_MUSHROOM).add(Biomes.DEEP_DARK).addTags(commonTag("is_mushroom"));
-        tag(DRIPSTONE_CAVES).add(Biomes.DRIPSTONE_CAVES);
-        tag(NETHER_WASTES).add(Biomes.NETHER_WASTES);
-        tag(SOUL_SAND_VALLEY).add(Biomes.SOUL_SAND_VALLEY);
-        tag(WARM_OCEAN).add(Biomes.LUKEWARM_OCEAN, Biomes.WARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN);
+        tag(TagRegistry.BASALT_DELTAS).add(Biomes.BASALT_DELTAS);
+        tag(TagRegistry.CRIMSON_FOREST).add(Biomes.CRIMSON_FOREST);
+        tag(TagRegistry.IS_DEEP_DARK_OR_MUSHROOM).add(Biomes.DEEP_DARK).addTags(commonTag("is_mushroom"));
+        tag(TagRegistry.DRIPSTONE_CAVES).add(Biomes.DRIPSTONE_CAVES);
+        tag(TagRegistry.NETHER_WASTES).add(Biomes.NETHER_WASTES);
+        tag(TagRegistry.SOUL_SAND_VALLEY).add(Biomes.SOUL_SAND_VALLEY);
+        tag(TagRegistry.WARM_OCEAN).add(Biomes.LUKEWARM_OCEAN, Biomes.WARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN);
         tag(customTag("apalachia")).addOptional(ModBiomeProvider.APALACHIA);
         tag(customTag("eden")).addOptional(ModBiomeProvider.EDEN);
         tag(customTag("wildwood")).addOptional(ModBiomeProvider.WILDWOOD);

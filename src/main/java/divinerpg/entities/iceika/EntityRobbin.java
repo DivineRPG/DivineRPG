@@ -2,7 +2,7 @@ package divinerpg.entities.iceika;
 
 import divinerpg.block_entities.block.RobbinHutBlockEntity;
 import divinerpg.block_entities.block.RobbinNestBlockEntity;
-import divinerpg.blocks.iceika.BlockRobbinHut;
+import divinerpg.blocks.iceika.RobbinHut;
 import divinerpg.entities.base.EntityDivineFlyingMonster;
 import divinerpg.entities.boss.EntityKitra;
 import divinerpg.registries.*;
@@ -110,7 +110,7 @@ public class EntityRobbin extends EntityDivineFlyingMonster {
         BlockPos targetPos = path.getTarget();
         BlockState target = level().getBlockState(targetPos);
 
-        if (target.is(BlockRegistry.robbinHut.get()) && BlockRobbinHut.hasSpace((ServerLevel) level(), targetPos)) {
+        if (target.is(BlockRegistry.robbinHut.get()) && RobbinHut.hasSpace((ServerLevel) level(), targetPos)) {
             RobbinHutBlockEntity block = (RobbinHutBlockEntity) level().getBlockEntity(targetPos);
 
             TagValueOutput output = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, registryAccess());

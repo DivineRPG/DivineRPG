@@ -1,8 +1,11 @@
 package divinerpg.utils;
 
 import com.google.gson.Gson;
+import com.mojang.authlib.GameProfile;
 import divinerpg.DivineRPG;
+import divinerpg.entities.base.EntityDivineNeutral;
 import divinerpg.registries.FluidRegistry;
+import divinerpg.world.placement.Surface;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.core.BlockPos;
@@ -13,15 +16,20 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.phys.Vec3;
@@ -74,6 +82,19 @@ public class Utils {
         } catch (Exception e) {
             return text;
         }
+    }
+    public static String format(String input) {
+        StringBuilder result = new StringBuilder();
+        boolean uppercaseNext = true;
+        for(char c : input.toCharArray()) {
+            if(c == '_') {
+                result.append(' ');
+                uppercaseNext = true;
+            } else {
+                result.append(uppercaseNext ? Character.toUpperCase(c) : c);
+                uppercaseNext = false;
+            }
+        } return result.toString();
     }
 
     public static void loadHatInformation() {
@@ -148,6 +169,9 @@ public class Utils {
             });
         }
     }
+    public static List<ServerPlayer> getNearbyPlayers(ServerLevel level, double x, double y, double z, double boxSize) {
+        return level.getPlayers((p) -> Math.abs(p.getX() - x) <= boxSize && Math.abs(p.getY() - y) <= boxSize && Math.abs(p.getZ() - z) <= boxSize);
+    }
     public static Block getBlock(String registryName) {
         return BuiltInRegistries.BLOCK.get(Identifier.fromNamespaceAndPath(DivineRPG.MODID, registryName)).get().value();
     }
@@ -164,6 +188,18 @@ public class Utils {
         for(Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantmentsComponent.entrySet()) if(entry.getKey().is(enchantment)) return true;
         return false;
     }
+    public static final Container EMPTY_CONTAINER = new Container() {
+        @Override public void clearContent() {}
+        @Override public int getContainerSize() {return 1;}
+        @Override public boolean isEmpty() {return true;}
+        @Override public ItemStack getItem(int i) {return ItemStack.EMPTY;}
+        @Override public ItemStack removeItem(int i, int i1) {return ItemStack.EMPTY;}
+        @Override public ItemStack removeItemNoUpdate(int i) {return ItemStack.EMPTY;}
+        @Override public void setItem(int i, ItemStack itemStack) {}
+        @Override public void setChanged() {}
+        @Override public boolean stillValid(Player player) {return true;}
+    };
+    public static final GameProfile FAKE_PLAYER = new GameProfile(UUID.randomUUID(), "drpgfakeplayer");
 
     public static Direction.Axis checkForFrame(Level level, BlockPos pos, RuleTest frame) {
         Direction d = null;
@@ -223,5 +259,16 @@ public class Utils {
                 }
             }
         } return false;
+    }
+    public static void summonEntityAt(ServerLevel level, EntityType<?> type, BlockPos pos, @Nullable Player player) {
+        int y = Surface.getSurface(Surface.Surface_Type.LOWEST_GROUND, Surface.Mode.FULL, pos.getY() - 4, pos.getY() + 5, 0, level, level.getRandom(), pos.getX(), pos.getZ());
+        pos = new BlockPos(pos.getX(), y, pos.getZ());
+        if(level.getBlockStates(type.getSpawnAABB(pos.getX() + .5, pos.getY() + .14, pos.getZ() + .5)).allMatch(BlockBehaviour.BlockStateBase::isAir))
+            type.spawn(level, (e) -> {
+                if(player != null) {
+                    if(e instanceof EntityDivineNeutral n) n.setPersistentAngerTarget(EntityReference.of(player));
+                    else if(e instanceof Mob l) l.setTarget(player);
+                }
+            }, pos, EntitySpawnReason.TRIGGERED, true, false);
     }
 }

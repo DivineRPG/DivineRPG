@@ -27,20 +27,20 @@ public class ModBlockLoot extends BlockLootSubProvider {
     );
 
     private static final Map<Block, Item> ORE_DROPS = Map.of(
-            BlockRegistry.realmiteOre.get(), ItemRegistry.raw_realmite.get(),
-            BlockRegistry.realmiteOreDeepslate.get(), ItemRegistry.raw_realmite.get(),
-            BlockRegistry.arlemiteOre.get(), ItemRegistry.raw_arlemite.get(),
-            BlockRegistry.arlemiteOreDeepslate.get(), ItemRegistry.raw_arlemite.get(),
-            BlockRegistry.rupeeOre.get(), ItemRegistry.raw_rupee.get(),
-            BlockRegistry.rupeeOreDeepslate.get(), ItemRegistry.raw_rupee.get()
+            BlockRegistry.realmiteOreSet.getFirst().get(), ItemRegistry.raw_realmite.get(),
+            BlockRegistry.realmiteOreSet.getLast().get(), ItemRegistry.raw_realmite.get(),
+            BlockRegistry.arlemiteOreSet.getFirst().get(), ItemRegistry.raw_arlemite.get(),
+            BlockRegistry.arlemiteOreSet.getLast().get(), ItemRegistry.raw_arlemite.get(),
+            BlockRegistry.rupeeOreSet.getFirst().get(), ItemRegistry.raw_rupee.get(),
+            BlockRegistry.rupeeOreSet.getLast().get(), ItemRegistry.raw_rupee.get()
     );
 
     private static final Map<Block, Block> LEAVES_TO_SAPLING = Map.of(
-            BlockRegistry.divineLeaves.get(), BlockRegistry.divineSapling.get(),
-            BlockRegistry.brittleLeaves.get(), BlockRegistry.shiverspineSapling.get(),
-            BlockRegistry.auroraoakLeaves.get(), BlockRegistry.auroraoakSapling.get(),
-            BlockRegistry.cozybarkLeaves.get(), BlockRegistry.cozybarkSapling.get(),
-            BlockRegistry.streamleafLeaves.get(), BlockRegistry.streamleafSapling.get()
+            BlockRegistry.divineWoodSet.get(2).get(), BlockRegistry.divineWoodSet.getFirst().get(),
+            BlockRegistry.shiverspineWoodSet.get(2).get(), BlockRegistry.shiverspineWoodSet.getFirst().get(),
+            BlockRegistry.auroraoakWoodSet.get(2).get(), BlockRegistry.auroraoakWoodSet.getFirst().get(),
+            BlockRegistry.cozybarkWoodSet.get(2).get(), BlockRegistry.cozybarkWoodSet.getFirst().get(),
+            BlockRegistry.streamleafWoodSet.get(2).get(), BlockRegistry.streamleafWoodSet.getFirst().get()
     );
 
     public ModBlockLoot(LootTableSubProvider.Context context) {

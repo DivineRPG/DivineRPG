@@ -38,7 +38,7 @@ public class GlacialPond extends GeothermalPond {
 	@Override
 	protected void genShallow(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {
 		pos = pos.below();
-		setBlock(level, pos, random.nextFloat() < 0.8F && !hasSpace(level, pos.below()) ? BlockRegistry.frozenGravel.get().defaultBlockState() : BlockRegistry.cobbledFrozenStone.get().defaultBlockState());
+		setBlock(level, pos, random.nextFloat() < 0.8F && !hasSpace(level, pos.below()) ? BlockRegistry.frozenGravel.get().defaultBlockState() : BlockRegistry.cobbledFrozenStoneSet.getFirst().get().defaultBlockState());
 	}
 	@Override
 	protected void genEdge(List<RuleTest> rules, WorldGenLevel level, RandomSource random, BlockPos pos) {

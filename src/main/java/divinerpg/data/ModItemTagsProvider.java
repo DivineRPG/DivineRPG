@@ -27,37 +27,37 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     }
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        registerMetalSet("arlemite", ItemRegistry.arlemite_ingot.key(), ItemRegistry.arlemite_nugget.key(), null, BlockRegistry.arlemiteBlock.asItem().builtInRegistryHolder().key(), ItemRegistry.raw_arlemite.key(), ItemRegistry.arlemite_dust.key(), List.of(BlockRegistry.arlemiteOre.asItem().builtInRegistryHolder().key(), BlockRegistry.arlemiteOreDeepslate.asItem().builtInRegistryHolder().key()));
-        registerMetalSet("rupee", ItemRegistry.rupee_ingot.key(), ItemRegistry.rupee_nugget.key(),null,BlockRegistry.rupeeBlock.asItem().builtInRegistryHolder().key(),ItemRegistry.raw_rupee.key(), ItemRegistry.rupee_dust.key(),List.of(BlockRegistry.rupeeOre.asItem().builtInRegistryHolder().key(),BlockRegistry.rupeeOreDeepslate.asItem().builtInRegistryHolder().key()));
+        registerMetalSet("arlemite", ItemRegistry.arlemite_ingot.key(), ItemRegistry.arlemite_nugget.key(), null, BlockRegistry.arlemiteBlockSet.getLast().asItem().builtInRegistryHolder().key(), ItemRegistry.raw_arlemite.key(), ItemRegistry.arlemite_dust.key(), List.of(BlockRegistry.arlemiteOreSet.getFirst().asItem().builtInRegistryHolder().key(), BlockRegistry.arlemiteOreSet.getLast().asItem().builtInRegistryHolder().key()));
+        registerMetalSet("rupee", ItemRegistry.rupee_ingot.key(), ItemRegistry.rupee_nugget.key(),null,BlockRegistry.rupeeBlockSet.getLast().asItem().builtInRegistryHolder().key(),ItemRegistry.raw_rupee.key(), ItemRegistry.rupee_dust.key(),List.of(BlockRegistry.rupeeOreSet.getFirst().asItem().builtInRegistryHolder().key(),BlockRegistry.rupeeOreSet.getLast().asItem().builtInRegistryHolder().key()));
         registerMetalSet("aquatic", ItemRegistry.aquatic_ingot.key(), null, null, null, null, null, null);
         registerMetalSet("hellstone", ItemRegistry.hellstone_ingot.key(), null, null, null, null, null, null);
         registerMetalSet("shadow", ItemRegistry.shadow_bar.key(), null, null, null, null, ItemRegistry.shadow_dust.key(), null);
         registerMetalSet("bloodgem", null, null, ItemRegistry.bloodgem.key(), BlockRegistry.bloodgemBlock.asItem().builtInRegistryHolder().key(), null, null, List.of(BlockRegistry.bloodgemOre.asItem().builtInRegistryHolder().key()));
-        registerMetalSet("oxdrite", ItemRegistry.oxdrite_ingot.key(), ItemRegistry.oxdrite_nugget.key(), null, BlockRegistry.oxdriteBlock.asItem().builtInRegistryHolder().key(), ItemRegistry.raw_oxdrite.key(), ItemRegistry.oxdrite_dust.key(), List.of(BlockRegistry.oxdriteOre.asItem().builtInRegistryHolder().key()));
-        registerMetalSet("realmite", ItemRegistry.realmite_ingot.key(), ItemRegistry.realmite_nugget.key(), null, BlockRegistry.realmiteBlock.asItem().builtInRegistryHolder().key(), ItemRegistry.raw_realmite.key(), ItemRegistry.realmite_dust.key(), List.of(BlockRegistry.realmiteOre.asItem().builtInRegistryHolder().key(), BlockRegistry.realmiteOreDeepslate.asItem().builtInRegistryHolder().key()));
-        registerMetalSet("torridite", ItemRegistry.torridite_ingot.key(), ItemRegistry.torridite_nugget.key(), null, BlockRegistry.torriditeBlock.asItem().builtInRegistryHolder().key(), ItemRegistry.raw_torridite.key(), ItemRegistry.torridite_dust.key(), List.of(BlockRegistry.torriditeOre.asItem().builtInRegistryHolder().key()));
+        registerMetalSet("oxdrite", ItemRegistry.oxdrite_ingot.key(), ItemRegistry.oxdrite_nugget.key(), null, BlockRegistry.oxdriteBlockSet.getLast().asItem().builtInRegistryHolder().key(), ItemRegistry.raw_oxdrite.key(), ItemRegistry.oxdrite_dust.key(), List.of(BlockRegistry.oxdriteOre.asItem().builtInRegistryHolder().key()));
+        registerMetalSet("realmite", ItemRegistry.realmite_ingot.key(), ItemRegistry.realmite_nugget.key(), null, BlockRegistry.realmiteBlockSet.getLast().asItem().builtInRegistryHolder().key(), ItemRegistry.raw_realmite.key(), ItemRegistry.realmite_dust.key(), List.of(BlockRegistry.realmiteOreSet.getFirst().asItem().builtInRegistryHolder().key(), BlockRegistry.realmiteOreSet.getLast().asItem().builtInRegistryHolder().key()));
+        registerMetalSet("torridite", ItemRegistry.torridite_ingot.key(), ItemRegistry.torridite_nugget.key(), null, BlockRegistry.torriditeBlockSet.getLast().asItem().builtInRegistryHolder().key(), ItemRegistry.raw_torridite.key(), ItemRegistry.torridite_dust.key(), List.of(BlockRegistry.torriditeOre.asItem().builtInRegistryHolder().key()));
 
         tag(commonTag("foods")).addTags(commonTag("foods/white_mushroom"));
         tag(commonTag("foods/white_mushroom")).add(ItemRegistry.white_mushroom.key());
         tag(commonTag("mushrooms")).add(ItemRegistry.white_mushroom.key());
         tag(TagRegistry.SMELTS_LOOT).add(Blocks.COAL_BLOCK.asItem().builtInRegistryHolder().key());
 
-        tag(TagRegistry.REPAIR_REALMITE).add(ItemRegistry.realmite_ingot.key());
-        tag(TagRegistry.REPAIR_ARLEMITE).add(ItemRegistry.arlemite_ingot.key());
-        tag(TagRegistry.REPAIR_RUPEE).add(ItemRegistry.rupee_ingot.key());
-        tag(TagRegistry.REPAIR_ICE).add(ItemRegistry.ice_shards.key());
-        tag(TagRegistry.REPAIR_ENDER).add(ItemRegistry.ender_shards.key());
+        tag(TagRegistry.REPAIRS_EQUIPMENT_REALMITE).add(ItemRegistry.realmite_ingot.key());
+        tag(TagRegistry.REPAIRS_EQUIPMENT_ARLEMITE).add(ItemRegistry.arlemite_ingot.key());
+        tag(TagRegistry.REPAIRS_EQUIPMENT_RUPEE).add(ItemRegistry.rupee_ingot.key());
+        tag(TagRegistry.REPAIRS_EQUIPMENT_ICE).add(ItemRegistry.ice_shards.key());
+        tag(TagRegistry.REPAIRS_EQUIPMENT_ENDER).add(ItemRegistry.ender_shards.key());
         tag(TagRegistry.DIVINE_SWORDS).add(ItemRegistry.divine_sword.key(), ItemRegistry.red_divine_sword.key(), ItemRegistry.yellow_divine_sword.key(), ItemRegistry.green_divine_sword.key(), ItemRegistry.gray_divine_sword.key(), ItemRegistry.blue_divine_sword.key());
         tag(TagRegistry.ARMOR_POUCHES).add(ItemRegistry.armor_pouch.key(), ItemRegistry.red_armor_pouch.key(), ItemRegistry.yellow_armor_pouch.key(), ItemRegistry.green_armor_pouch.key(), ItemRegistry.gray_armor_pouch.key(), ItemRegistry.blue_armor_pouch.key());
         tag(TagRegistry.SHADOW_COIN).add(ItemRegistry.shadow_coins.key());
 
-        tag(TagRegistry.CHUNK_BEDROCK).add(ItemRegistry.bedrock_chunk.key());
-        tag(TagRegistry.GEM_SHADOW).add(ItemRegistry.shadow_stone.key());
-        tag(TagRegistry.GEM_SOULFIRE).add(ItemRegistry.soulfire_stone.key());
-        tag(TagRegistry.TOOL_MAUL).add(ItemRegistry.aquatic_maul.key(), ItemRegistry.aquatooth_maul.key(), ItemRegistry.bedrock_maul.key(), ItemRegistry.corrupted_maul.key(), ItemRegistry.crabclaw_maul.key(), ItemRegistry.frozen_maul.key(), ItemRegistry.fury_maul.key(), ItemRegistry.realmite_maul.key(), ItemRegistry.terran_maul.key());
+        tag(TagRegistry.CHUNKS_BEDROCK).add(ItemRegistry.bedrock_chunk.key());
+        tag(TagRegistry.GEMS_SHADOW).add(ItemRegistry.shadow_stone.key());
+        tag(TagRegistry.GEMS_SOULFIRE).add(ItemRegistry.soulfire_stone.key());
+        tag(TagRegistry.MAULS).add(ItemRegistry.aquatic_maul.key(), ItemRegistry.aquatooth_maul.key(), ItemRegistry.bedrock_maul.key(), ItemRegistry.corrupted_maul.key(), ItemRegistry.crabclaw_maul.key(), ItemRegistry.frozen_maul.key(), ItemRegistry.fury_maul.key(), ItemRegistry.realmite_maul.key(), ItemRegistry.terran_maul.key());
         tag(TagRegistry.METAL_SPIKE_BLOCK).add(BlockRegistry.spikeBlock.asItem().builtInRegistryHolder().key(), BlockRegistry.hotSpikeBlock.asItem().builtInRegistryHolder().key());
 
-        tag(ItemTags.WALLS).add(BlockRegistry.cobaltiteWall.asItem().builtInRegistryHolder().key(), BlockRegistry.coalstoneWall.asItem().builtInRegistryHolder().key(), BlockRegistry.arcaniteWall.asItem().builtInRegistryHolder().key());
+        tag(ItemTags.WALLS).add(BlockRegistry.cobaltiteSet.get(3).asItem().builtInRegistryHolder().key(), BlockRegistry.coalstoneSet.get(3).asItem().builtInRegistryHolder().key(), BlockRegistry.arcaniteStoneSet.get(3).asItem().builtInRegistryHolder().key());
 
         tag(TagRegistry.ENCHANTABLE_ARMOR).addTags(TagRegistry.ENCHANTABLE_CHEST, TagRegistry.ENCHANTABLE_FOOT, TagRegistry.ENCHANTABLE_HEAD, TagRegistry.ENCHANTABLE_LEG);
         tag(TagRegistry.ENCHANTABLE_HEAD).add(ItemRegistry.REALMITE_HELMET.key(), ItemRegistry.SENG_FUR_HELMET.key(), ItemRegistry.SANTA_HELMET.key(), ItemRegistry.AQUASTRIVE_HELMET.key(), ItemRegistry.KRAKEN_HELMET.key(), ItemRegistry.JACK_O_MAN_HELMET.key(), ItemRegistry.SKELEMAN_HELMET.key(), ItemRegistry.WITHER_REAPER_HELMET.key(), ItemRegistry.ARLEMITE_HELMET.key(), ItemRegistry.FROZEN_HELMET.key(), ItemRegistry.JUNGLE_HELMET.key(), ItemRegistry.INFERNO_HELMET.key(), ItemRegistry.TORRIDITE_HELMET.key(), ItemRegistry.TERRAN_HELMET.key(), ItemRegistry.ANGELIC_HELMET.key(), ItemRegistry.SHADOW_HELMET.key(), ItemRegistry.RUPEE_HELMET.key(), ItemRegistry.RED_RUPEE_HELMET.key(), ItemRegistry.YELLOW_RUPEE_HELMET.key(), ItemRegistry.GREEN_RUPEE_HELMET.key(), ItemRegistry.BLUE_RUPEE_HELMET.key(), ItemRegistry.GRAY_RUPEE_HELMET.key(), ItemRegistry.ELITE_REALMITE_HELMET.key(), ItemRegistry.CORRUPTED_HELMET.key(), ItemRegistry.BEDROCK_HELMET.key(), ItemRegistry.KORMA_HELMET.key(), ItemRegistry.VEMOS_HELMET.key(), ItemRegistry.ENDER_HELMET.key(), ItemRegistry.RED_ENDER_HELMET.key(), ItemRegistry.YELLOW_ENDER_HELMET.key(), ItemRegistry.GREEN_ENDER_HELMET.key(), ItemRegistry.BLUE_ENDER_HELMET.key(), ItemRegistry.GRAY_ENDER_HELMET.key(), ItemRegistry.DIVINE_HELMET.key(), ItemRegistry.EDEN_HELMET.key(), ItemRegistry.WILDWOOD_HELMET.key(), ItemRegistry.APALACHIA_HELMET.key(), ItemRegistry.SKYTHERN_HELMET.key(), ItemRegistry.MORTUM_HELMET.key(), ItemRegistry.HALITE_HELMET.key(), ItemRegistry.AWAKENED_HALITE_HELMET.key(), ItemRegistry.DEGRADED_HELMET.key(), ItemRegistry.DEGRADED_HOOD.key(), ItemRegistry.DEGRADED_MASK.key(), ItemRegistry.FINISHED_HELMET.key(), ItemRegistry.FINISHED_HOOD.key(), ItemRegistry.FINISHED_MASK.key(), ItemRegistry.GLISTENING_HELMET.key(), ItemRegistry.GLISTENING_HOOD.key(), ItemRegistry.GLISTENING_MASK.key(), ItemRegistry.DEMONIZED_HELMET.key(), ItemRegistry.DEMONIZED_MASK.key(), ItemRegistry.DEMONIZED_HOOD.key(), ItemRegistry.TORMENTED_HELMET.key(), ItemRegistry.TORMENTED_HOOD.key(), ItemRegistry.TORMENTED_MASK.key());
@@ -94,12 +94,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.SMELTABLE_WILDWOOD).add(ItemRegistry.wildwood_pickaxe.key(), ItemRegistry.wildwood_shovel.key(), ItemRegistry.wildwood_axe.key(), ItemRegistry.wildwood_hoe.key(), ItemRegistry.wildwood_shickaxe.key(), ItemRegistry.wildwood_blade.key(), ItemRegistry.wildwood_bow.key(), ItemRegistry.wildwood_phaser.key(), ItemRegistry.wildwood_blitz.key(), ItemRegistry.wildwood_shield.key(), ItemRegistry.WILDWOOD_HELMET.key(), ItemRegistry.WILDWOOD_CHESTPLATE.key(), ItemRegistry.WILDWOOD_LEGGINGS.key(), ItemRegistry.WILDWOOD_BOOTS.key());
 
         tag(TagRegistry.SKIN_KRAKEN).add(ItemRegistry.kraken_skin.key());
-        tag(TagRegistry.HEART_EDEN).add(ItemRegistry.eden_heart.key());
-        tag(TagRegistry.HEART_WILDWOOD).add(ItemRegistry.wildwood_heart.key());
-        tag(TagRegistry.HEART_APALACHIA).add(ItemRegistry.apalachia_heart.key());
-        tag(TagRegistry.HEART_SKYTHERN).add(ItemRegistry.skythern_heart.key());
-        tag(TagRegistry.HEART_MORTUM).add(ItemRegistry.mortum_heart.key());
-        tag(TagRegistry.HEARTS).addTags(TagRegistry.HEART_EDEN, TagRegistry.HEART_WILDWOOD, TagRegistry.HEART_APALACHIA, TagRegistry.HEART_SKYTHERN, TagRegistry.HEART_MORTUM);
+        tag(TagRegistry.HEARTS_EDEN).add(ItemRegistry.eden_heart.key());
+        tag(TagRegistry.HEARTS_WILDWOOD).add(ItemRegistry.wildwood_heart.key());
+        tag(TagRegistry.HEARTS_APALACHIA).add(ItemRegistry.apalachia_heart.key());
+        tag(TagRegistry.HEARTS_SKYTHERN).add(ItemRegistry.skythern_heart.key());
+        tag(TagRegistry.HEARTS_MORTUM).add(ItemRegistry.mortum_heart.key());
+        tag(TagRegistry.HEARTS).addTags(TagRegistry.HEARTS_EDEN, TagRegistry.HEARTS_WILDWOOD, TagRegistry.HEARTS_APALACHIA, TagRegistry.HEARTS_SKYTHERN, TagRegistry.HEARTS_MORTUM);
 
         tag(TagRegistry.DIAMOND_GRAY).add(ItemRegistry.gray_diamond_chunk.key());
         tag(TagRegistry.DIAMOND_BLUE).add(ItemRegistry.blue_diamond_chunk.key());
@@ -109,7 +109,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(commonTag("gems/diamond")).addTags(TagRegistry.DIAMOND_GRAY, TagRegistry.DIAMOND_BLUE, TagRegistry.DIAMOND_GREEN, TagRegistry.DIAMOND_RED, TagRegistry.DIAMOND_YELLOW);
         tag(TagRegistry.DIAMOND_NO).addTags(ItemTags.create(Identifier.fromNamespaceAndPath("c", "gems/diamond"))).remove(ItemRegistry.gray_diamond_chunk.key(), ItemRegistry.blue_diamond_chunk.key(), ItemRegistry.green_diamond_chunk.key(), ItemRegistry.red_diamond_chunk.key(), ItemRegistry.yellow_diamond_chunk.key());
 
-        tag(TagRegistry.FUEL_COLLECTOR).add(ItemRegistry.collector.key());
+        tag(TagRegistry.FUELS_COLLECTOR).add(ItemRegistry.collector.key());
 
         for (var entry : DivineRegistries.BLOCKS.getEntries()) {
             Block b = entry.get();
@@ -174,7 +174,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ItemRegistry.rupee_shickaxe.key(),
                 ItemRegistry.arlemite_shickaxe.key()
         );
-        tag(commonTag("tools")).addTags(TagRegistry.PICKAXES, TagRegistry.AXES, TagRegistry.SHOVELS, TagRegistry.HOES, TagRegistry.SHICKAXES, TagRegistry.SWORDS, TagRegistry.TOOL_MAUL);
+        tag(commonTag("tools")).addTags(TagRegistry.PICKAXES, TagRegistry.AXES, TagRegistry.SHOVELS, TagRegistry.HOES, TagRegistry.SHICKAXES, TagRegistry.SWORDS, TagRegistry.MAULS);
 
     }
 

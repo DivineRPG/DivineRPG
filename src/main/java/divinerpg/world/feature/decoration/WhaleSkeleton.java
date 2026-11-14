@@ -30,7 +30,7 @@ public class WhaleSkeleton implements Feature {
 			xBone = Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Axis.X);
 			yBone = Blocks.BONE_BLOCK.defaultBlockState();
 			zBone = Blocks.BONE_BLOCK.defaultBlockState().setValue(RotatedPillarBlock.AXIS, Axis.Z);
-			coalstone = BlockRegistry.coalstone.get().defaultBlockState();
+			coalstone = BlockRegistry.coalstoneSet.getFirst().get().defaultBlockState();
 		}
 		if(random.nextBoolean()) origin = origin.below();
 		Direction direction = Direction.getRandom(random);

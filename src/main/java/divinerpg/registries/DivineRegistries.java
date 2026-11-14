@@ -1,14 +1,12 @@
 package divinerpg.registries;
 
 import com.mojang.serialization.MapCodec;
-import divinerpg.DivineRPG;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
@@ -32,6 +30,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.*;
 
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
 import static divinerpg.DivineRPG.MODID;
@@ -66,33 +65,15 @@ public class DivineRegistries {
     public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS = DeferredRegister.create(BuiltInRegistries.FOLIAGE_PLACER_TYPE, MODID);
     public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = DeferredRegister.create(BuiltInRegistries.TRUNK_PLACER_TYPE, MODID);
 
-    public static final Supplier<CreativeModeTab> BLOCKS_TAB = CREATIVE_MODE_TABS.register("blocks_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.blocks")).icon(() -> BlockRegistry.arlemiteOre.asItem().getDefaultInstance()).build());
-    public static final Supplier<CreativeModeTab> TOOLS_TAB = CREATIVE_MODE_TABS.register("tools_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.tools")).icon(() -> Items.IRON_PICKAXE.getDefaultInstance()).build());
-    public static final Supplier<CreativeModeTab> MISC_TAB = CREATIVE_MODE_TABS.register("misc_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.misc")).icon(() -> ItemRegistry.arlemite_ingot.toStack()).build());
+    public static final Supplier<CreativeModeTab> BLOCKS_TAB = CREATIVE_MODE_TABS.register("blocks_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.blocks")).icon(() -> BlockRegistry.arlemiteOreSet.getFirst().asItem().getDefaultInstance()).build());
+    public static final Supplier<CreativeModeTab> TOOLS_TAB = CREATIVE_MODE_TABS.register("tools_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.tools")).icon(Items.IRON_PICKAXE::getDefaultInstance).build());
+    public static final Supplier<CreativeModeTab> MISC_TAB = CREATIVE_MODE_TABS.register("misc_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.misc")).icon(ItemRegistry.arlemite_ingot::toStack).build());
 
+    public static final ArrayList<DeferredItem<? extends Item>> tools = new ArrayList<>(), misc = new ArrayList<>(), blocks = new ArrayList<>();
     public static void creativeTab(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTab() == BLOCKS_TAB.get()) {
-            for (var entry : DivineRegistries.BLOCKS.getEntries()) {
-                Item item = entry.get().asItem();
-                if (item instanceof BlockItem) {
-                    event.accept(item.getDefaultInstance());
-                }
-            }
-        } else if (event.getTab() == TOOLS_TAB.get()) {
-            for (var entry : DivineRegistries.BLOCKS.getEntries()) {
-                Item item = entry.get().asItem();
-                if (ItemTags.SWORDS.equals(item) || ItemTags.SHOVELS.equals(item) || ItemTags.PICKAXES.equals(item) || ItemTags.AXES.equals(item) || ItemTags.HOES.equals(item)) {
-                    event.accept(item.getDefaultInstance());
-                }
-            }
-        } else if (event.getTab() == MISC_TAB.get()) {
-            for (var entry : DivineRegistries.ITEMS.getEntries()) {
-                Item item = entry.get();
-                if (!(item instanceof BlockItem)) {
-                    event.accept(item.getDefaultInstance());
-                }
-            }
-        }
+        if(event.getTab() == BLOCKS_TAB.get()) for(DeferredItem<? extends Item> block : blocks) event.accept(block.get().getDefaultInstance());
+        else if(event.getTab() == TOOLS_TAB.get()) for(DeferredItem<? extends Item> item : tools) event.accept(item.get().getDefaultInstance());
+        else if(event.getTab() == MISC_TAB.get()) for(DeferredItem<? extends Item> item : misc) event.accept(item.get().getDefaultInstance());
     }
 
     public static void register(IEventBus bus) {

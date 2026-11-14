@@ -2,7 +2,6 @@ package divinerpg.data;
 
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.DivineRegistries;
-import divinerpg.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -25,46 +24,46 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(APALACHIA_ORE).add(BlockRegistry.apalachiaOre.key());
-        tag(ARLEMITE_ORE).add(BlockRegistry.arlemiteOre.key(), BlockRegistry.arlemiteOreDeepslate.key());
+        tag(ARLEMITE_ORE).add(BlockRegistry.arlemiteOreSet.getFirst().key(), BlockRegistry.arlemiteOreSet.getLast().key());
         tag(BLOODGEM_ORE).add(BlockRegistry.bloodgemOre.key());
         tag(EDEN_ORE).add(BlockRegistry.twilightEdenOre.key(), BlockRegistry.scorchaltEdenOre.key());
         tag(MORTUM_ORE).add(BlockRegistry.mortumOre.key());
         tag(OXDRITE_ORE).add(BlockRegistry.oxdriteOre.key());
-        tag(REALMITE_ORE).add(BlockRegistry.realmiteOre.key(), BlockRegistry.realmiteOreDeepslate.key());
-        tag(RUPEE_ORE).add(BlockRegistry.rupeeOre.key(), BlockRegistry.rupeeOreDeepslate.key());
+        tag(REALMITE_ORE).add(BlockRegistry.realmiteOreSet.getFirst().key(), BlockRegistry.realmiteOreSet.getLast().key());
+        tag(RUPEE_ORE).add(BlockRegistry.rupeeOreSet.getFirst().key(), BlockRegistry.rupeeOreSet.getLast().key());
         tag(SKYTHERN_ORE).add(BlockRegistry.skythernOre.key());
         tag(TORRIDITE_ORE).add(BlockRegistry.torriditeOre.key());
         tag(WILDWOOD_ORE).add(BlockRegistry.wildwoodOre.key());
         tag(ORES).addTags(APALACHIA_ORE, ARLEMITE_ORE, BLOODGEM_ORE, EDEN_ORE, MORTUM_ORE, OXDRITE_ORE, REALMITE_ORE, RUPEE_ORE, SKYTHERN_ORE, TORRIDITE_ORE, WILDWOOD_ORE);
 
-        tag(commonTag("storage_blocks/realmite")).add(BlockRegistry.realmiteBlock.key());
-        tag(commonTag("storage_blocks/arlemite")).add(BlockRegistry.arlemiteBlock.key());
-        tag(commonTag("storage_blocks/rupee")).add(BlockRegistry.rupeeBlock.key());
+        tag(commonTag("storage_blocks/realmite")).add(BlockRegistry.realmiteBlockSet.getLast().key());
+        tag(commonTag("storage_blocks/arlemite")).add(BlockRegistry.arlemiteBlockSet.getLast().key());
+        tag(commonTag("storage_blocks/rupee")).add(BlockRegistry.rupeeBlockSet.getLast().key());
         tag(commonTag("storage_blocks/bloodgem")).add(BlockRegistry.bloodgemBlock.key());
-        tag(commonTag("storage_blocks/torridite")).add(BlockRegistry.torriditeBlock.key());
+        tag(commonTag("storage_blocks/torridite")).add(BlockRegistry.torriditeBlockSet.getLast().key());
         tag(commonTag("storage_blocks/olivine")).add(BlockRegistry.olivineBlock.key());
         tag(commonTag("storage_blocks")).addTags(commonTag("storage_blocks/realmite"), commonTag("storage_blocks/arlemite"), commonTag("storage_blocks/rupee"), commonTag("storage_blocks/bloodgem"), commonTag("storage_blocks/torridite"), commonTag("storage_blocks/olivine"));
 
-        tag(commonTag("stones/frozen")).add(BlockRegistry.frozenStone.key());
-        tag(commonTag("stones/cobaltite")).add(BlockRegistry.cobaltite.key());
-        tag(commonTag("stones/coalstone")).add(BlockRegistry.coalstone.key());
-        tag(commonTag("stones/arcanite")).add(BlockRegistry.arcaniteStone.key());
+        tag(commonTag("stones/frozen")).add(BlockRegistry.frozenStoneSet.getFirst().key());
+        tag(commonTag("stones/cobaltite")).add(BlockRegistry.cobaltiteSet.getFirst().key());
+        tag(commonTag("stones/coalstone")).add(BlockRegistry.coalstoneSet.getFirst().key());
+        tag(commonTag("stones/arcanite")).add(BlockRegistry.arcaniteStoneSet.getFirst().key());
         tag(commonTag("stones")).addTags(commonTag("stones/frozen"), commonTag("stones/cobaltite"), commonTag("stones/coalstone"), commonTag("stones/arcanite"));
 
-        tag(commonTag("cobblestones/frozen")).add(BlockRegistry.frozenStone.key());
-        tag(commonTag("cobblestones/cobaltite")).add(BlockRegistry.cobaltite.key());
-        tag(commonTag("cobblestones/coalstone")).add(BlockRegistry.coalstone.key());
+        tag(commonTag("cobblestones/frozen")).add(BlockRegistry.frozenStoneSet.getFirst().key());
+        tag(commonTag("cobblestones/cobaltite")).add(BlockRegistry.cobaltiteSet.getFirst().key());
+        tag(commonTag("cobblestones/coalstone")).add(BlockRegistry.coalstoneSet.getFirst().key());
         tag(commonTag("cobblestones")).addTags(commonTag("cobblestones/frozen"), commonTag("cobblestones/cobaltite"), commonTag("cobblestones/coalstone"));
 
         tag(commonTag("ores_in_ground/netherrack")).add(BlockRegistry.torriditeOre.key(), BlockRegistry.bloodgemOre.key());
-        tag(commonTag("ores_in_ground/stone")).add(BlockRegistry.realmiteOre.key(), BlockRegistry.rupeeOre.key(), BlockRegistry.arlemiteOre.key());
-        tag(commonTag("ores_in_ground/deepslate")).add(BlockRegistry.realmiteOreDeepslate.key(), BlockRegistry.rupeeOreDeepslate.key(), BlockRegistry.arlemiteOreDeepslate.key());
+        tag(commonTag("ores_in_ground/stone")).add(BlockRegistry.realmiteOreSet.getFirst().key(), BlockRegistry.rupeeOreSet.getFirst().key(), BlockRegistry.arlemiteOreSet.getFirst().key());
+        tag(commonTag("ores_in_ground/deepslate")).add(BlockRegistry.realmiteOreSet.getLast().key(), BlockRegistry.rupeeOreSet.getLast().key(), BlockRegistry.arlemiteOreSet.getLast().key());
 
         tag(customTag("replaceable_by_trees/iceika")).addTags(BlockTags.SNOW);
-        tag(BASE_ICY_FIRE).addTags(BlockTags.SNOW, BlockTags.ICE).add(BlockRegistry.snowBricks.key(), BlockRegistry.icyStone.key());
+        tag(BASE_BLOCKS_ICY_FIRE).addTags(BlockTags.SNOW, BlockTags.ICE).add(BlockRegistry.snowBricks.key(), BlockRegistry.icyStone.key());
         tag(BEDROCK_GRINDING_BASE).add(Blocks.BEDROCK.builtInRegistryHolder().key(), BlockRegistry.bedrockMinibricks.key());
 
-        tag(MINEABLE_SHICKAXE).addTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.MINEABLE_WITH_HOE, BlockTags.MINEABLE_WITH_SHOVEL);
+        tag(MINEABLE_WITH_SHICKAXE).addTags(BlockTags.MINEABLE_WITH_AXE, BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.MINEABLE_WITH_HOE, BlockTags.MINEABLE_WITH_SHOVEL);
 
         tag(EDEN_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());
         tag(WILDWOOD_INFINIBURN).add(Blocks.OBSIDIAN.builtInRegistryHolder().key(), Blocks.NETHERRACK.builtInRegistryHolder().key());

@@ -7,10 +7,7 @@ import divinerpg.recipe.builder.MaulSmashingRecipeBuilder;
 import divinerpg.registries.*;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.triggers.Criterion;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -19,13 +16,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.SimpleStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
@@ -36,7 +31,6 @@ import java.util.function.Consumer;
 
 import static divinerpg.DivineRPG.MODID;
 import static net.minecraft.data.recipes.SingleItemRecipeBuilder.stonecutting;
-import static net.minecraft.data.recipes.SmithingTransformRecipeBuilder.smithing;
 
 public class ModRecipeProvider extends RecipeProvider {
 
@@ -51,7 +45,7 @@ public class ModRecipeProvider extends RecipeProvider {
         blasting(List.of(BlockRegistry.apalachiaOre.get()), ItemRegistry.apalachia_fragments.get(), 1.f);
         blasting(TagRegistry.SMELTABLE_APALACHIA, ItemRegistry.apalachia_fragments, 0.1F);
         blasting(List.of(ItemRegistry.pure_aquatic_pellets), ItemRegistry.aquatic_ingot.get(), 1.3f);
-        blasting(List.of(BlockRegistry.arlemiteOre.get(), ItemRegistry.raw_arlemite.get(), ItemRegistry.arlemite_dust), ItemRegistry.arlemite_ingot.get(), 0.7f);
+        blasting(List.of(BlockRegistry.arlemiteOreSet.getFirst().get(), ItemRegistry.raw_arlemite.get(), ItemRegistry.arlemite_dust), ItemRegistry.arlemite_ingot.get(), 0.7f);
         blasting(TagRegistry.SMELTABLE_ARLEMITE, ItemRegistry.arlemite_nugget.get(), 0.1f);
         blasting(List.of(BlockRegistry.bloodgemOre), ItemRegistry.bloodgem.get(), 1.2f);
         blasting(TagRegistry.SMELTABLE_CORRUPTED, ItemRegistry.corrupted_shards.get(), 0.1f);
@@ -69,9 +63,9 @@ public class ModRecipeProvider extends RecipeProvider {
         blasting(TagRegistry.SMELTABLE_MORTUM, ItemRegistry.mortum_fragments, 0.1f);
         blasting(List.of(BlockRegistry.oxdriteOre, ItemRegistry.oxdrite_dust, ItemRegistry.raw_oxdrite), ItemRegistry.oxdrite_ingot.get(), 0.7f);
         blasting(TagRegistry.SMELTABLE_OXDRITE, ItemRegistry.oxdrite_nugget.get(), 0.1f);
-        blasting(List.of(BlockRegistry.realmiteOre, BlockRegistry.realmiteOreDeepslate, ItemRegistry.realmite_dust, ItemRegistry.raw_realmite), ItemRegistry.realmite_ingot.get(), 0.7f);
+        blasting(List.of(BlockRegistry.realmiteOreSet.getFirst(), BlockRegistry.realmiteOreSet.getLast(), ItemRegistry.realmite_dust, ItemRegistry.raw_realmite), ItemRegistry.realmite_ingot.get(), 0.7f);
         blasting(TagRegistry.SMELTABLE_REALMITE, ItemRegistry.realmite_nugget.get(), 0.1f);
-        blasting(List.of(BlockRegistry.rupeeOre, BlockRegistry.rupeeOreDeepslate, ItemRegistry.rupee_dust, ItemRegistry.raw_rupee), ItemRegistry.rupee_ingot.get(), 0.7f);
+        blasting(List.of(BlockRegistry.rupeeOreSet.getFirst(), BlockRegistry.rupeeOreSet.getLast(), ItemRegistry.rupee_dust, ItemRegistry.raw_rupee), ItemRegistry.rupee_ingot.get(), 0.7f);
         blasting(TagRegistry.SMELTABLE_RUPEE, ItemRegistry.rupee_nugget.get(), 0.1f);
         blasting(List.of(ItemRegistry.shadow_dust), ItemRegistry.shadow_bar.get(), 1f);
         blasting(List.of(BlockRegistry.skythernOre), ItemRegistry.skythern_fragments.get(), 1.7f);
@@ -92,12 +86,12 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //TODO - Compat
 
-        arcaniumExtraction(BlockRegistry.arcaniteStone.asItem(), BlockRegistry.arcaniteSand.asItem(), 1, 0.1F, 20);
+        arcaniumExtraction(BlockRegistry.arcaniteStoneSet.getFirst().asItem(), BlockRegistry.arcaniteSand.asItem(), 1, 0.1F, 20);
         arcaniumExtraction(BlockRegistry.rawArcanium.asItem(), ItemRegistry.arcanium, 1, 1.0F, 100);
         arcaniumExtraction(BlockRegistry.arcaniumRichSand.asItem(), ItemRegistry.pieceOfRawArcanium, 1, 0.1F, 20);
 
         fireConversion(BlockRegistry.divineFlame.get(), Ingredient.of(ItemRegistry.eden_soul.get(), ItemRegistry.eden_heart.get()), new BlockMatchTest(Blocks.FIRE), builder -> builder.outputState(new SimpleStateProvider(BlockRegistry.divineFlame.get().defaultBlockState())).advancement(Identifier.fromNamespaceAndPath(MODID, "divine/the_link"), "create_divine_flame").frame(new BlockMatchTest(BlockRegistry.edenBlock.get())).portal(new SimpleStateProvider(BlockRegistry.edenPortal.get().defaultBlockState())), "has_eden_soul", this.has(ItemRegistry.eden_soul.get()));
-        fireConversion(BlockRegistry.enchantedFlame.get(), TagRegistry.HEART_WILDWOOD, new BlockMatchTest(BlockRegistry.wildFlame.get()), builder -> builder.outputState(new SimpleStateProvider(BlockRegistry.enchantedFlame.get().defaultBlockState())).advancement(Identifier.fromNamespaceAndPath(MODID, "twilight/magical_incineration"), "create_enchanted_flame").frame(new BlockMatchTest(BlockRegistry.apalachiaBlock.get())).portal(new SimpleStateProvider(BlockRegistry.apalachiaPortal.get().defaultBlockState())), "has_wildwood_heart", has(TagRegistry.HEART_WILDWOOD));
+        fireConversion(BlockRegistry.enchantedFlame.get(), TagRegistry.HEARTS_WILDWOOD, new BlockMatchTest(BlockRegistry.wildFlame.get()), builder -> builder.outputState(new SimpleStateProvider(BlockRegistry.enchantedFlame.get().defaultBlockState())).advancement(Identifier.fromNamespaceAndPath(MODID, "twilight/magical_incineration"), "create_enchanted_flame").frame(new BlockMatchTest(BlockRegistry.apalachiaBlock.get())).portal(new SimpleStateProvider(BlockRegistry.apalachiaPortal.get().defaultBlockState())), "has_wildwood_heart", has(TagRegistry.HEARTS_WILDWOOD));
         //TODO - Fire Conversion
 
         infusion(ItemRegistry.amthirmis_lump, 5, Ingredient.of(ItemRegistry.backsword_template), ItemRegistry.amthirmis_backsword, 1);
@@ -113,24 +107,24 @@ public class ModRecipeProvider extends RecipeProvider {
         smelting(List.of(BlockRegistry.apalachiaOre), ItemRegistry.apalachia_fragments.get(), 1.3f);
         smelting(TagRegistry.SMELTABLE_APALACHIA, ItemRegistry.apalachia_fragments.get(), 0.1f);
         smelting(List.of(ItemRegistry.pure_aquatic_pellets.get()), ItemRegistry.aquatic_ingot.get(), 0.1f);
-        smelting(List.of(BlockRegistry.arlemiteOre.get(), ItemRegistry.raw_arlemite.get(), ItemRegistry.arlemite_dust), ItemRegistry.arlemite_ingot.get(), 0.7f);
+        smelting(List.of(BlockRegistry.arlemiteOreSet.getFirst().get(), ItemRegistry.raw_arlemite.get(), ItemRegistry.arlemite_dust), ItemRegistry.arlemite_ingot.get(), 0.7f);
         smelting(TagRegistry.SMELTABLE_ARLEMITE, ItemRegistry.arlemite_nugget.get(), 0.1f);
         smelting(List.of(BlockRegistry.bloodgemOre), ItemRegistry.bloodgem.get(), 1.2F);
         smelting(ItemTags.create(Identifier.fromNamespaceAndPath("c", "eggs")), ItemRegistry.boiled_egg.get(), 0.35F);
         smelting(List.of(ItemRegistry.frozen_clock), Items.CLOCK, 0, 100);
-        smelting(List.of(BlockRegistry.cobbledFrozenSlab), Items.COBBLESTONE_SLAB, 0.05F, 100);
-        smelting(List.of(BlockRegistry.cobbledFrozenStairs), Items.COBBLESTONE_STAIRS, 0.1F);
-        smelting(List.of(BlockRegistry.cobbledFrozenWall), Items.COBBLESTONE_WALL, 0.1F);
+        smelting(List.of(BlockRegistry.cobbledFrozenStoneSet.get(2)), Items.COBBLESTONE_SLAB, 0.05F, 100);
+        smelting(List.of(BlockRegistry.cobbledFrozenStoneSet.get(1)), Items.COBBLESTONE_STAIRS, 0.1F);
+        smelting(List.of(BlockRegistry.cobbledFrozenStoneSet.get(3)), Items.COBBLESTONE_WALL, 0.1F);
         smelting(List.of(ItemRegistry.bacon), ItemRegistry.cooked_bacon, 0.35F);
         smelting(TagRegistry.SMELTABLE_CORRUPTED, ItemRegistry.corrupted_shards, 0.1F);
-        smelting(List.of(BlockRegistry.frozenDirt), Items.DIRT, 0.1F);
+        smelting(List.of(BlockRegistry.frozenSoil.getFirst()), Items.DIRT, 0.1F);
         smelting(TagRegistry.SMELTABLE_DIVINE, ItemRegistry.divine_shards, 0.1F);
         smelting(TagRegistry.SMELTABLE_EDEN, ItemRegistry.eden_fragments, 0.1F);
         smelting(List.of(BlockRegistry.scorchaltEdenOre, BlockRegistry.twilightEdenOre), ItemRegistry.eden_fragments, 0.1F);
         smelting(List.of(ItemRegistry.eden_dust), ItemRegistry.eden_sparkles, 0.1F);
         smelting(List.of(ItemRegistry.raw_empowered_meat), ItemRegistry.empowered_meat, 0.35F);
         smelting(TagRegistry.SMELTABLE_ENDER, ItemRegistry.ender_shards, 0.1F);
-        smelting(List.of(BlockRegistry.cobbledFrozenStone), BlockRegistry.frozenStone, 0.1F);
+        smelting(List.of(BlockRegistry.cobbledFrozenStoneSet.getFirst()), BlockRegistry.frozenStoneSet.getFirst(), 0.1F);
         smelting(TagRegistry.SMELTABLE_GOLD_COMPRESSED, Items.GOLD_INGOT, 1F);
         smelting(List.of(BlockRegistry.frozenGravel), Blocks.GRAVEL, 0.1F);
         smelting(List.of(BlockRegistry.coldHellfireSponge), BlockRegistry.hellfireSponge, 0.1F, 600);
@@ -142,25 +136,25 @@ public class ModRecipeProvider extends RecipeProvider {
         smelting(TagRegistry.SMELTABLE_MORTUM, ItemRegistry.mortum_fragments, 0.1F);
         smelting(List.of(BlockRegistry.oxdriteOre.get(), ItemRegistry.raw_oxdrite.get(), ItemRegistry.oxdrite_dust), ItemRegistry.oxdrite_ingot.get(), 0.7f);
         smelting(TagRegistry.SMELTABLE_OXDRITE, ItemRegistry.oxdrite_nugget, 0.1F);
-        smelting(List.of(BlockRegistry.realmiteOre, BlockRegistry.realmiteOreDeepslate, ItemRegistry.raw_realmite.get(), ItemRegistry.realmite_dust), ItemRegistry.realmite_ingot.get(), 0.7f);
+        smelting(List.of(BlockRegistry.realmiteOreSet.getFirst(), BlockRegistry.realmiteOreSet.getLast(), ItemRegistry.raw_realmite.get(), ItemRegistry.realmite_dust), ItemRegistry.realmite_ingot.get(), 0.7f);
         smelting(TagRegistry.SMELTABLE_REALMITE, ItemRegistry.realmite_nugget, 0.1F);
-        smelting(List.of(BlockRegistry.rupeeOre, BlockRegistry.rupeeOreDeepslate, ItemRegistry.raw_rupee.get(), ItemRegistry.rupee_dust), ItemRegistry.rupee_ingot.get(), 0.7f);
+        smelting(List.of(BlockRegistry.rupeeOreSet.getFirst(), BlockRegistry.rupeeOreSet.getLast(), ItemRegistry.raw_rupee.get(), ItemRegistry.rupee_dust), ItemRegistry.rupee_ingot.get(), 0.7f);
         smelting(TagRegistry.SMELTABLE_RUPEE, ItemRegistry.rupee_nugget, 0.1F);
-        smelting(List.of(BlockRegistry.cobbledScorchalt), BlockRegistry.scorchalt, 0.1F);
+        smelting(List.of(BlockRegistry.cobbledScorchaltSet.getFirst()), BlockRegistry.scorchaltSet.getFirst(), 0.1F);
         smelting(List.of(ItemRegistry.raw_seng_meat), ItemRegistry.seng_steak, 0.35F);
         smelting(List.of(ItemRegistry.shadow_dust), ItemRegistry.shadow_bar, 1);
         smelting(List.of(BlockRegistry.skythernOre), ItemRegistry.skythern_fragments, 1.7F);
         smelting(TagRegistry.SMELTABLE_SKYTHERN, ItemRegistry.skythern_fragments, 0.1F);
-        smelting(List.of(BlockRegistry.soulSludgeBreakable), Items.SOUL_SAND, 0.1F);
-        smelting(List.of(BlockRegistry.frozenStone), Items.STONE, 0.1F);
-        smelting(List.of(BlockRegistry.frozenBrickSlab), Items.STONE_BRICK_SLAB, 0.05F);
-        smelting(List.of(BlockRegistry.frozenBrickStairs), Items.STONE_BRICK_STAIRS, 0.1F);
-        smelting(List.of(BlockRegistry.frozenBrickWall), Items.STONE_BRICK_WALL, 0.1F);
-        smelting(List.of(BlockRegistry.frozenBricks), Items.STONE_BRICKS, 0.1F);
-        smelting(List.of(BlockRegistry.frozenButton), Items.STONE_BUTTON, 0.1F);
-        smelting(List.of(BlockRegistry.frozenPressurePlate), Items.STONE_PRESSURE_PLATE, 0.1F);
-        smelting(List.of(BlockRegistry.frozenSlab), Items.STONE_BRICK_SLAB, 0.1F);
-        smelting(List.of(BlockRegistry.frozenStairs), Items.STONE_STAIRS, 0.1F);
+        smelting(List.of(BlockRegistry.soulSludgeSet.getLast()), Items.SOUL_SAND, 0.1F);
+        smelting(List.of(BlockRegistry.frozenStoneSet.getFirst()), Items.STONE, 0.1F);
+        smelting(List.of(BlockRegistry.frozenBrickSet.get(2)), Items.STONE_BRICK_SLAB, 0.05F);
+        smelting(List.of(BlockRegistry.frozenBrickSet.get(1)), Items.STONE_BRICK_STAIRS, 0.1F);
+        smelting(List.of(BlockRegistry.frozenBrickSet.get(3)), Items.STONE_BRICK_WALL, 0.1F);
+        smelting(List.of(BlockRegistry.frozenBrickSet.getFirst()), Items.STONE_BRICKS, 0.1F);
+        smelting(List.of(BlockRegistry.frozenStoneSet.get(5)), Items.STONE_BUTTON, 0.1F);
+        smelting(List.of(BlockRegistry.frozenStoneSet.get(4)), Items.STONE_PRESSURE_PLATE, 0.1F);
+        smelting(List.of(BlockRegistry.frozenStoneSet.get(2)), Items.STONE_BRICK_SLAB, 0.1F);
+        smelting(List.of(BlockRegistry.frozenStoneSet.get(1)), Items.STONE_STAIRS, 0.1F);
         smelting(TagRegistry.SMELTABLE_TERRAN, ItemRegistry.terran_shards, 0.1F);
         smelting(List.of(BlockRegistry.torriditeOre, ItemRegistry.raw_torridite.get(), ItemRegistry.torridite_dust), ItemRegistry.torridite_ingot.get(), 0.7f);
         smelting(TagRegistry.SMELTABLE_TORRIDITE, ItemRegistry.torridite_nugget, 0.1F);
@@ -168,8 +162,8 @@ public class ModRecipeProvider extends RecipeProvider {
         smelting(TagRegistry.SMELTABLE_WILDWOOD, ItemRegistry.wildwood_fragments, 0.1F);
         smelting(List.of(ItemRegistry.raw_wolpertinger_meat), ItemRegistry.wolpertinger_steak, 0.35F);
 
-        maulSmashing(TagRegistry.GEM_SHADOW, ItemRegistry.bedrock_chunk, 1, TagRegistry.BEDROCK_GRINDING_BASE);
-        maulSmashing(TagRegistry.INGOT_SHADOW, ItemRegistry.shadow_coins, 2, null);
+        maulSmashing(TagRegistry.GEMS_SHADOW, ItemRegistry.bedrock_chunk, 1, TagRegistry.BEDROCK_GRINDING_BASE);
+        maulSmashing(TagRegistry.INGOTS_SHADOW, ItemRegistry.shadow_coins, 2, null);
         maulSmashing(List.of(ItemRegistry.apalachia_fragments), ItemRegistry.apalachia_dust, 1, TagRegistry.APALACHIA_ORE, "dusts");
         maulSmashing(List.of(ItemRegistry.arlemite_ingot), ItemRegistry.arlemite_dust, 1, TagRegistry.ARLEMITE_ORE, "dusts");
         maulSmashing(List.of(ItemRegistry.bloodgem), ItemRegistry.bloodgem_dust, 1, TagRegistry.BLOODGEM_ORE, "dusts");
@@ -238,10 +232,10 @@ public class ModRecipeProvider extends RecipeProvider {
         smithing(ItemRegistry.color_template, List.of(ItemRegistry.RED_RUPEE_CHESTPLATE, ItemRegistry.YELLOW_RUPEE_CHESTPLATE, ItemRegistry.GREEN_RUPEE_CHESTPLATE, ItemRegistry.BLUE_RUPEE_CHESTPLATE, ItemRegistry.GRAY_RUPEE_CHESTPLATE), TagRegistry.DIAMOND_NO, ItemRegistry.RUPEE_CHESTPLATE);
         smithing(ItemRegistry.color_template, List.of(ItemRegistry.RED_RUPEE_LEGGINGS, ItemRegistry.YELLOW_RUPEE_LEGGINGS, ItemRegistry.GREEN_RUPEE_LEGGINGS, ItemRegistry.BLUE_RUPEE_LEGGINGS, ItemRegistry.GRAY_RUPEE_LEGGINGS), TagRegistry.DIAMOND_NO, ItemRegistry.RUPEE_LEGGINGS);
         smithing(ItemRegistry.color_template, List.of(ItemRegistry.RED_RUPEE_HELMET, ItemRegistry.YELLOW_RUPEE_HELMET, ItemRegistry.GREEN_RUPEE_HELMET, ItemRegistry.BLUE_RUPEE_HELMET, ItemRegistry.GRAY_RUPEE_HELMET), TagRegistry.DIAMOND_NO, ItemRegistry.RUPEE_HELMET);
-        smithing(ItemRegistry.color_template, List.of(ItemRegistry.SENG_FUR_BOOTS), BlockRegistry.fancyWool, ItemRegistry.SANTA_BOOTS);
-        smithing(ItemRegistry.color_template, List.of(ItemRegistry.SENG_FUR_LEGGINGS), BlockRegistry.fancyWool, ItemRegistry.SANTA_LEGGINGS);
-        smithing(ItemRegistry.color_template, List.of(ItemRegistry.SENG_FUR_CHESTPLATE), BlockRegistry.fancyWool, ItemRegistry.SANTA_CHESTPLATE);
-        smithing(ItemRegistry.color_template, List.of(ItemRegistry.SENG_FUR_HELMET), BlockRegistry.fancyWool, ItemRegistry.SANTA_HELMET);
+        smithing(ItemRegistry.color_template, List.of(ItemRegistry.SENG_FUR_BOOTS), BlockRegistry.fancySet.getFirst(), ItemRegistry.SANTA_BOOTS);
+        smithing(ItemRegistry.color_template, List.of(ItemRegistry.SENG_FUR_LEGGINGS), BlockRegistry.fancySet.getFirst(), ItemRegistry.SANTA_LEGGINGS);
+        smithing(ItemRegistry.color_template, List.of(ItemRegistry.SENG_FUR_CHESTPLATE), BlockRegistry.fancySet.getFirst(), ItemRegistry.SANTA_CHESTPLATE);
+        smithing(ItemRegistry.color_template, List.of(ItemRegistry.SENG_FUR_HELMET), BlockRegistry.fancySet.getFirst(), ItemRegistry.SANTA_HELMET);
         smithing(ItemRegistry.color_template, List.of(ItemRegistry.divine_sword, ItemRegistry.red_divine_sword, ItemRegistry.green_divine_sword, ItemRegistry.blue_divine_sword, ItemRegistry.gray_divine_sword), TagRegistry.DIAMOND_YELLOW, ItemRegistry.yellow_divine_sword);
         smithing(ItemRegistry.color_template, List.of(ItemRegistry.ENDER_BOOTS, ItemRegistry.RED_ENDER_BOOTS, ItemRegistry.GREEN_ENDER_BOOTS, ItemRegistry.BLUE_ENDER_BOOTS, ItemRegistry.GRAY_ENDER_BOOTS), TagRegistry.DIAMOND_YELLOW, ItemRegistry.YELLOW_ENDER_BOOTS);
         smithing(ItemRegistry.color_template, List.of(ItemRegistry.ENDER_LEGGINGS, ItemRegistry.RED_ENDER_LEGGINGS, ItemRegistry.GREEN_ENDER_LEGGINGS, ItemRegistry.BLUE_ENDER_LEGGINGS, ItemRegistry.GRAY_ENDER_LEGGINGS), TagRegistry.DIAMOND_YELLOW, ItemRegistry.YELLOW_ENDER_LEGGINGS);
@@ -259,7 +253,7 @@ public class ModRecipeProvider extends RecipeProvider {
         smoking(List.of(ItemRegistry.raw_seng_meat.get()), ItemRegistry.seng_steak, 0.35F);
         smoking(List.of(ItemRegistry.raw_wolpertinger_meat.get()), ItemRegistry.wolpertinger_steak, 0.35F);
 
-        stonecutting(Ingredient.of(BlockRegistry.cobaltite.get()), RecipeCategory.BUILDING_BLOCKS, BlockRegistry.cobaltiteStairs.get(), 1).unlockedBy("has_cobaltite", has(BlockRegistry.cobaltite.get())).save(this.output, MODID + ":stonecutting/" + "cobalite_stairs");
+        stonecutting(Ingredient.of(BlockRegistry.cobaltiteSet.getFirst().get()), RecipeCategory.BUILDING_BLOCKS, BlockRegistry.cobaltiteSet.get(1).get(), 1).unlockedBy("has_cobaltite", has(BlockRegistry.cobaltiteSet.getFirst().get())).save(this.output, MODID + ":stonecutting/" + "cobalite_stairs");
         //TODO - Finish stonecutting
     }
 

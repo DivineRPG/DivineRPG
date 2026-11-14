@@ -37,7 +37,7 @@ public class ArcaniumExtractorBlockEntity extends AbstractFurnaceBlockEntity {
     }
 
     public static boolean isCollectorFuel(ItemStack stack) {
-        return stack.is(TagRegistry.FUEL_COLLECTOR);
+        return stack.is(TagRegistry.FUELS_COLLECTOR);
     }
 
     public static void serverTick(ServerLevel level, BlockPos pos, BlockState state, ArcaniumExtractorBlockEntity blockEntity) {

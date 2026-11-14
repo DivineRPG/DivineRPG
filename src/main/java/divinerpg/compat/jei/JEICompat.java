@@ -46,7 +46,7 @@ public class JEICompat implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         var itemRegistry = Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ITEM);
 
-        List<ItemStack> mauls = itemRegistry.get(TagRegistry.TOOL_MAUL)
+        List<ItemStack> mauls = itemRegistry.get(TagRegistry.MAULS)
                 .map(named -> named.stream().map(holder -> new ItemStack(holder.value())).toList())
                 .orElseGet(List::of);
 
@@ -164,13 +164,13 @@ public class JEICompat implements IModPlugin {
         registerIngredientInfo(registration, ItemRegistry.acid, ItemRegistry.acid.getId().getPath());
 //        registerIngredientInfo(registration, BlockRegistry.aquaTorch, BlockRegistry.aquaTorch.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.icyFire, BlockRegistry.icyFire.getId().getPath());
-        registerIngredientInfo(registration, BlockRegistry.hellFire, BlockRegistry.hellFire.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.hellfire, BlockRegistry.hellfire.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.divineFlame, BlockRegistry.divineFlame.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.wildFlame, BlockRegistry.wildFlame.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.enchantedFlame, BlockRegistry.enchantedFlame.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.skyFire, BlockRegistry.skyFire.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.mortumEmbers, BlockRegistry.mortumEmbers.getId().getPath());
-        registerIngredientInfo(registration, BlockRegistry.asphalt, BlockRegistry.asphalt.getId().getPath());
+        registerIngredientInfo(registration, BlockRegistry.asphaltSet.getFirst(), BlockRegistry.asphaltSet.getFirst().getId().getPath());
         registerIngredientInfo(registration, List.of(BlockRegistry.hellfireSponge.toStack(), BlockRegistry.coldHellfireSponge.toStack()), BlockRegistry.hellfireSponge.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.rawArcanium, BlockRegistry.rawArcanium.getId().getPath());
         registerIngredientInfo(registration, BlockRegistry.proximitySpawner, BlockRegistry.proximitySpawner.getId().getPath());

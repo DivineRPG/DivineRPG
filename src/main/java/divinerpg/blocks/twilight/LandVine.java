@@ -134,12 +134,9 @@ public class LandVine extends Block implements BonemealableBlock {
             default -> super.mirror(state, mirror);
         };
     }
-
-    @Override public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, BonemealSource bonemealSource) {return true;}
-    @Override public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState, BonemealSource bonemealSource) {return true;}
-
-    @Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState, BonemealSource bonemealSource) {
+    @Override public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, BonemealSource source) {return true;}
+    @Override public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState, BonemealSource source) {return true;}
+    @Override public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState, BonemealSource source) {
         blockState = getUpdatedState(blockState, serverLevel, blockPos);
         serverLevel.setBlock(blockPos, blockState, 3);
         spread(blockState, serverLevel, blockPos, randomSource);

@@ -14,8 +14,8 @@ import static net.minecraft.world.effect.MobEffects.SATURATION;
 
 public class EntitySnapper extends EntityDivineTameable {
     public EntitySnapper(EntityType<? extends EntitySnapper> type, Level worldIn) {super(type, worldIn, 1);}
-    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_SNAPPER);}
-    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.TAMING_SNAPPER);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_SNAPPER);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_SNAPPER);}
     @Override public void tick() {
         super.tick();
         if(getOwner() != null && getOwner() instanceof Player && random.nextInt(3000) == 0) getOwner().addEffect(new MobEffectInstance(SATURATION, 6 * 20));

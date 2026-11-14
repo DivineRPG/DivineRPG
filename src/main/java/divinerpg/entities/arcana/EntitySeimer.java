@@ -14,6 +14,6 @@ public class EntitySeimer extends EntityDivineTameable {
         super.tick();
         if(getOwner() != null && getOwner() instanceof ServerPlayer player) ArcanaHelper.consumeArcana(player, 1);
     }
-    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_SEIMER);}
-    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.TAMING_SEIMER);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_SEIMER);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_SEIMER);}
 }

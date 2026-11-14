@@ -46,7 +46,7 @@ public class EntityBaseMage extends EntityDivineMonster {
         if(source.getEntity() == this) {
             damageContainers.peek().setReduction(INNATE_RESISTANCE, damage);
             damage = 0;
-        } else if(source.is(TagRegistry.MAGE_RESIST)) {
+        } else if(source.is(TagRegistry.MAGE_RESISTANT_TO)) {
             damageContainers.peek().setReduction(INNATE_RESISTANCE, damage * .85F);
             damage *= .15F;
         } return damage;

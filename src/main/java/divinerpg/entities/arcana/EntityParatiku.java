@@ -157,8 +157,8 @@ public class EntityParatiku extends EntityDivineTameable {
         super.addAdditionalSaveData(output);
         output.putByte("ParatikuFlags", this.entityData.get(DATA_ID_FLAGS));
     }
-    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_PARATIKU);}
-    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.TAMING_PARATIKU);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_PARATIKU);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_PARATIKU);}
     @Override protected float getSoundVolume() {return 0.1F;}
     @Override public float getVoicePitch() {return super.getVoicePitch() * 0.95F;}
     @Override protected SoundEvent getAmbientSound() {return getIsParatikuHanging() && this.random.nextInt(4) != 0 ? null : SoundEvents.BAT_AMBIENT;}

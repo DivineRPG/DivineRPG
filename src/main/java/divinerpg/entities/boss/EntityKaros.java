@@ -1,8 +1,8 @@
 package divinerpg.entities.boss;
 
-import divinerpg.blocks.vethea.BlockHelioticBeam;
-import divinerpg.blocks.vethea.BlockKarosDispenser;
-import divinerpg.blocks.vethea.BlockKarosHeatTile;
+import divinerpg.blocks.vethea.HelioticBeam;
+import divinerpg.blocks.vethea.KarosDispenser;
+import divinerpg.blocks.vethea.KarosHeatTile;
 import divinerpg.entities.base.EntityDivineBoss;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.SoundRegistry;
@@ -132,8 +132,8 @@ public class EntityKaros extends EntityDivineBoss {
             if ((this.abilityCooldown % 8) == 0) {
                 BlockPos currentPos = ceiling.get(this.random.nextInt(ceiling.size()));
                 Block currentBlock = this.level().getBlockState(currentPos).getBlock();
-                if (currentBlock instanceof BlockHelioticBeam) {
-                    ((BlockHelioticBeam) currentBlock).dropBomb(this.level(), currentPos);
+                if (currentBlock instanceof HelioticBeam) {
+                    ((HelioticBeam) currentBlock).dropBomb(this.level(), currentPos);
                 }
 
             }
@@ -142,8 +142,8 @@ public class EntityKaros extends EntityDivineBoss {
             if ((this.abilityCooldown % 4) == 0) {
                 BlockPos currentPos = cannons.get(this.random.nextInt(cannons.size()));
                 Block currentBlock = this.level().getBlockState(currentPos).getBlock();
-                if (currentBlock instanceof BlockKarosDispenser) {
-                    ((BlockKarosDispenser) currentBlock).dispenseFrom(level().getServer().getLevel(level().dimension()), currentPos);
+                if (currentBlock instanceof KarosDispenser) {
+                    ((KarosDispenser) currentBlock).dispenseFrom(level().getServer().getLevel(level().dimension()), currentPos);
 //                }
                 }
             } else if (ability == FLOOR) {
@@ -155,7 +155,7 @@ public class EntityKaros extends EntityDivineBoss {
 
                         BlockPos currentPos = new BlockPos((int) this.getX() + var1, (int) this.getY() - 1, (int) this.getZ() + var3);
                         if(level().getBlockState(currentPos).getBlock() == BlockRegistry.karosHeatTile.get()) {
-                            level().setBlock(currentPos, BlockRegistry.karosHeatTile.get().defaultBlockState().setValue(BlockKarosHeatTile.ACTIVE, true), 0);
+                            level().setBlock(currentPos, BlockRegistry.karosHeatTile.get().defaultBlockState().setValue(KarosHeatTile.ACTIVE, true), 0);
                         }
                         var4 += Math.PI / 8.0D;
                     }

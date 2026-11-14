@@ -7,238 +7,429 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.material.Fluid;
 
-import static divinerpg.DivineRPG.MODID;
-
 public class TagRegistry {
-        public static final TagKey<Item>
-                AMMO_ROPE = item("ammo/rope"), AMMO_GRENADE = item("ammo/grenade"),
-                AMMO_AQUATIC_CANNON = item("ammo/aquatic_cannon"), AMMO_CORRUPTED_CANNON = item("ammo/corrupted_cannon"),
-                AMMO_FROST_CANNON = item("ammo/frost_cannon"), AMMO_FRACTITE_CANNON = item("ammo/fractite_cannon"),
-                AMMO_GOLDEN_FURY = item("ammo/golden_fury"), AMMO_EDEN_BLITZ = item("ammo/eden_blitz"),
-                AMMO_WILDWOOD_BLITZ = item("ammo/wildwood_blitz"), AMMO_APALACHIA_BLITZ = item("ammo/apalachia_blitz"),
-                AMMO_SKYTHERN_BLITZ = item("ammo/skythern_blitz"), AMMO_MORTUM_BLITZ = item("ammo/mortum_blitz"),
-                AMMO_HALITE_BLITZ = item("ammo/halite_blitz"), AMMO_VETHEAN_CANNON = item("ammo/vethean_cannon");
-
     public static final TagKey<Item>
-            RIFT_EDEN = item("rift_replenishing/eden"), RIFT_WILDWOOD = item("rift_replenishing/wildwood"),
-            RIFT_APALACHIA = item("rift_replenishing/apalachia"), RIFT_SKYTHERN = item("rift_replenishing/skythern"),
-            RIFT_MORTUM = item("rift_replenishing/mortum");
+    //Ammunition
+    AMMO_ROPE = item("ammo/rope"),
+    AMMO_GRENADE = item("ammo/grenade"),
+    AMMO_AQUATIC_CANNON = item("ammo/aquatic_cannon"),
+    AMMO_CORRUPTED_CANNON = item("ammo/corrupted_cannon"),
+    AMMO_FROST_CANNON = item("ammo/frost_cannon"),
+    AMMO_FRACTITE_CANNON = item("ammo/fractite_cannon"),
+    AMMO_GOLDEN_FURY = item("ammo/golden_fury"),
+    AMMO_EDEN_BLITZ = item("ammo/eden_blitz"),
+    AMMO_WILDWOOD_BLITZ = item("ammo/wildwood_blitz"),
+    AMMO_APALACHIA_BLITZ = item("ammo/apalachia_blitz"),
+    AMMO_SKYTHERN_BLITZ = item("ammo/skythern_blitz"),
+    AMMO_MORTUM_BLITZ = item("ammo/mortum_blitz"),
+    AMMO_HALITE_BLITZ = item("ammo/halite_blitz"),
+    AMMO_VETHEAN_CANNON = item("ammo/vethean_cannon"),
 
-    public static final TagKey<Item>
-            ENCHANTABLE_ARMOR = minecraftItem("enchantable/armor"), ENCHANTABLE_CHEST = minecraftItem("enchantable/chest_armor"), ENCHANTABLE_FOOT = minecraftItem("enchantable/foot_armor"),
-            ENCHANTABLE_HEAD = minecraftItem("enchantable/head_armor"), ENCHANTABLE_LEG = minecraftItem("enchantable/leg_armor"), TRIMMABLE_ARMOR = minecraftItem("trimmable_armor");
+    //Rift-related Items
+    RIFT_REPLENISHING_OVERWORLD = item("rift_replenishing/overworld"),
+    RIFT_REPLENISHING_EDEN = item("rift_replenishing/eden"),
+    RIFT_REPLENISHING_WILDWOOD = item("rift_replenishing/wildwood"),
+    RIFT_REPLENISHING_APALACHIA = item("rift_replenishing/apalachia"),
+    RIFT_REPLENISHING_SKYTHERN = item("rift_replenishing/skythern"),
+    RIFT_REPLENISHING_MORTUM = item("rift_replenishing/mortum"),
 
-        public static final TagKey<Item>
-                REPAIR_GOLDEN_FURY = item("repairs/golden_fury"), REPAIR_DIAMOND = item("repairs/equipment/diamond"),
-                REPAIR_EXP_GOLD = item("repairs/equipment/expensive/gold"), REPAIR_EXP_REALMITE = item("repairs/equipment/expensive/realmite"),
-                REPAIR_EXP_SHADOW = item("repairs/equipment/expensive/shadow"), REPAIR_EXP_TORRIDITE = item("repairs/equipment/expensive/torridite"),
-                REPAIR_CYCLOPS = item("repairs/equipment/cyclops"), REPAIR_REALMITE = item("repairs/equipment/realmite"),
-                REPAIR_OXDRITE = item("repairs/equipment/oxdrite"), REPAIR_SENG_FUR = item("repairs/equipment/seng_fur"),
-                REPAIR_SABEAR_TEETH = item("repairs/equipment/sabear_teeth"), REPAIR_SANTA = item("repairs/equipment/santa"),
-                REPAIR_CRAB = item("repairs/equipment/crab"), REPAIR_SHARK = item("repairs/equipment/shark"),
-                REPAIR_WHALE = item("repairs/equipment/whale"), REPAIR_LIOPLEURODON = item("repairs/equipment/liopleurodon"),
-                REPAIR_AQUATIC = item("repairs/equipment/aquatic"), REPAIR_KRAKEN = item("repairs/equipment/kraken"),
-                REPAIR_JACK_O_MAN = item("repairs/equipment/jack_o_man"), REPAIR_SKELEMAN = item("repairs/equipment/skeleman"),
-                REPAIR_WITHER_REAPER = item("repairs/equipment/wither_reaper"), REPAIR_ARLEMITE = item("repairs/equipment/arlemite"),
-                REPAIR_ICE = item("repairs/equipment/ice"), REPAIR_SNOWFLAKE = item("repairs/equipment/snowflake"),
-                REPAIR_JUNGLE = item("repairs/equipment/jungle"), REPAIR_BLOODGEM = item("repairs/equipment/bloodgem"),
-                REPAIR_MOLTEN = item("repairs/equipment/molten"), REPAIR_SOULFIRE = item("repairs/equipment/soulfire"),
-                REPAIR_BLAZE = item("repairs/equipment/blaze"), REPAIR_PURPLE_BLAZE = item("repairs/equipment/purple_blaze"),
-                REPAIR_TORRIDITE = item("repairs/equipment/torridite"), REPAIR_TERRAN = item("repairs/equipment/terran"),
-                REPAIR_ANGELIC = item("repairs/equipment/angelic"), REPAIR_SHADOW = item("repairs/equipment/shadow"),
-                REPAIR_RUPEE = item("repairs/equipment/rupee"), REPAIR_CORRUPTED = item("repairs/equipment/corrupted"),
-                REPAIR_BEDROCK = item("repairs/equipment/bedrock"), REPAIR_ARCANIUM = item("repairs/equipment/arcanium"),
-                REPAIR_KORMA = item("repairs/equipment/korma"), REPAIR_VEMOS = item("repairs/equipment/vemos"),
-                REPAIR_ENDER = item("repairs/equipment/ender"), REPAIR_DIVINE = item("repairs/equipment/divine"),
-                REPAIR_EDEN = item("repairs/equipment/eden"), REPAIR_WILDWOOD = item("repairs/equipment/wildwood"),
-                REPAIR_APALACHIA = item("repairs/equipment/apalachia"), REPAIR_SKYTHERN = item("repairs/equipment/skythern"),
-                REPAIR_MORTUM = item("repairs/equipment/mortum"), REPAIR_TWILIGHT = item("repairs/equipment/twilight"),
-                REPAIR_HALITE = item("repairs/equipment/halite"), REPAIR_AWAKENED_HALITE = item("repairs/equipment/awakened_halite"),
-                REPAIR_DREAM = item("repairs/equipment/dream"), REPAIR_TEAKER = item("repairs/equipment/teaker"),
-                REPAIR_AMTHIRMIS = item("repairs/equipment/amthirmis"), REPAIR_DARVEN = item("repairs/equipment/darven"),
-                REPAIR_CERMILE = item("repairs/equipment/cermile"), REPAIR_PARDIMAL = item("repairs/equipment/pardimal"),
-                REPAIR_QUADROTIC = item("repairs/equipment/quadrotic"), REPAIR_KAROS = item("repairs/equipment/karos"),
-                REPAIR_HELIOSIS = item("repairs/equipment/heliosis"), REPAIR_ARKSIANE = item("repairs/equipment/arksiane"),
-                REPAIR_EVER = item("repairs/equipment/ever"), REPAIR_DEGRADED = item("repairs/equipment/degraded"),
-                REPAIR_FINISHED = item("repairs/equipment/finished"), REPAIR_GLISTENING = item("repairs/equipment/glistening"),
-                REPAIR_DEMONIZED = item("repairs/equipment/demonized"), REPAIR_TORMENTED = item("repairs/equipment/tormented");
+    //Enchantable
+    ENCHANTABLE_ARMOR = minecraftItem("enchantable/armor"),
+    ENCHANTABLE_CHEST = minecraftItem("enchantable/chest_armor"),
+    ENCHANTABLE_FOOT = minecraftItem("enchantable/foot_armor"),
+    ENCHANTABLE_HEAD = minecraftItem("enchantable/head_armor"),
+    ENCHANTABLE_LEG = minecraftItem("enchantable/leg_armor"),
+    TRIMMABLE_ARMOR = minecraftItem("trimmable_armor"),
 
-        public static final TagKey<Item>
-                SUMMON_KITRA = item("summoning/kitra"), SUMMON_MERIK = item("summoning/captain_merik"),
-                SUMMON_DATTICON = item("summoning/datticon"), SUMMON_KAZARI = item("summoning/kazari"),
-                SUMMON_LEORNA = item("summoning/leorna"), SUMMON_VATTICUS = item("summoning/lord_vatticus"),
-                SUMMON_WAR_GENERAL = item("summoning/war_general"), SUMMON_ZELUS = item("summoning/zelus"),
-                SUMMON_SUNSTORM = item("summoning/sunstorm"), SUMMON_TERMASECT = item("summoning/termasect"),
-                SUMMON_ARCHER = item("summoning/eternal_archer"), SUMMON_CORI = item("summoning/experienced_cori");
+    //Repairs
+    REPAIRS_GOLDEN_FURY = item("repairs/golden_fury"),
+    REPAIRS_EQUIPMENT_DIAMOND = item("repairs/equipment/diamond"),//TODO: to replace with a vanilla tag after moving to a different minecraft version
+    REPAIRS_EQUIPMENT_EXPENSIVE_GOLD = item("repairs/equipment/expensive/gold"),
+    REPAIRS_EQUIPMENT_EXPENSIVE_REALMITE = item("repairs/equipment/expensive/realmite"),
+    REPAIRS_EQUIPMENT_EXPENSIVE_SHADOW = item("repairs/equipment/expensive/shadow"),
+    REPAIRS_EQUIPMENT_EXPENSIVE_TORRIDITE = item("repairs/equipment/expensive/torridite"),
+    REPAIRS_EQUIPMENT_CYCLOPS = item("repairs/equipment/cyclops"),
+    REPAIRS_EQUIPMENT_REALMITE = item("repairs/equipment/realmite"),
+    REPAIRS_EQUIPMENT_OXDRITE = item("repairs/equipment/oxdrite"),
+    REPAIRS_EQUIPMENT_SENG_FUR = item("repairs/equipment/seng_fur"),
+    REPAIRS_EQUIPMENT_SABEAR_TEETH = item("repairs/equipment/sabear_teeth"),
+    REPAIRS_EQUIPMENT_SANTA = item("repairs/equipment/santa"),
+    REPAIRS_EQUIPMENT_CRAB = item("repairs/equipment/crab"),
+    REPAIRS_EQUIPMENT_SHARK = item("repairs/equipment/shark"),
+    REPAIRS_EQUIPMENT_WHALE = item("repairs/equipment/whale"),
+    REPAIRS_EQUIPMENT_LIOPLEURODON = item("repairs/equipment/liopleurodon"),
+    REPAIRS_EQUIPMENT_AQUATIC = item("repairs/equipment/aquatic"),
+    REPAIRS_EQUIPMENT_KRAKEN = item("repairs/equipment/kraken"),
+    REPAIRS_EQUIPMENT_JACK_O_MAN = item("repairs/equipment/jack_o_man"),
+    REPAIRS_EQUIPMENT_SKELEMAN = item("repairs/equipment/skeleman"),
+    REPAIRS_EQUIPMENT_WITHER_REAPER = item("repairs/equipment/wither_reaper"),
+    REPAIRS_EQUIPMENT_ARLEMITE = item("repairs/equipment/arlemite"),
+    REPAIRS_EQUIPMENT_ICE = item("repairs/equipment/ice"),
+    REPAIRS_EQUIPMENT_SNOWFLAKE = item("repairs/equipment/snowflake"),
+    REPAIRS_EQUIPMENT_JUNGLE = item("repairs/equipment/jungle"),
+    REPAIRS_EQUIPMENT_BLOODGEM = item("repairs/equipment/bloodgem"),
+    REPAIRS_EQUIPMENT_MOLTEN = item("repairs/equipment/molten"),
+    REPAIRS_EQUIPMENT_SOULFIRE = item("repairs/equipment/soulfire"),
+    REPAIRS_EQUIPMENT_BLAZE = item("repairs/equipment/blaze"),
+    REPAIRS_EQUIPMENT_PURPLE_BLAZE = item("repairs/equipment/purple_blaze"),
+    REPAIRS_EQUIPMENT_TORRIDITE = item("repairs/equipment/torridite"),
+    REPAIRS_EQUIPMENT_TERRAN = item("repairs/equipment/terran"),
+    REPAIRS_EQUIPMENT_ANGELIC = item("repairs/equipment/angelic"),
+    REPAIRS_EQUIPMENT_SHADOW = item("repairs/equipment/shadow"),
+    REPAIRS_EQUIPMENT_RUPEE = item("repairs/equipment/rupee"),
+    REPAIRS_EQUIPMENT_CORRUPTED = item("repairs/equipment/corrupted"),
+    REPAIRS_EQUIPMENT_BEDROCK = item("repairs/equipment/bedrock"),
+    REPAIRS_EQUIPMENT_ARCANIUM = item("repairs/equipment/arcanium"),
+    REPAIRS_EQUIPMENT_KORMA = item("repairs/equipment/korma"),
+    REPAIRS_EQUIPMENT_VEMOS = item("repairs/equipment/vemos"),
+    REPAIRS_EQUIPMENT_ENDER = item("repairs/equipment/ender"),
+    REPAIRS_EQUIPMENT_DIVINE = item("repairs/equipment/divine"),
+    REPAIRS_EQUIPMENT_EDEN = item("repairs/equipment/eden"),
+    REPAIRS_EQUIPMENT_WILDWOOD = item("repairs/equipment/wildwood"),
+    REPAIRS_EQUIPMENT_APALACHIA = item("repairs/equipment/apalachia"),
+    REPAIRS_EQUIPMENT_SKYTHERN = item("repairs/equipment/skythern"),
+    REPAIRS_EQUIPMENT_MORTUM = item("repairs/equipment/mortum"),
+    REPAIRS_EQUIPMENT_TWILIGHT = item("repairs/equipment/twilight"),
+    REPAIRS_EQUIPMENT_HALITE = item("repairs/equipment/halite"),
+    REPAIRS_EQUIPMENT_AWAKENED_HALITE = item("repairs/equipment/awakened_halite"),
+    REPAIRS_EQUIPMENT_DREAM = item("repairs/equipment/dream"),
+    REPAIRS_EQUIPMENT_TEAKER = item("repairs/equipment/teaker"),
+    REPAIRS_EQUIPMENT_AMTHIRMIS = item("repairs/equipment/amthirmis"),
+    REPAIRS_EQUIPMENT_DARVEN = item("repairs/equipment/darven"),
+    REPAIRS_EQUIPMENT_CERMILE = item("repairs/equipment/cermile"),
+    REPAIRS_EQUIPMENT_PARDIMAL = item("repairs/equipment/pardimal"),
+    REPAIRS_EQUIPMENT_QUADROTIC = item("repairs/equipment/quadrotic"),
+    REPAIRS_EQUIPMENT_KAROS = item("repairs/equipment/karos"),
+    REPAIRS_EQUIPMENT_HELIOSIS = item("repairs/equipment/heliosis"),
+    REPAIRS_EQUIPMENT_ARKSIANE = item("repairs/equipment/arksiane"),
+    REPAIRS_EQUIPMENT_EVER = item("repairs/equipment/ever"),
+    REPAIRS_EQUIPMENT_DEGRADED = item("repairs/equipment/degraded"),
+    REPAIRS_EQUIPMENT_FINISHED = item("repairs/equipment/finished"),
+    REPAIRS_EQUIPMENT_GLISTENING = item("repairs/equipment/glistening"),
+    REPAIRS_EQUIPMENT_DEMONIZED = item("repairs/equipment/demonized"),
+    REPAIRS_EQUIPMENT_TORMENTED = item("repairs/equipment/tormented"),
 
-    public static final TagKey<Item>
-            FOOD_DOLOSSAL = item("animal_foods/dolossal"), FOOD_MAMOTH = item("animal_foods/mamoth");
+    //Summoning Items
+    SUMMONING_KITRA = item("summoning/kitra"),
+    SUMMONING_CAPTAIN_MERIK = item("summoning/captain_merik"),
+    SUMMONING_DATTICON = item("summoning/datticon"),
+    SUMMONING_KAZARI = item("summoning/kazari"),
+    SUMMONING_LEORNA = item("summoning/leorna"),
+    SUMMONING_LORD_VATTICUS = item("summoning/lord_vatticus"),
+    SUMMONING_WAR_GENERAL = item("summoning/war_general"),
+    SUMMONING_ZELUS = item("summoning/zelus"),
+    SUMMONING_SUNSTORM = item("summoning/sunstorm"),
+    SUMMONING_TERMASECT = item("summoning/termasect"),
+    SUMMONING_ETERNAL_ARCHER = item("summoning/eternal_archer"),
+    SUMMONING_EXPERIENCED_CORI = item("summoning/experienced_cori"),
 
-    public static final TagKey<Item>
-                PET_SNAPPER = item("pet_foods/snapper"), PET_EHU = item("pet_foods/ehu"), PET_HUSK = item("pet_foods/husk"),
-                PET_BROWN_GRIZZLE = item("pet_foods/brown_grizzle"), PET_WHITE_GRIZZLE = item("pet_foods/white_grizzle"),
-                PET_STONE_GOLEM = item("pet_foods/stone_golem"), PET_SMELTER = item("pet_foods/smelter"),
-                PET_HELL_PIG = item("pet_foods/hell_pig"), PET_FYRACRYX = item("pet_foods/fyracryx"),
-                PET_REJUVENATION = item("pet_foods/golem_of_rejuvenation"), PET_PARATIKU = item("pet_foods/paratiku"),
-                PET_SEIMER = item("pet_foods/seimer"), PET_GLINTHOP = item("pet_foods/glinthop"),
-                PET_MOON_WOLF = item("pet_foods/moon_wolf");
+    //Pet Foods
+    ANIMAL_FOODS_DOLOSSAL = item("animal_foods/dolossal"),
+    ANIMAL_FOODS_MAMOTH = item("animal_foods/mamoth"),
+    PET_FOODS_SNAPPER = item("pet_foods/snapper"),
+    PET_FOODS_EHU = item("pet_foods/ehu"),
+    PET_FOODS_HUSK = item("pet_foods/husk"),
+    PET_FOODS_BROWN_GRIZZLE = item("pet_foods/brown_grizzle"),
+    PET_FOODS_WHITE_GRIZZLE = item("pet_foods/white_grizzle"),
+    PET_FOODS_STONE_GOLEM = item("pet_foods/stone_golem"),
+    PET_FOODS_SMELTER = item("pet_foods/smelter"),
+    PET_FOODS_HELL_PIG = item("pet_foods/hell_pig"),
+    PET_FOODS_FYRACRYX = item("pet_foods/fyracryx"),
+    PET_FOODS_GOLEM_OF_REJUVENATION = item("pet_foods/golem_of_rejuvenation"),
+    PET_FOODS_PARATIKU = item("pet_foods/paratiku"),
+    PET_FOODS_SEIMER = item("pet_foods/seimer"),
+    PET_FOODS_GLINTHOP = item("pet_foods/glinthop"),
+    PET_FOODS_MOON_WOLF = item("pet_foods/moon_wolf"),
 
-        public static final TagKey<Item>
-                TAMING_SNAPPER = item("pet_taming_foods/snapper"), TAMING_EHU = item("pet_taming_foods/ehu"),
-                TAMING_HUSK = item("pet_taming_foods/husk"), TAMING_BROWN_GRIZZLE = item("pet_taming_foods/brown_grizzle"),
-                TAMING_WHITE_GRIZZLE = item("pet_taming_foods/white_grizzle"), TAMING_STONE_GOLEM = item("pet_taming_foods/stone_golem"),
-                TAMING_SMELTER = item("pet_taming_foods/smelter"), TAMING_HELL_PIG = item("pet_taming_foods/hell_pig"),
-                TAMING_FYRACRYX = item("pet_taming_foods/fyracryx"), TAMING_REJUVENATION = item("pet_taming_foods/golem_of_rejuvenation"),
-                TAMING_PARATIKU = item("pet_taming_foods/paratiku"), TAMING_SEIMER = item("pet_taming_foods/seimer"),
-                TAMING_GLINTHOP = item("pet_taming_foods/glinthop"), TAMING_MOON_WOLF = item("pet_taming_foods/moon_wolf");
+    //Pet Taming Foods
+    PET_TAMING_FOODS_SNAPPER = item("pet_taming_foods/snapper"),
+    PET_TAMING_FOODS_EHU = item("pet_taming_foods/ehu"),
+    PET_TAMING_FOODS_HUSK = item("pet_taming_foods/husk"),
+    PET_TAMING_FOODS_BROWN_GRIZZLE = item("pet_taming_foods/brown_grizzle"),
+    PET_TAMING_FOODS_WHITE_GRIZZLE = item("pet_taming_foods/white_grizzle"),
+    PET_TAMING_FOODS_STONE_GOLEM = item("pet_taming_foods/stone_golem"),
+    PET_TAMING_FOODS_SMELTER = item("pet_taming_foods/smelter"),
+    PET_TAMING_FOODS_HELL_PIG = item("pet_taming_foods/hell_pig"),
+    PET_TAMING_FOODS_FYRACRYX = item("pet_taming_foods/fyracryx"),
+    PET_TAMING_FOODS_GOLEM_OF_REJUVENATION = item("pet_taming_foods/golem_of_rejuvenation"),
+    PET_TAMING_FOODS_PARATIKU = item("pet_taming_foods/paratiku"),
+    PET_TAMING_FOODS_SEIMER = item("pet_taming_foods/seimer"),
+    PET_TAMING_FOODS_GLINTHOP = item("pet_taming_foods/glinthop"),
+    //Yet unused, because it uses vanilla wolves behaviour of chewing bones
+    PET_TAMING_FOODS_MOON_WOLF = item("pet_taming_foods/moon_wolf"),
 
-        public static final TagKey<Item>
-                TEETH_LIOPLEURODON = item("teeth/liopleurodon"), TEETH_SABEAR = item("teeth/sabear"),
-                SKULLS_LIOPLEURODON = item("skulls/liopleurodon"), SKIN_KRAKEN = item("skin/kraken"),
-                FUR_SENG = item("fur/seng"), POWDER_PURPLE_BLAZE = item("powders/purple_blaze"),
-                SNOWFLAKES = item("snowflakes"), HEART_EDEN = item("hearts/eden"), HEART_WILDWOOD = item("hearts/wildwood"),
-                HEART_APALACHIA = item("hearts/apalachia"), HEART_SKYTHERN = item("hearts/skythern"), HEART_MORTUM = item("hearts/mortum"), HEARTS = item("hearts"),
+    //Mob Loot
+    TEETH_LIOPLEURODON = item("teeth/liopleurodon"),
+    TEETH_SABEAR = item("teeth/sabear"),
+    SKULLS_LIOPLEURODON = item("skulls/liopleurodon"),
+    SKIN_KRAKEN = item("skin/kraken"),
+    FUR_SENG = item("fur/seng"),
+    POWDERS_PURPLE_BLAZE = item("powders/purple_blaze"),
+    SNOWFLAKES = item("snowflakes"),
+    HEARTS_EDEN = item("hearts/eden"),
+    HEARTS_WILDWOOD = item("hearts/wildwood"),
+    HEARTS_APALACHIA = item("hearts/apalachia"),
+    HEARTS_SKYTHERN = item("hearts/skythern"),
+    HEARTS_MORTUM = item("hearts/mortum"),
+    HEARTS = item("hearts"),
 
-        INGOT_AQUATIC = common("ingots/aquatic"), INGOT_REALMITE = common("ingots/realmite"),
-                INGOT_ARLEMITE = common("ingots/arlemite"), INGOT_RUPEE = common("ingots/rupee"),
-                INGOT_SHADOW = common("ingots/shadow"), INGOT_TORRIDITE = common("ingots/torridite"),
+    //Ingots
+    INGOTS_AQUATIC = common("ingots/aquatic"),
+    INGOTS_REALMITE = common("ingots/realmite"),
+    INGOTS_ARLEMITE = common("ingots/arlemite"),
+    INGOTS_RUPEE = common("ingots/rupee"),
+    INGOTS_SHADOW = common("ingots/shadow"),
+    INGOTS_TORRIDITE = common("ingots/torridite"),
+    INGOTS_OXDRITE = common("ingots/oxdrite"),
     INGOT_HELLSTONE = common("ingots/hellstone"),
-                INGOT_OXDRITE = common("ingots/oxdrite"),
+    INGOT_OXDRITE = common("ingots/oxdrite"),
 
-                DUST_AQUATIC = common("dusts/aquatic"), DUST_REALMITE = common("dusts/realmite"),
-                DUST_ARLEMITE = common("dusts/arlemite"), DUST_RUPEE = common("dusts/rupee"),
-                DUST_SHADOW = common("dusts/shadow"), DUST_TORRIDITE = common("dusts/torridite"),
-                DUST_OXDRITE = common("dusts/oxdrite"),
+    //Dusts
+    DUSTS_AQUATIC = common("dusts/aquatic"),
+    DUSTS_REALMITE = common("dusts/realmite"),
+    DUSTS_ARLEMITE = common("dusts/arlemite"),
+    DUSTS_RUPEE = common("dusts/rupee"),
+    DUSTS_SHADOW = common("dusts/shadow"),
+    DUSTS_TORRIDITE = common("dusts/torridite"),
+    DUSTS_OXDRITE = common("dusts/oxdrite"),
 
-        GEM_SHADOW = item("gems/shadow"), GEM_ICE = item("gems/ice"), GEM_TERRAN = item("gems/terran"),
-                GEM_JUNGLE = item("gems/jungle"), GEM_MOLTEN = item("gems/molten"), GEM_SOULFIRE = item("gems/soulfire"),
-                GEM_CORRUPTED = item("gems/corrupted"), GEM_ENDER = item("gems/ender"), GEM_DIVINE = item("gems/divine"),
-                GEM_BLOODGEM = item("gems/bloodgem"), GEM_ARCANIUM = item("gems/arcanium"), GEM_EDEN = item("gems/eden"),
-                GEM_WILDWOOD = item("gems/wildwood"), GEM_APALACHIA = item("gems/apalachia"),
-                GEM_SKYTHERN = item("gems/skythern"), GEM_MORTUM = item("gems/mortum"),
+    //Gems
+    GEMS_SHADOW = item("gems/shadow"),
+    GEMS_ICE = item("gems/ice"),
+    GEMS_TERRAN = item("gems/terran"),
+    GEMS_JUNGLE = item("gems/jungle"),
+    GEMS_MOLTEN = item("gems/molten"),
+    GEMS_SOULFIRE = item("gems/soulfire"),
+    GEMS_CORRUPTED = item("gems/corrupted"),
+    GEMS_ENDER = item("gems/ender"),
+    GEMS_DIVINE = item("gems/divine"),
+    GEMS_BLOODGEM = item("gems/bloodgem"),
+    GEMS_ARCANIUM = item("gems/arcanium"),
+    GEMS_EDEN = item("gems/eden"),
+    GEMS_WILDWOOD = item("gems/wildwood"),
+    GEMS_APALACHIA = item("gems/apalachia"),
+    GEMS_SKYTHERN = item("gems/skythern"),
+    GEMS_MORTUM = item("gems/mortum"),
 
-        SHARDS_TERRAN = item("shards/terran"),
+    //Shards
+    SHARDS_TERRAN = item("shards/terran"),
 
-        CHUNK_TORRIDITE = item("chunks/torridite"), CHUNK_BEDROCK = item("chunks/bedrock"),
-                CHUNK_EDEN = item("chunks/eden"), CHUNK_WILDWOOD = item("chunks/wildwood"),
-                CHUNK_APALACHIA = item("chunks/apalachia"), CHUNK_SKYTHERN = item("chunks/skythern"),
-                CHUNK_MORTUM = item("chunks/mortum"), CHUNK_TWILIGHT = item("chunks/twilight"),
+    //Chunks
+    CHUNKS_TORRIDITE = item("chunks/torridite"),
+    CHUNKS_BEDROCK = item("chunks/bedrock"),
+    CHUNKS_EDEN = item("chunks/eden"),
+    CHUNKS_WILDWOOD = item("chunks/wildwood"),
+    CHUNKS_APALACHIA = item("chunks/apalachia"),
+    CHUNKS_SKYTHERN = item("chunks/skythern"),
+    CHUNKS_MORTUM = item("chunks/mortum"),
+    CHUNKS_TWILIGHT = item("chunks/twilight"),
 
-        FUEL_COLLECTOR = item("fuels/collector"), STORAGE_REALMITE = common("storage_blocks/realmite"),
-                TOOL_MAUL = item("tools/maul"), ARMOR_POUCHES = item("armor_pouches"),
-                FROST_CYCLE = item("frosted_allure_cycle_items"), FURNACES = item("furnaces"),
+    //Fuels
+    FUELS_COLLECTOR = item("fuels/collector"),
 
-        DIVINE_SWORDS = common("tools/swords/divine"), METAL_SPIKE_BLOCK = item("metal_spike_blocks");
+    //Storage Blocks
+    STORAGE_BLOCKS_REALMITE = common("storage_blocks/realmite"),
 
-    public static final TagKey<Item> PICKAXES = minecraftItem("pickaxes");
-    public static final TagKey<Item> AXES = minecraftItem("axes");
-    public static final TagKey<Item> HOES = minecraftItem("hoes");
-    public static final TagKey<Item> SHOVELS = minecraftItem("shovels");
-    public static final TagKey<Item> SWORDS = minecraftItem("swords");
-    public static final TagKey<Item> COMMON_PICKAXES = common("tools/pickaxes");
-    public static final TagKey<Item> COMMON_AXES = common("tools/axes");
-    public static final TagKey<Item> COMMON_HOES = common("tools/hoes");
-    public static final TagKey<Item> COMMON_SHOVELS = common("tools/shovels");
-    public static final TagKey<Item> COMMON_SWORDS = common("tools/swords");
-    public static final TagKey<Item> SHICKAXES = common("tools/shickaxes");
-    public static final TagKey<Item> SMELTS_LOOT = common("smelts_loot");
+    //Tools
+    MAULS = item("tools/maul"),
+    DIVINE_SWORDS = common("tools/swords/divine"),
+    PICKAXES = minecraftItem("pickaxes"),
+    AXES = minecraftItem("axes"),
+    HOES = minecraftItem("hoes"),
+    SHOVELS = minecraftItem("shovels"),
+    SWORDS = minecraftItem("swords"),
+    COMMON_PICKAXES = common("tools/pickaxes"),
+    COMMON_AXES = common("tools/axes"),
+    COMMON_HOES = common("tools/hoes"),
+    COMMON_SHOVELS = common("tools/shovels"),
+    COMMON_SWORDS = common("tools/swords"),
+    SHICKAXES = common("tools/shickaxes"),
+    SMELTS_LOOT = common("smelts_loot"),
 
-    public static final TagKey<Item> SHADOW_COIN = item("coins/shadow");
-    public static final TagKey<Item> SMELTABLE_APALACHIA = item("smeltable_equipment/apalachia"), SMELTABLE_ARLEMITE = item("smeltable_equipment/arlemite"),
-            SMELTABLE_CORRUPTED = item("smeltable_equipment/corrupted"), SMELTABLE_DIVINE = item("smeltable_equipment/divine"),
-            SMELTABLE_EDEN = item("smeltable_equipment/eden"), SMELTABLE_ENDER = item("smeltable_equipment/ender"),
-            SMELTABLE_GOLD_COMPRESSED = item("smeltable_equipment/compressed/gold"), SMELTABLE_ICE = item("smeltable_equipment/ice"),
-            SMELTABLE_JUNGLE = item("smeltable_equipment/jungle"), SMELTABLE_MOLTEN = item("smeltable_equipment/molten"),
-            SMELTABLE_MORTUM = item("smeltable_equipment/mortum"), SMELTABLE_OXDRITE = item("smeltable_equipment/oxdrite"),
-            SMELTABLE_REALMITE = item("smeltable_equipment/realmite"), SMELTABLE_RUPEE = item("smeltable_equipment/rupee"),
-            SMELTABLE_SKYTHERN = item("smeltable_equipment/skythern"), SMELTABLE_TERRAN = item("smeltable_equipment/terran"),
-            SMELTABLE_TORRIDITE = item("smeltable_equipment/torridite"), SMELTABLE_WILDWOOD = item("smeltable_equipment/wildwood"),
-            SMELTABLE_TORRIDITE_COMPRESSED = item("smeltable_equipment/compressed/torridite"), SMELTABLE_REALMITE_COMPRESSED = item("smeltable_equipment/compressed/realmite");
+    //Misc
+    ARMOR_POUCHES = item("armor_pouches"),
+    FROSTED_ALLURE_CYCLE_ITEMS = item("frosted_allure_cycle_items"),
+    FURNACES = item("furnaces"),
+    CLOCKS = common("clocks"),
+    METAL_SPIKE_BLOCK = item("metal_spike_blocks"),
+    SHADOW_COIN = item("coins/shadow"),
 
-    public static final TagKey<Item> DIAMOND_GRAY = item("chunks/diamond/gray"), DIAMOND_BLUE = item("chunks/diamond/blue"),
-            DIAMOND_GREEN = item("chunks/diamond/green"), DIAMOND_RED = item("chunks/diamond/red"), DIAMOND_YELLOW = item("chunks/diamond/yellow"), DIAMOND_NO = item("no_itself/diamond_no_chunks");
+    //Smeltable
+    SMELTABLE_APALACHIA = item("smeltable_equipment/apalachia"),
+    SMELTABLE_ARLEMITE = item("smeltable_equipment/arlemite"),
+    SMELTABLE_CORRUPTED = item("smeltable_equipment/corrupted"),
+    SMELTABLE_DIVINE = item("smeltable_equipment/divine"),
+    SMELTABLE_EDEN = item("smeltable_equipment/eden"),
+    SMELTABLE_ENDER = item("smeltable_equipment/ender"),
+    SMELTABLE_GOLD_COMPRESSED = item("smeltable_equipment/compressed/gold"),
+    SMELTABLE_ICE = item("smeltable_equipment/ice"),
+    SMELTABLE_JUNGLE = item("smeltable_equipment/jungle"),
+    SMELTABLE_MOLTEN = item("smeltable_equipment/molten"),
+    SMELTABLE_MORTUM = item("smeltable_equipment/mortum"),
+    SMELTABLE_OXDRITE = item("smeltable_equipment/oxdrite"),
+    SMELTABLE_REALMITE = item("smeltable_equipment/realmite"),
+    SMELTABLE_RUPEE = item("smeltable_equipment/rupee"),
+    SMELTABLE_SKYTHERN = item("smeltable_equipment/skythern"),
+    SMELTABLE_TERRAN = item("smeltable_equipment/terran"),
+    SMELTABLE_TORRIDITE = item("smeltable_equipment/torridite"),
+    SMELTABLE_WILDWOOD = item("smeltable_equipment/wildwood"),
+    SMELTABLE_TORRIDITE_COMPRESSED = item("smeltable_equipment/compressed/torridite"),
+    SMELTABLE_REALMITE_COMPRESSED = item("smeltable_equipment/compressed/realmite"),
 
-        public static final TagKey<Block>
-                MINEABLE_SHICKAXE = block("mineable/shickaxe"), REPLACE_TREE_ICEIKA = block("replaceable_by_trees/iceika"),
-                FIRE = block("fire"), GATEWAY_RECEIVER = block("gateway_receiver"), METAL_SPIKE_BLOCKS = block("metal_spike_blocks");
+    //Diamons
+    DIAMOND_GRAY = item("chunks/diamond/gray"),
+    DIAMOND_BLUE = item("chunks/diamond/blue"),
+    DIAMOND_GREEN = item("chunks/diamond/green"),
+    DIAMOND_RED = item("chunks/diamond/red"),
+    DIAMOND_YELLOW = item("chunks/diamond/yellow"),
+    DIAMOND_NO = item("no_itself/diamond_no_chunks");
 
-        public static final TagKey<Block>
-                INC_AQUATIC = block("incorrect_for_tool/aquatic"), INC_REALMITE = block("incorrect_for_tool/realmite"),
-                INC_OXDRITE = block("incorrect_for_tool/oxdrite"), INC_ARLEMITE = block("incorrect_for_tool/arlemite"),
-                INC_TERRAN = block("incorrect_for_tool/terran"), INC_JUNGLE = block("incorrect_for_tool/jungle"),
-                INC_RUPEE = block("incorrect_for_tool/rupee"), INC_TORRIDITE = block("incorrect_for_tool/torridite"),
-                INC_BLOODGEM = block("incorrect_for_tool/bloodgem"), INC_MOLTEN = block("incorrect_for_tool/molten"),
-                INC_SOULFIRE = block("incorrect_for_tool/soulfire"), INC_ICE = block("incorrect_for_tool/ice"),
-                INC_SHADOW = block("incorrect_for_tool/shadow"), INC_SHADOW_GEM = block("incorrect_for_tool/shadow_gem"),
-                INC_BEDROCK = block("incorrect_for_tool/bedrock"), INC_CORRUPTED = block("incorrect_for_tool/corrupted"),
-                INC_ENDER = block("incorrect_for_tool/ender"), INC_DIVINE = block("incorrect_for_tool/divine"),
-                INC_ARCANIUM = block("incorrect_for_tool/arcanium"), INC_EDEN = block("incorrect_for_tool/eden"),
-                INC_WILDWOOD = block("incorrect_for_tool/wildwood"), INC_APALACHIA = block("incorrect_for_tool/apalachia"),
-                INC_SKYTHERN = block("incorrect_for_tool/skythern"), INC_MORTUM = block("incorrect_for_tool/mortum"),
-                INC_HALITE = block("incorrect_for_tool/halite"), INC_DREAM = block("incorrect_for_tool/dream"),
-                INC_TEAKER = block("incorrect_for_tool/teaker"), INC_AMTHIRMIS = block("incorrect_for_tool/amthirmis"),
-                INC_DARVEN = block("incorrect_for_tool/darven"), INC_CERMILE = block("incorrect_for_tool/cermile"),
-                INC_PARDIMAL = block("incorrect_for_tool/pardimal"), INC_QUADROTIC = block("incorrect_for_tool/quadrotic"),
-                INC_KAROS = block("incorrect_for_tool/karos"), INC_HELIOSIS = block("incorrect_for_tool/heliosis"),
-                INC_ARKSIANE = block("incorrect_for_tool/arksiane"), INC_EVER = block("incorrect_for_tool/ever");
+    public static final TagKey<Block>
+    MINEABLE_WITH_SHICKAXE = block("mineable/shickaxe"),
+    REPLACEABLE_BY_TREES_ICEIKA = block("replaceable_by_trees/iceika"),
+    FIRE_BLOCK = block("fire"),
+    GATEWAY_RECEIVER = block("gateway_receiver"),
+    METAL_SPIKE_BLOCKS = block("metal_spike_blocks"),
 
-    public static final TagKey<Block> BASE_ICY_FIRE = block("base_blocks/icy_fire");
-    public static final TagKey<Block> BEDROCK_GRINDING_BASE = block("bedrock_grinding_base");
-    public static final TagKey<Block> APALACHIA_ORE = commonBlock("ores/apalachia");
-    public static final TagKey<Block> ARLEMITE_ORE = commonBlock("ores/arlemite");
-    public static final TagKey<Block> BLOODGEM_ORE = commonBlock("ores/bloodgem");
-    public static final TagKey<Block> EDEN_ORE = commonBlock("ores/eden");
-    public static final TagKey<Block> MORTUM_ORE = commonBlock("ores/mortum");
-    public static final TagKey<Block> OXDRITE_ORE = commonBlock("ores/oxdrite");
-    public static final TagKey<Block> REALMITE_ORE = commonBlock("ores/realmite");
-    public static final TagKey<Block> RUPEE_ORE = commonBlock("ores/rupee");
-    public static final TagKey<Block> SKYTHERN_ORE = commonBlock("ores/skythern");
-    public static final TagKey<Block> TORRIDITE_ORE = commonBlock("ores/torridite");
-    public static final TagKey<Block> WILDWOOD_ORE = commonBlock("ores/wildwood");
-    public static final TagKey<Block> ORES = commonBlock("ores");
-    public static final TagKey<Block> EDEN_INFINIBURN = block("infiniburn/eden");
-    public static final TagKey<Block> WILDWOOD_INFINIBURN = block("infiniburn/wildwood");
-    public static final TagKey<Block> APALACHIA_INFINIBURN = block("infiniburn/apalachia");
-    public static final TagKey<Block> SKYTHERN_INFINIBURN = block("infiniburn/skythern");
-    public static final TagKey<Block> MORTUM_INFINIBURN = block("infiniburn/mortum");
-    public static final TagKey<Block> ICEIKA_INFINIBURN = block("infiniburn/iceika");
-    public static final TagKey<Block> ARCANA_INFINIBURN = block("infiniburn/arcana");
-    public static final TagKey<Block> VETHEA_INFINIBURN = block("infiniburn/vethea");
+    //Incorrect for Tools
+    INCORRECT_FOR_AQUATIC_TOOL = block("incorrect_for_tool/aquatic"),
+    INCORRECT_FOR_REALMITE_TOOL = block("incorrect_for_tool/realmite"),
+    INCORRECT_FOR_OXDRITE_TOOL = block("incorrect_for_tool/oxdrite"),
+    INCORRECT_FOR_ARLEMITE_TOOL = block("incorrect_for_tool/arlemite"),
+    INCORRECT_FOR_TERRAN_TOOL = block("incorrect_for_tool/terran"),
+    INCORRECT_FOR_JUNGLE_TOOL = block("incorrect_for_tool/jungle"),
+    INCORRECT_FOR_RUPEE_TOOL = block("incorrect_for_tool/rupee"),
+    INCORRECT_FOR_TORRIDITE_TOOL = block("incorrect_for_tool/torridite"),
+    INCORRECT_FOR_BLOODGEM_TOOL = block("incorrect_for_tool/bloodgem"),
+    INCORRECT_FOR_MOLTEN_TOOL = block("incorrect_for_tool/molten"),
+    INCORRECT_FOR_SOULFIRE_TOOL = block("incorrect_for_tool/soulfire"),
+    INCORRECT_FOR_ICE_TOOL = block("incorrect_for_tool/ice"),
+    INCORRECT_FOR_SHADOW_TOOL = block("incorrect_for_tool/shadow"),
+    INCORRECT_FOR_SHADOW_GEM_TOOL = block("incorrect_for_tool/shadow_gem"),
+    INCORRECT_FOR_BEDROCK_TOOL = block("incorrect_for_tool/bedrock"),
+    INCORRECT_FOR_CORRUPTED_TOOL = block("incorrect_for_tool/corrupted"),
+    INCORRECT_FOR_ENDER_TOOL = block("incorrect_for_tool/ender"),
+    INCORRECT_FOR_DIVINE_TOOL = block("incorrect_for_tool/divine"),
+    INCORRECT_FOR_ARCANIUM_TOOL = block("incorrect_for_tool/arcanium"),
+    INCORRECT_FOR_EDEN_TOOL = block("incorrect_for_tool/eden"),
+    INCORRECT_FOR_WILDWOOD_TOOL = block("incorrect_for_tool/wildwood"),
+    INCORRECT_FOR_APALACHIA_TOOL = block("incorrect_for_tool/apalachia"),
+    INCORRECT_FOR_SKYTHERN_TOOL = block("incorrect_for_tool/skythern"),
+    INCORRECT_FOR_MORTUM_TOOL = block("incorrect_for_tool/mortum"),
+    INCORRECT_FOR_HALITE_TOOL = block("incorrect_for_tool/halite"),
+    INCORRECT_FOR_DREAM_TOOL = block("incorrect_for_tool/dream"),
+    INCORRECT_FOR_TEAKER_TOOL = block("incorrect_for_tool/teaker"),
+    INCORRECT_FOR_AMTHIRMIS_TOOL = block("incorrect_for_tool/amthirmis"),
+    INCORRECT_FOR_DARVEN_TOOL = block("incorrect_for_tool/darven"),
+    INCORRECT_FOR_CERMILE_TOOL = block("incorrect_for_tool/cermile"),
+    INCORRECT_FOR_PARDIMAL_TOOL = block("incorrect_for_tool/pardimal"),
+    INCORRECT_FOR_QUADROTIC_TOOL = block("incorrect_for_tool/quadrotic"),
+    INCORRECT_FOR_KAROS_TOOL = block("incorrect_for_tool/karos"),
+    INCORRECT_FOR_HELIOSIS_TOOL = block("incorrect_for_tool/heliosis"),
+    INCORRECT_FOR_ARKSIANE_TOOL = block("incorrect_for_tool/arksiane"),
+    INCORRECT_FOR_EVER_TOOL = block("incorrect_for_tool/ever"),
 
-        public static final TagKey<Block>
-                RIFT_EDEN_BLOCK = block("rift_resonating/eden"), RIFT_WILDWOOD_BLOCK = block("rift_resonating/wildwood"),
-                RIFT_APALACHIA_BLOCK = block("rift_resonating/apalachia"), RIFT_SKYTHERN_BLOCK = block("rift_resonating/skythern"),
-                RIFT_MORTUM_BLOCK = block("rift_resonating/mortum");
+    //Base Blocks
+    BASE_BLOCKS_ICY_FIRE = block("base_blocks/icy_fire"),
+    BEDROCK_GRINDING_BASE = block("bedrock_grinding_base"),
 
-    public static final TagKey<Fluid> SMOLDERING_TAR = fluid("smoldering_tar");
-    public static final TagKey<DamageType> AVOIDS_THORNS = damageType("avoids_saguaro_thorns"), MAGE_RESIST = damageType("mage_resistant_to");
+    //Ores
+    APALACHIA_ORE = commonBlock("ores/apalachia"),
+    ARLEMITE_ORE = commonBlock("ores/arlemite"),
+    BLOODGEM_ORE = commonBlock("ores/bloodgem"),
+    EDEN_ORE = commonBlock("ores/eden"),
+    MORTUM_ORE = commonBlock("ores/mortum"),
+    OXDRITE_ORE = commonBlock("ores/oxdrite"),
+    REALMITE_ORE = commonBlock("ores/realmite"),
+    RUPEE_ORE = commonBlock("ores/rupee"),
+    SKYTHERN_ORE = commonBlock("ores/skythern"),
+    TORRIDITE_ORE = commonBlock("ores/torridite"),
+    WILDWOOD_ORE = commonBlock("ores/wildwood"),
+    ORES = commonBlock("ores"),
+    EDEN_INFINIBURN = block("infiniburn/eden"),
+    WILDWOOD_INFINIBURN = block("infiniburn/wildwood"),
+    APALACHIA_INFINIBURN = block("infiniburn/apalachia"),
+    SKYTHERN_INFINIBURN = block("infiniburn/skythern"),
+    MORTUM_INFINIBURN = block("infiniburn/mortum"),
+    ICEIKA_INFINIBURN = block("infiniburn/iceika"),
+    ARCANA_INFINIBURN = block("infiniburn/arcana"),
+    VETHEA_INFINIBURN = block("infiniburn/vethea"),
+
+    //Rift related Blocks
+    RIFT_RESONATING_OVERWORLD = block("rift_resonating/overworld"),
+    RIFT_RESONATING_EDEN = block("rift_resonating/eden"),
+    RIFT_RESONATING_WILDWOOD = block("rift_resonating/wildwood"),
+    RIFT_RESONATING_APALACHIA = block("rift_resonating/apalachia"),
+    RIFT_RESONATING_SKYTHERN = block("rift_resonating/skythern"),
+    RIFT_RESONATING_MORTUM = block("rift_resonating/mortum");
+
+    public static final TagKey<Level>
+    STABLE_OVERWORLD_RIFT = level("stable_overworld_rift"),
+    STABLE_EDEN_RIFT = level("stable_eden_rift"),
+    STABLE_WILDWOOD_RIFT = level("stable_wildwood_rift"),
+    STABLE_APALACHIA_RIFT = level("stable_apalachia_rift"),
+    STABLE_SKYTHERN_RIFT = level("stable_skythern_rift"),
+    STABLE_MORTUM_RIFT = level("stable_mortum_rift");
+
+    public static final TagKey<Fluid>
+    SMOLDERING_TAR = fluid("smoldering_tar");
+
+    public static final TagKey<DamageType>
+    AVOIDS_SAGUARO_THORNS = damageType("avoids_saguaro_thorns"),
+    MAGE_RESISTANT_TO = damageType("mage_resistant_to");
     public static final TagKey<Structure>
-            ICEIKA_DUNGEON = structure("iceika_dungeon"), GRUZZORLUG_RAID = structure("gruzzorlug_raid_targets"),
-            RAID_TARGETS = structure("groglin_raid_targets"), WHALE_SKULL = structure("whale_skull");
+    //Iceika Structures
+    ICEIKA_DUNGEON = structure("iceika_dungeon"),
+    GRUZZORLUG_RAID_TARGETS = structure("gruzzorlug_raid_targets"),
+    RAID_TARGETS = structure("groglin_raid_targets"),
+    WHALE_SKULL = structure("whale_skull");
 
-    public static final TagKey<Biome> BASALT_DELTAS = biome("basalt_deltas"), CRIMSON_FOREST = biome("crimson_forest"), IS_DEEP_DARK_OR_MUSHROOM = biome("is_deep_dark_or_mushroom"),
-            DRIPSTONE_CAVES = biome("dripstone_caves"), NETHER_WASTES = biome("nether_wastes"), SOUL_SAND_VALLEY = biome("soul_sand_valley"), WARM_OCEAN = biome("warm_ocean");
+    //Entity type
+    public static final TagKey<EntityType<?>>
+    OVERWORLD = entityType("creatures/overworld"),
+    NETHER = entityType("creatures/nether"),
+    END = entityType("creatures/end"),
+    BEACH = entityType("creatures/overworld/beach"),
+    CAVE = entityType("creatures/overworld/cave"),
+    DESERT = entityType("creatures/overworld/desert"),
+    GENERAL = entityType("creatures/overworld/general"),
+    JUNGLE = entityType("creatures/overworld/jungle"),
+    SNOWY = entityType("creatures/overworld/snowy"),
+    VISITOR = entityType("creatures/overworld/visitor"),
+    WATER = entityType("creatures/overworld/water"),
+    AQUATIC = entityType("aquatic"),
+    BOSSES = entityType("bosses"),
+    JELLYFISH = entityType("jellyfish"),
+    PROJECTILE = entityType("projectile"),
+    SHARKS = entityType("sharks"),
+    WHALES = entityType("whales");
 
-    public static final TagKey<EntityType<?>> OVERWORLD = entityType("creatures/overworld"), NETHER = entityType("creatures/nether"), END = entityType("creatures/end"),
-            BEACH = entityType("creatures/overworld/beach"), CAVE = entityType("creatures/overworld/cave"), DESERT = entityType("creatures/overworld/desert"),
-            GENERAL = entityType("creatures/overworld/general"), JUNGLE = entityType("creatures/overworld/jungle"), SNOWY = entityType("creatures/overworld/snowy"),
-            VISITOR = entityType("creatures/overworld/visitor"), WATER = entityType("creatures/overworld/water"), AQUATIC = entityType("aquatic"),
-            BOSSES = entityType("bosses"), JELLYFISH = entityType("jellyfish"), PROJECTILE = entityType("projectile"), SHARKS = entityType("sharks"),
-            WHALES = entityType("whales");
+    //Biome
+    public static final TagKey<Biome>
+    BASALT_DELTAS = biome("basalt_deltas"),
+    CRIMSON_FOREST = biome("crimson_forest"),
+    IS_DEEP_DARK_OR_MUSHROOM = biome("is_deep_dark_or_mushroom"),
+    DRIPSTONE_CAVES = biome("dripstone_caves"),
+    NETHER_WASTES = biome("nether_wastes"),
+    SOUL_SAND_VALLEY = biome("soul_sand_valley"),
+    WARM_OCEAN = biome("warm_ocean");
 
-    private static TagKey<Item> item(String path) { return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, path)); }
-    private static TagKey<Item> minecraftItem(String path) { return TagKey.create(Registries.ITEM, Identifier.parse(path)); }
-    private static TagKey<Item> common(String path) { return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", path)); }
+    private static Identifier location(String path) {return Identifier.fromNamespaceAndPath(DivineRPG.MODID, path);}
+    private static TagKey<Item> item(String path) {return TagKey.create(Registries.ITEM, location(path));}
+    private static TagKey<Block> block(String path) {return TagKey.create(Registries.BLOCK, location(path));}
+    private static TagKey<Fluid> fluid(String path) {return TagKey.create(Registries.FLUID, location(path));}
+    private static TagKey<DamageType> damageType(String path) {return TagKey.create(Registries.DAMAGE_TYPE, location(path));}
+    private static TagKey<Structure> structure(String path) {return TagKey.create(Registries.STRUCTURE, location(path));}
+    private static TagKey<Level> level(String path) {return TagKey.create(Registries.DIMENSION, location(path));}
+    private static TagKey<Biome> biome(String path) {return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(DivineRPG.MODID, path));}
+    private static TagKey<EntityType<?>> entityType(String path) {return TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(DivineRPG.MODID, path));}
+    private static TagKey<Item> common(String path) {return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", path));}
+    private static TagKey<Item> minecraftItem(String path) {return TagKey.create(Registries.ITEM, Identifier.parse(path));}
     private static TagKey<Block> commonBlock(String path) { return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", path)); }
-    private static TagKey<Block> block(String path) { return TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, path)); }
-    private static TagKey<Fluid> fluid(String path) { return TagKey.create(Registries.FLUID, Identifier.fromNamespaceAndPath(MODID, path)); }
-    private static TagKey<DamageType> damageType(String path) { return TagKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(MODID, path)); }
-    private static TagKey<Structure> structure(String path) { return TagKey.create(Registries.STRUCTURE, Identifier.fromNamespaceAndPath(MODID, path)); }
-    private static TagKey<Biome> biome(String path) { return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, path)); }
-    private static TagKey<EntityType<?>> entityType(String path) { return TagKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(MODID, path)); }
 }

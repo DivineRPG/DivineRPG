@@ -34,7 +34,7 @@ import static net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE;
 
 public class EntityDolossal extends AbstractHorse {
     private static final Supplier<Ingredient> FOOD = Suppliers.memoize(() ->
-            Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(TagRegistry.FOOD_DOLOSSAL))
+            Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(TagRegistry.ANIMAL_FOODS_DOLOSSAL))
     );
     public EntityDolossal(EntityType<? extends EntityDolossal> type, Level level) {
         super(type, level);

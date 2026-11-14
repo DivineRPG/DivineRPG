@@ -2,12 +2,9 @@ package divinerpg.data;
 
 import com.google.gson.*;
 import com.mojang.math.Transformation;
-import divinerpg.DivineRPG;
-import divinerpg.blocks.base.BlockModDoubleFlower;
-import divinerpg.blocks.base.BlockModDoublePlant;
-import divinerpg.blocks.base.BlockModFlower;
-import divinerpg.blocks.base.BlockModGrass;
-import divinerpg.blocks.twilight.BlockBrambles;
+import divinerpg.blocks.base.Flower;
+import divinerpg.blocks.base.ModGrass;
+import divinerpg.blocks.twilight.Bramble;
 import divinerpg.client.renders.item.ArcaniumExtractorItemRenderer;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.DivineRegistries;
@@ -20,7 +17,6 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.SpecialModelWrapper;
-import net.minecraft.client.resources.model.cuboid.ItemModelGenerator;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -64,8 +60,8 @@ public class ModModelProvider extends ModelProvider {
         registerArcaniumExtractor(gen, BlockRegistry.arcaniumExtractor.get());
         registerStairs(gen, BlockRegistry.stairDesign.get(), BlockRegistry.plankDesign.get());
         registerSlab(gen, BlockRegistry.slabDesign.get(), BlockRegistry.plankDesign.get());
-        registerSlab(gen, BlockRegistry.cobbledScorchaltSlab.get(), BlockRegistry.cobbledScorchalt.get());
-        registerCarpet(gen, BlockRegistry.rainbowWoolCarpet.get(), BlockRegistry.rainbowWool.get());
+        registerSlab(gen, BlockRegistry.cobbledScorchaltSet.get(2).get(), BlockRegistry.cobbledScorchaltSet.getFirst().get());
+        registerCarpet(gen, BlockRegistry.rainbowSet.getLast().get(), BlockRegistry.rainbowSet.getFirst().get());
         for (var entry : DivineRegistries.ITEMS.getEntries()) {
             Item item = entry.get();
             if (registeredItems.contains(item)) continue;
@@ -137,19 +133,16 @@ public class ModModelProvider extends ModelProvider {
                 else if (block instanceof SaplingBlock sapling) {
                     registerCrossBlock(gen, sapling);
                 }
-                else if (block instanceof BlockModFlower flower) {
+                else if (block instanceof Flower flower) {
                     registerCrossBlock(gen, flower);
                 }
-                else if (block instanceof BlockModGrass grass) {
+                else if (block instanceof ModGrass grass) {
                     registerCrossBlock(gen, grass);
                 }
-                else if (block instanceof BlockModDoublePlant plant) {
+                else if (block instanceof DoublePlantBlock plant) {
                     registerDoubleCrossBlock(gen, plant);
                 }
-                else if (block instanceof BlockModDoubleFlower flower) {
-                    registerDoubleCrossBlock(gen, flower);
-                }
-                else if (block instanceof BlockBrambles brambles) {
+                else if (block instanceof Bramble brambles) {
                     registerDoubleCrossBlock(gen, brambles);
                 }
                 else if (block == BlockRegistry.arcaniteTubes.get()) {

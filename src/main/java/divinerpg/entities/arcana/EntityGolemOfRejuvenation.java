@@ -25,8 +25,8 @@ public class EntityGolemOfRejuvenation extends EntityDivineTameable {
             } else healTimer++;
         }
     }
-    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_REJUVENATION);}
-    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.TAMING_REJUVENATION);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_GOLEM_OF_REJUVENATION);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_GOLEM_OF_REJUVENATION);}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.GOLEM.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.GROWL_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.GROWL_HURT.get();}

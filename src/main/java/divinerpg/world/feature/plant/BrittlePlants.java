@@ -21,7 +21,7 @@ public class BrittlePlants implements Feature {
 		if(level.getBlockState(pos).is(BlockRegistry.brittleMoss.get())) {
 			BlockPos p;
 			if(level.getBlockState(p = pos.above()).isAir() && random.nextBoolean()) {
-				setBlock(level, p, random.nextBoolean() ? BlockRegistry.winterberryBush.get().defaultBlockState() : BlockRegistry.brittleGrass.get().defaultBlockState());
+				setBlock(level, p, random.nextBoolean() ? BlockRegistry.winterberryBush.get().defaultBlockState() : BlockRegistry.brittleGrass.getFirst().get().defaultBlockState());
 			} else if(level.getBlockState(p = pos.below()).isAir()) {
 				if(random.nextBoolean()) {
 					int length = random.nextInt(4);
