@@ -1,18 +1,18 @@
 {
   "values": [
-    "divinerpg:divine_leaves",
-    "divinerpg:brittle_leaves",
+    "divinerpg:apalachia_leaves",
     "divinerpg:auroraoak_leaves",
     "divinerpg:cozybark_leaves",
-    "divinerpg:streamleaf_leaves",
-    "divinerpg:eden_leaves",
-    "divinerpg:wildwood_leaves",
-    "divinerpg:apalachia_leaves",
-    "divinerpg:skythern_leaves",
-    "divinerpg:mortum_leaves",
-    "divinerpg:firewood_leaves",
+    "divinerpg:divine_leaves",
     "divinerpg:dreamwood_leaves",
+    "divinerpg:eden_leaves",
+    "divinerpg:firewood_leaves",
     "divinerpg:hyrewood_leaves",
-    "divinerpg:mintwood_leaves"
+    "divinerpg:mintwood_leaves",
+    "divinerpg:mortum_leaves",
+    "divinerpg:shiverspine_leaves",
+    "divinerpg:skythern_leaves",
+    "divinerpg:streamleaf_leaves",
+    "divinerpg:wildwood_leaves"
   ]
 }

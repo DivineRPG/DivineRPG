@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawn_costs",
-  "biomes": "#divinerpg:soul_sand_valley",
+  "biomes": "#divinerpg:is_soul_sand_valley",
   "entity_types": [
     "divinerpg:wildfire",
     "divinerpg:scorcher"

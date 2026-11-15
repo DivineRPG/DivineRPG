@@ -18,6 +18,9 @@
     "id": "divinerpg:divine_flame"
   },
   "portal": {
-    "id": "divinerpg:eden_portal"
+    "id": "divinerpg:eden_portal",
+    "properties": {
+      "axis": "x"
+    }
   }
 }

@@ -792,8 +792,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ItemTags.WOODEN_TRAPDOORS).add(toKey(divineWoodSet.get(14).asItem()), toKey(shiverspineWoodSet.get(14).asItem()), toKey(auroraoakWoodSet.get(14).asItem()), toKey(cozybarkWoodSet.get(14).asItem()), toKey(streamleafWoodSet.get(14).asItem()), toKey(eucalyptusWoodSet.get(11).asItem()), toKey(edenWoodSet.get(14).asItem()), toKey(wildwoodWoodSet.get(14).asItem()), toKey(apalachiaWoodSet.get(14).asItem()), toKey(skythernWoodSet.get(14).asItem()), toKey(mortumWoodSet.get(14).asItem()));
 
         tag(ItemTags.WOOL).add(toKey(checkerSet.getFirst().asItem()), toKey(rainbowSet.getFirst().asItem()), toKey(fancySet.getFirst().asItem()), toKey(workshopCarpetSet.getFirst().asItem()));
-        tag(ItemTags.WOOL_STAIRS).add(toKey(checkerSet.get(1).asItem()), toKey(rainbowSet.get(1).asItem()), toKey(fancySet.get(1).asItem()), toKey(workshopCarpetSet.get(1).asItem()));
-        tag(ItemTags.WOOL_SLABS).add(toKey(checkerSet.get(2).asItem()), toKey(rainbowSet.get(2).asItem()), toKey(fancySet.get(2).asItem()), toKey(workshopCarpetSet.get(2).asItem()));
+        tag(ItemTags.WOOL_STAIRS).add(toKey(checkerSet.get(0).asItem()), toKey(rainbowSet.get(0).asItem()), toKey(fancySet.get(0).asItem()), toKey(workshopCarpetSet.get(0).asItem()));
+        tag(ItemTags.WOOL_SLABS).add(toKey(checkerSet.get(1).asItem()), toKey(rainbowSet.get(1).asItem()), toKey(fancySet.get(1).asItem()), toKey(workshopCarpetSet.get(1).asItem()));
 
         tag(ItemTags.BEDS).add(nightmare_bed.key());
 

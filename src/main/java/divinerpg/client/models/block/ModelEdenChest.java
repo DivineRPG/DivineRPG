@@ -5,7 +5,10 @@ import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 
+import static divinerpg.utils.Utils.createLocation;
+
 public class ModelEdenChest extends Model<Float> {
+    public static final ModelLayerLocation LAYER_LOCATION = createLocation("eden_chest");
     public final ModelPart lid, chestKnobLeft, chestKnobMiddle, chestKnobRight;
     public ModelEdenChest(ModelPart root) {
         super(root, RenderTypes::entityCutout);

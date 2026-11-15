@@ -467,7 +467,7 @@ interface PropertyOverride extends Function<Properties, Properties> {
         PredUnbreakable = unbreakableBlock.then(red),
         PsoulStoneDoor = arcanaDoor.then(terraBlue),
         PsludgeDoor = arcanaDoor.then(gray),
-        PthermalVent = stone.then(S1o5x3).then(shapedBrittle).then(p -> p.sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.FLUTE).offsetType(OffsetType.XYZ)),
+        PthermalVent = stone.then(S1o5x3).then(shapedBrittle).then(p -> p.sound(SoundType.DRIPSTONE_BLOCK).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.FLUTE).offsetType(OffsetType.XYZ).dynamicShape()),
         PwhiteStone = rock.then(wool),
         PgreenUnbreakable = green.then(unbreakableBlock),
         PwhiteUnbreakable = wool.then(unbreakableBlock),

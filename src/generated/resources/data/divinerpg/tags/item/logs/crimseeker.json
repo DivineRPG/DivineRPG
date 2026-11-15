@@ -1,5 +1,8 @@
 {
   "values": [
-    "divinerpg:crimseeker_log"
+    "divinerpg:crimseeker_log",
+    "divinerpg:crimseeker_wood",
+    "divinerpg:stripped_crimseeker_log",
+    "divinerpg:stripped_crimseeker_wood"
   ]
 }

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "divinerpg:block/polished",
-    "side": "divinerpg:block/polished",
-    "top": "divinerpg:block/polished"
-  }
-}

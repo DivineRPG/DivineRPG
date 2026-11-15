@@ -1,18 +1,4 @@
 {
   "type": "minecraft:block",
-  "pools": [
-    {
-      "condition": {
-        "type": "minecraft:survives_explosion"
-      },
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "divinerpg:gem_of_the_dunes_pot"
-        }
-      ],
-      "rolls": 1
-    }
-  ],
   "random_sequence": "divinerpg:blocks/gem_of_the_dunes_pot"
 }

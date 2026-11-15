@@ -68,12 +68,12 @@
                 },
                 "then_run": {
                   "type": "minecraft:block",
-                  "result_state": "divinerpg:scorched_dirt"
+                  "result_state": "divinerpg:scorchdirt"
                 }
               },
               {
                 "type": "minecraft:block",
-                "result_state": "divinerpg:scorched_dirt"
+                "result_state": "divinerpg:scorchdirt"
               }
             ]
           }

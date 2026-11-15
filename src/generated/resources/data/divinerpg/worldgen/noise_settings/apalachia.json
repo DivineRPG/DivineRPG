@@ -17,7 +17,7 @@
         },
         "then_run": {
           "type": "minecraft:block",
-          "result_state": "divinerpg:apalachia_grass"
+          "result_state": "divinerpg:apalachia_dirt"
         }
       },
       {
@@ -47,8 +47,8 @@
     "erosion": "minecraft:overworld/erosion",
     "final_density": {
       "type": "minecraft:interpolated",
-      "cell_size_xz": 4,
-      "cell_size_y": 8,
+      "cell_size_xz": 8,
+      "cell_size_y": 4,
       "input": {
         "type": "minecraft:add",
         "left": {

@@ -1,7 +1,12 @@
 {
   "values": [
     "divinerpg:checker",
+    "divinerpg:checker_stairs",
+    "divinerpg:checker_slab",
+    "divinerpg:checker_carpet",
     "divinerpg:rainbow_wool",
+    "divinerpg:rainbow_stairs",
+    "divinerpg:rainbow_slab",
     "divinerpg:rainbow_carpet"
   ]
 }

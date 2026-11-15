@@ -458,8 +458,8 @@
           "left": 0.64,
           "right": {
             "type": "minecraft:interpolated",
-            "cell_size_xz": 4,
-            "cell_size_y": 1,
+            "cell_size_xz": 8,
+            "cell_size_y": 4,
             "input": {
               "type": "minecraft:blend_density",
               "input": {

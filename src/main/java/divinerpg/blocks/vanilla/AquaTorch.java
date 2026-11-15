@@ -30,7 +30,6 @@ public class AquaTorch extends TorchBlock implements SimpleWaterloggedBlock {
         super.createBlockStateDefinition(state);
     }
     @Override public FluidState getFluidState(BlockState state) {return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : Fluids.EMPTY.defaultFluidState();}
-    @OnlyIn(Dist.CLIENT)
     @Override public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         double d0 = pos.getX() + .5;
         double d1 = pos.getY() + .7;

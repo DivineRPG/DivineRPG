@@ -352,8 +352,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.WOODEN_TRAPDOORS).add(divineWoodSet.get(14).key(), shiverspineWoodSet.get(14).key(), auroraoakWoodSet.get(14).key(), cozybarkWoodSet.get(14).key(), streamleafWoodSet.get(14).key(), eucalyptusWoodSet.get(11).key(), edenWoodSet.get(14).key(), wildwoodWoodSet.get(14).key(), apalachiaWoodSet.get(14).key(), skythernWoodSet.get(14).key(), mortumWoodSet.get(14).key());
 
         tag(BlockTags.WOOL).add(checkerSet.getFirst().key(), rainbowSet.getFirst().key(), fancySet.getFirst().key(), workshopCarpetSet.getFirst().key());
-        tag(BlockTags.WOOL_STAIRS).add(checkerSet.get(1).key(), rainbowSet.get(1).key(), fancySet.get(1).key(), workshopCarpetSet.get(1).key());
-        tag(BlockTags.WOOL_SLABS).add(checkerSet.get(2).key(), rainbowSet.get(2).key(), fancySet.get(2).key(), workshopCarpetSet.get(2).key());
+        tag(BlockTags.WOOL_STAIRS).add(checkerSet.get(0).key(), rainbowSet.get(0).key(), fancySet.get(0).key(), workshopCarpetSet.get(0).key());
+        tag(BlockTags.WOOL_SLABS).add(checkerSet.get(1).key(), rainbowSet.get(1).key(), fancySet.get(1).key(), workshopCarpetSet.get(1).key());
 
         tag(BlockTags.BEDS).add(nightmareBed.key());
 

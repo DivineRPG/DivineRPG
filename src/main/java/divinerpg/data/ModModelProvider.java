@@ -295,8 +295,11 @@ public class ModModelProvider extends ModelProvider {
         TextureMapping mapping = TextureMapping.cube(texture);
         Identifier modelId = ModelTemplates.CUBE_ALL.create(block, mapping, gen.modelOutput);
         gen.blockStateOutput.accept(createSimpleBlock(block, plainVariant(modelId)));
-        gen.registerSimpleItemModel(block.asItem(), modelId);
-        registeredItems.add(block.asItem());
+        Item item = block.asItem();
+        if (item != Items.AIR) {
+            gen.registerSimpleItemModel(block.asItem(), modelId);
+            registeredItems.add(block.asItem());
+        }
     }
 
     private void registerButton(BlockModelGenerators gen, Block button, Block base) {

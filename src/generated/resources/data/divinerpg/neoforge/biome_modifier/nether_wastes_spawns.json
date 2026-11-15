@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#divinerpg:nether_wastes",
+  "biomes": "#divinerpg:is_nether_waste",
   "spawners": [
     {
       "type": "divinerpg:hell_spider",

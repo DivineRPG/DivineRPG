@@ -4,8 +4,6 @@ import divinerpg.client.particle.options.ParticleColouredOption;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.util.RandomSource;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 
 public class ParticleColored extends SimpleAnimatedParticle {

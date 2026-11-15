@@ -5,7 +5,10 @@ import net.minecraft.client.model.geom.*;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 
+import static divinerpg.utils.Utils.createLocation;
+
 public class ModelPresentBox extends Model<Float> {
+    public static final ModelLayerLocation LAYER_LOCATION = createLocation("present_box");
     public final ModelPart lid;
     public final ModelPart handle;
 

@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#divinerpg:crimson_forest",
+  "biomes": "#divinerpg:is_crimson_forest",
   "spawners": [
     {
       "type": "divinerpg:hell_pig",

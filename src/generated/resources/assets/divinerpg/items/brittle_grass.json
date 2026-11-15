@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "divinerpg:block/brittle_grass"
+    "model": "divinerpg:item/brittle_grass"
   }
 }

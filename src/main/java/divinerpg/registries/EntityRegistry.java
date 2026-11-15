@@ -2,13 +2,15 @@ package divinerpg.registries;
 
 import divinerpg.client.models.*;
 import divinerpg.client.models.arcana.*;
-import divinerpg.client.models.block.ModelArcaniumExtractor;
+import divinerpg.client.models.block.*;
 import divinerpg.client.models.boss.*;
 import divinerpg.client.models.iceika.*;
 import divinerpg.client.models.twilight.*;
 import divinerpg.client.models.vanilla.*;
 import divinerpg.client.models.vethea.*;
 import divinerpg.client.renders.base.*;
+import divinerpg.client.renders.block_entities.RenderBoneChest;
+import divinerpg.client.renders.block_entities.RenderFrostedChest;
 import divinerpg.client.renders.entity.arcana.RenderDungeonConstructor;
 import divinerpg.client.renders.entity.boss.*;
 import divinerpg.client.renders.entity.iceika.*;
@@ -43,6 +45,7 @@ import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.monster.spider.SpiderModel;
 import net.minecraft.client.model.object.cart.MinecartModel;
+import net.minecraft.client.model.object.chest.ChestModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MinecartRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -1234,13 +1237,14 @@ public class EntityRegistry {
 
         //Blocks
         event.registerLayerDefinition(ModelArcaniumExtractor.LAYER_LOCATION, ModelArcaniumExtractor::createBodyLayer);
-//        event.registerLayerDefinition(ModelBoneChest.LAYER_LOCATION, ModelBoneChest::createBodyLayer);
-//        event.registerLayerDefinition(ModelDemonFurnace.LAYER_LOCATION, ModelDemonFurnace::createBodyLayer);
+        event.registerLayerDefinition(RenderFrostedChest.LAYER_LOCATION, ChestModel::createSingleBodyLayer);
+        event.registerLayerDefinition(RenderBoneChest.LAYER_LOCATION, ChestModel::createSingleBodyLayer);
+        event.registerLayerDefinition(ModelDemonFurnace.LAYER_LOCATION, ModelDemonFurnace::createBodyLayer);
 //        event.registerLayerDefinition(ModelDramixAltar.LAYER_LOCATION, ModelDramixAltar::createBodyLayer);
-//        event.registerLayerDefinition(ModelEdenChest.LAYER_LOCATION, ModelEdenChest::createBodyLayer);
-//        event.registerLayerDefinition(ModelFrostedChest.LAYER_LOCATION, ModelFrostedChest::createBodyLayer);
+        event.registerLayerDefinition(ModelEdenChest.LAYER_LOCATION, ModelEdenChest::createBodyLayer);
+        event.registerLayerDefinition(RenderFrostedChest.LAYER_LOCATION, ChestModel::createSingleBodyLayer);
 //        event.registerLayerDefinition(ModelParasectaAltar.LAYER_LOCATION, ModelParasectaAltar::createBodyLayer);
-//        event.registerLayerDefinition(ModelPresentBox.LAYER_LOCATION, ModelPresentBox::createBodyLayer);
+        event.registerLayerDefinition(ModelPresentBox.LAYER_LOCATION, ModelPresentBox::createBodyLayer);
 
         //Misc
         event.registerLayerDefinition(ModelHat.LAYER_LOCATION, ModelHat::createBodyLayer);

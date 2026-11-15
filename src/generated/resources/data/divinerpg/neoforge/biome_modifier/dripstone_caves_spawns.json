@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#divinerpg:dripstone_caves",
+  "biomes": "#divinerpg:is_dripstone_cave",
   "spawners": [
     {
       "type": "divinerpg:jack_o_man",

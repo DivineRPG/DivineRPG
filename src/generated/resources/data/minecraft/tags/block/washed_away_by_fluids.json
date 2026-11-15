@@ -1,7 +1,9 @@
 {
   "remove": [
     "divinerpg:terran_ghost_block",
-    "divinerpg:dungeon_air"
+    "divinerpg:dungeon_air",
+    "divinerpg:aqua_torch",
+    "divinerpg:aqua_wall_torch"
   ],
   "values": [
     "#divinerpg:crops",
@@ -11,6 +13,7 @@
     "#divinerpg:vines",
     "#divinerpg:cave_vines",
     "#divinerpg:statues",
+    "#divinerpg:torches",
     "#divinerpg:acids",
     "divinerpg:winterberry_bush",
     "divinerpg:arcana_bush",

@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#divinerpg:basalt_deltas",
+  "biomes": "#divinerpg:is_basalt_delta",
   "spawners": {
     "type": "divinerpg:scorcher",
     "count": {

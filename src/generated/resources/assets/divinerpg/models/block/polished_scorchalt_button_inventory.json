@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_inventory",
   "textures": {
-    "texture": "divinerpg:block/polished_scorchalt"
+    "texture": "divinerpg:block/polished_scorchalt_stone"
   }
 }

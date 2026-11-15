@@ -15,6 +15,9 @@
     "id": "divinerpg:enchanted_flame"
   },
   "portal": {
-    "id": "divinerpg:apalachia_portal"
+    "id": "divinerpg:apalachia_portal",
+    "properties": {
+      "axis": "x"
+    }
   }
 }

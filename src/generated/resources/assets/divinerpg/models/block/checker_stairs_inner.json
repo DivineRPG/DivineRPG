@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "divinerpg:block/checker",
+    "side": "divinerpg:block/checker",
+    "top": "divinerpg:block/checker"
+  }
+}

@@ -1,6 +1,12 @@
 {
   "remove": [
-    "divinerpg:fancy_wool"
+    "divinerpg:fancy_wool",
+    "divinerpg:fancy_stairs",
+    "divinerpg:fancy_slab",
+    "divinerpg:fancy_carpet",
+    "divinerpg:workshop_stairs",
+    "divinerpg:workshop_slab",
+    "divinerpg:workshop_slab"
   ],
   "values": [
     "#divinerpg:storage_blocks/irreversible/steel",

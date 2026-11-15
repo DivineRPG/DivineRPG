@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "bottom": "divinerpg:block/scorched_dirt",
+    "bottom": "divinerpg:block/scorched_grass",
     "side": "divinerpg:block/scorched_grass_side",
     "top": "divinerpg:block/scorched_grass_top"
   }

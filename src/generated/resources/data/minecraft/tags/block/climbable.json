@@ -2,8 +2,6 @@
   "values": [
     "#divinerpg:vines",
     "#divinerpg:cave_vines",
-    "divinerpg:shiverspine_ladder",
-    "divinerpg:arcanite_ladder",
-    "divinerpg:arcanite_tubes"
+    "#divinerpg:ladders"
   ]
 }

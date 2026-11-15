@@ -1,18 +1,18 @@
 {
   "values": [
-    "divinerpg:shiverspine_wood",
-    "divinerpg:auroraoak_wood",
-    "divinerpg:cozybark_wood",
-    "divinerpg:streamleaf_wood",
-    "divinerpg:eucalyptus_wood",
-    "divinerpg:eden_wood",
-    "divinerpg:wildwood_wood",
-    "divinerpg:apalachia_wood",
-    "divinerpg:skythern_wood",
-    "divinerpg:mortum_wood",
-    "divinerpg:firewood_wood",
-    "divinerpg:dreamwood_wood",
-    "divinerpg:hyrewood_wood",
-    "divinerpg:mintwood_wood"
+    "divinerpg:stripped_shiverspine_log",
+    "divinerpg:stripped_auroraoak_log",
+    "divinerpg:stripped_cozybark_log",
+    "divinerpg:stripped_streamleaf_log",
+    "divinerpg:stripped_eucalyptus_log",
+    "divinerpg:stripped_eden_log",
+    "divinerpg:stripped_wildwood_log",
+    "divinerpg:stripped_apalachia_log",
+    "divinerpg:stripped_skythern_log",
+    "divinerpg:stripped_mortum_log",
+    "divinerpg:stripped_firewood_log",
+    "divinerpg:stripped_dreamwood_log",
+    "divinerpg:stripped_hyrewood_log",
+    "divinerpg:stripped_mintwood_log"
   ]
 }

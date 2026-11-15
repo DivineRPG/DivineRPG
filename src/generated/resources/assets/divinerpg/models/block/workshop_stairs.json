@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "divinerpg:block/workshop",
+    "side": "divinerpg:block/workshop",
+    "top": "divinerpg:block/workshop"
+  }
+}

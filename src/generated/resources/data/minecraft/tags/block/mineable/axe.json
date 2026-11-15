@@ -2,17 +2,15 @@
   "values": [
     "#divinerpg:pumpkins",
     "#divinerpg:vines",
+    "#divinerpg:ladders/wooden",
     "#divinerpg:crates/wooden",
     "#divinerpg:fairy_lights",
     "divinerpg:present_box",
     "divinerpg:robbin_hut",
-    "divinerpg:shiverspine_ladder",
-    "divinerpg:arcanite_ladder",
-    "divinerpg:arcanite_tubes",
     "divinerpg:snowy_moss",
-    "divinerpg:glowsprout_stem",
-    "divinerpg:lowsprout_stem",
-    "divinerpg:slowsprout_stem",
+    "divinerpg:glowsprout_pot",
+    "divinerpg:lowsprout_pot",
+    "divinerpg:slowsprout_pot",
     "divinerpg:truffle"
   ]
 }
