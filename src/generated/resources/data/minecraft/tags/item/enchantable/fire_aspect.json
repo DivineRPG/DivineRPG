@@ -1,0 +1,7 @@
+{
+  "remove": [
+    "#divinerpg:tools/effect/fire",
+    "#divinerpg:tools/effect/slowness"
+  ],
+  "values": []
+}

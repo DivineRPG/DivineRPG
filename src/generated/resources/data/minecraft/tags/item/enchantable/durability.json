@@ -1,0 +1,31 @@
+{
+  "remove": [
+    "#divinerpg:tools/unbreakable"
+  ],
+  "values": [
+    "#divinerpg:tools/shickaxe",
+    "#divinerpg:tools/dagger",
+    "#divinerpg:tools/knife",
+    "#divinerpg:tools/claw",
+    "#divinerpg:tools/maul",
+    "#divinerpg:tools/hammer",
+    "#divinerpg:tools/anchor",
+    "#divinerpg:tools/harp",
+    "#divinerpg:tools/serenade",
+    "#divinerpg:tools/scepter",
+    "#divinerpg:tools/staff",
+    "#divinerpg:tools/phaser",
+    "#divinerpg:tools/cannon",
+    "#divinerpg:tools/bow",
+    "#divinerpg:tools/shield",
+    "divinerpg:terran_shifter",
+    "divinerpg:maelstrom",
+    "divinerpg:captains_sparkler",
+    "divinerpg:la_vekor",
+    "divinerpg:firefly",
+    "divinerpg:meriks_missile",
+    "divinerpg:teleportation_crystal",
+    "divinerpg:teleportation_star",
+    "divinerpg:jungle_hook"
+  ]
+}

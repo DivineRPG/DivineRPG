@@ -1,5 +1,6 @@
 {
   "values": [
-    "divinerpg:realmite_ingot"
+    "#divinerpg:ingots/realmite",
+    "#divinerpg:chunks/diamond/yellow"
   ]
 }

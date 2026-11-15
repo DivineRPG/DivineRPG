@@ -1,0 +1,28 @@
+{
+  "remove": [
+    "divinerpg:staff_of_enrichment"
+  ],
+  "values": [
+    "#divinerpg:tools/anchor",
+    "#divinerpg:tools/harp",
+    "#divinerpg:tools/phaser",
+    "#divinerpg:tools/staff",
+    "#divinerpg:tools/cannon",
+    "#divinerpg:tools/bow",
+    "#divinerpg:tools/shuriken",
+    "#divinerpg:tools/disk",
+    "#divinerpg:tools/dissipator",
+    "divinerpg:serenade_striker",
+    "divinerpg:serenade_of_ice",
+    "divinerpg:serenade_of_death",
+    "divinerpg:maelstrom",
+    "divinerpg:arcanium_attractor",
+    "divinerpg:arcanium_reflector",
+    "divinerpg:captains_sparkler",
+    "divinerpg:grenade",
+    "divinerpg:la_vekor",
+    "divinerpg:firefly",
+    "divinerpg:meriks_missile",
+    "divinerpg:storm_sword"
+  ]
+}

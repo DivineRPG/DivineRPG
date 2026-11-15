@@ -55,9 +55,9 @@
           "type": "minecraft:gradient",
           "axis": "y",
           "from_coordinate": 0,
-          "from_value": -5.2,
+          "from_value": -2.6,
           "to_coordinate": 128,
-          "to_value": 0.2
+          "to_value": 0.1
         },
         "right": {
           "type": "minecraft:add",
@@ -67,7 +67,7 @@
             "from_coordinate": 128,
             "from_value": 0.0,
             "to_coordinate": 256,
-            "to_value": -1.4
+            "to_value": -1.1
           },
           "right": "minecraft:end/base_3d_noise"
         }

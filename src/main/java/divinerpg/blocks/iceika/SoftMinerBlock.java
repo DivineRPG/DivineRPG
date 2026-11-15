@@ -18,7 +18,7 @@ import org.jspecify.annotations.Nullable;
 import java.util.List;
 
 import static divinerpg.registries.ItemRegistry.rupee_shickaxe;
-import static divinerpg.registries.TagRegistry.MINEABLE_WITH_SHICKAXE;
+import static divinerpg.registries.TagRegistry.Blocks.MINEABLE_WITH_SHICKAXE;
 import static net.minecraft.core.registries.Registries.ENCHANTMENT;
 import static net.minecraft.tags.BlockTags.INCORRECT_FOR_DIAMOND_TOOL;
 import static net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH;

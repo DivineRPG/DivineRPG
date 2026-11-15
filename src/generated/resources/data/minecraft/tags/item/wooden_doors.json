@@ -10,12 +10,6 @@
     "divinerpg:wildwood_door",
     "divinerpg:apalachia_door",
     "divinerpg:skythern_door",
-    "divinerpg:mortum_door",
-    "divinerpg:ancient_brick_door",
-    "divinerpg:degraded_brick_door",
-    "divinerpg:soul_sludge_door",
-    "divinerpg:soul_stone_door",
-    "divinerpg:barred_door",
-    "divinerpg:steel_door"
+    "divinerpg:mortum_door"
   ]
 }

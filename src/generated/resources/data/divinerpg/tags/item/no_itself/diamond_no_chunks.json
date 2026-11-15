@@ -1,10 +1,10 @@
 {
   "remove": [
-    "divinerpg:gray_diamond_chunk",
-    "divinerpg:blue_diamond_chunk",
-    "divinerpg:green_diamond_chunk",
-    "divinerpg:red_diamond_chunk",
-    "divinerpg:yellow_diamond_chunk"
+    "#divinerpg:chunks/diamond/gray",
+    "#divinerpg:chunks/diamond/red",
+    "#divinerpg:chunks/diamond/yellow",
+    "#divinerpg:chunks/diamond/green",
+    "#divinerpg:chunks/diamond/blue"
   ],
   "values": [
     "#c:gems/diamond"

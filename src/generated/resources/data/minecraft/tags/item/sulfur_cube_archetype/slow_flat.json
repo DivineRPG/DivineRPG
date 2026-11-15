@@ -1,0 +1,23 @@
+{
+  "values": [
+    "#divinerpg:ores/realmite",
+    "#divinerpg:storage_blocks/raw_realmite",
+    "#divinerpg:storage_blocks/realmite",
+    "#divinerpg:ores/arlemite",
+    "#divinerpg:storage_blocks/raw_arlemite",
+    "#divinerpg:storage_blocks/arlemite",
+    "#divinerpg:ores/rupee",
+    "#divinerpg:storage_blocks/raw_rupee",
+    "#divinerpg:storage_blocks/rupee",
+    "#divinerpg:storage_blocks/shadow",
+    "#divinerpg:ores/torridite",
+    "#divinerpg:storage_blocks/raw_torridite",
+    "#divinerpg:storage_blocks/torridite",
+    "#divinerpg:ores/oxdrite",
+    "#divinerpg:storage_blocks/raw_oxdrite",
+    "#divinerpg:storage_blocks/oxdrite",
+    "#divinerpg:storage_blocks/irreversible/steel",
+    "#divinerpg:lamps/metal",
+    "divinerpg:spike_block"
+  ]
+}

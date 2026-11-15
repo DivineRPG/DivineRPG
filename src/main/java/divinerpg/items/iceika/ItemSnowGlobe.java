@@ -24,10 +24,10 @@ public class ItemSnowGlobe extends ItemMod {
         Player player = context.getPlayer();
         if(!player.mayUseItemAt(pos, facing, player.getItemInHand(context.getHand()))) return InteractionResult.FAIL;
         BlockState block = worldIn.getBlockState(pos);
-        if(!block.is(TagRegistry.BASE_BLOCKS_ICY_FIRE)) return InteractionResult.FAIL;
+        if(!block.is(TagRegistry.Blocks.BASE_BLOCKS_ICY_FIRE)) return InteractionResult.FAIL;
         pos = pos.relative(facing);
         if(!worldIn.isClientSide()) {
-            Axis axis = Utils.checkForFrame(worldIn, pos, new TagMatchTest(TagRegistry.BASE_BLOCKS_ICY_FIRE));
+            Axis axis = Utils.checkForFrame(worldIn, pos, new TagMatchTest(TagRegistry.Blocks.BASE_BLOCKS_ICY_FIRE));
             if(axis != null) {
                 Utils.spreadBlock(worldIn, BlockRegistry.iceikaPortal.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, axis), pos, Blocks.AIR, axis);
                 worldIn.playSound(null, pos, SoundRegistry.ICEIKA_PORTAL_TRIGGER.get(), SoundSource.BLOCKS, 1, 1);

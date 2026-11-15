@@ -1,6 +1,5 @@
 {
   "values": [
-    "divinerpg:realmite_hoe",
-    "divinerpg:arlemite_hoe"
+    "#divinerpg:tools/hoe"
   ]
 }

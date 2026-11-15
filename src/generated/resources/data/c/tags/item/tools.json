@@ -1,11 +1,13 @@
 {
   "values": [
-    "#minecraft:pickaxes",
-    "#minecraft:axes",
-    "#minecraft:shovels",
-    "#minecraft:hoes",
-    "#c:tools/shickaxes",
-    "#minecraft:swords",
-    "#divinerpg:tools/maul"
+    "#divinerpg:tools/scepter",
+    "divinerpg:jungle_hook",
+    "divinerpg:teleportation_crystal",
+    "divinerpg:teleportation_star",
+    "divinerpg:serenade_of_health",
+    "divinerpg:serenade_of_infusion",
+    "divinerpg:divine_accumulator",
+    "divinerpg:ghostbane",
+    "divinerpg:staff_of_enrichment"
   ]
 }

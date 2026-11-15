@@ -1,0 +1,29 @@
+{
+  "remove": [
+    "divinerpg:terran_ghost_block",
+    "divinerpg:dungeon_air"
+  ],
+  "values": [
+    "#divinerpg:crops",
+    "#divinerpg:flowers/small",
+    "#divinerpg:flowers/tall",
+    "#divinerpg:grass",
+    "#divinerpg:vines",
+    "#divinerpg:cave_vines",
+    "#divinerpg:statues",
+    "#divinerpg:acids",
+    "divinerpg:winterberry_bush",
+    "divinerpg:arcana_bush",
+    "divinerpg:snowy_moss",
+    "divinerpg:glowsprout",
+    "divinerpg:slowsprout",
+    "divinerpg:lowsprout",
+    "divinerpg:lushroom",
+    "divinerpg:duncap",
+    "divinerpg:dreamglow",
+    "divinerpg:robbin_nest",
+    "divinerpg:booster",
+    "divinerpg:limiter",
+    "divinerpg:smoldering_tar"
+  ]
+}

@@ -73,7 +73,7 @@ public class Icicle
 //		}
 //	}
 //	public static boolean isIcicleBase(BlockState blockstate) {
-//	   return blockstate.is(BlockTags.DRIPSTONE_REPLACEABLE) || blockstate.is(BlockTags.ICE) || blockstate.is(BlockRegistry.brittleLeaves.get()) || blockstate.is(BlockRegistry.shiverspineLog.get()) || blockstate.is(Blocks.GRAVEL);
+//	   return blockstate.is(TagRegistry.Blocks.PLACEABLE_BLOCKS_ICICLE);
 //	}
 //	protected static void buildBaseToTipColumn(Direction p_159652_, int p_159653_, boolean p_159654_, Consumer<BlockState> p_159655_) {
 //	      if (p_159653_ >= 3) {

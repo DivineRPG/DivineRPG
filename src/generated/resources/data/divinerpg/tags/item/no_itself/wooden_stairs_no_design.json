@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "divinerpg:stair_design"
+  ],
+  "values": [
+    "#minecraft:wooden_stairs"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "remove": [
+    "divinerpg:fancy_wool"
+  ],
+  "values": [
+    "#divinerpg:storage_blocks/irreversible/steel",
+    "#divinerpg:candy_canes"
+  ]
+}

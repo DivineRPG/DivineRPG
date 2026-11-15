@@ -33,7 +33,7 @@ public class FrostedAllure extends BaseEntityBlock {
     }
     @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {builder.add(CATEGORY);}
     @Override public InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-        if(stack.is(TagRegistry.AMMO_APALACHIA_BLITZ)){
+        if(stack.is(TagRegistry.Items.AMMO_APALACHIA_BLITZ)){
             int currentCategory = state.getValue(CATEGORY);
             String[] messages = {
                     "frosted_allure.all",

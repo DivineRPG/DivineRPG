@@ -1,0 +1,22 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 28487452,
+    "separation": 8,
+    "spacing": 32
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:iceika/village",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:iceika/groglin_village",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:iceika/gruzzorlug_village",
+      "weight": 1
+    }
+  ]
+}

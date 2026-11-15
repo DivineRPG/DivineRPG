@@ -1,9 +1,11 @@
 {
   "values": [
-    "#c:raw_materials/arlemite",
-    "#c:raw_materials/rupee",
-    "#c:raw_materials/oxdrite",
-    "#c:raw_materials/realmite",
-    "#c:raw_materials/torridite"
+    "#divinerpg:raw_materials/aquatic",
+    "#divinerpg:raw_materials/realmite",
+    "#divinerpg:raw_materials/arlemite",
+    "#divinerpg:raw_materials/rupee",
+    "#divinerpg:raw_materials/torridite",
+    "#divinerpg:raw_materials/oxdrite",
+    "#divinerpg:raw_materials/arcanium"
   ]
 }

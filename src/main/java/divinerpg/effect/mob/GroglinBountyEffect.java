@@ -35,7 +35,7 @@ public class GroglinBountyEffect extends MobEffect {
     @Override
     public boolean applyEffectTick(ServerLevel level, LivingEntity mob, int amplification) {
         if (level.getGameTime() % 80 == 0 && level.getDifficulty() != PEACEFUL && !level.getGameRules().get(GameRules.RAIDS) && level.canSeeSky(mob.blockPosition()) && Faction.hasNearbyTarget(mob, mob.getBoundingBox().inflate(16), GROGLIN)) {
-            BlockPos structure = level.findNearestMapStructure(TagRegistry.RAID_TARGETS, mob.blockPosition(), 4, false);
+            BlockPos structure = level.findNearestMapStructure(TagRegistry.Structures.GROGLIN_RAID_TARGETS, mob.blockPosition(), 4, false);
             if (structure != null && mob.distanceToSqr(structure.getX(), mob.getBlockY(), structure.getZ()) < 128) {
                 BlockPos pos = getNearbySpawnPos(level, mob.getRandom(), mob.blockPosition());
 

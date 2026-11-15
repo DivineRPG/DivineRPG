@@ -46,7 +46,7 @@ public class JEICompat implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         var itemRegistry = Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ITEM);
 
-        List<ItemStack> mauls = itemRegistry.get(TagRegistry.MAULS)
+        List<ItemStack> mauls = itemRegistry.get(TagRegistry.Items.TOOLS_MAUL)
                 .map(named -> named.stream().map(holder -> new ItemStack(holder.value())).toList())
                 .orElseGet(List::of);
 

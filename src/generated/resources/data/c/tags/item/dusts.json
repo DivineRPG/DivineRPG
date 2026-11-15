@@ -1,10 +1,16 @@
 {
   "values": [
-    "#c:dusts/arlemite",
-    "#c:dusts/rupee",
-    "#c:dusts/shadow",
-    "#c:dusts/oxdrite",
-    "#c:dusts/realmite",
-    "#c:dusts/torridite"
+    "#divinerpg:dusts/realmite",
+    "#divinerpg:dusts/arlemite",
+    "#divinerpg:dusts/rupee",
+    "#divinerpg:dusts/shadow",
+    "#divinerpg:dusts/torridite",
+    "#divinerpg:dusts/oxdrite",
+    "#divinerpg:dusts/bloodgem",
+    "#divinerpg:dusts/eden",
+    "#divinerpg:dusts/wildwood",
+    "#divinerpg:dusts/apalachia",
+    "#divinerpg:dusts/skythern",
+    "#divinerpg:dusts/mortum"
   ]
 }

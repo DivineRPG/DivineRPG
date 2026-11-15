@@ -31,8 +31,8 @@ public class EntityFyracryx extends EntityDivineTameable implements RangedAttack
             level().addFreshEntity(projectile);
         }
     }
-    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_FYRACRYX);}
-    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_FYRACRYX);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.Items.PET_FOODS_FYRACRYX);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.Items.PET_TAMING_FOODS_FYRACRYX);}
     @Override protected SoundEvent getAmbientSound() {return SoundRegistry.DEATHCRYX.get();}
     @Override protected SoundEvent getHurtSound(DamageSource source) {return SoundRegistry.DEATHCRYX_HURT.get();}
     @Override protected SoundEvent getDeathSound() {return SoundRegistry.DEATHCRYX.get();}

@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.*;
 
 import static divinerpg.registries.SoundRegistry.FREEZE;
-import static divinerpg.registries.TagRegistry.BASE_BLOCKS_ICY_FIRE;
+import static divinerpg.registries.TagRegistry.Blocks.BASE_BLOCKS_ICY_FIRE;
 import static net.minecraft.sounds.SoundSource.BLOCKS;
 
 public class IcyFire extends Fire {

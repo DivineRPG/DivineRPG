@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import static divinerpg.registries.EntityRegistry.CANNON_SHOT;
 import static divinerpg.registries.ItemRegistry.acid;
 import static divinerpg.registries.SoundRegistry.BLITZ;
-import static divinerpg.registries.TagRegistry.AMMO_VETHEAN_CANNON;
+import static divinerpg.registries.TagRegistry.Items.AMMO_VETHEAN_CANNON;
 
 public class VetheanCannon extends ItemRangedWeapon {
     final float damage;

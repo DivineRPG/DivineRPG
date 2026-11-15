@@ -11,7 +11,6 @@ import java.util.concurrent.CompletableFuture;
 import static divinerpg.DivineRPG.MODID;
 
 public class DataGenerators {
-
     public static void genData(GatherDataEvent.Client event) {
         PackOutput output = event.getGenerator().getPackOutput();
         CompletableFuture<HolderLookup.Provider> world = event.getWorldLookupProvider();
@@ -22,10 +21,8 @@ public class DataGenerators {
         event.createProvider(ModModelProvider::new);
 
         event.createBlockAndItemTags(ModBlockTagsProvider::new, (packOutput, lookup, blockTags) -> new ModItemTagsProvider(packOutput, lookup));
-        event.createProvider(ModDamageTagProvider::new);
-        event.createProvider(ModBiomeTagProvider::new);
-        event.createProvider(ModEntityTypeTagProvider::new);
         event.createProvider(ModFluidTagsProvider::new);
+        event.createProvider(ModEntityTypeTagProvider::new);
 
         DatapackBuiltinEntriesProvider datapackProvider = ModDatapackProvider.create(output, world);
         generator.addProvider(true, datapackProvider);
@@ -36,7 +33,11 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> fullLookup = datapackProvider.getRegistryProvider();
 
         generator.addProvider(true, new ModLootModifierProvider(output, fullLookup, MODID));
+        generator.addProvider(true, new ModEnchantmentTagsProvider(output, fullLookup));
+        generator.addProvider(true, new ModDamageTagProvider(output, fullLookup));
         generator.addProvider(true, new ModPaintingTagsProvider(output, fullLookup));
+        generator.addProvider(true, new ModBiomeTagProvider(output, fullLookup));
+        generator.addProvider(true, new ModStructureTagsProvider(output, fullLookup));
         generator.addProvider(true, new ModSoundProvider(output));
         generator.addProvider(true, new ModEquipmentAssetProvider(output));
     }

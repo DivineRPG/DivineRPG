@@ -1,0 +1,12 @@
+{
+  "remove": [
+    "divinerpg:scorched_grass"
+  ],
+  "values": [
+    "#divinerpg:dirts",
+    "#divinerpg:grass_blocks",
+    "#divinerpg:storage_blocks/irreversible/anthracite",
+    "#divinerpg:candy_canes",
+    "divinerpg:gelidite"
+  ]
+}

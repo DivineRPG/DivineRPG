@@ -1,6 +1,6 @@
 {
   "type": "divinerpg:maul_smashing",
   "input": "divinerpg:bloodgem",
-  "required_base_block": "#c:ores/bloodgem",
+  "required_base_block": "#divinerpg:ores/bloodgem",
   "result": "divinerpg:bloodgem_dust"
 }

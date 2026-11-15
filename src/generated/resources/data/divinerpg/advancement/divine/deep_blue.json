@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:ingots/rupee"
+            "items": "#divinerpg:ingots/rupee"
           }
         ]
       },

@@ -1,0 +1,14 @@
+{
+  "remove": [
+    "divinerpg:scorched_grass"
+  ],
+  "values": [
+    "#divinerpg:dirts",
+    "#divinerpg:spawners/dirt",
+    "#divinerpg:grass_blocks",
+    "#divinerpg:sands",
+    "divinerpg:gelidite",
+    "divinerpg:frozen_gravel",
+    "divinerpg:soul_sludge_breakable"
+  ]
+}

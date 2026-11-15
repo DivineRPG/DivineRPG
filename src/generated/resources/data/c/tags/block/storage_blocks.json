@@ -1,10 +1,18 @@
 {
   "values": [
-    "#c:storage_blocks/realmite",
-    "#c:storage_blocks/arlemite",
-    "#c:storage_blocks/rupee",
-    "#c:storage_blocks/bloodgem",
-    "#c:storage_blocks/torridite",
-    "#c:storage_blocks/olivine"
+    "#divinerpg:storage_blocks/raw_realmite",
+    "#divinerpg:storage_blocks/realmite",
+    "#divinerpg:storage_blocks/raw_arlemite",
+    "#divinerpg:storage_blocks/arlemite",
+    "#divinerpg:storage_blocks/raw_rupee",
+    "#divinerpg:storage_blocks/rupee",
+    "#divinerpg:storage_blocks/shadow",
+    "#divinerpg:storage_blocks/bloodgem",
+    "#divinerpg:storage_blocks/raw_torridite",
+    "#divinerpg:storage_blocks/torridite",
+    "#divinerpg:storage_blocks/raw_oxdrite",
+    "#divinerpg:storage_blocks/oxdrite",
+    "#divinerpg:storage_blocks/raw_arcanium",
+    "#divinerpg:storage_blocks/arcanium"
   ]
 }

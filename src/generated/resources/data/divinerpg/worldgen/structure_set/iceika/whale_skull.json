@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1823877126,
+    "separation": 1,
+    "spacing": 5
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:iceika/whale_skull",
+      "weight": 1
+    }
+  ]
+}

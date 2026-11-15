@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 import static divinerpg.registries.BlockEntityRegistry.PORTAL;
 import static divinerpg.registries.ItemRegistry.teleportation_star;
-import static divinerpg.registries.TagRegistry.GATEWAY_RECEIVER;
+import static divinerpg.registries.TagRegistry.Blocks.GATEWAY_RECEIVER;
 import static net.minecraft.core.registries.Registries.DIMENSION;
 import static net.minecraft.world.level.block.RenderShape.MODEL;
 

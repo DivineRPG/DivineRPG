@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "divinerpg:slab_design"
+  ],
+  "values": [
+    "#minecraft:wooden_slabs"
+  ]
+}

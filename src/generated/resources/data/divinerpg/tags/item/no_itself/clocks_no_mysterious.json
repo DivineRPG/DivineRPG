@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "divinerpg:mysterious_clock"
+  ],
+  "values": [
+    "#c:clocks"
+  ]
+}

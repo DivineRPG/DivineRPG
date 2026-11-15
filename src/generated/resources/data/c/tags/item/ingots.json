@@ -1,12 +1,12 @@
 {
   "values": [
-    "#c:ingots/arlemite",
-    "#c:ingots/rupee",
-    "#c:ingots/aquatic",
-    "#c:ingots/hellstone",
-    "#c:ingots/shadow",
-    "#c:ingots/oxdrite",
-    "#c:ingots/realmite",
-    "#c:ingots/torridite"
+    "#divinerpg:ingots/aquatic",
+    "#divinerpg:ingots/realmite",
+    "#divinerpg:ingots/arlemite",
+    "#divinerpg:ingots/rupee",
+    "#divinerpg:ingots/shadow",
+    "#divinerpg:ingots/torridite",
+    "#divinerpg:ingots/hellstone",
+    "#divinerpg:ingots/oxdrite"
   ]
 }

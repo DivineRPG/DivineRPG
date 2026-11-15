@@ -42,7 +42,8 @@ import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.DivineRegistries.BLOCKS;
 
 import static divinerpg.registries.PropertyOverride.*;
-import static divinerpg.registries.TagRegistry.*;
+import static divinerpg.registries.TagRegistry.Blocks.*;
+import static divinerpg.registries.TagRegistry.Dimensions.*;
 import static net.minecraft.world.level.material.MapColor.*;
 
 public class BlockRegistry {
@@ -53,6 +54,7 @@ public class BlockRegistry {
     //WOOD TYPES
     public static final WoodType
         DIVINE_WOOD_TYPE = WoodType.register(new WoodType("divine", BlockSetType.CHERRY)),
+    // TODO: remap brittle_leaves into shiverspine_leaves
         SHIVERSPINE_WOOD_TYPE = WoodType.register(new WoodType("shiverspine", BlockSetType.OAK)),
         AURORAOAK_WOOD_TYPE = WoodType.register(new WoodType("auroraoak", BlockSetType.OAK)),
         COZYBARK_WOOD_TYPE = WoodType.register(new WoodType("cozybark", BlockSetType.CHERRY)),
@@ -149,7 +151,7 @@ public class BlockRegistry {
     gemOfTheDunes = registerPotted("gem_of_the_dunes", p -> new Flower(MobEffects.RESISTANCE, 5, true, p), PmagentaFlower),
     edenBrush = registerGrass("eden_brush", PedenBrush),
     sunBlossom = registerFlower("sun_blossom", plantFlower, MobEffects.FIRE_RESISTANCE, 6),
-    sunBloom = registerFlower("sunbloom", PterraYellowFlower, MobEffects.GLOWING, 6),
+    sunbloom = registerFlower("sunbloom", PterraYellowFlower, MobEffects.GLOWING, 6),
     lushroom = registerPotted("lushroom", Lushroom::new, PterraOrangeFlower),
     moonlightFern = registerGrass("moonlight_fern", PiceGrass),
     moonBud = registerFlower("moon_bud", PquartzFlower, MobEffects.WATER_BREATHING, 4),
@@ -264,7 +266,7 @@ public class BlockRegistry {
     mortumWoodSet = registerTreeSet("mortum", COLOR_BLACK, TERRACOTTA_PINK, COLOR_GRAY, MORTUM_WOOD_TYPE, ConfiguredFeatureKeys.MORTUM_TREE),
     shiverspineWoodSet = registerTreeSet("shiverspine", WOOL, COLOR_LIGHT_GRAY, GLOW_LICHEN, SHIVERSPINE_WOOD_TYPE, ConfiguredFeatureKeys.SHIVERSPINE_TREE),
     skythernWoodSet = registerTreeSet("skythern", COLOR_LIGHT_GRAY, COLOR_LIGHT_GRAY, WOOL, SKYTHERN_WOOD_TYPE, ConfiguredFeatureKeys.SKYTHERN_TREE),
-    streamleafWoodSet = registerTreeSet("steamleaf", GLOW_LICHEN, TERRACOTTA_BROWN, ICE, STREAMLEAF_WOOD_TYPE, ConfiguredFeatureKeys.STREAMLEAF_TREE),
+    streamleafWoodSet = registerTreeSet("streamleaf", GLOW_LICHEN, TERRACOTTA_BROWN, ICE, STREAMLEAF_WOOD_TYPE, ConfiguredFeatureKeys.STREAMLEAF_TREE),
     wildwoodWoodSet = registerTreeSet("wildwood", COLOR_LIGHT_BLUE, COLOR_BLUE, COLOR_LIGHT_BLUE, WILDWOOD_WOOD_TYPE, ConfiguredFeatureKeys.WILDWOOD_TREE);
     public static final DeferredBlock<Block>
     plankDesign = register("plank_design", Pdesign),
@@ -283,7 +285,7 @@ public class BlockRegistry {
     checkerSet = registerWoolSet("checker", "", Pchecker, DyeColor.BLACK),
     rainbowSet = registerWoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE),
     fancySet = registerWoolSet("fancy", "_wool", Pfancy, DyeColor.BROWN),
-    workshopCarpetSet = registerStairSlabSet("worksop", "_carpet", PworkshopCarpet);
+    workshopCarpetSet = registerStairSlabSet("workshop", "_carpet", PworkshopCarpet);
 
     //obsidian
     public static final DeferredBlock<Block>
@@ -293,7 +295,7 @@ public class BlockRegistry {
     glitteringObsidian = register("glittering_obsidian", PcryingObsidian),
     seepingObsidian = register("seeping_obsidian", PcryingObsidian),
     vwoopingObsidian = register("vwooping_obsidian", PcryingObsidian),
-    broodingObsidian = register("brooding_obisidan", PcryingObsidian);
+    broodingObsidian = register("brooding_obsidian", PcryingObsidian);
 
     //bricks
     public static final DeferredBlock<Block>
@@ -384,7 +386,7 @@ public class BlockRegistry {
     barredDoor = registerDoor("barred", PbarredDoor, STEEL_TYPE),
     helioticBeam = register("heliotic_beam", HelioticBeam::new, PwhiteUnbreakable),
     lunaBricks = register("luna_bricks", PblueCobblestone),
-    cryptFloor = register("crypt_foor", PterraGreenUnbreakable),
+    cryptFloor = register("crypt_floor", PterraGreenUnbreakable),
     cryptWall = register("crypt_wall", PbrownUnbreakable),
     chamberWall = register("chamber_wall", PbrownUnbreakable),
     shiftedChamberWall = register("shifted_chamber_wall", PbrownUnbreakable),
@@ -398,7 +400,7 @@ public class BlockRegistry {
     orangeSteel = register("orange_steel", PorangeMetal),
     yellowSteel = register("yellow_steel", PyellowMetal),
     greenSteel = register("green_steel", PgreenMetal),
-    cyanSteel = register("CYAN_steel", PcyanMetal),
+    cyanSteel = register("cyan_steel", PcyanMetal),
     blueSteel = register("blue_steel", PblueMetal),
     purpleSteel = register("purple_steel", PpurpleMetal),
     magentaSteel = register("magenta_steel", PmagentaMetal),
@@ -517,18 +519,18 @@ public class BlockRegistry {
     public static final DeferredBlock<Block>
     proximitySpawner = register("proximity_spawner", ProximitySpawner::new, spawner),
     kobblinBurrow = register("kobblin_burrow", KobblinBurrow::new, PdirtDirt),
-    encagedCaptainMerik = registerEncaged("captain_merik", spawner, EntityRegistry.CAPTAIN_MERIK, TagRegistry.SUMMONING_CAPTAIN_MERIK),
-    encagedDatticon = registerEncaged("datticon", spawner, EntityRegistry.DATTICON, TagRegistry.SUMMONING_DATTICON),
-    encagedKazari = registerEncaged("kazari", spawner, EntityRegistry.KAZARI, TagRegistry.SUMMONING_KAZARI),
-    encagedLeorna = registerEncaged("leorna", spawner, EntityRegistry.LEORNA, TagRegistry.SUMMONING_LEORNA),
-    encagedLordVatticus = registerEncaged("lord_vatticus", spawner, EntityRegistry.LORD_VATTICUS, TagRegistry.SUMMONING_LORD_VATTICUS),
-    encagedWarGeneral = registerEncaged("war_general", spawner, EntityRegistry.WAR_GENERAL, TagRegistry.SUMMONING_WAR_GENERAL),
-    encagedZelus = registerEncaged("zelus", spawner, EntityRegistry.ZELUS, TagRegistry.SUMMONING_ZELUS),
-    calcifiedBrain = register("calcified_brain", p -> new MobCage(p, EntityRegistry.KITRA, TagRegistry.SUMMONING_KITRA, new BlockPos(0, 5, 0)), PboneBlock),
-    sunstormSpawner = registerBossSpawner("sunstorm", PyellowSpawner, EntityRegistry.SUNSTORM, TagRegistry.SUMMONING_SUNSTORM),
-    termasectSpawner = registerFlyingBossSpawner("termasect", PlightBlueSpawner, EntityRegistry.TERMASECT, TagRegistry.SUMMONING_TERMASECT),
-    eternalArcherSpawner = registerBossSpawner("eternal_archer", PmagentaSpawner, EntityRegistry.ETERNAL_ARCHER, TagRegistry.SUMMONING_ETERNAL_ARCHER),
-    experiencedCoriSpawner = registerFlyingBossSpawner("experienced_cori", PlightGraySpawner, EntityRegistry.EXPERIENCED_CORI, TagRegistry.SUMMONING_EXPERIENCED_CORI),
+    encagedCaptainMerik = registerEncaged("captain_merik", spawner, EntityRegistry.CAPTAIN_MERIK, TagRegistry.Items.SUMMONING_CAPTAIN_MERIK),
+    encagedDatticon = registerEncaged("datticon", spawner, EntityRegistry.DATTICON, TagRegistry.Items.SUMMONING_DATTICON),
+    encagedKazari = registerEncaged("kazari", spawner, EntityRegistry.KAZARI, TagRegistry.Items.SUMMONING_KAZARI),
+    encagedLeorna = registerEncaged("leorna", spawner, EntityRegistry.LEORNA, TagRegistry.Items.SUMMONING_LEORNA),
+    encagedLordVatticus = registerEncaged("lord_vatticus", spawner, EntityRegistry.LORD_VATTICUS, TagRegistry.Items.SUMMONING_LORD_VATTICUS),
+    encagedWarGeneral = registerEncaged("war_general", spawner, EntityRegistry.WAR_GENERAL, TagRegistry.Items.SUMMONING_WAR_GENERAL),
+    encagedZelus = registerEncaged("zelus", spawner, EntityRegistry.ZELUS, TagRegistry.Items.SUMMONING_ZELUS),
+    calcifiedBrain = register("calcified_brain", p -> new MobCage(p, EntityRegistry.KITRA, TagRegistry.Items.SUMMONING_KITRA, new BlockPos(0, 5, 0)), PboneBlock),
+    sunstormSpawner = registerBossSpawner("sunstorm", PyellowSpawner, EntityRegistry.SUNSTORM, TagRegistry.Items.SUMMONING_SUNSTORM),
+    termasectSpawner = registerFlyingBossSpawner("termasect", PlightBlueSpawner, EntityRegistry.TERMASECT, TagRegistry.Items.SUMMONING_TERMASECT),
+    eternalArcherSpawner = registerBossSpawner("eternal_archer", PmagentaSpawner, EntityRegistry.ETERNAL_ARCHER, TagRegistry.Items.SUMMONING_ETERNAL_ARCHER),
+    experiencedCoriSpawner = registerFlyingBossSpawner("experienced_cori", PlightGraySpawner, EntityRegistry.EXPERIENCED_CORI, TagRegistry.Items.SUMMONING_EXPERIENCED_CORI),
     dramixAltar = registerAltar("dramix", ArcanaAltar::new, PcrimsonHyphaeAltar),
     parasectaAltar = registerAltar("parasecta", ArcanaAltar::new, PterraBrownAltar),
     karosAltar = registerAltar("karos", KarosAltar::new, PwarpedWartUnbreakable),
@@ -635,12 +637,12 @@ public class BlockRegistry {
 
     //Rifts
     public static final DeferredBlock<Block>
-    overworldRift = registerRift("overworld", Prift, Level.OVERWORLD, STABLE_OVERWORLD_RIFT, RIFT_RESONATING_OVERWORLD, RIFT_REPLENISHING_OVERWORLD, (byte)6),
-    edenRift = registerRift("eden", Prift, LevelRegistry.EDEN, STABLE_EDEN_RIFT, RIFT_RESONATING_EDEN, RIFT_REPLENISHING_EDEN, (byte)1),
-    wildwoodRift = registerRift("wildwood", Prift, LevelRegistry.WILDWOOD, STABLE_WILDWOOD_RIFT, RIFT_RESONATING_WILDWOOD, RIFT_REPLENISHING_WILDWOOD, (byte)2),
-    apalachiaRift = registerRift("apalachia", Prift, LevelRegistry.APALACHIA, STABLE_APALACHIA_RIFT, RIFT_RESONATING_APALACHIA, RIFT_REPLENISHING_APALACHIA, (byte)3),
-    skythernRift = registerRift("skythern", Prift, LevelRegistry.SKYTHERN, STABLE_SKYTHERN_RIFT, RIFT_RESONATING_SKYTHERN, RIFT_REPLENISHING_SKYTHERN, (byte)4),
-    mortumRift = registerRift("mortum", Prift, LevelRegistry.MORTUM, STABLE_MORTUM_RIFT, RIFT_RESONATING_MORTUM, RIFT_REPLENISHING_MORTUM, (byte)5);
+    overworldRift = registerRift("overworld", Prift, Level.OVERWORLD, STABLE_RIFT_OVERWORLD, RIFT_RESONATING_OVERWORLD, TagRegistry.Items.RIFT_REPLENISHING_OVERWORLD, (byte)6),
+    edenRift = registerRift("eden", Prift, LevelRegistry.EDEN, STABLE_RIFT_EDEN, RIFT_RESONATING_EDEN, TagRegistry.Items.RIFT_REPLENISHING_EDEN, (byte)1),
+    wildwoodRift = registerRift("wildwood", Prift, LevelRegistry.WILDWOOD, STABLE_RIFT_WILDWOOD, RIFT_RESONATING_WILDWOOD, TagRegistry.Items.RIFT_REPLENISHING_WILDWOOD, (byte)2),
+    apalachiaRift = registerRift("apalachia", Prift, LevelRegistry.APALACHIA, STABLE_RIFT_APALACHIA, RIFT_RESONATING_APALACHIA, TagRegistry.Items.RIFT_REPLENISHING_APALACHIA, (byte)3),
+    skythernRift = registerRift("skythern", Prift, LevelRegistry.SKYTHERN, STABLE_RIFT_SKYTHERN, RIFT_RESONATING_SKYTHERN, TagRegistry.Items.RIFT_REPLENISHING_SKYTHERN, (byte)4),
+    mortumRift = registerRift("mortum", Prift, LevelRegistry.MORTUM, STABLE_RIFT_MORTUM, RIFT_RESONATING_MORTUM, TagRegistry.Items.RIFT_REPLENISHING_MORTUM, (byte)5);
 
     //Air
     public static final DeferredBlock<Block>

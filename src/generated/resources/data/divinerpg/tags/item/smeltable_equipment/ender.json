@@ -5,6 +5,10 @@
     "divinerpg:ender_leggings",
     "divinerpg:ender_chestplate",
     "divinerpg:ender_helmet",
+    "divinerpg:gray_ender_boots",
+    "divinerpg:gray_ender_leggings",
+    "divinerpg:gray_ender_chestplate",
+    "divinerpg:gray_ender_helmet",
     "divinerpg:red_ender_boots",
     "divinerpg:red_ender_leggings",
     "divinerpg:red_ender_chestplate",
@@ -20,10 +24,6 @@
     "divinerpg:blue_ender_boots",
     "divinerpg:blue_ender_leggings",
     "divinerpg:blue_ender_chestplate",
-    "divinerpg:blue_ender_helmet",
-    "divinerpg:gray_ender_boots",
-    "divinerpg:gray_ender_leggings",
-    "divinerpg:gray_ender_chestplate",
-    "divinerpg:gray_ender_helmet"
+    "divinerpg:blue_ender_helmet"
   ]
 }

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:tools/swords/divine"
+            "items": "#divinerpg:tools/sword/divine"
           }
         ]
       },

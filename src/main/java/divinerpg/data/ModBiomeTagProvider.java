@@ -1,52 +1,124 @@
 package divinerpg.data;
 
-import divinerpg.registries.TagRegistry;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
-import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.biome.Biome;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
+import net.neoforged.neoforge.common.Tags;
 
 import java.util.concurrent.CompletableFuture;
 
 import static divinerpg.DivineRPG.MODID;
+import static divinerpg.data.ModBiomeProvider.*;
+import static divinerpg.registries.TagRegistry.Biomes.*;
 
 public class ModBiomeTagProvider extends BiomeTagsProvider {
     public ModBiomeTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, lookupProvider, MODID);
     }
+    @SuppressWarnings("unchecked")
+    @Override protected void addTags(HolderLookup.Provider registries) {
+        tag(IS_BEACH).addTag(BiomeTags.IS_BEACH).add(Biomes.STONY_SHORE);
+        tag(IS_DEEP_DARK_OR_MUSHROOM).addTag(Tags.Biomes.IS_MUSHROOM).add(Biomes.DEEP_DARK);
+        tag(IS_DRIPSTONE_CAVE).add(Biomes.DRIPSTONE_CAVES);
 
-    @Override
-    protected void addTags(HolderLookup.Provider registries) {
-        tag(TagRegistry.BASALT_DELTAS).add(Biomes.BASALT_DELTAS);
-        tag(TagRegistry.CRIMSON_FOREST).add(Biomes.CRIMSON_FOREST);
-        tag(TagRegistry.IS_DEEP_DARK_OR_MUSHROOM).add(Biomes.DEEP_DARK).addTags(commonTag("is_mushroom"));
-        tag(TagRegistry.DRIPSTONE_CAVES).add(Biomes.DRIPSTONE_CAVES);
-        tag(TagRegistry.NETHER_WASTES).add(Biomes.NETHER_WASTES);
-        tag(TagRegistry.SOUL_SAND_VALLEY).add(Biomes.SOUL_SAND_VALLEY);
-        tag(TagRegistry.WARM_OCEAN).add(Biomes.LUKEWARM_OCEAN, Biomes.WARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN);
-        tag(customTag("apalachia")).addOptional(ModBiomeProvider.APALACHIA);
-        tag(customTag("eden")).addOptional(ModBiomeProvider.EDEN);
-        tag(customTag("wildwood")).addOptional(ModBiomeProvider.WILDWOOD);
-        tag(customTag("skythern")).addOptional(ModBiomeProvider.SKYTHERN);
-        tag(customTag("mortum")).addOptional(ModBiomeProvider.MORTUM);
-    }
+        // TODO: to use for crabs in conjunction with the spawning only under the sky
+        tag(ALLOWS_SPAWNS_AT_ANY_HEIGHT_CRAB).add(Biomes.LUSH_CAVES);
 
-    private TagKey<Biome> commonTag(String name){
-        return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("c", name));
-    }
-    private TagKey<Biome> minecraftTag(String name){
-        return TagKey.create(Registries.BIOME, Identifier.withDefaultNamespace(name));
-    }
-    private TagKey<Biome> customTag(String name){
-        return TagKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, name));
-    }
+        tag(WARM_OCEAN).add(Biomes.LUKEWARM_OCEAN, Biomes.WARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN);
 
-    private static ResourceKey<Biome> biome(String name) {
-        return ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, name));
+        tag(IS_NETHER_WASTE).add(Biomes.NETHER_WASTES);
+        tag(IS_SOUL_SAND_VALLEY).add(Biomes.SOUL_SAND_VALLEY);
+        tag(IS_BASALT_DELTA).add(Biomes.BASALT_DELTAS);
+        tag(IS_CRIMSON_FOREST).add(Biomes.CRIMSON_FOREST);
+
+        tag(ALLOWS_ICEIKA_VILLAGE).add(ICEIKA_SHIVERSPINE_FOREST, ICEIKA_TUNDRA, ICEIKA_ICE_SPIKES, ICEIKA_MORGUE_MARSH);
+        tag(ALLOWS_GROGLIN_VILLAGE).add(ICEIKA_SHIVERSPINE_FOREST, ICEIKA_FRACTAL_FOREST, ICEIKA_ICE_SPIKES, ICEIKA_MORGUE_MARSH);
+        tag(ALLOWS_GRUZZORLUG_VILLAGE).add(ICEIKA_SHIVERSPINE_FOREST, ICEIKA_TUNDRA, ICEIKA_GEYSER_PLATEAU, ICEIKA_MORGUE_MARSH);
+        tag(IS_ICEIKA_OCEAN).add(ICEIKA_ICE_SHEET, ICEIKA_FROZEN_OCEAN, ICEIKA_DEEP_FROZEN_OCEAN, ICEIKA_THERMAL_VENTS, ICEIKA_BONEYARD);
+        tag(IS_ICEIKA).addTag(IS_ICEIKA_OCEAN).add(ICEIKA, ICEIKA_FROZEN_PEAKS, ICEIKA_BOREALIS_STEEPS, ICEIKA_CHILL_PASSAGE, ICEIKA_SNOWY_PEAKS, ICEIKA_SHIVERSPINE_FOREST, ICEIKA_COZYBARK_FOREST, ICEIKA_SNOW_BOG, ICEIKA_MORGUE_MARSH, ICEIKA_GEYSER_PLATEAU, ICEIKA_FROZEN_MENAGERIE, ICEIKA_SHELTERED_GARDEN, ICEIKA_GLOWING_DEEP, ICEIKA_CHILLY_CAVERN, ICEIKA_TUNDRA, ICEIKA_FRACTAL_FOREST, ICEIKA_ICE_SPIKES);
+
+        tag(BiomeTags.SPAWNS_COLD_VARIANT_FARM_ANIMALS).addTag(IS_COLD_ICEIKA);
+        tag(BiomeTags.SPAWNS_COLD_VARIANT_FROGS).addTag(IS_COLD_ICEIKA);
+        tag(BiomeTags.SPAWNS_WHITE_RABBITS).addTag(IS_COLD_ICEIKA);
+        tag(BiomeTags.SPAWNS_SNOW_FOXES).addTag(IS_COLD_ICEIKA);
+
+        tag(IS_ARCANA).add(ARCANA, ARCANA_BARON_HIGHLANDS, ARCANA_DUNE_VALLEY);
+
+        tag(IS_EDEN).add(EDEN, EDEN_FOREST, EDEN_DRAVITE_CAVES, EDEN_DRAVITE_HILLS, EDEN_GOLDEN_PEAKS, EDEN_MAGNETIC_ISLES, EDEN_PLAINS);
+        tag(IS_WILDWOOD).add(WILDWOOD);
+        tag(IS_APALACHIA).add(APALACHIA);
+        tag(IS_SKYTHERN).add(SKYTHERN);
+        tag(IS_MORTUM).add(MORTUM);
+        tag(IS_VETHEA).add(VETHEA, VETHEA_EMBER_CAVERNS, VETHEA_DREAM_GROUNDS, VETHEA_HYRELANDS, VETHEA_SCORCHED_TOPS);
+
+        tag(IS_DENSE_VEGETATION_ICEIKA).add(ICEIKA_COZYBARK_FOREST);
+        tag(IS_DENSE_VEGETATION_ARCANA);
+        tag(IS_DENSE_VEGETATION_EDEN);
+        tag(IS_DENSE_VEGETATION_WILDWOOD).add(WILDWOOD);
+        tag(IS_DENSE_VEGETATION_APALACHIA);
+        tag(IS_DENSE_VEGETATION_SKYTHERN);
+        tag(IS_DENSE_VEGETATION_MORTUM);
+        tag(IS_DENSE_VEGETATION_VETHEA);
+        tag(Tags.Biomes.IS_DENSE_VEGETATION).addTags(IS_DENSE_VEGETATION_ICEIKA, IS_DENSE_VEGETATION_ARCANA, IS_DENSE_VEGETATION_EDEN, IS_DENSE_VEGETATION_WILDWOOD, IS_DENSE_VEGETATION_APALACHIA, IS_DENSE_VEGETATION_SKYTHERN, IS_DENSE_VEGETATION_MORTUM, IS_DENSE_VEGETATION_VETHEA);
+
+        // t < 0.5
+        tag(IS_COLD_ICEIKA).add(ICEIKA, ICEIKA_FROZEN_PEAKS, ICEIKA_BOREALIS_STEEPS, ICEIKA_CHILL_PASSAGE, ICEIKA_SNOWY_PEAKS, ICEIKA_SHIVERSPINE_FOREST, ICEIKA_COZYBARK_FOREST, ICEIKA_SNOW_BOG, ICEIKA_MORGUE_MARSH, ICEIKA_GEYSER_PLATEAU, ICEIKA_FROZEN_MENAGERIE, ICEIKA_SHELTERED_GARDEN, ICEIKA_GLOWING_DEEP, ICEIKA_CHILLY_CAVERN, ICEIKA_TUNDRA, ICEIKA_FRACTAL_FOREST, ICEIKA_ICE_SPIKES);
+        tag(IS_COLD_ARCANA);
+        tag(IS_COLD_EDEN);
+        tag(IS_COLD_WILDWOOD);
+        tag(IS_COLD_APALACHIA);
+        tag(IS_COLD_SKYTHERN);
+        tag(IS_COLD_MORTUM);
+        tag(IS_COLD_VETHEA);
+        tag(Tags.Biomes.IS_COLD).addTags(IS_COLD_ICEIKA, IS_COLD_ARCANA, IS_COLD_EDEN, IS_COLD_WILDWOOD, IS_COLD_APALACHIA, IS_COLD_SKYTHERN, IS_COLD_MORTUM, IS_COLD_VETHEA);
+
+        // 0.5 ≤ t ≤ 0.8
+        tag(IS_TEMPERATE_ICEIKA);
+        tag(IS_TEMPERATE_ARCANA);
+        tag(IS_TEMPERATE_EDEN).add(EDEN, EDEN_FOREST, EDEN_DRAVITE_CAVES, EDEN_DRAVITE_HILLS, EDEN_GOLDEN_PEAKS, EDEN_MAGNETIC_ISLES, EDEN_PLAINS);
+        tag(IS_TEMPERATE_WILDWOOD).add(WILDWOOD);
+        tag(IS_TEMPERATE_APALACHIA).add(APALACHIA);
+        tag(IS_TEMPERATE_SKYTHERN).add(SKYTHERN);
+        tag(IS_TEMPERATE_MORTUM);
+        tag(IS_TEMPERATE_VETHEA).add(VETHEA, VETHEA_DREAM_GROUNDS, VETHEA_HYRELANDS);
+        tag(Tags.Biomes.IS_TEMPERATE).addTags(IS_TEMPERATE_ICEIKA, IS_TEMPERATE_ARCANA, IS_TEMPERATE_EDEN, IS_TEMPERATE_WILDWOOD, IS_TEMPERATE_APALACHIA, IS_TEMPERATE_SKYTHERN, IS_TEMPERATE_MORTUM, IS_TEMPERATE_VETHEA);
+
+        // t > 0.8
+        tag(IS_HOT_ICEIKA);
+        tag(IS_HOT_ARCANA);
+        tag(IS_HOT_EDEN);
+        tag(IS_HOT_WILDWOOD);
+        tag(IS_HOT_APALACHIA);
+        tag(IS_HOT_SKYTHERN);
+        tag(IS_HOT_MORTUM).add(MORTUM);
+        tag(IS_HOT_VETHEA).add(VETHEA_EMBER_CAVERNS, VETHEA_SCORCHED_TOPS);
+        tag(Tags.Biomes.IS_HOT).addTags(IS_HOT_ICEIKA, IS_HOT_ARCANA, IS_HOT_EDEN, IS_HOT_WILDWOOD, IS_HOT_APALACHIA, IS_HOT_SKYTHERN, IS_HOT_MORTUM, IS_HOT_VETHEA);
+
+        tag(IS_DRY_ICEIKA);
+        tag(IS_DRY_ARCANA).add(ARCANA, ARCANA_BARON_HIGHLANDS, ARCANA_DUNE_VALLEY);
+        tag(IS_DRY_EDEN);
+        tag(IS_DRY_WILDWOOD);
+        tag(IS_DRY_APALACHIA);
+        tag(IS_DRY_SKYTHERN);
+        tag(IS_DRY_MORTUM).add(MORTUM);
+        tag(IS_DRY_VETHEA).add(VETHEA_EMBER_CAVERNS, VETHEA_SCORCHED_TOPS);
+        tag(Tags.Biomes.IS_DRY).addTags(IS_DRY_ICEIKA, IS_DRY_ARCANA, IS_DRY_EDEN, IS_DRY_WILDWOOD, IS_DRY_APALACHIA, IS_DRY_SKYTHERN, IS_DRY_MORTUM, IS_DRY_VETHEA);
+
+        tag(IS_WET_ICEIKA);
+        tag(IS_WET_ARCANA);
+        tag(IS_WET_EDEN);
+        tag(IS_WET_WILDWOOD).add(WILDWOOD);
+        tag(IS_WET_APALACHIA);
+        tag(IS_WET_SKYTHERN);
+        tag(IS_WET_MORTUM);
+        tag(IS_WET_VETHEA);
+        tag(Tags.Biomes.IS_WET).addTags(IS_WET_ICEIKA, IS_WET_ARCANA, IS_WET_EDEN, IS_WET_WILDWOOD, IS_WET_APALACHIA, IS_WET_SKYTHERN, IS_WET_MORTUM, IS_WET_VETHEA);
+
+        tag(PRIMARY_WOOD_TYPE_SHIVERSPINE).add(ICEIKA_SHIVERSPINE_FOREST);
+        tag(PRIMARY_WOOD_TYPE_AURORAOAK).add(ICEIKA_BOREALIS_STEEPS);
+        tag(PRIMARY_WOOD_TYPE_COZYBARK).add(ICEIKA_COZYBARK_FOREST);
+        tag(PRIMARY_WOOD_TYPE_STREAMLEAF).add(ICEIKA_MORGUE_MARSH);
     }
 }

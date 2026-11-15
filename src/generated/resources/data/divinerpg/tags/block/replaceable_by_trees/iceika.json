@@ -1,5 +1,7 @@
 {
   "values": [
-    "#minecraft:snow"
+    "#minecraft:replaceable_by_trees",
+    "minecraft:snow_block",
+    "minecraft:snow"
   ]
 }

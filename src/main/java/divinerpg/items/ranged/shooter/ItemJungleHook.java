@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 import static divinerpg.registries.AttachmentRegistry.HOOKED;
 import static divinerpg.registries.EntityRegistry.HOOK;
-import static divinerpg.registries.TagRegistry.AMMO_ROPE;
+import static divinerpg.registries.TagRegistry.Items.AMMO_ROPE;
 
 public class ItemJungleHook extends ItemRangedWeapon {
     public ItemJungleHook(Properties properties){super(properties.durability(100), AMMO_ROPE, Items.LEAD::getDefaultInstance, HOOK::value);}

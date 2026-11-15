@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "divinerpg:aqua_ball"
+  ],
+  "values": [
+    "#c:slime_balls"
+  ]
+}

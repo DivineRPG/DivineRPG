@@ -1,41 +1,33 @@
 package divinerpg.data;
 
-import divinerpg.DivineRPG;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.resources.Identifier;
-import net.minecraft.tags.PaintingVariantTags;
-import net.minecraft.tags.TagBuilder;
-import net.minecraft.tags.TagEntry;
-import net.minecraft.world.entity.decoration.painting.PaintingVariant;
+import net.minecraft.data.tags.PaintingVariantTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModPaintingTagsProvider extends TagsProvider<PaintingVariant> {
+import static divinerpg.DivineRPG.MODID;
+import static divinerpg.registries.PaintingRegistry.*;
+import static net.minecraft.tags.PaintingVariantTags.PLACEABLE;
 
+public class ModPaintingTagsProvider extends PaintingVariantTagsProvider {
     public ModPaintingTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, Registries.PAINTING_VARIANT, lookupProvider, DivineRPG.MODID);
+        super(output, lookupProvider, MODID);
     }
-
-    @Override
-    protected void addTags(HolderLookup.Provider lookupProvider) {
-        TagBuilder placeableBuilder = this.getOrCreateRawBuilder(PaintingVariantTags.PLACEABLE);
-
-        addPainting(placeableBuilder, "fall");
-        addPainting(placeableBuilder, "moonlight_rave");
-        addPainting(placeableBuilder, "grazing");
-        addPainting(placeableBuilder, "disturbed");
-        addPainting(placeableBuilder, "levels");
-        addPainting(placeableBuilder, "ice_age");
-        addPainting(placeableBuilder, "crawling");
-        addPainting(placeableBuilder, "howling_at_the_moon");
-        addPainting(placeableBuilder, "lurking_terror");
-    }
-
-    private void addPainting(TagBuilder builder, String name) {
-        Identifier id = Identifier.fromNamespaceAndPath(DivineRPG.MODID, name);
-        builder.add(TagEntry.optionalElement(id));
+    @SuppressWarnings("unchecked")
+    @Override protected void addTags(HolderLookup.Provider registries) {
+        tag(PLACEABLE).add(
+                // 1x1
+                CRAWLING, GRAZING,
+                // 1x2
+                MOONLIGHT_RAVE,
+                // 2x1
+                DISTURBED,
+                // 2x2
+                FALL, LEVELS, LURKING_TERROR,
+                // 2x4
+                HOWLING_AT_THE_MOON,
+                // 4x4
+                ICE_AGE);
     }
 }

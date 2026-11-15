@@ -129,7 +129,7 @@ public class RecipeRegistry {
                         new DivineTrades(olivine.toStack(5), frostPumpkin.toStack(), random.nextInt(7), 3),
                         new DivineTrades(olivine.toStack(25), seng_fur.toStack(), random.nextInt(7), 5),
 //                        new DivineTrades(olivine.toStack(7), PotionContents.createItemStack(Items.POTION, PotionRegistry.GROG), random.nextInt(7), 2),
-                        new DivineMapTrades(olivine.toStack(20), raw_wolpertinger_meat.toStack(5), "filled_map.groglin_raid_target", TagRegistry.RAID_TARGETS, MapDecorationTypes.TARGET_X, 15),
+                        new DivineMapTrades(olivine.toStack(20), raw_wolpertinger_meat.toStack(5), "filled_map.groglin_raid_target", TagRegistry.Structures.GROGLIN_RAID_TARGETS, MapDecorationTypes.TARGET_X, 15),
                         new DivineTrades(olivine.toStack(), ice_stone.toStack(2), random.nextInt(7), 1),
                         new DivineTrades(olivine.toStack(10), raw_wolpertinger_meat.toStack(2), sabear_sabre.toStack(), random.nextInt(7), 8)
                 },
@@ -158,7 +158,7 @@ public class RecipeRegistry {
 //                        new DivineTrades(olivine.toStack(6), PotionContents.createItemStack(Items.POTION, PotionRegistry.GROG), random.nextInt(7), 2),
 //                        new DivineTrades(olivine.toStack(4), PotionContents.createItemStack(Items.POTION, PotionRegistry.TEA), random.nextInt(7), 2),
 //                        new DivineTrades(olivine.toStack(15), PotionContents.createItemStack(Items.POTION, PotionRegistry.LONG_WARMTH), random.nextInt(7), 2),
-                        new DivineMapTrades(olivine.toStack(25), raw_wolpertinger_meat.toStack(5), "filled_map.whale_skull", TagRegistry.WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT, 25),
+                        new DivineMapTrades(olivine.toStack(25), raw_wolpertinger_meat.toStack(5), "filled_map.whale_skull", TagRegistry.Structures.WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT, 25),
                         new DivineTrades(olivine.toStack(16), raw_wolpertinger_meat.toStack(4), frostedAllure.toStack(), random.nextInt(7), 8)
                 },
                 GROGLIN_WARRIOR = (level, random) ->  new DivineTrades[]{
@@ -177,14 +177,14 @@ public class RecipeRegistry {
                 },
                 GRUZZORLUG_COMMANDER = (level, random) -> new DivineTrades[]{
                         new DivineTrades(olivine.toStack(), ice_shards.toStack(12), random.nextInt(7), 1),
-                        new DivineMapTrades(olivine.toStack(25), raw_wolpertinger_meat.toStack(5), "filled_map.whale_skull", TagRegistry.WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT, 25),
+                        new DivineMapTrades(olivine.toStack(25), raw_wolpertinger_meat.toStack(5), "filled_map.whale_skull", TagRegistry.Structures.WHALE_SKULL, MapDecorationTypes.OCEAN_MONUMENT, 25),
                         new DivineTrades(olivine.toStack(8), icyBricks.toStack(4), random.nextInt(7), 1),
                         new DivineTrades(olivine.toStack(10), icyStone.toStack(4), random.nextInt(7), 1),
                         new DivineTrades(olivine.toStack(12), runicIcyBricks.toStack(4), random.nextInt(7), 1)
                 },
                 GRUZZORLUG_GENERAL = (level, random) -> new DivineTrades[]{
                         new DivineTrades(olivine.toStack(12), workshopBookcase.toStack(3), random.nextInt(7), 3),
-                        new DivineMapTrades(olivine.toStack(20), raw_wolpertinger_meat.toStack(5), "filled_map.gruzzorlug_raid_target", TagRegistry.GRUZZORLUG_RAID_TARGETS, MapDecorationTypes.TARGET_X, 15),
+                        new DivineMapTrades(olivine.toStack(20), raw_wolpertinger_meat.toStack(5), "filled_map.gruzzorlug_raid_target", TagRegistry.Structures.GRUZZORLUG_RAID_TARGETS, MapDecorationTypes.TARGET_X, 15),
                         new DivineTrades(oxdrite_ingot.toStack(8), olivine.toStack(2), random.nextInt(7), 1),
                         new DivineTrades(anthracite.toStack(16), olivine.toStack(2), random.nextInt(7), 1),
                         new DivineTrades(olivine.toStack(6), ice_stone.toStack(12), random.nextInt(7), 1)
@@ -258,7 +258,7 @@ public class RecipeRegistry {
                         new DivineTrades(collector.toStack(2), arcaniumPowerSet.getLast().toStack(4), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(2), degradedBrickSet.get(5).toStack(16), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(2), dungeonLampSet.getLast().toStack(4), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), soulSludgeSet.get(5).toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), soulSludgeSet.getLast().toStack(16), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(2), soulStoneSet.getLast().toStack(16), random.nextInt(7), 5)
                 },
                 LEORNA = (level, random) -> new DivineTrades[]{

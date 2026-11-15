@@ -1,18 +1,15 @@
 {
   "values": [
-    "divinerpg:divine_fence",
-    "divinerpg:shiverspine_fence",
-    "divinerpg:auroraoak_fence",
-    "divinerpg:cozybark_fence",
-    "divinerpg:streamleaf_fence",
-    "divinerpg:eucalyptus_fence",
-    "divinerpg:eden_fence",
-    "divinerpg:wildwood_fence",
-    "divinerpg:apalachia_fence",
-    "divinerpg:skythern_fence",
-    "divinerpg:mortum_fence",
-    "divinerpg:red_fence",
-    "divinerpg:blue_fence",
-    "divinerpg:green_fence"
+    "#divinerpg:fences/divine",
+    "#divinerpg:fences/shiverspine",
+    "#divinerpg:fences/auroraoak",
+    "#divinerpg:fences/cozybark",
+    "#divinerpg:fences/streamleaf",
+    "#divinerpg:fences/eucalyptus",
+    "#divinerpg:fences/eden",
+    "#divinerpg:fences/wildwood",
+    "#divinerpg:fences/apalachia",
+    "#divinerpg:fences/skythern",
+    "#divinerpg:fences/mortum"
   ]
 }

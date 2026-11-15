@@ -47,7 +47,7 @@ import java.util.function.Supplier;
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.DivineRegistries.ITEMS;
 import static divinerpg.registries.SoundRegistry.*;
-import static divinerpg.registries.TagRegistry.*;
+import static divinerpg.registries.TagRegistry.Items.*;
 
 public class ItemRegistry {
     //For creative tabs
@@ -342,8 +342,8 @@ public class ItemRegistry {
     public static final DeferredItem<Item> miners_amulet = register("miners_amulet", properties -> new ItemMinersAmulet(properties));
     public static final DeferredItem<Item> band_of_lheiva_hunting = register("band_of_lheiva_hunting", properties -> new ItemVethean(properties.stacksTo(1)));
 
-    public static final DeferredItem<Item> md_red_stains = register("md_red_stains_on_the_bluest_snow", properties -> new ItemMod(properties.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(RED_STAINS_SONG.getKey())));
-    public static final DeferredItem<Item> md_destiny = register("md_destiny", properties -> new ItemMod(properties.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.DESTINY_SONG.getKey())));
+    public static final DeferredItem<Item> md_red_stains = register("md_red_stains_on_the_bluest_snow", properties -> new ItemMod(properties.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(RED_STAINS_SONG.key())));
+    public static final DeferredItem<Item> md_destiny = register("md_destiny", properties -> new ItemMod(properties.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.DESTINY_SONG.key())));
 
     public static final DeferredItem<Item> ancient_key = register("ancient_key");
     public static final DeferredItem<Item> degraded_key = register("degraded_key");
@@ -570,21 +570,21 @@ public class ItemRegistry {
         skythern_phaser  = register("skythern_phaser", props -> new ItemRangedWeapon(props, EntityRegistry.SKYTHERN_PHASER_SHOT::value).withTooltip(LocalizeUtils.magicDam(14)).withSound(SoundRegistry.PHASER.get()).withCooldown(50).nameColor(RarityList.SKYTHERN)),
         mortum_phaser    = register("mortum_phaser", props -> new ItemRangedWeapon(props, EntityRegistry.MORTUM_PHASER_SHOT::value).withTooltip(LocalizeUtils.magicDam(16)).withSound(SoundRegistry.PHASER.get()).withCooldown(50).nameColor(RarityList.MORTUM)),
         halite_phaser    = register("halite_phaser", props -> new ItemRangedWeapon(props, EntityRegistry.HALITE_PHASER_SHOT::value).withTooltip(LocalizeUtils.magicDam(18)).withSound(SoundRegistry.PHASER.get()).withCooldown(50).nameColor(RarityList.HALITE)),
-        crabclaw_cannon  = register("crabclaw_cannon", props -> new ItemRangedWeapon(props.durability(246), TagRegistry.AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.CRAB_CLAW::value).withTooltip(LocalizeUtils.rangedDam(4)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
-        frostclaw_cannon = register("frostclaw_cannon", props -> new ItemRangedWeapon(props.durability(612), TagRegistry.AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.FROST_CLAW::value).withTooltip(LocalizeUtils.rangedDam(7)).withSound(SoundRegistry.FROSTCLAW_CANNON.get())),
-        bowhead_cannon   = register("bowhead_cannon", props -> new ItemRangedWeapon(props.durability(592), TagRegistry.AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.BOWHEAD_SHOT::value).withTooltip(LocalizeUtils.rangedDam(6)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
-        frost_cannon     = register("frost_cannon", props -> new ItemRangedWeapon(props.durability(1126), TagRegistry.AMMO_FROST_CANNON, Items.SNOWBALL::getDefaultInstance, EntityRegistry.FROST_CANNON_SHOT::value).withTooltip(LocalizeUtils.rangedDam(6)).withSound(SoundRegistry.FROST_CANNON.get())),
-        fractite_cannon  = register("fractite_cannon", props -> new ItemRangedWeapon(props.durability(1442), TagRegistry.AMMO_FRACTITE_CANNON, ItemRegistry.ice_shards::toStack, EntityRegistry.FRACTITE_CANNON_SHOT::value).withTooltip(LocalizeUtils.rangedDam(8)).withSound(SoundRegistry.FRACTITE_CANNON.get())),
+        crabclaw_cannon  = register("crabclaw_cannon", props -> new ItemRangedWeapon(props.durability(246), AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.CRAB_CLAW::value).withTooltip(LocalizeUtils.rangedDam(4)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
+        frostclaw_cannon = register("frostclaw_cannon", props -> new ItemRangedWeapon(props.durability(612), AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.FROST_CLAW::value).withTooltip(LocalizeUtils.rangedDam(7)).withSound(SoundRegistry.FROSTCLAW_CANNON.get())),
+        bowhead_cannon   = register("bowhead_cannon", props -> new ItemRangedWeapon(props.durability(592), AMMO_AQUATIC_CANNON, Items.CACTUS::getDefaultInstance, EntityRegistry.BOWHEAD_SHOT::value).withTooltip(LocalizeUtils.rangedDam(6)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
+        frost_cannon     = register("frost_cannon", props -> new ItemRangedWeapon(props.durability(1126), AMMO_FROST_CANNON, Items.SNOWBALL::getDefaultInstance, EntityRegistry.FROST_CANNON_SHOT::value).withTooltip(LocalizeUtils.rangedDam(6)).withSound(SoundRegistry.FROST_CANNON.get())),
+        fractite_cannon  = register("fractite_cannon", props -> new ItemRangedWeapon(props.durability(1442), AMMO_FRACTITE_CANNON, ItemRegistry.ice_shards::toStack, EntityRegistry.FRACTITE_CANNON_SHOT::value).withTooltip(LocalizeUtils.rangedDam(8)).withSound(SoundRegistry.FRACTITE_CANNON.get())),
         ghast_cannon     = register("ghast_cannon", props -> new ItemRangedWeapon(props.durability(726), EntityRegistry.GHAST_CANNON_SHOT::value).withTooltip(LocalizeUtils.magicDam(11)).withSound(SoundRegistry.GHAST_CANNON.get()).withCooldown(20)),
-        golden_fury      = register("golden_fury", props -> new ItemRangedWeapon(props.durability(2417), TagRegistry.AMMO_GOLDEN_FURY, Items.GOLD_NUGGET::getDefaultInstance, EntityRegistry.GOLDEN_FURY_SHOT::value).withTooltip(LocalizeUtils.rangedDam(17)).withSound(SoundRegistry.BLITZ.get())),
-        eden_blitz      = register("eden_blitz", props -> new ItemRangedWeapon(props.durability(1517), TagRegistry.AMMO_EDEN_BLITZ, ItemRegistry.eden_dust::toStack, EntityRegistry.EDEN_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(10)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.EDEN)),
-        wildwood_blitz  = register("wildwood_blitz", props -> new ItemRangedWeapon(props.durability(1624), TagRegistry.AMMO_WILDWOOD_BLITZ, ItemRegistry.wildwood_dust::toStack, EntityRegistry.WILDWOOD_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(12)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.WILDWOOD)),
-        apalachia_blitz = register("apalachia_blitz", props -> new ItemRangedWeapon(props.durability(1778), TagRegistry.AMMO_APALACHIA_BLITZ, ItemRegistry.apalachia_dust::toStack, EntityRegistry.APALACHIA_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(14)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.APALACHIA)),
-        skythern_blitz  = register("skythern_blitz", props -> new ItemRangedWeapon(props.durability(1879), TagRegistry.AMMO_SKYTHERN_BLITZ, ItemRegistry.skythern_dust::toStack, EntityRegistry.SKYTHERN_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(16)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.SKYTHERN)),
-        mortum_blitz    = register("mortum_blitz", props -> new ItemRangedWeapon(props.durability(1990), TagRegistry.AMMO_MORTUM_BLITZ, ItemRegistry.mortum_dust::toStack, EntityRegistry.MORTUM_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(18)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.MORTUM)),
-        halite_blitz    = register("halite_blitz", props -> new ItemRangedWeapon(props.durability(2114), TagRegistry.AMMO_HALITE_BLITZ, ItemRegistry.mortum_dust::toStack, EntityRegistry.HALITE_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(20)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.HALITE)),
+        golden_fury      = register("golden_fury", props -> new ItemRangedWeapon(props.durability(2417), AMMO_GOLDEN_FURY, Items.GOLD_NUGGET::getDefaultInstance, EntityRegistry.GOLDEN_FURY_SHOT::value).withTooltip(LocalizeUtils.rangedDam(17)).withSound(SoundRegistry.BLITZ.get())),
+        eden_blitz      = register("eden_blitz", props -> new ItemRangedWeapon(props.durability(1517), AMMO_EDEN_BLITZ, ItemRegistry.eden_dust::toStack, EntityRegistry.EDEN_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(10)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.EDEN)),
+        wildwood_blitz  = register("wildwood_blitz", props -> new ItemRangedWeapon(props.durability(1624), AMMO_WILDWOOD_BLITZ, ItemRegistry.wildwood_dust::toStack, EntityRegistry.WILDWOOD_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(12)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.WILDWOOD)),
+        apalachia_blitz = register("apalachia_blitz", props -> new ItemRangedWeapon(props.durability(1778), AMMO_APALACHIA_BLITZ, ItemRegistry.apalachia_dust::toStack, EntityRegistry.APALACHIA_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(14)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.APALACHIA)),
+        skythern_blitz  = register("skythern_blitz", props -> new ItemRangedWeapon(props.durability(1879), AMMO_SKYTHERN_BLITZ, ItemRegistry.skythern_dust::toStack, EntityRegistry.SKYTHERN_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(16)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.SKYTHERN)),
+        mortum_blitz    = register("mortum_blitz", props -> new ItemRangedWeapon(props.durability(1990), AMMO_MORTUM_BLITZ, ItemRegistry.mortum_dust::toStack, EntityRegistry.MORTUM_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(18)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.MORTUM)),
+        halite_blitz    = register("halite_blitz", props -> new ItemRangedWeapon(props.durability(2114), AMMO_HALITE_BLITZ, ItemRegistry.mortum_dust::toStack, EntityRegistry.HALITE_BLITZ_SHOT::value).withTooltip(LocalizeUtils.rangedDam(20)).withSound(SoundRegistry.BLITZ.get()).nameColor(RarityList.HALITE)),
         corrupted_bullet = register("corrupted_bullet"),
-        corrupted_cannon = register("corrupted_cannon", props -> new Shotgun(props, TagRegistry.AMMO_CORRUPTED_CANNON, () -> new ItemStack(ItemRegistry.corrupted_bullet.get(), 4), EntityRegistry.CORRUPTED_BULLET::value, 1672, 15, 4).withTooltip(LocalizeUtils.rangedDam("4x10")).withSound(SoundRegistry.GHAST_CANNON.get())),
+        corrupted_cannon = register("corrupted_cannon", props -> new Shotgun(props, AMMO_CORRUPTED_CANNON, () -> new ItemStack(ItemRegistry.corrupted_bullet.get(), 4), EntityRegistry.CORRUPTED_BULLET::value, 1672, 15, 4).withTooltip(LocalizeUtils.rangedDam("4x10")).withSound(SoundRegistry.GHAST_CANNON.get())),
         arcanite_blaster = register("arcanite_blaster", props -> new Shotgun(props, EntityRegistry.BLASTER_BULLET::value, 1127, 30, 30).withTooltip(LocalizeUtils.arcanaDam("30x13")).withSound(SoundRegistry.GHAST_CANNON.get()).arcanaUse(20)),
         teaker_cannon        = register("teaker_cannon", props -> new VetheanCannon(props, 1)),
         amthirmis_cannon     = register("amthirmis_cannon", props -> new VetheanCannon(props, 1.6F)),
@@ -595,7 +595,7 @@ public class ItemRegistry {
         karos_cannon         = register("karos_cannon", props -> new VetheanCannon(props, 7)),
         heliosis_cannon      = register("heliosis_cannon", props -> new VetheanCannon(props, 9.3F)),
         arksiane_cannon      = register("arksiane_cannon", props -> new VetheanCannon(props, 12)),
-        eversight            = register("eversight", props -> new ItemRangedWeapon(props, TagRegistry.AMMO_VETHEAN_CANNON, ItemRegistry.acid::toStack, EntityRegistry.EVERSIGHT_SHOT::value).withTooltip(LocalizeUtils.rangedDam(42)).withSound(SoundRegistry.BLITZ.get()).arcanaUse(10)),
+        eversight            = register("eversight", props -> new ItemRangedWeapon(props, AMMO_VETHEAN_CANNON, ItemRegistry.acid::toStack, EntityRegistry.EVERSIGHT_SHOT::value).withTooltip(LocalizeUtils.rangedDam(42)).withSound(SoundRegistry.BLITZ.get()).arcanaUse(10)),
         realmite_shovel      = registerShovel("realmite_shovel", ToolStats.REALMITE_SHOVEL, Rarity.COMMON, false),
         realmite_pickaxe     = registerPickaxe("realmite_pickaxe", ToolStats.REALMITE_PICKAXE, Rarity.COMMON, false),
         realmite_axe         = registerAxe("realmite_axe", ToolStats.REALMITE_AXE, Rarity.COMMON, false),

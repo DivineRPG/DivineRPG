@@ -1,0 +1,11 @@
+{
+  "values": [
+    "#divinerpg:raw_materials/arlemite",
+    "#divinerpg:dusts/arlemite",
+    "#divinerpg:ingots/arlemite",
+    {
+      "id": "divinerpg:crushed_raw_arlemite",
+      "required": false
+    }
+  ]
+}

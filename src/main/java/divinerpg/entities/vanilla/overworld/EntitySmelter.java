@@ -10,8 +10,8 @@ import net.minecraft.world.level.Level;
 
 public class EntitySmelter extends EntityDivineTameable {
     public EntitySmelter(EntityType<? extends EntitySmelter> type, Level worldIn) {super(type, worldIn, 1);}
-    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.PET_FOODS_SMELTER);}
-    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.PET_TAMING_FOODS_SMELTER);}
+    @Override public boolean isFood(ItemStack item) {return item.is(TagRegistry.Items.PET_FOODS_SMELTER);}
+    @Override protected boolean isTamingFood(ItemStack item) {return item.is(TagRegistry.Items.PET_TAMING_FOODS_SMELTER);}
     @Override public boolean doHurtTarget(ServerLevel level, Entity entity) {
         boolean attack = super.doHurtTarget(level, entity);
         if(attack) {

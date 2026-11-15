@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#divinerpg:spawners/dirt",
+    "#divinerpg:spawners/bone",
+    "#divinerpg:spawners/metal",
+    "#divinerpg:spawners/egg",
+    "#divinerpg:spawners/unbreakable"
+  ]
+}

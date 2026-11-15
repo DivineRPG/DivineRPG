@@ -1,6 +1,6 @@
 {
   "values": [
-    "minecraft:deep_dark",
-    "#c:is_mushroom"
+    "#c:is_mushroom",
+    "minecraft:deep_dark"
   ]
 }

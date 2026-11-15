@@ -1,6 +1,5 @@
 package divinerpg;
 
-import divinerpg.compat.ModCompat;
 import divinerpg.config.Config;
 import divinerpg.data.DataGenerators;
 import divinerpg.events.SpawnEvents;

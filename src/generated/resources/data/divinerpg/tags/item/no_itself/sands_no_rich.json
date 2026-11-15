@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "divinerpg:arcanium_rich_sand"
+  ],
+  "values": [
+    "#c:sands"
+  ]
+}

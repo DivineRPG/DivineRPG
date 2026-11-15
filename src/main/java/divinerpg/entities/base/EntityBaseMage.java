@@ -2,11 +2,9 @@ package divinerpg.entities.base;
 
 import divinerpg.entities.projectile.DivineThrowableProjectile;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.registries.TagRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
@@ -17,6 +15,8 @@ import net.minecraft.world.level.LevelReader;
 import java.util.function.Supplier;
 
 import static divinerpg.registries.EntityRegistry.SPELLBINDER_SHOT;
+import static divinerpg.registries.TagRegistry.DamageTypes.MAGE_RESISTANT_TO;
+import static net.minecraft.world.entity.EntitySpawnReason.EVENT;
 import static net.neoforged.neoforge.common.damagesource.DamageContainer.Reduction.INNATE_RESISTANCE;
 
 public class EntityBaseMage extends EntityDivineMonster {
@@ -33,7 +33,7 @@ public class EntityBaseMage extends EntityDivineMonster {
         super.tick();
         if(tickCount % 19 == 0 && isAlive() && getTarget() != null && !level().isClientSide()) {
             double tx = getTarget().getX() - getX(), ty = getTarget().getBoundingBox().minY - getY() - 0.1, tz = getTarget().getZ() - getZ();
-            ThrowableProjectile e = (projectileType == null ? SPELLBINDER_SHOT : projectileType).get().create(level(), EntitySpawnReason.EVENT);
+            ThrowableProjectile e = (projectileType == null ? SPELLBINDER_SHOT : projectileType).get().create(level(), EVENT);
             e.setOwner(this);
             e.setPos(getEyePosition());
             e.shoot(tx, ty, tz, 1.6F, 0);
@@ -46,7 +46,7 @@ public class EntityBaseMage extends EntityDivineMonster {
         if(source.getEntity() == this) {
             damageContainers.peek().setReduction(INNATE_RESISTANCE, damage);
             damage = 0;
-        } else if(source.is(TagRegistry.MAGE_RESISTANT_TO)) {
+        } else if(source.is(MAGE_RESISTANT_TO)) {
             damageContainers.peek().setReduction(INNATE_RESISTANCE, damage * .85F);
             damage *= .15F;
         } return damage;

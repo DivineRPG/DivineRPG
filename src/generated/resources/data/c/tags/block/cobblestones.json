@@ -1,7 +1,11 @@
 {
   "values": [
-    "#c:cobblestones/frozen",
-    "#c:cobblestones/cobaltite",
-    "#c:cobblestones/coalstone"
+    "#divinerpg:cobblestones/frozen",
+    "#divinerpg:cobblestones/icy",
+    "#divinerpg:cobblestones/scorchalt",
+    "divinerpg:cobaltite",
+    "divinerpg:ancient_stone_breakable",
+    "divinerpg:soul_stone_breakable",
+    "divinerpg:luna_stone"
   ]
 }

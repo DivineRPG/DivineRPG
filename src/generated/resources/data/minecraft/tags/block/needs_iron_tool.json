@@ -1,0 +1,19 @@
+{
+  "values": [
+    "#divinerpg:ores/arlemite",
+    "#divinerpg:storage_blocks/raw_arlemite",
+    "#divinerpg:storage_blocks/arlemite",
+    "#divinerpg:ores/rupee",
+    "#divinerpg:storage_blocks/raw_rupee",
+    "#divinerpg:storage_blocks/rupee",
+    "#divinerpg:ores/bloodgem",
+    "#divinerpg:storage_blocks/bloodgem",
+    "#divinerpg:storage_blocks/arcanium",
+    "#divinerpg:storage_blocks/irreversible/eden",
+    "#divinerpg:storage_blocks/irreversible/wildwood",
+    "#divinerpg:storage_blocks/irreversible/apalachia",
+    "#divinerpg:storage_blocks/irreversible/skythern",
+    "#divinerpg:storage_blocks/irreversible/mortum",
+    "divinerpg:darkstone_bricks"
+  ]
+}

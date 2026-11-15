@@ -1,0 +1,19 @@
+{
+  "values": [
+    "#c:storage_blocks/coal",
+    "#divinerpg:storage_blocks/irreversible/anthracite",
+    {
+      "id": "#c:storage_blocks/anthracite",
+      "required": false
+    },
+    {
+      "id": "#c:storage_blocks/charcoal",
+      "required": false
+    },
+    {
+      "id": "#c:storage_blocks/coal_coke",
+      "required": false
+    },
+    "minecraft:magma_block"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": "#divinerpg:skin/kraken",
+  "addition": "#divinerpg:skins/kraken",
   "base": "divinerpg:aquastrive_chestplate",
   "result": {
     "id": "divinerpg:kraken_chestplate"

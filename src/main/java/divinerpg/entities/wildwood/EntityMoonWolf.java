@@ -18,7 +18,7 @@ public class EntityMoonWolf extends Wolf {
             setHealth(getMaxHealth());
         } else getAttribute(Attributes.MAX_HEALTH).setBaseValue(getMaxHealth());
     }
-    @Override public boolean isFood(ItemStack stack) {return stack.is(TagRegistry.PET_FOODS_MOON_WOLF);}
+    @Override public boolean isFood(ItemStack stack) {return stack.is(TagRegistry.Items.PET_FOODS_MOON_WOLF);}
     //TODO: to maybe add baby moon wolves
     // fix the issue related to them being breedable with the regular ones (or add a compat)
     @Override public EntityMoonWolf getBreedOffspring(ServerLevel level, AgeableMob mob) {return null;}

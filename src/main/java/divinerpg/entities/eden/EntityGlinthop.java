@@ -73,12 +73,12 @@ public class EntityGlinthop extends EntityDivineTameable {
 
     @Override
     public boolean isFood(ItemStack item) {
-        return item.is(TagRegistry.PET_FOODS_GLINTHOP);
+        return item.is(TagRegistry.Items.PET_FOODS_GLINTHOP);
     }
 
     @Override
     protected boolean isTamingFood(ItemStack item) {
-        return item.is(TagRegistry.PET_TAMING_FOODS_GLINTHOP);
+        return item.is(TagRegistry.Items.PET_TAMING_FOODS_GLINTHOP);
     }
 
     @Override

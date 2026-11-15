@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#divinerpg:is_iceika_ocean",
+  "max_distance_from_center": 80,
+  "project_start_to_heightmap": "OCEAN_FLOOR_WG",
+  "size": 6,
+  "spawn_overrides": {},
+  "start_height": {
+    "absolute": 0
+  },
+  "start_pool": "divinerpg:iceika/whale_skull",
+  "step": "surface_structures",
+  "use_expansion_hack": false
+}

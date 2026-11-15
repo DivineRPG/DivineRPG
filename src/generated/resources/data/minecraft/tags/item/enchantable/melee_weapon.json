@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#divinerpg:tools/dagger",
+    "#divinerpg:tools/knife",
+    "#divinerpg:tools/claw",
+    "#divinerpg:tools/maul",
+    "#divinerpg:tools/hammer",
+    "#divinerpg:tools/anchor"
+  ]
+}

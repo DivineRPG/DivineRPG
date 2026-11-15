@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:ingots/arlemite"
+            "items": "#divinerpg:ingots/arlemite"
           }
         ]
       },

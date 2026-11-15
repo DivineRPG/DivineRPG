@@ -1,0 +1,12 @@
+{
+  "values": [
+    "#minecraft:ice",
+    "divinerpg:frozen_dirt",
+    "minecraft:gravel",
+    "divinerpg:frozen_gravel",
+    "divinerpg:frozen_stone",
+    "divinerpg:cobbled_frozen_stone",
+    "divinerpg:brittle_leaves",
+    "divinerpg:shiverspine_log"
+  ]
+}

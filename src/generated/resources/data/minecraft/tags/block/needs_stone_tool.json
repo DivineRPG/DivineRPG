@@ -1,0 +1,21 @@
+{
+  "values": [
+    "#divinerpg:ores/realmite",
+    "#divinerpg:storage_blocks/raw_realmite",
+    "#divinerpg:storage_blocks/realmite",
+    "#divinerpg:ores/oxdrite",
+    "#divinerpg:storage_blocks/raw_oxdrite",
+    "#divinerpg:storage_blocks/oxdrite",
+    "#divinerpg:storage_blocks/raw_arcanium",
+    "#divinerpg:storage_blocks/irreversible/steel",
+    "#divinerpg:metal_spike_blocks",
+    "#divinerpg:lamps/metal",
+    "divinerpg:cut_oxdrite",
+    "divinerpg:cut_oxdrite_stairs",
+    "divinerpg:cut_oxdrite_slab",
+    "divinerpg:arcana_portal_frame",
+    "divinerpg:arcanium_metal_breakable",
+    "divinerpg:acceleron",
+    "divinerpg:elevantium"
+  ]
+}

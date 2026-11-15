@@ -1,0 +1,10 @@
+{
+  "remove": [
+    "divinerpg:ice_bullet",
+    "divinerpg:attractor_beam",
+    "divinerpg:reflector_beam"
+  ],
+  "values": [
+    "#divinerpg:projectiles"
+  ]
+}

@@ -1,10 +1,15 @@
 {
   "values": [
-    "#c:ores/arlemite",
-    "#c:ores/rupee",
-    "#c:ores/bloodgem",
-    "#c:ores/oxdrite",
-    "#c:ores/realmite",
-    "#c:ores/torridite"
+    "#divinerpg:ores/realmite",
+    "#divinerpg:ores/arlemite",
+    "#divinerpg:ores/rupee",
+    "#divinerpg:ores/torridite",
+    "#divinerpg:ores/oxdrite",
+    "#divinerpg:ores/bloodgem",
+    "#divinerpg:ores/eden",
+    "#divinerpg:ores/wildwood",
+    "#divinerpg:ores/apalachia",
+    "#divinerpg:ores/skythern",
+    "#divinerpg:ores/mortum"
   ]
 }

@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.redstone.Orientation;
 import org.jspecify.annotations.Nullable;
 
-import static divinerpg.registries.TagRegistry.MINEABLE_WITH_SHICKAXE;
+import static divinerpg.registries.TagRegistry.Blocks.MINEABLE_WITH_SHICKAXE;
 import static net.minecraft.tags.BlockTags.INCORRECT_FOR_DIAMOND_TOOL;
 
 public class MinerBlock extends Block {
