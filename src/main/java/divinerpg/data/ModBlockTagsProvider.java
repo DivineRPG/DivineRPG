@@ -397,7 +397,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(STATUES).add(ancientEntityStatue.key(), theWatcherStatue.key(), kingOfScorchersStatue.key(), kitraStatue.key(), ayeracoStatue.key(), dramixStatue.key(), parasectaStatue.key(), sunstormStatue.key(), termasectStatue.key(), eternalArcherStatue.key(), experiencedCoriStatue.key(), vamacheronStatue.key(), karotStatue.key(), twilightDemonStatue.key(), densosStatue.key(), reyvorStatue.key(), soulFiendStatue.key());
 
-        tag(LADDERS_WOODEN).add(divineWoodSet.get(12).key(), shiverspineWoodSet.get(12).key(), auroraoakWoodSet.get(12).key(), cozybarkWoodSet.get(12).key(), streamleafWoodSet.get(12).key(), eucalyptusWoodSet.get(9).key(), arcaniteLadder.key(), arcaniteTubes.key(), edenWoodSet.get(12).key(), wildwoodWoodSet.get(12).key(), apalachiaWoodSet.get(12).key(), skythernWoodSet.get(12).key(), mortumWoodSet.get(12).key());
+        tag(LADDERS_WOODEN).add(divineWoodSet.get(12).key(), shiverspineWoodSet.get(12).key(), auroraoakWoodSet.get(12).key(), cozybarkWoodSet.get(12).key(), streamleafWoodSet.get(12).key(), eucalyptusWoodSet.get(9).key(), edenWoodSet.get(12).key(), wildwoodWoodSet.get(12).key(), apalachiaWoodSet.get(12).key(), skythernWoodSet.get(12).key(), mortumWoodSet.get(12).key());
         tag(commonTag("ladders/wooden")).addTag(LADDERS_WOODEN);
         tag(LADDERS_ARCANIUM).add(arcaniteLadder.key(), arcaniteTubes.key());
         tag(LADDERS).addTags(LADDERS_WOODEN, LADDERS_ARCANIUM);
@@ -442,12 +442,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(DYED_BLACK_AND_WHITE.block()).add(checkerSet.getFirst().key(), checkerSet.get(1).key(), checkerSet.get(2).key(), checkerSet.getLast().key());
         tag(Tags.BlockItems.DYED_LIGHT_GRAY.block()).add(steel.key());
         tag(Tags.BlockItems.DYED_BLACK.block()).add(blackSteel.key());
-        tag(Tags.BlockItems.DYED_RED.block()).add(redSteel.key(), redCandyCane.key());
+        tag(Tags.BlockItems.DYED_RED.block()).add(redFence.key(), redSteel.key(), redCandyCane.key());
         tag(Tags.BlockItems.DYED_ORANGE.block()).add(orangeSteel.key());
         tag(Tags.BlockItems.DYED_YELLOW.block()).add(yellowSteel.key(), yellowCandyCane.key());
-        tag(Tags.BlockItems.DYED_GREEN.block()).add(greenSteel.key(), greenCandyCane.key());
+        tag(Tags.BlockItems.DYED_GREEN.block()).add(greenFence.key(), greenSteel.key(), greenCandyCane.key());
         tag(Tags.BlockItems.DYED_CYAN.block()).add(cyanSteel.key());
-        tag(Tags.BlockItems.DYED_BLUE.block()).add(blueSteel.key(), blueCandyCane.key());
+        tag(Tags.BlockItems.DYED_BLUE.block()).add(blueFence.key(), blueSteel.key(), blueCandyCane.key());
         tag(Tags.BlockItems.DYED_PURPLE.block()).add(purpleSteel.key());
         tag(Tags.BlockItems.DYED_MAGENTA.block()).add(magentaSteel.key());
         tag(Tags.BlockItems.DYED_PINK.block()).add(pinkCandyCane.key());

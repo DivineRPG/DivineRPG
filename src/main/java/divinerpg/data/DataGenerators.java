@@ -22,7 +22,7 @@ public class DataGenerators {
 
         event.createBlockAndItemTags(ModBlockTagsProvider::new, ModItemTagsProvider::new);
         event.createProvider(ModFluidTagsProvider::new);
-        event.createProvider(ModEntityTypeTagProvider::new);
+        event.createProvider(ModEntityTypeTagsProvider::new);
 
         DatapackBuiltinEntriesProvider datapackProvider = ModDatapackProvider.create(output, world);
         generator.addProvider(true, datapackProvider);
@@ -34,9 +34,10 @@ public class DataGenerators {
 
         generator.addProvider(true, new ModLootModifierProvider(output, fullLookup, MODID));
         generator.addProvider(true, new ModEnchantmentTagsProvider(output, fullLookup));
-        generator.addProvider(true, new ModDamageTagProvider(output, fullLookup));
+        generator.addProvider(true, new ModDamageTagsProvider(output, fullLookup));
         generator.addProvider(true, new ModPaintingTagsProvider(output, fullLookup));
-        generator.addProvider(true, new ModBiomeTagProvider(output, fullLookup));
+        generator.addProvider(true, new ModDimensionTagsProvider(output, fullLookup));
+        generator.addProvider(true, new ModBiomeTagsProvider(output, fullLookup));
         generator.addProvider(true, new ModStructureTagsProvider(output, fullLookup));
         generator.addProvider(true, new ModSoundProvider(output));
         generator.addProvider(true, new ModEquipmentAssetProvider(output));

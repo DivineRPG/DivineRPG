@@ -813,7 +813,6 @@ public class TagRegistry {
             AVOIDS_SAGUARO_THORNS = damageType("avoids_saguaro_thorns"),
             MAGE_RESISTANT_TO = damageType("mage_resistant_to");
     }
-    // TODO: ModDimensionTagsProvider
     public static class Dimensions {
         public static final TagKey<Level>
             STABLE_RIFT_OVERWORLD = dimension("stable_rift/overworld"),

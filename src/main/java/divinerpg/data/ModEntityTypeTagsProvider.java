@@ -12,8 +12,8 @@ import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.EntityRegistry.*;
 import static divinerpg.registries.TagRegistry.EntityTypes.*;
 
-public class ModEntityTypeTagProvider extends EntityTypeTagsProvider {
-    public ModEntityTypeTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+public class ModEntityTypeTagsProvider extends EntityTypeTagsProvider {
+    public ModEntityTypeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, lookupProvider, MODID);
     }
     @SuppressWarnings("unchecked")

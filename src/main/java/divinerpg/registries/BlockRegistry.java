@@ -261,8 +261,8 @@ public class BlockRegistry {
         eucalyptusWoodSet = registerWoodSet("eucalyptus", COLOR_LIGHT_GRAY, TERRACOTTA_WHITE, EUCALYPTUS_WOOD_TYPE),
         edenWoodSet = registerTreeSet("eden", GOLD, COLOR_BROWN, SAND, EDEN_WOOD_TYPE, ConfiguredFeatureKeys.EDEN_TREE),
         crimseekerWoodSet = registerTreeSet("crimseeker", CRIMSON_STEM, CRIMSON_STEM, COLOR_GREEN, CRIMSEEKER_WOOD_TYPE, null, Block::new),//TODO: Tree feature
-        apalachiaWoodSet = registerTreeSet("apalachia", COLOR_MAGENTA, WARPED_HYPHAE, COLOR_MAGENTA, APALACHIA_WOOD_TYPE, ConfiguredFeatureKeys.APALACHIA_TREE),
         wildwoodWoodSet = registerTreeSet("wildwood", COLOR_LIGHT_BLUE, COLOR_BLUE, COLOR_LIGHT_BLUE, WILDWOOD_WOOD_TYPE, ConfiguredFeatureKeys.WILDWOOD_TREE),
+        apalachiaWoodSet = registerTreeSet("apalachia", COLOR_MAGENTA, WARPED_HYPHAE, COLOR_MAGENTA, APALACHIA_WOOD_TYPE, ConfiguredFeatureKeys.APALACHIA_TREE),
         skythernWoodSet = registerTreeSet("skythern", COLOR_LIGHT_GRAY, COLOR_LIGHT_GRAY, WOOL, SKYTHERN_WOOD_TYPE, ConfiguredFeatureKeys.SKYTHERN_TREE),
         mortumWoodSet = registerTreeSet("mortum", COLOR_BLACK, TERRACOTTA_PINK, COLOR_GRAY, MORTUM_WOOD_TYPE, ConfiguredFeatureKeys.MORTUM_TREE),
         firewoodSet = registerDreamTreeSet("firewood", CRIMSON_NYLIUM, COLOR_RED, TERRACOTTA_ORANGE),
@@ -284,7 +284,7 @@ public class BlockRegistry {
     // Wool
     public static final List<DeferredBlock<Block>>
         checkerSet = registerWoolSet("checker", "", Pchecker, DyeColor.BLACK),
-        rainbowSet = registerWoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE),
+        rainbowSet = registerWoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE), // TODO: remap the rainbow_carpet into rainbow_wool_carpet
         fancySet = registerWoolSet("fancy", "_wool", Pfancy, DyeColor.BROWN),
         workshopCarpetSet = registerStairSlabSet("workshop", "_carpet", PworkshopCarpet);
 
@@ -407,7 +407,7 @@ public class BlockRegistry {
         magentaSteel = register("magenta_steel", PmagentaMetal),
         steelDoor = registerDoor("steel", PsteelDoor, STEEL_TYPE);
 
-    // Candy Canes
+    // Candy canes
     public static final DeferredBlock<Block>
         redCandyCane = registerCandy("red_candy_cane", PredCandy),
         yellowCandyCane = registerCandy("yellow_candy_cane", PyellowCandy),
@@ -562,11 +562,11 @@ public class BlockRegistry {
     // Furnaces
     public static final DeferredBlock<Block>
         coalstoneFurnace = registerInfiniFurnace("coalstone", PcoalstoneFurnace, BlockEntityRegistry.COALSTONE_FURNACE::get),
-        moltenFurnace = registerInfiniFurnace("molten", PmoltenFurnace, BlockEntityRegistry.MOLTEN_FURNACE::get),
         greenlightFurnace = registerFurnace("greenlight", PgreenlightFurnace, BlockEntityRegistry.GREENLIGHT_FURNACE::get),
         oceanfireFurnace = registerInfiniFurnace("oceanfire", PoceanfireFurnace, BlockEntityRegistry.OCEANFIRE_FURNACE::get),
-        moonlightFurnace = registerFurnace("moonlight", PmoonlightFurnace, BlockEntityRegistry.MOONLIGHT_FURNACE::get),
+        moltenFurnace = registerInfiniFurnace("molten", PmoltenFurnace, BlockEntityRegistry.MOLTEN_FURNACE::get),
         whitefireFurnace = registerInfiniFurnace("whitefire", PwhitefireFurnace, BlockEntityRegistry.WHITEFIRE_FURNACE::get),
+        moonlightFurnace = registerFurnace("moonlight", PmoonlightFurnace, BlockEntityRegistry.MOONLIGHT_FURNACE::get),
         demonFurnace = register("demon_furnace", DemonFurnace::new, PdemonFurnace);
 
     // Chests

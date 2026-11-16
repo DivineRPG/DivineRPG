@@ -11,8 +11,8 @@ import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.DamageRegistry.*;
 import static divinerpg.registries.TagRegistry.DamageTypes.*;
 
-public class ModDamageTagProvider extends DamageTypeTagsProvider {
-    public ModDamageTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+public class ModDamageTagsProvider extends DamageTypeTagsProvider {
+    public ModDamageTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, lookupProvider, MODID);
     }
     @SuppressWarnings("unchecked")

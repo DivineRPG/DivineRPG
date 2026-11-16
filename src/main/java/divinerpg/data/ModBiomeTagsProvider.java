@@ -13,8 +13,8 @@ import static divinerpg.DivineRPG.MODID;
 import static divinerpg.data.ModBiomeProvider.*;
 import static divinerpg.registries.TagRegistry.Biomes.*;
 
-public class ModBiomeTagProvider extends BiomeTagsProvider {
-    public ModBiomeTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+public class ModBiomeTagsProvider extends BiomeTagsProvider {
+    public ModBiomeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, lookupProvider, MODID);
     }
     @SuppressWarnings("unchecked")
