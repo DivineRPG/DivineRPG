@@ -8,11 +8,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:stripped_dreamwood"
+          "name": "divinerpg:stripped_mintwood_wood"
         }
       ],
       "rolls": 1
     }
   ],
-  "random_sequence": "divinerpg:blocks/stripped_dreamwood"
+  "random_sequence": "divinerpg:blocks/stripped_mintwood_wood"
 }

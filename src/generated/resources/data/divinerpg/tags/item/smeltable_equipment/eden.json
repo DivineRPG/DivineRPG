@@ -1,5 +1,6 @@
 {
   "values": [
+    "#divinerpg:armor/sets/eden",
     "divinerpg:eden_pickaxe",
     "divinerpg:eden_shovel",
     "divinerpg:eden_axe",
@@ -9,10 +10,6 @@
     "divinerpg:eden_bow",
     "divinerpg:eden_phaser",
     "divinerpg:eden_blitz",
-    "divinerpg:eden_shield",
-    "divinerpg:eden_boots",
-    "divinerpg:eden_leggings",
-    "divinerpg:eden_chestplate",
-    "divinerpg:eden_helmet"
+    "divinerpg:eden_shield"
   ]
 }

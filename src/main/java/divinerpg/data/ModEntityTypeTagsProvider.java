@@ -50,7 +50,7 @@ public class ModEntityTypeTagsProvider extends EntityTypeTagsProvider {
         tag(JELLYFISH).add(AEQUOREA.key());
         tag(SHARKS).add(SHARK.key());
         tag(WHALES).add(WHALE.key(), KITRA.key());
-        tag(EntityTypeTags.NOT_SCARY_FOR_PUFFERFISH).addTags(JELLYFISH, SHARKS, WHALES).add(CAULDRON_FISH.key(), PINK_GHOST_GLIDER.key(), GEM_FIN.key());
+        tag(EntityTypeTags.NOT_SCARY_FOR_PUFFERFISH).addTags(JELLYFISH, SHARKS, WHALES).add(CAULDRON_FISH.key(), PINK_GHOST_GLIDER.key(), BLUBBERTUSK.key(), GEM_FIN.key());
         tag(EntityTypeTags.AXOLOTL_HUNT_TARGETS).addTag(JELLYFISH).add(CAULDRON_FISH.key(), PINK_GHOST_GLIDER.key(), GEM_FIN.key());
         tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).add(AEQUOREA.key(), WHALE.key(), SHARK.key(), LIOPLEURODON.key(), CAULDRON_FISH.key(), PINK_GHOST_GLIDER.key(), GEM_FIN.key());
         tag(AQUATIC).addTags(JELLYFISH, SHARKS, WHALES).add(LIOPLEURODON.key(), CAULDRON_FISH.key(), PINK_GHOST_GLIDER.key(), BLUBBERTUSK.key(), GEM_FIN.key());

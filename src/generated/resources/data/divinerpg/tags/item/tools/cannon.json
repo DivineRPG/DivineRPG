@@ -16,6 +16,9 @@
     "divinerpg:karos_cannon",
     "divinerpg:heliosis_cannon",
     "divinerpg:arksiane_cannon",
+    "#divinerpg:tools/blitz",
+    "divinerpg:golden_fury",
+    "divinerpg:arcanite_blaster",
     "divinerpg:eversight"
   ]
 }

@@ -1,8 +1,5 @@
 {
   "values": [
-    "divinerpg:torridite_helmet",
-    "divinerpg:torridite_chestplate",
-    "divinerpg:torridite_leggings",
-    "divinerpg:torridite_boots"
+    "#divinerpg:armor/sets/torridite"
   ]
 }

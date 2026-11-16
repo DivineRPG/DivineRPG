@@ -1,9 +1,9 @@
 {
   "values": [
     "divinerpg:eden",
-    "divinerpg:eden/forest",
     "divinerpg:eden/dravite_caves",
     "divinerpg:eden/dravite_hills",
+    "divinerpg:eden/forest",
     "divinerpg:eden/golden_peaks",
     "divinerpg:eden/magnetic_isles",
     "divinerpg:eden/plains"

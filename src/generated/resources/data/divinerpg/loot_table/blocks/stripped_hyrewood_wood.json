@@ -8,11 +8,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:stripped_hyrewood"
+          "name": "divinerpg:stripped_hyrewood_wood"
         }
       ],
       "rolls": 1
     }
   ],
-  "random_sequence": "divinerpg:blocks/stripped_hyrewood"
+  "random_sequence": "divinerpg:blocks/stripped_hyrewood_wood"
 }

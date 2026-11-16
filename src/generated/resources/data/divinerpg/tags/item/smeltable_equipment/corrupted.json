@@ -1,5 +1,6 @@
 {
   "values": [
+    "#divinerpg:armor/sets/corrupted",
     "divinerpg:corrupted_pickaxe",
     "divinerpg:corrupted_shovel",
     "divinerpg:corrupted_axe",
@@ -7,10 +8,6 @@
     "divinerpg:corrupted_shickaxe",
     "divinerpg:death_bringer",
     "divinerpg:corrupted_maul",
-    "divinerpg:corrupted_cannon",
-    "divinerpg:corrupted_boots",
-    "divinerpg:corrupted_leggings",
-    "divinerpg:corrupted_chestplate",
-    "divinerpg:corrupted_helmet"
+    "divinerpg:corrupted_cannon"
   ]
 }

@@ -1,12 +1,12 @@
 {
   "values": [
     "#divinerpg:sands",
+    "divinerpg:frozen_gravel",
     "divinerpg:glowsprout",
     "divinerpg:slowsprout",
     "divinerpg:lowsprout",
     "divinerpg:lushroom",
-    "divinerpg:dreamglow",
-    "divinerpg:frozen_gravel",
-    "divinerpg:truffle"
+    "divinerpg:truffle",
+    "divinerpg:dreamglow"
   ]
 }

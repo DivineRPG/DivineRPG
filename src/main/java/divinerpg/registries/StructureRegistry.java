@@ -192,8 +192,8 @@ public class StructureRegistry {
         var iceikaVillageSettings = new Structure.StructureSettings(biomeLookup.getOrThrow(TagRegistry.Biomes.ALLOWS_ICEIKA_VILLAGE), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN);
         var iceikaGroglinVillageSettings = new Structure.StructureSettings(biomeLookup.getOrThrow(TagRegistry.Biomes.ALLOWS_GROGLIN_VILLAGE), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN);
         var iceikaGruzzorlugVillageSettings = new Structure.StructureSettings(biomeLookup.getOrThrow(TagRegistry.Biomes.ALLOWS_GRUZZORLUG_VILLAGE), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN);
-        // TODO: to change to BiomeRegistry.BONEYARD
-        var iceikaWhaleSkullSettings = new Structure.StructureSettings(biomeLookup.getOrThrow(TagRegistry.Biomes.IS_ICEIKA_OCEAN), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE);
+
+        var iceikaWhaleSkullSettings = new Structure.StructureSettings(biomeLookup.getOrThrow(TagRegistry.Biomes.HAS_WHALE_SKULLS), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.NONE);
 
         var apalachiaStructures = new Structure.StructureSettings(biomeLookup.getOrThrow(TagRegistry.Biomes.IS_APALACHIA), Map.of(), GenerationStep.Decoration.SURFACE_STRUCTURES, TerrainAdjustment.BEARD_THIN);
 

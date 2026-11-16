@@ -840,6 +840,7 @@ public class TagRegistry {
             ALLOWS_ICEIKA_VILLAGE = biome("allows_iceika_village"),
             ALLOWS_GROGLIN_VILLAGE = biome("allows_groglin_village"),
             ALLOWS_GRUZZORLUG_VILLAGE = biome("allows_gruzzorlug_village"),
+            HAS_WHALE_SKULLS = biome("has_whale_skulls"),
             IS_ICEIKA_OCEAN = biome("is_iceika_ocean"),
             IS_ICEIKA = biome("is_iceika"),
 

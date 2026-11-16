@@ -154,12 +154,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BASE_STONE_SKYTHERN).add(twilightStoneSet.getFirst().key());
         tag(BASE_STONE_MORTUM).add(twilightStoneSet.getFirst().key());
         tag(BASE_STONE_VETHEA).add(dreamStone.key());
-        tag(Tags.BlockItems.STONES.block()).add(frozenStoneSet.getFirst().key(), arcaniteStoneSet.getFirst().key(), divineRock.key(), twilightStoneSet.getFirst().key(), milkStone.key(), scorchaltSet.getFirst().key(), rayStoneSet.getFirst().key(), draughtStone.key(), dreamStone.key());
-
-        tag(OBSIDIANS_CRYING.block()).add(broodingObsidian.key(), bleedingObsidian.key(), shiningObsidian.key(), glitteringObsidian.key(), seepingObsidian.key(), vwoopingObsidian.key());
-        tag(Tags.BlockItems.OBSIDIANS_CRYING.block()).addTag(OBSIDIANS_CRYING.block());
-        tag(OBSIDIANS_DARK.block()).add(darkstone.key(), darkstoneBricks.key());
-        tag(Tags.BlockItems.OBSIDIANS.block()).addTag(OBSIDIANS_DARK.block());
+        tag(Tags.BlockItems.STONES.block()).add(frozenStoneSet.getFirst().key(), arcaniteStoneSet.getFirst().key(), divineRock.key(), twilightStoneSet.getFirst().key(), milkStone.key(), scorchaltSet.getFirst().key(), rayStoneSet.getFirst().key(), draughtStone.key(), dreamStone.key(), everstone.key(), darkEverstone.key(), whiteEverstone.key());
 
         tag(Tags.BlockItems.COBBLESTONES_MOSSY.block()).add(divineMossStone.key());
         tag(COBBLESTONES_FROZEN.block()).add(cobbledFrozenStoneSet.getFirst().key());
@@ -167,7 +162,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(COBBLESTONES_ICY.block()).add(icyStone.key());
         tag(commonTag("cobblestones/icy")).addTag(COBBLESTONES_ICY.block());
         tag(COBBLESTONES_SCORCHALT.block()).add(cobbledScorchaltSet.getFirst().key());
-        tag(Tags.BlockItems.COBBLESTONES.block()).addTags(COBBLESTONES_FROZEN.block(), COBBLESTONES_ICY.block(), COBBLESTONES_SCORCHALT.block()).add(cobaltiteSet.getFirst().key(), ancientStoneSet.getLast().key(), soulStoneSet.getLast().key(), lunaStone.key());
+        tag(Tags.BlockItems.COBBLESTONES.block()).addTags(COBBLESTONES_FROZEN.block(), COBBLESTONES_ICY.block(), COBBLESTONES_SCORCHALT.block()).add(cobaltiteSet.getFirst().key(), ancientStoneSet.getFirst().key(), ancientStoneSet.getLast().key(), soulStoneSet.getFirst().key(), soulStoneSet.getLast().key(), lunaStone.key(), blackHungerstone.key(), greenHungerstone.key());
+
+        tag(OBSIDIANS_CRYING.block()).add(broodingObsidian.key(), bleedingObsidian.key(), shiningObsidian.key(), glitteringObsidian.key(), seepingObsidian.key(), vwoopingObsidian.key());
+        tag(Tags.BlockItems.OBSIDIANS_CRYING.block()).addTag(OBSIDIANS_CRYING.block());
+        tag(OBSIDIANS_DARK.block()).add(darkstone.key(), darkstoneBricks.key());
+        tag(Tags.BlockItems.OBSIDIANS.block()).addTag(OBSIDIANS_DARK.block());
 
         tag(BlockTags.SPELEOTHEMS).add(icicle.key());
 
@@ -211,6 +211,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(PLACEABLE_BLOCKS_ICICLE).addTag(BlockTags.ICE).add(frozenSoil.getFirst().key(), toKey(Blocks.GRAVEL), frozenGravel.key(), frozenStoneSet.getFirst().key(), cobbledFrozenStoneSet.getFirst().key(), shiverspineWoodSet.get(2).key(), shiverspineWoodSet.get(3).key());
         tag(BlockTags.DRIPSTONE_REPLACEABLE).add(scorchaltSet.getFirst().key(), draughtStone.key());
         tag(BlockTags.FEATURES_CANNOT_REPLACE).addTags(CHESTS.block(), SPAWNERS);
+        tag(BlockTags.LAVA_POOL_STONE_CANNOT_REPLACE).add(landVineStem.key());
 
         tag(BlockTags.MOSS_REPLACEABLE).addTags(BASE_STONE_ICEIKA, BASE_STONE_ARCANA, BASE_STONE_EDEN, BASE_STONE_WILDWOOD, BASE_STONE_APALACHIA, BASE_STONE_SKYTHERN, BASE_STONE_MORTUM, BASE_STONE_VETHEA);
         tag(BlockTags.SCULK_REPLACEABLE).addTags(BASE_STONE_ICEIKA, BASE_STONE_ARCANA, BASE_STONE_EDEN, BASE_STONE_WILDWOOD, BASE_STONE_APALACHIA, BASE_STONE_SKYTHERN, BASE_STONE_MORTUM, BASE_STONE_VETHEA, SANDS.block()).add(divineRock.key(), milkStone.key(), soulSludgeSet.getLast().key(), frozenGravel.key());
@@ -298,7 +299,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(PLANKS_APALACHIA.block()).add(apalachiaWoodSet.get(7).key());
         tag(PLANKS_SKYTHERN.block()).add(skythernWoodSet.get(7).key());
         tag(PLANKS_MORTUM.block()).add(mortumWoodSet.get(7).key());
-        tag(PLANKS.block()).addTags(PLANKS_DESIGN.block(), PLANKS_OVERWORLD.block(), PLANKS_ICEIKA.block(), PLANKS_ARCANA.block(), PLANKS_EDEN.block(), PLANKS_WILDWOOD.block(), PLANKS_APALACHIA.block(), PLANKS_SKYTHERN.block(), PLANKS_SKYTHERN.block(), PLANKS_MORTUM.block());
+        tag(PLANKS.block()).addTags(PLANKS_DESIGN.block(), PLANKS_OVERWORLD.block(), PLANKS_ICEIKA.block(), PLANKS_ARCANA.block(), PLANKS_EDEN.block(), PLANKS_WILDWOOD.block(), PLANKS_APALACHIA.block(), PLANKS_SKYTHERN.block(), PLANKS_MORTUM.block());
         tag(BlockTags.PLANKS).addTag(PLANKS.block());
 
         tag(BlockTags.WOODEN_STAIRS).add(stairDesign.key(), divineWoodSet.get(8).key(), shiverspineWoodSet.get(8).key(), auroraoakWoodSet.get(8).key(), cozybarkWoodSet.get(8).key(), streamleafWoodSet.get(8).key(), eucalyptusWoodSet.get(5).key(), edenWoodSet.get(8).key(), wildwoodWoodSet.get(8).key(), apalachiaWoodSet.get(8).key(), skythernWoodSet.get(8).key(), mortumWoodSet.get(8).key());
@@ -365,7 +366,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.BATS_SPAWNABLE_ON).addTag(BASE_STONE_ICEIKA).add(gelidite.key(), frostedAllure.key());
         tag(BlockTags.AXOLOTLS_SPAWNABLE_ON).add(frostedAllure.key());
         tag(BlockTags.FROGS_SPAWNABLE_ON).add(frozenSoil.getLast().key(), gelidite.key(), frostedAllure.key());
-        tag(BlockTags.PARROTS_SPAWNABLE_ON).add(frostedAllure.key());
+        tag(BlockTags.PARROTS_SPAWNABLE_ON).add(frostedAllure.key(), landVineStem.key());
         tag(BlockTags.RABBITS_SPAWNABLE_ON).add(frozenSoil.getLast().key(), frostedAllure.key());
         tag(BlockTags.FOXES_SPAWNABLE_ON).add(frozenSoil.getLast().key(), frostedAllure.key());
         tag(BlockTags.WOLVES_SPAWNABLE_ON).add(frozenSoil.getLast().key(), frostedAllure.key());
@@ -380,7 +381,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.EDIBLE_FOR_SHEEP).add(edenBrush.getFirst().key());
         tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).addTag(GRASS_BLOCKS.block());
         tag(BlockTags.SNIFFER_EGG_HATCH_BOOST).add(arcaniteMoss.key()); // Also Arcana magic
-        tag(BlockTags.ENDERMAN_HOLDABLE).addTag(SANDS.block()).add(glowsproutSet.getFirst().key(), slowsproutSet.getFirst().key(), lowsproutSet.getFirst().key(), lushroom.getFirst().key(), dreamglow.getFirst().key(), frozenGravel.key(), truffle.key());
+        tag(BlockTags.ENDERMAN_HOLDABLE).addTag(SANDS.block()).add(frozenGravel.key(), glowsproutSet.getFirst().key(), slowsproutSet.getFirst().key(), lowsproutSet.getFirst().key(), lushroom.getFirst().key(), truffle.key(), dreamglow.getFirst().key());
         tag(BlockTags.STRIDER_WARM_BLOCKS).add(SMOLDERING_TAR_BLOCK.key());
         tag(BlockTags.GUARDED_BY_PIGLINS).addTags(CRATES.block(), CHESTS.block()).add(goldBricks.key(), goldLamp.key(), shiningObsidian.key(), gildedBricks.key());
         tag(BlockTags.PIGLIN_REPELLENTS).add(soulfireLamp.key());

@@ -44,8 +44,8 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
             if(path.contains("_rapier")) tag(TOOLS_RAPIER).add(itemKey);
             if(path.contains("_saber") || path.contains("_sabre")) tag(TOOLS_SABER).add(itemKey);
             if(path.contains("slash")) tag(TOOLS_SLASH).add(itemKey);
-            if(path.contains("_divine_sword")) tag(TOOLS_SWORD_DIVINE).add(itemKey);
-            if(path.contains("_ender_sword")) tag(TOOLS_SWORD_ENDER).add(itemKey);
+            if(path.contains("divine_sword")) tag(TOOLS_SWORD_DIVINE).add(itemKey);
+            if(path.contains("ender_sword")) tag(TOOLS_SWORD_ENDER).add(itemKey);
             if(path.contains("_claw") && itemKey != crab_claw.key()) tag(TOOLS_CLAW).add(itemKey);
             if(path.contains("maul")) tag(TOOLS_MAUL).add(itemKey);
             if(path.contains("_hammer")) tag(TOOLS_HAMMER).add(itemKey);
@@ -86,7 +86,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
                 if(path.contains("ender")) tag(ARMOR_FOOT_ENDER).add(itemKey);
             }
             if(path.contains("_helmet") || path.contains("_hood") || path.contains("_mask") || path.contains("_chestplate") || path.contains("_leggings") || path.contains("_boots")) {
-                if(path.contains("realmite")) tag(ARMOR_SETS_REALMITE).add(itemKey);
+                if(path.contains("realmite") && !path.contains("elite")) tag(ARMOR_SETS_REALMITE).add(itemKey);
                 if(path.contains("aquastrive")) tag(ARMOR_SETS_AQUASTRIVE).add(itemKey);
                 if(path.contains("kraken")) tag(ARMOR_SETS_KRAKEN).add(itemKey);
                 if(path.contains("jack_o_man")) tag(ARMOR_SETS_JACK_O_MAN).add(itemKey);
@@ -111,7 +111,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
                 if(path.contains("apalachia")) tag(ARMOR_SETS_APALACHIA).add(itemKey);
                 if(path.contains("skythern")) tag(ARMOR_SETS_SKYTHERN).add(itemKey);
                 if(path.contains("mortum")) tag(ARMOR_SETS_MORTUM).add(itemKey);
-                if(path.contains("halite")) tag(ARMOR_SETS_HALITE).add(itemKey);
+                if(path.contains("halite") && !path.contains("awakened")) tag(ARMOR_SETS_HALITE).add(itemKey);
                 if(path.contains("awakened_halite")) tag(ARMOR_SETS_AWAKENED_HALITE).add(itemKey);
                 if(path.contains("degraded")) tag(ARMOR_SETS_DEGRADED).add(itemKey);
                 if(path.contains("finished")) tag(ARMOR_SETS_FINISHED).add(itemKey);
@@ -352,17 +352,19 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(ItemTags.LEG_ARMOR).addTag(ARMOR_LEG);
         tag(ItemTags.FOOT_ARMOR).addTag(ARMOR_FOOT);
 
-        tag(TOOLS_LEVEL_DIAMOND_SHICKAXE).add(arlemite_shickaxe.key(), rupee_shickaxe.key(), terran_shickaxe.key());
+        tag(TOOLS_LEVEL_DIAMOND_SHICKAXE).add(arlemite_shickaxe.key(), terran_shickaxe.key(), rupee_shickaxe.key());
         tag(commonTag("tools/level/diamond/multipurpose")).addTag(TOOLS_LEVEL_DIAMOND_SHICKAXE);
         tag(TOOLS_LEVEL_NETHERITE_SHICKAXE).add(corrupted_shickaxe.key(), divine_shickaxe.key(), eden_shickaxe.key(), wildwood_shickaxe.key(), apalachia_shickaxe.key(), skythern_shickaxe.key(), mortum_shickaxe.key(), halite_shickaxe.key());
         tag(commonTag("tools/level/netherite/multipurpose")).addTag(TOOLS_LEVEL_NETHERITE_SHICKAXE);
-        tag(TOOLS_EFFECT_FIRE).add(molten_sword.key(), inferno_sword.key(), fury_fire.key());
+        tag(TOOLS_EFFECT_FIRE).add(molten_sword.key(), inferno_sword.key(), flaming_fury.key());
         tag(TOOLS_EFFECT_POISON).add(jungle_knife.key(), jungle_rapier.key(), poison_saber.key());
         tag(TOOLS_EFFECT_SLOWNESS).add(glacier_sword.key(), frozen_maul.key(), frost_sword.key(), icicle_bane.key(), glacial_blade.key(), enderice.key(), icine_sword.key(), snowslash.key());
         tag(commonTag("tools/dagger")).addTag(TOOLS_DAGGER);
         tag(commonTag("tools/knife")).addTag(TOOLS_KNIFE);
-        tag(TOOLS_SWORD_FIRE).add(molten_sword.key(), inferno_sword.key(), fury_fire.key());
+        tag(TOOLS_SWORD_FIRE).add(molten_sword.key(), inferno_sword.key(), flaming_fury.key());
         tag(TOOLS_SWORD_HEALING).add(palavence.key(), massivence.key(), frossivence.key());
+        tag(TOOLS_SWORD_ENDER).add(enderice.key());
+        tag(TOOLS_SWORD_DIVINE).add(icine_sword.key());
         tag(TOOLS_SWORD).addTags(TOOLS_BACKSWORD, TOOLS_BLADE, TOOLS_SWORD_FIRE, TOOLS_SWORD_DIVINE, TOOLS_SWORD_ENDER, TOOLS_SWORD_HEALING, TOOLS_RAPIER, TOOLS_SABER, TOOLS_SLASH).add(cyclopsian_sword.key(), slime_sword.key(), glacier_sword.key(), shark_sword.key(), aquatooth_sword.key(), aquaton.key(), realmite_sword.key(), bedrock_sword.key(), bloodgem_sword.key(), scorching_sword.key(), soulfire_sword.key(), frost_sword.key(), frostking_sword.key(), icicle_bane.key(), storm_sword.key(), livicia_sword.key());
         tag(ItemTags.SWORDS).addTag(TOOLS_SWORD);
         tag(TOOLS_CLAW).add(everbright.key());
@@ -375,7 +377,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(TOOLS_HAMMER).add(everlight.key());
         tag(Tags.Items.MELEE_WEAPON_TOOLS).addTags(TOOLS_DAGGER, TOOLS_KNIFE, TOOLS_SWORD, TOOLS_AXE, TOOLS_SPEAR, TOOLS_TRIDENT, TOOLS_CLAW, TOOLS_MAUL, TOOLS_HAMMER, TOOLS_ANCHOR);
         tag(TOOLS_STAFF).add(cyclopsian_staff.key(), scythe.key(), staff_of_enrichment.key(), generals_staff.key(), starlight.key(), staff_of_starlight.key(), meteor_mash.key(), teaker_staff.key(), amthirmis_staff.key(), darven_staff.key(), cermile_staff.key(), pardimal_staff.key(), quadrotic_staff.key(), karos_staff.key(), heliosis_staff.key(), arksiane_staff.key(), evernight.key());
-        tag(TOOLS_CANNON).add(eversight.key());
+        tag(TOOLS_CANNON).addTag(TOOLS_BLITZ).add(golden_fury.key(), arcanite_blaster.key(), eversight.key());
         tag(TOOLS_BOW).add(everfright.key());
         tag(Tags.Items.TOOLS_BOW).addTag(TOOLS_BOW);
         tag(TOOLS_SHURIKEN).addTag(TOOLS_SLICER).add(shuriken.key(), vile_storm.key(), snowflake_shuriken.key());
@@ -417,39 +419,39 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(ItemTags.VANISHING_ENCHANTABLE).addTag(TOOLS_UNBREAKABLE);
 
         tag(SMELTABLE_EQUIPMENT_COMPRESSED_GOLD).add(golden_fury.key());
-        tag(SMELTABLE_EQUIPMENT_COMPRESSED_REALMITE).add(ELITE_REALMITE_HELMET.key(), ELITE_REALMITE_CHESTPLATE.key(), ELITE_REALMITE_LEGGINGS.key(), ELITE_REALMITE_BOOTS.key());
-        tag(SMELTABLE_EQUIPMENT_COMPRESSED_TORRIDITE).add(TORRIDITE_HELMET.key(), TORRIDITE_CHESTPLATE.key(), TORRIDITE_LEGGINGS.key(), TORRIDITE_BOOTS.key());
-        tag(SMELTABLE_EQUIPMENT_REALMITE).add(realmite_pickaxe.key(), realmite_shovel.key(), realmite_axe.key(), realmite_hoe.key(), palavence.key(), realmite_sword.key(), realmite_maul.key(), realmite_shield.key(), REALMITE_HELMET.key(), REALMITE_CHESTPLATE.key(), REALMITE_LEGGINGS.key(), REALMITE_BOOTS.key());
+        tag(SMELTABLE_EQUIPMENT_COMPRESSED_REALMITE).addTag(ARMOR_SETS_ELITE_REALMITE);
+        tag(SMELTABLE_EQUIPMENT_COMPRESSED_TORRIDITE).addTag(ARMOR_SETS_TORRIDITE);
+        tag(SMELTABLE_EQUIPMENT_REALMITE).addTag(ARMOR_SETS_REALMITE).add(realmite_pickaxe.key(), realmite_shovel.key(), realmite_axe.key(), realmite_hoe.key(), palavence.key(), realmite_sword.key(), realmite_maul.key(), realmite_shield.key());
         tag(SMELTABLE_EQUIPMENT_OXDRITE).add(oxdrite_pickaxe.key());
-        tag(SMELTABLE_EQUIPMENT_ARLEMITE).add(arlemite_pickaxe.key(), arlemite_shovel.key(), arlemite_axe.key(), arlemite_hoe.key(), arlemite_shickaxe.key(), arlemite_stabber.key(), arlemite_shield.key(), ARLEMITE_BOOTS.key(), ARLEMITE_LEGGINGS.key(), ARLEMITE_CHESTPLATE.key(), ARLEMITE_HELMET.key());
-        tag(SMELTABLE_EQUIPMENT_ICE).add(frost_sword.key(), frostking_sword.key(), icicle_bow.key(), frost_cannon.key(), fractite_cannon.key(), FROZEN_BOOTS.key(), FROZEN_LEGGINGS.key(), FROZEN_CHESTPLATE.key(), FROZEN_HELMET.key());
-        tag(SMELTABLE_EQUIPMENT_TERRAN).add(terran_pickaxe.key(), terran_shovel.key(), terran_axe.key(), terran_hoe.key(), terran_shickaxe.key(), terran_shifter.key(), terran_dagger.key(), terran_knife.key(), terran_maul.key(), TERRAN_HELMET.key(), TERRAN_CHESTPLATE.key(), TERRAN_LEGGINGS.key(), TERRAN_BOOTS.key());
-        tag(SMELTABLE_EQUIPMENT_RUPEE).add(rupee_pickaxe.key(), rupee_shovel.key(), rupee_axe.key(), rupee_hoe.key(), rupee_shickaxe.key(), rupee_rapier.key(), rupee_shield.key(), RUPEE_HELMET.key(), RUPEE_CHESTPLATE.key(), RUPEE_LEGGINGS.key(), RUPEE_BOOTS.key(), RED_RUPEE_HELMET.key(), RED_RUPEE_CHESTPLATE.key(), RED_RUPEE_LEGGINGS.key(), RED_RUPEE_BOOTS.key(), YELLOW_RUPEE_HELMET.key(), YELLOW_RUPEE_CHESTPLATE.key(), YELLOW_RUPEE_LEGGINGS.key(), YELLOW_RUPEE_BOOTS.key(), GREEN_RUPEE_HELMET.key(), GREEN_RUPEE_CHESTPLATE.key(), GREEN_RUPEE_LEGGINGS.key(), GREEN_RUPEE_BOOTS.key(), BLUE_RUPEE_HELMET.key(), BLUE_RUPEE_CHESTPLATE.key(), BLUE_RUPEE_LEGGINGS.key(), BLUE_RUPEE_BOOTS.key(), GRAY_RUPEE_HELMET.key(), GRAY_RUPEE_CHESTPLATE.key(), GRAY_RUPEE_LEGGINGS.key(), GRAY_RUPEE_BOOTS.key());
-        tag(SMELTABLE_EQUIPMENT_JUNGLE).add(jungle_hook.key(), jungle_knife.key(), jungle_rapier.key(), poison_saber.key(), hunter_bow.key(), JUNGLE_HELMET.key(), JUNGLE_CHESTPLATE.key(), JUNGLE_LEGGINGS.key(), JUNGLE_BOOTS.key());
-        tag(SMELTABLE_EQUIPMENT_MOLTEN).add(molten_sword.key(), inferno_bow.key(), INFERNO_HELMET.key(), INFERNO_CHESTPLATE.key(), INFERNO_LEGGINGS.key(), INFERNO_BOOTS.key());
+        tag(SMELTABLE_EQUIPMENT_ARLEMITE).addTag(ARMOR_SETS_ARLEMITE).add(arlemite_pickaxe.key(), arlemite_shovel.key(), arlemite_axe.key(), arlemite_hoe.key(), arlemite_shickaxe.key(), arlemite_stabber.key(), arlemite_shield.key());
+        tag(SMELTABLE_EQUIPMENT_ICE).addTag(ARMOR_SETS_FROZEN).add(frost_sword.key(), frostking_sword.key(), icicle_bow.key(), frost_cannon.key(), fractite_cannon.key());
+        tag(SMELTABLE_EQUIPMENT_TERRAN).addTag(ARMOR_SETS_TERRAN).add(terran_pickaxe.key(), terran_shovel.key(), terran_axe.key(), terran_hoe.key(), terran_shickaxe.key(), terran_shifter.key(), terran_dagger.key(), terran_knife.key(), terran_maul.key());
+        tag(SMELTABLE_EQUIPMENT_RUPEE).addTag(ARMOR_SETS_RUPEE).add(rupee_pickaxe.key(), rupee_shovel.key(), rupee_axe.key(), rupee_hoe.key(), rupee_shickaxe.key(), rupee_rapier.key(), rupee_shield.key());
+        tag(SMELTABLE_EQUIPMENT_JUNGLE).addTag(ARMOR_SETS_JUNGLE).add(jungle_hook.key(), jungle_knife.key(), jungle_rapier.key(), poison_saber.key(), hunter_bow.key());
+        tag(SMELTABLE_EQUIPMENT_MOLTEN).addTag(ARMOR_SETS_INFERNO).add(molten_sword.key(), inferno_bow.key());
         tag(SMELTABLE_EQUIPMENT_TORRIDITE).add(massivence.key(), frossivence.key(), scorching_sword.key());
-        tag(SMELTABLE_EQUIPMENT_CORRUPTED).add(corrupted_pickaxe.key(), corrupted_shovel.key(), corrupted_axe.key(), corrupted_hoe.key(), corrupted_shickaxe.key(), death_bringer.key(), corrupted_maul.key(), corrupted_cannon.key(), CORRUPTED_BOOTS.key(), CORRUPTED_LEGGINGS.key(), CORRUPTED_CHESTPLATE.key(), CORRUPTED_HELMET.key());
-        tag(SMELTABLE_EQUIPMENT_ENDER).add(ender_bow.key(), ENDER_BOOTS.key(), ENDER_LEGGINGS.key(), ENDER_CHESTPLATE.key(), ENDER_HELMET.key(), GRAY_ENDER_BOOTS.key(), GRAY_ENDER_LEGGINGS.key(), GRAY_ENDER_CHESTPLATE.key(), GRAY_ENDER_HELMET.key(), RED_ENDER_BOOTS.key(), RED_ENDER_LEGGINGS.key(), RED_ENDER_CHESTPLATE.key(), RED_ENDER_HELMET.key(), YELLOW_ENDER_BOOTS.key(), YELLOW_ENDER_LEGGINGS.key(), YELLOW_ENDER_CHESTPLATE.key(), YELLOW_ENDER_HELMET.key(), GREEN_ENDER_BOOTS.key(), GREEN_ENDER_LEGGINGS.key(), GREEN_ENDER_CHESTPLATE.key(), GREEN_ENDER_HELMET.key(), BLUE_ENDER_BOOTS.key(), BLUE_ENDER_LEGGINGS.key(), BLUE_ENDER_CHESTPLATE.key(), BLUE_ENDER_HELMET.key());
-        tag(SMELTABLE_EQUIPMENT_DIVINE).add(divine_pickaxe.key(), divine_shovel.key(), divine_axe.key(), divine_hoe.key(), divine_shickaxe.key(), divine_sword.key(), gray_divine_sword.key(), red_divine_sword.key(), yellow_divine_sword.key(), green_divine_sword.key(), blue_divine_sword.key(), icine_sword.key(), DIVINE_BOOTS.key(), DIVINE_LEGGINGS.key(), DIVINE_CHESTPLATE.key(), DIVINE_HELMET.key());
-        tag(SMELTABLE_EQUIPMENT_EDEN).add(eden_pickaxe.key(), eden_shovel.key(), eden_axe.key(), eden_hoe.key(), eden_shickaxe.key(), eden_blade.key(), eden_bow.key(), eden_phaser.key(), eden_blitz.key(), eden_shield.key(), EDEN_BOOTS.key(), EDEN_LEGGINGS.key(), EDEN_CHESTPLATE.key(), EDEN_HELMET.key());
-        tag(SMELTABLE_EQUIPMENT_WILDWOOD).add(wildwood_pickaxe.key(), wildwood_shovel.key(), wildwood_axe.key(), wildwood_hoe.key(), wildwood_shickaxe.key(), wildwood_blade.key(), wildwood_bow.key(), wildwood_phaser.key(), wildwood_blitz.key(), wildwood_shield.key(), WILDWOOD_HELMET.key(), WILDWOOD_CHESTPLATE.key(), WILDWOOD_LEGGINGS.key(), WILDWOOD_BOOTS.key());
-        tag(SMELTABLE_EQUIPMENT_APALACHIA).add(apalachia_pickaxe.key(), apalachia_shovel.key(), apalachia_axe.key(), apalachia_hoe.key(), apalachia_shickaxe.key(), apalachia_blade.key(), apalachia_bow.key(), apalachia_phaser.key(), apalachia_blitz.key(), apalachia_shield.key(), APALACHIA_BOOTS.key(), APALACHIA_LEGGINGS.key(), APALACHIA_CHESTPLATE.key(), APALACHIA_HELMET.key());
-        tag(SMELTABLE_EQUIPMENT_SKYTHERN).add(skythern_pickaxe.key(), skythern_shovel.key(), skythern_axe.key(), skythern_hoe.key(), skythern_shickaxe.key(), skythern_blade.key(), skythern_bow.key(), skythern_phaser.key(), skythern_blitz.key(), skythern_shield.key(), SKYTHERN_HELMET.key(), SKYTHERN_CHESTPLATE.key(), SKYTHERN_LEGGINGS.key(), SKYTHERN_BOOTS.key());
-        tag(SMELTABLE_EQUIPMENT_MORTUM).add(mortum_pickaxe.key(), mortum_shovel.key(), mortum_axe.key(), mortum_hoe.key(), mortum_shickaxe.key(), mortum_blade.key(), mortum_bow.key(), mortum_phaser.key(), mortum_blitz.key(), mortum_shield.key(), MORTUM_HELMET.key(), MORTUM_CHESTPLATE.key(), MORTUM_LEGGINGS.key(), MORTUM_BOOTS.key());
+        tag(SMELTABLE_EQUIPMENT_CORRUPTED).addTag(ARMOR_SETS_CORRUPTED).add(corrupted_pickaxe.key(), corrupted_shovel.key(), corrupted_axe.key(), corrupted_hoe.key(), corrupted_shickaxe.key(), death_bringer.key(), corrupted_maul.key(), corrupted_cannon.key());
+        tag(SMELTABLE_EQUIPMENT_ENDER).addTags(ARMOR_SETS_ENDER, TOOLS_SWORD_ENDER).add(ender_bow.key(), ender_scepter.key());
+        tag(SMELTABLE_EQUIPMENT_DIVINE).addTags(ARMOR_SETS_DIVINE, TOOLS_SWORD_DIVINE).add(divine_pickaxe.key(), divine_shovel.key(), divine_axe.key(), divine_hoe.key(), divine_shickaxe.key());
+        tag(SMELTABLE_EQUIPMENT_EDEN).addTag(ARMOR_SETS_EDEN).add(eden_pickaxe.key(), eden_shovel.key(), eden_axe.key(), eden_hoe.key(), eden_shickaxe.key(), eden_blade.key(), eden_bow.key(), eden_phaser.key(), eden_blitz.key(), eden_shield.key());
+        tag(SMELTABLE_EQUIPMENT_WILDWOOD).addTag(ARMOR_SETS_WILDWOOD).add(wildwood_pickaxe.key(), wildwood_shovel.key(), wildwood_axe.key(), wildwood_hoe.key(), wildwood_shickaxe.key(), wildwood_blade.key(), wildwood_bow.key(), wildwood_phaser.key(), wildwood_blitz.key(), wildwood_shield.key());
+        tag(SMELTABLE_EQUIPMENT_APALACHIA).addTag(ARMOR_SETS_APALACHIA).add(apalachia_pickaxe.key(), apalachia_shovel.key(), apalachia_axe.key(), apalachia_hoe.key(), apalachia_shickaxe.key(), apalachia_blade.key(), apalachia_bow.key(), apalachia_phaser.key(), apalachia_blitz.key(), apalachia_shield.key());
+        tag(SMELTABLE_EQUIPMENT_SKYTHERN).addTag(ARMOR_SETS_SKYTHERN).add(skythern_pickaxe.key(), skythern_shovel.key(), skythern_axe.key(), skythern_hoe.key(), skythern_shickaxe.key(), skythern_blade.key(), skythern_bow.key(), skythern_phaser.key(), skythern_blitz.key(), skythern_shield.key());
+        tag(SMELTABLE_EQUIPMENT_MORTUM).addTag(ARMOR_SETS_MORTUM).add(mortum_pickaxe.key(), mortum_shovel.key(), mortum_axe.key(), mortum_hoe.key(), mortum_shickaxe.key(), mortum_blade.key(), mortum_bow.key(), mortum_phaser.key(), mortum_blitz.key(), mortum_shield.key());
 
         tag(REPAIRS_EQUIPMENT_EXPENSIVE_GOLD).addTag(Tags.BlockItems.STORAGE_BLOCKS_GOLD.item());
         tag(REPAIRS_EQUIPMENT_EXPENSIVE_REALMITE).addTag(STORAGE_BLOCKS_REALMITE.item());
         tag(REPAIRS_EQUIPMENT_EXPENSIVE_SHADOW).addTag(GEMS_SHADOW);
         tag(REPAIRS_EQUIPMENT_EXPENSIVE_TORRIDITE).addTag(CHUNKS_TORRIDITE);
-        tag(REPAIRS_EQUIPMENT_CYCLOPS).addTag(EYES_CYCLOPS);
+        tag(REPAIRS_EQUIPMENT_CYCLOPS).addTag(commonTag("eyes/cyclops"));
         tag(REPAIRS_EQUIPMENT_REALMITE).addTags(INGOTS_REALMITE, CHUNKS_DIAMOND_YELLOW);
         tag(REPAIRS_EQUIPMENT_OXDRITE).addTag(INGOTS_OXDRITE);
         tag(REPAIRS_EQUIPMENT_SENG_FUR).addTag(FURS_SENG);
         tag(REPAIRS_EQUIPMENT_SABEAR_TEETH).addTag(TEETH_SABEAR);
         tag(REPAIRS_EQUIPMENT_SANTA).addTag(FURS_SENG).add(toKey(fancySet.getFirst().asItem()));
-        tag(REPAIRS_EQUIPMENT_CRAB).addTag(CLAWS_CRAB);
-        tag(REPAIRS_EQUIPMENT_SHARK).addTag(FINS_SHARK);
-        tag(REPAIRS_EQUIPMENT_WHALE).addTag(FINS_WHALE);
+        tag(REPAIRS_EQUIPMENT_CRAB).addTag(commonTag("claws/crab"));
+        tag(REPAIRS_EQUIPMENT_SHARK).addTag(commonTag("fins/shark"));
+        tag(REPAIRS_EQUIPMENT_WHALE).addTag(commonTag("fins/whale"));
         tag(REPAIRS_EQUIPMENT_LIOPLEURODON).addTags(TEETH_LIOPLEURODON, SKULLS_LIOPLEURODON);
         tag(REPAIRS_EQUIPMENT_AQUATIC).addTag(INGOTS_AQUATIC);
         tag(REPAIRS_EQUIPMENT_KRAKEN).addTag(SKINS_KRAKEN);
@@ -468,7 +470,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(REPAIRS_EQUIPMENT_FURY_FIRE).addTag(POWDERS_FURY_FIRE);
         tag(REPAIRS_EQUIPMENT_TORRIDITE).addTags(INGOTS_TORRIDITE, CHUNKS_DIAMOND_RED);
         tag(REPAIRS_EQUIPMENT_TERRAN).addTag(GEMS_TERRAN);
-        tag(REPAIRS_EQUIPMENT_ANGELIC).addTags(GEMS_SOULFIRE, GEMS_SOULFIRE);
+        tag(REPAIRS_EQUIPMENT_ANGELIC).addTags(GEMS_SHADOW, GEMS_SOULFIRE);
         tag(REPAIRS_EQUIPMENT_SHADOW).addTags(INGOTS_SHADOW, CHUNKS_DIAMOND_GRAY);
         tag(REPAIRS_EQUIPMENT_RUPEE).addTags(INGOTS_RUPEE, CHUNKS_DIAMOND_BLUE);
         tag(REPAIRS_EQUIPMENT_CORRUPTED).addTag(GEMS_CORRUPTED);
@@ -580,7 +582,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(FOODS_PURPLE_GLOWBONE).add(purple_glowbone.key());
         tag(FOODS_PINK_GLOWBONE).add(pink_glowbone.key());
         tag(FOODS_SKY_FLOWER).add(sky_flower.key());
-        tag(commonTag("foods/cooked_egg")).add(boiled_egg.key());
+        tag(commonTag("foods/cooked_egg")).addTag(FOODS_COOKED_EGG);
         tag(commonTag("foods/raw_pork")).add(bacon.key());
         tag(commonTag("foods/raw_bacon")).add(bacon.key());
         tag(commonTag("foods/cooked_pork")).add(cooked_bacon.key());
@@ -651,7 +653,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(PET_FOODS_SEIMER).addTags(FOODS_HITCHAK, FOODS_LAMONA, FOODS_PINFLY, FOODS_VEILO, FOODS_MAGIC_MEAT).add(raw_empowered_meat.key());
         tag(PET_FOODS_GLINTHOP).addTag(ItemTags.CAT_FOOD).add(raw_empowered_meat.key(), empowered_meat.key());
         tag(PET_FOODS_MOON_WOLF).addTag(ItemTags.WOLF_FOOD);
-        tag(Tags.Items.ANIMAL_FOODS).addTags(ANIMAL_FOODS_DOLOSSAL, ANIMAL_FOODS_MAMOTH, PET_FOODS_SNAPPER, PET_FOODS_EHU, PET_FOODS_HUSK, PET_FOODS_BROWN_GRIZZLE, PET_FOODS_WHITE_GRIZZLE, PET_FOODS_STONE_GOLEM, PET_FOODS_SMELTER, PET_FOODS_HELL_PIG, PET_FOODS_FYRACRYX, PET_FOODS_GOLEM_OF_REJUVENATION, PET_FOODS_PARATIKU, PET_FOODS_SEIMER, PET_FOODS_GLINTHOP, PET_FOODS_MOON_WOLF);
+        tag(Tags.Items.ANIMAL_FOODS).addTags(ANIMAL_FOODS_DOLOSSAL, ANIMAL_FOODS_MAMOTH, PET_FOODS_SNAPPER, PET_FOODS_EHU, PET_FOODS_HUSK, PET_FOODS_BROWN_GRIZZLE, PET_FOODS_WHITE_GRIZZLE, PET_FOODS_HELL_PIG, PET_FOODS_FYRACRYX, PET_FOODS_PARATIKU, PET_FOODS_SEIMER, PET_FOODS_GLINTHOP, PET_FOODS_MOON_WOLF);
 
         tag(PET_TAMING_FOODS_SNAPPER).addTag(Tags.Items.SLIME_BALLS);
         tag(PET_TAMING_FOODS_EHU).addTag(Tags.Items.BONES);
@@ -707,12 +709,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(STONE_TYPES_ASPHALT);
         copy(STONE_TYPES_COALSTONE);
         copy(STONE_TYPES_COBALTITE);
-        copy(Tags.BlockItems.STONES);
-
-        copy(OBSIDIANS_CRYING);
-        copy(Tags.BlockItems.OBSIDIANS_CRYING);
-        copy(OBSIDIANS_DARK);
-        copy(Tags.BlockItems.OBSIDIANS);
+        tag(Tags.BlockItems.STONES.item()).add(toKey(frozenStoneSet.getFirst().asItem()), toKey(arcaniteStoneSet.getFirst().asItem()), toKey(divineRock.asItem()), toKey(twilightStoneSet.getFirst().asItem()), toKey(milkStone.asItem()), toKey(scorchaltSet.getFirst().asItem()), toKey(rayStoneSet.getFirst().asItem()), toKey(draughtStone.asItem()), toKey(dreamStone.asItem()));
 
         copy(Tags.BlockItems.COBBLESTONES_MOSSY);
         copy(COBBLESTONES_FROZEN);
@@ -720,7 +717,12 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(COBBLESTONES_ICY);
         copy(commonBlockItemTag("cobblestones/icy"));
         copy(COBBLESTONES_SCORCHALT);
-        copy(Tags.BlockItems.COBBLESTONES);
+        tag(Tags.BlockItems.COBBLESTONES.item()).addTags(COBBLESTONES_FROZEN.item(), COBBLESTONES_ICY.item(), COBBLESTONES_SCORCHALT.item()).add(toKey(cobaltiteSet.getFirst().asItem()), toKey(ancientStoneSet.getLast().asItem()), toKey(soulStoneSet.getLast().asItem()), toKey(lunaStone.asItem()));
+
+        copy(OBSIDIANS_CRYING);
+        copy(Tags.BlockItems.OBSIDIANS_CRYING);
+        copy(OBSIDIANS_DARK);
+        copy(Tags.BlockItems.OBSIDIANS);
 
         copy(Tags.BlockItems.GRAVELS);
 

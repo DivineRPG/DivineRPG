@@ -693,7 +693,7 @@ public class BlockRegistry {
             log = register(baseName + "_log", VetheaLog::new, dreamLog.then(p -> p.mapColor((state) -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? strippedColor : logColor))),
             woo = register(baseName, VetheaLog::new, dreamLog.map(logColor)),
             strippedLog = register("stripped_" + baseName + "_log", VetheaLog::new, dreamLog.map(strippedColor)),
-            strippedWood = register("stripped_" + baseName, VetheaLog::new, dreamLog.map(strippedColor));
+            strippedWood = register("stripped_" + baseName + "_wood", VetheaLog::new, dreamLog.map(strippedColor));
         return List.of(lea, log, woo, strippedLog, strippedWood);
     }
     private static List<DeferredBlock<Block>> registerTreeSet(String baseName, MapColor leavesColor, MapColor logColor, MapColor plankColor, WoodType type, ResourceKey<Feature> tree) {return registerTreeSet(baseName, leavesColor, logColor, plankColor, type, tree, p -> new LeavesBlock(AmbientLeavesBlockSoundPlayer.noAmbientSound(), p));}

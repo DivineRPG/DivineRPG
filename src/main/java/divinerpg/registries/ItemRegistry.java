@@ -211,7 +211,7 @@ public class ItemRegistry {
     public static final DeferredItem<Item> eden_heart = register("eden_heart");
     public static final DeferredItem<Item> wildwood_heart = register("wildwood_heart");
     public static final DeferredItem<Item> apalachia_heart = register("apalachia_heart");
-    public static final DeferredItem<Item> skythern_heart = register("experienced_cori_heart");
+    public static final DeferredItem<Item> skythern_heart = register("skythern_heart");
     public static final DeferredItem<Item> mortum_heart = register("mortum_heart");
 
     public static final DeferredItem<Item> base_spawn_crystal = register("base_spawn_crystal");
@@ -351,11 +351,11 @@ public class ItemRegistry {
     public static final DeferredItem<Item> soul_key = register("soul_key");
 
     public static final DeferredItem<Item> armor_pouch = register("armor_pouch", properties -> new ItemArmorPouch(16777215, properties));
+    public static final DeferredItem<Item> gray_armor_pouch = register("gray_armor_pouch", properties -> new ItemArmorPouch(11184810, properties));
     public static final DeferredItem<Item> red_armor_pouch = register("red_armor_pouch", properties -> new ItemArmorPouch(16733525, properties));
     public static final DeferredItem<Item> yellow_armor_pouch = register("yellow_armor_pouch", properties -> new ItemArmorPouch(16777045, properties));
     public static final DeferredItem<Item> green_armor_pouch = register("green_armor_pouch", properties -> new ItemArmorPouch(5635925, properties));
     public static final DeferredItem<Item> blue_armor_pouch = register("blue_armor_pouch", properties -> new ItemArmorPouch(5592575, properties));
-    public static final DeferredItem<Item> gray_armor_pouch = register("gray_armor_pouch", properties -> new ItemArmorPouch(11184810, properties));
     public static final DeferredItem<Item>
         cyclopsian_sword = registerSword("cyclopsian_sword", ToolStats.CYCLOPSIAN_SWORD, Rarity.COMMON, false),
         slime_sword      = registerSword("slime_sword", ToolStats.SLIME_SWORD, Rarity.COMMON, false),
@@ -399,22 +399,26 @@ public class ItemRegistry {
         glacial_blade       = registerSword("glacial_blade", ToolStats.GLACIAL_BLADE, RarityList.ICICLE, false),
         icicle_dagger       = registerSword("icicle_dagger", ToolStats.ICICLE_DAGGER, RarityList.ICICLE, false),
         ender_sword         = registerSword("ender_sword", ToolStats.ENDER_SWORD, RarityList.ENDER, false),
+        black_ender_sword   = registerSword("black_ender_sword", ToolStats.ENDER_SWORD, RarityList.DARK_GRAY, false),
         red_ender_sword     = registerSword("red_ender_sword", ToolStats.ENDER_SWORD, RarityList.RED, false),
         yellow_ender_sword  = registerSword("yellow_ender_sword", ToolStats.ENDER_SWORD, RarityList.YELLOW, false),
         green_ender_sword   = registerSword("green_ender_sword", ToolStats.ENDER_SWORD, RarityList.GREEN, false),
         blue_ender_sword    = registerSword("blue_ender_sword", ToolStats.ENDER_SWORD, RarityList.BLUE, false),
-        black_ender_sword   = registerSword("black_ender_sword", ToolStats.ENDER_SWORD, RarityList.DARK_GRAY, false),
         enderice            = registerSword("enderice", ToolStats.ENDERICE, Rarity.COMMON, false),
         divine_sword        = registerSword("divine_sword", ToolStats.DIVINE_SWORD, RarityList.DIVINE, false),
+        gray_divine_sword   = registerSword("gray_divine_sword", ToolStats.DIVINE_SWORD, RarityList.GRAY, false),
         red_divine_sword    = registerSword("red_divine_sword", ToolStats.DIVINE_SWORD, RarityList.RED, false),
         yellow_divine_sword = registerSword("yellow_divine_sword", ToolStats.DIVINE_SWORD, RarityList.YELLOW, false),
         green_divine_sword  = registerSword("green_divine_sword", ToolStats.DIVINE_SWORD, RarityList.GREEN, false),
         blue_divine_sword   = registerSword("blue_divine_sword", ToolStats.DIVINE_SWORD, RarityList.BLUE, false),
-        gray_divine_sword   = registerSword("gray_divine_sword", ToolStats.DIVINE_SWORD, RarityList.GRAY, false),
         icine_sword        = registerSword("icine_sword", ToolStats.ICINE_SWORD, Rarity.COMMON, false),
         sandslash          = registerSword("sandslash", ToolStats.SANDSLASH, Rarity.COMMON, false),
         snowslash          = registerSword("snowslash", ToolStats.SNOWSLASH, Rarity.COMMON, false),
         livicia_sword      = registerSword("livicia_sword", ToolStats.LIVICIA_SWORD, Rarity.COMMON, false),
+        storm_sword    = register("storm_sword", properties -> new ItemStormSword(properties)),
+        shadow_saber   = register("shadow_saber", properties -> new ItemShadowSaber(properties)),
+        arcanium_saber = register("arcanium_saber", properties -> new ItemModSword(ToolStats.ARCANIUM_SABER, properties).setAttackArcanaConsumption(25)),
+        arcanite_blade = register("arcanite_blade", properties -> new ItemModSword(ToolStats.ARCANITE_BLADE, properties).setAttackArcanaConsumption(30)),
         eden_blade         = registerSword("eden_blade", ToolStats.EDEN_BLADE, RarityList.EDEN, false),
         wildwood_blade     = registerSword("wildwood_blade", ToolStats.WILDWOOD_BLADE, RarityList.WILDWOOD, false),
         apalachia_blade    = registerSword("apalachia_blade", ToolStats.APALACHIA_BLADE, RarityList.APALACHIA, false),
@@ -480,10 +484,6 @@ public class ItemRegistry {
         pardimal_arrow = register("pardimal_arrow", p -> new PardimalArrowItem(p)),
         karos_arrow   = register("karos_arrow", p -> new KarosArrowItem(p)),
         ever_arrow    = register("ever_arrow", p -> new EverArrowItem(p)),
-        storm_sword    = register("storm_sword", properties -> new ItemStormSword(properties)),
-        shadow_saber   = register("shadow_saber", properties -> new ItemShadowSaber(properties)),
-        arcanium_saber = register("arcanium_saber", properties -> new ItemModSword(ToolStats.ARCANIUM_SABER, properties).setAttackArcanaConsumption(25)),
-        arcanite_blade = register("arcanite_blade", properties -> new ItemModSword(ToolStats.ARCANITE_BLADE, properties).setAttackArcanaConsumption(30)),
         hunter_bow = registerTool("hunter_bow", HunterBow::new),
         shadow_bow = registerTool("shadow_bow", ShadowBow::new),
         icicle_bow = registerTool("icicle_bow", IcicleBow::new),
@@ -779,6 +779,11 @@ public class ItemRegistry {
     public static final DeferredItem<Item> RUPEE_LEGGINGS = ITEMS.registerItem("rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
     public static final DeferredItem<Item> RUPEE_BOOTS = ITEMS.registerItem("rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.BOOTS).stacksTo(1)));
 
+    public static final DeferredItem<Item> GRAY_RUPEE_HELMET = ITEMS.registerItem("gray_rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_RUPEE_CHESTPLATE = ITEMS.registerItem("gray_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_RUPEE_LEGGINGS = ITEMS.registerItem("gray_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_RUPEE_BOOTS = ITEMS.registerItem("gray_rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.BOOTS).stacksTo(1)));
+
     public static final DeferredItem<Item> RED_RUPEE_HELMET = ITEMS.registerItem("red_rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.HELMET).stacksTo(1)));
     public static final DeferredItem<Item> RED_RUPEE_CHESTPLATE = ITEMS.registerItem("red_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
     public static final DeferredItem<Item> RED_RUPEE_LEGGINGS = ITEMS.registerItem("red_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
@@ -798,11 +803,6 @@ public class ItemRegistry {
     public static final DeferredItem<Item> BLUE_RUPEE_CHESTPLATE = ITEMS.registerItem("blue_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
     public static final DeferredItem<Item> BLUE_RUPEE_LEGGINGS = ITEMS.registerItem("blue_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
     public static final DeferredItem<Item> BLUE_RUPEE_BOOTS = ITEMS.registerItem("blue_rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.BOOTS).stacksTo(1)));
-
-    public static final DeferredItem<Item> GRAY_RUPEE_HELMET = ITEMS.registerItem("gray_rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_RUPEE_CHESTPLATE = ITEMS.registerItem("gray_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_RUPEE_LEGGINGS = ITEMS.registerItem("gray_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_RUPEE_BOOTS = ITEMS.registerItem("gray_rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.BOOTS).stacksTo(1)));
 
     public static final DeferredItem<Item> ELITE_REALMITE_HELMET = ITEMS.registerItem("elite_realmite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.HELMET).stacksTo(1)));
     public static final DeferredItem<Item> ELITE_REALMITE_CHESTPLATE = ITEMS.registerItem("elite_realmite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.CHESTPLATE).stacksTo(1)));
@@ -834,6 +834,11 @@ public class ItemRegistry {
     public static final DeferredItem<Item> ENDER_LEGGINGS = ITEMS.registerItem("ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.LEGGINGS).stacksTo(1)));
     public static final DeferredItem<Item> ENDER_BOOTS = ITEMS.registerItem("ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.BOOTS).stacksTo(1)));
 
+    public static final DeferredItem<Item> GRAY_ENDER_HELMET = ITEMS.registerItem("gray_ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_ENDER_CHESTPLATE = ITEMS.registerItem("gray_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_ENDER_LEGGINGS = ITEMS.registerItem("gray_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_ENDER_BOOTS = ITEMS.registerItem("gray_ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.BOOTS).stacksTo(1)));
+
     public static final DeferredItem<Item> RED_ENDER_HELMET = ITEMS.registerItem("red_ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.HELMET).stacksTo(1)));
     public static final DeferredItem<Item> RED_ENDER_CHESTPLATE = ITEMS.registerItem("red_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
     public static final DeferredItem<Item> RED_ENDER_LEGGINGS = ITEMS.registerItem("red_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
@@ -853,11 +858,6 @@ public class ItemRegistry {
     public static final DeferredItem<Item> BLUE_ENDER_CHESTPLATE = ITEMS.registerItem("blue_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
     public static final DeferredItem<Item> BLUE_ENDER_LEGGINGS = ITEMS.registerItem("blue_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
     public static final DeferredItem<Item> BLUE_ENDER_BOOTS = ITEMS.registerItem("blue_ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.BOOTS).stacksTo(1)));
-
-    public static final DeferredItem<Item> GRAY_ENDER_HELMET = ITEMS.registerItem("gray_ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_ENDER_CHESTPLATE = ITEMS.registerItem("gray_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_ENDER_LEGGINGS = ITEMS.registerItem("gray_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_ENDER_BOOTS = ITEMS.registerItem("gray_ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.BOOTS).stacksTo(1)));
 
     public static final DeferredItem<Item> DIVINE_HELMET = ITEMS.registerItem("divine_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.HELMET).stacksTo(1)));
     public static final DeferredItem<Item> DIVINE_CHESTPLATE = ITEMS.registerItem("divine_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.CHESTPLATE).stacksTo(1)));

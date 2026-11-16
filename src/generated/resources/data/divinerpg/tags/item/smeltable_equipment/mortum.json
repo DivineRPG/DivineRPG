@@ -1,5 +1,6 @@
 {
   "values": [
+    "#divinerpg:armor/sets/mortum",
     "divinerpg:mortum_pickaxe",
     "divinerpg:mortum_shovel",
     "divinerpg:mortum_axe",
@@ -9,10 +10,6 @@
     "divinerpg:mortum_bow",
     "divinerpg:mortum_phaser",
     "divinerpg:mortum_blitz",
-    "divinerpg:mortum_shield",
-    "divinerpg:mortum_helmet",
-    "divinerpg:mortum_chestplate",
-    "divinerpg:mortum_leggings",
-    "divinerpg:mortum_boots"
+    "divinerpg:mortum_shield"
   ]
 }
