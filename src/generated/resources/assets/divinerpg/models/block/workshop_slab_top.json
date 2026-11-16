@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "divinerpg:block/workshop",
-    "side": "divinerpg:block/workshop",
-    "top": "divinerpg:block/workshop"
-  }
-}

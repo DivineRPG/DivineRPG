@@ -69,7 +69,7 @@ public class ItemBow extends BowItem {
             ItemStack itemstack = player.getProjectile(stack);
             if(infinityArrow != null && (itemstack.isEmpty() || itemstack.is(infinityArrow.get()))) itemstack = new ItemStack(infinityArrow.get());
             if(itemstack.isEmpty()) return false;
-            int i = EventHooks.onArrowLoose(stack, level, player, (getUseDuration(stack, entity) - remainingTime) * 72000 / useDuration, true);
+            int i = EventHooks.onArrowLoose(stack, level, player, (getUseDuration(stack, entity) - remainingTime) * 72000 / useDuration);
             if(i < 0) return false;
             float f = getPowerForTime(i);
             if(f >= .1F) {

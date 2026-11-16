@@ -66,594 +66,597 @@ public class BlockRegistry {
         APALACHIA_WOOD_TYPE = WoodType.register(new WoodType("apalachia", BlockSetType.WARPED)),
         SKYTHERN_WOOD_TYPE = WoodType.register(new WoodType("skythern", BlockSetType.WARPED)),
         MORTUM_WOOD_TYPE = WoodType.register(new WoodType("mortum", BlockSetType.DARK_OAK));
-    //BLOCKS
-    //stone
+    // BLOCKS
+    // Stone
     public static final List<DeferredBlock<Block>>
-    asphaltSet = registerStairSlabSet("asphalt", "", Pasphalt),
-    ancientStoneSet = registerBreakPair("ancient_stone", PgrayStone, PgrayStoneUnbreakable),
-    arcaniteStoneSet = registerSimpleStoneSet("arcanite", PcyanStone),
-    coalstoneSet = registerStoneTypeSet("coalstone", PgrayStone),
-    cobbledFrozenStoneSet = registerSimpleStoneSet("cobbled_frozen", PcobbledFrozenStone),
-    cobbledScorchaltSet = registerStoneTypeSet("cobbled_scorchalt", PcobbledScorchalt),
-    cobaltiteSet = registerStoneTypeSet("cobaltite", PlightBlueStone),
-    frozenStoneSet = registerSimpleStoneSet("frozen", PfrozenStone),
-    rayStoneSet = registerStoneTypeSet("ray_stone", PgoldenStone),
-    scorchaltSet = registerStoneTypeSet("scorchalt", PpinkStone),
-    soulStoneSet = registerBreakPair("soul_stone", PterraBlueStone, PsoulStoneUnbreakable),
-    twilightStoneSet = registerSimpleStoneSet("twilight", PtwilightStone);
+        asphaltSet = registerStairSlabSet("asphalt", "", Pasphalt),
+        frozenStoneSet = registerSimpleStoneSet("frozen", PfrozenStone),
+        cobbledFrozenStoneSet = registerSimpleStoneSet("cobbled_frozen", PcobbledFrozenStone),
+        cobaltiteSet = registerStoneTypeSet("cobaltite", PlightBlueStone),
+        coalstoneSet = registerStoneTypeSet("coalstone", PgrayStone),
+        arcaniteStoneSet = registerSimpleStoneSet("arcanite", PcyanStone),
+        ancientStoneSet = registerBreakPair("ancient_stone", PgrayStone, PgrayStoneUnbreakable),
+        soulStoneSet = registerBreakPair("soul_stone", PterraBlueStone, PsoulStoneUnbreakable),
+        twilightStoneSet = registerSimpleStoneSet("twilight", PtwilightStone),
+        scorchaltSet = registerStoneTypeSet("scorchalt", PpinkStone),
+        cobbledScorchaltSet = registerStoneTypeSet("cobbled_scorchalt", PcobbledScorchalt),
+        rayStoneSet = registerStoneTypeSet("ray_stone", PgoldenStone);
     public static final DeferredBlock<Block>
-    blackHungerstone = register("black_hungerstone", PblackUnbreakable),
-    darkEverstone = register("dark_everstone", PblackUnbreakable),
-    divineMossStone = register("divine_moss_stone", PdivineMossStone),
-    divineRock = register("divine_rock", PdivineRock),
-    draughtStone = register("draught_stone", PdraughtStone),
-    dreamStone = register("dream_stone", PcyanStone),
-    everstone = register("everstone", PgreenUnbreakable),
-    exposedScorchalt = register("exposed_scorchalt", PgoldenStone),
-    greenHungerstone = register("green_hungerstone", PgreenUnbreakable),
-    hiveWall = register("hive_wall", PhiveWall),
-    icyStone = register("icy_stone", PhardIce),
-    lunaStone = register("luna_stone", PlunaStone),
-    milkStone = register("milk_stone", PwhiteStone),
-    thermalVent = register("thermal_vent", ThermalVent::new, PthermalVent),
-    whiteEverstone = register("white_everstone", PwhiteUnbreakable);
+        icyStone = register("icy_stone", PhardIce),
+        thermalVent = register("thermal_vent", ThermalVent::new, PthermalVent),
+        divineMossStone = register("divine_moss_stone", PdivineMossStone),
+        divineRock = register("divine_rock", PdivineRock),
+        draughtStone = register("draught_stone", PdraughtStone),
+        milkStone = register("milk_stone", PwhiteStone),
+        dreamStone = register("dream_stone", PcyanStone),
+        lunaStone = register("luna_stone", PlunaStone),
+        hiveWall = register("hive_wall", PhiveWall),
+        everstone = register("everstone", PgreenUnbreakable),
+        whiteEverstone = register("white_everstone", PwhiteUnbreakable),
+        darkEverstone = register("dark_everstone", PblackUnbreakable),
+        exposedScorchalt = register("exposed_scorchalt", PgoldenStone),
+        blackHungerstone = register("black_hungerstone", PblackUnbreakable),
+        greenHungerstone = register("green_hungerstone", PgreenUnbreakable);
 
-    //ore
+    // Ores
     public static final List<DeferredBlock<Block>>
-    realmiteOreSet = registerOverworldOres("realmite"),
-    arlemiteOreSet = registerOverworldOres("arlemite"),
-    rupeeOreSet = registerOverworldOres("rupee");
+        realmiteOreSet = registerOverworldOres("realmite"),
+        arlemiteOreSet = registerOverworldOres("arlemite"),
+        rupeeOreSet = registerOverworldOres("rupee");
     public static final DeferredBlock<Block>
-    anthraciteOre = registerOre("anthracite", PFrozenOre, 0, 2),
-    apalachiaOre = register("apalachia_ore", PtwilightOre),
-    bloodgemOre	= registerOre("bloodgem", PbloodgemOre, 3, 7),
-    mortumOre = register("mortum_ore", PtwilightOre),
-    oxdriteOre = register("oxdrite_ore", PFrozenOre),
-    rawArcanium = register("raw_arcanium", PrawArcanium),
-    scorchaltEdenOre = register("scorchalt_eden_ore", PscorchaltEdenOre),
-    skythernOre = register("skythern_ore", PtwilightOre),
-    torriditeOre = register("torridite_ore", PtorriditeOre),
-    twilightEdenOre = register("twilight_eden_ore", PtwilightOre),
-    wildwoodOre = register("wildwood_ore", PtwilightOre);
+        bloodgemOre	= registerOre("bloodgem", PbloodgemOre, 3, 7),
+        torriditeOre = register("torridite_ore", PtorriditeOre),
+        anthraciteOre = registerOre("anthracite", PFrozenOre, 0, 2),
+        oxdriteOre = register("oxdrite_ore", PFrozenOre),
+        rawArcanium = register("raw_arcanium", PrawArcanium),
+        twilightEdenOre = register("twilight_eden_ore", PtwilightOre),
+        scorchaltEdenOre = register("scorchalt_eden_ore", PscorchaltEdenOre),
+        wildwoodOre = register("wildwood_ore", PtwilightOre),
+        apalachiaOre = register("apalachia_ore", PtwilightOre),
+        skythernOre = register("skythern_ore", PtwilightOre),
+        mortumOre = register("mortum_ore", PtwilightOre);
 
-    //compressed blocks
+    // Compressed blocks
     public static final List<DeferredBlock<Block>>
-    arlemiteBlockSet = registerMetalBlocks("arlemite", PrawArlemite, ParlemiteBlock),
-    realmiteBlockSet = registerMetalBlocks("realmite", PrawRealmite, PorangeMetal),
-    rupeeBlockSet = registerMetalBlocks("rupee", PrawRupee, lightBlueMetal),
-    torriditeBlockSet = registerMetalBlocks("torridite", PrawTorridite, PtorriditeBlock),
-    oxdriteBlockSet = registerMetalBlocks("oxdrite", PrawOxdrite, PoxdriteBlock);
+        realmiteBlockSet = registerMetalBlocks("realmite", PrawRealmite, PorangeMetal),
+        arlemiteBlockSet = registerMetalBlocks("arlemite", PrawArlemite, ParlemiteBlock),
+        rupeeBlockSet = registerMetalBlocks("rupee", PrawRupee, lightBlueMetal),
+        torriditeBlockSet = registerMetalBlocks("torridite", PrawTorridite, PtorriditeBlock),
+        oxdriteBlockSet = registerMetalBlocks("oxdrite", PrawOxdrite, PoxdriteBlock);
     public static final DeferredBlock<Block>
-    apalachiaBlock = register("apalachia_block", PmagentaMetal),
-    arcaniumBlock = register("arcanium_block", lightBlueMetal),
-    bloodgemBlock = register("bloodgem_block", PbloodgemBlock),
-    edenBlock = register("eden_block", PorangeMetal),
-    mortumBlock = register("mortum_block", PmortumBlock),
-    shadowBlock = register("shadow_block", PblackMetal),
-    skythernBlock = register("skythern_block", PskythernBlock),
-    wildwoodBlock = register("wildwood_block", PwildwoodBlock);
+        shadowBlock = register("shadow_block", PblackMetal),
+        bloodgemBlock = register("bloodgem_block", PbloodgemBlock),
+        arcaniumBlock = register("arcanium_block", lightBlueMetal),
+        edenBlock = register("eden_block", PorangeMetal),
+        wildwoodBlock = register("wildwood_block", PwildwoodBlock),
+        apalachiaBlock = register("apalachia_block", PmagentaMetal),
+        skythernBlock = register("skythern_block", PskythernBlock),
+        mortumBlock = register("mortum_block", PmortumBlock);
 
-    //light crystal
+    // Light crystals
     public static final DeferredBlock<Block>
-    blueStone = register("blue_stone", PblueStone),
-    fireCrystal = register("fire_crystal", PfireCrystal),
-    firelight = register("firelight", Pfirelight);
+        blueStone = register("blue_stone", PblueStone),
+        firelight = register("firelight", Pfirelight),
+        fireCrystal = register("fire_crystal", PfireCrystal);
 
-    //plant
+    // Plants & fungi
     public static final List<DeferredBlock<Block>>
-    brittleGrass = registerPotted("brittle_grass", BrittleGrass::new, PbrittleGrass),
-    crimpetal = registerFlower("crimpetal", PmagentaFlower, MobEffects.FIRE_RESISTANCE, 4),
-    roofbell = registerFlower("roofbell", Proofbell, MobEffects.POISON, 11),
-    winterbloom = registerFlower("winterbloom", Pwinterbloom, MobEffects.LEVITATION, 8),
-    wispLeaf = registerFlower("wisp_leaf", Pwispleaf, MobEffects.DOLPHINS_GRACE, 7),
-    arcanaBrush = registerDryGrass("arcana_brush", PiceGrass),
-    arcanaBush = registerDryGrass("arcana_bush", PterraBlueGrass),
-    gemOfTheDunes = registerPotted("gem_of_the_dunes", p -> new Flower(MobEffects.RESISTANCE, 5, true, p), PmagentaFlower),
-    edenBrush = registerGrass("eden_brush", PedenBrush),
-    sunBlossom = registerFlower("sun_blossom", plantFlower, MobEffects.FIRE_RESISTANCE, 6),
-    sunbloom = registerFlower("sunbloom", PterraYellowFlower, MobEffects.GLOWING, 6),
-    lushroom = registerPotted("lushroom", Lushroom::new, PterraOrangeFlower),
-    moonlightFern = registerGrass("moonlight_fern", PiceGrass),
-    moonBud = registerFlower("moon_bud", PquartzFlower, MobEffects.WATER_BREATHING, 4),
-    apalachiaTallgrass = registerGrass("apalachia_tallgrass", PterraBlueGrass),
-    duskBloom = registerFlower("dusk_bloom", PterraBlueFlower, MobEffects.BLINDNESS, 11),
-    skythernBrush = registerGrass("skythern_brush", PskythernBrush),
-    dustLily = registerFlower("dust_lily", PwoolFlower, MobEffects.INVISIBILITY, 5),
-    mortumBrush = registerGrass("mortum_brush", PmortumBrush),
-    eyePlant = registerFlower("eye_plant", PgrayFlower, MobEffects.NIGHT_VISION, 6),
-    shineGrass = registerFlower("shine_grass", PcyanFlower, MobEffects.GLOWING, 6),
-    cracklespike = registerFlower("cracklespike", PcyanFlower, MobEffects.NAUSEA, 7),
-    fernite = registerFlower("fernite", PcyanFlower, MobEffects.WEAKNESS, 7),
-    dreamglow = registerFlower("dreamglow", PcyanFlower, MobEffects.NIGHT_VISION, 5),
-    bulbatobe = registerFlower("bulbatobe", PcyanFlower, MobEffects.POISON, 11),
-    shimmer = registerFlower("shimmer", PcyanFlower, MobEffects.BLINDNESS, 11),
-    yellowDulah = registerFlower("yellow_dulah", PcyanFlower, MobEffects.JUMP_BOOST, 5),
-    greenDulah = registerFlower("green_dulah", PcyanFlower, MobEffects.MINING_FATIGUE, 11),
-    greenGemtop = registerFlower("green_gemtop", PcyanFlower, MobEffects.SLOW_FALLING, 5),
-    purpleGemtop = registerFlower("purple_gemtop", PcyanFlower, MobEffects.HASTE, 6);
+        brittleGrass = registerPotted("brittle_grass", BrittleGrass::new, PbrittleGrass), // TODO: grass and brush shouldn't really have pot variants
+        crimpetal = registerFlower("crimpetal", PmagentaFlower, MobEffects.FIRE_RESISTANCE, 4),
+        roofbell = registerFlower("roofbell", Proofbell, MobEffects.POISON, 11),
+        winterbloom = registerFlower("winterbloom", Pwinterbloom, MobEffects.LEVITATION, 8),
+        wispLeaf = registerFlower("wisp_leaf", Pwispleaf, MobEffects.DOLPHINS_GRACE, 7),
+        arcanaBrush = registerDryGrass("arcana_brush", PiceGrass),
+        arcanaBush = registerDryGrass("arcana_bush", PterraBlueGrass),
+        gemOfTheDunes = registerPotted("gem_of_the_dunes", p -> new Flower(MobEffects.RESISTANCE, 5, true, p), PmagentaFlower),
+        edenBrush = registerGrass("eden_brush", PedenBrush),
+        sunBlossom = registerFlower("sun_blossom", plantFlower, MobEffects.FIRE_RESISTANCE, 6),
+        sunbloom = registerFlower("sunbloom", PterraYellowFlower, MobEffects.GLOWING, 6),
+        lushroom = registerPotted("lushroom", Lushroom::new, PterraOrangeFlower),
+        moonlightFern = registerGrass("moonlight_fern", PiceGrass),
+        moonBud = registerFlower("moon_bud", PquartzFlower, MobEffects.WATER_BREATHING, 4),
+        apalachiaTallgrass = registerGrass("apalachia_tallgrass", PterraBlueGrass),
+        duskBloom = registerFlower("dusk_bloom", PterraBlueFlower, MobEffects.BLINDNESS, 11),
+        skythernBrush = registerGrass("skythern_brush", PskythernBrush),
+        dustLily = registerFlower("dust_lily", PwoolFlower, MobEffects.INVISIBILITY, 5),
+        mortumBrush = registerGrass("mortum_brush", PmortumBrush),
+        eyePlant = registerFlower("eye_plant", PgrayFlower, MobEffects.NIGHT_VISION, 6),
+        shineGrass = registerFlower("shine_grass", PcyanFlower, MobEffects.GLOWING, 6),
+        cracklespike = registerFlower("cracklespike", PcyanFlower, MobEffects.NAUSEA, 7),
+        fernite = registerFlower("fernite", PcyanFlower, MobEffects.WEAKNESS, 7),
+        dreamglow = registerFlower("dreamglow", PcyanFlower, MobEffects.NIGHT_VISION, 5),
+        bulbatobe = registerFlower("bulbatobe", PcyanFlower, MobEffects.POISON, 11),
+        shimmer = registerFlower("shimmer", PcyanFlower, MobEffects.BLINDNESS, 11),
+        yellowDulah = registerFlower("yellow_dulah", PcyanFlower, MobEffects.JUMP_BOOST, 5),
+        greenDulah = registerFlower("green_dulah", PcyanFlower, MobEffects.MINING_FATIGUE, 11),
+        greenGemtop = registerFlower("green_gemtop", PcyanFlower, MobEffects.SLOW_FALLING, 5),
+        purpleGemtop = registerFlower("purple_gemtop", PcyanFlower, MobEffects.HASTE, 6);
     public static final DeferredBlock<Block>
-    winterberryBush = register("winterberry_bush", WinterberryBush::new, PwinterberryBush),
-    winterberryVinesBody = registerItemless("winterberry_vines_body", WinterberryVinesBody::new, PwinterberryVinesBody),
-    winterberryVinesHead = register("winterberry_vines_head", WinterberryVinesHead::new, PwinterberryVinesHead),
-    snowyMoss = register("snowy_moss", SnowyMoss::new, PsnowyMoss),
-    globebrush = registerTallFlower("globebrush", Pglobebrush),
-    thermoliage = registerTallFlower("thermoliage", Pthermoliage),
-    arcaniteVinesBody = registerItemless("arcanite_vines_body", ArcaniteVinesBody::new, ParcaniteVines),
-    arcaniteVinesHead = register("arcanite_vines_head", ArcaniteVinesHead::new, ParcaniteVines),
-    duncap = register("duncap", Duncap::new, Pduncap),
-    landVineStem = register("land_vine_stem", LandVineStem::new, PlandVineStem),
-    landVine = register("land_vine", LandVine::new, PlandVine),
-    wildwoodTallgrass = register("wildwood_tallgrass", DoublePlantBlock::new, PblueTallgrass),
-    truffle = register("truffle", Ptruffle),
-    wildwoodVine = registerVine("wildwood", PwildwoodVine),
-    duskFlower = registerTallFlower("dusk_flower", PduskFlower),
-    dustBrambles = register("dust_brambles", Bramble::new, PwoolTallgrass),
-    demonBrambles = register("demon_brambles", Bramble::new, PgrayTallgrass),
-    weedwoodVine = registerVine("weedwood", PweedwoodVine),
-    blossomedWeedwoodVine = registerVine("blossomed_weedwood", PweedwoodVine),
-    tomatoPlant = registerCrop("tomato", crop, ItemRegistry.tomato_seeds),
-    whiteMushroomPlant = registerCrop("white_mushroom", crop, ItemRegistry.white_mushroom_seeds),
-    aquamarinePlant = registerCrop("aquamarine", crop, ItemRegistry.aquamarine_seeds),
-    eucalyptusPlant = registerCrop("eucalyptus", crop, ItemRegistry.eucalyptus_root_seeds),
-    firestockPlant = registerArcanaDoubleCrop("firestock", crop, ItemRegistry.firestock_seeds),
-    hitchakPlant = registerCrop("hitchak", crop, ItemRegistry.hitchak_seeds),
-    lamonaPlant = registerCrop("lamona", crop, ItemRegistry.lamona_seeds),
-    marsinePlant = registerCrop("marsine", crop, ItemRegistry.marsine_seeds),
-    pinflyPlant = registerArcanaDoubleCrop("pinfly", crop, ItemRegistry.pinfly_seeds),
-    veiloPlant = registerCrop("veilo", crop, ItemRegistry.veilo_seeds),
-    moonbulbPlant = registerDoubleCrop("moonbulb", PcropLight4, ItemRegistry.moonbulb_seeds),
-    purpleGlowbonePlant = registerDoubleCrop("purple_glowbone", PcropLight6, ItemRegistry.purple_glowbone_seeds),
-    pinkGlowbonePlant = registerDoubleCrop("pink_glowbone", PcropLight6, ItemRegistry.pink_glowbone_seeds),
-    skyPlant = registerCrop("sky", crop, ItemRegistry.sky_plant_seeds);
+        winterberryBush = register("winterberry_bush", WinterberryBush::new, PwinterberryBush),
+        winterberryVinesBody = registerItemless("winterberry_vines_body", WinterberryVinesBody::new, PwinterberryVinesBody),
+        winterberryVinesHead = register("winterberry_vines_head", WinterberryVinesHead::new, PwinterberryVinesHead),
+        snowyMoss = register("snowy_moss", SnowyMoss::new, PsnowyMoss),
+        globebrush = registerTallFlower("globebrush", Pglobebrush), // TODO: tall flowers miss pot variants
+        thermoliage = registerTallFlower("thermoliage", Pthermoliage),
+        arcaniteVinesBody = registerItemless("arcanite_vines_body", ArcaniteVinesBody::new, ParcaniteVines),
+        arcaniteVinesHead = register("arcanite_vines_head", ArcaniteVinesHead::new, ParcaniteVines),
+        duncap = register("duncap", Duncap::new, Pduncap),
+        landVineStem = register("land_vine_stem", LandVineStem::new, PlandVineStem),
+        landVine = register("land_vine", LandVine::new, PlandVine),
+        wildwoodTallgrass = register("wildwood_tallgrass", DoublePlantBlock::new, PblueTallgrass),
+        truffle = register("truffle", Ptruffle),
+        wildwoodVine = registerVine("wildwood", PwildwoodVine),
+        duskFlower = registerTallFlower("dusk_flower", PduskFlower),
+        dustBrambles = register("dust_brambles", Bramble::new, PwoolTallgrass),
+        demonBrambles = register("demon_brambles", Bramble::new, PgrayTallgrass),
+        weedwoodVine = registerVine("weedwood", PweedwoodVine),
+        blossomedWeedwoodVine = registerVine("blossomed_weedwood", PweedwoodVine),
+    // Crops
+        tomatoPlant = registerCrop("tomato", crop, ItemRegistry.tomato_seeds),
+        whiteMushroomPlant = registerCrop("white_mushroom", crop, ItemRegistry.white_mushroom_seeds),
+        aquamarinePlant = registerCrop("aquamarine", crop, ItemRegistry.aquamarine_seeds),
+        eucalyptusPlant = registerCrop("eucalyptus", crop, ItemRegistry.eucalyptus_root_seeds),
+        firestockPlant = registerArcanaDoubleCrop("firestock", crop, ItemRegistry.firestock_seeds),
+        hitchakPlant = registerCrop("hitchak", crop, ItemRegistry.hitchak_seeds),
+        lamonaPlant = registerCrop("lamona", crop, ItemRegistry.lamona_seeds),
+        marsinePlant = registerCrop("marsine", crop, ItemRegistry.marsine_seeds),
+        pinflyPlant = registerArcanaDoubleCrop("pinfly", crop, ItemRegistry.pinfly_seeds),
+        veiloPlant = registerCrop("veilo", crop, ItemRegistry.veilo_seeds),
+        moonbulbPlant = registerDoubleCrop("moonbulb", PcropLight4, ItemRegistry.moonbulb_seeds),
+        purpleGlowbonePlant = registerDoubleCrop("purple_glowbone", PcropLight6, ItemRegistry.purple_glowbone_seeds),
+        pinkGlowbonePlant = registerDoubleCrop("pink_glowbone", PcropLight6, ItemRegistry.pink_glowbone_seeds),
+        skyPlant = registerCrop("sky", crop, ItemRegistry.sky_plant_seeds);
 
-    //soil
+    // Soil
     public static final List<DeferredBlock<Block>>
-    apalachiaSoil = registerSoils("apalachia", PblueDirt, PapalachiaGrass, apalachiaTallgrass.getFirst(), true),
-    arcaniteSoil = registerSoils("arcanite", PblueDirt, ParcaniteGrass, null, true),
-    dreamSoil = registerSoils("dream", PdreamDirt, PdreamGrass, null, false),
-    frozenSoil = registerSoils("frozen", PfrozenDirt, PfrozenGrass, null, true),
-    mortumSoil = registerSoils("mortum", PmortumDirt, PmortumGrass, mortumBrush.getFirst(), false),
-    raySoil = registerSoils("ray", PrayDirt, PyellowGrass, edenBrush.getFirst(), true),
-    scorchsoil = registerSoils("scorchdirt", "scorchgrass", Scorchdirt::new, (d, g, b) -> p -> new Scorchgrass(p, d, g, b), Pscorchdirt, PyellowGrass, edenBrush.getFirst(), true),
-    skythernSoil = registerSoils("skythern", PskythernDirt, PskythernGrass, skythernBrush.getFirst(), true),
-    soulSludgeSet = registerBreakPair("soul_sludge", PsoulSludge, PsoulSludgeUnbreakable),
-    wildwoodSoil = registerSoils("wildwood", PwildwoodDirt, PwildwoodGrass, moonlightFern.getFirst(), true);
+        frozenSoil = registerSoils("frozen", PfrozenDirt, PfrozenGrass, null, true),
+        arcaniteSoil = registerSoils("arcanite", PblueDirt, ParcaniteGrass, null, true),
+        soulSludgeSet = registerBreakPair("soul_sludge", PsoulSludge, PsoulSludgeUnbreakable),
+        scorchsoil = registerSoils("scorchdirt", "scorchgrass", Scorchdirt::new, (d, g, b) -> p -> new Scorchgrass(p, d, g, b), Pscorchdirt, PyellowGrass, edenBrush.getFirst(), true),
+        raySoil = registerSoils("ray", PrayDirt, PyellowGrass, edenBrush.getFirst(), true),
+        wildwoodSoil = registerSoils("wildwood", PwildwoodDirt, PwildwoodGrass, moonlightFern.getFirst(), true),
+        apalachiaSoil = registerSoils("apalachia", PblueDirt, PapalachiaGrass, apalachiaTallgrass.getFirst(), true),
+        skythernSoil = registerSoils("skythern", PskythernDirt, PskythernGrass, skythernBrush.getFirst(), true),
+        mortumSoil = registerSoils("mortum", PmortumDirt, PmortumGrass, mortumBrush.getFirst(), false),
+        dreamSoil = registerSoils("dream", PdreamDirt, PdreamGrass, null, false);
     public static final DeferredBlock<Block>
-    arcanicSand = registerSand("arcanic_sand", ParcanicSand, 4027550),
-    arcaniteSand = registerSand("arcanite_sand", ParcaniteSand, 7911916),
-    arcaniumRichSand = registerSand("arcanium_rich_sand", ParcaniumRichSand, 1130855),
-    evergrass = registerDreamGrass("evergrass", PeverGrass),
-    flameGrass = registerDreamGrass("flame_grass", PflameGrass),
-    frozenGravel = register("frozen_gravel", FrozenGravel::new, PfrozenGravel),
-    gelidite = register("gelidite", Pgelidite),
+        arcaniteSand = registerSand("arcanite_sand", ParcaniteSand, 7911916),
+        arcanicSand = registerSand("arcanic_sand", ParcanicSand, 4027550),
+        arcaniumRichSand = registerSand("arcanium_rich_sand", ParcaniumRichSand, 1130855),
+        frozenGravel = register("frozen_gravel", FrozenGravel::new, PfrozenGravel),
+        gelidite = register("gelidite", Pgelidite),
     //TODO: rakedFrozenGravel = ModList.get().isLoaded("supplementaries") && SupplementariesLoader.rakedGravelEnabled() ? register("raked_frozen_gravel", RakedFrozenGravel::new, gravel) : null,
-    scorchedGrass = register("scorched_grass", p -> new ModGrassBlock(p, dreamStone, false), PscorchedGrass);
+        flameGrass = registerDreamGrass("flame_grass", PflameGrass),
+        evergrass = registerDreamGrass("evergrass", PeverGrass),
+        scorchedGrass = register("scorched_grass", p -> new ModGrassBlock(p, dreamStone, false), PscorchedGrass);
 
-    //ice
+    // Ice
     public static final DeferredBlock<Block>
-    glaciline = register("glaciline", Pglaciline),
-    icicle = register("icicle", p -> new Icicle(Blocks.PACKED_ICE.defaultBlockState(), p), Picicle);
+        glaciline = register("glaciline", Pglaciline),
+        icicle = register("icicle", p -> new Icicle(Blocks.PACKED_ICE.defaultBlockState(), p), Picicle);
 
-    //moss
+    // Moss blocks
     public static final DeferredBlock<Block>
-    arcaniteMoss = register("arcanite_moss", MossBlock::new, ParcaniteMoss),
-    brittleMoss = register("brittle_moss", BrittleMoss::new, PbrittleMoss);
+        brittleMoss = register("brittle_moss", BrittleMoss::new, PbrittleMoss),
+        arcaniteMoss = register("arcanite_moss", MossBlock::new, ParcaniteMoss);
 
-    //portal
+    // Portal frames
     public static final DeferredBlock<Block>
-    arcanaPortalFrame = register("arcana_portal_frame", ArcanaPortalFrame::new, ParcanaPortalFrame);
+        arcanaPortalFrame = register("arcana_portal_frame", ArcanaPortalFrame::new, ParcanaPortalFrame);
 
-    //gems
+    // Crystals & budding blocks
     public static final DeferredBlock<Block>
-    olivineBlock = register("olivine_block", AmethystBlock::new, PolivineBlock),
-    buddingOlivine = register("budding_olivine", BuddingOlivine::new, PbuddingOlivine),
-    olivineCluster = register("olivine_cluster", p -> new AmethystClusterBlock(7, 3, p), PolivineCluster),
-    buddingDravite = register("budding_dravite", PbuddingDravite);
+        olivineBlock = register("olivine_block", AmethystBlock::new, PolivineBlock),
+        buddingOlivine = register("budding_olivine", BuddingOlivine::new, PbuddingOlivine),
+        olivineCluster = register("olivine_cluster", p -> new AmethystClusterBlock(7, 3, p), PolivineCluster),
+        buddingDravite = register("budding_dravite", PbuddingDravite);
 
-    //wood
+    // Wood
     public static final List<DeferredBlock<Block>>
-    apalachiaWoodSet = registerTreeSet("apalachia", COLOR_MAGENTA, WARPED_HYPHAE, COLOR_MAGENTA, APALACHIA_WOOD_TYPE, ConfiguredFeatureKeys.APALACHIA_TREE),
-    auroraoakWoodSet = registerTreeSet("auroraoak", COLOR_PURPLE, COLOR_BROWN, ICE, AURORAOAK_WOOD_TYPE, ConfiguredFeatureKeys.AURORAOAK_TREE),
-    cozybarkWoodSet = registerTreeSet("cozybark", CRIMSON_STEM, TERRACOTTA_PURPLE, TERRACOTTA_PURPLE, COZYBARK_WOOD_TYPE, ConfiguredFeatureKeys.COZYBARK_TREE, CozybarkLeaves::new),
-    crimseekerWoodSet = registerTreeSet("crimseeker", CRIMSON_STEM, CRIMSON_STEM, COLOR_GREEN, CRIMSEEKER_WOOD_TYPE, null, Block::new),//TODO: Tree feature
-    divineWoodSet = registerTreeSet("divine", GOLD, TERRACOTTA_LIGHT_GREEN, TERRACOTTA_LIGHT_GREEN, DIVINE_WOOD_TYPE, ConfiguredFeatureKeys.DIVINE_TREE),
-    dreamwoodSet = registerDreamTreeSet("dreamwood", COLOR_CYAN, COLOR_CYAN, COLOR_LIGHT_BLUE),
-    edenWoodSet = registerTreeSet("eden", GOLD, COLOR_BROWN, SAND, EDEN_WOOD_TYPE, ConfiguredFeatureKeys.EDEN_TREE),
-    eucalyptusWoodSet = registerWoodSet("eucalyptus", COLOR_LIGHT_GRAY, TERRACOTTA_WHITE, EUCALYPTUS_WOOD_TYPE),
-    firewoodSet = registerDreamTreeSet("firewood", CRIMSON_NYLIUM, COLOR_RED, TERRACOTTA_ORANGE),
-    hyrewoodSet = registerDreamTreeSet("hyrewood", COLOR_BLUE, COLOR_BLUE, COLOR_BLUE),
-    mintwoodSet = registerDreamTreeSet("mintwood", WARPED_WART_BLOCK, WARPED_WART_BLOCK, DIAMOND),
-    mortumWoodSet = registerTreeSet("mortum", COLOR_BLACK, TERRACOTTA_PINK, COLOR_GRAY, MORTUM_WOOD_TYPE, ConfiguredFeatureKeys.MORTUM_TREE),
-    shiverspineWoodSet = registerTreeSet("shiverspine", WOOL, COLOR_LIGHT_GRAY, GLOW_LICHEN, SHIVERSPINE_WOOD_TYPE, ConfiguredFeatureKeys.SHIVERSPINE_TREE),
-    skythernWoodSet = registerTreeSet("skythern", COLOR_LIGHT_GRAY, COLOR_LIGHT_GRAY, WOOL, SKYTHERN_WOOD_TYPE, ConfiguredFeatureKeys.SKYTHERN_TREE),
-    streamleafWoodSet = registerTreeSet("streamleaf", GLOW_LICHEN, TERRACOTTA_BROWN, ICE, STREAMLEAF_WOOD_TYPE, ConfiguredFeatureKeys.STREAMLEAF_TREE),
-    wildwoodWoodSet = registerTreeSet("wildwood", COLOR_LIGHT_BLUE, COLOR_BLUE, COLOR_LIGHT_BLUE, WILDWOOD_WOOD_TYPE, ConfiguredFeatureKeys.WILDWOOD_TREE);
+        divineWoodSet = registerTreeSet("divine", GOLD, TERRACOTTA_LIGHT_GREEN, TERRACOTTA_LIGHT_GREEN, DIVINE_WOOD_TYPE, ConfiguredFeatureKeys.DIVINE_TREE),
+        shiverspineWoodSet = registerTreeSet("shiverspine", WOOL, COLOR_LIGHT_GRAY, GLOW_LICHEN, SHIVERSPINE_WOOD_TYPE, ConfiguredFeatureKeys.SHIVERSPINE_TREE),
+        auroraoakWoodSet = registerTreeSet("auroraoak", COLOR_PURPLE, COLOR_BROWN, ICE, AURORAOAK_WOOD_TYPE, ConfiguredFeatureKeys.AURORAOAK_TREE),
+        cozybarkWoodSet = registerTreeSet("cozybark", CRIMSON_STEM, TERRACOTTA_PURPLE, TERRACOTTA_PURPLE, COZYBARK_WOOD_TYPE, ConfiguredFeatureKeys.COZYBARK_TREE, CozybarkLeaves::new),
+        streamleafWoodSet = registerTreeSet("streamleaf", GLOW_LICHEN, TERRACOTTA_BROWN, ICE, STREAMLEAF_WOOD_TYPE, ConfiguredFeatureKeys.STREAMLEAF_TREE),
+        eucalyptusWoodSet = registerWoodSet("eucalyptus", COLOR_LIGHT_GRAY, TERRACOTTA_WHITE, EUCALYPTUS_WOOD_TYPE),
+        edenWoodSet = registerTreeSet("eden", GOLD, COLOR_BROWN, SAND, EDEN_WOOD_TYPE, ConfiguredFeatureKeys.EDEN_TREE),
+        crimseekerWoodSet = registerTreeSet("crimseeker", CRIMSON_STEM, CRIMSON_STEM, COLOR_GREEN, CRIMSEEKER_WOOD_TYPE, null, Block::new),//TODO: Tree feature
+        apalachiaWoodSet = registerTreeSet("apalachia", COLOR_MAGENTA, WARPED_HYPHAE, COLOR_MAGENTA, APALACHIA_WOOD_TYPE, ConfiguredFeatureKeys.APALACHIA_TREE),
+        wildwoodWoodSet = registerTreeSet("wildwood", COLOR_LIGHT_BLUE, COLOR_BLUE, COLOR_LIGHT_BLUE, WILDWOOD_WOOD_TYPE, ConfiguredFeatureKeys.WILDWOOD_TREE),
+        skythernWoodSet = registerTreeSet("skythern", COLOR_LIGHT_GRAY, COLOR_LIGHT_GRAY, WOOL, SKYTHERN_WOOD_TYPE, ConfiguredFeatureKeys.SKYTHERN_TREE),
+        mortumWoodSet = registerTreeSet("mortum", COLOR_BLACK, TERRACOTTA_PINK, COLOR_GRAY, MORTUM_WOOD_TYPE, ConfiguredFeatureKeys.MORTUM_TREE),
+        firewoodSet = registerDreamTreeSet("firewood", CRIMSON_NYLIUM, COLOR_RED, TERRACOTTA_ORANGE),
+        dreamwoodSet = registerDreamTreeSet("dreamwood", COLOR_CYAN, COLOR_CYAN, COLOR_LIGHT_BLUE),
+        hyrewoodSet = registerDreamTreeSet("hyrewood", COLOR_BLUE, COLOR_BLUE, COLOR_BLUE),
+        mintwoodSet = registerDreamTreeSet("mintwood", WARPED_WART_BLOCK, WARPED_WART_BLOCK, DIAMOND);
     public static final DeferredBlock<Block>
-    plankDesign = register("plank_design", Pdesign),
-    stairDesign = registerStair("stair_design", Pdesign, plankDesign),
-    slabDesign = registerSlab("slab_design", Pdesign);
+        plankDesign = register("plank_design", Pdesign),
+        stairDesign = registerStair("stair_design", Pdesign, plankDesign),
+        slabDesign = registerSlab("slab_design", Pdesign);
     //TODO: woodcutterDesign = registerBlockCorailWoodcutter("woodcutter_design", ModList.get().isLoaded("corail_woodcutter") ? WoodcutterLoader.create(plankDesign, WoodType.OAK) : null),
 
-    //tall fungus
+    // Tall fungi
     public static final List<DeferredBlock<Block>>
-    glowsproutSet = registerFungusSet("glowsprout", COLOR_CYAN, DIAMOND, COLOR_LIGHT_BLUE, ConfiguredFeatureKeys.GLOWSPROUT),
-    lowsproutSet = registerFungusSet("lowsprout", COLOR_GREEN, WARPED_WART_BLOCK, GLOW_LICHEN, ConfiguredFeatureKeys.LOWSPROUT),
-    slowsproutSet = registerFungusSet("slowsprout", COLOR_MAGENTA, ICE, COLOR_PINK, ConfiguredFeatureKeys.SLOWSPROUT);
+        glowsproutSet = registerFungusSet("glowsprout", COLOR_CYAN, DIAMOND, COLOR_LIGHT_BLUE, ConfiguredFeatureKeys.GLOWSPROUT),
+        lowsproutSet = registerFungusSet("lowsprout", COLOR_GREEN, WARPED_WART_BLOCK, GLOW_LICHEN, ConfiguredFeatureKeys.LOWSPROUT),
+        slowsproutSet = registerFungusSet("slowsprout", COLOR_MAGENTA, ICE, COLOR_PINK, ConfiguredFeatureKeys.SLOWSPROUT);
 
-    //wool
+    // Wool
     public static final List<DeferredBlock<Block>>
-    checkerSet = registerWoolSet("checker", "", Pchecker, DyeColor.BLACK),
-    rainbowSet = registerWoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE),
-    fancySet = registerWoolSet("fancy", "_wool", Pfancy, DyeColor.BROWN),
-    workshopCarpetSet = registerStairSlabSet("workshop", "_carpet", PworkshopCarpet);
+        checkerSet = registerWoolSet("checker", "", Pchecker, DyeColor.BLACK),
+        rainbowSet = registerWoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE),
+        fancySet = registerWoolSet("fancy", "_wool", Pfancy, DyeColor.BROWN),
+        workshopCarpetSet = registerStairSlabSet("workshop", "_carpet", PworkshopCarpet);
 
-    //obsidian
+    // Obsidian
     public static final DeferredBlock<Block>
-    darkstone = register("darkstone", Pdarkstone),
-    bleedingObsidian = register("bleeding_obsidian", PcryingObsidian),
-    shiningObsidian = register("shining_obsidian", PcryingObsidian),
-    glitteringObsidian = register("glittering_obsidian", PcryingObsidian),
-    seepingObsidian = register("seeping_obsidian", PcryingObsidian),
-    vwoopingObsidian = register("vwooping_obsidian", PcryingObsidian),
-    broodingObsidian = register("brooding_obsidian", PcryingObsidian);
+        darkstone = register("darkstone", Pdarkstone),
+        bleedingObsidian = register("bleeding_obsidian", PcryingObsidian),
+        shiningObsidian = register("shining_obsidian", PcryingObsidian),
+        glitteringObsidian = register("glittering_obsidian", PcryingObsidian),
+        seepingObsidian = register("seeping_obsidian", PcryingObsidian),
+        vwoopingObsidian = register("vwooping_obsidian", PcryingObsidian),
+        broodingObsidian = register("brooding_obsidian", PcryingObsidian);
 
-    //bricks
+    // Bricks
     public static final DeferredBlock<Block>
-    milkStoneBricks = register("milk_stone_bricks", PmilkStoneBricks),
-    ironBricks = register("iron_bricks", PironBricks),
-    torriditeBricks = register("torridite_bricks", PtorriditeBricks),
-    lavaBricks = register("lava_bricks", PlavaBricks),
-    realmiteBricks = register("realmite_bricks", PorangeBricks),
-    goldBricks = register("gold_bricks", PgoldBricks),
-    arlemiteBricks = register("arlemite_bricks", PlightGreenBricks),
-    greenBricks = register("green_bricks", PgreenBricks),
-    darkstoneBricks = register("darkstone_bricks", PdarkstoneBricks),
-    aquatonicBricks = register("aquatonic_bricks", PaquatonicBricks),
-    diamondBricks = register("diamond_bricks", PdiamondBricks),
-    lapisLazuliBricks = register("lapis_lazuli_bricks", PlapisBricks),
-    purpleBricks = register("purple_bricks", PpurpleBricks),
-    magentaBricks = register("magenta_bricks", PmagentaBricks),
-    bloodgemBricks = register("bloodgem_bricks", PcrimsonBricks);
+        milkStoneBricks = register("milk_stone_bricks", PmilkStoneBricks),
+        ironBricks = register("iron_bricks", PironBricks),
+        torriditeBricks = register("torridite_bricks", PtorriditeBricks),
+        lavaBricks = register("lava_bricks", PlavaBricks),
+        realmiteBricks = register("realmite_bricks", PorangeBricks),
+        goldBricks = register("gold_bricks", PgoldBricks),
+        arlemiteBricks = register("arlemite_bricks", PlightGreenBricks),
+        greenBricks = register("green_bricks", PgreenBricks),
+        darkstoneBricks = register("darkstone_bricks", PdarkstoneBricks),
+        aquatonicBricks = register("aquatonic_bricks", PaquatonicBricks),
+        diamondBricks = register("diamond_bricks", PdiamondBricks),
+        lapisLazuliBricks = register("lapis_lazuli_bricks", PlapisBricks),
+        purpleBricks = register("purple_bricks", PpurpleBricks),
+        magentaBricks = register("magenta_bricks", PmagentaBricks),
+        bloodgemBricks = register("bloodgem_bricks", PcrimsonBricks);
 
-    //Minibricks
+    // Minibricks
     public static final DeferredBlock<Block>
-    minibricks = register("minibricks", PminiBricks),
-    bedrockMinibricks = registerFireResistant("bedrock_minibricks", PbedrockMinibricks),
-    torriditeMinibricks = registerFireResistant("torridite_minibricks", PtorriditeBricks),
-    realmiteMinibricks = register("realmite_minibricks", PorangeBricks),
-    arlemiteMinibricks = register("arlemite_minibricks", PlightGreenBricks),
-    rupeeMinibricks = register("rupee_minibricks", PrupeeMinibricks),
-    bloodgemMinibricks = register("bloodgem_minibricks", PcrimsonBricks);
+        minibricks = register("minibricks", PminiBricks),
+        bedrockMinibricks = registerFireResistant("bedrock_minibricks", PbedrockMinibricks),
+        torriditeMinibricks = registerFireResistant("torridite_minibricks", PtorriditeBricks),
+        realmiteMinibricks = register("realmite_minibricks", PorangeBricks),
+        arlemiteMinibricks = register("arlemite_minibricks", PlightGreenBricks),
+        rupeeMinibricks = register("rupee_minibricks", PrupeeMinibricks),
+        bloodgemMinibricks = register("bloodgem_minibricks", PcrimsonBricks);
 
     //TODO: frozenGravelBricks = registerBlockSupplementariesGravelBricks("frozen_gravel_bricks",ModList.get().isLoaded("supplementaries") ? FrozenGravelBricks::new : null),
     //TODO: suspiciousFrozenGravelBricks = registerBlockSupplementariesGravelBricks("suspicious_frozen_gravel_bricks", ModList.get().isLoaded("supplementaries") ? SuspiciousFrozenGravelBricks::new : null),
 
-    //Iceika bricks & other
+    // Iceika bricks & other
     public static final List<DeferredBlock<Block>>
-    coalstoneBrickSet = registerBrickSet("coalstone_brick", PcoalstoneBricks),
-    cutOxdriteSet = registerRockSet("cut_oxdrite", "", PcutOxdrite, BlockSetType.COPPER, WaterloggedTransparentBlock::new),
-    frozenBrickSet = registerBrickSet("frozen_brick", PfrozenStone),
-    polishedCoalstoneSet = registerStoneTypeSet("polished_coalstone", PgrayStone),
-    polishedCobaltiteSet = registerStoneTypeSet("polished_cobaltite", PlightBlueStone);
+        frozenBrickSet = registerBrickSet("frozen_brick", PfrozenStone),
+        polishedCobaltiteSet = registerStoneTypeSet("polished_cobaltite", PlightBlueStone),
+        coalstoneBrickSet = registerBrickSet("coalstone_brick", PcoalstoneBricks),
+        polishedCoalstoneSet = registerStoneTypeSet("polished_coalstone", PgrayStone),
+        cutOxdriteSet = registerRockSet("cut_oxdrite", "", PcutOxdrite, BlockSetType.COPPER, WaterloggedTransparentBlock::new);
     public static final DeferredBlock<Block>
-    snowBricks = register("snow_bricks", PsnowBricks),
-    icyBricks = register("icy_bricks", Pice),
-    runicIcyBricks = register("runic_icy_bricks", Pice),
-    workshopBookcase = register("workshop_bookcase", PgrayCobblestone),
-    chiseledCoalstoneBricks = register("chiseled_coalstone_bricks", PgrayStone);
+        snowBricks = register("snow_bricks", PsnowBricks),
+        icyBricks = register("icy_bricks", Pice),
+        runicIcyBricks = register("runic_icy_bricks", Pice),
+        workshopBookcase = register("workshop_bookcase", PgrayCobblestone),
+        chiseledCoalstoneBricks = register("chiseled_coalstone_bricks", PgrayStone);
 
-    //Arcana bricks & other
+    // Arcana bricks & other
     public static final List<DeferredBlock<Block>>
-    ancientBrickSet = registerArcanaSet("ancient_brick", ItemRegistry.ancient_key, WARPED_NYLIUM),
-    ancientTileSet = registerBreakPair("ancient_tile", PblueCobblestone, PblueUnbreakable),
-    arcaniteTileSet = registerBrickSet("arcanite_tile", PcyanStone),
-    arcaniumMetalSet = registerBreakPair("arcanium_metal", PterraBlueMetal, ParcaniumMetal),
-    arcaniumPowerSet = registerBreakPair("arcanium_power", PgrayCobblestone, PgrayStoneUnbreakable),
-    degradedBrickSet = registerArcanaSet("degraded_brick", ItemRegistry.degraded_key, COLOR_BLUE);
+        arcaniteTileSet = registerBrickSet("arcanite_tile", PcyanStone),
+        ancientBrickSet = registerArcanaSet("ancient_brick", ItemRegistry.ancient_key, WARPED_NYLIUM),
+        degradedBrickSet = registerArcanaSet("degraded_brick", ItemRegistry.degraded_key, COLOR_BLUE),
+        ancientTileSet = registerBreakPair("ancient_tile", PblueCobblestone, PblueUnbreakable),
+        arcaniumMetalSet = registerBreakPair("arcanium_metal", PterraBlueMetal, ParcaniumMetal),
+        arcaniumPowerSet = registerBreakPair("arcanium_power", PgrayCobblestone, PgrayStoneUnbreakable);
     public static final DeferredBlock<Block>
-    lightDegradedBrick = register("light_degraded_brick", PcyanStoneUnbreakable),
-    darkDegradedBrick = register("dark_degraded_brick", PblackUnbreakable),
-    battleBricks = register("battle_bricks", PcrimsonHyphaeUnbreakable),
-    gildedBricks = register("gilded_bricks", PterraYellowUnbreakable),
-    dungeonBookshelf = register("dungeon_bookshelf", PblueCobblestone),
-    arcaniteTubes = registerLadder("arcanite_tubes", ladder),
-    arcaniteLadder = registerLadder("arcanite_ladder", ladder),
-    soulSludgeDoor = registerArcanaDoor("soul_sludge", PsludgeDoor, ItemRegistry.sludge_key),
-    soulStoneDoor = registerArcanaDoor("soul_stone", PsoulStoneDoor, ItemRegistry.soul_key);
+        lightDegradedBrick = register("light_degraded_brick", PcyanStoneUnbreakable),
+        darkDegradedBrick = register("dark_degraded_brick", PblackUnbreakable),
+        battleBricks = register("battle_bricks", PcrimsonHyphaeUnbreakable),
+        gildedBricks = register("gilded_bricks", PterraYellowUnbreakable),
+        dungeonBookshelf = register("dungeon_bookshelf", PblueCobblestone),
+        arcaniteTubes = registerLadder("arcanite_tubes", ladder),
+        arcaniteLadder = registerLadder("arcanite_ladder", ladder),
+        soulSludgeDoor = registerArcanaDoor("soul_sludge", PsludgeDoor, ItemRegistry.sludge_key),
+        soulStoneDoor = registerArcanaDoor("soul_stone", PsoulStoneDoor, ItemRegistry.soul_key);
 
-    //Twilight bricks & other
+    // Twilight bricks & other
     public static final List<DeferredBlock<Block>>
-    twilightBrickSet = registerBrickSet("twilight_brick", PterraBlueStone),
-    polishedScorchaltSet = registerSimpleStoneSet("polished_scorchalt", PpinkStone),
-    polishedRayStoneSet = registerSimpleStoneSet("polished_ray_stone", PgoldenStone);
+        twilightBrickSet = registerBrickSet("twilight_brick", PterraBlueStone),
+        polishedScorchaltSet = registerStoneTypeSet("polished_scorchalt", PpinkStone),
+        polishedRayStoneSet = registerStoneTypeSet("polished_ray_stone", PgoldenStone);
     public static final DeferredBlock<Block>
-    chiseledScorchalt = register("chiseled_scorchalt", PpinkStone),
-    edenBricks = register("eden_bricks", PyellowStone),
-    wildwoodBricks = register("wildwood_bricks", PlightBlueStone),
-    apalachiaBricks = register("apalachia_bricks", PmagentaStone),
-    skythernBricks = register("skythern_bricks", PwhiteStone),
-    mortumBricks = register("mortum_bricks", PgrayStone);
+        chiseledScorchalt = register("chiseled_scorchalt", PpinkStone),
+        edenBricks = register("eden_bricks", PyellowStone),
+        wildwoodBricks = register("wildwood_bricks", PlightBlueStone),
+        apalachiaBricks = register("apalachia_bricks", PmagentaStone),
+        skythernBricks = register("skythern_bricks", PwhiteStone),
+        mortumBricks = register("mortum_bricks", PgrayStone);
 
-    //Vethea bricks & other
+    // Vethea bricks & other
     public static final DeferredBlock<Block>
-    hallWall = register("hall_wall", PnetherUnbreakable),
-    redDreamBricks = register("red_dream_bricks", PcrimsonNyliumStone),
-    lightDreamBricks = register("light_dream_bricks", PlapisStone),
-    darkDreamBricks = register("dark_dream_bricks", PblueStone),
-    blueKarosBricks = register("blue_karos_bricks", PblueUnbreakable),
-    blackKarosBricks = register("black_karos_bricks", PblackUnbreakable),
-    metalCaging = register("metal_caging", PterraGreenMetal),
-    barredDoor = registerDoor("barred", PbarredDoor, STEEL_TYPE),
-    helioticBeam = register("heliotic_beam", HelioticBeam::new, PwhiteUnbreakable),
-    lunaBricks = register("luna_bricks", PblueCobblestone),
-    cryptFloor = register("crypt_floor", PterraGreenUnbreakable),
-    cryptWall = register("crypt_wall", PbrownUnbreakable),
-    chamberWall = register("chamber_wall", PbrownUnbreakable),
-    shiftedChamberWall = register("shifted_chamber_wall", PbrownUnbreakable),
-    stackedChamberWall = register("stacked_chamber_wall", PbrownUnbreakable);
+        hallWall = register("hall_wall", PnetherUnbreakable),
+        redDreamBricks = register("red_dream_bricks", PcrimsonNyliumStone),
+        lightDreamBricks = register("light_dream_bricks", PlapisStone),
+        darkDreamBricks = register("dark_dream_bricks", PblueStone),
+        blackKarosBricks = register("black_karos_bricks", PblackUnbreakable),
+        blueKarosBricks = register("blue_karos_bricks", PblueUnbreakable),
+        metalCaging = register("metal_caging", PterraGreenMetal),
+        barredDoor = registerDoor("barred", PbarredDoor, STEEL_TYPE),
+        helioticBeam = register("heliotic_beam", HelioticBeam::new, PwhiteUnbreakable),
+        lunaBricks = register("luna_bricks", PblueCobblestone),
+        cryptFloor = register("crypt_floor", PterraGreenUnbreakable),
+        cryptWall = register("crypt_wall", PbrownUnbreakable),
+        chamberWall = register("chamber_wall", PbrownUnbreakable),
+        shiftedChamberWall = register("shifted_chamber_wall", PbrownUnbreakable),
+        stackedChamberWall = register("stacked_chamber_wall", PbrownUnbreakable);
 
-    //Steel
+    // Steel
     public static final DeferredBlock<Block>
-    steel = register("steel", PropertyOverride.PterraBlueMetal),
-    blackSteel = register("black_steel", PblackMetal),
-    redSteel = register("red_steel", PredMetal),
-    orangeSteel = register("orange_steel", PorangeMetal),
-    yellowSteel = register("yellow_steel", PyellowMetal),
-    greenSteel = register("green_steel", PgreenMetal),
-    cyanSteel = register("cyan_steel", PcyanMetal),
-    blueSteel = register("blue_steel", PblueMetal),
-    purpleSteel = register("purple_steel", PpurpleMetal),
-    magentaSteel = register("magenta_steel", PmagentaMetal),
-    steelDoor = registerDoor("steel", PsteelDoor, STEEL_TYPE);
+        steel = register("steel", PropertyOverride.PterraBlueMetal),
+        blackSteel = register("black_steel", PblackMetal),
+        redSteel = register("red_steel", PredMetal),
+        orangeSteel = register("orange_steel", PorangeMetal),
+        yellowSteel = register("yellow_steel", PyellowMetal),
+        greenSteel = register("green_steel", PgreenMetal),
+        cyanSteel = register("cyan_steel", PcyanMetal),
+        blueSteel = register("blue_steel", PblueMetal),
+        purpleSteel = register("purple_steel", PpurpleMetal),
+        magentaSteel = register("magenta_steel", PmagentaMetal),
+        steelDoor = registerDoor("steel", PsteelDoor, STEEL_TYPE);
 
-    //Candy
+    // Candy Canes
     public static final DeferredBlock<Block>
-    redCandyCane = registerCandy("red_candy_cane", PredCandy),
-    yellowCandyCane = registerCandy("yellow_candy_cane", PyellowCandy),
-    greenCandyCane = registerCandy("green_candy_cane", PemeraldCandy),
-    blueCandyCane = registerCandy("blue_candy_cane", PblueCandy),
-    pinkCandyCane = registerCandy("pink_candy_cane", PmagentaCandy);
+        redCandyCane = registerCandy("red_candy_cane", PredCandy),
+        yellowCandyCane = registerCandy("yellow_candy_cane", PyellowCandy),
+        greenCandyCane = registerCandy("green_candy_cane", PemeraldCandy),
+        blueCandyCane = registerCandy("blue_candy_cane", PblueCandy),
+        pinkCandyCane = registerCandy("pink_candy_cane", PmagentaCandy);
 
-    //Lights
+    // Lights
     public static final DeferredBlock<Block>
-    redFairyLights = registerLadder("red_fairy_lights", Plights),
-    yellowFairyLights = registerLadder("yellow_fairy_lights", Plights),
-    greenFairyLights = registerLadder("green_fairy_lights", Plights),
-    blueFairyLights = registerLadder("blue_fairy_lights", Plights),
-    purpleFairyLights = registerLadder("purple_fairy_lights", Plights);
+        redFairyLights = registerLadder("red_fairy_lights", Plights),
+        yellowFairyLights = registerLadder("yellow_fairy_lights", Plights),
+        greenFairyLights = registerLadder("green_fairy_lights", Plights),
+        blueFairyLights = registerLadder("blue_fairy_lights", Plights),
+        purpleFairyLights = registerLadder("purple_fairy_lights", Plights);
 
-    //Torches
+    // Torches
     public static final List<DeferredBlock<Block>>
-    aquaTorchSet = registerTorchSet("aqua", AquaTorch::new, AquaWallTorch::new, Ptorch),
-    arcaniumTorchSet = registerTorchSet("arcanium",Ptorch, ParticleRegistry.PURPLE_FLAME),
-    skeletonTorchSet = registerTorchSet("skeleton", PskeletonTorch, () -> ParticleTypes.FLAME),
-    edenTorchSet = registerTorchSet("eden", Ptorch, ParticleRegistry.GREEN_FLAME);
+        skeletonTorchSet = registerTorchSet("skeleton", PskeletonTorch, () -> ParticleTypes.FLAME),
+        aquaTorchSet = registerTorchSet("aqua", AquaTorch::new, AquaWallTorch::new, Ptorch),
+        arcaniumTorchSet = registerTorchSet("arcanium",Ptorch, ParticleRegistry.PURPLE_FLAME),
+        edenTorchSet = registerTorchSet("eden", Ptorch, ParticleRegistry.GREEN_FLAME);
 
-    //Lamps
+    // Lamps
     public static final List<DeferredBlock<Block>>
-    dungeonLampSet = registerBreakPair("dungeon_lamp", PquartzLamp, PquartzLampUnbreakable);
+        dungeonLampSet = registerBreakPair("dungeon_lamp", PquartzLamp, PquartzLampUnbreakable);
     public static final DeferredBlock<Block>
-    moltenLamp = register("molten_lamp", PorangeLamp),
-    divineLamp = register("divine_lamp", PterraYellowLamp),
-    jungleLamp = register("jungle_lamp", PlightGreenLamp),
-    terranLamp = register("terran_lamp", PemeraldLamp),
-    iceLamp = register("ice_lamp", PcyanLamp),
-    soulfireLamp = register("soulfire_lamp", PwaterLamp),
-    enderStoneLamp = register("ender_stone_lamp", PpurpleLamp),
-    milkyLamp = register("milky_lamp", PquartzLantern),
-    edenLamp = register("eden_lamp", PredLantern),
-    torriditeLamp = register("torridite_lamp", PcrimsonNyliumLantern),
-    lavaLamp = register("lava_lamp", PfireLantern),
-    drakenLamp = register("draken_lamp", PorangeLantern),
-    realmiteLamp = register("realmite_lamp", PorangeLantern),
-    blazeLamp = register("blaze_lamp", PyellowLantern),
-    goldLamp = register("gold_lamp", PgoldLantern),
-    arlemiteLamp = register("arlemite_lamp", PlightGreenLantern),
-    krakenLamp = register("kraken_lamp", PwarpedNyliumLantern),
-    diamondLamp = register("diamond_lamp", PdiamondLantern),
-    rupeeLamp = register("rupee_lamp", PlightBlueLantern),
-    lapisLazuliLamp = register("lapis_lazuli_lamp", PlapisLantern),
-    aquaLamp = register("aqua_lamp", PblueLantern),
-    enderLamp = register("ender_lamp", PblueLantern),
-    bloodgemLamp = register("bloodgem_lamp", PpinkLantern),
-    slimeLight = register("slime_light", RedstoneLampBlock::new, PgreenRedstoneLamp),
-    workshopLamp = register("workshop_lamp", PlightBlueLamp),
-    cellLamp = register("cell_lamp", PlightGreenLamp),
-    villageLamp = register("village_lamp", PterraRedLamp),
-    dreamLamp = register("dream_lamp", DreamLamp::new, PgrayRedstoneLamp);
+    // Gem lamps
+        moltenLamp = register("molten_lamp", PorangeLamp),
+        divineLamp = register("divine_lamp", PterraYellowLamp),
+        jungleLamp = register("jungle_lamp", PlightGreenLamp),
+        terranLamp = register("terran_lamp", PemeraldLamp),
+        iceLamp = register("ice_lamp", PcyanLamp),
+        soulfireLamp = register("soulfire_lamp", PwaterLamp),
+        enderStoneLamp = register("ender_stone_lamp", PpurpleLamp),
+    // Metal lamps
+        milkyLamp = register("milky_lamp", PquartzLantern),
+        edenLamp = register("eden_lamp", PredLantern),
+        torriditeLamp = register("torridite_lamp", PcrimsonNyliumLantern),
+        lavaLamp = register("lava_lamp", PfireLantern),
+        drakenLamp = register("draken_lamp", PorangeLantern),
+        realmiteLamp = register("realmite_lamp", PorangeLantern),
+        blazeLamp = register("blaze_lamp", PyellowLantern),
+        goldLamp = register("gold_lamp", PgoldLantern),
+        arlemiteLamp = register("arlemite_lamp", PlightGreenLantern),
+        krakenLamp = register("kraken_lamp", PwarpedNyliumLantern),
+        diamondLamp = register("diamond_lamp", PdiamondLantern),
+        rupeeLamp = register("rupee_lamp", PlightBlueLantern),
+        lapisLazuliLamp = register("lapis_lazuli_lamp", PlapisLantern),
+        aquaLamp = register("aqua_lamp", PblueLantern),
+        enderLamp = register("ender_lamp", PblueLantern),
+        bloodgemLamp = register("bloodgem_lamp", PpinkLantern),
+        workshopLamp = register("workshop_lamp", PlightBlueLamp),
+        slimeLight = register("slime_light", RedstoneLampBlock::new, PgreenRedstoneLamp),
+        dreamLamp = register("dream_lamp", DreamLamp::new, PgrayRedstoneLamp),
+        cellLamp = register("cell_lamp", PlightGreenLamp),
+        villageLamp = register("village_lamp", PterraRedLamp);
 
-    //Bridge
+    // Bridges
     public static final DeferredBlock<Block>
-    darkBridge = registerBridge("dark_bridge", PgrayRedstoneLamp),
-    starBridge = registerBridge("star_bridge", PredRedstoneLamp);
+        darkBridge = registerBridge("dark_bridge", PgrayRedstoneLamp),
+        starBridge = registerBridge("star_bridge", PredRedstoneLamp);
 
-    //Redstone Fence
+    // Redstone fences
     public static final DeferredBlock<Block>
-    redFence = registerRedstoneFence("red", PredFence),
-    blueFence = registerRedstoneFence("blue", PblueFence),
-    greenFence = registerRedstoneFence("green", PgreenFence);
+        redFence = registerRedstoneFence("red", PredFence),
+        greenFence = registerRedstoneFence("green", PgreenFence),
+        blueFence = registerRedstoneFence("blue", PblueFence);
 
-    //Glass
+    // Glass
     public static final DeferredBlock<Block>
-    frostedGlass = register("frosted_glass", PsnowGlass),
-    stainedGlass = register("stained_glass", PredGlass),
-    smoothGlass = register("smooth_glass", PlightGreenGlass);
+        frostedGlass = register("frosted_glass", PsnowGlass),
+        stainedGlass = register("stained_glass", PredGlass),
+        smoothGlass = register("smooth_glass", PlightGreenGlass);
 
-    //Mob Pumpkins
+    // Mob pumpkins
     public static final DeferredBlock<Block>
-    blazePumpkin = registerMobPumpkin("blaze", PyellowPumpkin, () -> SoundEvents.BLAZE_AMBIENT),
-    creeperPumpkin = registerMobPumpkin("creeper", PemeraldPumpkin, () -> SoundEvents.CREEPER_PRIMED),
-    cyclopsPumpkin = registerMobPumpkin("cyclops", PterraLightGreenPumpkin, SoundRegistry.CYCLOPS),
-    enderPumpkin = registerMobPumpkin("ender", PblackPumpkin, () -> SoundEvents.ENDERMAN_SCREAM),
-    enderWatcherPumpkin = registerMobPumpkin("ender_watcher", PterraBluePumpkin, () -> SoundEvents.ENDERMAN_AMBIENT),
-    frostPumpkin = registerMobPumpkin("frost", PwarpedStemPumpkin, SoundRegistry.FROST),
-    ghastPumpkin = registerMobPumpkin("ghast", PsnowPumpkin, () -> SoundEvents.GHAST_SCREAM),
-    glaconPumpkin = registerMobPumpkin("glacon", PcyanPumpkin, SoundRegistry.GLACIDE),
-    hellspiderPumpkin = registerMobPumpkin("hellspider", PnetherPumpkin, SoundRegistry.HELL_SPIDER),
-    jungleSpiderPumpkin = registerMobPumpkin("jungle_spider", PplantPumpkin, SoundRegistry.JUNGLE_SPIDER),
-    skeletonPumpkin = registerMobPumpkin("skeleton", PwoolPumpkin, () -> SoundEvents.SKELETON_AMBIENT),
-    spiderPumpkin = registerMobPumpkin("spider", PgrayPumpkin, () -> SoundEvents.SPIDER_AMBIENT),
-    zombiePumpkin = registerMobPumpkin("zombie", PgreenPumpkin, () -> SoundEvents.ZOMBIE_AMBIENT);
+        blazePumpkin = registerMobPumpkin("blaze", PyellowPumpkin, () -> SoundEvents.BLAZE_AMBIENT),
+        creeperPumpkin = registerMobPumpkin("creeper", PemeraldPumpkin, () -> SoundEvents.CREEPER_PRIMED),
+        cyclopsPumpkin = registerMobPumpkin("cyclops", PterraLightGreenPumpkin, SoundRegistry.CYCLOPS),
+        enderPumpkin = registerMobPumpkin("ender", PblackPumpkin, () -> SoundEvents.ENDERMAN_SCREAM),
+        enderWatcherPumpkin = registerMobPumpkin("ender_watcher", PterraBluePumpkin, () -> SoundEvents.ENDERMAN_AMBIENT),
+        frostPumpkin = registerMobPumpkin("frost", PwarpedStemPumpkin, SoundRegistry.FROST),
+        ghastPumpkin = registerMobPumpkin("ghast", PsnowPumpkin, () -> SoundEvents.GHAST_SCREAM),
+        glaconPumpkin = registerMobPumpkin("glacon", PcyanPumpkin, SoundRegistry.GLACIDE),
+        hellspiderPumpkin = registerMobPumpkin("hellspider", PnetherPumpkin, SoundRegistry.HELL_SPIDER),
+        jungleSpiderPumpkin = registerMobPumpkin("jungle_spider", PplantPumpkin, SoundRegistry.JUNGLE_SPIDER),
+        skeletonPumpkin = registerMobPumpkin("skeleton", PwoolPumpkin, () -> SoundEvents.SKELETON_AMBIENT),
+        spiderPumpkin = registerMobPumpkin("spider", PgrayPumpkin, () -> SoundEvents.SPIDER_AMBIENT),
+        zombiePumpkin = registerMobPumpkin("zombie", PgreenPumpkin, () -> SoundEvents.ZOMBIE_AMBIENT);
 
-    //Statues
+    // Statues
     public static final DeferredBlock<Block>
-    ancientEntityStatue = registerStatue("ancient_entity", statue, () -> SoundEvents.IRON_GOLEM_DEATH),
-    theWatcherStatue = registerStatue("the_watcher", statue, SoundRegistry.ROAR),
-    kingOfScorchersStatue = registerStatue("king_of_scorchers", statue, SoundRegistry.KING_OF_SCORCHERS),
-    kitraStatue = registerStatue("kitra", statue, SoundRegistry.WHALE),
-    ayeracoStatue = register("ayeraco_statue", AyeracoStatue::new, statue, p -> p.component(DataComponents.DYE, DyeColor.WHITE).fireResistant().rarity(Rarity.RARE)),
-    dramixStatue = registerStatue("dramix", statue, SoundRegistry.DRAMIX),
-    parasectaStatue = registerStatue("parasecta", statue, SoundRegistry.PARASECTA),
-    sunstormStatue = registerStatue("sunstorm", statue, SoundRegistry.SPARKLER),
-    termasectStatue = registerStatue("termasect", statue, () -> SoundEvents.WOOD_STEP),
-    eternalArcherStatue = registerStatue("eternal_archer", statue, SoundRegistry.ARCHER),
-    experiencedCoriStatue = registerStatue("experienced_cori", statue, SoundRegistry.CORI),
-    vamacheronStatue = registerStatue("vamacheron", statue),
-    karotStatue = registerStatue("karot", statue),
-    twilightDemonStatue = registerStatue("twilight_demon", statue, SoundRegistry.INSECT),
-    densosStatue = registerStatue("densos", statue, SoundRegistry.DENSOS),
-    reyvorStatue = registerStatue("reyvor", statue, SoundRegistry.REYVOR),
-    soulFiendStatue = registerStatue("soul_fiend", statue);
+        ancientEntityStatue = registerStatue("ancient_entity", statue, () -> SoundEvents.IRON_GOLEM_DEATH),
+        theWatcherStatue = registerStatue("the_watcher", statue, SoundRegistry.ROAR),
+        kingOfScorchersStatue = registerStatue("king_of_scorchers", statue, SoundRegistry.KING_OF_SCORCHERS),
+        kitraStatue = registerStatue("kitra", statue, SoundRegistry.WHALE),
+        ayeracoStatue = register("ayeraco_statue", AyeracoStatue::new, statue, p -> p.component(DataComponents.DYE, DyeColor.WHITE).fireResistant().rarity(Rarity.RARE)),
+        dramixStatue = registerStatue("dramix", statue, SoundRegistry.DRAMIX),
+        parasectaStatue = registerStatue("parasecta", statue, SoundRegistry.PARASECTA),
+        sunstormStatue = registerStatue("sunstorm", statue, SoundRegistry.SPARKLER),
+        termasectStatue = registerStatue("termasect", statue, () -> SoundEvents.WOOD_STEP),
+        eternalArcherStatue = registerStatue("eternal_archer", statue, SoundRegistry.ARCHER),
+        experiencedCoriStatue = registerStatue("experienced_cori", statue, SoundRegistry.CORI),
+        vamacheronStatue = registerStatue("vamacheron", statue),
+        karotStatue = registerStatue("karot", statue),
+        twilightDemonStatue = registerStatue("twilight_demon", statue, SoundRegistry.INSECT),
+        densosStatue = registerStatue("densos", statue, SoundRegistry.DENSOS),
+        reyvorStatue = registerStatue("reyvor", statue, SoundRegistry.REYVOR),
+        soulFiendStatue = registerStatue("soul_fiend", statue);
 
-    //Spawners
+    // Spawners
     public static final DeferredBlock<Block>
-    proximitySpawner = register("proximity_spawner", ProximitySpawner::new, spawner),
-    kobblinBurrow = register("kobblin_burrow", KobblinBurrow::new, PdirtDirt),
-    encagedCaptainMerik = registerEncaged("captain_merik", spawner, EntityRegistry.CAPTAIN_MERIK, TagRegistry.Items.SUMMONING_CAPTAIN_MERIK),
-    encagedDatticon = registerEncaged("datticon", spawner, EntityRegistry.DATTICON, TagRegistry.Items.SUMMONING_DATTICON),
-    encagedKazari = registerEncaged("kazari", spawner, EntityRegistry.KAZARI, TagRegistry.Items.SUMMONING_KAZARI),
-    encagedLeorna = registerEncaged("leorna", spawner, EntityRegistry.LEORNA, TagRegistry.Items.SUMMONING_LEORNA),
-    encagedLordVatticus = registerEncaged("lord_vatticus", spawner, EntityRegistry.LORD_VATTICUS, TagRegistry.Items.SUMMONING_LORD_VATTICUS),
-    encagedWarGeneral = registerEncaged("war_general", spawner, EntityRegistry.WAR_GENERAL, TagRegistry.Items.SUMMONING_WAR_GENERAL),
-    encagedZelus = registerEncaged("zelus", spawner, EntityRegistry.ZELUS, TagRegistry.Items.SUMMONING_ZELUS),
-    calcifiedBrain = register("calcified_brain", p -> new MobCage(p, EntityRegistry.KITRA, TagRegistry.Items.SUMMONING_KITRA, new BlockPos(0, 5, 0)), PboneBlock),
-    sunstormSpawner = registerBossSpawner("sunstorm", PyellowSpawner, EntityRegistry.SUNSTORM, TagRegistry.Items.SUMMONING_SUNSTORM),
-    termasectSpawner = registerFlyingBossSpawner("termasect", PlightBlueSpawner, EntityRegistry.TERMASECT, TagRegistry.Items.SUMMONING_TERMASECT),
-    eternalArcherSpawner = registerBossSpawner("eternal_archer", PmagentaSpawner, EntityRegistry.ETERNAL_ARCHER, TagRegistry.Items.SUMMONING_ETERNAL_ARCHER),
-    experiencedCoriSpawner = registerFlyingBossSpawner("experienced_cori", PlightGraySpawner, EntityRegistry.EXPERIENCED_CORI, TagRegistry.Items.SUMMONING_EXPERIENCED_CORI),
-    dramixAltar = registerAltar("dramix", ArcanaAltar::new, PcrimsonHyphaeAltar),
-    parasectaAltar = registerAltar("parasecta", ArcanaAltar::new, PterraBrownAltar),
-    karosAltar = registerAltar("karos", KarosAltar::new, PwarpedWartUnbreakable),
-    lunicAltar = registerAltar("lunic", LunicAltar::new, PblueUnbreakable),
-    quadroticAltar = registerAltar("quadrotic", QuadroticAltar::new, PblueUnbreakable),
-    raglokAltar = registerAltar("raglok", RaglokAltar::new, PredUnbreakable),
-    wreckAltar = registerAltar("wreck", WreckAltar::new, PredUnbreakable),
-    hiveEgg = register("hive_egg", HiveEgg::new, PhiveEgg),
-    ayeracoSpawn = registerItemless("ayeraco_spawn", AyeracoSpawn::new, shapedUnbreakable);
+        proximitySpawner = register("proximity_spawner", ProximitySpawner::new, spawner),
+        kobblinBurrow = register("kobblin_burrow", KobblinBurrow::new, PdirtDirt),
+        calcifiedBrain = register("calcified_brain", p -> new MobCage(p, EntityRegistry.KITRA, TagRegistry.Items.SUMMONING_KITRA, new BlockPos(0, 5, 0)), PboneBlock),
+        ayeracoSpawn = registerItemless("ayeraco_spawn", AyeracoSpawn::new, shapedUnbreakable),
+        encagedCaptainMerik = registerEncaged("captain_merik", spawner, EntityRegistry.CAPTAIN_MERIK, TagRegistry.Items.SUMMONING_CAPTAIN_MERIK),
+        encagedDatticon = registerEncaged("datticon", spawner, EntityRegistry.DATTICON, TagRegistry.Items.SUMMONING_DATTICON),
+        encagedKazari = registerEncaged("kazari", spawner, EntityRegistry.KAZARI, TagRegistry.Items.SUMMONING_KAZARI),
+        encagedLeorna = registerEncaged("leorna", spawner, EntityRegistry.LEORNA, TagRegistry.Items.SUMMONING_LEORNA),
+        encagedLordVatticus = registerEncaged("lord_vatticus", spawner, EntityRegistry.LORD_VATTICUS, TagRegistry.Items.SUMMONING_LORD_VATTICUS),
+        encagedWarGeneral = registerEncaged("war_general", spawner, EntityRegistry.WAR_GENERAL, TagRegistry.Items.SUMMONING_WAR_GENERAL),
+        encagedZelus = registerEncaged("zelus", spawner, EntityRegistry.ZELUS, TagRegistry.Items.SUMMONING_ZELUS),
+        dramixAltar = registerAltar("dramix", ArcanaAltar::new, PcrimsonHyphaeAltar),
+        parasectaAltar = registerAltar("parasecta", ArcanaAltar::new, PterraBrownAltar),
+        sunstormSpawner = registerBossSpawner("sunstorm", PyellowSpawner, EntityRegistry.SUNSTORM, TagRegistry.Items.SUMMONING_SUNSTORM),
+        termasectSpawner = registerFlyingBossSpawner("termasect", PlightBlueSpawner, EntityRegistry.TERMASECT, TagRegistry.Items.SUMMONING_TERMASECT),
+        eternalArcherSpawner = registerBossSpawner("eternal_archer", PmagentaSpawner, EntityRegistry.ETERNAL_ARCHER, TagRegistry.Items.SUMMONING_ETERNAL_ARCHER),
+        experiencedCoriSpawner = registerFlyingBossSpawner("experienced_cori", PlightGraySpawner, EntityRegistry.EXPERIENCED_CORI, TagRegistry.Items.SUMMONING_EXPERIENCED_CORI),
+        hiveEgg = register("hive_egg", HiveEgg::new, PhiveEgg),
+        karosAltar = registerAltar("karos", KarosAltar::new, PwarpedWartUnbreakable),
+        lunicAltar = registerAltar("lunic", LunicAltar::new, PblueUnbreakable),
+        quadroticAltar = registerAltar("quadrotic", QuadroticAltar::new, PblueUnbreakable),
+        raglokAltar = registerAltar("raglok", RaglokAltar::new, PredUnbreakable),
+        wreckAltar = registerAltar("wreck", WreckAltar::new, PredUnbreakable);
 
-    //Ayeraco Beam
+    // Ayeraco beams
     public static final DeferredBlock<Block>
-    ayeracoBeamRed = registerBeam("red", BossEvent.BossBarColor.RED),
-    ayeracoBeamYellow = registerBeam("yellow", BossEvent.BossBarColor.YELLOW),
-    ayeracoBeamGreen = registerBeam("green", BossEvent.BossBarColor.GREEN),
-    ayeracoBeamBlue = registerBeam("blue", BossEvent.BossBarColor.BLUE),
-    ayeracoBeamPurple = registerBeam("purple", BossEvent.BossBarColor.PURPLE),
-    ayeracoBeamPink = registerBeam("pink", BossEvent.BossBarColor.PINK);
+        ayeracoBeamRed = registerBeam("red", BossEvent.BossBarColor.RED),
+        ayeracoBeamYellow = registerBeam("yellow", BossEvent.BossBarColor.YELLOW),
+        ayeracoBeamGreen = registerBeam("green", BossEvent.BossBarColor.GREEN),
+        ayeracoBeamBlue = registerBeam("blue", BossEvent.BossBarColor.BLUE),
+        ayeracoBeamPurple = registerBeam("purple", BossEvent.BossBarColor.PURPLE),
+        ayeracoBeamPink = registerBeam("pink", BossEvent.BossBarColor.PINK);
 
-    //Workstations
+    // Work stations
     public static final DeferredBlock<Block>
-    altarOfCorruption = register("altar_of_corruption", AltarOfCorruption::new, PaltarOfCorruption),
-    arcaniumExtractor = register("arcanium_extractor", ArcaniumExtractor::new, ParcaniumExtractor),
-    infusionTable = register("infusion_table", InfusionTable::new, PfireUnbreakable);
+        altarOfCorruption = register("altar_of_corruption", AltarOfCorruption::new, PaltarOfCorruption),
+        arcaniumExtractor = register("arcanium_extractor", ArcaniumExtractor::new, ParcaniumExtractor),
+        infusionTable = register("infusion_table", InfusionTable::new, PfireUnbreakable);
 
-    //Furnaces
+    // Furnaces
     public static final DeferredBlock<Block>
-    coalstoneFurnace = registerInfiniFurnace("coalstone", PcoalstoneFurnace, BlockEntityRegistry.COALSTONE_FURNACE::get),
-    moltenFurnace = registerInfiniFurnace("molten", PmoltenFurnace, BlockEntityRegistry.MOLTEN_FURNACE::get),
-    greenlightFurnace = registerFurnace("greenlight", PgreenlightFurnace, BlockEntityRegistry.GREENLIGHT_FURNACE::get),
-    oceanfireFurnace = registerInfiniFurnace("oceanfire", PoceanfireFurnace, BlockEntityRegistry.OCEANFIRE_FURNACE::get),
-    moonlightFurnace = registerFurnace("moonlight", PmoonlightFurnace, BlockEntityRegistry.MOONLIGHT_FURNACE::get),
-    whitefireFurnace = registerInfiniFurnace("whitefire", PwhitefireFurnace, BlockEntityRegistry.WHITEFIRE_FURNACE::get),
-    demonFurnace = register("demon_furnace", DemonFurnace::new, PdemonFurnace);
+        coalstoneFurnace = registerInfiniFurnace("coalstone", PcoalstoneFurnace, BlockEntityRegistry.COALSTONE_FURNACE::get),
+        moltenFurnace = registerInfiniFurnace("molten", PmoltenFurnace, BlockEntityRegistry.MOLTEN_FURNACE::get),
+        greenlightFurnace = registerFurnace("greenlight", PgreenlightFurnace, BlockEntityRegistry.GREENLIGHT_FURNACE::get),
+        oceanfireFurnace = registerInfiniFurnace("oceanfire", PoceanfireFurnace, BlockEntityRegistry.OCEANFIRE_FURNACE::get),
+        moonlightFurnace = registerFurnace("moonlight", PmoonlightFurnace, BlockEntityRegistry.MOONLIGHT_FURNACE::get),
+        whitefireFurnace = registerInfiniFurnace("whitefire", PwhitefireFurnace, BlockEntityRegistry.WHITEFIRE_FURNACE::get),
+        demonFurnace = register("demon_furnace", DemonFurnace::new, PdemonFurnace);
 
-    //Chests
+    // Chests
     public static final DeferredBlock<Block>
-    boneChest = register("bone_chest", BoneChest::new, PboneChest),
-    frostedChest = register("frosted_chest", FrostedChest::new, PfrostedChest),
-    presentBox = register("present_box", PresentBox::new, PpresentBox),
-    edenChest = register("eden_chest", EdenChest::new, PedenChest),
-    crate = register("crate", Crate::new, Pcrate),
-    oxcrate = register("oxcrate", Oxcrate::new, Pcrate),
-    inserter = register("inserter", Inserter::new, Pinserter),
-    distributor = register("distributor", Distributor::new, Pinserter);
+        boneChest = register("bone_chest", BoneChest::new, PboneChest),
+        frostedChest = register("frosted_chest", FrostedChest::new, PfrostedChest),
+        presentBox = register("present_box", PresentBox::new, PpresentBox),
+        edenChest = register("eden_chest", EdenChest::new, PedenChest),
+        crate = register("crate", Crate::new, Pcrate),
+        oxcrate = register("oxcrate", Oxcrate::new, Pcrate),
+        inserter = register("inserter", Inserter::new, Pinserter),
+        distributor = register("distributor", Distributor::new, Pinserter);
 
-    //Utility Blocks
+    // Utility blocks
     public static final DeferredBlock<Block>
-    nightmareBed = registerItemless("nightmare_bed", NightmareBed::new, PnightmareBed),
-    hellfireSponge = register("hellfire_sponge", HellfireSponge::new, PhellfireSponge),
-    coldHellfireSponge = register("cold_hellfire_sponge", ColdHellfireSponge::new, PhellfireSponge),
-    frostedAllure = register("frosted_allure", FrostedAllure::new, PfrostedAllure),
-    soulTrap = register("soul_trap", SoulTrap::new, PsoulTrap),
-    acceleron = register("acceleron", Acceleron::new, Pacceleron),
-    gravestone = register("gravestone", Gravestone::new, Pgravestone),
-    robbinHut = register("robbin_hut", RobbinHut::new, PshapedPlank),
-    robbinNest = register("robbin_nest", RobbinNest::new, ProbbinNest),
-    elevantium = register("elevantium", Elevantium::new, Pelevantium),
-    booster = register("booster", RedstoneBooster::new, Prepeater),
-    limiter = register("limiter", RedstoneLimiter::new, Prepeater),
-    oxdriteRail = register("oxdrite_rail", OxdriteRail::new, Prail),
-    oxdriteLamp = register("oxdrite_lamp", OxdriteLamp::new, PoxdriteLamp),
-    capacitor = register("capacitor", Capacitor::new, PoxdriteBlock),
-    miner = register("miner", MinerBlock::new, lightBlueMetal),
-    softMiner = register("soft_miner", SoftMinerBlock::new, PsoftMiner),
-    placer = register("placer", PlacerBlock::new, ParlemiteBlock);
+        nightmareBed = registerItemless("nightmare_bed", NightmareBed::new, PnightmareBed),
+        hellfireSponge = register("hellfire_sponge", HellfireSponge::new, PhellfireSponge),
+        coldHellfireSponge = register("cold_hellfire_sponge", ColdHellfireSponge::new, PhellfireSponge),
+        frostedAllure = register("frosted_allure", FrostedAllure::new, PfrostedAllure),
+        soulTrap = register("soul_trap", SoulTrap::new, PsoulTrap),
+        acceleron = register("acceleron", Acceleron::new, Pacceleron),
+        gravestone = register("gravestone", Gravestone::new, Pgravestone),
+        robbinHut = register("robbin_hut", RobbinHut::new, PshapedPlank),
+        robbinNest = register("robbin_nest", RobbinNest::new, ProbbinNest),
+        elevantium = register("elevantium", Elevantium::new, Pelevantium),
+        booster = register("booster", RedstoneBooster::new, Prepeater),
+        limiter = register("limiter", RedstoneLimiter::new, Prepeater),
+        oxdriteRail = register("oxdrite_rail", OxdriteRail::new, Prail),
+        oxdriteLamp = register("oxdrite_lamp", OxdriteLamp::new, PoxdriteLamp),
+        capacitor = register("capacitor", Capacitor::new, PoxdriteBlock),
+        miner = register("miner", MinerBlock::new, lightBlueMetal),
+        softMiner = register("soft_miner", SoftMinerBlock::new, PsoftMiner),
+        placer = register("placer", PlacerBlock::new, ParlemiteBlock);
 
-    //Traps
+    // Traps
     public static final DeferredBlock<Block>
-    spikeBlock = register("spike_block", p -> new SpikeBlock(p, false), PmetalMetal),
-    hotSpikeBlock = register("hot_spike_block", p -> new SpikeBlock(p, true), PtorriditeBlock),
-    heatTrap = register("heat_trap", HeatTrap::new, PblueUnbreakable),
-    karosHeatTile = register("karos_heat_tile", KarosHeatTile::new, PemeraldUnbreakable),
-    karosDispenser = register("karos_dispenser", KarosDispenser::new, PplantUnbreakable);
+        spikeBlock = register("spike_block", p -> new SpikeBlock(p, false), PmetalMetal),
+        hotSpikeBlock = register("hot_spike_block", p -> new SpikeBlock(p, true), PtorriditeBlock),
+        heatTrap = register("heat_trap", HeatTrap::new, PblueUnbreakable),
+        karosHeatTile = register("karos_heat_tile", KarosHeatTile::new, PemeraldUnbreakable),
+        karosDispenser = register("karos_dispenser", KarosDispenser::new, PplantUnbreakable);
 
     //Acid
     public static final DeferredBlock<Block>
-    bacterialAcid = register("bacterial_acid", Acid::new, Pacid),
-    lunicAcid = register("lunic_acid", Acid::new, Pacid);
+        bacterialAcid = register("bacterial_acid", Acid::new, Pacid),
+        lunicAcid = register("lunic_acid", Acid::new, Pacid);
 
-    //Fire
+    // Fire
     public static final DeferredBlock<Block>
-    bonfire = register("bonfire", Bonfire::new, PshapedPlank),
-    icyFire = register("icy_fire", IcyFire::new, PicyFire),
-    hellfire = register("hellfire", Fire::new, Pfire),
-    divineFlame = register("divine_flame", DivineFlame::new, Pfire),
-    wildFlame = register("wild_flame", WildFlame::new, Pfire),
-    enchantedFlame = register("enchanted_flame", EnchantedFlame::new, Pfire),
-    skyFire = register("sky_fire", SkyFire::new, Pfire),
-    mortumEmbers = register("mortum_embers", MortumEmbers::new, Pfire);
+        bonfire = register("bonfire", Bonfire::new, PshapedPlank),
+        icyFire = register("icy_fire", IcyFire::new, PicyFire),
+        hellfire = register("hellfire", Fire::new, Pfire),
+        divineFlame = register("divine_flame", DivineFlame::new, Pfire),
+        wildFlame = register("wild_flame", WildFlame::new, Pfire),
+        enchantedFlame = register("enchanted_flame", EnchantedFlame::new, Pfire),
+        skyFire = register("sky_fire", SkyFire::new, Pfire),
+        mortumEmbers = register("mortum_embers", MortumEmbers::new, Pfire);
 
-    //Portals
+    // Portals
     public static final DeferredBlock<Block>
-    gateway = register("gateway", Gateway::new, Pgateway),
-    arcanaPortal = register("arcana_portal", ArcanaPortal::new, ParcanaPortal),
-    iceikaPortal = registerPortal("iceika", Pportal, LevelRegistry.ICEIKA, Level.OVERWORLD, () -> Blocks.SNOW_BLOCK, "frost"),
-    divinePortal = registerPortal("divine", Pportal, Level.OVERWORLD, Level.OVERWORLD, divineRock, "eden_portal"),
-    edenPortal = registerPortal("eden", Pportal, LevelRegistry.EDEN, Level.OVERWORLD, edenBlock, "eden_portal"),
-    wildwoodPortal = registerPortal("wildwood", Pportal, LevelRegistry.WILDWOOD, LevelRegistry.EDEN, wildwoodBlock, "wildwood_portal"),
-    apalachiaPortal = registerPortal("apalachia", Pportal, LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, apalachiaBlock, "apalachia_portal"),
-    skythernPortal = registerPortal("skythern", Pportal, LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, skythernBlock, "skythern_portal"),
-    mortumPortal = registerPortal("mortum", Pportal, LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, mortumBlock, "mortum_portal"),
-    vetheaPortal = register("vethea_portal", VetheaPortal::new, Pportal);
+        gateway = register("gateway", Gateway::new, Pgateway),
+        arcanaPortal = register("arcana_portal", ArcanaPortal::new, ParcanaPortal),
+        iceikaPortal = registerPortal("iceika", Pportal, LevelRegistry.ICEIKA, Level.OVERWORLD, () -> Blocks.SNOW_BLOCK, "frost"),
+        divinePortal = registerPortal("divine", Pportal, Level.OVERWORLD, Level.OVERWORLD, divineRock, "eden_portal"),
+        edenPortal = registerPortal("eden", Pportal, LevelRegistry.EDEN, Level.OVERWORLD, edenBlock, "eden_portal"),
+        wildwoodPortal = registerPortal("wildwood", Pportal, LevelRegistry.WILDWOOD, LevelRegistry.EDEN, wildwoodBlock, "wildwood_portal"),
+        apalachiaPortal = registerPortal("apalachia", Pportal, LevelRegistry.APALACHIA, LevelRegistry.WILDWOOD, apalachiaBlock, "apalachia_portal"),
+        skythernPortal = registerPortal("skythern", Pportal, LevelRegistry.SKYTHERN, LevelRegistry.APALACHIA, skythernBlock, "skythern_portal"),
+        mortumPortal = registerPortal("mortum", Pportal, LevelRegistry.MORTUM, LevelRegistry.SKYTHERN, mortumBlock, "mortum_portal"),
+        vetheaPortal = register("vethea_portal", VetheaPortal::new, Pportal);
 
-    //Rifts
+    // Rifts
     public static final DeferredBlock<Block>
-    overworldRift = registerRift("overworld", Prift, Level.OVERWORLD, STABLE_RIFT_OVERWORLD, RIFT_RESONATING_OVERWORLD, TagRegistry.Items.RIFT_REPLENISHING_OVERWORLD, (byte)6),
-    edenRift = registerRift("eden", Prift, LevelRegistry.EDEN, STABLE_RIFT_EDEN, RIFT_RESONATING_EDEN, TagRegistry.Items.RIFT_REPLENISHING_EDEN, (byte)1),
-    wildwoodRift = registerRift("wildwood", Prift, LevelRegistry.WILDWOOD, STABLE_RIFT_WILDWOOD, RIFT_RESONATING_WILDWOOD, TagRegistry.Items.RIFT_REPLENISHING_WILDWOOD, (byte)2),
-    apalachiaRift = registerRift("apalachia", Prift, LevelRegistry.APALACHIA, STABLE_RIFT_APALACHIA, RIFT_RESONATING_APALACHIA, TagRegistry.Items.RIFT_REPLENISHING_APALACHIA, (byte)3),
-    skythernRift = registerRift("skythern", Prift, LevelRegistry.SKYTHERN, STABLE_RIFT_SKYTHERN, RIFT_RESONATING_SKYTHERN, TagRegistry.Items.RIFT_REPLENISHING_SKYTHERN, (byte)4),
-    mortumRift = registerRift("mortum", Prift, LevelRegistry.MORTUM, STABLE_RIFT_MORTUM, RIFT_RESONATING_MORTUM, TagRegistry.Items.RIFT_REPLENISHING_MORTUM, (byte)5);
+        overworldRift = registerRift("overworld", Prift, Level.OVERWORLD, STABLE_RIFT_OVERWORLD, RIFT_RESONATING_OVERWORLD, TagRegistry.Items.RIFT_REPLENISHING_OVERWORLD, (byte)6),
+        edenRift = registerRift("eden", Prift, LevelRegistry.EDEN, STABLE_RIFT_EDEN, RIFT_RESONATING_EDEN, TagRegistry.Items.RIFT_REPLENISHING_EDEN, (byte)1),
+        wildwoodRift = registerRift("wildwood", Prift, LevelRegistry.WILDWOOD, STABLE_RIFT_WILDWOOD, RIFT_RESONATING_WILDWOOD, TagRegistry.Items.RIFT_REPLENISHING_WILDWOOD, (byte)2),
+        apalachiaRift = registerRift("apalachia", Prift, LevelRegistry.APALACHIA, STABLE_RIFT_APALACHIA, RIFT_RESONATING_APALACHIA, TagRegistry.Items.RIFT_REPLENISHING_APALACHIA, (byte)3),
+        skythernRift = registerRift("skythern", Prift, LevelRegistry.SKYTHERN, STABLE_RIFT_SKYTHERN, RIFT_RESONATING_SKYTHERN, TagRegistry.Items.RIFT_REPLENISHING_SKYTHERN, (byte)4),
+        mortumRift = registerRift("mortum", Prift, LevelRegistry.MORTUM, STABLE_RIFT_MORTUM, RIFT_RESONATING_MORTUM, TagRegistry.Items.RIFT_REPLENISHING_MORTUM, (byte)5);
 
-    //Air
+    // Air
     public static final DeferredBlock<Block>
-    dungeonAir = register("dungeon_air", DungeonAir::new, air),
-    terranGhostBlock = registerItemless("terran_ghost_block", TerranGhostBlock::new, air);
+        terranGhostBlock = registerItemless("terran_ghost_block", TerranGhostBlock::new, air),
+        dungeonAir = register("dungeon_air", DungeonAir::new, air);
 
-    //Creative Mode Blocks
+    // Creative mode blocks
     public static final DeferredBlock<Block>
-    randomItemDropper = register("random_item_dropper", RandomItemDropper::new, furnace);
+        randomItemDropper = register("random_item_dropper", RandomItemDropper::new, furnace);
 
-    //REGISTER SETS
+    // REGISTER SETS
     private static List<DeferredBlock<Block>> registerGrass(String name, PropertyOverride properties) {return registerPotted(name, ModGrass::new, properties);}
     private static List<DeferredBlock<Block>> registerDryGrass(String name, PropertyOverride properties) {return registerPotted(name, p -> new ModGrass(p, true), properties);}
     private static List<DeferredBlock<Block>> registerFlower(String name, PropertyOverride properties, Holder<MobEffect> effect, float durationInSeconds) {return registerPotted(name, p -> new Flower(effect, durationInSeconds, p), properties);}
@@ -665,9 +668,9 @@ public class BlockRegistry {
     private static List<DeferredBlock<Block>> registerWoolSet(String baseName, String woolSignifier, PropertyOverride properties, DyeColor color) {
         DeferredBlock<Block>
             wool = register(baseName + woolSignifier, properties),
-            stairs = registerStair(baseName + "_stairs", properties, wool),
-            slab = registerSlab(baseName + "_slab", properties),
-            carpet = register(baseName + "_carpet", p -> new WoolCarpetBlock(color, p), properties);
+            stairs = registerStair(baseName + woolSignifier + "_stairs", properties, wool),
+            slab = registerSlab(baseName + woolSignifier + "_slab", properties),
+            carpet = register(baseName + woolSignifier + "_carpet", p -> new WoolCarpetBlock(color, p), properties);
         return List.of(wool, stairs, slab, carpet);
     }
     private static List<DeferredBlock<Block>> registerTorchSet(String baseName, PropertyOverride properties, Supplier<SimpleParticleType> particle) {return registerTorchSet(baseName, p -> new TorchBlock(particle.get(), p), p -> new WallTorchBlock(particle.get(), p), properties);}
@@ -682,7 +685,7 @@ public class BlockRegistry {
         DeferredBlock<Block>
             bulb = register(baseName + "_bulb", HalfTransparentBlock::new, PropertyOverride.bulb.map(bulbColor)),
             stem = register(baseName + "_stem", RotatedPillarBlock::new, log.map(stemColor));
-        return List.of(sapling.getFirst(), bulb, stem, sapling.getLast());
+        return List.of(sapling.getFirst(), sapling.getLast(), bulb, stem);
     }
     private static List<DeferredBlock<Block>> registerDreamTreeSet(String baseName, MapColor leavesColor, MapColor logColor, MapColor strippedColor) {
         DeferredBlock<Block>
@@ -766,9 +769,9 @@ public class BlockRegistry {
     private static List<DeferredBlock<Block>> registerStairSlabSet(String baseName, String blockSignifier, PropertyOverride properties) {
         DeferredBlock<Block>
             block = register(baseName + blockSignifier, properties),
-            stairs = register(baseName + "_stairs", p -> new StairBlock(block.get().defaultBlockState(), p), properties),
-            slab = register(baseName + "_slab", SlabBlock::new, properties);
-        return List.of(stairs, slab);
+            stairs = register(baseName + blockSignifier + "_stairs", p -> new StairBlock(block.get().defaultBlockState(), p), properties),
+            slab = register(baseName + blockSignifier + "_slab", SlabBlock::new, properties);
+        return List.of(block, stairs, slab);
     }
     private static List<DeferredBlock<Block>> registerOverworldOres(String baseName) {
         return List.of(register(baseName + "_ore", PoverworldOre), register(baseName + "_ore_deepslate", PdeepslateOre));

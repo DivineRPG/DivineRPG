@@ -1,7 +1,7 @@
 {
   "values": [
-    "#divinerpg:chunks/torridite",
     "#divinerpg:chunks/diamond",
+    "#divinerpg:chunks/torridite",
     "#divinerpg:chunks/bedrock",
     "#divinerpg:chunks/twilight"
   ]

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_pressed",
   "textures": {
-    "texture": "divinerpg:block/polished_ray_stone_stone"
+    "texture": "divinerpg:block/polished_ray_stone"
   }
 }

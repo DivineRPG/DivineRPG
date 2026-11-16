@@ -1,16 +1,16 @@
 {
   "values": [
-    "divinerpg:stripped_apalachia_wood",
+    "divinerpg:stripped_divine_wood",
+    "divinerpg:stripped_shiverspine_wood",
     "divinerpg:stripped_auroraoak_wood",
     "divinerpg:stripped_cozybark_wood",
-    "divinerpg:stripped_crimseeker_wood",
-    "divinerpg:stripped_divine_wood",
-    "divinerpg:stripped_eden_wood",
-    "divinerpg:stripped_eucalyptus_wood",
-    "divinerpg:stripped_mortum_wood",
-    "divinerpg:stripped_shiverspine_wood",
-    "divinerpg:stripped_skythern_wood",
     "divinerpg:stripped_streamleaf_wood",
-    "divinerpg:stripped_wildwood_wood"
+    "divinerpg:stripped_eucalyptus_wood",
+    "divinerpg:stripped_eden_wood",
+    "divinerpg:stripped_crimseeker_wood",
+    "divinerpg:stripped_apalachia_wood",
+    "divinerpg:stripped_wildwood_wood",
+    "divinerpg:stripped_skythern_wood",
+    "divinerpg:stripped_mortum_wood"
   ]
 }

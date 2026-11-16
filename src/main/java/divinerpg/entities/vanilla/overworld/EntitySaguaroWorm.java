@@ -13,11 +13,11 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
-import net.neoforged.neoforge.common.Tags.Blocks;
 import net.neoforged.neoforge.fluids.FluidType;
 
 import static divinerpg.registries.TagRegistry.DamageTypes.AVOIDS_SAGUARO_THORNS;
 import static net.minecraft.world.damagesource.DamageTypes.THORNS;
+import static net.neoforged.neoforge.common.Tags.BlockItems.SANDS;
 
 public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAttackMob {
     public EntitySaguaroWorm(EntityType<? extends EntitySaguaroWorm> type, Level worldIn) {super(type, worldIn);}
@@ -32,7 +32,7 @@ public class EntitySaguaroWorm extends EntityDivineMonster implements RangedAtta
     @Override protected void registerGoals() {
         goalSelector.addGoal(1, new RangedAttackGoal(this, getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), 30, (float)getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
     }
-    public static boolean saguaroWormSpawnRule(LevelAccessor worldIn, BlockPos pos) {return worldIn.getBlockState(pos.below()).is(Blocks.SANDS);}
+    public static boolean saguaroWormSpawnRule(LevelAccessor worldIn, BlockPos pos) {return worldIn.getBlockState(pos.below()).is(SANDS.block());}
     @Override public float getWalkTargetValue(BlockPos pos, LevelReader reader) {return 0;}
     @Override public void tick() {
         super.tick();

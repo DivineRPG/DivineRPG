@@ -88,7 +88,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         arcaniumExtraction(BlockRegistry.arcaniteStoneSet.getFirst().asItem(), BlockRegistry.arcaniteSand.asItem(), 1, 0.1F, 20);
         arcaniumExtraction(BlockRegistry.rawArcanium.asItem(), ItemRegistry.arcanium, 1, 1.0F, 100);
-        arcaniumExtraction(BlockRegistry.arcaniumRichSand.asItem(), ItemRegistry.pieceOfRawArcanium, 1, 0.1F, 20);
+        arcaniumExtraction(BlockRegistry.arcaniumRichSand.asItem(), ItemRegistry.piece_of_raw_arcanium, 1, 0.1F, 20);
 
         fireConversion(BlockRegistry.divineFlame.get(), Ingredient.of(ItemRegistry.eden_soul.get(), ItemRegistry.eden_heart.get()), new BlockMatchTest(Blocks.FIRE), builder -> builder.outputState(new SimpleStateProvider(BlockRegistry.divineFlame.get().defaultBlockState())).advancement(Identifier.fromNamespaceAndPath(MODID, "divine/the_link"), "create_divine_flame").frame(new BlockMatchTest(BlockRegistry.edenBlock.get())).portal(new SimpleStateProvider(BlockRegistry.edenPortal.get().defaultBlockState())), "has_eden_soul", this.has(ItemRegistry.eden_soul.get()));
         fireConversion(BlockRegistry.enchantedFlame.get(), TagRegistry.Items.HEARTS_WILDWOOD, new BlockMatchTest(BlockRegistry.wildFlame.get()), builder -> builder.outputState(new SimpleStateProvider(BlockRegistry.enchantedFlame.get().defaultBlockState())).advancement(Identifier.fromNamespaceAndPath(MODID, "twilight/magical_incineration"), "create_enchanted_flame").frame(new BlockMatchTest(BlockRegistry.apalachiaBlock.get())).portal(new SimpleStateProvider(BlockRegistry.apalachiaPortal.get().defaultBlockState())), "has_wildwood_heart", has(TagRegistry.Items.HEARTS_WILDWOOD));
@@ -164,17 +164,17 @@ public class ModRecipeProvider extends RecipeProvider {
 
         maulSmashing(TagRegistry.Items.GEMS_SHADOW, ItemRegistry.bedrock_chunk, 1, TagRegistry.Blocks.BEDROCK_GRINDING_BASE);
         maulSmashing(TagRegistry.Items.INGOTS_SHADOW, ItemRegistry.shadow_coins, 2, null);
-        maulSmashing(List.of(ItemRegistry.apalachia_fragments), ItemRegistry.apalachia_dust, 1, TagRegistry.Blocks.ORES_APALACHIA, "dusts");
-        maulSmashing(List.of(ItemRegistry.arlemite_ingot), ItemRegistry.arlemite_dust, 1, TagRegistry.Blocks.ORES_ARLEMITE, "dusts");
-        maulSmashing(List.of(ItemRegistry.bloodgem), ItemRegistry.bloodgem_dust, 1, TagRegistry.Blocks.ORES_BLOODGEM, "dusts");
-        maulSmashing(List.of(ItemRegistry.eden_fragments), ItemRegistry.eden_dust, 1, TagRegistry.Blocks.ORES_EDEN, "dusts");
-        maulSmashing(List.of(ItemRegistry.mortum_fragments), ItemRegistry.mortum_fragments, 1, TagRegistry.Blocks.ORES_MORTUM, "dusts");
-        maulSmashing(List.of(ItemRegistry.oxdrite_ingot), ItemRegistry.oxdrite_dust, 1, TagRegistry.Blocks.ORES_OXDRITE, "dusts");
-        maulSmashing(List.of(ItemRegistry.realmite_ingot), ItemRegistry.realmite_dust, 1, TagRegistry.Blocks.ORES_REALMITE, "dusts");
-        maulSmashing(List.of(ItemRegistry.rupee_ingot), ItemRegistry.rupee_dust, 1, TagRegistry.Blocks.ORES_RUPEE, "dusts");
-        maulSmashing(List.of(ItemRegistry.skythern_fragments), ItemRegistry.skythern_dust, 1, TagRegistry.Blocks.ORES_SKYTHERN, "dusts");
-        maulSmashing(List.of(ItemRegistry.torridite_ingot), ItemRegistry.torridite_dust, 1, TagRegistry.Blocks.ORES_TORRIDITE, "dusts");
-        maulSmashing(List.of(ItemRegistry.wildwood_fragments), ItemRegistry.wildwood_dust, 1, TagRegistry.Blocks.ORES_WILDWOOD, "dusts");
+        maulSmashing(List.of(ItemRegistry.apalachia_fragments), ItemRegistry.apalachia_dust, 1, TagRegistry.BlockItems.ORES_APALACHIA.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.arlemite_ingot), ItemRegistry.arlemite_dust, 1, TagRegistry.BlockItems.ORES_ARLEMITE.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.bloodgem), ItemRegistry.bloodgem_dust, 1, TagRegistry.BlockItems.ORES_BLOODGEM.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.eden_fragments), ItemRegistry.eden_dust, 1, TagRegistry.BlockItems.ORES_EDEN.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.mortum_fragments), ItemRegistry.mortum_fragments, 1, TagRegistry.BlockItems.ORES_MORTUM.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.oxdrite_ingot), ItemRegistry.oxdrite_dust, 1, TagRegistry.BlockItems.ORES_OXDRITE.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.realmite_ingot), ItemRegistry.realmite_dust, 1, TagRegistry.BlockItems.ORES_REALMITE.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.rupee_ingot), ItemRegistry.rupee_dust, 1, TagRegistry.BlockItems.ORES_RUPEE.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.skythern_fragments), ItemRegistry.skythern_dust, 1, TagRegistry.BlockItems.ORES_SKYTHERN.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.torridite_ingot), ItemRegistry.torridite_dust, 1, TagRegistry.BlockItems.ORES_TORRIDITE.block(), "dusts");
+        maulSmashing(List.of(ItemRegistry.wildwood_fragments), ItemRegistry.wildwood_dust, 1, TagRegistry.BlockItems.ORES_WILDWOOD.block(), "dusts");
 
         smithing(ItemRegistry.bedrock_upgrade_template, ItemRegistry.INFERNO_BOOTS, ItemRegistry.bedrock_chunk, ItemRegistry.BEDROCK_BOOTS);
         smithing(ItemRegistry.bedrock_upgrade_template, ItemRegistry.INFERNO_LEGGINGS, ItemRegistry.bedrock_chunk, ItemRegistry.BEDROCK_LEGGINGS);

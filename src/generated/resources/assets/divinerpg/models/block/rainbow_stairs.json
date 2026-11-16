@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "divinerpg:block/rainbow",
-    "side": "divinerpg:block/rainbow",
-    "top": "divinerpg:block/rainbow"
-  }
-}

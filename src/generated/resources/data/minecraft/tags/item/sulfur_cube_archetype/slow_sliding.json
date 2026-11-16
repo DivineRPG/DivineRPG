@@ -1,10 +1,10 @@
 {
   "values": [
-    "minecraft:air",
     "divinerpg:glowsprout_stem",
-    "minecraft:air",
+    "divinerpg:glowsprout_bulb",
     "divinerpg:lowsprout_stem",
-    "minecraft:air",
-    "divinerpg:slowsprout_stem"
+    "divinerpg:lowsprout_bulb",
+    "divinerpg:slowsprout_stem",
+    "divinerpg:slowsprout_bulb"
   ]
 }

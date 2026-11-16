@@ -9,10 +9,15 @@
     "#divinerpg:ores/bloodgem",
     "#divinerpg:storage_blocks/bloodgem",
     "#divinerpg:storage_blocks/arcanium",
+    "#divinerpg:ores/eden",
     "#divinerpg:storage_blocks/irreversible/eden",
+    "#divinerpg:ores/wildwood",
     "#divinerpg:storage_blocks/irreversible/wildwood",
+    "#divinerpg:ores/apalachia",
     "#divinerpg:storage_blocks/irreversible/apalachia",
+    "#divinerpg:ores/skythern",
     "#divinerpg:storage_blocks/irreversible/skythern",
+    "#divinerpg:ores/mortum",
     "#divinerpg:storage_blocks/irreversible/mortum",
     "divinerpg:darkstone_bricks"
   ]

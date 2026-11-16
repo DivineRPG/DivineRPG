@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinerpg:block/fancy_wool",
+    "side": "divinerpg:block/fancy_wool"
+  }
+}

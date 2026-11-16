@@ -8,9 +8,9 @@
     "divinerpg:present_box",
     "divinerpg:robbin_hut",
     "divinerpg:snowy_moss",
-    "divinerpg:glowsprout_pot",
-    "divinerpg:lowsprout_pot",
-    "divinerpg:slowsprout_pot",
+    "divinerpg:glowsprout_stem",
+    "divinerpg:lowsprout_stem",
+    "divinerpg:slowsprout_stem",
     "divinerpg:truffle"
   ]
 }

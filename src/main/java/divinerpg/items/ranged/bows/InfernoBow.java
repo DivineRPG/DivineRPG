@@ -43,7 +43,7 @@ public class InfernoBow extends ItemBow {
             ItemStack itemstack = player.getProjectile(stack);
             if(infinityArrow != null && (itemstack.isEmpty() || itemstack.is(infinityArrow.get()))) itemstack = new ItemStack(infinityArrow.get());
             if(itemstack.isEmpty()) return false;
-            i = EventHooks.onArrowLoose(stack, level, player, (getUseDuration(stack, player) - timeLeft) * 72000 / useDuration, true);
+            i = EventHooks.onArrowLoose(stack, level, player, (getUseDuration(stack, player) - timeLeft) * 72000 / useDuration);
             player.getCooldowns().addCooldown(stack, 60);
         } else i = (getUseDuration(stack, living) - timeLeft) * 72000 / useDuration;
         if(i < 0) return false;

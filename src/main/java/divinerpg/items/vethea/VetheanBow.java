@@ -25,7 +25,7 @@ public class VetheanBow extends ItemBow {
             ItemStack itemstack = player.getProjectile(stack);
             if(infinityArrow != null && (itemstack.isEmpty() || itemstack.is(infinityArrow.get()))) itemstack = new ItemStack(infinityArrow.get());
             if(itemstack.isEmpty()) return false;
-            int i = EventHooks.onArrowLoose(stack, level, player, getUseDuration(stack, entityLiving) - timeLeft, true);
+            int i = EventHooks.onArrowLoose(stack, level, player, getUseDuration(stack, entityLiving) - timeLeft);
             if(i < 0) return false;
             float f = getPowerForTime(i);
             if(f >= .1F) {

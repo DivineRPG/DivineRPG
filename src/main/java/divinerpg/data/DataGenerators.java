@@ -20,7 +20,7 @@ public class DataGenerators {
         generator.addProvider(true, new ModLangProvider(output, "en_us"));
         event.createProvider(ModModelProvider::new);
 
-        event.createBlockAndItemTags(ModBlockTagsProvider::new, (packOutput, lookup, blockTags) -> new ModItemTagsProvider(packOutput, lookup));
+        event.createBlockAndItemTags(ModBlockTagsProvider::new, ModItemTagsProvider::new);
         event.createProvider(ModFluidTagsProvider::new);
         event.createProvider(ModEntityTypeTagProvider::new);
 

@@ -1,10 +1,10 @@
 {
   "values": [
-    "#divinerpg:obsidians/crying",
     "#divinerpg:storage_blocks/shadow",
     "#divinerpg:ores/torridite",
     "#divinerpg:storage_blocks/raw_torridite",
     "#divinerpg:storage_blocks/torridite",
+    "#divinerpg:obsidians/crying",
     "divinerpg:darkstone",
     "divinerpg:icy_stone"
   ]

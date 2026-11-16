@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "divinerpg:block/rainbow_wool",
+    "side": "divinerpg:block/rainbow_wool",
+    "top": "divinerpg:block/rainbow_wool"
+  }
+}

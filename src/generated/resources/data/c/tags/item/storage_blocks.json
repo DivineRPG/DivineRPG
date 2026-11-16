@@ -7,11 +7,11 @@
     "#divinerpg:storage_blocks/raw_rupee",
     "#divinerpg:storage_blocks/rupee",
     "#divinerpg:storage_blocks/shadow",
+    "#divinerpg:storage_blocks/bloodgem",
     "#divinerpg:storage_blocks/raw_torridite",
     "#divinerpg:storage_blocks/torridite",
     "#divinerpg:storage_blocks/raw_oxdrite",
     "#divinerpg:storage_blocks/oxdrite",
-    "#divinerpg:storage_blocks/bloodgem",
     "#divinerpg:storage_blocks/raw_arcanium",
     "#divinerpg:storage_blocks/arcanium"
   ]

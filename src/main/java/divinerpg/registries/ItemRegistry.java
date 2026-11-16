@@ -61,7 +61,7 @@ public class ItemRegistry {
     public static final DeferredItem<Item> rupee_nugget = register("rupee_nugget");
     public static final DeferredItem<Item> torridite_nugget = register("torridite_nugget");
     public static final DeferredItem<Item> oxdrite_nugget = register("oxdrite_nugget");
-    public static final DeferredItem<Item> pieceOfRawArcanium = register("piece_of_raw_arcanium");
+    public static final DeferredItem<Item> piece_of_raw_arcanium = register("piece_of_raw_arcanium");
 
     public static final DeferredItem<Item> aquatic_pellets = register("aquatic_pellets");
     public static final DeferredItem<Item> pure_aquatic_pellets = register("pure_aquatic_pellets");

@@ -1,8 +1,8 @@
 {
   "values": [
-    "divinerpg:checker",
-    "divinerpg:rainbow_wool",
-    "divinerpg:fancy_wool",
-    "divinerpg:workshop_stairs"
+    "divinerpg:checker_stairs",
+    "divinerpg:rainbow_wool_stairs",
+    "divinerpg:fancy_wool_stairs",
+    "divinerpg:workshop_carpet_stairs"
   ]
 }

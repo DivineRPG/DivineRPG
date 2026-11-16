@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "divinerpg:block/fancy",
-    "side": "divinerpg:block/fancy",
-    "top": "divinerpg:block/fancy"
-  }
-}

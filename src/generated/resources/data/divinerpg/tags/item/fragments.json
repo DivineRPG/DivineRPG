@@ -1,10 +1,6 @@
 {
   "values": [
     "#divinerpg:fragments/collector",
-    "#divinerpg:fragments/eden",
-    "#divinerpg:fragments/wildwood",
-    "#divinerpg:fragments/apalachia",
-    "#divinerpg:fragments/skythern",
-    "#divinerpg:fragments/mortum"
+    "#divinerpg:fragments/twilight"
   ]
 }

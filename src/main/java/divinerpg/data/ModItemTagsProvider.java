@@ -9,20 +9,21 @@ import net.minecraft.tags.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.data.ItemTagsProvider;
+import net.neoforged.neoforge.common.data.BlockTagCopyingItemTagProvider;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.BlockRegistry.*;
 import static divinerpg.registries.ItemRegistry.*;
 import static divinerpg.registries.TagRegistry.Items.*;
+import static divinerpg.registries.TagRegistry.BlockItems.*;
+import static divinerpg.registries.TagRegistry.Items.RAW_MATERIALS_ARLEMITE;
 import static net.minecraft.core.registries.Registries.ITEM;
 
-public class ModItemTagsProvider extends ItemTagsProvider {
-    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, MODID);
+public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
+    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags) {
+        super(output, lookupProvider, blockTags, MODID);
     }
     @SuppressWarnings("unchecked")
     @Override protected void addTags(HolderLookup.Provider registries) {
@@ -119,48 +120,17 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 if(path.contains("tormented")) tag(ARMOR_SETS_TORMENTED).add(itemKey);
             }
         }
-        for(var entry : DivineRegistries.BLOCKS.getEntries()) {
-            Block block = entry.get();
-            if(block.asItem() == Items.AIR) continue;
-            var itemKey = toKey(block.asItem());
-            String path = entry.getId().getPath();
-            if(block instanceof GrassBlock) tag(GRASS_BLOCKS).add(itemKey);
-            if(block instanceof LeavesBlock) tag(ItemTags.LEAVES).add(itemKey);
-            if(block instanceof SaplingBlock) tag(ItemTags.SAPLINGS).add(itemKey);
-            if(block instanceof SignBlock) tag(ItemTags.SIGNS).add(itemKey); // TODO: sign and hanging sign tags
-            if(block instanceof HangingSignBlock) tag(ItemTags.HANGING_SIGNS).add(itemKey);
-            if(block instanceof WallBlock) tag(ItemTags.WALLS).add(itemKey);
-            if(block instanceof WoolCarpetBlock) tag(ItemTags.WOOL_CARPETS).add(itemKey); // TODO: to remove if it still doesn't generate anything
-            if(path.contains("stripped_")) {
-                if(path.contains("_log")) tag(Tags.Items.STRIPPED_LOGS).add(itemKey);
-                if(path.contains("_wood")) tag(Tags.Items.STRIPPED_WOODS).add(itemKey);
-            }
-        }
-        tag(ALLOY_BASES_REALMITE).addTags(RAW_MATERIALS_REALMITE, DUSTS_REALMITE, INGOTS_REALMITE).addOptional(crushed_raw_realmite.key());
-        tag(ALLOY_BASES_ARLEMITE).addTags(RAW_MATERIALS_ARLEMITE, DUSTS_ARLEMITE, INGOTS_ARLEMITE).addOptional(crushed_raw_arlemite.key());
-        tag(ALLOY_BASES_RUPEE).addTags(RAW_MATERIALS_RUPEE, DUSTS_RUPEE, INGOTS_RUPEE).addOptional(crushed_raw_rupee.key());
-        tag(ALLOY_BASES_SHADOW).addTags(DUSTS_SHADOW, INGOTS_SHADOW);
-        tag(ALLOY_BASES_BLOODGEM).addTags(DUSTS_BLOODGEM, GEMS_BLOODGEM);
-        tag(ALLOY_BASES_TORRIDITE).addTags(RAW_MATERIALS_TORRIDITE, DUSTS_TORRIDITE, INGOTS_TORRIDITE).addOptional(crushed_raw_torridite.key());
-        tag(ALLOY_BASES_OXDRITE).addTags(RAW_MATERIALS_OXDRITE, DUSTS_OXDRITE, INGOTS_OXDRITE).addOptional(crushed_raw_oxdrite.key());
-
-        registerMetalSet("aquatic", pure_aquatic_pellets.key(), null, null, aquatic_ingot.key(), null, null, null, null);
-        registerMetalSet("realmite", raw_realmite.key(), realmite_dust.key(), realmite_nugget.key(), realmite_ingot.key(), null, toKey(realmiteBlockSet.getFirst().asItem()), toKey(realmiteBlockSet.getLast().asItem()), List.of(toKey(realmiteOreSet.getFirst().asItem()), toKey(realmiteOreSet.getLast().asItem())));
-        registerMetalSet("arlemite", raw_arlemite.key(), arlemite_dust.key(), arlemite_nugget.key(), arlemite_ingot.key(), null, toKey(arlemiteBlockSet.getFirst().asItem()), toKey(arlemiteBlockSet.getLast().asItem()), List.of(toKey(arlemiteOreSet.getFirst().asItem()), toKey(arlemiteOreSet.getLast().asItem())));
-        registerMetalSet("rupee", raw_rupee.key(), rupee_dust.key(), rupee_nugget.key(), rupee_ingot.key(), null, toKey(rupeeBlockSet.getFirst().asItem()), toKey(rupeeBlockSet.getLast().asItem()), List.of(toKey(rupeeOreSet.getFirst().asItem()), toKey(rupeeOreSet.getLast().asItem())));
-        registerMetalSet("shadow", null, shadow_dust.key(), null, shadow_bar.key(), null, null, toKey(shadowBlock.asItem()), null);
-        registerMetalSet("torridite", raw_torridite.key(), torridite_dust.key(), torridite_nugget.key(), torridite_ingot.key(), torridite_chunk.key(), toKey(torriditeBlockSet.getFirst().asItem()), toKey(torriditeBlockSet.getLast().asItem()), List.of(toKey(torriditeOre.asItem())));
-        registerMetalSet("hellstone", null, null, null, hellstone_ingot.key(), null, null, null, null);
-        registerMetalSet("oxdrite", raw_oxdrite.key(), oxdrite_dust.key(), oxdrite_nugget.key(), oxdrite_ingot.key(), null, toKey(oxdriteBlockSet.getFirst().asItem()), toKey(oxdriteBlockSet.getLast().asItem()), List.of(toKey(oxdriteOre.asItem())));
-        tag(RAW_MATERIALS_ARCANIUM).add(pieceOfRawArcanium.key());
-        tag(Tags.Items.RAW_MATERIALS).addTag(RAW_MATERIALS_ARCANIUM);
-
         tag(FRAGMENTS_COLLECTOR).add(collector_fragments.key());
-        tag(divineTag("fragments")).addTag(FRAGMENTS_COLLECTOR);
+        tag(FRAGMENTS_EDEN).add(eden_fragments.key());
+        tag(FRAGMENTS_WILDWOOD).add(wildwood_fragments.key());
+        tag(FRAGMENTS_APALACHIA).add(apalachia_fragments.key());
+        tag(FRAGMENTS_SKYTHERN).add(skythern_fragments.key());
+        tag(FRAGMENTS_MORTUM).add(mortum_fragments.key());
+        tag(FRAGMENTS_TWILIGHT).addTags(FRAGMENTS_EDEN, FRAGMENTS_WILDWOOD, FRAGMENTS_APALACHIA, FRAGMENTS_SKYTHERN, FRAGMENTS_MORTUM);
+        tag(FRAGMENTS).addTags(FRAGMENTS_COLLECTOR, FRAGMENTS_TWILIGHT);
+
         tag(PELLETS_AQUATIC).add(aquatic_pellets.key());
         tag(PELLETS_AQUATIC_PURE).add(pure_aquatic_pellets.key());
-
-        tag(ItemTags.METAL_NUGGETS).addTags(NUGGETS_REALMITE, NUGGETS_ARLEMITE, NUGGETS_RUPEE, NUGGETS_TORRIDITE, NUGGETS_OXDRITE);
 
         tag(COALS_ANTHRACITE).add(anthracite.key());
         tag(ItemTags.COALS).addTag(COALS_ANTHRACITE);
@@ -180,25 +150,85 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(LUMPS_ARKSIANE).add(arksiane_lump.key());
         tag(LUMPS).addTags(LUMPS_TEAKER, LUMPS_AMTHIRMIS, LUMPS_DARVEN, LUMPS_CERMILE, LUMPS_PARDIMAL, LUMPS_QUADROTIC, LUMPS_KAROS, LUMPS_HELIOSIS, LUMPS_ARKSIANE);
 
-        registerGemSet("ice", null, ice_shards.key(), ice_stone.key(), null, null);
-        registerGemSet("jungle", null, jungle_shards.key(), jungle_stone.key(), null, null);
-        registerGemSet("terran", null, terran_shards.key(), terran_stone.key(), null, null);
-        registerGemSet("shadow", null, null, shadow_stone.key(), null, null);
-        registerGemSet("corrupted", null, corrupted_shards.key(), corrupted_stone.key(), null, null);
-        registerGemSet("divine", null, divine_shards.key(), divine_stone.key(), null, null);
-        registerGemSet("bloodgem", bloodgem_dust.key(), null, bloodgem.key(), toKey(bloodgemBlock.asItem()), List.of(toKey(bloodgemOre.asItem())));
-        registerGemSet("healing", null, null, healing_stone.key(), null, null);
-        registerGemSet("molten", null, molten_shards.key(), molten_stone.key(), null, null);
-        registerGemSet("soulfire", null, null, soulfire_stone.key(), null, null);
-        registerGemSet("olivine", null, null, olivine.key(), null, null);
-        registerGemSet("ender", null, ender_shards.key(), ender_stone.key(), null, null);
-        tag(STORAGE_BLOCKS_RAW_ARCANIUM).add(toKey(rawArcanium.asItem()));
-        tag(Tags.Items.STORAGE_BLOCKS).addTag(STORAGE_BLOCKS_RAW_ARCANIUM);
-        registerGemSet("arcanium", null, null, arcanium.key(), toKey(arcaniumBlock.asItem()), null);
+        tag(RAW_MATERIALS_AQUATIC).addTag(PELLETS_AQUATIC_PURE);
+        tag(RAW_MATERIALS_REALMITE).add(raw_realmite.key());
+        tag(RAW_MATERIALS_ARLEMITE).add(raw_arlemite.key());
+        tag(RAW_MATERIALS_RUPEE).add(raw_rupee.key());
+        tag(RAW_MATERIALS_TORRIDITE).add(raw_torridite.key());
+        tag(RAW_MATERIALS_OXDRITE).add(raw_oxdrite.key());
+        tag(RAW_MATERIALS_ARCANIUM).add(piece_of_raw_arcanium.key());
+        tag(Tags.Items.RAW_MATERIALS).addTags(RAW_MATERIALS_AQUATIC, RAW_MATERIALS_REALMITE, RAW_MATERIALS_ARLEMITE, RAW_MATERIALS_RUPEE, RAW_MATERIALS_TORRIDITE, RAW_MATERIALS_OXDRITE, RAW_MATERIALS_ARCANIUM);
 
+        tag(DUSTS_REALMITE).add(realmite_dust.key());
+        tag(DUSTS_ARLEMITE).add(arlemite_dust.key());
+        tag(DUSTS_RUPEE).add(rupee_dust.key());
+        tag(DUSTS_SHADOW).add(shadow_dust.key());
+        tag(DUSTS_BLOODGEM).add(bloodgem_dust.key());
+        tag(DUSTS_TORRIDITE).add(torridite_dust.key());
+        tag(DUSTS_OXDRITE).add(oxdrite_dust.key());
+        tag(DUSTS_EDEN).add(eden_dust.key());
+        tag(DUSTS_WILDWOOD).add(wildwood_dust.key());
+        tag(DUSTS_APALACHIA).add(apalachia_dust.key());
+        tag(DUSTS_SKYTHERN).add(skythern_dust.key());
+        tag(DUSTS_MORTUM).add(mortum_dust.key());
+        tag(Tags.Items.DUSTS).addTags(DUSTS_REALMITE, DUSTS_ARLEMITE, DUSTS_RUPEE, DUSTS_SHADOW, DUSTS_BLOODGEM, DUSTS_TORRIDITE, DUSTS_OXDRITE, DUSTS_EDEN, DUSTS_WILDWOOD, DUSTS_APALACHIA, DUSTS_SKYTHERN, DUSTS_MORTUM);
+
+        tag(NUGGETS_REALMITE).add(realmite_nugget.key());
+        tag(NUGGETS_ARLEMITE).add(arlemite_nugget.key());
+        tag(NUGGETS_RUPEE).add(rupee_nugget.key());
+        tag(NUGGETS_TORRIDITE).add(torridite_nugget.key());
+        tag(NUGGETS_OXDRITE).add(oxdrite_nugget.key());
+        tag(Tags.Items.NUGGETS).addTags(NUGGETS_REALMITE, NUGGETS_ARLEMITE, NUGGETS_RUPEE, NUGGETS_TORRIDITE, NUGGETS_OXDRITE);
+        tag(ItemTags.METAL_NUGGETS).addTags(NUGGETS_REALMITE, NUGGETS_ARLEMITE, NUGGETS_RUPEE, NUGGETS_TORRIDITE, NUGGETS_OXDRITE);
+
+        tag(INGOTS_AQUATIC).add(aquatic_ingot.key());
+        tag(INGOTS_REALMITE).add(realmite_ingot.key());
+        tag(INGOTS_ARLEMITE).add(arlemite_ingot.key());
+        tag(INGOTS_RUPEE).add(rupee_ingot.key());
+        tag(INGOTS_SHADOW).add(shadow_bar.key());
+        tag(INGOTS_TORRIDITE).add(torridite_ingot.key());
+        tag(INGOTS_HELLSTONE).add(hellstone_ingot.key());
+        tag(INGOTS_OXDRITE).add(oxdrite_ingot.key());
+        tag(Tags.Items.INGOTS).addTags(INGOTS_AQUATIC, INGOTS_REALMITE, INGOTS_ARLEMITE, INGOTS_RUPEE, INGOTS_SHADOW, INGOTS_TORRIDITE, INGOTS_HELLSTONE, INGOTS_OXDRITE);
+
+        tag(ALLOY_BASES_REALMITE).addTags(RAW_MATERIALS_REALMITE, DUSTS_REALMITE, INGOTS_REALMITE).addOptional(crushed_raw_realmite.key());
+        tag(ALLOY_BASES_ARLEMITE).addTags(RAW_MATERIALS_ARLEMITE, DUSTS_ARLEMITE, INGOTS_ARLEMITE).addOptional(crushed_raw_arlemite.key());
+        tag(ALLOY_BASES_RUPEE).addTags(RAW_MATERIALS_RUPEE, DUSTS_RUPEE, INGOTS_RUPEE).addOptional(crushed_raw_rupee.key());
+        tag(ALLOY_BASES_SHADOW).addTags(DUSTS_SHADOW, INGOTS_SHADOW);
+        tag(ALLOY_BASES_BLOODGEM).addTags(DUSTS_BLOODGEM, GEMS_BLOODGEM);
+        tag(ALLOY_BASES_TORRIDITE).addTags(RAW_MATERIALS_TORRIDITE, DUSTS_TORRIDITE, INGOTS_TORRIDITE).addOptional(crushed_raw_torridite.key());
+        tag(ALLOY_BASES_OXDRITE).addTags(RAW_MATERIALS_OXDRITE, DUSTS_OXDRITE, INGOTS_OXDRITE).addOptional(crushed_raw_oxdrite.key());
+
+        tag(SHARDS_ICE).add(ice_shards.key());
+        tag(SHARDS_JUNGLE).add(jungle_shards.key());
+        tag(SHARDS_TERRAN).add(terran_shards.key());
+        tag(SHARDS_MOLTEN).add(molten_shards.key());
+        tag(SHARDS_CORRUPTED).add(corrupted_shards.key());
+        tag(SHARDS_ENDER).add(ender_shards.key());
+        tag(SHARDS_DIVINE).add(divine_shards.key());
         tag(SHARDS).addTags(SHARDS_ICE, SHARDS_JUNGLE, SHARDS_TERRAN, SHARDS_MOLTEN, SHARDS_CORRUPTED, SHARDS_ENDER, SHARDS_DIVINE);
 
-        tag(CHUNKS_BEDROCK).add(bedrock_chunk.key());
+        tag(GEMS_OLIVINE).add(olivine.key());
+        tag(commonTag("gems/olivine")).addTag(GEMS_OLIVINE);
+        tag(GEMS_ICE).add(ice_stone.key());
+        tag(GEMS_JUNGLE).add(jungle_stone.key());
+        tag(GEMS_TERRAN).add(terran_stone.key());
+        tag(GEMS_SHADOW).add(shadow_stone.key());
+        tag(GEMS_BLOODGEM).add(bloodgem.key());
+        tag(GEMS_HEALING).add(healing_stone.key());
+        tag(GEMS_MOLTEN).add(molten_stone.key());
+        tag(GEMS_SOULFIRE).add(soulfire_stone.key());
+        tag(GEMS_ARCANIUM).add(arcanium.key());
+        tag(GEMS_CORRUPTED).add(corrupted_stone.key());
+        tag(GEMS_ENDER).add(ender_stone.key());
+        tag(GEMS_DIVINE).add(divine_stone.key());
+        tag(GEMS_EDEN).add(eden_gem.key());
+        tag(GEMS_WILDWOOD).add(wildwood_gem.key());
+        tag(GEMS_APALACHIA).add(apalachia_gem.key());
+        tag(GEMS_SKYTHERN).add(skythern_gem.key());
+        tag(GEMS_MORTUM).add(mortum_gem.key());
+        tag(Tags.Items.GEMS).addTags(GEMS_OLIVINE, GEMS_ICE, GEMS_JUNGLE, GEMS_TERRAN, GEMS_SHADOW, GEMS_BLOODGEM, GEMS_HEALING, GEMS_MOLTEN, GEMS_SOULFIRE, GEMS_ARCANIUM, GEMS_CORRUPTED, GEMS_ENDER, GEMS_DIVINE, GEMS_EDEN, GEMS_WILDWOOD, GEMS_APALACHIA, GEMS_SKYTHERN, GEMS_MORTUM);
+
         tag(CHUNKS_DIAMOND_GRAY).add(gray_diamond_chunk.key());
         tag(CHUNKS_DIAMOND_RED).add(red_diamond_chunk.key());
         tag(CHUNKS_DIAMOND_YELLOW).add(yellow_diamond_chunk.key());
@@ -206,19 +236,34 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(CHUNKS_DIAMOND_BLUE).add(blue_diamond_chunk.key());
         tag(CHUNKS_DIAMOND).addTags(CHUNKS_DIAMOND_GRAY, CHUNKS_DIAMOND_RED, CHUNKS_DIAMOND_YELLOW, CHUNKS_DIAMOND_GREEN, CHUNKS_DIAMOND_BLUE);
         tag(Tags.Items.GEMS_DIAMOND).addTag(CHUNKS_DIAMOND);
-        tag(commonTag("gems/olivine")).addTag(GEMS_OLIVINE);
+        tag(CHUNKS_TORRIDITE).add(torridite_chunk.key());
+        tag(CHUNKS_BEDROCK).add(bedrock_chunk.key());
+        tag(CHUNKS_EDEN).add(eden_chunk.key());
+        tag(CHUNKS_WILDWOOD).add(wildwood_chunk.key());
+        tag(CHUNKS_APALACHIA).add(apalachia_chunk.key());
+        tag(CHUNKS_SKYTHERN).add(skythern_chunk.key());
+        tag(CHUNKS_MORTUM).add(mortum_chunk.key());
+        tag(CHUNKS_TWILIGHT).addTags(CHUNKS_EDEN, CHUNKS_WILDWOOD, CHUNKS_APALACHIA, CHUNKS_SKYTHERN, CHUNKS_MORTUM);
+        tag(Tags.Items.GEMS).addTag(CHUNKS_TWILIGHT);
+        tag(CHUNKS).addTags(CHUNKS_DIAMOND, CHUNKS_TORRIDITE, CHUNKS_BEDROCK, CHUNKS_TWILIGHT);
 
-        registerTwilightMaterialSet("eden", eden_soul.key(), eden_heart.key(), eden_dust.key(), eden_fragments.key(), eden_gem.key(), eden_chunk.key(), toKey(edenBlock.asItem()), List.of(toKey(twilightEdenOre.asItem()), toKey(scorchaltEdenOre.asItem())));
-        registerTwilightMaterialSet("wildwood", wildwood_soul.key(), wildwood_heart.key(), wildwood_dust.key(), wildwood_fragments.key(), wildwood_gem.key(), wildwood_chunk.key(), toKey(wildwoodBlock.asItem()), List.of(toKey(wildwoodOre.asItem())));
-        registerTwilightMaterialSet("apalachia", apalachia_soul.key(), apalachia_heart.key(), apalachia_dust.key(), apalachia_fragments.key(), apalachia_gem.key(), apalachia_chunk.key(), toKey(apalachiaBlock.asItem()), List.of(toKey(apalachiaOre.asItem())));
-        registerTwilightMaterialSet("skythern", skythern_soul.key(), skythern_heart.key(), skythern_dust.key(), skythern_fragments.key(), skythern_gem.key(), skythern_chunk.key(), toKey(skythernBlock.asItem()), List.of(toKey(skythernOre.asItem())));
-        registerTwilightMaterialSet("mortum", mortum_soul.key(), mortum_heart.key(), mortum_dust.key(), mortum_fragments.key(), mortum_gem.key(), mortum_chunk.key(), toKey(mortumBlock.asItem()), List.of(toKey(mortumOre.asItem())));
+        tag(SOULS_EDEN).add(eden_soul.key());
+        tag(SOULS_WILDWOOD).add(wildwood_soul.key());
+        tag(SOULS_APALACHIA).add(apalachia_soul.key());
+        tag(SOULS_SKYTHERN).add(skythern_soul.key());
+        tag(SOULS_MORTUM).add(mortum_soul.key());
+        tag(SOULS_TWILIGHT).addTags(SOULS_EDEN, SOULS_WILDWOOD, SOULS_APALACHIA, SOULS_SKYTHERN, SOULS_MORTUM);
         tag(SOULS).addTag(SOULS_TWILIGHT);
         tag(commonTag("souls")).addTag(SOULS);
+
+        tag(HEARTS_EDEN).add(eden_heart.key());
+        tag(HEARTS_WILDWOOD).add(wildwood_heart.key());
+        tag(HEARTS_APALACHIA).add(apalachia_heart.key());
+        tag(HEARTS_SKYTHERN).add(skythern_heart.key());
+        tag(HEARTS_MORTUM).add(mortum_heart.key());
+        tag(HEARTS_TWILIGHT).addTags(HEARTS_EDEN, HEARTS_WILDWOOD, HEARTS_APALACHIA, HEARTS_SKYTHERN, HEARTS_MORTUM);
         tag(HEARTS).addTag(HEARTS_TWILIGHT);
         tag(commonTag("hearts")).addTag(HEARTS);
-        tag(Tags.Items.GEMS).addTag(CHUNKS_TWILIGHT);
-        tag(CHUNKS).addTags(CHUNKS_DIAMOND, CHUNKS_BEDROCK, CHUNKS_TWILIGHT);
 
         tag(ItemTags.BEACON_PAYMENT_ITEMS).addTags(CHUNKS, GEMS_ICE, GEMS_JUNGLE, GEMS_TERRAN, GEMS_SHADOW, GEMS_CORRUPTED, GEMS_DIVINE, GEMS_BLOODGEM, GEMS_HEALING, GEMS_MOLTEN, GEMS_SOULFIRE, GEMS_ENDER, GEMS_ARCANIUM, GEMS_EDEN, GEMS_WILDWOOD, GEMS_APALACHIA, GEMS_SKYTHERN, GEMS_MORTUM, INGOTS_AQUATIC, INGOTS_REALMITE, INGOTS_ARLEMITE, INGOTS_RUPEE, INGOTS_SHADOW, INGOTS_TORRIDITE, INGOTS_HELLSTONE, INGOTS_OXDRITE);
 
@@ -275,14 +320,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(DIAMOND_NO_CHUNKS).addTag(Tags.Items.GEMS_DIAMOND).remove(CHUNKS_DIAMOND_GRAY, CHUNKS_DIAMOND_RED, CHUNKS_DIAMOND_YELLOW, CHUNKS_DIAMOND_GREEN, CHUNKS_DIAMOND_BLUE);
         tag(Tags.Items.SLIME_BALLS).add(aqua_ball.key());
         tag(SLIME_BALLS_NO_AQUA).addTag(Tags.Items.SLIME_BALLS).remove(aqua_ball.key());
-        tag(SANDS_NO_RICH).addTag(Tags.Items.SANDS).remove(toKey(arcaniumRichSand.asItem()));
+        tag(SANDS_NO_RICH).addTag(Tags.BlockItems.SANDS.item()).remove(toKey(arcaniumRichSand.asItem()));
         tag(PLANKS_NO_DESIGN).addTag(ItemTags.PLANKS).remove(toKey(plankDesign.asItem()));
         tag(WOODEN_STAIRS_NO_DESIGN).addTag(ItemTags.WOODEN_STAIRS).remove(toKey(stairDesign.asItem()));
         tag(WOODEN_SLABS_NO_DESIGN).addTag(ItemTags.WOODEN_SLABS).remove(toKey(slabDesign.asItem()));
 
         tag(ItemTags.BOOKSHELF_BOOKS).add(wizards_book.key(), maelstrom.key());
 
-        tag(AMMO_ROPE).add(toKey(Items.LEAD)).addOptionalTag(Tags.Items.ROPES);
+        tag(AMMO_ROPE).add(toKey(Items.LEAD)).addOptionalTag(Tags.BlockItems.ROPES.item());
         tag(AMMO_GRENADE).add(grenade.key());
         tag(AMMO_AQUATIC_CANNON).add(toKey(Items.CACTUS));
         tag(AMMO_CORRUPTED_CANNON).add(corrupted_bullet.key());
@@ -392,8 +437,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(SMELTABLE_EQUIPMENT_SKYTHERN).add(skythern_pickaxe.key(), skythern_shovel.key(), skythern_axe.key(), skythern_hoe.key(), skythern_shickaxe.key(), skythern_blade.key(), skythern_bow.key(), skythern_phaser.key(), skythern_blitz.key(), skythern_shield.key(), SKYTHERN_HELMET.key(), SKYTHERN_CHESTPLATE.key(), SKYTHERN_LEGGINGS.key(), SKYTHERN_BOOTS.key());
         tag(SMELTABLE_EQUIPMENT_MORTUM).add(mortum_pickaxe.key(), mortum_shovel.key(), mortum_axe.key(), mortum_hoe.key(), mortum_shickaxe.key(), mortum_blade.key(), mortum_bow.key(), mortum_phaser.key(), mortum_blitz.key(), mortum_shield.key(), MORTUM_HELMET.key(), MORTUM_CHESTPLATE.key(), MORTUM_LEGGINGS.key(), MORTUM_BOOTS.key());
 
-        tag(REPAIRS_EQUIPMENT_EXPENSIVE_GOLD).addTag(Tags.Items.STORAGE_BLOCKS_GOLD);
-        tag(REPAIRS_EQUIPMENT_EXPENSIVE_REALMITE).addTag(STORAGE_BLOCKS_REALMITE);
+        tag(REPAIRS_EQUIPMENT_EXPENSIVE_GOLD).addTag(Tags.BlockItems.STORAGE_BLOCKS_GOLD.item());
+        tag(REPAIRS_EQUIPMENT_EXPENSIVE_REALMITE).addTag(STORAGE_BLOCKS_REALMITE.item());
         tag(REPAIRS_EQUIPMENT_EXPENSIVE_SHADOW).addTag(GEMS_SHADOW);
         tag(REPAIRS_EQUIPMENT_EXPENSIVE_TORRIDITE).addTag(CHUNKS_TORRIDITE);
         tag(REPAIRS_EQUIPMENT_CYCLOPS).addTag(EYES_CYCLOPS);
@@ -408,7 +453,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(REPAIRS_EQUIPMENT_LIOPLEURODON).addTags(TEETH_LIOPLEURODON, SKULLS_LIOPLEURODON);
         tag(REPAIRS_EQUIPMENT_AQUATIC).addTag(INGOTS_AQUATIC);
         tag(REPAIRS_EQUIPMENT_KRAKEN).addTag(SKINS_KRAKEN);
-        tag(REPAIRS_EQUIPMENT_JACK_O_MAN).addTags(Tags.Items.PUMPKINS_NORMAL, Tags.Items.PUMPKINS_CARVED);
+        tag(REPAIRS_EQUIPMENT_JACK_O_MAN).addTags(Tags.BlockItems.PUMPKINS_NORMAL.item(), Tags.BlockItems.PUMPKINS_CARVED.item());
         tag(REPAIRS_EQUIPMENT_SKELEMAN).addTag(Tags.Items.BONES);
         tag(REPAIRS_EQUIPMENT_WITHER_REAPER).addTag(Tags.Items.BONES);
         tag(REPAIRS_EQUIPMENT_ARLEMITE).addTags(INGOTS_ARLEMITE, CHUNKS_DIAMOND_GREEN);
@@ -597,8 +642,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(PET_FOODS_HUSK).addTag(ItemTags.MEAT);
         tag(PET_FOODS_BROWN_GRIZZLE).addTags(Tags.Items.FOODS_BERRY, Tags.Items.FOODS_RAW_FISH, Tags.Items.FOODS_RAW_MEAT, FOODS_MAGIC_MEAT).remove(Tags.Items.FOODS_FOOD_POISONING);
         tag(PET_FOODS_WHITE_GRIZZLE).addTags(Tags.Items.FOODS_BERRY, Tags.Items.FOODS_RAW_FISH, Tags.Items.FOODS_RAW_MEAT, FOODS_MAGIC_MEAT).remove(Tags.Items.FOODS_FOOD_POISONING);
-        tag(PET_FOODS_STONE_GOLEM).addTags(Tags.Items.STONES, Tags.Items.COBBLESTONES);
-        tag(PET_FOODS_SMELTER).addTags(Tags.Items.STORAGE_BLOCKS_COAL, STORAGE_BLOCKS_IRREVERSIBLE_ANTHRACITE).addOptionalTags(commonTag("storage_blocks/anthracite"), commonTag("storage_blocks/charcoal"), commonTag("storage_blocks/coal_coke")).add(toKey(Items.MAGMA_BLOCK));
+        tag(PET_FOODS_STONE_GOLEM).addTags(Tags.BlockItems.STONES.item(), Tags.BlockItems.COBBLESTONES.item());
+        tag(PET_FOODS_SMELTER).addTags(Tags.BlockItems.STORAGE_BLOCKS_COAL.item(), STORAGE_BLOCKS_IRREVERSIBLE_ANTHRACITE.item()).addOptionalTags(commonTag("storage_blocks/anthracite"), commonTag("storage_blocks/charcoal"), commonTag("storage_blocks/coal_coke")).add(toKey(Items.MAGMA_BLOCK));
         tag(PET_FOODS_HELL_PIG).addTag(ItemTags.MEAT);
         tag(PET_FOODS_FYRACRYX).addTags(CROPS_MARSINE, FOODS_MAGIC_MEAT).add(raw_empowered_meat.key());
         tag(PET_FOODS_GOLEM_OF_REJUVENATION).addTag(FUELS_COLLECTOR);
@@ -614,7 +659,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(PET_TAMING_FOODS_BROWN_GRIZZLE).addTags(commonTag("foods/honey"), Tags.Items.DRINKS_HONEY);
         tag(PET_TAMING_FOODS_WHITE_GRIZZLE).addTags(commonTag("foods/honey"), Tags.Items.DRINKS_HONEY);
         tag(PET_TAMING_FOODS_STONE_GOLEM).add(toKey(Items.FLINT));
-        tag(PET_TAMING_FOODS_SMELTER).addTag(Tags.Items.OBSIDIANS);
+        tag(PET_TAMING_FOODS_SMELTER).addTag(Tags.BlockItems.OBSIDIANS.item());
         tag(PET_TAMING_FOODS_HELL_PIG).add(toKey(Items.BLAZE_POWDER)).addTags(POWDERS_PURPLE_BLAZE, POWDERS_FURY_FIRE, CROPS_FIRESTOCK);
         tag(PET_TAMING_FOODS_FYRACRYX).addTag(CROPS_FIRESTOCK);
         tag(PET_TAMING_FOODS_GOLEM_OF_REJUVENATION).addTag(GEMS_ARCANIUM);
@@ -623,340 +668,299 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(PET_TAMING_FOODS_GLINTHOP).add(eden_sparkles.key());
         tag(PET_TAMING_FOODS_MOON_WOLF).addTag(Tags.Items.BONES);
 
-        tag(Tags.Items.BUDDING_BLOCKS).add(toKey(buddingOlivine.asItem()), toKey(buddingDravite.asItem()));
-        tag(Tags.Items.CLUSTERS).add(toKey(olivineCluster.asItem()));
+        copy(Tags.BlockItems.BUDDING_BLOCKS);
+        copy(Tags.BlockItems.CLUSTERS);
 
-        tag(ORES_ANTHRACITE).add(toKey(anthraciteOre.asItem()));
-        tag(commonTag("ores/anthracite")).addTag(ORES_ANTHRACITE);
-        tag(minecraftTag("ores")).addTags(ORES_REALMITE, ORES_ARLEMITE, ORES_RUPEE, ORES_BLOODGEM, ORES_TORRIDITE, ORES_ANTHRACITE, ORES_OXDRITE, ORES_EDEN, ORES_WILDWOOD, ORES_APALACHIA, ORES_SKYTHERN, ORES_MORTUM);
+        copy(ORES_REALMITE);
+        copy(ORES_ARLEMITE);
+        copy(ORES_RUPEE);
+        copy(ORES_BLOODGEM);
+        copy(ORES_TORRIDITE);
+        copy(ORES_ANTHRACITE);
+        copy(commonBlockItemTag("ores/anthracite"));
+        copy(ORES_OXDRITE);
+        copy(ORES_EDEN);
+        copy(ORES_WILDWOOD);
+        copy(ORES_APALACHIA);
+        copy(ORES_SKYTHERN);
+        copy(ORES_MORTUM);
+        copy(BlockItemTags.ORES);
 
-        tag(Tags.Items.ORES_IN_GROUND_STONE).add(toKey(realmiteOreSet.getFirst().asItem()), toKey(arlemiteOreSet.getFirst().asItem()), toKey(rupeeOreSet.getFirst().asItem()));
-        tag(Tags.Items.ORES_IN_GROUND_DEEPSLATE).add(toKey(realmiteOreSet.getLast().asItem()), toKey(arlemiteOreSet.getLast().asItem()), toKey(rupeeOreSet.getLast().asItem()));
-        tag(Tags.Items.ORES_IN_GROUND_NETHERRACK).add(toKey(bloodgemOre.asItem()), toKey(torriditeOre.asItem()));
-        tag(ORES_IN_GROUND_FROZEN).add(toKey(anthraciteOre.asItem()), toKey(oxdriteOre.asItem()));
-        tag(ORES_IN_GROUND_TWILIGHT).add(toKey(twilightEdenOre.asItem()), toKey(wildwoodOre.asItem()), toKey(apalachiaOre.asItem()), toKey(skythernOre.asItem()), toKey(mortumOre.asItem()));
-        tag(ORES_IN_GROUND_SCORCHALT).add(toKey(scorchaltEdenOre.asItem()));
+        copy(Tags.BlockItems.ORES_IN_GROUND_STONE);
+        copy(Tags.BlockItems.ORES_IN_GROUND_DEEPSLATE);
+        copy(Tags.BlockItems.ORES_IN_GROUND_NETHERRACK);
+        copy(ORES_IN_GROUND_FROZEN);
+        copy(ORES_IN_GROUND_TWILIGHT);
+        copy(ORES_IN_GROUND_SCORCHALT);
 
-        tag(ORE_BEARING_GROUND_FROZEN).add(toKey(frozenStoneSet.getFirst().asItem()));
-        tag(ORE_BEARING_GROUND_TWILIGHT).add(toKey(twilightStoneSet.getFirst().asItem()));
-        tag(ORE_BEARING_GROUND_SCORCHALT).add(toKey(scorchaltSet.getFirst().asItem()));
+        copy(ORE_BEARING_GROUND_FROZEN);
+        copy(ORE_BEARING_GROUND_TWILIGHT);
+        copy(ORE_BEARING_GROUND_SCORCHALT);
 
-        tag(Tags.Items.ORE_RATES_SINGULAR).add(toKey(realmiteOreSet.getFirst().asItem()), toKey(realmiteOreSet.getLast().asItem()), toKey(arlemiteOreSet.getFirst().asItem()), toKey(arlemiteOreSet.getLast().asItem()), toKey(rupeeOreSet.getFirst().asItem()), toKey(rupeeOreSet.getLast().asItem()), toKey(bloodgemOre.asItem()), toKey(torriditeOre.asItem()), toKey(anthraciteOre.asItem()), toKey(oxdriteOre.asItem()));
-        tag(Tags.Items.ORE_RATES_SPARSE).add(toKey(twilightEdenOre.asItem()), toKey(scorchaltEdenOre.asItem()), toKey(wildwoodOre.asItem()), toKey(apalachiaOre.asItem()), toKey(skythernOre.asItem()), toKey(mortumOre.asItem()));
+        copy(Tags.BlockItems.ORE_RATES_SINGULAR);
+        copy(Tags.BlockItems.ORE_RATES_SPARSE);
 
-        tag(ItemTags.STONE_BRICKS).add(toKey(minibricks.asItem()));
-        tag(MINIBRICKS).add(toKey(minibricks.asItem()), toKey(bedrockMinibricks.asItem()), toKey(torriditeMinibricks.asItem()), toKey(realmiteMinibricks.asItem()), toKey(arlemiteMinibricks.asItem()), toKey(rupeeMinibricks.asItem()), toKey(bloodgemMinibricks.asItem()));
-        tag(COLORED_BRICKS).add(toKey(milkStoneBricks.asItem()), toKey(ironBricks.asItem()), toKey(torriditeBricks.asItem()), toKey(lavaBricks.asItem()), toKey(realmiteBricks.asItem()), toKey(goldBricks.asItem()), toKey(arlemiteBricks.asItem()), toKey(greenBricks.asItem()), toKey(darkstoneBricks.asItem()), toKey(aquatonicBricks.asItem()), toKey(diamondBricks.asItem()), toKey(lapisLazuliBricks.asItem()), toKey(purpleBricks.asItem()), toKey(magentaBricks.asItem()), toKey(bloodgemBricks.asItem()));
-        tag(TWILIGHT_BRICKS).add(toKey(edenBricks.asItem()), toKey(wildwoodBricks.asItem()), toKey(apalachiaBricks.asItem()), toKey(skythernBricks.asItem()), toKey(mortumBricks.asItem()));
-        tag(STONE_TYPES_ASPHALT).add(toKey(asphaltSet.getFirst().asItem()), toKey(asphaltSet.get(1).asItem()));
-        tag(STONE_TYPES_COALSTONE).add(toKey(coalstoneSet.getFirst().asItem()), toKey(coalstoneSet.get(1).asItem()), toKey(coalstoneSet.get(3).asItem()), toKey(coalstoneBrickSet.getFirst().asItem()), toKey(coalstoneBrickSet.get(1).asItem()), toKey(coalstoneBrickSet.get(3).asItem()), toKey(chiseledCoalstoneBricks.asItem()), toKey(polishedCoalstoneSet.getFirst().asItem()), toKey(polishedCoalstoneSet.get(1).asItem()), toKey(polishedCoalstoneSet.get(3).asItem()), toKey(coalstoneFurnace.asItem()));
-        tag(STONE_TYPES_COBALTITE).add(toKey(cobaltiteSet.getFirst().asItem()), toKey(cobaltiteSet.get(1).asItem()), toKey(cobaltiteSet.get(3).asItem()), toKey(polishedCobaltiteSet.getFirst().asItem()), toKey(polishedCobaltiteSet.get(1).asItem()), toKey(polishedCobaltiteSet.get(3).asItem()));
-        tag(Tags.Items.STONES).add(toKey(frozenStoneSet.getFirst().asItem()), toKey(arcaniteStoneSet.getFirst().asItem()), toKey(divineRock.asItem()), toKey(twilightStoneSet.getFirst().asItem()), toKey(milkStone.asItem()), toKey(scorchaltSet.getFirst().asItem()), toKey(rayStoneSet.getFirst().asItem()), toKey(draughtStone.asItem()), toKey(dreamStone.asItem()));
+        copy(BlockItemTags.STONE_BRICKS);
+        copy(MINIBRICKS);
+        copy(COLORED_BRICKS);
+        copy(TWILIGHT_BRICKS);
+        copy(STONE_TYPES_ASPHALT);
+        copy(STONE_TYPES_COALSTONE);
+        copy(STONE_TYPES_COBALTITE);
+        copy(Tags.BlockItems.STONES);
 
-        tag(OBSIDIANS_CRYING).add(toKey(broodingObsidian.asItem()), toKey(bleedingObsidian.asItem()), toKey(shiningObsidian.asItem()), toKey(glitteringObsidian.asItem()), toKey(seepingObsidian.asItem()), toKey(vwoopingObsidian.asItem()));
-        tag(Tags.Items.OBSIDIANS_CRYING).addTag(OBSIDIANS_CRYING);
-        tag(OBSIDIANS_DARK).add(toKey(darkstone.asItem()), toKey(darkstoneBricks.asItem()));
-        tag(Tags.Items.OBSIDIANS).addTag(OBSIDIANS_DARK);
+        copy(OBSIDIANS_CRYING);
+        copy(Tags.BlockItems.OBSIDIANS_CRYING);
+        copy(OBSIDIANS_DARK);
+        copy(Tags.BlockItems.OBSIDIANS);
 
-        tag(Tags.Items.COBBLESTONES_MOSSY).add(toKey(divineMossStone.asItem()));
-        tag(COBBLESTONES_FROZEN).add(toKey(cobbledFrozenStoneSet.getFirst().asItem()));
-        tag(commonTag("cobblestones/frozen")).addTag(COBBLESTONES_FROZEN);
-        tag(COBBLESTONES_ICY).add(toKey(icyStone.asItem()));
-        tag(commonTag("cobblestones/icy")).addTag(COBBLESTONES_ICY);
-        tag(COBBLESTONES_SCORCHALT).add(toKey(cobbledScorchaltSet.getFirst().asItem()));
-        tag(Tags.Items.COBBLESTONES).addTags(COBBLESTONES_FROZEN, COBBLESTONES_ICY, COBBLESTONES_SCORCHALT).add(toKey(cobaltiteSet.getFirst().asItem()), toKey(ancientStoneSet.getLast().asItem()), toKey(soulStoneSet.getLast().asItem()), toKey(lunaStone.asItem()));
+        copy(Tags.BlockItems.COBBLESTONES_MOSSY);
+        copy(COBBLESTONES_FROZEN);
+        copy(commonBlockItemTag("cobblestones/frozen"));
+        copy(COBBLESTONES_ICY);
+        copy(commonBlockItemTag("cobblestones/icy"));
+        copy(COBBLESTONES_SCORCHALT);
+        copy(Tags.BlockItems.COBBLESTONES);
 
-        tag(Tags.Items.GRAVELS).add(toKey(frozenGravel.asItem()));
+        copy(Tags.BlockItems.GRAVELS);
 
-        tag(DIRTS).add(toKey(frozenSoil.getFirst().asItem()), toKey(arcaniteSoil.getFirst().asItem()), toKey(scorchsoil.getFirst().asItem()), toKey(raySoil.getFirst().asItem()), toKey(wildwoodSoil.getFirst().asItem()), toKey(apalachiaSoil.getFirst().asItem()), toKey(skythernSoil.getFirst().asItem()), toKey(mortumSoil.getFirst().asItem()), toKey(dreamSoil.getFirst().asItem()));
-        tag(ItemTags.DIRT).addTag(DIRTS);
-        tag(minecraftTag("grass_blocks")).addTag(GRASS_BLOCKS);
-        tag(ItemTags.MUD).add(toKey(gelidite.asItem()));
+        copy(DIRTS);
+        copy(BlockItemTags.DIRT);
+        copy(GRASS_BLOCKS);
+        copy(BlockItemTags.GRASS_BLOCKS);
+        copy(BlockItemTags.MUD);
 
-        tag(SANDS_ARCANA).add(toKey(arcaniteSand.asItem()), toKey(arcanicSand.asItem()), toKey(arcaniumRichSand.asItem()));
-        tag(commonTag("sands/light_blue")).add(toKey(arcaniteSand.asItem()));
-        tag(commonTag("sands/cyan")).add(toKey(arcanicSand.asItem()));
-        tag(commonTag("sands/blue")).add(toKey(arcaniumRichSand.asItem()));
-        tag(SANDS).addTag(SANDS_ARCANA);
-        tag(ItemTags.SAND).addTag(SANDS);
-        tag(Tags.Items.SANDS).addTag(SANDS);
-        tag(ItemTags.SMELTS_TO_GLASS).addTag(SANDS);
-        tag(Tags.Items.GLASS_BLOCKS_COLORLESS).add(toKey(frostedGlass.asItem()));
-        tag(commonTag("glass_blocks/smooth")).add(toKey(smoothGlass.asItem()));
-        tag(commonTag("glass_blocks/stained")).add(toKey(stainedGlass.asItem()));
-        tag(Tags.Items.GLASS_BLOCKS).add(toKey(smoothGlass.asItem()), toKey(stainedGlass.asItem()));
+        copy(SANDS_ARCANA);
+        copy(commonBlockItemTag("sands/light_blue"));
+        copy(commonBlockItemTag("sands/cyan"));
+        copy(commonBlockItemTag("sands/blue"));
+        copy(SANDS);
+        copy(BlockItemTags.SAND);
+        copy(Tags.BlockItems.SANDS);
+        copy(BlockItemTags.SMELTS_TO_GLASS);
+        copy(Tags.BlockItems.GLASS_BLOCKS_COLORLESS);
+        copy(commonBlockItemTag("glass_blocks/smooth"));
+        copy(commonBlockItemTag("glass_blocks/stained"));
+        copy(Tags.BlockItems.GLASS_BLOCKS);
 
         tag(ItemTags.SOUL_FIRE_BASE_BLOCKS).add(toKey(soulSludgeSet.getLast().asItem()));
 
-        tag(commonTag("ice")).add(toKey(glaciline.asItem()), toKey(icyBricks.asItem()), toKey(runicIcyBricks.asItem()));
+        copy(Tags.BlockItems.ICE);
 
-        tag(MOSS_BLOCKS).add(toKey(brittleMoss.asItem()), toKey(arcaniteMoss.asItem()));
-        tag(ItemTags.MOSS_BLOCKS).addTag(MOSS_BLOCKS);
-        tag(PUMPKINS_MOB).add(toKey(blazePumpkin.asItem()), toKey(creeperPumpkin.asItem()), toKey(cyclopsPumpkin.asItem()), toKey(enderPumpkin.asItem()), toKey(enderWatcherPumpkin.asItem()), toKey(frostPumpkin.asItem()), toKey(ghastPumpkin.asItem()), toKey(glaconPumpkin.asItem()), toKey(hellspiderPumpkin.asItem()), toKey(jungleSpiderPumpkin.asItem()), toKey(skeletonPumpkin.asItem()), toKey(spiderPumpkin.asItem()), toKey(zombiePumpkin.asItem()));
-        tag(PUMPKINS).addTag(PUMPKINS_MOB);
-        tag(Tags.Items.PUMPKINS).addTag(PUMPKINS);
-        tag(NATURAL_BULBS).addTag(Tags.Items.FROGLIGHTS).add(toKey(Items.SHROOMLIGHT.asItem()), toKey(glowsproutSet.get(2).asItem()), toKey(lowsproutSet.get(2).asItem()), toKey(slowsproutSet.get(2).asItem()));
-        tag(minecraftTag("small_flowers")).add(toKey(crimpetal.getFirst().asItem()), toKey(roofbell.getFirst().asItem()), toKey(winterbloom.getFirst().asItem()), toKey(wispLeaf.getFirst().asItem()), toKey(gemOfTheDunes.getFirst().asItem()), toKey(sunBlossom.getFirst().asItem()), toKey(sunbloom.getFirst().asItem()), toKey(moonBud.getFirst().asItem()), toKey(duskBloom.getFirst().asItem()), toKey(dustLily.getFirst().asItem()), toKey(eyePlant.getFirst().asItem()), toKey(shineGrass.getFirst().asItem()), toKey(cracklespike.getFirst().asItem()), toKey(fernite.getFirst().asItem()), toKey(bulbatobe.getFirst().asItem()), toKey(shimmer.getFirst().asItem()), toKey(yellowDulah.getFirst().asItem()), toKey(greenDulah.getFirst().asItem()), toKey(greenGemtop.getFirst().asItem()), toKey(purpleGemtop.getFirst().asItem()));
-        tag(Tags.Items.FLOWERS_TALL).add(toKey(globebrush.asItem()), toKey(thermoliage.asItem()), toKey(duskFlower.asItem()), toKey(dustBrambles.asItem()), toKey(demonBrambles.asItem()));
-        tag(minecraftTag("flowers")).add(toKey(mortumWoodSet.get(2).asItem()));
+        copy(MOSS_BLOCKS);
+        copy(BlockItemTags.MOSS_BLOCKS);
+        copy(PUMPKINS_MOB);
+        copy(PUMPKINS);
+        copy(Tags.BlockItems.PUMPKINS);
+        copy(NATURAL_BULBS);
+        copy(FLOWERS_SMALL);
+        copy(BlockItemTags.SMALL_FLOWERS);
+        copy(FLOWERS_BRAMBLE);
+        copy(FLOWERS_TALL);
+        copy(Tags.BlockItems.FLOWERS_TALL);
+        copy(FLOWERS);
+        copy(BlockItemTags.FLOWERS);
+        copy(GRASS_BRUSH);
+        copy(GRASS_SHORT);
+        copy(GRASS_TALL);
+        copy(GRASS);
+        copy(VINES);
         tag(ItemTags.MUSHROOMS).add(white_mushroom.key(), toKey(glowsproutSet.getFirst().asItem()), toKey(lowsproutSet.getFirst().asItem()), toKey(slowsproutSet.getFirst().asItem()), toKey(lushroom.getFirst().asItem()), toKey(duncap.asItem()), toKey(truffle.asItem()), toKey(dreamglow.getFirst().asItem()));
 
-        tag(LOGS_DIVINE).add(toKey(divineWoodSet.get(3).asItem()), toKey(divineWoodSet.get(4).asItem()), toKey(divineWoodSet.get(5).asItem()), toKey(divineWoodSet.get(6).asItem()));
-        tag(LOGS_SHIVERSPINE).add(toKey(shiverspineWoodSet.get(3).asItem()), toKey(shiverspineWoodSet.get(4).asItem()), toKey(shiverspineWoodSet.get(5).asItem()), toKey(shiverspineWoodSet.get(6).asItem()));
-        tag(LOGS_AURORAOAK).add(toKey(auroraoakWoodSet.get(3).asItem()), toKey(auroraoakWoodSet.get(4).asItem()), toKey(auroraoakWoodSet.get(5).asItem()), toKey(auroraoakWoodSet.get(6).asItem()));
-        tag(LOGS_COZYBARK).add(toKey(cozybarkWoodSet.get(3).asItem()), toKey(cozybarkWoodSet.get(4).asItem()), toKey(cozybarkWoodSet.get(5).asItem()), toKey(cozybarkWoodSet.get(6).asItem()));
-        tag(LOGS_STREAMLEAF).add(toKey(streamleafWoodSet.get(3).asItem()), toKey(streamleafWoodSet.get(4).asItem()), toKey(streamleafWoodSet.get(5).asItem()), toKey(streamleafWoodSet.get(6).asItem()));
-        tag(LOGS_EUCALYPTUS).add(toKey(eucalyptusWoodSet.getFirst().asItem()), toKey(eucalyptusWoodSet.get(1).asItem()), toKey(eucalyptusWoodSet.get(2).asItem()), toKey(eucalyptusWoodSet.get(3).asItem()));
-        tag(LOGS_EDEN).add(toKey(edenWoodSet.get(3).asItem()), toKey(edenWoodSet.get(4).asItem()), toKey(edenWoodSet.get(5).asItem()), toKey(edenWoodSet.get(6).asItem()));
-        tag(LOGS_CRIMSEEKER).add(toKey(crimseekerWoodSet.get(3).asItem()), toKey(crimseekerWoodSet.get(4).asItem()), toKey(crimseekerWoodSet.get(5).asItem()), toKey(crimseekerWoodSet.get(6).asItem()));
-        tag(LOGS_WILDWOOD).add(toKey(wildwoodWoodSet.get(3).asItem()), toKey(wildwoodWoodSet.get(4).asItem()), toKey(wildwoodWoodSet.get(5).asItem()), toKey(wildwoodWoodSet.get(6).asItem()));
-        tag(LOGS_APALACHIA).add(toKey(apalachiaWoodSet.get(3).asItem()), toKey(apalachiaWoodSet.get(4).asItem()), toKey(apalachiaWoodSet.get(5).asItem()), toKey(apalachiaWoodSet.get(6).asItem()));
-        tag(LOGS_SKYTHERN).add(toKey(skythernWoodSet.get(3).asItem()), toKey(skythernWoodSet.get(4).asItem()), toKey(skythernWoodSet.get(5).asItem()), toKey(skythernWoodSet.get(6).asItem()));
-        tag(LOGS_MORTUM).add(toKey(mortumWoodSet.get(3).asItem()), toKey(mortumWoodSet.get(4).asItem()), toKey(mortumWoodSet.get(5).asItem()), toKey(mortumWoodSet.get(6).asItem()));
-        tag(LOGS_FIREWOOD).add(toKey(firewoodSet.get(1).asItem()), toKey(firewoodSet.get(2).asItem()), toKey(firewoodSet.get(3).asItem()), toKey(firewoodSet.get(4).asItem()));
-        tag(LOGS_DREAMWOOD).add(toKey(dreamwoodSet.get(1).asItem()), toKey(dreamwoodSet.get(2).asItem()), toKey(dreamwoodSet.get(3).asItem()), toKey(dreamwoodSet.get(4).asItem()));
-        tag(LOGS_HYREWOOD).add(toKey(hyrewoodSet.get(1).asItem()), toKey(hyrewoodSet.get(2).asItem()), toKey(hyrewoodSet.get(3).asItem()), toKey(hyrewoodSet.get(4).asItem()));
-        tag(LOGS_MINTWOOD).add(toKey(mintwoodSet.get(1).asItem()), toKey(mintwoodSet.get(2).asItem()), toKey(mintwoodSet.get(3).asItem()), toKey(mintwoodSet.get(4).asItem()));
-        tag(LOGS_VETHEA).addTags(LOGS_FIREWOOD, LOGS_DREAMWOOD, LOGS_HYREWOOD, LOGS_MINTWOOD);
-        tag(ItemTags.LOGS_THAT_BURN).addTags(LOGS_DIVINE, LOGS_SHIVERSPINE, LOGS_AURORAOAK, LOGS_COZYBARK, LOGS_STREAMLEAF, LOGS_EUCALYPTUS, LOGS_EDEN, LOGS_CRIMSEEKER, LOGS_WILDWOOD, LOGS_APALACHIA, LOGS_SKYTHERN, LOGS_MORTUM, LOGS_FIREWOOD, LOGS_DREAMWOOD, LOGS_HYREWOOD, LOGS_MINTWOOD);
+        copy(BlockItemTags.SAPLINGS);
+        copy(BlockItemTags.LEAVES);
 
-        tag(Tags.Items.OVERWORLD_NATURAL_LOGS).add(toKey(divineWoodSet.get(3).asItem()));
-        tag(NATURAL_LOGS_ICEIKA).add(toKey(shiverspineWoodSet.get(3).asItem()), toKey(auroraoakWoodSet.get(3).asItem()), toKey(cozybarkWoodSet.get(3).asItem()), toKey(streamleafWoodSet.get(3).asItem()));
-        tag(NATURAL_LOGS_ARCANA).add(toKey(eucalyptusWoodSet.getFirst().asItem())); // Not so natural, eh?
-        tag(NATURAL_LOGS_EDEN).add(toKey(edenWoodSet.get(3).asItem()), toKey(crimseekerWoodSet.get(3).asItem()));
-        tag(NATURAL_LOGS_WILDWOOD).add(toKey(wildwoodWoodSet.get(3).asItem()));
-        tag(NATURAL_LOGS_APALACHIA).add(toKey(apalachiaWoodSet.get(3).asItem()));
-        tag(NATURAL_LOGS_SKYTHERN).add(toKey(skythernWoodSet.get(3).asItem()));
-        tag(NATURAL_LOGS_MORTUM).add(toKey(mortumWoodSet.get(3).asItem()));
-        tag(NATURAL_LOGS_VETHEA).add(toKey(firewoodSet.get(1).asItem()), toKey(dreamwoodSet.get(1).asItem()), toKey(hyrewoodSet.get(1).asItem()), toKey(mintwoodSet.get(1).asItem()));
-        tag(Tags.Items.NATURAL_LOGS).addTags(NATURAL_LOGS_ICEIKA, NATURAL_LOGS_ARCANA, NATURAL_LOGS_EDEN, NATURAL_LOGS_WILDWOOD, NATURAL_LOGS_APALACHIA, NATURAL_LOGS_SKYTHERN, NATURAL_LOGS_MORTUM, NATURAL_LOGS_VETHEA);
-        tag(Tags.Items.NATURAL_WOODS).add(toKey(shiverspineWoodSet.get(5).asItem()), toKey(auroraoakWoodSet.get(5).asItem()), toKey(cozybarkWoodSet.get(5).asItem()), toKey(streamleafWoodSet.get(5).asItem()), toKey(eucalyptusWoodSet.get(2).asItem()), toKey(edenWoodSet.get(5).asItem()), toKey(wildwoodWoodSet.get(5).asItem()), toKey(apalachiaWoodSet.get(5).asItem()), toKey(skythernWoodSet.get(5).asItem()), toKey(mortumWoodSet.get(5).asItem()), toKey(firewoodSet.get(3).asItem()), toKey(dreamwoodSet.get(3).asItem()), toKey(hyrewoodSet.get(3).asItem()), toKey(mintwoodSet.get(3).asItem()));
+        copy(LOGS_DIVINE);
+        copy(LOGS_SHIVERSPINE);
+        copy(LOGS_AURORAOAK);
+        copy(LOGS_COZYBARK);
+        copy(LOGS_STREAMLEAF);
+        copy(LOGS_EUCALYPTUS);
+        copy(LOGS_EDEN);
+        copy(LOGS_CRIMSEEKER);
+        copy(LOGS_WILDWOOD);
+        copy(LOGS_APALACHIA);
+        copy(LOGS_SKYTHERN);
+        copy(LOGS_MORTUM);
+        copy(LOGS_FIREWOOD);
+        copy(LOGS_DREAMWOOD);
+        copy(LOGS_HYREWOOD);
+        copy(LOGS_MINTWOOD);
+        copy(LOGS_VETHEA);
+        copy(BlockItemTags.LOGS_THAT_BURN);
 
-        tag(PLANKS_DESIGN).add(toKey(plankDesign.asItem()));
-        tag(PLANKS_OVERWORLD).add(toKey(divineWoodSet.get(7).asItem()));
-        tag(PLANKS_ICEIKA).add(toKey(shiverspineWoodSet.get(7).asItem()), toKey(auroraoakWoodSet.get(7).asItem()), toKey(cozybarkWoodSet.get(7).asItem()), toKey(streamleafWoodSet.get(7).asItem()));
-        tag(PLANKS_ARCANA).add(toKey(eucalyptusWoodSet.get(7).asItem()));
-        tag(PLANKS_EDEN).add(toKey(edenWoodSet.get(7).asItem()));
-        tag(PLANKS_WILDWOOD).add(toKey(wildwoodWoodSet.get(7).asItem()));
-        tag(PLANKS_APALACHIA).add(toKey(apalachiaWoodSet.get(7).asItem()));
-        tag(PLANKS_SKYTHERN).add(toKey(skythernWoodSet.get(7).asItem()));
-        tag(PLANKS_MORTUM).add(toKey(mortumWoodSet.get(7).asItem()));
-        tag(PLANKS).addTags(PLANKS_DESIGN, PLANKS_OVERWORLD, PLANKS_ICEIKA, PLANKS_ARCANA, PLANKS_EDEN, PLANKS_WILDWOOD, PLANKS_APALACHIA, PLANKS_SKYTHERN, PLANKS_SKYTHERN, PLANKS_MORTUM);
-        tag(ItemTags.PLANKS).addTag(PLANKS);
+        tag(Tags.BlockItems.OVERWORLD_NATURAL_LOGS.item()).add(toKey(divineWoodSet.get(3).asItem()));
+        copy(NATURAL_LOGS_ICEIKA);
+        copy(NATURAL_LOGS_ARCANA);
+        copy(NATURAL_LOGS_EDEN);
+        copy(NATURAL_LOGS_WILDWOOD);
+        copy(NATURAL_LOGS_APALACHIA);
+        copy(NATURAL_LOGS_SKYTHERN);
+        copy(NATURAL_LOGS_MORTUM);
+        copy(NATURAL_LOGS_VETHEA);
+        copy(Tags.BlockItems.NATURAL_LOGS);
+        copy(Tags.BlockItems.NATURAL_WOODS);
 
-        tag(ItemTags.WOODEN_STAIRS).add(toKey(stairDesign.asItem()), toKey(divineWoodSet.get(8).asItem()), toKey(shiverspineWoodSet.get(8).asItem()), toKey(auroraoakWoodSet.get(8).asItem()), toKey(cozybarkWoodSet.get(8).asItem()), toKey(streamleafWoodSet.get(8).asItem()), toKey(eucalyptusWoodSet.get(5).asItem()), toKey(edenWoodSet.get(8).asItem()), toKey(wildwoodWoodSet.get(8).asItem()), toKey(apalachiaWoodSet.get(8).asItem()), toKey(skythernWoodSet.get(8).asItem()), toKey(mortumWoodSet.get(8).asItem()));
-        tag(minecraftTag("stairs")).add(toKey(asphaltSet.get(1).asItem()), toKey(frozenStoneSet.get(1).asItem()), toKey(cobbledFrozenStoneSet.get(1).asItem()), toKey(frozenBrickSet.get(1).asItem()), toKey(cobaltiteSet.get(1).asItem()), toKey(polishedCobaltiteSet.get(1).asItem()), toKey(coalstoneSet.get(1).asItem()), toKey(coalstoneBrickSet.get(1).asItem()), toKey(polishedCoalstoneSet.get(1).asItem()), toKey(cutOxdriteSet.get(1).asItem()), toKey(arcaniteStoneSet.get(1).asItem()), toKey(arcaniteTileSet.get(1).asItem()), toKey(ancientBrickSet.get(1).asItem()), toKey(ancientBrickSet.get(6).asItem()), toKey(degradedBrickSet.get(1).asItem()), toKey(degradedBrickSet.get(6).asItem()), toKey(twilightStoneSet.get(1).asItem()), toKey(twilightBrickSet.get(1).asItem()), toKey(scorchaltSet.get(1).asItem()), toKey(cobbledScorchaltSet.get(1).asItem()), toKey(polishedScorchaltSet.get(1).asItem()), toKey(rayStoneSet.get(1).asItem()), toKey(polishedRayStoneSet.get(1).asItem()));
-        tag(ItemTags.WOODEN_SLABS).add(toKey(slabDesign.asItem()), toKey(divineWoodSet.get(9).asItem()), toKey(shiverspineWoodSet.get(9).asItem()), toKey(auroraoakWoodSet.get(9).asItem()), toKey(cozybarkWoodSet.get(9).asItem()), toKey(streamleafWoodSet.get(9).asItem()), toKey(eucalyptusWoodSet.get(6).asItem()), toKey(edenWoodSet.get(9).asItem()), toKey(wildwoodWoodSet.get(9).asItem()), toKey(apalachiaWoodSet.get(9).asItem()), toKey(skythernWoodSet.get(9).asItem()), toKey(mortumWoodSet.get(9).asItem()));
-        tag(minecraftTag("slabs")).add(toKey(asphaltSet.getLast().asItem()), toKey(frozenStoneSet.get(2).asItem()), toKey(cobbledFrozenStoneSet.get(2).asItem()), toKey(frozenBrickSet.get(2).asItem()), toKey(cobaltiteSet.get(2).asItem()), toKey(polishedCobaltiteSet.get(2).asItem()), toKey(coalstoneSet.get(2).asItem()), toKey(coalstoneBrickSet.get(2).asItem()), toKey(polishedCoalstoneSet.get(2).asItem()), toKey(cutOxdriteSet.get(2).asItem()), toKey(arcaniteStoneSet.get(2).asItem()), toKey(arcaniteTileSet.get(2).asItem()), toKey(ancientBrickSet.get(2).asItem()), toKey(ancientBrickSet.get(7).asItem()), toKey(degradedBrickSet.get(2).asItem()), toKey(degradedBrickSet.get(7).asItem()), toKey(twilightStoneSet.get(2).asItem()), toKey(twilightBrickSet.get(2).asItem()), toKey(scorchaltSet.get(2).asItem()), toKey(cobbledScorchaltSet.get(2).asItem()), toKey(polishedScorchaltSet.get(2).asItem()), toKey(rayStoneSet.get(2).asItem()), toKey(polishedRayStoneSet.get(2).asItem()));
+        copy(Tags.BlockItems.STRIPPED_LOGS);
+        copy(Tags.BlockItems.STRIPPED_WOODS);
 
-        tag(FENCES_REDSTONE).add(toKey(redFence.asItem()), toKey(greenFence.asItem()), toKey(blueFence.asItem()));
-        tag(commonTag("fences/redstone")).addTag(FENCES_REDSTONE);
-        tag(FENCES_DIVINE).add(toKey(divineWoodSet.get(10).asItem()));
-        tag(FENCES_SHIVERSPINE).add(toKey(shiverspineWoodSet.get(10).asItem()));
-        tag(FENCES_AURORAOAK).add(toKey(auroraoakWoodSet.get(10).asItem()));
-        tag(FENCES_COZYBARK).add(toKey(cozybarkWoodSet.get(10).asItem()));
-        tag(FENCES_STREAMLEAF).add(toKey(streamleafWoodSet.get(10).asItem()));
-        tag(FENCES_EUCALYPTUS).add(toKey(eucalyptusWoodSet.get(7).asItem()));
-        tag(commonTag("fences/eucalyptus")).addTag(FENCES_EUCALYPTUS);
-        tag(FENCES_EDEN).add(toKey(edenWoodSet.get(10).asItem()));
-        tag(FENCES_WILDWOOD).add(toKey(wildwoodWoodSet.get(10).asItem()));
-        tag(FENCES_APALACHIA).add(toKey(apalachiaWoodSet.get(10).asItem()));
-        tag(FENCES_SKYTHERN).add(toKey(skythernWoodSet.get(10).asItem()));
-        tag(FENCES_MORTUM).add(toKey(mortumWoodSet.get(10).asItem()));
-        tag(ItemTags.WOODEN_FENCES).addTags(FENCES_DIVINE, FENCES_SHIVERSPINE, FENCES_AURORAOAK, FENCES_COZYBARK, FENCES_STREAMLEAF, FENCES_EUCALYPTUS, FENCES_EDEN, FENCES_WILDWOOD, FENCES_APALACHIA, FENCES_SKYTHERN, FENCES_MORTUM);
-        tag(minecraftTag("fences")).addTag(FENCES_REDSTONE);
-        tag(Tags.Items.FENCES).addTag(FENCES_REDSTONE);
+        copy(PLANKS_DESIGN);
+        copy(PLANKS_OVERWORLD);
+        copy(PLANKS_ICEIKA);
+        copy(PLANKS_ARCANA);
+        copy(PLANKS_EDEN);
+        copy(PLANKS_WILDWOOD);
+        copy(PLANKS_APALACHIA);
+        copy(PLANKS_SKYTHERN);
+        copy(PLANKS_MORTUM);
+        copy(PLANKS);
+        copy(BlockItemTags.PLANKS);
 
-        tag(FENCE_GATES_DIVINE).add(toKey(divineWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_SHIVERSPINE).add(toKey(shiverspineWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_AURORAOAK).add(toKey(auroraoakWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_COZYBARK).add(toKey(cozybarkWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_STREAMLEAF).add(toKey(streamleafWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_EUCALYPTUS).add(toKey(eucalyptusWoodSet.get(8).asItem()));
-        tag(commonTag("fence_gates/eucalyptus")).addTag(FENCE_GATES_EUCALYPTUS);
-        tag(FENCE_GATES_EDEN).add(toKey(edenWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_WILDWOOD).add(toKey(wildwoodWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_APALACHIA).add(toKey(apalachiaWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_SKYTHERN).add(toKey(skythernWoodSet.get(11).asItem()));
-        tag(FENCE_GATES_MORTUM).add(toKey(mortumWoodSet.get(11).asItem()));
-        tag(ItemTags.FENCE_GATES).addTags(FENCE_GATES_DIVINE, FENCE_GATES_SHIVERSPINE, FENCE_GATES_AURORAOAK, FENCE_GATES_COZYBARK, FENCE_GATES_STREAMLEAF, FENCE_GATES_EUCALYPTUS, FENCE_GATES_EDEN, FENCE_GATES_WILDWOOD, FENCE_GATES_APALACHIA, FENCE_GATES_SKYTHERN, FENCE_GATES_MORTUM);
-        tag(Tags.Items.FENCE_GATES_WOODEN).addTags(FENCE_GATES_DIVINE, FENCE_GATES_SHIVERSPINE, FENCE_GATES_AURORAOAK, FENCE_GATES_COZYBARK, FENCE_GATES_STREAMLEAF, FENCE_GATES_EUCALYPTUS, FENCE_GATES_EDEN, FENCE_GATES_WILDWOOD, FENCE_GATES_APALACHIA, FENCE_GATES_SKYTHERN, FENCE_GATES_MORTUM);
+        copy(BlockItemTags.WOODEN_STAIRS);
+        copy(BlockItemTags.STAIRS);
+        copy(BlockItemTags.WOODEN_SLABS);
+        copy(BlockItemTags.SLABS);
+        copy(BlockItemTags.WALLS);
 
-        tag(ItemTags.WOODEN_BUTTONS).add(toKey(divineWoodSet.get(16).asItem()), toKey(shiverspineWoodSet.get(16).asItem()), toKey(auroraoakWoodSet.get(16).asItem()), toKey(cozybarkWoodSet.get(16).asItem()), toKey(streamleafWoodSet.get(16).asItem()), toKey(eucalyptusWoodSet.get(13).asItem()), toKey(edenWoodSet.get(16).asItem()), toKey(wildwoodWoodSet.get(16).asItem()), toKey(apalachiaWoodSet.get(16).asItem()), toKey(skythernWoodSet.get(16).asItem()), toKey(mortumWoodSet.get(16).asItem()));
-        tag(minecraftTag("stone_buttons")).add(toKey(frozenStoneSet.getLast().asItem()), toKey(cobbledFrozenStoneSet.getLast().asItem()), toKey(frozenBrickSet.getLast().asItem()), toKey(cobaltiteSet.getLast().asItem()), toKey(polishedCobaltiteSet.getLast().asItem()), toKey(coalstoneSet.getLast().asItem()), toKey(coalstoneBrickSet.getLast().asItem()), toKey(polishedCoalstoneSet.getLast().asItem()), toKey(arcaniteStoneSet.getLast().asItem()), toKey(arcaniteTileSet.getLast().asItem()), toKey(twilightStoneSet.getLast().asItem()), toKey(twilightBrickSet.getLast().asItem()), toKey(scorchaltSet.getLast().asItem()), toKey(cobbledScorchaltSet.getLast().asItem()), toKey(polishedScorchaltSet.getLast().asItem()), toKey(rayStoneSet.getLast().asItem()), toKey(polishedRayStoneSet.getLast().asItem()));
-        tag(minecraftTag("buttons")).add(toKey(cutOxdriteSet.getLast().asItem()));
-        tag(ItemTags.WOODEN_PRESSURE_PLATES).add(toKey(divineWoodSet.get(15).asItem()), toKey(shiverspineWoodSet.get(15).asItem()), toKey(auroraoakWoodSet.get(15).asItem()), toKey(cozybarkWoodSet.get(15).asItem()), toKey(streamleafWoodSet.get(15).asItem()), toKey(eucalyptusWoodSet.get(12).asItem()), toKey(edenWoodSet.get(15).asItem()), toKey(wildwoodWoodSet.get(15).asItem()), toKey(apalachiaWoodSet.get(15).asItem()), toKey(skythernWoodSet.get(15).asItem()), toKey(mortumWoodSet.get(15).asItem()));
+        copy(FENCES_REDSTONE);
+        copy(commonBlockItemTag("fences/redstone"));
+        copy(FENCES_DIVINE);
+        copy(FENCES_SHIVERSPINE);
+        copy(FENCES_AURORAOAK);
+        copy(FENCES_COZYBARK);
+        copy(FENCES_STREAMLEAF);
+        copy(FENCES_EUCALYPTUS);
+        copy(commonBlockItemTag("fences/eucalyptus"));
+        copy(FENCES_EDEN);
+        copy(FENCES_WILDWOOD);
+        copy(FENCES_APALACHIA);
+        copy(FENCES_SKYTHERN);
+        copy(FENCES_MORTUM);
+        copy(BlockItemTags.WOODEN_FENCES);
+        copy(BlockItemTags.FENCES);
+        copy(Tags.BlockItems.FENCES);
 
-        tag(ItemTags.WOODEN_DOORS).add(toKey(divineWoodSet.get(13).asItem()), toKey(shiverspineWoodSet.get(13).asItem()), toKey(auroraoakWoodSet.get(13).asItem()), toKey(cozybarkWoodSet.get(13).asItem()), toKey(streamleafWoodSet.get(13).asItem()), toKey(eucalyptusWoodSet.get(10).asItem()), toKey(edenWoodSet.get(13).asItem()), toKey(wildwoodWoodSet.get(13).asItem()), toKey(apalachiaWoodSet.get(13).asItem()), toKey(skythernWoodSet.get(13).asItem()), toKey(mortumWoodSet.get(13).asItem()));
-        tag(minecraftTag("doors")).add(toKey(steelDoor.asItem()), toKey(barredDoor.asItem()));
-        tag(ItemTags.WOODEN_TRAPDOORS).add(toKey(divineWoodSet.get(14).asItem()), toKey(shiverspineWoodSet.get(14).asItem()), toKey(auroraoakWoodSet.get(14).asItem()), toKey(cozybarkWoodSet.get(14).asItem()), toKey(streamleafWoodSet.get(14).asItem()), toKey(eucalyptusWoodSet.get(11).asItem()), toKey(edenWoodSet.get(14).asItem()), toKey(wildwoodWoodSet.get(14).asItem()), toKey(apalachiaWoodSet.get(14).asItem()), toKey(skythernWoodSet.get(14).asItem()), toKey(mortumWoodSet.get(14).asItem()));
+        copy(FENCE_GATES_DIVINE);
+        copy(FENCE_GATES_SHIVERSPINE);
+        copy(FENCE_GATES_AURORAOAK);
+        copy(FENCE_GATES_COZYBARK);
+        copy(FENCE_GATES_STREAMLEAF);
+        copy(FENCE_GATES_EUCALYPTUS);
+        copy(commonBlockItemTag("fence_gates/eucalyptus"));
+        copy(FENCE_GATES_EDEN);
+        copy(FENCE_GATES_WILDWOOD);
+        copy(FENCE_GATES_APALACHIA);
+        copy(FENCE_GATES_SKYTHERN);
+        copy(FENCE_GATES_MORTUM);
+        copy(BlockItemTags.FENCE_GATES);
+        copy(Tags.BlockItems.FENCE_GATES_WOODEN);
 
-        tag(ItemTags.WOOL).add(toKey(checkerSet.getFirst().asItem()), toKey(rainbowSet.getFirst().asItem()), toKey(fancySet.getFirst().asItem()), toKey(workshopCarpetSet.getFirst().asItem()));
-        tag(ItemTags.WOOL_STAIRS).add(toKey(checkerSet.get(0).asItem()), toKey(rainbowSet.get(0).asItem()), toKey(fancySet.get(0).asItem()), toKey(workshopCarpetSet.get(0).asItem()));
-        tag(ItemTags.WOOL_SLABS).add(toKey(checkerSet.get(1).asItem()), toKey(rainbowSet.get(1).asItem()), toKey(fancySet.get(1).asItem()), toKey(workshopCarpetSet.get(1).asItem()));
+        copy(BlockItemTags.WOODEN_BUTTONS);
+        copy(BlockItemTags.STONE_BUTTONS);
+        copy(BlockItemTags.BUTTONS);
+        copy(BlockItemTags.WOODEN_PRESSURE_PLATES);
+
+        copy(BlockItemTags.WOODEN_DOORS);
+        tag(BlockItemTags.DOORS.item()).add(toKey(steelDoor.asItem()), toKey(barredDoor.asItem()));;
+        copy(BlockItemTags.WOODEN_TRAPDOORS);
+
+//        copy(BlockItemTags.SIGNS); // TODO: crimseeker sign
+//        copy(BlockItemTags.HANGING_SIGNS);
+
+        copy(BlockItemTags.WOOL);
+        copy(BlockItemTags.WOOL_STAIRS);
+        copy(BlockItemTags.WOOL_SLABS);
+        copy(BlockItemTags.WOOL_CARPETS);
 
         tag(ItemTags.BEDS).add(nightmare_bed.key());
 
-        tag(CRATES_WOODEN).add(toKey(crate.asItem()));
-        tag(commonTag("crates/wooden")).addTag(CRATES_WOODEN);
-        tag(CRATES_OXDRITE).add(toKey(oxcrate.asItem()));
-        tag(CRATES).addTags(CRATES_WOODEN, CRATES_OXDRITE);
-        tag(commonTag("crates")).addTag(CRATES);
+        copy(CRATES_WOODEN);
+        copy(commonBlockItemTag("crates/wooden"));
+        copy(CRATES_OXDRITE);
+        copy(CRATES);
+        copy(commonBlockItemTag("crates"));
 
-        tag(CHESTS).add(toKey(boneChest.asItem()), toKey(frostedChest.asItem()), toKey(presentBox.asItem()), toKey(edenChest.asItem()));
-        tag(commonTag("chests/bone")).add(toKey(boneChest.asItem()));
-        tag(commonTag("chests/present")).add(toKey(presentBox.asItem()));
-        tag(Tags.Items.CHESTS).addTag(CHESTS);
+        copy(CHESTS);
+        copy(commonBlockItemTag("chests/bone"));
+        copy(commonBlockItemTag("chests/present"));
+        copy(Tags.BlockItems.CHESTS);
 
-        tag(FURNACES).add(toKey(coalstoneFurnace.asItem()), toKey(greenlightFurnace.asItem()), toKey(oceanfireFurnace.asItem()), toKey(moltenFurnace.asItem()), toKey(whitefireFurnace.asItem()), toKey(moonlightFurnace.asItem()), toKey(demonFurnace.asItem()));
-        tag(Tags.Items.PLAYER_WORKSTATIONS_FURNACES).addTag(FURNACES);
+        copy(FURNACES);
+        copy(Tags.BlockItems.PLAYER_WORKSTATIONS_FURNACES);
 
-        tag(OXDRITE_TECH_BLOCKS).add(toKey(oxcrate.asItem()), toKey(booster.asItem()), toKey(limiter.asItem()), toKey(oxdriteRail.asItem()), toKey(oxdriteLamp.asItem()), toKey(capacitor.asItem()));
-        tag(ItemTags.RAILS).add(toKey(oxdriteRail.asItem()));
-        tag(METAL_SPIKE_BLOCKS).add(toKey(spikeBlock.asItem()), toKey(hotSpikeBlock.asItem()));
-        tag(LAMPS_METAL).add(toKey(milkyLamp.asItem()), toKey(edenLamp.asItem()), toKey(torriditeLamp.asItem()), toKey(lavaLamp.asItem()), toKey(drakenLamp.asItem()), toKey(realmiteLamp.asItem()), toKey(blazeLamp.asItem()), toKey(goldLamp.asItem()), toKey(arlemiteLamp.asItem()), toKey(krakenLamp.asItem()), toKey(diamondLamp.asItem()), toKey(rupeeLamp.asItem()), toKey(lapisLazuliLamp.asItem()), toKey(aquaLamp.asItem()), toKey(enderLamp.asItem()), toKey(bloodgemLamp.asItem()));
-        tag(LAMPS_GEM).add(toKey(moltenLamp.asItem()), toKey(divineLamp.asItem()), toKey(jungleLamp.asItem()), toKey(terranLamp.asItem()), toKey(iceLamp.asItem()), toKey(soulfireLamp.asItem()), toKey(enderStoneLamp.asItem()));
-        tag(BRIDGES).add(toKey(darkBridge.asItem()), toKey(starBridge.asItem()));
-        tag(FAIRY_LIGHTS).add(toKey(redFairyLights.asItem()), toKey(yellowFairyLights.asItem()), toKey(greenFairyLights.asItem()), toKey(blueFairyLights.asItem()), toKey(purpleFairyLights.asItem()));
-        tag(TORCHES).add(skeleton_torch.key(), aqua_torch.key(), arcanium_torch.key(), eden_torch.key());
+        copy(OXDRITE_TECH_BLOCKS);
+        copy(BlockItemTags.RAILS);
+        copy(METAL_SPIKE_BLOCKS);
+        copy(LAMPS_METAL);
+        copy(LAMPS_GEM);
+        copy(BRIDGES);
+        copy(FAIRY_LIGHTS);
+        tag(TORCHES.item()).add(skeleton_torch.key(), aqua_torch.key(), arcanium_torch.key(), eden_torch.key());
 
-        tag(Tags.Items.BOOKSHELVES).add(toKey(workshopBookcase.asItem()), toKey(dungeonBookshelf.asItem()));
+        copy(Tags.BlockItems.BOOKSHELVES);
 
-        tag(CANDY_CANES).add(toKey(redCandyCane.asItem()), toKey(yellowCandyCane.asItem()), toKey(greenCandyCane.asItem()), toKey(blueCandyCane.asItem()), toKey(pinkCandyCane.asItem()));
+        copy(CANDY_CANES);
 
-        tag(Tags.Items.DYEABLE_REDYEABLE_SIMPLE).addTags(STORAGE_BLOCKS_IRREVERSIBLE_STEEL, CANDY_CANES).remove(toKey(fancySet.getFirst().asItem()), toKey(fancySet.get(1).asItem()), toKey(fancySet.get(2).asItem()), toKey(fancySet.getLast().asItem()), toKey(workshopCarpetSet.getFirst().asItem()), toKey(workshopCarpetSet.get(1).asItem()), toKey(workshopCarpetSet.getLast().asItem()));
-        tag(DYED_BLACK_AND_WHITE).add(toKey(checkerSet.getFirst().asItem()), toKey(checkerSet.get(1).asItem()), toKey(checkerSet.get(2).asItem()), toKey(checkerSet.getLast().asItem()));
-        tag(Tags.Items.DYED_LIGHT_GRAY).add(toKey(steel.asItem()));
-        tag(Tags.Items.DYED_BLACK).add(toKey(blackSteel.asItem()));
-        tag(Tags.Items.DYED_RED).add(toKey(redSteel.asItem()), toKey(redCandyCane.asItem()));
-        tag(Tags.Items.DYED_ORANGE).add(toKey(orangeSteel.asItem()));
-        tag(Tags.Items.DYED_YELLOW).add(toKey(yellowSteel.asItem()), toKey(yellowCandyCane.asItem()));
-        tag(Tags.Items.DYED_GREEN).add(toKey(greenSteel.asItem()), toKey(greenCandyCane.asItem()));
-        tag(Tags.Items.DYED_CYAN).add(toKey(cyanSteel.asItem()));
-        tag(Tags.Items.DYED_BLUE).add(toKey(blueSteel.asItem()), toKey(blueCandyCane.asItem()));
-        tag(Tags.Items.DYED_PURPLE).add(toKey(purpleSteel.asItem()));
-        tag(Tags.Items.DYED_MAGENTA).add(toKey(magentaSteel.asItem()));
-        tag(Tags.Items.DYED_PINK).add(toKey(pinkCandyCane.asItem()));
-        tag(DYED_RAINBOW).add(toKey(rainbowSet.getFirst().asItem()), toKey(rainbowSet.get(1).asItem()), toKey(rainbowSet.get(2).asItem()), toKey(rainbowSet.getLast().asItem()));
-        tag(Tags.Items.DYED).add(toKey(checkerSet.getFirst().asItem()), toKey(checkerSet.get(1).asItem()), toKey(checkerSet.get(2).asItem()), toKey(checkerSet.getLast().asItem()), toKey(rainbowSet.getFirst().asItem()), toKey(rainbowSet.get(1).asItem()), toKey(rainbowSet.get(2).asItem()), toKey(rainbowSet.getLast().asItem()));
+        copy(Tags.BlockItems.DYEABLE_REDYEABLE_SIMPLE);
+        copy(DYED_BLACK_AND_WHITE);
+        copy(Tags.BlockItems.DYED_LIGHT_GRAY);
+        copy(Tags.BlockItems.DYED_BLACK);
+        copy(Tags.BlockItems.DYED_RED);
+        copy(Tags.BlockItems.DYED_ORANGE);
+        copy(Tags.BlockItems.DYED_YELLOW);
+        copy(Tags.BlockItems.DYED_GREEN);
+        copy(Tags.BlockItems.DYED_CYAN);
+        copy(Tags.BlockItems.DYED_BLUE);
+        copy(Tags.BlockItems.DYED_PURPLE);
+        copy(Tags.BlockItems.DYED_MAGENTA);
+        copy(Tags.BlockItems.DYED_PINK);
+        copy(DYED_RAINBOW);
+        copy(Tags.BlockItems.DYED);
 
-        tag(STORAGE_BLOCKS_IRREVERSIBLE_GLOWSTONE).add(toKey(Items.GLOWSTONE), toKey(blueStone.asItem()));
-        tag(STORAGE_BLOCKS_IRREVERSIBLE_OLIVINE).add(toKey(olivineBlock.asItem()));
-        tag(STORAGE_BLOCKS_IRREVERSIBLE_ANTHRACITE).add(toKey(coalstoneSet.getFirst().asItem()), toKey(coalstoneBrickSet.getFirst().asItem()), toKey(chiseledCoalstoneBricks.asItem()), toKey(polishedCoalstoneSet.getFirst().asItem()));
-        tag(STORAGE_BLOCKS_IRREVERSIBLE_STEEL).add(toKey(steel.asItem()), toKey(blackSteel.asItem()), toKey(redSteel.asItem()), toKey(orangeSteel.asItem()), toKey(yellowSteel.asItem()), toKey(greenSteel.asItem()), toKey(cyanSteel.asItem()), toKey(blueSteel.asItem()), toKey(purpleSteel.asItem()), toKey(magentaSteel.asItem()));
-        tag(STORAGE_BLOCKS_IRREVERSIBLE_ARCANIC_SAND).add(toKey(arcanicSand.asItem()));
-        tag(STORAGE_BLOCKS_IRREVERSIBLE_ARCANIUM_RICH_SAND).add(toKey(arcaniumRichSand.asItem()));
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_GLOWSTONE);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_OLIVINE);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_ANTHRACITE);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_STEEL);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_ARCANIC_SAND);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_ARCANIUM_RICH_SAND);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_EDEN);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_WILDWOOD);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_APALACHIA);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_SKYTHERN);
+        copy(STORAGE_BLOCKS_IRREVERSIBLE_MORTUM);
 
-        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT).addTag(PUMPKINS).add(toKey(coldHellfireSponge.asItem()), toKey(hellfireSponge.asItem()));
-        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING).addTag(COBBLESTONES_ICY).add(toKey(glaciline.asItem()), toKey(snowBricks.asItem()), toKey(icyBricks.asItem()), toKey(runicIcyBricks.asItem()));
+        copy(STORAGE_BLOCKS_RAW_REALMITE);
+        copy(STORAGE_BLOCKS_REALMITE);
+        copy(STORAGE_BLOCKS_RAW_ARLEMITE);
+        copy(STORAGE_BLOCKS_ARLEMITE);
+        copy(STORAGE_BLOCKS_RAW_RUPEE);
+        copy(STORAGE_BLOCKS_RUPEE);
+        copy(STORAGE_BLOCKS_SHADOW);
+        copy(STORAGE_BLOCKS_BLOODGEM);
+        copy(STORAGE_BLOCKS_RAW_TORRIDITE);
+        copy(STORAGE_BLOCKS_TORRIDITE);
+        copy(STORAGE_BLOCKS_RAW_OXDRITE);
+        copy(STORAGE_BLOCKS_OXDRITE);
+        copy(STORAGE_BLOCKS_RAW_ARCANIUM);
+        copy(STORAGE_BLOCKS_ARCANIUM);
+        copy(Tags.BlockItems.STORAGE_BLOCKS);
+
+        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT).addTag(PUMPKINS.item()).add(toKey(coldHellfireSponge.asItem()), toKey(hellfireSponge.asItem()));
+        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING).addTag(COBBLESTONES_ICY.item()).add(toKey(glaciline.asItem()), toKey(snowBricks.asItem()), toKey(icyBricks.asItem()), toKey(runicIcyBricks.asItem()));
         tag(ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE).add(toKey(soulSludgeSet.getLast().asItem()));
         tag(ItemTags.SULFUR_CUBE_ARCHETYPE_HOT).add(toKey(hotSpikeBlock.asItem()));
-        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR).addTags(DIRTS, GRASS_BLOCKS, STORAGE_BLOCKS_IRREVERSIBLE_ANTHRACITE, CANDY_CANES).add(toKey(gelidite.asItem())).remove(toKey(scorchedGrass.asItem()));
-        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY).addTags(ORES_ANTHRACITE, ORES_BLOODGEM, STORAGE_BLOCKS_BLOODGEM, STORAGE_BLOCKS_RAW_ARCANIUM, STORAGE_BLOCKS_ARCANIUM, ORES_EDEN, STORAGE_BLOCKS_IRREVERSIBLE_EDEN, ORES_WILDWOOD, STORAGE_BLOCKS_IRREVERSIBLE_WILDWOOD, ORES_APALACHIA, STORAGE_BLOCKS_IRREVERSIBLE_APALACHIA, ORES_SKYTHERN, STORAGE_BLOCKS_IRREVERSIBLE_SKYTHERN, ORES_MORTUM, STORAGE_BLOCKS_IRREVERSIBLE_MORTUM, STORAGE_BLOCKS_IRREVERSIBLE_OLIVINE, MINIBRICKS, COLORED_BRICKS, TWILIGHT_BRICKS, COBBLESTONES_FROZEN, COBBLESTONES_SCORCHALT, OBSIDIANS_CRYING, OBSIDIANS_DARK, LAMPS_GEM).add(toKey(scorchedGrass.asItem()), toKey(asphaltSet.getFirst().asItem()), toKey(frozenStoneSet.getFirst().asItem()), toKey(cobaltiteSet.getFirst().asItem()), toKey(ancientStoneSet.getLast().asItem()), toKey(soulStoneSet.getLast().asItem()), toKey(divineMossStone.asItem()), toKey(lunaStone.asItem()), toKey(blueStone.asItem()));
-        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT).addTags(ORES_REALMITE, STORAGE_BLOCKS_RAW_REALMITE, STORAGE_BLOCKS_REALMITE, ORES_ARLEMITE, STORAGE_BLOCKS_RAW_ARLEMITE, STORAGE_BLOCKS_ARLEMITE, ORES_RUPEE, STORAGE_BLOCKS_RAW_RUPEE, STORAGE_BLOCKS_RUPEE, STORAGE_BLOCKS_SHADOW, ORES_TORRIDITE, STORAGE_BLOCKS_RAW_TORRIDITE, STORAGE_BLOCKS_TORRIDITE, ORES_OXDRITE, STORAGE_BLOCKS_RAW_OXDRITE, STORAGE_BLOCKS_OXDRITE, STORAGE_BLOCKS_IRREVERSIBLE_STEEL, LAMPS_METAL).add(toKey(spikeBlock.asItem()));
+        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR).addTags(DIRTS.item(), GRASS_BLOCKS.item(), STORAGE_BLOCKS_IRREVERSIBLE_ANTHRACITE.item(), CANDY_CANES.item()).add(toKey(gelidite.asItem())).remove(toKey(scorchedGrass.asItem()));
+        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY).addTags(ORES_ANTHRACITE.item(), ORES_BLOODGEM.item(), STORAGE_BLOCKS_BLOODGEM.item(), STORAGE_BLOCKS_RAW_ARCANIUM.item(), STORAGE_BLOCKS_ARCANIUM.item(), ORES_EDEN.item(), STORAGE_BLOCKS_IRREVERSIBLE_EDEN.item(), ORES_WILDWOOD.item(), STORAGE_BLOCKS_IRREVERSIBLE_WILDWOOD.item(), ORES_APALACHIA.item(), STORAGE_BLOCKS_IRREVERSIBLE_APALACHIA.item(), ORES_SKYTHERN.item(), STORAGE_BLOCKS_IRREVERSIBLE_SKYTHERN.item(), ORES_MORTUM.item(), STORAGE_BLOCKS_IRREVERSIBLE_MORTUM.item(), STORAGE_BLOCKS_IRREVERSIBLE_OLIVINE.item(), MINIBRICKS.item(), COLORED_BRICKS.item(), TWILIGHT_BRICKS.item(), COBBLESTONES_FROZEN.item(), COBBLESTONES_SCORCHALT.item(), OBSIDIANS_CRYING.item(), OBSIDIANS_DARK.item(), LAMPS_GEM.item()).add(toKey(scorchedGrass.asItem()), toKey(asphaltSet.getFirst().asItem()), toKey(frozenStoneSet.getFirst().asItem()), toKey(cobaltiteSet.getFirst().asItem()), toKey(ancientStoneSet.getLast().asItem()), toKey(soulStoneSet.getLast().asItem()), toKey(divineMossStone.asItem()), toKey(lunaStone.asItem()), toKey(blueStone.asItem()));
+        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT).addTags(ORES_REALMITE.item(), STORAGE_BLOCKS_RAW_REALMITE.item(), STORAGE_BLOCKS_REALMITE.item(), ORES_ARLEMITE.item(), STORAGE_BLOCKS_RAW_ARLEMITE.item(), STORAGE_BLOCKS_ARLEMITE.item(), ORES_RUPEE.item(), STORAGE_BLOCKS_RAW_RUPEE.item(), STORAGE_BLOCKS_RUPEE.item(), STORAGE_BLOCKS_SHADOW.item(), ORES_TORRIDITE.item(), STORAGE_BLOCKS_RAW_TORRIDITE.item(), STORAGE_BLOCKS_TORRIDITE.item(), ORES_OXDRITE.item(), STORAGE_BLOCKS_RAW_OXDRITE.item(), STORAGE_BLOCKS_OXDRITE.item(), STORAGE_BLOCKS_IRREVERSIBLE_STEEL.item(), LAMPS_METAL.item()).add(toKey(spikeBlock.asItem()));
         tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING).add(toKey(glowsproutSet.getLast().asItem()), toKey(glowsproutSet.get(2).asItem()), toKey(lowsproutSet.getLast().asItem()), toKey(lowsproutSet.get(2).asItem()), toKey(slowsproutSet.getLast().asItem()), toKey(slowsproutSet.get(2).asItem()));
-    }
-    private void registerMetalSet(String name, ResourceKey<Item> raw_materials, ResourceKey<Item> dusts, ResourceKey<Item> nuggets, ResourceKey<Item> ingots, ResourceKey<Item> chunks, ResourceKey<Item> raw_storage_blocks, ResourceKey<Item> storage_blocks, Iterable<ResourceKey<Item>> ores) {
-        if(raw_materials != null) {
-            tag(divineTag("raw_materials/" + name)).add(raw_materials);
-            tag(Tags.Items.RAW_MATERIALS).addTag(divineTag("raw_materials/" + name));
-        }
-        if(dusts != null) {
-            tag(divineTag("dusts/" + name)).add(dusts);
-            tag(Tags.Items.DUSTS).addTag(divineTag("dusts/" + name));
-        }
-        if(nuggets != null) {
-            tag(divineTag("nuggets/" + name)).add(nuggets);
-            tag(Tags.Items.NUGGETS).addTag(divineTag("nuggets/" + name));
-        }
-        if(ingots != null) {
-            tag(divineTag("ingots/" + name)).add(ingots);
-            tag(Tags.Items.INGOTS).addTag(divineTag("ingots/" + name));
-        }
-        if(chunks != null) {
-            tag(divineTag("chunks/" + name)).add(chunks);
-            tag(CHUNKS).addTag(divineTag("chunks/" + name));
-        }
-        if(raw_storage_blocks != null) {
-            tag(divineTag("storage_blocks/raw_" + name)).add(raw_storage_blocks);
-            tag(Tags.Items.STORAGE_BLOCKS).addTag(divineTag("storage_blocks/raw_" + name));
-        }
-        if(storage_blocks != null) {
-            tag(divineTag("storage_blocks/" + name)).add(storage_blocks); //Those that can't be uncrafted don't count
-            tag(Tags.Items.STORAGE_BLOCKS).addTag(divineTag("storage_blocks/" + name));
-        }
-        if(ores != null) {
-            for(ResourceKey<Item> ore : ores) {
-                if(ore != null) tag(divineTag("ores/" + name)).add(ore);
-            } tag(Tags.Items.ORES).addTag(divineTag("ores/" + name));
-        }
-    }
-    private void registerGemSet(String name, ResourceKey<Item> dusts, ResourceKey<Item> shards, ResourceKey<Item> gems, ResourceKey<Item> storage_blocks, Iterable<ResourceKey<Item>> ores) {
-        if(dusts != null) {
-            tag(divineTag("dusts/" + name)).add(dusts);
-            tag(Tags.Items.DUSTS).addTag(divineTag("dusts/" + name));
-        }
-        if(shards != null) {
-            tag(divineTag("shards/" + name)).add(shards);
-        }
-        if(gems != null) {
-            tag(divineTag("gems/" + name)).add(gems);
-            tag(Tags.Items.GEMS).addTag(divineTag("gems/" + name));
-        }
-        if(storage_blocks != null) {
-            tag(divineTag("storage_blocks/" + name)).add(storage_blocks); //Those that can't be uncrafted don't count
-            tag(Tags.Items.STORAGE_BLOCKS).addTag(divineTag("storage_blocks/" + name));
-        }
-        if(ores != null) {
-            for(ResourceKey<Item> ore : ores) {
-                if(ore != null) tag(divineTag("ores/" + name)).add(ore);
-            } tag(Tags.Items.ORES).addTag(divineTag("ores/" + name));
-        }
-    }
-    private void registerTwilightMaterialSet(String name, ResourceKey<Item> souls, ResourceKey<Item> hearts, ResourceKey<Item> dusts, ResourceKey<Item> fragments, ResourceKey<Item> gems, ResourceKey<Item> chunks, ResourceKey<Item> storage_blocks, Iterable<ResourceKey<Item>> ores) {
-        if(souls != null) {
-            tag(divineTag("souls/" + name)).add(souls);
-            tag(SOULS_TWILIGHT).addTag(divineTag("souls/" + name));
-        }
-        if(hearts != null) {
-            tag(divineTag("hearts/" + name)).add(hearts);
-            tag(HEARTS_TWILIGHT).addTag(divineTag("hearts/" + name));
-        }
-        if(dusts != null) {
-            tag(divineTag("dusts/" + name)).add(dusts);
-            tag(Tags.Items.DUSTS).addTag(divineTag("dusts/" + name));
-        }
-        if(fragments != null) {
-            tag(divineTag("fragments/" + name)).add(fragments);
-            tag(divineTag("fragments")).addTag(divineTag("fragments/" + name));
-        }
-        if(gems != null) {
-            tag(divineTag("gems/" + name)).add(gems);
-            tag(Tags.Items.GEMS).addTag(divineTag("gems/" + name));
-        }
-        if(chunks != null) {
-            tag(divineTag("chunks/" + name)).add(chunks);
-            tag(CHUNKS_TWILIGHT).addTag(divineTag("chunks/" + name));
-        }
-        if(storage_blocks != null) {
-            tag(divineTag("storage_blocks/irreversible/" + name)).add(storage_blocks);
-        }
-        if(ores != null) {
-            for(ResourceKey<Item> ore : ores) {
-                if(ore != null) tag(divineTag("ores/" + name)).add(ore);
-            } tag(Tags.Items.ORES).addTag(divineTag("ores/" + name));
-        }
     }
     private ResourceKey<Item> toKey(Item item) {
         return BuiltInRegistries.ITEM.getResourceKey(item).orElseThrow();
     }
-    private TagKey<Item> divineTag(String name) {
-        return TagKey.create(ITEM, Identifier.fromNamespaceAndPath(MODID, name));
-    }
-    private TagKey<Item> minecraftTag(String name){
-        return TagKey.create(ITEM, Identifier.withDefaultNamespace(name));
-    }
     private static TagKey<Item> commonTag(String name){
         return TagKey.create(ITEM, Identifier.fromNamespaceAndPath("c", name));
+    }
+    private static BlockItemTagId commonBlockItemTag(String name){
+        return BlockItemTagId.create(Identifier.fromNamespaceAndPath("c", name), Identifier.fromNamespaceAndPath("c", name));
     }
 }

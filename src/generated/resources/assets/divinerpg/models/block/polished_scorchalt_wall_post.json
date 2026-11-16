@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "divinerpg:block/polished_scorchalt_stone"
+    "wall": "divinerpg:block/polished_scorchalt"
   }
 }
