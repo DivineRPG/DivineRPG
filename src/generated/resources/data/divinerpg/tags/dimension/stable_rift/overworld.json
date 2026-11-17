@@ -1,9 +1,6 @@
 {
   "values": [
-    "minecraft:overworld",
-    "minecraft:the_end",
     "divinerpg:iceika",
-    "minecraft:the_nether",
     "divinerpg:eden"
   ]
 }

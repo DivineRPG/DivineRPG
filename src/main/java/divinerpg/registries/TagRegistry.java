@@ -844,6 +844,8 @@ public class TagRegistry {
             IS_ICEIKA_OCEAN = biome("is_iceika_ocean"),
             IS_ICEIKA = biome("is_iceika"),
 
+            HAS_ARCANA_RUINED_PORTALS = biome("has_arcana_ruined_portals"),
+            HAS_LORD_VATTICUS_CARAVANS = biome("has_lord_vatticus_caravans"),
             IS_ARCANA = biome("is_arcana"),
 
             IS_EDEN = biome("is_eden"),
