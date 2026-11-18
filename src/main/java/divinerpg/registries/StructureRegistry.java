@@ -164,10 +164,10 @@ public class StructureRegistry {
         var biomes = context.lookup(Registries.BIOME);
         var pools = context.lookup(Registries.TEMPLATE_POOL);
 
-        jigsaw(context, pools, Overworld.LIVESTOCK_MERCHANT_HUT, settings(biomes, Tags.Biomes.IS_PLAINS, BEARD_THIN), 6).heightmap(WORLD_SURFACE).register();
-        jigsaw(context, pools, Overworld.IGLOO, settings(biomes, Tags.Biomes.IS_SNOWY, BEARD_THIN), 6).heightmap(WORLD_SURFACE).register();
-        context.register(Overworld.ANCIENT_TOMB, new HighestCeilingType(settings(biomes, Tags.Biomes.IS_PLAINS, TerrainAdjustment.NONE), pool(pools, Overworld.ANCIENT_TOMB), Optional.empty(), 6, 55, 200, 4, "full", 1));
-        jigsaw(context, pools, Overworld.AMETHYST_HOUSE, settings(biomes, BiomeTags.IS_OVERWORLD, UNDERGROUND_STRUCTURES, BURY), 6).range(-56, -21).register();
+        jigsaw(context, pools, Overworld.LIVESTOCK_MERCHANT_HUT, settings(biomes, Tags.Biomes.IS_PLAINS, BEARD_THIN), 6).heightmap(WORLD_SURFACE).maxDistance(1).register();
+        jigsaw(context, pools, Overworld.IGLOO, settings(biomes, Tags.Biomes.IS_SNOWY, BEARD_THIN), 6).heightmap(WORLD_SURFACE).maxDistance(1).register();
+        context.register(Overworld.ANCIENT_TOMB, new HighestGroundType(settings(biomes, Tags.Biomes.IS_PLAINS, NONE), pool(pools, Overworld.ANCIENT_TOMB), Optional.empty(), 6, 55, 200, 4, "full", 1));
+        jigsaw(context, pools, Overworld.AMETHYST_HOUSE, settings(biomes, BiomeTags.IS_OVERWORLD, UNDERGROUND_STRUCTURES, BURY), 6).range(-56, -21).maxDistance(1).register();
 
         jigsaw(context, pools, Iceika.DUNGEON, settings(biomes, IS_ICEIKA, BURY), 6).range(5, 50).expansionHack().liquidSettings(IGNORE_WATERLOGGING).register();
         jigsaw(context, pools, Iceika.VILLAGE, settings(biomes, HAS_STRUCTURE_ICEIKA_VILLAGE, BEARD_THIN), 7).expansionHack().heightmap(WORLD_SURFACE).maxDistance(116).register();
@@ -191,7 +191,7 @@ public class StructureRegistry {
 
         jigsaw(context, pools, Vethea.FLOATING_ITEMS, settings(biomes, IS_VETHEA, UNDERGROUND_STRUCTURES, NONE), 6).range(-60, 310).maxDistance(1).register();
         context.register(Vethea.LAMP, new LowestGroundType(settings(biomes, IS_VETHEA, BEARD_THIN), pool(pools, Vethea.LAMP), Optional.empty(), 6, -60, 318, -1, "random_section", 1));
-        jigsaw(context, pools, Vethea.RUINED_PORTAL, settings(biomes, IS_VETHEA_EMBER_CAVERNS, BEARD_THIN), 6).range(-60, 38).maxDistance(1).register();
+        jigsaw(context, pools, Vethea.RUINED_PORTAL, settings(biomes, IS_VETHEA_EMBER_CAVERNS, UNDERGROUND_STRUCTURES, NONE), 6).range(-60, 38).maxDistance(1).register();
 
         context.register(Vethea.HUNGER_HOUSE, new HighestCeilingType(settings(biomes, IS_VETHEA_EMBER_CAVERNS, NONE), pool(pools, Vethea.HUNGER_HOUSE), Optional.empty(), 6, -60, 50, -8, "full", 1));
         context.register(Vethea.INFUSION_OUTPOST, new LowestGroundType(settings(biomes, IS_VETHEA, BEARD_THIN), pool(pools, Vethea.INFUSION_OUTPOST), Optional.empty(), 6, -60, 318, -1, "random_section", 1));
@@ -405,6 +405,7 @@ public class StructureRegistry {
             rigid("iceika/groglin/tower", 3),
             rigid("iceika/groglin/market", 2),
             rigid("iceika/groglin/fortress", 1),
+            rigid("iceika/groglin/gate", 1),
             rigid("iceika/groglin/outpost", 3),
             rigid("iceika/groglin/outpost_1", 2),
             rigid("iceika/groglin/army_camp", 2)
@@ -516,6 +517,7 @@ public class StructureRegistry {
             rigid("twilight/apalachia/apalachia_fallen_log2", 5),
             rigid("twilight/apalachia/apalachia_fallen_log3", 5),
             rigid("twilight/apalachia/apalachia_fallen_log4", 5),
+            rigid("twilight/apalachia/apalachia_fallen_log4", 5), // Don't know if this is intentional, but it's like that in 1.21.1
             rigid("twilight/apalachia/apalachia_fallen_log5", 5),
             rigid("twilight/apalachia/apalachia_house", 5),
             rigid("twilight/apalachia/apalachia_pillar1", 5),
@@ -750,10 +752,10 @@ public class StructureRegistry {
     }
     // Single, RIGID
     private static void singleRigid(BootstrapContext<StructureTemplatePool> context, Holder<StructureTemplatePool> fallback, ResourceKey<Structure> structure) {
-        registerPool(context, fallback, structure, List.of(Pair.of(StructurePoolElement.single(structure.identifier().toString()), 1)), RIGID);
+        registerPool(context, fallback, structure, List.of(rigid(structure.identifier().getPath(), 1)));
     }
     // Single, TERRAIN_MATCHING
     private static void singleMatch(BootstrapContext<StructureTemplatePool> context, Holder<StructureTemplatePool> fallback, ResourceKey<Structure> structure) {
-        registerPool(context, fallback, structure, List.of(Pair.of(StructurePoolElement.single(structure.identifier().toString()), 1)), TERRAIN_MATCHING);
+        registerPool(context, fallback, structure, List.of(match(structure.identifier().getPath(), 1)), TERRAIN_MATCHING);
     }
 }

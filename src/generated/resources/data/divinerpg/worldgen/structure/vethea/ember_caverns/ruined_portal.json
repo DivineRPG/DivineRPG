@@ -14,7 +14,6 @@
     }
   },
   "start_pool": "divinerpg:vethea/ember_caverns/ruined_portal",
-  "step": "surface_structures",
-  "terrain_adaptation": "beard_thin",
+  "step": "underground_structures",
   "use_expansion_hack": false
 }

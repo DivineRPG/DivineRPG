@@ -1,5 +1,5 @@
 {
-  "type": "divinerpg:highest_ceiling",
+  "type": "divinerpg:highest_ground",
   "biomes": "#c:is_plains",
   "bury": 4,
   "max_distance_from_center": 1,

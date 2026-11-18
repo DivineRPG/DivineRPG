@@ -47,6 +47,17 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "divinerpg:twilight/apalachia/apalachia_fallen_log4",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 5
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "divinerpg:twilight/apalachia/apalachia_fallen_log5",
         "processors": {
           "processors": []

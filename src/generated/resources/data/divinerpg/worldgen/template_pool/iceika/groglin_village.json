@@ -36,6 +36,17 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "divinerpg:iceika/groglin/gate",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "divinerpg:iceika/groglin/outpost",
         "processors": {
           "processors": []
