@@ -12,24 +12,20 @@ import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
+import static divinerpg.DivineRPG.MODID;
+import static divinerpg.registries.LootModifierRegistry.*;
+
 public class ModLootModifierProvider extends GlobalLootModifierProvider {
-    public ModLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> reloadable, String modid) {
-        super(output, reloadable, modid);
+    public ModLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> reloadable) {
+        super(output, reloadable, MODID);
     }
-
-    @Override
-    protected void start() {
-        add("abandoned_mineshaft_chest", new AbandonedMineshaftChestModifier(createCondition(vanillaLootTable("chests/abandoned_mineshaft")), 1));
-        add("jungle_temple_chest", new AbandonedMineshaftChestModifier(createCondition(vanillaLootTable("chests/jungle_temple")), 1));
-        add("spawn_bonus_chest", new SpawnBonusChestModifier(createCondition(vanillaLootTable("chests/spawn_bonus")), 1));
-        add("underwater_ruin_big", new UnderwaterRuinBigModifier(createCondition(vanillaLootTable("chests/underwater_ruin_big")), 1));
+    @Override protected void start() {
+        add(ABANDONED_MINESHAFT_MODIFIER.getId().getPath(), new AbandonedMineshaftChestModifier(condition("chests/abandoned_mineshaft"), 1));
+        add(JUNGLE_TEMPLE_MODIFIER.getId().getPath(), new JungleTempleChestModifier(condition("chests/jungle_temple"), 1));
+        add(SPAWN_BONUS_MODIFIER.getId().getPath(), new SpawnBonusChestModifier(condition("chests/spawn_bonus"), 1));
+        add(UNDERWATER_RUIN_BIG_MODIFIER.getId().getPath(), new UnderwaterRuinBigModifier(condition("chests/underwater_ruin_big"), 1));
     }
-
-    private static Optional<Holder<LootItemCondition>> createCondition(Identifier lootTableId) {
-        return Optional.of(Holder.direct(LootTableIdCondition.builder(lootTableId).build()));
-    }
-
-    private static Identifier vanillaLootTable(String path) {
-        return Identifier.fromNamespaceAndPath("minecraft", path);
+    private static Optional<Holder<LootItemCondition>> condition(String path) {
+        return Optional.of(Holder.direct(LootTableIdCondition.builder(Identifier.withDefaultNamespace(path)).build()));
     }
 }

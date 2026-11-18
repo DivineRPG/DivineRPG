@@ -8,8 +8,6 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-import static divinerpg.DivineRPG.MODID;
-
 public class DataGenerators {
     public static void genData(GatherDataEvent.Client event) {
         PackOutput output = event.getGenerator().getPackOutput();
@@ -32,7 +30,7 @@ public class DataGenerators {
 
         CompletableFuture<HolderLookup.Provider> fullLookup = datapackProvider.getRegistryProvider();
 
-        generator.addProvider(true, new ModLootModifierProvider(output, fullLookup, MODID));
+        generator.addProvider(true, new ModLootModifierProvider(output, fullLookup));
         generator.addProvider(true, new ModEnchantmentTagsProvider(output, fullLookup));
         generator.addProvider(true, new ModDamageTagsProvider(output, fullLookup));
         generator.addProvider(true, new ModPaintingTagsProvider(output, fullLookup));

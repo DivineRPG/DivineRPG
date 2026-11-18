@@ -84,7 +84,7 @@ public class ModBiomeProvider {
         edenSpawners.addSpawn(EntityRegistry.SUN_ARCHER.get(), 6, 4, 4);
         edenSpawners.addSpawn(EntityRegistry.GLINTHOP.get(), 20, 4, 4);
         BiomeGenerationSettings.Builder edenFeatures = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-        edenFeatures.addCarver(ResourceKey.create(Registries.CARVER, Identifier.fromNamespaceAndPath("minecraft", "cave")));
+        edenFeatures.addCarver(ResourceKey.create(Registries.CARVER, Identifier.withDefaultNamespace("cave")));
         //TODO - features
 //        edenFeatures.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "eden/twilight_stone_blob")));
 //        edenFeatures.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registries.PLACED_FEATURE, Identifier.fromNamespaceAndPath(MODID, "eden/ore")));

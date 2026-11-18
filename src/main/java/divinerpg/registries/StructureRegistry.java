@@ -5,7 +5,7 @@ import com.mojang.serialization.MapCodec;
 import divinerpg.structure.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.*;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.*;
 import net.minecraft.tags.*;
 import net.minecraft.util.RandomSource;
@@ -33,6 +33,7 @@ import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.BlockRegistry.arcanaPortalFrame;
 import static divinerpg.registries.BlockRegistry.mortumBlock;
 import static divinerpg.registries.TagRegistry.Biomes.*;
+import static net.minecraft.data.worldgen.Pools.EMPTY;
 import static net.minecraft.world.level.block.Blocks.AIR;
 import static net.minecraft.world.level.levelgen.GenerationStep.Decoration.UNDERGROUND_STRUCTURES;
 import static net.minecraft.world.level.levelgen.Heightmap.Types.*;
@@ -284,7 +285,7 @@ public class StructureRegistry {
         ), 25, 12, 1733680842);
     }
     public static void bootstrapStructureTemplatePool(BootstrapContext<StructureTemplatePool> context) {
-        var emptyPool = context.lookup(Registries.TEMPLATE_POOL).getOrThrow(Pools.EMPTY);
+        var emptyPool = context.lookup(Registries.TEMPLATE_POOL).getOrThrow(EMPTY);
 
         singleRigid(context, emptyPool, Overworld.LIVESTOCK_MERCHANT_HUT);
         singleRigid(context, emptyPool, Overworld.IGLOO);
