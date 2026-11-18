@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 25565573,
+    "separation": 13,
+    "spacing": 25
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:arcana/lord_vatticus_caravan",
+      "weight": 1
+    }
+  ]
+}

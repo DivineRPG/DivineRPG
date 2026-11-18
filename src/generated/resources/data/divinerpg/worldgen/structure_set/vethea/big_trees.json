@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 557403648,
+    "separation": 8,
+    "spacing": 16
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:vethea/dream_grounds/big_dream_tree",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/hyrelands/big_hyretree",
+      "weight": 1
+    }
+  ]
+}

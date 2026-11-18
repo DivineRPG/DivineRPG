@@ -1,13 +1,14 @@
 {
-  "type": "divinerpg:highest_ground",
-  "biomes": "#divinerpg:is_apalachia",
+  "type": "divinerpg:lowest_ground",
+  "biomes": "#divinerpg:is_skythern",
   "bury": 0,
   "max_distance_from_center": 1,
   "max_height": 255,
   "min_height": 10,
+  "mode": "slice",
   "size": 6,
   "spawn_overrides": {},
-  "start_pool": "divinerpg:twilight/apalachia_structures",
+  "start_pool": "divinerpg:twilight/skythern/structures",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin"
 }

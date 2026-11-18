@@ -1,5 +1,5 @@
 {
   "type": "neoforge:remove_spawns",
-  "biomes": "#divinerpg:is_deep_dark_or_mushroom",
+  "biomes": "#c:no_default_monsters",
   "entity_types": "#divinerpg:creatures/overworld"
 }

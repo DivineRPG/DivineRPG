@@ -824,28 +824,26 @@ public class TagRegistry {
     }
     public static class Biomes {
         public static final TagKey<Biome>
-            IS_BEACH = biome("is_beach"),
-            IS_DEEP_DARK_OR_MUSHROOM = biome("is_deep_dark_or_mushroom"),
+            IS_SHORE = biome("is_shore"),
+            IS_WARM_OCEAN = biome("is_warm_ocean"),
             IS_DRIPSTONE_CAVE = biome("is_dripstone_cave"),
 
             ALLOWS_SPAWNS_AT_ANY_HEIGHT_CRAB = biome("allows_spawns_at_any_height/crab"),
-
-            WARM_OCEAN = biome("warm_ocean"),
 
             IS_NETHER_WASTE = biome("is_nether_waste"),
             IS_SOUL_SAND_VALLEY = biome("is_soul_sand_valley"),
             IS_BASALT_DELTA = biome("is_basalt_delta"),
             IS_CRIMSON_FOREST = biome("is_crimson_forest"),
 
-            ALLOWS_ICEIKA_VILLAGE = biome("allows_iceika_village"),
-            ALLOWS_GROGLIN_VILLAGE = biome("allows_groglin_village"),
-            ALLOWS_GRUZZORLUG_VILLAGE = biome("allows_gruzzorlug_village"),
-            HAS_WHALE_SKULLS = biome("has_whale_skulls"),
-            IS_ICEIKA_OCEAN = biome("is_iceika_ocean"),
+            HAS_STRUCTURE_ICEIKA_VILLAGE = biome("has_structure/iceika_village"),
+            HAS_STRUCTURE_GROGLIN_VILLAGE = biome("has_structure/groglin_village"),
+            HAS_STRUCTURE_GRUZZORLUG_VILLAGE = biome("has_structure/gruzzorlug_village"),
+            HAS_STRUCTURE_WHALE_SKULL = biome("has_structure/whale_skull"),
+            IS_ICEIKA_OCEAN = biome("is_iceika/ocean"),
             IS_ICEIKA = biome("is_iceika"),
 
-            HAS_ARCANA_RUINED_PORTALS = biome("has_arcana_ruined_portals"),
-            HAS_LORD_VATTICUS_CARAVANS = biome("has_lord_vatticus_caravans"),
+            HAS_STRUCTURE_RUINED_PORTAL_ARCANA = biome("has_structure/ruined_portal_arcana"),
+            HAS_STRUCTURE_LORD_VATTICUS_CARAVAN = biome("has_structure/lord_vatticus_caravan"),
             IS_ARCANA = biome("is_arcana"),
 
             IS_EDEN = biome("is_eden"),
@@ -853,6 +851,11 @@ public class TagRegistry {
             IS_APALACHIA = biome("is_apalachia"),
             IS_SKYTHERN = biome("is_skythern"),
             IS_MORTUM = biome("is_mortum"),
+
+            IS_VETHEA_EMBER_CAVERNS = biome("is_vethea/ember_caverns"),
+            IS_VETHEA_DREAM_GROUNDS = biome("is_vethea/dream_grounds"),
+            IS_VETHEA_HYRELANDS = biome("is_vethea/hyrelands"),
+            IS_VETHEA_SCORCHED_TOPS = biome("is_vethea/scorched_tops"),
             IS_VETHEA = biome("is_vethea"),
 
             IS_DENSE_VEGETATION_ICEIKA = biome("is_dense_vegetation/iceika"),
@@ -909,10 +912,22 @@ public class TagRegistry {
             IS_WET_MORTUM = biome("is_wet/mortum"),
             IS_WET_VETHEA = biome("is_wet/vethea"),
 
+            PRIMARY_WOOD_TYPE_DIVINE = biome("primarty_wood_type/divine"),
             PRIMARY_WOOD_TYPE_SHIVERSPINE = biome("primarty_wood_type/shiverspine"),
             PRIMARY_WOOD_TYPE_AURORAOAK = biome("primarty_wood_type/auroraoak"),
             PRIMARY_WOOD_TYPE_COZYBARK = biome("primarty_wood_type/cozybark"),
-            PRIMARY_WOOD_TYPE_STREAMLEAF = biome("primarty_wood_type/streamleaf");
+            PRIMARY_WOOD_TYPE_STREAMLEAF = biome("primarty_wood_type/streamleaf"),
+            PRIMARY_WOOD_TYPE_EUCALYPTUS = biome("primarty_wood_type/eucalyptus"),
+            PRIMARY_WOOD_TYPE_EDEN = biome("primarty_wood_type/eden"),
+            PRIMARY_WOOD_TYPE_CRIMSEEKER = biome("primarty_wood_type/crimseeker"),
+            PRIMARY_WOOD_TYPE_WILDWOOD = biome("primarty_wood_type/wildwood"),
+            PRIMARY_WOOD_TYPE_APALACHIA = biome("primarty_wood_type/apalachia"),
+            PRIMARY_WOOD_TYPE_SKYTHERN = biome("primarty_wood_type/skythern"),
+            PRIMARY_WOOD_TYPE_MORTUM = biome("primarty_wood_type/mortum"),
+            PRIMARY_WOOD_TYPE_FIREWOOD = biome("primarty_wood_type/firewood"),
+            PRIMARY_WOOD_TYPE_DREAMWOOD = biome("primarty_wood_type/dreamwood"),
+            PRIMARY_WOOD_TYPE_HYREWOOD = biome("primarty_wood_type/hyrewood"),
+            PRIMARY_WOOD_TYPE_MINTWOOD = biome("primarty_wood_type/mintwood");
     }
     public static class Structures {
         public static final TagKey<Structure>

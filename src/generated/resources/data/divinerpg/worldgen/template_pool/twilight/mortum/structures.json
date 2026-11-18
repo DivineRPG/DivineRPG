@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_fallen_log",
+        "location": "divinerpg:twilight/mortum/evidence_of_mortum_portal1",
         "processors": {
           "processors": []
         },
@@ -14,7 +14,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_fallen_log2",
+        "location": "divinerpg:twilight/mortum/evidence_of_mortum_portal2",
         "processors": {
           "processors": []
         },
@@ -25,7 +25,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_fallen_log3",
+        "location": "divinerpg:twilight/mortum/evidence_of_mortum_portal3",
         "processors": {
           "processors": []
         },
@@ -36,7 +36,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_fallen_log4",
+        "location": "divinerpg:twilight/mortum/mortum_hut",
         "processors": {
           "processors": []
         },
@@ -47,7 +47,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_fallen_log5",
+        "location": "divinerpg:twilight/mortum/mortum_pillar1",
         "processors": {
           "processors": []
         },
@@ -58,7 +58,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_house",
+        "location": "divinerpg:twilight/mortum/mortum_pillar2",
         "processors": {
           "processors": []
         },
@@ -69,7 +69,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_pillar1",
+        "location": "divinerpg:twilight/mortum/mortum_pillar3",
         "processors": {
           "processors": []
         },
@@ -80,7 +80,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_pillar2",
+        "location": "divinerpg:twilight/mortum/mortum_shrine",
         "processors": {
           "processors": []
         },
@@ -91,7 +91,7 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_pillar3",
+        "location": "divinerpg:twilight/mortum/mortum_tomb1",
         "processors": {
           "processors": []
         },
@@ -102,57 +102,13 @@
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_pillar4",
-        "processors": {
-          "processors": []
-        },
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_portal_remnants1",
+        "location": "divinerpg:twilight/mortum/mortum_tomb2",
         "processors": {
           "processors": []
         },
         "projection": "rigid"
       },
       "weight": 5
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_portal_remnants2",
-        "processors": {
-          "processors": []
-        },
-        "projection": "rigid"
-      },
-      "weight": 5
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/apalachia_shrine",
-        "processors": {
-          "processors": []
-        },
-        "projection": "rigid"
-      },
-      "weight": 5
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "divinerpg:twilight/apalachia/eternal_archer_dungeon",
-        "processors": {
-          "processors": []
-        },
-        "projection": "rigid"
-      },
-      "weight": 3
     }
   ],
   "fallback": "minecraft:empty"

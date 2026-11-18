@@ -1,0 +1,19 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "locate_offset": [
+      0,
+      5,
+      0
+    ],
+    "salt": 21896785,
+    "separation": 2,
+    "spacing": 4
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:twilight/wildwood/structures",
+      "weight": 1
+    }
+  ]
+}

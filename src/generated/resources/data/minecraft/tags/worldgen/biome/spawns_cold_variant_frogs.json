@@ -1,5 +1,12 @@
 {
   "values": [
-    "#divinerpg:is_cold/iceika"
+    "#divinerpg:is_cold/iceika",
+    "#divinerpg:is_cold/arcana",
+    "#divinerpg:is_cold/eden",
+    "#divinerpg:is_cold/wildwood",
+    "#divinerpg:is_cold/apalachia",
+    "#divinerpg:is_cold/skythern",
+    "#divinerpg:is_cold/mortum",
+    "#divinerpg:is_cold/vethea"
   ]
 }

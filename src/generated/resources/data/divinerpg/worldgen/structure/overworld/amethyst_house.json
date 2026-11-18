@@ -14,7 +14,7 @@
     }
   },
   "start_pool": "divinerpg:overworld/amethyst_house",
-  "step": "surface_structures",
+  "step": "underground_structures",
   "terrain_adaptation": "bury",
   "use_expansion_hack": false
 }

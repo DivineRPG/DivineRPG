@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:highest_ground",
+  "biomes": "#divinerpg:is_vethea/scorched_tops",
+  "bury": 0,
+  "max_distance_from_center": 1,
+  "max_height": 300,
+  "min_height": 256,
+  "size": 6,
+  "spawn_overrides": {},
+  "start_pool": "divinerpg:vethea/scorched_tops/wreck_hall",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin"
+}

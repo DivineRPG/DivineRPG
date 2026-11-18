@@ -1,0 +1,34 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1733680842,
+    "separation": 12,
+    "spacing": 25
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:vethea/dream_grounds/hive",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/hyrelands/karos_madhouse",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/hyrelands/quadrotic_post",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/hyrelands/evergarden",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/scorched_tops/raglok_chamber",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:vethea/scorched_tops/wreck_hall",
+      "weight": 1
+    }
+  ]
+}

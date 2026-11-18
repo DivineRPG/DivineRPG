@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#divinerpg:is_vethea",
+  "max_distance_from_center": 1,
+  "size": 6,
+  "spawn_overrides": {},
+  "start_height": {
+    "type": "minecraft:uniform",
+    "max_inclusive": {
+      "absolute": 310
+    },
+    "min_inclusive": {
+      "absolute": -60
+    }
+  },
+  "start_pool": "divinerpg:vethea/all_biomes/floating_items",
+  "step": "underground_structures",
+  "use_expansion_hack": false
+}

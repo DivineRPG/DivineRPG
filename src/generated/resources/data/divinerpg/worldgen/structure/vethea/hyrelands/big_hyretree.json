@@ -1,0 +1,13 @@
+{
+  "type": "divinerpg:highest_ground",
+  "biomes": "#divinerpg:is_vethea/hyrelands",
+  "bury": 0,
+  "max_distance_from_center": 1,
+  "max_height": 256,
+  "min_height": 156,
+  "size": 6,
+  "spawn_overrides": {},
+  "start_pool": "divinerpg:vethea/hyrelands/big_hyretree",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin"
+}

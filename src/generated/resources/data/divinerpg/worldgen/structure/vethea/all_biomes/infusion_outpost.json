@@ -1,0 +1,14 @@
+{
+  "type": "divinerpg:lowest_ground",
+  "biomes": "#divinerpg:is_vethea",
+  "bury": -1,
+  "max_distance_from_center": 1,
+  "max_height": 318,
+  "min_height": -60,
+  "mode": "random_section",
+  "size": 6,
+  "spawn_overrides": {},
+  "start_pool": "divinerpg:vethea/all_biomes/infusion_outpost",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin"
+}

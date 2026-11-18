@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "#divinerpg:warm_ocean",
+  "biomes": "#divinerpg:is_warm_ocean",
   "spawners": {
     "type": "divinerpg:shark",
     "count": {

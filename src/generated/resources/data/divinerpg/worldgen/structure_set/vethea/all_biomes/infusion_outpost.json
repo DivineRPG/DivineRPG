@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 791986225,
+    "separation": 6,
+    "spacing": 12
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:vethea/all_biomes/infusion_outpost",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1581946197,
+    "separation": 8,
+    "spacing": 16
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:vethea/ember_caverns/hunger_house",
+      "weight": 1
+    }
+  ]
+}

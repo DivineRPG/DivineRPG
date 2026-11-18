@@ -1,13 +1,13 @@
 {
   "placement": {
     "type": "minecraft:random_spread",
-    "salt": 68435185,
-    "separation": 2,
-    "spacing": 4
+    "salt": 25565432,
+    "separation": 8,
+    "spacing": 25
   },
   "structures": [
     {
-      "structure": "divinerpg:apalachia_structures",
+      "structure": "divinerpg:arcana/ruined_portal",
       "weight": 1
     }
   ]

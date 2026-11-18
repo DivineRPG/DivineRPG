@@ -1,0 +1,18 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1678672354,
+    "separation": 4,
+    "spacing": 12
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:iceika/surface_workshop",
+      "weight": 1
+    },
+    {
+      "structure": "divinerpg:iceika/surface_gruzzorlug",
+      "weight": 1
+    }
+  ]
+}

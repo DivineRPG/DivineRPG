@@ -1,0 +1,19 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "locate_offset": [
+      0,
+      5,
+      0
+    ],
+    "salt": 97124535,
+    "separation": 2,
+    "spacing": 3
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:twilight/mortum/structures",
+      "weight": 1
+    }
+  ]
+}

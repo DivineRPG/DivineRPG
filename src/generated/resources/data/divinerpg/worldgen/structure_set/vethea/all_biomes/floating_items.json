@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1586506120,
+    "separation": 1,
+    "spacing": 2
+  },
+  "structures": [
+    {
+      "structure": "divinerpg:vethea/all_biomes/floating_items",
+      "weight": 1
+    }
+  ]
+}
