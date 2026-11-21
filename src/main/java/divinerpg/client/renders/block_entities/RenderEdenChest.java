@@ -34,14 +34,19 @@ public class RenderEdenChest implements BlockEntityRenderer<EdenChestBlockEntity
         state.facing = hasLevel ? blockEntity.getBlockState().getValue(ChestBlock.FACING) : Direction.SOUTH;
         state.open = hasLevel ? blockEntity.getOpenNess(partialTicks) : 0;
     }
+    @Override
     public void submit(ChestRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera) {
         poseStack.pushPose();
         poseStack.mulPose(modelTransformation(state.facing));
+        poseStack.scale(1.0F, -1.0F, 1.0F);
+        poseStack.translate(0.0F, -1.0F, 0.0F);
         float open = state.open;
         open = 1F - open;
         open = 1F - open * open * open;
-        submitNodeCollector.submitModel(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1);
-        if(state.breakProgress != null) submitNodeCollector.order(1).submitCrumblingOverlay(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, state.breakProgress);
+        submitNodeCollector.submitModel(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, null, 0);
+        if (state.breakProgress != null) {
+            submitNodeCollector.order(1).submitCrumblingOverlay(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, state.breakProgress);
+        }
         poseStack.popPose();
     }
     @Override

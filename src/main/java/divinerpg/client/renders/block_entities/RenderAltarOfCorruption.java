@@ -57,7 +57,7 @@ public class RenderAltarOfCorruption implements BlockEntityRenderer<AltarOfCorru
         float ff1 = Mth.frac(state.flip + .25F) * 1.6F - .3F;
         float ff2 = Mth.frac(state.flip + .75F) * 1.6F - .3F;
         BookModel.State bookState = BookModel.State.forAnimation(state.time, Mth.clamp(ff1, 0F, 1F), Mth.clamp(ff2, 0F, 1F), state.open);
-        submitNodeCollector.submitModel(bookModel, bookState, poseStack, bookModel.renderType(TEXTURE_BOOK), state.lightCoords, OverlayTexture.NO_OVERLAY, -1);
+        submitNodeCollector.submitModel(bookModel, bookState, poseStack, bookModel.renderType(TEXTURE_BOOK), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, null, 0);
         if(state.breakProgress != null) submitNodeCollector.order(1).submitCrumblingOverlay(bookModel, bookState, poseStack, bookModel.renderType(TEXTURE_BOOK), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, state.breakProgress);
         poseStack.popPose();
     }

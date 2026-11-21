@@ -24,13 +24,16 @@ public class RenderFrostedChest implements BlockEntityRenderer<FrostedChestBlock
     private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(DivineRPG.MODID, "textures/model/frosted_chest.png");
     public static final ModelLayerLocation LAYER_LOCATION = createLocation("frosted_chest");
     private final ChestModel model;
+
     public RenderFrostedChest(BlockEntityRendererProvider.Context context) {
         model = new ChestModel(context.bakeLayer(LAYER_LOCATION));
     }
+
     @Override
     public ChestRenderState createRenderState() {
         return new ChestRenderState();
     }
+
     @Override
     public void submit(ChestRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState) {
         poseStack.pushPose();
@@ -38,10 +41,13 @@ public class RenderFrostedChest implements BlockEntityRenderer<FrostedChestBlock
         float open = state.open;
         open = 1.0F - open;
         open = 1.0F - open * open * open;
-        submitNodeCollector.submitModel(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1);
-        if(state.breakProgress != null) submitNodeCollector.order(1).submitCrumblingOverlay(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, state.breakProgress);
+        submitNodeCollector.submitModel(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, null, 0);
+        if (state.breakProgress != null) {
+            submitNodeCollector.order(1).submitCrumblingOverlay(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, state.breakProgress);
+        }
         poseStack.popPose();
     }
+
     @Override
     public void extractRenderState(FrostedChestBlockEntity blockEntity, ChestRenderState state, float partialTicks, Vec3 cameraPosition, ModelFeatureRenderer.@Nullable CrumblingOverlay breakProgress) {
         BlockEntityRenderer.super.extractRenderState(blockEntity, state, partialTicks, cameraPosition, breakProgress);

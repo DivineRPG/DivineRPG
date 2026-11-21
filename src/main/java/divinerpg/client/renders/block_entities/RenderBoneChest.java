@@ -40,7 +40,7 @@ public class RenderBoneChest implements BlockEntityRenderer<BoneChestBlockEntity
         float open = state.open;
         open = 1F - open;
         open = 1F - open * open * open;
-        submitNodeCollector.submitModel(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1);
+        submitNodeCollector.submitModel(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, null, 0);
         if(state.breakProgress != null) submitNodeCollector.order(1).submitCrumblingOverlay(model, open, poseStack, model.renderType(TEXTURE), state.lightCoords, OverlayTexture.NO_OVERLAY, -1, state.breakProgress);
         poseStack.popPose();
     }
