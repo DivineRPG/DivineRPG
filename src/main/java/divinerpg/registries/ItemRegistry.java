@@ -934,12 +934,22 @@ public class ItemRegistry {
     public static final DeferredItem<Item> TORMENTED_LEGGINGS = ITEMS.registerItem("tormented_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.LEGGINGS).stacksTo(1)));
     public static final DeferredItem<Item> TORMENTED_BOOTS = ITEMS.registerItem("tormented_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.BOOTS).stacksTo(1)));
 
+    private static <T extends Item> DeferredItem<T> addToTools(DeferredItem<T> item) {
+        DivineRegistries.tools.add(item);
+        return item;
+    }
+
+    private static <T extends Item> DeferredItem<T> addToMisc(DeferredItem<T> item) {
+        DivineRegistries.misc.add(item);
+        return item;
+    }
+
     private static DeferredItem<Item> register(String name) {
-        return ITEMS.register(name, () -> new ItemMod(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))));
+        return addToMisc(ITEMS.register(name, () -> new ItemMod(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))))));
     }
 
     private static DeferredItem<Item> register(String name, Function<Item.Properties, Item> factory) {
-        return ITEMS.register(name, () -> factory.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))));
+        return addToMisc(ITEMS.register(name, () -> factory.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))))));
     }
 
     private static DeferredItem<Item> registerSeed(String name, Supplier<Block> block) {
@@ -951,140 +961,193 @@ public class ItemRegistry {
     }
 
     private static Function<Item.Properties, Item> createBlockItemWithCustomItemName(Block block) {
-        return (p) -> {
-            return new BlockItem(block, p.useItemDescriptionPrefix());
-        };
+        return (p) -> new BlockItem(block, p.useItemDescriptionPrefix());
     }
 
     private static DeferredItem<Item> registerTool(String name, Function<Item.Properties, Item> factory) {
-        return ITEMS.register(name, () -> factory.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))));
+        return addToTools(ITEMS.register(name, () -> factory.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))))));
     }
+
     private static DeferredItem<Item> registerTool(String name) {
-        return register(name); //Placeholder until the tool classes are registered
+        return addToTools(ITEMS.register(name, () -> new ItemMod(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))))); // Placeholder until the tool classes are registered
     }
 
     private static DeferredItem<Item> registerAxe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             props.axe(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props.axe(stats.getMaterial(), 1.0F, -2.4F));});
+            return new Item(props.axe(stats.getMaterial(), 1.0F, -2.4F));
+        }));
     }
 
     private static DeferredItem<Item> registerAxe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             props.axe(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props.axe(stats.getMaterial(), 1.0F, -2.4F)) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            return new Item(props.axe(stats.getMaterial(), 1.0F, -2.4F)) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerHoe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            return new Item(props.hoe(stats.getMaterial(), 1.0F, -2.4F));});
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
+            return new Item(props.hoe(stats.getMaterial(), 1.0F, -2.4F));
+        }));
     }
 
     private static DeferredItem<Item> registerHoe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            return new Item(props.hoe(stats.getMaterial(), 1.0F, -2.4F)) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
+            return new Item(props.hoe(stats.getMaterial(), 1.0F, -2.4F)) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerPickaxe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             props.pickaxe(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props);});
+            return new Item(props);
+        }));
     }
 
     private static DeferredItem<Item> registerPickaxe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             props.pickaxe(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            return new Item(props) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerShovel(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            return new Item(props.shovel(stats.getMaterial(), 1.0F, -2.4F));});
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
+            return new Item(props.shovel(stats.getMaterial(), 1.0F, -2.4F));
+        }));
     }
 
     private static DeferredItem<Item> registerShovel(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            return new Item(props.shovel(stats.getMaterial(), 1.0F, -2.4F)) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
+            return new Item(props.shovel(stats.getMaterial(), 1.0F, -2.4F)) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerSword(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             props.sword(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props);});
+            return new Item(props);
+        }));
     }
 
     private static DeferredItem<Item> registerSword(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             props.sword(stats.getMaterial(), 1.0F, -2.4F);
-            return new Item(props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            return new Item(props) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerShickaxe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            return new ItemShickaxe(stats, props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)) : super.getName(stack);}};});
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
+            return new ItemShickaxe(stats, props) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerShickaxe(String name, ToolStats stats, Integer rarity, boolean fireResistant) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fireResistant) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            return new ItemShickaxe(stats, props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
+            return new ItemShickaxe(stats, props) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerMaul(String name, ToolStats stats, Rarity rarity, boolean fire) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))).rarity(rarity);
             if (fire) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             props.sword(stats.getMaterial(), 1.0F, -2.4F);
-            return new ItemMaul(stats.getMaterial(), props);});
+            return new ItemMaul(stats.getMaterial(), props);
+        }));
     }
 
     private static DeferredItem<Item> registerMaul(String name, ToolStats stats, Integer rarity, boolean fire) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)));
             if (fire) props.fireResistant();
-            if(stats.getMaterial().durability() == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (stats.getMaterial().durability() == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             props.sword(stats.getMaterial(), 1.0F, -2.4F);
-            return new ItemMaul(stats.getMaterial(), props) {@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};});
+            return new ItemMaul(stats.getMaterial(), props) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerShield(String name, Rarity rarity, TagKey<Item> repair, int durability, String texture) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))
                     .durability(durability)
@@ -1094,13 +1157,13 @@ public class ItemRegistry {
                     .equippableUnswappable(EquipmentSlot.OFFHAND)
                     .delayedComponent(DataComponents.BLOCKS_ATTACKS, context -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
                     .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK);
-            if(durability == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (durability == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             return new ShieldItem(props);
-        });
+        }));
     }
 
     private static DeferredItem<Item> registerShield(String name, Integer rarity, TagKey<Item> repair, int durability, String texture) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))
                     .durability(durability)
@@ -1109,13 +1172,18 @@ public class ItemRegistry {
                     .equippableUnswappable(EquipmentSlot.OFFHAND)
                     .delayedComponent(DataComponents.BLOCKS_ATTACKS, context -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
                     .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK);
-            if(durability == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
-            return new ShieldItem(props){@Override public Component getName(ItemStack stack) {return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);}};
-        });
+            if (durability == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
+            return new ShieldItem(props) {
+                @Override
+                public Component getName(ItemStack stack) {
+                    return rarity != null ? ((MutableComponent) super.getName(stack)).withColor(rarity) : super.getName(stack);
+                }
+            };
+        }));
     }
 
     private static DeferredItem<Item> registerShield(String name, Object repair, int durability, String texture) {
-        return ITEMS.register(name, () -> {
+        return addToTools(ITEMS.register(name, () -> {
             Item.Properties props = new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))
                     .durability(durability)
@@ -1124,14 +1192,13 @@ public class ItemRegistry {
                     .equippableUnswappable(EquipmentSlot.OFFHAND)
                     .delayedComponent(DataComponents.BLOCKS_ATTACKS, context -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
                     .component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK);
-            if(durability == -1){props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE);}
+            if (durability == -1) { props.component(DataComponents.UNBREAKABLE, Unit.INSTANCE); }
             return new ShieldItem(props);
-        });
+        }));
     }
 
     private static <T extends Item> DeferredItem<T> registerThrowableItem(String registryId, Supplier<T> item) {
-        DeferredItem<T> i = ITEMS.register(registryId, item);
-        return i;
+        return addToMisc(ITEMS.register(registryId, item));
     }
 
     public static void load() {}
