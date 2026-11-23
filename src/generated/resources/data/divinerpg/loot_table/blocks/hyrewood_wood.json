@@ -8,11 +8,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "divinerpg:hyrewood"
+          "name": "divinerpg:hyrewood_wood"
         }
       ],
       "rolls": 1
     }
   ],
-  "random_sequence": "divinerpg:blocks/hyrewood"
+  "random_sequence": "divinerpg:blocks/hyrewood_wood"
 }

@@ -691,7 +691,7 @@ public class BlockRegistry {
         DeferredBlock<Block>
             lea = register(baseName + "_leaves", p -> new LeavesBlock(AmbientLeavesBlockSoundPlayer.noAmbientSound(), p), leaves.map(leavesColor)),
             log = register(baseName + "_log", VetheaLog::new, dreamLog.then(p -> p.mapColor((state) -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? strippedColor : logColor))),
-            woo = register(baseName, VetheaLog::new, dreamLog.map(logColor)),
+            woo = register(baseName + "_wood", VetheaLog::new, dreamLog.map(logColor)),
             strippedLog = register("stripped_" + baseName + "_log", VetheaLog::new, dreamLog.map(strippedColor)),
             strippedWood = register("stripped_" + baseName + "_wood", VetheaLog::new, dreamLog.map(strippedColor));
         return List.of(lea, log, woo, strippedLog, strippedWood);
