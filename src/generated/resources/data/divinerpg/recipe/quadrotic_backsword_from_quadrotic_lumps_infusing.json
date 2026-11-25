@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/quadrotic",
+  "ingredient_count": 13,
+  "result": {
+    "id": "divinerpg:quadrotic_backsword"
+  },
+  "template": "divinerpg:backsword_template"
+}

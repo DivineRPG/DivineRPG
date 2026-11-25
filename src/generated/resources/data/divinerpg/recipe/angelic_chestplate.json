@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "#divinerpg:gems/soulfire",
+    "X": "#divinerpg:gems/shadow",
+    "Y": "minecraft:elytra"
+  },
+  "pattern": [
+    "# #",
+    "XYX",
+    "XXX"
+  ],
+  "result": {
+    "id": "divinerpg:angelic_chestplate"
+  }
+}

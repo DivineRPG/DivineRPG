@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": "#c:rods/wooden",
+    "P": "divinerpg:skythern_planks"
+  },
+  "pattern": [
+    "# #",
+    "#P#",
+    "# #"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:skythern_ladder"
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "type": "divinerpg:maul_smashing",
-  "input": "divinerpg:eden_fragments",
-  "required_base_block": "#divinerpg:ores/eden",
-  "result": "divinerpg:eden_dust"
-}

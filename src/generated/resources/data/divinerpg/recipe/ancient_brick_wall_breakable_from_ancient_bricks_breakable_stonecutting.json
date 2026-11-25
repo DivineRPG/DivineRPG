@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:ancient_bricks_breakable",
+  "result": {
+    "id": "divinerpg:ancient_brick_wall_breakable"
+  }
+}

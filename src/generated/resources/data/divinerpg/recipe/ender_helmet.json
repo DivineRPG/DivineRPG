@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "#divinerpg:gems/ender"
+  },
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "result": {
+    "id": "divinerpg:ender_helmet"
+  }
+}

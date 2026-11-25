@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:workshop_carpet_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_workshop_carpet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:workshop_carpet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_workshop_carpet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:workshop_carpet_slab"
+    ]
+  }
+}

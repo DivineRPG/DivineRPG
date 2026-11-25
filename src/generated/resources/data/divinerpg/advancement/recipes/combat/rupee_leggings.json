@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rupee_ingots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:ingots/rupee"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:rupee_leggings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rupee_ingots"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:rupee_leggings"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/amthirmis",
+  "ingredient_count": 14,
+  "result": {
+    "id": "divinerpg:finished_chestplate"
+  },
+  "template": "divinerpg:finished_template"
+}

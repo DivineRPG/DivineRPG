@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/karos",
+  "ingredient_count": 22,
+  "result": {
+    "id": "divinerpg:karos_cannon"
+  },
+  "template": "divinerpg:cannon_template"
+}

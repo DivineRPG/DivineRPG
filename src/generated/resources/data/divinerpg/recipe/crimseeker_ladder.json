@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": "#c:rods/wooden",
+    "P": "divinerpg:crimseeker_planks"
+  },
+  "pattern": [
+    "# #",
+    "#P#",
+    "# #"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:crimseeker_ladder"
+  }
+}

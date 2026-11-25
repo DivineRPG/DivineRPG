@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "X": "divinerpg:arlemite_ingot"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "result": {
+    "id": "divinerpg:arlemite_block"
+  }
+}

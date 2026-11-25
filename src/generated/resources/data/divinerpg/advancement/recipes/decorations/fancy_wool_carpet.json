@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fancy_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:fancy_wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:fancy_wool_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fancy_wool"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:fancy_wool_carpet"
+    ]
+  }
+}

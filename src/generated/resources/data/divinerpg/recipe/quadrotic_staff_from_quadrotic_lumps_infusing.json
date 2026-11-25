@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/quadrotic",
+  "ingredient_count": 10,
+  "result": {
+    "id": "divinerpg:quadrotic_staff"
+  },
+  "template": "divinerpg:staff_template"
+}

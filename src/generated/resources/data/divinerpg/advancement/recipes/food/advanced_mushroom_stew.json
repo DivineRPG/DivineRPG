@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:advanced_mushroom_stew"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_mushrooms": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/white_mushroom"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_mushrooms"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:advanced_mushroom_stew"
+    ]
+  }
+}

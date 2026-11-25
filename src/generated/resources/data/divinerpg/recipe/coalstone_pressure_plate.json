@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": "divinerpg:coalstone"
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "id": "divinerpg:coalstone_pressure_plate"
+  }
+}

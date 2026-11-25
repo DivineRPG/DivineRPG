@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shadow_ingots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:ingots/shadow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:shadow_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_shadow_ingots"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shadow_helmet"
+    ]
+  }
+}

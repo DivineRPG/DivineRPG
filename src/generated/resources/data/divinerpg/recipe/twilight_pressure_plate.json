@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": "divinerpg:twilight_stone"
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "id": "divinerpg:twilight_pressure_plate"
+  }
+}

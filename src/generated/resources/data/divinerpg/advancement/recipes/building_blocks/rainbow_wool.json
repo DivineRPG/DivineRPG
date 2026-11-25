@@ -1,0 +1,40 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:rainbow_wool"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:red_wool",
+              "minecraft:orange_wool",
+              "minecraft:yellow_wool",
+              "minecraft:lime_wool",
+              "minecraft:light_blue_wool",
+              "minecraft:blue_wool",
+              "minecraft:purple_wool"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wool"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:rainbow_wool"
+    ]
+  }
+}

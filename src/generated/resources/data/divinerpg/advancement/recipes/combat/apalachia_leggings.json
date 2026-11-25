@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_apalachia_chunks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:chunks/apalachia"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:apalachia_leggings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_apalachia_chunks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:apalachia_leggings"
+    ]
+  }
+}

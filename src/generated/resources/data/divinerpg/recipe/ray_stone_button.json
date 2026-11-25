@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "divinerpg:ray_stone"
+  ],
+  "result": {
+    "id": "divinerpg:ray_stone_button"
+  }
+}

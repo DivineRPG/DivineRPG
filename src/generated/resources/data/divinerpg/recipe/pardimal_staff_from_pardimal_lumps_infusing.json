@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/pardimal",
+  "ingredient_count": 8,
+  "result": {
+    "id": "divinerpg:pardimal_staff"
+  },
+  "template": "divinerpg:staff_template"
+}

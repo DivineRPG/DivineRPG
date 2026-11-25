@@ -1,0 +1,7 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "ingredient": "#divinerpg:raw_materials/torridite",
+  "result": {
+    "id": "divinerpg:torridite_dust"
+  }
+}

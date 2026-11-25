@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "#divinerpg:ingots/arlemite",
+    "X": "#c:ingots/iron"
+  },
+  "pattern": [
+    "###",
+    "X X",
+    "# #"
+  ],
+  "result": {
+    "id": "divinerpg:arlemite_leggings"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:torridite_nugget_from_smelting_torridite_smeltable_equipment"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torridite_smeltable_equipment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:smeltable_equipment/torridite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_torridite_smeltable_equipment"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:torridite_nugget_from_smelting_torridite_smeltable_equipment"
+    ]
+  }
+}

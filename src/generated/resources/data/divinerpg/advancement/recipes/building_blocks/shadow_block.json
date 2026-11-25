@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shadow_bar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:shadow_bar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:shadow_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_shadow_bar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:shadow_block"
+    ]
+  }
+}

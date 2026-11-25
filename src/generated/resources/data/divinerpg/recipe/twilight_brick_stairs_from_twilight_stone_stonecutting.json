@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:twilight_stone",
+  "result": {
+    "id": "divinerpg:twilight_brick_stairs"
+  }
+}

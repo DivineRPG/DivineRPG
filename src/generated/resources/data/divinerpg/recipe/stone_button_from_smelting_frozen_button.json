@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "stone_button",
+  "ingredient": "divinerpg:frozen_button",
+  "result": {
+    "id": "minecraft:stone_button"
+  }
+}

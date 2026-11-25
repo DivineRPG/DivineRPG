@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:crimseeker_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:crimseeker_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:crimseeker_slab"
+    ]
+  }
+}

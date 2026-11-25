@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bark",
+  "key": {
+    "#": "divinerpg:streamleaf_log"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "divinerpg:streamleaf_wood"
+  }
+}

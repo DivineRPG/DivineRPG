@@ -1,0 +1,7 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "ingredient": "#divinerpg:fragments/mortum",
+  "result": {
+    "id": "divinerpg:mortum_dust"
+  }
+}

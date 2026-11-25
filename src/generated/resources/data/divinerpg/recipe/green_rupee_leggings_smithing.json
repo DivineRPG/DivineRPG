@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:chunks/diamond/green",
+  "base": [
+    "divinerpg:rupee_leggings",
+    "divinerpg:gray_rupee_leggings",
+    "divinerpg:red_rupee_leggings",
+    "divinerpg:yellow_rupee_leggings",
+    "divinerpg:blue_rupee_leggings"
+  ],
+  "result": {
+    "id": "divinerpg:green_rupee_leggings"
+  },
+  "template": "divinerpg:color_template"
+}

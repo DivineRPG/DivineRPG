@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_corrupted_shards": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:corrupted_shards"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:corrupted_stone_from_corrupted_shards"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_corrupted_shards"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:corrupted_stone_from_corrupted_shards"
+    ]
+  }
+}

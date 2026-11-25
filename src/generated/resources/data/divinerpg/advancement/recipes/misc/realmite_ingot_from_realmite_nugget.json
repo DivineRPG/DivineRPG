@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_realmite_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:realmite_nugget"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:realmite_ingot_from_realmite_nugget"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_realmite_nugget"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:realmite_ingot_from_realmite_nugget"
+    ]
+  }
+}

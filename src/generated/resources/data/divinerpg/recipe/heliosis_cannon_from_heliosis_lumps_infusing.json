@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/heliosis",
+  "ingredient_count": 27,
+  "result": {
+    "id": "divinerpg:heliosis_cannon"
+  },
+  "template": "divinerpg:cannon_template"
+}

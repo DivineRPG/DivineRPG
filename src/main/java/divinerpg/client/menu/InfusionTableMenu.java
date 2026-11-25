@@ -42,7 +42,7 @@ public class InfusionTableMenu extends AbstractContainerMenu {
     protected void slotChangedCraftingGrid(Level world, Player player, InfusionInventory inv, ResultContainer craftResult) {
         Optional<RecipeHolder<InfusionTableRecipe>> recipeOptional = world.getServer().getRecipeManager().getRecipeFor(RecipeRegistry.Types.INFUSION_TABLE_RECIPE_TYPE.get(), CraftingInput.of(1, 2, List.of(inv.getItem(0), inv.getItem(1))), world);
         if(recipeOptional.isPresent()) {
-            ItemStack output = new ItemStack(recipeOptional.get().value().outputItem(),  recipeOptional.get().value().outputCount());
+            ItemStack output = recipeOptional.get().value().result().create();
             craftResult.setItem(2, output);
         } else craftResult.setItem(2, ItemStack.EMPTY);
     }

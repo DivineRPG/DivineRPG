@@ -1,0 +1,7 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "ingredient": "#divinerpg:ores/oxdrite",
+  "result": {
+    "id": "divinerpg:oxdrite_dust"
+  }
+}

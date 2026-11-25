@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:cut_oxdrite",
+  "result": {
+    "id": "divinerpg:cut_oxdrite_stairs"
+  }
+}

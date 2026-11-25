@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/heliosis",
+  "ingredient_count": 27,
+  "result": {
+    "id": "divinerpg:heliosis_hammer"
+  },
+  "template": "divinerpg:hammer_template"
+}

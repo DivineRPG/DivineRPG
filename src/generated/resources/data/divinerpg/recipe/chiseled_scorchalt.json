@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "divinerpg:cobbled_scorchalt_slab"
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "id": "divinerpg:chiseled_scorchalt"
+  }
+}

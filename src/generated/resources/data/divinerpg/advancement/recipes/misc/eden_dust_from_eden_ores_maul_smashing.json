@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eden_ores": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:ores/eden"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:eden_dust_from_eden_ores_maul_smashing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_eden_ores"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:eden_dust_from_eden_ores_maul_smashing"
+    ]
+  }
+}

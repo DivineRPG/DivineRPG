@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/darven",
+  "ingredient_count": 11,
+  "result": {
+    "id": "divinerpg:darven_cannon"
+  },
+  "template": "divinerpg:cannon_template"
+}

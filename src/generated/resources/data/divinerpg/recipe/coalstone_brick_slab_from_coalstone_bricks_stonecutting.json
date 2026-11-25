@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:coalstone_bricks",
+  "result": {
+    "count": 2,
+    "id": "divinerpg:coalstone_brick_slab"
+  }
+}

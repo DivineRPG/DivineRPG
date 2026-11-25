@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_trapdoor",
+  "key": {
+    "#": "divinerpg:skythern_planks"
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "divinerpg:skythern_trapdoor"
+  }
+}

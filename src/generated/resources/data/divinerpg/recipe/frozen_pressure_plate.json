@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": "divinerpg:frozen_stone"
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "id": "divinerpg:frozen_pressure_plate"
+  }
+}

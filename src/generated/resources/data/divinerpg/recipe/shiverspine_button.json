@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    "divinerpg:shiverspine_planks"
+  ],
+  "result": {
+    "id": "divinerpg:shiverspine_button"
+  }
+}

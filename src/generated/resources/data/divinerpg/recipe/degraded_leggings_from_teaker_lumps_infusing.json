@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/teaker",
+  "ingredient_count": 9,
+  "result": {
+    "id": "divinerpg:degraded_leggings"
+  },
+  "template": "divinerpg:degraded_template"
+}

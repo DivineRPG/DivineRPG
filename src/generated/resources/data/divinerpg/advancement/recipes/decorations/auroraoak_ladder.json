@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_auroraoak_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:auroraoak_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:auroraoak_ladder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_auroraoak_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:auroraoak_ladder"
+    ]
+  }
+}

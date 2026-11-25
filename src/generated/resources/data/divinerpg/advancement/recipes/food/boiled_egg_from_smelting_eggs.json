@@ -1,0 +1,41 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "farmersdelight"
+      }
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eggs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:eggs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:boiled_egg_from_smelting_eggs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_eggs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:boiled_egg_from_smelting_eggs"
+    ]
+  }
+}

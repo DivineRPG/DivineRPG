@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_milk_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:milk_stone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:milk_stone_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_milk_stone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:milk_stone_bricks"
+    ]
+  }
+}

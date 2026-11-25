@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "#divinerpg:gems/soulfire",
+    "X": "#divinerpg:gems/shadow"
+  },
+  "pattern": [
+    "###",
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "id": "divinerpg:angelic_leggings"
+  }
+}

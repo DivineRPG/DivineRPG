@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/amthirmis",
+  "ingredient_count": 9,
+  "result": {
+    "id": "divinerpg:amthirmis_cannon"
+  },
+  "template": "divinerpg:cannon_template"
+}

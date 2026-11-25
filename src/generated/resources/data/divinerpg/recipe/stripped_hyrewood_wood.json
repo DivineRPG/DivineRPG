@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bark",
+  "key": {
+    "#": "divinerpg:stripped_hyrewood_log"
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "divinerpg:stripped_hyrewood_wood"
+  }
+}

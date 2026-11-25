@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    "divinerpg:mortum_planks"
+  ],
+  "result": {
+    "id": "divinerpg:mortum_button"
+  }
+}

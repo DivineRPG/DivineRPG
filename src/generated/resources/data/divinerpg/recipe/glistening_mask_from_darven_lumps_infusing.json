@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/darven",
+  "ingredient_count": 9,
+  "result": {
+    "id": "divinerpg:glistening_mask"
+  },
+  "template": "divinerpg:glistening_template"
+}

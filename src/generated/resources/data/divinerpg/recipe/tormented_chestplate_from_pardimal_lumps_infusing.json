@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/pardimal",
+  "ingredient_count": 14,
+  "result": {
+    "id": "divinerpg:tormented_chestplate"
+  },
+  "template": "divinerpg:tormented_template"
+}

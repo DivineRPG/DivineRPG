@@ -1,0 +1,8 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "ingredient": "#divinerpg:ingots/shadow",
+  "result": {
+    "count": 2,
+    "id": "divinerpg:shadow_coins"
+  }
+}

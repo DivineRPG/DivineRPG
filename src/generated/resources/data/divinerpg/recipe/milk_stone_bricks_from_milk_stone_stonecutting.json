@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:milk_stone",
+  "result": {
+    "id": "divinerpg:milk_stone_bricks"
+  }
+}

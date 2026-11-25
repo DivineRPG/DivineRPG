@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crushed_raw_realmite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:crushed_raw_realmite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:realmite_dust_from_crushed_raw_realmite_maul_smashing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_crushed_raw_realmite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:realmite_dust_from_crushed_raw_realmite_maul_smashing"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "wooden_slab",
+  "key": {
+    "#": "divinerpg:plank_design"
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "divinerpg:slab_design"
+  }
+}

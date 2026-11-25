@@ -1,0 +1,7 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "ingredient": "#divinerpg:ores/apalachia",
+  "result": {
+    "id": "divinerpg:apalachia_dust"
+  }
+}

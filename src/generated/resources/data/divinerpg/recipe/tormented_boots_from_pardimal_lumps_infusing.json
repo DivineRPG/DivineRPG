@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/pardimal",
+  "ingredient_count": 8,
+  "result": {
+    "id": "divinerpg:tormented_boots"
+  },
+  "template": "divinerpg:tormented_template"
+}

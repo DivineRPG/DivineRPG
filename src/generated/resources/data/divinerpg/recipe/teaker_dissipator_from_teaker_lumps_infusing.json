@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/teaker",
+  "ingredient_count": 4,
+  "result": {
+    "id": "divinerpg:teaker_dissipator"
+  },
+  "template": "divinerpg:dissipator_template"
+}

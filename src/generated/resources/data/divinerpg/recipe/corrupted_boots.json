@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "#divinerpg:gems/corrupted"
+  },
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "id": "divinerpg:corrupted_boots"
+  }
+}

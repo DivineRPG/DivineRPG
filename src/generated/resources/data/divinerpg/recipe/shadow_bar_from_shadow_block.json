@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "divinerpg:shadow_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "divinerpg:shadow_bar"
+  }
+}

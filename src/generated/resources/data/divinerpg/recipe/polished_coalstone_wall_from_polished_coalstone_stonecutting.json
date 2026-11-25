@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:polished_coalstone",
+  "result": {
+    "id": "divinerpg:polished_coalstone_wall"
+  }
+}

@@ -212,6 +212,8 @@ public class TagRegistry {
             AMMO_HALITE_BLITZ = item("ammo/halite_blitz"),
             AMMO_VETHEAN_CANNON = item("ammo/vethean_cannon"),
 
+            VETHEA_TEMPLATES = item("vethea_templates"),
+
             ARMOR_HEAD_SENG_FUR = item("armor/head/seng_fur"),
             ARMOR_HEAD_RUPEE = item("armor/head/rupee"),
             ARMOR_HEAD_ENDER = item("armor/head/ender"),

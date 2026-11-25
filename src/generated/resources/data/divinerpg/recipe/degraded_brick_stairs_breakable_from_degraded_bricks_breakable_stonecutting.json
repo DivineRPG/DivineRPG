@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:degraded_bricks_breakable",
+  "result": {
+    "id": "divinerpg:degraded_brick_stairs_breakable"
+  }
+}

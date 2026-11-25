@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/cermile",
+  "ingredient_count": 10,
+  "result": {
+    "id": "divinerpg:demonized_helmet"
+  },
+  "template": "divinerpg:demonized_template"
+}

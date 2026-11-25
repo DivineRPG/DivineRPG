@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/quadrotic",
+  "ingredient_count": 10,
+  "result": {
+    "id": "divinerpg:quadrotic_claw"
+  },
+  "template": "divinerpg:claw_template"
+}

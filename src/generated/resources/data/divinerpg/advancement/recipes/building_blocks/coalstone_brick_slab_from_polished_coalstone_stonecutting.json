@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_polished_coalstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:polished_coalstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:coalstone_brick_slab_from_polished_coalstone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_polished_coalstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:coalstone_brick_slab_from_polished_coalstone_stonecutting"
+    ]
+  }
+}

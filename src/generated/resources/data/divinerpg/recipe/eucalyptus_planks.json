@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#divinerpg:logs/eucalyptus"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:eucalyptus_planks"
+  }
+}

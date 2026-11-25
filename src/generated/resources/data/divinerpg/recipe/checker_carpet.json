@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "woolen_carpet",
+  "key": {
+    "#": "divinerpg:checker"
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "divinerpg:checker_carpet"
+  }
+}

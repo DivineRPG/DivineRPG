@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "stone_stairs",
+  "ingredient": "divinerpg:frozen_stairs",
+  "result": {
+    "id": "minecraft:stone_stairs"
+  }
+}

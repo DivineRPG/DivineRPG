@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/cermile",
+  "ingredient_count": 6,
+  "result": {
+    "id": "divinerpg:cermile_claw"
+  },
+  "template": "divinerpg:claw_template"
+}

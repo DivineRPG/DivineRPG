@@ -1,0 +1,8 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "ingredient": "#divinerpg:gems/shadow",
+  "required_base_block": "#divinerpg:bedrock_grinding_base",
+  "result": {
+    "id": "divinerpg:bedrock_chunk"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 1.1,
+  "group": "torridite_ingot",
+  "ingredient": "#divinerpg:smeltable_equipment/compressed/torridite",
+  "result": {
+    "id": "divinerpg:torridite_ingot"
+  }
+}

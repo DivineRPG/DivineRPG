@@ -1,0 +1,7 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "ingredient": "#divinerpg:ingots/realmite",
+  "result": {
+    "id": "divinerpg:realmite_dust"
+  }
+}

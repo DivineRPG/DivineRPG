@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/arksiane",
+  "ingredient_count": 21,
+  "result": {
+    "id": "divinerpg:arksiane_claw"
+  },
+  "template": "divinerpg:claw_template"
+}

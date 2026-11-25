@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/amthirmis",
+  "ingredient_count": 8,
+  "result": {
+    "id": "divinerpg:finished_boots"
+  },
+  "template": "divinerpg:finished_template"
+}

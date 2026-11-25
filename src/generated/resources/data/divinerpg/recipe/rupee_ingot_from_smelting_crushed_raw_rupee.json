@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "rupee_ingot",
+  "ingredient": "divinerpg:crushed_raw_rupee",
+  "result": {
+    "id": "divinerpg:rupee_ingot"
+  }
+}

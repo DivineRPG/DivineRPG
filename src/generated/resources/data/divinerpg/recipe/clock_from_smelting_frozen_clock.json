@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 80,
+  "experience": 0.01,
+  "group": "clock",
+  "ingredient": "divinerpg:frozen_clock",
+  "result": {
+    "id": "minecraft:clock"
+  }
+}

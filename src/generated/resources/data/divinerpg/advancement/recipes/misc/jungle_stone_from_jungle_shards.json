@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jungle_shards": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:jungle_shards"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:jungle_stone_from_jungle_shards"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_jungle_shards"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:jungle_stone_from_jungle_shards"
+    ]
+  }
+}

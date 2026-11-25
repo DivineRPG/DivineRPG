@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/arksiane",
+  "ingredient_count": 31,
+  "result": {
+    "id": "divinerpg:arksiane_hammer"
+  },
+  "template": "divinerpg:hammer_template"
+}

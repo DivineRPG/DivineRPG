@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#divinerpg:logs/apalachia"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:apalachia_planks"
+  }
+}

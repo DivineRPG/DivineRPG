@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:wildwood_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wildwood_chunks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:chunks/wildwood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wildwood_chunks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:wildwood_shovel"
+    ]
+  }
+}

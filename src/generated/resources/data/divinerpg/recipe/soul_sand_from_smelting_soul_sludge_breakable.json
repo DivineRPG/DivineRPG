@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "soul_sand",
+  "ingredient": "divinerpg:soul_sludge_breakable",
+  "result": {
+    "id": "minecraft:soul_sand"
+  }
+}

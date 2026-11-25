@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_divine_shards": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:divine_shards"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:divine_stone_from_divine_shards"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_divine_shards"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:divine_stone_from_divine_shards"
+    ]
+  }
+}

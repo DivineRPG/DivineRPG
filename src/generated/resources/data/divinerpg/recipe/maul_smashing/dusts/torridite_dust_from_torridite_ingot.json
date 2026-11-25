@@ -1,6 +1,0 @@
-{
-  "type": "divinerpg:maul_smashing",
-  "input": "divinerpg:torridite_ingot",
-  "required_base_block": "#divinerpg:ores/torridite",
-  "result": "divinerpg:torridite_dust"
-}

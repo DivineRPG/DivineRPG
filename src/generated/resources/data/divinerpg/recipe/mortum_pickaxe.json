@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "#c:rods/wooden",
+    "X": "#divinerpg:chunks/mortum"
+  },
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "id": "divinerpg:mortum_pickaxe"
+  }
+}

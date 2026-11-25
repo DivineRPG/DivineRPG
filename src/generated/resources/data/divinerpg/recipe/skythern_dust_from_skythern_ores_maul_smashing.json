@@ -1,0 +1,7 @@
+{
+  "type": "divinerpg:maul_smashing",
+  "ingredient": "#divinerpg:ores/skythern",
+  "result": {
+    "id": "divinerpg:skythern_dust"
+  }
+}

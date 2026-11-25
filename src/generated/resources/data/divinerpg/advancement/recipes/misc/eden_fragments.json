@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eden_souls": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:souls/eden"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:eden_fragments"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_eden_souls"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:eden_fragments"
+    ]
+  }
+}

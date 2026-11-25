@@ -1,6 +1,0 @@
-{
-  "type": "divinerpg:maul_smashing",
-  "input": "divinerpg:wildwood_fragments",
-  "required_base_block": "#divinerpg:ores/wildwood",
-  "result": "divinerpg:wildwood_dust"
-}

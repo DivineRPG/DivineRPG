@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eden_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:eden_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:eden_ladder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_eden_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:eden_ladder"
+    ]
+  }
+}

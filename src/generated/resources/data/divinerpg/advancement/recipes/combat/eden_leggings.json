@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_eden_chunks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:chunks/eden"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:eden_leggings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_eden_chunks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:eden_leggings"
+    ]
+  }
+}

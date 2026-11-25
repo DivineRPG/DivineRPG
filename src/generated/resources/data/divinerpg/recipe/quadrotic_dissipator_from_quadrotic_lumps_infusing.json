@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/quadrotic",
+  "ingredient_count": 13,
+  "result": {
+    "id": "divinerpg:quadrotic_dissipator"
+  },
+  "template": "divinerpg:dissipator_template"
+}

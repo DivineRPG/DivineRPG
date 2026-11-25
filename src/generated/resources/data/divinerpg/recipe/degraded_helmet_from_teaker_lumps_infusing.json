@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/teaker",
+  "ingredient_count": 7,
+  "result": {
+    "id": "divinerpg:degraded_helmet"
+  },
+  "template": "divinerpg:degraded_template"
+}

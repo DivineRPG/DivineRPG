@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/teaker",
+  "ingredient_count": 10,
+  "result": {
+    "id": "divinerpg:degraded_chestplate"
+  },
+  "template": "divinerpg:degraded_template"
+}

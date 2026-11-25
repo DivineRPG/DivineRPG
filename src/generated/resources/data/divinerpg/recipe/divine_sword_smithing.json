@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#divinerpg:no_itself/diamond_no_chunks",
+  "base": [
+    "divinerpg:gray_divine_sword",
+    "divinerpg:red_divine_sword",
+    "divinerpg:yellow_divine_sword",
+    "divinerpg:green_divine_sword",
+    "divinerpg:blue_divine_sword"
+  ],
+  "result": {
+    "id": "divinerpg:divine_sword"
+  },
+  "template": "divinerpg:color_template"
+}

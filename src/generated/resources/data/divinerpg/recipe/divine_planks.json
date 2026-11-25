@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#divinerpg:logs/divine"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:divine_planks"
+  }
+}

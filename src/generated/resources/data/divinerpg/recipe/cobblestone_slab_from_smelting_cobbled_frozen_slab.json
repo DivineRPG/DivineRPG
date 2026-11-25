@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.05,
+  "group": "cobblestone_slab",
+  "ingredient": "divinerpg:cobbled_frozen_slab",
+  "result": {
+    "id": "minecraft:cobblestone_slab"
+  }
+}

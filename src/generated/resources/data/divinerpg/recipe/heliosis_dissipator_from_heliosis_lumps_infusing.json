@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/heliosis",
+  "ingredient_count": 20,
+  "result": {
+    "id": "divinerpg:heliosis_dissipator"
+  },
+  "template": "divinerpg:dissipator_template"
+}

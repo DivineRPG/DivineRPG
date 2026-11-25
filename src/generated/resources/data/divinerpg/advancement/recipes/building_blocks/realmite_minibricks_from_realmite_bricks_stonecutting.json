@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_realmite_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:realmite_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:realmite_minibricks_from_realmite_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_realmite_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:realmite_minibricks_from_realmite_bricks_stonecutting"
+    ]
+  }
+}

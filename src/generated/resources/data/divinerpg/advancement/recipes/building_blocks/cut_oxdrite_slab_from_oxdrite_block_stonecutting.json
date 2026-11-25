@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oxdrite_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "divinerpg:oxdrite_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:cut_oxdrite_slab_from_oxdrite_block_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oxdrite_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:cut_oxdrite_slab_from_oxdrite_block_stonecutting"
+    ]
+  }
+}

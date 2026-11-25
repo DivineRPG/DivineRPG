@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:frozen_stone",
+  "result": {
+    "id": "divinerpg:cobbled_frozen_wall"
+  }
+}

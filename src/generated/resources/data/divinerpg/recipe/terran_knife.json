@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "#c:rods/wooden",
+    "X": "#divinerpg:gems/terran"
+  },
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "result": {
+    "id": "divinerpg:terran_knife"
+  }
+}

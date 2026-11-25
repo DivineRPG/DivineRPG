@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": "minecraft:black_wool",
+    "W": "minecraft:white_wool"
+  },
+  "pattern": [
+    "BW",
+    "WB"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:checker"
+  }
+}

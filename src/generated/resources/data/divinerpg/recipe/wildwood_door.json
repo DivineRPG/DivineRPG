@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_door",
+  "key": {
+    "#": "divinerpg:wildwood_planks"
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "divinerpg:wildwood_door"
+  }
+}

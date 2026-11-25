@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/teaker",
+  "ingredient_count": 7,
+  "result": {
+    "id": "divinerpg:teaker_cannon"
+  },
+  "template": "divinerpg:cannon_template"
+}

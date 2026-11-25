@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "twilight_bricks",
+  "ingredients": [
+    "divinerpg:twilight_bricks",
+    "divinerpg:twilight_bricks",
+    "divinerpg:twilight_bricks",
+    "divinerpg:twilight_bricks",
+    "#divinerpg:gems/skythern"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:skythern_bricks"
+  }
+}

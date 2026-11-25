@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": "#c:rods/wooden",
+    "P": "divinerpg:auroraoak_planks"
+  },
+  "pattern": [
+    "# #",
+    "#P#",
+    "# #"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:auroraoak_ladder"
+  }
+}

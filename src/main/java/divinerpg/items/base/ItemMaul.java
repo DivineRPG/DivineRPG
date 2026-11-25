@@ -50,23 +50,20 @@ public class ItemMaul extends ItemMod {
                 e -> e instanceof ItemEntity, range * range
         );
 
-        if (hitResult != null) {
+        if(hitResult != null) {
             ItemEntity itemEntity = (ItemEntity) hitResult.getEntity();
             ItemStack targetStack = itemEntity.getItem();
 
             RecipeManager recipeManager = level.getServer().getRecipeManager();
             MaulSmashingRecipe matchingRecipe = findMatchingRecipe(recipeManager, targetStack, level, itemEntity.blockPosition());
 
-            if (matchingRecipe != null) {
-                ItemStack resultStack = new ItemStack(matchingRecipe.outputItem(), matchingRecipe.outputCount());
+            if(matchingRecipe != null) {
+                ItemStack resultStack = matchingRecipe.result().create();
                 ItemStack maulStack = player.getItemInHand(hand);
                 int itemsToSmashCount;
 
-                if (maulStack.has(DataComponents.UNBREAKABLE)) {
-                    itemsToSmashCount = targetStack.getCount();
-                } else {
-                    itemsToSmashCount = Math.min(targetStack.getCount(), maulStack.getMaxDamage() - maulStack.getDamageValue());
-                }
+                if(maulStack.has(DataComponents.UNBREAKABLE)) itemsToSmashCount = targetStack.getCount();
+                else itemsToSmashCount = Math.min(targetStack.getCount(), maulStack.getMaxDamage() - maulStack.getDamageValue());
 
                 resultStack.setCount(resultStack.getCount() * itemsToSmashCount);
                 targetStack.shrink(itemsToSmashCount);
@@ -77,13 +74,12 @@ public class ItemMaul extends ItemMod {
                 applyMaulEffects(player, itemsToSmashCount, hand);
                 return InteractionResult.SUCCESS;
             }
-        }
-        return super.use(level, player, hand);
+        } return super.use(level, player, hand);
     }
 
     private void applyMaulEffects(Player player, int count, InteractionHand hand) {
         ItemStack maulStack = player.getItemInHand(hand);
-        if (player instanceof ServerPlayer s) {
+        if(player instanceof ServerPlayer s) {
             maulStack.hurtAndBreak(count, s.level(), s, (it) -> s.level().playSound(null, player.getX(), player.getEyeY(), player.getZ(), SoundEvents.ITEM_BREAK, PLAYERS, 1, 1));
         }
         player.level().playSound(null, player.getX(), player.getEyeY(), player.getZ(), SoundEvents.ANVIL_LAND, PLAYERS, 0.7F, 1.5F);

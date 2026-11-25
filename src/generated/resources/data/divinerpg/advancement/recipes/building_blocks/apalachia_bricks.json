@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_apalachia_gems": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:gems/apalachia"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:apalachia_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_apalachia_gems"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:apalachia_bricks"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    "divinerpg:arcanite_stone"
+  ],
+  "result": {
+    "id": "divinerpg:arcanite_button"
+  }
+}

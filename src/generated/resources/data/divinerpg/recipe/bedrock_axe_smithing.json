@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "divinerpg:bedrock_chunk",
+  "base": "divinerpg:corrupted_axe",
+  "result": {
+    "id": "divinerpg:bedrock_axe"
+  },
+  "template": "divinerpg:bedrock_upgrade_template"
+}

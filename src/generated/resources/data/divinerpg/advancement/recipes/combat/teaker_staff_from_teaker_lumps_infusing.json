@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_teaker_lumps": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:lumps/teaker"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:teaker_staff_from_teaker_lumps_infusing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_teaker_lumps"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:teaker_staff_from_teaker_lumps_infusing"
+    ]
+  }
+}

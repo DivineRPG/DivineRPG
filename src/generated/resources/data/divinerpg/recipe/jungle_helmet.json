@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "#divinerpg:gems/jungle"
+  },
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "result": {
+    "id": "divinerpg:jungle_helmet"
+  }
+}

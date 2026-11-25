@@ -343,6 +343,8 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(AMMO_VETHEAN_CANNON).add(acid.key());
         tag(ItemTags.ARROWS).add(hunter_arrow.key(), shadow_arrow.key(), icicle_arrow.key(), inferno_arrow.key(), soulfire_arrow.key(), snowstorm_arrow.key(), ender_arrow.key(), eden_arrow.key(), wildwood_arrow.key(), fury_arrow.key(), teaker_arrow.key(), darven_arrow.key(), pardimal_arrow.key(), karos_arrow.key(), ever_arrow.key());
 
+        tag(VETHEA_TEMPLATES).add(backsword_template.key(), claw_template.key(), hammer_template.key(), staff_template.key(), cannon_template.key(), bow_template.key(), disk_template.key(), dissipator_template.key(), degraded_template.key(), finished_template.key(), glistening_template.key(), demonized_template.key(), tormented_template.key());
+
         tag(ARMOR_SETS_SENG_FUR).addTags(ARMOR_HEAD_SENG_FUR, ARMOR_CHEST_SENG_FUR, ARMOR_LEG_SENG_FUR, ARMOR_FOOT_SENG_FUR);
         tag(ARMOR_SETS_RUPEE).addTags(ARMOR_HEAD_RUPEE, ARMOR_CHEST_RUPEE, ARMOR_LEG_RUPEE, ARMOR_FOOT_RUPEE);
         tag(ARMOR_SETS_ENDER).addTags(ARMOR_HEAD_ENDER, ARMOR_CHEST_ENDER, ARMOR_LEG_ENDER, ARMOR_FOOT_ENDER);

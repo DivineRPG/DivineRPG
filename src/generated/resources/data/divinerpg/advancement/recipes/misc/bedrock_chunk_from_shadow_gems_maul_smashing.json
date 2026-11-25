@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shadow_gems": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:gems/shadow"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:bedrock_chunk_from_shadow_gems_maul_smashing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_shadow_gems"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:bedrock_chunk_from_shadow_gems_maul_smashing"
+    ]
+  }
+}

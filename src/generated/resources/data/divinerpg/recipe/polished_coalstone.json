@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": "divinerpg:coalstone"
+  },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:polished_coalstone"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_arksiane_lumps": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:lumps/arksiane"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:arksiane_claw_from_arksiane_lumps_infusing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_arksiane_lumps"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:arksiane_claw_from_arksiane_lumps_infusing"
+    ]
+  }
+}

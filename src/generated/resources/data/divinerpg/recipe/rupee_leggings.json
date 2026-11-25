@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "#divinerpg:ingots/rupee"
+  },
+  "pattern": [
+    "XXX",
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "id": "divinerpg:rupee_leggings"
+  }
+}

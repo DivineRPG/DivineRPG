@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "divinerpg:arcanite_stone",
+  "result": {
+    "id": "divinerpg:arcanite_tiles"
+  }
+}

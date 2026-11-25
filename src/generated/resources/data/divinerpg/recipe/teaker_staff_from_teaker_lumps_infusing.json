@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/teaker",
+  "ingredient_count": 2,
+  "result": {
+    "id": "divinerpg:teaker_staff"
+  },
+  "template": "divinerpg:staff_template"
+}

@@ -1,6 +1,0 @@
-{
-  "type": "divinerpg:maul_smashing",
-  "input": "divinerpg:rupee_ingot",
-  "required_base_block": "#divinerpg:ores/rupee",
-  "result": "divinerpg:rupee_dust"
-}

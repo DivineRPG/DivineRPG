@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/cermile",
+  "ingredient_count": 12,
+  "result": {
+    "id": "divinerpg:demonized_leggings"
+  },
+  "template": "divinerpg:demonized_template"
+}

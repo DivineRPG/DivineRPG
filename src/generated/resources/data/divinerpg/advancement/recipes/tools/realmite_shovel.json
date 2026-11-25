@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_realmite_ingots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:ingots/realmite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:realmite_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_realmite_ingots"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:realmite_shovel"
+    ]
+  }
+}

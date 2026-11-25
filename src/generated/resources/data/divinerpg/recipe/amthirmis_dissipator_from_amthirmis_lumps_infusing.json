@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/amthirmis",
+  "ingredient_count": 5,
+  "result": {
+    "id": "divinerpg:amthirmis_dissipator"
+  },
+  "template": "divinerpg:dissipator_template"
+}

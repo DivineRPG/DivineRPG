@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    "#divinerpg:logs/cozybark"
+  ],
+  "result": {
+    "count": 4,
+    "id": "divinerpg:cozybark_planks"
+  }
+}

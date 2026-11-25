@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/amthirmis",
+  "ingredient_count": 3,
+  "result": {
+    "id": "divinerpg:amthirmis_staff"
+  },
+  "template": "divinerpg:staff_template"
+}

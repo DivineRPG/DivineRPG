@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "#divinerpg:chunks/apalachia"
+  },
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "result": {
+    "id": "divinerpg:apalachia_helmet"
+  }
+}

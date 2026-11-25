@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "#divinerpg:chunks/eden"
+  },
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "id": "divinerpg:eden_boots"
+  }
+}

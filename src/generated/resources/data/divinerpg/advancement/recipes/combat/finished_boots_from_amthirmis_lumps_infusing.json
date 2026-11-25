@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_amthirmis_lumps": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#divinerpg:lumps/amthirmis"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "divinerpg:finished_boots_from_amthirmis_lumps_infusing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_amthirmis_lumps"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "divinerpg:finished_boots_from_amthirmis_lumps_infusing"
+    ]
+  }
+}

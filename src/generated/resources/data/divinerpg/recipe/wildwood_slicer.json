@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "#divinerpg:gems/wildwood"
+  ],
+  "result": {
+    "count": 20,
+    "id": "divinerpg:wildwood_slicer"
+  }
+}

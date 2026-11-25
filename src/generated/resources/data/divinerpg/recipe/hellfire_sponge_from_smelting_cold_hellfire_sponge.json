@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 600,
+  "experience": 0.45,
+  "group": "hellfire_sponge",
+  "ingredient": "divinerpg:cold_hellfire_sponge",
+  "result": {
+    "id": "divinerpg:hellfire_sponge"
+  }
+}

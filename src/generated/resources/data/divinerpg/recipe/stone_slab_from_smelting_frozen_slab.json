@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.05,
+  "group": "stone_slab",
+  "ingredient": "divinerpg:frozen_slab",
+  "result": {
+    "id": "minecraft:stone_slab"
+  }
+}

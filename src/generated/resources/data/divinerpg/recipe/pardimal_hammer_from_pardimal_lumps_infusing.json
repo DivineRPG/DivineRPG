@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/pardimal",
+  "ingredient_count": 17,
+  "result": {
+    "id": "divinerpg:pardimal_hammer"
+  },
+  "template": "divinerpg:hammer_template"
+}

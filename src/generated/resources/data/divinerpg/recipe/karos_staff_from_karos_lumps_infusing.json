@@ -1,0 +1,9 @@
+{
+  "type": "divinerpg:infusion_table",
+  "ingredient": "#divinerpg:lumps/karos",
+  "ingredient_count": 16,
+  "result": {
+    "id": "divinerpg:karos_staff"
+  },
+  "template": "divinerpg:staff_template"
+}
