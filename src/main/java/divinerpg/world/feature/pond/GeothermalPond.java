@@ -110,10 +110,10 @@ public class GeothermalPond implements Feature {
 				setBlock(level, pos, Blocks.MAGMA_BLOCK.defaultBlockState());
 				pos = pos.below();
 				if(hasSpace(level, pos) || rule(rules, random, level.getBlockState(pos), pos)) {
-					setBlock(level, pos, BlockRegistry.coalstoneSet.getFirst().get().defaultBlockState());
+					setBlock(level, pos, BlockRegistry.coalstone.block().get().defaultBlockState());
 				}
 			} else if(random.nextFloat() < 0.2F) {
-				setBlock(level, pos.below(), BlockRegistry.coalstoneSet.getFirst().get().defaultBlockState());
+				setBlock(level, pos.below(), BlockRegistry.coalstone.block().get().defaultBlockState());
 			} else if(random.nextFloat() < 0.05F) {
 				setBlock(level, pos.below(), Blocks.OBSIDIAN.defaultBlockState());
 			} else {
@@ -141,7 +141,7 @@ public class GeothermalPond implements Feature {
 		} else if(random.nextFloat() < 0.1F) {
 			setBlock(level, pos, BlockRegistry.frozenGravel.get().defaultBlockState());
 		} else {
-			setBlock(level, pos, BlockRegistry.cobbledFrozenStoneSet.getFirst().get().defaultBlockState());
+			setBlock(level, pos, BlockRegistry.cobbledFrozen.block().get().defaultBlockState());
 		}
 	}
 }

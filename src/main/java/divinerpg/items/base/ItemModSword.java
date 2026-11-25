@@ -1,6 +1,6 @@
 package divinerpg.items.base;
 
-import divinerpg.utils.ArcanaHelper;
+import divinerpg.attachments.Arcana;
 import divinerpg.utils.LocalizeUtils;
 import divinerpg.utils.ToolStats;
 import net.minecraft.core.component.DataComponents;
@@ -56,9 +56,9 @@ public class ItemModSword extends ItemMod {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        if (arcanaConsumedUse != 0 && ArcanaHelper.getArcana(player) >= arcanaConsumedUse) {
+        if (arcanaConsumedUse != 0 && Arcana.getAmount(player) >= arcanaConsumedUse) {
             if (!level.isClientSide()) {
-                ArcanaHelper.modifyAmount(player, -arcanaConsumedUse);
+                Arcana.modifyAmount(player, -arcanaConsumedUse);
             }
             player.getCooldowns().addCooldown(player.getUseItem(), cooldown);
             player.awardStat(ITEM_USED.get(this));

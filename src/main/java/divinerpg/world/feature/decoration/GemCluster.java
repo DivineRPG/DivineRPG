@@ -72,6 +72,6 @@ public class GemCluster implements Feature {
 		return false;
 	}
 	public static boolean standardRule(BlockState state) {
-		return state.is(BlockRegistry.frozenStoneSet.getFirst().get()) || state.is(BlockRegistry.cobbledFrozenStoneSet.getFirst().get()) || state.is(BlockRegistry.gelidite.get()) || state.is(BlockTags.ICE);
+		return state.is(BlockRegistry.frozen.block().get()) || state.is(BlockRegistry.cobbledFrozen.block().get()) || state.is(BlockRegistry.gelidite.get()) || state.is(BlockTags.ICE);
 	}
 }

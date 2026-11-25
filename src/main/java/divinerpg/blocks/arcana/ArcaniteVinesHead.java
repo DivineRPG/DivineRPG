@@ -12,6 +12,6 @@ public class ArcaniteVinesHead extends WeepingVinesBlock {
         super(properties);
     }
     @Override protected Block getBodyBlock() {
-        return BlockRegistry.arcaniteVinesBody.get();
+        return BlockRegistry.arcaniteVines.body().get();
     }
 }

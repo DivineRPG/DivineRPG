@@ -1,6 +1,6 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.utils.Utils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.HolderLookup.RegistryLookup;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ItemArmorPouch extends ItemMod {
+public class ItemArmorPouch extends ArcanicItem {
     public ItemArmorPouch(int nameColor, Properties properties) {
         super(properties.stacksTo(1));
         this.nameColor = nameColor;

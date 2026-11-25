@@ -21,15 +21,15 @@ public class BrittlePlants implements Feature {
 		if(level.getBlockState(pos).is(BlockRegistry.brittleMoss.get())) {
 			BlockPos p;
 			if(level.getBlockState(p = pos.above()).isAir() && random.nextBoolean()) {
-				setBlock(level, p, random.nextBoolean() ? BlockRegistry.winterberryBush.get().defaultBlockState() : BlockRegistry.brittleGrass.getFirst().get().defaultBlockState());
+				setBlock(level, p, random.nextBoolean() ? BlockRegistry.winterberryBush.get().defaultBlockState() : BlockRegistry.brittleGrass.plant().get().defaultBlockState());
 			} else if(level.getBlockState(p = pos.below()).isAir()) {
 				if(random.nextBoolean()) {
 					int length = random.nextInt(4);
 					for(int i = 0; i < length && level.getBlockState(p.below()).isAir(); i++) {
-						setBlock(level, p, BlockRegistry.winterberryVinesBody.get().defaultBlockState());
+						setBlock(level, p, BlockRegistry.winterberryVines.body().get().defaultBlockState());
 						p = p.below();
 					}
-					setBlock(level, p, BlockRegistry.winterberryVinesHead.get().defaultBlockState());
+					setBlock(level, p, BlockRegistry.winterberryVines.head().get().defaultBlockState());
 				}
 			} else {
 				return false;

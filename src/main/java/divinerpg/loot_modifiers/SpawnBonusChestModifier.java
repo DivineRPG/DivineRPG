@@ -26,7 +26,7 @@ public class SpawnBonusChestModifier extends LootModifier {
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         if(context.getRandom().nextFloat() <= 0.2F) {
-            generatedLoot.add(new ItemStack(BlockRegistry.divineWoodSet.get(3).get().asItem(), 1 + context.getRandom().nextInt(3)));
+            generatedLoot.add(new ItemStack(BlockRegistry.divine.log().get().asItem(), 1 + context.getRandom().nextInt(3)));
         }
         if(context.getRandom().nextFloat() <= 0.1F) {
             generatedLoot.add(new ItemStack(ItemRegistry.tomato.get(), 1 + context.getRandom().nextInt(3)));

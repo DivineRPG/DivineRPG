@@ -1,12 +1,11 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.InclusiveRange;
 import net.minecraft.util.Unit;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -22,7 +21,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.function.Consumer;
 
-public class ItemEnderScepter extends ItemMod {
+public class ItemEnderScepter extends ArcanicItem {
     public ItemEnderScepter(Properties properties) {
         super(properties.stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE));
     arcanaConsumedUse = 75;

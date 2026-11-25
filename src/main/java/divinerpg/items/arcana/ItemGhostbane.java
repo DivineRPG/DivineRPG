@@ -1,8 +1,8 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.attachments.Arcana;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.EntityRegistry;
-import divinerpg.utils.ArcanaHelper;
 import divinerpg.utils.EntityStats;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.core.BlockPos;
@@ -23,7 +23,7 @@ import net.minecraft.world.level.Level;
 
 import java.util.function.Consumer;
 
-public class ItemGhostbane extends ItemMod {
+public class ItemGhostbane extends ArcanicItem {
     public ItemGhostbane(Properties properties) {
         super(properties.stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE));
         arcanaConsumedUse = 200;
@@ -37,9 +37,9 @@ public class ItemGhostbane extends ItemMod {
     }
     @Override public InteractionResult useOn(UseOnContext context) {
         if(context.getPlayer() instanceof ServerPlayer pl) {
-            float amount = ArcanaHelper.getArcana(pl);
+            float amount = Arcana.getAmount(pl);
             if(arcanaConsumedUse != 0 && amount >= arcanaConsumedUse) {
-                ArcanaHelper.modifyAmount(pl, -arcanaConsumedUse);
+                Arcana.modifyAmount(pl, -arcanaConsumedUse);
                 pl.getCooldowns().addCooldown(context.getItemInHand(), cooldown);
                 BlockPos pos = context.getClickedPos();
                 if(!context.getLevel().getBlockState(pos).getCollisionShape(context.getLevel(), pos).isEmpty()) pos = pos.relative(context.getClickedFace());

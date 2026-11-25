@@ -1,8 +1,8 @@
 package divinerpg.loot_modifiers;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import divinerpg.registries.BlockRegistry;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import divinerpg.registries.ItemRegistry;
 import net.minecraft.core.Holder;
@@ -28,7 +28,7 @@ public class AbandonedMineshaftChestModifier extends LootModifier {
             ItemStack toAdd = new ItemStack(ItemRegistry.realmite_pickaxe.get(), 1);
             generatedLoot.add(toAdd);
         } if(context.getRandom().nextFloat() <= .3) {
-            ItemStack toAdd = new ItemStack(ItemRegistry.skeleton_torch.get(), 4 + context.getRandom().nextInt(4));
+            ItemStack toAdd = new ItemStack(BlockRegistry.skeletonTorch.torch(), 4 + context.getRandom().nextInt(4));
             generatedLoot.add(toAdd);
         } return generatedLoot;
     }

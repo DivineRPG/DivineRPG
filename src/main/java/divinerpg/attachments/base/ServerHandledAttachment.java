@@ -1,4 +1,4 @@
-package divinerpg.attachments.data.base;
+package divinerpg.attachments.base;
 
 import com.mojang.serialization.Codec;
 import divinerpg.registries.DivineRegistries;
@@ -14,22 +14,22 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.function.Supplier;
 
-public class ClientHandledAttachment<T> extends SynchedAttachment<T> {
-    public ClientHandledAttachment(String name, Supplier<T> defaultValue, Codec<T> codec, StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec) {
+public class ServerHandledAttachment<T> extends SynchedAttachment<T> {
+    public ServerHandledAttachment(String name, Supplier<T> defaultValue, Codec<T> codec, StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec) {
         super(name, defaultValue, codec, streamCodec);
     }
 
-    protected ClientHandledAttachment(String name, DeferredHolder<AttachmentType<?>, AttachmentType<T>> attachment, StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec) {
+    protected ServerHandledAttachment(String name, DeferredHolder<AttachmentType<?>, AttachmentType<T>> attachment, StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec) {
         super(name, attachment, streamCodec);
     }
 
     @Override
     public void registerPayload(PayloadRegistrar r) {
-        r.playToServer(type, streamCodec, (payload, context) -> context.enqueueWork(() -> {
+        r.playToClient(type, streamCodec, (payload, context) -> context.enqueueWork(() -> {
             Entity e = context.player().level().getEntity(payload.entityID);
             if (e != null) e.setData(attachment.get(), payload.data);
         }));
-        r.playToClient(requestType, requestCodec, (payload, context) -> context.enqueueWork(() -> {
+        r.playToServer(requestType, requestCodec, (payload, context) -> context.enqueueWork(() -> {
             Entity e = context.player().level().getEntity(payload.entityID);
             if (e != null) context.reply(new AttachmentPayload(e.getData(attachment.get()), payload.entityID));
         }));
@@ -37,22 +37,22 @@ public class ClientHandledAttachment<T> extends SynchedAttachment<T> {
 
     @Override
     public void requestAttachment(Entity e, ServerPlayer player) {
-        if (e.level().isClientSide()) throw new UnsupportedOperationException("Only server can send Data request!");
+        if (!e.level().isClientSide()) throw new UnsupportedOperationException("Only client can send Data request!");
         PacketDistributor.sendToPlayer(player, new RequestAttachmentPayload(e.getId()));
     }
 
     @Override
     public boolean validate(Entity e, T data) {
-        if (!e.level().isClientSide()) throw new UnsupportedOperationException("Client handled Data only!");
+        if (e.level().isClientSide()) throw new UnsupportedOperationException("Server handled Data only!");
         return super.validate(e, data);
     }
 
     @Override
     public void update(Entity e, T data) {
-        PacketDistributor.sendToPlayersTrackingEntity(e, new AttachmentPayload(data, e.getId()));
+        PacketDistributor.sendToPlayersTrackingEntityAndSelf(e, new AttachmentPayload(data, e.getId()));
     }
 
-    public static class Serializable<S extends ValueIOSerializable> extends ClientHandledAttachment<S> {
+    public static class Serializable<S extends ValueIOSerializable> extends ServerHandledAttachment<S> {
         public Serializable(String name, Supplier<S> defaultValue, StreamCodec<? super RegistryFriendlyByteBuf, S> streamCodec) {
             super(name, DivineRegistries.ATTACHMENTS.register(name, () -> AttachmentType.serializable(defaultValue).build()), streamCodec);
         }

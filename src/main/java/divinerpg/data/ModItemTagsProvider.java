@@ -450,7 +450,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(REPAIRS_EQUIPMENT_OXDRITE).addTag(INGOTS_OXDRITE);
         tag(REPAIRS_EQUIPMENT_SENG_FUR).addTag(FURS_SENG);
         tag(REPAIRS_EQUIPMENT_SABEAR_TEETH).addTag(TEETH_SABEAR);
-        tag(REPAIRS_EQUIPMENT_SANTA).addTag(FURS_SENG).add(toKey(fancySet.getFirst().asItem()));
+        tag(REPAIRS_EQUIPMENT_SANTA).addTag(FURS_SENG).add(toKey(fancy.wool().asItem()));
         tag(REPAIRS_EQUIPMENT_CRAB).addTag(commonTag("claws/crab"));
         tag(REPAIRS_EQUIPMENT_SHARK).addTag(commonTag("fins/shark"));
         tag(REPAIRS_EQUIPMENT_WHALE).addTag(commonTag("fins/whale"));
@@ -510,26 +510,26 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
 
         tag(ItemTags.REPAIRS_LEATHER_ARMOR).addTag(SKINS_KRAKEN);
         tag(ItemTags.REPAIRS_DIAMOND_ARMOR).addTag(CHUNKS_DIAMOND);
-        tag(ItemTags.STONE_CRAFTING_MATERIALS).add(toKey(cobbledFrozenStoneSet.getFirst().asItem()),toKey(cobaltiteSet.getFirst().asItem()), toKey(arcaniteStoneSet.getFirst().asItem()), toKey(ancientStoneSet.getLast().asItem()), toKey(soulStoneSet.getLast().asItem()), toKey(divineRock.asItem()), toKey(twilightStoneSet.getFirst().asItem()), toKey(milkStone.asItem()), toKey(cobbledScorchaltSet.getFirst().asItem()), toKey(rayStoneSet.getFirst().asItem()), toKey(draughtStone.asItem()), toKey(dreamStone.asItem()), toKey(lunaStone.asItem()));
-        tag(ItemTags.STONE_TOOL_MATERIALS).add(toKey(cobbledFrozenStoneSet.getFirst().asItem()),toKey(cobaltiteSet.getFirst().asItem()), toKey(arcaniteStoneSet.getFirst().asItem()), toKey(ancientStoneSet.getLast().asItem()), toKey(soulStoneSet.getLast().asItem()), toKey(divineRock.asItem()), toKey(twilightStoneSet.getFirst().asItem()), toKey(milkStone.asItem()), toKey(cobbledScorchaltSet.getFirst().asItem()), toKey(rayStoneSet.getFirst().asItem()), toKey(draughtStone.asItem()), toKey(dreamStone.asItem()), toKey(lunaStone.asItem()));
+        tag(ItemTags.STONE_CRAFTING_MATERIALS).add(toKey(cobbledFrozen.block().asItem()),toKey(cobaltite.block().asItem()), toKey(arcanite.block().asItem()), toKey(ancientStone.breakable().asItem()), toKey(soulStone.breakable().asItem()), toKey(divineRock.asItem()), toKey(twilight.block().asItem()), toKey(milkStone.asItem()), toKey(cobbledScorchalt.block().asItem()), toKey(rayStone.block().asItem()), toKey(draughtStone.asItem()), toKey(dreamStone.asItem()), toKey(lunaStone.asItem()));
+        tag(ItemTags.STONE_TOOL_MATERIALS).add(toKey(cobbledFrozen.block().asItem()),toKey(cobaltite.block().asItem()), toKey(arcanite.block().asItem()), toKey(ancientStone.breakable().asItem()), toKey(soulStone.breakable().asItem()), toKey(divineRock.asItem()), toKey(twilight.block().asItem()), toKey(milkStone.asItem()), toKey(cobbledScorchalt.block().asItem()), toKey(rayStone.block().asItem()), toKey(draughtStone.asItem()), toKey(dreamStone.asItem()), toKey(lunaStone.asItem()));
         tag(ItemTags.DIAMOND_TOOL_MATERIALS).addTag(CHUNKS_DIAMOND);
         tag(ItemTags.TRIM_MATERIALS).add(olivine.key());
 
-        tag(SEEDS_TOMATO).add(tomato_seeds.key());
+        tag(SEEDS_TOMATO).add(toKey(tomatoPlant.asItem()));
         tag(commonTag("seeds/tomato")).addTag(SEEDS_TOMATO);
-        tag(SEEDS_WHITE_MUSHROOM).add(white_mushroom_seeds.key());
-        tag(SEEDS_AQUAMARINE).add(aquamarine_seeds.key());
-        tag(SEEDS_EUCALYPTUS_ROOT).add(eucalyptus_root_seeds.key());
-        tag(SEEDS_FIRESTOCK).add(firestock_seeds.key());
-        tag(SEEDS_HITCHAK).add(hitchak_seeds.key());
-        tag(SEEDS_LAMONA).add(lamona_seeds.key());
-        tag(SEEDS_MARSINE).add(marsine_seeds.key());
-        tag(SEEDS_PINFLY).add(pinfly_seeds.key());
-        tag(SEEDS_VEILO).add(veilo_seeds.key());
-        tag(SEEDS_MOONBULB).add(moonbulb_seeds.key());
-        tag(SEEDS_PURPLE_GLOWBONE).add(purple_glowbone_seeds.key());
-        tag(SEEDS_PINK_GLOWBONE).add(pink_glowbone_seeds.key());
-        tag(SEEDS_SKY_PLANT).add(sky_plant_seeds.key());
+        tag(SEEDS_WHITE_MUSHROOM).add(toKey(whiteMushroomPlant.asItem()));
+        tag(SEEDS_AQUAMARINE).add(toKey(aquamarinePlant.asItem()));
+        tag(SEEDS_EUCALYPTUS_ROOT).add(toKey(eucalyptusPlant.asItem()));
+        tag(SEEDS_FIRESTOCK).add(toKey(firestockPlant.asItem()));
+        tag(SEEDS_HITCHAK).add(toKey(hitchakPlant.asItem()));
+        tag(SEEDS_LAMONA).add(toKey(lamonaPlant.asItem()));
+        tag(SEEDS_MARSINE).add(toKey(marsinePlant.asItem()));
+        tag(SEEDS_PINFLY).add(toKey(pinflyPlant.asItem()));
+        tag(SEEDS_VEILO).add(toKey(veiloPlant.asItem()));
+        tag(SEEDS_MOONBULB).add(toKey(moonbulbPlant.asItem()));
+        tag(SEEDS_PURPLE_GLOWBONE).add(toKey(purpleGlowbonePlant.asItem()));
+        tag(SEEDS_PINK_GLOWBONE).add(toKey(pinkGlowbonePlant.asItem()));
+        tag(SEEDS_SKY_PLANT).add(toKey(skyPlant.asItem()));
         tag(SEEDS).addTags(SEEDS_TOMATO, SEEDS_WHITE_MUSHROOM, SEEDS_AQUAMARINE, SEEDS_EUCALYPTUS_ROOT, SEEDS_FIRESTOCK, SEEDS_HITCHAK, SEEDS_LAMONA, SEEDS_MARSINE, SEEDS_PINFLY, SEEDS_VEILO, SEEDS_MOONBULB, SEEDS_PURPLE_GLOWBONE, SEEDS_PINK_GLOWBONE, SEEDS_SKY_PLANT);
         tag(Tags.Items.SEEDS).addTag(SEEDS);
 
@@ -629,8 +629,8 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(ItemTags.WITHER_SKELETON_DISLIKED_WEAPONS).addTag(TOOLS_BOW);
 
         tag(ANIMAL_FOODS_DOLOSSAL).add(winterberry.key());
-        tag(ANIMAL_FOODS_MAMOTH).add(toKey(brittleGrass.getFirst().asItem()));
-        tag(ItemTags.BEE_FOOD).add(toKey(crimpetal.getFirst().asItem()), toKey(roofbell.getFirst().asItem()), toKey(winterbloom.getFirst().asItem()), toKey(wispLeaf.getFirst().asItem()), toKey(globebrush.asItem()), toKey(thermoliage.asItem()), toKey(gemOfTheDunes.getFirst().asItem()), toKey(sunBlossom.getFirst().asItem()), toKey(sunbloom.getFirst().asItem()), toKey(moonBud.getFirst().asItem()), toKey(duskBloom.getFirst().asItem()), toKey(duskFlower.asItem()), toKey(dustLily.getFirst().asItem()), toKey(dustBrambles.asItem()), toKey(mortumWoodSet.get(2).asItem()), toKey(eyePlant.getFirst().asItem()), toKey(demonBrambles.asItem()), toKey(shineGrass.getFirst().asItem()), toKey(cracklespike.getFirst().asItem()), toKey(fernite.getFirst().asItem()), toKey(bulbatobe.getFirst().asItem()), toKey(shimmer.getFirst().asItem()), toKey(yellowDulah.getFirst().asItem()), toKey(greenDulah.getFirst().asItem()), toKey(greenGemtop.getFirst().asItem()), toKey(purpleGemtop.getFirst().asItem()));
+        tag(ANIMAL_FOODS_MAMOTH).add(toKey(brittleGrass.plant().asItem()));
+        tag(ItemTags.BEE_FOOD).add(toKey(crimpetal.plant().asItem()), toKey(roofbell.plant().asItem()), toKey(winterbloom.plant().asItem()), toKey(wispLeaf.plant().asItem()), toKey(globebrush.asItem()), toKey(thermoliage.asItem()), toKey(gemOfTheDunes.plant().asItem()), toKey(sunBlossom.plant().asItem()), toKey(sunbloom.plant().asItem()), toKey(moonBud.plant().asItem()), toKey(duskBloom.plant().asItem()), toKey(duskFlower.asItem()), toKey(dustLily.plant().asItem()), toKey(dustBrambles.asItem()), toKey(mortum.leaves().asItem()), toKey(eyePlant.plant().asItem()), toKey(demonBrambles.asItem()), toKey(shineGrass.plant().asItem()), toKey(cracklespike.plant().asItem()), toKey(fernite.plant().asItem()), toKey(bulbatobe.plant().asItem()), toKey(shimmer.plant().asItem()), toKey(yellowDulah.plant().asItem()), toKey(greenDulah.plant().asItem()), toKey(greenGemtop.plant().asItem()), toKey(purpleGemtop.plant().asItem()));
         tag(ItemTags.CHICKEN_FOOD).addTag(SEEDS);
         tag(ItemTags.FOX_FOOD).addTag(FOODS_BERRY);
         tag(ItemTags.FROG_FOOD).add(aqua_ball.key());
@@ -711,7 +711,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(STONE_TYPES_ASPHALT);
         copy(STONE_TYPES_COALSTONE);
         copy(STONE_TYPES_COBALTITE);
-        tag(Tags.BlockItems.STONES.item()).add(toKey(frozenStoneSet.getFirst().asItem()), toKey(arcaniteStoneSet.getFirst().asItem()), toKey(divineRock.asItem()), toKey(twilightStoneSet.getFirst().asItem()), toKey(milkStone.asItem()), toKey(scorchaltSet.getFirst().asItem()), toKey(rayStoneSet.getFirst().asItem()), toKey(draughtStone.asItem()), toKey(dreamStone.asItem()));
+        tag(Tags.BlockItems.STONES.item()).add(toKey(frozen.block().asItem()), toKey(arcanite.block().asItem()), toKey(divineRock.asItem()), toKey(twilight.block().asItem()), toKey(milkStone.asItem()), toKey(scorchalt.block().asItem()), toKey(rayStone.block().asItem()), toKey(draughtStone.asItem()), toKey(dreamStone.asItem()));
 
         copy(Tags.BlockItems.COBBLESTONES_MOSSY);
         copy(COBBLESTONES_FROZEN);
@@ -719,7 +719,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(COBBLESTONES_ICY);
         copy(commonBlockItemTag("cobblestones/icy"));
         copy(COBBLESTONES_SCORCHALT);
-        tag(Tags.BlockItems.COBBLESTONES.item()).addTags(COBBLESTONES_FROZEN.item(), COBBLESTONES_ICY.item(), COBBLESTONES_SCORCHALT.item()).add(toKey(cobaltiteSet.getFirst().asItem()), toKey(ancientStoneSet.getLast().asItem()), toKey(soulStoneSet.getLast().asItem()), toKey(lunaStone.asItem()));
+        tag(Tags.BlockItems.COBBLESTONES.item()).addTags(COBBLESTONES_FROZEN.item(), COBBLESTONES_ICY.item(), COBBLESTONES_SCORCHALT.item()).add(toKey(cobaltite.block().asItem()), toKey(ancientStone.breakable().asItem()), toKey(soulStone.breakable().asItem()), toKey(lunaStone.asItem()));
 
         copy(OBSIDIANS_CRYING);
         copy(Tags.BlockItems.OBSIDIANS_CRYING);
@@ -747,7 +747,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(commonBlockItemTag("glass_blocks/stained"));
         copy(Tags.BlockItems.GLASS_BLOCKS);
 
-        tag(ItemTags.SOUL_FIRE_BASE_BLOCKS).add(toKey(soulSludgeSet.getLast().asItem()));
+        tag(ItemTags.SOUL_FIRE_BASE_BLOCKS).add(toKey(soulSludge.breakable().asItem()));
 
         copy(Tags.BlockItems.ICE);
 
@@ -769,7 +769,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(GRASS_TALL);
         copy(GRASS);
         copy(VINES);
-        tag(ItemTags.MUSHROOMS).add(white_mushroom.key(), toKey(glowsproutSet.getFirst().asItem()), toKey(lowsproutSet.getFirst().asItem()), toKey(slowsproutSet.getFirst().asItem()), toKey(lushroom.getFirst().asItem()), toKey(duncap.asItem()), toKey(truffle.asItem()), toKey(dreamglow.getFirst().asItem()));
+        tag(ItemTags.MUSHROOMS).add(white_mushroom.key(), toKey(glowsprout.shroom().asItem()), toKey(lowsprout.shroom().asItem()), toKey(slowsprout.shroom().asItem()), toKey(lushroom.plant().asItem()), toKey(duncap.asItem()), toKey(truffle.asItem()), toKey(dreamglow.plant().asItem()));
 
         copy(BlockItemTags.SAPLINGS);
         copy(BlockItemTags.LEAVES);
@@ -793,7 +793,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(LOGS_VETHEA);
         copy(BlockItemTags.LOGS_THAT_BURN);
 
-        tag(Tags.BlockItems.OVERWORLD_NATURAL_LOGS.item()).add(toKey(divineWoodSet.get(3).asItem()));
+        tag(Tags.BlockItems.OVERWORLD_NATURAL_LOGS.item()).add(toKey(divine.log().asItem()));
         copy(NATURAL_LOGS_ICEIKA);
         copy(NATURAL_LOGS_ARCANA);
         copy(NATURAL_LOGS_EDEN);
@@ -876,7 +876,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(BlockItemTags.WOOL_SLABS);
         copy(BlockItemTags.WOOL_CARPETS);
 
-        tag(ItemTags.BEDS).add(nightmare_bed.key());
+        tag(ItemTags.BEDS).add(toKey(nightmareBed.asItem()));
 
         copy(CRATES_WOODEN);
         copy(commonBlockItemTag("crates/wooden"));
@@ -899,7 +899,7 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         copy(LAMPS_GEM);
         copy(BRIDGES);
         copy(FAIRY_LIGHTS);
-        tag(TORCHES.item()).add(skeleton_torch.key(), aqua_torch.key(), arcanium_torch.key(), eden_torch.key());
+        tag(TORCHES.item()).add(toKey(skeletonTorch.torch().asItem()), toKey(aquaTorch.torch().asItem()), toKey(arcaniumTorch.torch().asItem()), toKey(edenTorch.torch().asItem()));
 
         copy(Tags.BlockItems.BOOKSHELVES);
 
@@ -951,12 +951,12 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
 
         tag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT).addTag(PUMPKINS.item()).add(toKey(coldHellfireSponge.asItem()), toKey(hellfireSponge.asItem()));
         tag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING).addTag(COBBLESTONES_ICY.item()).add(toKey(glaciline.asItem()), toKey(snowBricks.asItem()), toKey(icyBricks.asItem()), toKey(runicIcyBricks.asItem()));
-        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE).add(toKey(soulSludgeSet.getLast().asItem()));
+        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE).add(toKey(soulSludge.breakable().asItem()));
         tag(ItemTags.SULFUR_CUBE_ARCHETYPE_HOT).add(toKey(hotSpikeBlock.asItem()));
         tag(ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR).addTags(DIRTS.item(), GRASS_BLOCKS.item(), STORAGE_BLOCKS_IRREVERSIBLE_ANTHRACITE.item(), CANDY_CANES.item()).add(toKey(gelidite.asItem())).remove(toKey(scorchedGrass.asItem()));
-        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY).addTags(ORES_ANTHRACITE.item(), ORES_BLOODGEM.item(), STORAGE_BLOCKS_BLOODGEM.item(), STORAGE_BLOCKS_RAW_ARCANIUM.item(), STORAGE_BLOCKS_ARCANIUM.item(), ORES_EDEN.item(), STORAGE_BLOCKS_IRREVERSIBLE_EDEN.item(), ORES_WILDWOOD.item(), STORAGE_BLOCKS_IRREVERSIBLE_WILDWOOD.item(), ORES_APALACHIA.item(), STORAGE_BLOCKS_IRREVERSIBLE_APALACHIA.item(), ORES_SKYTHERN.item(), STORAGE_BLOCKS_IRREVERSIBLE_SKYTHERN.item(), ORES_MORTUM.item(), STORAGE_BLOCKS_IRREVERSIBLE_MORTUM.item(), STORAGE_BLOCKS_IRREVERSIBLE_OLIVINE.item(), MINIBRICKS.item(), COLORED_BRICKS.item(), TWILIGHT_BRICKS.item(), COBBLESTONES_FROZEN.item(), COBBLESTONES_SCORCHALT.item(), OBSIDIANS_CRYING.item(), OBSIDIANS_DARK.item(), LAMPS_GEM.item()).add(toKey(scorchedGrass.asItem()), toKey(asphaltSet.getFirst().asItem()), toKey(frozenStoneSet.getFirst().asItem()), toKey(cobaltiteSet.getFirst().asItem()), toKey(ancientStoneSet.getLast().asItem()), toKey(soulStoneSet.getLast().asItem()), toKey(divineMossStone.asItem()), toKey(lunaStone.asItem()), toKey(blueStone.asItem()));
+        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY).addTags(ORES_ANTHRACITE.item(), ORES_BLOODGEM.item(), STORAGE_BLOCKS_BLOODGEM.item(), STORAGE_BLOCKS_RAW_ARCANIUM.item(), STORAGE_BLOCKS_ARCANIUM.item(), ORES_EDEN.item(), STORAGE_BLOCKS_IRREVERSIBLE_EDEN.item(), ORES_WILDWOOD.item(), STORAGE_BLOCKS_IRREVERSIBLE_WILDWOOD.item(), ORES_APALACHIA.item(), STORAGE_BLOCKS_IRREVERSIBLE_APALACHIA.item(), ORES_SKYTHERN.item(), STORAGE_BLOCKS_IRREVERSIBLE_SKYTHERN.item(), ORES_MORTUM.item(), STORAGE_BLOCKS_IRREVERSIBLE_MORTUM.item(), STORAGE_BLOCKS_IRREVERSIBLE_OLIVINE.item(), MINIBRICKS.item(), COLORED_BRICKS.item(), TWILIGHT_BRICKS.item(), COBBLESTONES_FROZEN.item(), COBBLESTONES_SCORCHALT.item(), OBSIDIANS_CRYING.item(), OBSIDIANS_DARK.item(), LAMPS_GEM.item()).add(toKey(scorchedGrass.asItem()), toKey(asphalt.block().asItem()), toKey(frozen.block().asItem()), toKey(cobaltite.block().asItem()), toKey(ancientStone.breakable().asItem()), toKey(soulStone.breakable().asItem()), toKey(divineMossStone.asItem()), toKey(lunaStone.asItem()), toKey(blueStone.asItem()));
         tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT).addTags(ORES_REALMITE.item(), STORAGE_BLOCKS_RAW_REALMITE.item(), STORAGE_BLOCKS_REALMITE.item(), ORES_ARLEMITE.item(), STORAGE_BLOCKS_RAW_ARLEMITE.item(), STORAGE_BLOCKS_ARLEMITE.item(), ORES_RUPEE.item(), STORAGE_BLOCKS_RAW_RUPEE.item(), STORAGE_BLOCKS_RUPEE.item(), STORAGE_BLOCKS_SHADOW.item(), ORES_TORRIDITE.item(), STORAGE_BLOCKS_RAW_TORRIDITE.item(), STORAGE_BLOCKS_TORRIDITE.item(), ORES_OXDRITE.item(), STORAGE_BLOCKS_RAW_OXDRITE.item(), STORAGE_BLOCKS_OXDRITE.item(), STORAGE_BLOCKS_IRREVERSIBLE_STEEL.item(), LAMPS_METAL.item()).add(toKey(spikeBlock.asItem()));
-        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING).add(toKey(glowsproutSet.getLast().asItem()), toKey(glowsproutSet.get(2).asItem()), toKey(lowsproutSet.getLast().asItem()), toKey(lowsproutSet.get(2).asItem()), toKey(slowsproutSet.getLast().asItem()), toKey(slowsproutSet.get(2).asItem()));
+        tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING).add(toKey(glowsprout.stem().asItem()), toKey(glowsprout.bulb().asItem()), toKey(lowsprout.stem().asItem()), toKey(lowsprout.bulb().asItem()), toKey(slowsprout.stem().asItem()), toKey(slowsprout.bulb().asItem()));
     }
     private ResourceKey<Item> toKey(Item item) {
         return BuiltInRegistries.ITEM.getResourceKey(item).orElseThrow();

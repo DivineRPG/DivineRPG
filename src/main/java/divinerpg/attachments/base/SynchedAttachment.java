@@ -1,4 +1,4 @@
-package divinerpg.attachments.data.base;
+package divinerpg.attachments.base;
 
 import com.mojang.serialization.Codec;
 import divinerpg.DivineRPG;

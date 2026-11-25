@@ -104,25 +104,25 @@ public class ModRecipeProvider extends RecipeProvider {
         storageBlocks(skythern_chunk, false);
         storageBlocks(mortum_chunk, false);
         // Wood
-        woodSetFromLogs(divineWoodSet);
-        woodSetFromLogs(shiverspineWoodSet);
-        woodSetFromLogs(auroraoakWoodSet);
-        woodSetFromLogs(cozybarkWoodSet);
-        woodSetFromLogs(streamleafWoodSet);
-        woodSetFromLogs(eucalyptusWoodSet);
-        woodSetFromLogs(edenWoodSet);
-        woodSetFromLogs(crimseekerWoodSet);
-        woodSetFromLogs(wildwoodWoodSet);
-        woodSetFromLogs(apalachiaWoodSet);
-        woodSetFromLogs(skythernWoodSet);
-        woodSetFromLogs(mortumWoodSet);
-        woodSetFromLogs(firewoodSet);
-        woodSetFromLogs(dreamwoodSet);
-        woodSetFromLogs(hyrewoodSet);
-        woodSetFromLogs(mintwoodSet);
+        woodSetFromLogs(divine.planks(), divine.wood(), divine.strippedWood(), divine.ladder());
+        woodSetFromLogs(shiverspine.planks(), shiverspine.wood(), shiverspine.strippedWood(), shiverspine.ladder());
+        woodSetFromLogs(auroraoak.planks(), auroraoak.wood(), auroraoak.strippedWood(), auroraoak.ladder());
+        woodSetFromLogs(cozybark.planks(), cozybark.wood(), cozybark.strippedWood(), cozybark.ladder());
+        woodSetFromLogs(streamleaf.planks(), streamleaf.wood(), streamleaf.strippedWood(), streamleaf.ladder());
+        woodSetFromLogs(eucalyptus.planks(), eucalyptus.wood(), eucalyptus.strippedWood(), eucalyptus.ladder());
+        woodSetFromLogs(eden.planks(), eden.wood(), eden.strippedWood(), eden.ladder());
+        woodSetFromLogs(crimseeker.planks(), crimseeker.wood(), crimseeker.strippedWood(), crimseeker.ladder());
+        woodSetFromLogs(wildwood.planks(), wildwood.wood(), wildwood.strippedWood(), wildwood.ladder());
+        woodSetFromLogs(apalachia.planks(), apalachia.wood(), apalachia.strippedWood(), apalachia.ladder());
+        woodSetFromLogs(skythern.planks(), skythern.wood(), skythern.strippedWood(), skythern.ladder());
+        woodSetFromLogs(mortum.planks(), mortum.wood(), mortum.strippedWood(), mortum.ladder());
+        woodSetFromLogs(firewood.wood(), firewood.strippedWood());
+        woodSetFromLogs(dreamwood.wood(), dreamwood.strippedWood());
+        woodSetFromLogs(hyrewood.wood(), hyrewood.strippedWood());
+        woodSetFromLogs(mintwood.wood(), mintwood.strippedWood());
         // Other blocks
-        shaped(BUILDING_BLOCKS, checkerSet.getFirst(), 4).pattern("BW").pattern("WB").define('W', Items.WOOL.white()).define('B', Items.WOOL.black()).unlockedBy("has_wool", inventoryTrigger(ItemPredicate.Builder.item().of(items, Items.WOOL.white(), Items.WOOL.black()))).save(output);
-        shapeless(BUILDING_BLOCKS, rainbowSet.getFirst(), 7).requires(Items.WOOL.red()).requires(Items.WOOL.orange()).requires(Items.WOOL.yellow()).requires(Items.WOOL.lime()).requires(Items.WOOL.lightBlue()).requires(Items.WOOL.blue()).requires(Items.WOOL.purple()).unlockedBy("has_wool", inventoryTrigger(ItemPredicate.Builder.item().of(items, Items.WOOL.red(), Items.WOOL.orange(), Items.WOOL.yellow(), Items.WOOL.lime(), Items.WOOL.lightBlue(), Items.WOOL.blue(), Items.WOOL.purple()))).save(output);
+        shaped(BUILDING_BLOCKS, checker.wool(), 4).pattern("BW").pattern("WB").define('W', Items.WOOL.white()).define('B', Items.WOOL.black()).unlockedBy("has_wool", inventoryTrigger(ItemPredicate.Builder.item().of(items, Items.WOOL.white(), Items.WOOL.black()))).save(output);
+        shapeless(BUILDING_BLOCKS, rainbow.wool(), 7).requires(Items.WOOL.red()).requires(Items.WOOL.orange()).requires(Items.WOOL.yellow()).requires(Items.WOOL.lime()).requires(Items.WOOL.lightBlue()).requires(Items.WOOL.blue()).requires(Items.WOOL.purple()).unlockedBy("has_wool", inventoryTrigger(ItemPredicate.Builder.item().of(items, Items.WOOL.red(), Items.WOOL.orange(), Items.WOOL.yellow(), Items.WOOL.lime(), Items.WOOL.lightBlue(), Items.WOOL.blue(), Items.WOOL.purple()))).save(output);
         List.of(GEMS_EDEN, GEMS_WILDWOOD, GEMS_APALACHIA, GEMS_SKYTHERN, GEMS_MORTUM).forEach(this::twilightSet);
         // Food
         shapeless(FOOD, advanced_mushroom_stew).requires(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "foods/white_mushroom"))).requires(Items.MUSHROOM_STEW).unlockedBy("has_white_mushrooms", has(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "foods/white_mushroom")))).save(output);
@@ -136,29 +136,29 @@ public class ModRecipeProvider extends RecipeProvider {
         stonecutting(torriditeBricks, torriditeMinibricks);
         // SMELTING
         // Defrosting
-        smelting(List.of(frozenSoil.getFirst()), Items.DIRT, .1F);
+        smelting(List.of(frozenSoil.dirt()), Items.DIRT, .1F);
         smelting(List.of(frozenGravel), Items.GRAVEL, .1F);
-        smelting(List.of(frozenStoneSet.getFirst()), Items.STONE, .1F);
-        smelting(List.of(frozenStoneSet.get(1)), Items.STONE_STAIRS, .1F);
-        smelting(List.of(frozenStoneSet.get(2)), Items.STONE_SLAB, .05F, 100);
-        smelting(List.of(frozenStoneSet.get(4)), Items.STONE_PRESSURE_PLATE, .1F);
-        smelting(List.of(frozenStoneSet.get(5)), Items.STONE_BUTTON, .1F);
-        smelting(List.of(cobbledFrozenStoneSet.get(1)), Items.COBBLESTONE_STAIRS, .1F);
-        smelting(List.of(cobbledFrozenStoneSet.get(2)), Items.COBBLESTONE_SLAB, .05F, 100);
-        smelting(List.of(cobbledFrozenStoneSet.get(3)), Items.COBBLESTONE_WALL, .1F);
-        smelting(List.of(frozenBrickSet.getFirst()), Items.STONE_BRICKS, .1F);
-        smelting(List.of(frozenBrickSet.get(1)), Items.STONE_BRICK_STAIRS, .1F);
-        smelting(List.of(frozenBrickSet.get(2)), Items.STONE_BRICK_SLAB, .05F, 100);
-        smelting(List.of(frozenBrickSet.get(3)), Items.STONE_BRICK_WALL, .1F);
+        smelting(List.of(frozen.block()), Items.STONE, .1F);
+        smelting(List.of(frozen.stairs()), Items.STONE_STAIRS, .1F);
+        smelting(List.of(frozen.slab()), Items.STONE_SLAB, .05F, 100);
+        smelting(List.of(frozen.pressurePlate()), Items.STONE_PRESSURE_PLATE, .1F);
+        smelting(List.of(frozen.button()), Items.STONE_BUTTON, .1F);
+        smelting(List.of(cobbledFrozen.stairs()), Items.COBBLESTONE_STAIRS, .1F);
+        smelting(List.of(cobbledFrozen.slab()), Items.COBBLESTONE_SLAB, .05F, 100);
+        smelting(List.of(cobbledFrozen.wall()), Items.COBBLESTONE_WALL, .1F);
+        smelting(List.of(frozenBrick.block()), Items.STONE_BRICKS, .1F);
+        smelting(List.of(frozenBrick.stairs()), Items.STONE_BRICK_STAIRS, .1F);
+        smelting(List.of(frozenBrick.slab()), Items.STONE_BRICK_SLAB, .05F, 100);
+        smelting(List.of(frozenBrick.wall()), Items.STONE_BRICK_WALL, .1F);
         // Misc
         smelting(List.of(frozen_clock), TOOLS, Items.CLOCK, .01F, 80);
-        smelting(List.of(soulSludgeSet.getLast()), Items.SOUL_SAND, .1F);
+        smelting(List.of(soulSludge.breakable()), Items.SOUL_SAND, .1F);
         // BLASTING + SMELTING
         // Ores, raw materials, dusts, etc.
         blastingSet(List.of(pure_aquatic_pellets), aquatic_ingot, 1.3F);
-        blastingSet(List.of(realmiteOreSet.getFirst(), realmiteOreSet.getLast(), raw_realmite, realmite_dust), realmite_ingot, .7F);
-        blastingSet(List.of(arlemiteOreSet.getFirst(), arlemiteOreSet.getLast(), raw_arlemite, arlemite_dust), arlemite_ingot, 1);
-        blastingSet(List.of(rupeeOreSet.getFirst(), rupeeOreSet.getLast(), raw_rupee, rupee_dust), rupee_ingot, 1);
+        blastingSet(List.of(realmiteOre.stone(), realmiteOre.deepslate(), raw_realmite, realmite_dust), realmite_ingot, .7F);
+        blastingSet(List.of(arlemiteOre.stone(), arlemiteOre.deepslate(), raw_arlemite, arlemite_dust), arlemite_ingot, 1);
+        blastingSet(List.of(rupeeOre.stone(), rupeeOre.deepslate(), raw_rupee, rupee_dust), rupee_ingot, 1);
         blastingSet(List.of(shadow_dust), shadow_bar, 1);
         blastingSet(List.of(bloodgemOre), bloodgem, 1.2F);
         blastingSet(List.of(torriditeOre, raw_torridite, torridite_dust), torridite_ingot, .7F);
@@ -219,10 +219,10 @@ public class ModRecipeProvider extends RecipeProvider {
         smithing(bedrock_upgrade_template, List.of(corrupted_axe), bedrock_chunk, TOOLS, bedrock_axe);
         smithing(bedrock_upgrade_template, List.of(corrupted_hoe), bedrock_chunk, TOOLS, bedrock_hoe);
         // Color upgrade
-        smithing(color_template, List.of(SENG_FUR_BOOTS), fancySet.getFirst(), SANTA_BOOTS);
-        smithing(color_template, List.of(SENG_FUR_LEGGINGS), fancySet.getFirst(), SANTA_LEGGINGS);
-        smithing(color_template, List.of(SENG_FUR_CHESTPLATE), fancySet.getFirst(), SANTA_CHESTPLATE);
-        smithing(color_template, List.of(SENG_FUR_HELMET), fancySet.getFirst(), SANTA_HELMET);
+        smithing(color_template, List.of(SENG_FUR_BOOTS), fancy.wool(), SANTA_BOOTS);
+        smithing(color_template, List.of(SENG_FUR_LEGGINGS), fancy.wool(), SANTA_LEGGINGS);
+        smithing(color_template, List.of(SENG_FUR_CHESTPLATE), fancy.wool(), SANTA_CHESTPLATE);
+        smithing(color_template, List.of(SENG_FUR_HELMET), fancy.wool(), SANTA_HELMET);
         smithingColorFamily(color_template, ender_sword);
         smithingColorFamily(color_template, divine_sword);
         smithingColorFamily(color_template, ENDER_HELMET);
@@ -234,7 +234,7 @@ public class ModRecipeProvider extends RecipeProvider {
         smithingColorFamily(color_template, RUPEE_LEGGINGS);
         smithingColorFamily(color_template, RUPEE_BOOTS);
         // EXTRACTING
-        extracting(arcaniteStoneSet.getFirst().asItem(), BUILDING_BLOCKS, arcaniteSand.asItem(), .1F, 20);
+        extracting(arcanite.block().asItem(), BUILDING_BLOCKS, arcaniteSand.asItem(), .1F, 20);
         extracting(arcaniumRichSand.asItem(), piece_of_raw_arcanium, .1F, 20);
         extracting(rawArcanium.asItem(), arcanium, 1, 100);
         // MAUL SMASHING
@@ -461,7 +461,7 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void storageBlocks(ItemLike material) {
         storageBlocks(material, true);
     }
-    protected void woodSetFromLogs(List<? extends ItemLike> woodSet) {
+    protected void woodSetFromLogs(ItemLike... woodSet) {
         for(ItemLike entry : woodSet) {
             String path = ITEM.getKey(entry.asItem()).getPath();
             if(path.endsWith("_planks")) {
@@ -482,7 +482,7 @@ public class ModRecipeProvider extends RecipeProvider {
         }
     }
     protected void twilightSet(TagKey<Item> gem) {
-        ItemLike baseBrick = twilightBrickSet.getFirst();
+        ItemLike baseBrick = twilightBrick.block();
         String baseName = getTagBaseName(gem);
         String gemTagName = getTagName(gem);
         TagKey<Item> soul = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(gem.location().getNamespace(), "souls/" + baseName));

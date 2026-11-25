@@ -71,6 +71,6 @@ public class MineralPond extends GlacialPond {
 				setBlock(level, pos.above(), BlockRegistry.olivineCluster.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.UP));
 				setBlock(level, pos, BlockRegistry.buddingOlivine.get().defaultBlockState());
 			} return;
-		} setBlock(level, pos, BlockRegistry.cobbledFrozenStoneSet.getFirst().get().defaultBlockState());
+		} setBlock(level, pos, BlockRegistry.cobbledFrozen.block().get().defaultBlockState());
 	}
 }

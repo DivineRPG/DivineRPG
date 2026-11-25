@@ -26,12 +26,12 @@ public class ArcaniteVines implements Feature {
 		do {
 			pos = pos.below();
 			if(level.getBlockState(pos).isAir()) {
-				setBlock(level, pos, BlockRegistry.arcaniteVinesBody.get().defaultBlockState());
+				setBlock(level, pos, BlockRegistry.arcaniteVines.body().get().defaultBlockState());
 			} else {
 				break;
 			}
 		} while(random.nextBoolean());
-		setBlock(level, pos, BlockRegistry.arcaniteVinesHead.get().defaultBlockState());
+		setBlock(level, pos, BlockRegistry.arcaniteVines.head().get().defaultBlockState());
 		return true;
 	}
 }

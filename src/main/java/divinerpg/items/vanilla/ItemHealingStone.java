@@ -1,6 +1,6 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -9,7 +9,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.NeutralMob;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
@@ -21,7 +20,7 @@ import static divinerpg.registries.SoundRegistry.HEAL;
 import static net.minecraft.core.particles.ParticleTypes.HEART;
 import static net.minecraft.stats.Stats.ITEM_USED;
 
-public class ItemHealingStone extends ItemMod {
+public class ItemHealingStone extends ArcanicItem {
     int healAmount;
 
     public ItemHealingStone(Properties properties) {

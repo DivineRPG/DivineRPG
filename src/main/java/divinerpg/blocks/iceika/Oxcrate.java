@@ -10,10 +10,7 @@ import net.minecraft.world.level.block.state.*;
 
 import javax.annotation.Nullable;
 
-import static divinerpg.registries.BlockRegistry.oxdriteBlockSet;
-
 public class Oxcrate extends Crate {
-    public Oxcrate() {this(BlockBehaviour.Properties.ofFullCopy(oxdriteBlockSet.getLast().get()));}
     public Oxcrate(BlockBehaviour.Properties properties) {super(properties);}
     @Nullable
     @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

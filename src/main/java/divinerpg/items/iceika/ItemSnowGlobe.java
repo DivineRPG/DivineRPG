@@ -1,6 +1,6 @@
 package divinerpg.items.iceika;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.*;
 import divinerpg.utils.Utils;
 import net.minecraft.core.*;
@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
-public class ItemSnowGlobe extends ItemMod {
+public class ItemSnowGlobe extends ArcanicItem {
     public ItemSnowGlobe(Properties properties) {super(properties.stacksTo(1));}
     @Override public InteractionResult useOn(UseOnContext context) {
         Direction facing = context.getClickedFace();

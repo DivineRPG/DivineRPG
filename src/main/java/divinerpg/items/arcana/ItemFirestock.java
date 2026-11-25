@@ -1,6 +1,6 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.TagRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -9,14 +9,13 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 import static net.minecraft.core.Direction.UP;
 import static net.minecraft.tags.BlockTags.FIRE;
 
-public class ItemFirestock extends ItemMod {
+public class ItemFirestock extends ArcanicItem {
 
     public ItemFirestock(Properties properties) {
         super(properties);

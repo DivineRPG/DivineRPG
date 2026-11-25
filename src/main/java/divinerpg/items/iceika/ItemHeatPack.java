@@ -1,6 +1,6 @@
 package divinerpg.items.iceika;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.DataComponentRegistry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
@@ -14,7 +14,7 @@ import org.jspecify.annotations.Nullable;
 import static divinerpg.registries.SoundRegistry.SNAP;
 import static net.minecraft.stats.Stats.ITEM_USED;
 
-public class ItemHeatPack extends ItemMod {
+public class ItemHeatPack extends ArcanicItem {
     public ItemHeatPack(Properties properties) {super(properties.durability(1000));}
 
     @Override

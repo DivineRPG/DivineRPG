@@ -1,10 +1,10 @@
 package divinerpg.items.arcana;
 
+import divinerpg.attachments.Arcana;
 import divinerpg.entities.projectile.bullet.EntityMerikMissile;
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.registries.ItemRegistry;
-import divinerpg.utils.ArcanaHelper;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -24,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.function.Consumer;
 
-public class ItemMeriksMissile extends ItemMod {
+public class ItemMeriksMissile extends ArcanicItem {
     public static final int MAX_USE_DURATION = 72000;
 
     public ItemMeriksMissile(Item.Properties properties) {
@@ -47,7 +47,7 @@ public class ItemMeriksMissile extends ItemMod {
             if(charge > 1) charge = 1;
             float arcanaPoints = 50 * charge;
             float finalCharge = charge;
-            float amount = ArcanaHelper.getArcana(player);
+            float amount = Arcana.getAmount(player);
             if(amount >= arcanaPoints) {
                 if(finalCharge < .2);
                 float damage = Mth.clamp(finalCharge * 25, 2, 8);
@@ -56,7 +56,7 @@ public class ItemMeriksMissile extends ItemMod {
                 bullet.moveOrInterpolateTo(PositionPath.of(new Vec3(player.getX(), player.getY() + 1, player.getZ())));
                 bullet.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, 3, 1);
                 level.addFreshEntity(bullet);
-                if(!level.isClientSide()) ArcanaHelper.modifyAmount(player, -arcanaPoints);
+                if(!level.isClientSide()) Arcana.modifyAmount(player, -arcanaPoints);
             }
         }
         return false;

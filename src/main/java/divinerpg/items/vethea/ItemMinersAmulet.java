@@ -1,6 +1,6 @@
 package divinerpg.items.vethea;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 import static net.minecraft.core.component.DataComponents.POTION_CONTENTS;
 import static net.minecraft.world.effect.MobEffects.HASTE;
 
-public class ItemMinersAmulet extends ItemMod {
+public class ItemMinersAmulet extends ArcanicItem {
     public ItemMinersAmulet(Properties properties) {super(properties.stacksTo(1).component(POTION_CONTENTS, PotionContents.EMPTY.withEffectAdded(new MobEffectInstance(HASTE, 2 * 20, 1))));}
 
     @Override

@@ -15,6 +15,6 @@ public class Scorchdirt extends Block {
     protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         pos = pos.above();
         state = level.getBlockState(pos);
-        if(!state.is(this) && !state.is(BlockRegistry.scorchsoil.getLast()) && state.isRandomlyTicking()) state.randomTick(level, pos, random);
+        if(!state.is(this) && !state.is(BlockRegistry.scorchsoil.grass()) && state.isRandomlyTicking()) state.randomTick(level, pos, random);
     }
 }

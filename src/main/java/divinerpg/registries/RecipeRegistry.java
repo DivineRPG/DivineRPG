@@ -54,8 +54,8 @@ public class RecipeRegistry {
         //TODO: to make trade costs vary (and increase when NPCs are hit) + more trades appear if you keep trading
         public static final TradeGetter
                 LIVESTOCK_MERCHANT = (level, random) -> new DivineTrades[] {
-                new DivineTrades(divineWoodSet.get(3).toStack(16), shadow_coins.toStack(4), ehu_egg.toStack(2), random.nextInt(7), 5),
-                new DivineTrades(divineWoodSet.get(3).toStack(64), shadow_coins.toStack(7), husk_egg.toStack(2), random.nextInt(7), 5),
+                new DivineTrades(divine.log().toStack(16), shadow_coins.toStack(4), ehu_egg.toStack(2), random.nextInt(7), 5),
+                new DivineTrades(divine.log().toStack(64), shadow_coins.toStack(7), husk_egg.toStack(2), random.nextInt(7), 5),
                 new DivineTrades(new ItemStack(Blocks.STONE, 64), shadow_coins.toStack(3), stone_golem_egg.toStack(), random.nextInt(7), 5),
                 new DivineTrades(new ItemStack(Blocks.NETHER_BRICKS, 32), shadow_coins.toStack(5), smelter_egg.toStack(), random.nextInt(7), 5),
                 new DivineTrades(jungle_stone.toStack(2), shadow_coins.toStack(4), snapper_egg.toStack(3), random.nextInt(7), 5),
@@ -84,7 +84,7 @@ public class RecipeRegistry {
                         new DivineTrades(new ItemStack(Items.RAW_IRON, 4), new ItemStack(Items.GLOW_BERRIES, 2 + random.nextInt(14)), random.nextInt(7), 5),
                         new DivineTrades(new ItemStack(Blocks.DEEPSLATE, 32 + random.nextInt(32)), new ItemStack(Items.ARROW, 16), random.nextInt(3), 5),
                         new DivineTrades(new ItemStack(random.nextBoolean() ? Items.DIAMOND : Items.EMERALD, 8 + random.nextInt(2)), PotionContents.createItemStack(Items.POTION, Potions.NIGHT_VISION), random.nextInt(2), 5),
-                        new DivineTrades(new ItemStack(Items.COAL, 4 + random.nextInt(12)), divineWoodSet.get(3).toStack(4 + random.nextInt(12)), random.nextInt(3), 5)
+                        new DivineTrades(new ItemStack(Items.COAL, 4 + random.nextInt(12)), divine.log().toStack(4 + random.nextInt(12)), random.nextInt(3), 5)
                 },
                 WORKSHOP_MERCHANT = (level, random) -> new DivineTrades[]{
                         new DivineTrades(snowflake.toStack(6), SENG_FUR_HELMET.toStack(), random.nextInt(7), 5),
@@ -164,7 +164,7 @@ public class RecipeRegistry {
                 GROGLIN_WARRIOR = (level, random) ->  new DivineTrades[]{
                         new DivineTrades(olivine.toStack(12), snowBricks.toStack(8), random.nextInt(7), 1),
                         new DivineTrades(olivine.toStack(14), raw_seng_meat.toStack(2), random.nextInt(7), 5),
-                        new DivineTrades(olivine.toStack(16), workshopCarpetSet.getFirst().toStack(6), random.nextInt(7), 2),
+                        new DivineTrades(olivine.toStack(16), workshopCarpet.block().toStack(6), random.nextInt(7), 2),
                         new DivineTrades(olivine.toStack(8), cauldron_flesh.toStack(5), random.nextInt(7), 1),
                         new DivineTrades(olivine.toStack(), ice_stone.toStack(4), random.nextInt(7), 1)
                 },
@@ -199,7 +199,7 @@ public class RecipeRegistry {
                 GRUZZORLUG_MINER = (level, random) -> new DivineTrades[]{
                         new DivineTrades(oxdrite_pickaxe.toStack(), olivine.toStack(2), random.nextInt(7), 2),
                         new DivineTrades(olivine.toStack(7), brittleMoss.toStack(), random.nextInt(7), 2),
-                        new DivineTrades(olivine.toStack(12), cobaltiteSet.getFirst().toStack(10), random.nextInt(7), 2),
+                        new DivineTrades(olivine.toStack(12), cobaltite.block().toStack(10), random.nextInt(7), 2),
                         new DivineTrades(olivine.toStack(8), raw_oxdrite.toStack(2), random.nextInt(7), 1),
                         new DivineTrades(olivine.toStack(4), anthracite.toStack(2), random.nextInt(7), 1)
                 },
@@ -251,34 +251,34 @@ public class RecipeRegistry {
                         new DivineTrades(collector.toStack(13), degraded_key.toStack(), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(13), soul_key.toStack(), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(13), sludge_key.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), ancientBrickSet.get(5).toStack(16), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), ancientStoneSet.getLast().toStack(16), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), ancientTileSet.getLast().toStack(16), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), arcaniumMetalSet.getLast().toStack(16), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), arcaniumPowerSet.getLast().toStack(4), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), degradedBrickSet.get(5).toStack(16), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), dungeonLampSet.getLast().toStack(4), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), soulSludgeSet.getLast().toStack(16), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), soulStoneSet.getLast().toStack(16), random.nextInt(7), 5)
+                        new DivineTrades(collector.toStack(2), ancientBrick.blockBreakable().toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), ancientStone.breakable().toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), ancientTile.breakable().toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), arcaniumMetal.breakable().toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), arcaniumPower.breakable().toStack(4), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), degradedBrick.blockBreakable().toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), dungeonLamp.breakable().toStack(4), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), soulSludge.breakable().toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), soulStone.breakable().toStack(16), random.nextInt(7), 5)
                 },
                 LEORNA = (level, random) -> new DivineTrades[]{
-                        new DivineTrades(arcanium.toStack(), eucalyptus_root_seeds.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(arcanium.toStack(2), marsine_seeds.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(arcanium.toStack(2), firestock_seeds.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(arcanium.toStack(3), pinfly_seeds.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(arcanium.toStack(4), aquamarine_seeds.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(arcanium.toStack(5), hitchak_seeds.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(arcanium.toStack(7), veilo_seeds.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(arcanium.toStack(9), lamona_seeds.toStack(), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), arcaniteSoil.getFirst().toStack(16), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), arcaniteSoil.getLast().toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(), eucalyptusPlant.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(2), marsinePlant.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(2), firestockPlant.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(3), pinflyPlant.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(4), aquamarinePlant.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(5), hitchakPlant.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(7), veiloPlant.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(arcanium.toStack(9), lamonaPlant.toStack(), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), arcaniteSoil.grass().toStack(16), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), arcaniteSoil.grass().toStack(16), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(6), staff_of_enrichment.toStack(), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(8), serenade_of_infusion.toStack(), random.nextInt(7), 5)
                 },
                 LORD_VATTICUS = (level, random) -> new DivineTrades[]{
                         new DivineTrades(collector.toStack(), new ItemStack(Items.DYE.blue(), 8), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(2), new ItemStack(Items.EXPERIENCE_BOTTLE, 12), random.nextInt(7), 5),
-                        new DivineTrades(collector.toStack(2), soulSludgeSet.getLast().toStack(8), random.nextInt(7), 5),
+                        new DivineTrades(collector.toStack(2), soulSludge.breakable().toStack(8), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(2), weak_arcana_potion.toStack(2), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(4), strong_arcana_potion.toStack(2), random.nextInt(7), 5),
                         new DivineTrades(collector.toStack(), new ItemStack(Items.BLAZE_ROD, 2), random.nextInt(7), 5),
@@ -328,7 +328,7 @@ public class RecipeRegistry {
                         new DivineTrades(dirty_pearls.toStack(), lightDreamBricks.toStack(16), random.nextInt(7), 0),
                         new DivineTrades(dirty_pearls.toStack(), darkDreamBricks.toStack(16), random.nextInt(7), 0),
                         new DivineTrades(dirty_pearls.toStack(), redDreamBricks.toStack(16), random.nextInt(7), 0),
-                        new DivineTrades(dirty_pearls.toStack(2), dreamSoil.getFirst().toStack(64), random.nextInt(7), 0),
+                        new DivineTrades(dirty_pearls.toStack(2), dreamSoil.grass().toStack(64), random.nextInt(7), 0),
                         new DivineTrades(dirty_pearls.toStack(), smoothGlass.toStack(16), random.nextInt(7), 0),
                         new DivineTrades(dirty_pearls.toStack(4), firelight.toStack(), random.nextInt(7), 0),
                         new DivineTrades(dirty_pearls.toStack(4), new ItemStack(Blocks.CHEST, 1), random.nextInt(7), 0),

@@ -3,8 +3,6 @@ package divinerpg.items.base;
 
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
@@ -17,14 +15,13 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Supplier;
 
-import static divinerpg.DivineRPG.MODID;
 import static divinerpg.registries.LevelRegistry.MORTUM;
 import static divinerpg.utils.RarityList.RED;
 import static net.minecraft.ChatFormatting.AQUA;
 import static net.minecraft.world.Difficulty.PEACEFUL;
 import static net.minecraft.world.entity.EntitySpawnReason.MOB_SUMMONED;
 
-public class ItemBossSpawner extends ItemMod {
+public class ItemBossSpawner extends ArcanicItem {
     private final Supplier<EntityType<?>> ent;
     private final String langKey;
     public ResourceKey<Level> dimensionID;

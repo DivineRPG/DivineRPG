@@ -1,10 +1,10 @@
 package divinerpg.entities.arcana;
 
+import divinerpg.attachments.Arcana;
 import divinerpg.entities.base.EntityDivineNeutral;
 import divinerpg.entities.projectile.bullet.EntitySkyreBullet;
 import divinerpg.registries.EntityRegistry;
 import divinerpg.registries.SoundRegistry;
-import divinerpg.utils.ArcanaHelper;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
@@ -22,10 +22,10 @@ public class EntitySkyre extends EntityDivineNeutral {
         if(!level().isClientSide()) {
             ServerPlayer player = (ServerPlayer) level().getNearestPlayer(this, 8);
             if(player != null && (!player.isCreative() || !player.isSpectator())) {
-                ArcanaHelper.consumeArcana(player, -1);
-                ArcanaHelper.consumeArcana(this, 1);
-                if(ArcanaHelper.getArcana(this) >= 200) {
-                    ArcanaHelper.setArcana(this, 0);
+                Arcana.modifyAmount(player, -1);
+                Arcana.modifyAmount(this, 1);
+                if(Arcana.getAmount(this) >= 200) {
+                    Arcana.setAmount(this, 0);
                     if(isAlive() && getTarget() != null && player.getHealth() >= 2) {
                         EntitySkyreBullet entity = EntityRegistry.SKYRE_BULLET.get().create(level(), EntitySpawnReason.EVENT);
                         entity.setOwner(player);

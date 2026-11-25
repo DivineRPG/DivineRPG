@@ -21,7 +21,7 @@ public class ItemWinterberry extends BlockItem {
         if(level.getBlockState(pos).is(BlockRegistry.brittleMoss.get()) && face.getAxis() == Direction.Axis.Y) {
             boolean b;
             if(b = (face == Direction.UP && level.getBlockState(above).isAir())) level.setBlockAndUpdate(above, BlockRegistry.winterberryBush.get().defaultBlockState());
-            else if(b = (face == Direction.DOWN && level.getBlockState(below).isAir())) level.setBlockAndUpdate(below, BlockRegistry.winterberryVinesHead.get().defaultBlockState());
+            else if(b = (face == Direction.DOWN && level.getBlockState(below).isAir())) level.setBlockAndUpdate(below, BlockRegistry.winterberryVines.head().get().defaultBlockState());
             if(b) {
                 context.getItemInHand().consume(1, player);
                 level.playSound(player, pos, SoundEvents.SWEET_BERRY_BUSH_PLACE, SoundSource.BLOCKS);

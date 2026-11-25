@@ -31,9 +31,8 @@ public class ArcanaRenderer {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
-        var arcanaData = mc.player.getData(AttachmentRegistry.ARCANA.attachment.get());
-        float arcana = arcanaData.getValue();
-        float max = arcanaData.getMaxValue();
+        float arcana = AttachmentRegistry.ARCANA.get(mc.player);
+        float max = AttachmentRegistry.MAX_ARCANA.get(mc.player);
 
         int x = mc.getWindow().getGuiScaledWidth() - Config.Values.ARCANA_BAR_POS_X;
         int y = mc.getWindow().getGuiScaledHeight() - Config.Values.ARCANA_BAR_POS_Y;

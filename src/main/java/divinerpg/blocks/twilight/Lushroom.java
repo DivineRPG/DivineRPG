@@ -13,6 +13,6 @@ public class Lushroom extends Flower {
         super(ABSORPTION, 5, true, p);
     }
     @Override protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return super.mayPlaceOn(state, level, pos) || state.is(BlockRegistry.scorchaltSet.getFirst());
+        return super.mayPlaceOn(state, level, pos) || state.is(BlockRegistry.scorchalt.block());
     }
 }

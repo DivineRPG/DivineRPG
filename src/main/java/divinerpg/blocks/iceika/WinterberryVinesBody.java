@@ -27,7 +27,7 @@ public class WinterberryVinesBody extends WeepingVinesPlantBlock implements Bone
         super(properties);
         registerDefaultState(this.stateDefinition.any().setValue(RIPE, false));
     }
-    @Override protected GrowingPlantHeadBlock getHeadBlock() {return (GrowingPlantHeadBlock) BlockRegistry.winterberryVinesHead.get();}
+    @Override protected GrowingPlantHeadBlock getHeadBlock() {return (GrowingPlantHeadBlock) BlockRegistry.winterberryVines.head().get();}
     @Override public boolean isRandomlyTicking(BlockState state) {return !state.getValue(RIPE);}
     @Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(random.nextFloat() < .11F) level.setBlock(pos, state.setValue(RIPE, true), 3);
@@ -41,7 +41,7 @@ public class WinterberryVinesBody extends WeepingVinesPlantBlock implements Bone
     @Override
     public void playerDestroy(ServerLevel level, ServerPlayer player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack destroyedWith) {
         BlockState aboveState = level.getBlockState(pos.above());
-        if(aboveState.getBlock() == BlockRegistry.winterberryVinesBody.get() && aboveState.getValue(RIPE))
+        if(aboveState.getBlock() == BlockRegistry.winterberryVines.body().get() && aboveState.getValue(RIPE))
             popResource(level, pos.above(), new ItemStack(winterberry.get(), 1));
         super.playerDestroy(level, player, pos, state, blockEntity, destroyedWith);
     }

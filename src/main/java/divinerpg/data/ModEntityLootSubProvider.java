@@ -471,7 +471,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
 
         registerLoot(MEGALITH,
                 lootingPool(skythern_soul.get(), 0, 1),
-                playerKillPool(lootingItem(sky_plant_seeds.get(), 0, 2)).when(lootingChance(0.5F, 0.03F)));
+                playerKillPool(lootingItem(BlockRegistry.skyPlant.get(), 0, 2)).when(lootingChance(0.5F, 0.03F)));
     }
 
     // Iceika
@@ -511,7 +511,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
         registerGroup(List.of(GLACIDE, HASTREUS), iceShards2, iceShards3);
 
         registerLoot(MAMOTH,
-                playerLootingPool(BlockRegistry.fancySet.getFirst().get(), 1, 2),
+                playerLootingPool(BlockRegistry.fancy.wool().get(), 1, 2),
                 lootingPool(Items.BONE, 0, 4));
 
         registerLoot(ROBBIN,
@@ -646,7 +646,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
 
         registerLoot(TERMID,
                 lootingPool(wildwood_soul.get(), 0, 2),
-                pool(lootItem(BlockRegistry.wildwoodWoodSet.get(3).get(), 0, 4)));
+                pool(lootItem(BlockRegistry.wildwood.log().get(), 0, 4)));
 
         registerLoot(WILDWOOD_CADILLION,
                 lootingPool(wildwood_soul.get(), 0, 1),
@@ -655,7 +655,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
         registerLoot(WILDWOOD_GOLEM,
                 lootingPool(wildwood_soul.get(), 1, 3),
                 magicMeat(),
-                playerKillPool(lootingItem(moonbulb_seeds.get(), 1, 3)).when(lootingChance(0.5F, 0.03F)));
+                playerKillPool(lootingItem(BlockRegistry.moonbulbPlant.get(), 1, 3)).when(lootingChance(0.5F, 0.03F)));
     }
 
     // Apalachia
@@ -669,8 +669,8 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
                 enrichedMeat(),
                 // purple or pink seeds
                 playerKillPool(
-                        lootingItem(purple_glowbone_seeds.get(), 1, 3),
-                        lootingItem(pink_glowbone_seeds.get(), 1, 3))
+                        lootingItem(BlockRegistry.purpleGlowbonePlant.get(), 1, 3),
+                        lootingItem(BlockRegistry.pinkGlowbonePlant.get(), 1, 3))
                         .when(lootingChance(0.5F, 0.03F)));
 
         registerLoot(APALACHIA_TOMO,
@@ -811,7 +811,7 @@ public class ModEntityLootSubProvider extends EntityLootSubProvider {
         registerLoot(TERMASECT,
                 lootingPool(wildwood_heart.get()),
                 playerLootingPool(wildwood_fragments.get(), 0, 4),
-                pool(lootItem(BlockRegistry.wildwoodWoodSet.get(3).get(), 64, 100)),
+                pool(lootItem(BlockRegistry.wildwood.log().get(), 64, 100)),
                 playerKillPool(lootItem(wildwood_blitz.get())),
                 statue(BlockRegistry.termasectStatue.get()));
 

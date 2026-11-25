@@ -1,6 +1,6 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.BlockRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.core.BlockPos;
@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.Block;
 
 import java.util.function.Consumer;
 
-public class ItemStaffEnrichment extends ItemMod {
+public class ItemStaffEnrichment extends ArcanicItem {
     public ItemStaffEnrichment(Properties properties) {
         super(properties.durability(100));
     }
@@ -29,9 +29,9 @@ public class ItemStaffEnrichment extends ItemMod {
         BlockPos pos = context.getClickedPos();
         Level level = context.getLevel();
         Block block = level.getBlockState(pos).getBlock();
-        if(block == BlockRegistry.arcaniteSoil.getFirst().get()){
+        if(block == BlockRegistry.arcaniteSoil.dirt().get()){
             level.levelEvent(1505, pos, 0);
-            level.setBlock(pos, BlockRegistry.arcaniteSoil.getLast().get().defaultBlockState(), 0);
+            level.setBlock(pos, BlockRegistry.arcaniteSoil.grass().get().defaultBlockState(), 0);
             player.getItemInHand(hand).hurtAndBreak(1, player, hand);
             return InteractionResult.SUCCESS;
         }

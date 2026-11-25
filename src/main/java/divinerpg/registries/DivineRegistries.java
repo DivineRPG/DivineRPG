@@ -65,7 +65,7 @@ public class DivineRegistries {
     public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS = DeferredRegister.create(BuiltInRegistries.FOLIAGE_PLACER_TYPE, MODID);
     public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = DeferredRegister.create(BuiltInRegistries.TRUNK_PLACER_TYPE, MODID);
 
-    public static final Supplier<CreativeModeTab> BLOCKS_TAB = CREATIVE_MODE_TABS.register("blocks_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.blocks")).icon(() -> BlockRegistry.arlemiteOreSet.getFirst().asItem().getDefaultInstance()).build());
+    public static final Supplier<CreativeModeTab> BLOCKS_TAB = CREATIVE_MODE_TABS.register("blocks_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.blocks")).icon(() -> BlockRegistry.arlemiteOre.stone().asItem().getDefaultInstance()).build());
     public static final Supplier<CreativeModeTab> TOOLS_TAB = CREATIVE_MODE_TABS.register("tools_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.tools")).icon(ItemRegistry.realmite_pickaxe::toStack).build());
     public static final Supplier<CreativeModeTab> MISC_TAB = CREATIVE_MODE_TABS.register("misc_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.divinerpg.misc")).icon(ItemRegistry.arlemite_ingot::toStack).build());
 

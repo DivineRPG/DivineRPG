@@ -1,7 +1,7 @@
 package divinerpg.items.vethea;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 
-public class ItemVethean extends ItemMod {
+public class ItemVethean extends ArcanicItem {
     public ItemVethean(Properties properties) {super(properties);}
 }

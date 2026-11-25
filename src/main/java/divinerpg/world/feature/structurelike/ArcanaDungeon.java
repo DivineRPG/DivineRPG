@@ -38,7 +38,7 @@ public class ArcanaDungeon implements Feature {
 	public boolean place(WorldGenLevel level, ChunkGenerator g, RandomSource random, BlockPos pos) {
 		if(doorway == null) {
 			StructureTemplateManager manager = level.getLevel().getServer().getStructureTemplateManager();
-			BlockState degraded = BlockRegistry.degradedBrickSet.getFirst().get().defaultBlockState(), ancientBrick = BlockRegistry.ancientBrickSet.getFirst().get().defaultBlockState(), sludge = BlockRegistry.soulStoneSet.getFirst().get().defaultBlockState(), ancient = BlockRegistry.ancientStoneSet.getFirst().get().defaultBlockState();
+			BlockState degraded = BlockRegistry.degradedBrick.block().get().defaultBlockState(), ancientBrick = BlockRegistry.ancientBrick.block().get().defaultBlockState(), sludge = BlockRegistry.soulStone.unbreakable().get().defaultBlockState(), ancient = BlockRegistry.ancientStone.unbreakable().get().defaultBlockState();
 			doorway = manager.getOrCreate(Identifier.fromNamespaceAndPath(DivineRPG.MODID, "arcana/doors/doorway"));
 			entranceRoom = manager.getOrCreate(Identifier.fromNamespaceAndPath(DivineRPG.MODID, "arcana/entrance_room"));
 			stairs = manager.getOrCreate(Identifier.fromNamespaceAndPath(DivineRPG.MODID, "arcana/stairs"));
@@ -58,7 +58,7 @@ public class ArcanaDungeon implements Feature {
 					new Room(manager, "arcana/any/pillars", ancientBrick),
 					new Room(manager, "arcana/any/pillars2", degraded),
 					new Room(manager, "arcana/any/razorback", ancientBrick),
-					new Room(manager, "arcana/any/three_squares", BlockRegistry.soulStoneSet.getFirst().get().defaultBlockState()),
+					new Room(manager, "arcana/any/three_squares", BlockRegistry.soulStone.unbreakable().get().defaultBlockState()),
 					new Room(manager, "arcana/any/zelus_farm", degraded),
 					new Room(manager, "arcana/any/serpentine", ancientBrick)
 			};
@@ -131,8 +131,8 @@ public class ArcanaDungeon implements Feature {
 		}
 		for(int x = 0; x < 16; x++) {
 			for(int z = 0; z < 16; z++) {
-				setBlock(level, pos.offset(x, 32, z), BlockRegistry.ancientStoneSet.getFirst().get().defaultBlockState());
-				setBlock(level, pos.offset(x, 33, z), BlockRegistry.ancientStoneSet.getLast().get().defaultBlockState());
+				setBlock(level, pos.offset(x, 32, z), BlockRegistry.ancientStone.unbreakable().get().defaultBlockState());
+				setBlock(level, pos.offset(x, 33, z), BlockRegistry.ancientStone.unbreakable().get().defaultBlockState());
 			}
 		}
 		if(generate(level, random, pos, (byte)0)) {
@@ -167,7 +167,7 @@ public class ArcanaDungeon implements Feature {
 	}
 	private void genEntrance(WorldGenLevel level, RandomSource random, BlockPos pos, byte roomShape) {
 		placeStructure(entranceRoom, level, random, pos.offset(1, 0, 1), Rotation.NONE);
-		genWalls(level, random, pos, BlockRegistry.ancientBrickSet.getFirst().get().defaultBlockState(), roomShape, null);
+		genWalls(level, random, pos, BlockRegistry.ancientBrick.block().get().defaultBlockState(), roomShape, null);
 		int y = 8;
 		while(!level.getBlockState(pos.offset(6, y, 6)).isAir()) {
 			placeStructure(stairs, level, random, pos.offset(6, y, 6), Rotation.NONE);

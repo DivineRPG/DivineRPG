@@ -1,6 +1,6 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,7 +17,7 @@ import static divinerpg.registries.SoundRegistry.HEAL;
 import static net.minecraft.core.particles.ParticleTypes.HEART;
 import static net.minecraft.stats.Stats.ITEM_USED;
 
-public class ItemSerenadeOfHealth extends ItemMod {
+public class ItemSerenadeOfHealth extends ArcanicItem {
     int healAmount;
     public ItemSerenadeOfHealth(Properties properties) {
         super(properties.durability(7).stacksTo(1));

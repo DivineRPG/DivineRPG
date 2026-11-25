@@ -11,7 +11,7 @@ import net.minecraft.world.item.component.TooltipDisplay;
 
 import java.util.function.Consumer;
 
-public class ItemModFood extends ItemMod {
+public class ItemModFood extends ArcanicItem {
     protected boolean fastFood;
     public ItemModFood(FoodProperties food, Properties properties) {
         super(properties.food(food));

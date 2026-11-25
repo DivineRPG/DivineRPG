@@ -1,6 +1,6 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -12,7 +12,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
-public class ItemWizardsBook extends ItemMod {
+public class ItemWizardsBook extends ArcanicItem {
     public ItemWizardsBook(Properties properties) {super(properties.stacksTo(1));}
     @Override public InteractionResult useOn(UseOnContext context) {
         BlockPos pos = context.getClickedPos();

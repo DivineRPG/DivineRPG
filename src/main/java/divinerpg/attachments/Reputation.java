@@ -1,9 +1,9 @@
-package divinerpg.attachments.data;
+package divinerpg.attachments;
 
 import java.util.function.Supplier;
 
 import com.mojang.serialization.Codec;
-import divinerpg.attachments.data.base.ServerHandledAttachment;
+import divinerpg.attachments.base.ServerHandledAttachment;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.world.entity.Entity;
 

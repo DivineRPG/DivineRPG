@@ -20,9 +20,9 @@ public class WinterberryVinesHead extends ArcaniteVinesHead {
     @Override
     public void playerDestroy(ServerLevel level, ServerPlayer player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack destroyedWith) {
         BlockState aboveState = level.getBlockState(pos.above());
-        if(aboveState.getBlock() == BlockRegistry.winterberryVinesBody.get() && aboveState.getValue(RIPE))
+        if(aboveState.getBlock() == BlockRegistry.winterberryVines.body().get() && aboveState.getValue(RIPE))
             popResource(level, pos.above(), new ItemStack(winterberry.get(), 1));
         super.playerDestroy(level, player, pos, state, blockEntity, destroyedWith);
     }
-    @Override protected Block getBodyBlock() {return BlockRegistry.winterberryVinesBody.get();}
+    @Override protected Block getBodyBlock() {return BlockRegistry.winterberryVines.body().get();}
 }

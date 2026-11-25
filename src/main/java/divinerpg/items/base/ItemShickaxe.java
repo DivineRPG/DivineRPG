@@ -4,7 +4,7 @@ import divinerpg.utils.ToolStats;
 
 import static divinerpg.registries.TagRegistry.Blocks.MINEABLE_WITH_SHICKAXE;
 
-public class ItemShickaxe extends ItemMod {
+public class ItemShickaxe extends ArcanicItem {
     public ItemShickaxe(ToolStats stats,Properties properties) {
         super(properties.hoe(stats.getMaterial(), 1.0F, -2.4F).pickaxe(stats.getMaterial(), 1.0F, -2.4F).shovel(stats.getMaterial(), 1.0F, -2.4F).axe(stats.getMaterial(), 1.0F, -2.4F).tool(stats.getMaterial(), MINEABLE_WITH_SHICKAXE, 1.0F, -2.4F, 0));
     }

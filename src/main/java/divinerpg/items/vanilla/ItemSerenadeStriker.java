@@ -1,6 +1,6 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 import java.util.function.Consumer;
 
-public class ItemSerenadeStriker extends ItemMod {
+public class ItemSerenadeStriker extends ArcanicItem {
     public ItemSerenadeStriker(Properties properties) {
         super(properties.stacksTo(1).durability(100));
         cooldown = 80;

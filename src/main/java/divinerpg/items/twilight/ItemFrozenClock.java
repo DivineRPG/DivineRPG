@@ -1,22 +1,18 @@
 package divinerpg.items.twilight;
 
 import divinerpg.DivineRPG;
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.*;
 import divinerpg.utils.Utils;
 import net.minecraft.core.*;
-import net.minecraft.core.Direction.Axis;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.*;
-import net.minecraft.sounds.*;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-public class ItemFrozenClock extends ItemMod {
+public class ItemFrozenClock extends ArcanicItem {
     public static final Identifier ADVANCEMENT_OOPS = Identifier.fromNamespaceAndPath(DivineRPG.MODID, "divine/oops");
     public ItemFrozenClock(Properties properties) {super(properties.component(DataComponentRegistry.variant, (byte)0));}
     public static InteractionResult useOnPortalBlock(Level level, Player player, BlockPos facing, BlockState block, byte timeOfDay) {

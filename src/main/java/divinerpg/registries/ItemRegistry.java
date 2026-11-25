@@ -56,9 +56,10 @@ public class ItemRegistry {
     public static final List<DeferredItem<? extends Item>> misc = new ArrayList<>();
 
     //Items
-    public static final DeferredItem<Item> realmite_nugget = register("realmite_nugget");
-    public static final DeferredItem<Item> arlemite_nugget = register("arlemite_nugget");
-    public static final DeferredItem<Item> rupee_nugget = register("rupee_nugget");
+    public static final DeferredItem<Item>
+        realmite_nugget = register("realmite_nugget"),
+        arlemite_nugget = register("arlemite_nugget"),
+        rupee_nugget = register("rupee_nugget");
     public static final DeferredItem<Item> torridite_nugget = register("torridite_nugget");
     public static final DeferredItem<Item> oxdrite_nugget = register("oxdrite_nugget");
     public static final DeferredItem<Item> piece_of_raw_arcanium = register("piece_of_raw_arcanium");
@@ -75,7 +76,7 @@ public class ItemRegistry {
     public static final DeferredItem<Item> oxdrite_ingot = register("oxdrite_ingot");
 
     public static final DeferredItem<Item> rock_chunks = register("rock_chunks");
-    public static final DeferredItem<Item> bedrock_chunk = register("bedrock_chunk", properties -> new ItemMod(properties.fireResistant()));
+    public static final DeferredItem<Item> bedrock_chunk = register("bedrock_chunk", properties -> new ArcanicItem(properties.fireResistant()));
     public static final DeferredItem<Item> torridite_chunk = register("torridite_chunk");
     public static final DeferredItem<Item> anthracite = register("anthracite");
 
@@ -90,7 +91,7 @@ public class ItemRegistry {
     public static final DeferredItem<Item> skythern_fragments = register("skythern_fragments");
     public static final DeferredItem<Item> mortum_fragments = register("mortum_fragments");
     public static final DeferredItem<Item> collector_fragments = register("collector_fragments");
-    public static final DeferredItem<Item> collector = register("collector", ItemCollector::new);
+    public static final DeferredItem<Item> collector = register("collector", Collector::new);
 
     public static final DeferredItem<Item> raw_realmite = register("raw_realmite");
     public static final DeferredItem<Item> raw_arlemite = register("raw_arlemite");
@@ -137,16 +138,16 @@ public class ItemRegistry {
     public static final DeferredItem<Item> ice_shards = register("ice_shards");
     public static final DeferredItem<Item> terran_shards = register("terran_shards");
     public static final DeferredItem<Item> jungle_shards = register("jungle_shards");
-    public static final DeferredItem<Item> molten_shards = register("molten_shards", properties -> new ItemMod(properties.fireResistant()));
+    public static final DeferredItem<Item> molten_shards = register("molten_shards", properties -> new ArcanicItem(properties.fireResistant()));
     public static final DeferredItem<Item> corrupted_shards = register("corrupted_shards");
     public static final DeferredItem<Item> ender_shards = register("ender_shards");
     public static final DeferredItem<Item> divine_shards = register("divine_shards");
 
-    public static final DeferredItem<Item> shadow_stone = register("shadow_stone", properties -> new ItemMod(properties.fireResistant()));
+    public static final DeferredItem<Item> shadow_stone = register("shadow_stone", properties -> new ArcanicItem(properties.fireResistant()));
     public static final DeferredItem<Item> ice_stone = register("ice_stone");
     public static final DeferredItem<Item> terran_stone = register("terran_stone");
     public static final DeferredItem<Item> jungle_stone = register("jungle_stone");
-    public static final DeferredItem<Item> molten_stone = register("molten_stone", properties -> new ItemMod(properties.fireResistant()));
+    public static final DeferredItem<Item> molten_stone = register("molten_stone", properties -> new ArcanicItem(properties.fireResistant()));
     public static final DeferredItem<Item> soulfire_stone = register("soulfire_stone");
     public static final DeferredItem<Item> corrupted_stone = register("corrupted_stone");
     public static final DeferredItem<Item> ender_stone = register("ender_stone");
@@ -274,21 +275,6 @@ public class ItemRegistry {
     public static final DeferredItem<Item> dream_sweets = register("dream_sweets", properties -> new ItemHealingFood(FoodList.DREAM_SWEETS, properties));
     public static final DeferredItem<Item> dream_sours = register("dream_sours", properties -> new ItemHealingFood(FoodList.DREAM_SOURS, properties));
 
-    public static final DeferredItem<Item> tomato_seeds = registerSeed("tomato_seeds", BlockRegistry.tomatoPlant);
-    public static final DeferredItem<Item> white_mushroom_seeds = registerSeed("white_mushroom_seeds", BlockRegistry.whiteMushroomPlant);
-    public static final DeferredItem<Item> aquamarine_seeds = registerSeed("aquamarine_seeds", BlockRegistry.aquamarinePlant);
-    public static final DeferredItem<Item> eucalyptus_root_seeds = registerSeed("eucalyptus_root_seeds", BlockRegistry.eucalyptusPlant);
-    public static final DeferredItem<Item> firestock_seeds = registerSeed("firestock_seeds", BlockRegistry.firestockPlant);
-    public static final DeferredItem<Item> hitchak_seeds = registerSeed("hitchak_seeds", BlockRegistry.hitchakPlant);
-    public static final DeferredItem<Item> lamona_seeds = registerSeed("lamona_seeds", BlockRegistry.lamonaPlant);
-    public static final DeferredItem<Item> marsine_seeds = registerSeed("marsine_seeds", BlockRegistry.marsinePlant);
-    public static final DeferredItem<Item> pinfly_seeds = registerSeed("pinfly_seeds", BlockRegistry.pinflyPlant);
-    public static final DeferredItem<Item> veilo_seeds = registerSeed("veilo_seeds", BlockRegistry.veiloPlant);
-    public static final DeferredItem<Item> moonbulb_seeds = registerSeed("moonbulb_seeds", BlockRegistry.moonbulbPlant);
-    public static final DeferredItem<Item> pink_glowbone_seeds = registerSeed("pink_glowbone_seeds", BlockRegistry.pinkGlowbonePlant);
-    public static final DeferredItem<Item> purple_glowbone_seeds = registerSeed("purple_glowbone_seeds", BlockRegistry.purpleGlowbonePlant);
-    public static final DeferredItem<Item> sky_plant_seeds = registerSeed("sky_plant_seeds", BlockRegistry.skyPlant);
-
     public static final DeferredItem<Item> snapper_egg = registerEgg("snapper_spawn_egg", () -> EntityRegistry.SNAPPER.get());
     public static final DeferredItem<Item> ehu_egg = registerEgg("ehu_spawn_egg", () -> EntityRegistry.EHU.get());
     public static final DeferredItem<Item> husk_egg = registerEgg("husk_spawn_egg", () -> EntityRegistry.HUSK.get());
@@ -338,12 +324,12 @@ public class ItemRegistry {
     public static final DeferredItem<Item> weak_arcana_potion = register("weak_arcana_potion", properties -> new ItemArcanaPotion(FoodList.WEAK_ARCANA_POTION, 100, properties));
     public static final DeferredItem<Item> strong_arcana_potion = register("strong_arcana_potion", properties -> new ItemArcanaPotion(FoodList.STRONG_ARCANA_POTION, 200, properties));
     public static final DeferredItem<Item> heat_pack = register("heat_pack", properties -> new ItemHeatPack(properties));
-    public static final DeferredItem<Item> glacial_wall_totem = register("glacial_wall_totem", properties -> new ItemMod(properties.stacksTo(1)));
+    public static final DeferredItem<Item> glacial_wall_totem = register("glacial_wall_totem", properties -> new ArcanicItem(properties.stacksTo(1)));
     public static final DeferredItem<Item> miners_amulet = register("miners_amulet", properties -> new ItemMinersAmulet(properties));
     public static final DeferredItem<Item> band_of_lheiva_hunting = register("band_of_lheiva_hunting", properties -> new ItemVethean(properties.stacksTo(1)));
 
-    public static final DeferredItem<Item> md_red_stains = register("md_red_stains_on_the_bluest_snow", properties -> new ItemMod(properties.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(RED_STAINS_SONG.key())));
-    public static final DeferredItem<Item> md_destiny = register("md_destiny", properties -> new ItemMod(properties.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.DESTINY_SONG.key())));
+    public static final DeferredItem<Item> md_red_stains = register("md_red_stains_on_the_bluest_snow", properties -> new ArcanicItem(properties.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(RED_STAINS_SONG.key())));
+    public static final DeferredItem<Item> md_destiny = register("md_destiny", properties -> new ArcanicItem(properties.stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(SoundRegistry.DESTINY_SONG.key())));
 
     public static final DeferredItem<Item> ancient_key = register("ancient_key");
     public static final DeferredItem<Item> degraded_key = register("degraded_key");
@@ -659,34 +645,7 @@ public class ItemRegistry {
         halite_shickaxe = registerShickaxe("halite_shickaxe", ToolStats.HALITE_SHICKAXE, Rarity.COMMON, false),
         dream_shovel    = registerShovel("dream_shovel", ToolStats.DREAM_SHOVEL, Rarity.COMMON, false),
         dream_pickaxe   = registerPickaxe("dream_pickaxe", ToolStats.DREAM_PICKAXE, Rarity.COMMON, false),
-        dream_axe       = registerAxe("dream_axe", ToolStats.DREAM_AXE, Rarity.COMMON, false),
-        nightmare_bed = register("nightmare_bed", properties ->  new ItemNightmareBed(properties)),
-        divine_sign            = register("divine_sign"/*, () -> new DivineSign(BlockRegistry.divineSign.get(), BlockRegistry.divineWallSign.get(), new Item.Properties().setId(key("divine_sign")))*/),
-        divine_hanging_sign    = register("divine_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.divineHangingSign.get(), BlockRegistry.divineHangingWallSign.get(), new Item.Properties().setId(key("divine_hanging_sign")))*/),
-        shiverspine_sign       = register("shiverspine_sign"/*, () -> new DivineSign(BlockRegistry.shiverspineSign.get(), BlockRegistry.shiverspineWallSign.get(), new Item.Properties().setId(key("shiverspine_sign")))*/),
-        shiverspine_hanging_sign = register("shiverspine_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.shiverspineHangingSign.get(), BlockRegistry.shiverspineHangingWallSign.get(), new Item.Properties().setId(key("shiverspine_hanging_sign")))*/),
-        auroraoak_sign         = register("auroraoak_sign"/*, () -> new DivineSign(BlockRegistry.auroraoakSign.get(), BlockRegistry.auroraoakWallSign.get(), new Item.Properties().setId(key("auroraoak_sign")))*/),
-        auroraoak_hanging_sign = register("auroraoak_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.auroraoakHangingSign.get(), BlockRegistry.auroraoakHangingWallSign.get(), new Item.Properties().setId(key("auroraoak_hanging_sign")))*/),
-        cozybark_sign          = register("cozybark_sign"/*, () -> new DivineSign(BlockRegistry.cozybarkSign.get(), BlockRegistry.cozybarkWallSign.get(), new Item.Properties().setId(key("cozybark_sign")))*/),
-        cozybark_hanging_sign  = register("cozybark_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.cozybarkHangingSign.get(), BlockRegistry.cozybarkHangingWallSign.get(), new Item.Properties().setId(key("cozybark_hanging_sign")))*/),
-        streamleaf_sign        = register("streamleaf_sign"/*, () -> new DivineSign(BlockRegistry.streamleafSign.get(), BlockRegistry.streamleafWallSign.get(), new Item.Properties().setId(key("streamleaf_sign")))*/),
-        streamleaf_hanging_sign = register("streamleaf_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.streamleafHangingSign.get(), BlockRegistry.streamleafHangingWallSign.get(), new Item.Properties().setId(key("streamleaf_hanging_sign")))*/),
-        eucalyptus_sign        = register("eucalyptus_sign"/*, () -> new DivineSign(BlockRegistry.eucalyptusSign.get(), BlockRegistry.eucalyptusWallSign.get(), new Item.Properties().setId(key("eucalyptus_sign")))*/),
-        eucalyptus_hanging_sign = register("eucalyptus_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.eucalyptusHangingSign.get(), BlockRegistry.eucalyptusHangingWallSign.get(), new Item.Properties().setId(key("eucalyptus_hanging_sign")))*/),
-        eden_sign              = register("eden_sign"/*, () -> new DivineSign(BlockRegistry.edenSign.get(), BlockRegistry.edenWallSign.get(), new Item.Properties().setId(key("eden_sign")))*/),
-        eden_hanging_sign      = register("eden_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.edenHangingSign.get(), BlockRegistry.edenHangingWallSign.get(), new Item.Properties().setId(key("eden_hanging_sign")))*/),
-        wildwood_sign          = register("wildwood_sign"/*, () -> new DivineSign(BlockRegistry.wildwoodSign.get(), BlockRegistry.wildwoodWallSign.get(), new Item.Properties().setId(key("wildwood_sign")))*/),
-        wildwood_hanging_sign  = register("wildwood_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.wildwoodHangingSign.get(), BlockRegistry.wildwoodHangingWallSign.get(), new Item.Properties().setId(key("wildwood_hanging_sign")))*/),
-        apalachia_sign         = register("apalachia_sign"/*, () -> new DivineSign(BlockRegistry.apalachiaSign.get(), BlockRegistry.apalachiaWallSign.get(), new Item.Properties().setId(key("apalachia_sign")))*/),
-        apalachia_hanging_sign = register("apalachia_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.apalachiaHangingSign.get(), BlockRegistry.apalachiaHangingWallSign.get(), new Item.Properties().setId(key("apalachia_hanging_sign")))*/),
-        skythern_sign          = register("skythern_sign"/*, () -> new DivineSign(BlockRegistry.skythernSign.get(), BlockRegistry.skythernWallSign.get(), new Item.Properties().setId(key("skythern_sign")))*/),
-        skythern_hanging_sign  = register("skythern_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.skythernHangingSign.get(), BlockRegistry.skythernHangingWallSign.get(), new Item.Properties().setId(key("skythern_hanging_sign")))*/),
-        mortum_sign            = register("mortum_sign"/*, () -> new DivineSign(BlockRegistry.mortumSign.get(), BlockRegistry.mortumWallSign.get(), new Item.Properties().setId(key("mortum_sign")))*/),
-        mortum_hanging_sign    = register("mortum_hanging_sign"/*, () -> new DivineSignHanging(BlockRegistry.mortumHangingSign.get(), BlockRegistry.mortumHangingWallSign.get(), new Item.Properties().setId(key("mortum_hanging_sign")))*/),
-        aqua_torch = register("aqua_torch"/*, () -> new AquaTorch(new Item.Properties().setId(key("aqua_torch")))*/),
-        skeleton_torch = register("skeleton_torch"/*, () -> new StandingAndWallBlockItem(BlockRegistry.skeletonTorch.get(), BlockRegistry.skeletonWallTorch.get(), new Item.Properties().setId(key("skeleton_torch")), Direction.DOWN)*/),
-        arcanium_torch = register("arcanium_torch"/*, () -> new StandingAndWallBlockItem(BlockRegistry.arcaniumTorch.get(), BlockRegistry.arcaniumWallTorch.get(), new Item.Properties().setId(key("arcanium_torch")), Direction.DOWN)*/),
-        eden_torch = register("eden_torch"/*, () -> new StandingAndWallBlockItem(BlockRegistry.edenTorch.get(), BlockRegistry.edenWallTorch.get(), new Item.Properties().setId(key("eden_torch")), Direction.DOWN)*/);
+        dream_axe       = registerAxe("dream_axe", ToolStats.DREAM_AXE, Rarity.COMMON, false);
 
     public static final DeferredItem<Item> healing_stone = register("healing_stone", ItemHealingStone::new);
     public static final DeferredItem<Item> palavence = registerTool("palavence", p -> new ItemHealingSword(ToolStats.PALAVENCE, 0.5F, p));
@@ -694,245 +653,245 @@ public class ItemRegistry {
     public static final DeferredItem<Item> frossivence = registerTool("frossivence", p -> new ItemHealingSword(ToolStats.FROSSIVENCE, 1.0F, p));
 
 
-    public static final DeferredItem<Item> REALMITE_HELMET = ITEMS.registerItem("realmite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.REALMITE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> REALMITE_CHESTPLATE = ITEMS.registerItem("realmite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.REALMITE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> REALMITE_LEGGINGS = ITEMS.registerItem("realmite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.REALMITE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> REALMITE_BOOTS = ITEMS.registerItem("realmite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.REALMITE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> REALMITE_HELMET = ITEMS.registerItem("realmite_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.REALMITE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> REALMITE_CHESTPLATE = ITEMS.registerItem("realmite_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.REALMITE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> REALMITE_LEGGINGS = ITEMS.registerItem("realmite_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.REALMITE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> REALMITE_BOOTS = ITEMS.registerItem("realmite_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.REALMITE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> SENG_FUR_HELMET = ITEMS.registerItem("seng_fur_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SENG_FUR, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> SENG_FUR_CHESTPLATE = ITEMS.registerItem("seng_fur_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SENG_FUR, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> SENG_FUR_LEGGINGS = ITEMS.registerItem("seng_fur_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SENG_FUR, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> SENG_FUR_BOOTS = ITEMS.registerItem("seng_fur_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SENG_FUR, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> SENG_FUR_HELMET = ITEMS.registerItem("seng_fur_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SENG_FUR, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> SENG_FUR_CHESTPLATE = ITEMS.registerItem("seng_fur_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SENG_FUR, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> SENG_FUR_LEGGINGS = ITEMS.registerItem("seng_fur_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SENG_FUR, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> SENG_FUR_BOOTS = ITEMS.registerItem("seng_fur_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SENG_FUR, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> SANTA_HELMET = ITEMS.registerItem("santa_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SANTA, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> SANTA_CHESTPLATE = ITEMS.registerItem("santa_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SANTA, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> SANTA_LEGGINGS = ITEMS.registerItem("santa_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SANTA, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> SANTA_BOOTS = ITEMS.registerItem("santa_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SANTA, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> SANTA_HELMET = ITEMS.registerItem("santa_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SANTA, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> SANTA_CHESTPLATE = ITEMS.registerItem("santa_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SANTA, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> SANTA_LEGGINGS = ITEMS.registerItem("santa_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SANTA, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> SANTA_BOOTS = ITEMS.registerItem("santa_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SANTA, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> AQUASTRIVE_HELMET = ITEMS.registerItem("aquastrive_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AQUASTRIVE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> AQUASTRIVE_CHESTPLATE = ITEMS.registerItem("aquastrive_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AQUASTRIVE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> AQUASTRIVE_LEGGINGS = ITEMS.registerItem("aquastrive_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AQUASTRIVE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> AQUASTRIVE_BOOTS = ITEMS.registerItem("aquastrive_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AQUASTRIVE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> AQUASTRIVE_HELMET = ITEMS.registerItem("aquastrive_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.AQUASTRIVE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> AQUASTRIVE_CHESTPLATE = ITEMS.registerItem("aquastrive_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.AQUASTRIVE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> AQUASTRIVE_LEGGINGS = ITEMS.registerItem("aquastrive_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.AQUASTRIVE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> AQUASTRIVE_BOOTS = ITEMS.registerItem("aquastrive_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.AQUASTRIVE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> KRAKEN_HELMET = ITEMS.registerItem("kraken_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KRAKEN, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> KRAKEN_CHESTPLATE = ITEMS.registerItem("kraken_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KRAKEN, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> KRAKEN_LEGGINGS = ITEMS.registerItem("kraken_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KRAKEN, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> KRAKEN_BOOTS = ITEMS.registerItem("kraken_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KRAKEN, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> KRAKEN_HELMET = ITEMS.registerItem("kraken_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.KRAKEN, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> KRAKEN_CHESTPLATE = ITEMS.registerItem("kraken_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.KRAKEN, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> KRAKEN_LEGGINGS = ITEMS.registerItem("kraken_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.KRAKEN, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> KRAKEN_BOOTS = ITEMS.registerItem("kraken_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.KRAKEN, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> JACK_O_MAN_HELMET = ITEMS.registerItem("jack_o_man_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.JACK_O_MAN, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> JACK_O_MAN_CHESTPLATE = ITEMS.registerItem("jack_o_man_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.JACK_O_MAN, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> JACK_O_MAN_LEGGINGS = ITEMS.registerItem("jack_o_man_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.JACK_O_MAN, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> JACK_O_MAN_BOOTS = ITEMS.registerItem("jack_o_man_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.JACK_O_MAN, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> JACK_O_MAN_HELMET = ITEMS.registerItem("jack_o_man_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.JACK_O_MAN, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> JACK_O_MAN_CHESTPLATE = ITEMS.registerItem("jack_o_man_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.JACK_O_MAN, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> JACK_O_MAN_LEGGINGS = ITEMS.registerItem("jack_o_man_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.JACK_O_MAN, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> JACK_O_MAN_BOOTS = ITEMS.registerItem("jack_o_man_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.JACK_O_MAN, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> SKELEMAN_HELMET = ITEMS.registerItem("skeleman_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SKELEMAN, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> SKELEMAN_CHESTPLATE = ITEMS.registerItem("skeleman_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SKELEMAN, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> SKELEMAN_LEGGINGS = ITEMS.registerItem("skeleman_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SKELEMAN, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> SKELEMAN_BOOTS = ITEMS.registerItem("skeleman_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SKELEMAN, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> SKELEMAN_HELMET = ITEMS.registerItem("skeleman_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SKELEMAN, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> SKELEMAN_CHESTPLATE = ITEMS.registerItem("skeleman_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SKELEMAN, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> SKELEMAN_LEGGINGS = ITEMS.registerItem("skeleman_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SKELEMAN, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> SKELEMAN_BOOTS = ITEMS.registerItem("skeleman_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SKELEMAN, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> WITHER_REAPER_HELMET = ITEMS.registerItem("wither_reaper_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.WITHER_REAPER, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> WITHER_REAPER_CHESTPLATE = ITEMS.registerItem("wither_reaper_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.WITHER_REAPER, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> WITHER_REAPER_LEGGINGS = ITEMS.registerItem("wither_reaper_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.WITHER_REAPER, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> WITHER_REAPER_BOOTS = ITEMS.registerItem("wither_reaper_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.WITHER_REAPER, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> WITHER_REAPER_HELMET = ITEMS.registerItem("wither_reaper_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.WITHER_REAPER, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> WITHER_REAPER_CHESTPLATE = ITEMS.registerItem("wither_reaper_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.WITHER_REAPER, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> WITHER_REAPER_LEGGINGS = ITEMS.registerItem("wither_reaper_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.WITHER_REAPER, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> WITHER_REAPER_BOOTS = ITEMS.registerItem("wither_reaper_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.WITHER_REAPER, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> ARLEMITE_HELMET = ITEMS.registerItem("arlemite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ARLEMITE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> ARLEMITE_CHESTPLATE = ITEMS.registerItem("arlemite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ARLEMITE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> ARLEMITE_LEGGINGS = ITEMS.registerItem("arlemite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ARLEMITE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> ARLEMITE_BOOTS = ITEMS.registerItem("arlemite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ARLEMITE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> ARLEMITE_HELMET = ITEMS.registerItem("arlemite_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ARLEMITE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> ARLEMITE_CHESTPLATE = ITEMS.registerItem("arlemite_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ARLEMITE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> ARLEMITE_LEGGINGS = ITEMS.registerItem("arlemite_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ARLEMITE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> ARLEMITE_BOOTS = ITEMS.registerItem("arlemite_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ARLEMITE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> FROZEN_HELMET = ITEMS.registerItem("frozen_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FROZEN, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> FROZEN_CHESTPLATE = ITEMS.registerItem("frozen_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FROZEN, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> FROZEN_LEGGINGS = ITEMS.registerItem("frozen_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FROZEN, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> FROZEN_BOOTS = ITEMS.registerItem("frozen_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FROZEN, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> FROZEN_HELMET = ITEMS.registerItem("frozen_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FROZEN, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> FROZEN_CHESTPLATE = ITEMS.registerItem("frozen_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FROZEN, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> FROZEN_LEGGINGS = ITEMS.registerItem("frozen_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FROZEN, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> FROZEN_BOOTS = ITEMS.registerItem("frozen_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FROZEN, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> JUNGLE_HELMET = ITEMS.registerItem("jungle_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.JUNGLE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> JUNGLE_CHESTPLATE = ITEMS.registerItem("jungle_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.JUNGLE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> JUNGLE_LEGGINGS = ITEMS.registerItem("jungle_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.JUNGLE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> JUNGLE_BOOTS = ITEMS.registerItem("jungle_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.JUNGLE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> JUNGLE_HELMET = ITEMS.registerItem("jungle_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.JUNGLE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> JUNGLE_CHESTPLATE = ITEMS.registerItem("jungle_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.JUNGLE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> JUNGLE_LEGGINGS = ITEMS.registerItem("jungle_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.JUNGLE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> JUNGLE_BOOTS = ITEMS.registerItem("jungle_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.JUNGLE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> INFERNO_HELMET = ITEMS.registerItem("inferno_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.INFERNO, ArmorType.HELMET).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> INFERNO_CHESTPLATE = ITEMS.registerItem("inferno_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.INFERNO, ArmorType.CHESTPLATE).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> INFERNO_LEGGINGS = ITEMS.registerItem("inferno_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.INFERNO, ArmorType.LEGGINGS).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> INFERNO_BOOTS = ITEMS.registerItem("inferno_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.INFERNO, ArmorType.BOOTS).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> INFERNO_HELMET = ITEMS.registerItem("inferno_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.INFERNO, ArmorType.HELMET).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> INFERNO_CHESTPLATE = ITEMS.registerItem("inferno_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.INFERNO, ArmorType.CHESTPLATE).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> INFERNO_LEGGINGS = ITEMS.registerItem("inferno_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.INFERNO, ArmorType.LEGGINGS).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> INFERNO_BOOTS = ITEMS.registerItem("inferno_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.INFERNO, ArmorType.BOOTS).fireResistant().stacksTo(1)));
 
-    public static final DeferredItem<Item> TORRIDITE_HELMET = ITEMS.registerItem("torridite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORRIDITE, ArmorType.HELMET).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> TORRIDITE_CHESTPLATE = ITEMS.registerItem("torridite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORRIDITE, ArmorType.CHESTPLATE).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> TORRIDITE_LEGGINGS = ITEMS.registerItem("torridite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORRIDITE, ArmorType.LEGGINGS).fireResistant().stacksTo(1)));
-    public static final DeferredItem<Item> TORRIDITE_BOOTS = ITEMS.registerItem("torridite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORRIDITE, ArmorType.BOOTS).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> TORRIDITE_HELMET = ITEMS.registerItem("torridite_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORRIDITE, ArmorType.HELMET).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> TORRIDITE_CHESTPLATE = ITEMS.registerItem("torridite_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORRIDITE, ArmorType.CHESTPLATE).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> TORRIDITE_LEGGINGS = ITEMS.registerItem("torridite_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORRIDITE, ArmorType.LEGGINGS).fireResistant().stacksTo(1)));
+    public static final DeferredItem<Item> TORRIDITE_BOOTS = ITEMS.registerItem("torridite_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORRIDITE, ArmorType.BOOTS).fireResistant().stacksTo(1)));
 
-    public static final DeferredItem<Item> TERRAN_HELMET = ITEMS.registerItem("terran_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TERRAN, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> TERRAN_CHESTPLATE = ITEMS.registerItem("terran_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TERRAN, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> TERRAN_LEGGINGS = ITEMS.registerItem("terran_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TERRAN, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> TERRAN_BOOTS = ITEMS.registerItem("terran_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TERRAN, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> TERRAN_HELMET = ITEMS.registerItem("terran_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TERRAN, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> TERRAN_CHESTPLATE = ITEMS.registerItem("terran_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TERRAN, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> TERRAN_LEGGINGS = ITEMS.registerItem("terran_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TERRAN, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> TERRAN_BOOTS = ITEMS.registerItem("terran_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TERRAN, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> ANGELIC_HELMET = ITEMS.registerItem("angelic_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ANGELIC, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> ANGELIC_CHESTPLATE = ITEMS.registerItem("angelic_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ANGELIC, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> ANGELIC_LEGGINGS = ITEMS.registerItem("angelic_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ANGELIC, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> ANGELIC_BOOTS = ITEMS.registerItem("angelic_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ANGELIC, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> ANGELIC_HELMET = ITEMS.registerItem("angelic_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ANGELIC, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> ANGELIC_CHESTPLATE = ITEMS.registerItem("angelic_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ANGELIC, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> ANGELIC_LEGGINGS = ITEMS.registerItem("angelic_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ANGELIC, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> ANGELIC_BOOTS = ITEMS.registerItem("angelic_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ANGELIC, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> SHADOW_HELMET = ITEMS.registerItem("shadow_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SHADOW, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> SHADOW_CHESTPLATE = ITEMS.registerItem("shadow_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SHADOW, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> SHADOW_LEGGINGS = ITEMS.registerItem("shadow_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SHADOW, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> SHADOW_BOOTS = ITEMS.registerItem("shadow_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SHADOW, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> SHADOW_HELMET = ITEMS.registerItem("shadow_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SHADOW, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> SHADOW_CHESTPLATE = ITEMS.registerItem("shadow_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SHADOW, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> SHADOW_LEGGINGS = ITEMS.registerItem("shadow_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SHADOW, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> SHADOW_BOOTS = ITEMS.registerItem("shadow_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SHADOW, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> RUPEE_HELMET = ITEMS.registerItem("rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> RUPEE_CHESTPLATE = ITEMS.registerItem("rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> RUPEE_LEGGINGS = ITEMS.registerItem("rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> RUPEE_BOOTS = ITEMS.registerItem("rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> RUPEE_HELMET = ITEMS.registerItem("rupee_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> RUPEE_CHESTPLATE = ITEMS.registerItem("rupee_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> RUPEE_LEGGINGS = ITEMS.registerItem("rupee_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> RUPEE_BOOTS = ITEMS.registerItem("rupee_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RUPEE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> GRAY_RUPEE_HELMET = ITEMS.registerItem("gray_rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_RUPEE_CHESTPLATE = ITEMS.registerItem("gray_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_RUPEE_LEGGINGS = ITEMS.registerItem("gray_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_RUPEE_BOOTS = ITEMS.registerItem("gray_rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_RUPEE_HELMET = ITEMS.registerItem("gray_rupee_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_RUPEE_CHESTPLATE = ITEMS.registerItem("gray_rupee_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_RUPEE_LEGGINGS = ITEMS.registerItem("gray_rupee_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_RUPEE_BOOTS = ITEMS.registerItem("gray_rupee_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GRAY_RUPEE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> RED_RUPEE_HELMET = ITEMS.registerItem("red_rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> RED_RUPEE_CHESTPLATE = ITEMS.registerItem("red_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> RED_RUPEE_LEGGINGS = ITEMS.registerItem("red_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> RED_RUPEE_BOOTS = ITEMS.registerItem("red_rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> RED_RUPEE_HELMET = ITEMS.registerItem("red_rupee_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> RED_RUPEE_CHESTPLATE = ITEMS.registerItem("red_rupee_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> RED_RUPEE_LEGGINGS = ITEMS.registerItem("red_rupee_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> RED_RUPEE_BOOTS = ITEMS.registerItem("red_rupee_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RED_RUPEE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> YELLOW_RUPEE_HELMET = ITEMS.registerItem("yellow_rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_RUPEE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> YELLOW_RUPEE_CHESTPLATE = ITEMS.registerItem("yellow_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> YELLOW_RUPEE_LEGGINGS = ITEMS.registerItem("yellow_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> YELLOW_RUPEE_BOOTS = ITEMS.registerItem("yellow_rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_RUPEE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_RUPEE_HELMET = ITEMS.registerItem("yellow_rupee_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_RUPEE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_RUPEE_CHESTPLATE = ITEMS.registerItem("yellow_rupee_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_RUPEE_LEGGINGS = ITEMS.registerItem("yellow_rupee_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_RUPEE_BOOTS = ITEMS.registerItem("yellow_rupee_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_RUPEE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> GREEN_RUPEE_HELMET = ITEMS.registerItem("green_rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GREEN_RUPEE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GREEN_RUPEE_CHESTPLATE = ITEMS.registerItem("green_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GREEN_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> GREEN_RUPEE_LEGGINGS = ITEMS.registerItem("green_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GREEN_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> GREEN_RUPEE_BOOTS = ITEMS.registerItem("green_rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GREEN_RUPEE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_RUPEE_HELMET = ITEMS.registerItem("green_rupee_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GREEN_RUPEE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_RUPEE_CHESTPLATE = ITEMS.registerItem("green_rupee_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GREEN_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_RUPEE_LEGGINGS = ITEMS.registerItem("green_rupee_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GREEN_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_RUPEE_BOOTS = ITEMS.registerItem("green_rupee_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GREEN_RUPEE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> BLUE_RUPEE_HELMET = ITEMS.registerItem("blue_rupee_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> BLUE_RUPEE_CHESTPLATE = ITEMS.registerItem("blue_rupee_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> BLUE_RUPEE_LEGGINGS = ITEMS.registerItem("blue_rupee_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> BLUE_RUPEE_BOOTS = ITEMS.registerItem("blue_rupee_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> BLUE_RUPEE_HELMET = ITEMS.registerItem("blue_rupee_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> BLUE_RUPEE_CHESTPLATE = ITEMS.registerItem("blue_rupee_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> BLUE_RUPEE_LEGGINGS = ITEMS.registerItem("blue_rupee_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> BLUE_RUPEE_BOOTS = ITEMS.registerItem("blue_rupee_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BLUE_RUPEE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> ELITE_REALMITE_HELMET = ITEMS.registerItem("elite_realmite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> ELITE_REALMITE_CHESTPLATE = ITEMS.registerItem("elite_realmite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> ELITE_REALMITE_LEGGINGS = ITEMS.registerItem("elite_realmite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> ELITE_REALMITE_BOOTS = ITEMS.registerItem("elite_realmite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> ELITE_REALMITE_HELMET = ITEMS.registerItem("elite_realmite_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> ELITE_REALMITE_CHESTPLATE = ITEMS.registerItem("elite_realmite_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> ELITE_REALMITE_LEGGINGS = ITEMS.registerItem("elite_realmite_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> ELITE_REALMITE_BOOTS = ITEMS.registerItem("elite_realmite_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ELITE_REALMITE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> CORRUPTED_HELMET = ITEMS.registerItem("corrupted_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> CORRUPTED_CHESTPLATE = ITEMS.registerItem("corrupted_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> CORRUPTED_LEGGINGS = ITEMS.registerItem("corrupted_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> CORRUPTED_BOOTS = ITEMS.registerItem("corrupted_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> CORRUPTED_HELMET = ITEMS.registerItem("corrupted_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> CORRUPTED_CHESTPLATE = ITEMS.registerItem("corrupted_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> CORRUPTED_LEGGINGS = ITEMS.registerItem("corrupted_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> CORRUPTED_BOOTS = ITEMS.registerItem("corrupted_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.CORRUPTED, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> BEDROCK_HELMET = ITEMS.registerItem("bedrock_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.HELMET).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> BEDROCK_CHESTPLATE = ITEMS.registerItem("bedrock_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.CHESTPLATE).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> BEDROCK_LEGGINGS = ITEMS.registerItem("bedrock_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.LEGGINGS).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> BEDROCK_BOOTS = ITEMS.registerItem("bedrock_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.BOOTS).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> BEDROCK_HELMET = ITEMS.registerItem("bedrock_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.HELMET).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> BEDROCK_CHESTPLATE = ITEMS.registerItem("bedrock_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.CHESTPLATE).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> BEDROCK_LEGGINGS = ITEMS.registerItem("bedrock_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.LEGGINGS).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> BEDROCK_BOOTS = ITEMS.registerItem("bedrock_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BEDROCK, ArmorType.BOOTS).fireResistant().stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
 
-    public static final DeferredItem<Item> KORMA_HELMET = ITEMS.registerItem("korma_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> KORMA_CHESTPLATE = ITEMS.registerItem("korma_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> KORMA_LEGGINGS = ITEMS.registerItem("korma_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> KORMA_BOOTS = ITEMS.registerItem("korma_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> KORMA_HELMET = ITEMS.registerItem("korma_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> KORMA_CHESTPLATE = ITEMS.registerItem("korma_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> KORMA_LEGGINGS = ITEMS.registerItem("korma_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> KORMA_BOOTS = ITEMS.registerItem("korma_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.KORMA, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> VEMOS_HELMET = ITEMS.registerItem("vemos_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.VEMOS, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> VEMOS_CHESTPLATE = ITEMS.registerItem("vemos_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.VEMOS, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> VEMOS_LEGGINGS = ITEMS.registerItem("vemos_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.VEMOS, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> VEMOS_BOOTS = ITEMS.registerItem("vemos_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.VEMOS, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> VEMOS_HELMET = ITEMS.registerItem("vemos_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.VEMOS, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> VEMOS_CHESTPLATE = ITEMS.registerItem("vemos_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.VEMOS, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> VEMOS_LEGGINGS = ITEMS.registerItem("vemos_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.VEMOS, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> VEMOS_BOOTS = ITEMS.registerItem("vemos_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.VEMOS, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> ENDER_HELMET = ITEMS.registerItem("ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> ENDER_CHESTPLATE = ITEMS.registerItem("ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> ENDER_LEGGINGS = ITEMS.registerItem("ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> ENDER_BOOTS = ITEMS.registerItem("ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> ENDER_HELMET = ITEMS.registerItem("ender_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> ENDER_CHESTPLATE = ITEMS.registerItem("ender_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> ENDER_LEGGINGS = ITEMS.registerItem("ender_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> ENDER_BOOTS = ITEMS.registerItem("ender_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.ENDER, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> GRAY_ENDER_HELMET = ITEMS.registerItem("gray_ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_ENDER_CHESTPLATE = ITEMS.registerItem("gray_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_ENDER_LEGGINGS = ITEMS.registerItem("gray_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> GRAY_ENDER_BOOTS = ITEMS.registerItem("gray_ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_ENDER_HELMET = ITEMS.registerItem("gray_ender_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_ENDER_CHESTPLATE = ITEMS.registerItem("gray_ender_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_ENDER_LEGGINGS = ITEMS.registerItem("gray_ender_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> GRAY_ENDER_BOOTS = ITEMS.registerItem("gray_ender_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GRAY_ENDER, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> RED_ENDER_HELMET = ITEMS.registerItem("red_ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> RED_ENDER_CHESTPLATE = ITEMS.registerItem("red_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> RED_ENDER_LEGGINGS = ITEMS.registerItem("red_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> RED_ENDER_BOOTS = ITEMS.registerItem("red_ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> RED_ENDER_HELMET = ITEMS.registerItem("red_ender_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> RED_ENDER_CHESTPLATE = ITEMS.registerItem("red_ender_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> RED_ENDER_LEGGINGS = ITEMS.registerItem("red_ender_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> RED_ENDER_BOOTS = ITEMS.registerItem("red_ender_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.RED_ENDER, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> YELLOW_ENDER_HELMET = ITEMS.registerItem("yellow_ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_ENDER, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> YELLOW_ENDER_CHESTPLATE = ITEMS.registerItem("yellow_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> YELLOW_ENDER_LEGGINGS = ITEMS.registerItem("yellow_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> YELLOW_ENDER_BOOTS = ITEMS.registerItem("yellow_ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_ENDER, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_ENDER_HELMET = ITEMS.registerItem("yellow_ender_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_ENDER, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_ENDER_CHESTPLATE = ITEMS.registerItem("yellow_ender_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_ENDER_LEGGINGS = ITEMS.registerItem("yellow_ender_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> YELLOW_ENDER_BOOTS = ITEMS.registerItem("yellow_ender_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.YELLOW_ENDER, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> GREEN_ENDER_HELMET = ITEMS.registerItem("green_ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GREEN_ENDER, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GREEN_ENDER_CHESTPLATE = ITEMS.registerItem("green_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GREEN_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> GREEN_ENDER_LEGGINGS = ITEMS.registerItem("green_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GREEN_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> GREEN_ENDER_BOOTS = ITEMS.registerItem("green_ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GREEN_ENDER, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_ENDER_HELMET = ITEMS.registerItem("green_ender_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GREEN_ENDER, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_ENDER_CHESTPLATE = ITEMS.registerItem("green_ender_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GREEN_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_ENDER_LEGGINGS = ITEMS.registerItem("green_ender_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GREEN_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> GREEN_ENDER_BOOTS = ITEMS.registerItem("green_ender_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GREEN_ENDER, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> BLUE_ENDER_HELMET = ITEMS.registerItem("blue_ender_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> BLUE_ENDER_CHESTPLATE = ITEMS.registerItem("blue_ender_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> BLUE_ENDER_LEGGINGS = ITEMS.registerItem("blue_ender_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> BLUE_ENDER_BOOTS = ITEMS.registerItem("blue_ender_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> BLUE_ENDER_HELMET = ITEMS.registerItem("blue_ender_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> BLUE_ENDER_CHESTPLATE = ITEMS.registerItem("blue_ender_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> BLUE_ENDER_LEGGINGS = ITEMS.registerItem("blue_ender_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> BLUE_ENDER_BOOTS = ITEMS.registerItem("blue_ender_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.BLUE_ENDER, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> DIVINE_HELMET = ITEMS.registerItem("divine_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> DIVINE_CHESTPLATE = ITEMS.registerItem("divine_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> DIVINE_LEGGINGS = ITEMS.registerItem("divine_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> DIVINE_BOOTS = ITEMS.registerItem("divine_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> DIVINE_HELMET = ITEMS.registerItem("divine_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> DIVINE_CHESTPLATE = ITEMS.registerItem("divine_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> DIVINE_LEGGINGS = ITEMS.registerItem("divine_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> DIVINE_BOOTS = ITEMS.registerItem("divine_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DIVINE, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> EDEN_HELMET = ITEMS.registerItem("eden_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.EDEN, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> EDEN_CHESTPLATE = ITEMS.registerItem("eden_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.EDEN, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> EDEN_LEGGINGS = ITEMS.registerItem("eden_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.EDEN, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> EDEN_BOOTS = ITEMS.registerItem("eden_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.EDEN, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> EDEN_HELMET = ITEMS.registerItem("eden_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.EDEN, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> EDEN_CHESTPLATE = ITEMS.registerItem("eden_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.EDEN, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> EDEN_LEGGINGS = ITEMS.registerItem("eden_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.EDEN, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> EDEN_BOOTS = ITEMS.registerItem("eden_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.EDEN, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> WILDWOOD_HELMET = ITEMS.registerItem("wildwood_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.WILDWOOD, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> WILDWOOD_CHESTPLATE = ITEMS.registerItem("wildwood_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.WILDWOOD, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> WILDWOOD_LEGGINGS = ITEMS.registerItem("wildwood_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.WILDWOOD, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> WILDWOOD_BOOTS = ITEMS.registerItem("wildwood_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.WILDWOOD, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> WILDWOOD_HELMET = ITEMS.registerItem("wildwood_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.WILDWOOD, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> WILDWOOD_CHESTPLATE = ITEMS.registerItem("wildwood_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.WILDWOOD, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> WILDWOOD_LEGGINGS = ITEMS.registerItem("wildwood_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.WILDWOOD, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> WILDWOOD_BOOTS = ITEMS.registerItem("wildwood_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.WILDWOOD, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> APALACHIA_HELMET = ITEMS.registerItem("apalachia_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.APALACHIA, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> APALACHIA_CHESTPLATE = ITEMS.registerItem("apalachia_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.APALACHIA, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> APALACHIA_LEGGINGS = ITEMS.registerItem("apalachia_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.APALACHIA, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> APALACHIA_BOOTS = ITEMS.registerItem("apalachia_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.APALACHIA, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> APALACHIA_HELMET = ITEMS.registerItem("apalachia_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.APALACHIA, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> APALACHIA_CHESTPLATE = ITEMS.registerItem("apalachia_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.APALACHIA, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> APALACHIA_LEGGINGS = ITEMS.registerItem("apalachia_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.APALACHIA, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> APALACHIA_BOOTS = ITEMS.registerItem("apalachia_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.APALACHIA, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> SKYTHERN_HELMET = ITEMS.registerItem("skythern_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SKYTHERN, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> SKYTHERN_CHESTPLATE = ITEMS.registerItem("skythern_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SKYTHERN, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> SKYTHERN_LEGGINGS = ITEMS.registerItem("skythern_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SKYTHERN, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> SKYTHERN_BOOTS = ITEMS.registerItem("skythern_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.SKYTHERN, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> SKYTHERN_HELMET = ITEMS.registerItem("skythern_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SKYTHERN, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> SKYTHERN_CHESTPLATE = ITEMS.registerItem("skythern_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SKYTHERN, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> SKYTHERN_LEGGINGS = ITEMS.registerItem("skythern_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SKYTHERN, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> SKYTHERN_BOOTS = ITEMS.registerItem("skythern_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.SKYTHERN, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> MORTUM_HELMET = ITEMS.registerItem("mortum_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> MORTUM_CHESTPLATE = ITEMS.registerItem("mortum_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> MORTUM_LEGGINGS = ITEMS.registerItem("mortum_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> MORTUM_BOOTS = ITEMS.registerItem("mortum_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> MORTUM_HELMET = ITEMS.registerItem("mortum_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> MORTUM_CHESTPLATE = ITEMS.registerItem("mortum_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> MORTUM_LEGGINGS = ITEMS.registerItem("mortum_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> MORTUM_BOOTS = ITEMS.registerItem("mortum_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.MORTUM, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> HALITE_HELMET = ITEMS.registerItem("halite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.HELMET).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> HALITE_CHESTPLATE = ITEMS.registerItem("halite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.CHESTPLATE).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> HALITE_LEGGINGS = ITEMS.registerItem("halite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.LEGGINGS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> HALITE_BOOTS = ITEMS.registerItem("halite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.BOOTS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> HALITE_HELMET = ITEMS.registerItem("halite_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.HELMET).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> HALITE_CHESTPLATE = ITEMS.registerItem("halite_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.CHESTPLATE).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> HALITE_LEGGINGS = ITEMS.registerItem("halite_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.LEGGINGS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> HALITE_BOOTS = ITEMS.registerItem("halite_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.HALITE, ArmorType.BOOTS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
 
-    public static final DeferredItem<Item> AWAKENED_HALITE_HELMET = ITEMS.registerItem("awakened_halite_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.HELMET).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> AWAKENED_HALITE_CHESTPLATE = ITEMS.registerItem("awakened_halite_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.CHESTPLATE).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> AWAKENED_HALITE_LEGGINGS = ITEMS.registerItem("awakened_halite_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.LEGGINGS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
-    public static final DeferredItem<Item> AWAKENED_HALITE_BOOTS = ITEMS.registerItem("awakened_halite_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.BOOTS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> AWAKENED_HALITE_HELMET = ITEMS.registerItem("awakened_halite_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.HELMET).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> AWAKENED_HALITE_CHESTPLATE = ITEMS.registerItem("awakened_halite_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.CHESTPLATE).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> AWAKENED_HALITE_LEGGINGS = ITEMS.registerItem("awakened_halite_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.LEGGINGS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
+    public static final DeferredItem<Item> AWAKENED_HALITE_BOOTS = ITEMS.registerItem("awakened_halite_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.AWAKENED_HALITE, ArmorType.BOOTS).stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE)));
 
-    public static final DeferredItem<Item> DEGRADED_HELMET = ITEMS.registerItem("degraded_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> DEGRADED_HOOD = ITEMS.registerItem("degraded_hood", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> DEGRADED_MASK = ITEMS.registerItem("degraded_mask", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> DEGRADED_CHESTPLATE = ITEMS.registerItem("degraded_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> DEGRADED_LEGGINGS = ITEMS.registerItem("degraded_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> DEGRADED_BOOTS = ITEMS.registerItem("degraded_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> DEGRADED_HELMET = ITEMS.registerItem("degraded_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> DEGRADED_HOOD = ITEMS.registerItem("degraded_hood", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> DEGRADED_MASK = ITEMS.registerItem("degraded_mask", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> DEGRADED_CHESTPLATE = ITEMS.registerItem("degraded_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> DEGRADED_LEGGINGS = ITEMS.registerItem("degraded_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> DEGRADED_BOOTS = ITEMS.registerItem("degraded_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEGRADED, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> FINISHED_HELMET = ITEMS.registerItem("finished_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> FINISHED_HOOD = ITEMS.registerItem("finished_hood", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> FINISHED_MASK = ITEMS.registerItem("finished_mask", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> FINISHED_CHESTPLATE = ITEMS.registerItem("finished_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> FINISHED_LEGGINGS = ITEMS.registerItem("finished_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> FINISHED_BOOTS = ITEMS.registerItem("finished_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> FINISHED_HELMET = ITEMS.registerItem("finished_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> FINISHED_HOOD = ITEMS.registerItem("finished_hood", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> FINISHED_MASK = ITEMS.registerItem("finished_mask", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> FINISHED_CHESTPLATE = ITEMS.registerItem("finished_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> FINISHED_LEGGINGS = ITEMS.registerItem("finished_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> FINISHED_BOOTS = ITEMS.registerItem("finished_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.FINISHED, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> GLISTENING_HELMET = ITEMS.registerItem("glistening_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GLISTENING_HOOD = ITEMS.registerItem("glistening_hood", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GLISTENING_MASK = ITEMS.registerItem("glistening_mask", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> GLISTENING_CHESTPLATE = ITEMS.registerItem("glistening_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> GLISTENING_LEGGINGS = ITEMS.registerItem("glistening_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> GLISTENING_BOOTS = ITEMS.registerItem("glistening_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> GLISTENING_HELMET = ITEMS.registerItem("glistening_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GLISTENING_HOOD = ITEMS.registerItem("glistening_hood", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GLISTENING_MASK = ITEMS.registerItem("glistening_mask", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> GLISTENING_CHESTPLATE = ITEMS.registerItem("glistening_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> GLISTENING_LEGGINGS = ITEMS.registerItem("glistening_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> GLISTENING_BOOTS = ITEMS.registerItem("glistening_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.GLISTENING, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> DEMONIZED_HELMET = ITEMS.registerItem("demonized_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> DEMONIZED_HOOD = ITEMS.registerItem("demonized_hood", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> DEMONIZED_MASK = ITEMS.registerItem("demonized_mask", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> DEMONIZED_CHESTPLATE = ITEMS.registerItem("demonized_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> DEMONIZED_LEGGINGS = ITEMS.registerItem("demonized_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> DEMONIZED_BOOTS = ITEMS.registerItem("demonized_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> DEMONIZED_HELMET = ITEMS.registerItem("demonized_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> DEMONIZED_HOOD = ITEMS.registerItem("demonized_hood", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> DEMONIZED_MASK = ITEMS.registerItem("demonized_mask", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> DEMONIZED_CHESTPLATE = ITEMS.registerItem("demonized_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> DEMONIZED_LEGGINGS = ITEMS.registerItem("demonized_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> DEMONIZED_BOOTS = ITEMS.registerItem("demonized_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.DEMONIZED, ArmorType.BOOTS).stacksTo(1)));
 
-    public static final DeferredItem<Item> TORMENTED_HELMET = ITEMS.registerItem("tormented_helmet", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> TORMENTED_HOOD = ITEMS.registerItem("tormented_hood", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> TORMENTED_MASK = ITEMS.registerItem("tormented_mask", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.HELMET).stacksTo(1)));
-    public static final DeferredItem<Item> TORMENTED_CHESTPLATE = ITEMS.registerItem("tormented_chestplate", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.CHESTPLATE).stacksTo(1)));
-    public static final DeferredItem<Item> TORMENTED_LEGGINGS = ITEMS.registerItem("tormented_leggings", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.LEGGINGS).stacksTo(1)));
-    public static final DeferredItem<Item> TORMENTED_BOOTS = ITEMS.registerItem("tormented_boots", props -> new ItemMod(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.BOOTS).stacksTo(1)));
+    public static final DeferredItem<Item> TORMENTED_HELMET = ITEMS.registerItem("tormented_helmet", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> TORMENTED_HOOD = ITEMS.registerItem("tormented_hood", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> TORMENTED_MASK = ITEMS.registerItem("tormented_mask", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.HELMET).stacksTo(1)));
+    public static final DeferredItem<Item> TORMENTED_CHESTPLATE = ITEMS.registerItem("tormented_chestplate", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.CHESTPLATE).stacksTo(1)));
+    public static final DeferredItem<Item> TORMENTED_LEGGINGS = ITEMS.registerItem("tormented_leggings", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.LEGGINGS).stacksTo(1)));
+    public static final DeferredItem<Item> TORMENTED_BOOTS = ITEMS.registerItem("tormented_boots", props -> new ArcanicItem(props.humanoidArmor(ArmorMaterialRegistry.TORMENTED, ArmorType.BOOTS).stacksTo(1)));
 
     private static <T extends Item> DeferredItem<T> addToTools(DeferredItem<T> item) {
         DivineRegistries.tools.add(item);
@@ -945,7 +904,7 @@ public class ItemRegistry {
     }
 
     private static DeferredItem<Item> register(String name) {
-        return addToMisc(ITEMS.register(name, () -> new ItemMod(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))))));
+        return addToMisc(ITEMS.register(name, () -> new ArcanicItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))))));
     }
 
     private static DeferredItem<Item> register(String name, Function<Item.Properties, Item> factory) {
@@ -969,7 +928,7 @@ public class ItemRegistry {
     }
 
     private static DeferredItem<Item> registerTool(String name) {
-        return addToTools(ITEMS.register(name, () -> new ItemMod(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))))); // Placeholder until the tool classes are registered
+        return addToTools(ITEMS.register(name, () -> new ArcanicItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))))); // Placeholder until the tool classes are registered
     }
 
     private static DeferredItem<Item> registerAxe(String name, ToolStats stats, Rarity rarity, boolean fireResistant) {

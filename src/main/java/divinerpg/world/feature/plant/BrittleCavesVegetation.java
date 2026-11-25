@@ -52,6 +52,6 @@ public class BrittleCavesVegetation implements Feature {
 	}
 
 	public boolean isAirOrVine(BlockState state) {
-		return state.isAir() || state.is(BlockRegistry.winterberryVinesHead) || state.is(BlockRegistry.winterberryVinesBody);
+		return state.isAir() || state.is(BlockRegistry.winterberryVines.head()) || state.is(BlockRegistry.winterberryVines.body());
 	}
 }

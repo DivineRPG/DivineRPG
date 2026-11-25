@@ -1,6 +1,6 @@
 package divinerpg.items.arcana;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.ParticleRegistry;
 import divinerpg.registries.SoundRegistry;
 import divinerpg.utils.LocalizeUtils;
@@ -17,7 +17,7 @@ import net.minecraft.world.level.Level;
 
 import java.util.function.Consumer;
 
-public class ItemDivineAccumulator extends ItemMod {
+public class ItemDivineAccumulator extends ArcanicItem {
 
     public ItemDivineAccumulator(Properties properties) {
         super(properties.stacksTo(1).component(DataComponents.UNBREAKABLE, Unit.INSTANCE));

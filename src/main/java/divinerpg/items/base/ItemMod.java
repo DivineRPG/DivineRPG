@@ -1,6 +1,6 @@
 package divinerpg.items.base;
 
-import divinerpg.utils.ArcanaHelper;
+import divinerpg.attachments.Arcana;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -39,8 +39,8 @@ public class ItemMod extends Item {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        if(arcanaConsumedUse != 0 && ArcanaHelper.getArcana(player) >= arcanaConsumedUse) {
-            if(!level.isClientSide()) ArcanaHelper.setArcana(player, -arcanaConsumedUse);
+        if(arcanaConsumedUse != 0 && Arcana.getAmount(player) >= arcanaConsumedUse) {
+            if(!level.isClientSide()) Arcana.setAmount(player, -arcanaConsumedUse);
             player.getCooldowns().addCooldown(player.getUseItem(), cooldown);
             player.awardStat(ITEM_USED.get(this));
             return arcanicUse(level, player, hand);

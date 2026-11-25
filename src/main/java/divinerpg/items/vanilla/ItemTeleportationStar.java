@@ -1,6 +1,6 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.registries.DataComponentRegistry;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.ChatFormatting;
@@ -13,18 +13,15 @@ import net.minecraft.sounds.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-import net.neoforged.api.distmarker.*;
-import java.util.List;
+
 import java.util.function.Consumer;
 
-public class ItemTeleportationStar extends ItemMod {
+public class ItemTeleportationStar extends ArcanicItem {
     public ItemTeleportationStar(Properties properties) {super(properties.stacksTo(1).durability(64));}
     @Override public InteractionResult use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);

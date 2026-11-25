@@ -48,7 +48,7 @@ public class EntityGemFin extends AbstractSchoolingFish {
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack heldItem = player.getItemInHand(hand);
-        if(!hasBeenFed && heldItem.is(BlockRegistry.gemOfTheDunes.getFirst().get().asItem())) {
+        if(!hasBeenFed && heldItem.is(BlockRegistry.gemOfTheDunes.plant().get().asItem())) {
             heldItem.consume(1, player);
             setFed(true);
             for (int i = 0; i < 7; ++i) {
@@ -60,10 +60,10 @@ public class EntityGemFin extends AbstractSchoolingFish {
             return InteractionResult.SUCCESS;
         } else if(heldItem.is(WATER_BUCKET) && isAlive()) {
             return Bucketable.bucketMobPickup(player, hand, this).orElse(InteractionResult.PASS);
-        } else if(!hasBeenFed && !(heldItem.is(BlockRegistry.gemOfTheDunes.getFirst().get().asItem()) || heldItem.is(WATER_BUCKET))) {
+        } else if(!hasBeenFed && !(heldItem.is(BlockRegistry.gemOfTheDunes.plant().get().asItem()) || heldItem.is(WATER_BUCKET))) {
             player.sendSystemMessage(LocalizeUtils.clientMessage("feed_gem"));
             return InteractionResult.CONSUME;
-        } else if(hasBeenFed && heldItem.is(BlockRegistry.gemOfTheDunes.getFirst().get().asItem())) {
+        } else if(hasBeenFed && heldItem.is(BlockRegistry.gemOfTheDunes.plant().get().asItem())) {
             return InteractionResult.FAIL;
         } else {
             return InteractionResult.PASS;

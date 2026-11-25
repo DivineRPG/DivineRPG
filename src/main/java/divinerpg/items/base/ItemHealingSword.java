@@ -12,8 +12,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 
-import java.util.List;
-import java.util.Properties;
 import java.util.function.Consumer;
 
 import static divinerpg.registries.ItemRegistry.frossivence;
@@ -22,7 +20,7 @@ import static net.minecraft.core.particles.ParticleTypes.HEART;
 import static net.minecraft.sounds.SoundSource.PLAYERS;
 import static net.minecraft.stats.Stats.ITEM_USED;
 
-public class ItemHealingSword extends ItemMod {
+public class ItemHealingSword extends ArcanicItem {
     public float healAmount;
     public int cooldown;
 

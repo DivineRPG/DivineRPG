@@ -1,6 +1,6 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -17,7 +17,7 @@ import static net.minecraft.core.particles.ParticleTypes.HEART;
 import static net.minecraft.stats.Stats.ITEM_USED;
 import static net.minecraft.world.effect.MobEffects.REGENERATION;
 
-public class ItemSerenadeOfInfusion extends ItemMod {
+public class ItemSerenadeOfInfusion extends ArcanicItem {
     protected int effectSec;
     public ItemSerenadeOfInfusion(Properties properties) {
         super(properties.stacksTo(1).durability(15).component(POTION_CONTENTS, PotionContents.EMPTY.withEffectAdded(new MobEffectInstance(REGENERATION, 4 * 20, 2))));

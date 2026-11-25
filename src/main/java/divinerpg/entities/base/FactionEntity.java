@@ -4,7 +4,7 @@ import java.util.*;
 
 import javax.annotation.Nullable;
 
-import divinerpg.attachments.data.Reputation;
+import divinerpg.attachments.Reputation;
 import divinerpg.registries.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;

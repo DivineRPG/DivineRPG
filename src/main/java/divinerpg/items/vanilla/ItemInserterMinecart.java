@@ -1,7 +1,7 @@
 package divinerpg.items.vanilla;
 
 import divinerpg.entities.base.EntityInserterMinecart;
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import net.minecraft.core.*;
 import net.minecraft.core.dispenser.*;
 import net.minecraft.server.level.ServerLevel;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.state.properties.RailShape;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 
-public class ItemInserterMinecart extends ItemMod {
+public class ItemInserterMinecart extends ArcanicItem {
     public ItemInserterMinecart(Properties properties) {
         super(properties);
         DispenserBlock.registerBehavior(this, DISPENSE_ITEM_BEHAVIOR);}

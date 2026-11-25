@@ -13,6 +13,7 @@ import net.minecraft.core.*;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.*;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.references.BlockIds;
 import net.minecraft.resources.*;
 import net.minecraft.sounds.*;
 import net.minecraft.tags.TagKey;
@@ -32,16 +33,15 @@ import net.minecraft.world.level.block.state.BlockBehaviour.*;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.material.*;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.*;
 
 import static divinerpg.DivineRPG.MODID;
+import static divinerpg.registries.BlockPropertyOverride.*;
 import static divinerpg.registries.DivineRegistries.BLOCKS;
-
-import static divinerpg.registries.PropertyOverride.*;
+import static divinerpg.registries.ItemPropertyOverride.*;
 import static divinerpg.registries.TagRegistry.Blocks.*;
 import static divinerpg.registries.TagRegistry.Dimensions.*;
 import static net.minecraft.world.level.material.MapColor.*;
@@ -51,36 +51,22 @@ public class BlockRegistry {
     public static final BlockSetType
         ARCANA_TYPE = BlockSetType.register(new BlockSetType(MODID + ":arcana", false, false, false, BlockSetType.PressurePlateSensitivity.MOBS, SoundType.STONE, SoundEvents.IRON_DOOR_CLOSE, SoundEvents.IRON_DOOR_OPEN, SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN, SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON, SoundEvents.STONE_BUTTON_CLICK_OFF, SoundEvents.STONE_BUTTON_CLICK_ON)),
         STEEL_TYPE = BlockSetType.register(new BlockSetType(MODID + ":steel", true, true, false, BlockSetType.PressurePlateSensitivity.EVERYTHING, SoundType.METAL, SoundEvents.IRON_DOOR_CLOSE, SoundEvents.IRON_DOOR_OPEN, SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN, SoundEvents.METAL_PRESSURE_PLATE_CLICK_OFF, SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON, SoundEvents.STONE_BUTTON_CLICK_OFF, SoundEvents.STONE_BUTTON_CLICK_ON));
-    //WOOD TYPES
-    public static final WoodType
-        DIVINE_WOOD_TYPE = WoodType.register(new WoodType("divine", BlockSetType.CHERRY)),
-    // TODO: remap brittle_leaves into shiverspine_leaves
-        SHIVERSPINE_WOOD_TYPE = WoodType.register(new WoodType("shiverspine", BlockSetType.OAK)),
-        AURORAOAK_WOOD_TYPE = WoodType.register(new WoodType("auroraoak", BlockSetType.OAK)),
-        COZYBARK_WOOD_TYPE = WoodType.register(new WoodType("cozybark", BlockSetType.CHERRY)),
-        CRIMSEEKER_WOOD_TYPE = WoodType.register(new WoodType("crimseeker", BlockSetType.CHERRY)),
-        STREAMLEAF_WOOD_TYPE = WoodType.register(new WoodType("streamleaf", BlockSetType.WARPED)),
-        EUCALYPTUS_WOOD_TYPE = WoodType.register(new WoodType("eucalyptus", BlockSetType.OAK)),
-        EDEN_WOOD_TYPE = WoodType.register(new WoodType("eden", BlockSetType.OAK)),
-        WILDWOOD_WOOD_TYPE = WoodType.register(new WoodType("wildwood", BlockSetType.OAK)),
-        APALACHIA_WOOD_TYPE = WoodType.register(new WoodType("apalachia", BlockSetType.WARPED)),
-        SKYTHERN_WOOD_TYPE = WoodType.register(new WoodType("skythern", BlockSetType.WARPED)),
-        MORTUM_WOOD_TYPE = WoodType.register(new WoodType("mortum", BlockSetType.DARK_OAK));
     // BLOCKS
     // Stone
-    public static final List<DeferredBlock<Block>>
-        asphaltSet = registerStairSlabSet("asphalt", "", Pasphalt),
-        frozenStoneSet = registerSimpleStoneSet("frozen", PfrozenStone),
-        cobbledFrozenStoneSet = registerSimpleStoneSet("cobbled_frozen", PcobbledFrozenStone),
-        cobaltiteSet = registerStoneTypeSet("cobaltite", PlightBlueStone),
-        coalstoneSet = registerStoneTypeSet("coalstone", PgrayStone),
-        arcaniteStoneSet = registerSimpleStoneSet("arcanite", PcyanStone),
-        ancientStoneSet = registerBreakPair("ancient_stone", PgrayStone, PgrayStoneUnbreakable),
-        soulStoneSet = registerBreakPair("soul_stone", PterraBlueStone, PsoulStoneUnbreakable),
-        twilightStoneSet = registerSimpleStoneSet("twilight", PtwilightStone),
-        scorchaltSet = registerStoneTypeSet("scorchalt", PpinkStone),
-        cobbledScorchaltSet = registerStoneTypeSet("cobbled_scorchalt", PcobbledScorchalt),
-        rayStoneSet = registerStoneTypeSet("ray_stone", PgoldenStone);
+    public static final StairSlabSet asphalt = new StairSlabSet("asphalt", "", Pasphalt);
+    public static final RockSet
+        frozen = RockSet.simpleStone("frozen", PfrozenStone),
+        cobbledFrozen = RockSet.simpleStone("cobbled_frozen", PcobbledFrozenStone),
+        cobaltite = RockSet.stoneType("cobaltite", PlightBlueStone),
+        coalstone = RockSet.stoneType("coalstone", PgrayStone),
+        arcanite = RockSet.simpleStone("arcanite", PcyanStone),
+        twilight = RockSet.simpleStone("twilight", PtwilightStone),
+        scorchalt = RockSet.stoneType("scorchalt", PpinkStone),
+        cobbledScorchalt = RockSet.stoneType("cobbled_scorchalt", PcobbledScorchalt),
+        rayStone = RockSet.stoneType("ray_stone", PgoldenStone);
+    public static final BreakPair
+        ancientStone = new BreakPair("ancient_stone", PgrayStone, PgrayStoneUnbreakable),
+        soulStone = new BreakPair("soul_stone", PterraBlueStone, PsoulStoneUnbreakable);
     public static final DeferredBlock<Block>
         icyStone = register("icy_stone", PhardIce),
         thermalVent = register("thermal_vent", ThermalVent::new, PthermalVent),
@@ -99,10 +85,10 @@ public class BlockRegistry {
         greenHungerstone = register("green_hungerstone", PgreenUnbreakable);
 
     // Ores
-    public static final List<DeferredBlock<Block>>
-        realmiteOreSet = registerOverworldOres("realmite"),
-        arlemiteOreSet = registerOverworldOres("arlemite"),
-        rupeeOreSet = registerOverworldOres("rupee");
+    public static final OverworldOres
+        realmiteOre = new OverworldOres("realmite"),
+        arlemiteOre = new OverworldOres("arlemite"),
+        rupeeOre = new OverworldOres("rupee");
     public static final DeferredBlock<Block>
         bloodgemOre	= registerOre("bloodgem", PbloodgemOre, 3, 7),
         torriditeOre = register("torridite_ore", PtorriditeOre),
@@ -117,12 +103,12 @@ public class BlockRegistry {
         mortumOre = register("mortum_ore", PtwilightOre);
 
     // Compressed blocks
-    public static final List<DeferredBlock<Block>>
-        realmiteBlockSet = registerMetalBlocks("realmite", PrawRealmite, PorangeMetal),
-        arlemiteBlockSet = registerMetalBlocks("arlemite", PrawArlemite, ParlemiteBlock),
-        rupeeBlockSet = registerMetalBlocks("rupee", PrawRupee, lightBlueMetal),
-        torriditeBlockSet = registerMetalBlocks("torridite", PrawTorridite, PtorriditeBlock),
-        oxdriteBlockSet = registerMetalBlocks("oxdrite", PrawOxdrite, PoxdriteBlock);
+    public static final MetalBlocks
+        realmite = new MetalBlocks("realmite", PrawRealmite, PorangeMetal),
+        arlemite = new MetalBlocks("arlemite", PrawArlemite, ParlemiteBlock),
+        rupee = new MetalBlocks("rupee", PrawRupee, lightBlueMetal),
+        torridite = new MetalBlocks("torridite", PrawTorridite, PtorriditeBlock),
+        oxdrite = new MetalBlocks("oxdrite", PrawOxdrite, PoxdriteBlock);
     public static final DeferredBlock<Block>
         shadowBlock = register("shadow_block", PblackMetal),
         bloodgemBlock = register("bloodgem_block", PbloodgemBlock),
@@ -140,46 +126,45 @@ public class BlockRegistry {
         fireCrystal = register("fire_crystal", PfireCrystal);
 
     // Plants & fungi
-    public static final List<DeferredBlock<Block>>
-        brittleGrass = registerPotted("brittle_grass", BrittleGrass::new, PbrittleGrass), // TODO: grass and brush shouldn't really have pot variants
-        crimpetal = registerFlower("crimpetal", PmagentaFlower, MobEffects.FIRE_RESISTANCE, 4),
-        roofbell = registerFlower("roofbell", Proofbell, MobEffects.POISON, 11),
-        winterbloom = registerFlower("winterbloom", Pwinterbloom, MobEffects.LEVITATION, 8),
-        wispLeaf = registerFlower("wisp_leaf", Pwispleaf, MobEffects.DOLPHINS_GRACE, 7),
-        arcanaBrush = registerDryGrass("arcana_brush", PiceGrass),
-        arcanaBush = registerDryGrass("arcana_bush", PterraBlueGrass),
-        gemOfTheDunes = registerPotted("gem_of_the_dunes", p -> new Flower(MobEffects.RESISTANCE, 5, true, p), PmagentaFlower),
-        edenBrush = registerGrass("eden_brush", PedenBrush),
-        sunBlossom = registerFlower("sun_blossom", plantFlower, MobEffects.FIRE_RESISTANCE, 6),
-        sunbloom = registerFlower("sunbloom", PterraYellowFlower, MobEffects.GLOWING, 6),
-        lushroom = registerPotted("lushroom", Lushroom::new, PterraOrangeFlower),
-        moonlightFern = registerGrass("moonlight_fern", PiceGrass),
-        moonBud = registerFlower("moon_bud", PquartzFlower, MobEffects.WATER_BREATHING, 4),
-        apalachiaTallgrass = registerGrass("apalachia_tallgrass", PterraBlueGrass),
-        duskBloom = registerFlower("dusk_bloom", PterraBlueFlower, MobEffects.BLINDNESS, 11),
-        skythernBrush = registerGrass("skythern_brush", PskythernBrush),
-        dustLily = registerFlower("dust_lily", PwoolFlower, MobEffects.INVISIBILITY, 5),
-        mortumBrush = registerGrass("mortum_brush", PmortumBrush),
-        eyePlant = registerFlower("eye_plant", PgrayFlower, MobEffects.NIGHT_VISION, 6),
-        shineGrass = registerFlower("shine_grass", PcyanFlower, MobEffects.GLOWING, 6),
-        cracklespike = registerFlower("cracklespike", PcyanFlower, MobEffects.NAUSEA, 7),
-        fernite = registerFlower("fernite", PcyanFlower, MobEffects.WEAKNESS, 7),
-        dreamglow = registerFlower("dreamglow", PcyanFlower, MobEffects.NIGHT_VISION, 5),
-        bulbatobe = registerFlower("bulbatobe", PcyanFlower, MobEffects.POISON, 11),
-        shimmer = registerFlower("shimmer", PcyanFlower, MobEffects.BLINDNESS, 11),
-        yellowDulah = registerFlower("yellow_dulah", PcyanFlower, MobEffects.JUMP_BOOST, 5),
-        greenDulah = registerFlower("green_dulah", PcyanFlower, MobEffects.MINING_FATIGUE, 11),
-        greenGemtop = registerFlower("green_gemtop", PcyanFlower, MobEffects.SLOW_FALLING, 5),
-        purpleGemtop = registerFlower("purple_gemtop", PcyanFlower, MobEffects.HASTE, 6);
+    public static final PotPlant
+        brittleGrass = new PotPlant("brittle_grass", BrittleGrass::new, PbrittleGrass), // TODO: grass and brush shouldn't really have pot variants
+        crimpetal = PotPlant.flower("crimpetal", PmagentaFlower, MobEffects.FIRE_RESISTANCE, 4),
+        roofbell = PotPlant.flower("roofbell", Proofbell, MobEffects.POISON, 11),
+        winterbloom = PotPlant.flower("winterbloom", Pwinterbloom, MobEffects.LEVITATION, 8),
+        wispLeaf = PotPlant.flower("wisp_leaf", Pwispleaf, MobEffects.DOLPHINS_GRACE, 7),
+        arcanaBrush = PotPlant.dryGrass("arcana_brush", PiceGrass),
+        arcanaBush = PotPlant.dryGrass("arcana_bush", PterraBlueGrass),
+        gemOfTheDunes = new PotPlant("gem_of_the_dunes", p -> new Flower(MobEffects.RESISTANCE, 5, true, p), PmagentaFlower, EPIC),
+        edenBrush = PotPlant.grass("eden_brush", PedenBrush),
+        sunBlossom = PotPlant.flower("sun_blossom", plantFlower, MobEffects.FIRE_RESISTANCE, 6),
+        sunbloom = PotPlant.flower("sunbloom", PterraYellowFlower, MobEffects.GLOWING, 6),
+        lushroom = new PotPlant("lushroom", Lushroom::new, PterraOrangeFlower),
+        moonlightFern = PotPlant.grass("moonlight_fern", PiceGrass),
+        moonBud = PotPlant.flower("moon_bud", PquartzFlower, MobEffects.WATER_BREATHING, 4),
+        apalachiaTallgrass = PotPlant.grass("apalachia_tallgrass", PterraBlueGrass),
+        duskBloom = PotPlant.flower("dusk_bloom", PterraBlueFlower, MobEffects.BLINDNESS, 11),
+        skythernBrush = PotPlant.grass("skythern_brush", PskythernBrush),
+        dustLily = PotPlant.flower("dust_lily", PwoolFlower, MobEffects.INVISIBILITY, 5),
+        mortumBrush = PotPlant.grass("mortum_brush", PmortumBrush),
+        eyePlant = PotPlant.flower("eye_plant", PgrayFlower, MobEffects.NIGHT_VISION, 6),
+        shineGrass = PotPlant.flower("shine_grass", PcyanFlower, MobEffects.GLOWING, 6),
+        cracklespike = PotPlant.flower("cracklespike", PcyanFlower, MobEffects.NAUSEA, 7),
+        fernite = PotPlant.flower("fernite", PcyanFlower, MobEffects.WEAKNESS, 7),
+        dreamglow = PotPlant.flower("dreamglow", PcyanFlower, MobEffects.NIGHT_VISION, 5),
+        bulbatobe = PotPlant.flower("bulbatobe", PcyanFlower, MobEffects.POISON, 11),
+        shimmer = PotPlant.flower("shimmer", PcyanFlower, MobEffects.BLINDNESS, 11),
+        yellowDulah = PotPlant.flower("yellow_dulah", PcyanFlower, MobEffects.JUMP_BOOST, 5),
+        greenDulah = PotPlant.flower("green_dulah", PcyanFlower, MobEffects.MINING_FATIGUE, 11),
+        greenGemtop = PotPlant.flower("green_gemtop", PcyanFlower, MobEffects.SLOW_FALLING, 5),
+        purpleGemtop = PotPlant.flower("purple_gemtop", PcyanFlower, MobEffects.HASTE, 6);
+    public static final CaveVines
+        winterberryVines = new CaveVines("winterberry", WinterberryVinesBody::new, WinterberryVinesHead::new, PwinterberryVinesBody, PwinterberryVinesHead),
+        arcaniteVines = new CaveVines("arcanite", ArcaniteVinesBody::new, ArcaniteVinesHead::new, ParcaniteVines, ParcaniteVines);
     public static final DeferredBlock<Block>
         winterberryBush = register("winterberry_bush", WinterberryBush::new, PwinterberryBush),
-        winterberryVinesBody = registerItemless("winterberry_vines_body", WinterberryVinesBody::new, PwinterberryVinesBody),
-        winterberryVinesHead = register("winterberry_vines_head", WinterberryVinesHead::new, PwinterberryVinesHead),
         snowyMoss = register("snowy_moss", SnowyMoss::new, PsnowyMoss),
         globebrush = registerTallFlower("globebrush", Pglobebrush), // TODO: tall flowers miss pot variants
         thermoliage = registerTallFlower("thermoliage", Pthermoliage),
-        arcaniteVinesBody = registerItemless("arcanite_vines_body", ArcaniteVinesBody::new, ParcaniteVines),
-        arcaniteVinesHead = register("arcanite_vines_head", ArcaniteVinesHead::new, ParcaniteVines),
         duncap = register("duncap", Duncap::new, Pduncap),
         landVineStem = register("land_vine_stem", LandVineStem::new, PlandVineStem),
         landVine = register("land_vine", LandVine::new, PlandVine),
@@ -192,33 +177,34 @@ public class BlockRegistry {
         weedwoodVine = registerVine("weedwood", PweedwoodVine),
         blossomedWeedwoodVine = registerVine("blossomed_weedwood", PweedwoodVine),
     // Crops
-        tomatoPlant = registerCrop("tomato", crop, ItemRegistry.tomato_seeds),
-        whiteMushroomPlant = registerCrop("white_mushroom", crop, ItemRegistry.white_mushroom_seeds),
-        aquamarinePlant = registerCrop("aquamarine", crop, ItemRegistry.aquamarine_seeds),
-        eucalyptusPlant = registerCrop("eucalyptus", crop, ItemRegistry.eucalyptus_root_seeds),
-        firestockPlant = registerArcanaDoubleCrop("firestock", crop, ItemRegistry.firestock_seeds),
-        hitchakPlant = registerCrop("hitchak", crop, ItemRegistry.hitchak_seeds),
-        lamonaPlant = registerCrop("lamona", crop, ItemRegistry.lamona_seeds),
-        marsinePlant = registerCrop("marsine", crop, ItemRegistry.marsine_seeds),
-        pinflyPlant = registerArcanaDoubleCrop("pinfly", crop, ItemRegistry.pinfly_seeds),
-        veiloPlant = registerCrop("veilo", crop, ItemRegistry.veilo_seeds),
-        moonbulbPlant = registerDoubleCrop("moonbulb", PcropLight4, ItemRegistry.moonbulb_seeds),
-        purpleGlowbonePlant = registerDoubleCrop("purple_glowbone", PcropLight6, ItemRegistry.purple_glowbone_seeds),
-        pinkGlowbonePlant = registerDoubleCrop("pink_glowbone", PcropLight6, ItemRegistry.pink_glowbone_seeds),
-        skyPlant = registerCrop("sky", crop, ItemRegistry.sky_plant_seeds);
+        tomatoPlant = registerCrop("tomato", crop),
+        whiteMushroomPlant = registerCrop("white_mushroom", crop),
+        aquamarinePlant = registerCrop("aquamarine", crop),
+        eucalyptusPlant = registerCrop("eucalyptus", crop),
+        firestockPlant = registerArcanaDoubleCrop("firestock", crop),
+        hitchakPlant = registerCrop("hitchak", crop),
+        lamonaPlant = registerCrop("lamona", crop),
+        marsinePlant = registerCrop("marsine", crop),
+        pinflyPlant = registerArcanaDoubleCrop("pinfly", crop),
+        veiloPlant = registerCrop("veilo", crop),
+        moonbulbPlant = registerDoubleCrop("moonbulb", PcropLight4),
+        purpleGlowbonePlant = registerDoubleCrop("purple_glowbone", PcropLight6),
+        pinkGlowbonePlant = registerDoubleCrop("pink_glowbone", PcropLight6),
+        skyPlant = registerCrop("sky_plant", crop);
 
     // Soil
-    public static final List<DeferredBlock<Block>>
-        frozenSoil = registerSoils("frozen", PfrozenDirt, PfrozenGrass, null, true),
-        arcaniteSoil = registerSoils("arcanite", PblueDirt, ParcaniteGrass, null, true),
-        soulSludgeSet = registerBreakPair("soul_sludge", PsoulSludge, PsoulSludgeUnbreakable),
-        scorchsoil = registerSoils("scorchdirt", "scorchgrass", Scorchdirt::new, (d, g, b) -> p -> new Scorchgrass(p, d, g, b), Pscorchdirt, PyellowGrass, edenBrush.getFirst(), true),
-        raySoil = registerSoils("ray", PrayDirt, PyellowGrass, edenBrush.getFirst(), true),
-        wildwoodSoil = registerSoils("wildwood", PwildwoodDirt, PwildwoodGrass, moonlightFern.getFirst(), true),
-        apalachiaSoil = registerSoils("apalachia", PblueDirt, PapalachiaGrass, apalachiaTallgrass.getFirst(), true),
-        skythernSoil = registerSoils("skythern", PskythernDirt, PskythernGrass, skythernBrush.getFirst(), true),
-        mortumSoil = registerSoils("mortum", PmortumDirt, PmortumGrass, mortumBrush.getFirst(), false),
-        dreamSoil = registerSoils("dream", PdreamDirt, PdreamGrass, null, false);
+    public static final Soil
+        frozenSoil = new Soil("frozen", PfrozenDirt, PfrozenGrass, null, true),
+        arcaniteSoil = new Soil("arcanite", PblueDirt, ParcaniteGrass, null, true),
+        scorchsoil = new Soil("scorchdirt", "scorchgrass", Scorchdirt::new, (d, g, b) -> p -> new Scorchgrass(p, d, g, b), Pscorchdirt, PyellowGrass, edenBrush.plant, true),
+        raySoil = new Soil("ray", PrayDirt, PyellowGrass, edenBrush.plant, true),
+        wildwoodSoil = new Soil("wildwood", PwildwoodDirt, PwildwoodGrass, moonlightFern.plant, true),
+        apalachiaSoil = new Soil("apalachia", PblueDirt, PapalachiaGrass, apalachiaTallgrass.plant, true),
+        skythernSoil = new Soil("skythern", PskythernDirt, PskythernGrass, skythernBrush.plant, true),
+        mortumSoil = new Soil("mortum", PmortumDirt, PmortumGrass, mortumBrush.plant, false),
+        dreamSoil = new Soil("dream", PdreamDirt, PdreamGrass, null, false);
+    public static final BreakPair
+        soulSludge = new BreakPair("soul_sludge", PsoulSludge, PsoulSludgeUnbreakable);
     public static final DeferredBlock<Block>
         arcaniteSand = registerSand("arcanite_sand", ParcaniteSand, 7911916),
         arcanicSand = registerSand("arcanic_sand", ParcanicSand, 4027550),
@@ -252,23 +238,25 @@ public class BlockRegistry {
         buddingDravite = register("budding_dravite", PbuddingDravite);
 
     // Wood
-    public static final List<DeferredBlock<Block>>
-        divineWoodSet = registerTreeSet("divine", GOLD, TERRACOTTA_LIGHT_GREEN, TERRACOTTA_LIGHT_GREEN, DIVINE_WOOD_TYPE, ConfiguredFeatureKeys.DIVINE_TREE),
-        shiverspineWoodSet = registerTreeSet("shiverspine", WOOL, COLOR_LIGHT_GRAY, GLOW_LICHEN, SHIVERSPINE_WOOD_TYPE, ConfiguredFeatureKeys.SHIVERSPINE_TREE),
-        auroraoakWoodSet = registerTreeSet("auroraoak", COLOR_PURPLE, COLOR_BROWN, ICE, AURORAOAK_WOOD_TYPE, ConfiguredFeatureKeys.AURORAOAK_TREE),
-        cozybarkWoodSet = registerTreeSet("cozybark", CRIMSON_STEM, TERRACOTTA_PURPLE, TERRACOTTA_PURPLE, COZYBARK_WOOD_TYPE, ConfiguredFeatureKeys.COZYBARK_TREE, CozybarkLeaves::new),
-        streamleafWoodSet = registerTreeSet("streamleaf", GLOW_LICHEN, TERRACOTTA_BROWN, ICE, STREAMLEAF_WOOD_TYPE, ConfiguredFeatureKeys.STREAMLEAF_TREE),
-        eucalyptusWoodSet = registerWoodSet("eucalyptus", COLOR_LIGHT_GRAY, TERRACOTTA_WHITE, EUCALYPTUS_WOOD_TYPE),
-        edenWoodSet = registerTreeSet("eden", GOLD, COLOR_BROWN, SAND, EDEN_WOOD_TYPE, ConfiguredFeatureKeys.EDEN_TREE),
-        crimseekerWoodSet = registerTreeSet("crimseeker", CRIMSON_STEM, CRIMSON_STEM, COLOR_GREEN, CRIMSEEKER_WOOD_TYPE, null, Block::new),//TODO: Tree feature
-        wildwoodWoodSet = registerTreeSet("wildwood", COLOR_LIGHT_BLUE, COLOR_BLUE, COLOR_LIGHT_BLUE, WILDWOOD_WOOD_TYPE, ConfiguredFeatureKeys.WILDWOOD_TREE),
-        apalachiaWoodSet = registerTreeSet("apalachia", COLOR_MAGENTA, WARPED_HYPHAE, COLOR_MAGENTA, APALACHIA_WOOD_TYPE, ConfiguredFeatureKeys.APALACHIA_TREE),
-        skythernWoodSet = registerTreeSet("skythern", COLOR_LIGHT_GRAY, COLOR_LIGHT_GRAY, WOOL, SKYTHERN_WOOD_TYPE, ConfiguredFeatureKeys.SKYTHERN_TREE),
-        mortumWoodSet = registerTreeSet("mortum", COLOR_BLACK, TERRACOTTA_PINK, COLOR_GRAY, MORTUM_WOOD_TYPE, ConfiguredFeatureKeys.MORTUM_TREE),
-        firewoodSet = registerDreamTreeSet("firewood", CRIMSON_NYLIUM, COLOR_RED, TERRACOTTA_ORANGE),
-        dreamwoodSet = registerDreamTreeSet("dreamwood", COLOR_CYAN, COLOR_CYAN, COLOR_LIGHT_BLUE),
-        hyrewoodSet = registerDreamTreeSet("hyrewood", COLOR_BLUE, COLOR_BLUE, COLOR_BLUE),
-        mintwoodSet = registerDreamTreeSet("mintwood", WARPED_WART_BLOCK, WARPED_WART_BLOCK, DIAMOND);
+    public static final Tree
+        divine = new Tree("divine", GOLD, TERRACOTTA_LIGHT_GREEN, TERRACOTTA_LIGHT_GREEN, BlockSetType.CHERRY, ConfiguredFeatureKeys.DIVINE_TREE),
+        shiverspine = new Tree("shiverspine", WOOL, COLOR_LIGHT_GRAY, GLOW_LICHEN, BlockSetType.PALE_OAK, ConfiguredFeatureKeys.SHIVERSPINE_TREE),
+        auroraoak = new Tree("auroraoak", COLOR_PURPLE, COLOR_BROWN, ICE, BlockSetType.OAK, ConfiguredFeatureKeys.AURORAOAK_TREE),
+        cozybark = new Tree("cozybark", CRIMSON_STEM, TERRACOTTA_PURPLE, TERRACOTTA_PURPLE, BlockSetType.DARK_OAK, ConfiguredFeatureKeys.COZYBARK_TREE, CozybarkLeaves::new),
+        streamleaf = new Tree("streamleaf", GLOW_LICHEN, TERRACOTTA_BROWN, ICE, BlockSetType.WARPED, ConfiguredFeatureKeys.STREAMLEAF_TREE),
+        eden = new Tree("eden", GOLD, COLOR_BROWN, SAND, BlockSetType.OAK, ConfiguredFeatureKeys.EDEN_TREE),
+        crimseeker = new Tree("crimseeker", CRIMSON_STEM, CRIMSON_STEM, COLOR_GREEN, BlockSetType.CHERRY, null, Block::new),//TODO: Tree feature
+        wildwood = new Tree("wildwood", COLOR_LIGHT_BLUE, COLOR_BLUE, COLOR_LIGHT_BLUE, BlockSetType.OAK, ConfiguredFeatureKeys.WILDWOOD_TREE),
+        apalachia = new Tree("apalachia", COLOR_MAGENTA, WARPED_HYPHAE, COLOR_MAGENTA, BlockSetType.WARPED, ConfiguredFeatureKeys.APALACHIA_TREE),
+        skythern = new Tree("skythern", COLOR_LIGHT_GRAY, COLOR_LIGHT_GRAY, WOOL, BlockSetType.WARPED, ConfiguredFeatureKeys.SKYTHERN_TREE),
+        mortum = new Tree("mortum", COLOR_BLACK, TERRACOTTA_PINK, COLOR_GRAY, BlockSetType.DARK_OAK, ConfiguredFeatureKeys.MORTUM_TREE);
+    public static final DreamTree
+        firewood = new DreamTree("firewood", CRIMSON_NYLIUM, COLOR_RED, TERRACOTTA_ORANGE),
+        dreamwood = new DreamTree("dreamwood", COLOR_CYAN, COLOR_CYAN, COLOR_LIGHT_BLUE),
+        hyrewood = new DreamTree("hyrewood", COLOR_BLUE, COLOR_BLUE, COLOR_BLUE),
+        mintwood = new DreamTree("mintwood", WARPED_WART_BLOCK, WARPED_WART_BLOCK, DIAMOND);
+    public static final Wood
+        eucalyptus = new Wood("eucalyptus", COLOR_LIGHT_GRAY, TERRACOTTA_WHITE, BlockSetType.OAK);
     public static final DeferredBlock<Block>
         plankDesign = register("plank_design", Pdesign),
         stairDesign = registerStair("stair_design", Pdesign, plankDesign),
@@ -276,17 +264,17 @@ public class BlockRegistry {
     //TODO: woodcutterDesign = registerBlockCorailWoodcutter("woodcutter_design", ModList.get().isLoaded("corail_woodcutter") ? WoodcutterLoader.create(plankDesign, WoodType.OAK) : null),
 
     // Tall fungi
-    public static final List<DeferredBlock<Block>>
-        glowsproutSet = registerFungusSet("glowsprout", COLOR_CYAN, DIAMOND, COLOR_LIGHT_BLUE, ConfiguredFeatureKeys.GLOWSPROUT),
-        lowsproutSet = registerFungusSet("lowsprout", COLOR_GREEN, WARPED_WART_BLOCK, GLOW_LICHEN, ConfiguredFeatureKeys.LOWSPROUT),
-        slowsproutSet = registerFungusSet("slowsprout", COLOR_MAGENTA, ICE, COLOR_PINK, ConfiguredFeatureKeys.SLOWSPROUT);
+    public static final TallFungus
+        glowsprout = new TallFungus("glowsprout", COLOR_CYAN, DIAMOND, COLOR_LIGHT_BLUE, ConfiguredFeatureKeys.GLOWSPROUT),
+        lowsprout = new TallFungus("lowsprout", COLOR_GREEN, WARPED_WART_BLOCK, GLOW_LICHEN, ConfiguredFeatureKeys.LOWSPROUT),
+        slowsprout = new TallFungus("slowsprout", COLOR_MAGENTA, ICE, COLOR_PINK, ConfiguredFeatureKeys.SLOWSPROUT);
 
     // Wool
-    public static final List<DeferredBlock<Block>>
-        checkerSet = registerWoolSet("checker", "", Pchecker, DyeColor.BLACK),
-        rainbowSet = registerWoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE), // TODO: remap the rainbow_carpet into rainbow_wool_carpet
-        fancySet = registerWoolSet("fancy", "_wool", Pfancy, DyeColor.BROWN),
-        workshopCarpetSet = registerStairSlabSet("workshop", "_carpet", PworkshopCarpet);
+    public static final WoolSet
+        checker = new WoolSet("checker", "", Pchecker, DyeColor.BLACK),
+        rainbow = new WoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE), // TODO: remap the rainbow_carpet into rainbow_wool_carpet
+        fancy = new WoolSet("fancy", "_wool", Pfancy, DyeColor.BROWN);
+    public static final StairSlabSet workshopCarpet = new StairSlabSet("workshop", "_carpet", PworkshopCarpet);
 
     // Obsidian
     public static final DeferredBlock<Block>
@@ -330,12 +318,12 @@ public class BlockRegistry {
     //TODO: suspiciousFrozenGravelBricks = registerBlockSupplementariesGravelBricks("suspicious_frozen_gravel_bricks", ModList.get().isLoaded("supplementaries") ? SuspiciousFrozenGravelBricks::new : null),
 
     // Iceika bricks & other
-    public static final List<DeferredBlock<Block>>
-        frozenBrickSet = registerBrickSet("frozen_brick", PfrozenStone),
-        polishedCobaltiteSet = registerStoneTypeSet("polished_cobaltite", PlightBlueStone),
-        coalstoneBrickSet = registerBrickSet("coalstone_brick", PcoalstoneBricks),
-        polishedCoalstoneSet = registerStoneTypeSet("polished_coalstone", PgrayStone),
-        cutOxdriteSet = registerRockSet("cut_oxdrite", "", PcutOxdrite, BlockSetType.COPPER, WaterloggedTransparentBlock::new);
+    public static final RockSet
+        frozenBrick = RockSet.bricks("frozen_brick", PfrozenStone),
+        polishedCobaltite = RockSet.stoneType("polished_cobaltite", PlightBlueStone),
+        coalstoneBrick = RockSet.bricks("coalstone_brick", PcoalstoneBricks),
+        polishedCoalstone = RockSet.stoneType("polished_coalstone", PgrayStone),
+        cutOxdrite = new RockSet("cut_oxdrite", "", PcutOxdrite, BlockSetType.COPPER, WaterloggedTransparentBlock::new);
     public static final DeferredBlock<Block>
         snowBricks = register("snow_bricks", PsnowBricks),
         icyBricks = register("icy_bricks", Pice),
@@ -344,13 +332,15 @@ public class BlockRegistry {
         chiseledCoalstoneBricks = register("chiseled_coalstone_bricks", PgrayStone);
 
     // Arcana bricks & other
-    public static final List<DeferredBlock<Block>>
-        arcaniteTileSet = registerBrickSet("arcanite_tile", PcyanStone),
-        ancientBrickSet = registerArcanaSet("ancient_brick", ItemRegistry.ancient_key, WARPED_NYLIUM),
-        degradedBrickSet = registerArcanaSet("degraded_brick", ItemRegistry.degraded_key, COLOR_BLUE),
-        ancientTileSet = registerBreakPair("ancient_tile", PblueCobblestone, PblueUnbreakable),
-        arcaniumMetalSet = registerBreakPair("arcanium_metal", PterraBlueMetal, ParcaniumMetal),
-        arcaniumPowerSet = registerBreakPair("arcanium_power", PgrayCobblestone, PgrayStoneUnbreakable);
+    public static final RockSet
+        arcaniteTile = RockSet.bricks("arcanite_tile", PcyanStone);
+    public static final ArcanaSet
+        ancientBrick = new ArcanaSet("ancient_brick", ItemRegistry.ancient_key, WARPED_NYLIUM),
+        degradedBrick = new ArcanaSet("degraded_brick", ItemRegistry.degraded_key, COLOR_BLUE);
+    public static final BreakPair
+        ancientTile = new BreakPair("ancient_tile", PblueCobblestone, PblueUnbreakable),
+        arcaniumMetal = new BreakPair("arcanium_metal", PterraBlueMetal, ParcaniumMetal),
+        arcaniumPower = new BreakPair("arcanium_power", PgrayCobblestone, PgrayStoneUnbreakable);
     public static final DeferredBlock<Block>
         lightDegradedBrick = register("light_degraded_brick", PcyanStoneUnbreakable),
         darkDegradedBrick = register("dark_degraded_brick", PblackUnbreakable),
@@ -363,10 +353,10 @@ public class BlockRegistry {
         soulStoneDoor = registerArcanaDoor("soul_stone", PsoulStoneDoor, ItemRegistry.soul_key);
 
     // Twilight bricks & other
-    public static final List<DeferredBlock<Block>>
-        twilightBrickSet = registerBrickSet("twilight_brick", PterraBlueStone),
-        polishedScorchaltSet = registerStoneTypeSet("polished_scorchalt", PpinkStone),
-        polishedRayStoneSet = registerStoneTypeSet("polished_ray_stone", PgoldenStone);
+    public static final RockSet
+        twilightBrick = RockSet.bricks("twilight_brick", PterraBlueStone),
+        polishedScorchalt = RockSet.stoneType("polished_scorchalt", PpinkStone),
+        polishedRayStone = RockSet.stoneType("polished_ray_stone", PgoldenStone);
     public static final DeferredBlock<Block>
         chiseledScorchalt = register("chiseled_scorchalt", PpinkStone),
         edenBricks = register("eden_bricks", PyellowStone),
@@ -395,7 +385,7 @@ public class BlockRegistry {
 
     // Steel
     public static final DeferredBlock<Block>
-        steel = register("steel", PropertyOverride.PterraBlueMetal),
+        steel = register("steel", BlockPropertyOverride.PterraBlueMetal),
         blackSteel = register("black_steel", PblackMetal),
         redSteel = register("red_steel", PredMetal),
         orangeSteel = register("orange_steel", PorangeMetal),
@@ -424,15 +414,15 @@ public class BlockRegistry {
         purpleFairyLights = registerLadder("purple_fairy_lights", Plights);
 
     // Torches
-    public static final List<DeferredBlock<Block>>
-        skeletonTorchSet = registerTorchSet("skeleton", PskeletonTorch, () -> ParticleTypes.FLAME),
-        aquaTorchSet = registerTorchSet("aqua", AquaTorch::new, AquaWallTorch::new, Ptorch),
-        arcaniumTorchSet = registerTorchSet("arcanium",Ptorch, ParticleRegistry.PURPLE_FLAME),
-        edenTorchSet = registerTorchSet("eden", Ptorch, ParticleRegistry.GREEN_FLAME);
+    public static final Torch
+        skeletonTorch = new Torch("skeleton", PskeletonTorch, () -> ParticleTypes.FLAME),
+        aquaTorch = new Torch("aqua", AquaTorch::new, AquaWallTorch::new, Ptorch),
+        arcaniumTorch = new Torch("arcanium",Ptorch, ParticleRegistry.PURPLE_FLAME),
+        edenTorch = new Torch("eden", Ptorch, ParticleRegistry.GREEN_FLAME);
 
     // Lamps
-    public static final List<DeferredBlock<Block>>
-        dungeonLampSet = registerBreakPair("dungeon_lamp", PquartzLamp, PquartzLampUnbreakable);
+    public static final BreakPair
+        dungeonLamp = new BreakPair("dungeon_lamp", PquartzLamp, PquartzLampUnbreakable);
     public static final DeferredBlock<Block>
     // Gem lamps
         moltenLamp = register("molten_lamp", PorangeLamp),
@@ -504,7 +494,7 @@ public class BlockRegistry {
         theWatcherStatue = registerStatue("the_watcher", statue, SoundRegistry.ROAR),
         kingOfScorchersStatue = registerStatue("king_of_scorchers", statue, SoundRegistry.KING_OF_SCORCHERS),
         kitraStatue = registerStatue("kitra", statue, SoundRegistry.WHALE),
-        ayeracoStatue = register("ayeraco_statue", AyeracoStatue::new, statue, p -> p.component(DataComponents.DYE, DyeColor.WHITE).fireResistant().rarity(Rarity.RARE)),
+        ayeracoStatue = register("ayeraco_statue", AyeracoStatue::new, statue, PrareFireResistant.then(p -> p.component(DataComponents.DYE, DyeColor.WHITE))),
         dramixStatue = registerStatue("dramix", statue, SoundRegistry.DRAMIX),
         parasectaStatue = registerStatue("parasecta", statue, SoundRegistry.PARASECTA),
         sunstormStatue = registerStatue("sunstorm", statue, SoundRegistry.SPARKLER),
@@ -555,9 +545,9 @@ public class BlockRegistry {
 
     // Work stations
     public static final DeferredBlock<Block>
-        altarOfCorruption = register("altar_of_corruption", AltarOfCorruption::new, PaltarOfCorruption),
-        arcaniumExtractor = register("arcanium_extractor", ArcaniumExtractor::new, ParcaniumExtractor),
-        infusionTable = register("infusion_table", InfusionTable::new, PfireUnbreakable);
+        altarOfCorruption = register("altar_of_corruption", AltarOfCorruption::new, PaltarOfCorruption, UNCOMMON),
+        arcaniumExtractor = register("arcanium_extractor", ArcaniumExtractor::new, ParcaniumExtractor, RARE),
+        infusionTable = register("infusion_table", InfusionTable::new, PfireUnbreakable, RARE);
 
     // Furnaces
     public static final DeferredBlock<Block>
@@ -567,14 +557,14 @@ public class BlockRegistry {
         moltenFurnace = registerInfiniFurnace("molten", PmoltenFurnace, BlockEntityRegistry.MOLTEN_FURNACE::get),
         whitefireFurnace = registerInfiniFurnace("whitefire", PwhitefireFurnace, BlockEntityRegistry.WHITEFIRE_FURNACE::get),
         moonlightFurnace = registerFurnace("moonlight", PmoonlightFurnace, BlockEntityRegistry.MOONLIGHT_FURNACE::get),
-        demonFurnace = register("demon_furnace", DemonFurnace::new, PdemonFurnace);
+        demonFurnace = register("demon_furnace", DemonFurnace::new, PdemonFurnace, EPIC);
 
     // Chests
     public static final DeferredBlock<Block>
-        boneChest = register("bone_chest", BoneChest::new, PboneChest),
-        frostedChest = register("frosted_chest", FrostedChest::new, PfrostedChest),
-        presentBox = register("present_box", PresentBox::new, PpresentBox),
-        edenChest = register("eden_chest", EdenChest::new, PedenChest),
+        boneChest = register("bone_chest", BoneChest::new, PboneChest, COMMON),
+        frostedChest = register("frosted_chest", FrostedChest::new, PfrostedChest, COMMON),
+        presentBox = register("present_box", PresentBox::new, PpresentBox, COMMON),
+        edenChest = register("eden_chest", EdenChest::new, PedenChest, COMMON),
         crate = register("crate", Crate::new, Pcrate),
         oxcrate = register("oxcrate", Oxcrate::new, Pcrate),
         inserter = register("inserter", Inserter::new, Pinserter),
@@ -582,16 +572,16 @@ public class BlockRegistry {
 
     // Utility blocks
     public static final DeferredBlock<Block>
-        nightmareBed = registerItemless("nightmare_bed", NightmareBed::new, PnightmareBed),
+        nightmareBed = register("nightmare_bed", NightmareBed::new, PnightmareBed, p -> p.stacksTo(1)),
         hellfireSponge = register("hellfire_sponge", HellfireSponge::new, PhellfireSponge),
         coldHellfireSponge = register("cold_hellfire_sponge", ColdHellfireSponge::new, PhellfireSponge),
-        frostedAllure = register("frosted_allure", FrostedAllure::new, PfrostedAllure),
+        frostedAllure = register("frosted_allure", FrostedAllure::new, PfrostedAllure, UNCOMMON),
         soulTrap = register("soul_trap", SoulTrap::new, PsoulTrap),
-        acceleron = register("acceleron", Acceleron::new, Pacceleron),
-        gravestone = register("gravestone", Gravestone::new, Pgravestone),
+        acceleron = register("acceleron", Acceleron::new, Pacceleron, UNCOMMON),
+        gravestone = register("gravestone", Gravestone::new, Pgravestone, UNCOMMON),
         robbinHut = register("robbin_hut", RobbinHut::new, PshapedPlank),
         robbinNest = register("robbin_nest", RobbinNest::new, ProbbinNest),
-        elevantium = register("elevantium", Elevantium::new, Pelevantium),
+        elevantium = register("elevantium", Elevantium::new, Pelevantium, UNCOMMON),
         booster = register("booster", RedstoneBooster::new, Prepeater),
         limiter = register("limiter", RedstoneLimiter::new, Prepeater),
         oxdriteRail = register("oxdrite_rail", OxdriteRail::new, Prail),
@@ -650,180 +640,225 @@ public class BlockRegistry {
     // Air
     public static final DeferredBlock<Block>
         terranGhostBlock = registerItemless("terran_ghost_block", TerranGhostBlock::new, air),
-        dungeonAir = register("dungeon_air", DungeonAir::new, air);
+        dungeonAir = register("dungeon_air", DungeonAir::new, air, EPIC);
 
     // Creative mode blocks
     public static final DeferredBlock<Block>
         randomItemDropper = register("random_item_dropper", RandomItemDropper::new, furnace);
 
+    //ALIASES
+    static {
+        //Obsidian
+        addAliases("red_vane", bleedingObsidian);
+        addAliases("yellow_vane", shiningObsidian);
+        addAliases("cyan_vane", glitteringObsidian);
+        addAliases("blue_vane", seepingObsidian);
+        addAliases("purple_vane", vwoopingObsidian);
+        //Lamps
+        addAliases("bluefire_lamp", soulfireLamp);
+        addAliases("redstone_ore_lamp", bloodgemLamp);
+        //Shiverspine
+        addAliases("frozen_sapling", shiverspine.sapling);
+        addAliases("frozen_log", shiverspine.log);
+        addAliases("stripped_frozen_log", shiverspine.strippedLog);
+        addAliases("frozen_planks", shiverspine.planks);
+        addAliases("frozen_stairs", shiverspine.stairs);
+        addAliases("frozen_slab", shiverspine.slab);
+        addAliases("frozen_fence", shiverspine.fence);
+        addAliases("frozen_fence_gate", shiverspine.gate);
+        addAliases("frozen_door", shiverspine.door);
+        addAliases("frozen_trapdoor", shiverspine.trapdoor);
+        addAliases("brittle_leaves", shiverspine.leaves);
+        //Fire
+        addAliases("iceika_fire", icyFire);
+        addAliases("blue_fire", BlockIds.SOUL_FIRE);
+        //Steel
+        addAliases("white_steel", steel);
+        addAliases("teal_steel", cyanSteel);
+        addAliases("bright_red_steel", magentaSteel);
+        //Stained Glass
+        addAliases("stained_glass2", stainedGlass);
+        addAliases("stained_glass3", stainedGlass);
+        addAliases("stained_glass4", stainedGlass);
+        addAliases("stained_glass5", stainedGlass);
+        addAliases("stained_glass6", stainedGlass);
+        addAliases("stained_glass7", stainedGlass);
+        addAliases("stained_glass8", stainedGlass);
+        //Extra Arcana
+        addAliases("arcana_hard_portal_frame", arcanaPortalFrame);
+        //Eden
+        addAliases("eden_dirt", raySoil.dirt);
+        addAliases("eden_grass", raySoil.grass);
+        addAliases("eden_ore", twilightEdenOre);
+        //Vethea
+        addAliases("acid_block", bacterialAcid);
+        addAliases("karos_heat_tile_green", karosHeatTile);
+        addAliases("karos_heat_tile_red", karosHeatTile);
+        //Compat (why not)
+        if(!ModList.get().isLoaded("supplementaries")) {
+            addAliases("raked_frozen_gravel", frozenGravel);
+            addAliases("frozen_gravel_bricks", frozenGravel);
+            addAliases("suspicious_frozen_gravel_bricks", frozenGravel);
+        }
+    }
+
     // REGISTER SETS
-    private static List<DeferredBlock<Block>> registerGrass(String name, PropertyOverride properties) {return registerPotted(name, ModGrass::new, properties);}
-    private static List<DeferredBlock<Block>> registerDryGrass(String name, PropertyOverride properties) {return registerPotted(name, p -> new ModGrass(p, true), properties);}
-    private static List<DeferredBlock<Block>> registerFlower(String name, PropertyOverride properties, Holder<MobEffect> effect, float durationInSeconds) {return registerPotted(name, p -> new Flower(effect, durationInSeconds, p), properties);}
-    private static List<DeferredBlock<Block>> registerPotted(String name, BlockFactory block, PropertyOverride properties) {
-        DeferredBlock<Block> b = register(name, block, properties),
-        pot = registerItemless(name + "_pot", p -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, b, p), PflowerPot);
-        return List.of(b, pot);
+    public record OverworldOres(DeferredBlock<Block> stone, DeferredBlock<Block> deepslate) {OverworldOres(String baseName) {this(register(baseName + "_ore", PoverworldOre), register(baseName + "_ore_deepslate", PdeepslateOre));}}
+    public record MetalBlocks(DeferredBlock<Block> raw, DeferredBlock<Block> block) {MetalBlocks(String baseName, BlockPropertyOverride raw, BlockPropertyOverride block) {this(register("raw_" + baseName + "_block", raw), register(baseName + "_block", block));}}
+    public record CaveVines(DeferredBlock<Block> body, DeferredBlock<Block> head) { CaveVines(String baseName, BlockConstructor body, BlockConstructor head, BlockPropertyOverride pBody, BlockPropertyOverride pHead) {this(registerItemless(baseName + "_vines_body", body, pBody), register(baseName + "_vines_head", baseName + "_vines", head, pHead));}}
+    public record WoolSet(DeferredBlock<Block> wool, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> carpet) {
+        WoolSet(String baseName, String woolSignifier, BlockPropertyOverride properties, DyeColor color) {
+            StairSlabSet set = new StairSlabSet(baseName, woolSignifier, properties);
+            this(set.block, set.stairs, set.slab, register(baseName + "_carpet", p -> new WoolCarpetBlock(color, p), properties));
+        }
     }
-    private static List<DeferredBlock<Block>> registerWoolSet(String baseName, String woolSignifier, PropertyOverride properties, DyeColor color) {
-        DeferredBlock<Block>
-            wool = register(baseName + woolSignifier, properties),
-            stairs = registerStair(baseName + woolSignifier + "_stairs", properties, wool),
-            slab = registerSlab(baseName + woolSignifier + "_slab", properties),
-            carpet = register(baseName + woolSignifier + "_carpet", p -> new WoolCarpetBlock(color, p), properties);
-        return List.of(wool, stairs, slab, carpet);
+    public record Torch(DeferredBlock<Block> torch, DeferredBlock<Block> wallTorch) {
+        Torch(String baseName, BlockPropertyOverride properties, Supplier<SimpleParticleType> particle) {this(baseName, p -> new TorchBlock(particle.get(), p), p -> new WallTorchBlock(particle.get(), p), properties);}
+        Torch(String baseName, BlockConstructor torch, BlockConstructor wallTorch, BlockPropertyOverride properties) {
+            DeferredBlock<Block> wt = registerItemless(baseName + "_wall_torch", wallTorch, properties);
+            this(register(baseName + "_torch", torch, properties, (b, p) -> new StandingAndWallBlockItem(b, wt.get(), Direction.DOWN, p)), wt);
+        }
     }
-    private static List<DeferredBlock<Block>> registerTorchSet(String baseName, PropertyOverride properties, Supplier<SimpleParticleType> particle) {return registerTorchSet(baseName, p -> new TorchBlock(particle.get(), p), p -> new WallTorchBlock(particle.get(), p), properties);}
-    private static List<DeferredBlock<Block>> registerTorchSet(String baseName, BlockFactory torch, BlockFactory wallTorch, PropertyOverride properties) {
-        DeferredBlock<Block>
-            t = registerItemless(baseName + "_torch", torch, properties),
-            wt = registerItemless(baseName + "_wall_torch", wallTorch, properties);
-        return List.of(t, wt);
+    public record TallFungus(DeferredBlock<Block> shroom, DeferredBlock<Block> pottedShroom, DeferredBlock<Block> bulb, DeferredBlock<Block> stem) {
+        TallFungus(String baseName, MapColor shroomColor, MapColor bulbColor, MapColor stemColor, ResourceKey<Feature> bigShroom) {
+            PotPlant shroom = new PotPlant(baseName, p -> new MushroomBlock(bigShroom, p), mushroom.map(shroomColor));
+            this(shroom.plant, shroom.pottedPlant, register(baseName + "_bulb", HalfTransparentBlock::new, BlockPropertyOverride.bulb.map(bulbColor)), register(baseName + "_stem", RotatedPillarBlock::new, log.map(stemColor)));
+        }
     }
-    private static List<DeferredBlock<Block>> registerFungusSet(String baseName, MapColor shroomColor, MapColor bulbColor, MapColor stemColor, ResourceKey<Feature> bigShroom) {
-        List<DeferredBlock<Block>> sapling = registerPotted(baseName, p -> new MushroomBlock(bigShroom, p), mushroom.map(shroomColor));
-        DeferredBlock<Block>
-            bulb = register(baseName + "_bulb", HalfTransparentBlock::new, PropertyOverride.bulb.map(bulbColor)),
-            stem = register(baseName + "_stem", RotatedPillarBlock::new, log.map(stemColor));
-        return List.of(sapling.getFirst(), sapling.getLast(), bulb, stem);
+    public record DreamTree(DeferredBlock<Block> leaves, DeferredBlock<Block> log, DeferredBlock<Block> wood, DeferredBlock<Block> strippedLog, DeferredBlock<Block> strippedWood) {
+        DreamTree(String baseName, MapColor leavesColor, MapColor logColor, MapColor strippedColor) {
+            this(register(baseName + "_leaves", p -> new LeavesBlock(AmbientLeavesBlockSoundPlayer.noAmbientSound(), p), BlockPropertyOverride.leaves.map(leavesColor)), registerVetheaLog(baseName + "_log", dreamLog.then(p -> p.mapColor((state) -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? strippedColor : logColor))), registerVetheaLog(baseName + "_wood", dreamLog.map(logColor)), registerVetheaLog("stripped_" + baseName + "_log", dreamLog.map(strippedColor)), registerVetheaLog("stripped_" + baseName + "_wood", dreamLog.map(strippedColor)));
+        }
     }
-    private static List<DeferredBlock<Block>> registerDreamTreeSet(String baseName, MapColor leavesColor, MapColor logColor, MapColor strippedColor) {
-        DeferredBlock<Block>
-            lea = register(baseName + "_leaves", p -> new LeavesBlock(AmbientLeavesBlockSoundPlayer.noAmbientSound(), p), leaves.map(leavesColor)),
-            log = register(baseName + "_log", VetheaLog::new, dreamLog.then(p -> p.mapColor((state) -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? strippedColor : logColor))),
-            woo = register(baseName + "_wood", VetheaLog::new, dreamLog.map(logColor)),
-            strippedLog = register("stripped_" + baseName + "_log", VetheaLog::new, dreamLog.map(strippedColor)),
-            strippedWood = register("stripped_" + baseName + "_wood", VetheaLog::new, dreamLog.map(strippedColor));
-        return List.of(lea, log, woo, strippedLog, strippedWood);
+    public record Tree(DeferredBlock<Block> sapling, DeferredBlock<Block> pottedSapling, DeferredBlock<Block> leaves, DeferredBlock<Block> log, DeferredBlock<Block> wood, DeferredBlock<Block> strippedLog, DeferredBlock<Block> strippedWood, DeferredBlock<Block> planks, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> fence, DeferredBlock<Block> gate, DeferredBlock<Block> ladder, DeferredBlock<Block> door, DeferredBlock<Block> trapdoor, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> sign, DeferredBlock<Block> wallSign, DeferredBlock<Block> hangingSign, DeferredBlock<Block> wallHangingSign) {
+        Tree(String baseName, MapColor leavesColor, MapColor logColor, MapColor plankColor, BlockSetType type, ResourceKey<Feature> tree) {this(baseName, leavesColor, logColor, plankColor, type, tree, p -> new LeavesBlock(AmbientLeavesBlockSoundPlayer.noAmbientSound(), p));}
+        Tree(String baseName, MapColor leavesColor, MapColor logColor, MapColor plankColor, BlockSetType type, ResourceKey<Feature> tree, BlockConstructor leaf) {
+            PotPlant sapling = new PotPlant(baseName + "_sapling", p -> new SaplingBlock(new TreeGrower(baseName, WeightedList.of(tree), WeightedList.of(), WeightedList.of(), null), p), growingPlant.map(leavesColor));
+            Wood wood = new Wood(baseName, logColor, plankColor, type);
+            this(sapling.plant, sapling.pottedPlant, register(baseName + "_leaves", leaf, BlockPropertyOverride.leaves.map(leavesColor)), wood.log, wood.wood, wood.strippedLog, wood.strippedWood, wood.planks, wood.stairs, wood.slab, wood.fence, wood.gate, wood.ladder, wood.door, wood.trapdoor, wood.pressurePlate, wood.button, wood.sign, wood.wallSign, wood.hangingSign, wood.wallHangingSign);
+        }
     }
-    private static List<DeferredBlock<Block>> registerTreeSet(String baseName, MapColor leavesColor, MapColor logColor, MapColor plankColor, WoodType type, ResourceKey<Feature> tree) {return registerTreeSet(baseName, leavesColor, logColor, plankColor, type, tree, p -> new LeavesBlock(AmbientLeavesBlockSoundPlayer.noAmbientSound(), p));}
-    private static List<DeferredBlock<Block>> registerTreeSet(String baseName, MapColor leavesColor, MapColor logColor, MapColor plankColor, WoodType type, ResourceKey<Feature> tree, BlockFactory leaf) {
-        List<DeferredBlock<Block>> l = new ArrayList<>(20);
-        l.addAll(registerPotted(baseName + "_sapling", p -> new SaplingBlock(new TreeGrower("divine", WeightedList.of(tree), WeightedList.of(), WeightedList.of(), null), p), growingPlant.map(leavesColor)));
-        l.add(register(baseName + "_leaves", leaf, leaves.map(leavesColor)));
-        l.addAll(registerWoodSet(baseName, logColor, plankColor, type));
-        return l;
+    public record PotPlant(DeferredBlock<Block> plant, DeferredBlock<Block> pottedPlant) {
+        PotPlant(String name, BlockConstructor block, BlockPropertyOverride properties) {
+            DeferredBlock<Block> b = register(name, block, properties);
+            this(b, registerItemless(name + "_pot", p -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, b, p), PflowerPot));
+        }
+        PotPlant(String name, BlockConstructor block, BlockPropertyOverride properties, ItemPropertyOverride itemProperties) {
+            DeferredBlock<Block> b = register(name, block, properties, itemProperties);
+            this(b, registerItemless(name + "_pot", p -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, b, p), PflowerPot));
+        }
+        static PotPlant grass(String name, BlockPropertyOverride properties) {return new PotPlant(name, ModGrass::new, properties);}
+        static PotPlant dryGrass(String name, BlockPropertyOverride properties) {return new PotPlant(name, p -> new ModGrass(p, true), properties);}
+        static PotPlant flower(String name, BlockPropertyOverride properties, Holder<MobEffect> effect, float durationInSeconds) {return new PotPlant(name, p -> new Flower(effect, durationInSeconds, p), properties);}
     }
-    private static List<DeferredBlock<Block>> registerWoodSet(String baseName, MapColor logColor, MapColor plankColor, WoodType type) {
-        PropertyOverride plank = PropertyOverride.materialPlank.map(plankColor), stripped = log.map(plankColor);
-        DeferredBlock<Block>
-            log = register(baseName + "_log", RotatedPillarBlock::new, PropertyOverride.log.then(p -> p.mapColor((state) -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? plankColor : logColor))),
-            wood = register(baseName + "_wood", RotatedPillarBlock::new, PropertyOverride.log.map(logColor)),
-            strippedLog = register("stripped_" + baseName + "_log", RotatedPillarBlock::new, stripped),
-            strippedWood = register("stripped_" + baseName + "_wood", RotatedPillarBlock::new, stripped),
-            planks = register(baseName + "_planks", plank),
-            stairs = registerStair(baseName + "_stairs", plank, planks),
-            slab = registerSlab(baseName + "_slab", plank),
-            fence = register(baseName + "_fence", FenceBlock::new, plank),
-            gate = register(baseName + "_fence_gate", p -> new FenceGateBlock(type, p), plank),
-            ladder = register(baseName + "_ladder", LadderBlock::new, PropertyOverride.ladder),
-            door = register(baseName + "_door", p -> new DoorBlock(BlockSetType.CHERRY, p), plank),
-            trapdoor = register(baseName + "_trapdoor", p -> new TrapDoorBlock(BlockSetType.CHERRY, p), plank),
-            pressurePlate = register(baseName + "_pressure_plate", p -> new PressurePlateBlock(BlockSetType.CHERRY, p), plank),
-            button = register(baseName + "_button", p -> new ButtonBlock(BlockSetType.CHERRY, 30, p), plank),
-            sign = registerItemless(baseName + "_sign", p -> new StandingSignBlock(type, p), plank),
-            wallSign = registerItemless(baseName + "_wall_sign", p -> new WallSignBlock(type, p), plank),
-            hangingSign = registerItemless(baseName + "_hanging_sign", p -> new CeilingHangingSignBlock(type, p), plank),
-            wallHangingSign = registerItemless(baseName + "_wall_hanging_sign", p -> new WallHangingSignBlock(type, p), plank);
-        //TODO: Woodcutter = registerBlockCorailWoodcutter(baseName + "_woodcutter", ModList.get().isLoaded("corail_woodcutter") ? WoodcutterLoader.create(planks, type) : null)
-        return List.of(log, wood, strippedLog, strippedWood, planks, stairs, slab, fence, gate, ladder, door, trapdoor, pressurePlate, button, sign, wallSign, hangingSign, wallHangingSign);
+    public record Wood(DeferredBlock<Block> log, DeferredBlock<Block> wood, DeferredBlock<Block> strippedLog, DeferredBlock<Block> strippedWood, DeferredBlock<Block> planks, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> fence, DeferredBlock<Block> gate, DeferredBlock<Block> ladder, DeferredBlock<Block> door, DeferredBlock<Block> trapdoor, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button, DeferredBlock<Block> sign, DeferredBlock<Block> wallSign, DeferredBlock<Block> hangingSign, DeferredBlock<Block> wallHangingSign) {
+        Wood(String baseName, MapColor logColor, MapColor plankColor, BlockSetType blockSetType) {
+            WoodType type = WoodType.register(new WoodType(baseName, blockSetType));
+            BlockPropertyOverride plank = BlockPropertyOverride.materialPlank.map(plankColor), stripped = BlockPropertyOverride.log.map(plankColor);
+            StairSlabSet plankSet = new StairSlabSet(baseName, "_planks", plank);
+            DeferredBlock<Block>
+                log = register(baseName + "_log", RotatedPillarBlock::new, BlockPropertyOverride.log.then(p -> p.mapColor((state) -> state.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? plankColor : logColor))),
+                wood = register(baseName + "_wood", RotatedPillarBlock::new, BlockPropertyOverride.log.map(logColor)),
+                strippedLog = register("stripped_" + baseName + "_log", RotatedPillarBlock::new, stripped),
+                strippedWood = register("stripped_" + baseName + "_wood", RotatedPillarBlock::new, stripped),
+                fence = register(baseName + "_fence", FenceBlock::new, plank),
+                gate = register(baseName + "_fence_gate", p -> new FenceGateBlock(type, p), plank),
+                ladder = register(baseName + "_ladder", LadderBlock::new, BlockPropertyOverride.ladder),
+                door = register(baseName + "_door", p -> new DoorBlock(BlockSetType.CHERRY, p), plank),
+                trapdoor = register(baseName + "_trapdoor", p -> new TrapDoorBlock(BlockSetType.CHERRY, p), plank),
+                pressurePlate = registerPressurePlate(baseName, plank, BlockSetType.CHERRY),
+                button = registerButton(baseName, plank, BlockSetType.CHERRY, 30),
+                wallSign = registerItemless(baseName + "_wall_sign", p -> new WallSignBlock(type, p), plank),
+                sign = register(baseName + "_sign", p -> new StandingSignBlock(type, p), plank, (b, p) -> new StandingAndWallBlockItem(b, wallSign.get(), Direction.DOWN, p.stacksTo(16))),
+                wallHangingSign = registerItemless(baseName + "_wall_hanging_sign", p -> new WallHangingSignBlock(type, p), plank),
+                hangingSign = register(baseName + "_hanging_sign", p -> new CeilingHangingSignBlock(type, p), plank, (b, p) -> new HangingSignItem(b, wallHangingSign.get(), p.stacksTo(16)));
+            this(log, wood, strippedLog, strippedWood, plankSet.block, plankSet.stairs, plankSet.slab, fence, gate, ladder, door, trapdoor, pressurePlate, button, sign, wallSign, hangingSign, wallHangingSign);
+        }
     }
-    private static List<DeferredBlock<Block>> registerSoils(String baseName, PropertyOverride dirtProperties, PropertyOverride grassProperties, Supplier<Block> plant, boolean requiresLightToGrow) {return registerSoils(baseName + "_dirt", baseName + "_grass", Block::new, (d, g, b) -> p -> new ModGrassBlock(p, d, g, b), dirtProperties, grassProperties, plant, requiresLightToGrow);}
-    private static List<DeferredBlock<Block>> registerSoils(String dirtName, String grassName, BlockFactory dirtF, GrassFactory grassF, PropertyOverride dirtProperties, PropertyOverride grassProperties, Supplier<Block> plant, boolean requiresLightToGrow) {
-        DeferredBlock<Block>
-                dirt = register(dirtName,dirtF, dirtProperties),
-                grass = register(grassName, grassF.apply(dirt, plant, requiresLightToGrow), grassProperties);
-        return List.of(dirt, grass);
+    public record Soil(DeferredBlock<Block> dirt, DeferredBlock<Block> grass) {
+        Soil(String baseName, BlockPropertyOverride dirtProperties, BlockPropertyOverride grassProperties, Supplier<Block> plant, boolean requiresLightToGrow) {this(baseName + "_dirt", baseName + "_grass", Block::new, (d, g, b) -> p -> new ModGrassBlock(p, d, g, b), dirtProperties, grassProperties, plant, requiresLightToGrow);}
+        Soil(String dirtName, String grassName, BlockConstructor dirtF, GrassConstructor grassF, BlockPropertyOverride dirtProperties, BlockPropertyOverride grassProperties, Supplier<Block> plant, boolean requiresLightToGrow) {
+            DeferredBlock<Block> dirt = register(dirtName,dirtF, dirtProperties);
+            this(dirt, register(grassName, grassF.apply(dirt, plant, requiresLightToGrow), grassProperties));
+        }
     }
-    private static List<DeferredBlock<Block>> registerArcanaSet(String baseName, Holder<Item> key, MapColor color){
-        PropertyOverride unbreakable = unbreakableBlock.map(color), breakable = rock.map(color);
-        DeferredBlock<Block>
-            block = register(baseName + "s", unbreakable),
-            stairs = registerStair(baseName + "_stairs", unbreakable, block),
-            slab = registerSlab(baseName + "_slab", unbreakable),
-            wall = register(baseName + "_wall", WallBlock::new, unbreakable),
-            door = registerArcanaDoor(baseName, arcanaDoor.map(color), key),
-            blockBreakable = register(baseName + "s_breakable", breakable),
-            stairsBreakable = registerStair(baseName + "_stairs_breakable", breakable, blockBreakable),
-            slabBreakable = registerSlab(baseName + "_slab_breakable", breakable),
-            wallBreakable = register(baseName + "_wall_breakable", WallBlock::new, breakable);
-        return List.of(block, stairs, slab, wall, door, blockBreakable, stairsBreakable, slabBreakable, wallBreakable);
+    public record ArcanaSet(DeferredBlock<Block> block, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> wall, DeferredBlock<Block> door, DeferredBlock<Block> blockBreakable, DeferredBlock<Block> stairsBreakable, DeferredBlock<Block> slabBreakable, DeferredBlock<Block> wallBreakable) {
+        ArcanaSet(String baseName, Holder<Item> key, MapColor color) {
+            BlockPropertyOverride unbreakable = unbreakableBlock.map(color), breakable = rock.map(color);
+            StairSlabSet set = new StairSlabSet(baseName, "s", unbreakable);
+            DeferredBlock<Block> blockBreakable = register(baseName + "s_breakable", breakable);
+            this(set.block, set.stairs, set.slab, registerWall(baseName, unbreakable), registerArcanaDoor(baseName, arcanaDoor.map(color), key), blockBreakable, registerStair(baseName + "_stairs_breakable", breakable, blockBreakable), registerSlab(baseName + "_slab_breakable", breakable), register(baseName + "_wall_breakable", WallBlock::new, breakable));
+        }
     }
-    private static List<DeferredBlock<Block>> registerBreakPair(String name, PropertyOverride breakable, PropertyOverride unbreakable) {
-        return List.of(register(name, unbreakable), register(name + "_breakable", breakable));
+    public record BreakPair(DeferredBlock<Block> unbreakable, DeferredBlock<Block> breakable) {BreakPair(String name, BlockPropertyOverride breakable, BlockPropertyOverride unbreakable) {this(register(name, unbreakable), register(name + "_breakable", breakable));}}
+    public record RockSet(DeferredBlock<Block> block, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> wall, DeferredBlock<Block> pressurePlate, DeferredBlock<Block> button) {
+        RockSet(String baseName, String stoneSignifier, BlockPropertyOverride properties, BlockSetType type, BlockConstructor baseBlock) {
+            StairSlabSet set = new StairSlabSet(baseName, stoneSignifier, properties);
+            this(set.block, set.stairs, set.slab, registerWall(baseName, properties), registerPressurePlate(baseName, properties, type), registerButton(baseName, properties, type, 20));
+        }
+        static RockSet stone(String baseName, String stoneSignifier, BlockPropertyOverride properties) {return new RockSet(baseName, stoneSignifier, properties, BlockSetType.STONE, Block::new);}
+        static RockSet simpleStone(String baseName, BlockPropertyOverride properties) {return stone(baseName, "_stone", properties);}
+        static RockSet stoneType(String baseName, BlockPropertyOverride properties) {return stone(baseName, "", properties);}
+        static RockSet bricks(String baseName, BlockPropertyOverride properties) {return stone(baseName, "s", properties);}
     }
-    private static List<DeferredBlock<Block>> registerBrickSet(String baseName, PropertyOverride properties) {return registerStoneSet(baseName, "s", properties);}
-    private static List<DeferredBlock<Block>> registerStoneTypeSet(String baseName, PropertyOverride properties) {return registerStoneSet(baseName, "", properties);}
-    private static List<DeferredBlock<Block>> registerSimpleStoneSet(String baseName, PropertyOverride properties) {return registerStoneSet(baseName, "_stone", properties);}
-    private static List<DeferredBlock<Block>> registerStoneSet(String baseName, String stoneSignifier, PropertyOverride properties) {return registerRockSet(baseName, stoneSignifier, properties, BlockSetType.STONE, null);}
-    private static List<DeferredBlock<Block>> registerRockSet(String baseName, String stoneSignifier, PropertyOverride properties, BlockSetType type, BlockFactory baseBlock) {
-        DeferredBlock<Block>
-            stone = register(baseName + stoneSignifier, baseBlock == null ? Block::new : baseBlock, properties),
-            stairs = register(baseName + "_stairs", p -> new StairBlock(stone.get().defaultBlockState(), p), properties),
-            slab = register(baseName + "_slab", SlabBlock::new, properties),
-            wall = register(baseName + "_wall", WallBlock::new, properties),
-            pressure_plate = register(baseName + "_pressure_plate", p -> new PressurePlateBlock(type, p), properties),
-            button = register(baseName + "_button", p -> new ButtonBlock(type, 20, p), properties);
-        return List.of(stone, stairs, slab, wall, pressure_plate, button);
-    }
-    private static List<DeferredBlock<Block>> registerStairSlabSet(String baseName, String blockSignifier, PropertyOverride properties) {
-        DeferredBlock<Block>
-            block = register(baseName + blockSignifier, properties),
-            stairs = register(baseName + blockSignifier + "_stairs", p -> new StairBlock(block.get().defaultBlockState(), p), properties),
-            slab = register(baseName + blockSignifier + "_slab", SlabBlock::new, properties);
-        return List.of(block, stairs, slab);
-    }
-    private static List<DeferredBlock<Block>> registerOverworldOres(String baseName) {
-        return List.of(register(baseName + "_ore", PoverworldOre), register(baseName + "_ore_deepslate", PdeepslateOre));
-    }
-    private static List<DeferredBlock<Block>> registerMetalBlocks(String baseName, PropertyOverride raw, PropertyOverride block) {
-        return List.of(register("raw_" + baseName + "_block", raw), register(baseName + "_block", block));
+    public record StairSlabSet(DeferredBlock<Block> block, DeferredBlock<Block> stairs, DeferredBlock<Block> slab) {
+        StairSlabSet(String baseName, String blockSignifier, BlockPropertyOverride properties) {
+            DeferredBlock<Block> block = register(baseName + blockSignifier, properties);
+            this(block, registerStair(baseName + blockSignifier + "_stairs", properties, block), registerSlab(baseName + blockSignifier + "_slab", properties));
+        }
     }
     //SPECIALIZED REGISTER METHODS
-    private static DeferredBlock<Block> registerRift(String baseName, PropertyOverride properties, ResourceKey<Level> rootDimension, TagKey<Level> stableDimension, TagKey<Block> resonanceTag, TagKey<Item> empowerTag, byte variant) {return registerItemless(baseName + "_rift", p -> new Rift(p, rootDimension, stableDimension, resonanceTag, empowerTag, variant), properties);}
-    private static DeferredBlock<Block> registerPortal(String baseName, PropertyOverride properties, ResourceKey<Level> rootDimension, ResourceKey<Level> chainDimension, Supplier<Block> frameBlock, String particle) {return register(baseName + "_portal", p -> new SimplePortal(p, rootDimension, chainDimension, frameBlock.get(), Identifier.fromNamespaceAndPath(MODID, particle)), properties);}
-    private static DeferredBlock<Block> registerFurnace(String baseName, PropertyOverride properties, Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity) {return register(baseName + "_furnace", p -> new ModFurnace(p, blockEntity), properties);}
-    private static DeferredBlock<Block> registerInfiniFurnace(String baseName, PropertyOverride properties, Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity) {return register(baseName + "_furnace", p -> new InfiniFurnace(p, blockEntity), properties);}
+    private static DeferredBlock<Block> registerRift(String baseName, BlockPropertyOverride properties, ResourceKey<Level> rootDimension, TagKey<Level> stableDimension, TagKey<Block> resonanceTag, TagKey<Item> empowerTag, byte variant) {return register(baseName + "_rift", p -> new Rift(p, rootDimension, stableDimension, resonanceTag, empowerTag, variant), properties);}
+    private static DeferredBlock<Block> registerPortal(String baseName, BlockPropertyOverride properties, ResourceKey<Level> rootDimension, ResourceKey<Level> chainDimension, Supplier<Block> frameBlock, String particle) {return register(baseName + "_portal", p -> new SimplePortal(p, rootDimension, chainDimension, frameBlock.get(), Identifier.fromNamespaceAndPath(MODID, particle)), properties);}
+    private static DeferredBlock<Block> registerFurnace(String baseName, BlockPropertyOverride properties, Supplier<BlockEntityType<? extends ModFurnaceBlockEntity>> blockEntity) {return register(baseName + "_furnace", p -> new ModFurnace(p, blockEntity), properties, UNCOMMON);}
+    private static DeferredBlock<Block> registerInfiniFurnace(String baseName, BlockPropertyOverride properties, Supplier<BlockEntityType<? extends InfiniFurnaceBlockEntity>> blockEntity) {return register(baseName + "_furnace", p -> new InfiniFurnace(p, blockEntity), properties, UNCOMMON);}
     private static DeferredBlock<Block> registerBeam(String baseName, BossEvent.BossBarColor color) {return registerItemless("ayeraco_beam_" + baseName, p -> new AyeracoBeam(p, color), air);}
-    private static DeferredBlock<Block> registerAltar(String baseName, BlockFactory f, PropertyOverride p) {return register(baseName + "_altar", f, p);}
-    private static DeferredBlock<Block> registerFlyingBossSpawner(String baseName, PropertyOverride properties, Holder<EntityType<?>> entity, TagKey<Item> item) {return register(baseName + "_spawner", p -> new MobCage(p, entity, item, new BlockPos(0, 11, 0)), properties);}
-    private static DeferredBlock<Block> registerBossSpawner(String baseName, PropertyOverride properties, Holder<EntityType<?>> entity, TagKey<Item> item) {return register(baseName + "_spawner", p -> new MobCage(p, entity, item), properties);}
-    private static DeferredBlock<Block> registerEncaged(String baseName, PropertyOverride properties, Holder<EntityType<?>> entity, TagKey<Item> item) {return register("encaged_" + baseName, p -> new MobCage(p, entity, item), properties);}
-    private static DeferredBlock<Block> registerStatue(String baseName, PropertyOverride properties) {return register(baseName + "_statue", p -> new Statue(p, null), properties, p -> p.fireResistant().rarity(Rarity.RARE));}
-    private static DeferredBlock<Block> registerStatue(String baseName, PropertyOverride properties, Supplier<SoundEvent> sound) {return register(baseName + "_statue", p -> new Statue(p, sound), properties, p -> p.fireResistant().rarity(Rarity.RARE));}
-    private static DeferredBlock<Block> registerMobPumpkin(String baseName, PropertyOverride properties, Supplier<SoundEvent> sound) {return register(baseName + "_pumpkin", p -> new MobPumpkin(p, sound), properties);}
-    private static DeferredBlock<Block> registerDoubleCrop(String baseName, PropertyOverride properties, ItemLike seed) {return registerItemless(baseName + "_plant", p -> new DoubleCrop(p, seed), properties);}
-    private static DeferredBlock<Block> registerArcanaDoubleCrop(String baseName, PropertyOverride properties, ItemLike seed) {return registerItemless(baseName + "_plant", p -> new ArcanaDoubleCrop(p, seed), properties);}
-    private static DeferredBlock<Block> registerCrop(String baseName, PropertyOverride properties, ItemLike seed) {return registerItemless(baseName + "_plant", p -> new Crop(p, seed), properties);}
-    private static DeferredBlock<Block> registerVine(String baseName, PropertyOverride properties) {return register(baseName + "_vine", VineBlock::new, properties);}
-    private static DeferredBlock<Block> registerOre(String baseName, PropertyOverride properties, int minXp, int maxXp) {return register(baseName + "_ore", p -> new DropExperienceBlock(UniformInt.of(minXp, maxXp), p), properties);}
-    private static DeferredBlock<Block> registerRedstoneFence(String baseName, PropertyOverride properties) {return register(baseName + "_fence", RedstoneFence::new, properties);}
-    private static DeferredBlock<Block> registerBridge(String name, PropertyOverride properties) {return register(name, Bridge::new, properties);}
-    private static DeferredBlock<Block> registerDoor(String baseName, PropertyOverride properties, BlockSetType type) {return register(baseName + "_door", p -> new DoorBlock(type, p), properties);}
-    private static DeferredBlock<Block> registerSlab(String name, PropertyOverride properties) {return register(name, SlabBlock::new, properties);}
-    private static DeferredBlock<Block> registerStair(String name, PropertyOverride properties, Holder<Block> block) {return register(name, p -> new StairBlock(block.value().defaultBlockState(), p), properties);}
-    private static DeferredBlock<Block> registerArcanaDoor(String baseName, PropertyOverride properties, Holder<Item> key) {return register(baseName + "_door", p -> new ArcanaDoor(p, key), properties);}
-    private static DeferredBlock<Block> registerTallFlower(String name, PropertyOverride properties) {return register(name, TallFlowerBlock::new, properties);}
-    private static DeferredBlock<Block> registerLadder(String name, PropertyOverride properties) {return register(name, LadderBlock::new, properties);}
-    private static DeferredBlock<Block> registerCandy(String name, PropertyOverride properties) {return register(name, CandyCane::new, properties);}
-    private static DeferredBlock<Block> registerSand(String name, PropertyOverride properties, int color) {return register(name, p -> new ColoredFallingBlock(new ColorRGBA(color), p), properties);}
-    private static DeferredBlock<Block> registerDreamGrass(String name, PropertyOverride properties) {return register(name, p -> new ModGrassBlock(p, dreamSoil.getFirst()), properties);}
-    private static DeferredBlock<Block> registerFireResistant(String name, PropertyOverride properties) {return register(name, properties, Item.Properties::fireResistant);}
+    private static DeferredBlock<Block> registerAltar(String baseName, BlockConstructor f, BlockPropertyOverride p) {return register(baseName + "_altar", f, p, COMMON);}
+    private static DeferredBlock<Block> registerFlyingBossSpawner(String baseName, BlockPropertyOverride properties, Holder<EntityType<?>> entity, TagKey<Item> item) {return register(baseName + "_spawner", p -> new MobCage(p, entity, item, new BlockPos(0, 11, 0)), properties);}
+    private static DeferredBlock<Block> registerBossSpawner(String baseName, BlockPropertyOverride properties, Holder<EntityType<?>> entity, TagKey<Item> item) {return register(baseName + "_spawner", p -> new MobCage(p, entity, item), properties);}
+    private static DeferredBlock<Block> registerEncaged(String baseName, BlockPropertyOverride properties, Holder<EntityType<?>> entity, TagKey<Item> item) {return register("encaged_" + baseName, p -> new MobCage(p, entity, item), properties);}
+    private static DeferredBlock<Block> registerStatue(String baseName, BlockPropertyOverride properties) {return register(baseName + "_statue", p -> new Statue(p, null), properties, PrareFireResistant);}
+    private static DeferredBlock<Block> registerStatue(String baseName, BlockPropertyOverride properties, Supplier<SoundEvent> sound) {return register(baseName + "_statue", p -> new Statue(p, sound), properties, PrareFireResistant);}
+    private static DeferredBlock<Block> registerMobPumpkin(String baseName, BlockPropertyOverride properties, Supplier<SoundEvent> sound) {return register(baseName + "_pumpkin", p -> new MobPumpkin(p, sound), properties);}
+    private static DeferredBlock<Block> registerDoubleCrop(String baseName, BlockPropertyOverride properties) {return registerCrop(baseName, DoubleCrop::new, properties);}
+    private static DeferredBlock<Block> registerArcanaDoubleCrop(String baseName, BlockPropertyOverride properties) {return registerCrop(baseName, ArcanaDoubleCrop::new, properties);}
+    private static DeferredBlock<Block> registerCrop(String baseName, BlockPropertyOverride properties) {return registerCrop(baseName, Crop::new, properties);}
+    private static DeferredBlock<Block> registerCrop(String baseName, BlockConstructor block, BlockPropertyOverride properties) {return register(baseName + "_plant", baseName + "_seeds", block, properties);}
+    private static DeferredBlock<Block> registerVine(String baseName, BlockPropertyOverride properties) {return register(baseName + "_vine", VineBlock::new, properties);}
+    private static DeferredBlock<Block> registerOre(String baseName, BlockPropertyOverride properties, int minXp, int maxXp) {return register(baseName + "_ore", p -> new DropExperienceBlock(UniformInt.of(minXp, maxXp), p), properties);}
+    private static DeferredBlock<Block> registerRedstoneFence(String baseName, BlockPropertyOverride properties) {return register(baseName + "_fence", RedstoneFence::new, properties);}
+    private static DeferredBlock<Block> registerBridge(String name, BlockPropertyOverride properties) {return register(name, Bridge::new, properties);}
+    private static DeferredBlock<Block> registerDoor(String baseName, BlockPropertyOverride properties, BlockSetType type) {return register(baseName + "_door", p -> new DoorBlock(type, p), properties);}
+    private static DeferredBlock<Block> registerWall(String baseName, BlockPropertyOverride properties) {return register(baseName + "_wall", WallBlock::new, properties);}
+    private static DeferredBlock<Block> registerButton(String baseName, BlockPropertyOverride properties, BlockSetType type, int ticks) {return register(baseName + "_button", p -> new ButtonBlock(type, ticks, p), properties);}
+    private static DeferredBlock<Block> registerPressurePlate(String baseName, BlockPropertyOverride properties, BlockSetType type) {return register(baseName + "_pressure_plate", p -> new PressurePlateBlock(type, p), properties);}
+    private static DeferredBlock<Block> registerSlab(String name, BlockPropertyOverride properties) {return register(name, SlabBlock::new, properties);}
+    private static DeferredBlock<Block> registerStair(String name, BlockPropertyOverride properties, Holder<Block> block) {return register(name, p -> new StairBlock(block.value().defaultBlockState(), p), properties);}
+    private static DeferredBlock<Block> registerVetheaLog(String name, BlockPropertyOverride properties) {return register(name, VetheaLog::new, properties);}
+    private static DeferredBlock<Block> registerArcanaDoor(String baseName, BlockPropertyOverride properties, Holder<Item> key) {return register(baseName + "_door", p -> new ArcanaDoor(p, key), properties);}
+    private static DeferredBlock<Block> registerTallFlower(String name, BlockPropertyOverride properties) {return register(name, TallFlowerBlock::new, properties);}
+    private static DeferredBlock<Block> registerLadder(String name, BlockPropertyOverride properties) {return register(name, LadderBlock::new, properties);}
+    private static DeferredBlock<Block> registerCandy(String name, BlockPropertyOverride properties) {return register(name, CandyCane::new, properties);}
+    private static DeferredBlock<Block> registerSand(String name, BlockPropertyOverride properties, int color) {return register(name, p -> new ColoredFallingBlock(new ColorRGBA(color), p), properties);}
+    private static DeferredBlock<Block> registerDreamGrass(String name, BlockPropertyOverride properties) {return register(name, p -> new ModGrassBlock(p, dreamSoil.dirt), properties);}
+    private static DeferredBlock<Block> registerFireResistant(String name, BlockPropertyOverride properties) {return register(name, properties, Item.Properties::fireResistant);}
     //BASE REGISTER
-    private static DeferredBlock<Block> register(String name, PropertyOverride properties) {return register(name, Block::new, properties);}
-    private static DeferredBlock<Block> register(String name, BlockFactory blockFactory, PropertyOverride properties) {
-        DeferredBlock<Block> block = BLOCKS.register(name, () -> blockFactory.apply(properties.apply(Properties.of()).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, name)))));
-        DivineRegistries.blocks.add(DivineRegistries.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))))));
+    private static DeferredBlock<Block> register(String name, BlockPropertyOverride properties) {return register(name, Block::new, properties);}
+    private static DeferredBlock<Block> register(String name, BlockConstructor blockConstructor, BlockPropertyOverride properties) {return register(name, name, blockConstructor, properties);}
+    private static DeferredBlock<Block> register(String name, String itemName, BlockConstructor blockConstructor, BlockPropertyOverride properties) {
+        DeferredBlock<Block> block = BLOCKS.register(name, () -> blockConstructor.apply(properties.apply(Properties.of()).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, name)))));
+        DivineRegistries.blocks.add(DivineRegistries.ITEMS.register(itemName, () -> new BlockItem(block.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, itemName))))));
         return block;
     }
-    private static DeferredBlock<Block> registerItemless(String name, BlockFactory blockFactory, PropertyOverride properties) {
-        return BLOCKS.register(name, () -> blockFactory.apply(properties.apply(Properties.of()).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, name)))));
+    private static DeferredBlock<Block> registerItemless(String name, BlockConstructor blockConstructor, BlockPropertyOverride properties) {
+        return BLOCKS.register(name, () -> blockConstructor.apply(properties.apply(Properties.of()).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, name)))));
     }
-    private static DeferredBlock<Block> register(String name, PropertyOverride properties, ItemPropertyOverride itemProperties) {return register(name, Block::new, properties, itemProperties);}
-    private static DeferredBlock<Block> register(String name, BlockFactory blockFactory, PropertyOverride properties, ItemPropertyOverride itemProperties) {return register(name, blockFactory, properties, (b, p) -> new BlockItem(b, itemProperties.apply(p)));}
-    private static DeferredBlock<Block> register(String name, BlockFactory blockFactory, PropertyOverride properties, ItemFactory item) {
-        DeferredBlock<Block> block = BLOCKS.register(name, () -> blockFactory.apply(properties.apply(Properties.of()).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, name)))));
-        DivineRegistries.blocks.add(DivineRegistries.ITEMS.register(name, () -> item.apply(block.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name))))));
+    private static DeferredBlock<Block> register(String name, BlockPropertyOverride properties, ItemPropertyOverride itemProperties) {return register(name, Block::new, properties, itemProperties);}
+    private static DeferredBlock<Block> register(String name, BlockConstructor blockConstructor, BlockPropertyOverride properties, ItemPropertyOverride itemProperties) {return register(name, blockConstructor, properties, (b, p) -> new BlockItem(b, itemProperties.apply(p)));}
+    private static DeferredBlock<Block> register(String name, BlockConstructor blockConstructor, BlockPropertyOverride properties, ItemConstructor item) {return register(name, name, blockConstructor, properties, item);}
+    private static DeferredBlock<Block> register(String name, String itemName, BlockConstructor blockConstructor, BlockPropertyOverride properties, ItemConstructor item) {
+        DeferredBlock<Block> block = BLOCKS.register(name, () -> blockConstructor.apply(properties.apply(Properties.of()).setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(MODID, name)))));
+        DivineRegistries.blocks.add(DivineRegistries.ITEMS.register(itemName, () -> item.apply(block.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, itemName))))));
         return block;
     }
     private static void addAliases(String path, DeferredBlock<Block> block) {
@@ -831,9 +866,9 @@ public class BlockRegistry {
         BLOCKS.addAlias(loc, block.getId());
         DivineRegistries.ITEMS.addAlias(loc, block.getId());
     }
-    private static void addVanillaAliases(String path, Block block) {
+    private static void addAliases(String path, ResourceKey<Block> block) {
         Identifier loc = getIdentifier(path);
-        Identifier defLoc = Identifier.withDefaultNamespace(path);
+        Identifier defLoc = block.identifier();
         BLOCKS.addAlias(loc, defLoc);
         DivineRegistries.ITEMS.addAlias(loc, defLoc);
     }
@@ -841,10 +876,9 @@ public class BlockRegistry {
         return Identifier.fromNamespaceAndPath(MODID, path);
     }
     //INTERFACES
-    interface BlockFactory extends Function<Properties, Block> {}
-    interface ItemPropertyOverride extends Function<Item.Properties, Item.Properties> {}
-    interface ItemFactory extends BiFunction<Block, Item.Properties, Item> {}
-    interface GrassFactory extends Function3<Supplier<Block>, Supplier<Block>, Boolean, BlockFactory> {}
+    interface BlockConstructor extends Function<Properties, Block> {}
+    interface ItemConstructor extends BiFunction<Block, Item.Properties, Item> {}
+    interface GrassConstructor extends Function3<Supplier<Block>, Supplier<Block>, Boolean, BlockConstructor> {}
 
     public static void load() {}
 }

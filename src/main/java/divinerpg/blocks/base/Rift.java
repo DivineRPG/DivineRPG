@@ -117,7 +117,7 @@ public class Rift extends BaseEntityBlock implements DivinePortalLogic {
     public BlockPos placeAndLink(ServerLevel originLevel, BlockPos originPos, ServerLevel targetLevel, BlockPos targetPos, Entity entity) {
         BlockPos pos = targetPos.below();
         BlockState state = targetLevel.getBlockState(pos);
-        if(!state.isFaceSturdy(targetLevel, pos, Direction.UP)) targetLevel.setBlock(pos, BlockRegistry.twilightStoneSet.getFirst().get().defaultBlockState(), 3);
+        if(!state.isFaceSturdy(targetLevel, pos, Direction.UP)) targetLevel.setBlock(pos, BlockRegistry.twilight.block().get().defaultBlockState(), 3);
         targetLevel.setBlock(targetPos, Blocks.AIR.defaultBlockState(), 3);
         targetLevel.setBlock(targetPos.above(), Blocks.AIR.defaultBlockState(), 3);
         targetLevel.setBlock(targetPos.above(2), defaultBlockState(), 3);

@@ -9,13 +9,13 @@ import java.util.function.Function;
 
 import static net.minecraft.world.level.material.MapColor.*;
 
-interface PropertyOverride extends Function<Properties, Properties> {
+interface BlockPropertyOverride extends Function<Properties, Properties> {
     StatePredicate NEVER = (s, g, p) -> false;
-    default PropertyOverride then(PropertyOverride properties) {
+    default BlockPropertyOverride then(BlockPropertyOverride properties) {
         return p -> properties.apply(apply(p));
     }
-    default PropertyOverride map(MapColor c) {return then(p -> p.mapColor(c));}
-    PropertyOverride//Strength
+    default BlockPropertyOverride map(MapColor c) {return then(p -> p.mapColor(c));}
+    BlockPropertyOverride//Strength
         Sunbreakable = p -> p.strength(-1F, 3600000F),
         So1 = p -> p.strength(.1F),
         So2 = p -> p.strength(.2F),
@@ -49,7 +49,7 @@ interface PropertyOverride extends Function<Properties, Properties> {
         S5x1200 = p -> p.strength(5F, 1200F),
         S6x1200 = p -> p.strength(6F, 1200F),
         S50x1200 = p -> p.strength(50F, 1200F);
-    PropertyOverride//LightLevel
+    BlockPropertyOverride//LightLevel
         Light1 = p -> p.lightLevel(s -> 1),
         Light2 = p -> p.lightLevel(s -> 2),
         Light3 = p -> p.lightLevel(s -> 3),
@@ -63,7 +63,7 @@ interface PropertyOverride extends Function<Properties, Properties> {
         LightBloom = p -> p.lightLevel(s -> s.getValue(BlockStateProperties.BLOOM) ? 5 : 1),
         LightRedstone = p -> p.lightLevel(s -> s.getValue(BlockStateProperties.LIT) ? 15 : 0),
         LightPower = p -> p.lightLevel(s -> s.getValue(BlockStateProperties.POWER));
-    PropertyOverride//Color
+    BlockPropertyOverride//Color
         gray = p -> p.mapColor(COLOR_GRAY),
         cyan = p -> p.mapColor(COLOR_CYAN),
         glowLichen = p -> p.mapColor(GLOW_LICHEN),
@@ -114,7 +114,7 @@ interface PropertyOverride extends Function<Properties, Properties> {
         warpedStem = p -> p.mapColor(WARPED_STEM),
         emerald = p -> p.mapColor(EMERALD),
         quartz = p -> p.mapColor(QUARTZ);
-    PropertyOverride//Behaviour
+    BlockPropertyOverride//Behaviour
         randomTick = Properties::randomTicks,
         processAbove = p -> p.postProcess((s, g, o) -> o.above()),
         selfProcess = p -> p.postProcess((s, g, o) -> o),
@@ -126,7 +126,7 @@ interface PropertyOverride extends Function<Properties, Properties> {
         noSpawn = p -> p.isValidSpawn((s,g,l,a) -> false),
         seethrough = p -> p.isViewBlocking((s,g,l,a) -> false);
 
-    PropertyOverride//Bases
+    BlockPropertyOverride//Bases
         materialCrystal = S1o5.then(p -> p.sound(SoundType.AMETHYST).instrument(NoteBlockInstrument.CHIME)),
             olivine = materialCrystal.then(green),
         unbreakable = Sunbreakable.then(p -> p.pushReaction(PushReaction.IMMOVEABLE).noLootTable()),
@@ -211,7 +211,7 @@ interface PropertyOverride extends Function<Properties, Properties> {
         cluster = materialCrystal.then(shapedBrittle).then(Properties::requiresCorrectToolForDrops),
         shapedUnbreakable = unbreakableBlock.then(shaped);
 
-    PropertyOverride//Block Properties
+    BlockPropertyOverride//Block Properties
         //Bone
         PboneBlock = S2.then(sand).then(soundBone).then(Properties::requiresCorrectToolForDrops),
         //Brick

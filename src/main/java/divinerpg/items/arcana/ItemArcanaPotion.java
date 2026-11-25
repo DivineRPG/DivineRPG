@@ -1,7 +1,7 @@
 package divinerpg.items.arcana;
 
+import divinerpg.attachments.Arcana;
 import divinerpg.items.base.ItemModFood;
-import divinerpg.utils.ArcanaHelper;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -12,7 +12,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.TooltipDisplay;
@@ -39,8 +38,8 @@ public class ItemArcanaPotion extends ItemModFood {
             stack.consume(1, player);
         }
         if(!level.isClientSide()){
-            if(ArcanaHelper.getArcana(entity) != 0) {
-                ArcanaHelper.modifyAmount(entity, amountToAdd);
+            if(Arcana.getAmount(entity) != 0) {
+                Arcana.modifyAmount(entity, amountToAdd);
             }
             if(stack.isEmpty()) return new ItemStack(GLASS_BOTTLE);
             else if (entity instanceof Player player && !player.hasInfiniteMaterials()) {

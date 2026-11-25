@@ -1,7 +1,7 @@
 package divinerpg.items.ranged;
 
+import divinerpg.attachments.Arcana;
 import divinerpg.entities.projectile.DivineThrownItem;
-import divinerpg.utils.ArcanaHelper;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.*;
@@ -109,12 +109,12 @@ public class ItemRangedWeapon extends ProjectileWeaponItem {
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         ItemStack ammo = findAmmo(player);
-        if (ammo != null && !ammo.isEmpty() && ArcanaHelper.getArcana(player) >= arcanaConsumedUse) {
+        if (ammo != null && !ammo.isEmpty() && Arcana.getAmount(player) >= arcanaConsumedUse) {
             if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
                 shoot(serverLevel, player, player.getUsedItemHand(), stack, List.of(ammo), power, 1.0F, false, null);
                 if (arcanaConsumedUse > 0) {
-                    int currentArcana = (int) ArcanaHelper.getArcana(player);
-                    ArcanaHelper.setArcana(player, currentArcana - arcanaConsumedUse);
+                    int currentArcana = (int) Arcana.getAmount(player);
+                    Arcana.setAmount(player, currentArcana - arcanaConsumedUse);
                 }
             }
 

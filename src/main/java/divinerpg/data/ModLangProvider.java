@@ -2,16 +2,12 @@ package divinerpg.data;
 
 
 import divinerpg.DivineRPG;
-import divinerpg.registries.BlockRegistry;
 import divinerpg.registries.DivineRegistries;
-import divinerpg.registries.EntityRegistry;
-import divinerpg.registries.ItemRegistry;
 import divinerpg.utils.Utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.LanguageProvider;

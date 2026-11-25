@@ -16,10 +16,8 @@ import static net.minecraft.tags.BlockTags.DIRT;
 import static net.minecraft.tags.FluidTags.LAVA;
 
 public class DoubleCrop extends SugarCaneBlock {
-    private final ItemLike seed;
-    public DoubleCrop(Properties p, ItemLike seed) {
+    public DoubleCrop(Properties p) {
         super(p);
-        this.seed = seed;
     }
     @Override public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if(level.isEmptyBlock(pos.above())) {
@@ -43,9 +41,5 @@ public class DoubleCrop extends SugarCaneBlock {
             if(blockstate.hasLargeCollisionShape() || level.getFluidState(pos.relative(direction)).is(LAVA)) return false;
         } BlockState belowState = level.getBlockState(pos.below());
         return (level.getRawBrightness(pos, 0) >= 8 || level.canSeeSky(pos)) && (belowState.is(DIRT) || belowState.is(this) && belowState.getValue(AGE) == 14);
-    }
-    @Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData, Player player) {
-        return new ItemStack(seed);
     }
 }

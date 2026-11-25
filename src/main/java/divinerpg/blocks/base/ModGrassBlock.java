@@ -56,7 +56,7 @@ public class ModGrassBlock extends GrassBlock {
     private static boolean canBeGrass(BlockState state, LevelReader levelReader, BlockPos pos) {
         BlockPos blockpos = pos.above();
         BlockState blockstate = levelReader.getBlockState(blockpos);
-        if(blockstate.is(Blocks.SNOW) && (blockstate.getValue(SnowLayerBlock.LAYERS) == 1 || state.getBlock() == frozenSoil.getLast().get())) return true;
+        if(blockstate.is(Blocks.SNOW) && (blockstate.getValue(SnowLayerBlock.LAYERS) == 1 || state.getBlock() == frozenSoil.grass().get())) return true;
         else if(blockstate.getFluidState().getAmount() == 8) return false;
         else {
             int lightDampeningTopFace = LightEngine.getLightDampeningInto(state, blockstate, Direction.UP, blockstate.getLightDampening());

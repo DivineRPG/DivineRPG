@@ -76,7 +76,7 @@ public class ArcanaPortal extends Portal {
         for(int x = position.getX() - 11; x < position.getX() + 11; x++) for(int y = surface - 7; y < surface + 7; y++) for(int z = position.getZ() - 11; z < position.getZ() + 11; z++) if(level.getBlockState(new BlockPos(x, y, z)).is(this))
             return new BlockPos(x, y, z);
         BlockPos pos = null;
-        Block tile = BlockRegistry.ancientTileSet.getFirst().get();
+        Block tile = BlockRegistry.ancientTile.unbreakable().get();
         loop: for(int x = position.getX() - 11; x < position.getX() + 11; x++) for(int y = surface - 7; y < surface + 7; y++) for(int z = position.getZ() - 11; z < position.getZ() + 11; z++) if(level.getBlockState(pos = new BlockPos(x, y, z)).is(tile)) {
             Block brick = BlockRegistry.lightDegradedBrick.get();
             pos = level.getBlockState(pos.offset(-1, 0, -1)).is(brick) ? pos.offset(-5, 0, -5)

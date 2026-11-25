@@ -57,7 +57,7 @@ public class EntityTermasect extends EntityDivineFlyingMonster implements Ranged
     public void performRangedAttack(LivingEntity entity, float range) {
         if (isAlive() && getTarget() != null && !level().isClientSide()) {
             DivineThrownItem shot = EntityRegistry.THROWN_ITEM.get().create(level(), EntitySpawnReason.EVENT);
-            shot.setItem(BlockRegistry.wildwoodWoodSet.get(3).asItem().getDefaultInstance());
+            shot.setItem(BlockRegistry.wildwood.log().asItem().getDefaultInstance());
             shot.setOwner(this);
             shot.setPos(getEyePosition());
             double d0 = getTarget().getX() - this.getX();
@@ -120,7 +120,7 @@ public class EntityTermasect extends EntityDivineFlyingMonster implements Ranged
             double ty = getTarget().getEyeY() - this.getEyeY();
             double tz = getTarget().getZ() - this.getZ();
             DivineThrownItem e = EntityRegistry.THROWN_ITEM.get().create(level(), EntitySpawnReason.EVENT);
-            e.setItem(BlockRegistry.wildwoodWoodSet.get(3).asItem().getDefaultInstance());
+            e.setItem(BlockRegistry.wildwood.log().asItem().getDefaultInstance());
             e.setOwner(this);
             e.setPos(getEyePosition());
             double horizontalDistance = Math.sqrt(tx * tx + tz * tz);

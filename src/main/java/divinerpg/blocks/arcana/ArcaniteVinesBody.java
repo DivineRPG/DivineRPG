@@ -5,5 +5,5 @@ import net.minecraft.world.level.block.*;
 
 public class ArcaniteVinesBody extends WeepingVinesPlantBlock {
     public ArcaniteVinesBody(Properties p) {super(p);}
-    @Override protected GrowingPlantHeadBlock getHeadBlock() {return (GrowingPlantHeadBlock) BlockRegistry.arcaniteVinesHead.get();}
+    @Override protected GrowingPlantHeadBlock getHeadBlock() {return (GrowingPlantHeadBlock) BlockRegistry.arcaniteVines.head().get();}
 }

@@ -1,6 +1,6 @@
 package divinerpg.items.vanilla;
 
-import divinerpg.items.base.ItemMod;
+import divinerpg.items.base.ArcanicItem;
 import divinerpg.utils.LocalizeUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -14,7 +14,7 @@ import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import java.util.function.Consumer;
 
-public class ItemTeleportationCrystal extends ItemMod {
+public class ItemTeleportationCrystal extends ArcanicItem {
     public ItemTeleportationCrystal(Properties properties) {super(properties.stacksTo(1).durability(10));}
 
     @Override public InteractionResult use(Level world, Player player, InteractionHand hand) {
