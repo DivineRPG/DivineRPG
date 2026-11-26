@@ -868,8 +868,8 @@ public class ModItemTagsProvider extends BlockTagCopyingItemTagProvider {
         tag(BlockItemTags.DOORS.item()).add(toKey(steelDoor.asItem()), toKey(barredDoor.asItem()));
         copy(BlockItemTags.WOODEN_TRAPDOORS);
 
-//        copy(BlockItemTags.SIGNS); // TODO: crimseeker sign
-//        copy(BlockItemTags.HANGING_SIGNS);
+        copy(BlockItemTags.SIGNS);
+        copy(BlockItemTags.HANGING_SIGNS);
 
         copy(BlockItemTags.WOOL);
         copy(BlockItemTags.WOOL_STAIRS);

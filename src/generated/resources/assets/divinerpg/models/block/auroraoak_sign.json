@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "divinerpg:block/auroraoak_sign"
+    "particle": "divinerpg:block/auroraoak_planks"
   }
 }

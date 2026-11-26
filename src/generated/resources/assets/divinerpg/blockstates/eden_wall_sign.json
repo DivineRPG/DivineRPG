@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/eden_wall_sign"
+      "model": "divinerpg:block/eden_sign"
     }
   }
 }

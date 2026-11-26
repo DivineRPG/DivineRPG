@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "divinerpg:block/streamleaf_hanging_sign"
+    "particle": "divinerpg:block/stripped_streamleaf_log"
   }
 }

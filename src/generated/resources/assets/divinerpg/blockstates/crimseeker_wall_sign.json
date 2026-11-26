@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/crimseeker_wall_sign"
+      "model": "divinerpg:block/crimseeker_sign"
     }
   }
 }

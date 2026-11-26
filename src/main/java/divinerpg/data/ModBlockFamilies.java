@@ -17,6 +17,7 @@ public class ModBlockFamilies {
         RECIPE_GROUP_PREFIX_WOODEN = "wooden",
         RECIPE_GROUP_PREFIX_WOOLEN = "woolen",
         RECIPE_UNLOCKED_BY_HAS_PLANKS = "has_planks";
+    @SuppressWarnings("unused")
     public static final BlockFamily
         PLANK_DESIGN = familyBuilder(plankDesign.get())
             .stairs(stairDesign.get())
@@ -265,7 +266,7 @@ public class ModBlockFamilies {
             .slab(polishedCobaltite.slab().get())
             .wall(polishedCobaltite.wall().get())
             .pressurePlate(polishedCobaltite.pressurePlate().get())
-            .button(polishedCobaltite.block().get())
+            .button(polishedCobaltite.button().get())
             .generateStonecutterRecipe()
             .getFamily(),
         COALSTONE = familyBuilder(coalstone.block().get())
@@ -331,7 +332,7 @@ public class ModBlockFamilies {
             .dontGenerateCraftingRecipe()
             .dontGenerateSmeltingRecipe()
             .getFamily(),
-        ANCIENT_BRICKS_BREAKABLE = familyBuilder(ancientBrick.block().get())
+        ANCIENT_BRICKS_BREAKABLE = familyBuilder(ancientBrick.blockBreakable().get())
             .stairs(ancientBrick.stairsBreakable().get())
             .slab(ancientBrick.slabBreakable().get())
             .wall(ancientBrick.wallBreakable().get())
@@ -344,7 +345,7 @@ public class ModBlockFamilies {
             .dontGenerateCraftingRecipe()
             .dontGenerateSmeltingRecipe()
             .getFamily(),
-        DEGRADED_BRICKS_BREAKABLE = familyBuilder(degradedBrick.block().get())
+        DEGRADED_BRICKS_BREAKABLE = familyBuilder(degradedBrick.blockBreakable().get())
             .stairs(degradedBrick.stairsBreakable().get())
             .slab(degradedBrick.slabBreakable().get())
             .wall(degradedBrick.wallBreakable().get())

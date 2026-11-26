@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "divinerpg:block/mortum_sign"
+    "particle": "divinerpg:block/mortum_planks"
   }
 }

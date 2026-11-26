@@ -10,7 +10,7 @@ import net.minecraft.data.BlockFamily;
 import net.minecraft.data.recipes.*;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.*;
-import net.minecraft.tags.TagKey;
+import net.minecraft.tags.*;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.*;
@@ -47,28 +47,9 @@ public class ModRecipeProvider extends RecipeProvider {
         super(recipeOutput, advancementOutput);
     }
     @Override protected void buildRecipes() {
-        generateForEnabledBlockFamilies(DEFAULT_FLAGS);
         // CRAFTING
         // Equipment (armor, tools, swords, etc.)
-        equipment(FURS_SENG);
-        equipment(INGOTS_REALMITE);
-        equipment(INGOTS_ARLEMITE);
-        equipment(INGOTS_RUPEE);
-        equipment(INGOTS_SHADOW);
-        equipment(INGOTS_OXDRITE);
-        equipment(GEMS_ICE);
-        equipment(GEMS_JUNGLE);
-        equipment(GEMS_TERRAN);
-        equipment(GEMS_BLOODGEM);
-        equipment(GEMS_MOLTEN);
-        equipment(GEMS_CORRUPTED);
-        equipment(GEMS_ENDER);
-        equipment(GEMS_DIVINE);
-        equipment(CHUNKS_EDEN);
-        equipment(CHUNKS_WILDWOOD);
-        equipment(CHUNKS_APALACHIA);
-        equipment(CHUNKS_SKYTHERN);
-        equipment(CHUNKS_MORTUM);
+        List.of(FURS_SENG, INGOTS_REALMITE, INGOTS_ARLEMITE, INGOTS_RUPEE, INGOTS_SHADOW, INGOTS_OXDRITE, GEMS_ICE, GEMS_JUNGLE, GEMS_TERRAN, GEMS_BLOODGEM, GEMS_MOLTEN, GEMS_CORRUPTED, GEMS_ENDER, GEMS_DIVINE, CHUNKS_EDEN, CHUNKS_WILDWOOD, CHUNKS_APALACHIA, CHUNKS_SKYTHERN, CHUNKS_MORTUM).forEach(this::equipment);
         shaped(COMBAT, ARLEMITE_HELMET).pattern("###").pattern("X X").define('#', INGOTS_ARLEMITE).define('X', INGOTS_IRON).unlockedBy("has_arlemite_ingots", has(INGOTS_ARLEMITE)).save(output);
         shaped(COMBAT, ARLEMITE_CHESTPLATE).pattern("# #").pattern("X#X").pattern("#X#").define('#', INGOTS_ARLEMITE).define('X', INGOTS_IRON).unlockedBy("has_arlemite_ingots", has(INGOTS_ARLEMITE)).save(output);
         shaped(COMBAT, ARLEMITE_LEGGINGS).pattern("###").pattern("X X").pattern("# #").define('#', INGOTS_ARLEMITE).define('X', INGOTS_IRON).unlockedBy("has_arlemite_ingots", has(INGOTS_ARLEMITE)).save(output);
@@ -78,56 +59,19 @@ public class ModRecipeProvider extends RecipeProvider {
         shaped(COMBAT, ANGELIC_LEGGINGS).pattern("###").pattern("X X").pattern("X X").define('#', GEMS_SOULFIRE).define('X', GEMS_SHADOW).unlockedBy("has_soulfire_gems", has(GEMS_SOULFIRE)).save(output);
         shaped(COMBAT, ANGELIC_BOOTS).pattern("# #").pattern("X X").define('#', GEMS_SOULFIRE).define('X', GEMS_SHADOW).unlockedBy("has_soulfire_gems", has(GEMS_SOULFIRE)).save(output);
         // Storage blocks and materials
-        storageBlocks(raw_realmite);
-        storageBlocks(raw_arlemite);
-        storageBlocks(raw_rupee);
-        storageBlocks(raw_torridite);
-        storageBlocks(raw_oxdrite);
-        storageBlocks(realmite_ingot);
-        storageBlocks(arlemite_ingot);
-        storageBlocks(rupee_ingot);
-        storageBlocks(shadow_bar);
-        storageBlocks(torridite_ingot);
-        storageBlocks(oxdrite_ingot);
-        storageBlocks(ice_stone);
-        storageBlocks(jungle_stone);
-        storageBlocks(terran_stone);
-        storageBlocks(bloodgem);
-        storageBlocks(molten_stone);
-        storageBlocks(arcanium);
-        storageBlocks(corrupted_stone);
-        storageBlocks(ender_stone);
-        storageBlocks(divine_stone);
-        storageBlocks(eden_chunk, false);
-        storageBlocks(wildwood_chunk, false);
-        storageBlocks(apalachia_chunk, false);
-        storageBlocks(skythern_chunk, false);
-        storageBlocks(mortum_chunk, false);
+        List.of(raw_realmite, raw_arlemite, raw_rupee, raw_torridite, raw_oxdrite, realmite_ingot, arlemite_ingot, rupee_ingot, shadow_bar, torridite_ingot, oxdrite_ingot, ice_stone, jungle_stone, terran_stone, bloodgem, molten_stone, arcanium, corrupted_stone, ender_stone, divine_stone).forEach(this::storageBlocks);
+        List.of(eden_chunk, wildwood_chunk, apalachia_chunk, skythern_chunk, mortum_chunk).forEach(m -> storageBlocks(m, false));
         // Wood
-        woodSetFromLogs(divine.planks(), divine.wood(), divine.strippedWood(), divine.ladder());
-        woodSetFromLogs(shiverspine.planks(), shiverspine.wood(), shiverspine.strippedWood(), shiverspine.ladder());
-        woodSetFromLogs(auroraoak.planks(), auroraoak.wood(), auroraoak.strippedWood(), auroraoak.ladder());
-        woodSetFromLogs(cozybark.planks(), cozybark.wood(), cozybark.strippedWood(), cozybark.ladder());
-        woodSetFromLogs(streamleaf.planks(), streamleaf.wood(), streamleaf.strippedWood(), streamleaf.ladder());
-        woodSetFromLogs(eucalyptus.planks(), eucalyptus.wood(), eucalyptus.strippedWood(), eucalyptus.ladder());
-        woodSetFromLogs(eden.planks(), eden.wood(), eden.strippedWood(), eden.ladder());
-        woodSetFromLogs(crimseeker.planks(), crimseeker.wood(), crimseeker.strippedWood(), crimseeker.ladder());
-        woodSetFromLogs(wildwood.planks(), wildwood.wood(), wildwood.strippedWood(), wildwood.ladder());
-        woodSetFromLogs(apalachia.planks(), apalachia.wood(), apalachia.strippedWood(), apalachia.ladder());
-        woodSetFromLogs(skythern.planks(), skythern.wood(), skythern.strippedWood(), skythern.ladder());
-        woodSetFromLogs(mortum.planks(), mortum.wood(), mortum.strippedWood(), mortum.ladder());
-        woodSetFromLogs(firewood.wood(), firewood.strippedWood());
-        woodSetFromLogs(dreamwood.wood(), dreamwood.strippedWood());
-        woodSetFromLogs(hyrewood.wood(), hyrewood.strippedWood());
-        woodSetFromLogs(mintwood.wood(), mintwood.strippedWood());
+        List.of(LOGS_DIVINE, LOGS_SHIVERSPINE, LOGS_AURORAOAK, LOGS_COZYBARK, LOGS_STREAMLEAF, LOGS_EUCALYPTUS, LOGS_EDEN, LOGS_CRIMSEEKER, LOGS_WILDWOOD, LOGS_APALACHIA, LOGS_SKYTHERN, LOGS_MORTUM, LOGS_FIREWOOD, LOGS_DREAMWOOD, LOGS_HYREWOOD, LOGS_MINTWOOD).forEach(this::woodSetFromLogs);
         // Other blocks
         shaped(BUILDING_BLOCKS, checker.wool(), 4).pattern("BW").pattern("WB").define('W', Items.WOOL.white()).define('B', Items.WOOL.black()).unlockedBy("has_wool", inventoryTrigger(ItemPredicate.Builder.item().of(items, Items.WOOL.white(), Items.WOOL.black()))).save(output);
         shapeless(BUILDING_BLOCKS, rainbow.wool(), 7).requires(Items.WOOL.red()).requires(Items.WOOL.orange()).requires(Items.WOOL.yellow()).requires(Items.WOOL.lime()).requires(Items.WOOL.lightBlue()).requires(Items.WOOL.blue()).requires(Items.WOOL.purple()).unlockedBy("has_wool", inventoryTrigger(ItemPredicate.Builder.item().of(items, Items.WOOL.red(), Items.WOOL.orange(), Items.WOOL.yellow(), Items.WOOL.lime(), Items.WOOL.lightBlue(), Items.WOOL.blue(), Items.WOOL.purple()))).save(output);
         List.of(GEMS_EDEN, GEMS_WILDWOOD, GEMS_APALACHIA, GEMS_SKYTHERN, GEMS_MORTUM).forEach(this::twilightSet);
         // Food
-        shapeless(FOOD, advanced_mushroom_stew).requires(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "foods/white_mushroom"))).requires(Items.MUSHROOM_STEW).unlockedBy("has_white_mushrooms", has(TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "foods/white_mushroom")))).save(output);
+        shapeless(FOOD, advanced_mushroom_stew).requires(TagKey.create(Registries.ITEM, fromNamespaceAndPath("c", "foods/white_mushroom"))).requires(Items.MUSHROOM_STEW).unlockedBy("has_white_mushrooms", has(TagKey.create(Registries.ITEM, fromNamespaceAndPath("c", "foods/white_mushroom")))).save(output);
         // TODO: the rest of the shaped and shapeless
         // STONECUTTING
+        generateForEnabledBlockFamilies(DEFAULT_FLAGS);
         stonecutting(Items.STONE, minibricks);
         stonecutting(Items.STONE_BRICKS, minibricks);
         stonecutting(realmiteBricks, realmiteMinibricks);
@@ -254,8 +198,8 @@ public class ModRecipeProvider extends RecipeProvider {
         maulSmashing(List.of(INGOTS_SHADOW), shadow_coins, 2);
         maulSmashing(List.of(GEMS_SHADOW), bedrock_chunk, 1, BEDROCK_GRINDING_BASE);
         // FIRE CONVERTING // TODO (also they don't really work)
-        fireConverting(divineFlame, Ingredient.of(eden_soul, eden_heart), new BlockMatchTest(FIRE), builder -> builder.outputState(new SimpleStateProvider(divineFlame.get().defaultBlockState())).advancement(fromNamespaceAndPath(MODID, "divine/the_link"), "create_divine_flame").frame(new BlockMatchTest(edenBlock.get())).portal(new SimpleStateProvider(edenPortal.get().defaultBlockState())), "has_eden_soul", this.has(eden_soul));
-        fireConverting(enchantedFlame, HEARTS_WILDWOOD, new BlockMatchTest(wildFlame.get()), builder -> builder.outputState(new SimpleStateProvider(enchantedFlame.get().defaultBlockState())).advancement(fromNamespaceAndPath(MODID, "twilight/magical_incineration"), "create_enchanted_flame").frame(new BlockMatchTest(apalachiaBlock.get())).portal(new SimpleStateProvider(apalachiaPortal.get().defaultBlockState())), "has_wildwood_heart", has(HEARTS_WILDWOOD));
+        fireConverting(divineFlame, Ingredient.of(eden_soul, eden_heart), new BlockMatchTest(FIRE), builder -> builder.outputState(new SimpleStateProvider(divineFlame.get().defaultBlockState())).advancement(id("divine/the_link"), "create_divine_flame").frame(new BlockMatchTest(edenBlock.get())).portal(new SimpleStateProvider(edenPortal.get().defaultBlockState())), "has_eden_soul", this.has(eden_soul));
+        fireConverting(enchantedFlame, HEARTS_WILDWOOD, new BlockMatchTest(wildFlame.get()), builder -> builder.outputState(new SimpleStateProvider(enchantedFlame.get().defaultBlockState())).advancement(id("twilight/magical_incineration"), "create_enchanted_flame").frame(new BlockMatchTest(apalachiaBlock.get())).portal(new SimpleStateProvider(apalachiaPortal.get().defaultBlockState())), "has_wildwood_heart", has(HEARTS_WILDWOOD));
         // INFUSING
         // Backswords
         infusing(List.of(LUMPS_TEAKER), 4, backsword_template, teaker_backsword);
@@ -393,6 +337,12 @@ public class ModRecipeProvider extends RecipeProvider {
         int slashIdx = path.lastIndexOf('/');
         return path.substring(slashIdx + 1) + "_" + path.substring(0, slashIdx).replace('/', '_');
     }
+    private Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(MODID, path);
+    }
+    private Optional<Item> item(String path) {
+        return ITEM.getOptional(id(path));
+    }
     @Override protected void generateRecipes(BlockFamily family, FeatureFlagSet flagSet) {
         super.generateRecipes(family, flagSet);
         if(family.shouldGenerateStonecutterRecipe()) {
@@ -427,7 +377,7 @@ public class ModRecipeProvider extends RecipeProvider {
         );
         recipes.forEach((suffix, spec) -> {
             if(baseName.equals("arlemite") && armorSuffixes.contains(suffix)) return;
-            Identifier itemId = Identifier.fromNamespaceAndPath(MODID, baseName + suffix);
+            Identifier itemId = id(baseName + suffix);
             ITEM.getOptional(itemId).ifPresent(item -> {
                 var builder = shaped(spec.category(), item).define('X', material).unlockedBy("has_" + tagName, has(material));
                 boolean needsSticks = spec.pattern().stream().anyMatch(row -> row.contains("#"));
@@ -441,60 +391,49 @@ public class ModRecipeProvider extends RecipeProvider {
         String materialName = ITEM.getKey(material.asItem()).getPath();
         int underscoreIdx = materialName.lastIndexOf('_');
         String baseName = materialName.startsWith("raw_") || underscoreIdx == -1 ? materialName : materialName.substring(0, underscoreIdx);
-        ITEM.getOptional(Identifier.fromNamespaceAndPath(MODID, baseName + "_block")).ifPresent(block -> {
+        item(baseName + "_block").ifPresent(block -> {
             String blockName = ITEM.getKey(block).getPath();
             shaped(BUILDING_BLOCKS, block).define('X', material)
                 .pattern("XXX")
                 .pattern("XXX")
                 .pattern("XXX").unlockedBy("has_" + materialName, has(material)).save(output);
-            if(reversibleBlock) shapeless(MISC, material, 9).requires(block).unlockedBy("has_" + blockName, has(block)).save(output, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, materialName + "_from_" + blockName)));
+            if(reversibleBlock) shapeless(MISC, material, 9).requires(block).unlockedBy("has_" + blockName, has(block)).save(output, ResourceKey.create(RECIPE, id(materialName + "_from_" + blockName)));
         });
-        List.of("_nugget", "_shards").forEach(suffix -> ITEM.getOptional(Identifier.fromNamespaceAndPath(MODID, baseName + suffix)).ifPresent(piece -> {
+        List.of("_nugget", "_shards").forEach(suffix -> item(baseName + suffix).ifPresent(piece -> {
             String pieceName = ITEM.getKey(piece).getPath();
             shaped(MISC, material).define('X', piece)
                 .pattern("XXX")
                 .pattern("XXX")
-                .pattern("XXX").unlockedBy("has_" + pieceName, has(piece)).save(output, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, materialName + "_from_" + pieceName)));
+                .pattern("XXX").unlockedBy("has_" + pieceName, has(piece)).save(output, ResourceKey.create(RECIPE, id(materialName + "_from_" + pieceName)));
             if(suffix.equals("_nugget")) shapeless(MISC, piece, 9).requires(material).unlockedBy("has_" + materialName, has(material)).save(output);
         }));
     }
     protected void storageBlocks(ItemLike material) {
         storageBlocks(material, true);
     }
-    protected void woodSetFromLogs(ItemLike... woodSet) {
-        for(ItemLike entry : woodSet) {
-            String path = ITEM.getKey(entry.asItem()).getPath();
-            if(path.endsWith("_planks")) {
-                String woodName = path.substring(0, path.length() - "_planks".length());
-                TagKey<Item> logsTag = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, "logs/" + woodName));
-                planksFromLogs(entry, logsTag, 4);
-            } else if(path.endsWith("_wood")) {
-                String logPath = path.replace("_wood", "_log");
-                ITEM.getOptional(Identifier.fromNamespaceAndPath(MODID, logPath)).ifPresent(log -> woodFromLogs(entry, log));
-            } else if(path.endsWith("_ladder")) {
-                String planksPath = path.replace("_ladder", "_planks");
-                ITEM.getOptional(Identifier.fromNamespaceAndPath(MODID, planksPath)).ifPresent(planks ->
-                    shaped(DECORATIONS, entry, 4)
-                        .pattern("# #")
-                        .pattern("#P#")
-                        .pattern("# #").define('#', RODS_WOODEN).define('P', planks).unlockedBy(getHasName(planks), has(planks)).save(output));
-            }
-        }
+    private void registerWoodPair(String woodName, String logName) {
+        item(woodName).ifPresent(wood -> item(logName).ifPresent(log -> woodFromLogs(wood, log)));
+    }
+    protected void woodSetFromLogs(BlockItemTagId tag) {
+        String base = tag.item().location().getPath().substring("logs/".length());
+        registerWoodPair(base + "_wood", base + "_log");
+        registerWoodPair("stripped_" + base + "_wood", "stripped_" + base + "_log");
+        item(base + "_planks").ifPresent(planks -> {
+            planksFromLogs(planks, tag.item(), 4);
+            item(base + "_ladder").ifPresent(ladder -> shaped(DECORATIONS, ladder, 4)
+                .pattern("# #")
+                .pattern("#P#")
+                .pattern("# #").define('#', RODS_WOODEN).define('P', planks).unlockedBy(getHasName(planks), has(planks)).save(output));
+        });
     }
     protected void twilightSet(TagKey<Item> gem) {
         ItemLike baseBrick = twilightBrick.block();
         String baseName = getTagBaseName(gem);
         String gemTagName = getTagName(gem);
-        TagKey<Item> soul = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(gem.location().getNamespace(), "souls/" + baseName));
-        ITEM.getOptional(Identifier.fromNamespaceAndPath(MODID, baseName + "_bricks")).ifPresent(bricks ->
-            shapeless(BUILDING_BLOCKS, bricks, 4).requires(baseBrick, 4).requires(gem).group(getItemName(baseBrick)).unlockedBy("has_" + gemTagName, has(gem)).save(output)
-        );
-        ITEM.getOptional(Identifier.fromNamespaceAndPath(MODID, baseName + "_slicer")).ifPresent(slicer ->
-            shapeless(COMBAT, slicer, 20).requires(gem).unlockedBy("has_" + gemTagName, has(gem)).save(output)
-        );
-        ITEM.getOptional(Identifier.fromNamespaceAndPath(MODID, baseName + "_fragments")).ifPresent(fragments ->
-            shapeless(MISC, fragments).requires(soul).group("twilight_fragments").unlockedBy("has_" + getTagName(soul), has(soul)).save(output)
-        );
+        TagKey<Item> soul = TagKey.create(Registries.ITEM, id("souls/" + baseName));
+        item(baseName + "_bricks").ifPresent(bricks -> shapeless(BUILDING_BLOCKS, bricks, 4).requires(baseBrick, 4).requires(gem).group(getItemName(baseBrick)).unlockedBy("has_" + gemTagName, has(gem)).save(output));
+        item(baseName + "_slicer").ifPresent(slicer -> shapeless(COMBAT, slicer, 20).requires(gem).unlockedBy("has_" + gemTagName, has(gem)).save(output));
+        item(baseName + "_fragments").ifPresent(fragments -> shapeless(MISC, fragments).requires(soul).group("twilight_fragments").unlockedBy("has_" + getTagName(soul), has(soul)).save(output));
     }
     // STONECUTTING
     // From block families
@@ -505,12 +444,12 @@ public class ModRecipeProvider extends RecipeProvider {
         switch(variant) {
             case SLAB, STAIRS, WALL, CHISELED, POLISHED, CUT, BRICKS, TILES, PILLAR -> {
                 String recipeName = getItemName(result) + "_from_" + getItemName(base) + "_stonecutting";
-                ResourceKey<Recipe<?>> key = ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, recipeName));
+                ResourceKey<Recipe<?>> key = ResourceKey.create(RECIPE, id(recipeName));
                 SingleItemRecipeBuilder.stonecutting(Ingredient.of(base), BUILDING_BLOCKS, result, count).unlockedBy(getHasName(base), has(base)).save(output, key);
             } default -> {}
         } if(variant == POLISHED || variant == CUT || variant == BRICKS || variant == TILES || variant == PILLAR || variant == COBBLED) {
             BlockFamily childVariantFamily = ModBlockFamilies.getFamily(result);
-            if(childVariantFamily != null) childVariantFamily.getVariants().forEach((childVariant, r) -> generateStonecutterRecipe(childVariantFamily, childVariant, base));
+            if(childVariantFamily != null) childVariantFamily.getVariants().forEach((childVariant, _) -> generateStonecutterRecipe(childVariantFamily, childVariant, base));
         }
     }
     @Override protected void generateForEnabledBlockFamilies(FeatureFlagSet flagSet) {
@@ -519,7 +458,7 @@ public class ModRecipeProvider extends RecipeProvider {
     // Fully custom
     protected void stonecutting(ItemLike input, RecipeCategory category, ItemLike result, int count) {
         String recipeName = getConversionRecipeName(result, input) + "_stonecutting";
-        ResourceKey<Recipe<?>> key = ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, recipeName));
+        ResourceKey<Recipe<?>> key = ResourceKey.create(RECIPE, id(recipeName));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), category, result, count).unlockedBy(getHasName(input), has(input)).save(output, key);
     }
     // Default all
@@ -536,14 +475,14 @@ public class ModRecipeProvider extends RecipeProvider {
         for(Object input : inputs) {
             if(input instanceof ItemLike item) {
                 String recipeName = prefix + "_" + getItemName(item);
-                SimpleCookingRecipeBuilder.generic(Ingredient.of(item), category, cookingBookCategory(category, result), result, experience, cookingTime, factory).group(getItemName(result)).unlockedBy(getHasName(item), has(item)).save(conditionalOutput, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, recipeName)));
+                SimpleCookingRecipeBuilder.generic(Ingredient.of(item), category, cookingBookCategory(category, result), result, experience, cookingTime, factory).group(getItemName(result)).unlockedBy(getHasName(item), has(item)).save(conditionalOutput, ResourceKey.create(RECIPE, id(recipeName)));
             } else if(input instanceof TagKey<?> rawTag) {
                 @SuppressWarnings("unchecked")
                 TagKey<Item> tag = (TagKey<Item>) rawTag;
                 String tagName = getTagName(tag);
                 String recipeName = prefix + "_" + tagName;
                 HolderSet<Item> tagHolderSet = items.getOrThrow(tag);
-                SimpleCookingRecipeBuilder.generic(Ingredient.of(tagHolderSet), category, cookingBookCategory(category, result), result, experience, cookingTime, factory).group(getItemName(result)).unlockedBy("has_" + tagName, has(tag)).save(conditionalOutput, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, recipeName)));
+                SimpleCookingRecipeBuilder.generic(Ingredient.of(tagHolderSet), category, cookingBookCategory(category, result), result, experience, cookingTime, factory).group(getItemName(result)).unlockedBy("has_" + tagName, has(tag)).save(conditionalOutput, ResourceKey.create(RECIPE, id(recipeName)));
             }
         }
     }
@@ -641,7 +580,7 @@ public class ModRecipeProvider extends RecipeProvider {
             : Ingredient.of((ItemLike) material);
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), baseIngredient, catalystIngredient, category, result.asItem())
             .unlocks("has_" + getItemName(template), has(template))
-            .save(output, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, getItemName(result) + "_smithing")));
+            .save(output, ResourceKey.create(RECIPE, id(getItemName(result) + "_smithing")));
     }
     // Combat
     protected void smithing(ItemLike template, List<ItemLike> baseItems, Object material, ItemLike result) {
@@ -652,14 +591,14 @@ public class ModRecipeProvider extends RecipeProvider {
         Identifier baseId = ITEM.getKey(baseItem.asItem());
         String ns = baseId.getNamespace();
         String basePath = baseId.getPath();
-        ItemLike grayVariant = baseItem == ender_sword ? black_ender_sword : ITEM.getValue(Identifier.fromNamespaceAndPath(ns, "gray_" + basePath));
+        ItemLike grayVariant = baseItem == ender_sword ? black_ender_sword : ITEM.getValue(fromNamespaceAndPath(ns, "gray_" + basePath));
         List<Map.Entry<Object, ItemLike>> variants = List.of(
             Map.entry(DIAMOND_NO_CHUNKS, baseItem),
             Map.entry(CHUNKS_DIAMOND_GRAY, grayVariant),
-            Map.entry(CHUNKS_DIAMOND_RED, ITEM.getValue(Identifier.fromNamespaceAndPath(ns, "red_" + basePath))),
-            Map.entry(CHUNKS_DIAMOND_YELLOW, ITEM.getValue(Identifier.fromNamespaceAndPath(ns, "yellow_" + basePath))),
-            Map.entry(CHUNKS_DIAMOND_GREEN, ITEM.getValue(Identifier.fromNamespaceAndPath(ns, "green_" + basePath))),
-            Map.entry(CHUNKS_DIAMOND_BLUE, ITEM.getValue(Identifier.fromNamespaceAndPath(ns, "blue_" + basePath)))
+            Map.entry(CHUNKS_DIAMOND_RED, ITEM.getValue(fromNamespaceAndPath(ns, "red_" + basePath))),
+            Map.entry(CHUNKS_DIAMOND_YELLOW, ITEM.getValue(fromNamespaceAndPath(ns, "yellow_" + basePath))),
+            Map.entry(CHUNKS_DIAMOND_GREEN, ITEM.getValue(fromNamespaceAndPath(ns, "green_" + basePath))),
+            Map.entry(CHUNKS_DIAMOND_BLUE, ITEM.getValue(fromNamespaceAndPath(ns, "blue_" + basePath)))
         );
         var allItems = variants.stream().map(Map.Entry::getValue).toList();
         for(var entry : variants) {
@@ -676,7 +615,7 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void extracting(ItemLike input, RecipeCategory category, ItemLike result, float experience, int cookingTime) {
         ArcaniumExtractorRecipeBuilder.extraction(Ingredient.of(input), category, result, experience, cookingTime)
             .unlockedBy(getHasName(input), has(input))
-            .save(output, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, getItemName(result) + "_from_" + getItemName(input) + "_extracting")));
+            .save(output, ResourceKey.create(RECIPE, id(getItemName(result) + "_from_" + getItemName(input) + "_extracting")));
     }
     // Custom cooking time
     protected void extracting(ItemLike input, ItemLike result, float experience, int cookingTime) {
@@ -689,13 +628,13 @@ public class ModRecipeProvider extends RecipeProvider {
         for(Object input : inputs) {
             if(input instanceof ItemLike item) {
                 String recipeName = getItemName(result) + "_from_" + getItemName(item) + "_maul_smashing";
-                MaulSmashingRecipeBuilder.smashing(Ingredient.of(item), category, result, count, requiredBaseBlockTag).unlockedBy(getHasName(item), has(item)).save(conditionalOutput, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, recipeName)));
+                MaulSmashingRecipeBuilder.smashing(Ingredient.of(item), category, result, count, requiredBaseBlockTag).unlockedBy(getHasName(item), has(item)).save(conditionalOutput, ResourceKey.create(RECIPE, id(recipeName)));
             } else if(input instanceof TagKey<?> rawTag) {
                 @SuppressWarnings("unchecked")
                 TagKey<Item> tag = (TagKey<Item>) rawTag;
                 String tagName = getTagName(tag);
                 String recipeName = getItemName(result) + "_from_" + tagName + "_maul_smashing";
-                MaulSmashingRecipeBuilder.smashing(Ingredient.of(items.getOrThrow(tag)), category, result, count, requiredBaseBlockTag).unlockedBy("has_" + tagName, has(tag)).save(conditionalOutput, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, recipeName)));
+                MaulSmashingRecipeBuilder.smashing(Ingredient.of(items.getOrThrow(tag)), category, result, count, requiredBaseBlockTag).unlockedBy("has_" + tagName, has(tag)).save(conditionalOutput, ResourceKey.create(RECIPE, id(recipeName)));
             }
         }
     }
@@ -714,7 +653,7 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void fireConverting(String subfolder, ItemLike result, Ingredient inputItem, RuleTest inputState, Consumer<FireConversionRecipeBuilder> configurator, String unlockCriterionName, Criterion<?> unlockCriterion) {
         String fileName = getItemName(result);
         String path = subfolder.isEmpty() ? "fire_conversion/" + fileName : "fire_conversion/" + subfolder + "/" + fileName;
-        ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, path));
+        ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(RECIPE, id(path));
         FireConversionRecipeBuilder builder = FireConversionRecipeBuilder.conversion(inputItem, inputState).unlockedBy(unlockCriterionName, unlockCriterion);
         configurator.accept(builder);
         builder.save(output, recipeKey);
@@ -725,7 +664,7 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void fireConverting(String subfolder, ItemLike output, TagKey<Item> inputTag, RuleTest inputState, Consumer<FireConversionRecipeBuilder> configurator, String unlockCriterionName, Criterion<?> unlockCriterion) {
         String fileName = getItemName(output);
         String path = subfolder.isEmpty() ? "fire_conversion/" + fileName : "fire_conversion/" + subfolder + "/" + fileName;
-        ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, path));
+        ResourceKey<Recipe<?>> recipeKey = ResourceKey.create(RECIPE, id(path));
         HolderSet<Item> tagHolderSet = items.get(inputTag).orElseThrow();
         Ingredient inputItem = Ingredient.of(tagHolderSet);
         FireConversionRecipeBuilder builder = FireConversionRecipeBuilder.conversion(inputItem, inputState).unlockedBy(unlockCriterionName, unlockCriterion);
@@ -739,13 +678,13 @@ public class ModRecipeProvider extends RecipeProvider {
         for(Object input : inputs) {
             if(input instanceof ItemLike item) {
                 String recipeName = getItemName(result) + "_from_" + getItemName(item) + "_infusing";
-                InfusionTableRecipeBuilder.infusion(Ingredient.of(item), inputCount, category, Ingredient.of(template), result, resultCount).unlockedBy(getHasName(item), has(item)).save(conditionalOutput, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, recipeName)));
+                InfusionTableRecipeBuilder.infusion(Ingredient.of(item), inputCount, category, Ingredient.of(template), result, resultCount).unlockedBy(getHasName(item), has(item)).save(conditionalOutput, ResourceKey.create(RECIPE, id(recipeName)));
             } else if(input instanceof TagKey<?> rawTag) {
                 @SuppressWarnings("unchecked")
                 TagKey<Item> tag = (TagKey<Item>) rawTag;
                 String tagName = getTagName(tag);
                 String recipeName = getItemName(result) + "_from_" + tagName + "_infusing";
-                InfusionTableRecipeBuilder.infusion(Ingredient.of(items.getOrThrow(tag)), inputCount, category, Ingredient.of(template), result, resultCount).unlockedBy("has_" + tagName, has(tag)).save(conditionalOutput, ResourceKey.create(RECIPE, fromNamespaceAndPath(MODID, recipeName)));
+                InfusionTableRecipeBuilder.infusion(Ingredient.of(items.getOrThrow(tag)), inputCount, category, Ingredient.of(template), result, resultCount).unlockedBy("has_" + tagName, has(tag)).save(conditionalOutput, ResourceKey.create(RECIPE, id(recipeName)));
             }
         }
     }

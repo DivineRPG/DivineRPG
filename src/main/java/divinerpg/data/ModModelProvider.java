@@ -184,18 +184,64 @@ public class ModModelProvider extends ModelProvider {
                 }
                 else if (block instanceof BedBlock bedBlock) {
                     registerBed(gen, bedBlock);
-                }
-                else if (path.endsWith("_lamp") || path.endsWith("_furnace") || path.endsWith("_spawner") || path.endsWith("_portal") || path.endsWith("_rift")) {
+                } else if(path.endsWith("_lamp") || path.endsWith("_furnace") || path.endsWith("_spawner") || path.endsWith("_portal") || path.endsWith("_rift")) {
                     gen.createTrivialCube(block);
                     handledBlocks.add(block);
-                    if (block.asItem() != Items.AIR) {
+                    if(block.asItem() != Items.AIR) {
                         gen.registerSimpleItemModel(block.asItem(), ModelLocationUtils.getModelLocation(block));
                         registeredItems.add(block.asItem());
                     }
-                }
-                else {
-                    registerStandardBlockWithBreakable(gen, block);
-                }
+                } else if (block instanceof StandingSignBlock standing) {
+                    handledBlocks.add(standing);
+                    String signPath = BuiltInRegistries.BLOCK.getKey(standing).getPath();
+                    String wallSignPath = signPath.replace("_sign", "_wall_sign");
+                    Block wallSign = BuiltInRegistries.BLOCK.get(Identifier.fromNamespaceAndPath(MODID, wallSignPath)).map(Holder.Reference::value).orElse(null);
+                    if (wallSign != null) {
+                        handledBlocks.add(wallSign);
+                        Block basePlanks = resolveBaseBlock(standing, "_sign");
+                        TextureMapping particleMapping = TextureMapping.particle(getCleanTexture(basePlanks, ""));
+                        Identifier particleModel = ModelTemplates.PARTICLE_ONLY.create(standing, particleMapping, gen.modelOutput);
+                        gen.blockStateOutput.accept(createSimpleBlock(standing, plainVariant(particleModel)));
+                        gen.blockStateOutput.accept(createSimpleBlock(wallSign, plainVariant(particleModel)));
+                        Item item = standing.asItem();
+                        if(item != Items.AIR && !registeredItems.contains(item)) {
+                            gen.registerSimpleFlatItemModel(item);
+                            registeredItems.add(item);
+                        }
+                    }
+                } else if (block instanceof WallSignBlock) handledBlocks.add(block);
+                else if(block instanceof CeilingHangingSignBlock ceilingSign) {
+                    handledBlocks.add(ceilingSign);
+                    String signPath = BuiltInRegistries.BLOCK.getKey(ceilingSign).getPath();
+                    String wallSignPath = signPath.replace("_hanging_sign", "_wall_hanging_sign");
+                    Block wallHangingSign = BuiltInRegistries.BLOCK.get(Identifier.fromNamespaceAndPath(MODID, wallSignPath)).map(Holder.Reference::value).orElse(null);
+                    if(wallHangingSign != null) {
+                        handledBlocks.add(wallHangingSign);
+                        Block baseBlock = resolveHangingSignBaseBlock(ceilingSign);
+                        TextureMapping particleMapping = TextureMapping.particle(getCleanTexture(baseBlock, ""));
+                        Identifier particleModel = ModelTemplates.PARTICLE_ONLY.create(ceilingSign, particleMapping, gen.modelOutput);
+                        gen.blockStateOutput.accept(createSimpleBlock(ceilingSign, plainVariant(particleModel)));
+                        gen.blockStateOutput.accept(createSimpleBlock(wallHangingSign, plainVariant(particleModel)));
+                        Item item = ceilingSign.asItem();
+                        if(item != Items.AIR && !registeredItems.contains(item)) {
+                            gen.registerSimpleFlatItemModel(item);
+                            registeredItems.add(item);
+                        }
+                    }
+                } else if (block instanceof WallHangingSignBlock) {
+                    handledBlocks.add(block);
+                } else if (block instanceof TorchBlock torch) {
+                    handledBlocks.add(torch);
+                    String torchPath = BuiltInRegistries.BLOCK.getKey(torch).getPath();
+                    String wallTorchPath = torchPath.replace("_torch", "_wall_torch");
+                    Block wallTorch = BuiltInRegistries.BLOCK.get(Identifier.fromNamespaceAndPath(MODID, wallTorchPath)).map(Holder.Reference::value).orElse(null);
+                    if(wallTorch != null) {
+                        handledBlocks.add(wallTorch);
+                        gen.createNormalTorch(torch, wallTorch);
+                        registeredItems.add(torch.asItem());
+                    }
+                } else if(block instanceof WallTorchBlock) handledBlocks.add(block);
+                else registerStandardBlockWithBreakable(gen, block);
             } catch (Exception e) {
                 throw new RuntimeException("Failed generating models for " + BuiltInRegistries.BLOCK.getKey(block), e);
             }
@@ -228,7 +274,13 @@ public class ModModelProvider extends ModelProvider {
         }
         return block;
     }
-
+    private Block resolveHangingSignBaseBlock(Block hangingSign) {
+        String path = BuiltInRegistries.BLOCK.getKey(hangingSign).getPath();
+        String woodType = path.replace("_hanging_sign", "");
+        Identifier strippedLog = Identifier.fromNamespaceAndPath(MODID, "stripped_" + woodType + "_log"); // TODO: to rename _log_side into _log, and _log into _log_top
+        if(BuiltInRegistries.BLOCK.containsKey(strippedLog)) return BuiltInRegistries.BLOCK.get(strippedLog).get().value();
+        return resolveBaseBlock(hangingSign, "_hanging_sign");
+    }
     private TextureMapping getCleanTextureMapping(Block base) {
         String basepath = BuiltInRegistries.BLOCK.getKey(base).getPath();
         basepath = basepath.replace("_breakable", "").replace("_stairs", "").replace("_slab", "").replace("_wall", "");
@@ -287,7 +339,6 @@ public class ModModelProvider extends ModelProvider {
         gen.registerSimpleItemModel(wall.asItem(), inventoryModel);
         registeredItems.add(wall.asItem());
     }
-
     private void registerStandardBlockWithBreakable(BlockModelGenerators gen, Block block) {
         if (handledBlocks.contains(block)) return;
         handledBlocks.add(block);
@@ -296,9 +347,9 @@ public class ModModelProvider extends ModelProvider {
         Identifier modelId = ModelTemplates.CUBE_ALL.create(block, mapping, gen.modelOutput);
         gen.blockStateOutput.accept(createSimpleBlock(block, plainVariant(modelId)));
         Item item = block.asItem();
-        if (item != Items.AIR) {
-            gen.registerSimpleItemModel(block.asItem(), modelId);
-            registeredItems.add(block.asItem());
+        if(item != Items.AIR && !registeredItems.contains(item)) {
+            gen.registerSimpleItemModel(item, modelId);
+            registeredItems.add(item);
         }
     }
 
@@ -463,7 +514,6 @@ public class ModModelProvider extends ModelProvider {
         gen.registerSimpleItemModel(wood.asItem(), vertical);
         registeredItems.add(wood.asItem());
     }
-
     private void createRotatedPillarWithHorizontalVariant(Block block, BlockModelGenerators gen, Function<Block, Identifier> verticalModel, Function<Block, Identifier> horizontalModel) {
         MultiVariant model = plainVariant(verticalModel.apply(block));
         MultiVariant hModel = plainVariant(horizontalModel.apply(block));

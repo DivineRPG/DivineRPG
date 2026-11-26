@@ -17,7 +17,7 @@
         },
         "then_run": {
           "type": "minecraft:block",
-          "result_state": "divinerpg:apalachia_dirt"
+          "result_state": "divinerpg:apalachia_grass"
         }
       },
       {

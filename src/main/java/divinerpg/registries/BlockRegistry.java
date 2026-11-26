@@ -180,7 +180,7 @@ public class BlockRegistry {
         tomatoPlant = registerCrop("tomato", crop),
         whiteMushroomPlant = registerCrop("white_mushroom", crop),
         aquamarinePlant = registerCrop("aquamarine", crop),
-        eucalyptusPlant = registerCrop("eucalyptus", crop),
+        eucalyptusPlant = registerCrop("eucalyptus", "_root", crop),
         firestockPlant = registerArcanaDoubleCrop("firestock", crop),
         hitchakPlant = registerCrop("hitchak", crop),
         lamonaPlant = registerCrop("lamona", crop),
@@ -190,7 +190,7 @@ public class BlockRegistry {
         moonbulbPlant = registerDoubleCrop("moonbulb", PcropLight4),
         purpleGlowbonePlant = registerDoubleCrop("purple_glowbone", PcropLight6),
         pinkGlowbonePlant = registerDoubleCrop("pink_glowbone", PcropLight6),
-        skyPlant = registerCrop("sky_plant", crop);
+        skyPlant = registerCrop("sky", "_plant", crop);
 
     // Soil
     public static final Soil
@@ -243,7 +243,10 @@ public class BlockRegistry {
         shiverspine = new Tree("shiverspine", WOOL, COLOR_LIGHT_GRAY, GLOW_LICHEN, BlockSetType.PALE_OAK, ConfiguredFeatureKeys.SHIVERSPINE_TREE),
         auroraoak = new Tree("auroraoak", COLOR_PURPLE, COLOR_BROWN, ICE, BlockSetType.OAK, ConfiguredFeatureKeys.AURORAOAK_TREE),
         cozybark = new Tree("cozybark", CRIMSON_STEM, TERRACOTTA_PURPLE, TERRACOTTA_PURPLE, BlockSetType.DARK_OAK, ConfiguredFeatureKeys.COZYBARK_TREE, CozybarkLeaves::new),
-        streamleaf = new Tree("streamleaf", GLOW_LICHEN, TERRACOTTA_BROWN, ICE, BlockSetType.WARPED, ConfiguredFeatureKeys.STREAMLEAF_TREE),
+        streamleaf = new Tree("streamleaf", GLOW_LICHEN, TERRACOTTA_BROWN, ICE, BlockSetType.WARPED, ConfiguredFeatureKeys.STREAMLEAF_TREE);
+    public static final Wood
+        eucalyptus = new Wood("eucalyptus", COLOR_LIGHT_GRAY, TERRACOTTA_WHITE, BlockSetType.OAK);
+    public static final Tree
         eden = new Tree("eden", GOLD, COLOR_BROWN, SAND, BlockSetType.OAK, ConfiguredFeatureKeys.EDEN_TREE),
         crimseeker = new Tree("crimseeker", CRIMSON_STEM, CRIMSON_STEM, COLOR_GREEN, BlockSetType.CHERRY, null, Block::new),//TODO: Tree feature
         wildwood = new Tree("wildwood", COLOR_LIGHT_BLUE, COLOR_BLUE, COLOR_LIGHT_BLUE, BlockSetType.OAK, ConfiguredFeatureKeys.WILDWOOD_TREE),
@@ -255,8 +258,6 @@ public class BlockRegistry {
         dreamwood = new DreamTree("dreamwood", COLOR_CYAN, COLOR_CYAN, COLOR_LIGHT_BLUE),
         hyrewood = new DreamTree("hyrewood", COLOR_BLUE, COLOR_BLUE, COLOR_BLUE),
         mintwood = new DreamTree("mintwood", WARPED_WART_BLOCK, WARPED_WART_BLOCK, DIAMOND);
-    public static final Wood
-        eucalyptus = new Wood("eucalyptus", COLOR_LIGHT_GRAY, TERRACOTTA_WHITE, BlockSetType.OAK);
     public static final DeferredBlock<Block>
         plankDesign = register("plank_design", Pdesign),
         stairDesign = registerStair("stair_design", Pdesign, plankDesign),
@@ -272,9 +273,9 @@ public class BlockRegistry {
     // Wool
     public static final WoolSet
         checker = new WoolSet("checker", "", Pchecker, DyeColor.BLACK),
-        rainbow = new WoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE), // TODO: remap the rainbow_carpet into rainbow_wool_carpet
-        fancy = new WoolSet("fancy", "_wool", Pfancy, DyeColor.BROWN);
-    public static final StairSlabSet workshopCarpet = new StairSlabSet("workshop", "_carpet", PworkshopCarpet);
+        rainbow = new WoolSet("rainbow_wool", "", Prainbow, DyeColor.PURPLE),
+        fancy = new WoolSet("fancy_wool", "", Pfancy, DyeColor.BROWN);
+    public static final StairSlabSet workshopCarpet = new StairSlabSet("workshop_carpet", "", PworkshopCarpet);
 
     // Obsidian
     public static final DeferredBlock<Block>
@@ -648,16 +649,18 @@ public class BlockRegistry {
 
     //ALIASES
     static {
-        //Obsidian
+        // Carpets
+        addAliases("rainbow_carpet", rainbow.carpet());
+        // Obsidian
         addAliases("red_vane", bleedingObsidian);
         addAliases("yellow_vane", shiningObsidian);
         addAliases("cyan_vane", glitteringObsidian);
         addAliases("blue_vane", seepingObsidian);
         addAliases("purple_vane", vwoopingObsidian);
-        //Lamps
+        // Lamps
         addAliases("bluefire_lamp", soulfireLamp);
         addAliases("redstone_ore_lamp", bloodgemLamp);
-        //Shiverspine
+        // Shiverspine
         addAliases("frozen_sapling", shiverspine.sapling);
         addAliases("frozen_log", shiverspine.log);
         addAliases("stripped_frozen_log", shiverspine.strippedLog);
@@ -669,14 +672,14 @@ public class BlockRegistry {
         addAliases("frozen_door", shiverspine.door);
         addAliases("frozen_trapdoor", shiverspine.trapdoor);
         addAliases("brittle_leaves", shiverspine.leaves);
-        //Fire
+        // Fire
         addAliases("iceika_fire", icyFire);
         addAliases("blue_fire", BlockIds.SOUL_FIRE);
-        //Steel
+        // Steel
         addAliases("white_steel", steel);
         addAliases("teal_steel", cyanSteel);
         addAliases("bright_red_steel", magentaSteel);
-        //Stained Glass
+        // Stained Glass
         addAliases("stained_glass2", stainedGlass);
         addAliases("stained_glass3", stainedGlass);
         addAliases("stained_glass4", stainedGlass);
@@ -684,17 +687,17 @@ public class BlockRegistry {
         addAliases("stained_glass6", stainedGlass);
         addAliases("stained_glass7", stainedGlass);
         addAliases("stained_glass8", stainedGlass);
-        //Extra Arcana
+        // Extra Arcana
         addAliases("arcana_hard_portal_frame", arcanaPortalFrame);
-        //Eden
+        // Eden
         addAliases("eden_dirt", raySoil.dirt);
         addAliases("eden_grass", raySoil.grass);
         addAliases("eden_ore", twilightEdenOre);
-        //Vethea
+        // Vethea
         addAliases("acid_block", bacterialAcid);
         addAliases("karos_heat_tile_green", karosHeatTile);
         addAliases("karos_heat_tile_red", karosHeatTile);
-        //Compat (why not)
+        // Compat (why not)
         if(!ModList.get().isLoaded("supplementaries")) {
             addAliases("raked_frozen_gravel", frozenGravel);
             addAliases("frozen_gravel_bricks", frozenGravel);
@@ -709,7 +712,7 @@ public class BlockRegistry {
     public record WoolSet(DeferredBlock<Block> wool, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> carpet) {
         WoolSet(String baseName, String woolSignifier, BlockPropertyOverride properties, DyeColor color) {
             StairSlabSet set = new StairSlabSet(baseName, woolSignifier, properties);
-            this(set.block, set.stairs, set.slab, register(baseName + "_carpet", p -> new WoolCarpetBlock(color, p), properties));
+            this(set.block, set.stairs, set.slab, register(baseName + woolSignifier + "_carpet", p -> new WoolCarpetBlock(color, p), properties));
         }
     }
     public record Torch(DeferredBlock<Block> torch, DeferredBlock<Block> wallTorch) {
@@ -804,7 +807,7 @@ public class BlockRegistry {
     public record StairSlabSet(DeferredBlock<Block> block, DeferredBlock<Block> stairs, DeferredBlock<Block> slab) {
         StairSlabSet(String baseName, String blockSignifier, BlockPropertyOverride properties) {
             DeferredBlock<Block> block = register(baseName + blockSignifier, properties);
-            this(block, registerStair(baseName + blockSignifier + "_stairs", properties, block), registerSlab(baseName + blockSignifier + "_slab", properties));
+            this(block, registerStair(baseName + "_stairs", properties, block), registerSlab(baseName + "_slab", properties));
         }
     }
     //SPECIALIZED REGISTER METHODS
@@ -824,6 +827,8 @@ public class BlockRegistry {
     private static DeferredBlock<Block> registerArcanaDoubleCrop(String baseName, BlockPropertyOverride properties) {return registerCrop(baseName, ArcanaDoubleCrop::new, properties);}
     private static DeferredBlock<Block> registerCrop(String baseName, BlockPropertyOverride properties) {return registerCrop(baseName, Crop::new, properties);}
     private static DeferredBlock<Block> registerCrop(String baseName, BlockConstructor block, BlockPropertyOverride properties) {return register(baseName + "_plant", baseName + "_seeds", block, properties);}
+    private static DeferredBlock<Block> registerCrop(String baseName, String cropSignifier, BlockPropertyOverride properties) {return registerCrop(baseName, cropSignifier, Crop::new, properties);}
+    private static DeferredBlock<Block> registerCrop(String baseName, String cropSignifier, BlockConstructor block, BlockPropertyOverride properties) {return register(baseName + "_plant", baseName + cropSignifier + "_seeds", block, properties);}
     private static DeferredBlock<Block> registerVine(String baseName, BlockPropertyOverride properties) {return register(baseName + "_vine", VineBlock::new, properties);}
     private static DeferredBlock<Block> registerOre(String baseName, BlockPropertyOverride properties, int minXp, int maxXp) {return register(baseName + "_ore", p -> new DropExperienceBlock(UniformInt.of(minXp, maxXp), p), properties);}
     private static DeferredBlock<Block> registerRedstoneFence(String baseName, BlockPropertyOverride properties) {return register(baseName + "_fence", RedstoneFence::new, properties);}

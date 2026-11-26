@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/auroraoak_wall_hanging_sign"
+      "model": "divinerpg:block/auroraoak_hanging_sign"
     }
   }
 }

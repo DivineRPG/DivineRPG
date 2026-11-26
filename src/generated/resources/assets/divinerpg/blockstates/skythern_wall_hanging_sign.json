@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/skythern_wall_hanging_sign"
+      "model": "divinerpg:block/skythern_hanging_sign"
     }
   }
 }

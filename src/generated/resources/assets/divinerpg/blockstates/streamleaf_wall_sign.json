@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/streamleaf_wall_sign"
+      "model": "divinerpg:block/streamleaf_sign"
     }
   }
 }

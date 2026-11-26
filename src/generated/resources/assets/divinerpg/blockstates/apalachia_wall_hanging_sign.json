@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/apalachia_wall_hanging_sign"
+      "model": "divinerpg:block/apalachia_hanging_sign"
     }
   }
 }

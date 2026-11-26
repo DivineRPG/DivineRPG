@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/template_torch_wall",
   "textures": {
-    "all": "divinerpg:block/eden_wall_torch"
+    "torch": "divinerpg:block/eden_torch"
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/mortum_wall_sign"
+      "model": "divinerpg:block/mortum_sign"
     }
   }
 }

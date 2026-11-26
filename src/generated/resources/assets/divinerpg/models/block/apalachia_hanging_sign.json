@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "divinerpg:block/apalachia_hanging_sign"
+    "particle": "divinerpg:block/stripped_apalachia_log"
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/wildwood_wall_hanging_sign"
+      "model": "divinerpg:block/wildwood_hanging_sign"
     }
   }
 }

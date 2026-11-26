@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/shiverspine_wall_hanging_sign"
+      "model": "divinerpg:block/shiverspine_hanging_sign"
     }
   }
 }

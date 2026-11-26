@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "divinerpg:block/eucalyptus_wall_sign"
+      "model": "divinerpg:block/eucalyptus_sign"
     }
   }
 }

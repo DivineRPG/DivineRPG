@@ -47,12 +47,12 @@
                       },
                       "then_run": {
                         "type": "minecraft:block",
-                        "result_state": "divinerpg:ray_grass"
+                        "result_state": "divinerpg:ray_dirt"
                       }
                     },
                     {
                       "type": "minecraft:block",
-                      "result_state": "divinerpg:ray_dirt"
+                      "result_state": "divinerpg:ray_grass"
                     }
                   ]
                 }
