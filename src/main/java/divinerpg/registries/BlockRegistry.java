@@ -273,8 +273,8 @@ public class BlockRegistry {
     // Wool
     public static final WoolSet
         checker = new WoolSet("checker", "", Pchecker, DyeColor.BLACK),
-        rainbow = new WoolSet("rainbow_wool", "", Prainbow, DyeColor.PURPLE),
-        fancy = new WoolSet("fancy_wool", "", Pfancy, DyeColor.BROWN);
+        rainbow = new WoolSet("rainbow", "wool", Prainbow, DyeColor.PURPLE),
+        fancy = new WoolSet("fancy", "wool", Pfancy, DyeColor.BROWN);
     public static final StairSlabSet workshopCarpet = new StairSlabSet("workshop_carpet", "", PworkshopCarpet);
 
     // Obsidian
@@ -649,8 +649,6 @@ public class BlockRegistry {
 
     //ALIASES
     static {
-        // Carpets
-        addAliases("rainbow_carpet", rainbow.carpet());
         // Obsidian
         addAliases("red_vane", bleedingObsidian);
         addAliases("yellow_vane", shiningObsidian);
