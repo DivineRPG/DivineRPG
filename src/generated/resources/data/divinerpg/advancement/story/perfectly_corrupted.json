@@ -5,7 +5,7 @@
       "conditions": {
         "location": {
           "type": "minecraft:match_block",
-          "blocks": "divinerpg:arcana_portal_frame"
+          "blocks": "divinerpg:altar_of_corruption"
         }
       },
       "trigger": "minecraft:placed_block"
@@ -26,6 +26,5 @@
     [
       "in_altar"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

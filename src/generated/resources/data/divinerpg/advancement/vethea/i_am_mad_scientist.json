@@ -30,6 +30,5 @@
     [
       "kill_karos"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

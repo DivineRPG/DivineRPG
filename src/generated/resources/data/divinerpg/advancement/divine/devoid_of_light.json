@@ -27,6 +27,5 @@
     [
       "get_shadow_dust"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

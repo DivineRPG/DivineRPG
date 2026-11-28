@@ -273,8 +273,8 @@ public class BlockRegistry {
     // Wool
     public static final WoolSet
         checker = new WoolSet("checker", "", Pchecker, DyeColor.BLACK),
-        rainbow = new WoolSet("rainbow", "wool", Prainbow, DyeColor.PURPLE),
-        fancy = new WoolSet("fancy", "wool", Pfancy, DyeColor.BROWN);
+        rainbow = new WoolSet("rainbow", "_wool", Prainbow, DyeColor.PURPLE),
+        fancy = new WoolSet("fancy", "_wool", Pfancy, DyeColor.BROWN);
     public static final StairSlabSet workshopCarpet = new StairSlabSet("workshop_carpet", "", PworkshopCarpet);
 
     // Obsidian
@@ -710,7 +710,7 @@ public class BlockRegistry {
     public record WoolSet(DeferredBlock<Block> wool, DeferredBlock<Block> stairs, DeferredBlock<Block> slab, DeferredBlock<Block> carpet) {
         WoolSet(String baseName, String woolSignifier, BlockPropertyOverride properties, DyeColor color) {
             StairSlabSet set = new StairSlabSet(baseName, woolSignifier, properties);
-            this(set.block, set.stairs, set.slab, register(baseName + woolSignifier + "_carpet", p -> new WoolCarpetBlock(color, p), properties));
+            this(set.block, set.stairs, set.slab, register(baseName + "_carpet", p -> new WoolCarpetBlock(color, p), properties));
         }
     }
     public record Torch(DeferredBlock<Block> torch, DeferredBlock<Block> wallTorch) {

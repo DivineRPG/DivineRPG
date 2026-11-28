@@ -30,6 +30,5 @@
     [
       "kill_boss_vamacheron"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

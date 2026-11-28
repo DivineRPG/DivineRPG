@@ -14,7 +14,7 @@
   },
   "display": {
     "description": {
-      "translate": "advancement.divinerpg.adventure.jungle_hook.desc"
+      "translate": "advancement.divinerpg.adventure.making_tarzan_proud.desc"
     },
     "icon": {
       "id": "divinerpg:jungle_hook"
@@ -27,6 +27,5 @@
     [
       "get_jungle_hook"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

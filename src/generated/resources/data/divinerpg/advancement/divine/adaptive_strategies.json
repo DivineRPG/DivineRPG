@@ -27,6 +27,5 @@
     [
       "get_armor_pouch"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

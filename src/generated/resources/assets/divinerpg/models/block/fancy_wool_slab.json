@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "divinerpg:block/fancy_wool",
-    "side": "divinerpg:block/fancy_wool",
-    "top": "divinerpg:block/fancy_wool"
-  }
-}

@@ -27,6 +27,5 @@
     [
       "get_bedrock_chunk"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

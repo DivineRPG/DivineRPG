@@ -29,6 +29,5 @@
     [
       "kill_ender_triplets"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

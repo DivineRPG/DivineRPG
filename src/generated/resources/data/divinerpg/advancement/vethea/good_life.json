@@ -25,6 +25,5 @@
     [
       "eat_pie"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

@@ -8,7 +8,7 @@
             "components": {
               "divinerpg:variant": 4
             },
-            "items": "divinerpg:terran_shards"
+            "items": "divinerpg:frozen_clock"
           }
         ]
       },
@@ -32,6 +32,5 @@
     [
       "has_frozen_clock_variant_4"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

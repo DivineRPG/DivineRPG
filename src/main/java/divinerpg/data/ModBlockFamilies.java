@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
+import java.util.function.*;
 import java.util.stream.Stream;
 
 import static divinerpg.registries.BlockRegistry.*;
@@ -19,426 +20,49 @@ public class ModBlockFamilies {
         RECIPE_UNLOCKED_BY_HAS_PLANKS = "has_planks";
     @SuppressWarnings("unused")
     public static final BlockFamily
-        PLANK_DESIGN = familyBuilder(plankDesign.get())
-            .stairs(stairDesign.get())
-            .slab(slabDesign.get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        DIVINE_PLANKS = familyBuilder(divine.planks().get())
-            .log(divine.log().get())
-            .strippedLog(divine.strippedLog().get())
-            .stairs(divine.stairs().get())
-            .slab(divine.slab().get())
-            .fence(divine.fence().get())
-            .fenceGate(divine.gate().get())
-            .door(divine.door().get())
-            .trapdoor(divine.trapdoor().get())
-            .pressurePlate(divine.pressurePlate().get())
-            .button(divine.button().get())
-            .sign(divine.sign().get(), divine.wallSign().get())
-            .hangingSign(divine.hangingSign().get(), divine.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        SHIVERSPINE_PLANKS = familyBuilder(shiverspine.planks().get())
-            .log(shiverspine.log().get())
-            .strippedLog(shiverspine.strippedLog().get())
-            .stairs(shiverspine.stairs().get())
-            .slab(shiverspine.slab().get())
-            .fence(shiverspine.fence().get())
-            .fenceGate(shiverspine.gate().get())
-            .door(shiverspine.door().get())
-            .trapdoor(shiverspine.trapdoor().get())
-            .pressurePlate(shiverspine.pressurePlate().get())
-            .button(shiverspine.button().get())
-            .sign(shiverspine.sign().get(), shiverspine.wallSign().get())
-            .hangingSign(shiverspine.hangingSign().get(), shiverspine.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        AURORAOAK_PLANKS = familyBuilder(auroraoak.planks().get())
-            .log(auroraoak.log().get())
-            .strippedLog(auroraoak.strippedLog().get())
-            .stairs(auroraoak.stairs().get())
-            .slab(auroraoak.slab().get())
-            .fence(auroraoak.fence().get())
-            .fenceGate(auroraoak.gate().get())
-            .door(auroraoak.door().get())
-            .trapdoor(auroraoak.trapdoor().get())
-            .pressurePlate(auroraoak.pressurePlate().get())
-            .button(auroraoak.button().get())
-            .sign(auroraoak.sign().get(), auroraoak.wallSign().get())
-            .hangingSign(auroraoak.hangingSign().get(), auroraoak.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        COZYBARK_PLANKS = familyBuilder(cozybark.planks().get())
-            .log(cozybark.log().get())
-            .strippedLog(cozybark.strippedLog().get())
-            .stairs(cozybark.stairs().get())
-            .slab(cozybark.slab().get())
-            .fence(cozybark.fence().get())
-            .fenceGate(cozybark.gate().get())
-            .door(cozybark.door().get())
-            .trapdoor(cozybark.trapdoor().get())
-            .pressurePlate(cozybark.pressurePlate().get())
-            .button(cozybark.button().get())
-            .sign(cozybark.sign().get(), cozybark.wallSign().get())
-            .hangingSign(cozybark.hangingSign().get(), cozybark.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        STREAMLEAF_PLANKS = familyBuilder(streamleaf.planks().get())
-            .log(streamleaf.log().get())
-            .strippedLog(streamleaf.strippedLog().get())
-            .stairs(streamleaf.stairs().get())
-            .slab(streamleaf.slab().get())
-            .fence(streamleaf.fence().get())
-            .fenceGate(streamleaf.gate().get())
-            .door(streamleaf.door().get())
-            .trapdoor(streamleaf.trapdoor().get())
-            .pressurePlate(streamleaf.pressurePlate().get())
-            .button(streamleaf.button().get())
-            .sign(streamleaf.sign().get(), streamleaf.wallSign().get())
-            .hangingSign(streamleaf.hangingSign().get(), streamleaf.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        EUCALYPTUS_PLANKS = familyBuilder(eucalyptus.planks().get())
-            .log(eucalyptus.log().get())
-            .strippedLog(eucalyptus.strippedLog().get())
-            .stairs(eucalyptus.stairs().get())
-            .slab(eucalyptus.slab().get())
-            .fence(eucalyptus.fence().get())
-            .fenceGate(eucalyptus.gate().get())
-            .door(eucalyptus.door().get())
-            .trapdoor(eucalyptus.trapdoor().get())
-            .pressurePlate(eucalyptus.pressurePlate().get())
-            .button(eucalyptus.button().get())
-            .sign(eucalyptus.sign().get(), eucalyptus.wallSign().get())
-            .hangingSign(eucalyptus.hangingSign().get(), eucalyptus.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        EDEN_PLANKS = familyBuilder(eden.planks().get())
-            .log(eden.log().get())
-            .strippedLog(eden.strippedLog().get())
-            .stairs(eden.stairs().get())
-            .slab(eden.slab().get())
-            .fence(eden.fence().get())
-            .fenceGate(eden.gate().get())
-            .door(eden.door().get())
-            .trapdoor(eden.trapdoor().get())
-            .pressurePlate(eden.pressurePlate().get())
-            .button(eden.button().get())
-            .sign(eden.sign().get(), eden.wallSign().get())
-            .hangingSign(eden.hangingSign().get(), eden.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        CRIMSEEKER_PLANKS = familyBuilder(crimseeker.planks().get())
-            .log(crimseeker.log().get())
-            .strippedLog(crimseeker.strippedLog().get())
-            .stairs(crimseeker.stairs().get())
-            .slab(crimseeker.slab().get())
-            .fence(crimseeker.fence().get())
-            .fenceGate(crimseeker.gate().get())
-            .door(crimseeker.door().get())
-            .trapdoor(crimseeker.trapdoor().get())
-            .pressurePlate(crimseeker.pressurePlate().get())
-            .button(crimseeker.button().get())
-            .sign(crimseeker.sign().get(), crimseeker.wallSign().get())
-            .hangingSign(crimseeker.hangingSign().get(), crimseeker.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        WILDWOOD_PLANKS = familyBuilder(wildwood.planks().get())
-            .log(wildwood.log().get())
-            .strippedLog(wildwood.strippedLog().get())
-            .stairs(wildwood.stairs().get())
-            .slab(wildwood.slab().get())
-            .fence(wildwood.fence().get())
-            .fenceGate(wildwood.gate().get())
-            .door(wildwood.door().get())
-            .trapdoor(wildwood.trapdoor().get())
-            .pressurePlate(wildwood.pressurePlate().get())
-            .button(wildwood.button().get())
-            .sign(wildwood.sign().get(), wildwood.wallSign().get())
-            .hangingSign(wildwood.hangingSign().get(), wildwood.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        APALACHIA_PLANKS = familyBuilder(apalachia.planks().get())
-            .log(apalachia.log().get())
-            .strippedLog(apalachia.strippedLog().get())
-            .stairs(apalachia.stairs().get())
-            .slab(apalachia.slab().get())
-            .fence(apalachia.fence().get())
-            .fenceGate(apalachia.gate().get())
-            .door(apalachia.door().get())
-            .trapdoor(apalachia.trapdoor().get())
-            .pressurePlate(apalachia.pressurePlate().get())
-            .button(apalachia.button().get())
-            .sign(apalachia.sign().get(), apalachia.wallSign().get())
-            .hangingSign(apalachia.hangingSign().get(), apalachia.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        SKYTHERN_PLANKS = familyBuilder(skythern.planks().get())
-            .log(skythern.log().get())
-            .strippedLog(skythern.strippedLog().get())
-            .stairs(skythern.stairs().get())
-            .slab(skythern.slab().get())
-            .fence(skythern.fence().get())
-            .fenceGate(skythern.gate().get())
-            .door(skythern.door().get())
-            .trapdoor(skythern.trapdoor().get())
-            .pressurePlate(skythern.pressurePlate().get())
-            .button(skythern.button().get())
-            .sign(skythern.sign().get(), skythern.wallSign().get())
-            .hangingSign(skythern.hangingSign().get(), skythern.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        MORTUM_PLANKS = familyBuilder(mortum.planks().get())
-            .log(mortum.log().get())
-            .strippedLog(mortum.strippedLog().get())
-            .stairs(mortum.stairs().get())
-            .slab(mortum.slab().get())
-            .fence(mortum.fence().get())
-            .fenceGate(mortum.gate().get())
-            .door(mortum.door().get())
-            .trapdoor(mortum.trapdoor().get())
-            .pressurePlate(mortum.pressurePlate().get())
-            .button(mortum.button().get())
-            .sign(mortum.sign().get(), mortum.wallSign().get())
-            .hangingSign(mortum.hangingSign().get(), mortum.wallHangingSign().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN)
-            .recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS)
-            .getFamily(),
-        DARKSTONE = familyBuilder(darkstone.get())
-            .bricks(darkstoneBricks.get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        ASPHALT = familyBuilder(asphalt.block().get())
-            .stairs(asphalt.stairs().get())
-            .slab(asphalt.slab().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        FROZEN_STONE = familyBuilder(frozen.block().get())
-            .stairs(frozen.stairs().get())
-            .slab(frozen.slab().get())
-            .wall(frozen.wall().get())
-            .pressurePlate(frozen.pressurePlate().get())
-            .button(frozen.button().get())
-            .cobbled(cobbledFrozen.block().get())
-            .bricks(frozenBrick.block().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        COBBLED_FROZEN_STONE = familyBuilder(cobbledFrozen.block().get())
-            .stairs(cobbledFrozen.stairs().get())
-            .slab(cobbledFrozen.slab().get())
-            .wall(cobbledFrozen.wall().get())
-            .pressurePlate(cobbledFrozen.pressurePlate().get())
-            .button(cobbledFrozen.button().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        FROZEN_BRICKS = familyBuilder(frozenBrick.block().get())
-            .stairs(frozenBrick.stairs().get())
-            .slab(frozenBrick.slab().get())
-            .wall(frozenBrick.wall().get())
-            .pressurePlate(frozenBrick.pressurePlate().get())
-            .button(frozenBrick.button().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        COBALTITE = familyBuilder(cobaltite.block().get())
-            .stairs(cobaltite.stairs().get())
-            .slab(cobaltite.slab().get())
-            .wall(cobaltite.wall().get())
-            .pressurePlate(cobaltite.pressurePlate().get())
-            .button(cobaltite.button().get())
-            .polished(polishedCobaltite.block().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        POLISHED_COBALTITE = familyBuilder(polishedCobaltite.block().get())
-            .stairs(polishedCobaltite.stairs().get())
-            .slab(polishedCobaltite.slab().get())
-            .wall(polishedCobaltite.wall().get())
-            .pressurePlate(polishedCobaltite.pressurePlate().get())
-            .button(polishedCobaltite.button().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        COALSTONE = familyBuilder(coalstone.block().get())
-            .stairs(coalstone.stairs().get())
-            .slab(coalstone.slab().get())
-            .wall(coalstone.wall().get())
-            .pressurePlate(coalstone.pressurePlate().get())
-            .button(coalstone.button().get())
-            .polished(polishedCoalstone.block().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        POLISHED_COALSTONE = familyBuilder(polishedCoalstone.block().get())
-            .stairs(polishedCoalstone.stairs().get())
-            .slab(polishedCoalstone.slab().get())
-            .wall(polishedCoalstone.wall().get())
-            .pressurePlate(polishedCoalstone.pressurePlate().get())
-            .button(polishedCoalstone.button().get())
-            .bricks(coalstoneBrick.block().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        COALSTONE_BRICKS = familyBuilder(coalstoneBrick.block().get())
-            .stairs(coalstoneBrick.stairs().get())
-            .slab(coalstoneBrick.slab().get())
-            .wall(coalstoneBrick.wall().get())
-            .pressurePlate(coalstoneBrick.pressurePlate().get())
-            .button(coalstoneBrick.button().get())
-            .chiseled(chiseledCoalstoneBricks.get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        OXDRITE = familyBuilder(oxdrite.block().get())
-             .cut(cutOxdrite.block().get())
-             .generateStonecutterRecipe()
-             .getFamily(),
-        CUT_OXDRITE = familyBuilder(cutOxdrite.block().get())
-            .stairs(cutOxdrite.stairs().get())
-            .slab(cutOxdrite.slab().get())
-            .wall(cutOxdrite.wall().get())
-            .pressurePlate(cutOxdrite.pressurePlate().get())
-            .button(cutOxdrite.button().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        ARCANITE_STONE = familyBuilder(arcanite.block().get())
-            .stairs(arcanite.stairs().get())
-            .slab(arcanite.slab().get())
-            .wall(arcanite.wall().get())
-            .pressurePlate(arcanite.pressurePlate().get())
-            .button(arcanite.button().get())
-            .tiles(arcaniteTile.block().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        ARCANITE_TILES = familyBuilder(arcaniteTile.block().get())
-            .stairs(arcaniteTile.stairs().get())
-            .slab(arcaniteTile.slab().get())
-            .wall(arcaniteTile.wall().get())
-            .pressurePlate(arcaniteTile.pressurePlate().get())
-            .button(arcaniteTile.button().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        ANCIENT_BRICKS = familyBuilder(ancientBrick.block().get())
-            .stairs(ancientBrick.stairs().get())
-            .slab(ancientBrick.slab().get())
-            .wall(ancientBrick.wall().get())
-            .dontGenerateCraftingRecipe()
-            .dontGenerateSmeltingRecipe()
-            .getFamily(),
-        ANCIENT_BRICKS_BREAKABLE = familyBuilder(ancientBrick.blockBreakable().get())
-            .stairs(ancientBrick.stairsBreakable().get())
-            .slab(ancientBrick.slabBreakable().get())
-            .wall(ancientBrick.wallBreakable().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        DEGRADED_BRICKS = familyBuilder(degradedBrick.block().get())
-            .stairs(degradedBrick.stairs().get())
-            .slab(degradedBrick.slab().get())
-            .wall(degradedBrick.wall().get())
-            .dontGenerateCraftingRecipe()
-            .dontGenerateSmeltingRecipe()
-            .getFamily(),
-        DEGRADED_BRICKS_BREAKABLE = familyBuilder(degradedBrick.blockBreakable().get())
-            .stairs(degradedBrick.stairsBreakable().get())
-            .slab(degradedBrick.slabBreakable().get())
-            .wall(degradedBrick.wallBreakable().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        TWILIGHT_STONE = familyBuilder(twilight.block().get())
-            .stairs(twilight.stairs().get())
-            .slab(twilight.slab().get())
-            .wall(twilight.wall().get())
-            .pressurePlate(twilight.pressurePlate().get())
-            .button(twilight.button().get())
-            .bricks(twilightBrick.block().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        TWILIGHT_BRICKS = familyBuilder(twilightBrick.block().get())
-            .stairs(twilightBrick.stairs().get())
-            .slab(twilightBrick.slab().get())
-            .wall(twilightBrick.wall().get())
-            .pressurePlate(twilightBrick.pressurePlate().get())
-            .button(twilightBrick.button().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        MILK_STONE = familyBuilder(milkStone.get())
-            .bricks(milkStoneBricks.get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        SCORCHALT = familyBuilder(scorchalt.block().get())
-            .stairs(scorchalt.stairs().get())
-            .slab(scorchalt.slab().get())
-            .wall(scorchalt.wall().get())
-            .pressurePlate(scorchalt.pressurePlate().get())
-            .button(scorchalt.button().get())
-            .cobbled(cobbledScorchalt.block().get())
-            .polished(polishedScorchalt.block().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        COBBLED_SCORCHALT = familyBuilder(cobbledScorchalt.block().get())
-            .stairs(cobbledScorchalt.stairs().get())
-            .slab(cobbledScorchalt.slab().get())
-            .wall(cobbledScorchalt.wall().get())
-            .pressurePlate(cobbledScorchalt.pressurePlate().get())
-            .button(cobbledScorchalt.button().get())
-            .chiseled(chiseledScorchalt.get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        POLISHED_SCORCHALT = familyBuilder(polishedScorchalt.block().get())
-            .stairs(polishedScorchalt.stairs().get())
-            .slab(polishedScorchalt.slab().get())
-            .wall(polishedScorchalt.wall().get())
-            .pressurePlate(polishedScorchalt.pressurePlate().get())
-            .button(polishedScorchalt.button().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        RAY_STONE = familyBuilder(rayStone.block().get())
-            .stairs(rayStone.stairs().get())
-            .slab(rayStone.slab().get())
-            .wall(rayStone.wall().get())
-            .pressurePlate(rayStone.pressurePlate().get())
-            .button(rayStone.button().get())
-            .polished(polishedRayStone.block().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        POLISHED_RAY_STONE = familyBuilder(polishedRayStone.block().get())
-            .stairs(polishedRayStone.stairs().get())
-            .slab(polishedRayStone.slab().get())
-            .wall(polishedRayStone.wall().get())
-            .pressurePlate(polishedRayStone.pressurePlate().get())
-            .button(polishedRayStone.button().get())
-            .generateStonecutterRecipe()
-            .getFamily(),
-        CHECKER = familyBuilder(checker.wool().get())
-            .stairs(checker.stairs().get())
-            .slab(checker.slab().get())
-            .carpet(checker.carpet().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOOLEN)
-            .getFamily(),
-        RAINBOW_WOOL = familyBuilder(rainbow.wool().get())
-            .stairs(rainbow.stairs().get())
-            .slab(rainbow.slab().get())
-            .carpet(rainbow.carpet().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOOLEN)
-            .getFamily(),
-        FANCY_WOOL = familyBuilder(fancy.wool().get())
-            .stairs(fancy.stairs().get())
-            .slab(fancy.slab().get())
-            .carpet(fancy.carpet().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOOLEN)
-            .getFamily(),
-        WORKSHOP_CARPET = familyBuilder(workshopCarpet.block().get())
-            .stairs(workshopCarpet.stairs().get())
-            .slab(workshopCarpet.slab().get())
-            .recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOOLEN)
-            .getFamily();
+        PLANK_DESIGN = familyBuilder(plankDesign.get()).stairs(stairDesign.get()).slab(slabDesign.get()).recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN).recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS).getFamily(),
+        DIVINE_PLANKS = createWoodFamily(divine),
+        SHIVERSPINE_PLANKS = createWoodFamily(shiverspine),
+        AURORAOAK_PLANKS = createWoodFamily(auroraoak),
+        COZYBARK_PLANKS = createWoodFamily(cozybark),
+        STREAMLEAF_PLANKS = createWoodFamily(streamleaf),
+        EUCALYPTUS_PLANKS = familyBuilder(eucalyptus.planks().get()).log(eucalyptus.log().get()).strippedLog(eucalyptus.strippedLog().get()).stairs(eucalyptus.stairs().get()).slab(eucalyptus.slab().get()).fence(eucalyptus.fence().get()).fenceGate(eucalyptus.gate().get()).door(eucalyptus.door().get()).trapdoor(eucalyptus.trapdoor().get()).pressurePlate(eucalyptus.pressurePlate().get()).button(eucalyptus.button().get()).sign(eucalyptus.sign().get(), eucalyptus.wallSign().get()).hangingSign(eucalyptus.hangingSign().get(), eucalyptus.wallHangingSign().get()).recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN).recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS).getFamily(),
+        EDEN_PLANKS = createWoodFamily(eden),
+        CRIMSEEKER_PLANKS = createWoodFamily(crimseeker),
+        WILDWOOD_PLANKS = createWoodFamily(wildwood),
+        APALACHIA_PLANKS = createWoodFamily(apalachia),
+        SKYTHERN_PLANKS = createWoodFamily(skythern),
+        MORTUM_PLANKS = createWoodFamily(mortum),
+        DARKSTONE = simpleBrickFamily(darkstone, darkstoneBricks),
+        MILK_STONE = simpleBrickFamily(milkStone, milkStoneBricks),
+        ASPHALT = familyBuilder(asphalt.block().get()).stairs(asphalt.stairs().get()).slab(asphalt.slab().get()).generateStonecutterRecipe().getFamily(),
+        FROZEN_STONE = stoneFamily(frozen, b -> b.cobbled(cobbledFrozen.block().get()).bricks(frozenBrick.block().get())),
+        COBBLED_FROZEN_STONE = stoneFamily(cobbledFrozen),
+        FROZEN_BRICKS = stoneFamily(frozenBrick),
+        COBALTITE = stoneFamily(cobaltite, b -> b.polished(polishedCobaltite.block().get())),
+        POLISHED_COBALTITE = stoneFamily(polishedCobaltite),
+        COALSTONE = stoneFamily(coalstone, b -> b.polished(polishedCoalstone.block().get())),
+        POLISHED_COALSTONE = stoneFamily(polishedCoalstone, b -> b.bricks(coalstoneBrick.block().get())),
+        COALSTONE_BRICKS = stoneFamily(coalstoneBrick, b -> b.chiseled(chiseledCoalstoneBricks.get())),
+        OXDRITE = familyBuilder(oxdrite.block().get()).cut(cutOxdrite.block().get()).generateStonecutterRecipe().getFamily(),
+        CUT_OXDRITE = stoneFamily(cutOxdrite),
+        ARCANITE_STONE = stoneFamily(arcanite, b -> b.tiles(arcaniteTile.block().get())),
+        ARCANITE_TILES = stoneFamily(arcaniteTile),
+        ANCIENT_BRICKS = familyBuilder(ancientBrick.block().get()).stairs(ancientBrick.stairs().get()).slab(ancientBrick.slab().get()).wall(ancientBrick.wall().get()).dontGenerateCraftingRecipe().dontGenerateSmeltingRecipe().getFamily(),
+        ANCIENT_BRICKS_BREAKABLE = familyBuilder(ancientBrick.blockBreakable().get()).stairs(ancientBrick.stairsBreakable().get()).slab(ancientBrick.slabBreakable().get()).wall(ancientBrick.wallBreakable().get()).generateStonecutterRecipe().getFamily(),
+        DEGRADED_BRICKS = familyBuilder(degradedBrick.block().get()).stairs(degradedBrick.stairs().get()).slab(degradedBrick.slab().get()).wall(degradedBrick.wall().get()).dontGenerateCraftingRecipe().dontGenerateSmeltingRecipe().getFamily(),
+        DEGRADED_BRICKS_BREAKABLE = familyBuilder(degradedBrick.blockBreakable().get()).stairs(degradedBrick.stairsBreakable().get()).slab(degradedBrick.slabBreakable().get()).wall(degradedBrick.wallBreakable().get()).generateStonecutterRecipe().getFamily(),
+        TWILIGHT_STONE = stoneFamily(twilight, b -> b.bricks(twilightBrick.block().get())),
+        TWILIGHT_BRICKS = stoneFamily(twilightBrick),
+        SCORCHALT = stoneFamily(scorchalt, b -> b.cobbled(cobbledScorchalt.block().get()).polished(polishedScorchalt.block().get())),
+        COBBLED_SCORCHALT = stoneFamily(cobbledScorchalt, b -> b.chiseled(chiseledScorchalt.get())),
+        POLISHED_SCORCHALT = stoneFamily(polishedScorchalt),
+        RAY_STONE = stoneFamily(rayStone, b -> b.polished(polishedRayStone.block().get())),
+        POLISHED_RAY_STONE = stoneFamily(polishedRayStone),
+        CHECKER = createWoolFamily(checker),
+        RAINBOW_WOOL = createWoolFamily(rainbow),
+        FANCY_WOOL = createWoolFamily(fancy),
+        WORKSHOP_CARPET = familyBuilder(workshopCarpet.block().get()).stairs(workshopCarpet.stairs().get()).slab(workshopCarpet.slab().get()).recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOOLEN).getFamily();
     public static Stream<BlockFamily> getAllFamilies() {
         return MAP.values().stream();
     }
@@ -448,8 +72,25 @@ public class ModBlockFamilies {
     private static BlockFamily.Builder familyBuilder(Block base) {
         BlockFamily.Builder builder = new BlockFamily.Builder(base);
         BlockFamily blockFamily = MAP.put(base, builder.getFamily());
-        if(blockFamily != null) {
-            throw new IllegalStateException("Duplicate family definition for " + BuiltInRegistries.BLOCK.getKey(base));
-        } else return builder;
+        if(blockFamily != null) throw new IllegalStateException("Duplicate family definition for " + BuiltInRegistries.BLOCK.getKey(base));
+        else return builder;
+    }
+    private static BlockFamily createWoodFamily(Tree tree) {
+        return familyBuilder(tree.planks().get()).log(tree.log().get()).strippedLog(tree.strippedLog().get()).stairs(tree.stairs().get()).slab(tree.slab().get()).fence(tree.fence().get()).fenceGate(tree.gate().get()).door(tree.door().get()).trapdoor(tree.trapdoor().get()).pressurePlate(tree.pressurePlate().get()).button(tree.button().get()).sign(tree.sign().get(), tree.wallSign().get()).hangingSign(tree.hangingSign().get(), tree.wallHangingSign().get()).recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOODEN).recipeUnlockedBy(RECIPE_UNLOCKED_BY_HAS_PLANKS).getFamily();
+    }
+    private static BlockFamily stoneFamily(RockSet set, UnaryOperator<BlockFamily.Builder> config) {
+        BlockFamily.Builder builder = familyBuilder(set.block().get()).stairs(set.stairs().get()).slab(set.slab().get()).wall(set.wall().get()).pressurePlate(set.pressurePlate().get()).button(set.button().get()).generateStonecutterRecipe();
+        return config.apply(builder).getFamily();
+    }
+    private static BlockFamily stoneFamily(RockSet set) {
+        return stoneFamily(set, builder -> builder);
+    }
+    private static BlockFamily simpleBrickFamily(Supplier<? extends Block> base, Supplier<? extends Block> bricks) {
+        return familyBuilder(base.get()).bricks(bricks.get()).generateStonecutterRecipe().getFamily();
+    }
+    private static BlockFamily createWoolFamily(WoolSet set) {
+        BlockFamily.Builder builder = familyBuilder(set.wool().get()).stairs(set.stairs().get()).slab(set.slab().get()).recipeGroupPrefix(RECIPE_GROUP_PREFIX_WOOLEN);
+        if(set.carpet() != null) builder.carpet(set.carpet().get());
+        return builder.getFamily();
     }
 }

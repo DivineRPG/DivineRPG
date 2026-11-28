@@ -27,6 +27,5 @@
     [
       "get_shadow_stone"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

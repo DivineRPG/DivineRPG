@@ -26,6 +26,5 @@
     [
       "open_tomb_chest"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

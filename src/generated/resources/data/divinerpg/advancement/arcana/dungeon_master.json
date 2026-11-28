@@ -30,6 +30,5 @@
     [
       "kill_boss_dramix"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

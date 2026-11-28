@@ -29,6 +29,5 @@
     [
       "kill_scorcher"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

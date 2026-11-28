@@ -29,6 +29,5 @@
     [
       "kill_shark"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

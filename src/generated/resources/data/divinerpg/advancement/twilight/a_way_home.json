@@ -23,6 +23,5 @@
     [
       "enter_eden_portal"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

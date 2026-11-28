@@ -27,6 +27,5 @@
     [
       "get_maul"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

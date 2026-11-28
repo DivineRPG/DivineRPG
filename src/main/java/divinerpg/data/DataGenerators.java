@@ -25,10 +25,10 @@ public class DataGenerators {
         DatapackBuiltinEntriesProvider datapackProvider = ModDatapackProvider.create(output, world);
         generator.addProvider(true, datapackProvider);
 
-        DatapackBuiltinEntriesProvider reloadableProvider = ModDatapackProvider.createReloadable(output, world, reloadable);
-        generator.addProvider(true, reloadableProvider);
-
         CompletableFuture<HolderLookup.Provider> fullLookup = datapackProvider.getRegistryProvider();
+
+        DatapackBuiltinEntriesProvider reloadableProvider = ModDatapackProvider.createReloadable(output, fullLookup, reloadable);
+        generator.addProvider(true, reloadableProvider);
 
         generator.addProvider(true, new ModLootModifierProvider(output, fullLookup));
         generator.addProvider(true, new ModEnchantmentTagsProvider(output, fullLookup));

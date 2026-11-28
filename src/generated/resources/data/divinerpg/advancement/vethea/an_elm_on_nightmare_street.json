@@ -30,6 +30,5 @@
     [
       "kill_ent"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

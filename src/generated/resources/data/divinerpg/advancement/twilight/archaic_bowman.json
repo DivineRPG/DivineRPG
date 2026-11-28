@@ -30,6 +30,5 @@
     [
       "kill_boss_eternal_archer"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

@@ -8,7 +8,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/boneyard"
             }
           }
         }
@@ -31,6 +31,5 @@
     [
       "boneyard"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

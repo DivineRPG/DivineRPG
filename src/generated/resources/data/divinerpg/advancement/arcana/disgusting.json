@@ -27,6 +27,5 @@
     [
       "get_arcana_potion"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

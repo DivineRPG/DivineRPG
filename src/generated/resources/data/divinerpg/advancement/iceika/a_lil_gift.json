@@ -29,6 +29,5 @@
     [
       "talk_to_workshop_merchant"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

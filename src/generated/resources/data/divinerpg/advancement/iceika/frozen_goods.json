@@ -28,6 +28,5 @@
     [
       "get_snowflake"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

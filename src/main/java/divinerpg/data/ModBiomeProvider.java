@@ -21,56 +21,9 @@ import org.joml.Vector3f;
 import java.util.List;
 import java.util.Optional;
 
-import static divinerpg.DivineRPG.MODID;
+import static divinerpg.registries.BiomeRegistry.*;
 
 public class ModBiomeProvider {
-
-    public static final ResourceKey<Biome> EDEN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden"));
-    public static final ResourceKey<Biome> EDEN_DRAVITE_CAVES = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/dravite_caves"));
-    public static final ResourceKey<Biome> EDEN_DRAVITE_HILLS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/dravite_hills"));
-    public static final ResourceKey<Biome> EDEN_FOREST = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/forest"));
-    public static final ResourceKey<Biome> EDEN_GOLDEN_PEAKS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/golden_peaks"));
-    public static final ResourceKey<Biome> EDEN_MAGNETIC_ISLES = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/magnetic_isles"));
-    public static final ResourceKey<Biome> EDEN_PLAINS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "eden/plains"));
-
-    public static final ResourceKey<Biome> WILDWOOD = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "wildwood"));
-    public static final ResourceKey<Biome> APALACHIA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "apalachia"));
-    public static final ResourceKey<Biome> SKYTHERN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "skythern"));
-    public static final ResourceKey<Biome> MORTUM = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "mortum"));
-
-    public static final ResourceKey<Biome> ICEIKA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika"));
-    public static final ResourceKey<Biome> ICEIKA_GLOWING_DEEP = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/glowing_deep"));
-    public static final ResourceKey<Biome> ICEIKA_FROZEN_MENAGERIE = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/frozen_menagerie"));
-    public static final ResourceKey<Biome> ICEIKA_MORGUE_MARSH = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/morgue_marsh"));
-    public static final ResourceKey<Biome> ICEIKA_ICE_SPIKES = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/ice_spikes"));
-    public static final ResourceKey<Biome> ICEIKA_BOREALIS_STEEPS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/borealis_steeps"));
-    public static final ResourceKey<Biome> ICEIKA_FROZEN_OCEAN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/frozen_ocean"));
-    public static final ResourceKey<Biome> ICEIKA_DEEP_FROZEN_OCEAN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/deep_frozen_ocean"));
-    public static final ResourceKey<Biome> ICEIKA_SNOWY_PEAKS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/snowy_peaks"));
-    public static final ResourceKey<Biome> ICEIKA_CHILL_PASSAGE = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/chill_passage"));
-    public static final ResourceKey<Biome> ICEIKA_FRACTAL_FOREST = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/fractal_forest"));
-    public static final ResourceKey<Biome> ICEIKA_FROZEN_PEAKS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/frozen_peaks"));
-    public static final ResourceKey<Biome> ICEIKA_GEYSER_PLATEAU = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/geyser_plateau"));
-    public static final ResourceKey<Biome> ICEIKA_SHIVERSPINE_FOREST = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/shiverspine_forest"));
-    public static final ResourceKey<Biome> ICEIKA_COZYBARK_FOREST = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/cozybark_forest"));
-    public static final ResourceKey<Biome> ICEIKA_ICE_SHEET = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/ice_sheet"));
-    public static final ResourceKey<Biome> ICEIKA_SNOW_BOG = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/snow_bog"));
-    public static final ResourceKey<Biome> ICEIKA_TUNDRA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/tundra"));
-    public static final ResourceKey<Biome> ICEIKA_BONEYARD = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/boneyard"));
-    public static final ResourceKey<Biome> ICEIKA_THERMAL_VENTS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/thermal_vents"));
-    public static final ResourceKey<Biome> ICEIKA_CHILLY_CAVERN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/chilly_cavern"));
-    public static final ResourceKey<Biome> ICEIKA_SHELTERED_GARDEN = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "iceika/sheltered_garden"));
-
-    public static final ResourceKey<Biome> ARCANA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "arcana"));
-    public static final ResourceKey<Biome> ARCANA_DUNE_VALLEY = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "arcana/dune_valley"));
-    public static final ResourceKey<Biome> ARCANA_BARON_HIGHLANDS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "arcana/baron_highlands"));
-
-    public static final ResourceKey<Biome> VETHEA = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea"));
-    public static final ResourceKey<Biome> VETHEA_SCORCHED_TOPS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea/scorched_tops"));
-    public static final ResourceKey<Biome> VETHEA_HYRELANDS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea/hyrelands"));
-    public static final ResourceKey<Biome> VETHEA_DREAM_GROUNDS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea/dream_grounds"));
-    public static final ResourceKey<Biome> VETHEA_EMBER_CAVERNS = ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(MODID, "vethea/ember_caverns"));
-
     public static void bootstrap(BootstrapContext<Biome> ctx) {
         HolderGetter<PlacedFeature> placedFeatures = ctx.lookup(Registries.PLACED_FEATURE);
         HolderGetter<WorldCarver> worldCarvers = ctx.lookup(Registries.CARVER);

@@ -10,7 +10,7 @@ import net.neoforged.neoforge.common.Tags;
 import java.util.concurrent.CompletableFuture;
 
 import static divinerpg.DivineRPG.MODID;
-import static divinerpg.data.ModBiomeProvider.*;
+import static divinerpg.registries.BiomeRegistry.*;
 import static divinerpg.registries.TagRegistry.Biomes.*;
 
 public class ModBiomeTagsProvider extends BiomeTagsProvider {

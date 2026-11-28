@@ -27,6 +27,5 @@
     [
       "obtain_cermile_lump"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

@@ -27,6 +27,5 @@
     [
       "obtain_amthirmis_lump"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

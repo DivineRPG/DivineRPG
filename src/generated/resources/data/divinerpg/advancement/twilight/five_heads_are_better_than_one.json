@@ -30,6 +30,5 @@
     [
       "kill_boss_densos"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

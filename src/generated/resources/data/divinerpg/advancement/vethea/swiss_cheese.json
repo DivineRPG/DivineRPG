@@ -30,6 +30,5 @@
     [
       "kill_raglok"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

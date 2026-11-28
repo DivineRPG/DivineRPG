@@ -27,6 +27,5 @@
     [
       "get_hellstone_ingot"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

@@ -30,6 +30,5 @@
     [
       "kill_boss_soul_fiend"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

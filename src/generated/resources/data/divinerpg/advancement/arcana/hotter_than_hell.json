@@ -7,9 +7,12 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "minecraft:location": {
+            "minecraft:stepping_on": {
               "block": {
-                "blocks": "divinerpg:heat_trap"
+                "blocks": "divinerpg:heat_trap",
+                "state": {
+                  "active": "true"
+                }
               }
             }
           }
@@ -19,6 +22,7 @@
     }
   },
   "display": {
+    "announce_to_chat": false,
     "description": {
       "translate": "advancement.divinerpg.arcana.hotter_than_hell.desc"
     },
@@ -34,6 +38,5 @@
     [
       "walk_on_heat_trap"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

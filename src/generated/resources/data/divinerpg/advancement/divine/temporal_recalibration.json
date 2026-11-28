@@ -27,6 +27,5 @@
     [
       "get_frozen_clock"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

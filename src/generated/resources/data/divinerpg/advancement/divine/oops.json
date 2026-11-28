@@ -21,6 +21,5 @@
     [
       "explode_rift"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

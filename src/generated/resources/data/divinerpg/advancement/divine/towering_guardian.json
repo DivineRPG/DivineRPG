@@ -30,6 +30,5 @@
     [
       "kill_boss_ancient_entity"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

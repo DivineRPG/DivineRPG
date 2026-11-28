@@ -8,7 +8,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/boneyard"
             }
           }
         }
@@ -22,7 +22,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/borealis_steeps"
             }
           }
         }
@@ -36,7 +36,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/chill_passage"
             }
           }
         }
@@ -50,7 +50,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/chilly_cavern"
             }
           }
         }
@@ -64,7 +64,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/cozybark_forest"
             }
           }
         }
@@ -78,7 +78,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/deep_frozen_ocean"
             }
           }
         }
@@ -92,7 +92,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/fractal_forest"
             }
           }
         }
@@ -106,7 +106,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/frozen_menagerie"
             }
           }
         }
@@ -120,7 +120,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/frozen_ocean"
             }
           }
         }
@@ -134,7 +134,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/frozen_peaks"
             }
           }
         }
@@ -148,7 +148,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/geyser_plateau"
             }
           }
         }
@@ -162,7 +162,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/glowing_deep"
             }
           }
         }
@@ -176,7 +176,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/ice_sheet"
             }
           }
         }
@@ -190,7 +190,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/ice_spikes"
             }
           }
         }
@@ -204,7 +204,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/morgue_marsh"
             }
           }
         }
@@ -218,7 +218,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/sheltered_garden"
             }
           }
         }
@@ -232,7 +232,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/shiverspine_forest"
             }
           }
         }
@@ -246,7 +246,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/snow_bog"
             }
           }
         }
@@ -260,7 +260,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/snowy_peaks"
             }
           }
         }
@@ -274,7 +274,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/thermal_vents"
             }
           }
         }
@@ -288,7 +288,7 @@
           "entity": "this",
           "predicate": {
             "minecraft:location": {
-              "biomes": "minecraft:badlands"
+              "biomes": "divinerpg:iceika/tundra"
             }
           }
         }
@@ -375,6 +375,5 @@
   ],
   "rewards": {
     "experience": 500
-  },
-  "sends_telemetry_event": true
+  }
 }

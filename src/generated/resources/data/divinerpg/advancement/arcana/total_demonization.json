@@ -27,6 +27,5 @@
     [
       "obtain_demon_furnace"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

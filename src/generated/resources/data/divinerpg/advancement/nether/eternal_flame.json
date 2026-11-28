@@ -30,6 +30,5 @@
     [
       "kill_boss_king_of_scorchers"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

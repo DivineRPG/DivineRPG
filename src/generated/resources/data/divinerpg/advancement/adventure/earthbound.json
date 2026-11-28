@@ -27,6 +27,5 @@
     [
       "get_terran_shards"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

@@ -27,6 +27,5 @@
     [
       "get_spike_block"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

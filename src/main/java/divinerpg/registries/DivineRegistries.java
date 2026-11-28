@@ -87,7 +87,6 @@ public class DivineRegistries {
         EntityRegistry.load();
         FeatureRegistry.load();
         FluidRegistry.load();
-        LevelRegistry.load();
         LootModifierRegistry.load();
         LootTableRegistry.load();
         MenuTypeRegistry.load();

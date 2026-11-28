@@ -1,7 +1,7 @@
 {
   "parent": "divinerpg:vethea/lunar_emissary",
   "criteria": {
-    "obtain_everbright": {
+    "get_everbright": {
       "conditions": {
         "items": [
           {
@@ -11,7 +11,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "obtain_everfright": {
+    "get_everfright": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "obtain_everlight": {
+    "get_everlight": {
       "conditions": {
         "items": [
           {
@@ -31,7 +31,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "obtain_evernight": {
+    "get_evernight": {
       "conditions": {
         "items": [
           {
@@ -41,7 +41,7 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "obtain_eversight": {
+    "get_eversight": {
       "conditions": {
         "items": [
           {
@@ -66,23 +66,22 @@
   },
   "requirements": [
     [
-      "obtain_everbright"
+      "get_everbright"
     ],
     [
-      "obtain_everfright"
+      "get_everfright"
     ],
     [
-      "obtain_everlight"
+      "get_everlight"
     ],
     [
-      "obtain_evernight"
+      "get_evernight"
     ],
     [
-      "obtain_eversight"
+      "get_eversight"
     ]
   ],
   "rewards": {
     "experience": 500
-  },
-  "sends_telemetry_event": true
+  }
 }

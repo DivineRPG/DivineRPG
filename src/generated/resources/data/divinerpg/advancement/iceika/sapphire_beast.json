@@ -27,6 +27,5 @@
     [
       "get_seng_fur"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

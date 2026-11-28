@@ -30,6 +30,5 @@
     [
       "kill_boss_sunstorm"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

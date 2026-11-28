@@ -7,7 +7,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "minecraft:entity_type": "minecraft:villager"
+            "minecraft:entity_type": "divinerpg:jack_o_man"
           }
         }
       },
@@ -29,6 +29,5 @@
     [
       "talk_to_jack_o_man"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

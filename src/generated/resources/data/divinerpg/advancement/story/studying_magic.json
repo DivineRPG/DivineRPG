@@ -26,6 +26,5 @@
     [
       "in_extractor"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

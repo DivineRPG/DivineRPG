@@ -20,6 +20,5 @@
     [
       "create_hellfire"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

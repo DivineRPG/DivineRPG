@@ -25,6 +25,5 @@
     [
       "use_sound_of_music"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

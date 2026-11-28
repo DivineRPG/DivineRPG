@@ -27,6 +27,5 @@
     [
       "obtain_karos_rockmaul"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

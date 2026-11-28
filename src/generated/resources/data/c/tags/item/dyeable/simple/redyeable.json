@@ -1,9 +1,9 @@
 {
   "remove": [
     "divinerpg:fancy_wool",
-    "divinerpg:fancy_wool_stairs",
-    "divinerpg:fancy_wool_slab",
-    "divinerpg:fancy_wool_carpet",
+    "divinerpg:fancy_stairs",
+    "divinerpg:fancy_slab",
+    "divinerpg:fancy_carpet",
     "divinerpg:workshop_carpet",
     "divinerpg:workshop_carpet_stairs",
     "divinerpg:workshop_carpet_slab"

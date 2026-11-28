@@ -27,6 +27,5 @@
     [
       "get_torridite_ingot"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

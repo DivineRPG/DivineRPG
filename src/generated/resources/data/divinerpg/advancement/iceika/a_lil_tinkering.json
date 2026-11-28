@@ -29,6 +29,5 @@
     [
       "talk_to_workshop_tinkerer"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

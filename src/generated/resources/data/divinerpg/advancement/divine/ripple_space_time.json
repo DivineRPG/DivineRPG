@@ -20,6 +20,5 @@
     [
       "create_stable_rift"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

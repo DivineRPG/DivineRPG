@@ -20,6 +20,5 @@
     [
       "create_mortum_embers"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

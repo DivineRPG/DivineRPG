@@ -27,6 +27,5 @@
     [
       "get_terran_shifter"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

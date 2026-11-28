@@ -27,6 +27,5 @@
     [
       "get_rupee_ingot"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

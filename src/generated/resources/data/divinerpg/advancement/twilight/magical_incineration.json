@@ -20,6 +20,5 @@
     [
       "create_enchanted_flame"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

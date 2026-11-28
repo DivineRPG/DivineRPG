@@ -1,7 +1,7 @@
 {
   "parent": "divinerpg:vethea/root",
   "criteria": {
-    "allo": {
+    "trade_with_hunger": {
       "conditions": {
         "player": {
           "type": "minecraft:entity_properties",
@@ -27,8 +27,7 @@
   },
   "requirements": [
     [
-      "allo"
+      "trade_with_hunger"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

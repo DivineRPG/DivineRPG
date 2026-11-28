@@ -22,6 +22,5 @@
     [
       "first_world_load"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }

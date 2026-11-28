@@ -7,7 +7,7 @@
           "type": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "minecraft:entity_type": "minecraft:villager"
+            "minecraft:entity_type": "divinerpg:livestock_merchant"
           }
         }
       },
@@ -29,6 +29,5 @@
     [
       "trade_with_livestock_merchant"
     ]
-  ],
-  "sends_telemetry_event": true
+  ]
 }
